@@ -515,6 +515,37 @@ When creating an Amazon Redshift Serverless endpoint, for the **DatabaseName** f
 
 When using Amazon Redshift Serverless as a target endpoint, you must add the following highlighted section to your trust policy. This trust policy is attached to the `dms-access-for-endpoint` role.
 
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+    "Version":"2012-10-17",		 	 	 
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "dms.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        },
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "redshift-serverless.amazonaws.com"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
+
+------
+
 For more information about using a trust policy with AWS DMS, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
 
 ### Limitations when using Amazon Redshift Serverless as a target

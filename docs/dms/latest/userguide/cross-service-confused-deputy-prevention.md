@@ -15,6 +15,7 @@ The most effective way to protect against the confused deputy problem is to use 
 + [IAM roles to use with AWS DMS API for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-dms-api)
 + [IAM policy to store preflight assessments in Amazon S3 for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-s3)
 + [Using Amazon DynamoDB as a target endpoint with AWS DMS for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-dynamodb)
++ [IAM role to access the Kerberos keycache secret for cross-service confused deputy prevention](#cross-service-confused-deputy-prevention-kerberos)
 
 ## IAM roles to use with AWS DMS API for cross-service confused deputy prevention
 <a name="cross-service-confused-deputy-prevention-dms-api"></a>
@@ -122,6 +123,43 @@ The following example shows a trust policy with confused deputy conditions that 
             "arn:aws:dms:*:123456789012:task:*"
             ]
          }
+      }
+    }
+  ]
+}
+```
+
+------
+
+## IAM role to access the Kerberos keycache secret for cross-service confused deputy prevention
+<a name="cross-service-confused-deputy-prevention-kerberos"></a>
+
+To use Kerberos authentication with a AWS DMS replication instance, you create an IAM role that allows AWS DMS to retrieve the Kerberos keycache file from Secrets Manager, and then specify that role in the `KeyCacheSecretIamArn` parameter of your replication instance. For more information, see [Using Kerberos Authentication](CHAP_Security.Kerberos.md).
+
+The role that you specify in `KeyCacheSecretIamArn` must belong to the same AWS account that creates or modifies the replication instance. Add the `aws:SourceAccount` global condition context key to the role's trust policy so that AWS DMS can assume the role only for replication instances in your own account.
+
+The following example shows a trust policy with a confused deputy condition that is set on an IAM role that allows AWS DMS to retrieve the Kerberos keycache secret for replication instances in the specified account.
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Sid": "AllowDMSAssumeRoleForKerberosKeycache",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "dms.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "{{111122223333}}"
+        }
       }
     }
   ]

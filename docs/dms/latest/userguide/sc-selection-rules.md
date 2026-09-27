@@ -126,7 +126,7 @@ Use the `rule-action` field to specify how DMS Schema Conversion interprets the 
 | --- | --- | --- | 
 | `"include"` | Selects all objects whose names match the pattern. Supports `%` (any sequence of zero or more characters) and `_` (any single character) as wildcards. Use `[_]` to match a literal underscore and `[%]` to match a literal percent character. | Use to match a group of objects with a shared naming pattern. | 
 | `"exclude"` | Removes objects from the set already selected by preceding `include` rules. An `exclude` rule with no preceding `include` has no effect. | Use to carve out exceptions from a broader `include`. | 
-| `"explicit"` | Selects exactly the named object. Every locator value, including `schema-name`, `database-name`, and any leaf key such as `table-name` or `scalar-function-name`, is matched as a literal string. Wildcard characters such as `%`, `_`, `[`, and `]` have no special meaning under `explicit`. | Use when you know the exact name of every object you want to act on. | 
+| `"explicit"` | Selects exactly the named object. Every locator value, including `schema-name`, `database-name`, and any leaf key such as `table-name` or `scalar-function-name`, is matched as a literal string. Wildcard characters such as `%`, `_`, `[`, and `]` have no special meaning under `explicit`. To match objects by a wildcard pattern, use `include` instead. | Use when you know the exact name of every object you want to act on. | 
 
 **Note**  
 Some operations only accept `"explicit"` rules and do not support `"include"` or `"exclude"`. Check the [AWS API Reference](https://docs.aws.amazon.com/dms/latest/APIReference/API_Operations.html) for the specific operation to confirm which rule actions it supports.
@@ -451,6 +451,76 @@ Select all objects in an Oracle schema by omitting the object-level key. Oracle 
       "object-locator": {
         "server-name": "{{source_server}}",
         "schema-name": "{{schema_name}}"
+      }
+    }
+  ]
+}
+```
+
+### Select an entire database (Microsoft SQL Server)
+<a name="dms-sc-selection-rule-example-entire-database-mssql"></a>
+
+Select all objects in a Microsoft SQL Server database by omitting `schema-name` from the object locator. The rule then widens to the whole database, and the locator contains only `server-name` and `database-name`. Selecting an entire database is supported for Microsoft SQL Server and SAP ASE (Sybase ASE) sources, which have a `database-name` level in the object locator.
+
+```
+{
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "{{rule_name}}",
+      "rule-action": "explicit",
+      "object-locator": {
+        "server-name": "{{source_server}}",
+        "database-name": "{{database_name}}"
+      }
+    }
+  ]
+}
+```
+
+### Select all schemas in a database (Microsoft SQL Server)
+<a name="dms-sc-selection-rule-example-all-schemas-mssql"></a>
+
+Use `"rule-action": "include"` with `"schema-name": "%"` to match every schema in a Microsoft SQL Server database. Microsoft SQL Server requires `database-name` in the object locator.
+
+```
+{
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "{{rule_name}}",
+      "rule-action": "include",
+      "object-locator": {
+        "server-name": "{{source_server}}",
+        "database-name": "{{database_name}}",
+        "schema-name": "%"
+      }
+    }
+  ]
+}
+```
+
+**Important**  
+Do not use `"schema-name": "%"` with `"rule-action": "explicit"`. Under `explicit`, `%` is treated as a literal character, so the rule matches only a schema named literally `%` rather than every schema. Wildcards such as `%` work only with `include` and `exclude`.
+
+### Select all schemas (Oracle)
+<a name="dms-sc-selection-rule-example-all-schemas-oracle"></a>
+
+Use `"rule-action": "include"` with `"schema-name": "%"` to match every schema (Oracle user). Oracle has no `database-name` level; the schema is the top container under `server-name`, so the object locator contains only `server-name` and `schema-name`.
+
+```
+{
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "{{rule_name}}",
+      "rule-action": "include",
+      "object-locator": {
+        "server-name": "{{source_server}}",
+        "schema-name": "%"
       }
     }
   ]

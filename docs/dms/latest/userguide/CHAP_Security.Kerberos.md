@@ -56,6 +56,10 @@ To start, you must complete the following prerequisites from an existing Active 
   aws secretsmanager create-secret —name keycache —secret-binary fileb:{{//keycachefile}}
   ```
 + Grant an IAM role the `GetSecretValue` and `DescribeSecret` permissions to get the keycache file from Secrets Manager. Ensure that the IAM role includes the `dms-vpc-role` trust policy. For more information about the `dms-vpc-role` trust policy, see [Creating the IAM roles to use with AWS DMS](security-iam.md#CHAP_Security.APIRole).
+**Note**  
+The IAM role that you specify for `KeyCacheSecretIamArn` must belong to the same AWS account that creates or modifies the replication instance. If you specify a role from a different account, the request fails.
+**Important**  
+Because AWS DMS assumes this role on your behalf, add the `aws:SourceAccount` global condition context key to the role's trust policy. This condition allows AWS DMS to assume the role only for replication instances in your own account, and helps protect the role against the cross-service confused deputy problem. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md).
 
 The following example shows an IAM role policy with the Secrets Manager `GetSecretValue` and `DescribeSecret` permissions. The {{<keycache\_secretsmanager\_arn>}} value is the Keycache Secrets Manager ARN you created in the previous step.
 

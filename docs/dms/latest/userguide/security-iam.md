@@ -283,6 +283,9 @@ If you use the AWS DMS console, the AWS CLI or the AWS DMS API for your database
 **Important**  
 You must use these exact role names as shown: `dms-vpc-role`, `dms-cloudwatch-logs-role`, and `dms-access-for-endpoint`. AWS DMS looks for these roles by name. If you use custom role names, AWS DMS cannot find the roles and the service does not work correctly.
 
+**Important**  
+AWS DMS assumes these roles on your behalf. To help protect against the cross-service confused deputy problem, add the `aws:SourceAccount` global condition context key to each role's trust policy, so that AWS DMS can assume the role only for resources in your own account. To limit access to a single resource, use `aws:SourceArn` instead. For more information, see [IAM roles to use with AWS DMS API for cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md#cross-service-confused-deputy-prevention-dms-api).
+
 Updates to managed policies are automatic. If you are using a custom policy with the IAM roles, be sure to periodically check for updates to the managed policy in this documentation. You can view the details of the managed policy by using a combination of the `get-policy` and `get-policy-version` commands.
 
 For example, the following `get-policy` command retrieves information about the specified IAM role.
