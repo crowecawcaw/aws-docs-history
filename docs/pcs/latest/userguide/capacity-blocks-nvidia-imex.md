@@ -3,10 +3,7 @@
 # Configure UltraServer instances
 <a name="capacity-blocks-nvidia-imex"></a>
 
-NVIDIA UltraServer instances (`p6e-gb200.36xlarge`, `p6e-gb200.72xlarge`, `p6e-gb300.36xlarge`, `p6e-gb300.72xlarge`) connect multiple GPUs across instances using NVLink. GPU-to-GPU communication over NVLink requires the [NVIDIA IMEX](https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/index.html) service to be configured with the IP addresses of all compute nodes in the job. This page shows you how to create a Slurm prolog script that automatically configures IMEX for each job, and how to deploy it in your AWS PCS cluster.
-
-**Note**  
-This prolog script supports `p6e-gb200` and `p6e-gb300` instance types.
+NVIDIA UltraServer instances connect multiple GPUs across instances using NVLink. GPU-to-GPU communication over NVLink requires the [NVIDIA IMEX](https://docs.nvidia.com/multi-node-nvlink-systems/imex-guide/index.html) service to be configured with the IP addresses of all compute nodes in the job. This page shows you how to create a Slurm prolog script that automatically configures IMEX for each job, and how to deploy it in your AWS PCS cluster.
 
 ## Prerequisites
 <a name="capacity-blocks-nvidia-imex-prerequisites"></a>
@@ -85,6 +82,9 @@ The script performs the following actions:
 
 **Important**  
 This prolog script requires jobs to be submitted with the `--exclusive` flag. Restarting IMEX while other jobs are running on the same nodes will disrupt those jobs.
+
+**Note**  
+This prolog script supports `p6e-gb200` and `p6e-gb300` instance types. To adapt it to other instance types, update the `ALLOWED_INSTANCE_TYPES` pattern in the script.
 
 Save the following script as `91_nvidia_imex_prolog.sh`:
 
