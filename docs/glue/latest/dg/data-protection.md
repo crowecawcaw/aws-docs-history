@@ -12,3 +12,4 @@ AWS Glue offers several features that are designed to help protect your data.
 + [Key management](key-management.md)
 + [AWS Glue dependency on other AWS services](dependency-on-other-services.md)
 + [Development endpoints](dev-endpoints.md)
++ [Data protection for advanced data quality rule recommendations](data-protection-advanced-dq-recommendations.md)

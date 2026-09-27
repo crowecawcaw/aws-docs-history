@@ -206,3 +206,7 @@ The following new features are available with the general availability of AWS Gl
 + With AWS Glue Data Quality, you can now use the `Distribution` Analyzer to compute frequency distributions for your data columns. For numeric columns, it generates binned histograms. For categorical columns, it generates value distributions sorted by frequency. For more information, see [Distribution Analyzer](dqdl.md#dqdl-analyzers-distribution).
 + You can now write data quality results to Apache Iceberg tables in the AWS Glue Data Catalog for querying with . This includes rule results, profiling results, distribution results, row-level results, and observation results. For more information, see [Writing data quality results to Data Catalog tables](data-quality-results-catalog-tables.md).
 + You can now use anomaly detection with the AWS Glue Data Catalog. To enable anomaly detection for cataloged tables, run evaluation runs with `ObservationScope` set to `ALL`. For more information, see [Anomaly detection in AWS Glue Data Quality](data-quality-anomaly-detection.md).
+
+### September 18, 2026
+<a name="data-quality-release-notes-sep18-2026"></a>
++ AWS Glue Data Quality now supports `ADVANCED` rule recommendations through Amazon Bedrock. This mode uses table metadata and sampled rows to generate Data Quality Definition Language (DQDL) rules. `BASIC` remains the default mode. For more information, see [Recommendation modes](data-quality-getting-started.md#data-quality-recommendation-modes).

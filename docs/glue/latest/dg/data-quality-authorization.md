@@ -164,6 +164,162 @@ This example policy includes the permissions you need in order to generate recom
 
 ------
 
+### Minimum permissions to get advanced data quality rule recommendations
+<a name="example-policy-get-advanced-dq-rule-recommendations"></a>
+
+You must have `iam:PassRole` permission for the recommendation role. The role does not need Amazon Bedrock permissions.
+
+#### Trust policy
+<a name="example-policy-get-advanced-dq-rule-recommendations-trust"></a>
+
+Use this trust policy to allow AWS Glue to assume the recommendation role for your source table.
+
+Set [aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) to the full source table ARN. Use the account ID from that ARN for [aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount).
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333"
+        },
+        "ArnEquals": {
+          "aws:SourceArn": "arn:aws:glue:{{us-east-1}}:111122223333:table/{{database-name}}/{{table-name}}"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Permissions policy
+<a name="example-policy-get-advanced-dq-rule-recommendations-permissions"></a>
+
+On the first `ADVANCED` run, AWS Glue creates the following resources in your account:
++ The `glue-dataquality-sampling` Athena workgroup to run queries for rule recommendations.
++ The `aws-glue-dataquality-sampling-{{account-id}}-{{region}}` Amazon S3 bucket to store query results.
+
+For subsequent runs, AWS Glue reuses the existing workgroup and bucket. For details, see [Data protection for advanced data quality rule recommendations](data-protection-advanced-dq-recommendations.md).
+
+Attach the following permissions policy to your recommendation role.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCatalogRead",
+      "Effect": "Allow",
+      "Action": [
+        "glue:GetDatabase",
+        "glue:GetPartitions",
+        "glue:GetTable"
+      ],
+      "Resource": [
+        "arn:aws:glue:{{us-east-1}}:111122223333:catalog",
+        "arn:aws:glue:{{us-east-1}}:111122223333:database/{{database-name}}",
+        "arn:aws:glue:{{us-east-1}}:111122223333:table/{{database-name}}/{{table-name}}"
+      ]
+    },
+    {
+      "Sid": "AllowDataQualityRecommendationResults",
+      "Effect": "Allow",
+      "Action": "glue:PublishDataQuality",
+      "Resource": "arn:aws:glue:{{us-east-1}}:111122223333:dataQualityRuleset/*"
+    },
+    {
+      "Sid": "AllowDataAccess",
+      "Effect": "Allow",
+      "Action": [
+        "athena:CreateWorkGroup",
+        "athena:GetQueryExecution",
+        "athena:GetQueryResults",
+        "athena:StartQueryExecution"
+      ],
+      "Resource": "arn:aws:athena:{{us-east-1}}:111122223333:workgroup/glue-dataquality-sampling"
+    },
+    {
+      "Sid": "AllowSourceRead",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::{{source-bucket}}",
+        "arn:aws:s3:::{{source-bucket}}/*"
+      ]
+    },
+    {
+      "Sid": "AllowSamplingBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:AbortMultipartUpload",
+        "s3:CreateBucket",
+        "s3:GetBucketLocation",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutLifecycleConfiguration",
+        "s3:PutObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::aws-glue-dataquality-sampling-111122223333-{{us-east-1}}",
+        "arn:aws:s3:::aws-glue-dataquality-sampling-111122223333-{{us-east-1}}/athena-results/*"
+      ]
+    }
+  ]
+}
+```
+
+**Note**  
+If the bucket exists, you can remove `s3:CreateBucket` from this policy. If you delete the bucket, AWS Glue needs this permission again. All other permissions in this policy remain necessary for subsequent runs.
+
+#### Additional permissions
+<a name="example-policy-get-advanced-dq-rule-recommendations-additional"></a>
+
+If a condition in this list applies, add the related permissions to your recommendation role.
++ If Lake Formation controls table access, add `lakeformation:GetDataAccess`. Grant the role `DESCRIBE` on the database and `DESCRIBE` and `SELECT` on the table.
++ If you specify a data quality security configuration, add `glue:GetSecurityConfiguration` permission.
++ If you specify `CreatedRulesetName`, add `glue:CreateDataQualityRuleset` permission.
++ If you specify a data quality security configuration with a customer managed key, add the following statement for that key.
+
+  ```
+  {
+    "Sid": "AllowDataQualityEncryption",
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext",
+      "kms:ReEncrypt*"
+    ],
+    "Resource": "arn:aws:kms:{{us-east-1}}:111122223333:key/{{key-id}}"
+  }
+  ```
+
+  Your recommendation role needs these actions for query result encryption and AWS Glue Data Quality asset encryption. The key policy must also allow these actions for your role. For details, see [Key policy](data-quality-encryption.md#data-quality-encryption-customer-managed-key-policy).
++ If the source objects use SSE-KMS, add the following statement.
+
+  ```
+  {
+    "Sid": "AllowSourceDataDecryption",
+    "Effect": "Allow",
+    "Action": "kms:Decrypt",
+    "Resource": "arn:aws:kms:{{us-east-1}}:111122223333:key/{{source-key-id}}"
+  }
+  ```
+
+  The source key policy must also allow the recommendation role to decrypt the source objects.
+
 ### Minimum permissions to run a data quality task
 <a name="example-policy-run-dq-task"></a>
 

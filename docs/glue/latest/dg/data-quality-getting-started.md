@@ -56,8 +56,68 @@
 
 1.  After the fields are completed according to your preferences, choose **Recommend rules** to start the recommendation task run. If recommendation runs are in progress or completed, you can manage your runs in this alert. You might need to refresh the alert to view the status change. Completed and in-progress recommendation task runs appear in the **Run history** page that lists all recommendation runs for the past 90 days. 
 
+### Recommendation modes
+<a name="data-quality-recommendation-modes"></a>
+
+When you start a recommendation run, you can choose one of the following modes:
++ `BASIC` analyzes table statistics to recommend rules. This mode is the default.
++ `ADVANCED` uses Amazon Bedrock to recommend rules from table metadata and a random sample of the table rows. This additional context can produce rules based on values and relationships that table statistics do not describe.
+
+**Automatic Amazon Bedrock enhancement**  
+In supported AWS Regions, `BASIC` recommendation runs automatically attempt to enhance the statistical ruleset with Amazon Bedrock. AWS Glue Data Quality sends the ruleset and column metadata for enhancement. You do not need to enable this step or grant Amazon Bedrock permissions.  
+The recommendation role must allow `glue:StartDataQualityRuleRecommendationRun`. If enhancement fails or is unavailable, the run returns the original statistical ruleset.
+
+**Athena resources and charges**  
+`ADVANCED` uses Athena to access table data for the recommendation run. If the `glue-dataquality-sampling` Athena workgroup does not exist, AWS Glue creates it in your account. You can view this workgroup in the Athena console. An `ADVANCED` run incurs charges for Athena usage.
+
+**Choosing a recommendation mode**  
+Choose `BASIC` or `ADVANCED` based on your priorities:
++ If you need recommendations based on table statistics and support in all AWS Glue Data Quality Regions, choose `BASIC`.
++ If you want dynamic recommendations with more context about your data, choose `ADVANCED`.
+
+**Availability and limitations**  
+You can use `ADVANCED` in the following AWS Regions:
++ `ap-northeast-1`
++ `ap-northeast-3`
++ `ap-southeast-2`
++ `ap-southeast-4`
++ `ca-central-1`
++ `eu-central-1`
++ `eu-central-2`
++ `eu-north-1`
++ `eu-south-1`
++ `eu-south-2`
++ `eu-west-1`
++ `eu-west-2`
++ `eu-west-3`
++ `us-east-1`
++ `us-east-2`
++ `us-west-1`
++ `us-west-2`
+
+**Note**  
+`ADVANCED` uses a generative model and can return different rules for the same table, so we recommend that you review the rules after each run.
+
+**Note**  
+An `ADVANCED` run does not support `PreProcessingQuery`, `NumberOfWorkers`, `Timeout`, or `AdditionalRunOptions`.
+
+The following AWS CLI command starts an `ADVANCED` recommendation run:
+
+```
+aws glue start-data-quality-rule-recommendation-run \
+  --data-source '{"DataQualityGlueTable":{"DatabaseName":"mydatabase","TableName":"mytable"}}' \
+  --role "arn:aws:iam::111122223333:role/GlueDataQualityRole" \
+  --recommendation-mode ADVANCED
+```
+
+For more information about data processing and storage, see [Data protection for advanced data quality rule recommendations](data-protection-advanced-dq-recommendations.md).
+
+For more information about the required recommendation role permissions, see [Minimum permissions to get advanced data quality rule recommendations](data-quality-authorization.md#example-policy-get-advanced-dq-rule-recommendations).
+
 ### What the recommended rules mean
 <a name="data-quality-recommend-rules"></a>
+
+Review and edit the generated rules before you use them in a data quality evaluation.
 
  AWS Glue Data Quality generates rules based on the data from each column of the input table. It uses the rules to identify potential boundaries where data can be filtered to maintain quality requirements. The following list of generated rules includes examples that are useful for understanding what the rules mean and what they might do when applied to your data. 
 
