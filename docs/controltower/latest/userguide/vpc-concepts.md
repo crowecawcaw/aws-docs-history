@@ -5,7 +5,7 @@
 
 Here are some essential facts about AWS Control Tower VPCs:
 + The VPC created by AWS Control Tower when you provision an account in Account Factory is not the same as the AWS default VPC.
-+ When AWS Control Tower sets up a new account in a supported AWS Region, AWS Control Tower automatically deletes the default AWS VPC, and it sets up a new VPC configured by AWS Control Tower.
++ AWS Control Tower automatically deletes the default VPC in your selected governed Regions (the AWS Regions that AWS Control Tower governs in your landing zone) for accounts that you create from the AWS Control Tower console. AWS Control Tower does not delete the default VPC in existing accounts, which includes accounts that you provide in the `CreateLandingZone` manifest file or select from your AWS Organization during Control Tower setup.
 + Each AWS Control Tower account is allowed one VPC that's created by AWS Control Tower. An account can have additional AWS VPCs within the account limit.
 + Every AWS Control Tower VPC has three Availability Zones in all Regions except for the US West (N. California) Region,`us-west-1`, and two Availability Zones in `us-west-1`. By default, each Availability Zone is assigned one public subnet and two private subnets. Therefore, in Regions except US West (N. California) each AWS Control Tower VPC contains nine subnets by default, divided across three Availability Zones. In US West (N. California), six subnets are divided across two Availability Zones.
 + Each of the subnets in your AWS Control Tower VPC is assigned a unique range, of equal size.
