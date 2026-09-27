@@ -8,10 +8,12 @@ We're currently releasing our new experience to a limited number of customers. Y
 
 When you sign up for our new AWS experience, there are two places where you can work with AWS Support.
 
+You can access Basic Support or Business Support\+. By default, you are enrolled in Basic Support. You can start a trial of Business Support\+ to use it free for up to six months.
+
 ## Project support
 <a name="access-aws-support-project"></a>
 
-If you are running into issues with your project, your team management, or issues related to billing, you can access Basic Support in AWS Settings. You can request additional projects for your organization or request quota increases related to billing. Since you're on Basic Support, you'll receive a response within 24 hours.
+If you are running into issues with your project, your team management, or issues related to billing, you can access Basic Support or Business Support\+ in AWS Settings. You can request additional projects for your organization or request quota increases related to billing.
 
 **To create a support case**
 
@@ -62,3 +64,34 @@ If you are having issues with your AWS resources, you need technical support. To
 If all your projects and your organization are closed, contact support by filling out the [Support Feedback form](https://support.aws.amazon.com/#/contacts/one-support?formId=contactUs).
 
 In the **Request information** section, under **How can we help you**, include that you are using our new AWS experience and that all your projects are closed.
+
+## Start a Business Support\+ trial
+<a name="upgrade-business-support-plus"></a>
+
+You can get Business Support\+ free for up to six months. Business Support\+ is provided at no cost through October 31, 2026. Starting November 1, 2026, standard pricing begins and you'll receive $174 in Business Support\+ credits to cover up to six months of USD $29 per month. You stay subscribed when the free period ends and credits begin, and AWS notifies you when your credit balance is running low before any full-price billing begins.
+
+Your Business Support\+ charge is $29/month or a percentage of your AWS spend, whichever is greater. For more information, see [pricing details](https://aws.amazon.com/premiumsupport/pricing/). Your plan renews monthly until you cancel.
+
+**To start your Business Support\+ trial**
+
+1. Open AWS Settings at [https://settings.aws.com](https://settings.aws.com).
+
+1. In the main navigation pane, choose **Support**.
+
+1. Choose **Start trial**. This will affect all projects in your organization.
+
+1. Review the terms, select the agreement checkbox, and then choose **Start trial**.
+
+You can cancel anytime with no commitment and no penalty. When you cancel, Business Support\+ access ends immediately and any unused credits are forfeited. You can re-enroll at standard pricing anytime, but the Business Support\+ promotional offer cannot be reinstated once canceled.
+
+**To cancel Business Support\+**
+
+1. Open AWS Settings at [https://settings.aws.com](https://settings.aws.com).
+
+1. In the main navigation pane, choose **Support**.
+
+1. Choose **Cancel plan**.
+
+1. Select the checkbox to acknowledge that canceling Business Support\+ returns you to Basic Support immediately, that you'll lose access to the listed benefits, and that your $174 in credits will be removed and can't be reinstated.
+
+1. Choose **Cancel plan** to return to Basic Support.

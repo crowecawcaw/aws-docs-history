@@ -6,7 +6,7 @@
 **Warning**  
 We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
 
-When you use Sign up for AWS (new), you create a preconfigured AWS environment that lets you use a login that you already own like Google or GitHub to access your AWS resources. Your resources are organized in projects. A project contains an AWS account and settings for sharing with other collaborators. If you use the paid plan, your project can also have a set monthly pre-tax cost, called a spend limit. All of the projects you own make up your organization. You manage your organization, access your projects, and add collaborators in AWS Settings.
+When you use Sign up for AWS (new), you create a preconfigured AWS environment that lets you use a login that you already own like Google or GitHub to access your AWS resources. Your resources are organized in projects. A project contains an AWS account and settings for sharing with other collaborators. If you use the paid plan, your project can also have a set monthly pre-tax cost, called a spend limit. All of the projects you own make up your organization. You manage your organization, access your projects, and add team members in AWS Settings.
 
 ![Structure of your organization and projects.](https://docs.aws.amazon.com/accounts/latest/reference/images/sign-up-aws-new-org.png)
 
@@ -36,11 +36,11 @@ Sign up for AWS (new) supports using Google, GitHub, Apple, or Amazon for your a
 
 1. Enter your name and choose **Continue**.
 
-   This name is shared with collaborators when you give them access to your projects.
+   This name is shared with team members when you give them access to your projects.
 
 1. Verify the email associated with your login by entering a verification code. When you've verified your email, choose **Continue**.
 
-   This email is shared with collaborators when you give them access to your projects.
+   This email is shared with team members when you give them access to your projects.
 
 1. Enter a strong password for your account and choose **Continue**.
 
@@ -53,7 +53,7 @@ Sign up for AWS (new) supports using Google, GitHub, Apple, or Amazon for your a
 
 1. AWS will provision your first project in one of three AWS Regions with a new name. For more information, see [AWS Regions for your projects](project-regions.md). You can change the name at any time.
 
-You can now access the AWS Management Console. To access AWS Settings, choose **Manage projects** from the AWS Management Console. In AWS Settings, you can invite collaborators, create new projects, and modify your billing and other settings.
+You can now access the AWS Management Console. To access AWS Settings, choose **Manage projects** from the AWS Management Console. In AWS Settings, you can invite team members, create new projects, and modify your billing and other settings.
 
 ## Next steps
 <a name="sign-up-social-login-next-steps"></a>

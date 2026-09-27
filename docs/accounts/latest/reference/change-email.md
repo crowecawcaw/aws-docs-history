@@ -8,7 +8,7 @@ We're currently releasing our new experience to a limited number of customers. Y
 
 You can change your email in AWS Settings. When you change your email, your previous email will be separated from your AWS profile and AWS Builder ID. You won't be able to use that email to access any of the projects in AWS Settings, but you can use that email to sign up with AWS again.
 
-Your email address is shared with collaborators when you give them access to your projects.
+Your email address is shared with team members when you give them access to your projects.
 
 **To change your email**
 

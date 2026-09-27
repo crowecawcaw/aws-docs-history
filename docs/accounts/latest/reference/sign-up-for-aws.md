@@ -57,7 +57,7 @@ When you use our new AWS experience, AWS creates preconfigured defaults to help 
 
 AWS manages the following elements of your AWS Organization:
 + **Organization management policies.** When you use our new AWS experience, AWS manages the organization management policies including the resource control policies (RCPs) and the service control policies (SCPs). If you want to create your own, use Sign up for AWS (advanced).
-+ **Human access roles.** A human access role is any role that allows a human to have specific permissions. For example, a human access role could let the user tester have read only access to Amazon Bedrock. While you can create IAM roles and IAM users, we recommend only using them when necessary. You do not create a root user. AWS provides you and your team members with admin access to your projects. You can add and remove team members to your project. For more information, see [Invite team members to collaborate in AWS Settings](invite-team-members.md).
++ **Human access roles.** A human access role is any role that grants a human specific permissions. AWS provides you and your team members with administrator access to your projects. As the project owner, you can add and remove team members. For more information, see [Invite team members to collaborate in AWS Settings](invite-team-members.md). You do not create a root user. You can create IAM roles and IAM users if necessary, but they can only be used for programmatic access, not console access.
 
 Every project has a managed security implementation that makes it easy to build with confidence. By default, any application or code in your project has access to all AWS resources in that same project. You do not need to perform additional access configuration.
 

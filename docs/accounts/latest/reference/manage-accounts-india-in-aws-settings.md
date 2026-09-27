@@ -33,7 +33,7 @@ AWS India is a local seller of AWS in India. If your contact and billing address
 
 1. Enter your name and choose **Continue**.
 
-   This name will be shared with collaborators when you give them access to your projects.
+   This name will be shared with team members when you give them access to your projects.
 
 1. Verify the email associated with your login by entering a verification code. When you've verified your email, choose **Continue**.
 
@@ -70,7 +70,7 @@ If you have a personal account and plan to use a driving license that is *not* i
 
 1. AWS will provision your first project.
 
-To access AWS Settings, choose **Manage projects** from the AWS Management Console. In AWS Settings, you can invite collaborators, create new projects, and modify your billing and other settings.
+To access AWS Settings, choose **Manage projects** from the AWS Management Console. In AWS Settings, you can invite team members, create new projects, and modify your billing and other settings.
 
 ## Manage your customer verification information
 <a name="manage-verification-in-aws-settings"></a>

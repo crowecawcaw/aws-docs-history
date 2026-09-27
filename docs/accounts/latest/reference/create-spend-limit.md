@@ -78,43 +78,6 @@ If you have a G or P instance type, there's a different idle criterion. G or P i
 
 About 4 days before you would reach your limit, your highest cost incurring active resources are paused. This can be a disruptive experience. At this time, we select the resources from these five services: EC2, RDS, Lambda, Bedrock, and SageMaker. This opt-in control might prevent you from incurring costs if you have a runaway Lambda or unexpected Bedrock spike.
 
-**How we pause a top cost driver EC2 instance:** When an EC2 instance is identified as a top cost driver, AWS terminates the instance to eliminate compute costs. Before termination, AWS creates a snapshot of each attached EBS volume to preserve your data. Any associated Elastic IP addresses are also released.
-
-After the instance is terminated:
-+ All compute and EBS volume costs are eliminated
-+ Your data is preserved in snapshots, which incur a small storage cost
-+ Elastic IP charges stop
-
-To restore your workload, you can launch a new instance from the saved snapshots. If you no longer need the data, you can delete the snapshots to stop snapshot storage charges.
-
-**How we pause a top cost driver RDS database:** When an RDS database instance is identified as a top cost driver, AWS stops the instance. Stopping the instance eliminates compute charges while preserving your data.
-
-While the instance is stopped:
-+ No compute charges are incurred
-+ Storage and provisioned IOPS charges continue
-+ Automated backups continue
-+ RDS automatically restarts the instance after 7 days — AWS will stop it again if the spend limit is still at risk
-
-To restore your database, start the instance from AWS Settings or the RDS console. Your data and configuration remain intact.
-
-**How we pause a top cost driver Lambda function:** When a Lambda function is identified as a top cost driver, AWS disables its event source mappings and triggers to prevent further invocations. If the function has provisioned concurrency configured, AWS also removes it to eliminate those charges.
-
-After the function is paused:
-+ No invocation charges are incurred
-+ The function code, configuration, and all associated resources remain intact
-+ No data is lost
-
-To restore your function, re-enable the event source mappings and triggers. If you had provisioned concurrency, you'll need to reconfigure it.
-
-**How we pause a top cost driver Bedrock model:** When an Amazon Bedrock provisioned model is identified as a top cost driver, AWS deletes the provisioned throughput. There is no pause option for provisioned throughput — deletion is the only way to stop charges.
-
-After the provisioned throughput is deleted:
-+ Provisioned throughput charges stop immediately
-+ If you have a custom fine-tuned model, the model weights are deleted
-+ Your original training data in Amazon S3 is not affected
-
-To restore a custom model, you'll need to retrain it from your S3 training data. For provisioned throughput on foundation models, you can create a new provisioned throughput allocation.
-
 ## What happens if you reach your limit
 <a name="spend-limit-reached"></a>
 

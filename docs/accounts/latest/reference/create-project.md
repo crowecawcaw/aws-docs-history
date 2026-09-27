@@ -10,7 +10,7 @@ A project contains a single AWS account where you create AWS resources. A projec
 
 You can share this project with other team members, and they can build and manage resources for the bookstore application.
 
-Each project has its own billing based on the resources in the account. If you're using the paid plan, you can configure a spend limit in AWS Settings for each project. For more information, see [Create a spend limit in AWS Settings](create-spend-limit.md). As the project owner, you are responsible for the monthly invoices for usage charges and recurring fees.
+Each project has its own cost controls based on the resources in the account. If you're using the paid plan, you can configure a spend limit in AWS Settings for each project. For more information, see [Create a spend limit in AWS Settings](create-spend-limit.md). As the project owner, you are responsible for the monthly invoices for usage charges and recurring fees.
 
 ## Considerations for creating a project
 <a name="create-project-considerations"></a>

@@ -53,6 +53,7 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + Amazon EventBridge
 + Amazon Lex
   + Global Resiliency (bot replication across Regions) is not supported.
++ Amazon Lightsail
 + Amazon Location Service
 + Amazon Managed Service for Prometheus
   + Cross-Region projects are not supported.
@@ -277,7 +278,6 @@ The following AWS services are not supported for our new AWS experience, unless 
 + Amazon Kendra
 + Amazon Keyspaces (for Apache Cassandra)
 + Kiro
-+ Amazon Lightsail
 + Amazon Macie
 + Amazon Managed Grafana
 + Amazon Mechanical Turk
