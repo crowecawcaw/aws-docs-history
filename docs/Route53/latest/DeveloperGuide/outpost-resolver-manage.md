@@ -3,14 +3,18 @@
 # Managing Resolver on Outpost
 <a name="outpost-resolver-manage"></a>
 
-To manage Resolver on Outpost, perform the applicable procedure.
+How you manage Resolver on Outpost depends on your AWS Outposts generation:
++ For first-generation AWS Outposts, you can edit, view, and delete Resolver.
++ For second-generation AWS Outposts, you can't edit or delete Resolver. You can only view it.
++ If you don't want to use Resolver with second-generation AWS Outposts, you must contact [AWS Support](https://console.aws.amazon.com/support/home) to opt out.
++ If Resolver fails on second-generation AWS Outposts, AWS contacts you to help resolve the issue.
 
 **Topics**
-+ [Editing Resolver on Outpost](#outpost-edit-resolver)
++ [Editing Resolver on Outpost (first-generation AWS Outposts only)](#outpost-edit-resolver)
 + [Viewing Resolver on Outpost status](#outpost-view-resolver-status)
-+ [Deleting Resolver on Outpost](#outpost-delete-resolver)
++ [Deleting Resolver on Outpost (first-generation AWS Outposts only)](#outpost-delete-resolver)
 
-## Editing Resolver on Outpost
+## Editing Resolver on Outpost (first-generation AWS Outposts only)
 <a name="outpost-edit-resolver"></a>
 
 To edit a Resolver on Outpost, perform the following procedure.<a name="resolver-outpost-resolver-managing-edit-procedure"></a>
@@ -63,7 +67,7 @@ The creation of Resolver on Outpost failed.
 **Failed deletion**  
 The deletion of Resolver on Outpost failed. To fix this issue, try again in a few minutes.
 
-## Deleting Resolver on Outpost
+## Deleting Resolver on Outpost (first-generation AWS Outposts only)
 <a name="outpost-delete-resolver"></a>
 
 **Note**  

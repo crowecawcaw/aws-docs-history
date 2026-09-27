@@ -155,7 +155,7 @@ If connection tracking is enforced by restrictive security group rules or querie
 | Number of domain lists for a single account per AWS Region | 1000<br />[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas). | 
 | The maximum number of domains that you can specify across all of the domain lists for a single account per AWS Region | 100,000<br />[Request a higher quota](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/route53resolver/quotas). | 
 
-#### Quotas on Resolver on Outpost
+#### Quotas for Resolver on first-generation AWS Outposts
 <a name="limits-api-entities-resolver-on-outposts"></a>
 
 
@@ -228,6 +228,18 @@ If connection tracking is enforced by restrictive security group rules or querie
 | r5d.xlarge | Up to 10,000 | 
 | r5d.2xlarge | Up to 18,000 | 
 | r5d.4xlarge | Up to 30,000 | 
+
+#### Quotas for Resolver on second-generation AWS Outposts
+<a name="limits-api-entities-resolver-on-outposts-second-gen"></a>
+
+The following table lists the quota for Resolver on second-generation AWS Outposts.
+
+
+**Resolver on second-generation AWS Outposts quotas**  
+
+| Quota name | Quota value | 
+| --- | --- | 
+| DNS queries per second | Up to 75,000 | 
 
 ### Quotas on health checks
 <a name="limits-api-entities-health-checks"></a>

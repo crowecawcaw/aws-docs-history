@@ -1,7 +1,10 @@
 
 
-# Creating inbound endpoints
+# Creating inbound endpoints (first-generation AWS Outposts only)
 <a name="outpost-resolver-add-inbound-endpoints"></a>
+
+**Note**  
+This content applies to first-generation AWS Outposts only. It doesn't apply to second-generation AWS Outposts.
 
 After you have created a Resolver on Outpost, you can add both inbound and outbound endpoints to resolve DNS queries to and from your on-premises network.
 

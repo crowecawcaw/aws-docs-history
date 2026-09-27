@@ -1,7 +1,10 @@
 
 
-# Managing inbound endpoints on Resolver on Outpost
+# Managing inbound endpoints on Resolver on Outpost (first-generation AWS Outposts only)
 <a name="outpost-resolver-manage-inbound"></a>
+
+**Note**  
+This content applies to first-generation AWS Outposts only. It doesn't apply to second-generation AWS Outposts.
 
 To manage inbound endpoints on Resolver on Outpost, perform the applicable procedure.
 
