@@ -17,3 +17,4 @@ This page provides complete, working function configurations for common use case
 | [Example 2: A/B traffic split](monetization-functions-examples-ab.md) | Split ad request traffic evenly between two ad decision server URLs for A/B testing. | 
 | [Example 3: Contextual metadata](monetization-functions-examples-contextual-metadata.md) | Query Elemental Inference for IAB content classifications and GARM brand safety signals to enrich ad requests with contextual metadata. | 
 | [Example 4: Secondary ad server fallback](monetization-functions-examples-backup-ads.md) | Fetch ads from a secondary ad server when the primary ADS response is short, and append them to the ad list. | 
+| [Example 5: Origin audience routing](monetization-functions-examples-origin-routing.md) | Map a viewer's postal code to an audience identifier and send it to the content origin as a manifest query parameter. | 

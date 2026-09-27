@@ -10,8 +10,19 @@ AWS Elemental MediaTailor stitches ads into live or video on demand (VOD) conten
 For information about how MediaTailor stitches ads into live and VOD content, select the applicable topic.
 
 **Topics**
++ [Ad insertion mode](#ad-insertion-mode)
 + [Ad stitching behavior for VOD](#ad-behavior-vod)
 + [Live ad stitching behavior](#ad-behavior-live)
+
+## Ad insertion mode
+<a name="ad-insertion-mode"></a>
+
+Ad insertion mode controls how AWS Elemental MediaTailor delivers ads. MediaTailor can stitch ads into the stream itself (server-side ad insertion). Or it can guide the player to request ads as separate playlists (server-guided ad insertion). You set the mode with the **Insertion mode** setting on the playback configuration. You can also set it with the `InsertionMode` field in the `PutPlaybackConfiguration` API. There are two options:
++ **Stitched only** (API value `STITCHED_ONLY`) – MediaTailor uses server-side ad insertion (SSAI) for every session by default, stitching ads directly into the personalized manifest that it returns to the player. If a player requests server-guided ad insertion (SGAI) while the configuration is set to **Stitched only**, the session fails to initialize.
++ **Player select** (API value `PLAYER_SELECT`) – MediaTailor lets each player choose stitched or server-guided ad insertion (SGAI) when it initializes the session. A player that doesn't request a mode still uses stitched insertion. Choose this option when you want to support SGAI. For details on how players select guided insertion and how SGAI references ads as separate playlists, see [MediaTailor server-guided ad insertion overview and implementation](server-guided.md).
+
+**Note**  
+Insertion mode determines how MediaTailor delivers ads to the player (by stitching them into the manifest or referencing them as separate playlists). It's independent of whether MediaTailor inserts or replaces ads. That behavior depends on the ad markers in your origin manifest and on whether the content is live or VOD. The following sections describe this behavior in detail.
 
 ## Ad stitching behavior for VOD
 <a name="ad-behavior-vod"></a>

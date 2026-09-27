@@ -10,7 +10,11 @@ For information about how to use server-guided ad insertion with MediaTailor, ch
 ## Enable in the playback configuration
 <a name="enable-in-config"></a>
 
-In order to allow players to use server-guided ad insertion, you must set `Insertion Mode` to `PLAYER_SELECT` in the MediaTailor playback configuration. This allows players to select either stitched or guided ad insertion at session-initialization time.
+To let players use server-guided ad insertion, set the insertion mode on the playback configuration to allow player selection:
++ In the MediaTailor console, on the playback configuration, set **Insertion mode** to **Player select**.
++ In the `PutPlaybackConfiguration` API, AWS CLI, or AWS CloudFormation, set `InsertionMode` to `PLAYER_SELECT`.
+
+With this setting, players can select either stitched or guided ad insertion when the session initializes. The other option, **Stitched only** (`STITCHED_ONLY`), is the default. It requires every session to use server-side (stitched) ad insertion. While the configuration is set to **Stitched only**, players can't use server-guided ad insertion, and a player that requests it fails to initialize the session. A player that connects to a **Player select** configuration but doesn't request a mode uses stitched insertion by default. For more information about insertion mode, see [Ad insertion mode](ad-behavior.md#ad-insertion-mode).
 
 ## Create a server-guided session
 <a name="create-guided-session"></a>

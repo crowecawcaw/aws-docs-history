@@ -13,6 +13,7 @@ If you use a content delivery network (CDN) with MediaTailor, you must set up th
 + [MediaTailor server-guided ad insertion overview and implementation](server-guided.md)
 + [MediaTailor ad server integration requirements](vast.md)
 + [Ad buffet](ad-buffet.md)
++ [Configuring the ADS request](ads-request-configuration.md)
 + [MediaTailor playback configuration management](working-with-configurations.md)
 + [Integrating a content source for MediaTailor ad insertion](integrating-origin.md)
 + [Integrating AWS Elemental MediaTailor with Google's ad platforms](gam-integration.md)

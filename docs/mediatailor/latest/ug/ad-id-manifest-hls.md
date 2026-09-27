@@ -3,7 +3,7 @@
 # Personalizing HLS manifests with ad metadata
 <a name="ad-id-manifest-hls"></a>
 
-For a live HLS stream, MediaTailor only adds metadata when the stream contains `PROGRAM-DATA-TIME` tags, at least once per manifest duration. For a video on demand (VOD) stream, MediaTailor adds `PROGRAM-DATE-TIME` to at least one segment in the personalized manifest, where the start time for each VOD asset is epoch zero (`1970-01-01T00:00:00Z`). If the origin manifest has existing `PROGRAM-DATE-TIME` content, then MediaTailor preserves that content.
+For a live HLS stream, MediaTailor only adds metadata when the stream contains `PROGRAM-DATE-TIME` tags, at least once per manifest duration. For a video on demand (VOD) stream, MediaTailor adds `PROGRAM-DATE-TIME` to at least one segment in the personalized manifest, where the start time for each VOD asset is epoch zero (`1970-01-01T00:00:00Z`). If the origin manifest has existing `PROGRAM-DATE-TIME` content, then MediaTailor preserves that content.
 
 MediaTailor personalizes the manifest with creatives returned by the Ad Decision Server (ADS). For each ad, MediaTailor also includes a `DATERANGE` tag that spans the duration of the ad. The `DATERANGE` tag format is similar to that described in the section [Ad creative signaling in DASH and HLS](https://www.svta.org/document/draft-ad-creative-signaling-in-dash-and-hls/) in the 2023 version of the *SVA technical publication*.
 
