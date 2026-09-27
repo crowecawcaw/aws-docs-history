@@ -54,7 +54,7 @@ Validate your templates before deployment so that you can find and fix problems 
 You can check whether a template uses valid JSON or YAML with the [validate-template](service_code_examples.md#validate-template-sdk) CLI command or by specifying your template in the AWS Management Console. The console performs this check automatically. These service-side checks don't run the additional property, security, or best-practice checks provided by the following tools:
 + [CloudFormation Language Server](ide-extension.md) – Get suggestions, documentation, and validation feedback while you write templates in an editor.
 + [CloudFormation Linter](cfn-lint.md) – Check resource properties, allowed values, and common problems from the command line, an editor, or an automated build.
-+ [CloudFormation Validate](cloudformation-validate.md) – Run local, offline checks from the command line or a library, and add custom [Rego](https://www.openpolicyagent.org/docs/policy-language) or Guard rules. AWS CDK uses this validator automatically after it synthesizes your templates.
++ [CloudFormation Validate](cloudformation-validate.md) – Run local, offline checks from the command line or a library, and add custom rules in Common Expression Language (CEL), Rego, or Guard. AWS CDK uses this validator automatically after it synthesizes your templates.
 + [CloudFormation Guard](cloudformation-guard.md) – Write policy rules and check templates against your organization's security, compliance, and governance requirements.
 
 ### Use with AI coding agents

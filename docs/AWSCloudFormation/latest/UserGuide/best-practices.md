@@ -182,7 +182,7 @@ To find more problems before deployment, you can also check templates on your co
 ### Validate templates for organization policy compliance
 <a name="validate-compliance"></a>
 
-You can also validate your template for compliance to organization policy guidelines. AWS CloudFormation Guard (`cfn-guard`) is an open-source command line interface (CLI) tool that provides a policy-as-code language to define rules that can check for both required and prohibited resource configurations. It then enables you to validate your templates against those rules. For example, administrators can create rules to ensure that users always create encrypted Amazon S3 buckets.
+You can also validate your template for compliance to organization policy guidelines. AWS CloudFormation Guard (`cfn-guard`) is a command line interface (CLI) tool that provides a policy-as-code language to define rules that can check for both required and prohibited resource configurations. It then enables you to validate your templates against those rules. For example, administrators can create rules to ensure that users always create encrypted Amazon S3 buckets.
 
 You can use `cfn-guard` either locally, while editing templates, or automatically as part of a CI/CD pipeline to stop deployment of non-compliant resources.
 
@@ -370,7 +370,7 @@ For more information on using AWS Secrets Manager with CloudFormation see [Creat
 ## Implement policy as code with Guard
 <a name="cfn-guard"></a>
 
-AWS CloudFormation Guard (`cfn-guard`) is an open-source policy-as-code tool that allows you to define and enforce rules for your CloudFormation templates. Use `cfn-guard` to ensure that your templates comply with organizational policies, security best practices, and governance requirements.
+AWS CloudFormation Guard (`cfn-guard`) is a policy-as-code tool that allows you to define and enforce rules for your CloudFormation templates. Use `cfn-guard` to ensure that your templates comply with organizational policies, security best practices, and governance requirements.
 
 Integrate `cfn-guard` into your CI/CD pipelines to automatically validate templates against your policy rules before deployment. This helps prevent non-compliant resources from being deployed to your environment and provides early feedback to developers about policy violations.
 

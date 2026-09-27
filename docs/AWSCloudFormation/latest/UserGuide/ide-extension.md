@@ -7,11 +7,12 @@ The AWS CloudFormation Language Server helps you write CloudFormation templates 
 
 The AWS Toolkit integrations also use the Language Server for online workflows that call AWS services. These workflows can browse resources and stacks. They can also run service-side template validation, deploy templates, show change set differences, and monitor stack events. These online workflows are the only features that require an active AWS account and valid AWS credentials.
 
+For release notes and setup examples for different editors, see [CloudFormation Language Server](https://github.com/aws-cloudformation/cloudformation-languageserver) on GitHub.
+
 **Topics**
 + [IDEs integrating with the CloudFormation Language Server](#ide-extension-supported-ides)
 + [Getting started](#ide-extension-getting-started)
 + [Initializing a CloudFormation project in the IDE (VS Code only)](#ide-extension-initialize-project)
-+ [Open source](#ide-extension-open-source)
 + [Need help?](#ide-extension-need-help)
 
 ## IDEs integrating with the CloudFormation Language Server
@@ -132,7 +133,7 @@ The CloudFormation Linter is integrated into the IDE to automatically check your
 <a name="ide-extension-cfn-guard-integration"></a>
 
 Guard validates your templates against rule sets that define compliance and security policies. The IDE runs Guard validations in real time through the CloudFormation Language Server, giving you immediate feedback while you author templates.
-+ **Default rule packs**: The IDE includes a pre-registered set of Guard rules focused on foundational best practices for resource security and configuration hygiene. To learn more, see [the guard rule registry](https://github.com/aws-cloudformation/aws-guard-rules-registry).
++ **Default rule packs**: The IDE includes a pre-registered set of Guard rules focused on foundational best practices for resource security and configuration hygiene. To learn more, see the [AWS Guard Rules Registry](https://github.com/aws-cloudformation/aws-guard-rules-registry) on GitHub.
 + **Adding rule packs**: To add or modify rule sets, open your IDE settings and navigate to the Guard configuration section to select or upload additional Guard rule packs.
 
 **Tips**: Understanding diagnostic indicators
@@ -207,13 +208,6 @@ Initializing a CloudFormation project in the IDE helps you set up a structured w
   + The IDE creates the initial project structure and configuration file for you.
 
 You can run validations, preview deployments, or switch between environments directly from the IDE.
-
-## Open source
-<a name="ide-extension-open-source"></a>
-
-The CloudFormation Language Server is open-sourced under the Apache-2.0 License, giving customers full transparency into how template diagnostics, schema validation, and static analysis are performed. This reduces security and compliance friction for customers who require source-level visibility before adopting tooling.
-
-The code base is publicly available on GitHub: [https://github.com/aws-cloudformation/cloudformation-languageserver/](https://github.com/aws-cloudformation/cloudformation-languageserver/).
 
 ## Need help?
 <a name="ide-extension-need-help"></a>
