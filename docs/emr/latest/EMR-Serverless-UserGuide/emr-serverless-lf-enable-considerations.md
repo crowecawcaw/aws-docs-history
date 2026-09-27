@@ -11,7 +11,7 @@ Review the following limitations when using Lake Formation with EMR Serverless.
 **Note**  
 When you enable Lake Formation for a Spark job on EMR Serverless, the job launches a system driver and a user driver. If you specified pre-initialized capacity at launch, the drivers provision from the pre-initialized capacity, and the number of system drivers is equal to the number of user drivers that you specify. If you choose On Demand capacity, EMR Serverless launches a system driver in addition to a user driver. To estimate the costs associated with your EMR Serverless with Lake Formation job, use the [AWS Pricing Calculator](https://calculator.aws/#/addService/EMR).
 + Amazon EMR Serverless with Lake Formation is available in all supported [EMR Serverless Regions](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/considerations.html).
-+ Lake Formation-enabled applications don’t support usage of [ customized EMR Serverless images](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-custom-image.html).
++ Starting with Amazon EMR 7.14.0, Lake Formation-enabled applications support the use of [custom EMR Serverless images](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-custom-image.html). This support also applies to the AWS runtime for Apache Spark 8.x release line beginning with `emr-spark-8.1.0`. Custom images with Lake Formation aren’t supported on Amazon EMR 7.13.0 and earlier releases, or on `emr-spark-8.0.0`.
 + You can't turn off `DynamicResourceAllocation` for Lake Formation jobs.
 + You can only use Lake Formation with Spark jobs.
 + EMR Serverless with Lake Formation only supports a single Spark session throughout a job.

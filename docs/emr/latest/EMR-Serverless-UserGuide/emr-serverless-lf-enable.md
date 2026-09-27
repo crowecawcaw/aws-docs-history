@@ -46,7 +46,7 @@ To enable Lake Formation, set `spark.emr-serverless.lakeformation.enabled` to `t
 
 ```
 aws emr-serverless create-application \
-    --release-label emr-7.13.0 \
+    --release-label emr-7.14.0 \
     --runtime-configuration '{
      "classification": "spark-defaults", 
      "properties": {

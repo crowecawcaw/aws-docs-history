@@ -80,7 +80,7 @@ To continue using traditional local disk provisioning, omit the `spark.aws.serve
 ## Considerations and limitations
 <a name="jobs-serverless-storage-limitations"></a>
 + **Release version** – Serverless storage is supported on Amazon EMR release 7.12 and later. 
-+ **Data volume limits** – Each job can read and write up to a total of 200 GB of intermediate data per job run. Jobs exceeding this limit will fail with an error message indicating that serverless storage limit was reached.
++ **Data volume limits** – With emr-7.12, emr-7.13, and emr-spark-8.0, each job can read and write up to 200 GB of intermediate data per job run. For emr-7.14 and later, including emr-spark-8.1, this limit increases to 1 TB, except in Regions noted with a 200 GB limit in Supported AWS Regions below. Jobs exceeding the applicable limit will fail with an error message indicating that the serverless storage limit was reached.
 + **Job execution timeout** – Serverless storage supports jobs with execution timeouts up to 24 hours. Jobs configured for longer execution timeouts will fail with an error message.
 + **Pre-initialized capacity** – Pre-initialized capacity workers do not support serverless storage. When you configure pre-initialized capacity, it will only be utilized by jobs that explicitly disable serverless storage at the job level. Jobs with serverless storage enabled will always provision new workers on demand and will not use any pre-initialized capacity, regardless of the configuration in application level.
 + **Workload types** – Serverless storage is not supported for streaming and interactive jobs.
@@ -94,10 +94,8 @@ EMR Serverless supports serverless storage in the following regions:
 + US East (Ohio)
 + US West (N. California)
 + US West (Oregon)
-+ Africa (Cape Town)
 + Asia Pacific (Hong Kong)
 + Asia Pacific (Jakarta)
-+ Asia Pacific (Melbourne)
 + Asia Pacific (Mumbai)
 + Asia Pacific (Osaka)
 + Asia Pacific (Seoul)
@@ -105,13 +103,15 @@ EMR Serverless supports serverless storage in the following regions:
 + Asia Pacific (Sydney)
 + Asia Pacific (Tokyo)
 + Canada (Central)
-+ Canada West (Calgary)
 + Europe (Frankfurt)
 + Europe (Ireland)
-+ Europe (London)
-+ Europe (Milan)
-+ Europe (Paris)
 + Europe (Spain)
 + Europe (Stockholm)
-+ Europe (Zurich)
 + South America (São Paulo)
++ Africa (Cape Town) – 200 GB limit
++ Asia Pacific (Melbourne) – 200 GB limit
++ Canada West (Calgary) – 200 GB limit
++ Europe (London) – 200 GB limit
++ Europe (Milan) – 200 GB limit
++ Europe (Paris) – 200 GB limit
++ Europe (Zurich) – 200 GB limit

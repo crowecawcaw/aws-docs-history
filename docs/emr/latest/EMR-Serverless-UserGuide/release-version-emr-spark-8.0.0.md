@@ -16,6 +16,7 @@ The following table lists the application versions available with `AWS runtime f
 | Hudi | 1.1.0-amzn-0 | 
 
 ****`AWS runtime for Apache Spark` (emr-spark-8.0.0) release notes****
++ **Python 3.12 support** — Amazon EMR Serverless with `emr-spark-8.0.0` supports Python 3.12 for Apache Spark applications.
 + **GA release** – This is the general availability release of `AWS runtime for Apache Spark` featuring Apache Spark 4.0.2. This release is available on EMR Serverless, EMR on EC2, and EMR on EKS.
 + **Regional Availability** - Available in all AWS Regions where EMR Serverless is available, except Middle East (Bahrain) and Middle East (UAE) regions.
 + **Known limitations** - Spark Connect secure endpoint with Native FGAC support is not available in this release.
