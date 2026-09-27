@@ -7,9 +7,9 @@
 
 1. Navigate to Support → Contact Support
 
-1. Choose Partner Programs as your topic
+1. Choose APN Funding for "What type of support case would you like to open?"
 
-1. Select MAP Performance Index as the issue type
+1. Select Migration Acceleration Program (MAP) for "Type of request"
 
 **Submit data correction requests**
 

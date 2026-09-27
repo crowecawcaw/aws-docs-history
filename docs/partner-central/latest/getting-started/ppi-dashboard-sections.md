@@ -3,27 +3,16 @@
 # Dashboard sections
 <a name="ppi-dashboard-sections"></a>
 
-The PPI dashboard contains the following key sections:
+The Performance Indicators dashboard contains the following key sections:
 
 **1. Migration summary data**
-+ Your overall PPI score
++ Your overall Performance Indicators score
 + Current performance tier
-+ Total won ARR (Active and Completed projects)
-+ Total project count
-+ Data freshness indicator
 
-**2. Key metrics overview**
-+ Current score for each of the four key metrics
-+ Point values (1, 2, or 3) for each metric
-+ Visual indicators (color-coded performance)
-+ Trend indicators showing improvement or decline
-
-**3. Contributing metrics detail**
+**2. Key contributing metrics**
 + Underlying data used to calculate each key metric
 + Actual numbers and percentages
-+ Comparison to performance thresholds
++ Month-over-month (MoM) trending data
 
-**4. Historical trends**
-+ Month-over-month performance changes
-+ Trend lines for each metric
-+ Identification of improvement patterns
+**3. Migration level summary**
++ Underlying migration partner ecosystem (MPE) level data used to calculate each key metric

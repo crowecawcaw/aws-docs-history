@@ -9,14 +9,12 @@ You can customize your dashboard view using the following filters:
 + Current monthly score – Your most recent performance snapshot
 + Historic monthly view – Line graph showing 12 months of performance trends
 
-**Opportunity type:**
-+ All MAP 2.0 projects
-+ MAP only (excludes MAP Lite)
-+ By program type
-
-**Customer Geography (PPI score will continue to be at the global level):**
+**Customer Geography (Performance Indicators score will continue to be at the global level):**
 + All geographies
 + NAMER (North America)
 + EMEA (Europe, Middle East, Africa)
 + APJ (Asia Pacific & Japan)
 + LATAM (Latin America)
+
+**Customer Type:**
++ Commercial Sector (CS) or Public Sector (PS)

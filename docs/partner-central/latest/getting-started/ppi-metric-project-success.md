@@ -14,9 +14,9 @@ Project Success = Percentage of completed projects that achieved at least 50% of
 
 | Performance Level | Projects over 50% ARR | 
 | --- | --- | 
-| High Performance Track (3 points) | 70% or higher | 
-| Core Program Track (2 points) | 31% - 70% | 
-| Turnaround Track (1 point) | below 30% | 
+| High Performance Track (3 points) | 75% or higher | 
+| Core Program Track (2 points) | 40% - 75% | 
+| Turnaround Track (1 point) | below 40% | 
 
 **Why it matters:**
 
@@ -25,5 +25,13 @@ Consistent project delivery demonstrates:
 + Effective risk management and mitigation
 + Reliable processes that work for various project types
 + Customer satisfaction at the individual project level
+
+**How to improve:**
++ Implement consistent project delivery methodologies
++ Identify and replicate success patterns from your best projects
++ Intervene early when projects show signs of underperformance
++ Conduct post-project reviews to identify improvement opportunities
++ Ensure adequate staffing and expertise for each project
++ Maintain detailed project documentation and lessons learned
 
 **Example:** If you've completed 30 projects and 26 of them achieved over 50% of their expected ARR, then 26/30 = 87% of your projects met the threshold, earning you 3 points (High Performance Track).

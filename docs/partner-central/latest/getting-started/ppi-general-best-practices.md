@@ -5,7 +5,7 @@
 
 **Data accuracy is critical:**
 + Ensure all project data in MPE (Migration record that AWS tracks internally) is accurate and up-to-date
-+ Provide realistic, well-justified ARR estimates in funding requests
++ Provide realistic, well-justified annual recurring revenue (ARR) estimates in funding requests
 + Update project start and end dates promptly when circumstances change
 + Properly tag all migrated workloads for accurate revenue tracking
 + Report project status changes as they occur

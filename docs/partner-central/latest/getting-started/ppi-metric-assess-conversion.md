@@ -15,8 +15,8 @@ Win Rate = (Number of Assess-funded Won migrations) / (Number of Assess-funded W
 | Performance Level | Win Rate | 
 | --- | --- | 
 | High Performance Track (3 points) | 75% or higher | 
-| Core Program Track (2 points) | 45% - 75% | 
-| Turnaround Track (1 point) | Below 45% | 
+| Core Program Track (2 points) | 40% - 75% | 
+| Turnaround Track (1 point) | Below 40% | 
 
 **Why it matters:**
 
