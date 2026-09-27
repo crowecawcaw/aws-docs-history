@@ -120,7 +120,11 @@ The agent uses the function’s output directly as the credential. Use the **Age
 
 Use email MFA when your application sends a one-time code or verification link by email as part of its authentication flow. If your application uses an authenticator app instead, provide a TOTP secret as described in [Input credentials directly](#provide-testing-credentials-input).
 
-When you enable email MFA, AWS Security Agent generates a unique forwarding address for each credential. You then create a rule in your email provider that forwards only your application’s MFA messages to that address. During login, AWS Security Agent reads the forwarded message and submits the code or link to complete authentication.
+When you enable email MFA, AWS Security Agent generates a unique email address for each credential. During login, AWS Security Agent reads the messages that arrive at this address and submits the code or link to complete authentication. You can also view these messages yourself, as described in [View email MFA messages](#provide-testing-credentials-view-email-mfa-messages).
+
+You can use the address in two ways, depending on whether you test with a new user account or an existing mailbox:
++  **Sign up a test user with the address** – Enter the address as the email address when you create a test user in your application. Your application sends its MFA messages to the address directly, so you do not need your own mailbox or a forwarding rule. To open a verification message that your application sends when it creates the account, see [View email MFA messages](#provide-testing-credentials-view-email-mfa-messages).
++  **Forward from your own mailbox** – Keep using an existing test account, and create a rule in your email provider that forwards only your application’s MFA messages to the address. For more information, see [Set up email forwarding](#provide-testing-credentials-email-forwarding).
 
 **Note**  
 Email MFA is available for both the input credentials and advanced setting credential methods, and in both the console and the AWS CLI or API.
@@ -134,7 +138,7 @@ Email MFA is available for both the input credentials and advanced setting crede
 
 1. Create the penetration test. AWS Security Agent then displays the **Email MFA forwarding address** for the credential. You cannot choose this address yourself.
 
-1. Copy the forwarding address, then configure forwarding in your email provider. For more information, see [Set up email forwarding](#provide-testing-credentials-email-forwarding).
+1. Copy the address, then either sign up a test user in your application with it, or configure forwarding in your email provider. For more information, see [Set up email forwarding](#provide-testing-credentials-email-forwarding).
 
 **Note**  
 If you dismiss this display before you copy the address, you can retrieve it later from the **Configurations** page of the penetration test, which shows the **Email MFA forwarding address** for each credential.
@@ -166,30 +170,43 @@ Create a separate forwarding rule for each credential that uses email MFA. The g
 
 1. Send a test MFA message from your application, then confirm that the rule forwards it.
 
-**Important**  
-Your email provider must forward to an address without verifying it first. Some providers send a verification message to the destination address and require you to open a link in that message before forwarding begins. AWS Security Agent manages the MFA forwarding address, and you cannot read the messages sent to it, so you cannot complete verification.
+Some providers send a verification message to the destination address and require you to open a link in that message before forwarding begins. You can complete this step by viewing the verification message as described in [View email MFA messages](#provide-testing-credentials-view-email-mfa-messages).
 
-The following providers support automatic forwarding to the MFA forwarding address:
-+  **Microsoft 365 and Outlook** - Create an inbox rule that forwards or redirects matching messages. For more information, see [Use rules to automatically forward messages](https://support.microsoft.com/en-us/office/use-rules-to-automatically-forward-messages-45aa9664-4911-4f96-9663-ece42816d746) in the Microsoft documentation.
-+  **iCloud Mail** - In Mail on iCloud.com, create a rule that forwards matching messages. Each rule forwards to one address. For more information, see [Automatically forward email in Mail on iCloud.com](https://support.apple.com/guide/icloud/automatically-forward-email-mm6b1a3960/icloud) in the iCloud User Guide.
-+  **Custom domains and self-hosted mail servers** - Add a server-side alias, sieve rule, or filter that forwards only the matching messages. For more information, consult your mail server’s documentation.
-
-The following providers do not support automatic forwarding to the MFA forwarding address, because they verify the destination address before forwarding begins:
-+  **Gmail and Google Workspace** - Before a Gmail filter can forward to an address, you must add the address under **Settings > Forwarding and POP/IMAP**. Gmail sends a verification message to that address and requires you to open a link in it, which you cannot do. For more information, see [Automatically forward Gmail messages to another account](https://support.google.com/mail/answer/10957) in the Google documentation.
-+  **Yahoo Mail** - Forwarding requires a Yahoo Mail Plus subscription, and Yahoo verifies the destination address before forwarding begins. For more information, see [Enable automatic email forwarding in Yahoo Mail](https://help.yahoo.com/kb/SLN3525.html) in the Yahoo documentation.
-
-Any other provider that forwards to an unverified external address also works. Consult your provider’s documentation for the equivalent steps.
+The following providers support forwarding to the MFA forwarding address:
++  **Gmail and Google Workspace** – Add the address under **Settings**, **Forwarding and POP/IMAP**. Open the verification message that Gmail sends to it. Then create a filter that forwards only your application’s MFA messages. Leave blanket forwarding disabled so that Gmail forwards only the messages your filter matches. For more information, see [Automatically forward Gmail messages to another account](https://support.google.com/mail/answer/10957) in the Google documentation.
++  **Microsoft 365 and Outlook** – Create an inbox rule that forwards or redirects matching messages. For more information, see [Use rules to automatically forward messages](https://support.microsoft.com/en-us/office/use-rules-to-automatically-forward-messages-45aa9664-4911-4f96-9663-ece42816d746) in the Microsoft documentation.
++  **Yahoo Mail** – Use a Yahoo account dedicated to testing, because Yahoo forwards the whole account rather than selected messages. Forwarding requires a Yahoo Mail Plus subscription, and Yahoo doesn’t offer it in all locales. For more information, see [Enable automatic email forwarding in Yahoo Mail](https://help.yahoo.com/kb/SLN3525.html) in the Yahoo documentation.
++  **iCloud Mail** – Create a rule that forwards matching messages. Each rule forwards to one address. For more information, see [Automatically forward email in Mail on iCloud.com](https://support.apple.com/guide/icloud/automatically-forward-email-mm6b1a3960/icloud) in the iCloud User Guide.
++  **Custom domains and self-hosted mail servers** – Add a server-side alias, sieve rule, or filter that forwards only the matching messages. For more information, consult your mail server’s documentation.
 
 **Note**  
-Even when your provider does not support automatic forwarding, you can forward MFA messages manually. You do not need to verify the destination address when you forward a single message. Because MFA codes expire quickly, forward each message to the MFA forwarding address as soon as it arrives during login.
+You can also forward MFA messages manually. Because MFA codes expire quickly, forward each message to the MFA forwarding address as soon as it arrives during login.
 
 **Important**  
 Forward only your application’s MFA messages. Do not forward your entire inbox. A narrow rule keeps unrelated email out of the penetration test and limits what your rule sends to AWS Security Agent.
 
+### View email MFA messages
+<a name="provide-testing-credentials-view-email-mfa-messages"></a>
+
+You can view the messages that arrive at a credential’s MFA forwarding address. Use this to read a verification link when you sign up a test user with the address. You can also use it to confirm that your forwarding rule works, or to troubleshoot a login that failed at the MFA step.
+
+To view the messages in the console, open the penetration test and choose the **Configurations** page. The page lists each credential with its own **Email MFA forwarding address**. Choose **View inbox** under the address for the credential whose messages you want to read.
+
+To view the messages with the AWS CLI, run `list-actor-messages`:
+
+```
+aws securityagent list-actor-messages \
+  --agent-space-id "your-agent-space-id" \
+  --pentest-id "your-pentest-id" \
+  --actor-identifier "test-user"
+```
+
+The response includes the sender, subject, body, and receipt time of each message, with the most recent first.
+
 ### Data retention
 <a name="_data_retention"></a>
 
-AWS Security Agent stores the messages that it receives at the forwarding address only to complete the penetration test login. AWS Security Agent automatically deletes these messages 24 hours after receiving them.
+AWS Security Agent stores the messages that it receives at the forwarding address only to complete the penetration test login. AWS Security Agent automatically deletes these messages 24 hours after receiving them, and you can view a message only during this period.
 
 ## Configure multiple credentials
 <a name="_configure_multiple_credentials"></a>

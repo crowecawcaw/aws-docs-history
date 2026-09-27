@@ -14,7 +14,7 @@ This page covers cloud-hosted GitHub (github.com) and cloud-hosted GitHub Enterp
 +  **Continuum for penetration testing context** - Provide application understanding for penetration testing by analyzing source code
 +  **Continuum for automated remediation** - Submit pull requests with fixes for vulnerabilities discovered during security assessments
 
-Connecting GitHub to AWS Security Agent requires authorizing the AWS Security Agent GitHub App for your GitHub organization or user account, then registering the connection in the AWS Console.
+Connecting GitHub to AWS Security Agent requires authorizing the AWS Security Agent GitHub App for your GitHub organization or user account, then registering the connection in the AWS Console. When you authorize the app, you choose the permission level that the GitHub App requests: **Read and write** or **Read-only**. For more information, see [Authorize and register the AWS Security Agent GitHub App](#connect-github-app-permissions).
 
 ## How GitHub integration works
 <a name="_how_github_integration_works"></a>
@@ -29,7 +29,7 @@ You create and run **full code reviews** — which scan a repository’s entire 
 <a name="connect-github-prerequisites"></a>
 
 Before you begin, ensure you have:
-+ GitHub organization admin access or GitHub user account owner access
++ GitHub organization access or GitHub user account owner access. For detailed app permissions, see [Authorize and register the AWS Security Agent GitHub App](#connect-github-app-permissions).
 + Permissions to configure integrations for your Agent Space in the AWS Management Console
 + Understanding of which repositories you want to connect for code review, threat modeling, and penetration testing
 
@@ -42,9 +42,22 @@ Do not rely on the GitHub **Enable IP allow list configuration for installed Git
 For more information about enabling allowed IP addresses for your GitHub organization, see [Enabling allowed IP addresses](https://docs.github.com/en/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses) in the GitHub documentation.
 
 ## Authorize and register the AWS Security Agent GitHub App
-<a name="_authorize_and_register_the_aws_security_agent_github_app"></a>
+<a name="connect-github-app-permissions"></a>
 
 Authorize the AWS Security Agent GitHub App to access your GitHub organization or user account, then register the connection in the AWS Console.
+
+The following table describes each permission the AWS Security Agent GitHub App requests and why it is needed.
+
+If you choose **Read-only**, the GitHub App requests only read-level access for each permission in the table. With **Read-only** permissions, the GitHub App cannot perform the write-level actions listed in the **Purpose** column.
+
+
+| Permission | Access level | Purpose | 
+| --- | --- | --- | 
+| Contents | Read and write | Read repository source code for code review, threat modeling, and penetration testing. Write access lets AWS Security Agent open a new branch to stage remediation fixes. | 
+| Pull requests | Read and write | Read pull request details to run automated code reviews. Write access lets AWS Security Agent post review comments with findings and open remediation pull requests. | 
+| Administration | Read | Read repository settings to validate the connection and repository configuration. | 
+| Metadata | Read | Read basic repository information. GitHub requires this permission for all GitHub Apps. | 
+| Organization administration | Read | Read the list of applications installed in the target organization to verify that the AWS Security Agent GitHub App is installed. | 
 
 **Important**  
 Complete all steps in this process without closing your browser or navigating away. If the registration process is interrupted, you may need to uninstall the GitHub App and start over.
@@ -56,6 +69,8 @@ Complete all steps in this process without closing your browser or navigating aw
 1. Select **GitHub**.
 
 1. Choose **Next**.
+
+1. Under **GitHub App permissions**, choose **Read and write** or **Read-only**.
 
 1. Choose **Install and authorize**.
 
@@ -85,7 +100,9 @@ You can modify repository access at any time by visiting the GitHub App settings
 
 1. Choose **Connect**.
 
-1. You see a confirmation message and return to the Integrations page, where your new GitHub connection appears with its registration name. To connect additional GitHub organizations or user accounts, repeat this process by choosing **Add integration** again.
+1. You see a confirmation message and return to the Integrations page, where your new GitHub connection appears with its registration name. The **Access** column shows the permission level of the connection: **Read and write** or **Read-only**.
+
+   To connect additional GitHub organizations or user accounts, repeat this process by choosing **Add integration** again.
 
 ## Troubleshoot GitHub integration
 <a name="_troubleshoot_github_integration"></a>

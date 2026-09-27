@@ -28,7 +28,7 @@ When you connect a resource to an Agent Space, that resource is shared across th
     These write actions are not available for public repositories. Read-only analysis still applies.
 
 **Note**  
-Confluence is a documentation provider rather than a source code provider. AWS Security Agent reads connected Confluence pages to provide context for design reviews, threat modeling, and penetration tests. Selecting a page grants read access; there are no per-page capability toggles.
+Confluence is a documentation provider rather than a source code provider. AWS Security Agent reads connected Confluence pages to provide context for design reviews, threat modeling, and penetration tests. Selecting a page grants read access. You can also enable create and update capabilities on a connected space to publish reports from AWS Security Agent to Confluence. The create and update capabilities are both opt-in and disabled by default.
 
 ## Supported providers
 <a name="_supported_providers"></a>

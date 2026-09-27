@@ -121,7 +121,7 @@ Enable simulated validation to dynamically confirm whether discovered vulnerabil
 When enabled, AWS Security Agent provisions a simulated environment after static analysis completes. It onboards your source code, starts services inside the environment, and attempts to exploit vulnerabilities found during the scan. Findings are then updated with a validation status indicating whether the vulnerability was successfully exploited.
 
 **Note**  
-Simulated validation is currently available for self-contained dockerizable applications only. When multiple repositories are selected as sources, simulated validation is not available.
+Simulated validation is currently available for self-contained dockerizable applications only.
 
 **Important**  
 Simulated validation adds processing time to your code review run. The validation step provisions an environment and runs exploitation attempts. This typically takes 1–3 hours depending on the number of findings and application complexity.

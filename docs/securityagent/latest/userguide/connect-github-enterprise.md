@@ -62,6 +62,8 @@ Complete all steps in this process without closing your browser or navigating aw
 
 1. In the **GitHub Enterprise URL** field, enter the HTTPS URL of your instance. For a GitHub Enterprise Server instance, enter its host, for example `https://github.example.com`. For GitHub Enterprise Cloud with data residency, enter your `.ghe.com` host, for example `https://acme.ghe.com`. Do not include an `api.` prefix or additional subdomain levels.
 
+1. Under **GitHub App permissions**, choose **Read and write** or **Read-only**. With **Read-only**, AWS Security Agent creates a GitHub App on your instance that requests only read permissions, and **Code review comments** and **Code remediation** are unavailable for the connection. For more information, see [Authorize and register the AWS Security Agent GitHub App](connect-github.md#connect-github-app-permissions).
+
 1. (GitHub Enterprise Server only) If your instance is not publicly accessible, select **Connect to endpoint using a private connection**, then choose an existing private connection or create a new one. See [Connect to privately hosted source control](connect-private-connection.md).
 
 1. In the **Register details** section, configure the following fields:

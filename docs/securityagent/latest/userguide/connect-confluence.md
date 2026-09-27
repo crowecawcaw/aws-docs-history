@@ -3,12 +3,13 @@
 # Connect AWS Security Agent to Confluence
 <a name="connect-confluence"></a>
 
-Connect your AWS Security Agent to Confluence Cloud to provide documentation context for security assessments. Unlike code providers, Confluence serves as a documentation source that provides threat models, architecture documents, API specifications, and other materials that enhance the quality of security reviews. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md) to understand how a registration is reused across Agent Spaces.
+Connect your AWS Security Agent to Confluence Cloud to provide documentation context for security assessments. You can also use this connection to publish AWS Security Agent assessment results back to your Confluence site. Confluence serves as a documentation source that provides threat models, architecture documents, API specifications, and other materials that enhance the quality of security reviews. Before you begin, review [How integrations work with Agent Spaces](about-integrations.md) to understand how a registration is reused across Agent Spaces.
 
 Confluence integration serves multiple purposes:
-+  **Continuum for design review context** - Provide architectural documents and design specifications for security design reviews
-+  **Continuum for threat modeling** - Provide existing threat models and system documentation for threat analysis
-+  **Continuum for penetration testing context** - Provide application documentation for deeper understanding during penetration testing
++  **Continuum for design review context** – Provide architectural documents and design specifications for security design reviews
++  **Continuum for threat modeling** – Provide existing threat models and system documentation for threat analysis
++  **Continuum for penetration testing context** – Provide application documentation for deeper understanding during penetration testing
++  **Continuum for report publishing** – Create and update Confluence pages with the reports that AWS Security Agent generates from penetration tests, code reviews, and threat models
 
 Connecting Confluence to AWS Security Agent requires installing the AWS Security Agent Forge app on your Atlassian site and completing the OAuth authorization flow.
 
@@ -21,6 +22,8 @@ AWS Security Agent supports Confluence Cloud only. Confluence Data Center and Co
 Confluence is a **documentation provider** rather than a source code provider. After you install the Forge app and connect spaces or pages in the AWS Management Console, AWS Security Agent can access your Confluence content to provide context during security assessments.
 
 AWS Security Agent reads page content to understand your application architecture, security requirements, and design decisions. This context improves the quality and relevance of security findings during design reviews, code reviews, and penetration tests.
+
+When you enable the create and update capabilities for a connected space, you can publish reports from AWS Security Agent to Confluence. These reports come from penetration tests, code reviews, and threat models. The agent creates a new page for each report, or updates a page it previously created. The create and update capabilities are both opt-in and disabled by default.
 
 ## Prerequisites
 <a name="_prerequisites"></a>
@@ -62,7 +65,9 @@ Atlassian Forge app pricing applies to this integration. For more information, s
 ## Select pages for an Agent Space
 <a name="_select_pages_for_an_agent_space"></a>
 
-After you register the Confluence integration, connect specific pages to an Agent Space. Selecting a page grants AWS Security Agent read (fetch) access to that page’s content. There are no per-page capability options — the agent reads every connected page. In the review step of the connect wizard, you can remove any pages you do not want the agent to access.
+After you register the Confluence integration, connect specific pages to an Agent Space. Selecting a page grants AWS Security Agent read (fetch) access to that page’s content. In the review step of the connect wizard, you can remove any pages you do not want the agent to access.
+
+For a connected space, you can also enable two optional capabilities: **Create pages** and **Update pages** (both are disabled by default). With these enabled, you can publish reports from AWS Security Agent to Confluence.
 
 ## Troubleshoot Confluence integration
 <a name="_troubleshoot_confluence_integration"></a>
