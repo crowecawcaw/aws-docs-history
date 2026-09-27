@@ -18,7 +18,7 @@
 
 1.  Once the install wizard is finished, set the `JAVA_HOME` and `PATH` environment variables. 
 
-   Set `JAVA_HOME` to the installation location, noting that the directory contains the currently-installed version. For example, if the default directory is used for 25.0.4, then set `JAVA_HOME` as `C:\Program Files\Amazon Corretto\jdk25.0.4_8`.
+   Set `JAVA_HOME` to the installation location, noting that the directory contains the currently-installed version. For example, if the default directory is used for 25.0.4, then set `JAVA_HOME` as `C:\Program Files\Amazon Corretto\jdk25.0.4_10`.
 
    Add `%JAVA_HOME%\bin` to the current `PATH` variable.
 
@@ -26,9 +26,9 @@
 **Example**  
 
    ```
-   openjdk version "25.0.4" 2026-08-18 LTS
-   OpenJDK Runtime Environment Corretto-25.0.4.8.1 (build 25.0.4+8-LTS)
-   OpenJDK 64-Bit Server VM Corretto-25.0.4.8.1 (build 25.0.4+8-LTS, mixed mode)
+   openjdk version "25.0.4" 2026-09-25 LTS
+   OpenJDK Runtime Environment Corretto-25.0.4.10.1 (build 25.0.4+10-LTS)
+   OpenJDK 64-Bit Server VM Corretto-25.0.4.10.1 (build 25.0.4+10-LTS, mixed mode)
    ```
 
 ## Uninstall Amazon Corretto 25
