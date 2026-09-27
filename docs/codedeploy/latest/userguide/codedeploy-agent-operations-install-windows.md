@@ -52,8 +52,14 @@ Sign in to the instance, and run the following commands in Windows PowerShell:
 **Note**  
 For the latest released version, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history).
 
-   To install the latest version of the CodeDeploy agent:
-   + 
+   To install the latest version of the CodeDeploy agent. The `latestv2/` prefix serves the version 2.x (2.0.x and later) installer, and the `latest/` prefix serves the version 1.8.x installer.
+   + For version 2.0.x and later:
+
+     ```
+     powershell.exe -Command Read-S3Object -BucketName {{bucket-name}} -Key latestv2/codedeploy-agent.msi -File c:\temp\codedeploy-agent.msi
+     ```
+
+     For version 1.8.x and earlier:
 
      ```
      powershell.exe -Command Read-S3Object -BucketName {{bucket-name}} -Key latest/codedeploy-agent.msi -File c:\temp\codedeploy-agent.msi
@@ -101,7 +107,15 @@ Running    codedeployagent    CodeDeploy Host Agent Service
 
 If the browser security settings on the Windows Server instance provide the permissions (for example, to `https://s3.*.amazonaws.com`), you can use a direct link for your Region to download the CodeDeploy agent and then run the installer manually.
 
-The link is:
+The `latestv2/` prefix serves the version 2.x (2.0.x and later) installer, and the `latest/` prefix serves the version 1.8.x installer.
+
+For version 2.0.x and later, the link is:
+
+```
+https://s3.{{region}}.amazonaws.com/aws-codedeploy-{{region}}/latestv2/codedeploy-agent.msi
+```
+
+For version 1.8.x and earlier:
 
 ```
 https://s3.{{region}}.amazonaws.com/aws-codedeploy-{{region}}/latest/codedeploy-agent.msi
@@ -109,10 +123,10 @@ https://s3.{{region}}.amazonaws.com/aws-codedeploy-{{region}}/latest/codedeploy-
 
 ...where {{region}} is the AWS Region where you're deploying your application.
 
-For example:
+For example, for version 2.0.x and later:
 
 ```
-https://s3.af-south-1.amazonaws.com/aws-codedeploy-af-south-1/latest/codedeploy-agent.msi
+https://s3.af-south-1.amazonaws.com/aws-codedeploy-af-south-1/latestv2/codedeploy-agent.msi
 ```
 
 **Important**  
@@ -123,7 +137,15 @@ Obtain the `.msi` file from the same Region as your CodeDeploy application. Choo
 
 If the AWS CLI is installed on the instance, you can use the Amazon S3 [cp](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html) command to download the CodeDeploy agent and then run the installer manually. For information, see [Install the AWS Command Line Interface on Microsoft Windows](https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-windows.html). 
 
-The Amazon S3 command is:
+The `latestv2/` prefix serves the version 2.x (2.0.x and later) installer, and the `latest/` prefix serves the version 1.8.x installer.
+
+For version 2.0.x and later, the Amazon S3 command is:
+
+```
+aws s3 cp s3://aws-codedeploy-{{region}}/latestv2/codedeploy-agent.msi codedeploy-agent.msi --region {{region}}
+```
+
+For version 1.8.x and earlier:
 
 ```
 aws s3 cp s3://aws-codedeploy-{{region}}/latest/codedeploy-agent.msi codedeploy-agent.msi --region {{region}}
@@ -131,8 +153,8 @@ aws s3 cp s3://aws-codedeploy-{{region}}/latest/codedeploy-agent.msi codedeploy-
 
 ...where {{region}} is the AWS Region where you're deploying your application.
 
-For example:
+For example, for version 2.0.x and later:
 
 ```
-aws s3 cp s3://aws-codedeploy-af-south-1/latest/codedeploy-agent.msi codedeploy-agent.msi --region af-south-1
+aws s3 cp s3://aws-codedeploy-af-south-1/latestv2/codedeploy-agent.msi codedeploy-agent.msi --region af-south-1
 ```

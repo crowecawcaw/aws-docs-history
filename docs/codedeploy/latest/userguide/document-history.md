@@ -8,6 +8,7 @@ The following table describes the major changes made to this user guide to suppo
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [CodeDeploy agent v2.1.0 release](#document-history) | The AWS CodeDeploy agent was updated to version 2.1.0. For more information, see [Version history of the CodeDeploy agent](https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent.html#codedeploy-agent-version-history). | September 7, 2026 | 
 | [CodeDeploy agent v2.0.1 release](#document-history) | The AWS CodeDeploy agent was updated to version 2.0.1. For more information, see [ Version history of the CodeDeploy agent](https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent.html#codedeploy-agent-version-history). | August 24, 2026 | 
 | [CodeDeploy agent v2.0.0 release](#document-history) | The AWS CodeDeploy agent was updated to version 2.0.0. For more information, see [ Version history of the CodeDeploy agent](https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent.html#codedeploy-agent-version-history). | July 15, 2026 | 
 | [CodeDeploy agent v1.8.1 release](#document-history) | The AWS CodeDeploy agent was updated to version 1.8.1. For more information, see [ Version history of the CodeDeploy agent](https://docs.aws.amazon.com/codedeploy/latest/userguide/codedeploy-agent.html#codedeploy-agent-version-history). | February 3, 2026 | 

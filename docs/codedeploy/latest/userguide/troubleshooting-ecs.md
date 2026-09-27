@@ -43,7 +43,7 @@
 **Possible fixes and next steps**:
 + In your deployment group, set the **Specify when to reroute traffic** to a larger amount of time and redeploy. For more information, see [Create a deployment group for an Amazon ECS deployment (console)](deployment-groups-create-ecs.md).
 + In your deployment group, change **Specify when to reroute traffic** to **Reroute traffic immediately** and redeploy. For more information, see [Create a deployment group for an Amazon ECS deployment (console)](deployment-groups-create-ecs.md).
-+ Redeploy and then run the [`aws deploy continue-deployment`](https://docs.aws.amazon.com/cli/latest/reference/deploy/continue-deployment.html) AWS CLI command with the `--deployment-wait-type` option set to `READY_WAIT`. Make sure to run this command *before* the time specified in **Specify when to reroute traffic** expires.
++ Redeploy and then run the [aws deploy continue-deployment](https://docs.aws.amazon.com/cli/latest/reference/deploy/continue-deployment.html) AWS CLI command with the `--deployment-wait-type` option set to `READY_WAIT`. Make sure to run this command *before* the time specified in **Specify when to reroute traffic** expires.
 
 ## The IAM role does not have enough permissions
 <a name="troubleshooting-ecs-iam"></a>
