@@ -64,9 +64,12 @@ Example: `aws-for-sap-mcp-server`
 
 | Parameter | Parameter Label | Description | Example | 
 | --- | --- | --- | --- | 
-|  `SapBaseUrl`  | SAP Base OData Endpoint | Base URL of the SAP OData endpoint. |  `https://host:port/sap/opu/odata/sap/`  | 
+|  `SapBaseUrl`  | SAP Base OData Endpoint | The URL structure must match the default value in the following format. Use the OData path only if you want to use the SAP standard catalog for discovery. For more information, see [Service discovery configuration](#deploy-service-discovery). |  `https://<your-domain>/sap/opu/odata/sap/`  | 
+|  `SapSystemType`  | SAP System Type | The type of SAP system. Valid values: `S4HANA`, `ECC`. |  `S4HANA`  | 
+|  `SapClientNumber`  | SAP Client Number | The client ID of the SAP system. `default` uses the default client associated with the SAP system. |  `default`  | 
+|  `McpServerODataVersion`  | OData Version | OData version to use against the SAP standard catalog. `V2` (default) or `V4`. Ignored if `McpServerUseSapCatalog` is set to `false`. See [Service discovery configuration](#deploy-service-discovery) for prefix-filter requirements. |  `V2`  | 
 
- **Authentication configuration** 
+ **Outbound authentication configuration** 
 
 The MCP Server supports the following authentication flows for connecting to SAP. Choose the one that matches your SAP system setup.
 
@@ -92,14 +95,14 @@ The MCP Server supports the following authentication flows for connecting to SAP
 **Note**  
  `DiscoveryUrl` and `AllowedAudiences` are only required when using an external identity provider (for example, Entra ID). Leave these fields empty if using Cognito.
 
- **MCP Server Configuration** 
+ **MCP Server configuration** 
 
 
 | Parameter | Parameter Label | Description | Allowed Values | Default | 
 | --- | --- | --- | --- | --- | 
 |  `McpServerLogLevel`  | MCP Server Log Level | Server log level. |  `DEBUG`, `INFO`, `WARNING`, `ERROR`  |  `INFO`  | 
 
- **MCP Server Permissions** 
+ **MCP Server permissions** 
 
 Control which operations the MCP Server is permitted to perform against your SAP system. Start with the minimum permissions required.
 
@@ -116,7 +119,19 @@ Control which operations the MCP Server is permitted to perform against your SAP
 **Note**  
  `McpServerCreateEnabled`, `McpServerUpdateEnabled`, and `McpServerDeleteEnabled` have no effect unless `McpServerWriteEnabled` is set to `true`.
 
- **Network Configuration** 
+<a name="deploy-service-discovery"></a> **Service discovery configuration** 
+
+
+| Parameter | Parameter Label | Description | Default | 
+| --- | --- | --- | --- | 
+|  `McpServerUseSapCatalog`  | Use SAP Catalog | Whether to fetch the service catalog from SAP. If `false`, uses only the custom catalog (`McpServerCustomCatalogBucketUri` is then required). |  `true`  | 
+|  `McpServerCustomCatalogODataVersion`  | Custom Catalog OData Version | OData version for the custom catalog: `V2`, `V4`, or `MIXED` (custom catalog contains both V2 and V4 services). Ignored if a custom catalog is not being used. See [Custom catalog configuration](configuration-reference.md#custom-catalog-config) for `catalog.json` details. |  `V2`  | 
+|  `McpServerCustomCatalogBucketUri`  | Custom Catalog S3 Bucket URI | S3 URI of a bucket containing a `catalog.json` describing custom services (for example, `s3://awsforsap-mcp-server-mycatalog`). Bucket name must start with `awsforsap-mcp-server-`. `McpServerCustomCatalogODataVersion` declares the protocol shape of the services in this catalog. Leave as `None` if you rely only on the SAP standard catalog. |  `None`  | 
+|  `McpServerServiceHintsS3Uri`  | Service Hints S3 Bucket URI | S3 bucket URL for the MCP Server to access custom Service Hints (for example, `s3://awsforsap-mcp-server-*/path`). Leave as `None` if not used. |  `None`  | 
+|  `McpServerAllowedServicePrefixes`  | Allowed Service Prefixes | Comma-separated list of service prefixes for allowlisting (for example, `API_`, `ZUI_`). Use `*` to allow all services. Leave as `None` to use the MCP Server default. Works on V2 or V4. If `McpServerODataVersion` is `V4`, you must set this or `McpServerAllowedGroupPrefixes`. Mutually exclusive with `McpServerAllowedGroupPrefixes`. |  `None`  | 
+|  `McpServerAllowedGroupPrefixes`  | Allowed Group Prefixes | Comma-separated list of group prefixes for allowlisting (for example, `UI_`, `API_`). Leave as `None` to use the MCP Server default. Requires `McpServerODataVersion=V4`. Mutually exclusive with `McpServerAllowedServicePrefixes`. |  `None`  | 
+
+ **Network configuration** 
 
 
 | Parameter | Parameter Label | Description | 
@@ -301,6 +316,46 @@ aws cloudformation create-stack \
 
 **Note**  
  `ON_BEHALF_OF_TOKEN_EXCHANGE` requires `SapCredentialsSecret`, `DiscoveryUrl`, and `AllowedAudiences`. `AppCallbackEndpoint` and `SapAuthorizeUrl`/`SapTokenUrl` are not required for this flow.
+
+## Example: OData V4 Deployment
+<a name="deploy-v4-mode"></a>
+
+The following command deploys the AWS for SAP MCP Server in OData V4 mode using Machine-to-Machine (M2M) authentication and group prefix filtering.
+
+```
+aws cloudformation create-stack \
+  --stack-name <your-stack-name> \
+  --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
+  --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
+  --parameters \
+    ParameterKey=UniqueId,ParameterValue=<your-unique-id> \
+    ParameterKey=SapBaseUrl,ParameterValue=<your-sap-base-url> \
+    ParameterKey=SapSystemType,ParameterValue=S4HANA \
+    ParameterKey=SapClientNumber,ParameterValue=<your-client-number> \
+    ParameterKey=McpServerODataVersion,ParameterValue=V4 \
+    ParameterKey=InboundAuthProvider,ParameterValue=<your-idp-provider> \
+    ParameterKey=DiscoveryUrl,ParameterValue=<your-discovery-url> \
+    ParameterKey=AllowedAudiences,ParameterValue=<your-allowed-audiences> \
+    ParameterKey=AuthFlow,ParameterValue=M2M \
+    ParameterKey=SapCredentialsSecret,ParameterValue=<your-secret-name> \
+    ParameterKey=SapAuthorizeUrl,ParameterValue=<your-sap-authorize-url> \
+    ParameterKey=SapTokenUrl,ParameterValue=<your-sap-token-url> \
+    ParameterKey=OauthScopes,ParameterValue=<your-oauth-scopes> \
+    ParameterKey=McpServerLogLevel,ParameterValue=INFO \
+    ParameterKey=McpServerReadEnabled,ParameterValue=true \
+    ParameterKey=McpServerWriteEnabled,ParameterValue=false \
+    ParameterKey=McpServerCreateEnabled,ParameterValue=false \
+    ParameterKey=McpServerUpdateEnabled,ParameterValue=false \
+    ParameterKey=McpServerDeleteEnabled,ParameterValue=false \
+    ParameterKey=McpServerFunctionImportEnabled,ParameterValue=false \
+    ParameterKey=McpServerUseSapCatalog,ParameterValue=true \
+    ParameterKey=McpServerCustomCatalogBucketUri,ParameterValue=None \
+    ParameterKey=McpServerServiceHintsS3Uri,ParameterValue=None \
+    ParameterKey=McpServerAllowedServicePrefixes,ParameterValue=None \
+    ParameterKey=McpServerAllowedGroupPrefixes,ParameterValue=<your-group-prefixes> \
+    ParameterKey=McpServerVpcSecurityGroup,ParameterValue=<your-security-group-id> \
+    ParameterKey=McpServerNetworkSubnets,ParameterValue=<your-subnet-ids>
+```
 
 ## What to expect
 <a name="deploy-expected-outcome"></a>

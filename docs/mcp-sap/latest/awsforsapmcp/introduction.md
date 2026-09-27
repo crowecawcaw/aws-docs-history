@@ -3,10 +3,11 @@
 # What is the AWS for SAP MCP Server?
 <a name="introduction"></a>
 
-With AWS for SAP MCP Server ("MCP Server"), running on Amazon Bedrock AgentCore ("AgentCore"), you can give your AI agents structured, protocol-driven access to SAP S/4HANA and SAP ECC OData (Open Data Protocol) V2 services through the Model Context Protocol (MCP). The MCP Server surfaces SAP operations as discoverable MCP tools, providing you with a secure, standardized interface for AI-driven SAP interactions.
+With AWS for SAP MCP Server ("MCP Server"), running on Amazon Bedrock AgentCore ("AgentCore"), you can give your AI agents structured, protocol-driven access to SAP S/4HANA and SAP ECC OData (Open Data Protocol) V2 and V4 services through the Model Context Protocol (MCP). The MCP Server surfaces SAP operations as discoverable MCP tools, providing you with a secure, standardized interface for AI-driven SAP interactions.
 
 ## Key capabilities
 <a name="key-capabilities"></a>
++  **OData V2 and V4** — The MCP Server supports both OData V2 and OData V4.
 +  **Service Discovery** — You can query the SAP API service catalog to find available OData services and their structure, with support for pagination.
 +  **OData Read Operations** — You can perform read queries against SAP OData entity sets, including filtering, field selection, and record count.
 +  **OData Write Operations** — You can create, update, and delete entity records when explicitly enabled by the operator.

@@ -46,7 +46,7 @@ The following variables have default values and can be overridden to customize s
 |  `MCP_SERVER_LOG_LEVEL`  |  `INFO`  | Log verbosity. One of `DEBUG`, `INFO`, `WARNING`, `ERROR`. | 
 |  `MCP_SERVER_REGION`  |  `$AWS_REGION` or `us-west-2`  |  AWS Region for AWS Secrets Manager, Amazon S3, and AgentCore Identity calls. (When deploying with the CFN template, this value is automatically set to the deployment region `$AWS_REGION`. For custom automation workflows, this parameter must be explicitly set in AgentCore to avoid deployment failures.) | 
 |  `MCP_SERVER_SAP_SYSTEM`  |  `S4HANA`  | SAP system type. One of `S4HANA`, `ECC`. | 
-|  `MCP_SERVER_SAP_CLIENT_NUMBER`  | None | SAP client number. Must be exactly 3 digits and cannot be `000`. | 
+|  `MCP_SERVER_SAP_CLIENT_NUMBER`  | None | The client ID of the SAP system. Leave unset (or `default`) to use the SAP system’s default client. | 
 |  `MCP_SERVER_READ_ENABLED`  |  `true`  | Enable read tools (`find_sap_services`, `get_metadata`, `odata_read`, `odata_count`). | 
 |  `MCP_SERVER_WRITE_ENABLED`  |  `false`  | Master switch for all write tools. Must be `true` before any per-operation flag takes effect. | 
 |  `MCP_SERVER_CREATE_ENABLED`  |  `false`  | Enable the `odata_create` tool. Requires `WRITE_ENABLED=true`. | 
@@ -55,7 +55,10 @@ The following variables have default values and can be overridden to customize s
 |  `MCP_SERVER_FUNCTION_IMPORT_ENABLED`  |  `false`  | Enables the `odata_function_import` tool. Requires `WRITE_ENABLED=true`. | 
 |  `MCP_SERVER_CUSTOM_CATALOG_BUCKET`  | None | Amazon S3 bucket name for a custom service catalog. The S3 bucket name must start with `awsforsap-mcp-server-`. | 
 |  `MCP_SERVER_USE_SAP_CATALOG`  |  `true`  | Fetch the service catalog from SAP. If `false`, `CUSTOM_CATALOG_BUCKET` is required. | 
-|  `MCP_SERVER_ALLOWED_SERVICE_PREFIXES`  |  `*`  | Comma-separated list of service prefixes for filtering. `*` means all services. | 
+|  `MCP_SERVER_ALLOWED_SERVICE_PREFIXES`  |  *(empty)*  | Comma-separated list of `ServiceId` prefixes for filtering. Supported for `V2` and `V4`. Set to `*` to allow all services. | 
+|  `MCP_SERVER_ODATA_VERSION`  |  `V2`  | OData protocol used for the standard catalog and dispatch. Valid values: `V2`, `V4`. | 
+|  `MCP_SERVER_ALLOWED_GROUP_PREFIXES`  |  *(empty)*  | Comma-separated list of `GroupId` prefixes for `find_sap_services`. Supported for `V4` only. | 
+|  `MCP_SERVER_CUSTOM_CATALOG_ODATA_VERSION`  |  `V2`  | OData protocol version applied to the custom catalog. Valid values: `V2`, `V4`, `MIXED`. Under `MIXED`, every `catalog.json` entry must declare its `ODataVersion` explicitly. | 
 
 ## Enabling Write Operations
 <a name="enabling-write-ops"></a>
@@ -94,6 +97,10 @@ Create a file named `catalog.json`. The file must use this exact name. Each entr
 +  **Description** — A human-readable description of the service.
 +  **ServiceUrl** — The full URL to the SAP OData service endpoint.
 
+Each entry also supports two optional fields:
++  **ServiceName** — Technical name for the service. If `MCP_SERVER_CUSTOM_CATALOG_ODATA_VERSION` is `V4` or `MIXED`, this field is required on every entry.
++  **ODataVersion** — Protocol version for the entry. If `MCP_SERVER_CUSTOM_CATALOG_ODATA_VERSION` is `MIXED`, this field is required on every entry.
+
  **Example catalog.json:** 
 
 ```
@@ -115,10 +122,33 @@ Create a file named `catalog.json`. The file must use this exact name. Each entr
 }
 ```
 
+ **Example catalog.json (MIXED):** 
+
+```
+{
+  "SapServices": [
+    {
+      "Description": "Custom Business Partner API",
+      "ServiceName": "API_BUSINESS_PARTNER",
+      "ServiceUrl": "https://my-sap-system.example.com/sap/opu/odata/sap/API_BUSINESS_PARTNER",
+      "ODataVersion": "V2"
+    },
+    {
+      "Description": "Sales Order API (V4)",
+      "ServiceName": "API_SALES_ORDER_SRV",
+      "ServiceUrl": "https://my-sap-system.example.com/sap/opu/odata4/sap/api_salesorder/srvd_a2x/sap/api_salesorder/0001/",
+      "ODataVersion": "V4"
+    }
+  ]
+}
+```
+
  **Constraints:** 
 + The root object must contain an `SapServices` array.
 + The catalog supports a maximum of 1024 entries.
-+ Both `Description` and `ServiceUrl` are required and must be non-empty.
++  `Description` and `ServiceUrl` are required and must be non-empty on every entry.
++  `ServiceName` is required on every entry if `MCP_SERVER_CUSTOM_CATALOG_ODATA_VERSION` is `V4` or `MIXED`.
++  `ODataVersion` is required on every entry if `MCP_SERVER_CUSTOM_CATALOG_ODATA_VERSION` is `MIXED`.
 + If duplicate service names exist within your custom catalog, the server keeps the last occurrence.
 
 ### Upload the catalog to Amazon S3
@@ -297,6 +327,16 @@ MCP_SERVER_ALLOWED_SERVICE_PREFIXES=ZAPI_,ZCUSTOM_
 MCP_SERVER_ALLOWED_SERVICE_PREFIXES=*
 ```
 
+## Group Prefixes
+<a name="group-prefix-filtering"></a>
+
+Under OData V4, `find_sap_services` can filter by SAP catalog `GroupId` by setting `MCP_SERVER_ALLOWED_GROUP_PREFIXES`. When enabled, only services belonging to a catalog group whose `GroupId` starts with one of the configured prefixes are returned. Group prefix filtering is supported for OData V4 only.
+
+```
+# Allow only services in groups starting with API_SALES or API_ORDER
+MCP_SERVER_ALLOWED_GROUP_PREFIXES=API_SALES,API_ORDER
+```
+
 ## Cross-validation Rules
 <a name="cross-validation-rules"></a>
 
@@ -309,3 +349,5 @@ The server enforces the following cross-validation rules at startup. If any rule
 1.  **OAuth provider validated at startup.** When the authentication flow is `M2M`, `USER_FEDERATION`, or `ON_BEHALF_OF_TOKEN_EXCHANGE`, the server validates the `MCP_SERVER_SAP_OAUTH_PROVIDER` value against Bedrock AgentCore Identity during startup.
 
 1.  **Basic auth secret validated at startup.** When the authentication flow is `BASIC`, the server validates that the secret specified in `MCP_SERVER_BASIC_AUTH_SECRET_NAME` exists in AWS Secrets Manager.
+
+1.  **Prefix filters are mutually exclusive.** If both `MCP_SERVER_ALLOWED_SERVICE_PREFIXES` and `MCP_SERVER_ALLOWED_GROUP_PREFIXES` are set, the server rejects the configuration at load time.
