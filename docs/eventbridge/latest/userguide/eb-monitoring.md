@@ -17,7 +17,8 @@ CloudWatch metrics are delivered on a best-effort basis. Most EventBridge operat
 + [EventBridge metrics](#eb-metrics)
 + [Dimensions for EventBridge metrics](#eb-metrics-dimensions)
 + [Best practices for monitoring event delivery in Amazon EventBridge](eb-monitoring-events-best-practices.md)
-+ [EventBridge is the evolution of Amazon CloudWatch Events](eb-cwe-now-eb.md)
+
+This section describes Custom Event Bus - Classic. For the Custom Event Bus, which publishes its metrics in the `AWS/EventsV2` namespace and its subscriber logs through CloudWatch vended logs, see [Observability for the Custom Event Bus: metrics, logs, and CloudTrail](eb-custom-bus-observability.md).
 
 ## EventBridge metrics
 <a name="eb-metrics"></a>
@@ -26,7 +27,7 @@ The `AWS/Events` namespace includes the following metrics.
 
 For the metrics that use Count as a unit, Sum and SampleCount tend to be the most useful statistics.
 
-Metrics that specify only the `RuleName` dimension refer to the default event bus. Metrics that specify both the `EventBusName` and `RuleName` dimensions refer to a custom event bus. 
+Metrics that specify only the `RuleName` dimension refer to the default event bus. Metrics that specify both the `EventBusName` and `RuleName` dimensions refer to a Custom Event Bus - Classic. 
 
 
 | Metric | Description | Dimensions | Units | 
@@ -45,7 +46,7 @@ Metrics that specify only the `RuleName` dimension refer to the default event bu
 |  MatchedEvents  | If EventBusName or EventSourceName is specified, the number of events that matched with any rule. If RuleName is specified, the number of events that matched with a specific rule. | EventBusName, EventSourceName, RuleName | Count | 
 | RetryInvocationAttempts | Number of times target invocation has been retried.EventBridge only sends this metric to CloudWatch if it isn't zero. | EventBusName, None, RuleName | Count | 
 | SuccessfulInvocationAttempts | Number of times target was successfully invoked. | EventBusName, None, RuleName | Count | 
-|  ThrottledRules  | The number of times rule execution was throttled. Invocations for those rules may be delayed.<br />For more information, see **Invocations throttle limit in transactions per second** in [EventBridge event bus quotas](eb-quota.md#eb-limits). | EventBusName, None, RuleName | Count | 
+|  ThrottledRules  | The number of times rule execution was throttled. Invocations for those rules may be delayed.<br />For more information, see **Invocations throttle limit in transactions per second** in [Custom Event Bus - Classic quotas](eb-quota.md#eb-limits). | EventBusName, None, RuleName | Count | 
 |  TriggeredRules  | The number of rules that have run and matched with any event.<br />You won't see this metric in CloudWatch until a rule is triggered. | EventBusName, None, RuleName | Count | 
 |  EventBusEncryptionStarted  | The number of times a re-encryption operation has started for an event bus. Updating the event bus configuration triggers a re-encryption of the static configuration stored by EventBridge. | EventBusName | Count | 
 |  EventBusEncryptionCompleted  | The number of times a re-encryption operation has completed successfully for an event bus. Updating the event bus configuration triggers a re-encryption of the static configuration stored by EventBridge. | EventBusName | Count | 

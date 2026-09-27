@@ -11,7 +11,6 @@ You can send data in your pipe to a specific target. You can configure the follo
 + [ECS task](#pipes-targets-specifics-ecs-task)
 + [Event bus in the same account and Region](#pipes-targets-specifics-eventbridge)
 + Firehose delivery stream
-+ Inspector assessment template
 + Kinesis stream
 + [Lambda function (SYNC or ASYNC)](#pipes-targets-specifics-lambda-stepfunctions)
 + Redshift cluster data API queries

@@ -1,6 +1,6 @@
 
 
-# Creating Amazon EventBridge event patterns
+# Amazon EventBridge event patterns
 <a name="eb-event-patterns"></a>
 
 Chances are you won't want to process every single event that gets delivered to a given event bus or pipe. Rather, you'll likely want to select a subset of all the events delivered, based on the source of the event, the event type, and/or attributes of those events. 

@@ -8,10 +8,10 @@ Here's a closer look at the main components of an event driven architecture buil
 ## Event buses
 <a name="eb-bus-concepts-buses"></a>
 
-An event bus is a router that receives [events](eb-events.md) and delivers them to zero or more destinations,or *targets*. Use an event bus when you need to route events from many sources to many targets, with optional transformation of events prior to delivery to a target.
+A Classic event bus is a router that receives [events](eb-events.md) and delivers them to zero or more destinations, or *targets*. Use an event bus when you need to route events from many sources to many targets, with optional transformation of events prior to delivery to a target.
 
 Your account includes a *default event bus* that automatically receives events from AWS services. You can also:
-+ Create additional event buses, called *custom event buses*, and specify which events they receive.
++ Create additional event buses, called *custom event buses*, and specify which events they receive. A custom event bus on this page is a Custom Event Bus - Classic. It is not the [Custom Event Bus](eb-custom-bus.md).
 + Create *[partner event buses](eb-saas.md)*, which receive events from SaaS partners.
 
 Common use cases for event buses include:
@@ -60,7 +60,7 @@ Each rule is defined for a specific event bus, and only apply to events on that 
 
 A single rule can send an event to up to five targets.
 
-By default, you can configure up to 300 rules per event bus. This quota can be raised to thousands of rules in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home). Since the rule limit apply to each bus, if you require even more rules, you can create additional custom event buses in your account.
+By default, you can configure up to 300 rules per event bus. This quota can be raised to thousands of rules in the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home). Since the rule limit apply to each bus, if you require even more rules, you can create additional custom event buses (each a Custom Event Bus - Classic) in your account.
 
 You can customize how events are received in your account by creating event buses with different permissions for different services.
 

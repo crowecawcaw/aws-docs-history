@@ -3,20 +3,73 @@
 # Amazon EventBridge quotas
 <a name="eb-quota"></a>
 
-The following quotas apply to the various feature areas of Amazon EventBridge.
+The following quotas apply to the Custom Event Bus, to Custom Event Bus - Classic, to the API destinations and connections that both buses deliver to, to the schema registry, and to EventBridge Pipes.
+
+**Note**  
+If you use Custom Event Bus - Classic, the event bus that routes with rules and targets, see [Custom Event Bus - Classic quotas](#eb-limits).
 
 **Topics**
-+ [EventBridge event bus quotas](#eb-limits)
++ [Custom Event Bus quotas](#eb-custom-bus-quotas)
++ [Custom Event Bus - Classic quotas](#eb-limits)
++ [API destinations and connections](#eb-quota-shared)
 + [EventBridge Schema Registry quotas](#schema-quotas)
 + [EventBridge Pipes quotas](#eb-pipes-limits)
 
 **Note**  
 For a list of the quotas for EventBridge Scheduler, see [Quotas for EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/scheduler-quotas.html) in the *EventBridge Scheduler User Guide.*
 
-## EventBridge event bus quotas
+## Custom Event Bus quotas
+<a name="eb-custom-bus-quotas"></a>
+
+The Service Quotas console lists 6 quotas for the Custom Event Bus under Amazon EventBridge, each with an `[EventsV2]` prefix; 4 of them are adjustable. To raise the bus limit, for example, request an increase to `[EventsV2] Event Buses`. The other limits in this section are fixed values that the API enforces and are not adjustable. These quotas are separate from the Custom Event Bus - Classic quotas in [Custom Event Bus - Classic quotas](#eb-limits).
+
+### Service Quotas
+<a name="eb-custom-bus-quotas-service"></a>
+
+The following table lists the quotas in the Service Quotas console, per account per Region.
+
+
+| Quota | Default | Adjustable | 
+| --- | --- | --- | 
+| Event buses owned by the account. Buses shared with the account do not count | 5 | Yes | 
+| Event sources owned by the account | 200 | Yes | 
+| Subscribers per bus the account owns, counting every account the bus is shared with | 10,000 | Yes | 
+| Size, in bytes, of the default resource policy of a bus the account owns. The AWS\_RAM policy that AWS RAM writes for a shared bus does not count | 20,480 | Yes | 
+| Events per second per bus, counting every event source and every account the bus is shared with | 500,000 | No | 
+| Ingestion per event group per second, counted as the number of events plus their total size in KB in any one-second window | 1,500 | No | 
+
+Your account's bus count is also published as the `ResourceCount` metric in the `AWS/Usage` namespace, so you can alarm before you reach the limit; see [Observability for the Custom Event Bus: metrics, logs, and CloudTrail](eb-custom-bus-observability.md). Publishing and subscriber management are throttled separately for each account: `PutEvents` and `PutRawEvents` draw from one budget, and `CreateSubscriber` and `DeleteSubscriber` from another. Handle `ThrottlingException` with backoff and retry.
+
+If the `default` policy in a `PutResourcePolicy` call exceeds the resource policy size quota, the call fails with `PolicyLengthExceededException`. See [Write a custom resource policy](eb-custom-bus-sharing.md#eb-custom-bus-access-policy).
+
+### Fixed limits
+<a name="eb-custom-bus-quotas-fixed"></a>
+
+The following values are set by the API and cannot be raised. Where a setting takes a range, you choose any value in the range; the maximum is the fixed part.
+
+
+| Setting | You choose | Fixed maximum or value | 
+| --- | --- | --- | 
+| StorageConfiguration.RetentionPeriodInDays | 1 to 365 days | 365 days | 
+| RetryPolicy.MaxRetryAttempts | 0 to 185, default 5 | 185 | 
+| RetryPolicy.MaxEventAgeInSeconds | 60 to 86,400, default 300 | 86,400 seconds | 
+| BatchConfiguration.MaxBatchSize | 1 to 500 | 500 | 
+| BatchConfiguration.MaxBatchWindowInSeconds | 0 to 300, default 0 | 300 seconds | 
+| InvocationTimeoutSeconds on Lambda, Step Functions, and HTTP targets | 1 to 30, default 30 | 30 seconds | 
+| Entries per PutEvents or PutRawEvents request | 1 to 100 | 100 | 
+| Deduplication window | Not configurable | 300 seconds | 
+| JSONata expression in a Transformer or a target parameter | Not configurable | 8,192 characters | 
+| JSONata expression in a universal target's Input | Not configurable | 262,144 characters | 
+| Filters in one FilterConfiguration | Up to 3, one per scope | 4,096 bytes across all filters; 1,000 $or combinations | 
+| Filter changes per subscriber | Not configurable | 24 in any rolling 24 hours; see [Updating, pausing, and resuming a subscriber](eb-custom-bus-update.md) | 
+| Subscriber creates or deletes in progress on one bus | Not configurable | 1 across all accounts; a second call fails with ConcurrentModificationException | 
+| Subscribers replaying from a past position at the same time | Not configurable | Limited per bus; CreateSubscriber fails with LimitExceededException when reached | 
+| errorMessage in a dead-letter record | Not configurable | 1,024 characters | 
+
+## Custom Event Bus - Classic quotas
 <a name="eb-limits"></a>
 
-EventBridge event buses have the following quotas.
+Custom Event Bus - Classic has the following quotas. The Service Quotas table also lists the API destination, connection, and global endpoint quotas, which are account-level resources.
 
 The Service Quotas console provides information about EventBridge quotas. Along with viewing the default quotas, you can use the Service Quotas console to [request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/events/quotas) for adjustable quotas.
 
@@ -47,6 +100,11 @@ In addition, EventBridge has the following quotas that are not managed through t
 | Rules containing wildcards | Each supported Region: 30 rules per event bus | Maximum number of rules, per event bus per account, that can contain event filters that include wildcards. This quota cannot be adjusted.<br />For more information on using wildcards in event patterns, see [Matching using wildcards](eb-create-pattern-operators.md#eb-filtering-wildcard-matching). | 
 | Schema discovery levels | Each supported Region: 255 levels | Maximum number of levels schema discovery will infer events that are nested. Any events past 255 levels are ignored. | 
 | Connections (Private) | Each supported Region: 20 | The maximum number of private connections per account per Region. | 
+
+## API destinations and connections
+<a name="eb-quota-shared"></a>
+
+API destinations and connections belong to your account, not to a bus, and both buses use them: a Custom Event Bus - Classic rule targets an API destination, and a Custom Event Bus subscriber delivers to one through `HttpParameters`. A Custom Event Bus producer that publishes Avro or Protobuf with a Confluent schema registry also names a connection. One set of quotas covers all of that use. In the Service Quotas table in [Custom Event Bus - Classic quotas](#eb-limits), the rows *Api destinations*, *Connections*, and *Rate of invocations per API destination* are the account-wide values; the invocation rate is shared by every rule and subscriber that targets the same API destination. The fixed table in the same section lists the private connection limit.
 
 ## EventBridge Schema Registry quotas
 <a name="schema-quotas"></a>

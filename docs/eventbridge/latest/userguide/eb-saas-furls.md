@@ -214,7 +214,7 @@ The number of incoming requests to the webhook is capped by the underlying AWS s
 | --- | --- | 
 | AWS Lambda | Default: 10 concurrent executions<br />For more information about quotas, including requesting quota increases, see [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html). | 
 | AWS Secrets Manager | Default: 5,000 requests per second<br />For more information about quotas, including requesting quota increases, see [AWS Secrets Manager quotas](https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_limits.html).The number of requests per second is minimized using the [AWS Secrets Manager Python caching client](https://github.com/aws/aws-secretsmanager-caching-python#cache-configuration). | 
-| Amazon EventBridge | 1 MB maximum entry size for PutEvents actions. <br />EventBridge enforces Region-based rate quotas. For more information, see [EventBridge event bus quotas](eb-quota.md#eb-limits). | 
+| Amazon EventBridge | 1 MB maximum entry size for PutEvents actions. <br />EventBridge enforces Region-based rate quotas. For more information, see [Custom Event Bus - Classic quotas](eb-quota.md#eb-limits). | 
 
 ### Error codes
 <a name="furls-errors"></a>

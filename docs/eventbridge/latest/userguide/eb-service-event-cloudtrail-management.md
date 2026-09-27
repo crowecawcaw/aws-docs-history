@@ -20,7 +20,7 @@ Some things to consider when deciding whether to receive read-only management ev
 
 **To create a rule that receives read-only management events using the AWS CLI**
 + Use the `put-rule` command to create or update the rule, using parameters to:
-  + Specify that the rule belongs on the default event bus, or a specific custom event bus
+  + Specify that the rule belongs on the default event bus, or a specific Custom Event Bus - Classic
   + Set rule state as `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`
 
   `aws events put-rule --name "{{ruleForManagementEvents}}" --event-bus-name "default" --state "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS"`

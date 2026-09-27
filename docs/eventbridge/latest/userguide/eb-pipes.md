@@ -6,7 +6,7 @@
 Amazon EventBridge Pipes connects sources to targets. Pipes are intended for point-to-point integrations between supported [sources](eb-pipes-event-source.md) and [targets](eb-pipes-event-target.md), with support for advanced transformations and [enrichment](pipes-enrichment.md). It reduces the need for specialized knowledge and integration code when developing event-driven architectures, fostering consistency across your company’s applications. To set up a pipe, you choose the source, add optional filtering, define optional enrichment, and choose the target for the event data.
 
 **Note**  
-You can also route events using event buses. Event buses are well-suited for many-to-many routing of events between event-driven services. For more information, see [Event buses in Amazon EventBridge](eb-event-bus.md).
+You can also route events using event buses. Event buses are well-suited for many-to-many routing of events between event-driven services. For more information, see [Amazon EventBridge event bus (default and Classic)](eb-event-bus.md).
 
 ## How EventBridge Pipes work
 <a name="pipes-how-it-works"></a>

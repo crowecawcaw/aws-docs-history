@@ -5,6 +5,9 @@
 
  AWS CloudTrail is a service that automatically records events such as AWS API calls. You can create EventBridge rules that use the information from CloudTrail. For more information about CloudTrail, see [What is AWS CloudTrail?](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html).
 
+**Note**  
+CloudTrail also records the Custom Event Bus management API calls, such as `CreateEventBus`, `CreateSubscriber`, and `PutResourcePolicy`, made through the `eventsv2` endpoint. See [Observability for the Custom Event Bus: metrics, logs, and CloudTrail](eb-custom-bus-observability.md).
+
 CloudTrail sends the following types of events to the default EventBridge event bus. In each case, the `detail-type` value of the event is the listed event type:
 + `AWS API Call via CloudTrail`
 
@@ -40,10 +43,10 @@ CloudTrail sends the following types of events to the default EventBridge event 
 To record events with one of the CloudTrail `detail-type` values, you must enable a CloudTrail trail with logging. For more information, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html) in the *AWS CloudTrail User Guide*.
 
 **Note**  
-All CloudTrail events are delivered to the default event bus only. To process CloudTrail events on a custom event bus, create a rule on the default bus that forwards matching events to your custom bus.
+All CloudTrail events are delivered to the default event bus only. To process CloudTrail events on a Custom Event Bus - Classic, create a rule on the default bus that forwards matching events to your Classic custom bus.
 
 **Note**  
-If you forward read-only management events to another event bus (a custom event bus, or a bus in another account or Region), two rules need the state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`: the forwarding rule on the default event bus, and the rule on the destination event bus. A rule in the default `ENABLED` state does not match read-only management events, so its targets are not invoked.
+If you forward read-only management events to another event bus (a Custom Event Bus - Classic, or a bus in another account or Region), two rules need the state `ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS`: the forwarding rule on the default event bus, and the rule on the destination event bus. A rule in the default `ENABLED` state does not match read-only management events, so its targets are not invoked.
 
 The rule state controls which event categories are matched:
 + *Write (mutating) management events* — Matched by rules in the default `ENABLED` state. No special configuration needed beyond an active trail.

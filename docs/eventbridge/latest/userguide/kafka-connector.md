@@ -5,6 +5,9 @@
 
 The Kafka sink connector for EventBridge allows you convert records from one or more Kafka topics into events, and send those events to the event bus of your choice.
 
+**Note**  
+This connector publishes to a Custom Event Bus - Classic. To bring Kafka records onto a Custom Event Bus in Avro or Protobuf, publish them with `PutRawEvents` and a Confluent or Glue schema registry; see [Supported content types: JSON, Avro, Protobuf, and raw bytes](eb-custom-bus-open-formats.md).
+
 The connector includes the following capabilities:
 + Customizable mapping of Kafka records to event types.
 

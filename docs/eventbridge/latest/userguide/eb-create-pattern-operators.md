@@ -229,7 +229,7 @@ For more information, see [Matching using wildcards](#eb-filtering-wildcard-matc
 ## Numeric matching
 <a name="filtering-numeric-matching"></a>
 
-Numeric matching works with values that are JSON numbers. It is limited to values between -5.0e9 and \+5.0e9 inclusive, with 15 digits of precision, or six digits to the right of the decimal point.
+Numeric matching compares values as 64-bit double-precision floating-point numbers (IEEE 754 binary64), which limits the integers that can be matched exactly. Integers are matched exactly from -9,007,199,254,740,992 to 9,007,199,254,740,992 (-253 to \+253). If a value falls outside this range or otherwise cannot be represented exactly as a double, EventBridge rejects the rule at creation time when the value is used in a numeric comparison, and an event carrying such a value is not treated as a number and will not match a numeric comparison.
 
 The following shows numeric matching for an event pattern that only matches events that are true for all fields. 
 

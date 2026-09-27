@@ -5,6 +5,9 @@
 
 You can use AWS X-Ray to trace [events](eb-events.md) that pass through EventBridge. EventBridge passes the original trace header to the [target](eb-targets.md) so that target services can track, analyze, and debug.
 
+**Note**  
+This page applies to Custom Event Bus - Classic. A Custom Event Bus subscriber propagates a trace header to Step Functions targets through `StepFunctionsParameters.TraceHeader` and to Amazon SQS targets through `MessageSystemAttributes`; see [Targets for a Custom Event Bus subscriber](eb-custom-bus-targets.md).
+
 EventBridge can pass a trace header for an event only if the event came from a `PutEvents` request that passed the trace context. X-Ray doesn't trace events that originate from third-party partners, scheduled events, or [AWS services](eb-events.md#eb-service-event), and these event sources don't appear on your X-Ray service map.
 
 X-Ray validates trace headers, and trace headers that aren't valid are dropped. However, the event is still processed.

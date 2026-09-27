@@ -5,6 +5,9 @@
 
 EventBridge *API destinations* are HTTPS endpoints that you can invoke as the target of an event bus rule, or pipe, similar to how you invoke an AWS service or resource as a target. Using API destinations, you can route [events](eb-events.md) between AWS services, integrated software as a service (SaaS) applications, and public or private applications by using API calls. 
 
+**Note**  
+The examples on this page use rules. A Custom Event Bus subscriber uses the same API destinations: set the API destination ARN as the subscriber's `TargetArn` with `HttpParameters`. See [HTTP targets: API Gateway and API destinations](eb-custom-bus-target-http.md).
+
 When you specify an API destination as a rule or pipe target, EventBridge invokes the HTTPS endpoint for any event that matches the [event pattern](eb-event-patterns.md) specified in the rule or pipe and then delivers the event information with the request. With EventBridge, you can use any HTTP method except CONNECT and TRACE for the request. The most common HTTP methods to use are PUT and POST. 
 
 You can also use input transformers to customize the event to the parameters of a specific HTTP endpoint parameters. For more information, see [Amazon EventBridge input transformation](eb-transform-target-input.md).

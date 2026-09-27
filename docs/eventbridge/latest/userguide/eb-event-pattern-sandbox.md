@@ -5,7 +5,7 @@
 
 Defining an event pattern is typically part of the larger process of [creating a new rule](eb-create-rule-visual.md) or editing an existing one. Using the Sandbox in EventBridge, however, you can quickly define an event pattern and use a sample event to confirm the pattern matches the desired events, without having to create or edit a rule. Once you've got your event pattern tested, EventBridge give you the option of creating a new rule using that event pattern directly from the sandbox.
 
-For more information about event patterns, see [Creating Amazon EventBridge event patterns](eb-event-patterns.md).
+For more information about event patterns, see [Amazon EventBridge event patterns](eb-event-patterns.md).
 
 **Important**  
 In EventBridge, it is possible to create rules that can lead to higher-than-expected charges and throttling. For example, you can inadvertently create a rule that leads to an infinite loop, where a rule is fired recursively without end. Suppose you created a rule to detect that ACLs have changed on an Amazon S3 bucket, and trigger software to change them to the desired state. If the rule is not written carefully, the subsequent change to the ACLs fires the rule again, creating an infinite loop.  

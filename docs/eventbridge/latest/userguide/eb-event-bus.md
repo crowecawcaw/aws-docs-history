@@ -1,9 +1,11 @@
 
 
-# Event buses in Amazon EventBridge
+# Amazon EventBridge event bus (default and Classic)
 <a name="eb-event-bus"></a>
 
-An event bus is a router that receives [events](eb-events.md) and delivers them to zero or more destinations, or *targets*. Event buses are well-suited for routing events from many sources to many targets, with optional transformation of events prior to delivery to a target. 
+This chapter describes the default event bus in every account and the Custom Event Bus - Classic buses you create: the EventBridge event buses that route events with rules and targets that the bus owner writes. EventBridge also offers the [Custom Event Bus](eb-custom-bus.md), which routes events to subscribers that consumers create themselves and retains events for replay. For new applications, start with the Custom Event Bus. To move existing rules to subscribers, see [Migrating from Custom Event Bus - Classic to the Custom Event Bus](eb-custom-bus-migrate.md).
+
+A Classic event bus is a router that receives [events](eb-events.md) and delivers them to zero or more destinations, or *targets*. Classic event buses are well-suited for routing events from many sources to many targets, with optional transformation of events prior to delivery to a target. 
 
 ![Sources send events to an EventBridge event bus, which then routes them to the appropriate targets.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/bus_eventbridge_conceptual.svg)
 

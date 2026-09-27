@@ -7,6 +7,9 @@ A *target* is a resource or endpoint that EventBridge sends an [event](eb-events
 
 When you add targets to a rule and that rule runs soon after, any new or updated targets might not be immediately invoked. Allow a short period of time for changes to take effect.
 
+**Note**  
+This topic describes targets for Custom Event Bus - Classic rules. On the [Custom Event Bus](eb-custom-bus.md), a target belongs to a subscriber rather than a rule. Each subscriber delivers to exactly one target, configured in `InvokeConfiguration` with at most one parameter block that matches the target type, and a subscriber can invoke any supported AWS API action directly through a universal target. For more information, see [Subscribing to events on a Custom Event Bus](eb-custom-bus-subscribers.md).
+
 ## Event bus targets available in the EventBridge console
 <a name="eb-console-targets"></a>
 
@@ -37,7 +40,6 @@ You can configure the following target types for rules in the EventBridge consol
   + Firehose delivery stream
   + Glue workflow
   + [Incident Manager response plan](https://docs.aws.amazon.com//incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge)
-  + Inspector assessment template
   + Kinesis stream
   + Lambda function (ASYNC)
   + [Amazon Redshift cluster data API queries](https://docs.aws.amazon.com/redshift/latest/mgmt/data-api-calling-event-bridge.html) 

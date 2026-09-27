@@ -10,7 +10,7 @@ You can create a custom [event bus](eb-event-bus.md) to receive [events](eb-even
 
 
 
-**To create a custom event bus**
+**To create a Custom Event Bus - Classic**
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 

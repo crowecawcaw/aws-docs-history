@@ -21,7 +21,7 @@ For a walkthrough of this example application, see [Tutorial: Create a sample Am
 The first approach uses the `Events` property to configure the EventBridge rule. The following example code defines an [event](eb-events.md) that invokes your Lambda function.
 
 **Note**  
-This example automatically creates the rule on the default [event bus](eb-event-bus.md), which exists in every AWS account. To associate the rule with a custom event bus, you can add the `EventBusName` to the template.
+This example automatically creates the rule on the default [event bus](eb-event-bus.md), which exists in every AWS account. To associate the rule with a , you can add the `EventBusName` to the template.
 
 ```
 atmConsumerCase3Fn:

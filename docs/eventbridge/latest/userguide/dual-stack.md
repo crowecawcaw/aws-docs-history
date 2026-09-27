@@ -8,7 +8,8 @@ In addition to the IPv4 service endpoints, EventBridge also provides dual-stack 
 
 | Resource | Region endpoint | FIPS endpoint | Regions | 
 | --- | --- | --- | --- | 
-| [Event buses](eb-event-bus.md) | `HTTPS://events.{{region-code}}.api.aws`<br /> |  HTTPS://events-fips.{{region-code}}.api.aws  | [EventBridge](https://docs.aws.amazon.com/general/latest/gr/ev.html#ev_region) | 
+| [Custom Event Bus](eb-custom-bus.md) | `HTTPS://eventsv2.{{region-code}}.api.aws` |  HTTPS://eventsv2-fips.{{region-code}}.api.aws  | See [Names, endpoints, and IAM permissions for the Custom Event Bus](eb-custom-bus-names.md) | 
+| [Custom Event Bus - Classic](eb-event-bus.md) | `HTTPS://events.{{region-code}}.api.aws`<br /> |  HTTPS://events-fips.{{region-code}}.api.aws  | [EventBridge](https://docs.aws.amazon.com/general/latest/gr/ev.html#ev_region) | 
 | [Pipes](eb-pipes.md) | `HTTPS://pipes.{{region-code}}.api.aws` | `HTTPS:://pipes-fips.{{region-code}}.api.aws` | [EventBridge Pipes](https://docs.aws.amazon.com/general/latest/gr/ev_pipes.html#ev_pipes_region) | 
 | [Scheduler](using-eventbridge-scheduler.md) | `HTTPS://scheduler.{{region-code}}.api.aws` | `HTTPS://scheduler-fips.{{region-code}}.api.aws` | [EventBridge Scheduler](https://docs.aws.amazon.com/general/latest/gr/eventbridgescheduler.html#eventbridgescheduler_region) | 
 | [Schemas](eb-schema.md) | `HTTPS://schemas.{{region-code}}.api.aws` | `HTTPS://schemas-fips.{{region-code}}.api.aws` | [EventBridge Schemas](https://docs.aws.amazon.com/general/latest/gr/eventbridgeschemas.html#eventbridgeschemas_region) | 

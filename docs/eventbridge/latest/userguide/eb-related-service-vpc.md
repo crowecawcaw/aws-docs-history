@@ -5,6 +5,9 @@
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can establish a private connection between your VPC and EventBridge. Your resources on your VPC can use this connection to communicate with EventBridge.
 
+**Note**  
+The Custom Event Bus has its own endpoint service names: `com.amazonaws.{{region}}.eventsv2` and `com.amazonaws.{{region}}.eventsv2-fips`. Create a separate interface endpoint for them; the `events` endpoint on this page serves Custom Event Bus - Classic only. See [Names, endpoints, and IAM permissions for the Custom Event Bus](eb-custom-bus-names.md).
+
 With a VPC, you have control over your network settings, such as the IP address range, subnets, route tables, and network gateways. To connect your VPC to EventBridge, you define an *interface VPC endpoint* for EventBridge. The endpoint provides reliable, scalable connectivity to EventBridge without requiring an internet gateway, network address translation (NAT) instance, or VPN connection. For more information, see [What is Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/) in the *Amazon VPC User Guide*.
 
 Interface VPC endpoints are powered by AWS PrivateLink, which enables private communication between AWS services using an elastic network interface with private IP addresses. For more information, see [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html).

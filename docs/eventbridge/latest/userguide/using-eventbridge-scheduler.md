@@ -88,7 +88,7 @@ EventBridge Scheduler is highly customizable, and offers improved scalability ov
         To determine a service's prefix, see [The condition keys table](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html#context_keys_table) in the *Service Authorization Reference*. For more information about source and detail-type event values, see [AWS service event metadata](https://docs.aws.amazon.com/eventbridge/latest/ref/events-structure.html) in the *Events Reference*.>.
       + (Optional): For **Detail**, enter an event pattern to further filter the events EventBridge Scheduler sends to EventBridge.
 
-        For more information, see [Creating Amazon EventBridge event patterns](eb-event-patterns.md).
+        For more information, see [Amazon EventBridge event patterns](eb-event-patterns.md).
 
 1. Choose **Next**. 
 
