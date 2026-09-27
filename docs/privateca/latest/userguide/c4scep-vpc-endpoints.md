@@ -60,7 +60,7 @@ When attached to an endpoint, the following policy grants access for all princip
             "pca-connector-scep:GetConnector",
             "pca-connector-scep:ListConnectors"
          ],
-         "Resource": "arn:aws:pca-connector-scep:{{region}}:{{account}}:connector/{{connector-id}}"
+         "Resource": "arn:aws:pca-connector-scep:us-east-1:111122223333:connector/{{connector-id}}"
       }
    ]
 }
@@ -111,7 +111,7 @@ Connector for SCEP enrollment operations aren't authenticated with SigV4. Due to
             "pca-connector-scep:PKIOperation"
          ],
          "Resource": [
-            arn:{{aws}}:pca-connector-scep:{{us-east-1}}:{{111122223333}}:connector/{{11223344-1234-1122-2233-112233445566}}
+            "arn:{{aws}}:pca-connector-scep:{{us-east-1}}:{{111122223333}}:connector/{{11223344-1234-1122-2233-112233445566}}"
          ]
       }
    ]

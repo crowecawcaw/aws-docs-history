@@ -60,6 +60,7 @@ AWS Private CA integrates with CloudTrail to record API actions made by a user, 
 + [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html)
 + [UpdateCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UpdateCertificateAuthority.html)
 + `GenerateOCSPResponse` - Triggered when AWS Private CA generates a OCSP response.
++ `IssueCertificateDetails` – Generated when AWS Private CA completes a certificate issuance attempt (success or failure). Contains certificate metadata including the TBS certificate, signing algorithm, validity period, and issuance status. When the certificate is issued from a shared CA, this event is delivered to both the CA owner account and the requester account.
 + `SignCertificate` - Generated when your client calls [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html).
 + `SignOCSPResponse` - Generated when AWS Private CA signs an OCSP response.
 + `GenerateCRL` - Generated when AWS Private CA generates a certificate revocation list (CRL).
@@ -80,6 +81,155 @@ To trace certificate issuance back to the original requester, the intermediate s
 + **IAM Roles Anywhere** — If the calling workload authenticates with an X.509 certificate via IAM Roles Anywhere, the certificate's Subject, Issuer, and Subject Alternative Name (SAN) fields are automatically mapped to session principal tags. For example, a SPIFFE ID in the SAN appears as `aws:PrincipalTag/x509SAN/URI`. For more information, see [The IAM Roles Anywhere trust model](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/trust-model.html).
 
 These identity attributes are recorded in CloudTrail events for all AWS service calls, including AWS Private CA API operations.
+
+## AWS Private CA service events
+<a name="pca-service-events"></a>
+
+In addition to management events recorded from API calls, AWS Private CA generates service events that provide visibility into internal operations performed on your behalf. These events have an `eventType` of `AwsServiceEvent` and are logged automatically to your CloudTrail trail.
+
+### `IssueCertificateDetails` event
+<a name="pca-issue-certificate-details"></a>
+
+AWS Private CA generates an `IssueCertificateDetails` event when a certificate issuance attempt completes. The event records the outcome — whether the certificate was successfully issued or the issuance failed — and describes the certificate issuance process, including details such as:
++ The TBS (to-be-signed) certificate structure (base64-encoded DER)
++ The issuing CA's name, authority key identifier, and serial number
++ The issued certificate's serial number, subject, and validity period
++ The signing algorithm and template used
++ Issuance status with a failure reason when applicable
+
+When a certificate is issued from a shared CA, the event is delivered to both the CA owner's account and the requester's account. For failed issuance attempts, the event may include the `statusReason` field explaining the cause of failure.
+
+**Note**  
+The `IssueCertificateDetails` event complements the existing `SignCertificate` event by providing additional metadata about the issuance, including failure details and the full TBS certificate content.
+
+**Example: Successful certificate issuance**  
+The following example shows an `IssueCertificateDetails` event for a successfully issued certificate.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "{{111122223333}}",
+        "invokedBy": "acm-pca.amazonaws.com"
+    },
+    "eventTime": "2026-08-10T15:27:20Z",
+    "eventSource": "acm-pca.amazonaws.com",
+    "eventName": "IssueCertificateDetails",
+    "awsRegion": "{{us-west-2}}",
+    "sourceIPAddress": "acm-pca.amazonaws.com",
+    "userAgent": "acm-pca.amazonaws.com",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "{{83fecbfe-7e3a-4a14-8968-c99ad2d30d39}}",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "{{111122223333}}",
+            "type": "AWS::ACMPCA::CertificateAuthority",
+            "ARN": "arn:aws:acm-pca:{{us-west-2}}:{{111122223333}}:certificate-authority/{{9bb0e8f5-b024-4517-b0bb-e886cb34ac01}}"
+        },
+        {
+            "accountId": "{{111122223333}}",
+            "type": "AWS::ACMPCA::Certificate",
+            "ARN": "arn:aws:acm-pca:{{us-west-2}}:{{111122223333}}:certificate-authority/{{9bb0e8f5-b024-4517-b0bb-e886cb34ac01}}/certificate/{{1a98eb0323009660dff81ac79ab4539e}}"
+        }
+    ],
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "{{111122223333}}",
+    "serviceEventDetails": {
+        "tbsCertificate": "{{MIIBZaADAgECAhAamOsDIwCWYN...}}",
+        "issuerAuthorityKeyIdentifier": "{{16:E9:CC:B3:8A:DE:98:0F:10:BB:48:53:A4:1D:FD:A5:F2:EC:FE:5D}}",
+        "issuerSerialNumber": "{{01}}",
+        "issuerName": "{{CN=Example Intermediate CA}}",
+        "subject": "{{CN=www.example.com}}",
+        "serialNumber": "{{1A:98:EB:03:23:00:96:60:DF:F8:1A:C7:9A:B4:53:9E}}",
+        "notBefore": "2026-08-10T14:27:20Z",
+        "notAfter": "2026-08-17T15:27:20Z",
+        "issuedAt": "2026-08-10T15:27:20Z",
+        "templateArn": "arn:aws:acm-pca:::template/EndEntityCertificate/V1",
+        "signingAlgorithm": "ECDSAWITHSHA256",
+        "status": "ISSUED"
+    },
+    "eventCategory": "Management"
+}
+```
+
+**Example: Failed certificate issuance**  
+The following example shows an `IssueCertificateDetails` event for a failed certificate issuance. When issuance fails, the `status` field is `FAILED` and the `statusReason` field describes the cause. The validity fields (`notBefore`, `notAfter`) and `issuedAt` are omitted because no certificate was issued. Fields derived from the TBS certificate (`tbsCertificate`, `subject`, `issuerName`, `serialNumber`, and `issuerAuthorityKeyIdentifier`) are present only when the failure occurred after AWS Private CA generated the TBS certificate.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "{{111122223333}}",
+        "invokedBy": "acm-pca.amazonaws.com"
+    },
+    "eventTime": "2026-08-10T15:27:20Z",
+    "eventSource": "acm-pca.amazonaws.com",
+    "eventName": "IssueCertificateDetails",
+    "awsRegion": "{{us-west-2}}",
+    "sourceIPAddress": "acm-pca.amazonaws.com",
+    "userAgent": "acm-pca.amazonaws.com",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "{{fedcba98-7654-3210-fedc-ba9876543210}}",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "{{111122223333}}",
+            "type": "AWS::ACMPCA::CertificateAuthority",
+            "ARN": "arn:aws:acm-pca:{{us-west-2}}:{{111122223333}}:certificate-authority/{{9bb0e8f5-b024-4517-b0bb-e886cb34ac01}}"
+        },
+        {
+            "accountId": "{{111122223333}}",
+            "type": "AWS::ACMPCA::Certificate",
+            "ARN": "arn:aws:acm-pca:{{us-west-2}}:{{111122223333}}:certificate-authority/{{9bb0e8f5-b024-4517-b0bb-e886cb34ac01}}/certificate/{{d6b81f1bf0563e97c29584a55c3ea553}}"
+        }
+    ],
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "{{111122223333}}",
+    "serviceEventDetails": {
+        "tbsCertificate": "{{MIIBZaADAgECAhAamOsDIwCWYN...}}",
+        "issuerAuthorityKeyIdentifier": "{{16:E9:CC:B3:8A:DE:98:0F:10:BB:48:53:A4:1D:FD:A5:F2:EC:FE:5D}}",
+        "issuerSerialNumber": "{{01}}",
+        "issuerName": "{{CN=Example Intermediate CA}}",
+        "subject": "{{CN=www.example.com}}",
+        "serialNumber": "{{D6:B8:1F:1B:F0:56:3E:97:C2:95:84:A5:5C:3E:A5:53}}",
+        "templateArn": "arn:aws:acm-pca:::template/EndEntityCertificate/V1",
+        "signingAlgorithm": "ECDSAWITHSHA256",
+        "status": "FAILED",
+        "statusReason": "Name Constraints violation: DNS name not found in a permitted subtree."
+    },
+    "eventCategory": "Management"
+}
+```
+
+The following table describes the fields in the `serviceEventDetails` object.
+
+
+| Field | Description | 
+| --- | --- | 
+| tbsCertificate | The base64-encoded DER representation of the TBS (to-be-signed) certificate structure. Contains the same information that appears in the issued certificate. For failed issuance, present only if the failure occurred after the TBS certificate was generated. | 
+| issuerAuthorityKeyIdentifier | The authority key identifier of the issuing CA, extracted from the TBS certificate extensions and formatted as colon-separated hexadecimal bytes. Omitted when the certificate doesn't include the authority key identifier extension (for example, self-signed root CA certificates), and for failed issuance if the failure occurred before the TBS certificate was generated. | 
+| issuerSerialNumber | The serial number of the issuing CA certificate, formatted as colon-separated hexadecimal bytes. Omitted when the CA certificate is not available. | 
+| issuerName | The distinguished name (DN) of the issuing CA, from the TBS certificate. For failed issuance, present only if the failure occurred after the TBS certificate was generated. | 
+| subject | The distinguished name (DN) of the certificate subject, from the TBS certificate. For failed issuance, present only if the failure occurred after the TBS certificate was generated. | 
+| serialNumber | The serial number of the certificate, formatted as colon-separated hexadecimal bytes. For failed issuance, present only if the failure occurred after the TBS certificate was generated. | 
+| notBefore | The start of the certificate validity period in ISO 8601 format. Omitted if issuance failed. | 
+| notAfter | The end of the certificate validity period in ISO 8601 format. Omitted if issuance failed. | 
+| issuedAt | The timestamp when the certificate was issued in ISO 8601 format. Omitted if issuance failed. | 
+| templateArn | The ARN of the certificate template used for issuance. | 
+| signingAlgorithm | The signing algorithm used (for example, ECDSAWITHSHA256 or SHA256WITHRSA). | 
+| status | The outcome of the issuance attempt: ISSUED or FAILED. AWS Private CA records an IssueCertificateDetails event only after issuance reaches one of these terminal states, so this field is never PENDING. A certificate that is still being processed doesn't generate an event until issuance succeeds or fails; use [GetCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_GetCertificate.html) to check the status of a certificate whose event hasn't appeared yet. | 
+| statusReason | The reason for issuance failure. Present only when a failure reason is available; some failed issuance events don't include this field. | 
+| requesterAccountId | The AWS account ID that requested the certificate. Present only when the request was not made by an AWS service on your behalf. | 
+| requesterArn | The ARN of the principal that requested the certificate. Present only when the request was not made by an AWS service on your behalf. | 
+| requesterServicePrincipal | The AWS service principal (for example, acm.amazonaws.com) that requested the certificate on your behalf. Present only when an AWS service made the request. | 
+
+**Note**  
+Some certificate issuances are attributed to an internal AWS process rather than to a customer principal. In those cases, the event includes none of the `requesterAccountId`, `requesterArn`, or `requesterServicePrincipal` fields. Don't assume that one of these three fields is always present.
 
 ## Example AWS Private CA events
 <a name="understanding-service-name-entries-pca"></a>
