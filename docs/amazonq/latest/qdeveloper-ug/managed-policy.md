@@ -106,8 +106,6 @@ View details about updates to AWS managed policies for Amazon Q Developer since 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  [AmazonQFullAccess](#amazonq-policy-fullaccess) - Updated policy | Added `q:CreateArtifact`, `q:GetArtifact`, `q:GetArtifactActionResult`, and `q:PerformArtifactAction` permissions to enable Amazon Q artifacts (preview). | May 21, 2026 | 
-|  [AmazonQDeveloperAccess](#amazonq-policy-developeraccess) - Updated policy | Added `q:CreateArtifact`, `q:GetArtifact`, `q:GetArtifactActionResult`, and `q:PerformArtifactAction` permissions to enable Amazon Q artifacts (preview). | May 21, 2026 | 
 |  [AmazonQDeveloperAccess](#amazonq-policy-developeraccess) - Updated policy | Additional permissions have been added to enable access to KMS keys to authorize with Identity Center. | October 29, 2025 | 
 |  [AmazonQFullAccess](#amazonq-policy-fullaccess) - Updated policy | Additional permissions have been added to enable access to KMS keys to authorize with Identity Center. | October 29, 2025 | 
 |  [AWSServiceRoleForUserSubscriptions](#amazonq-policy-AWSServiceRoleForUserSubscriptions) - Updated policy | Additional permissions have been added to enable access to KMS keys to authorize with Identity Center. | October 29, 2025 | 

@@ -10,11 +10,15 @@ Amazon Q analyzes your CloudWatch telemetry and operational data to help manage 
 + Is anything wrong with my Amazon ECS clusters?
 + Help me troubleshoot my DynamoDB tables between time X and Y.
 + Investigate anomalies related to Amazon S3 between time X and Y.
++ Graph network utilization for my Amazon EC2 instances over 12 hours across all regions.
++ Show me CPU utilization trends for my Lambda functions this week.
 
 **Alarm troubleshooting:** Identifies alarms in Alarm state and the underlying telemetry that triggered the alarm, helping customers diagnose the reasons behind the alarm/alert/pages.
 + Why is my alarm with name X firing?
++ Show me the metrics that triggered my alarm X over the last 6 hours.
 
 **Application Signals specific troubleshooting:** Analyzes CloudWatch Application Signals service-level objectives and indicators to determine the overall health of a service, enabling you to assess and maintain application performance.
 + Is my Service X in environment Y healthy?
++ Create a latency chart for my API Gateway endpoints over the last 6 hours.
 
 For more information about how Amazon Q analyzes your CloudWatch telemetry and operational data, see *CloudWatch investigations* in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Investigations.html).

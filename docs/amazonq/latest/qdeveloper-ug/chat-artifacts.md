@@ -3,18 +3,11 @@
 # Using Q artifacts in Amazon Q
 <a name="chat-artifacts"></a>
 
-Amazon Q artifacts enable Amazon Q to deliver responses enriched with table and chart visualizations. When you ask natural language questions about your resources, Amazon Q may display an artifact that helps you quickly understand your resources at a glance.
+Amazon Q artifacts enable Amazon Q to deliver responses enriched with visualizations such as tables, charts, and dashboards. When you ask natural language questions about your resources, Amazon Q may display an artifact that helps you quickly understand your resources at a glance. You can paginate, filter, and sort results directly within the response.
 
 The Q experience is now more usable and useful. Access Q easily from the navigation bar next to search. The Q chat panel opens and can expand to full screen. A new prompt library helps you discover useful example prompts.
 
 To get started, ensure you have the required permissions, and then review the example prompts to get the most out of Amazon Q artifacts. For more information, see [Prerequisites](#chat-artifacts-prereqs) and [Example prompts](#chat-artifacts-example-prompts).
-
-## What you can do
-<a name="chat-artifacts-what-you-can-do"></a>
-
-With Amazon Q artifacts, you can:
-+ **Generate visualizations for your AWS resources:** When you ask a question about your resources, Amazon Q creates visualizations like tables and charts so you can quickly understand the state of your account resources.
-+ **Complete cross-service jobs (preview):** Amazon Q artifacts are available for jobs for most common AWS services such as EC2, RDS, Lambda, and others, to guide you through the steps for provisioning infrastructure, connecting services, and securing applications. For example, when you enter "Connect EC2 instance to an S3 bucket", the retrieved Q artifact enables you to grant permissions to an S3 bucket in your EC2 instance profile and make appropriate bucket policy changes. The permissions needed to use Amazon Q artifacts are described in the example IAM policy [Allow users to use Q artifacts in Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-artifacts).
 
 ## Prerequisites
 <a name="chat-artifacts-prereqs"></a>
@@ -56,5 +49,9 @@ The following categories and associated prompts are examples of the types of tas
 + **View resource information ** – Visualize resource information in table or chart format.
 + **Get billing recommendations and forecasts** – Show me a line chart of my forecasted costs for the next 6 months, Graph RDS costs by instance type by month for the last 6 months.
 + **Security and compliance** – Check traffic and internet accessibility to EC2 resources, verify internet connectivity for EC2 instances across regions.
++ **Resource detail** – Show me the configuration details for my EC2 instance i-xxxx.
++ **Time-series charts** – Graph network utilization for my EC2 instances over 12 hours across all regions.
++ **Permissions/Security** – Which instances across all regions are open to the world?
++ **Troubleshooting diagnostics** – Why is my ECS task failing in cluster my-ecs-cluster?
 
 For a list of suggested use cases, choose the Amazon Q prompt library icon in the Q chat panel and filter by table or visualization response type.

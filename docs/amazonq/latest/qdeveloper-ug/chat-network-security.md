@@ -13,8 +13,6 @@ Amazon Q can help you analyze your network security configurations, identify mis
 
 When you ask Amazon Q about your network security, its responses include specific information about your resources, related security findings, and detailed remediation instructions as well as links to learn more in the AWS Management Console.
 
-For more information about network security analysis with Amazon Q, see [Get insights with Amazon Q Developer](https://docs.aws.amazon.com/waf/latest/developerguide/nsd-security-insights.html) in the *AWS Shield network security director Developer Guide*.
-
 ## Prerequisites
 <a name="chat-network-security-prereqs"></a>
 
@@ -26,17 +24,6 @@ For Amazon Q to answer questions about your network security, the following prer
 <a name="add-permissions-chat-network-security"></a>
 
 To chat about your network security, your IAM identity must have permissions to chat with Amazon Q. For an IAM policy that grants the required permissions, see [Allow users to chat with Amazon Q](id-based-policy-examples-users.md#id-based-policy-examples-allow-chat).
-
-### Enable AWS Shield network security director
-<a name="enable-shield-network-security-director"></a>
-
-To chat about your network security with Amazon Q, you must enable AWS Shield network security director in your AWS account. To enable AWS Shield network security director:
-
-1. Open the AWS Shield network security director console at [https://console.aws.amazon.com/nsd/](https://console.aws.amazon.com/nsd/).
-
-1. Follow the setup instructions to enable the service.
-
-1. Run a scan to collect security information about your resources.
 
 ## Example questions
 <a name="example-questions-network-security"></a>

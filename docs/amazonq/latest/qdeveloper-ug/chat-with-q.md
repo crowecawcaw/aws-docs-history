@@ -4,7 +4,7 @@
 <a name="chat-with-q"></a>
 
 **Introducing generative AI-based Q artifacts**  
-Amazon Q can now provide answers to questions with table and chart visualizations. A prompt library makes it easier to find example prompts. The Q experience is now more usable and useful. The Q icon has been relocated to the navigation bar. The Q chat panel now opens as a side panel. 
+Amazon Q can now provide answers to questions with rich, interactive visualizations including tables, charts, dashboards, time-series graphs, key value pairs etc. 
 
 Chat with Amazon Q in the AWS Management Console, AWS Console Mobile Application, AWS website, AWS Documentation website, and chat applications to learn about AWS services. 
 
@@ -96,18 +96,19 @@ To view your chat settings in Amazon Q, choose the gear icon in the chat panel h
 ## Example prompts
 <a name="example-questions"></a>
 
-You can ask Amazon Q questions about AWS and AWS services, such as finding the right service, understanding best practices or reviewing the state of your resources. If Amazon Q determines a visual interface would be helpful, it automatically displays a new panel with either a table or chart visualization. 
+You can ask Amazon Q questions about AWS and AWS services, such as finding the right service, understanding best practices or reviewing the state of your resources. If Amazon Q determines a visual interface would be helpful, it generates a rich visualization such as a table, chart, health dashboard, time-series graph, or diagnostic view. 
 
 You can also ask about software development with the AWS SDKs and AWS CLI. Amazon Q in the console can generate short scripts or code snippets to help you get started using the AWS SDKs and AWS CLI.
 
 The following are example questions that demonstrate how Amazon Q can help you build on AWS:
 + List RDS databases without CloudWatch alarms
 + What's the maximum runtime for a Lambda function?
-+ When should I put my resources in a VPC?
 + List S3 buckets with tag value {{<tag value>}}
 + Create a chart showing my cost per GB for different S3 storage classes
 + Graph EC2 cost per vCPU hour over the last 3 weeks
 + What's the best container service to use to run my workload if I need to keep my costs low?
 + Show me a bar chart of potential savings by optimization recommendation
++ Graph network utilization for my EC2 instances over 12 hours
++ Which instances across all regions are open to the world?
 
 To help you get started, Q recommends prompts when you start a new conversation. You can also view the list of supported prompts in the prompt library. To view prompts in the prompt library, choose the book icon in the chat panel header.
