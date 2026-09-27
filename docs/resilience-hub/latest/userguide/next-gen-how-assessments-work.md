@@ -9,7 +9,7 @@ When you run a failure mode assessment, Next generation Resilience Hub performs 
 
 1. **Analyzes the topology** – A multi-agent AI system examines how your resources connect and interact.
 
-1. **Evaluates against policies using the resilience analysis framework** – Compares your architecture against your resilience policies. It first performs an assessment to determine if policy components are achievable or not.
+1. **Evaluates against policies using the resilience analysis framework** – Compares your architecture against your resilience policies. It first performs an assessment to determine if policy components are achievable or not. This assessment provides directional guidance to help you understand whether the current policy's requirements are achievable with your service's current architecture. Do not use it as a guarantee or as evidence. If you need evidence, run a resilience test. For more information, see [Resilience testing](next-gen-resilience-testing.md).
 
 1. **Applies AWS Well-Architected best practices** – Checks for common resilience anti-patterns.
 

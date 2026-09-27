@@ -8,7 +8,7 @@ If your service's resources span multiple AWS accounts and you are not using AWS
 **Step 1: Create cross-account roles**
 
 In each account that contains resources for your service, create a role with:
-+ `ReadOnlyAccess` policy attached.
++ `AWSResilienceHubV2AssessmentExecutionPolicy` attached.
 + A trust policy that allows the invoker role to assume it, using an `ExternalId` to prevent confused deputy attacks. Use a unique `ExternalId` value per service and account combination:
 
   ```

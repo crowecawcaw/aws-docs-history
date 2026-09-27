@@ -8,7 +8,7 @@ Dependency discovery covers all DNS queries made through Route 53 resolvers in y
 
 | Limitation | Impact | Workaround | 
 | --- | --- | --- | 
-| Non-VPC Lambda | Lambda functions without VPC connectivity are not covered | Connect Lambda functions to VPC | 
+| Non-VPC Lambda | AWS Lambda functions without VPC connectivity are not covered | Connect AWS Lambda functions to VPC and mark the VPC as an input source for the service | 
 | Direct IP connections | Connections made by IP address (not DNS) are not discovered | No workaround | 
 | Infrequent dependencies | Dependencies called less than once per hour may be missed in initial discovery | 35-day lookback catches most; very rare calls may not appear | 
 | Kubernetes shared tenancy | Multi-tenant Amazon EKS clusters may attribute dependencies to the wrong service | Verify compute resource attribution is correctly mapping resources to services | 
