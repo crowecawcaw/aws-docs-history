@@ -64,45 +64,45 @@ The following Regions and engine versions are available for Aurora serverless wi
 The following Regions and engine versions are available for Aurora serverless with Aurora PostgreSQL.
 
 
-| Region | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | 
-| --- | --- | --- | --- | --- | --- | 
-| <a name="asv2-apg-us-east-1"></a>US East (N. Virginia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-us-east-2"></a>US East (Ohio) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-us-west-1"></a>US West (N. California) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-us-west-2"></a>US West (Oregon) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-af-south-1"></a>Africa (Cape Town) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ap-east-1"></a>Asia Pacific (Hong Kong) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ap-south-2"></a>Asia Pacific (Hyderabad) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
-| <a name="asv2-apg-ap-southeast-3"></a>Asia Pacific (Jakarta) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| Asia Pacific (Malaysia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.4 and higher | Version 14.6, 14.9 and higher | Version 13.9, 13.12 and higher | 
-| <a name="asv2-apg-ap-southeast-4"></a>Asia Pacific (Melbourne) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
-| <a name="asv2-apg-ap-south-1"></a>Asia Pacific (Mumbai) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| Asia Pacific (New Zealand) | Version 17.4 and higher | Version 16.8 and higher | Version 15.12 and higher | Version 14.17 and higher | Version 13.20 and higher | 
-| <a name="asv2-apg-ap-northeast-3"></a>Asia Pacific (Osaka) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ap-northeast-2"></a>Asia Pacific (Seoul) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ap-southeast-1"></a>Asia Pacific (Singapore) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| Asia Pacific (Taipei) | Version 17.4 and higher | Version 16.6 and higher | Version 15.10 and higher | Version 14.15 and higher | Not available | 
-| <a name="asv2-apg-ap-southeast-2"></a>Asia Pacific (Sydney) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ap-southeast-7"></a>Asia Pacific (Thailand) | Version 17.4 and higher | Version 16.4 and higher | Version 15.8 and higher | Version 14.13 and higher | Not available | 
-| <a name="asv2-apg-ap-northeast-1"></a>Asia Pacific (Tokyo) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ca-central-1"></a>Canada (Central) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-ca-west-1"></a>Canada West (Calgary) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.6, 14.8 and higher | Version 13.9, 13.11 and higher | 
-| <a name="asv2-apg-cn-north-1"></a>China (Beijing) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-cn-northwest-1"></a>China (Ningxia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-central-1"></a>Europe (Frankfurt) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-west-1"></a>Europe (Ireland) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-west-2"></a>Europe (London) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-south-1"></a>Europe (Milan) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-west-3"></a>Europe (Paris) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-south-2"></a>Europe (Spain) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
-| <a name="asv2-apg-eu-north-1"></a>Europe (Stockholm) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-eu-central-2"></a>Europe (Zurich) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
-| <a name="asv2-apg-il-central-1"></a>Israel (Tel Aviv) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
-| Mexico (Central) | Version 17.4 and higher | Version 16.4 and higher | Version 15.8 and higher | Version 14.13 and higher | Not available | 
-| <a name="asv2-apg-me-south-1"></a>Middle East (Bahrain) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-me-central-1"></a>Middle East (UAE) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
-| <a name="asv2-apg-sa-east-1"></a>South America (São Paulo) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-gov-us-east-1"></a>AWS GovCloud (US-East) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
-| <a name="asv2-apg-gov-us-west-1"></a>AWS GovCloud (US-West) | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| Region | Aurora PostgreSQL 18 | Aurora PostgreSQL 17 | Aurora PostgreSQL 16 | Aurora PostgreSQL 15 | Aurora PostgreSQL 14 | Aurora PostgreSQL 13 | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| <a name="asv2-apg-us-east-1"></a>US East (N. Virginia) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-us-east-2"></a>US East (Ohio) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-us-west-1"></a>US West (N. California) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-us-west-2"></a>US West (Oregon) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-af-south-1"></a>Africa (Cape Town) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ap-east-1"></a>Asia Pacific (Hong Kong) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ap-south-2"></a>Asia Pacific (Hyderabad) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
+| <a name="asv2-apg-ap-southeast-3"></a>Asia Pacific (Jakarta) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| Asia Pacific (Malaysia) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.4 and higher | Version 14.6, 14.9 and higher | Version 13.9, 13.12 and higher | 
+| <a name="asv2-apg-ap-southeast-4"></a>Asia Pacific (Melbourne) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
+| <a name="asv2-apg-ap-south-1"></a>Asia Pacific (Mumbai) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| Asia Pacific (New Zealand) | Version 18.3 and higher | Version 17.4 and higher | Version 16.8 and higher | Version 15.12 and higher | Version 14.17 and higher | Version 13.20 and higher | 
+| <a name="asv2-apg-ap-northeast-3"></a>Asia Pacific (Osaka) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ap-northeast-2"></a>Asia Pacific (Seoul) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ap-southeast-1"></a>Asia Pacific (Singapore) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| Asia Pacific (Taipei) | Version 18.3 and higher | Version 17.4 and higher | Version 16.6 and higher | Version 15.10 and higher | Version 14.15 and higher | Not available | 
+| <a name="asv2-apg-ap-southeast-2"></a>Asia Pacific (Sydney) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ap-southeast-7"></a>Asia Pacific (Thailand) | Version 18.3 and higher | Version 17.4 and higher | Version 16.4 and higher | Version 15.8 and higher | Version 14.13 and higher | Not available | 
+| <a name="asv2-apg-ap-northeast-1"></a>Asia Pacific (Tokyo) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ca-central-1"></a>Canada (Central) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-ca-west-1"></a>Canada West (Calgary) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.6, 14.8 and higher | Version 13.9, 13.11 and higher | 
+| <a name="asv2-apg-cn-north-1"></a>China (Beijing) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-cn-northwest-1"></a>China (Ningxia) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-central-1"></a>Europe (Frankfurt) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-west-1"></a>Europe (Ireland) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-west-2"></a>Europe (London) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-south-1"></a>Europe (Milan) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-west-3"></a>Europe (Paris) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-south-2"></a>Europe (Spain) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
+| <a name="asv2-apg-eu-north-1"></a>Europe (Stockholm) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-eu-central-2"></a>Europe (Zurich) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
+| <a name="asv2-apg-il-central-1"></a>Israel (Tel Aviv) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
+| Mexico (Central) | Version 18.3 and higher | Version 17.4 and higher | Version 16.4 and higher | Version 15.8 and higher | Version 14.13 and higher | Not available | 
+| <a name="asv2-apg-me-south-1"></a>Middle East (Bahrain) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-me-central-1"></a>Middle East (UAE) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.6 and higher | Version 13.9 and higher | 
+| <a name="asv2-apg-sa-east-1"></a>South America (São Paulo) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-gov-us-east-1"></a>AWS GovCloud (US-East) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
+| <a name="asv2-apg-gov-us-west-1"></a>AWS GovCloud (US-West) | Version 18.3 and higher | Version 17.4 and higher | Version 16.1 and higher | Version 15.2 and higher | Version 14.3 and higher | Version 13.6 and higher | 
 
  The upper and lower ACU limits for Aurora serverless capacity might vary depending on your engine version. For details, see [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity). 

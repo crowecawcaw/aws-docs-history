@@ -163,7 +163,7 @@ By default, client programs establish an encrypted connection with RDS Proxy, wi
 
  TLS 1.3 supports hybrid post-quantum key exchange through named groups. These named groups combine the post-quantum key exchange algorithm ML-KEM with a classical Elliptic Curve Diffie-Hellman (ECDH) key exchange algorithm—such as `X25519MLKEM768` and `SecP256r1MLKEM768`. 
 
- RDS Proxy does not currently support these hybrid post-quantum named groups. Post-quantum key-exchange negotiation applies only to direct connections to your database, not to connections through RDS Proxy. 
+ RDS Proxy currently does not support hybrid post-quantum named groups. As a result, post-quantum key-exchange negotiation is not available for connections through RDS Proxy. It applies only to direct connections to your database. 
 
  When you connect through RDS Proxy: 
 +  Clients that offer both post-quantum and classical key-exchange groups negotiate a classical group with RDS Proxy and connect successfully. 
