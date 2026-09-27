@@ -51,7 +51,7 @@ For this example, you must use the following IAM policy:
 
 The above example shows a newly created rule called `MyTopicRuleName` that applies only to your beta environment. The `iot:TagResource` in the policy statement with `MyTopicRuleName` specifically called out allows tagging when creating or updating `MyTopicRuleName`. The parameter `--tags "environment=beta"` used when creating the rule limits the scope of `MyTopicRuleName` to only your beta environment. If you remove the parameter `--tags "environment=beta"`, then `MyTopicRuleName` will apply to all environments.
 
-For more information on creating IAM roles and policies specific to an AWS IoT rule, see [Granting an AWS IoT rule the access it requires](iot-create-role.md)
+For more information on creating IAM roles and policies specific to an AWS IoT rule, see [Granting an AWS IoT rule the access it requires](iot-create-role.md#iot-create-role-iam)
 
 For general information about tagging your resources, see [Tagging your AWS IoT resources](tagging-iot.md).
 

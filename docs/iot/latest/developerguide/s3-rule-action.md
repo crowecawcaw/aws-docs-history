@@ -9,7 +9,7 @@ The S3 (`s3`) action writes the data from an MQTT message to an Amazon Simple St
 <a name="s3-rule-action-requirements"></a>
 
 This rule action has the following requirements:
-+ An IAM role that AWS IoT can assume to perform the `s3:PutObject` operation. For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md).
++ An IAM role that AWS IoT can assume to perform the `s3:PutObject` operation. For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md#iot-create-role-iam).
 
   In the AWS IoT console, you can choose or create a role to allow AWS IoT to perform this rule action.
 + If you use an AWS KMS customermanaged AWS KMS key to encrypt data at rest in Amazon S3, the service must have permission to use the AWS KMS key on the caller's behalf. For more information, see [AWS managed AWS KMS keys and customer managed AWS KMS keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html#aws-managed-customer-managed-cmks) in the *Amazon Simple Storage Service Developer Guide*.

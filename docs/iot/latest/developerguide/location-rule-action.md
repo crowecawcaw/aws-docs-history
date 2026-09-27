@@ -9,7 +9,7 @@ The Location (`location`) action sends your geographical location data to [Amazo
 <a name="location-rule-action-requirements"></a>
 
 This rule action has the following requirements:
-+ An IAM role that AWS IoT can assume to perform the `geo:BatchUpdateDevicePosition` operation. For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md).
++ An IAM role that AWS IoT can assume to perform the `geo:BatchUpdateDevicePosition` operation. For more information, see [Granting an AWS IoT rule the access it requires](iot-create-role.md#iot-create-role-iam).
 
   In the AWS IoT console, you can choose or create a role to allow AWS IoT to perform this rule action.
 

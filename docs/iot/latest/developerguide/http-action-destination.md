@@ -107,3 +107,25 @@ To delete an HTTP action destination, call `DeleteTopicRuleDestination`.
 Self-signed certificates are not supported. 
 
  HTTPS Endpoints in an HTTP action destination support certificates issued by both [AWS Private Certificate Authority ](https://www.amazontrust.com/repository/) and [Lets Encrypt](https://letsencrypt.org/certificates/). 
+
+## Network access
+<a name="http-action-destination-network-access"></a>
+
+The AWS IoT rules engine connects to your HTTPS endpoint over IPv4 by default. If your endpoint's hostname resolves to IPv6 addresses only, the rules engine connects to it over IPv6 instead.
+
+This happens when your hostname publishes AAAA records and no A records. There is no setting in AWS IoT Core that controls this. Your endpoint's DNS determines which version the rules engine uses.
+
+**Note**  
+Destination confirmation always uses IPv4. Your endpoint must be reachable over IPv4 when you confirm it, even if you intend to receive data over IPv6.
+
+**To receive data over IPv6**
+
+1. Publish both an A record and an AAAA record for your endpoint's hostname.
+
+1. Create the destination and complete the confirmation process. For more information, see [Creating HTTP action destinations](#http-action-destination-creating) and [Confirming HTTP action destinations](#http-action-destination-confirming).
+
+1. Remove the A record, leaving only the AAAA record. The rules engine connects over IPv6 from this point onward.
+
+If you later set the destination's status to `IN_PROGRESS` to send a new confirmation request, restore the A record first. A confirmation request can't currently reach an endpoint that publishes only AAAA records.
+
+Endpoints that restrict inbound traffic by source address must allow the rules engine's addresses. The rules engine uses a fixed range of IPv6 addresses in each Region. For more information, see [Restricting HTTP action traffic to the rules engine IPv6 ranges](iot-create-role.md#rules-engine-ip-ranges).
