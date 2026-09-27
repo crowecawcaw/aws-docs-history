@@ -52,7 +52,7 @@ Use these rules to choose what to turn on:
 ## Screenshot storage
 <a name="agent-access-screenshots"></a>
 
-You can optionally configure screenshot storage for agent sessions. When screenshot storage is enabled, screenshots captured during agent sessions are stored in an Amazon S3 bucket. The MCP service uses the connecting agent's credentials to upload screenshots to the bucket. The agent must have the `s3:PutObject` permission on the bucket.
+You can optionally configure screenshot storage for agent sessions. When screenshot storage is enabled, screenshots captured during agent sessions are stored in an Amazon S3 bucket. The MCP service uses the connecting agent's credentials to upload screenshots to the bucket. The agent must have the `s3:PutObject` permission on the bucket. To encrypt screenshots in your bucket, see [Configuring default encryption for an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/default-bucket-encryption.html).
 
 ## Desktop screen layout
 <a name="agent-access-screen-layout"></a>
