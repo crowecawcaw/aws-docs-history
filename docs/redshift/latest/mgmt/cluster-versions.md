@@ -100,6 +100,7 @@ Cluster versions in this patch:
 <a name="cluster-version-204"></a>
 
 Cluster versions in this patch:
++ 1.0.436211 – **TRAILING Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released September 22, 2026
 + 1.0.436211 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released September 10, 2026
 + 1.0.416217 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 25, 2026
 + 1.0.394035 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released August 11, 2026
@@ -112,9 +113,11 @@ Cluster versions in this patch:
 + Added two new Amazon CloudWatch metrics, IntegrationLatestDetectedChange and IntegrationLatestAppliedChange, for zero-ETL integrations to allow monitoring of replication health.
 + Added the AUTO\_REMEDIATION option for CREATE DATABASE and ALTER DATABASE on zero-ETL integration databases. When AUTO\_REMEDIATION is set, Amazon Redshift automatically resynchronizes tables that have replication issues. Details appear in svv\_integration\_table\_state.reason.
 + Added user lockout support, including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
++ Added account lockout protection: User accounts are now temporarily locked after repeated consecutive failed sign-in attempts. Administrators can configure the threshold with `ALTER SYSTEM SET max_failed_login_attempts` (range 2–50, default 5).
 + Added support for reading, creating, and writing to Apache Iceberg v3 tables using the Amazon Redshift native engine. This includes support for default values, row lineage, and deletion vectors across all previously supported data types. Support for the Variant, Geography, and Geometry data types is not included in this release and will be announced in a future patch.
 + After upgrading an Iceberg table to v3, the Iceberg `timestamptz` type is mapped to the Amazon Redshift `TIMESTAMPTZ` type. In Iceberg v2 tables, `timestamptz` is mapped to the Amazon Redshift `TIMESTAMP` type. With v3, this means your queries output the timestamp based on their timezone.
 + Added support for `CURSOR`s that exceed the maximum result set size for the instance type. When a cursor's result set exceeds the available disk capacity, Amazon Redshift automatically spills overflow data to Amazon S3. This feature can be enabled per cluster upon request to AWS Support.
++ Added new bin packing metrics columns to the `stl_fasma_data_cache_stats` system table for monitoring cache activity.
 + Parsing and semantic analysis of queries that reference Late Binding Views (LBVs) now occurs on consumer clusters. This removes a producer-side bottleneck in LBV processing.
 + Amazon Redshift ML now enables the inter-container traffic encryption option when it makes `CreateAutoMLJob` and `CreateProcessingJob` requests to Amazon SageMaker. This aligns with the setting already applied to `BuildTrainingRequest` and prevents security scanner alerts.
 + Improved zero-ETL integration performance for high-frequency workloads to reduce replication lag for tables with many concurrent updates.
@@ -184,7 +187,6 @@ Cluster versions in this patch:
 + Zero-ETL integrations no longer enter a resync loop when processing CDC checkpoints on tables with certain primary key configurations.
 + Improved zero-ETL integration error reporting for invalid channel filter expressions.
 + Original query text is no longer masked with Secure Logging (applies to queries against external AWS Lake Formation view or database with Federated Amazon Redshift Permissions).
-+ Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped.
 + Improved the performance of ANALYZE for large tables by up to 30%.
 + Enhanced performance for queries using AWS Lambda User-Defined Functions with ROLLUP aggregations.
 + Enhanced query performance for ORDER BY with LIMIT clause by skipping unnecessary data scans on the outer table of Hash Join.
@@ -280,7 +282,6 @@ Cluster versions in this patch:
 +  Added support for materialized view auto-refresh as a user workload with burst capacity on Amazon Redshift Serverless. 
 +  Allow AutoWLM to assign more cluster memory to queries writing to wide tables. 
 +  Amazon Redshift improved the query performance of the SVV\_ATTACHED\_MASKING\_POLICY system view, reducing execution time on instances with a large number of permissions and dynamic data masking policy attachments. 
-+  Improved the DROP USER error message to include the number of object ownerships and privileges that must be resolved before the user can be dropped. 
 +  Upgraded the librdkafka library to version 2.13.x from 2.8.x to provide the latest bug fixes and performance enhancements. 
 +  Enhanced performance for queries using Lambda User-Defined Functions in the HAVING clause of aggregates. 
 +  Enhanced performance for queries using Lambda User-Defined Functions with window functions. 

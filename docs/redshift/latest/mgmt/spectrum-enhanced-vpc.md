@@ -2,24 +2,34 @@
 
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
-# Accessing Amazon S3 buckets with Redshift Spectrum
+# Querying data lake tables with enhanced VPC routing
 <a name="spectrum-enhanced-vpc"></a>
 
-In general, Amazon Redshift Spectrum doesn't support enhanced VPC routing with provisioned clusters, even though a provisioned cluster can query external tables from Amazon S3 when enhanced VPC routing is enabled.
+When enhanced VPC routing is turned on, Amazon Redshift routes traffic through your VPC. Data lake tables store their data in Amazon S3 and their metadata in the AWS Glue Data Catalog, both of which are outside your VPC. For data lake queries to succeed, your cluster or workgroup must be able to reach Amazon S3 and AWS Glue. If your data lake tables are managed by AWS Lake Formation, it must also be able to reach Lake Formation. Enhanced VPC routing affects the way that Amazon Redshift accesses these external resources, so queries might fail unless you configure your VPC correctly.
 
-Amazon Redshift enhanced VPC routing sends specific traffic through your VPC, which means that all traffic between your cluster and your Amazon S3 buckets is forced to pass through your Amazon VPC. Because Redshift Spectrum runs on AWS managed resources that are owned by Amazon Redshift but are outside your VPC, Redshift Spectrum doesn't use enhanced VPC routing. 
+Create the following VPC endpoints in the VPC and subnets where your cluster or workgroup runs, associating them with the appropriate route tables. These endpoints are required for both the integrated data lake query engine and Amazon Redshift Spectrum:
++ **Amazon S3 gateway endpoint** – Gives your cluster or workgroup a route through the AWS network to Amazon S3 to read data lake data files. For steps, see [Gateway endpoints for Amazon S3](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-s3.html) in the *Amazon VPC User Guide*.
++ **AWS Glue interface endpoint** – Gives your cluster or workgroup a route to the AWS Glue Data Catalog to resolve data lake schemas and tables. For steps, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*.
++ **AWS Lake Formation interface endpoint** – Required only if your data lake tables are managed by AWS Lake Formation. Gives your cluster or workgroup a route to Lake Formation. For steps, see [Creating an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *Amazon VPC User Guide*.
 
-Traffic between Redshift Spectrum and Amazon S3 is securely routed through the AWS private network, outside of your VPC. In-flight traffic is signed using Amazon Signature Version 4 protocol (SIGv4) and encrypted using HTTPS. This traffic is authorized based on the IAM role that is attached to your Amazon Redshift cluster. To further manage Redshift Spectrum traffic, you can modify your cluster's IAM role and your policy attached to the Amazon S3 bucket. You might also need to configure your VPC to allow your cluster to access AWS Glue or Athena, as detailed following. 
+The endpoint configuration is the same regardless of how you query external tables, but the way traffic is routed differs depending on the query engine. The following sections describe the behavior for the integrated data lake query engine on RG provisioned clusters and Amazon Redshift Serverless, and for Redshift Spectrum on RA3 and DC2 provisioned clusters.
 
- Note that because enhanced VPC routing affects the way that Amazon Redshift accesses other resources, queries might fail unless you configure your VPC correctly. For more information, see [Controlling network traffic with Redshift enhanced VPC routing](enhanced-vpc-routing.md), which discusses in more detail creating a VPC endpoint, a NAT gateway, and other networking resources to direct traffic to your Amazon S3 buckets. 
+## Integrated data lake query engine for RG provisioned clusters and Amazon Redshift Serverless
+<a name="spectrum-enhanced-vpc-integrated-engine"></a>
 
-**Note**  
-Amazon Redshift Serverless supports enhanced VPC routing for queries to external tables on Amazon S3. For more information about configuration, see [Loading in data from Amazon S3](https://docs.aws.amazon.com/redshift/latest/gsg/new-user-serverless.html#serverless-load-data-from-s3) in the Amazon Redshift Serverless Getting Started Guide.
+RG provisioned clusters and Amazon Redshift Serverless include an integrated data lake query engine. This engine runs on the cluster's or workgroup's own compute resources, within your VPC. When enhanced VPC routing is turned on and the required VPC endpoints are in place, access to Amazon S3 and AWS Glue originates from your in-VPC compute and flows through those VPC endpoints. This traffic stays within your VPC boundary and on the AWS network. This access is authorized based on the IAM role that is attached to your cluster or workgroup. To further manage this traffic, you can modify the IAM role and the policy attached to the Amazon S3 bucket.
 
-## Permissions policy configuration when using Amazon Redshift Spectrum
+## Amazon Redshift Spectrum for RA3 and DC2 provisioned clusters
+<a name="spectrum-enhanced-vpc-spectrum"></a>
+
+Redshift Spectrum runs on AWS managed resources that are owned by Amazon Redshift but are outside your VPC. As a result, even when enhanced VPC routing is turned on, the traffic that Redshift Spectrum sends to Amazon S3 does not pass through your VPC, but the cluster still requires the Amazon S3 and AWS Glue VPC endpoints described earlier to run data lake queries.
+
+Traffic between Redshift Spectrum and Amazon S3 is securely routed through the AWS private network, outside of your VPC. In-flight traffic is signed using Amazon Signature Version 4 protocol (SIGv4) and encrypted using HTTPS. This traffic is authorized based on the IAM role that is attached to your Amazon Redshift cluster. To further manage Redshift Spectrum traffic, you can modify your cluster's IAM role and your policy attached to the Amazon S3 bucket.
+
+## Permissions policy configuration for data lake queries
 <a name="spectrum-enhanced-vpc-considerations"></a>
 
-Consider the following when using Redshift Spectrum: 
+Consider the following when querying data lake tables in Amazon S3: 
 + [Amazon S3 bucket access policies and IAM roles](#spectrum-enhanced-vpc-considerations-policies)
 + [Permissions for assuming the IAM role](#spectrum-enhanced-vpc-considerations-cluster-role)
 + [Logging and auditing Amazon S3 access](#spectrum-enhanced-vpc-considerations-logging-s3)
@@ -30,7 +40,7 @@ Consider the following when using Redshift Spectrum:
 
 You can control access to data in your Amazon S3 buckets by using a bucket policy attached to the bucket and by using an IAM role attached to a provisioned cluster. 
 
-Redshift Spectrum on provisioned clusters can't access data stored in Amazon S3 buckets that use a bucket policy that restricts access to only specified VPC endpoints. Instead, use a bucket policy that restricts access to only specific principals, such as a specific AWS account or specific users. 
+Redshift Spectrum on provisioned clusters can't access data stored in Amazon S3 buckets that use a bucket policy that restricts access to only specified VPC endpoints. Instead, use a bucket policy that restricts access to only specific principals, such as a specific AWS account or specific users. The integrated data lake query engine on RG provisioned clusters and Amazon Redshift Serverless can access such buckets when enhanced VPC routing is turned on, because its Amazon S3 access flows through your VPC endpoints. 
 
 For the IAM role that is granted access to the bucket, use a trust relationship that allows the role to be assumed only by the Amazon Redshift service principal. When attached to your cluster, the role can be used only in the context of Amazon Redshift and can't be shared outside of the cluster. For more information, see [Restricting access to IAM roles](authorizing-redshift-service-database-users.md). A service control policy (SCP) can also be used to further restrict the role, see [Prevent IAM users and roles from making specified changes, with an exception for a specified admin role](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html#example-scp-restricts-with-exception) in the *AWS Organizations User Guide*.
 
@@ -123,12 +133,10 @@ For more information, see the AWS Security blog post [How to Use Bucket Policies
 ### Access to AWS Glue or Amazon Athena
 <a name="spectrum-enhanced-vpc-considerations-glue-access"></a>
 
-Redshift Spectrum accesses your data catalog in AWS Glue or Athena. Another option is to use a dedicated Hive metastore for your data catalog. 
+Both Redshift Spectrum and the integrated data lake query engine access your data catalog in AWS Glue or Athena. Another option is to use a dedicated Hive metastore for your data catalog. 
 
-To enable access to AWS Glue or Athena, configure your VPC with an internet gateway or NAT gateway. Configure your VPC security groups to allow outbound traffic to the public endpoints for AWS Glue and Athena. Alternatively, you can configure an interface VPC endpoint for AWS Glue to access your AWS Glue Data Catalog. When you use a VPC interface endpoint, communication between your VPC and AWS Glue is conducted within the AWS network. For more information, see [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint).
+The recommended way to reach the AWS Glue Data Catalog is to create an interface VPC endpoint (AWS PrivateLink) for AWS Glue. When you use a VPC interface endpoint, communication between your VPC and AWS Glue is routed within the AWS network. For more information, see [Creating an Interface Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#create-interface-endpoint).
 
-You can configure the following pathways in your VPC: 
+Alternatively, to reach the public endpoints for AWS Glue and Athena, configure your VPC with an internet gateway or NAT gateway, and configure your VPC security groups to allow outbound traffic to those public endpoints. You can configure the following pathways in your VPC: 
 + **Internet gateway** –To connect to AWS services outside your VPC, you can attach an [internet gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) to your VPC subnet, as described in the *Amazon VPC User Guide.* To use an internet gateway, a provisioned cluster must have a public IP address to allow other services to communicate with it. 
 + **NAT gateway **–To connect to an Amazon S3 bucket in another AWS Region or to another service within the AWS network, configure a [network address translation (NAT) gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html), as described in the *Amazon VPC User Guide.* Use this configuration also to access a host instance outside the AWS network.
-
-For more information, see [Controlling network traffic with Redshift enhanced VPC routing](enhanced-vpc-routing.md).

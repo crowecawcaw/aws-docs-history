@@ -976,6 +976,9 @@ The driver verifies that the certificate comes from a trusted certificate author
 **verify-full**  
 The driver verifies that the certificate comes from a trusted CA and that the host name in the certificate matches the host name specified in the connection URL.
 
+**Note**  
+We recommend using `verify-full` for SSL connections whenever possible.
+
 ## SSLPassword
 <a name="jdbc20-sslpassword-option"></a>
 + **Default Value** – 0

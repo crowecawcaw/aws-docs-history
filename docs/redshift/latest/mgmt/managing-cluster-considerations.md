@@ -249,7 +249,9 @@ To migrate existing RA3 clusters to rg.xlarge or rg.4xlarge, your source cluster
 
 The following table shows recommendations when upgrading to RG node types. (These recommendations also apply to reserved nodes.)
 
-The recommendations in this table are starting cluster node types and sizes but depend on the computing requirements of your workload. To better estimate your requirements, consider conducting a proof of concept (POC) that uses [Test Drive](https://github.com/aws/redshift-test-drive/tree/main) to run potential configurations. Provision a cluster for your POC data warehouse instead of Redshift Serverless. For more information about conducting a proof of concept, see [Conduct a proof of concept (POC) for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/proof-of-concept-playbook.html) in the *Amazon Redshift Database Developer Guide*.
+The recommendations in this table are starting cluster node types and sizes but depend on the computing requirements of your workload. RG has different performance characteristics, so the recommended mapping is a starting point. Benchmark your critical workloads and adjust the number of nodes up or down based on observed performance. RG instances are lower in price per vCPU compared to RA3, so adding nodes to optimize performance can still result in lower overall cost. For more information about node type pricing, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/).
+
+To better estimate your requirements, consider conducting a proof of concept (POC) that uses [Test Drive](https://github.com/aws/redshift-test-drive/tree/main) to run potential configurations. Provision a cluster for your POC data warehouse instead of Redshift Serverless. For more information about conducting a proof of concept, see [Conduct a proof of concept (POC) for Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/proof-of-concept-playbook.html) in the *Amazon Redshift Database Developer Guide*.
 
 
 | Existing node type | Existing number of nodes | Recommended new node type | Upgrade action | 
@@ -265,7 +267,7 @@ The recommendations in this table are starting cluster node types and sizes but 
 | dc2.large | 5–15 | rg.xlarge | Start with 3 nodes of rg.xlarge for every 8 nodes of dc2.large1. | 
 | dc2.large | 16–32 | rg.4xlarge | Start with 1 node of rg.4xlarge for every 10 nodes of dc2.large1. | 
 
-1Extra nodes might be needed depending on workload requirements. Add or remove nodes based on the compute requirements of your required query performance.
+1Extra nodes might be needed depending on workload requirements. Add or remove nodes based on the compute requirements of your required query performance. RG instances are lower in price per vCPU compared to RA3, so adding nodes can still result in lower overall cost compared to your previous configuration. For more information, see [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/).
 
 The following table shows recommendations when upgrading to RA3 node types. (These recommendations also apply to reserved nodes.)
 

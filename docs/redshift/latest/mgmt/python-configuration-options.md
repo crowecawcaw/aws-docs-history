@@ -477,6 +477,9 @@ The security of the connection to Amazon Redshift. You can specify either of the
 + verify-ca
 + verify-full
 
+**Note**  
+We recommend using `verify-full` for SSL connections whenever possible.
+
 This parameter is required.
 
 ## tcp\_keepalive

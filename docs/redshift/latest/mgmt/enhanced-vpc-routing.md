@@ -7,7 +7,7 @@
 
 When you use Amazon Redshift enhanced VPC routing, Amazon Redshift forces all [COPY](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html) and [UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) traffic between your cluster and your data repositories through your virtual private cloud (VPC) based on the Amazon VPC service. By using enhanced VPC routing, you can use standard VPC features, such as [VPC security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html), [network access control lists (ACLs)](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html), [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html), [VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html#vpc-endpoints-policies-s3), [internet gateways](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html), and [Domain Name System (DNS)](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html) servers, as described in the *Amazon VPC User Guide.* You use these features to control the flow of data between your Amazon Redshift cluster and other resources. When you use enhanced VPC routing to route traffic through your VPC, you can also use [VPC flow logs](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html) to monitor COPY and UNLOAD traffic.
 
- Amazon Redshift clusters and Amazon Redshift Serverless workgroups both support enhanced VPC routing. You can't use enhanced VPC routing with Redshift Spectrum. For more information, see [Accessing Amazon S3 buckets with Redshift Spectrum](spectrum-enhanced-vpc.md).
+ Amazon Redshift clusters and Amazon Redshift Serverless workgroups both support enhanced VPC routing. You can't use enhanced VPC routing with Redshift Spectrum. For more information, see [Querying data lake tables with enhanced VPC routing](spectrum-enhanced-vpc.md).
 
 If enhanced VPC routing is not turned on, Amazon Redshift routes traffic through the internet, including traffic to other services within the AWS network.
 
@@ -33,4 +33,4 @@ There is no additional charge for using enhanced VPC routing. You might incur ad
 **Topics**
 + [Controlling database traffic with VPC endpoints](enhanced-vpc-working-with-endpoints.md)
 + [Turning on enhanced VPC routing](enhanced-vpc-enabling-cluster.md)
-+ [Accessing Amazon S3 buckets with Redshift Spectrum](spectrum-enhanced-vpc.md)
++ [Querying data lake tables with enhanced VPC routing](spectrum-enhanced-vpc.md)

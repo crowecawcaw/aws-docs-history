@@ -11,6 +11,9 @@ Amazon Redshift supports Secure Sockets Layer (SSL) connections to encrypt data 
 <a name="connect-using-ssl"></a>
 
 To support SSL connections, Amazon Redshift creates and installs an [AWS Certificate Manager (ACM)](https://aws.amazon.com/certificate-manager/) issued SSL certificate on each cluster. ACM certificates are publicly trusted by most operating systems, web browsers, and clients. You might need to download a certificate bundle if your SQL clients or applications connect to Amazon Redshift using SSL with the `sslmode` connection option set to `require`, `verify-ca`, or `verify-full`. If your client needs a certificate, Amazon Redshift provides a bundle certificate as follows:
+
+**Note**  
+We recommend using `verify-full` for SSL connections whenever possible.
 + Download the bundle from [https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt](https://s3.amazonaws.com/redshift-downloads/amazon-trust-ca-bundle.crt). 
   + The expected MD5 checksum number is 418dea9b6d5d5de7a8f1ac42e164cdcf.
   + The sha256 checksum number is 36dba8e4b8041cd14b9d60158893963301bcbb92e1c456847784de2acb5bd550.

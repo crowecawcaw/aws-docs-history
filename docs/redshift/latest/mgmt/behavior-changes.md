@@ -19,11 +19,11 @@ The following describes upcoming behavior changes.
 + [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026)
 + [Iceberg DELETE on Lake Formation tables requires DELETE permission starting with Patch 202](#iceberg-delete-lf-permission-patch202)
 + [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202)
-+ [End of support for the Amazon Redshift ODBC 1.x driver on September 30, 2026](#odbc1x-deprecation-jun2026)
++ [End of support for the Amazon Redshift ODBC 1.x driver on December 31, 2026](#odbc1x-deprecation-dec2026)
 + [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026)
 + [Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026](#autorefresh-feb272026)
 + [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026)
-+ [Minimum Transport Layer Security (TLS) version changes effective starting September 30, 2026](#tls-changes-sep2026)
++ [Minimum Transport Layer Security (TLS) version changes effective starting October 31, 2026](#tls-changes-oct2026)
 + [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025)
 
 ### SUPER data type supports larger individual strings starting with Patch 206
@@ -122,10 +122,10 @@ To opt out of maintaining integrations during a restore, uncheck the **Maintain 
 
 For more information about patch versions, see [Cluster versions for Amazon Redshift](cluster-versions.md).
 
-### End of support for the Amazon Redshift ODBC 1.x driver on September 30, 2026
-<a name="odbc1x-deprecation-jun2026"></a>
+### End of support for the Amazon Redshift ODBC 1.x driver on December 31, 2026
+<a name="odbc1x-deprecation-dec2026"></a>
 
-Beginning September 30, 2026, Amazon Redshift will discontinue support for the [ODBC 1.x driver](https://docs.aws.amazon.com/redshift/latest/mgmt/configure-odbc-connection.html). Based on customer feedback, we have extended the original end-of-support date from June 30, 2026 to September 30, 2026, to provide additional time for migration. This applies to both Amazon Redshift provisioned clusters and serverless workgroups.
+Beginning December 31, 2026, Amazon Redshift will discontinue support for the [ODBC 1.x driver](https://docs.aws.amazon.com/redshift/latest/mgmt/configure-odbc-connection.html). Based on customer feedback, we have extended the original end-of-support date from September 30, 2026 to December 31, 2026, to provide additional time for migration. This applies to both Amazon Redshift provisioned clusters and serverless workgroups.
 
 You may be impacted by this if you use any version of the [ODBC 1.x driver](https://docs.aws.amazon.com/redshift/latest/mgmt/configure-odbc-connection.html) to connect to Amazon Redshift. To verify whether you are using an ODBC 1.x driver, run the following query:
 
@@ -141,7 +141,7 @@ OR
 (application_name ilike 'Amazon Redshift ODBC Driver 1%');
 ```
 
-To continue receiving technical support for your Amazon Redshift ODBC driver connections, please migrate to the latest [Amazon Redshift ODBC 2.x driver](https://docs.aws.amazon.com/redshift/latest/mgmt/odbc20-install.html) before September 29, 2026.
+To continue receiving technical support for your Amazon Redshift ODBC driver connections, please migrate to the latest [Amazon Redshift ODBC 2.x driver](https://docs.aws.amazon.com/redshift/latest/mgmt/odbc20-install.html) before December 30, 2026.
 
 Before migrating to the ODBC 2.x driver in a production environment, we recommend conducting a thorough proof of concept to verify that the new driver meets all your functional requirements.
 
@@ -174,10 +174,10 @@ For information on creating and using Lambda UDFs, see [Scalar Lambda UDFs](http
 
 Starting February 16, 2026, Amazon Redshift will no longer support the usage of `user_is_member_of` and related functions that access consumer user, role, or group information through datasharing.
 
-### Minimum Transport Layer Security (TLS) version changes effective starting September 30, 2026
-<a name="tls-changes-sep2026"></a>
+### Minimum Transport Layer Security (TLS) version changes effective starting October 31, 2026
+<a name="tls-changes-oct2026"></a>
 
-Beginning September 30, 2026, Amazon Redshift will enforce a minimum Transport Layer Security (TLS) version of 1.2. Incoming connections that use TLS versions 1.0 or 1.1 will be rejected. This applies to both Amazon Redshift provisioned clusters and serverless workgroups. Amazon Redshift data warehouses not using TLS will not be affected by this change.
+Beginning October 31, 2026, Amazon Redshift will enforce a minimum Transport Layer Security (TLS) version of 1.2. Incoming connections that use TLS versions 1.0 or 1.1 will be rejected. This applies to both Amazon Redshift provisioned clusters and serverless workgroups. Amazon Redshift data warehouses not using TLS will not be affected by this change.
 
 This update might impact you if you use TLS versions 1.0 or 1.1 to connect to Amazon Redshift. 
 

@@ -841,6 +841,9 @@ The SSL certificate verification mode to use when connecting to Amazon Redshift.
 +  `allow`: By default, connect without using SSL. If the server requires SSL connections, then use SSL. 
 +  `disable`: Connect without using SSL. 
 
+**Note**  
+We recommend using `verify-full` for SSL connections whenever possible.
+
 This parameter is optional.
 
 ## StreamingCursorRows
