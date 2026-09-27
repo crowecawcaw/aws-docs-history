@@ -2,10 +2,10 @@
 
 The AWS Marketplace API Reference was restructured. For more information about the supported API operations, see the [AWS Marketplace API Reference](https://docs.aws.amazon.com/marketplace/latest/APIReference/Welcome.html).
 
-# Search for agreements by end date using an AWS SDK
-<a name="marketplace-agreement_example_marketplace-agreement_SearchAgreementsByEndDate_section"></a>
+# Search for agreements by start date using an AWS SDK
+<a name="marketplace-agreement_example_marketplace-agreement_SearchAgreementsByStartDate_section"></a>
 
-The following code examples show how to search for agreements by end date.
+The following code examples show how to search for agreements by start date.
 
 ------
 #### [ Java ]
@@ -31,9 +31,17 @@ import java.util.List;
 import static com.example.awsmarketplace.utils.ReferenceCodesConstants.*;
 import com.example.awsmarketplace.utils.ReferenceCodesUtils;
 
-public class SearchAgreementsByEndDate {
+/**
+ * This filter is supported only when PartyType is Proposer, so only sellers can use it. An
+ * unsupported combination fails with a ValidationException whose reason is UNSUPPORTED_FILTERS.
+ * All filter combinations we support for Proposer and Acceptor:
+ * https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html
+ */
 
-	static String beforeOrAfterEndtimeFilterName = BeforeOrAfterEndTimeFilterName.BeforeEndTime.name();
+public class SearchAgreementsByStartDate {
+
+	// change to AfterStartTime if after start time is desired
+	static String beforeOrAfterStartTimeFilterName = BeforeOrAfterStartTimeFilterName.BeforeStartTime.name();
 
 	static String cutoffDate = "2050-11-18T00:00:00Z";
 
@@ -47,42 +55,43 @@ public class SearchAgreementsByEndDate {
 	}
 
 	public static List<AgreementViewSummary> getAgreements() {
-		MarketplaceAgreementClient marketplaceAgreementClient = 
+		MarketplaceAgreementClient marketplaceAgreementClient =
 				MarketplaceAgreementClient.builder()
 				.httpClient(ApacheHttpClient.builder().build())
 				.credentialsProvider(ProfileCredentialsProvider.create())
 				.build();
 
-		// Set PartyType filter to PARTY_TYPE_FILTER_VALUE_PROPOSER to return agreements where you are the proposer.
-		// Change to PARTY_TYPE_FILTER_VALUE_ACCEPTOR to return agreements where you are the acceptor.
+		// This filter is supported only for the proposer, so leave PartyType set to
+		// PARTY_TYPE_FILTER_VALUE_PROPOSER. PARTY_TYPE_FILTER_VALUE_ACCEPTOR fails with a
+		// ValidationException whose reason is UNSUPPORTED_FILTERS.
 		Filter partyTypeFilter = Filter.builder().name(PARTY_TYPE_FILTER_NAME)
-				.values(PARTY_TYPE_FILTER_VALUE_PROPOSER).build();
+				.values(partyTypeFilterValue).build();
 
 		Filter agreementTypeFilter = Filter.builder().name(AGREEMENT_TYPE_FILTER_NAME)
 				.values(AGREEMENT_TYPE_FILTER_VALUE_PURCHASEAGREEMENT).build();
-		
-		Filter customizeFilter = Filter.builder().name(beforeOrAfterEndtimeFilterName).values(cutoffDate).build();
-		
+
+		Filter customizeFilter = Filter.builder().name(beforeOrAfterStartTimeFilterName).values(cutoffDate).build();
+
 		List<Filter> filters = new ArrayList<Filter>();
-		
+
 		filters.addAll(Arrays.asList(partyTypeFilter, agreementTypeFilter, customizeFilter));
-		
+
 		// search agreement with filters
-		
-		SearchAgreementsRequest searchAgreementsRequest = 
+
+		SearchAgreementsRequest searchAgreementsRequest =
 				SearchAgreementsRequest.builder()
 				.catalog(AWS_MP_CATALOG)
 				.filters(filters)
 				.build();
-		
-		SearchAgreementsResponse searchAgreementResponse= marketplaceAgreementClient.searchAgreements(searchAgreementsRequest);
-		
+
+		SearchAgreementsResponse searchAgreementResponse = marketplaceAgreementClient.searchAgreements(searchAgreementsRequest);
+
 		List<AgreementViewSummary> agreementSummaryList = new ArrayList<AgreementViewSummary>();
-		
+
 		agreementSummaryList.addAll(searchAgreementResponse.agreementViewSummaries());
 
 		while (searchAgreementResponse.nextToken() != null && searchAgreementResponse.nextToken().length() > 0) {
-			searchAgreementsRequest = 
+			searchAgreementsRequest =
 					SearchAgreementsRequest.builder()
 					.catalog(AWS_MP_CATALOG)
 					.filters(filters)
@@ -109,9 +118,11 @@ public class SearchAgreementsByEndDate {
 # SPDX-License-Identifier: Apache-2.0
 """
 Purpose
-Shows how to use the AWS SDK for Python (Boto3) to search for agreement information before or after end date
-AG-03
+Shows how to use the AWS SDK for Python (Boto3) to search for agreement information before or after start date
+AG-34
 
+This filter is supported only when PartyType is Proposer, so only sellers can use it. An
+unsupported combination fails with a ValidationException whose reason is UNSUPPORTED_FILTERS.
 All filter combinations we support for Proposer and Acceptor:
 https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html
 """
@@ -129,11 +140,11 @@ from botocore.exceptions import ClientError
 
 mp_client = boto3.client("marketplace-agreement")
 
-# change to 'AfterEndTime' if after endtime is desired
-beforeOrAfterEndtimeFilterName = "BeforeEndTime"
+# change to 'AfterStartTime' if after start time is desired
+beforeOrAfterStarttimeFilterName = "BeforeStartTime"
 
 # Make sure to use the same date format as below
-cutoffDate = "2322-11-18T00:00:00Z"
+cutoffDate = "2050-11-18T00:00:00Z"
 
 MAX_PAGE_RESULTS = 10
 
@@ -147,11 +158,12 @@ def get_agreements():
         agreement = mp_client.search_agreements(
             catalog="AWSMarketplace",
             maxResults=MAX_PAGE_RESULTS,
-            # Set PartyType filter to "Proposer" to return agreements where you are the proposer.
-            # Change to "Acceptor" to return agreements where you are the acceptor.
+            # This filter is supported only for the proposer, so leave PartyType set to
+            # "Proposer". "Acceptor" fails with a ValidationException whose reason is
+            # UNSUPPORTED_FILTERS.
             filters=[
                 {"name": "PartyType", "values": ["Proposer"]},
-                {"name": beforeOrAfterEndtimeFilterName, "values": [cutoffDate]},
+                {"name": beforeOrAfterStarttimeFilterName, "values": [cutoffDate]},
                 {"name": "AgreementType", "values": ["PurchaseAgreement"]},
             ],
         )
@@ -170,7 +182,7 @@ def get_agreements():
                 filters=[
                     {"name": "PartyType", "values": ["Proposer"]},
                     {
-                        "name": beforeOrAfterEndtimeFilterName,
+                        "name": beforeOrAfterStarttimeFilterName,
                         "values": [cutoffDate],
                     },
                     {"name": "AgreementType", "values": ["PurchaseAgreement"]},

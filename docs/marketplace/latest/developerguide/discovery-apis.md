@@ -22,6 +22,68 @@ For example, to call the API in US East (N. Virginia):
 https://discovery-marketplace.us-east-1.api.aws
 ```
 
+For the list of Regions where the Discovery API is available, see [Supported AWS Regions for the AWS Marketplace Discovery API](discovery-regions.md).
+
+## Global endpoint
+<a name="discovery-global-endpoint"></a>
+
+The Discovery API also provides a global endpoint. The global endpoint routes each request to the nearest available AWS Region where the Discovery API is deployed, based on latency and availability health checks.
+
+```
+https://discovery-marketplace.global.api.aws
+```
+
+Use the global endpoint when your application doesn't depend on which Region serves a request.
+
+### Sign requests to the global endpoint with SigV4a
+<a name="discovery-global-endpoint-sigv4a"></a>
+
+Requests to the global endpoint must be signed with SigV4a. A SigV4 signature is valid in only one Region, but the global endpoint can serve your request from any Region. If you sign a request to the global endpoint with SigV4, the request succeeds only when it's routed to the Region in your signature. Otherwise, the request fails with an authentication error (HTTP 403).
+
+To use the global endpoint, configure your AWS SDK client as follows:
+
+1. Set the client endpoint to `https://discovery-marketplace.global.api.aws`.
+
+1. Set the authentication scheme preference to `sigv4a`. You can set this in the shared AWS `config` file (`auth_scheme_preference`), with the `AWS_AUTH_SCHEME_PREFERENCE` environment variable, or in the client configuration.
+
+1. Set the SigV4a signing Region set to `*` so that the signature is valid in every Region. You can set this in the shared AWS `config` file (`sigv4a_signing_region_set`), with the `AWS_SIGV4A_SIGNING_REGION_SET` environment variable, or in the client configuration.
+
+SigV4a signing requires the AWS Common Runtime (CRT). For example, install `botocore[crt]` for Python, or add the `auth-crt` module for Java. For the settings that each SDK supports, see [Authentication scheme](https://docs.aws.amazon.com/sdkref/latest/guide/feature-auth-scheme.html) in the *AWS SDKs and Tools Reference Guide*.
+
+The following example configures a Python (Boto3) client for the global endpoint.
+
+```
+# Python (Boto3) example
+import boto3
+from botocore.config import Config
+
+client = boto3.client(
+    'marketplace-discovery',
+    region_name='us-east-1',  # Required by the SDK, but doesn't affect routing.
+    endpoint_url='https://discovery-marketplace.global.api.aws',
+    config=Config(
+        auth_scheme_preference='sigv4a',
+        sigv4a_signing_region_set='*',
+    ),
+)
+
+response = client.get_listing(
+    listingId='listing-saas-abc123'
+)
+
+print(response['listingName'])
+```
+
+**Session token version requirement**  
+If you use temporary security credentials, they must include a version 2 session token. Regional AWS STS endpoints return version 2 tokens by default. The global AWS STS endpoint (`sts.amazonaws.com`) returns version 1 tokens unless you change the account setting. For more information, see [Managing global endpoint session tokens](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-manage-tokens) in the *IAM User Guide*.
+
+### Pagination constraint for the global endpoint
+<a name="discovery-global-endpoint-pagination"></a>
+
+A `nextToken` value is valid only in the Region that issued it. The global endpoint rejects a `nextToken` received from one Region if it routes the next request to another Region. This can happen when the nearest available Region changes or when the Region that issued the token becomes unhealthy. In that case, the API returns a `ValidationException` with the reason `INVALID_PAGINATION_TOKEN`.
+
+If you paginate through the global endpoint, handle `INVALID_PAGINATION_TOKEN` by restarting from the first page.
+
 ## API version
 <a name="discovery-api-version"></a>
 
@@ -39,7 +101,7 @@ The Discovery API organizes the AWS Marketplace catalog into the following entit
 ## Authentication
 <a name="discovery-authentication"></a>
 
-The Discovery API uses standard AWS Signature Version 4 (SigV4) authentication. You must have valid AWS credentials and the appropriate IAM permissions to call the API. For details, see [Access control for the AWS Marketplace Discovery API](discovery-api-access-control.md).
+The Discovery API supports SigV4 and SigV4a authentication for Regional endpoints. Requests to the global endpoint must be signed with SigV4a. For more information about signing requests to the global endpoint, see [Sign requests to the global endpoint with SigV4a](#discovery-global-endpoint-sigv4a). You must have valid AWS credentials and the appropriate IAM permissions to call the API. For details, see [Access control for the AWS Marketplace Discovery API](discovery-api-access-control.md).
 
 ## Making requests
 <a name="discovery-making-requests"></a>

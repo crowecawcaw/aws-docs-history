@@ -20,6 +20,9 @@ The following code example shows how to search for agreements by account ID.
 Purpose
 Shows how to use the AWS SDK for Python (Boto3) to get agreement by customer AWS account ID
 AG-02
+
+All filter combinations we support for Proposer and Acceptor:
+https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html
 """
 
 import argparse

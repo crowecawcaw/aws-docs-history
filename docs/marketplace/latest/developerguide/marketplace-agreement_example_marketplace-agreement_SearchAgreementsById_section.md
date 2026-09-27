@@ -20,6 +20,9 @@ The following code example shows how to search for agreements by agreement ID.
 Purpose
 Shows how to use the AWS SDK for Python (Boto3) to search for agreements give id information
 AG-02-A
+
+All filter combinations we support for Proposer and Acceptor:
+https://docs.aws.amazon.com/marketplace/latest/APIReference/API_marketplace-agreements_SearchAgreements.html
 """
 
 
