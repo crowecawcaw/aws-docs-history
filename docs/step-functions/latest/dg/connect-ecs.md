@@ -126,8 +126,7 @@ You can only stop Amazon Elastic Container Service (Amazon ECS) tasks that were 
                 "ecs:RunTask"
             ],
             "Resource": [
-                "arn:aws:ecs:{{region}}:
-{{account-id}}:task-definition/{{taskDefinition}}:{{revisionNumber}}"
+                "arn:aws:ecs:{{us-east-1}}:{{111122223333}}:task-definition/{{taskDefinition}}:{{revisionNumber}}"
             ]
         },
         {
@@ -146,8 +145,7 @@ You can only stop Amazon Elastic Container Service (Amazon ECS) tasks that were 
                 "events:DescribeRule"
             ],
             "Resource": [
-               "arn:aws:events:{{region}}:
-{{account-id}}:rule/StepFunctionsGetEventsForECSTaskRule"
+               "arn:aws:events:{{us-east-1}}:{{111122223333}}:rule/StepFunctionsGetEventsForECSTaskRule"
             ]
         }
     ]
@@ -177,8 +175,7 @@ You can only stop Amazon Elastic Container Service (Amazon ECS) tasks that were 
                 "events:DescribeRule"
             ],
             "Resource": [
-               "arn:aws:events:{{region}}:
-{{account-id}}:rule/StepFunctionsGetEventsForECSTaskRule"
+               "arn:aws:events:{{us-east-1}}:{{111122223333}}:rule/StepFunctionsGetEventsForECSTaskRule"
             ]
         }
     ]
@@ -200,8 +197,7 @@ You can only stop Amazon Elastic Container Service (Amazon ECS) tasks that were 
                 "ecs:RunTask"
             ],
             "Resource": [
-                "arn:aws:ecs:{{region}}:
-{{account-id}}:task-definition/{{taskDefinition}}:{{revisionNumber}}"
+                "arn:aws:ecs:{{us-east-1}}:{{111122223333}}:task-definition/{{taskDefinition}}:{{revisionNumber}}"
             ]
         }
     ]

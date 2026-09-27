@@ -82,7 +82,7 @@ Update the trust policy of your target IAM role as shown in the following exampl
       "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Principal": {
-        "AWS": "arn:aws:iam::{{sourceAccountID}}:role/{{InvokeRole}}",
+        "AWS": "arn:aws:iam::{{sourceAccountID}}:role/{{InvokeRole}}"
       },
       "Condition": {
         "StringEquals": {
