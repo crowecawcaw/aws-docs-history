@@ -7,7 +7,7 @@ Amazon EC2 Capacity Reservations allow you to reserve compute capacity for your 
 
 You can create a Capacity Reservation at any time, and you can choose when it starts. You can request a Capacity Reservation for immediate use or you can request a Capacity Reservation for a future date.
 + If you request a **Capacity Reservation for immediate use**, the Capacity Reservation becomes available for use immediately and there is no term commitment. You can modify the Capacity Reservation at any time, and you can cancel it at any time to release the reserved capacity and to stop incurring charges.
-+ If you request a **future-dated Capacity Reservation**, you specify when you need the capacity and how long you commit to keeping it. At the specified future date, the Capacity Reservation becomes available for use and billing starts. During the commitment duration, you can't decrease the instance count or commitment duration below your initial commitment. You can cancel the Capacity Reservation, but a cancellation charge might apply depending on when you cancel. After the commitment duration elapses, you can modify the Capacity Reservation in any way or cancel it without charge.
++ If you request a **future-dated Capacity Reservation**, you specify when you need the capacity and how long you commit to keeping it. At the specified future date, the Capacity Reservation becomes available for use and billing starts. During the commitment duration, you can't decrease the instance count or commitment duration below your initial commitment. You can cancel the Capacity Reservation, but a cancellation charge might apply depending on when you cancel. Before the capacity is delivered, you can postpone the start date. Additional commitment might be required. After the commitment duration elapses, you can modify the Capacity Reservation in any way or cancel it without charge.
 
 Capacity Reservations can only be used by instances that match their attributes. By default, Capacity Reservations automatically match new instances and running instances that have matching attributes (instance type, platform, Availability Zone, and tenancy). This means that any instance with matching attributes automatically runs in the Capacity Reservation. However, you can also target a Capacity Reservation for specific workloads. This allows you to explicitly control which instances are allowed to run in that reserved capacity. You can also specify that instances will only run in a Capacity Reservation or Capacity Reservation Resource Group.
 
@@ -34,7 +34,7 @@ All supported Amazon EC2 instances with matching attributes, that is instance ty
 + [Create a Capacity Reservation](capacity-reservations-create.md)
 + [View the state of a Capacity Reservation](capacity-reservations-view.md)
 + [Launch instances into an existing Capacity Reservation](capacity-reservations-launch.md)
-+ [Modify an active Capacity Reservation](capacity-reservations-modify.md)
++ [Modify a Capacity Reservation](capacity-reservations-modify.md)
 + [Modify the Capacity Reservation settings of your instance](capacity-reservations-modify-instance.md)
 + [Move capacity between Capacity Reservations](capacity-reservations-move.md)
 + [Split off capacity from an existing Capacity Reservation](capacity-reservations-split.md)

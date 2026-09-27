@@ -15,7 +15,7 @@ You will learn how to create a Capacity Reservation Resource Group that contains
 
 This tutorial assumes that you already have the following Capacity Reservations in your account:
 + An ODCR (`cr-1234567890abcdef1`) for `p5.48xlarge` in `us-east-1a`
-+ An ODCR (`cr-abcdef1234567890a`) for `p4d.48xlarge` in `us-east-1b`
++ An ODCR (`cr-abcdef1234567890a`) for `p4d.24xlarge` in `us-east-1b`
 + A Capacity Block (`cr-0123456789abcdef0`) for `p5.48xlarge` in `us-east-1a`
 + An interruptible Capacity Reservation (`cr-9876543210fedcba9`) for `p5.48xlarge` in `us-east-1a`, shared with you by another account in your organization
 
@@ -79,7 +79,7 @@ Create a file named `config.json` with the following content. In the following e
                     "Priority": 1
                 },
                 {
-                    "InstanceType": "{{p4d.48xlarge}}",
+                    "InstanceType": "{{p4d.24xlarge}}",
                     "AvailabilityZone": "{{us-east-1b}}",
                     "Priority": 2
                 }
@@ -112,11 +112,11 @@ For more information, see [Create an EC2 Fleet](create-ec2-fleet.md).
 **How EC2 Fleet resolves Capacity Reservations**  
 Based on the preceding configuration, EC2 Fleet attempts to launch instances in the following order:
 
-1. **ODCRs** – `p5.48xlarge` reservations first (the highest priority instance type), and then `p4d.48xlarge` reservations. Within each instance type, if multiple ODCRs exist, one is selected at random.
+1. **ODCRs** – `p5.48xlarge` reservations first (the highest priority instance type), and then `p4d.24xlarge` reservations. Within each instance type, if multiple ODCRs exist, one is selected at random.
 
-1. **Capacity Blocks** – If no available capacity remains across all ODCRs, EC2 Fleet targets Capacity Blocks. `p5.48xlarge` reservations first, and then `p4d.48xlarge`, selected at random within each instance type.
+1. **Capacity Blocks** – If no available capacity remains across all ODCRs, EC2 Fleet targets Capacity Blocks. `p5.48xlarge` reservations first, and then `p4d.24xlarge`, selected at random within each instance type.
 
-1. **Interruptible Capacity Reservations** – If no available capacity remains across all Capacity Blocks, EC2 Fleet targets interruptible Capacity Reservations. `p5.48xlarge` reservations first, and then `p4d.48xlarge`, selected at random within each instance type.
+1. **Interruptible Capacity Reservations** – If no available capacity remains across all Capacity Blocks, EC2 Fleet targets interruptible Capacity Reservations. `p5.48xlarge` reservations first, and then `p4d.24xlarge`, selected at random within each instance type.
 
 1. **On-Demand fallback** – If reserved capacity is insufficient to meet the target of 100 instances, the remaining capacity is launched as On-Demand Instances. EC2 Fleet launches these On-Demand Instances according to the allocation strategy that you specify in `OnDemandOptions`.
 
@@ -133,7 +133,7 @@ Use the [describe-instances](https://docs.aws.amazon.com/cli/latest/reference/ec
 | --- | --- | --- | --- | --- | 
 | instance-lifecycle | null | capacity-block | interruptible-capacity-reservation | null | 
 | capacity-reservation-id | Capacity Reservation ID consumed | Capacity Reservation ID consumed | Capacity Reservation ID consumed | Not present | 
-| capacity-reservation-specification | Group ARN | Group ARN | Group ARN | Not present | 
+| capacity-reservation-specification | Group ARN | Group ARN | Group ARN | Group ARN | 
 
 You can filter instances by Capacity Reservation Resource Group using the following command:
 

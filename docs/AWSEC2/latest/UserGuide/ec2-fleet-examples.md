@@ -753,7 +753,7 @@ The launch template targets the Capacity Reservation Resource Group. When you us
                     "Priority": 1
                 },
                 {
-                    "InstanceType": "{{p4d.48xlarge}}",
+                    "InstanceType": "{{p4d.24xlarge}}",
                     "AvailabilityZone": "{{us-east-1b}}",
                     "Priority": 2
                 }
