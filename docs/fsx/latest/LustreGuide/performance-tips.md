@@ -12,36 +12,9 @@ Your chosen request model has tradeoffs in consistency (if you're using multiple
 + **Amazon EC2 instances** – Applications that perform a large number of read and write operations likely need more memory or computing capacity than applications that don't. When launching your Amazon EC2 instances for your compute-intensive workload, choose instance types that have the amount of these resources that your application needs. The performance characteristics of Amazon FSx for Lustre file systems don't depend on the use of Amazon EBS–optimized instances.
 + **Recommended client instance tuning for optimal performance**
 
-  1. For client instance types with memory of more than 64 GiB, we recommend applying the following tuning:
-
-     ```
-     sudo lctl set_param ldlm.namespaces.*.lru_max_age=600000
-     sudo lctl set_param ldlm.namespaces.*.lru_size=<100 * {{number_of_CPUs}}>
-     ```
-
-  1. For client instance types with more than 64 vCPU cores, we recommend applying the following tuning:
-
-     ```
-     echo "options ptlrpc ptlrpcd_per_cpt_max=32" >> /etc/modprobe.d/modprobe.conf
-     echo "options ksocklnd credits=2560" >> /etc/modprobe.d/modprobe.conf
-                 
-     # reload all kernel modules to apply the above two settings
-     sudo reboot
-     ```
-
-     After the client is mounted, the following tuning needs to be applied:
-
-     ```
-     sudo lctl set_param osc.*OST*.max_rpcs_in_flight=32
-     sudo lctl set_param mdc.*.max_rpcs_in_flight=64
-     sudo lctl set_param mdc.*.max_mod_rpcs_in_flight=50
-     ```
-
   1. To optimize performance for directory listing (ls), the following tuning needs to be applied:
 
      ```
-     sudo lctl set_param llite.*.statahead_max=512
-     sudo lctl set_param llite.*.statahead_agl=1
      if sudo lctl get_param llite.*.statahead_xattr > /dev/null 2>&1; then
          sudo lctl set_param llite.*.statahead_xattr=1
      else

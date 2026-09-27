@@ -59,12 +59,15 @@ Following are the limits on Amazon FSx for Lustre resources for each file system
 | Maximum retention period for automated backups | 90 days | 
 | Maximum number of backup copy requests in progress to a single destination Region per account. | 5 | 
 | Number of file updates from linked S3 bucket per file systems | 10 million / month | 
-| Minimum storage capacity, SSD file systems | 1.2 TiB | 
-| Minimum storage capacity, HDD file systems | 6 TiB | 
+| Minimum storage capacity, SSD file systems | 1,200 GiB | 
+| Minimum storage capacity, HDD file systems | 6,000 GiB | 
 | Minimum throughput per unit of storage, SSD | 50 MBps | 
 | Maximum throughput per unit of storage, SSD | 1000 MBps | 
 | Minimum throughput per unit of storage, HDD | 12 MBps | 
 | Maximum throughput per unit of storage, HDD | 40 MBps | 
+| Maximum storage capacity, Persistent\_1 SSD file systems | 604,800 GiB | 
+| Maximum storage capacity, Persistent\_1 HDD file systems | 1,002,000 GiB | 
+| Maximum storage capacity, Persistent\_2 file systems | 1,200,000 GiB | 
 
 ## Additional considerations
 <a name="limits-additional-considerations"></a>
