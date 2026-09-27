@@ -34,7 +34,7 @@ For a comprehensive history of application versions for each release of Amazon E
 |  | emr-spark-8.0.0 | 
 | --- | --- | 
 | AWS SDK for Java | 2.41.32 | 
-| Python | 3.11, 3.12, 3.13 | 
+| Python | 3.11, 3.13 | 
 | Scala | 2.13.16 | 
 | AmazonCloudWatchAgent | 1.300032.2-amzn-0 | 
 | Delta | 4.0.0-amzn-1-spark | 

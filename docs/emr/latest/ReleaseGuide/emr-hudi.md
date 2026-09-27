@@ -16,14 +16,14 @@ These features make Hudi suitable for the following use cases:
 
 The following table lists the version of Hudi included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Hudi.
 
-For the version of components installed with Hudi in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with Hudi in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Hudi version information for emr-7.13.0**  
+**Hudi version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
 | --- | --- | --- | 
-| emr-7.13.0 | Hudi 1.0.2-amzn-2 | Not available. | 
+| emr-7.14.0 | Hudi 1.0.2-amzn-3 | Not available. | 
 
 The following table lists the version of Hudi included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Hudi.
 

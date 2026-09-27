@@ -56,13 +56,23 @@ The following describes the milestones in the Standard Support lifecycle:
 
 AWS announced the Standard Support policy on July 25, 2024. Under this policy, versions of Amazon EMR released on or before July 24, 2022 were designated as End of Support. Amazon EMR offers Bridge Support, equivalent to Standard Support, for these releases through August 31, 2026.
 
-Effective August 31, 2026, if you're actively migrating, AWS provides additional time to complete your migration to a supported release at no additional cost. This extension applies to the selected releases listed in the following table. To receive this extension, contact AWS Support and file a ticket with your migration plan and any help you need with the upgrade.
+Effective August 31, 2026, if you're actively migrating, AWS provides additional time to complete your migration to a supported release at no additional cost. This extension applies to the selected releases listed in the Support Lifecycle table below. To receive this extension, contact AWS Support and file a ticket with your migration plan and any help you need with the upgrade.
 
-For Amazon EMR release versions 5.36 and 6.6 through 6.15, Amazon EMR extends support on a best-effort basis, limited to critical security fixes only, through June 30, 2027.
+For Amazon EMR release versions 5.36 and 6.6 through 6.15, Amazon EMR extends support through June 30, 2027.
 
 Amazon EMR release versions 5.35 and lower, and 6.5 and lower, do not receive Extended Support. These releases transition directly from Bridge Support to End of Support on September 1, 2026.
 
-For Amazon EMR release versions 7.0 through 7.10, Amazon EMR extends Standard Support in full through the dates listed in the following table.
+For Amazon EMR release versions 7.0 through 7.10, Amazon EMR extends Standard Support in full through the dates listed in the Support Lifecycle table below.
+
+### Long Term Support
+<a name="emr-long-term-support"></a>
+
+Designated versions of the AWS runtime for Apache Spark receive 36 months of support. Amazon EMR provides fixes for critical and high severity security, bug, and data-corruption issues, subject to availability.
+
+When the support period ends, Long Term Support releases transition directly to End of Life, with no separate End of Support stage.
+
+### Support Lifecycle
+<a name="emr-support-lifecycle"></a>
 
 
 | Amazon EMR release version | Initial release date | Standard support end date | Extended support end date | End of support start date | End of life start date | 
@@ -137,7 +147,9 @@ For Amazon EMR release versions 7.0 through 7.10, Amazon EMR extends Standard Su
 | 7.11 | November 3, 2025 | November 3, 2027 | N/A | November 4, 2027 | November 4, 2028 | 
 | 7.12 | November 21, 2025 | November 21, 2027 | N/A | November 22, 2027 | November 22, 2028 | 
 | 7.13 | April 21, 2026 | April 20, 2028 | N/A | April 21, 2028 | April 21, 2029 | 
+| 7.14 | September 8, 2026 | September 8, 2028 | N/A | September 9, 2028 | September 8, 2029 | 
 | emr-spark-8.0 | May 21, 2026 | May 20, 2028 | N/A | May 21, 2028 | May 21, 2029 | 
+| emr-spark-8.1 [LTS] | September 8, 2026 | September 7, 2029 | N/A | September 8, 2029 | September 8, 2029 | 
 
 You can use Apache Spark Upgrade Agent to upgrade your Apache Spark existing applications on EMR on EC2 and EMR Serverless from older EMR versions to latest EMR version. To learn more, see [What is Apache Spark Upgrade Agent for Amazon EMR](spark-upgrades.md).
 

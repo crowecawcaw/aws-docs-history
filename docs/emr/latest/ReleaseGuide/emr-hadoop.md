@@ -7,14 +7,14 @@
 
 The following table lists the version of Hadoop included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Hadoop.
 
-For the version of components installed with Hadoop in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with Hadoop in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Hadoop version information for emr-7.13.0**  
+**Hadoop version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Hadoop Version | Components Installed With Hadoop | 
 | --- | --- | --- | 
-| emr-7.13.0 | Hadoop 3.4.2-amzn-0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server | 
+| emr-7.14.0 | Hadoop 3.4.2-amzn-2 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server | 
 
 The following table lists the version of Hadoop included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Hadoop.
 

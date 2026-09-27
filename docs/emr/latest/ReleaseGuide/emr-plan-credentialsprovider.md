@@ -38,7 +38,7 @@ Linux line continuation characters (\\) are included for readability. They can b
    --ec2-attributes '{"KeyName":"{{MyKeyPair}}","InstanceProfile":"EMR_EC2_DefaultRole",\
    "SubnetId":"subnet-xxxxxxxx","EmrManagedSlaveSecurityGroup":"sg-xxxxxxxx",\
    "EmrManagedMasterSecurityGroup":"sg-xxxxxxxx"}' \
-   --service-role EMR_DefaultRole_V2 --enable-debugging --release-label {{emr-7.13.0}} \
+   --service-role EMR_DefaultRole_V2 --enable-debugging --release-label {{emr-7.14.0}} \
    --log-uri 's3n://{{amzn-s3-demo-bucket}}/' --name 'test-awscredentialsprovider-emrfs' \
    --instance-type=m5.xlarge --instance-count 3  \
    --configurations '[{"Classification":"emrfs-site",\

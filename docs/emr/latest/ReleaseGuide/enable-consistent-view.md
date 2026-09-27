@@ -34,7 +34,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 
   ```
   1. aws emr create-cluster --instance-type {{m5.xlarge}} --instance-count {{3}} --emrfs Consistent={{true}} \
-  2. --release-label {{emr-7.13.0}} --ec2-attributes KeyName={{myKey}}
+  2. --release-label {{emr-7.14.0}} --ec2-attributes KeyName={{myKey}}
   ```
 
 **To check if consistent view is enabled using the AWS Management Console**

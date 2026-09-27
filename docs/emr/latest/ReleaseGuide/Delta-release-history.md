@@ -10,6 +10,7 @@ The following table lists the version of Delta included in each release version 
 
 | Amazon EMR Release Label | Delta Version | Components Installed With Delta | 
 | --- | --- | --- | 
+| emr-7.14.0 | 3.3.2-amzn-3 | Not available. | 
 | emr-7.13.0 | 3.3.2-amzn-2 | Not available. | 
 | emr-7.12.0 | 3.3.2-amzn-1 | Not available. | 
 | emr-7.11.0 | 3.3.2-amzn-0 | Not available. | 

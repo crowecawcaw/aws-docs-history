@@ -19,18 +19,18 @@ Hue is installed by default when you launch your cluster using the Amazon EMR co
 ## Hue version information
 <a name="emr-Hue-versions"></a>
 
-**Hue version for 7.13.0**
+**Hue version for 7.14.0**
 
 The following table lists the version of Hue included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Hue.
 
-For the version of components installed with Hue in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with Hue in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Hue version information for emr-7.13.0**  
+**Hue version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
 | --- | --- | --- | 
-| emr-7.13.0 | Hue 4.11.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hue-server, mariadb-server, oozie-client, oozie-server | 
+| emr-7.14.0 | Hue 4.11.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hue-server, mariadb-server, oozie-client, oozie-server | 
 
 **Hue version for 6.15.0**
 

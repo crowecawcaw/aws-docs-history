@@ -10,6 +10,7 @@ The following table lists the version of Hudi included in each release version o
 
 | Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
 | --- | --- | --- | 
+| emr-7.14.0 | 1.0.2-amzn-3 | Not available. | 
 | emr-7.13.0 | 1.0.2-amzn-2 | Not available. | 
 | emr-7.12.0 | 1.0.2-amzn-1 | Not available. | 
 | emr-7.11.0 | 1.0.2-amzn-0 | Not available. | 

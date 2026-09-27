@@ -9,14 +9,14 @@ To access the Zeppelin web interface, set up an SSH tunnel to the master node an
 
 The following table lists the version of Zeppelin included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Zeppelin.
 
-For the version of components installed with Zeppelin in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with Zeppelin in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Zeppelin version information for emr-7.13.0**  
+**Zeppelin version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
 | --- | --- | --- | 
-| emr-7.13.0 | Zeppelin 0.11.1 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hudi, hudi-spark, livy-server, r, spark-client, spark-history-server, spark-on-yarn, spark-yarn-slave, zeppelin-server | 
+| emr-7.14.0 | Zeppelin 0.11.1 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hudi, hudi-spark, livy-server, r, spark-client, spark-history-server, spark-on-yarn, spark-yarn-slave, zeppelin-server | 
 
 The following table lists the version of Zeppelin included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Zeppelin.
 

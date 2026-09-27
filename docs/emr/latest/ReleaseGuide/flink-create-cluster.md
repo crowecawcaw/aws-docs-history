@@ -21,7 +21,7 @@ You can launch a cluster with the AWS Management Console, AWS CLI, or an AWS SDK
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --release-label {{emr-7.13.0}} \
+  aws emr create-cluster --release-label {{emr-7.14.0}} \
   --applications Name=Flink \
   --region {{us-east-1}} \
   --log-uri {{s3://myLogUri}} \

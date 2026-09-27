@@ -24,7 +24,7 @@ You can provide a configuration to **create-cluster** by supplying a path to a J
 If your configuration is in your local directory, you can use the following example command.
 
 ```
-aws emr create-cluster --use-default-roles --release-label {{emr-7.13.0}} --applications Name=Hive \
+aws emr create-cluster --use-default-roles --release-label {{emr-7.14.0}} --applications Name=Hive \
 --instance-type m5.xlarge --instance-count 3 --configurations file://./configurations.json
 ```
 

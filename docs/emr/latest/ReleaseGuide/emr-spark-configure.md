@@ -116,7 +116,7 @@ The following procedures show how to modify settings using the CLI or console.
 + Create a cluster with Spark installed and `spark.executor.memory` set to 2g, using the following command, which references a file, `myConfig.json` stored in Amazon S3.
 
   ```
-  aws emr create-cluster --release-label {{emr-7.13.0}} --applications Name=Spark \
+  aws emr create-cluster --release-label {{emr-7.14.0}} --applications Name=Spark \
   --instance-type m5.xlarge --instance-count 2 --service-role EMR_DefaultRole_V2 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -155,7 +155,7 @@ Linux line continuation characters (\\) are included for readability. They can b
 + Create a cluster with Spark installed and `maximizeResourceAllocation` set to true using the AWS CLI, referencing a file, `myConfig.json`, stored in Amazon S3.
 
   ```
-  aws emr create-cluster --release-label {{emr-7.13.0}} --applications Name=Spark \
+  aws emr create-cluster --release-label {{emr-7.14.0}} --applications Name=Spark \
   --instance-type m5.xlarge --instance-count 2 --service-role EMR_DefaultRole_V2 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/amzn-s3-demo-bucket/myfolder/myConfig.json
   ```
 **Note**  

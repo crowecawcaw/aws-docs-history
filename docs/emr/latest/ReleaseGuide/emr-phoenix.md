@@ -9,14 +9,14 @@ If you upgrade from an earlier version of Amazon EMR to Amazon EMR release versi
 
 The following table lists the version of Phoenix included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Phoenix.
 
-For the version of components installed with Phoenix in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with Phoenix in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Phoenix version information for emr-7.13.0**  
+**Phoenix version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
 | --- | --- | --- | 
-| emr-7.13.0 | Phoenix 5.3.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hbase-hmaster, hbase-client, hbase-region-server, hbase-operator-tools, phoenix-library, phoenix-connectors, phoenix-query-server, zookeeper-client, zookeeper-server | 
+| emr-7.14.0 | Phoenix 5.3.0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hbase-hmaster, hbase-client, hbase-region-server, hbase-operator-tools, phoenix-library, phoenix-connectors, phoenix-query-server, zookeeper-client, zookeeper-server | 
 
 The following table lists the version of Phoenix included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Phoenix.
 

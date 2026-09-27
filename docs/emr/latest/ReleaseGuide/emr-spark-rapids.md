@@ -364,7 +364,7 @@ The last step is to launch your cluster with the cluster configurations mentione
 
 ```
  aws emr create-cluster \
---release-label emr-7.13.0 \
+--release-label emr-7.14.0 \
 --applications Name=Hadoop Name=Spark \
 --service-role EMR_DefaultRole_V2 \
 --ec2-attributes KeyName=my-key-pair,InstanceProfile=EMR_EC2_DefaultRole \

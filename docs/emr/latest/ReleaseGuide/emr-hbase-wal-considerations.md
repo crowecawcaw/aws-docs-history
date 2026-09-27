@@ -30,6 +30,7 @@ The following list describes important considerations and limitations of Amazon 
 + WAL is replicated across Availability Zones inside the managed service.
 + WAL outlives the the cluster, and remains available for the next cluster.
 + You can't disable Amazon EMR WAL during launch or when your cluster is operational (in a running state).
++ Amazon EMR WAL does not support HBase tables or mutations that explicitly use the `ASYNC_WAL` durability setting.
 + For information on WAL and workspace limits, see [Amazon EMR endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/emr.html).
 
 ## Region availability for Amazon EMR WAL

@@ -14,7 +14,7 @@ The following procedure restores a snapshot from HBase and uses that data to run
 1. Create a cluster with Phoenix installed, using the following command:
 
    ```
-   aws emr create-cluster --name "Cluster with Phoenix" --log-uri s3://{{amzn-s3-demo-bucket}}/myLogFolder --release-label {{emr-7.13.0}} \
+   aws emr create-cluster --name "Cluster with Phoenix" --log-uri s3://{{amzn-s3-demo-bucket}}/myLogFolder --release-label {{emr-7.14.0}} \
    --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
    --instance-type m5.xlarge --instance-count 3 --use-default-roles
    ```

@@ -7,14 +7,14 @@ Delta Lake is a storage layer framework for lakehouse architectures commonly bui
 
 The following table lists the version of Delta included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with Delta.
 
-For the version of components installed with Delta in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with Delta in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Delta version information for emr-7.13.0**  
+**Delta version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Delta Version | Components Installed With Delta | 
 | --- | --- | --- | 
-| emr-7.13.0 | Delta 3.3.2-amzn-2 | Not available. | 
+| emr-7.14.0 | Delta 3.3.2-amzn-3 | Not available. | 
 
 The following table lists the version of Delta included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with Delta.
 

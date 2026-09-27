@@ -17,14 +17,14 @@ For Amazon EMR HBase cluster scaling, we do not recommend using [managed scaling
 
 The following table lists the version of HBase included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with HBase.
 
-For the version of components installed with HBase in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with HBase in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**HBase version information for emr-7.13.0**  
+**HBase version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | HBase Version | Components Installed With HBase | 
 | --- | --- | --- | 
-| emr-7.13.0 | HBase 2.6.4-amzn-0 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, emr-wal-cli, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hbase-hmaster, hbase-client, hbase-region-server, hbase-rest-server, hbase-thrift-server, hbase-operator-tools, zookeeper-client, zookeeper-server | 
+| emr-7.14.0 | HBase 2.6.4-amzn-2 | emrfs, emr-ddb, emr-goodies, emr-kinesis, emr-s3-dist-cp, emr-wal-cli, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-httpfs-server, hadoop-kms-server, hadoop-mapred, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hbase-hmaster, hbase-client, hbase-region-server, hbase-rest-server, hbase-thrift-server, hbase-operator-tools, zookeeper-client, zookeeper-server | 
 
 The following table lists the version of HBase included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with HBase.
 

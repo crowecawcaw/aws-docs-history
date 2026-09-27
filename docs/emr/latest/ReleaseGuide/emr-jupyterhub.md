@@ -14,14 +14,14 @@ The following diagram depicts the components of JupyterHub on Amazon EMR with co
 
 The following table lists the version of JupyterHub included in the latest release of the Amazon EMR 7.x series, along with the components that Amazon EMR installs with JupyterHub.
 
-For the version of components installed with JupyterHub in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+For the version of components installed with JupyterHub in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**JupyterHub version information for emr-7.13.0**  
+**JupyterHub version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | JupyterHub Version | Components Installed With JupyterHub | 
 | --- | --- | --- | 
-| emr-7.13.0 | JupyterHub 1.5.0 | emrfs, emr-goodies, emr-ddb, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hudi, hudi-spark, r, spark-client, spark-history-server, spark-on-yarn, spark-yarn-slave, livy-server, jupyterhub | 
+| emr-7.14.0 | JupyterHub 1.5.0 | emrfs, emr-goodies, emr-ddb, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hudi, hudi-spark, r, spark-client, spark-history-server, spark-on-yarn, spark-yarn-slave, livy-server, jupyterhub | 
 
 The following table lists the version of JupyterHub included in the latest release of the Amazon EMR 6.x series, along with the components that Amazon EMR installs with JupyterHub.
 

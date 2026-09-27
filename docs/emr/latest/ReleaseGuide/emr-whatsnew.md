@@ -5,7 +5,7 @@
 
 This page describes the changes and functionality available in the latest releases of Amazon EMR 7.x, 6.x, and 5.x. 
 
-These release notes are also available on the [Amazon EMR 7.13.0](emr-7130-release.md), [Amazon EMR 6.15.0](emr-6150-release.md), and [Amazon EMR 5.36.2](emr-5362-release.md) pages, along with the application versions, component versions, and available configuration classifications for each release.
+These release notes are also available on the [Amazon EMR 7.14.0](emr-7140-release.md), [Amazon EMR 6.15.0](emr-6150-release.md), and [Amazon EMR 5.36.2](emr-5362-release.md) pages, along with the application versions, component versions, and available configuration classifications for each release.
 + For release notes from prior releases, see the [Amazon EMR archive of release notes](emr-whatsnew-history.md).
 + To get updates when a new Amazon EMR release is available, subscribe to the [RSS feed for Amazon EMR release notes](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss).
 
@@ -27,52 +27,41 @@ The Apache Spark troubleshooting agent for Amazon EMR is a conversational AI cap
 
 You can use the agent to troubleshoot PySpark and Scala applications failures. The agent analyzes your failed jobs, identifies performance bottlenecks, and provides actionable recommendations and code fixes while giving you full control over implementation decisions. For more details refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md).
 
-## Amazon EMR 7.13.0 (latest release of 7.x series)
-<a name="emr-7130-whatsnew"></a>
+## Amazon EMR 7.14.0 (latest release of 7.x series)
+<a name="emr-7140-whatsnew"></a>
 
 New Amazon EMR releases are made available in different Regions over a period of several days, beginning with the first Region on the initial release date. The latest release version may not be available in your Region during this period.
 
-The following release notes include information for Amazon EMR release 7.13.0.
+The following release notes include information for Amazon EMR release 7.14.0.
 
 ### What's new
-<a name="emr-7130-whatsnew"></a>
-+ **Python 3.11 default for PySpark and Spark workloads** — Python 3.11 is now the default Python version for PySpark and Spark workloads. Python 3.9 remains the default for all other applications. Both Python 3.9 and 3.11 are included in the release.
+<a name="emr-7140-whatsnew"></a>
++ **Incremental refresh improvements for Iceberg materialized views** — Incremental refresh now supports Merge-on-Read tables through change data capture. This enables fast refreshes for workloads that use updates and deletes. Refresh reads only the data files affected by a change, using per-file and manifest-level column statistics.
++ **AWS Glue Table VersionId propagated to Hive table parameters** — When you use AWS Glue as the Hive metastore, the AWS Glue Table VersionId is now propagated to Hive table parameters. This enables you to track which version of a AWS Glue table definition is in use.
++ **Ion DataSource tables with fine-grained access control** — You can now create Ion DataSource tables when you use Amazon EMR clusters with Fine-grained Table Access (FTA) mode enabled.
 
 ### Changes, enhancements, and resolved issues
-<a name="emr-7130-changes"></a>
-+ **Iceberg configuration property** — Amazon EMR 7.13 adds a new Iceberg configuration property, `spark.sql.catalog.spark_catalog.route-non-iceberg-drop-to-session-catalog`. When set to `true`, `DROP TABLE` on non-Iceberg managed tables in `SparkSessionCatalog` deletes both the table metadata and the underlying Amazon S3 data. The default value is `false`.
+<a name="emr-7140-changes"></a>
++ **Improved disk encryption verification tolerance during cluster startup** — Clusters with local disk encryption enabled in their security configuration are now more tolerant of transient network connectivity delays during instance boot. This change reduces intermittent cluster startup failures.
++ **Fixed UTF-8 multibyte character handling in Amazon EMR configurations** — Amazon EMR configurations now correctly support UTF-8 multibyte characters. This includes values with accented letters or non-Latin scripts. For more information, see [Configure applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html).
++ **Improved Kerberos authentication reliability** — Kerberos-secured clusters now start Spark jobs with newer secure ciphers without `KerberosSecretDecryptorException` errors. Kerberos ticket refresh is also more reliable.
++ **Improved HBase reliability** — Read-only to read-write promotion now completes in approximately 10 to 15 seconds instead of 6 minutes. Read replicas are protected from HFile cleanup data corruption and unauthorized writes, while deactivation races are resolved. Store file metadata caching reduces Amazon S3 API calls. Snapshot restores using the FILE-based `StoreFileTracker` now succeed, and snapshot deletion no longer stops HFile cleaning. Region server archiving no longer retries indefinitely after a file was moved or deleted.
++ **Amazon EMR now supports launching Trino clusters without Hadoop and HDFS** — When you select Trino as the only application at launch, Amazon EMR no longer starts YARN and HDFS. To add Hadoop and HDFS to a Trino cluster, these applications will need to be explicitly added to the list of applications at cluster launch.
++ **Improved Secret Agent startup reliability** — Fixes two issues that could cause Amazon EMR cluster provisioning failures related to the Secret Agent security service. Certificate creation now waits for HDFS readiness before proceeding, and the startup script retries detection of the Secret Agent Java process. Together these changes reduce launch failures on clusters with slower storage initialization or heavily loaded instances.
 
 ### Application upgrades
-<a name="emr-7130-app-upgrades"></a>
+<a name="emr-7140-app-upgrades"></a>
 
 The following applications are upgraded in this release:
-+ HBase 2.6.4-amzn-0 (upgraded from 2.6.2-amzn-3)
-+ Hadoop 3.4.2-amzn-0 (upgraded from 3.4.1-amzn-4)
-+ Phoenix 5.3.0 (upgraded from 5.2.1)
-+ Hudi 1.0.2-amzn-2 (upgraded from 1.0.2-amzn-1)
-+ Trino 479-amzn-1 (upgraded from 476-amzn-1)
-+ AWS SDK v2 2.42.12 (upgraded from 2.35.5)
-+ AWS SDK v1 1.12.797 (upgraded from 1.12.792)
-+ Spark 3.5.6-amzn-2, Hive 3.1.3-amzn-22, Tez 0.10.2-amzn-20, Presto 0.287-amzn-7, Iceberg 1.10.0-amzn-1, Delta 3.3.2-amzn-2, Flink 1.20.0-amzn-7, ZooKeeper 3.9.3-amzn-5 (amzn patch bumps)
++ Spark Redshift connector
++ NVIDIA Spark RAPIDS plugin 26.04.1-amzn-0 (upgraded from 25.08.0-amzn-0)
++ AWS SDK v2 2.44.5 (upgraded from 2.42.12)
++ Amazon Redshift JDBC driver
 
 ### Known issues and limitations
-<a name="emr-7130-known-issues"></a>
-+ Configuring `yarn.nodemanager.log-dirs` with a value of length longer than 512 characters will cause S3 log upload to fail.
-+ The following table lists the Amazon Linux release labels, kernel versions, available dates, and supported AWS Regions.
+<a name="emr-7140-known-issues"></a>
 
-
-<table>
-<thead>
-  <tr><th>OsReleaseLabel (Amazon Linux version)</th><th>Amazon Linux kernel version</th><th>Available date</th><th>Supported Regions</th></tr>
-</thead>
-<tbody>
-  <tr><td>2023.12.20260803.3</td><td>6.1.177-224.371.amzn2023</td><td>August 28, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
-  <tr><td>2023.12.20260727.0</td><td>6.1.176-223.369.amzn2023</td><td>August 13, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
-  <tr><td>2023.12.20260629.0</td><td>6.1.175-219.359.amzn2023</td><td>July 22, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
-  <tr><td>2023.12.20260611.0</td><td>6.1.174-217.345.amzn2023</td><td>July 3, 2026</td><td>US East (N. Virginia), US East (Ohio), US West (N. California), US West (Oregon), Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Taipei), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), Asia Pacific (Hyderabad), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Jakarta), Asia Pacific (Melbourne), Asia Pacific (Malaysia), Asia Pacific (Thailand), Canada (Central), Canada West (Calgary), Europe (Frankfurt), Europe (Zurich), Europe (Stockholm), Europe (Milan), Europe (Spain), Europe (Ireland), Europe (London), Europe (Paris), Israel (Tel Aviv), Mexico (Central), South America (São Paulo), China (Beijing), China (Ningxia), AWS GovCloud (US-East), AWS GovCloud (US-West)</td></tr>
-</tbody>
-</table>
-
+There are no known issues in this release.
 
 ## Amazon EMR 6.15.0 (latest release of 6.x series)
 <a name="emr-6150-whatsnew"></a>

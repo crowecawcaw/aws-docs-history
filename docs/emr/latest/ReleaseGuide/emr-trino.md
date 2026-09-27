@@ -13,14 +13,14 @@ PrestoSQL was renamed to Trino in December 2020. Amazon EMR versions 6.4.0 and l
 **Important**  
 PrestoSQL, the previous version of Trino, is still available for use with Amazon EMR. However, we highly recommend Trino going forward for use with Amazon EMR. Also note that Trino and PrestoSQL can't run simultaneously on the same cluster.
 
-The following table lists the version of Trino included in the latest release of Amazon EMR 7.x, along with components that Amazon EMR installs with Trino. For the version of components installed with Trino in this release, see [Release 7.13.0 Component Versions](emr-7130-release.md).
+The following table lists the version of Trino included in the latest release of Amazon EMR 7.x, along with components that Amazon EMR installs with Trino. For the version of components installed with Trino in this release, see [Release 7.14.0 Component Versions](emr-7140-release.md).
 
 
-**Trino (PrestoSQL) version information for emr-7.13.0**  
+**Trino (PrestoSQL) version information for emr-7.14.0**  
 
 | Amazon EMR Release Label | Trino (PrestoSQL) Version | Components Installed With Trino (PrestoSQL) | 
 | --- | --- | --- | 
-| emr-7.13.0 | trino-prestosql 479-amzn-1 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-trino, hcatalog-server, mariadb-server, trino-coordinator, trino-worker | 
+| emr-7.14.0 | trino-prestosql 479-amzn-2 | emrfs, emr-goodies, hadoop-client, hadoop-hdfs-datanode, hadoop-hdfs-library, hadoop-hdfs-namenode, hadoop-hdfs-zkfc, hadoop-kms-server, hadoop-yarn-nodemanager, hadoop-yarn-resourcemanager, hadoop-yarn-timeline-server, hive-client, hudi, hudi-trino, hcatalog-server, mariadb-server, trino-coordinator, trino-worker | 
 
 **Topics**
 + [Trino history and design](emr-trino-intro-history.md)

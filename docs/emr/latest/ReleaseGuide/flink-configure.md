@@ -87,7 +87,7 @@ The main configuration file for Flink is `flink-conf.yaml`.
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label {{emr-7.13.0}} \
+   aws emr create-cluster --release-label {{emr-7.14.0}} \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region {{us-east-1}} \
