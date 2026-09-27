@@ -13,6 +13,7 @@ As a prerequisite, you must [enable Amazon Braket](https://docs.aws.amazon.com/b
 + [AWS managed policies for Amazon Braket](security-iam-aws-managed-policies.md)
 + [Restrict user access to certain devices](restrict-access.md)
 + [Restrict user access to certain notebook instances](restrict-access-notebook-instances.md)
++ [Using Amazon S3 buckets with Amazon Braket](braket-s3-bucket-support.md)
 + [Restrict user access to certain S3 buckets](restrict-access-s3-buckets.md)
 
 ## Amazon Braket resources
