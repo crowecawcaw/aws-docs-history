@@ -10,6 +10,7 @@ AWS Billing Conductor provides the following APIs for data retrieval.
 | Actions | Description | Access level | 
 | --- | --- | --- | 
 | <a name="billingconductor-GetBillingGroupCostReport"></a>[GetBillingGroupCostReport](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_GetBillingGroupCostReport.html) | View the billing group cost report for the specified billing group | Read | 
+| <a name="billingconductor-GetBillingTransferPreference"></a>[GetBillingTransferPreference](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_GetBillingTransferPreference.html) | Get the billing transfer preference | Read | 
 | <a name="billingconductor-ListAccountAssociations"></a>[ListAccountAssociations](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListAccountAssociations.html) | List the linked accounts of the payer account for the given billing period while also providing the billing group the linked accounts belong to | List | 
 | <a name="billingconductor-ListBillingGroupCostReports"></a>[ListBillingGroupCostReports](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListBillingGroupCostReports.html) | View the billing group cost report | Read | 
 | <a name="billingconductor-ListBillingGroups"></a>[ListBillingGroups](https://docs.aws.amazon.com/billingconductor/latest/APIReference/API_ListBillingGroups.html) | View the details of billing groups | Read | 

@@ -23,6 +23,7 @@ Amazon DataZone provides the following APIs for data retrieval.
 | <a name="datazone-GetConnection"></a>[GetConnection](${APIReferenceDocPage}API_GetConnection.html) | Get connections | Read | 
 | <a name="datazone-GetConversation"></a>[GetConversation](${APIReferenceDocPage}API_GetConversation.html) | Get conversations | Read | 
 | <a name="datazone-GetCurrentEffectivePolicy"></a>[GetCurrentEffectivePolicy](${APIReferenceDocPage}API_GetCurrentEffectivePolicy.html) | Get Current Effective Policy | Read | 
+| <a name="datazone-GetDataApp"></a>[GetDataApp](${APIReferenceDocPage}API_GetDataApp.html) | Get data apps | Read | 
 | <a name="datazone-GetDataExportConfiguration"></a>[GetDataExportConfiguration](${APIReferenceDocPage}API_GetDataExportConfiguration.html) | Retrieve DataZone catalog data export configuration | Read | 
 | <a name="datazone-GetDataProduct"></a>[GetDataProduct](${APIReferenceDocPage}API_GetDataProduct.html) | Get data product | Read | 
 | <a name="datazone-GetDataSource"></a>[GetDataSource](${APIReferenceDocPage}API_GetDataSource.html) | Get a existing DataSource in Amazon DataZone using its identifier | Read | 
@@ -66,11 +67,14 @@ Amazon DataZone provides the following APIs for data retrieval.
 | <a name="datazone-ListAccountEnvironments"></a>[ListAccountEnvironments](${APIReferenceDocPage}API_ListAccountEnvironments.html) | List Environments across all domains in an AWS Account | List | 
 | <a name="datazone-ListAccountPools"></a>[ListAccountPools]({APIReferenceDocPage}API_ListAccountPools.html) | List account pools | List | 
 | <a name="datazone-ListAccountsInAccountPool"></a>[ListAccountsInAccountPool]({APIReferenceDocPage}API_ListAccountsInAccountPool.html) | List accounts in an account pool | List | 
+| <a name="datazone-ListAgentArtifacts"></a>[ListAgentArtifacts](${APIReferenceDocPage}API_ListAgentArtifacts.html) | List agent artifacts | List | 
+| <a name="datazone-ListAgentSessionRecords"></a>[ListAgentSessionRecords](${APIReferenceDocPage}API_ListAgentSessionRecords.html) | List agent session records | List | 
 | <a name="datazone-ListAssetFilters"></a>[ListAssetFilters](${APIReferenceDocPage}API_ListAssetFilters.html) | List asset filters | List | 
 | <a name="datazone-ListAssetRevisions"></a>[ListAssetRevisions](${APIReferenceDocPage}API_ListAssetRevisions.html) | List revisions of an asset | List | 
 | <a name="datazone-ListCellRuns"></a>[ListCellRuns](${APIReferenceDocPage}API_ListCellRuns.html) | List cell runs | List | 
 | <a name="datazone-ListConnections"></a>[ListConnections](${APIReferenceDocPage}API_ListConnections.html) | List connections | List | 
 | <a name="datazone-ListConversations"></a>[ListConversations](${APIReferenceDocPage}API_ListConversations.html) | List conversations | List | 
+| <a name="datazone-ListDataApps"></a>[ListDataApps](${APIReferenceDocPage}API_ListDataApps.html) | List data apps | List | 
 | <a name="datazone-ListDataProductRevisions"></a>[ListDataProductRevisions](${APIReferenceDocPage}API_ListDataProductRevisions.html) | List data product revisions | List | 
 | <a name="datazone-ListDataSourceRunActivities"></a>[ListDataSourceRunActivities](${APIReferenceDocPage}API_ListDataSourceRunActivities.html) | List DataSource runs job's activities on Asset | List | 
 | <a name="datazone-ListDataSourceRuns"></a>[ListDataSourceRuns](${APIReferenceDocPage}API_ListDataSourceRuns.html) | List DataSource runs job | List | 
@@ -99,6 +103,7 @@ Amazon DataZone provides the following APIs for data retrieval.
 | <a name="datazone-ListProjectProfiles"></a>[ListProjectProfiles](${APIReferenceDocPage}API_ListProjectProfiles.html) | List project profiles | List | 
 | <a name="datazone-ListProjects"></a>[ListProjects](${APIReferenceDocPage}API_ListProjects.html) | List Projects | List | 
 | <a name="datazone-ListRules"></a>[ListRules](${APIReferenceDocPage}API_ListRules.html) | List rules | List | 
+| <a name="datazone-ListSharedDataApps"></a>[ListSharedDataApps](${APIReferenceDocPage}API_ListSharedDataApps.html) | List shared data apps | List | 
 | <a name="datazone-ListSubscriptionGrants"></a>[ListSubscriptionGrants](${APIReferenceDocPage}API_ListSubscriptionGrants.html) | List subscription grants for a subscribed principal | List | 
 | <a name="datazone-ListSubscriptionRequests"></a>[ListSubscriptionRequests](${APIReferenceDocPage}API_ListSubscriptionRequests.html) | List subscription requests | List | 
 | <a name="datazone-ListSubscriptionTargets"></a>[ListSubscriptionTargets](${APIReferenceDocPage}API_ListSubscriptionTargets.html) | List subscription targets | List | 

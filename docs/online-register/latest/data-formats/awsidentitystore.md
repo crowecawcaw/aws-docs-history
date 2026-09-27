@@ -11,6 +11,7 @@ AWS Identity Store provides the following APIs for data retrieval.
 | --- | --- | --- | 
 | <a name="identitystore-DescribeGroup"></a>[DescribeGroup](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroup.html) | Retrieve information about a group in the specified IdentityStore | Read | 
 | <a name="identitystore-DescribeGroupMembership"></a>[DescribeGroupMembership](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeGroupMembership.html) | Retrieve information about a member that is part of a group in the specified IdentityStore | Read | 
+| <a name="identitystore-DescribeIdentityStore"></a>[DescribeIdentityStore](API_DescribeIdentityStore.html) | Retrieve information about an IdentityStore | Read | 
 | <a name="identitystore-DescribeRegion"></a>[DescribeRegion](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample) | Retrieve configuration details for a specific IdentityStore region | Read | 
 | <a name="identitystore-DescribeUser"></a>[DescribeUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html) | Retrieve information about a user in the specified IdentityStore | Read | 
 | <a name="identitystore-GetGroupId"></a>[GetGroupId](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_GetGroupId.html) | Retrieve ID information about a group in the specified IdentityStore | Read | 
@@ -20,5 +21,6 @@ AWS Identity Store provides the following APIs for data retrieval.
 | <a name="identitystore-ListGroupMemberships"></a>[ListGroupMemberships](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroupMemberships.html) | Retrieve all members that are part of a group in the specified IdentityStore | List | 
 | <a name="identitystore-ListGroupMembershipsForMember"></a>[ListGroupMembershipsForMember](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroupMembershipsForMember.html) | List groups of the target member in the specified IdentityStore | List | 
 | <a name="identitystore-ListGroups"></a>[ListGroups](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroups.html) | Retrieve information about all groups in the specified IdentityStore | List | 
+| <a name="identitystore-ListIdentityStores"></a>[ListIdentityStores](API_ListIdentityStores.html) | List IdentityStores in an AWS account | List | 
 | <a name="identitystore-ListRegions"></a>[ListRegions](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample) | List all regions configured for an IdentityStore | List | 
 | <a name="identitystore-ListUsers"></a>[ListUsers](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.html) | Retrieve information about all users in the specified IdentityStore | List | 

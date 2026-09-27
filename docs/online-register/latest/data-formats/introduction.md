@@ -327,6 +327,7 @@ To browse this Online Register by service, see the following topics.
 + [Data retrieval APIs for Network Flow Monitor](networkflowmonitor.md)
 + [Data retrieval APIs for AWS Network Manager](awsnetworkmanager.md)
 + [Data retrieval APIs for AWS Network Manager Chat](awsnetworkmanagerchat.md)
++ [Data retrieval APIs for AWS Network Security Manager](awsnetworksecuritymanager.md)
 + [Data retrieval APIs for Amazon Nimble Studio](amazonnimblestudio.md)
 + [Data retrieval APIs for Amazon Nova Act](amazonnovaact.md)
 + [Data retrieval APIs for Amazon One Enterprise](amazononeenterprise.md)

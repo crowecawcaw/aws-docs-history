@@ -36,6 +36,7 @@ AWS Security Agent provides the following APIs for data retrieval.
 | <a name="securityagent-GetProviderRegistrationManifest"></a>[GetProviderRegistrationManifest](https://docs.aws.amazon.com/securityagent/API_GetProviderRegistrationManifest.html) | Retrieve the provider registration manifest used for browser-based integration registration | Read | 
 | <a name="securityagent-GetSecurityRequirement"></a>[GetSecurityRequirement](https://docs.aws.amazon.com/securityagent/API_GetSecurityRequirement.html) | Retrieve a Security Requirement | Read | 
 | <a name="securityagent-GetSecurityRequirementPack"></a>[GetSecurityRequirementPack](https://docs.aws.amazon.com/securityagent/API_GetSecurityRequirementPack.html) | Retrieve a security requirement pack | Read | 
+| <a name="securityagent-ListActorMessages"></a>[ListActorMessages](https://docs.aws.amazon.com/securityagent/API_ListActorMessages.html) | List the MFA messages received for an actor at its server-generated address | List | 
 | <a name="securityagent-ListAgentSpaces"></a>[ListAgentSpaces](https://docs.aws.amazon.com/securityagent/API_ListAgentSpaces.html) | List agent spaces | List | 
 | <a name="securityagent-ListApplications"></a>[ListApplications](https://docs.aws.amazon.com/securityagent/API_ListApplications.html) | List all applications in the account | List | 
 | <a name="securityagent-ListArtifacts"></a>[ListArtifacts](https://docs.aws.amazon.com/securityagent/API_ListArtifacts.html) | List all artifacts for the given agent space | List | 
