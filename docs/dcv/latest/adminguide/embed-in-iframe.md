@@ -17,7 +17,7 @@ We recommend that you add both headers to ensure the best compatibility across w
 If connecting through a Amazon DCV Connection Gateway, the x-frame options need to be defined within the gateway configuration. This is done by using the `local-resources-http-headers` parameter within the [`[web-resources]` section](https://docs.aws.amazon.com/dcv/latest/gw-admin/config-reference.html#config-web-resources) of the gateway configuration.
 
 ------
-#### [ Windows server ]
+#### [ Windows ]
 
 1. Open the Windows Registry Editor and navigate to the **HKEY\_USERS\\S-1-5-18\\Software\\GSettings\\com\\nicesoftware\\dcv\\connectivity\\** key.
 
@@ -34,7 +34,7 @@ If the parameter doesn't exist, create a new String parameter and name it `web-e
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ Linux server ]
+#### [ Linux ]
 
 1. Open `/etc/dcv/dcv.conf` with your preferred text editor.
 

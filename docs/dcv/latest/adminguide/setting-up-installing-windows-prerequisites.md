@@ -1,7 +1,7 @@
 
 
 # Prerequisites for Windows Amazon DCV server on Amazon EC2 instances
-<a name="setting-up-installing-winprereq"></a>
+<a name="setting-up-installing-windows-prerequisites"></a>
 
 This topic describes how to configure your Windows Amazon EC2 instance before you install the Amazon DCV server. If you're not installing the Amazon DCV server on an Amazon EC2 Windows instance, skip these prerequisites.
 

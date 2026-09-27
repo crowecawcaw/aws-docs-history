@@ -16,7 +16,7 @@ The Amazon DCV server uses a device compatibility filter to determine which USB 
 However, some specialized devices might not be included in the device compatibility filter by default. These devices must be manually added to the filter configuration on the Amazon DCV server before they are recognized for remotization. After they have been added, they appear in the Windows client **Settings** menu.
 
 ------
-#### [ Windows Amazon DCV server ]
+#### [ Windows ]
 
 To add a USB device to the device compatibility filter, you must obtain the USB device's filter string from the client and add it to the `usb-devices.conf` file.
 
@@ -41,7 +41,7 @@ To add a USB device to the device compatibility filter, you must obtain the USB 
 1. [Stop](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-stop.html) and [restart](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-start.html) the Amazon DCV server.
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Linux ]
 
 To add a USB device to the device compatibility filter, add the filter string for the USB device to the `usb-devices.conf` file.
 

@@ -109,41 +109,6 @@ The default desktop environment for RHEL, CentOS, and Rocky Linux 8/9 is GNOME a
    ```
 
 ------
-#### [ SUSE Linux Enterprise 12 ]
-
-The default desktop environment for SUSE Linux Enterprise 12 is SLE Classic and the default desktop manager is GDM.
-
-**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12**
-
-1. Install the desktop environment and the desktop manager packages.
-
-   ```
-   $ sudo zypper install -t pattern gnome-basic
-   ```
-
-1. Verify that GDM is set as the default desktop manager.
-
-   ```
-   $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
-   ```
-
-   ```
-   $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"gnome\"/" /etc/sysconfig/windowmanager
-   ```
-
-1. Update the software packages to ensure that the Linux server is up to date.
-
-   ```
-   $ sudo zypper update
-   ```
-
-1. Reboot the Linux server.
-
-   ```
-   $ sudo reboot
-   ```
-
-------
 #### [ SUSE Linux Enterprise 15 ]
 
 The default desktop environment for SUSE Linux Enterprise 15 is SLE Classic and the default desktop manager is GDM.
@@ -197,11 +162,11 @@ When using a version of Amazon DCV older than 2022.2 with **Virtual Sessions**, 
 Amazon DCV 2022.2 and newer are not affected by this issue.
 
 ------
-#### [ Ubuntu 20.04/22.04/24.04 ]
+#### [ Ubuntu 22.04/24.04 ]
 
-The default desktop environment for Ubuntu 20.04/22.04/24.04 is GNOME and the default desktop manager is GDM. Starting with Ubuntu 20.04, LightDM isn't supported anymore with Amazon DCV.
+The default desktop environment for Ubuntu 22.04/24.04 is GNOME and the default desktop manager is GDM. LightDM isn't supported with Amazon DCV.
 
-**To install and configure the desktop environment and desktop manager on Ubuntu 20.04/22.04/24.04**
+**To install and configure the desktop environment and desktop manager on Ubuntu 22.04/24.04**
 
 1. Install the desktop environment and the desktop manager packages.
 
@@ -309,7 +274,7 @@ Amazon DCV doesn't support the Wayland protocol. If you're using the GDM desktop
    ```
 
 ------
-#### [ SUSE Linux Enterprise 12/15 ]
+#### [ SUSE Linux Enterprise 15 ]
 
 **To disable the Wayland protocol**
 
@@ -329,7 +294,7 @@ Amazon DCV doesn't support the Wayland protocol. If you're using the GDM desktop
    ```
 
 ------
-#### [ Ubuntu 20.04/22.04/24.04 ]
+#### [ Ubuntu 22.04/24.04 ]
 
 **To disable the Wayland protocol**
 
@@ -412,7 +377,7 @@ $ sudo dnf install glx-utils
 ```
 
 ------
-#### [ SUSE Linux Enterprise 12/15 ]
+#### [ SUSE Linux Enterprise 15 ]
 
 **To install the glxinfo utility**  
 Run the following command:
@@ -422,7 +387,7 @@ $ sudo zypper in Mesa-demo-x
 ```
 
 ------
-#### [ Ubuntu 20.04/22.04/24.04 ]
+#### [ Ubuntu 22.04/24.04 ]
 
 **To install the glxinfo utility**  
 Run the following command:
@@ -509,7 +474,7 @@ Make sure that your server doesn't have the legacy `/etc/X11/XF86Config` file. I
      ```
 
 **To verify that your NVIDIA GPU supports hardware-based video encoding**  
-Make sure that it supports NVENC encoding and that it has compute capabilities greater than or equal to 3.0, or greater than or equal to 3.5 for Ubuntu 20.
+Make sure that it supports NVENC encoding and that it has compute capabilities greater than or equal to 3.5.
 
 To verify NVENC support, see the [ NVIDIA Video Encode and Decode GPU Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new#Encoder). To check the compute capabilities, see the [NVIDIA Compute Capacility tables](https://developer.nvidia.com/cuda-gpus). 
 
@@ -576,7 +541,7 @@ $ sudo dnf install xorg-x11-drv-dummy
 ```
 
 ------
-#### [ SUSE Linux Enterprise 12/15 ]
+#### [ SUSE Linux Enterprise 15 ]
 
 **To install the XDummy driver**  
 Run the following command:
@@ -586,7 +551,7 @@ $ sudo zypper in xf86-video-dummy
 ```
 
 ------
-#### [ Ubuntu 20.04/22.04/24.04 ]
+#### [ Ubuntu 22.04/24.04 ]
 
 **To install the XDummy driver**  
 Run the following command:

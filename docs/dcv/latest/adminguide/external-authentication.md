@@ -27,7 +27,7 @@ In order to use an external authentication server, you must have the following i
 You must configure the Amazon DCV server to use the external authentication service.
 
 ------
-#### [ Windows Amazon DCV server ]
+#### [ Windows ]
 
 **To specify an external authentication server on Windows**
 
@@ -49,7 +49,7 @@ You must configure the Amazon DCV server to use the external authentication serv
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Linux ]
 
 **To specify an external authentication server on Linux**
 
@@ -66,7 +66,7 @@ You must configure the Amazon DCV server to use the external authentication serv
 1. Save and close the file.
 
 ------
-#### [ macOS Amazon DCV server ]
+#### [ macOS ]
 
 **To specify an external authentication server on macOS**
 

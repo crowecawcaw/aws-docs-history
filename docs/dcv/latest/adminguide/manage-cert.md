@@ -23,7 +23,7 @@ For instructions on how to generate a certificate, see the documentation of your
 If you use your own certificate and key, you must name your certificate `dcv.pem` and you must name the key `dcv.key`.
 
 ------
-#### [ Windows Amazon DCV server ]
+#### [ Windows ]
 
 **To change the server's TLS certificate on Windows**
 + Place the certificate and its key in the following location on your Windows Amazon DCV server:
@@ -33,7 +33,7 @@ If you use your own certificate and key, you must name your certificate `dcv.pem
   ```
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Linux ]
 
 **To change the server's TLS certificate on Linux**
 
@@ -54,7 +54,7 @@ If you use your own certificate and key, you must name your certificate `dcv.pem
    ```
 
 ------
-#### [ macOS Amazon DCV server ]
+#### [ macOS ]
 
 **To change the server's TLS certificate on macOS**
 

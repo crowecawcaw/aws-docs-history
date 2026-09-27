@@ -9,5 +9,5 @@ The Amazon DCV server software can be installed on an Amazon EC2 Mac instance an
 Amazon DCV server for macOS is only supported on Amazon EC2 Apple silicon instances.
 
 **Topics**
-+ [Prerequisites](setting-up-installing-macosprereq.md)
-+ [Installing the Server](setting-up-installing-macosinstall.md)
++ [Prerequisites](setting-up-installing-macos-prerequisites.md)
++ [Installing the Server](setting-up-installing-macos-installation.md)

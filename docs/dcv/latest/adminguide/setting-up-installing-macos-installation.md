@@ -1,7 +1,7 @@
 
 
 # Installing the Amazon DCV Server on Amazon EC2 Mac instances
-<a name="setting-up-installing-macosinstall"></a>
+<a name="setting-up-installing-macos-installation"></a>
 
 You can use an installation wizard to install the Amazon DCV server on an Amazon EC2 Mac instance. To install with the installation wizard, you need to have [ interactive GUI access](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-mac-instance.html#mac-instance-vnc). The wizard guides you through a series of steps that show how to customize your Amazon DCV server installation. Alternatively, you can use the command line to perform an unattended installation. This uses default settings to automate the installation procedure. To perform unattended installations, [System Integrity Protection (SIP) must be disabled](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/mac-sip-settings.html). 
 

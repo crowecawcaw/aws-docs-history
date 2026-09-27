@@ -8,7 +8,26 @@ The smart card caching feature enables the Amazon DCV server to cache smart card
 By default, smart card caching is disabled. Clients can manually enable smart card caching for each application they run by setting the `DCV_PCSC_ENABLE_CACHE` environment variable. For instructions, see [Using a Smart Card](https://docs.aws.amazon.com/dcv/latest/userguide/using-smartcard.html) in the *Amazon DCV User Guide*. Or, you can configure the Amazon DCV server to permanently enable or disable smart card caching, regardless of the value specified for the `DCV_PCSC_ENABLE_CACHE` environment variable.
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Windows ]
+
+**To permanently enable or disable smart card caching on a Windows Amazon DCV server**
+
+1. Open the Windows Registry Editor.
+
+1. Navigate to the **HKEY\_USERS\\S-1-5-18\\Software\\GSettings\\com\\nicesoftware\\dcv\\smartcard\\** key and select the **enable-cache** parameter.
+
+   If the parameter doesn't exist, use the following steps to create it:
+
+   1. In the left pane, open the context (right-click) menu for the **smartcard** key, and choose **New**, **String Value**.
+
+   1. For **Name**, enter `enable-cache` and press **Enter**.
+
+1. Open the **enable-cache** parameter. For **Value data**, enter `always-on` to permanently enable smart card caching, or enter `always-off` to permanently disable smart card caching.
+
+1. Choose **OK** and close the Windows Registry Editor.
+
+------
+#### [ Linux ]
 
 **To permanently enable or disable smart card caching on a Linux Amazon DCV server**
 
@@ -26,24 +45,5 @@ By default, smart card caching is disabled. Clients can manually enable smart ca
 1. Save and close the file.
 
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
-
-------
-#### [ Windows Amazon DCV server ]
-
-**To permanently enable or disable smart card caching on a Windows Amazon DCV server**
-
-1. Open the Windows Registry Editor.
-
-1. Navigate to the **HKEY\_USERS\\S-1-5-18\\Software\\GSettings\\com\\nicesoftware\\dcv\\smartcard\\** key and select the **enable-cache** parameter.
-
-   If the parameter doesn't exist, use the following steps to create it:
-
-   1. In the left pane, open the context (right-click) menu for the **smartcard** key, and choose **New**, **String Value**.
-
-   1. For **Name**, enter `enable-cache` and press **Enter**.
-
-1. Open the **enable-cache** parameter. For **Value data**, enter `always-on` to permanently enable smart card caching, or enter `always-off` to permanently disable smart card caching.
-
-1. Choose **OK** and close the Windows Registry Editor.
 
 ------

@@ -24,7 +24,7 @@ Refer to the documentation of your gateway for more information about configuiri
 <a name="manage-ports"></a>
 
 ------
-#### [ Windows Amazon DCV server ]
+#### [ Windows ]
 
 To change the ports that are used by the Amazon DCV server, configure the `web-port` and the `quic-port` parameters using the Windows Registry Editor.
 
@@ -63,7 +63,7 @@ The UDP port number must be higher than 1024.
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Linux ]
 
 To change the ports that are used by the Amazon DCV server, configure the `web-port` and the `quic-port` parameters in the `dcv.conf` file.
 
@@ -98,7 +98,7 @@ The UDP port number must be 1024 or higher.
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ macOS Amazon DCV server ]
+#### [ macOS ]
 
 To change the ports that are used by the Amazon DCV server, configure the `web-port` and the `quic-port` parameters in the `dcv.conf` file.
 
@@ -147,7 +147,7 @@ Since it is possible to specify more than one endpoint, a set of endpoints is re
 These configuration parameters are only available starting from Amazon DCV Server 2022.0.
 
 ------
-#### [ Windows Amazon DCV server ]
+#### [ Windows ]
 
 **To change the endpoints for the server on Windows**
 
@@ -180,7 +180,7 @@ These configuration parameters are only available starting from Amazon DCV Serve
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Linux ]
 
 **To change the endpoints for the server on Linux**
 
@@ -209,7 +209,7 @@ These configuration parameters are only available starting from Amazon DCV Serve
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ macOS Amazon DCV server ]
+#### [ macOS ]
 
 **To change the endpoints for the server on macOS**
 

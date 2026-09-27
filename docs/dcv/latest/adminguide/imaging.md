@@ -14,7 +14,7 @@
 
  First, you must have Amazon DCV installed on your system. If you do not, ensure your system is [supported by Amazon DCV](https://docs.aws.amazon.com/dcv/latest/adminguide/servers.html#requirements) then follow the [Installing](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing.html) instructions. Once Amazon DCV is installed and [configured](https://docs.aws.amazon.com/dcv/latest/adminguide/manage.html), take an [AMI](https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/tkv-create-ami-from-instance.html) of the instance. 
 
- Alternatively, if you have the Amazon DCV prerequisites met for [Windows](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing-winprereq.html) or [Linux](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing-linux-prereq.html), you can run the Amazon-managed Image Builder Amazon DCV component to install and configure Amazon DCV. The component can be retrieved by performing the following: 
+ Alternatively, if you have the Amazon DCV prerequisites met for [Windows](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing-windows-prerequisites.html) or [Linux](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing-linux-prereq.html), you can run the Amazon-managed Image Builder Amazon DCV component to install and configure Amazon DCV. The component can be retrieved by performing the following: 
 
 1. Navigate to the components page within the [Amazon EC2 Image Builder console](https://console.aws.amazon.com/imagebuilder/home?#/viewComponents).
 

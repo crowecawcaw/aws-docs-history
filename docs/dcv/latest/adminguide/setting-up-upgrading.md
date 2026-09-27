@@ -34,7 +34,7 @@ For information about the Amazon DCV server licensing compatibility requirements
 
 1. Download the latest version of the Amazon DCV Server from the [NICE](http://download.amazondcv.com) website.
 
-1. Follow the steps described in [Using the wizard](setting-up-installing-wininstall.md#setting-up-installing-windows-wizard), starting at step 3.
+1. Follow the steps described in [Using the wizard](setting-up-installing-windows-installation.md#setting-up-installing-windows-wizard), starting at step 3.
 
 1. After the installation is complete, confirm that the Amazon DCV server configuration is still correct. Open the Registry Editor, navigate to **HKEY\_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv** and compare the parameters to the configuration that you exported in step 4.
 

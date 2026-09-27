@@ -6,7 +6,7 @@
 You can stop the Amazon DCV server at any time. Stopping the server terminates all active Amazon DCV sessions. You can't start new sessions until after the server is restarted.
 
 ------
-#### [ Windows Amazon DCV server ]
+#### [ Windows ]
 
 Manually stop the Amazon DCV server using the Services snap-in for the Microsoft Management Console.
 
@@ -32,7 +32,7 @@ Disable automatic startup using the Services snap-in for the Microsoft Managemen
 1. For **Startup service**, choose **Manual**.
 
 ------
-#### [ Linux Amazon DCV server ]
+#### [ Linux ]
 
 Stop the Amazon DCV server using the command line.
 
@@ -53,7 +53,7 @@ $ sudo systemctl disable dcvserver
 ```
 
 ------
-#### [ macOS Amazon DCV server ]
+#### [ macOS ]
 
 Stop the Amazon DCV server using the command line.
 
