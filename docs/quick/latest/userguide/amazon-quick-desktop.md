@@ -29,4 +29,5 @@ For the plans that include Amazon Quick on desktop and pricing details, see [Ama
 + [Settings](desktop-settings.md)
 + [System tools](system-tools-desktop.md)
 + [Security, privacy, and architecture](desktop-security.md)
++ [Usage limits](usage-limits-desktop.md)
 + [Troubleshooting](desktop-troubleshooting.md)

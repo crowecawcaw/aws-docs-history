@@ -21,6 +21,13 @@ Amazon Quick does not use your user data for service improvement or for training
 **Note**  
 Some features, such as inbox prioritization, calendar management, and email organization, require Microsoft Graph API permissions that must be granted by your administrator. If you are unable to perform these tasks, contact your administrator to ensure the required Graph API permissions have been approved for your organization. For more information, see [Microsoft Outlook extension permissions](outlook-extension.md#outlook-permissions) in the admin guide.
 
+**Note**  
+The Amazon Quick Microsoft Outlook extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
+
+**Note**  
+When you use the extension, the time Amazon Quick spends working on your requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+
 ## Amazon Quick Microsoft Outlook extension usage guidelines
 <a name="outlook-usage-guidelines"></a>
 

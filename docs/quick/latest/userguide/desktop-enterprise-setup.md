@@ -93,7 +93,7 @@ Amazon Quick reads policies from vendor-neutral OS-managed locations. Any mobile
 | Policy | macOS location | Windows location | Effect | 
 | --- | --- | --- | --- | 
 | DisableSocialLogin | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_DWORD) | Hides social sign-in, blocks it server-side, and hides "Sign up for free." This policy enforces enterprise SSO as the only authentication path. | 
-| DisableAutoUpdates | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_SZ) | Stops the application from updating itself, so that your organization controls when new versions reach the fleet. Accepts patch, minor, or major. The value is the smallest update size that the policy blocks. patch blocks all automatic updates. minor allows patch updates only. major allows patch and minor updates. | 
+| DisableAutoUpdates | Preference domain com.aws.QuickWork.mac | HKLM\\SOFTWARE\\Policies\\Amazon\\Quick (REG\_SZ) | Stops the application from updating itself, so that your organization controls when new versions reach the fleet. Accepts patch, minor, or major. The value is the smallest update size that the policy disables. patch disables all automatic updates, including patch, minor, and major updates. minor disables minor and major updates. major disables major updates only. | 
 
 Amazon Quick reads policy values at application startup.
 

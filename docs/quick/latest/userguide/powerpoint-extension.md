@@ -16,6 +16,13 @@ The Quick PowerPoint extension is available within Amazon Quick to all eligible 
 The Amazon Quick PowerPoint extension uses generative AI to create and execute code within your PowerPoint application sandbox to help you perform tasks within PowerPoint. AI can make mistakes and perform inaccurate actions within your PowerPoint slide deck.
 Amazon Quick does not use your user data for service improvement or for training its underlying large language models (LLMs).
 
+**Note**  
+The Amazon Quick Microsoft PowerPoint extension supports two runtimes. On Windows, it uses the Microsoft Edge WebView2 runtime. On macOS, it uses the WebKit2 runtime.  
+To understand Office add-in runtimes and install Microsoft Edge WebView2, see [Understanding the Office Add-ins runtime](https://devblogs.microsoft.com/microsoft365dev/understanding-office-add-ins-runtime/) on the Microsoft Developer Blogs website.
+
+**Note**  
+When users use the extension, the time Amazon Quick spends working on their requests is metered per second and counts toward agent hours. For more information, see the [Amazon Quick pricing page](https://aws.amazon.com/quick/pricing/).
+
 The following procedures are for IT administrators who want to automatically deploy the Amazon Quick PowerPoint extension across their organization on behalf of their users.
 
 **Topics**

@@ -54,7 +54,7 @@ No user can access assets that remain in the account without an owner – for ex
 
 Deactivating a user revokes the user's access but leaves the user's assets associated with them. Deactivation occurs, for example, when you remove the user from the IAM Identity Center or Active Directory group that grants Amazon Quick access. Reactivating the user restores their access to those assets. Deletion is permanent.
 
-A user who is removed from IAM Identity Center or Active Directory appears in the **Inactive users** list on the **Manage users** page until the first day of the following month. After that date, Amazon Quick removes them from the list.
+A user who is removed from IAM Identity Center or Active Directory appears in the **Inactive users** list on the **Manage users** page and remains there until an administrator removes them.
 
 A user who is deleted but not deactivated can sign in again as a new user, without access to their previous assets.
 
