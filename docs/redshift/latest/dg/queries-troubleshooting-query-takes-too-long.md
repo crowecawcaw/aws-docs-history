@@ -11,7 +11,7 @@ Your query can take too long for the following reasons. We suggest the following
 Set the sort key, distribution style, and compression encoding of the tables to take full advantage of parallel processing. For more information, see [Automatic table optimization](t_Creating_tables.md) 
 
 **Query is writing to disk**  
-Your queries might be writing to disk for at least part of the query execution. For more information, see [Query performance improvement](query-performance-improvement-opportunities.md).
+Your queries might be writing (spilling) to disk for at least part of query execution, which slows the query and can affect other queries on the cluster. To identify queries that spill, query [SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md) and review the `spilled_block_local_disk` and `spilled_block_remote_disk` columns. For more information about reducing and monitoring spill, see [Query performance improvement](query-performance-improvement-opportunities.md).
 
 **Query must wait for other queries to finish**  
 You might be able to improve overall system performance by creating query queues and assigning different types of queries to the appropriate queues. For more information, see [Workload management](cm-c-implementing-workload-management.md). 

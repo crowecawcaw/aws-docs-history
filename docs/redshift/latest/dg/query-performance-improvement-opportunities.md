@@ -82,9 +82,27 @@ To fix this issue, review the distribution styles for the tables in the query an
 ## Insufficient memory allocated to the query
 <a name="insufficient-memory-allocated-to-the-query"></a>
 
-If insufficient memory is allocated to your query, you might see a step in SVL\_QUERY\_SUMMARY that has an `is_diskbased` value of true. For more information, see [Using the SVL\_QUERY\_SUMMARY view](using-SVL-Query-Summary.md).
+When a query needs more memory than is allocated to it, Amazon Redshift writes the excess intermediate results to disk. This is called spilling to disk. Amazon Redshift writes spilled data to local disk first, and if it exceeds local disk capacity, the data overflows to Amazon S3. Query steps most likely to spill are hash joins, aggregations (such as GROUP BY and DISTINCT), window functions, and sorts (ORDER BY) over large datasets.
 
-To fix this issue, allocate more memory to the query by temporarily increasing the number of query slots it uses. Workload Management (WLM) reserves slots in a query queue equivalent to the concurrency level set for the queue. For example, a queue with a concurrency level of 5 has 5 slots. Memory assigned to the queue is allocated equally to each slot. Assigning several slots to one query gives that query access to the memory for all of those slots. For more information on how to temporarily increase the slots for a query, see [wlm\_query\_slot\_count](r_wlm_query_slot_count.md).
+Spilling to disk slows the query that spills, because disk access is much slower than memory. Because local disk and I/O bandwidth are shared across the cluster, heavy spill can also slow down other queries running at the same time. Reducing spill improves both individual query latency and overall cluster throughput.
+
+**Identify queries that spill.** Query [SYS\_QUERY\_DETAIL](SYS_QUERY_DETAIL.md) and review the `spilled_block_local_disk` and `spilled_block_remote_disk` columns. Queries with a high `spilled_block_remote_disk` value are spilling beyond local disk and benefit most from tuning. On a provisioned cluster, you can also review the `query_temp_blocks_to_disk` metric in [SVL\_QUERY\_METRICS\_SUMMARY](r_SVL_QUERY_METRICS_SUMMARY.md).
+
+**How to reduce disk spill**
++ Reduce the volume of intermediate data. Filter earlier, select only the columns you need, and pre-aggregate where possible so fewer rows flow into joins, aggregations, and sorts.
++ Break large queries into steps. Materialize intermediate results into temporary tables (CREATE TEMP TABLE AS) so each step runs with a smaller in-memory footprint and is less likely to spill. Give the temp table an appropriate distribution and sort key and run ANALYZE so downstream steps run efficiently.
++ Give the query more memory by temporarily increasing its slot count if you use manual WLM (see [wlm\_query\_slot\_count](r_wlm_query_slot_count.md)).
++ Add nodes or move to a larger node type when spill is unavoidable at your data volume.
+
+**Monitor spill proactively.** If you use manual WLM on a provisioned cluster, create a query monitoring rule (QMR) on the `query_temp_blocks_to_disk` metric. This metric measures the temporary disk space used for intermediate results, in 1 MB blocks. Then choose an action:
+
+**log**  
+Records the query for review.
+
+**abort**  
+Stops the query before its spill degrades other workloads.
+
+For example, `query_temp_blocks_to_disk > 100000` (about 100 GB) logs or aborts queries that spill unusually large amounts. Tune the threshold to your cluster or workgroup. On a provisioned cluster, configure QMR through your WLM queues. On Redshift Serverless, configure it through workgroup query limits. For more information, see [WLM query monitoring rules](cm-c-wlm-query-monitoring-rules.md).
 
 ## Suboptimal WHERE clause
 <a name="suboptimal-WHERE-clause"></a>
