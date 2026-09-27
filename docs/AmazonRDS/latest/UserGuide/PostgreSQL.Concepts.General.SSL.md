@@ -14,6 +14,7 @@ SSL support is available in all AWS Regions for PostgreSQL. Amazon RDS creates a
 + [Requiring an SSL connection to a PostgreSQL DB instance](#PostgreSQL.Concepts.General.SSL.Requiring)
 + [Determining the SSL connection status](#PostgreSQL.Concepts.General.SSL.Status)
 + [SSL cipher suites in RDS for PostgreSQL](#PostgreSQL.Concepts.General.SSL.Ciphers)
++ [TLS key-exchange groups in RDS for PostgreSQL](#PostgreSQL.Concepts.General.SSL.Groups)
 
 ## Connecting to a PostgreSQL DB instance over SSL
 <a name="PostgreSQL.Concepts.General.SSL.Connecting"></a>
@@ -196,3 +197,25 @@ Ciphers may have different names depending on the context:
 For TLS v1.3, OpenSSL and IANA names are the same.
 
 To ensure database connections use SSL, set the `rds.force_ssl parameter` to 1 in your parameter group. For more information about parameters and parameter groups, see [Parameter groups for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html). 
+
+## TLS key-exchange groups in RDS for PostgreSQL
+<a name="PostgreSQL.Concepts.General.SSL.Groups"></a>
+
+The `ssl_groups` parameter specifies the named groups to use for TLS key exchange. For more information, see the [ssl\_groups](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-SSL-GROUPS) in the PostgreSQL documentation.
+
+In RDS for PostgreSQL 18 and later, you can modify the `ssl_groups` parameter to use specific values from the allowlisted groups. This is a dynamic parameter that doesn't require a reboot.
+
+The following table lists the default and allowlisted custom `ssl_groups` values by engine major version.
+
+
+| PostgreSQL engine version | Default `ssl_groups` values | Allowlisted custom `ssl_groups` values | 
+| --- | --- | --- | 
+| 18 | prime256v1:X25519 | `X25519MLKEM768`<br />`SecP256r1MLKEM768`<br />`X25519`<br />`prime256v1`<br />`secp384r1` | 
+
+When you configure `ssl_groups`, keep the following behavior in mind:
++ The order of the list sets the server preference. The first group in the list that the client also supports is used for a connection.
++ `ssl_groups` applies only to key exchange that uses named groups. For example, `ssl_groups` is ignored by TLS v1.2 cipher suites that use RSA key exchange. To use only the specified groups, make sure that `rds.force_ssl` is enabled. Then either set `ssl_min_protocol_version` to `TLSv1.3`, or restrict `ssl_ciphers` to ECDHE-based suites for TLS v1.2-based connections.
+
+  ML-KEM groups require TLS v1.3. To enforce that they are used, set `ssl_min_protocol_version` to `TLSv1.3`.
+
+For more information about modifying parameters and parameter groups, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md).

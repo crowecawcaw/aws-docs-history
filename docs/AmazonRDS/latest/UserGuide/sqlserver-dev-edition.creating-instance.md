@@ -3,7 +3,7 @@
 # Creating an RDS for SQL Server Developer Edition DB instance
 <a name="sqlserver-dev-edition.creating-instance"></a>
 
-Launching Developer Edition instance on RDS for SQL Server follows a two-step process: first create a CEV with `create-custom-db-engine-version`, Once your custom engine version is in the available state, you can create Amazon RDS database instances using the CEV.
+Launching Developer Edition instance on RDS for SQL Server follows a two-step process: first create a CEV with `create-custom-db-engine-version`, Once your custom engine version is in the available state, you can create Amazon RDS database instances using the CEV. You can create both single-AZ and Multi-AZ instances from the same CEV.
 
 **Key differences for Developer Edition instance creation**
 
@@ -13,6 +13,7 @@ Launching Developer Edition instance on RDS for SQL Server follows a two-step pr
 | `--engine` | `sqlserver-dev-ee` (Enterprise Edition capabilities) or `sqlserver-dev-se` (Standard Edition capabilities, SQL Server 2025 only) | 
 | `--engine-version` | Custom engine version (for example, `17.00.4045.5.cev-dev-ss2025-cu5`) | 
 | `--license-model` | bring-your-own-license | 
+| `--multi-az` | (Optional) Include this flag to create a Multi-AZ deployment. | 
 
 ## Console
 <a name="sqlserver-dev-edition.creating-instance.CON"></a>

@@ -141,10 +141,10 @@ CEV creation for RDS Custom for SQL Server is supported for the following AWS EC
 
 CEV creation for RDS Custom for SQL Server is supported for the following operating system (OS) and database editions:
 + For CEVs using pre-installed media:
-  + SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, and CU25-GDR.
+  + SQL Server 2022 Enterprise, Standard, or Web, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, CU25-GDR, and CU26.
   + SQL Server 2019 Enterprise, Standard, or Web, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 + For CEVs using bring your own media (BYOM):
-  + SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, and CU25-GDR.
+  + SQL Server 2022 Enterprise, Standard, or Developer, with CU9, CU13, CU14-GDR, CU15-GDR, CU16, CU17, CU18, CU19, CU19-GDR, CU20-GDR, CU21-GDR, CU22, CU22-GDR, CU23, CU23-GDR, CU24-GDR, CU25, CU25-GDR, and CU26.
   + SQL Server 2019 Enterprise, Standard, or Developer, with CU8, CU17, CU18, CU20, CU24, CU26, CU28-GDR, CU29-GDR, CU30, CU32, and CU32-GDR.
 + For CEVs using pre-installed media or bring your own media (BYOM), Windows Server 2019 is the only supported OS.
 

@@ -100,3 +100,4 @@ Before you create an RDS for Oracle replica, consider the following:
   ```
 + Block change tracking is supported for read-only replicas, but not for mounted replicas. You can change a mounted replica to a read-only replica, and then enable block change tracking. For more information, see [Enabling and disabling block change tracking](Appendix.Oracle.CommonDBATasks.BlockChangeTracking.md).
 + You can't create an Oracle read replica when the source database manages master user credentials with Secrets Manager.
++ After you promote a read replica to a standalone DB instance, the promoted instance becomes available immediately upon reboot completion. RDS automatically initiates a full backup in the background, which does not block database access. Applications can connect and begin operations without waiting for the backup to complete.

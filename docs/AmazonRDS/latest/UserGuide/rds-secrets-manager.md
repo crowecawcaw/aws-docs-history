@@ -25,7 +25,7 @@ Amazon RDS integrates with Secrets Manager to manage master user passwords for y
 <a name="rds-secrets-manager-limitations"></a>
 
 Managing master user passwords with Secrets Manager isn't supported for the following features:
-+ Creating a read replica when the source DB or DB cluster manages credentials with Secrets Manager. This applies to all DB engines except RDS for SQL Server.
++ Creating a read replica when the source DB or DB cluster manages credentials with Secrets Manager. This applies to all DB engines except RDS for SQL Server and RDS for Db2.
 + Amazon RDS Blue/Green Deployments
 + Amazon RDS Custom
 + Oracle Data Guard switchover

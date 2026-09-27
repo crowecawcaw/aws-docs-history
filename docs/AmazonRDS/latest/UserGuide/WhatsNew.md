@@ -12,6 +12,7 @@ You can filter new Amazon RDS features on the [What's New with Database?](https:
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon RDS Extended Support versions 8.0.46-RDS.20260908 and 5.7.44-RDS.20260902 for RDS for MySQL](#WhatsNew) | The RDS Extended Support versions 8.0.46-RDS.20260908 and 5.7.44-RDS.20260902 are now available for RDS for MySQL. For more information, see [Amazon RDS Extended Support versions for RDS for MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html#mysql-extended-support-releases). | September 23, 2026 | 
 | [Amazon RDS supports MariaDB 12.3.3, 11.8.9, 11.4.13, 10.11.19, and 10.6.28](#WhatsNew) | You can now create Amazon RDS DB instances running MariaDB 12.3.3, 11.8.9, 11.4.13, 10.11.19, and 10.6.28. For more information, see [MariaDB on Amazon RDS versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MariaDB.Concepts.VersionMgmt.html). | September 4, 2026 | 
 | [Amazon RDS supports MySQL 8.4.11](#WhatsNew) | You can now create Amazon RDS DB instances running MySQL 8.4.11. For more information, see [MySQL on Amazon RDS versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.html). | August 21, 2026 | 
 | [Amazon RDS for Oracle supports Oracle APEX version 26.1.v1](#WhatsNew) | You can use Oracle APEX 26.1.v1 with Oracle Database 19c and higher. For more information, see [Oracle APEX](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.APEX.html). | August 14, 2026 | 

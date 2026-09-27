@@ -3,7 +3,7 @@
 # Working with SQL Server Developer Edition on RDS for SQL Server
 <a name="sqlserver-dev-edition"></a>
 
-RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature. Amazon RDS SQL Server also supports Bring Your Own Media (BYOM) for Standard Edition and Enterprise Edition, however, there are some feature differences between them. For more details, see [Differences between Developer Edition and BYOM](sqlserver-byom-comparison.md).
+RDS for SQL Server supports SQL Server Developer Edition. Developer Edition includes all SQL Server Enterprise Edition features but is licensed only for non-production use. Developer Edition supports both single-AZ and Multi-AZ deployments. You can create RDS for SQL Server Developer Edition instances using your own installation media through the custom engine version (CEV) feature. Amazon RDS SQL Server also supports Bring Your Own Media (BYOM) for Standard Edition and Enterprise Edition, however, there are some feature differences between them. For more details, see [Differences between Developer Edition and BYOM](sqlserver-byom-comparison.md).
 
 ## Benefits
 <a name="sqlserver-dev-edition.benefits"></a>
@@ -12,6 +12,7 @@ You can use RDS for SQL Server Developer Edition to:
 + Lower costs in development and test environments while maintaining feature parity with production databases.
 + Access Enterprise Edition capabilities in non-production environments without Enterprise licensing fees.
 + Use Amazon RDS-automated management features, including backups, patching, and monitoring.
++ Test high availability and automatic failover configurations in non-production environments using Multi-AZ deployments.
 
 **Note**  
 SQL Server Developer Edition is licensed for development and testing purposes only and cannot be used in production environments.
@@ -83,6 +84,7 @@ Developer Edition on RDS for SQL Server supports the following versions:
 Starting with SQL Server 2025, Amazon RDS supports two Developer Edition engine types:  
 `sqlserver-dev-ee` – includes all Enterprise Edition features, licensed for non-production use only.
 `sqlserver-dev-se` – new in SQL Server 2025, includes all Standard Edition features, licensed for non-production use only.
+For 2025 SQL Server, Multi-AZ is supported only for Enterprise Developer Edition (`sqlserver-dev-ee`) and not for Standard Developer Edition (`sqlserver-dev-se`).  
 For more information about SQL Server Developer Edition variants, see [Editions and supported features of SQL Server 2025](https://learn.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2025?view=sql-server-ver17) in the Microsoft documentation.
 
 To list all supported engine versions for Developer Edition (Enterprise Edition capabilities) CEV creation, use the following AWS CLI command:
@@ -136,6 +138,6 @@ The engine version status as `requires_custom_engine_version` identifies templat
 
 The following limitations apply to SQL Server Developer Edition on Amazon RDS:
 + Supported instance classes vary by SQL Server version. For the current list, see [DB instance class support for Microsoft SQL Server](SQLServer.Concepts.General.InstanceClasses.md), or use the [describe-orderable-db-instance-options](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-orderable-db-instance-options.html) AWS CLI command.
-+ Amazon RDS doesn't support Multi-AZ deployments or read replicas for this edition.
++ Amazon RDS doesn't support read replicas for this edition.
 + You must provide and manage your own SQL Server installation media.
 + You can't share custom engine versions for SQL Server Developer Edition (`sqlserver-dev-ee` and `sqlserver-dev-se`) across Regions or accounts.

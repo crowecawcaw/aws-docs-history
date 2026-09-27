@@ -44,9 +44,53 @@ Using AWS KMS, you can create customer managed keys and define the policies that
 **Important**  
 Amazon RDS loses access to the KMS key for a DB instance when you disable the KMS key. If you lose access to a KMS key, the encrypted DB instance goes into the `inaccessible-encryption-credentials-recoverable` state 2 hours after detection in instances where backups are enabled. The DB instance remains in this state for seven days, during which the instance is stopped. API calls made to the DB instance during this time might not succeed. To recover the DB instance, enable the KMS key and restart this DB instance. Enable the KMS key from the AWS Management Console, AWS CLI, or RDS API. Restart the DB instance using the AWS CLI command [start-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/start-db-instance.html) or AWS Management Console.   
 The `inaccessible-encryption-credentials-recoverable` state only applies to DB instances that can stop. This recoverable state is not applicable to instances that can't stop, such as read replicas and instances with read replicas. For more information, see [Limitations of stopping your DB instance](USER_StopInstance.md#USER_StopInstance.Limitations).  
-If the DB instance isn't recovered within seven days, it goes into the terminal `inaccessible-encryption-credentials` state. In this state, the DB instance is not usable anymore and you can only restore the DB instance from a backup. We strongly recommend that you always turn on backups for encrypted DB instances to guard against the loss of encrypted data in your databases.  
+If the DB instance isn't recovered within seven days, it goes into the terminal `inaccessible-encryption-credentials` state. In this state, the DB instance is no longer usable and you can only restore it from a DB snapshot or backup.  
 During the creation of a DB instance, Amazon RDS checks if the calling principal has access to the KMS key and generates a grant from the KMS key that it uses for the entire lifetime of the DB instance. Revoking the calling principal's access to the KMS key does not affect a running database. When using KMS keys in cross-account scenarios, such as copying a snapshot to another account, the KMS key needs to be shared with the other account. If you create a DB instance from the snapshot without specifying a different KMS key, the new instance uses the KMS key from the source account. Revoking access to the key after you create the DB instance does not affect the instance. However, disabling the key impacts all DB instances encrypted with that key. To prevent this, specify a different key during the snapshot copy operation.  
 DB instances with disabled backups remain available until the volumes are detached from the host during an instance modification or a recovery. RDS moves the instances into `inaccessible-encryption-credentials-recoverable` state or `inaccessible-encryption-credentials` state as applicable.
+
+A DB instance in the `inaccessible-encryption-credentials` state can't be recovered in place, so Amazon RDS automatically creates a final DB snapshot when a DB instance transitions to this state. This is similar to the final snapshot that you can request when you delete a DB instance.
+
+The snapshot captures data written after your most recent automated backup. This includes writes made while the KMS key was inaccessible. You can use the snapshot to recover data that would otherwise be lost. Amazon RDS creates it as a manual DB snapshot named `rds-final:{{db-instance-identifier}}-{{resource-id}}`, and it appears alongside your other DB snapshots.
+
+The final snapshot is retained until you delete it, and it incurs backup storage charges in the same way as a manual DB snapshot. Because charges continue until you delete it, delete the snapshot as soon as you no longer need it. For more information, see [Amazon RDS pricing](https://aws.amazon.com/rds/pricing/).
+
+Amazon RDS attempts to create a final snapshot when a DB instance transitions to the `inaccessible-encryption-credentials` state in any of the following situations:
++ The KMS key becomes inaccessible and the DB instance can't be stopped, so it moves directly to the `inaccessible-encryption-credentials` state. This situation includes read replicas and DB instances that have read replicas.
++ The DB instance remains in the `inaccessible-encryption-credentials-recoverable` state for seven days without being recovered.
++ The DB instance requires an operation that Amazon RDS can't complete because the KMS key is inaccessible. Examples include replacing the underlying host and scaling storage.
+
+Amazon RDS creates the final snapshot only when all of the following are true for the DB instance:
++ The DB instance has data volumes attached. A DB instance with no attached storage, such as one that failed during creation or is already being deleted, has no data to capture.
++ The DB instance isn't a member of a Multi-AZ DB cluster or an Aurora DB cluster. These use cluster-level backups instead of individual instance snapshots.
++ The data of the DB instance is complete and not changing. Amazon RDS doesn't create a final snapshot while a DB instance is in any of the following states:
+  + Being created
+  + Being restored from a DB snapshot or backup
+  + Being migrated
+  + Having transaction logs replayed
+  + Being patched offline as part of a restore
+  + Being prepared or configured as a read replica
+
+Automated backups don't need to be turned on. Amazon RDS also creates a final snapshot for DB instances on AWS Outposts, and for DB instances in other terminal states as long as their storage is intact.
+
+To restore from the final snapshot, first re-enable the KMS key, because the snapshot is encrypted with the same key as the source DB instance. For more information, see [AWS KMS key management](Overview.Encryption.Keys.md). Then restore the snapshot as you would any other DB snapshot. For the full list of parameters, see [restore-db-instance-from-db-snapshot](https://docs.aws.amazon.com/cli/latest/reference/rds/restore-db-instance-from-db-snapshot.html) in the *AWS CLI Command Reference*.
+
+**Example Restore a DB instance from the final DB snapshot**  
+For Linux, macOS, or Unix:  
+
+```
+1. aws rds restore-db-instance-from-db-snapshot \
+2.     --db-instance-identifier {{mydb-restored}} \
+3.     --db-snapshot-identifier {{rds-final:mydb-db-abcdefghijklmnop}}
+```
+For Windows:  
+
+```
+1. aws rds restore-db-instance-from-db-snapshot ^
+2.     --db-instance-identifier {{mydb-restored}} ^
+3.     --db-snapshot-identifier {{rds-final:mydb-db-abcdefghijklmnop}}
+```
+
+Although automated backups aren't required, turn them on for encrypted DB instances so that point-in-time recovery is available in addition to the final snapshot.
 
 For more information about KMS keys, see [AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys) in the *AWS Key Management Service Developer Guide* and [AWS KMS key management](Overview.Encryption.Keys.md). 
 

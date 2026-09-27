@@ -72,6 +72,7 @@ Minor versions can reach end of Extended Support before major versions do. RDS w
 
 | MySQL engine version | Community release date | RDS release date | RDS end of Extended Support date | 
 | --- | --- | --- | --- | 
+| 8.0.46-RDS.20260908\* | Not applicable | 23 September 2026 | 30 September 2027 | 
 | 8.0.46-RDS.20260624\* | Not applicable | 15 July 2026 | 31 July 2027 | 
 
 \* MySQL Community retired major version 8.0 and won't be releasing new minor versions. This is a minor version that Amazon RDS released with critical security patches and bug fixes for MySQL 8.0 databases that are covered under RDS Extended Support. For more information about these minor versions, see [Amazon RDS Extended Support versions for RDS for MySQL](#mysql-extended-support-releases). For more information about RDS Extended Support, see [Amazon RDS Extended Support with Amazon RDS](extended-support.md).
@@ -84,6 +85,7 @@ Minor versions can reach end of Extended Support before major versions do. For e
 
 | MySQL engine version | Community release date | RDS release date | RDS end of Extended Support date | 
 | --- | --- | --- | --- | 
+| 5.7.44-RDS.20260902\* | Not applicable | 16 September 2026 | 30 September 2027 | 
 | 5.7.44-RDS.20260624\* | Not applicable | 15 July 2026 | 31 July 2027 | 
 | 5.7.44-RDS.20260521\* | Not applicable | 4 June 2026 | 30 June 2027 | 
 | 5.7.44-RDS.20260212\* | Not applicable | 26 February 2026 | 28 February 2027 | 
@@ -218,6 +220,7 @@ MySQL version 8.4.4 is now available on Amazon RDS. This release contains fixes 
 MySQL version 8.0.46 is now available on Amazon RDS. This release contains fixes and improvements added by the MySQL community and Amazon RDS.
 
 **New features and enhancements**
++ Updated the time zone information to base it on `tzdata2026b`.
 + Fixed an issue that could cause a "Row size too large" error with tables using InnoDB DYNAMIC row format.
 + Fixed an issue that could cause incorrect sort order for queries using ORDER BY DESC with range comparisons and LIMIT.
 
@@ -308,7 +311,9 @@ You can also view information about support dates for major engine versions by u
 The following content lists all releases of RDS Extended Support for RDS for MySQL versions.
 
 **Topics**
++ [RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260908](#mysql-extended-support-releases-version-8.0.46-RDS.20260908)
 + [RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260624](#mysql-extended-support-releases-version-8.0.46-RDS.20260624)
++ [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260902](#mysql-extended-support-releases-version-5.7.44-RDS.20260902)
 + [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624](#mysql-extended-support-releases-version-5.7.44-RDS.20260624)
 + [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521](#mysql-extended-support-releases-version-5.7.44-RDS.20260521)
 + [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260212](#mysql-extended-support-releases-version-5.7.44-RDS.20260212)
@@ -321,20 +326,97 @@ The following content lists all releases of RDS Extended Support for RDS for MyS
 + [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529](#mysql-extended-support-releases-version-5.7.44-20240529)
 + [RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240408](#mysql-extended-support-releases-version-5.7.44-20240408)
 
+### RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260908
+<a name="mysql-extended-support-releases-version-8.0.46-RDS.20260908"></a>
+
+RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260908 is available.
+
+**New features and enhancements**
++ Updated the time zone information to base it on `tzdata2026c`.
+
+**Bugs fixed**
++ Fixed an issue that caused a "Row size too large" error with tables using InnoDB DYNAMIC row format.
+
+**CVEs fixed**
++ [CVE-2026-60314](https://nvd.nist.gov/vuln/detail/CVE-2026-60314)
++ [CVE-2026-60725](https://nvd.nist.gov/vuln/detail/CVE-2026-60725)
++ [CVE-2026-60315](https://nvd.nist.gov/vuln/detail/CVE-2026-60315)
++ [CVE-2026-60316](https://nvd.nist.gov/vuln/detail/CVE-2026-60316)
++ [CVE-2026-61094](https://nvd.nist.gov/vuln/detail/CVE-2026-61094)
++ [CVE-2026-60163](https://nvd.nist.gov/vuln/detail/CVE-2026-60163)
++ [CVE-2026-60332](https://nvd.nist.gov/vuln/detail/CVE-2026-60332)
++ [CVE-2026-60186](https://nvd.nist.gov/vuln/detail/CVE-2026-60186)
++ [CVE-2026-47023](https://nvd.nist.gov/vuln/detail/CVE-2026-47023)
++ [CVE-2026-60184](https://nvd.nist.gov/vuln/detail/CVE-2026-60184)
++ [CVE-2026-60185](https://nvd.nist.gov/vuln/detail/CVE-2026-60185)
++ [CVE-2026-60187](https://nvd.nist.gov/vuln/detail/CVE-2026-60187)
++ [CVE-2026-60188](https://nvd.nist.gov/vuln/detail/CVE-2026-60188)
++ [CVE-2026-60189](https://nvd.nist.gov/vuln/detail/CVE-2026-60189)
++ [CVE-2026-60190](https://nvd.nist.gov/vuln/detail/CVE-2026-60190)
++ [CVE-2026-60191](https://nvd.nist.gov/vuln/detail/CVE-2026-60191)
++ [CVE-2026-60331](https://nvd.nist.gov/vuln/detail/CVE-2026-60331)
++ [CVE-2026-60585](https://nvd.nist.gov/vuln/detail/CVE-2026-60585)
++ [CVE-2026-60747](https://nvd.nist.gov/vuln/detail/CVE-2026-60747)
++ [CVE-2026-47012](https://nvd.nist.gov/vuln/detail/CVE-2026-47012)
++ [CVE-2026-47064](https://nvd.nist.gov/vuln/detail/CVE-2026-47064)
++ [CVE-2026-60145](https://nvd.nist.gov/vuln/detail/CVE-2026-60145)
++ [CVE-2026-60171](https://nvd.nist.gov/vuln/detail/CVE-2026-60171)
++ [CVE-2026-61109](https://nvd.nist.gov/vuln/detail/CVE-2026-61109)
++ [CVE-2026-60177](https://nvd.nist.gov/vuln/detail/CVE-2026-60177)
++ [CVE-2026-60178](https://nvd.nist.gov/vuln/detail/CVE-2026-60178)
++ [CVE-2026-60182](https://nvd.nist.gov/vuln/detail/CVE-2026-60182)
++ [CVE-2026-60183](https://nvd.nist.gov/vuln/detail/CVE-2026-60183)
++ [CVE-2026-47052](https://nvd.nist.gov/vuln/detail/CVE-2026-47052)
++ [CVE-2026-61081](https://nvd.nist.gov/vuln/detail/CVE-2026-61081)
++ [CVE-2026-46936](https://nvd.nist.gov/vuln/detail/CVE-2026-46936)
+
 ### RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260624
 <a name="mysql-extended-support-releases-version-8.0.46-RDS.20260624"></a>
 
 RDS Extended Support for RDS for MySQL version 8.0.46-RDS.20260624 is available.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2026-46863](https://nvd.nist.gov/vuln/detail/CVE-2026-46863)
+
+### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260902
+<a name="mysql-extended-support-releases-version-5.7.44-RDS.20260902"></a>
+
+RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260902 is available.
+
+**New features and enhancements**
++ Updated the time zone information to base it on `tzdata2026c`.
+
+**CVEs fixed**
++ [CVE-2026-60315](https://nvd.nist.gov/vuln/detail/CVE-2026-60315)
++ [CVE-2026-60316](https://nvd.nist.gov/vuln/detail/CVE-2026-60316)
++ [CVE-2026-60163](https://nvd.nist.gov/vuln/detail/CVE-2026-60163)
++ [CVE-2026-60332](https://nvd.nist.gov/vuln/detail/CVE-2026-60332)
++ [CVE-2026-60186](https://nvd.nist.gov/vuln/detail/CVE-2026-60186)
++ [CVE-2026-47012](https://nvd.nist.gov/vuln/detail/CVE-2026-47012)
++ [CVE-2026-47064](https://nvd.nist.gov/vuln/detail/CVE-2026-47064)
++ [CVE-2026-60145](https://nvd.nist.gov/vuln/detail/CVE-2026-60145)
++ [CVE-2026-60171](https://nvd.nist.gov/vuln/detail/CVE-2026-60171)
++ [CVE-2026-47023](https://nvd.nist.gov/vuln/detail/CVE-2026-47023)
++ [CVE-2026-60184](https://nvd.nist.gov/vuln/detail/CVE-2026-60184)
++ [CVE-2026-60185](https://nvd.nist.gov/vuln/detail/CVE-2026-60185)
++ [CVE-2026-60187](https://nvd.nist.gov/vuln/detail/CVE-2026-60187)
++ [CVE-2026-60188](https://nvd.nist.gov/vuln/detail/CVE-2026-60188)
++ [CVE-2026-60189](https://nvd.nist.gov/vuln/detail/CVE-2026-60189)
++ [CVE-2026-60190](https://nvd.nist.gov/vuln/detail/CVE-2026-60190)
++ [CVE-2026-60191](https://nvd.nist.gov/vuln/detail/CVE-2026-60191)
++ [CVE-2026-60331](https://nvd.nist.gov/vuln/detail/CVE-2026-60331)
++ [CVE-2026-60585](https://nvd.nist.gov/vuln/detail/CVE-2026-60585)
++ [CVE-2026-60747](https://nvd.nist.gov/vuln/detail/CVE-2026-60747)
 
 ### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624
 <a name="mysql-extended-support-releases-version-5.7.44-RDS.20260624"></a>
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624 is available.
 
-**CVEs fixed:**
+**New features and enhancements**
++ Updated the time zone information to base it on `tzdata2026b`.
+
+**CVEs fixed**
 + [CVE-2026-46863](https://nvd.nist.gov/vuln/detail/CVE-2026-46863)
 
 ### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521
@@ -342,10 +424,10 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260624 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixes a memory leak during shutdown.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2026-34270](https://nvd.nist.gov/vuln/detail/CVE-2026-34270)
 + [CVE-2026-34271](https://nvd.nist.gov/vuln/detail/CVE-2026-34271)
 + [CVE-2026-34272](https://nvd.nist.gov/vuln/detail/CVE-2026-34272)
@@ -366,11 +448,11 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260521 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260212 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Refresh test certificate used to test fix for bug 22295186.
 + Fixes a memory leak with prefix index on blob columns.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2026-21936](https://nvd.nist.gov/vuln/detail/CVE-2026-21936)
 + [CVE-2026-21968](https://nvd.nist.gov/vuln/detail/CVE-2026-21968)
 + [CVE-2026-21941](https://nvd.nist.gov/vuln/detail/CVE-2026-21941)
@@ -381,14 +463,14 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20260212 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20251212 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed an issue with server startup when the buffer pool size exceeded the upper limit.
 + Fixed read from `INFORMATION_SCHEMA.INNODB_LOCKS` that caused the server to exit abnormally.
 + Fixed an issue with JUnit reporting support in MySQL Test Run (MTR).
 + Fixed compilation issues when building with `-DWITH_INNODB_MEMCACHED=ON` option.
 + Fixed an issue with MySQL Test Run (MTR) execution for bug 25182306.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2025-53054](https://nvd.nist.gov/vuln/detail/CVE-2025-53054)
 + [CVE-2025-53044](https://nvd.nist.gov/vuln/detail/CVE-2025-53044)
 + [CVE-2025-53045](https://nvd.nist.gov/vuln/detail/CVE-2025-53045)
@@ -402,12 +484,12 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20251212 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250818 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed an issue where the query rewrite plugin failed when the server operated with `autocommit=OFF`.
 + Fixed a permission issue that prevented Debian and Ubuntu builds from running in rootless mode.
 + Fixed missing update for bug 30875669.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2025-50082](https://nvd.nist.gov/vuln/detail/CVE-2025-50082)
 + [CVE-2025-50083](https://nvd.nist.gov/vuln/detail/CVE-2025-50083)
 + [CVE-2025-50079](https://nvd.nist.gov/vuln/detail/CVE-2025-50079)
@@ -431,13 +513,13 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250818 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250508 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed virtual index unstable after rollback when `index_id` is greater than max `uint32`.
 + Fixed Tests fails with memory issue.
 + Fixed `<COMMAND_CLASS>` is empty for `<NAME>Execute</NAME>`.
 + Fixed Compile MySQL with GCC 14 [noclose 5.7].
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2025-30682](https://nvd.nist.gov/vuln/detail/CVE-2025-30682)
 + [CVE-2025-30687](https://nvd.nist.gov/vuln/detail/CVE-2025-30687)
 + [CVE-2025-30688](https://nvd.nist.gov/vuln/detail/CVE-2025-30688)
@@ -455,7 +537,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250508 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250213 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed InnoDB failing assertion `result != FTS_INVALID`.
 + Fixed crashing and widespread corruption of spatial indexes after `ALTER TABLE` operation rebuilds InnoDB table using the `INPLACE` algorithm.
 + Fixed `ON DELETE CASCADE` with generated column crashes in `innobase_get_computed_value`.
@@ -466,7 +548,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250213 is available.
 + Fixed buffer overrun in `my_print_help`.
 + Fixed an InnoDB issue where `FULLTEXT` index limits `FTS_DOC_ID` to max unsigned 32-bit value.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2025-21497](https://nvd.nist.gov/vuln/detail/CVE-2025-21497)
 + [CVE-2025-21555](https://nvd.nist.gov/vuln/detail/CVE-2025-21555)
 + [CVE-2025-21559](https://nvd.nist.gov/vuln/detail/CVE-2025-21559)
@@ -483,13 +565,13 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250213 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250103 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed FTS clean-up issue when dropping and adding a `FULLTEXT` index in the same transaction.
 + Optimized the memory allocation timing in the MySQL client to prevent any potential leaks.
 + Fixed the truncation of results at 34 bytes when using the `UNION` operator.
 + Fixed potential out-of-bounds access due to `ulong bitmask` in the authorization code.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2024-21230](https://nvd.nist.gov/vuln/detail/CVE-2024-21230)
 + [CVE-2024-21201](https://nvd.nist.gov/vuln/detail/CVE-2024-21201)
 + [CVE-2024-21241](https://nvd.nist.gov/vuln/detail/CVE-2024-21241)
@@ -500,7 +582,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20250103 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed assertion failure related to dictionary column index.
 + Fixed issue with the `is_binlog_cache_empty()` function.
 + Fixed `heap-use-after-free` errors in `sql/item.cc` files.
@@ -510,7 +592,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808 is available.
 + Fixed `PSI_THREAD_INFO` not updating for `PREPARED STATEMENTS`.
 + Fixed double processing of FTS index words with `innodb_optimize_fulltext_only`.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2024-21177](https://nvd.nist.gov/vuln/detail/CVE-2024-21177)
 
 ### RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529
@@ -518,7 +600,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240808 is available.
 
 RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529 is available.
 
-**Bugs fixed:**
+**Bugs fixed**
 + Fixed `field.cc` assertion failure by implementing `fix_after_pullout`.
 + Fixed a null pointer failure when returning metadata to the client for certain SQL queries. These queries contained dynamic parameters and subqueries in `SELECT` clauses.
 + Fixed incorrect results when using `GROUP BY` for loose index scans, or scans of noncontiguous ranges of an index.
@@ -530,7 +612,7 @@ RDS Extended Support for RDS for MySQL version 5.7.44-RDS.20240529 is available.
 + Fixed assertion issue with change buffer on deleting tables.
 + Unified behavior for calling `deinit` function across all plugin types.
 
-**CVEs fixed:**
+**CVEs fixed**
 + [CVE-2024-20963](https://nvd.nist.gov/vuln/detail/CVE-2024-20963)
 + [CVE-2024-20993](https://nvd.nist.gov/vuln/detail/CVE-2024-20993)
 + [CVE-2024-20998](https://nvd.nist.gov/vuln/detail/CVE-2024-20998)
