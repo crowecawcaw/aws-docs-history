@@ -17,6 +17,20 @@ When you create an interface endpoint, we generate endpoint-specific DNS hostnam
   api.iotsitewise.{{region}}.amazonaws.com
   ```
 
+If you require FIPS 140-3 validated cryptographic modules when you access AWS IoT SiteWise through the interface VPC endpoint, use the following FIPS endpoints instead. The FIPS endpoints are available through the same interface VPC endpoints with private DNS enabled, in the AWS Regions where AWS IoT SiteWise supports FIPS endpoints. For the list of AWS IoT SiteWise FIPS endpoints, see [AWS IoT SiteWise endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/iot-sitewise.html) in the *AWS General Reference Guide*.
++ For the **data plane** API operations, use the following FIPS endpoint. Replace {{region}} with your AWS Region.
+
+  ```
+  data.iotsitewise-fips.{{region}}.amazonaws.com
+  ```
++ For the **control plane** API operations, use the following FIPS endpoint. Replace {{region}} with your AWS Region.
+
+  ```
+  api.iotsitewise-fips.{{region}}.amazonaws.com
+  ```
+
+To use the FIPS endpoints with the AWS CLI and AWS SDKs, you can specify the FIPS endpoint hostname directly, or you can enable the FIPS endpoint configuration option instead. For example, set the `AWS_USE_FIPS_ENDPOINT` environment variable to `true`, or use the equivalent option for your SDK. For more information, see [Dual-stack and FIPS endpoints](https://docs.aws.amazon.com/sdkref/latest/guide/feature-endpoints.html) in the *AWS SDKs and Tools Reference Guide*.
+
 *If you disable private DNS for the endpoint*, you must do the following to access AWS IoT SiteWise through the endpoint:
 
 1. Specify the VPC endpoint url in API requests.
