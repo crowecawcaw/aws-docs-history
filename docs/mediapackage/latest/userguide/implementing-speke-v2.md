@@ -1,9 +1,11 @@
 
 
-# Implementing SPEKE v2.0 with AWS Elemental MediaPackage
+# Implementing SPEKE with AWS Elemental MediaPackage
 <a name="implementing-speke-v2"></a>
 
 This topic supplements the [SPEKE API v2 — Customizations and constraints to the DASH-IF specification](https://docs.aws.amazon.com/speke/latest/documentation/speke-constraints-v2.html) with practical implementation guidance verified through production integration testing with AWS Elemental MediaPackage v2.
+
+MediaPackage supports both SPEKE v2.0 (CPIX v2.3) and SPEKE v2.1 (CPIX v2.4). The two versions are identical except that SPEKE v2.1 can optionally signal the `start` and `end` times of each content key period for time-based key rotation. For more information about this capability, see [SPEKE API v2.1](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2-1.html).
 
 **Note**  
 This guide does not cover [SPEKE API v2 — Content Key Encryption](https://docs.aws.amazon.com/speke/latest/documentation/content-key-encryption-v2.html). Examples show content keys returned in `pskc:PlainValue` (cleartext base64), protected by HTTPS transport encryption.
@@ -25,7 +27,7 @@ This guide does not cover [SPEKE API v2 — Content Key Encryption](https://docs
 | Header | Required | Value | 
 | --- | --- | --- | 
 | Content-Type | Yes | application/xml | 
-| X-Speke-Version | Yes | 2.0 | 
+| X-Speke-Version | Yes | 2.0 or 2.1 | 
 
 **Response headers (from key provider)**
 
@@ -51,7 +53,7 @@ This guide does not cover [SPEKE API v2 — Content Key Encryption](https://docs
 ## CPIX document structure
 <a name="speke-v2-cpix-structure"></a>
 
-Every SPEKE v2.0 exchange uses CPIX v2.3 XML with the namespaces `xmlns:cpix="urn:dashif:org:cpix"` and `xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc"`.
+Every SPEKE v2.0 exchange uses CPIX v2.3 XML, and every SPEKE v2.1 exchange uses CPIX v2.4 XML. Both use the namespaces `xmlns:cpix="urn:dashif:org:cpix"` and `xmlns:pskc="urn:ietf:params:xml:ns:keyprov:pskc"`.
 
 ### Root element: cpix:CPIX
 <a name="speke-v2-cpix-root"></a>
@@ -60,7 +62,7 @@ Every SPEKE v2.0 exchange uses CPIX v2.3 XML with the namespaces `xmlns:cpix="ur
 | Attribute | Required | Description | 
 | --- | --- | --- | 
 | contentId | Yes | Content identifier from MediaPackage. Must not be empty. | 
-| version | Yes | Must be 2.3. Return error if missing or unsupported. | 
+| version | Yes | Must be 2.3 (SPEKE v2.0) or 2.4 (SPEKE v2.1). Return error if missing or unsupported. | 
 
 The key provider must NOT modify `contentId` or `version` in the response. However, the key provider may override the `kid` value on `ContentKey` elements — see [Overriding the key identifier](https://docs.aws.amazon.com/speke/latest/documentation/kid-override-v2.html).
 
@@ -104,7 +106,20 @@ Contains one `DRMSystem` element per key per DRM system. Example: 2 keys x 3 DRM
 ### ContentKeyPeriodList (live streaming)
 <a name="speke-v2-content-key-period-list"></a>
 
-Must be echoed back unchanged from the request. MediaPackage sends this even without key rotation.
+Contains one or more `ContentKeyPeriod` elements. The key provider must echo the `ContentKeyPeriodList`—including any `start` and `end` times—back unchanged from the request. MediaPackage sends this even without key rotation.
+
+With SPEKE v2.0, each `ContentKeyPeriod` signals the content key `index`. With SPEKE v2.1 and key rotation enabled, MediaPackage can also signal the `start` and `end` times that a content key is used for on each `ContentKeyPeriod`. The `ContentKeyPeriodTiming` setting controls what MediaPackage signals.
+
+
+| ContentKeyPeriodTiming | SPEKE version | Description | 
+| --- | --- | --- | 
+| INDEX\_ONLY | 2.0 or 2.1 | Signal only the content key index. This is the default. | 
+| START\_END\_ONLY | 2.1 | Signal only the content key start and end times. Requires SPEKE v2.1. | 
+| INDEX\_WITH\_START\_END | 2.1 | Signal both the content key index and the start and end times. Requires SPEKE v2.1. | 
+
+Whether MediaPackage signals the `index`, the `start` and `end` times, or both, the key provider must echo each `ContentKeyPeriod` back unchanged. The key provider must not modify or override the `start` and `end` times that MediaPackage sets. This mirrors the requirement that the key provider must not modify `contentId` or `version`.
+
+For more information about signaling the content key start and end times, see [SPEKE API v2.1](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2-1.html).
 
 ### ContentKeyUsageRuleList (mandatory)
 <a name="speke-v2-usage-rule-list"></a>
@@ -294,9 +309,9 @@ The key delivery endpoint must return the raw 16-byte binary key (not base64) wi
 ## Testing and verification
 <a name="speke-v2-testing"></a>
 
-**Verify your SPEKE v2.0 implementation**
+**Verify your SPEKE v2.0 or v2.1 implementation**
 
-1. **Test SPEKE endpoint directly.** Send a POST request with a CPIX XML body and verify the response contains `contentId`, `version="2.3"`, `PlainValue` with 16-byte base64 key, `explicitIV`, base64-encoded HLSSignalingData, and echoed ContentKeyPeriodList.
+1. **Test SPEKE endpoint directly.** Send a POST request with a CPIX XML body and verify the response contains `contentId`, `version="2.3"` for SPEKE v2.0 or `version="2.4"` for SPEKE v2.1, `PlainValue` with 16-byte base64 key, `explicitIV`, base64-encoded HLSSignalingData, and echoed ContentKeyPeriodList. For SPEKE v2.1, confirm that the `X-Speke-Version` response header is `2.1`.
 
 1. **Verify key determinism.** Send the same request twice. The `PlainValue` should be identical both times.
 

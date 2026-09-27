@@ -7,6 +7,7 @@ The following table describes the documentation releases for MediaPackage.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added SPEKE v2.1 time-based key rotation signaling](drm-content-key-rotation.md#drm-time-based-key-rotation-signaling) | Added the section that describes how to signal the start and end times of each key rotation period to your DRM key provider by using SPEKE v2.1. | September 17, 2026 | 
 | [Added output locking mode documentation](cmaf-ingest.md#output-locking-mode) | MediaPackage now supports non-epoch-locked mode for CMAF channels. | July 23, 2026 | 
 | [Added DASH audio timeline pattern information](dash-audio-timeline-pattern.md) | Added the topic that describes the audio timeline pattern option for DASH manifests that MediaPackage serves. | June 1, 2026 | 
 | [Added content key encryption for MediaPackage V2](drm-content-key-encryption.md) | Added support for content key encryption in MediaPackage V2 using certificates from AWS Certificate Manager. | November 17, 2025 | 

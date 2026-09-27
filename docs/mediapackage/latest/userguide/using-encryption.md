@@ -16,14 +16,14 @@ When implementing content encryption for MediaPackage, refer to the following li
 ## Container and DRM system support with SPEKE
 <a name="encryption-choosing-speke-version"></a>
 
-MediaPackage supports [SPEKE Version 2.0](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2.html) which uses multiple, distinct encryption keys for audio and video tracks and uses [Content Protection Information Exchange (CPIX) Version 2.3](https://dashif.org/docs/CPIX2.3/Cpix.html). For more information about SPEKE Version 2.0 encryption configurations, see [Encryption presets in AWS Elemental MediaPackage](drm-content-speke-v2-presets.md).
+MediaPackage supports both [SPEKE Version 2.0](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2.html), which uses [Content Protection Information Exchange (CPIX) Version 2.3](https://dashif.org/docs/CPIX2.3/Cpix.html), and [SPEKE Version 2.1](https://docs.aws.amazon.com/speke/latest/documentation/the-speke-api-v2-1.html), which uses [CPIX Version 2.4](https://dashif.org/docs/CPIX2.4/Cpix.html). Both versions use multiple, distinct encryption keys for audio and video tracks. SPEKE Version 2.1 additionally supports signaling the start and end times of each content key for time-based key rotation. For more information about SPEKE encryption configurations, see [Encryption presets in AWS Elemental MediaPackage](drm-content-speke-v2-presets.md).
 
 **Supported containers and DRM systems**
 
-The following table lists the different containers and digital rights management (DRM) systems that SPEKE Version 2.0 supports.
+The following table lists the different containers and digital rights management (DRM) systems that SPEKE Version 2.0 and 2.1 support.
 
 
-| SPEKE Version 2.0 – Support matrix for container and DRM system | Apple FairPlay | ClearKey AES-128 | Google Widevine | Microsoft PlayReady | Irdeto | 
+| SPEKE Version 2.0 and 2.1 – Support matrix for container and DRM system | Apple FairPlay | ClearKey AES-128 | Google Widevine | Microsoft PlayReady | Irdeto | 
 | --- | --- | --- | --- | --- | --- | 
 | TS container | √<br />Supports SAMPLE-AES | √<br />Supports AES-128 | Not supported | Not supported | Not supported | 
 | CMAF container | √<br />Supports cbcs encryption | Not supported | √<br />Supports cbcs and cenc encryption | √<br />Supports cbcs and cenc encryption | √<br />Supports cenc encryption | 
@@ -50,7 +50,7 @@ The following sections provide guidance on how to implement content encryption u
 + [Limitations and requirements](#encryption-requirements)
 + [Container and DRM system support with SPEKE](#encryption-choosing-speke-version)
 + [Deploying SPEKE](#encryption-deploying-speke)
-+ [Implementing SPEKE v2.0](implementing-speke-v2.md)
++ [Implementing SPEKE](implementing-speke-v2.md)
 + [Content key encryption](drm-content-key-encryption.md)
 + [Key rotation](drm-content-key-rotation.md)
 + [Managing DRM segment metadata](drm-segment-metadata-management.md)

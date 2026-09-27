@@ -192,6 +192,15 @@ To encrypt content, you must have a DRM provider, and be set up to use encryptio
 
    For information about content key encryption, see [Preparing and managing certificates for content key encryption](drm-content-key-encryption.md).
 
+1. (Optional) For **SPEKE version**, choose the version of the SPEKE protocol that MediaPackage uses to request content keys from your key provider. Choose **2.0** or **2.1**. SPEKE version 2.1 additionally supports signaling the start and end times of each content key period. If you don't choose a version, the default is **2.0**.
+
+1. (Optional) For **Content key period timing**, choose which content key period information MediaPackage signals to your DRM key provider.
+   + **Index only** – Signals only the content key period index. This is the default.
+   + **Start and end only** – Signals only the wall-clock start and end times of each content key period.
+   + **Index with start and end** – Signals both the content key period index and the wall-clock start and end times.
+
+   Signaling start and end times requires SPEKE version 2.1 and key rotation to be enabled. For more information, see [Signaling time-based key rotation with SPEKE v2.1](drm-content-key-rotation.md#drm-time-based-key-rotation-signaling).
+
 1. For **Video encryption preset** and **Audio encryption preset**, select the preset for encrypting audio and video. For information about presets, see [Encryption presets in AWS Elemental MediaPackage](drm-content-speke-v2-presets.md).
 
 1. (Optional) For **Constant initialization vector** enter a 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
