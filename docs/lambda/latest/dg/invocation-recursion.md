@@ -44,14 +44,14 @@ Lambda can detect only recursive loops that include certain supported AWS servic
 ### Supported AWS services
 <a name="invocation-recursion-supportedservices"></a>
 
-Lambda currently detects recursive loops between your functions, Amazon SQS, Amazon S3, and Amazon SNS. Lambda also detects loops comprised only of Lambda functions, which might invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
+Lambda currently detects recursive loops between your functions, Amazon SQS, Amazon S3, Amazon SNS, and Amazon EventBridge Custom event buses. Lambda also detects loops comprised only of Lambda functions, which might invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
 
 ![Diagrams of recursive loops between a Lambda function, Amazon SNS, Amazon S3, and an Amazon SQS queue.](https://docs.aws.amazon.com/lambda/latest/dg/images/RunawayWorkloadDetected_v3.png)
 
 
 When another AWS service such as Amazon DynamoDB forms part of the loop, Lambda can't currently detect and stop it.
 
-Because Lambda currently detects only recursive loops involving Amazon SQS, Amazon S3, and Amazon SNS, it's still possible that loops involving other AWS services can result in unintended usage of your Lambda functions.
+Because Lambda currently detects only recursive loops involving Amazon SQS, Amazon S3, Amazon SNS, and Amazon EventBridge Custom event buses, it's still possible that loops involving other AWS services can result in unintended usage of your Lambda functions.
 
 To guard against unexpected charges being billed to your AWS account, we recommend that you configure [Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) to alert you to unusual usage patterns. For example, you can configure CloudWatch to notify you about spikes in Lambda function concurrency or invocations. You can also configure a [billing alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) to notify you when spending in your account exceeds a threshold that you specify. Or, you can use [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html) to alert you to unusual billing patterns.
 

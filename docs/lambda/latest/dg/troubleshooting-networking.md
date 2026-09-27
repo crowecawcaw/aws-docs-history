@@ -52,7 +52,7 @@ To connect a function to AWS services from a private subnet with no internet acc
 
 **Error:** *ENILimitReachedException: The elastic network interface limit was reached for the function's VPC.*
 
-When you connect a Lambda function to a VPC, Lambda creates an elastic network interface for each combination of subnet and security group attached to the function. The default service quota is 250 network interfaces per VPC. To request a quota increase, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/lambda/quotas/L-9FEE3D26).
+When you connect a Lambda function to a VPC, Lambda creates an elastic network interface for each combination of subnet and security group attached to the function. The default service quota is 3,000 network interfaces per VPC. To request a quota increase, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home/services/lambda/quotas/L-9FEE3D26).
 
 ## EC2: Elastic network interface with type of "lambda"
 <a name="troubleshooting-networking-eni"></a>
