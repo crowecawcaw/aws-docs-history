@@ -4,7 +4,7 @@
 <a name="how-to-start"></a>
 
 There are several methods to create a WorkSpace. You can use the quick setup instructions, the advanced setup instructions, or choose from the following options:
-+ [Create a WorkSpace using guided setup](create-workspaces-guided.md)
++ [Create a WorkSpace in WorkSpaces Personal](create-workspaces-personal.md)
 + [Create an AWS Managed Microsoft AD directory for WorkSpaces Personal](launch-workspace-microsoft-ad.md)
 + [Create a Simple AD directory for WorkSpaces Personal](launch-workspace-simple-ad.md)
 + [Create an AD Connector for WorkSpaces Personal](launch-workspace-ad-connector.md)

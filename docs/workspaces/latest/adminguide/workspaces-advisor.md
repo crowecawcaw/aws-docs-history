@@ -12,7 +12,6 @@ With WorkSpaces Advisor, you can:
 + Take recommended remediation actions
 + Chat with WorkSpaces Advisor for follow-up questions through Amazon Q Developer
 + Create a support case pre-populated with investigation context
-+ Get guided help creating a personal WorkSpace with recommended defaults (see [Create a WorkSpace using guided setup](create-workspaces-guided.md))
 
 WorkSpaces Advisor is available in all AWS Regions that support Amazon WorkSpaces Personal at no additional cost.
 
