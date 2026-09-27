@@ -75,6 +75,8 @@ As a best practice, the trust policy should include security conditions for Conf
 ### Attach the Fleet role permissions
 <a name="fleet-role-permissions"></a>
 
+Every fleet role needs two policies: the `AWSDeadlineCloud-FleetWorker` managed policy for Deadline Cloud API operations, and a policy you create that grants access to the fleet's CloudWatch Logs log group. Workers can't start until the fleet role has both.
+
 Attach the following AWS managed policy to your fleet role:
 
 [AWSDeadlineCloud-FleetWorker](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.html)
@@ -86,14 +88,7 @@ This managed policy provides permissions for:
 + `deadline:BatchGetJobEntity` - For fetching job information.
 + `deadline:AssumeQueueRoleForWorker` - For accessing queue role credentials during job execution.
 
-### Add KMS permissions for encrypted farms
-<a name="fleet-role-kms-permissions"></a>
-
-If your farm was created using a KMS key, add these permissions to your fleet role to ensure the worker can access encrypted data in the farm.
-
-The KMS permissions are only necessary if your farm has an associated KMS key. The `kms:ViaService` condition must use the format `deadline.{{{region}}}.amazonaws.com`.
-
-When creating a fleet, a CloudWatch Logs log group is created for that fleet. The worker's permissions are used by the Deadline Cloud service to create a log stream specifically for that particular worker. After the worker is set up and running, the worker will use these permissions to send log events directly to CloudWatch Logs.
+The managed policy doesn't include CloudWatch Logs permissions because they're scoped to the log groups in your farm. Add the following policy to your fleet role as well. When you create a fleet, Deadline Cloud creates a CloudWatch Logs log group for it. When a worker starts, Deadline Cloud uses the fleet role to create a log stream for that worker, so the `logs:CreateLogStream` statement uses the `aws:CalledVia` condition to allow the call only when it comes through the Deadline Cloud service. After the worker is running, it uses `logs:PutLogEvents` to send its log events directly to CloudWatch Logs, and the Deadline Cloud monitor uses `logs:GetLogEvents` to read them.
 
 ```
 {
@@ -109,7 +104,7 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
       "Condition": {
         "ForAnyValue:StringEquals": {
           "aws:CalledVia": [
-            "deadline.{{REGION}}.amazonaws.com"
+            "deadline.amazonaws.com"
           ]
         }
       }
@@ -122,7 +117,24 @@ When creating a fleet, a CloudWatch Logs log group is created for that fleet. Th
         "logs:GetLogEvents"
       ],
       "Resource": "arn:aws:logs:{{REGION}}:{{YOUR_ACCOUNT_ID}}:log-group:/aws/deadline/{{YOUR_FARM_ID}}/*"
-    },
+    }
+  ]
+}
+```
+
+If the fleet role is missing `logs:CreateLogStream`, Deadline Cloud can't create the worker's log stream and the worker fails to start with an `AccessDeniedException`. On a service-managed fleet, the workers that Deadline Cloud launches can't start, so the fleet stays unhealthy until you add the permission.
+
+### Add KMS permissions for encrypted farms
+<a name="fleet-role-kms-permissions"></a>
+
+If your farm was created using a KMS key, also add these permissions to your fleet role so the worker can access encrypted data in the farm.
+
+The KMS permissions are only necessary if your farm has an associated KMS key. The `kms:ViaService` condition must use the format `deadline.{{{region}}}.amazonaws.com`.
+
+```
+{
+  "Version": "2012-10-17", 		 	 	 
+  "Statement": [
     {
       "Sid": "ManageKmsKey",
       "Effect": "Allow",
