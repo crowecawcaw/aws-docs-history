@@ -97,7 +97,7 @@ If you use the `SendEmail` or `SendTemplatedEmail` operation, you can specify th
 | `SourceArn` | The ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the `Source` parameter of either `SendEmail` or `SendTemplatedEmail`. | 
 | `ReturnPathArn` | The ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the `ReturnPath` parameter of either `SendEmail` or `SendTemplatedEmail`. | 
 
-The following example shows how to send an email that includes the `SourceArn` and `ReturnPathArn` attributes using either the `SendEmail` or `SendTemplatedEmail` operation and the [SDK for Python](https://aws.amazon.com/sdk-for-python).
+The following example shows how to send an email that includes the `SourceArn` and `ReturnPathArn` attributes using either the `SendEmail` or `SendTemplatedEmail` operation and the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python).
 
 ```
 import boto3

@@ -533,15 +533,15 @@ This topic shows how to use the [AWS SDK for Ruby](https://aws.amazon.com/sdk-fo
 ------
 #### [ Python ]
 
-This topic shows how to use the [AWS SDK for Python (Boto)](https://aws.amazon.com/sdk-for-python/) to send an email through Amazon SES. 
+This topic shows how to use the [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/) to send an email through Amazon SES. 
 
 **Before you begin, perform the following tasks:**
 + **Verify your email address with Amazon SES**—Before you can send an email with Amazon SES, you must verify that you own the sender's email address. If your account is still in the Amazon SES sandbox, you must also verify the recipient email address. We recommend you use the Amazon SES console to verify email addresses. For more information, see [Creating an email address identity](creating-identities.md#verify-email-addresses-procedure). 
 + **Get your AWS credentials**—You need an AWS access key ID and AWS secret access key to access Amazon SES using an SDK. You can find your credentials by using the [Security Credentials](https://console.aws.amazon.com/iam/home?#security_credential) page of the AWS Management Console. For more information about credentials, see [Types of Amazon SES credentials](send-email-concepts-credentials.md).
 + **Install Python**—Python is available at [https://www.python.org/downloads/](https://www.python.org/downloads/). The code in this tutorial was tested using Python 2.7.6 and Python 3.6.1. After you install Python, add the path to Python in your environment variables so that you can run Python from any command prompt.
-+ **Install the AWS SDK for Python (Boto)**—For download and installation instructions, see the [AWS SDK for Python (Boto) documentation](https://boto3.readthedocs.io/en/latest/guide/quickstart.html#installation). The sample code in this tutorial was tested using version 1.4.4 of the SDK for Python.
++ **Install the AWS SDK for Python (Boto3)**—For download and installation instructions, see the [AWS SDK for Python (Boto3) documentation](https://boto3.readthedocs.io/en/latest/guide/quickstart.html#installation). The sample code in this tutorial was tested using version 1.4.4 of the SDK for Python (Boto3).
 
-**To send an email through Amazon SES using the SDK for Python**
+**To send an email through Amazon SES using the SDK for Python (Boto3)**
 
 1. In a text editor, create a file named `amazon-ses-sample.py`. Paste the following code into the file:
 
@@ -566,23 +566,23 @@ This topic shows how to use the [AWS SDK for Python (Boto)](https://aws.amazon.c
    18. AWS_REGION = "{{us-west-2}}"
    19. 
    20. # The subject line for the email.
-   21. SUBJECT = "Amazon SES Test (SDK for Python)"
+   21. SUBJECT = "Amazon SES Test (SDK for Python (Boto3))"
    22. 
    23. # The email body for recipients with non-HTML email clients.
    24. BODY_TEXT = ("Amazon SES Test (Python)\r\n"
    25.              "This email was sent with Amazon SES using the "
-   26.              "AWS SDK for Python (Boto)."
+   26.              "AWS SDK for Python (Boto3)."
    27.             )
    28.             
    29. # The HTML body of the email.
    30. BODY_HTML = """<html>
    31. <head></head>
    32. <body>
-   33.   <h1>Amazon SES Test (SDK for Python)</h1>
+   33.   <h1>Amazon SES Test (SDK for Python (Boto3))</h1>
    34.   <p>This email was sent with
    35.     <a href='https://aws.amazon.com/ses/'>Amazon SES</a> using the
    36.     <a href='https://aws.amazon.com/sdk-for-python/'>
-   37.       AWS SDK for Python (Boto)</a>.</p>
+   37.       AWS SDK for Python (Boto3)</a>.</p>
    38. </body>
    39. </html>
    40.             """            
