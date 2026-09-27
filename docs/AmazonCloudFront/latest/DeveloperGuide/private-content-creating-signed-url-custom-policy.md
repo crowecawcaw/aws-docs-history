@@ -155,6 +155,8 @@ Note the following:
   + `https://d111111abcdef8.cloudfront.net/game_download.zip`
   + `https://d111111abcdef8.cloudfront.net/example_game_download.zip?license=yes`
   + `https://d111111abcdef8.cloudfront.net/test_game_download.zip?license=temp`
+
+  **Percent-encoded characters** – CloudFront matches the policy `Resource` against the raw (undecoded) request URL and forwards that URL to the origin unchanged. A percent-encoded character in the request URL, such as `%3B` for `;`, `%3F` for `?`, or `%23` for `#`, is treated as data rather than as a URL delimiter. For more information, see [RFC 3986](https://tools.ietf.org/html/rfc3986) on the IETF website. For example, a wildcard can't match across a literal semicolon (`;`), but it can match across the encoded form (`%3B`).
 + **Alternate domain names** – If you specify an alternate domain name (CNAME) in the URL in the policy, the HTTP request must use the alternate domain name in your webpage or application. Do not specify the Amazon S3 URL for the file in a policy.
 
 **DateLessThan**  

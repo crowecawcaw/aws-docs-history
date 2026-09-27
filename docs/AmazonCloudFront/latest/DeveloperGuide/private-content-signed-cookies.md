@@ -62,6 +62,9 @@ Here's an overview of how you configure CloudFront for signed cookies and how Cl
 
    If the request meets the requirements in the policy statement, CloudFront serves your content as it does for content that isn't restricted: it determines whether the file is already in the edge cache, forwards the request to the origin if necessary, and returns the file to the user.
 
+**Note**  
+CloudFront doesn't require a signed URL or signed cookies for `OPTIONS` requests. This allows CORS preflight requests, which browsers send without credentials, to succeed for cache behaviors that require signed URLs or signed cookies. If the cache behavior's allowed methods include `OPTIONS`, CloudFront forwards `OPTIONS` requests to your origin without verifying a signature. Make sure that your origin doesn't return protected content in response to `OPTIONS` requests, or restrict the allowed methods to `GET` and `HEAD` if your application doesn't use CORS.
+
 ## Prevent misuse of signed cookies
 <a name="private-content-signed-cookie-misuse"></a>
 

@@ -197,6 +197,8 @@ Note the following:
   + `https://d111111abcdef8.cloudfront.net/game_download.zip`
   + `https://d111111abcdef8.cloudfront.net/example_game_download.zip?license=yes`
   + `https://d111111abcdef8.cloudfront.net/test_game_download.zip?license=temp`
+
+  A percent-encoded character in the request URL (such as `%3B` for `;`, `%3F` for `?`, or `%23` for `#`) is treated as data, not as a URL delimiter. For example, a wildcard can't match across a literal semicolon (`;`), but it can match across the encoded form (`%3B`). For more information, see [Values that you specify in the policy statement for a signed URL that uses a custom policy](private-content-creating-signed-url-custom-policy.md#private-content-custom-policy-statement-values).
 + **Alternate domain names** – If you specify an alternate domain name (CNAME) in the URL, you must specify the alternate domain name when referencing the file in your webpage or application. Do not specify the Amazon S3 URL for the file.
 
 **DateLessThan**  

@@ -103,7 +103,7 @@ The HTTP status code. Provide the status code as a string. CloudFront uses the p
 If the `status` value isn't between 200 and 599, CloudFront returns an error to the viewer.
 
 **`statusDescription`**  
-The description that you want CloudFront to return in the response, to accompany the HTTP status code. You don't need to use standard descriptions, such as `OK` for an HTTP status code of 200.
+The description that you want CloudFront to return in the response, to accompany the HTTP status code. You don't need to use standard descriptions, such as `OK` for an HTTP status code of 200. Updating this field will only work if the client connects over HTTP/1.1. If the client connects over HTTP/2, any changes to the `statusDescription` will be ignored and the standard description will be returned to the client.
 
 #### Errors
 <a name="lambda-generating-http-responses-errors"></a>

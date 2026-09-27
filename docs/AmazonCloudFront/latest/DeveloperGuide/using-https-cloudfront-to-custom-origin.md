@@ -29,7 +29,7 @@ The following procedure explains how to configure CloudFront to use HTTPS to com
 
 1. In the top pane of the CloudFront console, choose the ID for the distribution that you want to update.
 
-1. On the **Behaviors** tab, select the origin that you want to update, and then choose **Edit**.
+1. On the **Origins** tab, select the origin that you want to update, and then choose **Edit**.
 
 1. Update the following settings:  
 **Origin Protocol Policy**  

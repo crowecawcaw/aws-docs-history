@@ -70,6 +70,9 @@ Here's an overview of how you configure CloudFront and Amazon S3 for signed URLs
 **Note**  
 If an unsigned URL contains query string parameters, make sure you include them in the portion of the URL that you sign. If you add a query string to a signed URL after signing it, the URL returns an HTTP 403 status.
 
+**Note**  
+CloudFront doesn't require a signed URL or signed cookies for `OPTIONS` requests. This allows CORS preflight requests, which browsers send without credentials, to succeed for cache behaviors that require signed URLs or signed cookies. If the cache behavior's allowed methods include `OPTIONS`, CloudFront forwards `OPTIONS` requests to your origin without verifying a signature. Make sure that your origin doesn't return protected content in response to `OPTIONS` requests, or restrict the allowed methods to `GET` and `HEAD` if your application doesn't use CORS.
+
 ## Decide how long signed URLs are valid
 <a name="private-content-overview-choosing-duration"></a>
 

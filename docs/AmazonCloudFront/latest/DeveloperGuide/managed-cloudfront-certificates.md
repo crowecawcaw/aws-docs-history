@@ -12,7 +12,25 @@ You own the certificate, but it can *only* be used with CloudFront resources and
 
 You can request the certificate when you create or update the distribution tenant.
 
+## Choose how to serve certificate validation tokens
+<a name="managed-cert-modes"></a>
+
+When you request a managed certificate for a distribution tenant through the API or AWS CLI, specify `ValidationTokenHost` in `ManagedCertificateRequest`. Choose the value based on who serves the HTTP validation token.
+
+Both options request a CloudFront-managed ACM certificate. The parameter only controls where the validation token is served.
+
+CloudFront-hosted (`cloudfront`)  
+CloudFront automatically serves the HTTP validation token. Choose this option when the domain has no existing traffic, or when you can point its DNS to CloudFront immediately.
+
+Self-hosted (`self-hosted`)  
+You serve the HTTP validation token from your existing infrastructure. Choose this option when you're migrating a domain with existing traffic. The certificate can be issued before you point DNS to CloudFront. You can upload the token file to your existing server, or configure an HTTP 301 (permanent) redirect that forwards validation requests to the ACM validation endpoint.
+
+For instructions on completing domain ownership setup, see [Complete domain setup](#complete-domain-ownership). If you chose `cloudfront`, select **I don't have traffic**. If you chose `self-hosted`, select **I have existing traffic**.
+
+For more information about the API values, see [ManagedCertificateRequest](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ManagedCertificateRequest.html) in the *CloudFront API Reference*.
+
 **Topics**
++ [Choose how to serve certificate validation tokens](#managed-cert-modes)
 + [Add a domain and certificate (distribution tenant)](#vanity-domain-tls-tenant)
 + [Complete domain setup](#complete-domain-ownership)
 + [Point domains to CloudFront](#point-domains-to-cloudfront)
