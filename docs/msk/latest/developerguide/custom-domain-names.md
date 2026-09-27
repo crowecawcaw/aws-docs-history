@@ -8,6 +8,7 @@ You can configure your MSK Provisioned cluster to advertise custom domain names 
 **Topics**
 + [How custom domain names work](#custom-domain-names-how-it-works)
 + [Prerequisites](#custom-domain-names-prerequisites)
++ [Migrate from ZooKeeper to KRaft mode](#custom-domain-names-zk-to-kraft)
 + [Set up a custom domain name end to end](custom-domain-setup.md)
 
 ## How custom domain names work
@@ -64,3 +65,16 @@ Before you configure custom domain names on your cluster, make sure that the fol
 + Your cluster is an MSK Provisioned cluster (Standard or Express brokers) in the `ACTIVE` state.
 + Each listener corresponds to an authentication type on your cluster. You can set custom advertised endpoints only for client listeners: `CLIENT`, `CLIENT_SECURE`, `CLIENT_SECURE_PUBLIC`, `CLIENT_SASL_SCRAM`, `CLIENT_SASL_SCRAM_PUBLIC`, `CLIENT_IAM`, and `CLIENT_IAM_PUBLIC`. Internal listeners (`REPLICATION` and `CONTROLLER`) aren't supported and are rejected at validation. The listener that you specify must also be bound (active) on your cluster. For example, if your cluster uses only IAM authentication, specifying `CLIENT_SECURE` is rejected, and the error message lists the valid client listeners for your cluster.
 + Your networking layer is in place and verified before you apply the configuration. After you apply it, all clients that refresh metadata receive the custom domain address. If clients can't resolve the custom domain, they lose connectivity. Make sure that your networking layer is set up and reachable from all clients before you apply the configuration. For a complete, diagrammed walkthrough of the Network Load Balancer, Route 53, and AWS Certificate Manager setup, see [Configure a custom domain name for your Amazon MSK cluster](https://aws.amazon.com/blogs/big-data/configure-a-custom-domain-name-for-your-amazon-msk-cluster/) on the AWS Big Data Blog.
+
+## Migrate from ZooKeeper to KRaft mode
+<a name="custom-domain-names-zk-to-kraft"></a>
+
+If you currently use `kafka-configs.sh` to set `advertised.listeners` dynamically in ZooKeeper mode, you must set up `custom.advertised.listeners` in your Amazon MSK configuration before you initiate your migration from ZooKeeper to KRaft mode. The in-place upgrade checks for existing dynamic advertised listener overrides. If it detects any, the upgrade doesn't proceed, and you receive an error that asks you to remove them first. For a seamless experience, do the following:
+
+1. Add `custom.advertised.listeners` to your Amazon MSK configuration with the same domain pattern that you use today. For the steps, see [Set up a custom domain name end to end](custom-domain-setup.md).
+
+1. Remove the dynamic override by running `kafka-configs.sh --alter --delete-config advertised.listeners` on each broker. This removes only the advertised listeners override and doesn't affect other dynamic configurations.
+
+1. Initiate the migration.
+
+For more information about migrating a cluster to KRaft mode, see [Migrate from ZooKeeper to KRaft mode](zk-to-kraft-migration.md).

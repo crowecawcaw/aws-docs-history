@@ -14,6 +14,7 @@ Amazon MSK publishes `PerSec` metrics to CloudWatch at a frequency of once per m
 | --- | --- | --- | --- | 
 | BytesInPerSec | After a producer writes to a topic | Cluster Name, Topic | The number of bytes per second received from clients. This metric is available for each topic. | 
 | BytesOutPerSec | After a consumer group consumes from a topic | Cluster Name, Topic | The number of bytes per second sent to clients. This metric is available for each topic. | 
+| ClientConnectionCount | After a client successfully connects to the cluster | Cluster Name | The number of active authenticated client connections. | 
 | FetchMessageConversionsPerSec | After a consumer group consumes from a topic | Cluster Name, Topic | The number of fetch message conversions per second for the topic. | 
 | EstimatedMaxTimeLag | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic  | A time estimate of the MaxOffsetLag metric. | 
 | MaxOffsetLag | After a consumer group consumes from a topic | Cluster Name, Consumer Group, Topic  | The maximum offset lag across all partitions in a topic. | 
@@ -29,4 +30,4 @@ Amazon MSK publishes `PerSec` metrics to CloudWatch at a frequency of once per m
 
 1. In the metrics search for the term **kafka**.
 
-1. Choose **AWS/Kafka / Cluster Name, Topic** or **AWS/Kafka / Cluster Name, Consumer Group, Topic** to see different metrics.
+1. Choose **AWS/Kafka / Cluster Name**, **AWS/Kafka / Cluster Name, Topic**, or **AWS/Kafka / Cluster Name, Consumer Group, Topic** to see different metrics.

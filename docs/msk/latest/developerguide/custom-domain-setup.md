@@ -64,6 +64,11 @@ If you can list topics through the custom domain endpoint, clients are successfu
 + **DNS resolution**: Confirm that the custom domain resolves to your Network Load Balancer from every network where your Apache Kafka clients run.
 + **Certificate**: Confirm that the Network Load Balancer's TLS certificate covers the resolved broker hostname (through the common name or a subject alternative name), and that the client trusts the CA (root and intermediate for a private CA).
 
+## Best practices
+<a name="custom-domain-setup-best-practices"></a>
+
+After you set up custom domain names using the preceding steps, we recommend that you remove any dynamic `advertised.listeners` override by running `kafka-configs.sh --alter --delete-config advertised.listeners` on each broker. This removes only the advertised listeners override and doesn't affect other dynamic configurations.
+
 ## Scaling and broker replacement
 <a name="custom-domain-setup-scaling"></a>
 
