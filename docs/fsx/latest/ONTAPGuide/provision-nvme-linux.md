@@ -35,6 +35,9 @@ Before you begin the process of configuring your file system for NVMe/TCP, you n
 
 If your EC2 instance runs a different Linux AMI than RHEL 9.3, some of the utilities used in these procedures and examples might already be installed, and you might use different commands to install required packages. Aside from installing packages, the commands used in this section are valid for other EC2 Linux AMIs.
 
+**Note**  
+Automatic failover between your file servers over NVMe/TCP relies on native NVMe multipathing, which is enabled by default on RHEL 9.3. Some other Linux distributions and AMIs do not enable native NVMe multipathing by default, in which case automatic failover between your file servers is not available. Consult your distribution's documentation to confirm support for native NVMe multipathing and the steps to enable it.
+
 **Topics**
 + [Before you begin](#nvme-tcp-linux-byb)
 + [Install and configure NVMe on the Linux host](#configure-nvme-on-rhel93)
@@ -236,7 +239,7 @@ These are covered in the following procedures.
    ~$ sudo nvme connect-all -t tcp -w {{client_IP}} -a {{iscsi_1}} -l 1800
    ```
 
-1. Use the following command to verify that the NVMe stack has identified and merged the multiple sessions and configured multipathing. The command returns `Y` if the configuration was successful.
+1. Use the following command to verify that the NVMe stack has identified and merged the multiple sessions and configured multipathing. The command returns `Y` if native NVMe multipathing is enabled, which is required for automatic, transparent failover between your file servers. If the command returns `N` or the file does not exist, your Linux kernel does not have native NVMe multipathing enabled, and automatic failover between your file servers is not available. For more information, see the note in [Before you begin](#nvme-tcp-linux-byb).
 
    ```
    ~$ cat /sys/module/nvme_core/parameters/multipath
@@ -294,7 +297,7 @@ These are covered in the following procedures.
 1. Use the following command to verify that the path to your device\_name `nvme2n1` is present.
 
    ```
-   ~$ ls /dev/mapper/nvme2n1
+   ~$ ls /dev/nvme2n1
    /dev/nvme2n1
    ```
 
@@ -303,7 +306,7 @@ These are covered in the following procedures.
 The `Last sector` value will vary depending on the size of your NVMe device (100 GiB in this example).
 
    ```
-   ~$ sudo fdisk /dev/mapper/nvme2n1
+   ~$ sudo fdisk /dev/nvme2n1
    ```
 
    The `fsdisk` interactive prompt starts.
