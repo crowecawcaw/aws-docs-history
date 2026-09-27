@@ -20,6 +20,8 @@ MediaLive doesn't support other output group types for A/B watermarking.
 
 For information about creating and configuring the supported output groups, see [Creating a CMAF Ingest output group](opg-cmafi.md) and [Creating a MediaPackage output group](opg-mediapackage.md).
 
+For information about how AWS Elemental MediaPackage handles the A and B watermark variants on the packager side, including paired MediaPackage destinations, see [A/B forensic watermarking in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/userguide/ab-watermarking.html) in the *AWS Elemental MediaPackage User Guide*.
+
 **Requirements**
 
 A/B forensic video watermarking has the following requirements:

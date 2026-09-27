@@ -22,6 +22,12 @@ MediaLive retrieved the secret but the Irdeto watermarker failed to initialize. 
 **Note**  
 MediaLive has no visibility into Irdeto licensing details. For any question about whether a license is valid, or about the operator ID, watermark ID length, or entitlements, contact Irdeto directly.
 
+**Alert 5053 — Watermark B Rendition Unavailable**
+
+This alert indicates an internal MediaLive service-side issue, not a problem that you can fix by changing your configuration. The channel continues to encode, but MediaLive can't produce or deliver the B rendition while this condition persists.
+
+Expect no B renditions at your downstream destinations, and adjust your downstream systems accordingly. To resolve the underlying issue, open a support case in the [AWS Support Center](https://console.aws.amazon.com/support/home#/), or wait for the MediaLive service team to resolve it.
+
 **Individual rendition delivered without watermarks**
 
 If one or more renditions are delivered to both the regular A destination and B alternate destination without watermarks, but the channel continues running without error, the encode dimensions might be outside the supported range. The supported A/B watermarking range is 240 through 3840 pixels wide by 240 through 2160 pixels high. Verify that the output width is from 240 through 3840 pixels and the height is from 240 through 2160 pixels.

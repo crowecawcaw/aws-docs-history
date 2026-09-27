@@ -33,6 +33,41 @@ You must create the MediaLiveAnywhereAccess policy. This is the top yellow box i
 
    In the second statement, the Resource line identifies the **MediaLiveAccessRole** in the specified account in any AWS Region (note that there is no wildcard required).
 
+------
+#### [ JSON ]
+
+****  
+
+   ```
+   {
+   	"Version":"2012-10-17",		 	 	 
+   	"Statement": [
+   		{
+   			"Effect": "Allow",
+   			"Action": [
+   				"medialive:SubmitAnywhereStateChange",
+   				"medialive:PollAnywhere"
+   			],
+   			"Resource": "arn:aws:medialive:*:{{111122223333}}:cluster:*"
+   		},
+   		{
+   			"Effect": "Allow",
+   			"Action": "iam:PassRole",
+   			"Resource": "arn:aws:iam::{{111122223333}}:role/MediaLiveAccessRole",
+   			"Condition": {
+   				"StringEquals": {
+   					"iam:PassedToService": [
+   						"medialive.amazonaws.com"
+   					]
+   				}
+   			}
+   		}
+   	]
+   }
+   ```
+
+------
+
 1. Choose **Next**. Give the policy a name. We recommend the name **MediaLiveAnywhereAccess**.
 
 1. Choose **Create policy**.
