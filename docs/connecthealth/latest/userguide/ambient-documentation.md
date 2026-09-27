@@ -53,7 +53,7 @@ Before you start a session, review [Consent and patient notification](#al-consen
 
 ## Technical requirements
 <a name="al-technical-requirements"></a>
-+  **Supported languages** — US English (en-US) and Spanish
++  **Supported languages** — US English (`en-US`) or multilingual (`multi`). The multilingual option automatically detects and transcribes English, Spanish, Portuguese, and French, and supports conversations that switch between these languages (code-switching).
 +  **Supported audio formats** — FLAC, PCM
 +  **Encoding** — PCM 16-bit
 +  **Sample rate** — The service accepts 8,000–48,000 Hz; 16,000 Hz or higher is recommended for best quality.

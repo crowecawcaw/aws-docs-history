@@ -147,8 +147,8 @@ Each section instruction is also size-limited individually — see **Section ins
 | Property | Value | 
 | --- | --- | 
 | Type | String | 
-| Supported characters | Alphanumeric only (`A-Z`, `a-z`, `0-9`). No spaces, underscores, or punctuation. For example, use `ChiefComplaint` or `PhysicalExam`, not `Chief Complaint` or `Physical_Exam`. | 
-| Pattern |  `^[a-zA-Z0-9]+$`  | 
+| Supported characters | Alphanumeric characters and underscores (`A-Z`, `a-z`, `0-9`, `_`). No spaces or other punctuation. For example, use `ChiefComplaint`, `PhysicalExam`, or `Physical_Exam`, not `Chief Complaint`. | 
+| Pattern |  `^[a-zA-Z0-9_]+$`  | 
 
  **Section instruction** (`sectionInstruction`, required)
 
