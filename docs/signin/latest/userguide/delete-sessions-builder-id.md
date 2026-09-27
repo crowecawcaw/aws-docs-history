@@ -19,4 +19,4 @@ AWS Builder ID supports 90 day extended sessions for Amazon Q Developer in an ID
 1. In the **Delete all sessions** dialog box, enter *delete all*. By deleting all your sessions, you sign out of all devices that you may have signed into using your AWS Builder ID, including different browsers. Then choose **Delete all sessions**.
 
 **Note**  
-When using a social login account like Google or Apple, deleting active AWS Builder ID sessions will not log you out of your social login account.
+When using a third-party login account like Google or Apple, deleting active AWS Builder ID sessions will not log you out of your third-party login account.

@@ -39,6 +39,9 @@ If you authenticate as the AWS account root user, no additional IAM permissions 
 
 Agents can register with AWS Sign-In and use one or more approved redirect URIs during the OAuth authorization process.
 
+**Note**  
+Currently, only public redirect URIs are supported for Dynamic Client Registration (DCR). Private redirect URIs are not supported, including internal development and non-production URIs—even for the public OAuth clients listed in the following table.
+
 
 | OAuth client | Redirect URI(s) | 
 | --- | --- | 
@@ -54,6 +57,14 @@ Agents can register with AWS Sign-In and use one or more approved redirect URIs 
 | Lovable | https://lovable.app/\* | 
 | Lovable Developer | https://lovable.dev/\* | 
 | Vercel v0 | https://api.v0.dev/v1/mcp-servers/oauth/callback | 
+| Unosecur | https://mcp-app.unosecur.com/connector-oauth/callback | 
+| Cequence | https://connect.aigateway.cequence.ai/oauth/callback | 
+| Microsoft Copilot Studio | https://global.consent.azure-apim.net/redirect/\* | 
+| Arcade | https://cloud.arcade.dev/api/v1/oauth/\* | 
+| Langdock | https://app.langdock.com/api/integrations/\* | 
+| NeuralTrust | https://gateway-mcp.neuraltrust.ai/oauth/callback/com.amazon.aws/mcp | 
+| Devin | https://api.devin.ai/mcp/oauth/callback | 
+| Executor | https://executor.sh/api/oauth/callback | 
 
 ## Connect an agent to AWS MCP Server
 <a name="aws-mcp-server-connect"></a>

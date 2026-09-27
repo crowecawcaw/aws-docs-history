@@ -12,7 +12,7 @@ Use the information here to help you troubleshoot issues you might have with you
 + [I can’t sign in with Apple](#sign-in-apple-builder_id)
 + [I can’t sign in with GitHub](#sign-in-github-builder_id)
 + [I can’t sign in with Amazon](#sign-in-amazon-builder_id)
-+ [I can no longer access the social login I use to sign in](#lost-social-login-aws_builder_id)
++ [I can no longer access the third-party login I use to sign in](#lost-social-login-aws_builder_id)
 + [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google](#switch-account-google-builder_id)
 + [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Apple](#switch-account-apple-builder_id)
 + [I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with GitHub](#switch-account-github-builder_id)
@@ -77,10 +77,10 @@ If you have an existing AWS Builder ID profile with the same email address as yo
 
 For help signing in with your Amazon password, see [Help with signing in](https://www.amazon.com/gp/help/customer/account-issues).
 
-## I can no longer access the social login I use to sign in
+## I can no longer access the third-party login I use to sign in
 <a name="lost-social-login-aws_builder_id"></a>
 
-If you sign in with a social login, such as Google or Apple, and you can no longer access that account, you can permanently switch your sign-in method to an email address and password. For more information, see [Regain access when you can't use your social login](recover-builder-id.md#recover-social-builder-id).
+If you sign in with a third-party login, such as Google or Apple, and you can no longer access that account, you can permanently switch your sign-in method to an email address and password. For more information, see [Regain access when you can't use your third-party login](recover-builder-id.md#recover-social-builder-id).
 
 ## I received a sign in error when I attempted to sign up for an AWS Builder ID using continue with Google
 <a name="switch-account-google-builder_id"></a>
@@ -195,7 +195,7 @@ Verify the date and time settings on the device you're using to sign in. We reco
 The system is designed to sign out immediately, but full sign out may take up to an hour.
 
 **Note**  
-When using a social login account like Google or Apple, deleting active AWS Builder ID sessions will not log you out of your social login account.
+When using a third-party login account like Google or Apple, deleting active AWS Builder ID sessions will not log you out of your third-party login account.
 
 ## I'm still looking to solve my problem
 <a name="last-help-aws_builder_id"></a>

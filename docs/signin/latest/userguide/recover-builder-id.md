@@ -16,7 +16,7 @@ You can recover your AWS Builder ID only if you can complete the required identi
 You can reach the AWS Builder ID recovery options in the following ways.
 + **From the sign-in page** – On the sign-in page, choose **Trouble Signing In?**. On the **Builder ID recovery options** page, enter your AWS Builder ID email address, and then choose the recovery option that applies to you:
   + **Forgot password?** – Use this option if you sign in with an email address and password. For more information, see [Reset a forgotten password](#recover-password-builder-id).
-  + **Can't sign in with my social login?** – Use this option if you sign in with a social login, such as Google or Apple, and you can no longer access that account. For more information, see [Regain access when you can't use your social login](#recover-social-builder-id).
+  + **Can't sign in with my third-party login?** – Use this option if you sign in with a third-party login, such as Google or Apple, and you can no longer access that account. For more information, see [Regain access when you can't use your third-party login](#recover-social-builder-id).
   + **Need more help?** – Use this option to get help from Support when you can't complete self-service recovery. For more information, see [Get help from Support](#recover-support-builder-id).
 + **Inline during sign-in** – Some recovery options are offered directly in the sign-in flow when they apply. For example, if you can't complete multi-factor authentication (MFA), AWS Builder ID offers you the option to verify your identity another way. For more information, see [Recover access when you lose your MFA device](#recover-mfa-builder-id).
 
@@ -61,7 +61,7 @@ If you set up multi-factor authentication (MFA) and you lose access to your MFA 
 
 **To recover access after losing your MFA device**
 
-1. Sign in to your AWS Builder ID with your password or social login.
+1. Sign in to your AWS Builder ID with your password or third-party login.
 
 1. When you're prompted for MFA and you can't complete the challenge, choose the option to verify your email addresses instead of MFA.
 
@@ -74,21 +74,21 @@ After you verify both factors, AWS Builder ID grants you access to your account.
 **Note**  
 If you don't have access to your primary email inbox or you don't have a recovery email set up, you can't recover a lost MFA device through self-service. To get help, see [Get help from Support](#recover-support-builder-id).
 
-## Regain access when you can't use your social login
+## Regain access when you can't use your third-party login
 <a name="recover-social-builder-id"></a>
 
-If you sign in with a social login (such as Google or Apple) and you can no longer access that account, you can switch your sign-in method to an email address and password. This switch is permanent. After you switch, you sign in with your email address and password instead of your social login.
+If you sign in with a third-party login (such as Google or Apple) and you can no longer access that account, you can switch your sign-in method to an email address and password. This switch is permanent. After you switch, you sign in with your email address and password instead of your third-party login.
 
 **Important**  
-Switching your sign-in method from a social login to an email address and password is permanent. You can't switch back to a social login afterward. AWS Builder ID preserves your other settings, such as your recovery email and MFA devices.
+Switching your sign-in method from a third-party login to an email address and password is permanent. You can't switch back to a third-party login afterward. AWS Builder ID preserves your other settings, such as your recovery email and MFA devices.
 
 To switch your sign-in method, you must verify your identity with a one-time password (OTP) sent to your primary email address. If you set up a recovery email, you can use that instead.
 
-**To switch from a social login to an email address and password**
+**To switch from a third-party login to an email address and password**
 
 1. On the sign-in page, choose **Trouble Signing In?**.
 
-1. On the **Builder ID recovery options** page, enter your AWS Builder ID email address, and then choose **Can't sign in with my social login?**.
+1. On the **Builder ID recovery options** page, enter your AWS Builder ID email address, and then choose **Can't sign in with my third-party login?**.
 
 1. Confirm that you want to switch your sign-in method.
 

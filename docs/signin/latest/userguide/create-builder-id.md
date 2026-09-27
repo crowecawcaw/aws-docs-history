@@ -3,7 +3,7 @@
 # Create your AWS Builder ID
 <a name="create-builder-id"></a>
 
-You create your AWS Builder ID when you sign up for one of the AWS tools and services that use it. Sign up as part of the sign-up process for an AWS tool or service with your email address, name, and password, or choose a supported social provider such as Google or Apple.
+You create your AWS Builder ID when you sign up for one of the AWS tools and services that use it. Sign up as part of the sign-up process for an AWS tool or service with your email address, name, and password, or choose a supported third-party provider such as Google or Apple.
 
 **Note**  
 After you create your AWS Builder ID, we strongly recommend that you take the following steps to recover your account if you are locked out:  

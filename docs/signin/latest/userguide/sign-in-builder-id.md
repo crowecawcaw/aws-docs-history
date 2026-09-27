@@ -42,7 +42,7 @@ AWS Builder ID is separate from your AWS Skill Builder subscription, an online l
    + [I have an Amazon Account](#sign-in-builder-id-amazon)
 
 **Note**  
-If you can't sign in, choose **Trouble Signing In?** on the sign-in page. For example, use this option if you forgot your password, lost your MFA device, or can no longer use your social login. For more information, see [Recover your AWS Builder ID](recover-builder-id.md).
+If you can't sign in, choose **Trouble Signing In?** on the sign-in page. For example, use this option if you forgot your password, lost your MFA device, or can no longer use your third-party login. For more information, see [Recover your AWS Builder ID](recover-builder-id.md).
 
 ### I have an existing account
 <a name="sign-in-builder-id-email"></a>

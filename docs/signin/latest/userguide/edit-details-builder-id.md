@@ -3,7 +3,7 @@
 # Edit your AWS Builder ID profile
 <a name="edit-details-builder-id"></a>
 
-You can change your profile information at any time. You can edit the **Email address** and **Name** that you used to create an AWS Builder ID, as well as your **Nickname**. When using social logins like Google or Apple, only **Name** and **Nickname** are editable.
+You can change your profile information at any time. You can edit the **Email address** and **Name** that you used to create an AWS Builder ID, as well as your **Nickname**. When using third-party logins like Google or Apple, only **Name** and **Nickname** are editable.
 
 Your **Name** is how you’re referred to in tools and services while interacting with others. Your **Nickname** indicates how you want to be known by AWS, friends, and other people you collaborate with closely.
 
@@ -42,7 +42,7 @@ Changing your name and nickname with one of our other sign in partners does not 
 ## Add or change your recovery email
 <a name="recovery-email-builder-id"></a>
 
-A recovery email is an alternate email address. Use it to regain access to your AWS Builder ID if you lose access to your primary sign-in method. A recovery email is optional, but we recommend that you add one. AWS Builder ID uses your recovery email to verify your identity during account recovery. Examples include when you reset a forgotten password, recover access after losing your MFA device, or switch your sign-in method from a social login. For more information, see [Recover your AWS Builder ID](recover-builder-id.md).
+A recovery email is an alternate email address. Use it to regain access to your AWS Builder ID if you lose access to your primary sign-in method. A recovery email is optional, but we recommend that you add one. AWS Builder ID uses your recovery email to verify your identity during account recovery. Examples include when you reset a forgotten password, recover access after losing your MFA device, or switch your sign-in method from a third-party login. For more information, see [Recover your AWS Builder ID](recover-builder-id.md).
 
 **Note**  
 If you haven't set up a recovery email, AWS Builder ID prompts you to add one before you register an MFA device. This requirement helps make sure you can recover access to your AWS Builder ID if you lose your MFA device.
