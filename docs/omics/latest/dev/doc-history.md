@@ -7,6 +7,7 @@ The following table describes the documentation releases for HealthOmics.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New Feature](#doc-history) | HealthOmics published a change log for the WDL engine, covering new features, enhancements, and behavior changes for the default WDL engine and WDL lenient mode. To learn more, see [WDL engine change log for HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/wdl-engine-change-log.html). | September 22, 2026 | 
 | [New Feature](#doc-history) | HealthOmics added support for Nextflow profiles from API, which lets you select environment-specific configuration at runtime using the `engineSettings` parameter. To learn more, see [Use Nextflow profiles](https://docs.aws.amazon.com/omics/latest/dev/workflow-definition-nextflow.html#nextflow-profiles). | June 1, 2026 | 
 | [New Feature](#doc-history) | HealthOmics added support for batch runs, which let you submit up to 100,000 workflow runs in a single API request. To learn more, see [Batch runs in HealthOmics](https://docs.aws.amazon.com/omics/latest/dev/workflows-batch.html). | March 20, 2026 | 
 | [AWS HealthOmics variant stores and annotation stores are no longer open to new customers.](#doc-history) | AWS HealthOmics variant stores and annotation stores are no longer open to new customers. For more information, see [AWS HealthOmics variant store and annotation store availability change](https://docs.aws.amazon.com/omics/latest/dev/variant-store-availability-change.html). | November 7, 2025 | 

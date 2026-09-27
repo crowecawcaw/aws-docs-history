@@ -33,6 +33,7 @@ For detailed version support, language-specific features, and configuration guid
 + [Nextflow workflow definition specifics](workflow-definition-nextflow.md) – Nextflow DSL syntax, directives, plugins, profiles, execution reports, and engine settings.
 + [Nextflow version release notes for HealthOmics](nextflow-version-release-notes.md) – Release notes for each supported Nextflow version on HealthOmics.
 + [WDL workflow definition specifics](workflow-languages-wdl.md) – WDL version support, type coercion, WDL lenient mode, and struct handling.
++ [WDL engine change log for HealthOmics](wdl-engine-change-log.md) – Change log of new features, enhancements, and deprecations for the WDL engine on HealthOmics.
 + [CWL workflow definition specifics](workflow-languages-cwl.md) – CWL version support, input formats, and Docker requirements.
 
 ## Nextflow engine version lifecycle
@@ -55,3 +56,4 @@ HealthOmics maintains a regular cadence for supporting new Nextflow engine versi
 + [Related topics](#workflows-supported-languages-related)
 + [Nextflow version retention policy](nextflow-version-retention-policy.md)
 + [Nextflow version release notes for HealthOmics](nextflow-version-release-notes.md)
++ [WDL engine change log for HealthOmics](wdl-engine-change-log.md)
