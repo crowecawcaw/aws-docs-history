@@ -115,6 +115,9 @@ You can configure your user pool to require a minimum password complexity that c
 
 With the Essentials or Plus feature tiers, you can also set a policy for password reuse. You can prevent a user from resetting their password to a new password that matches their current password or any of up to 23 additional previous passwords, for a maximum total of 24.
 
+**Note**  
+Amazon Cognito doesn't enforce your password policy when you [import users with password hashes](cognito-user-pools-using-import-tool.md). Validate password strength in your source system before you generate hashes for import.
+
 **To set a user pool password policy**
 
 1. Create a user pool and navigate to the **Configure security requirements** step, or access an existing user pool and navigate to the **Authentication methods** menu.

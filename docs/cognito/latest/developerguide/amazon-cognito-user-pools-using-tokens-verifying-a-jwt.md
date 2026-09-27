@@ -41,6 +41,9 @@ In a Node.js app, AWS recommends the [aws-jwt-verify library](https://github.com
 
 For more information and example code that you can use in a Node.js app or a AWS Lambda authorizer, see [aws-jwt-verify](https://github.com/awslabs/aws-jwt-verify) on GitHub.
 
+**Note**  
+When the `iss` (issuer) claim in a token doesn't match the user pool that you configured your `CognitoJwtVerifier` with, verification fails with a `ParameterValidationError`. This commonly happens when a token is presented to a verifier for a different user pool or AWS Region. Confirm that the `userPoolId` you pass to `CognitoJwtVerifier.create()` matches the issuer of the tokens that your application receives.
+
 ## Understanding and inspecting tokens
 <a name="amazon-cognito-user-pools-using-tokens-manually-inspect"></a>
 
@@ -167,13 +170,9 @@ The `use` parameter describes the intended use of the public key. For this examp
 
 **To verify JWT claims**
 
-1. By one of the following methods, verify that the token hasn't expired.
-
-   1. Decode the token and compare the `exp` claim to the current time.
-
-   1. If your access token includes an `aws.cognito.signin.user.admin` claim, send a request to an API like [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html). API requests that you [authorize with an access token](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html#user-pool-apis-auth-unauth) return an error if your token has expired.
-
-   1. Present your access token in a request to the [userInfo endpoint](userinfo-endpoint.md). Your request returns an error if your token has expired.
+1. Verify that the token hasn't expired. Decode the token and compare the `exp` claim to the current time. Because user pool JWTs are self-contained and carry their own expiration time, you can check expiration offline, without a network call to Amazon Cognito.
+**Note**  
+API operations such as [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) or the [userInfo endpoint](userinfo-endpoint.md) endpoint return an error for an expired access token, but a rejected request is a side effect of authorization, not a token-verification method. Don't use these network calls to check expiration: decode the token and compare the `exp` claim instead.
 
 1. The `aud` claim in an ID token and the `client_id` claim in an access token must match the app client ID that was created in the Amazon Cognito user pool.
 
@@ -185,5 +184,7 @@ The `use` parameter describes the intended use of the public key. For this examp
    + If you are only accepting the access token in your web API operations, its value must be `access`.
    + If you are only using the ID token, its value must be `id`.
    + If you are using both ID and access tokens, the `token_use` claim must be either `id` or `access`.
+
+1. Confirm that the token hasn't been revoked. A token with a valid signature and an unexpired `exp` claim can still have been revoked before its expiration time–for example, when a user signs out or when you call the [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) API operation. Offline signature and expiration checks can't detect revocation on their own. If your application must honor revocation before a token expires, verify the token's status against Amazon Cognito–for example, with an authorized API request–or keep access token lifetimes short. For more information, see [Ending user sessions with token revocation](token-revocation.md).
 
 You can now trust the claims inside the token.

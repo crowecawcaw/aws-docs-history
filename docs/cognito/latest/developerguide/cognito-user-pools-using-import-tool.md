@@ -733,6 +733,7 @@ Amazon Cognito applies additional security measures to imported password hashes:
 + **Double hashing:** Amazon Cognito re-hashes all imported password hashes with an additional layer of cryptographic protection before storage, regardless of the original algorithm's strength.
 + **Automatic migration:** After successful first authentication, Amazon Cognito migrates the user's credentials to the native Secure Remote Password (SRP) protocol used by Amazon Cognito. This ensures all users eventually use the native high-security authentication mechanism.
 + **Data cleanup:** After the import job completes, Amazon Cognito removes the uploaded CSV file containing password hashes from temporary storage.
++ **Password policy not enforced:** Amazon Cognito doesn't enforce the [password policy](managing-users-passwords.md#user-pool-settings-policies) that you configured for the user pool when you import users with password hashes. If a password doesn't meet the password policy that you configured, Amazon Cognito still imports the user. To enforce password strength and reject passwords that don't meet the policy, validate password strength in your source system before you generate hashes for import.
 
 **Important**  
 Treat your CSV file containing password hashes as sensitive data. Protect it in transit and delete it securely after the import completes.
