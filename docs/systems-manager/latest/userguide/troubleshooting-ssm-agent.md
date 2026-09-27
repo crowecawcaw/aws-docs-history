@@ -10,6 +10,7 @@ If you experience problems running operations on your managed nodes, there might
 **Topics**
 + [SSM Agent is out of date](#ssm-agent-out-of-date)
 + [Troubleshoot issues using SSM Agent log files](#systems-manager-ssm-agent-log-files)
++ [File watcher fails with `too many open files` (Linux)](#ssm-agent-troubleshooting-file-watcher-too-many-open-files)
 + [Agent log files don't rotate (Windows)](#systems-manager-ssm-agent-troubleshooting-log-rotation)
 + [Unable to connect to SSM endpoints](#systems-manager-ssm-agent-troubleshooting-endpoint-access)
 + [Verify your VPC configuration](#agent-ts-vpc-configuration)
@@ -41,6 +42,44 @@ If you choose to view these logs by using Windows File Explorer, be sure to allo
 For Linux managed nodes, you might find more information in the `messages` file written to the following directory: `/var/log`.
 
 For additional information about troubleshooting using agent logs, see [How do I use SSM Agent logs to troubleshoot issues with SSM Agent in my managed instance?](https://repost.aws/knowledge-center/ssm-agent-logs) in the *AWS re:Post Knowledge Center*.
+
+## File watcher fails with `too many open files` (Linux)
+<a name="ssm-agent-troubleshooting-file-watcher-too-many-open-files"></a>
+
+SSM Agent uses file watchers for inter-process communication with worker processes. This mechanism can be used by multiple Systems Manager operations, including associations and Session Manager sessions. If the agent can't create a new file watcher, the agent log can contain an entry similar to the following:
+
+```
+ERROR [NewFileWatcherChannel @ filewatcherchannel.go.104] ... filewatcher listener encountered error when start watcher: too many open files
+```
+
+Depending on the operating system, the final text can be `too many open file` or `too many open files`. For this specific signature, the strongest cause is exhaustion of the Linux per-user ID (UID) inotify instance limit. The failure occurs when the agent creates the watcher, before it adds a path to the watcher.
+
+Use the following command on the managed node to inspect the current inotify instance limit:
+
+```
+sudo sysctl fs.inotify.max_user_instances
+```
+
+The supported recommendation for this condition is to set `fs.inotify.max_user_instances` to `8192`. To apply the value to the running system, use the following command:
+
+```
+sudo sysctl -w fs.inotify.max_user_instances=8192
+```
+
+To persist the value, create a sysctl configuration file and load it:
+
+```
+printf '%s\n' 'fs.inotify.max_user_instances=8192' | sudo tee /etc/sysctl.d/99-amazon-ssm-agent.conf
+sudo sysctl -p /etc/sysctl.d/99-amazon-ssm-agent.conf
+```
+
+**Important**  
+Size operating system limits according to the workload on the managed node and your organization's operating system policies. Don't apply unrelated limit values without evaluating other processes that run under the same UID.
+
+The `fs.inotify.max_user_watches` setting limits the number of paths that inotify instances can watch. It is different from `fs.inotify.max_user_instances` and doesn't normally need to change for this watcher-creation failure. Change it only when your operating system diagnostics show that the watch-count limit is exhausted.
+
+**Note**  
+Process open-file limits, including shell `nofile` limits and the `systemd` `LimitNOFILE` setting, and system settings `fs.nr_open` and `fs.file-max` apply to other file-descriptor exhaustion conditions. They don't increase the per-UID inotify instance limit and don't resolve this specific `NewFileWatcherChannel` signature.
 
 ## Agent log files don't rotate (Windows)
 <a name="systems-manager-ssm-agent-troubleshooting-log-rotation"></a>

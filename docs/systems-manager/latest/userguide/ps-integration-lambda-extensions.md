@@ -30,9 +30,6 @@ If the configured cache TTL has not expired, the cached parameter value is used.
 
 Also, the system detects parameter values that are used frequently and maintains them in the cache while clearing those that are expired or unused.
 
-**Important**  
-The extension can be invoked only in the `INVOKE` phase of the Lambda operation and not during the `INIT` phase.
-
 ### Implementation details
 <a name="lambda-extension-details"></a>
 

@@ -68,8 +68,12 @@ When using IAM policies to grant access to Systems Manager parameters, we recomm
 
 ------
 
+**Note**  
+The preceding policy allows `ssm:GetParameters` but not the other retrieval actions. Parameter Store authorizes each retrieval operation against its own IAM action, so allowing or denying one action doesn't affect the others. Before you rely on a policy to restrict which parameters a principal can read, see [How Parameter Store authorizes parameter retrieval](ps-retrieval-authorization.md) and [Restricting access to specific parameters and paths](ps-restrict-parameter-access.md).
+
 **Important**  
-If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`. Even if a principal has explicitly been denied access in IAM for parameter `/a/b`, they can still call the `GetParametersByPath` API operation recursively for `/a` and view `/a/b`.
+Parameter Store authorizes the `GetParametersByPath` operation against the path that you specify in the request, not against each parameter that the operation returns. A principal who is allowed to call `GetParametersByPath` for the path `/a` receives every parameter under that path, including `/a/b`. This is true even if the same policy explicitly denies access to `/a/b` for other actions.  
+To prevent a parameter from being returned by `GetParametersByPath`, deny the `ssm:GetParametersByPath` action on every ancestor path that could include the parameter in its results. For example, to prevent `/a/b` from being returned, deny `ssm:GetParametersByPath` for both `/a` and `/`.
 
 For trusted administrators, you can provide access to all Systems Manager parameter API operations by using a policy similar to the following example. This policy gives the user full access to all production parameters that begin with `dbserver-prod-*`.
 
@@ -111,10 +115,13 @@ For trusted administrators, you can provide access to all Systems Manager parame
 
 Each API is unique and has distinct operations and permissions that you can allow or deny individually. An explicit deny in any policy overrides the allow.
 
-**Note**  
-The default AWS Key Management Service (AWS KMS) key has `Decrypt` permission for all IAM principals within the AWS account. If you want different access levels to `SecureString` parameters in your account, we don't recommend that you use the default key.
+**Important**  
+Because each operation is authorized against its own IAM action, denying a single action doesn't prevent a principal from retrieving the same parameter through another operation. For example, denying `ssm:GetParameter` alone has no effect on `ssm:GetParameters`, `ssm:GetParameterHistory`, or `ssm:GetParametersByPath`. Always deny every action that can return the value. For a complete description of this behavior, see [How Parameter Store authorizes parameter retrieval](ps-retrieval-authorization.md).
 
-If you want all API operations retrieving parameter values to have the same behavior, then you can use a pattern like `GetParameter*` in a policy. The following example shows how to deny `GetParameter`, `GetParameters`, `GetParameterHistory`, and `GetParametersByPath` for all parameters beginning with `prod-*`.
+**Note**  
+The default AWS Key Management Service (AWS KMS) key has `Decrypt` permission for all IAM principals within the AWS account. If you want different access levels to `SecureString` parameters in your account, we don't recommend that you use the default key. Restricting `kms:Decrypt` on a customer managed key prevents decryption of a `SecureString` value through any retrieval operation. For more information, see [Restricting decryption of `SecureString` parameter values](ps-restrict-decryption.md).
+
+All four retrieval action names begin with `GetParameter`, so the single entry `ssm:GetParameter*` covers `ssm:GetParameter`, `ssm:GetParameters`, `ssm:GetParameterHistory`, and `ssm:GetParametersByPath`. The following example uses this pattern to deny all four actions for all parameters beginning with `prod-*`.
 
 ------
 #### [ JSON ]
@@ -137,6 +144,9 @@ If you want all API operations retrieving parameter values to have the same beha
 ```
 
 ------
+
+**Note**  
+In the preceding example, the deny on `ssm:GetParametersByPath` applies only to calls that *request* a path matching `prod-*`. It doesn't prevent a `prod-*` parameter from being returned by a call that requests an ancestor path. To close that gap, deny `ssm:GetParametersByPath` on the ancestor paths as well. For more information, see [Restricting access to specific parameters and paths](ps-restrict-parameter-access.md).
 
 The following example shows how to deny some commands while allowing the user to perform other commands on all parameters that begin with `prod-*`.
 
@@ -176,7 +186,9 @@ The following example shows how to deny some commands while allowing the user to
 ------
 
 **Note**  
-The parameter history includes all parameter versions, including the current one. Therefore, if a user is denied permission for `GetParameter`, `GetParameters`, and `GetParameterByPath` but is allowed permission for `GetParameterHistory`, they can see the current parameter, including `SecureString` parameters, using `GetParameterHistory`.
+The parameter history includes all parameter versions, including the current one. Therefore, if a user is denied permission for `GetParameter`, `GetParameters`, and `GetParametersByPath` but is allowed permission for `GetParameterHistory`, they can see the current parameter, including `SecureString` parameters, using `GetParameterHistory`.
+
+The same behavior applies to deletion. `ssm:DeleteParameters` is authorized independently of `ssm:DeleteParameter`, so denying only `ssm:DeleteParameter` doesn't prevent a principal from deleting the parameter with the `DeleteParameters` operation. Deny both actions, or use the pattern `ssm:DeleteParameter*`.
 
 ### Encrypting and decrypting parameters using AWS KMS keys
 <a name="ps-kms-permissions"></a>

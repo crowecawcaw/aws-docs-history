@@ -191,7 +191,7 @@ For information about using the `ssm:resourceTag/*` condition key, see the follo
 + [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access) 
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 
-For information about using the `ssm:Recursive`, `ssm:Policies`, and `ssm:Overwrite` condition keys, see [Preventing access to Parameter Store API operations](parameter-store-policy-conditions.md).
+For information about using the `ssm:Policies` and `ssm:Overwrite` condition keys, and for guidance on restricting access to individual parameters and parameter paths, see [Preventing access to Parameter Store API operations](parameter-store-policy-conditions.md).
 
 ### Examples
 <a name="security_iam_service-with-iam-id-based-policies-examples"></a>

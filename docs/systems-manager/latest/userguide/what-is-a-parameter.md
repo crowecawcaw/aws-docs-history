@@ -137,4 +137,7 @@ When you specify a parameter in an SSM document, command, or script, include `ss
   + `/Level-1/L2/L3/L4/L5/L6/L7/L8/L9/L10/L11/L12/L13/L14/L15/L16/parameter-name`
 
 **Important**  
-If a user has access to a path, then the user can access all levels of that path. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`. Even if a user has explicitly been denied access in AWS Identity and Access Management (IAM) for parameter `/a/b`, they can still call the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation recursively for `/a` and view `/a/b`.
+Parameter Store authorizes the `GetParametersByPath` operation against the path that you specify in the request, not against each parameter that the operation returns. A principal who is allowed to call `GetParametersByPath` for the path `/a` receives every parameter under that path, including `/a/b`. This is true even if the same policy explicitly denies access to `/a/b` for other actions.  
+To prevent a parameter from being returned by `GetParametersByPath`, deny the `ssm:GetParametersByPath` action on every ancestor path that could include the parameter in its results. For example, to prevent `/a/b` from being returned, deny `ssm:GetParametersByPath` for both `/a` and `/`.
+
+For guidance on writing IAM policies that account for this behavior, see [Restricting access to specific parameters and paths](ps-restrict-parameter-access.md).
