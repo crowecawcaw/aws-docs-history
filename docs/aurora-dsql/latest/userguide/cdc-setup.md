@@ -31,7 +31,7 @@ Measure the average on-disk row size to understand the volume that CDC will prod
 SELECT avg(pg_column_size(t.*)) FROM {{your_table}} t;
 ```
 
-The CDC record envelope adds column names, metadata, and encoding overhead on top of the row size. For the exact record format, see [Record payload](cdc-record-format.md#cdc-record-payload). For how Aurora DSQL handles records that exceed the Kinesis record size limit, see [Handling oversized records](cdc-record-format.md#cdc-oversized-records). For the full set of Kinesis service limits, see [Amazon Kinesis Data Streams quotas and limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) in the *Amazon Kinesis Data Streams Developer Guide*.
+The CDC record envelope adds column names, metadata, and encoding overhead on top of the row size. For record payload examples, see [Record payload](cdc-record-format.md#cdc-record-payload). For how Aurora DSQL handles records that exceed the Kinesis record size limit, see [Handling oversized records](cdc-record-format.md#cdc-oversized-records). For the full set of Kinesis service limits, see [Amazon Kinesis Data Streams quotas and limits](https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html) in the *Amazon Kinesis Data Streams Developer Guide*.
 
 **Important**  
 When you create the Kinesis data stream, set the following:  
@@ -247,7 +247,7 @@ Each record's `Data` field contains a JSON payload. When you use the AWS CLI, th
 }
 ```
 
-For a complete description of each field, see [Understanding CDC records](cdc-record-format.md).
+For descriptions of the current fields, see [Understanding CDC records](cdc-record-format.md).
 
 ## Step 5: Consume records with a Python script
 <a name="cdc-step5-consume"></a>
@@ -306,6 +306,9 @@ def consume_cdc(stream_name: str, region: str) -> None:
                 record_type = payload.get("type", "full")
                 if record_type == "fragment":
                     print(f"[FRAGMENT] chunk_id={payload['chunk_id']} index={payload['index']}")
+                    continue
+                if record_type not in {"full", "chunked"}:
+                    print(f"[UNKNOWN RECORD TYPE] type={record_type}")
                     continue
 
                 source = payload["source"]

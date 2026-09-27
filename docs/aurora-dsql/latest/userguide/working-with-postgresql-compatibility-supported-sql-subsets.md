@@ -19,3 +19,5 @@ This section provides detailed information about supported SQL commands, focusin
 + [`ALTER VIEW`](alter-view-syntax-support.md)
 + [`DROP VIEW`](drop-view-overview.md)
 + [`SET CONSTRAINTS`](set-constraints-syntax-support.md)
++ [`CREATE FUNCTION`](create-function-syntax-support.md)
++ [`ALTER FUNCTION`](alter-function-syntax-support.md)

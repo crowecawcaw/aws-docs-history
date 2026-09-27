@@ -85,6 +85,7 @@ You can create Aurora DSQL multi-Region clusters within specific AWS Region sets
 
 #### Asia Pacific Regions
 <a name="aurora-dsql-asia-pacific-regions"></a>
++ Asia Pacific (Hong Kong)
 + Asia Pacific (Mumbai)
 + Asia Pacific (Osaka)
 + Asia Pacific (Seoul)

@@ -5,6 +5,13 @@
 
 Aurora DSQL CDC delivers each change as a JSON record. The record uses an envelope structure with operation type, before and after row images, and source metadata.
 
+## CDC envelope versioning
+<a name="cdc-envelope-versioning"></a>
+
+For CDC streams created on or after October 1, 2026, Aurora DSQL can evolve the CDC record format according to the following versioning policy. Streams created before October 1, 2026, continue to use the original envelope format.
+
+To keep your applications working as the CDC record format evolves, check the `source.version` field before processing a record. Aurora DSQL increments the minor version when it makes an additive, backward-compatible change to the CDC record structure. This includes adding new fields to the record structure or adding new values to enum fields. To stay compatible with new minor versions of the record structure, your applications should ignore new fields. Applications should tolerate unrecognized enum values. 
+
 ## How records map to Amazon Kinesis
 <a name="cdc-kinesis-mapping"></a>
 
@@ -37,7 +44,7 @@ A delete on this table produces a payload where `"before": {"order_id": 1001, "i
 ## Record payload
 <a name="cdc-record-payload"></a>
 
-The payload uses the following JSON envelope format.
+The following examples show the JSON envelope fields available in the current version.
 
 **INSERT example**  
 The following example shows a CDC record for an `INSERT` operation:
@@ -122,7 +129,7 @@ For a `DELETE` on a table with a primary key, the `before` field contains the pr
 | before | For deletes on tables with a primary key, contains the primary key values of the deleted row. Aurora DSQL sets this field to null for inserts, updates, and deletes on tables without a primary key. | 
 | after | The full row state after the change, including all columns. Aurora DSQL sets this field to null for deletes. | 
 | chunked | Present only when type is chunked. Contains reassembly metadata for the before image, the after image, or both. Aurora DSQL omits the chunked image from the top-level before or after field and places it under chunked instead. For details, see [Handling oversized records](#cdc-oversized-records). | 
-| source.version | The CDC source metadata format version. The current version is 1.0. | 
+| source.version | The CDC envelope format version. The current version is 1.0. For information about compatible changes between versions, see [CDC envelope versioning](#cdc-envelope-versioning). | 
 | source.ts\_ms | The transaction commit timestamp in milliseconds since the Unix epoch, Coordinated Universal Time (UTC). | 
 | source.ts\_ns | Transaction commit timestamp in nanoseconds, UTC. The highest precision timestamp available. Use this field to establish a total order of transactions. | 
 | source.txId | A unique transaction identifier, encoded as base32. All records from the same transaction share the same txId value. Use this field to group records that belong to the same transaction. | 

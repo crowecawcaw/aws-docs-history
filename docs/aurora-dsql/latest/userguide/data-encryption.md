@@ -246,7 +246,7 @@ The event that records the `GenerateDataKey` operation is similar to the followi
     "recipientAccountId": "111122223333",
     "sharedEventID": "f88e0dd8-6057-4ce0-b77d-800448426d4e",
     "vpcEndpointId": "AWS Internal",
-    "vpcEndpointAccountId": "vpce-1a2b3c4d5e6f1a2b3",
+    "vpcEndpointAccountId": "AWS Internal",
     "eventCategory": "Management"
 }
 ```
@@ -294,7 +294,7 @@ The event that records the `Decrypt` operation is similar to the following examp
   "recipientAccountId": "111122223333",
   "sharedEventID": "d99f2dc5-b576-45b6-aa1d-3a3822edbeeb",
   "vpcEndpointId": "AWS Internal",
-  "vpcEndpointAccountId": "vpce-1a2b3c4d5e6f1a2b3",
+  "vpcEndpointAccountId": "AWS Internal",
   "eventCategory": "Management"
 }
 ```

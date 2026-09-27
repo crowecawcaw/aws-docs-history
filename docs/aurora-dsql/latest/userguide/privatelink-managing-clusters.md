@@ -195,7 +195,9 @@ String serviceName = response.serviceName();
 System.out.println("Service Name: " + serviceName);
 ```
 
-------<a name="create-vpc-endpoint"></a>
+------
+
+The service identifier is cluster-specific. Different clusters can return different identifiers, even in the same AWS Region or account. Always use the service name returned for the cluster that you want to connect to.<a name="create-vpc-endpoint"></a>
 
 **Step 2: Create the Amazon VPC endpoint**
 
