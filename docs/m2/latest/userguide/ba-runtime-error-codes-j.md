@@ -13,3 +13,5 @@ JICS error codes, prefixed with `BA-J`.
 | Key | Severity | Text | Additional details | 
 | --- | --- | --- | --- | 
 | BA-J0001 | Fatal | Wrong configuration for JICS XA DataSource. Either correctly configure datasource.jicsDs.xa.data-source-class-name and other xa properties, or set spring.jta.enabled to false. |  | 
+| BA-J0002 |  | Missing Parameters : Container and AS parameter are mandatory for move statement | The MOVE statement was issued without the mandatory CONTAINER and AS parameters. | 
+| BA-J0003 |  | Unsupported CONTAINER (BTS) command | A BTS CONTAINER command variant that the runtime does not support was invoked. | 

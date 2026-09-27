@@ -16,10 +16,10 @@ Redis error codes, prefixed with `BA-R`.
 | Key | Severity | Text | Additional details | 
 | --- | --- | --- | --- | 
 | BA-R0001 | Fatal | Missing Redis configuration for feature through specified path. Either specify the configuration at the given path or define global Redis settings. | [Available Redis cache properties in AWS Transform for mainframe Runtime](ba-runtime-redis-configuration.md) | 
-| BA-R0002 | Fatal | Missing Redis configuration parameter. Please add the required parameter. |  | 
+| BA-R0002 | Fatal | Error retrieving Redis configuration variables from path %s: %s. Check configuration file and environment settings. |  | 
 | BA-R0003 | Warn | No explicite Redis configuration found for path. Gapwalk Redis configuration will be used for connection. You can ignore if intended. |  | 
-| BA-R0004 | Fatal | Error retrieving Redis configuration variables from specified path. Check configuration file and environment settings. |  | 
-| BA-R0005 | Fatal | Missing Redis value for specied parameter. Check configuration file and environment settings. |  | 
+| BA-R0004 | Fatal | Error retrieving Redis configuration variables from path %s. Check configuration file and environment settings. |  | 
+| BA-R0005 | Fatal | Redis Configuration Error : Missing Redis configuration parameter %s. Please add the required parameter. |  | 
 
 ## Redis Property Validation Errors
 <a name="redis-property-validation-errors"></a>
@@ -40,6 +40,7 @@ Redis error codes, prefixed with `BA-R`.
 
 | Key | Severity | Text | Additional details | 
 | --- | --- | --- | --- | 
+| BA-R0080 | Info | Successfully established Redis connection for : %s | Informational success log. | 
 | BA-R0081 | Fatal | Failed to connect to Redis server - Connection refused. Verify Redis server is running and the host/port are correct. |  | 
 | BA-R0082 | Fatal | Connection timeout while connecting to Redis server. Check network connectivity or increase connection timeout. |  | 
 | BA-R0083 | Fatal | Read timeout while connecting to Redis server. Check Redis server performance or increase read timeout. |  | 
@@ -47,7 +48,8 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R0085 | Fatal | Failed to establish Redis connection. Check Redis server status and configuration. |  | 
 | BA-R0086 | Fatal | Authentication failed for Redis connection. Verify Redis authentication credentials. |  | 
 | BA-R0087 | Fatal | Redis data exception. Check Redis server logs for more details. |  | 
-| BA-R0088 - BA-R0089 | Fatal | Unexpected error connecting to Redis. Review error message and Redis configuration. |  | 
+| BA-R0088 | Fatal | Unexpected error connecting to Redis for prefix %s (Host: %s, Port: %d): %s. Details: %s. Review error message and Redis configuration. |  | 
+| BA-R0089 | Fatal | Unexpected error connecting to Redis for path : %s. Details: %s. Review error message and Redis configuration. |  | 
 | BA-R0090 | Fatal | Failed to create Redis pool configuration. Review error message and Redis configuration. |  | 
 
 ## Feature-specific Configuration Errors
@@ -106,6 +108,7 @@ Redis error codes, prefixed with `BA-R`.
 | --- | --- | --- | --- | 
 | BA-R1500 | Error | Failed to check warm-up status for cache. Verify cache name and Redis connection. |  | 
 | BA-R1501 | Error | Failed to mark cache as warmed up. Check cache name and Redis connection. |  | 
+| BA-R1502 | Error | Failed to mark cache as not warmed up: %s, error: %s. Check cache name and Redis connection. |  | 
 
 ### Publisher/Subscriber Operations
 <a name="publisher-subscriber-operations"></a>
@@ -132,6 +135,7 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R1730 | Error | Failed to delete record from cache. Check record exists and Redis connection. |  | 
 | BA-R1731 | Error | Batch delete operation partially failed. Verify Redis cluster status and record existence. |  | 
 | BA-R1732 | Error | Failed to clear cache. Check Redis connection and cache name. |  | 
+| BA-R1733 | Error | Failed to clear cache %s due to resource limits: %s. Set bluesam.redis.clearStrategy=REDISSON in application configuration to resolve this issue. |  | 
 
 ### Cache Index Operations
 <a name="cache-index-operations"></a>
@@ -166,11 +170,13 @@ Redis error codes, prefixed with `BA-R`.
 
 | Key | Severity | Text | Additional details | 
 | --- | --- | --- | --- | 
-| BA-R2300 | Error | Invalid parameters for Bluesam lock operation. Verify dataset name and lock parameters are not null. |  | 
-| BA-R2301 | Error | Failed to save dataset lock. Check Redis connection and lock state. |  | 
-| BA-R2302 | Error | Failed to save record lock for dataset. Verify record exists and Redis connection is active. |  | 
-| BA-R2303 | Error | Failed to remove dataset lock. Check if lock exists and Redis connection is active. |  | 
-| BA-R2304 | Error | Failed to remove record lock for dataset. Verify record and lock exist. |  | 
+| BA-R2300 | Error | Invalid parameters for Bluesam lock operation: Dataset %s or lock %s cannot be null. Verify parameters are not null. |  | 
+| BA-R2301 | Error | Invalid parameters for Bluesam lock operation: Dataset %s, Record id %s or lock %s cannot be null. Verify parameters are not null. |  | 
+| BA-R2302 | Error | Failed to save dataset lock %s for %s. Check Redis connection and lock state. |  | 
+| BA-R2303 | Error | Failed to save record lock for dataset %s, record %d. Verify record exists and Redis connection is active. |  | 
+| BA-R2304 | Error | Failed to remove dataset lock for %s. Check if lock exists and Redis connection is active. |  | 
+| BA-R2305 | Error | Failed to remove record lock for dataset %s, record %d. Verify lock parameters are not null. |  | 
+| BA-R2306 | Error | Invalid Bluesam lock state : cannot be null. Verify dataset name and lock parameters are not null. |  | 
 
 ### Lock State Operations
 <a name="redis-lock-state-operations"></a>
@@ -225,6 +231,8 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R3210 | Error | Failed to check lock status for file. Check Redis connection and file path. |  | 
 | BA-R3220 | Error | Lock acquisition interrupted for file. Check for thread interruptions. |  | 
 | BA-R3230 | Error | Failed to store lock metadata for file. Verify Redis connection and memory availability. |  | 
+| BA-R3235 | Error | Failed to cleanup lock after error: %s |  | 
+| BA-R3236 | Warn | Metadata not available for lock %s maybe still persisting, retrying automatically once after %d ms. Verify Redis data integrity and check for outdated/corrupted lock metadata. |  | 
 | BA-R3240 | Info | File is locked by job. Wait for the current operation to complete. |  | 
 | BA-R3250 | Error | Failed to lock file. Check Redis connection and lock configuration. |  | 
 | BA-R3260 | Error | Failed to release lock for file. Verify lock exists and connection is active. |  | 
@@ -266,6 +274,7 @@ Redis error codes, prefixed with `BA-R`.
 | BA-R5057 | Error | Invalid session tracker operation parameter. Verify all required parameters are provided. |  | 
 | BA-R5058 | Error | Batch operation failed for sessions. Check Redis connection and retry operation. |  | 
 | BA-R5059 | Warn | Session expiration warning. Session timeout might need adjustment. |  | 
+| BA-R5065 | Warn | Sessions %s not found for node %s. Session may have been removed by Redis Expiration. Verify node ID or sessions might have expired. |  | 
 
 ## JICS Resources Definitions Error Codes
 <a name="jics-resources-errors"></a>

@@ -14,6 +14,154 @@ For each release, AWS Transform for mainframe Runtime has been validated on spec
 **Note**  
 For release notes predating this document, contact AWS Transform for mainframe delivery services. For information about the latest AWS Transform for mainframe refactor features, see [AWS Transform for mainframe refactor releases](https://bluinsights.aws/releases).
 
+## Release notes 5.274.0
+<a name="ba-release-notes-5.274.0"></a>
+
+Released on: September 14, 2026
+
+This release of AWS Transform for mainframe Runtime and Transformation Engines focuses on data-access performance, expanded Easytrieve support, and broader AS/400 coverage.
+
+This version of the AWS Transform for mainframe Runtime has been tested with the following stack:
+
+
+|  |  | 
+| --- |--- |
+| Component | Version tested | 
+| Java | Java 21 | 
+| Presentation layer | Node JS 24.11.1 | 
+| Npm 11.6.2 | 
+| Angular 21 | 
+| Service layer | Spring Boot 4.0.6 | 
+| Spring Core 7.0.6 | 
+| Spring Session 3.5.2 | 
+| Spring statemachine 4.0.0 | 
+| Persistence layer | PostgreSQL engine 15.10 | 
+| Oracle 21c | 
+| Report | Jasper 7 | 
+| Application server | Apache Tomcat 11.0.15 | 
+
+## AWS Transform for mainframe Runtime
+<a name="ba-release-notes-5.274.0-runtime"></a>
+
+### zOS
+<a name="runtime-zos-5.274.0"></a>
++ COBOL
+  + Improved UNSTRING to preserve whitespace-like trailing bytes in alphanumeric receivers
+  + Aligned level-88 condition evaluation with legacy semantics by comparing on the raw bytes
+  + Improved support for JUSTIFIED RIGHT alignment on MOVE operations from Group item to elementary fields
+  + Improved support for data structure initialization for INITIALIZE REPLACING statement and NUMERIC-EDITED fields
+  + Hardened ILBOABN0 abend-code decoding for CALL USING arguments shorter than four bytes, including halfword abend codes
++ CICS
+  + Added support for invoking remote-name programs in CICS LINK/XCTL, resolved to the local runtime
++ Blusam
+  + Added configurable in-memory record-lock cleanup via `bluesam.locks.locksCleanupIntervalMillis` (disabled by default) to limit memory growth during long-running processing
+  + Improved support for legacy file names when loading large-KSDS files
+  + Added removeIndexesOnClose option to bound Redis index-cache growth.
+  + Improved data loading for KSDS and large-KSDS datasets through BAC.
+  + Added optional external DDL management (`bluesam.externalDdlManagement`, disabled by default), letting tables be created outside Blusam
+  + Improved Redis lock-state lifecycle management.
+  + Added a configurable Redis cache-clear strategy (`bluesam.redis.clearStrategy`, default DEFAULT) with pattern-based (REDISSON) and batched-scan (REDISSON\_BATCHED) modes for large datasets, with a configurable batch size (`bluesam.redis.batchClearSize`, default 1000) for the batched-scan mode
+  + Added READ\_INVALID\_KEY handling for large-KSDS reads.
+  + Improved relative-key generation for RRDS files when the key is a range reference
+  + Added a compact pattern syntax for the metadata warm-up file list (`bluesam.metadataWarmUpFileList`), using a pipe separator with comma-separated prefixes
+  + Extended the dataset Clear operation to release object identifiers along with the data.
+  + Improved open/close performance by eliminating redundant Redis calls.
++ Easytrieve
+  + Improved PCB binding when DL/I databases are accessed outside JOB INPUT
+  + Improved handling of the VSAM KSDS primary-key offset when the relative key position is greater than zero
+  + Added support for VSAM AIX files in batch/JCL context
+  + Improved support for masked (MASK) fields with floating-character formatting and arithmetic operations
+  + Improved support for masked packed-type variables
++ Redis
+  + Added Blusam Redisson connection tuning for timeout, retry attempts, and retry interval.
+  + Improved Redis connection configuration to apply the username parameter properly on authenticated connections.
+  + Added support for direct Redis caching of records, with TTL and single or batch operations, as a database-free alternative for transient data.
++ IMS - DBD
+  + Improved DL/I GU multi-SSA path-call handling for secondary-index (PROCSEQ) root resolution with unqualified child segments
+  + Improved support for GN/GNP navigation through a PROCSEQ PCB, honoring the secondary-index processing sequence across root boundaries
++ IMS - CBLTDLI
+  + Improved JHDB sequential-read performance with an optional node-cache retention property (`jhdb.optim.cacheRetention`, disabled by default) that reduces database round-trips across GN loops
++ SQL
+  + Improved lambda-function handling for SQL BASED host variables in PL/I
+  + Added support for the LAST\_DAY function on the PostgreSQL database engine
+  + Enhanced SQL generation to handle additional UNION ALL and EXCEPT clauses
++ JCL
+  + Added support for the IEBPTPCH utility.
+  + Added automatic subfolder creation on flat-file access.
++ JCL - SORT
+  + Improved support for INREC/OUTREC with hexadecimal conversion.
+  + Improved support for OUTFIL FNAMES with short (1–2 character) DD names
+  + Enhanced the trigger-script endpoint with standard-output file printing and improved batch-script output-file production
++ JCL - ICEGENER
+  + Added support for JCL submission via the internal reader (INTRDR)
+  + Improved support for ADV byte computing in catalog record size
++ JCL - DSNUTILB
+  + Added support for RUNSTATS TABLESPACE
+  + Improved support for LOAD RESUME YES on large tables to avoid OOM
++ JCL - DSNTEP
+  + Added support for queries split across multiple files.
+  + Improved support for REPRO to report RC=12 and error U4020 for a missing input dataset, matching z/OS behavior.
++ JCL - IDCAMS
+  + Improved support for ALTER NEWNAME with single quotes.
+  + Improved DELETE to first determine whether the file is a VSAM dataset.
++ JCL – Misc
+  + Improved support for the job-kill endpoint to correctly report the KILLED status for stopped jobs
+  + Propagated HTTP request context to groovy script worker threads
++ Security
+  + Hardened the OAuth resource server's scope-to-role mapping and enforced client\_id validation, preventing low-privileged tokens from being granted elevated roles
+
+### AS400
+<a name="runtime-as400-5.274.0"></a>
++ File access
+  + Added support for Extend open mode.
++ CL
+  + Improved support for CLRPFM command to handle a library-qualified FILE parameter.
+  + Improved support for ALCOBJ command to raise CPF1002 on an object-allocation timeout.
++ RPG
+  + Improved handling of a standalone DIM array declared without an explicit S marker in the definition-type columns.
+  + Improved RESET support in NOMAIN RPG service programs.
+  + Restored 1-based indexing for the substring function.
+  + CHKOBJ – Added support for printer files.
+  + Screen – Improved support for the OVRDTA and OVRATR keywords at record level and added support for the SFLCSRRRN file keyword.
+  + User space – Improved QUSCRTUS (Create User Space) support for the Domain and Transfer Size parameters.
+
+## AWS Transform for mainframe Transformation Engines
+<a name="ba-release-notes-5.274.0-transformation"></a>
+
+### zOS
+<a name="transformation-zos-5.274.0"></a>
++ COBOL
+  + Improved HEX built-in generation for ADDR expressions.
+  + Added LEADING and TRAILING keyword support to COPY REPLACING
+  + Added support for LINAGE paginated reports.
+  + Added support for IMS DL/I Get-Hold commands (GHU, GHN, GHNP) and the KEYS keyword.
++ PL/I
+  + Added a vicinity predicate to copybook resolution to disambiguate references.
+  + Added support for PLIEBCDIC and PLISAXB, and partial support for packages.
++ Easytrieve
+  + Applied display masks to report output, including subtotals and grand totals.
+  + Added support for reading a packed fixed-length file as record-sequential.
+  + Added support for the THRU inclusive range operator in IF conditions
+  + Added support for keyed VSAM reads where the key is held outside the record.
+  + Improved implicit file closing at end of job.
+  + Added support for SUMMARY, CONTROL, and SEQUENCE keywords, producing accumulated group totals, multi-level subtotals, and FINAL grand totals.
+  + Improved support for the PUT FILEY FROM FILEX statement.
+  + Added support for parameterized instream macros and the MSTART keyword.
+  + Added support for report LABELS options ACROSS, DOWN, and SIZE.
+
+### AS400
+<a name="transformation-as400-5.274.0"></a>
++ RPG / CL
+  + Improved support for the MONITOR statement with multiple ON-ERROR clauses.
++ RPG
+  + Added support for the extfile(\*extdesc) keyword in free-form syntax and QUALIFIED on F-cards.
+  + Improved DOU NOT \*IN(xx) generation to avoid double negation.
+  + Extended the %DEC built-in to accept %TIMESTAMP() as an argument.
++ COBOL400
+  + Improved copying of DDS indicators when INDARA is not present.
++ Display files
+  + Improved support for the OVRDTA and OVRATR keywords.
+
 ## Release notes 5.194.0
 <a name="ba-release-notes-5.194.0"></a>
 

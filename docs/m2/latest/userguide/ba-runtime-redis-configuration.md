@@ -101,7 +101,7 @@ The following table shows the Redis properties that are supported for global and
 | Property name | Required? | Description | Values | Default | 
 | --- | --- | --- | --- | --- | 
 | mode | No | The Redis running mode. | standalone \| cluster | standalone | 
-| hostname | Yes | The hostname or IP address of the Redis server. | string | null | 
+| hostName | Yes | The hostname or IP address of the Redis server. | string | null | 
 | port | Yes | The port number on which the Redis server is listening for connections. | int | null | 
 | username | No | The username for authentication. | string | null | 
 | password | No | The password for authentication. | string | empty string | 
@@ -114,15 +114,17 @@ The following table shows the Redis properties that are supported for global and
 | testOnReturn  | No | A boolean value indicating whether to validate connections before returning them to the pool.  | boolean | true | 
 | testWhileIdle  | No | A boolean value indicating whether to validate idle connections in the pool periodically. | boolean | true | 
 | testOnCreate  | No | A boolean value indicating whether to validate connections when they are created. | boolean | true | 
-| minEvictableIdleTimeMillis  | No | The minimum amount of time (in milliseconds) that an idle connection must remain in the pool before it can be evicted. | long | 60000L  | 
-| timeBetweenEvictionRunsMillis  | No | The time (in milliseconds) between successive runs of the idle connection evictor thread. | long | 30000L | 
+| minEvictableIdleTimeMillis  | No | The minimum amount of time (in milliseconds) that an idle connection must remain in the pool before it can be evicted. | long | 60000  | 
+| timeBetweenEvictionRunsMillis  | No | The time (in milliseconds) between successive runs of the idle connection evictor thread. | long | 30000 | 
 | numTestsPerEvictionRun  | No | The maximum number of connections to test during each run of the idle connection evictor thread. | int | -1 | 
 | blockWhenExhausted  | No | A boolean value indicating whether to block and wait for a connection to become available when the pool is exhausted. | boolean | true | 
 | nettyThreads  | No | The number of Netty threads to use for handling Redis connections. | int | 32 | 
 | subscriptionsPerConnection  | No | The maximum number of subscriptions allowed per Redis connection. | int | 10 | 
 | subscriptionConnectionPoolSize  | No | The maximum number of connections allowed in the Redis subscription connection pool.  | int | 100 | 
-| pageSizeInBytes  | No | The default page size in bytes for Redis operations. | long | 262144000  | 
-| readTimeout | No | The read timeout in milliseconds for Redis operations. | long | 2000 | 
+| pageSizeInBytes  | No | The default page size in bytes for Redis operations. | long | 26214400  | 
+| readTimeout | No | The read timeout in milliseconds for Redis operations. This property is nullable; when unset, 2000 ms is applied as the Jedis fallback. | long | 2000 | 
+| retryAttempts | No | The number of times a failed Redis operation is retried. | int | 3 | 
+| retryInterval | No | The interval in milliseconds between successive retry attempts for a failed Redis operation. | int | 1500 | 
 | timeToLiveMillis | No | The duration (in Milliseconds) for which a cache entry remains in the cache before being considered expired and removed. If this property is not specified, cache entries will not automatically expire by default. | long | -1 | 
 | useAsyncBatch | No | Enables asynchronous execution for Redis bulk write operations to improve performance. When set to false, falls back to synchronous execution mode. | boolean | true | 
 | useBatchInMemoryAtomic | No | Enables In-memory-atomic mode for Redis batch read operations. When set to false, falls back to default In-memory batch mode. | boolean | false | 
@@ -130,6 +132,11 @@ The following table shows the Redis properties that are supported for global and
 | connectionMinimumIdleSize | No | The minimum number of idle connections that Redisson will maintain in its connection pool. | int | 24 | 
 | idleConnectionTimeout | No | The timeout in milliseconds after which an idle connection in the pool will be closed. | int | 10000 | 
 | connectTimeout | No | The timeout in milliseconds for establishing a connection to Redis server. | int | 10000 | 
+| clearStrategy | No | The strategy used for cache clear operations. DEFAULT uses the Spring RedisCache.clear() behavior. REDISSON uses Redisson unlinkByPattern (cluster-safe, avoids out-of-memory). REDISSON\_BATCHED uses Redisson SCAN with batched expiry for maximum control over Redis load. | DEFAULT \| REDISSON \| REDISSON\_BATCHED | DEFAULT | 
+| enableBatchClear | No | Specifies whether to split cache clear operations into batches of batchClearSize. | boolean | false | 
+| batchClearSize | No | The batch size for cache clear operations when enableBatchClear is enabled. | int | 1000 | 
+| deleteAllBatchSize | No | The batch size for Redis deleteAll operations, used to avoid timeouts and Netty thread retry issues. | int | 1500 | 
+| readBatchSize | No | The batch size for Redis read operations (getAll, bulkRetrieve). | int | 1500 | 
 
 ## Redis cache properties
 <a name="ba-runtime-redis-caches-properties"></a>

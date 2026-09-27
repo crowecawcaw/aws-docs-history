@@ -182,6 +182,7 @@ The following use cases show examples of the applicable keys and values.
   ##### DateHelper configuration ####
   ###################################
   #forcedDate: "2013-08-26T12:59:58+01:57"
+  #forcedDateMode: HYBRID
   
   #############################
   ##### Sort configuration ####
@@ -406,7 +407,9 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `bluesam.externalDdlManagement` | boolean | false | When enabled, BlueSAM will not auto-create tables and instead adopts externally managed tables by registering metadata only. |  | 
 | `bluesam.fileList` | string[] |  | Specifies the list of bluesam dataset to be cached during open.<br />**Note:**<br />**- This parameter is only effective when `bluesam.openWarmUp` is set to `false`.** | 5.1.0 | 
 | `bluesam.fileLoading.commitInterval` | number | 100000 | The bluesam commit interval. |  | 
-| `bluesam.maxBluesamDisablingThreadpoolSize` | number | 10 | Specifies maximum threadpool size used to disable bluesam datasets for batch processing. | 4.5.0 | 
+| `bluesam.locks.locksCleanupIntervalMillis` | number (long, milliseconds) | -1 | Interval, in milliseconds, at which the in-memory (non-Redis) Blusam locker reclaims released record locks to bound heap growth during long-running processing. A value <= 0 disables the cleanup (default). A positive value below 60000 ms is clamped up to the 60000 ms floor to avoid sustained back-to-back cleanup passes. Requires `bluesam.locks.locksDeadTime` to be set when enabled: startup fails with an `IllegalStateException` if the interval is > 0 while `locksDeadTime` is unset, to prevent the reaper from reaping still-held locks using the 1000 ms fallback age. | 5.274.0 | 
+| `bluesam.locks.locksDeadTime` | number (long, milliseconds) | (none, must be set explicitly when the reaper is enabled) | Age threshold, in milliseconds, above which a released lock's tracking entry is considered dead and eligible for reclamation by the reaper. Mandatory when `bluesam.locks.locksCleanupIntervalMillis` > 0. |  | 
+| `bluesam.maxBlueSamDisablingThreadPoolSize` | number | 10 | Specifies maximum threadpool size used to disable bluesam datasets for batch processing. | 4.5.0 | 
 | `bluesam.maxBluesamStatusPollingRetry` | number | 3 | Specifies maximum number of retries when polling bluesam status is failing. | 4.5.0 | 
 | `bluesam.metadataWarmUpFileList` | string[] |  | Specifies the list of bluesam datasets whose index metadata will be pre-loaded into a permanent in-memory cache at application startup.<br />**Note:**<br />- Indexes are loaded on ApplicationReadyEvent and persist for the full application lifecycle.<br />- Only effective for large datasets. |  | 
 | `bluesam.openWarmUp` | boolean | false | Specifies whether to cache any bluesam datasets during open.<br />**Warning: Breaking Change in version 5.1.0**<br />**- Default value changed from `true` to `false`.** | 5.1.0 | 
@@ -423,7 +426,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `card.encoding` | string | CP1145 | Card encoding: to be used with`useControlMVariable`. |  | 
 | `check-groovy-file` | boolean | true | Specifies whether to check groovy files content before registering. |  | 
 | `checkinputfilesize` | boolean | false | Specifies whether to release a check if the file size is a multiple of record size. |  | 
-| `cl.configuration.context.encoding` | string | CP297 | The encoding of CL files. Expects a valid encoding`CP1047`,`IBM930`,`ASCII`,`UTF-8`... Default value is`CP297` |  | 
+| `cl.configuration.context.encoding` | string | CP1047 | The encoding of CL files. Expects a valid encoding`CP1047`,`IBM930`,`ASCII`,`UTF-8`... Default value is`CP1047` |  | 
 | `cl.zonedMode` | string | EBCDIC\_STRICT | The mode for encoding or decoding control language (CL) commands. Allowed values are`EBCDIC_STRICT` /`EBCDIC_MODIFIED` /`AS400`. |  | 
 | `clcommand.rtvmbrd.hasHeader` | string | true | Specify if the files contain headers that should not be included when counting the rows. |  | 
 | `cleanTempFilesDirectoryAtStartup` | boolean | true | Specifies whether to purge the contents of the temporary files folder at application startup. |  | 
@@ -442,11 +445,11 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `dataSimplifier.zeroInvalidBcdNibbles` | boolean | true | When set to true, bytes containing invalid BCD nibbles (hex digits `A`-`F` in digit positions) are treated as `00` during packed decimal decode. The default is true. |  | 
 | `datasource.bluesamDs` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` \+ -`type` | Standard spring datasource with subkeys |  | Contains the connection information for the Blusam database. Alternately, use of AWS secrets is strongly encouraged, as explained in [Blusam database](ba-runtime-config-app-secrets.md#blusam-database). |  | 
 | `datasource.jicsDs` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` \+ -`type` | Standard spring datasource with subkeys |  | Contains the connection information for the Jics database. Alternately, use of AWS secrets is strongly encouraged, as explained in [JICS database](ba-runtime-config-app-secrets.md#jics-database). |  | 
-| `dateTimeFormat` | string | ISO | The dateTimeFormat describes how to spill database date time timestamp type into data simplifier entities. Allowed values are`ISO` /`EUR` /`EUR` /`USA` /`LOCAL` |  | 
+| `dateTimeFormat` | string | ISO | The dateTimeFormat describes how to spill database date time timestamp type into data simplifier entities. Allowed values are`ISO` /`EUR` /`JIS` /`USA` /`LOCAL` |  | 
 | `dbDateFormat` | string | yyyy-MM-dd | The db target date format. |  | 
 | `dbTimeFormat` | string | HH:mm:ss | The db target time format. |  | 
 | `dbTimestampFormat` | string | yyyy-MM-dd HH:mm:ss.SSSSSS | The db target timestamp format. |  | 
-| `defaultKeepExistingFiles` | boolean | false | Specifies whether to set the dataset default previous value. |  | 
+| `defaultKeepExistingFiles` | boolean | true | Specifies whether to set the dataset default previous value. |  | 
 | `disposition.checkexistence` | boolean | false | Specifies whether to release a check on file existence for Dataset with DISP SHR or OLD. |  | 
 | `enableActivePgmIdCache` | boolean | false | Specifies whether to enable active program ID local cache. Use carefully this feature because JICS resources can be shared amongst programs and users. Those resources can be changed externally by any administrators and the local cache put in place might be invalidated. |  | 
 | `encoding` | string | ASCII | The encoding used in projects (not in groovy files). Expects a valid encoding`CP1047`,`IBM930`,`ASCII`,`UTF-8`... |  | 
@@ -468,9 +471,10 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `gapwalk-application.security.customAllowedHeaders` | string[] | null | The list of custom headers to allow. This option requires `gapwalk-application.identity` to be set to `oauth`. | 4.8.0 | 
 | `gapwalk-application.security.filterURIs` | string | `disabled` | Toggle filtering URIs configuration. Allowed values are `disabled` and `enabled`. |  | 
 | `gapwalk-application.security.identity` | string | null | Global authentication method. Recommended value is `oauth`. Allowed values are `json` and `oauth`. This option is required when `gapwalk-application.security` is `enabled`. |  | 
-| `gapwalk-application.security.issuerUri` | string | null | The issuer URI of the identity provider (IdP). This option is required when `gapwalk-application.identity` is `oauth`. |  | 
+| `gapwalk-application.security.issuerURI` | string | null | The issuer URI of the identity provider (IdP). The canonical property is `issuerURI`; Spring relaxed binding also accepts `issuer-uri`. This option is required when `gapwalk-application.identity` is `oauth`. |  | 
 | `gapwalk-application.security.userAttributeName` | string | `username` | The claim attribute name used to identify a user request. Use `username` for Amazon Cognito, `preferred_username` for Keycloak, or any other string for a foreign IdP. |  | 
 | `gapwalk.cobol.cblqda.enabled` | boolean | false | Enables a CBLQDA feature that controls QSAM files' dynamic allocation during an OPEN statement. This configuration helps to dynamically allocate temporary files declared in the program, even if the files are not defined in the JCL script. |  | 
+| `gapwalk.script.propagateRequestContext` | boolean | false | When set to true, propagates the HTTP request context to the groovy script for synchronous execution endpoints. This lets scripts access the original request headers. The default is false. |  | 
 | `gapwalk.database.metadata.schema-inclusion.enabled` | boolean | false | Enables a memory optimization feature that control which database schemas are cached by a application. This configuration helps reduce memory footprint while maintaining system stability by intelligently managing schema metadata. It automatically includes some common database system schemas which maybe required for proper operation. | 4.9.0 | 
 | `gapwalk.database.metadata.schema-inclusion.schemas.global` | list<String> | null | Defines a list of schemas that should be cached. | 4.9.0 | 
 | `gapwalk.database.support.useSavePointToRestoreFail` | boolean | false | Enables transaction recovery in case of failure by using savepoints on insert queries. Enabling this property may impact database performance. You can override this setting for specific queries using the query-to-database mapping configuration. | 4.6.0 | 
@@ -503,9 +507,12 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `jhdb.metadata.extrapath` | string | file:./setup/ | A configuration parameter that specifies an extra, runtime-specific root folder for psbs and dbds folders. |  | 
 | `jhdb.navigation.cachenexts` | number | 5000 | The cache duration (in milliseconds) used in hierarchical navigation for an RDBMS. |  | 
 | `jhdb.optim.cacheRetention` | boolean | false | Specifies whether to retain the node cache across consecutive read operations. When enabled, sequential reads reuse the cache, and only write operations (commit or rollback) clear it. |  | 
+| `jhdb.navigation.procseq.keyset-mode` | string | off | Controls keyset (seek) navigation for procseq secondary-index reads, which avoids the `row_number()` index view. `off` uses the legacy row\_index navigation; `validate` runs both and returns the legacy result after comparing them; `enabled` uses the keyset result. Only applied to root segments whose secondary index is built from their own fixed-length fields; otherwise falls back to legacy. |  | 
+| `jhdb.concatkeysize` | string |  | The concatenated key size used by the JHDB RDBMS metadata store. |  | 
+| `jhdb.lock` | string | single | Selects the JHDB lock mode. Default is `single`. |  | 
 | `jhdb.query.limitJoinUsage` | boolean | true | Specifies whether to use the limit join usage parameter on RDBMS graphs. |  | 
 | `jhdb.use-db-prefix` | boolean | true | Specifies whether to enable a database prefix in hierarchical navigation for an RDBMS. |  | 
-| `jics.data.dataJsonInitLocation` | string |  |  |  | 
+| `jics.data.dataJsonInitLocation` | string |  | Location of a JSON file used to initialize JICS data. Empty by default. |  | 
 | `jics.db.dataScriptLocation` | string |  | Defines the path to SQL scripts used for initializing the JICS database. Accepts a comma-separated list of files and directories, allowing for multiple scripts and folders to be specified. |  | 
 | `jics.db.dataTestQueryLocation` | string |  | Location of a sql script containing a single sql query that is expected to return a count of objects (for example: counting number of records in the jics program table). If the count equals 0, database will be loaded using the`jics.db.dataScriptLocation` script, otherwise database load will be skipped. |  | 
 | `jics.db.ddlScriptLocation` | string |  | The Jics DDL script location. Allows you to initiate the Jics database schema using a .sql script. Blank by default. For example,`./jics/sql/jics.sql`. |  | 
@@ -526,9 +533,31 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `jics.parameters.tsqimpl` | string | bluesam | JICS Temporary Storage Queue (TSQ) implementation (allowed values are`bluesam` /`memory` /`redis`) |  | 
 | `jics.parameters.userid` | string |  | The user id (8 characters maximum, no minimum). When no value is provided (blank by default) the HTTP session id is used as the user id.  |  | 
 | `jics.parameters.username` | string | MYUSERNAME | The username (10 characters maximum, 1 minimum). |  | 
-| `jics.queues.sqs.region` | string | eu-west-1 | The AWS Region for Amazon Simple Queue Service, used in JICS. |  | 
+| `jics.queues.sqs.region` | string |  | The AWS Region for Amazon Simple Queue Service, used in JICS. The region is deployment-supplied (no shipped default). |  | 
+| `jics.queues.rabbitMQHost` | string |  | The RabbitMQ host for JICS queues. |  | 
+| `jics.queues.rabbitMQPort` | number |  | The RabbitMQ port for JICS queues. |  | 
+| `jics.queues.rabbitMQVirtualHost` | string |  | The RabbitMQ virtual host for JICS queues. |  | 
+| `jics.queues.rabbitMQUsername` | string |  | The RabbitMQ user name for JICS queues. |  | 
+| `jics.queues.rabbitMQPassword` | string |  | The RabbitMQ password for JICS queues. |  | 
+| `jics.task-execution.runners[n].type` | string |  | The task runner type. Required. `awslambda` is the implemented type. An unknown type throws "Unknown runner type" at resolution. |  | 
+| `jics.task-execution.runners[n].transactions` | string |  | The transactions handled by this task runner. Required. |  | 
+| `jics.task-execution.runners[n].region` | string |  | The AWS Region for the Lambda task runner. Required for the `awslambda` type. |  | 
+| `jics.task-execution.runners[n].functionName` | string |  | The Lambda function name. Required for the `awslambda` type. |  | 
+| `jics.task-execution.runners[n].accessKey` | string |  | The AWS access key for the Lambda task runner. Optional. |  | 
+| `jics.task-execution.runners[n].secretKey` | string |  | The AWS secret key for the Lambda task runner. Optional. |  | 
+| `jobqueue.schedulers[n].name` | string | default | The scheduler name. The shipped example YAML uses `queue1` / `queue2` as an override. |  | 
+| `jobqueue.schedulers[n].threadCount` | number | 1 | The number of scheduler threads. The shipped example YAML uses `5` as an override. |  | 
 | `jics.queues.ts.redis.*` | Supported Redis properties |  | Specifies configuration properties for the JICS TS Queues Redis server, see [Supported Redis properties](ba-runtime-redis-configuration.md#ba-runtime-redis-supported-properties). |  | 
+| `jics.queues.ts.redis.hostname` | string | 127.0.0.1 | The hostname of the JICS TS Queues Redis server. |  | 
+| `jics.queues.ts.redis.port` | int | 6379 | The port of the JICS TS Queues Redis server. |  | 
+| `jics.queues.ts.redis.password` | string | redis | The password for the JICS TS Queues Redis server. |  | 
+| `jics.queues.ts.redis.username` | string |  | The username for the JICS TS Queues Redis server. |  | 
+| `jics.queues.ts.redis.mode` | string | standalone | The connection mode for the JICS TS Queues Redis server. Allowed values are `standalone` and `cluster`. |  | 
 | `jics.redis.*` | Supported Redis properties |  | Specifies configuration properties for the JICS Redis server connection factory, see [Supported Redis properties](ba-runtime-redis-configuration.md#ba-runtime-redis-supported-properties). |  | 
+| `jics.queues` | string | gapwalk | Selects the JICS queue implementation. Allowed values are `gapwalk`, `rabbitmq`, and `sqs`. |  | 
+| `jics.resource-definitions.store-type` | string | jpa | Selects the JICS resource-definitions store. Allowed values are `jpa` and `redis`. |  | 
+| `jics.disableSyncpoint` | boolean | false | Specifies whether to disable JICS syncpoint handling. |  | 
+| `jics.enableDeprecatedRawText` | boolean | false | Specifies whether to enable the deprecated raw-text handling in JICS. |  | 
 | `jics.runUnitLauncherPool.enable` | boolean | false | Specifies whether to activate the run unit launcher pool in JICS. |  | 
 | `jics.runUnitLauncherPool.parallelism` | number | 2 | The number of threads used to produce the missing instances in the queue when the adjustment task runs. |  | 
 | `jics.runUnitLauncherPool.size` | number | 20 | The run unit launcher pool size in JICS. |  | 
@@ -538,8 +567,10 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `jics.spool.smtp.password` | string | null | Specifies the login password of the SMTP server. |  | 
 | `jics.spool.smtp.port` | string | null | Specifies the SMTP server port. Example: 25 |  | 
 | `jics.spool.smtp.username` | string | null | Specifies the username of the SMTP server. |  | 
-| `jics.xa.agent.timeout` | number |  |  |  | 
+| `jics.xa.agent.timeout` | number |  | The XA agent timeout, in milliseconds. Empty by default (no timeout applied when unset). |  | 
+| `jcl.systemout.mapping` | Map |  | Maps SYSTEMOUT DD names to file paths. |  | 
 | `jildb.backend` | string |  | Specifies the database type used in the Jildb backend, for example, Oracle. |  | 
+| `jildb.encoding` | string |  | The encoding used by the Jildb backend. |  | 
 | `jildb.datasource` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` | Standard spring datasource with subkeys |  | Contains the connection information for the Jics database. |  | 
 | `jildb.record-hold-timeout` | int | 10000 | Specifies the wait timeout period, in milliseconds, for the record holding mechanism in Jildb. |  | 
 | `job.default.encoding` | string | CP1047 | Specifies the default encoding which is used to initialize the job level storage. For example, switches in BLU4IV application uses this encoding to initialize to zeroes. | 4.9.0 | 
@@ -547,7 +578,7 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `localDateFormat` | string |  | List of local date formats.Separate each format with`\`. |  | 
 | `localTimeFormat` | string |  | List of local time formats. Separate each format with`\` |  | 
 | `localTimestampFormat` | string |  | List of local timestamp formats. Separate each format with`\`. |  | 
-| `lockTimeout` | number | 500 | The lock timeout, in milliseconds. |  | 
+| `lockTimeout` | number | 100 | The Blu4IV record lock timeout, in milliseconds. |  | 
 | `logging.config` | Path | classpath:logback-main.xml | Standard key for the reference to the logback configuration file. Other standard logging keys are available too. |  | 
 | `mapTransfo.prefixes` | string | &,@,%% | List of prefixes to be used when transforming controlM variables. Each one separated by comma. |  | 
 | `mf.runtime.switch.N` | boolean | true | Enables null insertion for MF nature line-sequential files. | 4.4.0 | 
@@ -555,7 +586,33 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `mq.connection.pool.share` | boolean | false | Indicate whether to share or recreate the JMS connection pool with the same Queue Manager. | 4.9.0 | 
 | `mq.queues` | string | `sqs` | Specifies which supported queue brocker to use among `sqs` using Amazon SQS, `rabbitmq` using on-prem Rabbit MQ or `jms` using on-prem IBMMQ. |  | 
 | `mq.queues.default.syncpoint` | boolean | false | Specifies the default behavior for MQ PUT commands when neither MQPMO\_SYNCPOINT nor MQPMO\_NO\_SYNCPOINT are set. When set to true, it acts as `MQPMO_SYNCPOINT` and messages are NOT directly committed during the PUT command. When set to false, it acts as `MQPMO_NO_SYNCPOINT` and messages are directly committed during the PUT command. |  | 
+| `mq.queues.jmsMQQueueManagers[N].jmsMQStandbyList` | string[] |  | The list of standby IBM MQ connections for the queue manager at index N. |  | 
+| `mq.queues.jmsMQQueueManagers[N].secret` | string |  | The credential secret ARN for the queue manager at index N, resolved by the AWS secrets listener. See [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md). |  | 
 | `mq.queues.jms.connectionfactory.*` | Supported Atomikos connection factory properties |  | Specifies configuration properties for the JMS MQ connection pool. |  | 
+| `dataqueue.queues.rabbitMQHost` | string |  | The RabbitMQ host for data queues. |  | 
+| `dataqueue.queues.rabbitMQPort` | number |  | The RabbitMQ port for data queues. |  | 
+| `dataqueue.queues.rabbitMQVirtualHost` | string |  | The RabbitMQ virtual host for data queues. |  | 
+| `dataqueue.queues.rabbitMQUsername` | string |  | The RabbitMQ user name for data queues. |  | 
+| `dataqueue.queues.rabbitMQPassword` | string |  | The RabbitMQ password for data queues. |  | 
+| `dataqueue.queues.rabbitMQSslEnabled` | boolean | false | Specifies whether SSL/TLS is enabled for the data queue RabbitMQ connection. |  | 
+| `dataqueue.queues.rabbitMQSsl.keyStorePath` | string |  | The key store path for the data queue RabbitMQ SSL connection. |  | 
+| `dataqueue.queues.rabbitMQSsl.keyStoreType` | string |  | The key store type for the data queue RabbitMQ SSL connection. |  | 
+| `dataqueue.queues.rabbitMQSsl.keyStorePassword` | string |  | The key store password for the data queue RabbitMQ SSL connection. |  | 
+| `dataqueue.queues.rabbitMQSsl.trustStorePath` | string |  | The trust store path for the data queue RabbitMQ SSL connection. |  | 
+| `dataqueue.queues.rabbitMQSsl.trustStorePassword` | string |  | The trust store password for the data queue RabbitMQ SSL connection. |  | 
+| `dataqueue.queues.rabbitMQSsl.algorithm` | string | TLSv1.2 | The SSL algorithm for the data queue RabbitMQ connection. |  | 
+| `dataqueue.queues.rabbitMQRestApi` | string |  | The RabbitMQ management REST API endpoint for data queues. |  | 
+| `dataqueue.queues.rabbitMQChannelCacheSize` | number | 25 | The RabbitMQ channel cache size for data queues. |  | 
+| `dataqueue.queues.rabbitMQChannelCheckoutTimeout` | number | 0 | The channel checkout timeout, in milliseconds, for data queues. `0` means no timeout. |  | 
+| `blu4ivmq.queues.rabbitMQHost` | string |  | The RabbitMQ host for Blu4iv MQ queues. |  | 
+| `blu4ivmq.queues.rabbitMQPort` | number |  | The RabbitMQ port for Blu4iv MQ queues. |  | 
+| `blu4ivmq.queues.rabbitMQVirtualHost` | string |  | The RabbitMQ virtual host for Blu4iv MQ queues. |  | 
+| `blu4ivmq.queues.rabbitMQUsername` | string |  | The RabbitMQ user name for Blu4iv MQ queues. |  | 
+| `blu4ivmq.queues.rabbitMQPassword` | string |  | The RabbitMQ password for Blu4iv MQ queues. |  | 
+| `blu4ivmq.queues.rabbitMQSslEnabled` | boolean | false | Specifies whether SSL/TLS is enabled for the Blu4iv MQ RabbitMQ connection. |  | 
+| `blu4ivmq.queues.rabbitMQSsl.keyStorePath` | string |  | The key store path for the Blu4iv MQ RabbitMQ SSL connection. |  | 
+| `blu4ivmq.queues.rabbitMQSsl.trustStorePath` | string |  | The trust store path for the Blu4iv MQ RabbitMQ SSL connection. |  | 
+| `blu4ivmq.queues.rabbitMQSsl.algorithm` | string | TLSv1.2 | The SSL algorithm for the Blu4iv MQ RabbitMQ connection. |  | 
 | `mq.queues.jmsMQQueueManagers[N]` |  |  | When `mq.queues` is `jms`, enables to specify an IBM MQ connection list. `mq.queues.jmsMQQueueManagers[0]` for the first connection, `mq.queues.jmsMQQueueManagers[1]` for the second and so on. |  | 
 | `mq.queues.jmsMQQueueManagers[N].jmsMQAppName` | string | null | The IBMMQ application name. |  | 
 | `mq.queues.jmsMQQueueManagers[N].jmsMQChannel` | string | null | The IBMMQ channel name. |  | 
@@ -572,17 +629,31 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `mq.queues.rabbitMQPort` | number | null | The Rabbit MQ port. |  | 
 | `mq.queues.rabbitMQUsername` | string | null | The Rabbit MQ user. |  | 
 | `mq.queues.rabbitMQVirtualHost` | string | null | The Rabbit MQ virtual hostname. |  | 
-| `mq.queues.sqs.region` | string | eu-west-3 | The AWS Region for the AWS SQS MQ service. |  | 
+| `mq.queues.sqs.region` | string |  | The AWS Region for the AWS SQS MQ service. The region is deployment-supplied (no shipped default). |  | 
 | `pgmDateFormat` | string | yyyy-MM-dd | The date time format. |  | 
 | `pgmTimeFormat` | string | HH.mm.ss | The time format used for pgm (programs) execution. |  | 
 | `pgmTimestampFormat` | string | yyyy-MM-dd-HH.mm.ss.SSSSSS | The timestamp format. |  | 
 | `program.timeout` | number | -1 | Specifies a timeout for any program/transaction execution in seconds. After this time, the system will try to interrupt the program. |  | 
 | `qtemp.cleanup.threshold.hours` | number | 0 | To specify when`qtemp.dblog` is enabled. The db partition lifetime (in hours). |  | 
+| `qtemp.allow-session` | boolean | false | Specifies whether to allow session-scoped QTEMP. |  | 
+| `system.time.format` | string | ISO | The system time format. |  | 
+| `query.useRowComparison` | boolean | true | Specifies whether to build WHERE conditions using row comparison. |  | 
 | `qtemp.dblog` | boolean | false | Whether to enable QTEMP Database logging. |  | 
 | `qtemp.uuid.length` | number | 9 | The QTEMP unique id length. |  | 
 | `quartz.scheduler.stand-by-if-error` | boolean | false | Specifies whether to trigger job execution if the job scheduler is in standby mode. If true, When enabled job execution is not triggered. |  | 
 | `query.useConcatCondition` | boolean | false | Specifies whether key condition is built by key concatenation or not. |  | 
-| `reportOutputPath` | string | `/reports` | The report output path. |  | 
+| `reportOutputPath` | string | `/reports` | (Deprecated) The report output path. Retained for backward compatibility; use `report.output.path.template` instead. When `report.output.path.template` is empty, this value is used as `reportOutputPath/{PROGID}`. |  | 
+| `report.output.path.template` | string | `reports/{PROGID}` | The template for the report output path. Replaces the deprecated `reportOutputPath`. |  | 
+| `report.output.name.template` | string | `{PRINTERNAME}_{DATE}{TIME}` | The template for the report output file name. |  | 
+| `report.output.name.override.template` | string | `{PRINTERNAME}-{USRDTA}-{DATE}{TIME}` | The override template for the report output file name. |  | 
+| `report.output.time.format` | string | `HHmmss` | The time format used in report output name templates. |  | 
+| `report.output.date.format` | string | `yyyyMMdd` | The date format used in report output name templates. |  | 
+| `report.output.jobName.default` | string | `Interactive` | The default job name used in report output name templates. |  | 
+| `report.output.jobNumber.default` | string | `000000` | The default job number used in report output name templates. |  | 
+| `reportOutputPath.username.enabled` | boolean | false | Specifies whether to include a per-user subfolder in the report output path. |  | 
+| `report.overflow-handling-enabled` | boolean | false | Specifies whether report overflow handling is enabled. |  | 
+| `reportFormat` | string | `PDF` | The output format for generated reports. |  | 
+| `reportName.timestamp.format` | string |  | The timestamp format used in the report name. |  | 
 | `returnHttp5xxResponseForFailedSyncJob` | boolean | false | Specifies whether to return HTTP response code of 500 series for unsuccessful synchronized job execution. | 4.10.0 | 
 | `rollbackOnRTE` | boolean | false | Specifies whether to rollback implicit run unit transaction on runtime exceptions. |  | 
 | `sctThreadLimit` | long | 5 | The thread limit for triggering scripts. |  | 
@@ -601,14 +672,18 @@ To maintain existing behavior, you must explicitly set `bluesam.openWarmUp=true`
 | `sqlIntegerOverflowAllowed` | boolean | false | Specifies whether to allow the SQL integer overflow, meaning whether placing larger values in the host variable is allowed. |  | 
 | `startDefaultJob` | string | `false` | Specify whether to initialize default job at first transaction. |  | 
 | `stepFailWhenAbend` | boolean | true | Specifies whether to raise an abend if a step fails or completes execution. |  | 
-| `stopExecutionWhenProgNotFound` | boolean | true | Specifies whether to stop running if a program isn't found. If set to`true`, interrupts the run if a program is not found. |  | 
+| `stopExecutionWhenProgNotFound` | boolean | false | Specifies whether to stop running if a program isn't found. If set to`true`, interrupts the run if a program is not found. The shipped `application-main.yml` sets this to `false`; the code `@Value` fallback is `true` when no yml value is present. |  | 
 | `system.date.format` | string  | MDY | The system date format DATFMT. | --- | 
 | `system.date.separator` | string  | / | The system date separator DATSEP.<br />Possible values are slash (`/`), dash (`–`), period (`.`), comma (`,`) or blank (` `). Value needs to be specified in double quotes `""`. | 5.17.0 | 
-| `system.qdecfmt` | string |  |  |  | 
+| `system.qdecfmt` | string |  | The decimal format (QDECFMT) system value. Empty by default. |  | 
+| `gapwalk.zos.sysplexName` | string |  | The z/OS sysplex name exposed to the runtime. Empty by default. |  | 
+| `gapwalk.zos.systemName` | string |  | The z/OS system name exposed to the runtime. Empty by default. |  | 
+| `interactive-job.persist` | boolean | false | Specifies whether interactive job state is persisted. |  | 
+| `interactive-job.subsystem` | string | QINTER | The subsystem name used for interactive jobs. |  | 
 | `taskExecutor.allowCoreThreadTimeOut` | boolean | false | Specifies whether to allow core threads to time out in JCIS. This enables dynamic growing and shrinking even in combination with a non-zero queue (since the max pool size will only grow once the queue is full). |  | 
-| `taskExecutor.corePoolSize` | number | 5 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the core pool size. |  | 
-| `taskExecutor.maxPoolSize` | number | 10 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the max pool size (max number of parallel threads). |  | 
-| `taskExecutor.queueCapacity` | number | 50 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the queue size. (= maximum number of pending transactions when`taskExecutor.maxPoolSize` is reached) |  | 
+| `taskExecutor.corePoolSize` | number | 5 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the core pool size. **Note:** the `gapwalk-gs21.war` web application applies different defaults for the `taskExecutor.*` properties (`corePoolSize` 200, `maxPoolSize` 500, `queueCapacity` 10). |  | 
+| `taskExecutor.maxPoolSize` | number | 200 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the max pool size (max number of parallel threads). |  | 
+| `taskExecutor.queueCapacity` | number | 0 | When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the queue size. (= maximum number of pending transactions when`taskExecutor.maxPoolSize` is reached) |  | 
 | `tempFilesDirectory` | string | null | Specifies the name of the folder location of the temporary files that are generated. |  | 
 | `tempFolderPattern` | string | null | Specifies a pattern that will be used to dynamically build the name of the temporary folder based on the following predefined and customizable information.<br />HOST: the host name.<br />JOBID: the ID of the job.<br />HASHCODE: the hash code of the job context.<br />TIMESTAMP: the pattern to use when getting the timestamp. Target name of the temporary folder is TMP\_DIR\_{tempFolderPattern}. For example, in the case of the following pattern, the name will start with the job ID and end with the “timestamp”: tempFolderPattern: JOBID,HOST=xxxxx,HASHCODE,TIMESTAMP=yyyymmddhhmmss. If the property `tempFolderPattern` is not added to the YAML file or is empty, the name of the temporary folder will be "TMP\_DIR\_" \+ this.hashCode() (DefaultJobContext). |  | 
 | `uppercaseUserInput` | boolean | true | Specifies whether user input must be in uppercase.  |  | 
@@ -653,6 +728,9 @@ This table provides an exhaustive view of key/values parameters for this applica
 | `spring.jta.enabled` |  boolean |  false |  Standard key. If the datasource support mode is not static-xa, spring JTA transactions auto configuration must be disabled. |  | 
 | `sysPunchEncoding` |  string |  ASCII |  The syspunch encoding character set. Expects a valid encoding`CP1047`,`IBM930`,`ASCII`,`UTF-8`. |  | 
 | `systin.encoding` |  string |  ASCII |  The encoding character set of SYSTIN file dataset. Expects a valid encoding`CP1047`,`IBM930`,`ASCII`,`UTF-8`. | 4.5.0 | 
+| `unload.DFSIGDCB` |  boolean |  false |  Specifies whether to apply DFSIGDCB handling in the unload utility. |  | 
+| `adastrip.batchSize` |  number |  1000 |  The batch size used by the ADASTRIP utility. |  | 
+| `spliceLimitMemoryUsage` |  boolean |  true |  Specifies whether to limit memory usage during splice processing. This is a top-level key (no prefix). |  | 
 | `treatLargeNumberAsInteger` |  boolean |  false |  Specifies whether to treat large numbers as`Integer`. They are treated as`BigDecimal` by default. |  | 
 | `unload.bmc.useInto` |  boolean |  false |  Specifies whether to handle INTO bmc control keyword for unload utility. |  | 
 | `unload.chunkSize` |  number |  0 |  Chunk size used for unload utility. |  | 
@@ -681,10 +759,14 @@ This table provides an exhaustive view of key/values parameters for this applica
 
 | Key | Type | Default value | Description | 
 | --- | --- | --- | --- | 
-|  `commands-off` |  string |   | List of commands to turn off, separated by comma. Allowed values are`PGM_BASIC`,`RCVMSG`,`SNDRCVF`,`CHGVAR`,`QCLRDTAQ`,`RTVJOBA`,`ADDLFM`,`ADDPFM`,`RCVF`,`OVRDBF`,`DLTOVR`,`CPYF`,`SNDDTAQ`. Useful when you want to disable or overwrite an existing program. `PGM_BASIC` is a specific AWS Transform for mainframe Runtime program designed for debugging purposes. | 
 |  `encoding` |  string |  ASCII |  The encoding used in utility programs. Expects a valid encoding`CP1047`,`IBM930`,`ASCII`,`UTF-8`... | 
 |  `forcedDate` |  string |   | Forces the date to the date provided if there is one. | 
 | `forcedDateMode` |  string |   | Specifies the forced date mode. When set to `HYBRID`, the date portion is the configured forced date but the time portion reflects the actual system time. Applies only if `forcedDate` is also set. | 
+| `clcommand.sndpgmmsg.abortOnEmptyCallTree` |  boolean |  true | Specifies whether to abort `SNDPGMMSG` when the call tree is empty. | 
+| `clcommand.catchMonMsgException` |  boolean |  false | Specifies whether `MONMSG` catches exceptions. | 
+| `clcommand.sort.function` |  string |   | The sort function name used by CL commands. | 
+| `clcommand.sort.function.specific.column` |  boolean |  false | Specifies whether the CL command sort function targets a specific column. | 
+| `clcommand.cpyf.outputIsAFile` |  boolean |   | Specifies whether the `CPYF` output target is a file. | 
 |  `logging.config` |  Path |  classpath:logback-utility.xml |  Standard key for the reference to the logback configuration file. Other standard logging keys are available too. | 
 |  `primary.datasource` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` |  Standard spring datasource with subkeys |   |  Contains the connection information for the application database, if not using JNDI. Must have the same configuration as in the modernized application YAML file.<br /> Alternately, use of AWS secrets is strongly encouraged, as explained in [Client database](ba-runtime-config-app-secrets.md#client-database). | 
 |  `spring.datasource.primary.jndi-name` |  string |  jdbc/primary |  The JNDI name (Java Naming And Directory Interface) for the primary datasource, if using JNDI.  | 
@@ -707,6 +789,11 @@ This table provides an exhaustive view of key/values parameters for this applica
 | `jhdb.keepParent` | boolean | false | Whether to keep \_parent and \_logicalparent during IMS insertion. When set to true the IMS ISRT call will insert \_parent and \_logicalparent into database columns. | 
 | `jhdb.query.timeout` | int | -1 | Specifies a timeout for any jhdb transaction execution in seconds. After this time, the system will try to interrupt the program. No timeout is set if the value is -1 (default). | 
 | `jhdb.transaction.scope.programs` | string |  | list of programs to be declared as a whole transaction. Separate each program with a comma (`,`). For example:`PCP008,PCT008` | 
+| `jhdb.janus.storageBackend` | string |  | The JanusGraph storage backend used by JHDB. No code default. Note: the shipped example YAML sets `janus.storageBackend` (top-level, not `jhdb.janus`), which does not bind; the canonical prefix is `jhdb.janus`. | 
+| `jhdb.janus.storageHostname` | string |  | The JanusGraph storage hostname. No code default. | 
+| `jhdb.janus.storageUserName` | string |  | The JanusGraph storage user name. No code default. | 
+| `jhdb.janus.storagePassword` | string |  | The JanusGraph storage password. No code default. | 
+| `jhdb.janus.storageDirectory` | string |  | The JanusGraph storage directory. No code default. Note: the shipped `berkeleyje` example is set under a top-level `janus.*` prefix and is not wired to `@ConfigurationProperties(prefix="jhdb")`. | 
 |  `logging.config` |  Path |  classpath:logback-utility.xml |  Standard key for the reference to the logback configuration file. Other standard logging keys are available too. | 
 | `metadata.datasource` \+ -`driver-class-name` \+ -`url` \+ -`username` \+ -`password` \+ -`type` | string | Standard spring datasource with subkeys | Contains the metadata information for the jhdb database, including psbs, dbds, connections. Alternately, use of AWS secrets is strongly encouraged. | 
 |  `spring.jta.enabled` |  boolean |  false |  Standard key. If the datasource support mode is not static-xa, spring JTA transactions auto configuration must be disabled. | 
@@ -737,13 +824,16 @@ Your modernized application may require specific property configurations for the
 | `blu4iv.dao.cache.enabledHits` | boolean | false | Add the tracking of number of requests to the cache. | 4.8.0 | 
 | `blu4iv.dao.cache.entries.fileIds` | string |  | The list of database tables to be cached. | 4.8.0 | 
 | `blu4iv.dao.cache.entries.programIds` | string |  | The program's identifiers where the cache should be activated for the specified tables. The cache is available for all sub-programs in the execution stacks. | 4.8.0 | 
-| `blu4iv.dao.cache.initMaxResults` | number | 10000 | The size of the cache. | 4.8.0 | 
+| `blu4iv.dao.cache.maxResults` | number | 10000 | The size of the cache. | 4.8.0 | 
 | `blu4iv.dao.data.max` | number | 10 | The size of the internal cache for input DAO operations. This cache exists at the program level (single instance). | 4.9.0 | 
 | `blu4iv.dao.sort.function` | string |  | The sort function name for the blu4iv database. | 4.9.0 | 
+| `blu4iv.dao.sort.function.specific.column` | boolean | false | Specifies whether the sort function targets a specific column for the blu4iv database. |  | 
 | `blu4iv.dao.support` | string | JPA | Specifies the data access implementation to use (JPA or JDBC). | 4.9.0 | 
 | `blu4iv.dtaara.library.disable` | boolean | false | Controls the usage of library in the context of data area operations. If set to true, library usage is disabled for data area operations, but this does not affect the usage of QTemp. If set to false, library is considered when performing CRUD operations for data area. | 4.5.0 | 
 | `blu4iv.librarylist.enabled` | boolean | false | Enable the use of the library list to resolve a file library. | 4.10.0 | 
 | `blu4iv.librarylist.libraries` | string |  | The initial list of libraries ordered from left to right. | 4.10.0 | 
+| `blu4iv.lock` | string | gapwalk | Selects the Blu4iv lock manager implementation. Default is `gapwalk`. When set to `redis`, configure the `blu4iv.lock.redis.*` properties and `blu4iv.lock.timeout`. |  | 
+| `blu4iv.screen.table.maxRowsPerRequest` | number | 9999 | The maximum number of rows returned per request for Blu4iv screen tables. |  | 
 
 ### Configure the In-Memory cache for AS400 applications
 <a name="ba-runtime-in-memory-cache-as400"></a>
@@ -759,7 +849,7 @@ blu4iv:
    cache:
      enabled: true
      enabledHits: true
-     initMaxResults: 100000
+     maxResults: 100000
      entries:
      -
        fileIds: [${TABLEA}]

@@ -13,6 +13,7 @@ This page contains instructions for upgrading the AWS Transform for mainframe ve
 + [Common upgrades](#common-upgrades)
 + [Migrating from 3.10.0 to 4.0.0](#3.10-to-4.0)
 + [Migrating from 5.85.0 to 5.125.0](#5.85-to-5.125)
++ [Migrating from 5.194.0 to 5.274.0](#5.194-to-5.274)
 
 ## Common upgrades
 <a name="common-upgrades"></a>
@@ -124,3 +125,17 @@ The runtime shared folder contains the up-to-date dependencies.
 **Extra dependencies**
 
 If you used extra dependencies (not included on the runtime), you might need to update them. The readme file in the extra folder lists the supported versions.
+
+## Migrating from 5.194.0 to 5.274.0
+<a name="5.194-to-5.274"></a>
+
+### Breaking change: the RabbitMQ client is no longer bundled
+<a name="rabbitmq-client-extra-dependency"></a>
+
+Starting with this release, the RabbitMQ Java client (`com.rabbitmq:amqp-client`) is no longer included in the AWS Transform for mainframe Runtime distribution. It is now a customer-supplied extra dependency, like the Oracle JDBC driver and the IBM MQ client.
+
+This change affects only applications that use a RabbitMQ broker — for example, deployments configured with `queues.broker: rabbitmq` or `dataqueue.queues: rabbitmq` for JICS, JHDB, or data queue messaging, or the hybrid MQ bridge. Applications that do not use RabbitMQ are unaffected.
+
+If your application uses RabbitMQ, supply the RabbitMQ client JAR and place it in the `extra` folder of your runtime distribution, alongside the other extra dependencies. Functionality was tested with **amqp-client-5.35.0.jar**, but a more recent version might be compatible. For installation steps, see [Set up licensed dependencies in AWS Transform for mainframe Runtime on Amazon EC2](ba-runtime-dependencies-ec2.md) or [Set up licensed dependencies in AWS Transform for mainframe Runtime on container](ba-runtime-dependencies-container.md).
+
+No code changes are required — the runtime loads the client dynamically. If the JAR is missing at runtime, RabbitMQ features fail to initialize and the runtime logs a message instructing you to add it.

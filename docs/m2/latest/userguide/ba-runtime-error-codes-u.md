@@ -66,6 +66,12 @@ Utility pgm error codes, prefixed with `BA-U`.
 | BA-U5012 | Error | DSNUTILB STATISTICS: SQL execution failed. Check the database connection and verify the target table exists. |  | 
 | BA-U5013 | Warn | DSNUTILB STATISTICS: no specific targets resolved — skipping ANALYZE. Verify the preceding REORG command has a valid target or LISTDEF context. |  | 
 | BA-U5014 | Warn | DSNUTILB STATISTICS: no database support configured — skipping execution. This occurs in test mode only. No action required. |  | 
+| BA-U6001 | Error | ICETOOLS COUNT FROM BluesamFileConfiguration failed: %s. check BluesamFileConfiguration |  | 
+| BA-U6002 | Error | ICETOOLS COUNT Output DD not found: %s. check output DD |  | 
+| BA-U6003 | Error | ICETOOLS COUNT Failed to write to dataset: %s. check the dataset writer |  | 
+| BA-U7001 | Error | Unsupported memory allocation routine: %s. This memory routine is not currently supported |  | 
+| BA-U7002 | Error | %s requires exactly three arguments. Provide pointer, memory size, and flag arguments |  | 
+| BA-U7003 | Error | %s requires one argument. Provide pointer argument |  | 
 | BA-U7010 | Error | DSNTIAD: SYSPRINT DD not configured. Verify SYSPRINT DD statement. |  | 
 | BA-U7020 | Error | DSNTIAD: Failed to execute SQL statements. Review SQL syntax. |  | 
 | BA-U7030 | Error | DSNTIAD: I/O error during execution. Check SYSPRINT file. |  | 

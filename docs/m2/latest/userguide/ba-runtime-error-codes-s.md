@@ -20,3 +20,5 @@ SQL error codes, prefixed with `BA-S`.
 | BA-S0006 | Error | SQL Error: Error Indexing data set. Record count mismatch during append indexing. |  | 
 | BA-S0007 | Error | SQL Error: Error while reading intermediate table for appending indexes on data set. |  | 
 | BA-S0008 | Error | SQL Error: Error while persisting indexes on table. |  | 
+| BA-S0009 | Error | SQL Error: Failed to load existing keys for deduplication from table '%s'. Reason: %s. Deduplication check cannot proceed. The load operation will be aborted. |  | 
+| BA-S0010 | Error | Deduplication aborted for table '%s': existing row count (%d) exceeds maxDedupKeys limit (%d). Increase the maxDedupKeys limit or disable checkDuplicatesOnAppend. |  | 

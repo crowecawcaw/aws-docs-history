@@ -75,7 +75,7 @@
 
    For information on Gapwalk, see [AWS Transform for mainframe Runtime artifacts ](https://docs.aws.amazon.com/m2/latest/userguide/ba-runtime-artifacts.html).
 
-1. **How to request access to the AWS Transform for mainframe Runtime ?**
+1. **How do I request access to the AWS Transform for mainframe Runtime?**
 
    The Runtime is accessible through the [AWS Transform for mainframe Toolbox](https://bluinsights.aws/docs/bluage-toolbox-introduction) on AWS Transform for mainframe refactor.
 
@@ -229,15 +229,15 @@
 
    1. [AWS Transform for mainframe Non Managed](https://docs.aws.amazon.com/m2/latest/userguide/ba-runtime-options.html#ba-runtime-options-non-managed), which can be deployed into your own bespoke AWS architecture based on Amazon EC2 or Amazon ECS/AWS Fargate, that you have to provision and setup by yourself. Both options incur runtime fees, which are included in the project estimates provided to you. As this is a managed service with Support access, you don't need the source code. For more details on pricing, see [AWS Mainframe Modernization Pricing page](https://aws.amazon.com/ar/mainframe-modernization/pricing/).
 
-1. **How are changes and upgrades to AWS Transform for mainframe frameworks and libraries managed ?**
+1. **How are changes and upgrades to AWS Transform for mainframe frameworks and libraries managed?**
 
    AWS Transform for mainframe frameworks and libraries are updated through regular code generation and deployment processes. These updates are managed as part of the AWS Mainframe Modernization lifecycle, which includes version upgrades and support from the AWS Transform for mainframe team or certified partners. For detailed information on versioning, upgrade processes, and support timelines, please refer to the [AWS Mainframe Modernization lifecycle documentation](https://docs.aws.amazon.com/m2/latest/userguide/lifecycle-m2.html).
 
-1. **What are the supported version of tools (Tomcat, Postgres, MQ, etc.) and dependencies (Spring, Angular, etc.) the AWS Transform for mainframe Runtime uses ?**
+1. **What are the supported versions of tools (Tomcat, Postgres, MQ, etc.) and dependencies (Spring, Angular, etc.) that the AWS Transform for mainframe Runtime uses?**
 
    See details in [Release Notes](https://docs.aws.amazon.com/m2/latest/userguide/ba-release-notes.html).
 
-1. **What does 'Standalone' mean in the context of BAC and JAC ?**
+1. **What does 'Standalone' mean in the context of BAC and JAC?**
 
    Standalone refers to a special packaging and deployment mode for BAC (Blusam Administration Console) and JAC (JICS Administration Console) that allows these web applications to run independently in their own Tomcat server, separate from your modernized application. The BAC and JAC standalone versions are available into `aws-bluage-webapps-x.y.z.zip`. BAC and JAC non-standalone versions are available into `gapwalk-x.y.z.zip` under `webapps-consoles` folder. See [AWS Transform for mainframe Runtime artifacts](https://docs.aws.amazon.com/m2/latest/userguide/ba-runtime-artifacts.html).
 
@@ -274,7 +274,7 @@
 
 1. **Which AWS Transform for mainframe API is used to replace databases such as IMS DB?**
 
-   The JHDB (Java Hierarchical DataBase) API.
+   The JHDB (Java Hierarchical DataBase) API. For more information, see [IMS DB/DL/I emulation (JHDB)](https://docs.aws.amazon.com/m2/latest/userguide/ba-faq.html#ba-faq-jhdb).
 
 1. **Which AWS Transform for mainframe product can be used to migrate legacy data and databases to a modern relational database management system (RDBMS)?**
 
@@ -284,18 +284,470 @@
 
    [Data Simplifier](https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-data.html) is a core library in AWS Transform for mainframe that addresses the challenge of handling legacy memory access patterns in Java. It provides constructs to support low-level memory access, legacy data types (like zoned, packed, alphanumeric), and mixed structured/raw memory access that are common in mainframe applications but not natively available in Java. The library exposes these features through familiar Java patterns like getters/setters and class-based APIs, making them accessible to Java developers while maintaining legacy functionality.
 
-1. **How does AWS Transform for mainframe handles legacy memory layouts and data structures?**
+1. **How does AWS Transform for mainframe handle legacy memory layouts and data structures?**
 
    AWS Transform for mainframe handles legacy memory layouts through the [Record](https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-data.html#ba-shared-data-fqn) interface, which provides an abstraction of byte arrays with fixed size. For structured data like COBOL '01 data items', it uses [RecordEntity](https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-data.html#ba-shared-data-fqn) subclasses that are automatically generated during modernization. These classes maintain the hierarchical structure of the legacy data, with each element having a parent-child relationship. The system supports both raw memory access and structured access patterns, preserving the flexibility of legacy systems while providing a modern programming interface.
 
-1. **How does AWS Transform for mainframe deals with VSAM data sets modernization?**
+1. **How does AWS Transform for mainframe deal with VSAM data sets modernization?**
 
    The [Blusam](https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-blusam.html) component is providing the support for the modernization of the VSAM data sets, with a dedicated API, endpoints and an administration web-application (BAC: [Blusam Administration Console](https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-bac-userguide.html)). Blusam relies on a relational database as backend (PostgreSQL, either using RDS or Aurora).
+
+## IMS DB/DL/I emulation (JHDB)
+<a name="ba-faq-jhdb"></a>
+
+The IMS DB/DL/I emulation feature is **JHDB** (Java Hierarchical DataBase).
+
+**Note**  
+JHDB and Blusam are separate components. IMS DB is modernized by JHDB (hierarchical data stored relationally on PostgreSQL/Aurora). VSAM is modernized by Blusam. They are independent components with independent behavior and should be assessed separately; for example, their locking models differ.
+
+Your DL/I calls are **not** rewritten into hand-written SQL in the generated code. The generated Java keeps the original call and hands it to the JHDB runtime, passing the same function code, PCB, I/O area, and SSAs your program built. The runtime performs the hierarchical navigation and returns the segment and status code.
+
+Legacy:
+
+```
+CALL 'CBLTDLI' USING FUNC-GU PCB-MASK SEGMENT-IO-AREA ROOT-SSA.
+```
+
+Generated Java (conceptually — the same call, routed to the runtime):
+
+```
+callSubProgram("CBLTDLI", func /*GU*/, pcbMask, segmentIoArea, rootSsa);
+```
+
+CICS `EXEC DLI` works the same way; its status is returned in the DIB instead of the PCB. Because of this, the DL/I semantics your program relies on (current position, status codes, insert/delete rules, locking) are provided by the runtime, and your business logic keeps checking the PCB/DIB status exactly as before.
+
+1. **How is the parent-child segment hierarchy mapped, and is DL/I current position (the GN/GNP cursor) reproduced?**
+
+   **Hierarchy mapping.** Each segment type becomes a PostgreSQL table named `<DBDName>_<SegmentName>`, and each segment occurrence is one row. The parent-child relationship is carried by a concatenated key column (`_concatkey`): a child's `_concatkey` is its parent's `_concatkey` followed by the child's own key, so every descendant's key begins with its ancestor's key. Retrieving all children of a parent is therefore a key-prefix match. (Older `_parent` / `_logicalparent` id columns still exist for backward compatibility, but `_concatkey` is the mechanism used.)
+
+   Example — a two-level database (account summary to detail):
+
+   ```
+   DBD PADB
+     PAUTSUM0 (root, key ACCNTID)          -> table PADB_PAUTSUM0
+       PAUTDTL1 (child, key PAUT9CTS)      -> table PADB_PAUTDTL1
+   ```
+
+   A detail row under account `0000012345` gets `_concatkey = <ACCNTID key> + <detail key>`, so it "begins with" the summary row's key. That is how the runtime knows it is a child of that summary.
+
+   Logical relationships and logical segments are also supported: a logical segment is exposed as a database view, and a logical child's key begins with its logical parent's key (`lp_concatkey`).
+
+   **DL/I current position.** Yes — the GN/GNP cursor is reproduced by the runtime, not by the generated code. The runtime remembers the current position (and the "established parent" that GNP navigates within) per PCB, advances it on each successful GU/GN/GNP, and clears it at end of the unit of work — exactly like IMS. Your program does not manage position; it just issues the next GN/GNP.
+
+1. **Are keyed read (GU), sequential browse (GN), and get-(hold)-next-within-parent (GNP/GHNP) reproduced?**
+
+   Yes, all three, with the hold variants (GHU/GHN/GHNP).
+   + **GU (keyed read)** — retrieves the first segment matching the SSA; with no SSA, the first segment of that type.
+   + **GN (sequential browse)** — retrieves the next segment in hierarchical order from the current position. With no position established yet, it behaves like GU (first record).
+   + **GNP (get next within parent)** — retrieves the next child under the parent established by the previous GU/GN.
+   + **GHU/GHN/GHNP (hold variants)** — same as above, but they hold the segment for a following update/delete (see the locking and hold-for-update question).
+
+   Example — browse all summaries, and for each one browse its details (the classic unload pattern):
+
+   ```
+         * Get next summary (root) in sequence
+          CALL 'CBLTDLI' USING FUNC-GN  PCB-MASK PENDING-AUTH-SUMMARY ROOT-SSA.
+         * Get next detail under that summary
+          CALL 'CBLTDLI' USING FUNC-GNP PCB-MASK PENDING-AUTH-DETAILS  CHILD-SSA.
+   ```
+
+   Generated Java (the call keeps its shape — function code, PCB, I/O area, SSA — and is routed to the runtime):
+
+   ```
+   // GN: get next summary
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncGn().getFuncGnReference())
+       .byReference(ctx.getPautbpcb())            // PCB mask
+       .byReference(ctx.getPendingAuthSummary())  // I/O area
+       .byReference(ctx.getRootSsa())
+       .getArguments(), ctx);
+   
+   // GNP: get next detail under the established parent
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncGnp().getFuncGnpReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getPendingAuthDetails())
+       .byReference(ctx.getChildSsa())
+       .getArguments(), ctx);
+   ```
+
+   This produces exactly the IMS traversal: GN walks roots in key order; after a GN on the summary, GNP returns that summary's details one by one until `GE` (no more children).
+
+1. **Are qualified reads with range/comparison conditions (GT/GE/LT/LE) supported?**
+
+   Yes. A qualified SSA with a relational operator becomes an equivalent condition against the segment, so range and comparison reads behave as on IMS. Supported operators are `=`, `>`, `>=`, `<`, `<=`, `!=`, plus boolean `OR` between conditions.
+
+   Example — read the first detail whose timestamp field is greater than a value:
+
+   ```
+          01 DTL-SSA.
+             05 FILLER PIC X(08) VALUE 'PAUTDTL1'.
+             05 FILLER PIC X(01) VALUE '('.
+             05 FILLER PIC X(08) VALUE 'PAUT9CTS'.
+             05 FILLER PIC X(02) VALUE 'GT'.          *> greater-than
+             05 SSA-VAL PIC X(08).
+             05 FILLER PIC X(01) VALUE ')'.
+   
+          CALL 'CBLTDLI' USING FUNC-GN PCB-MASK PENDING-AUTH-DETAILS DTL-SSA.
+   ```
+
+   Generated Java — the qualified SSA becomes a search argument carrying the operator and value (this is the form produced from a CICS `EXEC DLI GN ... WHERE(field > value)`):
+
+   ```
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncGn().getFuncGnReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getPendingAuthDetails())
+       .byReference(SSABuilder.newInstance()
+           .segmentName("PAUTDTL1")
+           .addWhereClause("PAUT9CTS", ">", ctx.getSsaVal().getSsaValReference())  // GT condition
+           .build())
+       .getArguments(), ctx);
+   ```
+
+   The runtime returns the first qualifying segment in hierarchic order, or `GE` if none. Multi-level qualified SSAs (a condition at the parent level and another at the child level) and `OR` combinations are handled the same way — each becomes an additional `addWhereClause(...)` / segment in the same call.
+
+1. **How are ISRT/DLET/REPL expressed?**
+
+   They are issued exactly as on IMS — same function code, same SSAs — and the runtime performs the hierarchical insert/delete/replace.
+
+   **ISRT (insert).** For a dependent segment, a prior call must have established position on the parent. Insert of a logical child also creates/links its logical parent and paired segment when the DBD requires it.
+
+   ```
+         * Establish the parent, then insert the child under it
+          CALL 'CBLTDLI' USING FUNC-GU   PCB-MASK PENDING-AUTH-SUMMARY ROOT-SSA.
+          CALL 'CBLTDLI' USING FUNC-ISRT PCB-MASK PENDING-AUTH-DETAILS CHILD-SSA.
+   ```
+
+   Generated Java for the ISRT (as it actually appears in the modernized program):
+
+   ```
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncIsrt().getFuncIsrtReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getPendingAuthDetails())
+       .byReference(ctx.getChildSsa())
+       .getArguments(), ctx);
+   ```
+
+   **DLET (delete).** Requires a preceding hold call (GHU/GHN, or `LOCKED` under EXEC DLI). Deleting a segment cascades to its dependents, and IMS delete rules are honored (for example, deleting a logical parent that still has logical children is rejected).
+
+   ```
+          CALL 'CBLTDLI' USING FUNC-GHU  PCB-MASK PENDING-AUTH-DETAILS CHILD-SSA.  *> hold
+          CALL 'CBLTDLI' USING FUNC-DLET PCB-MASK PENDING-AUTH-DETAILS.           *> delete
+   ```
+
+   **REPL (replace).** Also requires a preceding hold. Only changed fields are updated; paired segments are updated together.
+
+   ```
+          CALL 'CBLTDLI' USING FUNC-GHU  PCB-MASK PENDING-AUTH-SUMMARY ROOT-SSA.  *> hold
+          MOVE NEW-VALUES TO PENDING-AUTH-SUMMARY.
+          CALL 'CBLTDLI' USING FUNC-REPL PCB-MASK PENDING-AUTH-SUMMARY.           *> replace
+   ```
+
+   Generated Java for the hold-then-delete pair (DLET takes no SSA — it deletes the held segment):
+
+   ```
+   // GHU: hold
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncGhu().getFuncGhuReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getPendingAuthDetails())
+       .byReference(ctx.getChildSsa())
+       .getArguments(), ctx);
+   
+   // DLET: delete the held segment
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncDlet().getFuncDletReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getPendingAuthDetails())
+       .getArguments(), ctx);
+   ```
+
+   If DLET/REPL is issued without a preceding hold, the runtime returns status `DJ`, just like IMS.
+
+1. **How are transaction boundaries (DB-INIT/DB-TERM) managed, and how do batch (BMP) and online (MPP) differ?**
+
+   The runtime manages commit and rollback for you:
+   + **Batch (BMP-equivalent).** The program runs as a unit of work; database changes are committed at normal end (or at a checkpoint) and rolled back on failure. `CHKP` (checkpoint) and restart are supported, so a long batch can checkpoint and be restarted.
+   + **Online/message-driven (MPP-equivalent).** Work is scoped to one message. The unit of work begins when the transaction gets its input message and ends at the sync point, so each message is committed independently. Under CICS, an `EXEC CICS SYNCPOINT` commits.
+
+   Example — a checkpoint in a batch program:
+
+   ```
+          EXEC DLI CHKP ID(WK-CHKPT-ID) END-EXEC.
+   ```
+
+   The practical difference: a batch program controls its own commit/checkpoint cadence, while an online transaction commits once per message. In both cases a failure rolls the current unit of work back to the last commit point.
+
+1. **What locking/isolation applies, and can a pessimistic "hold for update" be acquired?**
+
+   Yes, a hold-for-update is available — that is exactly what the GHU/GHN (hold) calls do, and it is required before DLET/REPL. When you issue a hold call, the runtime holds the segment so your subsequent update/delete is safe; the hold is released when your position moves or the unit of work ends.
+
+   Important characteristic to note for a concurrency assessment: the hold is managed by the JHDB runtime, and isolation is provided by the runtime plus the enclosing database transaction — it is not a raw SQL `SELECT ... FOR UPDATE` row lock. Functionally it gives you the DL/I hold-then-update behavior your programs expect (and returns "data unavailable" `BA` if a segment cannot be obtained), but the concurrency/throughput profile under heavy contention should be validated against your workload rather than assumed to match IMS/IRLM exactly.
+
+   Example:
+
+   ```
+          CALL 'CBLTDLI' USING FUNC-GHU  PCB-MASK PENDING-AUTH-SUMMARY ROOT-SSA.  *> hold for update
+         *  ... modify PENDING-AUTH-SUMMARY ...
+          CALL 'CBLTDLI' USING FUNC-REPL PCB-MASK PENDING-AUTH-SUMMARY.           *> update the held segment
+   ```
+
+1. **Is there a high-speed bulk sequential (HSSR) equivalent, and what caching applies?**
+
+   There is no separately named "HSSR" API, but the sequential read path is optimized for bulk scanning: when you browse with GN/GNP, the runtime pre-fetches sibling segments in batches (a look-ahead cache) rather than one round-trip per segment, which is what makes full-database sequential passes efficient.
+
+   Example — a straight GN loop over every root reads them in efficient batches under the covers:
+
+   ```
+          PERFORM UNTIL END-OF-DB
+              CALL 'CBLTDLI' USING FUNC-GN PCB-MASK PENDING-AUTH-SUMMARY ROOT-SSA
+              EVALUATE PCB-STATUS
+                  WHEN '  '  PERFORM PROCESS-SUMMARY
+                  WHEN 'GB'  SET END-OF-DB TO TRUE
+              END-EVALUATE
+          END-PERFORM.
+   ```
+
+   Whether this meets a specific HSSR throughput target for your database size is a performance question. We recommend validating it by measuring a representative bulk job on your modernized project; we do not quote a throughput guarantee in the abstract.
+
+1. **Does JHDB support IMS secondary indexes (non-primary-key access paths)?**
+
+   Yes. A secondary index defined in the DBD (an `XDFLD` / indexed `LCHILD`) is modernized into a database index plus an ordering view, and a PCB that names that index as its processing sequence (`PROCSEQ`) can navigate the segment in the indexed order instead of the primary-key order. Your program uses the indexed field in its SSA exactly as on IMS.
+
+   Example — the CARDDEMO authorization database already defines a secondary index on the account id (`ACCNTID`); a program scheduled against the index PCB can read summaries in `ACCNTID` order with the same GU/GN calls, and the runtime keeps a separate position within the secondary index.
+
+   So non-primary access paths are available in generated code, provided the secondary index is present in the DBD and referenced by the PCB.
+
+1. **In what form are success/failure/"not found" surfaced, and how should business logic evaluate them?**
+
+   Exactly as on IMS: every call returns the standard 2-character DL/I status code in the PCB (for `CALL 'CBLTDLI'`) or in the DIB (for `EXEC DLI`). Your business logic tests it after each call, with no new mechanism to learn. The full IMS status-code set is reproduced. The common ones:
+
+
+<table>
+<thead>
+  <tr><th>Status</th><th>Meaning</th></tr>
+</thead>
+<tbody>
+  <tr><td>(blank)</td><td>success</td></tr>
+  <tr><td><code>GE</code></td><td>segment not found (the "GE-equivalent" you asked about)</td></tr>
+  <tr><td><code>GB</code></td><td>end of database (no more segments on GN)</td></tr>
+  <tr><td><code>II</code></td><td>segment already exists (on ISRT)</td></tr>
+  <tr><td><code>DJ</code></td><td>DLET/REPL issued without a preceding hold (GHU/GHN)</td></tr>
+  <tr><td><code>DX</code> / <code>RX</code> / <code>IX</code></td><td>delete/replace/insert rule violation</td></tr>
+  <tr><td><code>BA</code></td><td>data unavailable</td></tr>
+  <tr><td><code>GA</code> / <code>GK</code></td><td>informational warnings on a successful call (hierarchic/segment boundary crossed)</td></tr>
+</tbody>
+</table>
+
+
+   Example — evaluate the status after a keyed read:
+
+   ```
+          CALL 'CBLTDLI' USING FUNC-GU PCB-MASK PENDING-AUTH-SUMMARY ROOT-SSA.
+          EVALUATE PCB-STATUS
+              WHEN '  '  PERFORM SEGMENT-FOUND
+              WHEN 'GE'  PERFORM SEGMENT-NOT-FOUND
+              WHEN OTHER PERFORM HANDLE-ERROR
+          END-EVALUATE.
+   ```
+
+   Generated Java — after the call, the program reads the same 2-byte status field out of the PCB and branches on it (blank = success, `"GE"` = not found), exactly mirroring the COBOL:
+
+   ```
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getFuncGu().getFuncGuReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getPendingAuthSummary())
+       .byReference(ctx.getRootSsa())
+       .getArguments(), ctx);
+   
+   if (DataUtils.isBlank(ctx.getPautbpcb().getPautPcbStatusReference())) {
+       // success
+   } else if (DataUtils.compare(ctx.getPautbpcb().getPautPcbStatusReference(), "GE") == 0) {
+       // segment not found
+   } else {
+       // handle other status
+   }
+   ```
+
+   Only genuine infrastructure failures (for example, an underlying database error/timeout) surface as a JHDB-specific code; all normal DL/I conditions use the standard IMS status codes your programs already check.
+
+1. **Are `CBLTDLI` CHKP and ROLB supported as-is (intercepted and executed by the runtime)?**
+
+   Yes — both are supported as-is. The modernized program keeps the original `CALL 'CBLTDLI' USING <func> ...` and the runtime intercepts the function code and executes it. You do not rewrite these calls, and they are not emitted as "unsupported" or silently ignored.
+   + `CHKP` is recognized and routed to the runtime's checkpoint/restart handler (see the symbolic checkpoint and restart question).
+   + `ROLB` (and its `ROLS` sibling) is recognized and performs a rollback of the current run-unit transaction (see the transaction boundaries question).
+
+   Example — a batch program taking a checkpoint and, on an error path, rolling back:
+
+   ```
+          01 CHKP-FUNCT   PIC X(4) VALUE 'CHKP'.
+          01 ROLB-FUNCT   PIC X(4) VALUE 'ROLB'.
+          01 CHKP-ID      PIC X(8) VALUE 'RMAD0001'.
+         *...
+         * Commit work so far and take a checkpoint
+          CALL 'CBLTDLI' USING CHKP-FUNCT PCB-MASK CHKP-ID.
+         *...
+         * On an application error, undo everything since the last commit
+          CALL 'CBLTDLI' USING ROLB-FUNCT PCB-MASK.
+   ```
+
+   Both calls run through the same `CBLTDLI` entry point in the generated Java, exactly as any GU/GN/ISRT call does; the runtime performs the checkpoint or rollback and returns control.
+
+   ```
+   // CALL 'CBLTDLI' USING CHKP-FUNCT PCB-MASK CHKP-ID
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getChkpFunct().getChkpFunctReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getChkpId())
+       .getArguments(), ctx);
+   ```
+
+   A batch `CALL 'CBLTDLI' USING ROLB-FUNCT PCB-MASK` comes out in the same shape:
+
+   ```
+   // CALL 'CBLTDLI' USING ROLB-FUNCT PCB-MASK
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getRolbFunct().getRolbFunctReference())
+       .byReference(ctx.getPautbpcb())
+       .getArguments(), ctx);
+   ```
+
+1. **Symbolic checkpoint and restart (XRST) — is the checkpoint ID \+ user area saved/restored, and does restart reposition the database?**
+
+   Yes to all three. Both checkpoint forms and an `XRST`-equivalent restart are supported:
+   + **Basic checkpoint** — `CALL 'CBLTDLI' USING CHKP-FUNCT PCB-MASK CHKP-ID`. The runtime commits and records the checkpoint identity and the current database position.
+   + **Symbolic checkpoint** — the same call with additional pairs of (length, area) operands. Each user checkpoint area you name is saved with the checkpoint, so it can be restored on restart — the classic symbolic-checkpoint behavior.
+   + **XRST (restart)** — `CALL 'CBLTDLI' USING XRST-FUNCT ...`. When the run is started in restart mode against a saved checkpoint, XRST restores your saved checkpoint areas and the runtime repositions the database to where it was at that checkpoint, so a `GN` after XRST resumes from the saved position — as on IMS.
+
+   Example — symbolic checkpoint saving one work area, then restart restoring it:
+
+   ```
+          01 CHKP-FUNCT  PIC X(4) VALUE 'CHKP'.
+          01 XRST-FUNCT  PIC X(4) VALUE 'XRST'.
+          01 CHKP-ID     PIC X(8) VALUE 'RMAD0001'.
+          01 SAVE-LEN    PIC S9(4) COMP VALUE 200.
+          01 SAVE-AREA   PIC X(200).
+         *...
+         * At program start, restore any saved areas + reposition after a restart
+          CALL 'CBLTDLI' USING XRST-FUNCT PCB-MASK CHKP-ID SAVE-LEN SAVE-AREA.
+         *...
+         * Periodically: commit + save the work area with the checkpoint
+          CALL 'CBLTDLI' USING CHKP-FUNCT PCB-MASK CHKP-ID SAVE-LEN SAVE-AREA.
+   ```
+
+   Generated Java — symbolic CHKP and XRST keep their id and their (length, area) operands on the same `CBLTDLI` call, so the saved/restored areas flow through unchanged:
+
+   ```
+   // XRST at start: restore saved areas + reposition after a restart
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getXrstFunct().getXrstFunctReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getChkpId())
+       .byReference(ctx.getSaveLen())
+       .byReference(ctx.getSaveArea())      // restored on restart
+       .getArguments(), ctx);
+   
+   // Symbolic CHKP: commit + save the work area with the checkpoint
+   ctrl.callSubProgram("CBLTDLI", CallBuilder.newInstance()
+       .byReference(ctx.getChkpFunct().getChkpFunctReference())
+       .byReference(ctx.getPautbpcb())
+       .byReference(ctx.getChkpId())
+       .byReference(ctx.getSaveLen())
+       .byReference(ctx.getSaveArea())      // saved with the checkpoint
+       .getArguments(), ctx);
+   ```
+
+   The persisted checkpoint payload (checkpoint id, database positions, and the saved areas) is exactly what the documented `jhdb.checkpointPersistence` mechanism stores.
+
+1. **Exact commit scope of CHKP, and rollback scope of ROLB.**
+
+   CHKP commits the whole run-unit transaction, and ROLB rolls back the whole run-unit transaction — not just the JHDB/IMS portion. Because all persistent work in a run unit (JHDB hierarchical data, DB2/SQL work, and Blusam/VSAM updates) is performed under one runtime-managed transaction against the same database connection(s), a CHKP commit or a ROLB rollback covers all of it together.
+   + `CHKP` — commit the current unit of work (JHDB \+ SQL/DB2 \+ Blusam/VSAM), then establish a new checkpoint from which processing continues.
+   + `ROLB` — roll back the current unit of work in full: the runtime rolls back the run-unit transaction, cancels the current DL/I database position, and rolls back the Blusam/VSAM connections and all other connections in the same unit of work.
+
+   Example:
+
+   ```
+         * Insert an IMS segment AND a DB2 row in the same unit of work
+          CALL 'CBLTDLI' USING ISRT-FUNCT PCB-MASK SEG-IO CHILD-SSA.
+          EXEC SQL INSERT INTO AUTHFRDS (...) VALUES (...) END-EXEC.
+         *...
+          IF SOME-ERROR
+         *   Undo BOTH the IMS insert and the DB2 insert together
+             CALL 'CBLTDLI' USING ROLB-FUNCT PCB-MASK
+          ELSE
+         *   Commit BOTH together and checkpoint
+             CALL 'CBLTDLI' USING CHKP-FUNCT PCB-MASK CHKP-ID
+          END-IF.
+   ```
+
+   This single-unit-of-work behavior matches the mainframe expectation that CHKP/ROLB delimit the whole recoverable unit, not just the IMS DB calls.
+
+1. **Does an ABEND trigger the same automatic rollback?**
+
+   Yes. An ABEND terminates the run unit without reaching the successful end-of-unit-of-work commit, so the implicit run-unit transaction is not committed and any work done since the last commit/checkpoint does not persist. When the ABEND surfaces as a runtime exception, the automatic rollback (`rollbackOnRTE`) applies as well. Either way, the net effect is the mainframe expectation: after an ABEND, uncommitted changes are backed out to the last commit point.
+
+1. **What status code is returned after CHKP/ROLB, and how should business logic evaluate it?**
+
+   The status is returned in the standard place — the PCB status field — read exactly like any other DL/I call.
+   + **Success:** the runtime sets the status to blank (`'  '`, two bytes) after a successful CHKP, XRST, or ROLB. Your program tests for blank as "OK", as it would after a GU/GN.
+   + **Error cases:** malformed calls fail fast (for example, a checkpoint/restart call with the wrong number of operands is rejected), and a genuine underlying database failure surfaces through the same status-code mechanism used by the data calls. There is no separate return value or exception for the normal path — you evaluate the 2-byte PCB status.
+
+   Example — check the status after a checkpoint:
+
+   ```
+          CALL 'CBLTDLI' USING CHKP-FUNCT PCB-MASK CHKP-ID.
+          IF PCB-STATUS = SPACES
+              CONTINUE
+          ELSE
+              DISPLAY 'CHKP FAILED, STATUS: ' PCB-STATUS
+              PERFORM ABEND-ROUTINE
+          END-IF.
+   ```
+
+   Generated Java — the status check reads the PCB status field back (blank = success, else fail), mirroring the COBOL:
+
+   ```
+   // after the CHKP callSubProgram
+   if (DataUtils.isBlank(ctx.getPautbpcb().getPautPcbStatusReference())) {
+       // CHKP success
+   } else {
+       // CHKP failed — log the status and abend
+       abend(ctx, ctrl);
+   }
+   ```
+
+1. **Batch vs online for these two calls — is CHKP meaningful online, and are there restrictions?**
+   + **Batch (BMP-equivalent):** CHKP and ROLB are fully meaningful. CHKP is the normal way a long-running batch commits periodically and establishes a restart point; ROLB undoes work since the last commit/checkpoint. This is the primary use case and works as described above.
+   + **Online/message-driven (MPP-equivalent):** the unit of work is scoped to a single input message and is committed at the message sync point, so the transaction boundary is driven by the message cycle rather than by explicit periodic CHKP calls. In this mode, a CHKP is not the natural commit driver it is in batch, and the recommended online commit boundary is the sync point (`EXEC CICS SYNCPOINT` under JICS). ROLB to abandon the current message's work is meaningful in both modes.
+
+1. **Recommended pattern for hand-written Java programs.**
+
+   Use the same `CBLTDLI` entry point for CHKP/ROLB in hand-written Java programs — do not reach for a separate low-level transaction API. Issuing CHKP/ROLB (and GU/GN/ISRT/…) through the `CBLTDLI` call keeps a hand-written program behaving identically to a transformed one: the runtime applies the same run-unit commit/rollback, checkpoint save/restore, database-position handling, and Blusam/VSAM/SQL coordination described above. It also means hand-written middleware and generated programs share one consistent transaction model.
+
+   Conceptual shape of the calls in a hand-written Java program (same arguments as the COBOL calls — function code, PCB, and, for symbolic checkpoint, the id and saved areas):
+
+   ```
+   // checkpoint (commit + establish restart point)
+   callSubProgram("CBLTDLI", chkpFunc, pcbMask, chkpId);              // basic
+   callSubProgram("CBLTDLI", chkpFunc, pcbMask, chkpId, len, area);   // symbolic (saves 'area')
+   
+   // rollback (undo the current unit of work)
+   callSubProgram("CBLTDLI", rolbFunc, pcbMask);
+   
+   // restart at program start (restore saved areas + reposition)
+   callSubProgram("CBLTDLI", xrstFunc, pcbMask, chkpId, len, area);
+   ```
+
+   Rely on the implicit run-unit transaction for the normal path (no explicit commit needed at the end of a successful unit of work), and use CHKP/ROLB only where the legacy program used them. If a hand-written program has a genuine need to drive commit/rollback outside the DL/I model, that is a design point to raise with us so we can recommend the correct runtime hook.
 
 ## Transformation
 <a name="ba-faq-transformation"></a>
 
-1. **Were can I found details about the transformation process?**
+1. **Where can I find details about the transformation process?**
 
    See [AWS Transform for mainframe refactor](https://bluinsights.aws/) documentation.
 

@@ -12,5 +12,5 @@ Batches error codes, prefixed with `BA-C`.
 
 | Key | Severity | Text | Additional details | 
 | --- | --- | --- | --- | 
-| BA-C1010 | Warn | Job script context is null, checkpoint will proceed without script context. |  | 
-| BA-C1011 | Warn | Job script context does not implement Serializable, checkpoint will proceed without script context. |  | 
+| BA-C1010 | Debug | Job script context is null, checkpoint will proceed without script context. | By-design, non-fatal skip: the checkpoint continues without the script context. Logged at DEBUG (not WARN) intentionally, to avoid alarming customers; no operator action is required. | 
+| BA-C1011 | Debug | Job script context does not implement Serializable, checkpoint will proceed without script context. | By-design, non-fatal skip: the checkpoint continues without the script context. Logged at DEBUG (not WARN) intentionally, to avoid alarming customers; no operator action is required. | 

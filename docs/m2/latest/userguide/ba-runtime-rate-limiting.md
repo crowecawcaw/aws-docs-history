@@ -57,7 +57,7 @@ gapwalk:
     cleanupIntervalMinutes: 5                            # Cleanup interval for expired buckets
     bucketExpiryHours: 1                                 # Hours after which unused buckets expire
     errorMessage: "Too many requests. Try again later."  # Custom error message
-    whitelistIps: ""                                     # Comma-separated IPs to bypass limiting
+    whitelistIps: ""                                     # Comma-separated IP allowlist to bypass limiting
     perEndpointLimiting: false                           # Apply limits per endpoint (not implemented)
 ```
 
@@ -86,7 +86,7 @@ Time in hours after which unused rate limit buckets are considered expired and e
 Custom error message returned in the JSON response when rate limit is exceeded. Default: `"Too many requests. Try again later."`
 
 **whitelistIps**  
-Comma-separated list of IP addresses that bypass rate limiting entirely. Useful for health checks or trusted systems. Default: `empty`
+Comma-separated IP allowlist of addresses that bypass rate limiting entirely. Useful for health checks or trusted systems. Default: `empty`
 
 **perEndpointLimiting**  
 Whether to apply separate rate limits per endpoint instead of per client only. Currently not implemented. Default: `false`

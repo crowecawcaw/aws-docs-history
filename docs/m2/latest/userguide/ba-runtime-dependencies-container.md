@@ -35,6 +35,13 @@ With this dependency version, also supply the following transitive dependencies:
 + bcpkix-jdk15to18-1.76.jar
 + bcutil-jdk15to18-1.76.jar
 
+### RabbitMQ connection
+<a name="ba-runtime-dependencies-prereq-rabbitmq"></a>
+
+Supply a [RabbitMQ Java client](https://github.com/rabbitmq/rabbitmq-java-client) (`com.rabbitmq:amqp-client`). For example, **amqp-client-5.35.0.jar**, but a more recent version might be compatible.
+
+Starting with this release, the RabbitMQ Java client is no longer included in the AWS Transform for mainframe Runtime distribution and must be supplied as an extra dependency. This applies only to applications that use a RabbitMQ broker. Applications that do not use RabbitMQ are unaffected. For more information, see [Upgrading instructions for AWS Transform for mainframe](ba-migration-notes.md).
+
 ### DDS Printer files
 <a name="ba-runtime-dependencies-prereq-dds"></a>
 

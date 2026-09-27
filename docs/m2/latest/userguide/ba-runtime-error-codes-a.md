@@ -69,3 +69,11 @@ Generic error codes, prefixed with `BA-A`.
 | BA-A2001 | Fatal | AWS permission issue while parsing secret. | The error displays the underlying error. It is often related to a missing permission in the used IAM role. | 
 | BA-A2002 | Fatal | Application requires network access to AWS Secrets Manager service in order to start. This can be fixed either by using a publicly accessible environment, or by creating a PrivateLink or a NAT Gateway. | See [Access AWS Mainframe Modernization using an AWS PrivateLink interface endpoint](vpc-interface-endpoints.md). | 
 | BA-A2003 | Fatal | DB name for the database secret was passed neither in the secret nor in the yaml key. Add the database name to the configuration, either in a dbname field in the secret, or in the dedicated yaml key. | See [AWS Transform for mainframe Runtime secrets](ba-runtime-config-app-secrets.md). | 
+
+## Application Context Resource Errors
+<a name="application-context-resource-errors"></a>
+
+
+| Key | Severity | Text | Additional details | 
+| --- | --- | --- | --- | 
+| BA-A5000 | Fatal | I/O error when reading application context resources. An I/O failure occurred while loading application context resource files (missing files or insufficient permissions). Make sure the files you are trying to load exist and that you have sufficient permissions to access them. |  | 

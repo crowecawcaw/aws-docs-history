@@ -19,7 +19,74 @@ The following environments are used:
 A significant amount of changes concern internal usages of classes, in the AWS Transform for mainframe runtime. They should have no impact on existing customer code.
 
 **Topics**
++ [Release 5.274.0 - Breaking changes from 5.194.0](#ba-breaking-changes-5.274.0)
 + [Release 5.125.0 - Breaking changes from 5.75.0](#ba-breaking-changes-5.125.0)
+
+## Release 5.274.0 - Breaking changes from 5.194.0
+<a name="ba-breaking-changes-5.274.0"></a>
+
+### Generated-code signature changes
+<a name="ba-breaking-changes-5.274.0-generated-code-signatures"></a>
+
+These methods are emitted directly into generated modernized-application code by the transformation engine, so a re-transformation binds against the new signature. There are three.
++ **`InputDeviceHelper.writeInto(...)` — third parameter type changed**
+  + File: `velocity-framework/GapWalk-Runtime-Legacy-Statements/src/main/java/com/netfective/bluage/gapwalk/runtime/statements/InputDeviceHelper.java`
+  + Why it matters: The generator emits `InputDeviceHelper.writeInto(...)` calls into generated code for COBOL ACCEPT ... FROM CONSOLE, passing a writable field slice as the third argument. Re-transformed applications bind to the new `RecordAdaptable` parameter.
+
+  Before
+
+  ```
+  void writeInto(ExecutionContext executionContext, Context context, RangeReference rangeReference)
+  ```
+
+  After
+
+  ```
+  void writeInto(ExecutionContext executionContext, Context context, RecordAdaptable recordAdaptable)
+  ```
++ **`DataUtils.formatBytes(RangeReference, RangeReference)` — return type changed**
+  + File: `velocity-framework/GapWalk-DataSimplifier/src/main/java/com/netfective/bluage/gapwalk/datasimplifier/utils/DataUtils.java`
+  + Why it matters: The generator emits `DataUtils.formatBytes(...)` into generated code and now consumes the returned `int` as the length argument of a generated `SequentialFile.write(record, int)` call (GS21 print-mode VARYING-without-DEPENDING-ON write path). Re-transformed applications depend on the new `int` return.
+
+  Before
+
+  ```
+  public static void formatBytes(RangeReference source, RangeReference target)
+  ```
+
+  After
+
+  ```
+  public static int formatBytes(RangeReference source, RangeReference target)
+  ```
++ **`Blu4UserSpace.withTransferSize(...)` — parameter type widened**
+  + File: `velocity-framework/gapwalk-runtime-userspace-support/src/main/java/com/netfective/bluage/gapwalk/userspace/support/data/Blu4UserSpace.java`
+  + Why it matters: Two generators emit `withTransferSize(<field reference>)` for the AS/400 QUSCRTUS (Create User Space) API, binding the reference overload. The erased method descriptor changed from `(ElementaryRangeReference)` to `(RangeReference)`, so pre-built customer artifacts that call the old descriptor require recompilation. Source is compatible on re-transformation (the new body still handles an `ElementaryRangeReference` argument).
+
+  Before
+
+  ```
+  public Blu4UserSpace withTransferSize(ElementaryRangeReference transferSize)
+  ```
+
+  After
+
+  ```
+  public Blu4UserSpace withTransferSize(RangeReference transferSize)
+  ```
+
+### Configuration-property changes
+<a name="ba-breaking-changes-5.274.0-configuration-properties"></a>
+
+None. No existing transform, generation, or runtime configuration property was renamed, removed, or had its default value changed. All property changes in the release are net-new, opt-in keys whose defaults preserve prior behavior.
+
+### Dependency / deployment changes
+<a name="ba-breaking-changes-5.274.0-dependency-deployment"></a>
++ **RabbitMQ client is no longer bundled**
+  + Impact: Runtime · Action required (RabbitMQ users only)
+  + Change: The `com.rabbitmq:amqp-client` library was unbundled from the runtime (to clear a CVE and a GPL-2.0 license gate). RabbitMQ is now accessed through reflection behind the runtime's messaging interfaces.
+  + Why it matters: A deployment that uses a RabbitMQ broker (`ims.messages`, `jics.queues`, `dataqueue.queues`, or `blu4ivmq.queues.broker = rabbitmq`) will fail at runtime (`RabbitMQUnavailableException`) because the jar is absent. The default internal queueing is unaffected. This is a classpath change only — the customer-facing messaging interfaces (`MqQueueingConsumer`, `JicsQueueingConsumer`, the IMS message-queue base) did not change.
+  + Action: RabbitMQ users must supply a CVE-free `amqp-client` jar (5.35.0 or later) on the runtime classpath, the same way Oracle and IBM MQ drivers are provided.
 
 ## Release 5.125.0 - Breaking changes from 5.75.0
 <a name="ba-breaking-changes-5.125.0"></a>

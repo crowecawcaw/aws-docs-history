@@ -17,3 +17,4 @@ Files error codes, prefixed with `BA-F`. These errors are related to files opera
 | --- | --- | --- | --- | 
 | BA-F2000 | Error | Failed to process GDG deletion event. Verify the GDG file path is valid and the event queue is properly configured. |  | 
 | BA-F2001 | Warn | Cannot extract filename from path. Verify the GDG file path format is correct. |  | 
+| BA-F2002 | Error | Failed during MF-compatible file header processing on EXTEND for file: %s. Verify the file is accessible and not corrupted. If the file is empty, ensure only one process opens it in EXTEND mode at a time. |  | 
