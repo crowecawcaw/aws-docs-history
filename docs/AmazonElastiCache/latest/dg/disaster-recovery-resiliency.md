@@ -87,13 +87,13 @@ A Valkey or Redis OSS replication group is comprised of a single primary node wh
 During this time your application can continue reading and writing using the other nodes.
 
 **Valkey or Redis OSS Multi-AZ**  
-You can enable Multi-AZ on your Valkey or Redis OSS replication groups. Whether you enable Multi-AZ or not, a failed primary will be detected and replaced automatically. How this takes place varies whether or not Multi-AZ is or is not enabled.
+We recommend enabling Multi-AZ on your Valkey or Redis OSS replication groups for the best availability configuration. Multi-AZ distributes your replicas across Availability Zones and enables automatic failover, so that a primary node failure results in rapid promotion of a replica with minimal write interruption.
 
 **When Multi-AZ is enabled**
 
 1. ElastiCache detects the primary node failure.
 
-1. ElastiCache promotes the read replica node with the least replication lag to primary node.
+1. ElastiCache automatically promotes the read replica node with the least replication lag to primary node.
 
 1. The other replicas sync with the new primary node.
 
@@ -103,9 +103,9 @@ You can enable Multi-AZ on your Valkey or Redis OSS replication groups. Whether 
 
 Failing over to a replica node is generally faster than creating and provisioning a new primary node. This means your application can resume writing to your primary node sooner than if Multi-AZ were not enabled.
 
-For more information, see [Minimizing downtime in ElastiCache by using Multi-AZ with Valkey and Redis OSS](AutoFailover.md).
+For more information about how Multi-AZ and automatic failover work together, see [Automatic failover and Multi-AZ](AutoFailover.md#AutoFailover.Understanding).
 
-**When Multi-AZ is disabled**
+**When Multi-AZ is not enabled**
 
 1. ElastiCache detects primary failure.
 
@@ -113,13 +113,16 @@ For more information, see [Minimizing downtime in ElastiCache by using Multi-AZ 
 
 1. ElastiCache creates and provisions a new primary node to replace the failed primary.
 
-1. ElastiCache syncs the new primary with one of the existing replicas.
+1. If replicas exist, ElastiCache syncs the new primary with one of the existing replicas. If no replicas exist, the new primary starts empty.
 
-1. When the sync is finished, the new node functions as the cluster's primary node.
+1. The new node functions as the cluster's primary node.
 
-During steps 1 through 4 of this process, your application can't write to the primary node. However, your application can continue reading from your replica nodes.
+**Note**  
+While it is possible to have automatic failover enabled without Multi-AZ, replicas are not guaranteed to be in different Availability Zones in this configuration. Failover still promotes a replica to primary if one is available, but this does not protect against AZ-level failures. For most use cases, we recommend enabling Multi-AZ.
 
-For added protection, we recommend that you launch the nodes in your replication group in different Availability Zones (AZs). If you do this, an AZ failure will only impact the nodes in that AZ and not the others.
+During steps 1 through 4 of this process, your application can't write to the primary node. However, if you have replica nodes, your application can continue reading from them during this process.
+
+For added protection, we recommend that you launch the nodes in your replication group in different Availability Zones (AZs) by enabling Multi-AZ. If you do this, an AZ failure will only impact the nodes in that AZ and not the others.
 
 For more information, see [High availability using replication groups](Replication.md).
 

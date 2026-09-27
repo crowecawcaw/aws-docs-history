@@ -212,6 +212,13 @@ Parameters removed in Redis OSS 6.x are as follows.
 | --- | --- | --- | 
 | lua-replicate-commands | Permitted values: yes/no<br />Default: yes<br />Type: boolean<br />Modifiable: Yes<br />Changes take effect: Immediately | Always enable Lua effect replication or not in Lua scripts  | 
 
+The following table lists the parameters changed in Redis OSS 6.x.
+
+
+|  Name  |  Details |  Description  | 
+| --- | --- | --- | 
+| databases | Permitted values: 1 to 10000<br />Default: 16<br />Type: integer<br />Modifiable: Yes<br />Changes take effect: After Restart | Redis OSS 6.0 decreased the maximum number of allowed databases from 1200000 to 10000.<br />When cluster mode is enabled, only database 0 is available regardless of this parameter's value. For multiple databases in cluster mode, see the `cluster-databases` parameter in Valkey 9.0 and later. | 
+
 ### Redis OSS 5.0.3 parameter changes
 <a name="ParameterGroups.Redis.5-0-3"></a>
 
@@ -541,7 +548,7 @@ Redis OSS 2.6.13 was the first version of Redis OSS supported by ElastiCache. Th
   - **Description:** For Redis OSS read replicas: If a client's output buffer remains at client-output-buffer-limit-slave-soft-limit bytes for longer than this number of seconds, the client will be disconnected.
 
 - **`databases`**
-  - **Details:** Default: 16<br />Type: integer<br />Modifiable: No<br />Changes take place: At Creation
+  - **Details:** Default: 16<br />Permitted values: 1 to 1200000<br />Type: integer<br />Modifiable: No<br />Changes take place: At Creation
   - **Description:** The number of logical partitions the databases is split into. We recommend keeping this value low.<br />This value is set when you create the parameter group. When assigning a new parameter group to a cluster, this value must be the same in both the old and new parameter groups.
 
 - **`hash-max-ziplist-entries`**

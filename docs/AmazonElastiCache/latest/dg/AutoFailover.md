@@ -10,7 +10,7 @@ This replacement results in some downtime for the cluster, but if Multi-AZ is en
 ElastiCache also propagates the Domain Name Service (DNS) name of the promoted replica. It does so because then if your application is writing to the primary endpoint, no endpoint change is required in your application. If you are reading from individual endpoints, make sure that you change the read endpoint of the replica promoted to primary to the new replica's endpoint.
 
 In case of planned node replacements initiated due to maintenance updates or self-service updates, be aware of the following:
-+ For Valkey and Redis OSS clusters, the planned node replacements complete while the cluster serves incoming write requests. 
++ For Valkey and Redis OSS clusters with cluster mode enabled, the planned node replacements complete while the cluster serves incoming write requests. 
 + For Valkey and Redis OSS cluster mode disabled clusters with Multi-AZ enabled that run on the 5.0.6 or later engine, the planned node replacements complete while the cluster serves incoming write requests. 
 + For Valkey and Redis OSS cluster mode disabled clusters with Multi-AZ enabled that run on the 4.0.10 or earlier engine, you might notice a brief write interruption associated with DNS updates. This interruption might take up to a few seconds. This process is much faster than recreating and provisioning a new primary, which is what occurs if you don't enable Multi-AZ. 
 
@@ -22,10 +22,31 @@ You can enable Multi-AZ using the ElastiCache Management Console, the AWS CLI, o
 Enabling ElastiCache Multi-AZ on your Valkey or Redis OSS cluster (in the API and CLI, replication group) improves your fault tolerance. This is true particularly in cases where your cluster's read/write primary cluster becomes unreachable or fails for any reason. Multi-AZ is only supported on Valkey and Redis OSS clusters with more than one node in each shard.
 
 **Topics**
++ [Automatic failover and Multi-AZ](#AutoFailover.Understanding)
 + [Enabling Multi-AZ](#AutoFailover.Enable)
 + [Failure scenarios with Multi-AZ responses](#AutoFailover.Scenarios)
 + [Testing automatic failover](#auto-failover-test)
 + [Limitations on Multi-AZ](#AutoFailover.Limitations)
+
+## Automatic failover and Multi-AZ
+<a name="AutoFailover.Understanding"></a>
+
+Multi-AZ is the recommended configuration for high availability in ElastiCache. When you enable Multi-AZ, ElastiCache distributes your replicas across different Availability Zones and enables automatic failover. If the primary node fails, ElastiCache automatically promotes the replica with the least replication lag to primary. This provides both AZ-level resilience and rapid recovery from node failures with minimal write interruption.
+
+We recommend enabling Multi-AZ as a single configuration step for most use cases. Multi-AZ requires at least one replica in a different Availability Zone from the primary.
+
+**How automatic failover works**  
+Automatic failover is the mechanism that Multi-AZ uses to recover from primary node failures. When Multi-AZ is enabled and the primary fails, ElastiCache promotes the replica with the least replication lag to primary. Writes can resume within seconds. ElastiCache then provisions a replacement replica in the Availability Zone where the failed primary was located.
+
+**What happens without Multi-AZ**  
+If Multi-AZ is not enabled and a primary node fails, ElastiCache takes the primary offline and provisions a new primary node. If replicas exist, ElastiCache syncs the new primary from a replica. If no replicas exist, the new primary starts empty and data is lost unless you restore from a snapshot. This process results in a longer write interruption compared to automatic failover.
+
+**Note**  
+While it is possible to have automatic failover enabled without Multi-AZ, replicas are not guaranteed to be in different Availability Zones in this configuration. Failover still promotes a replica to primary if one is available, but this does not protect against AZ-level failures. For most use cases, we recommend enabling Multi-AZ.
+
+Consider the following differences between cluster modes:
++ **Valkey or Redis OSS (cluster mode enabled)** – Multi-AZ is enabled by default. Automatic failover is always required and cannot be disabled.
++ **Valkey or Redis OSS (cluster mode disabled)** – We recommend enabling Multi-AZ and configuring at least one replica for high availability. You also have the option to enable or disable automatic failover independently.
 
 ## Enabling Multi-AZ
 <a name="AutoFailover.Enable"></a>
@@ -482,6 +503,8 @@ Be aware of the following limitations for Multi-AZ:
 
   When choosing the replica to promote to primary, ElastiCache chooses the replica with the least replication lag. In other words, it chooses the replica that is most current. Doing so helps minimize the amount of lost data. The replica with the least replication lag can be in the same or different Availability Zone from the failed primary node.
 + When you manually promote read replicas to primary on Valkey or Redis OSS clusters with cluster mode disabled, you can do so only when Multi-AZ and automatic failover are disabled. To promote a read replica to primary, take the following steps:
+**Note**  
+Manual replica promotion is different from testing automatic failover. With manual promotion (described here), you must first disable Multi-AZ and automatic failover, and you can choose which replica becomes primary. To test automatic failover, use the `TestFailover` API. This requires automatic failover to be *enabled* and simulates a primary node failure to verify your configuration. For more information, see [Testing automatic failover](#auto-failover-test).
 
   1. Disable Multi-AZ on the cluster.
 

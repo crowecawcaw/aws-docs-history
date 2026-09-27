@@ -10,7 +10,6 @@ For performance details for each node type, see [Amazon EC2 Instance Types](http
 For information on which node size to use, see [Choosing your node size](CacheNodes.SelectSize.md). 
 
 **Note**  
-We are transitioning T2 instances to previous generation status. You will no longer be able to create new ElastiCache clusters using T2 instances or purchase new T2 reserved nodes. There is no impact to your existing T2 clusters or reservations. We recommend upgrading to T4g instances for better performance and cost efficiency.   
 Instance types with burstable network performance use a network I/O credit mechanism to burst beyond their baseline bandwidth on a best-effort basis.
 
 **Topics**
@@ -18,6 +17,7 @@ Instance types with burstable network performance use a network I/O credit mecha
 + [Current Generation (Valkey)](#CacheNodes.CurrentGen-Valkey)
 + [Current Generation (Redis OSS)](#CacheNodes.CurrentGen-Redis)
 + [Burstable Performance Nodes](#CacheNodes.Burstable)
++ [Previous Generation](#CacheNodes.PreviousGen)
 + [Supported node types by AWS Region](#CacheNodes.SupportedTypesByRegion)
 + [Related Information](#CacheNodes.RelatedInfo)
 
@@ -67,9 +67,6 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache.t3.micro | 1.5.16 | 0.064 | 5.0 | 0.50 | 
 | cache.t3.small | 1.5.16 | 0.128 | 5.0 | 1.37 | 
 | cache.t3.medium | 1.5.16 | 0.256 | 5.0 | 3.09 | 
-| cache.t2.micro | 1.5.16 | 0.064 | 1.024 | 0.555 | 
-| cache.t2.small | 1.5.16 | 0.128 | 1.024 | 1.55 | 
-| cache.t2.medium | 1.5.16 | 0.256 | 1.024 | 3.22 | 
 
 **Memory optimized**
 
@@ -176,9 +173,6 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache.t3.micro | 7.2 | No | No | No | 0.064 | 5.0 | 0.50 | 
 | cache.t3.small | 7.2 | No | No | No | 0.128 | 5.0 | 1.37 | 
 | cache.t3.medium | 7.2 | No | No | No | 0.256 | 5.0 | 3.09 | 
-| cache.t2.micro | 7.2 | No | No | No | 0.064 | 1.024 | 0.555 | 
-| cache.t2.small | 7.2 | No | No | No | 0.128 | 1.024 | 1.55 | 
-| cache.t2.medium | 7.2 | No | No | No | 0.256 | 1.024 | 3.22 | 
 
 **Memory optimized**
 
@@ -290,9 +284,6 @@ Instance types with burstable network performance use a network I/O credit mecha
 | cache.t3.micro | 4.0.10 | N | N | N | 0.064 | 5.0 | 0.50 | 
 | cache.t3.small | 4.0.10 | N | N | N | 0.128 | 5.0 | 1.37 | 
 | cache.t3.medium | 4.0.10 | N | N | N | 0.256 | 5.0 | 3.09 | 
-| cache.t2.micro | 4.0.10 | N | N | N | 0.064 | 1.024 | 0.555 | 
-| cache.t2.small | 4.0.10 | N | N | N | 0.128 | 1.024 | 1.55 | 
-| cache.t2.medium | 4.0.10 | N | N | N | 0.256 | 1.024 | 3.22 | 
 
 **Memory optimized**
 
@@ -361,17 +352,25 @@ Amazon ElastiCache's T4g and T3 nodes are configured as standard and suited for 
 The following table lists the burstable performance node types, the rate at which CPU credits are earned per hour. It also shows the maximum number of earned CPU credits that a node can accrue and the number of vCPUs per node. In addition, it gives the baseline performance level as a percentage of a full core performance (using a single vCPU).
 
 
-| Node type | CPU credits earned per hour |  Maximum earned credits that can be accrued\* |  vCPUs  |  Baseline performance per vCPU  |  Network performance  | Memory (GiB) | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| t4g.micro | 12 | 288 | 2 | 10% | Up to 5 Gigabit | 0.5 | 
-| t4g.small | 24 | 576 | 2 | 20% | Up to 5 Gigabit | 1.37 | 
-| t4g.medium | 24 | 576 | 2 | 20% | Up to 5 Gigabit | 3.09 | 
-| t3.micro | 12 | 288 | 2 | 10% | Up to 5 Gigabit | 0.5 | 
-| t3.small | 24 | 576 | 2 | 20% | Up to 5 Gigabit | 1.37 | 
-| t3.medium | 24 | 576 | 2 | 20% | Up to 5 Gigabit | 3.09 | 
-| t2.micro | 6 | 144 | 1 | 10% | Low to moderate | 0.5 | 
-| t2.small | 12 | 288 | 1 | 20% | Low to moderate | 1.55 | 
-| t2.medium | 24 | 576 | 2 | 20% | Low to moderate | 3.22 | 
+<table>
+<thead>
+  <tr><th>Node type</th><th>CPU credits earned per hour</th><th> Maximum earned credits that can be accrued*</th><th> vCPUs </th><th> Baseline performance per vCPU </th><th> Network performance </th><th>Memory (GiB)</th></tr>
+</thead>
+<tbody>
+  <tr><td colspan="7"><b>Current generation</b></td></tr>
+  <tr><td>t4g.micro</td><td><code>12</code></td><td>288</td><td>2</td><td>10%</td><td>Up to 5 Gigabit</td><td>0.5</td></tr>
+  <tr><td>t4g.small</td><td><code>24</code></td><td>576</td><td>2</td><td>20%</td><td>Up to 5 Gigabit</td><td>1.37</td></tr>
+  <tr><td>t4g.medium</td><td><code>24</code></td><td>576</td><td>2</td><td>20%</td><td>Up to 5 Gigabit</td><td>3.09</td></tr>
+  <tr><td>t3.micro</td><td><code>12</code></td><td>288</td><td>2</td><td>10%</td><td>Up to 5 Gigabit</td><td>0.5</td></tr>
+  <tr><td>t3.small</td><td><code>24</code></td><td>576</td><td>2</td><td>20%</td><td>Up to 5 Gigabit</td><td>1.37</td></tr>
+  <tr><td>t3.medium</td><td><code>24</code></td><td>576</td><td>2</td><td>20%</td><td>Up to 5 Gigabit</td><td>3.09</td></tr>
+  <tr><td colspan="7"><b>Previous generation</b></td></tr>
+  <tr><td>t2.micro</td><td><code>6</code></td><td>144</td><td>1</td><td>10%</td><td>Low to moderate</td><td>0.5</td></tr>
+  <tr><td>t2.small</td><td><code>12</code></td><td>288</td><td>1</td><td>20%</td><td>Low to moderate</td><td>1.55</td></tr>
+  <tr><td>t2.medium</td><td><code>24</code></td><td>576</td><td>2</td><td>20%</td><td>Low to moderate</td><td>3.22</td></tr>
+</tbody>
+</table>
+
 
 \* The number of credits that can be accrued is equivalent to the number of credits that can be earned in a 24-hour period.
 
@@ -386,6 +385,18 @@ For more information on these metrics, see [CPU Credit Metrics](https://docs.aws
 In addition, be aware of these details:
 + All current generation node types are created in a virtual private cloud (VPC) based on Amazon VPC by default.
 + Redis OSS configuration variables `appendonly` and `appendfsync` aren't supported.
+
+## Previous Generation
+<a name="CacheNodes.PreviousGen"></a>
+
+Previous generation node types are no longer available for new cluster creation. Existing clusters using these node types continue to function, but we recommend upgrading to current generation node types for better performance and cost efficiency.
+
+
+| Instance type | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) | Memory (GiB) | 
+| --- | --- | --- | --- | 
+| cache.t2.micro | 0.064 | 1.024 | 0.555 | 
+| cache.t2.small | 0.128 | 1.024 | 1.55 | 
+| cache.t2.medium | 0.256 | 1.024 | 3.22 | 
 
 ## Supported node types by AWS Region
 <a name="CacheNodes.SupportedTypesByRegion"></a>
