@@ -69,7 +69,7 @@ The following table lists which fields can be mapped from the Salesforce-Asset o
 | Quantity | Quantity | 
 | Description | Description | 
 
-The Salesforce-Asset customer data from the Salesforce object is associated with a Connect Customer standard asset using the indexes in the following table. 
+The Salesforce-Asset customer data from the Salesforce object is associated with an Connect Customer standard asset using the indexes in the following table. 
 
 
 | Standard Index Name | Salesforce-Asset source field | 

@@ -1,11 +1,11 @@
 
 
-# Generative AI powered data mapping in Connect Customer
+# Generate a mapping with generative AI in Customer Profiles
 <a name="genai-powered-data-mapping"></a>
 
-Connect Customer Customer Profiles provides a generative AI powered customer data mapping capability that significantly reduces the time needed to create unified profiles, enabling you to help provide more personalized customer experiences.
+With the generative AI-powered data mapping capability in Connect Customer Customer Profiles, you can reduce the time needed to create unified profiles and deliver more personalized customer experiences.
 
-With this capability, when contact center administrators add customer data from any of the 70\+ available no-code data connectors such as Adobe Analytics, Salesforce, or Amazon Simple Storage Service (S3), Connect Customer Customer Profiles will analyze the data from these sources to automatically determine how to organize and combine data that exists in different formats across disparate sources into unified profiles in Connect Customer. Contact center administrators can review and complete the setup of customer profiles, so they can provide agents with relevant customer information and dynamically personalize IVRs and chatbots to improve customer satisfaction and agent productivity.
+When you add customer data from any of the more than 70 available no-code data connectors—such as Adobe Analytics, Salesforce, or Amazon S3—Customer Profiles analyzes the source data and automatically determines how to organize and combine data from disparate sources into unified profiles. You can review and complete the setup before ingestion begins.
 
 Generative AI powered customer data mapping is available in the following regions:
 + US East (N. Virginia)
@@ -19,53 +19,36 @@ Generative AI powered customer data mapping is available in the following region
 + Europe (Frankfurt)
 + Europe (London)
 
-## Set up generative AI powered data mapping
+## Set up generative AI-powered data mapping
 <a name="set-up-genai-powered-data-mapping"></a>
 
 1. Open the Connect Customer Customer Profiles console.
 
 1. On the **Data source integrations** tab, choose **Add data source integration**.
 
-1. Set up the connection. Select the data source from drop-down that has all supported connectors available.  
+1. Set up the connection. Select the data source from the drop-down list of supported connectors.  
 ![The data source from drop-down that has all supported connectors available.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-1.png)
 
-1. Map data. Select the option to auto-generate data mapping, or select an already existing mapping template or create one from scratch..  
+1. Map data. Choose to auto-generate the data mapping, select an existing mapping template, or create one from scratch.  
 ![Map data.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-2.png)
 
-1. Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes. Make edits to ingestion keys and confirm before starting data ingestion. For more on field mappings and keys, see [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md).  
+1. Review the mapping summary. The auto-generated summary shows all customer attributes. Make edits to ingestion keys and confirm before starting data ingestion. For details on fields and keys, see [Field definitions in Customer Profiles object type mappings](mapping-field-definitions.md) and [Key definitions in Customer Profiles object type mappings](mapping-key-definitions.md).  
 ![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-3.png)
 
 ## How it works
 <a name="genai-powered-data-mapping-how-it-works"></a>
 
-The system works in four phases. In the first phase, Customer Profiles fetches source attributes and, if available, samples data from your data source, subsequently determining the most appropriate object type for the target. For an Amazon S3 data source, the first CSV file found in the selected Amazon S3 bucket and prefix will be used as the sample data. For other data sources, Customer Profiles fetches source attributes through AppFlow. In the second phase, a large language model (LLM) is leveraged to further process each of the custom attributes and map them to standard customer profile attributes. LLM is used again in the third phase to select the suitable attributes that can serve as keys, such as customer identifiers. Finally in the fourth phase, the timestamp format detector parses the timestamps to maintain the right chronological order of the records. The system is able to generate the mapping for up to 120 attributes in less than 20 seconds after combining the prediction results.
+Generation runs in four phases:
 
-## Generative AI powered data mapping troubleshooting
-<a name="genai-powered-data-mapping-troubleshooting"></a>
+1. Customer Profiles fetches source attributes and, if available, sample data from your data source, then determines the most appropriate target object type. For an Amazon S3 source, the first CSV file found in the selected bucket and prefix is used as sample data. For other sources, attributes are fetched through AppFlow.
 
-The following sections display the possible error messages that you might encounter. It also provides the cause and resolution for each issue.
+1. A large language model (LLM) processes each custom attribute and maps it to a standard customer profile attribute.
 
-### Error: Could not parse object string into JSON
-<a name="genai-powered-data-mapping-parse-object-error"></a>
+1. The LLM selects suitable attributes to serve as keys, such as customer identifiers.
 
-The object string in the request is not a valid JSON. Review the object string in the request and verify that it is valid JSON.
+1. A timestamp format detector parses timestamps to maintain the correct chronological order of records.
 
-### Error: Value at 'objects' failed to satisfy constraint: Member must have length less than or equal to 5
-<a name="genai-powered-data-mapping-failed-constraint-error"></a>
+**Note**  
+Generative AI produces a starting point that you review and confirm before any data is ingested. Always check the suggested keys—especially the unique and profile keys—against your understanding of the source data. If generation can't produce a valid mapping, fall back to [manual mapping in the console](create-mapping-console.md).
 
-There are too many objects in the request. Up to five objects are allowed in a request. Reduce the number of objects to five or less.
-
-### Error: Breached limit of 120 attributes
-<a name="genai-powered-data-mapping-breached-limit"></a>
-
-Up to 120 attributes are allowed in a JSON object, including nested JSON attributes. Remove some attributes that don't need to be mapped from the JSON object.
-
-![Up to 120 attributes are allowed in a JSON object, including nested JSON attributes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-breached-limit.png)
-
-
-### Warning: We couldn't find a **unique key**, which distinguishes your data. We couldn't find a **profile key**, which identifies your profiles.
-<a name="genai-powered-data-mapping-unique-key-warning"></a>
-
-The model could not find a valid object type from given object. Change the input or use manual mapping approach as suggested.
-
-![The model could not find a valid object type from given object. Change the input or use manual mapping approach as suggested.](https://docs.aws.amazon.com/connect/latest/adminguide/images/genai-augmented-data-mapping-unique-key-warning.png)
+For errors and warnings you might see during generation, see [Troubleshoot object type mappings in Customer Profiles](object-type-mapping-troubleshooting.md).

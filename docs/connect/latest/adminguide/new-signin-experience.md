@@ -75,9 +75,25 @@ If you are an AWS GovCloud (US) user, also allowlist the following endpoints:
 
 We recommend the following when testing the new sign-in experience:
 + **Browser coverage** – Test across the browsers your agents and administrators commonly use, including Chrome, Firefox, Safari, and Edge.
++ **Browser autofill** – Test your browser's saved credentials and autofill behavior on the new unified sign-in page. Confirm that your browser or password manager correctly populates the username and password fields, and that you can sign in successfully. If the fields do not autofill as expected, update your saved credentials for the new sign-in URL.
 + **Network configurations** – Test from behind your corporate firewall and VPN to confirm the required URLs are accessible.
 + **User roles** – Verify sign-in with different user roles, including agents, supervisors, and administrators.
 + **Password reset flow** – Test the password reset process to confirm that reset emails from `no-reply@signin.aws` are received and not blocked by email filters.
+
+## Resetting a forgotten password
+<a name="new-signin-reset-password"></a>
+
+If you do not remember your password, you can reset it directly from the new sign-in page. You do not need to contact your administrator to regain access.
+
+**To reset your password**
+
+1. On the sign-in page, choose **Reset password**.
+
+1. Enter your username when prompted, and then follow the on-screen instructions.
+
+1. Check your email for a password reset message from `no-reply@signin.aws`. If you do not see the email, check your spam or junk folder. Confirm that messages from this address are not blocked by your email filters.
+
+1. Follow the link in the email to create a new password, and then sign in using your new credentials.
 
 ## Support resources
 <a name="new-signin-support"></a>

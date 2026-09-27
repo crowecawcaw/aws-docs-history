@@ -1,32 +1,60 @@
 
 
-# Standard identifiers for setting attributes on the key in Customer Profiles
+# Standard identifiers in Customer Profiles
 <a name="standard-identifiers"></a>
 
-With standard identifiers, you can set attributes on the key. Decide which identifiers to use based on how you want the data to be ingested in the profiles. For example, you mark phone number with the identifier PROFILE. This means phone number is to be treated as unique identifier. If Customer Profiles gets two contacts with the same phone number, the contacts are going to be merged into a single profile. 
+Standard identifiers are tags applied to a key that describe its role during ingestion. They tell Customer Profiles how each key participates in matching an object to a profile and whether the key value is stored for future use. You set standard identifiers in the `StandardIdentifiers` array of a key definition. For more information, see [Key definitions in Customer Profiles object type mappings](mapping-key-definitions.md).
+
+## Standard identifiers reference
+<a name="standard-identifiers-reference"></a>
 
 
-| Identifier name | Description | 
+| Identifier | Purpose | 
 | --- | --- | 
-| AIR\_PREFERENCE | This identifier means that this key uniquely identifies an air preference. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any air preference that has this key associated with it.+  If an air preference is found, then the object is assigned to that air preference. <br />+  If more than one air preference is found when searching for this key, the match is rejected. (Only keys that uniquely identify an air preference should be used as unique keys except for special circumstances.)  | 
-| AIR\_BOOKING | This identifier means that this key uniquely identifies an air booking. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any air booking that has this key associated with it.+  If an air booking is found, then the object is assigned to that air booking. <br />+  If more than one air booking is found when searching for this key, the match is rejected. (Only keys that uniquely identify an air booking should be used as unique keys except for special circumstances.)  | 
-| AIR\_SEGMENT | This identifier means that this key uniquely identifies an air segment. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any air segment that has this key associated with it.+  If an air segment is found, then the object is assigned to that air segment. <br />+  If more than one air segment is found when searching for this key, the match is rejected. (Only keys that uniquely identify an air segment should be used as unique keys except for special circumstances.)  | 
-| HOTEL\_PREFERENCE | This identifier means that this key uniquely identifies a hotel preference. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any hotel preference that has this key associated with it.+  If a hotel preference is found, then the object is assigned to that hotel preference. <br />+  If more than one hotel preference is found when searching for this key, the match is rejected. (Only keys that uniquely identify a hotel preference should be used as unique keys except for special circumstances.)  | 
-| HOTEL\_STAY\_REVENUE | This identifier means that this key uniquely identifies a hotel stay revenue. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any hotel stay revenue that has this key associated with it.+  If a hotel stay revenue is found, then the object is assigned to that hotel stay revenue. <br />+  If more than one hotel stay revenue is found when searching for this key, the match is rejected. (Only keys that uniquely identify a hotel stay revenue should be used as unique keys except for special circumstances.)  | 
-| HOTEL\_RESERVATION | This identifier means that this key uniquely identifies a hotel reservation. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any hotel reservation that has this key associated with it.+  If a hotel reservation is found, then the object is assigned to that hotel reservation. <br />+  If more than one hotel reservation is found when searching for this key, the match is rejected. (Only keys that uniquely identify a hotel reservation should be used as unique keys except for special circumstances.)  | 
-| LOYALTY | This identifier means that this key uniquely identifies a loyalty. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any loyalty that has this key associated with it.+  If a loyalty is found, then the object is assigned to that loyalty. <br />+  If more than one loyalty is found when searching for this key, the match is rejected. (Only keys that uniquely identify a loyalty should be used as unique keys except for special circumstances.)  | 
-| LOYALTY\_TRANSACTION | This identifier means that this key uniquely identifies a loyalty transaction. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any loyalty transaction that has this key associated with it.+  If a loyalty transaction is found, then the object is assigned to that loyalty transaction. <br />+  If more than one loyalty transaction is found when searching for this key, the match is rejected. (Only keys that uniquely identify a loyalty transaction should be used as unique keys except for special circumstances.)  | 
-| LOYALTY\_PROMOTION | This identifier means that this key uniquely identifies a loyalty promotion. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any loyalty promotion that has this key associated with it.+  If a loyalty promotion is found, then the object is assigned to that loyalty promotion. <br />+  If more than one loyalty promotion is found when searching for this key, the match is rejected. (Only keys that uniquely identify a loyalty promotion should be used as unique keys except for special circumstances.)  | 
-| UNIQUE | This identifier must be specified by exactly one index for each object type. This key is used to uniquely identify objects of the object type for either fetching them or if needed update a submitted object at a later date. <br />All the fields that make up the UNIQUE keys are required to be specified when submitting a new object or it is rejected. | 
-| PROFILE | This identifier means that this key uniquely identifies a profile. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any profile that has this key associated with it. +  If a profile is found, then the object is assigned to that profile.  <br />+   If more than one profile is found when searching for this key, the match is rejected. (Only keys that uniquely identify a profile should be used as unique keys except for special circumstances.)  | 
-| LOOKUP\_ONLY | This identifier indicates the key is not stored after ingesting the object. The key is only to be used for determining the profile during ingestion. <br />The key value is not associated with the profile during ingestion, which means it can't be used to allow searching for it or matching later ingested objects to the same key.   You cannot specify a key as both a `UNIQUE` identifier and a `LOOKUP_ONLY` identifier.   You can only use `PROFILE` together with `LOOKUP_ONLY` if there is at least one other key that has the `PROFILE` identifier without the `NEW_ONLY` or `LOOKUP_ONLY` identifiers. The only exception is the `_profileId` key, which can have the `PROFILE` and `LOOKUP_ONLY` identifier combination on its own.    | 
-| NEW\_ONLY | If the profile does not already exist before the object is ingested, the key is associated with the profile. Otherwise the key is only used for matching objects to profiles.    You cannot specify a key as both a `UNIQUE` identifier and a `NEW_ONLY` identifier.   You can only use `PROFILE` together with `NEW_ONLY` if there is at least one other key that has the `PROFILE` identifier without the `NEW_ONLY` or `LOOKUP_ONLY` identifiers.    | 
-| SECONDARY | During the matching of an object to a profile, Customer Profiles first looks up all PROFILE keys that do not have the SECONDARY identifier. These are considered first. SECONDARY keys are only considered if no matching profile is found using these keys. | 
-| ASSET | This identifier means that this key uniquely identifies an asset. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any asset that has this key associated with it.+  If an asset is found, then the object is assigned to that asset. <br />+   If more than one asset is found when searching for this key, the match is rejected. (Only keys that uniquely identify an asset should be used as unique keys except for special circumstances.)  | 
-| ORDER | This identifier means that this key uniquely identifies an order. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any order that has this key associated with it.+  If an order is found, then the object is assigned to that order. <br />+  If more than one order is found when searching for this key, the match is rejected. (Only keys that uniquely identify an order should be used as unique keys except for special circumstances.)  | 
-| CASE | This identifier means that this key uniquely identifies a case. When this identifier is specified, it means that during ingestion, Customer Profiles looks for any case that has this key associated with it.+  If a case is found, then the object is assigned to that case. <br />+  If more than one case is found when searching for this key, the match is rejected. (Only keys that uniquely identify a case should be used as unique keys except for special circumstances.)  | 
+| UNIQUE | Identifies the specific object instance. Exactly one UNIQUE identifier is required per object type. When a new object arrives with the same UNIQUE value, it replaces the existing one. | 
+| PROFILE | Used to look up the profile the object belongs to. At least one PROFILE identifier is required. The key is stored so it can also be used for future matching and for SearchProfiles queries. | 
+| SECONDARY | A fallback profile-matching key. SECONDARY is always used in combination with PROFILE—the key's standard identifiers must include both. Secondary keys are only consulted when no primary PROFILE key produces an unambiguous match. The key is always stored. | 
+| LOOKUP\_ONLY | Used only to match a profile during this ingestion. The key value is not stored afterward, so it can't be used for future matches or searches. Can't be combined with UNIQUE. | 
+| NEW\_ONLY | The key is stored only when a new profile is created during this ingestion. If the object matches an existing profile, the key behaves like LOOKUP\_ONLY. Can't be combined with UNIQUE. | 
+| ASSET, ORDER, CASE | Associates the object with a standard asset, order, or case record. | 
+| AIR\_PREFERENCE, HOTEL\_PREFERENCE, AIR\_BOOKING, AIR\_SEGMENT, HOTEL\_RESERVATION, HOTEL\_STAY\_REVENUE | Associates the object with the corresponding travel record. | 
+| LOYALTY, LOYALTY\_TRANSACTION, LOYALTY\_PROMOTION | Associates the object with a loyalty record, transaction, or promotion. | 
+| DEVICE | Associates the object with a device record. | 
+| WEB\_ANALYTICS | Associates the object with a web analytics event. | 
 
-## Compatible identifiers
-<a name="standard-identifiers-compatibility"></a>
+## PROFILE, SECONDARY, and LOOKUP\_ONLY compared
+<a name="compare-matching-identifiers"></a>
 
-![Matrix showing allowed and restricted identifiers and key names for different data types.](https://docs.aws.amazon.com/connect/latest/adminguide/images/standard-identifiers-compatibility-image.png)
+All three identify the profile an object belongs to. They differ in when they're evaluated during matching and whether the key value is stored afterward. `SECONDARY` is not used on its own—a secondary key lists both `PROFILE` and `SECONDARY` in its standard identifiers:
+
+
+| Aspect | `PROFILE` | `SECONDARY` | `LOOKUP_ONLY` | 
+| --- | --- | --- | --- | 
+| Required? | Yes—at least one per object type | No | No | 
+| When it's used for matching | In the primary matching pass | Only as a fallback when primary PROFILE keys don't match | In the primary matching pass, alongside PROFILE keys | 
+| Stored after ingestion? | Yes | Yes | No | 
+| Available for future lookups and SearchProfiles? | Yes | Yes | No | 
+| Best for | Durable identifiers that reliably locate the profile, such as a customer ID | Lower-priority identifiers that you still want saved for future use | Transient identifiers you don't want permanently associated | 
+
+## NEW\_ONLY behavior
+<a name="new-only-behavior"></a>
+
+`NEW_ONLY` scopes a key so it's only attached to profiles this ingestion creates:
++ If the object matches an **existing** profile, the key is used for matching only and is not stored on that profile (same as `LOOKUP_ONLY`).
++ If the object causes a **new** profile to be created, the key is stored on the new profile (same as `PROFILE`).
+
+Use `NEW_ONLY` when you want a value to help create and identify a new profile, but you don't want it added to an existing profile—where it could accidentally cause unrelated profiles to merge.
+
+## Combination rules
+<a name="standard-identifiers-combination-rules"></a>
++ `UNIQUE` can't be combined with `LOOKUP_ONLY` or `NEW_ONLY`.
++ If any key combines `PROFILE` with `LOOKUP_ONLY` or `NEW_ONLY`, at least one other key must use `PROFILE` on its own (without `LOOKUP_ONLY` or `NEW_ONLY`). This guarantees an ingested object can always be persistently associated with a profile. The `_profileId` key is exempt from this requirement.
++ Standard object identifiers (`ASSET`, `ORDER`, and so on) can be combined with `PROFILE` and `UNIQUE` as needed.
++ If your fields target a standard object type—for example, `_asset.SerialNumber`—at least one key must carry that object type's standard identifier (`ASSET`).
++ Reserved keys such as `_profileId`, `_orderId`, `_caseId`, and `_assetId` must be declared `LOOKUP_ONLY`.
+
+## Required identifiers per object type
+<a name="required-identifiers-per-object-type"></a>
++ Exactly one key with a `UNIQUE` identifier.
++ At least one key with a `PROFILE` identifier.
++ If fields target a standard object type, at least one key with that object type's standard identifier.

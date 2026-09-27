@@ -31,4 +31,4 @@ At the **Queues** table, choose **View agents**. Below the **Queues** table, an 
 
 At the **Queues** table, choose **View Steps**. Below the **Queues** table, a **Steps** table appears. It is filtered to display all the routing steps that are being used on active contacts in that queue, as shown in the following image.
 
-![The queues table, view steps option, the steps table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/one-choose-drill-downs-example3.png)
+![The queues table, view steps option, the steps table.](https://docs.aws.amazon.com/connect/latest/adminguide/images/one-click-drill-downs-example3.png)

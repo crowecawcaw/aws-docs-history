@@ -265,7 +265,7 @@ The following table lists feature specifications for Connect Customer Rules.
 | Words or phrases - Semantic match | 4 | Yes | Yes | Not supported | 
 | Words or phrases - Pattern match | 100 | Yes | Yes | Yes | 
 | Natural Language - Semantic match | 1 | Yes | Yes | No | 
-| Queue condition | 100 | Yes | Yes | Yes | 
+| Queue condition | 200 | Yes | Yes | Yes | 
 | Agent condition | 100 | Yes | Yes | Yes | 
 | Custom attributes | 5 | Yes | Yes | Yes | 
 | Sentiment - Time period | 5 | Yes | Yes | Yes | 

@@ -36,7 +36,7 @@ To use global routing, you must use the subdomain-based instance aliases, where 
 + Replica: `us-west-2.example.my.connect.aws`
 
 **Note**  
-`ReplicaAlias` is currently still a required field when invoking the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) API to create a replica. However, after the `ReplicateInstance` API is called, the replica alias is automatically derived from the source alias and you no longer need to use the custom replica alias going forward.
+You no longer need to specify `ReplicaAlias` when creating a replica instance with the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) API. It's automatically generated from the source alias.
 
 If you are using a custom CCP built with [Amazon Connect Streams](https://github.com/amazon-connect/amazon-connect-streams), ensure that you update the `connect.core.initCCP` call to include both instance URLs (using the subdomain-based instance aliases):
 

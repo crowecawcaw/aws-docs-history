@@ -58,7 +58,7 @@ The following table lists all the fields in the Customer Profiles standard loyal
 | --- | --- | --- | 
 | TransferId | String | Identifier for the transfer transaction. | 
 | SourceProgramId | String | ID of the source loyalty program. | 
-| DestinationProgrmId | String | ID of the destination loyalty program. | 
+| DestinationProgramId | String | ID of the destination loyalty program. | 
 | SourceMembershipId | String | Membership ID in the source program. | 
 | DestinationMembershipId | String | Membership ID in the destination program. | 
 | PointsTransferred | String | Points deducted from the source program. | 

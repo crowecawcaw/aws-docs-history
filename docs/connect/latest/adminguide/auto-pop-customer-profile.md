@@ -17,7 +17,7 @@ It autopopulates a customer profile by using the Customer Profiles flow block. T
 
 For example, to search by email for chat contacts, you can set the `profileSearchKey` attribute to the `_email` search key, and provide the email value as the `profileSearchValue`. 
 
-If you have defined custom keys in your profile objects, you can search by those search keys as well. To make sure your custom keys are searchable, see [Key definition details](object-type-mapping-definition-details.md#key-definition-details).
+If you have defined custom keys in your profile objects, you can search by those search keys as well. To make sure your custom keys are searchable, see [Key definitions in Customer Profiles object type mappings](mapping-key-definitions.md).
 
 The following image shows how you might use these attributes in the [Set contact attributes](set-contact-attributes.md) block. 
 
@@ -27,6 +27,6 @@ The following image shows how you might use these attributes in the [Set contact
 ## Automatically associate a customer profile with a contact
 <a name="cp-automatically-associate-contact"></a>
 
-By default, agents need to manually associate a customer profile with a contact based after they've verified the customer's identity. To change this behavior to automatically associate contacts with a profile based on the phone number, see [Associate the Contact Record with one profile found using the \_phone key in Customer Profiles](auto-associate-profile-using-phone-profile-key.md). 
+By default, agents need to manually associate a customer profile with a contact based after they've verified the customer's identity. To change this behavior to automatically associate contacts with a profile based on the phone number, see [Contact record templates in Connect Customer Customer Profiles](ctr-contact-record-template.md). 
 
 If multiple profiles match a contact's phone number, the multiple matched profiles are shown to the agent. The agent needs to choose which profile to associate with the contact.

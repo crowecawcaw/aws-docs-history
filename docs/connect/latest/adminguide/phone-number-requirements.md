@@ -591,11 +591,12 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Type of Number | Are there ID requirements? | Acceptable Identification | 
 | --- | --- | --- | 
-| Local geographic telephone numbers: \+33 1, \+33 2, \+33 3, \+33 4, \+33 5 | Yes | A business address in France is required.<br />You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
-| National multipurpose numbers: \+33 9 7890 | Yes | A business address in France is required.<br />You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
-| National verified multipurpose numbers (to be used as caller ID by automated calling services): \+33 9 4847 | Yes | A business address in France is required. You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
-| National multipurpose numbers to be used for communications with a technical platform: \+33 9 3937 | Yes | A business address in France is required. You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
-| Toll-free prefixes: \+33 801 | Yes | A business address in the European Union is required, as well as a contact phone number. | 
+| Geographic multipurpose numbers: \+33 1, \+33 2, \+33 3, \+33 4, \+33 5 | Yes | A business address in France is required.<br />You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
+| Geographic verified multipurpose numbers (NPV) (to be used as caller ID by automated calling services): \+33 162, \+33 270, \+33 377, \+33 424, \+33 568 | Yes | A business address in France is required.<br />You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
+| National multipurpose numbers: \+33 9 | Yes | A business address in France is required.<br />You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
+| National verified multipurpose numbers (NPV) (to be used as caller ID by automated calling services): \+33 948 | Yes | A business address in France is required. You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
+| National multipurpose numbers to be used for communications with a technical platform: \+33 939 | Yes | A business address in France is required. You must provide a copy of the business registration (KBIS, INPI, or INSEE extract issued in the past 12 months), listing the provided address in France as main business address. | 
+| Toll-free prefixes: \+33 801 | Yes | A business address in the European Union is required, as well as a tax number and contact phone number. | 
 
 ### Number portability
 <a name="fi-porting"></a>
@@ -604,7 +605,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required per Type of Number as listed in the previous table for ordering numbers.  <br />4.  It is mandatory to provide RIO code from the losing carrier, or at least the SIRET. You can obtain the SIRET by contacting your existing telecom carrier. Number portability is supported for all toll-free prefixes from \+33 800 to \+33 805, geographic prefixes from \+33 1 to \+33 5, and national multipurpose prefixes \+33 9. | 
+| Monday–Friday, 9:00 AM – 12:00 PM and 2:00 PM – 4:00 PM (Europe/Paris) | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required per Type of Number as listed in the previous table for ordering numbers.  <br />4.  It is mandatory to provide RIO code from the losing carrier, or at least the SIRET. You can obtain the RIO by contacting your existing telecom carrier. Number portability is supported for all toll-free prefixes from \+33 800 to \+33 805, geographic prefixes from \+33 1 to \+33 5, and national multipurpose prefixes \+33 9. | 
 
 ## French Guiana (GF)
 <a name="gf-requirements"></a>

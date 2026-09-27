@@ -75,11 +75,11 @@ The following example shows how to map a source field to a target field.
 }
 ```
 
-The Segment-Identify customer data from the Segment object is associated with a Connect Customer customer profile using the following index. 
+The Segment-Identify customer data from the Segment object is associated with an Connect Customer customer profile using the following index. 
 
 
 | Standard Index Name | Segment-Identify source field | 
 | --- | --- | 
 | \_segmentUserId | userId | 
 
-For example, you can use `_segmentUserId` as a key name with the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to find a Connect Customer customer profile. You can find the Segment-Identify objects associated with a specific profile by using the [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) API with the `ProfileId` and `ObjectTypeName` set to `Segment-Identify`.
+For example, you can use `_segmentUserId` as a key name with the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to find an Connect Customer customer profile. You can find the Segment-Identify objects associated with a specific profile by using the [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) API with the `ProfileId` and `ObjectTypeName` set to `Segment-Identify`.

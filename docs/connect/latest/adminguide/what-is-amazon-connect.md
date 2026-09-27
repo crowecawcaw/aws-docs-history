@@ -4,7 +4,7 @@
 <a name="what-is-amazon-connect"></a>
 
 **Note**  
-Amazon Connect now refers to a portfolio of agentic solutions for business functions. The legacy product is now called Amazon Connect Customer, or simply Customer. The legacy name is used interchangeably in this documentation.
+Amazon Connect Customer is the current name for the product previously called Amazon Connect. Amazon Connect is now a set of agentic AI solutions for different business functions. This guide covers Amazon Connect Customer.
 
 Connect Customer engages customers at every touchpoint and creates deeper relationships with AI powered capabilities.
 

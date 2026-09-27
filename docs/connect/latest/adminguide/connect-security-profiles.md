@@ -17,3 +17,4 @@ Security profiles help you manage who can access the Connect Customer dashboard 
 + [Update security profiles in Connect Customer](update-security-profiles.md)
 + [Apply tag-based access control in Connect Customer](tag-based-access-control.md)
 + [Apply hierarchy-based access control in Connect Customer](hierarchy-based-access-control.md)
++ [Apply record-based access control in Connect Customer](record-based-access-control.md)

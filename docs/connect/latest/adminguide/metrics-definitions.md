@@ -706,8 +706,8 @@ This metric measures the percentage of contacts handled by [AI Agents](create-ai
 **How to access using the Connect Customer API**: 
 + [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `AI_HANDOFF_RATE`
 
-**How to access using the Amazon Connect admin website:**
-+ Dashboard [AI Agent performance dashboard](ai-agent-performance-dashboard.md), Handoff Rate
+**How to access using the Connect Customer admin website**: 
++ Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), Handoff Rate
 
 **Calculation logic**:
 + Get total AI handoffs count.
@@ -748,11 +748,10 @@ This metric measures the number of [AI Agents](create-ai-agents.md) invocations 
 + [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `AI_AGENT_INVOCATION_SUCCESS`
 
 **Calculation logic**:
-
-For each AI Agent record 
-+ If aiAgentId is NOT present, then skip this record.
-+  If invocationSuccess is present and equals true, then count this record as 1.
-+ Else, count this record as 0.
++ For each AI Agent record 
+  + If aiAgentId is NOT present, then skip this record.
+  +  If invocationSuccess is present and equals true, then count this record as 1.
+  + Else, count this record as 0.
 + Return final\_result = sum of the counts from matching records.
 
 ## AI Agent Invocation Success Rate
@@ -785,9 +784,9 @@ This metric measures the total number of times an [AI agent](create-ai-agents.md
 **Metric category**: AI Agent
 
 **How to access using the Connect Customer API**: 
-+ : `AI_AGENT_COLLABORATION_INVOCATIONS`
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `AI_AGENT_COLLABORATION_INVOCATIONS`
 
-: 
+**How to access using the Connect Customer admin website**: 
 + Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), AI Agent Collaboration Invocations
 
 **Calculation logic**:
@@ -807,9 +806,9 @@ This metric measures the distinct number of [AI agents](create-ai-agents.md) tha
 **Metric category**: AI Agent
 
 **How to access using the Connect Customer API**: 
-+ : `AI_AGENT_COLLABORATORS`
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `AI_AGENT_COLLABORATORS`
 
-: 
+**How to access using the Connect Customer admin website**: 
 + Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), AI Agent Collaborators
 
 **Calculation logic**:
@@ -842,8 +841,7 @@ This metric measures the count of AI suggestions rated as helpful with a thumbs-
 + Return final\_result = sum of the result values from matching records.
 
 **Note**  
-This metric is updated every 6 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## AI Agent Response Not Helpful
 <a name="ai-agent-response-not-helpful"></a>
@@ -868,8 +866,7 @@ This metric measures the count of AI suggestions rated as unhelpful with a thumb
 + Return final\_result = sum of the result values from matching records.
 
 **Note**  
-This metric is updated every 6 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## AI Agent Selection Accuracy
 <a name="ai-agent-selection-accuracy"></a>
@@ -881,9 +878,9 @@ This metric measures the average accuracy score (0-1) evaluating whether the orc
 **Metric category**: AI Agent
 
 **How to access using the Connect Customer API**: 
-+ : `AI_AGENT_SELECTION_ACCURACY`
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `AI_AGENT_SELECTION_ACCURACY`
 
-: 
+**How to access using the Connect Customer admin website**: 
 + Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), AI Agent Selection Accuracy
 
 **Calculation logic**:
@@ -1085,8 +1082,7 @@ This metric measures the rate of tool invocations where [AI Agents](create-ai-ag
 + Return final\_result = average of the result values from matching records.
 
 **Note**  
-This metric is updated every 24 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## AI Tool Selection Accuracy
 <a name="ai-tool-selection-accuracy"></a>
@@ -1111,8 +1107,7 @@ This metric measures the rate of correct tool selections by [AI Agents](create-a
 + Return final\_result = average of the result values from matching records.
 
 **Note**  
-This metric is updated every 24 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## AI Tool Use Accuracy
 <a name="ai-tool-use-accuracy"></a>
@@ -1137,8 +1132,7 @@ This metric measures the rate of correct tool use by [AI Agents](create-ai-agent
 + Return final\_result = average of the result values from matching records.
 
 **Note**  
-This metric is updated every 24 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## Average AI Agent Conversation Turns
 <a name="average-ai-agent-conversation-turns"></a>
@@ -1172,9 +1166,9 @@ This metric measures the average time an [AI agent](create-ai-agents.md) takes b
 **Metric category**: AI Agent
 
 **How to access using the Connect Customer API**: 
-+ : `AVG_AI_AGENT_INVOCATION_LATENCY`
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `AVG_AI_AGENT_INVOCATION_LATENCY`
 
-: 
+**How to access using the Connect Customer admin website**: 
 + Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), Avg. AI Agent Invocation Latency
 
 **Calculation logic**:
@@ -1275,8 +1269,7 @@ This metric measures the proportion of sessions where the Orchestration [AI Agen
 + Return final\_result = average of the result values from matching records.
 
 **Note**  
-This metric is updated every 24 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## Context Fidelity Score
 <a name="context-fidelity-score"></a>
@@ -1288,9 +1281,9 @@ This metric measures the average fidelity score (0-1) evaluating whether the [AI
 **Metric category**: AI Agent
 
 **How to access using the Connect Customer API**: 
-+ : `CONTEXT_FIDELITY_SCORE`
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `CONTEXT_FIDELITY_SCORE`
 
-: 
+**How to access using the Connect Customer admin website**: 
 + Dashboard: [AI Agent performance dashboard](ai-agent-performance-dashboard.md), Context Fidelity Score
 
 **Calculation logic**:
@@ -1327,8 +1320,7 @@ This metric measures the proportion of sessions where the Orchestration [AI Agen
 + Return final\_result = average of the result values from matching records.
 
 **Note**  
-This metric is updated every 24 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## Goal Success Rate
 <a name="goal-success-rate"></a>
@@ -1354,8 +1346,7 @@ This metric measures the proportion of sessions where the Orchestration [AI Agen
 + Return final\_result = average of the result values from matching records.
 
 **Note**  
-This metric is updated every 24 hours.
-This metric is available as part of Connect Customer.
+This metric is available as part of Connect Customer AI.
 
 ## Knowledge Content References
 <a name="knowledge-content-references"></a>

@@ -2425,7 +2425,7 @@ On the **Real-time metrics** page, you can define custom thresholds for [Contact
 #### Customer Profiles provides a generative AI powered customer data mapping capability
 <a name="reinvent-gen-ai-customer-data-onboarding-nov23"></a>
 
-Customer Profiles provides a generative AI powered customer data mapping capability that significantly reduces the time needed to create unified profiles, which allows you to create more personalized customer experiences more efficiently. For more information, see [Generative AI powered data mapping in Connect Customer](genai-powered-data-mapping.md).
+Customer Profiles provides a generative AI powered customer data mapping capability that significantly reduces the time needed to create unified profiles, which allows you to create more personalized customer experiences more efficiently. For more information, see [Generate a mapping with generative AI in Customer Profiles](genai-powered-data-mapping.md).
 
 #### UI builder for step-by-step guides
 <a name="reinvent-no-code-ui-builder-nov23"></a>

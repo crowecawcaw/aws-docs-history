@@ -22,7 +22,7 @@ When integrating WhatsApp Business messaging with Connect Customer, be aware of 
 
 
 **Text message limitations**
-+ Inbound text messages from customers greater than 1024 characters are not supported. 
++ Inbound text messages from customers greater than 4096 characters are not supported. 
 
 
 

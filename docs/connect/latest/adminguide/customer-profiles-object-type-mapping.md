@@ -3,21 +3,16 @@
 # Object type mapping in Connect Customer Customer Profiles
 <a name="customer-profiles-object-type-mapping"></a>
 
-Object type mapping tells Customer Profiles how to ingest a specific type of data. It provides Customer Profiles with essential information, such as:
-+ How data should be populated from the object and ingested into the standard profile object. 
-+ What fields should be indexed in the object and how those fields should then be used to assign objects of this type to a specific profile.
+Object type mapping tells Customer Profiles how to ingest a specific type of data into a unified customer profile. A mapping provides Customer Profiles with two essential pieces of information:
++ How values from a source object populate **standard objects**—the standard profile, and (optionally) other standard objects such as assets, orders, cases, and loyalty records. For more information, see [Reference for standard objects in Customer Profiles](standard-objects.md).
++ Which fields to index for searching, and how those fields are used to assign objects of this type to a specific profile (and, when applicable, to a specific standard object such as an asset or order).
 
-The topics in this section provide information and steps to help you set up object type mapping, including how to create object type mapping, mapping definition details, and key concepts and terminology. 
+With a mapping in place, you can ingest data from sources such as Salesforce, Zendesk, ServiceNow, Marketo, Amazon S3, or your own applications, and present a single unified view of each customer to your agents, flows, and downstream applications.
 
 **Topics**
-+ [Customer object type mapping terminology and concepts](customer-profiles-terminology.md)
++ [How object type mapping works in Customer Profiles](how-object-type-mapping-works.md)
++ [Object type mapping terminology and concepts](customer-profiles-terminology.md)
 + [Create an object type mapping in Connect Customer Customer Profiles](create-object-type-mapping.md)
-+ [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md)
-+ [Additional properties of object types in Customer Profiles](additional-properties-object-types.md)
-+ [Inferred profiles](inferred-profiles.md)
-+ [Contact record templates in Connect Customer Customer Profiles](ctr-contact-record-template.md)
-+ [Associate the Contact Record with one profile found using the \_phone key in Customer Profiles](auto-associate-profile-using-phone-profile-key.md)
-+ [Examples of object type mappings in Connect Customer Customer Profiles](examples-object-type-mappings.md)
-+ [Implicit profile object types in Connect Customer Customer Profiles](implicit-profile-object-types.md)
-+ [Generative AI powered data mapping in Connect Customer](genai-powered-data-mapping.md)
-+ [Connect Customer Customer Profiles data limits](customer-profiles-data-limits.md)
++ [Object type mapping rules in Connect Customer Customer Profiles](object-type-mapping-rules.md)
++ [How mappings create and update profiles in Connect Customer Customer Profiles](how-mappings-create-update-profiles.md)
++ [Quotas and troubleshooting for object type mapping in Connect Customer Customer Profiles](object-type-mapping-quotas-troubleshooting.md)

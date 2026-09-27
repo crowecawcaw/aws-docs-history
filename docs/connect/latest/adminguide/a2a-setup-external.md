@@ -310,9 +310,8 @@ Set up the Lex bot as follows:
 Configure the contact flow with the following blocks:
 + **Set logging behavior:** enable (recommended).
 + **Connect assistant block:** point at your Assistant ARN. This opens the AI session and writes `$.Wisdom.SessionArn` onto the contact.
-+ **Get customer input block** (Amazon Lex tab): select your bot and alias, and set these session attributes:
++ **Get customer input block** (Amazon Lex tab): select your bot and alias, and set this session attribute:
   + `x-amz-lex:q-in-connect:ai-agent-arn` = the versioned ARN of your ORCHESTRATION AI agent (for example, `arn:aws:wisdom:<region>:<account>:ai-agent/<assistantId>/<aiAgentId>:$LATEST`).
-  + **Prelaunch only (required today, removed at public launch):** the path is gated by an opt-in session attribute. For voice: `x-amz-lex:qic-audio-passthrough = true`. For text: `x-amz-lex:qic-text-passthrough = true`. For chat: `x-amz-lex:qic-passthrough = true`. After the feature is public, these attributes are no longer needed.
 + **For chat, enable message streaming:** instances created after December 2025 have it on by default. For older instances, set the `MESSAGE_STREAMING` instance attribute to `true` using the AWS console (instance > Flows > Amazon Lex bots > "Enable message streaming in Amazon Connect").
 
 ## Step 7: Publish the updated configuration

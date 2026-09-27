@@ -99,7 +99,7 @@ For more detailed information on data mappings, see [Object type mapping](https:
 1. Add customer, product, case and order attributes with source, destination, and content type, then choose **Next**.  
 ![The map order attributes page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step4.png)
 
-1. Under **Specify identifiers**, you can select various attributes from your data source object that helps distinguish your data from other data source objects. You can select attributes from unique, customer, product, case and order identifiers. For more information about identifiers, see [Standard identifiers for setting attributes on the key in Customer Profiles](standard-identifiers.md).   
+1. Under **Specify identifiers**, you can select various attributes from your data source object that helps distinguish your data from other data source objects. You can select attributes from unique, customer, product, case and order identifiers. For more information about identifiers, see [Standard identifiers in Customer Profiles](standard-identifiers.md).   
 ![The Standard identifiers page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-ea-mapping-step5.png)
 
 1. Review and choose **Create Data Mapping**. The Data Mapping status will show as *Active*.  

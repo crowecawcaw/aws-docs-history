@@ -21,7 +21,7 @@ Users can not edit LEX V1 bots or cross-regional bots from within Connect Custom
 **Note**  
 If you already have existing Service Control Policies (SCP) in place that block access to Lex, Connect Customer respects those policies and does not enable the Bot Management and Analytics feature. However, if you put those SCP policies in place after you've already enabled this feature, they won't be respected. In that case, you'll need to disable this feature.
 
-   Connect Customer displays the service role and service linked role name it uses. uses Amazon Lex resource-based policies to make calls to your Amazon Lex bot. When you associate an Amazon Lex bot with your Connect Customer instance, the resource-based policy on the bot is updated to give Connect Customer permission to invoke the bot. 
+   Connect Customer shows the service role and service-linked role name that it uses. It uses Amazon Lex resource-based policies to call your Amazon Lex bot. When you link an Amazon Lex bot to your instance, Connect Customer updates the bot's resource-based policy so it can call the bot.
 
    For more information about Amazon Lex resource-based policies, see [Resource-based policies within Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/security_iam_service-with-iam.html#security_iam_service-with-iam-resource-based-policies) in the *Amazon Lex V2 Developer Guide*.
 

@@ -1,14 +1,27 @@
 
 
-# Connect Customer Customer Profiles data limits
+# Quotas and data limits in Customer Profiles
 <a name="customer-profiles-data-limits"></a>
 
-With Connect Customer Customer Profiles, you can customize your data onboarding by setting data ingestion limits on various types of customer data that you use to create a unified profile. By setting limits on your data mappings, you can prioritize how much data to ingest across mappings. The default maximum limit across all mappings per profile is 1000.
-
-A per-object-type limit (also referred to as `MaxProfileObjectCount`) does more than cap how many objects of a type are stored. It also determines how Connect Customer chooses which objects to remove when a profile reaches its total object limit. For more information, see [How data limits control object eviction](#customer-profiles-data-limits-eviction).
+With Connect Customer Customer Profiles, you can customize data onboarding by setting ingestion limits on the various types of customer data you use to build a unified profile. Setting limits across mappings helps you prioritize which sources get capacity on each profile. The default maximum across all mappings per profile is 1000 objects.
 
 **Note**  
 Data limits are estimates and might vary slightly, with a possible deviation of a few units in either direction during periods of high ingestion on a single profile.
+
+## Object count compared with retention
+<a name="object-count-vs-retention"></a>
+
+Customer Profiles enforces two independent limits on ingested data. They serve different purposes and can both apply to the same object.
+
+
+| Limit | What it controls | Where it's set | 
+| --- | --- | --- | 
+| MaxProfileObjectCount | The maximum number of objects of a given type that can be attached to a single profile. The sum across all object types in the domain can't exceed the per-profile object limit (default 1000). | Per object type, when it's created or updated. | 
+| ExpirationDays | The number of days an individual object is retained before it expires and is deleted. Must be greater than zero and within your account's expiration limit. | Per object type. Recorded on each object at ingestion time—changes apply only to newly ingested data. | 
+
+Use `MaxProfileObjectCount` to allocate capacity across object types. Use `ExpirationDays` to manage how long historical data remains available. For example, if you ingest both contact records and web analytics events, you can give web analytics a smaller cap so a high-volume source can't consume the entire per-profile budget on its own.
+
+A per-object-type limit does more than cap how many objects of a type are stored. It also determines how Connect Customer chooses which objects to remove when a profile reaches its total object limit. For more information, see [How data limits control object eviction](#customer-profiles-data-limits-eviction).
 
 ## How data limits control object eviction
 <a name="customer-profiles-data-limits-eviction"></a>
@@ -29,9 +42,9 @@ Eviction affects only the objects that count toward a profile's object limit. It
 <a name="customer-profiles-data-limits-defaults"></a>
 
 Standard object types (object type templates) provided by Customer Profiles can include a built-in default limit. This limit helps prevent high-volume data from consuming the entire profile budget. Connect Customer applies this default limit automatically during eviction when you have not set your own `MaxProfileObjectCount` for that object type. You do not need to configure anything.
-+ **Your own limit takes priority.** If you have set a limit for the object type, Connect Customer uses that value instead of the default. When you clear your limit, the object type falls back to the default limit if it has one. For how to set or clear a limit, see [How to configure Customer Profiles data limits](#customer-profiles-data-limits-configure) and [How to clear Customer Profiles data limits](#customer-profiles-data-limits-clear).
-+ **Defaults are managed by Connect Customer.** Connect Customer applies these default limits automatically — you do not set them. To use a different limit for an object type, set your own limit for that object type.
-+ **Effective date for existing domains.** A default limit can have an effective date so that domains that already accumulated objects before the default existed are not affected. When a default limit has an effective date, it applies only to domains created after that date. Domains created on or before that date keep their existing behavior unless you set your own limit. Connect Customer manages this effective date — you do not configure it.
++ **Your own limit takes priority.** If you have set a limit for the object type, Connect Customer uses that value instead of the default. When you clear your limit, the object type falls back to the default limit if it has one. For how to set or clear a limit, see [Configure data limits in the console](#customer-profiles-data-limits-configure) and [Clear data limits in the console](#customer-profiles-data-limits-clear).
++ **Defaults are managed by Connect Customer.** Connect Customer applies these default limits automatically—you do not set them. To use a different limit for an object type, set your own limit for that object type.
++ **Effective date for existing domains.** A default limit can have an effective date so that domains that already accumulated objects before the default existed are not affected. When a default limit has an effective date, it applies only to domains created after that date. Domains created on or before that date keep their existing behavior unless you set your own limit. Connect Customer manages this effective date—you do not configure it.
 
 The following object types include a default limit.
 
@@ -46,7 +59,19 @@ A per-object-type limit (including these defaults) is not an additional storage 
 
 To retain more history for these object types (for example, for high-interaction applications), set a higher `MaxProfileObjectCount` on the object type. If necessary, request an increase to your total per-profile object limit (see [Connect Customer service quotas](amazon-connect-service-limits.md)).
 
-## How to configure Customer Profiles data limits
+## Object type structure limits
+<a name="object-type-structure-limits"></a>
+
+The following limits apply to the structure of an object type itself.
+
+
+| Limit | Value | 
+| --- | --- | 
+| Maximum size of a single profile object | 250 KB | 
+| Maximum number of fields per object type | 250 | 
+| Maximum number of object types per domain | Account-specific. | 
+
+## Configure data limits in the console
 <a name="customer-profiles-data-limits-configure"></a>
 
 You can set a limit for a data object in the Connect Customer admin website, as described in the following steps. You can also set it programmatically by using the `PutProfileObjectType` API. A limit that you set takes priority over any default that Connect Customer manages for that object type.
@@ -56,17 +81,17 @@ You can set a limit for a data object in the Connect Customer admin website, as 
 1. Choose the **Data limits** tab to configure limits for data objects.  
 ![Navigate to Data Limits tab to configure limits for data objects.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-data-limits-setup-1.png)
 
-1. Pause on the desired data object's limit and choose the edit icon.  
-![Pause on the desired data object limit and choose the edit icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-data-limits-setup-2.png)
+1. Hover over the data object's limit and choose the edit icon.  
+![Hover over the desired data object limit and choose the edit icon.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-data-limits-setup-2.png)
 
-1. Enter the limit and choose the check-mark icon to save or update the limit.  
+1. Enter the limit and choose the check-mark icon to save or update it.  
 ![Image shows a new limit being entered and highlights the check-mark icon that is used to save or update your limit.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-data-limits-setup-3.png)
 
-## How to clear Customer Profiles data limits
+## Clear data limits in the console
 <a name="customer-profiles-data-limits-clear"></a>
 
-1. Select the radio button for the data object whose limit you want to clear. You will then be able to choose **Clear limit**.  
+1. Select the radio button for the data object whose limit you want to clear, then choose **Clear limit**.  
 ![Highlights the radio button to the left of the data object on the data limits page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-data-limits-clear-1.png)
 
-1. Type *confirm* to clear the limit value of the data object that you selected.  
+1. Enter *confirm* to clear the limit value of the selected data object.  
 ![A pop-up box that asks you to confirm that you would like to clear the data object limit value.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-data-limits-clear-2.png)

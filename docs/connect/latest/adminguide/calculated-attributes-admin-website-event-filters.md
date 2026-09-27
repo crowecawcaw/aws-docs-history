@@ -14,7 +14,7 @@ When you create a calculated attribute, you can create one or more event filters
 
 +  **Filter groups**: Group of filters that you apply to the profile objects. You can add multiple filter groups which are connected by OR relationships. 
 +  **Filters**: Filters the profile objects that are included in the calculation of the calculated attribute by specifying attributes, operators, and values. You can add as many filters as needed for your use case. 
-+  **Attribute**: The attribute of the object to filter by. You can select attributes from objects stored in the Customer Profiles domain or use the field names defined in the object type definition. for more information about object type mappings, see [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md).
++  **Attribute**: The attribute of the object to filter by. You can select attributes from objects stored in the Customer Profiles domain or use the field names defined in the object type definition. for more information about object type mappings, see [Object type mapping in Connect Customer Customer Profiles](customer-profiles-object-type-mapping.md).
 **Note**  
  In Connect Customer admin website, the attribute dropdown shows the timestamp of the last time any profile object was saved or updated with the attribute. 
  If there is both an attribute of a profile object and a field of an object type with the same name, the event filter prioritizes the object type field name in its filtering. For example, if a profile object has an attribute named **Status** and there is also an object type field named **Status**, the filter will use the object type field **Status** for filtering. 

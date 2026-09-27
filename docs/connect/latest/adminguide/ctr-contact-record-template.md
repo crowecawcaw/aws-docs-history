@@ -3,30 +3,32 @@
 # Contact record templates in Connect Customer Customer Profiles
 <a name="ctr-contact-record-template"></a>
 
-A Contact Record serves as a profile object that captures essential meta-data from various contact events, such as phone calls or chats. It plays a vital role in documenting and analyzing interactions with customers. 
+A contact record is a profile object that captures essential metadata from contact events, such as phone calls or chats. Connect Customer Customer Profiles uses contact records to document and analyze your interactions with customers.
 
-When a contact event takes place, there are three distinct default templates that can be applied to your domain. These templates serve as configuration options, governing how the contact event is handled within the system. Each template defines specific rules and actions, allowing you to tailor the processing of contact events according to your business needs.
+Contact records are ingested automatically by the Connect Customer integration when a contact event ends. The contact event's identifier is provided as the `_ctrContactId` key. Because ingestion happens after the contact ends, profile association isn't visible during the live interaction—it appears after the contact record has been processed.
+
+**Note**  
+**Assign a contact record to a specific profile**  
+You don't have to rely on automatic matching to choose the profile. Call [AddProfileKey](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_AddProfileKey.html) on the profile you want, with `KeyName` set to `_ctrContactId` and the contact's ID as the value. When the contact record is ingested after the contact ends, its `_ctrContactId` key matches the profile you chose, and the record is associated there instead of falling back to `_phone` or creating an inferred profile. Add the key during the contact, while it's still in progress, so it's in place before ingestion. This works with all three templates, because each one evaluates `_ctrContactId` first.
+
+When a contact event occurs, one of three default templates determines how the event is handled. Each template defines specific rules for matching and profile creation, so you can tailor processing to your business needs.
 
 **Topics**
 + [Create inferred profiles and auto-associate profiles (CTR-NoInferred)](#ctr-contact-record-template-no-inferred)
 + [Auto-associate profiles only (CTR-AutoAssociateOnly)](#ctr-contact-record-template-auto-associate)
 + [Create inferred profiles only (CTR)](#ctr-contact-record-template-inferred-only)
-+ [Contact record template usage examples](#ctr-contact-record-template-usage-examples)
-+ [How to update Contact Record type in the AWS Console](#ctr-contact-record-template-usage-examples-console)
++ [Update the contact record type (console)](#ctr-contact-record-template-usage-examples-console)
++ [Update the contact record type (AWS CLI)](#ctr-contact-record-template-usage-examples)
 + [Automatically add names from email contacts to a profile](#add-email-names-to-profile)
 
 ## Create inferred profiles and auto-associate profiles (CTR-NoInferred)
 <a name="ctr-contact-record-template-no-inferred"></a>
 
-**Description**
+With the CTR-NoInferred template, when a contact event such as a phone call occurs, Customer Profiles first uses the `_ctrContactId` key to search for an existing profile. If a match is found, the contact event is auto-associated with that profile. If not, Customer Profiles searches using the secondary `_phone` key to locate a profile by the caller's phone number, and auto-associates if a match is found.
 
-When the CTR-NoInferred template is used and a contact event, such as a phone call takes place, a specific process is initiated to handle the data. Initially, the system uses the `_ctrContactId` key to search for an existing profile associated with the contact event. If a matching profile is found, the contact event is automatically associated with that profile. However, if no existing profile is found using the `_ctrContactId` key, the system proceeds to search for a profile using a secondary key called `_phone`. This key is used to locate an existing profile based on the phone number associated with the contact event. When a matching profile is found, the contact event is automatically associated with that profile.
+If neither `_ctrContactId` nor `_phone` finds an existing profile, Customer Profiles creates a new inferred profile and populates it with the contact event metadata.
 
-In cases where neither the `_ctrContactId` key nor the `_phone` key yield an existing profile, the system creates a new inferred profile. This inferred profile is then populated with the meta-data from the contact event, making sure that the information is captured and stored within the system.
-
-This process ensures efficient handling of contact events, promoting auto-association with existing profiles and enabling the creation of inferred profiles when necessary. By using these mechanisms, organizations can maintain a comprehensive record of customer interactions and effectively manage their contact event data within the system.
-
-It is recommended to use the CTR-NoInferred template as the default behavior due to its significant advantages, especially in reducing duplicate profiles
+The CTR-NoInferred behavior is useful for reducing duplicate profiles.
 
 ![The Contact Record CTR-NoInferred template diagram.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-no-inferred.png)
 
@@ -34,17 +36,11 @@ It is recommended to use the CTR-NoInferred template as the default behavior due
 ## Auto-associate profiles only (CTR-AutoAssociateOnly)
 <a name="ctr-contact-record-template-auto-associate"></a>
 
-**Description**
+CTR-AutoAssociateOnly works like CTR-NoInferred with one important distinction: it doesn't create an inferred profile when no existing profile can be found for auto-association.
 
-The CTR-AutoAssociateOnly template functions similarly to the CTR-NoInferred template with one important distinction: it does not create an inferred profile when no existing profile can be found for auto-association.
+It uses `_ctrContactId` first and falls back to `_phone`. If a match is found, the contact event is auto-associated. If no match is found, no inferred profile is created.
 
-When a contact event, such as a phone call, takes place, the CTR-AutoAssociateOnly template uses the `_ctrContactId` key to search for a matching existing profile. If a profile is found, the contact event is automatically associated with that profile.
-
-However, if no existing profile is found using the `_ctrContactId` key, the template employs a secondary search mechanism using the `_phone` key. It searches for an existing profile associated with the same phone number as the contact event. If a matching profile is found, the contact event is auto-associated with that profile.
-
-The purpose of using the CTR-AutoAssociateOnly template is to enable automatic association with existing profiles while maintaining strict control over profile creation. Unlike the CTR-NoInferred template, this template prevents the creation of inferred profiles when no match is found. It makes sure that profiles are only created manually, providing organizations with a higher level of control and accuracy in profile management.
-
-By using the CTR-AutoAssociateOnly template, organizations can use auto-association while adhering to specific rules regarding profile creation. This approach allows for streamlined contact event handling and precise control over the profile ecosystem, ensuring accurate data representation and facilitating efficient customer management.
+Use CTR-AutoAssociateOnly when you want automatic association with existing profiles while maintaining strict control over profile creation.
 
 ![The Contact Record CTR-AutoAssociateOnly template diagram.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-auto-associate.png)
 
@@ -52,57 +48,46 @@ By using the CTR-AutoAssociateOnly template, organizations can use auto-associat
 ## Create inferred profiles only (CTR)
 <a name="ctr-contact-record-template-inferred-only"></a>
 
-**Description**
+The CTR template relies solely on the `_ctrContactId` key. If a match is found, the contact event is associated with that profile. If not, the template creates an inferred profile and populates it with the contact event metadata.
 
-The CTR template relies solely on the `_ctrContactId` key to search for an existing profile. It automatically associates the contact event with the profile if a match is found. However, in cases where no existing profile is found, the template creates an inferred profile and populates it with the contact event meta-data.
-
-Although this behavior makes sure that contact events are captured even when no pre-existing profile exists, it can potentially result in the creation of numerous inferred profiles. This abundance of inferred profiles might lead to the issue of duplicate profiles within the system.
-
-To address this concern and promote better profile management practices, we highly recommend using the CTR-NoInferred template as the default option. By using the CTR-NoInferred template, the system eliminates the creation of inferred profiles, thereby reducing the occurrence of duplicate profiles. This template allows for a more streamlined and efficient handling of contact events, resulting in improved data integrity and accuracy.
-
-By adopting the CTR-NoInferred template as the default choice, organizations can optimize their profile management processes, minimize data duplication, and ensure a more reliable representation of customer interactions.
+Because this template doesn't fall back to `_phone` for matching, it can create many inferred profiles, which might lead to duplicate profiles. We recommend CTR-NoInferred instead.
 
 ![The Contact Record CTR template diagram.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-inferred-only.png)
 
 
-## Contact record template usage examples
-<a name="ctr-contact-record-template-usage-examples"></a>
-
-**Connect Customer admin website**
-+ In the Connect Customer admin website, when creating a new domain, you have the option to select the desired CTR behavior. This can be done through the radio button options available in the **Profile creation and auto-association** section. Similarly, when selecting an existing domain, the radio button option will reflect the behavior previously associated with that domain.
-+ When editing a currently enabled domain, the Domain details page will display the currently applied behavior in the **Profile creation and auto-association** section. By choosing the **Edit** button in the header of this section, you will be redirected to the **Edit** **Profile creation and auto-association** page. Here, you can choose a different behavior according to your requirements.
-+ Alternatively, if you are viewing the CTR mapping from the **Data mapping** page, you can choose the **Change template** button. This action will also take you to the **Edit** **Profile creation and auto-association** page, where you can select a different behavior that suits your needs.
-
-These options provide you with flexibility in managing the CTR behavior for your domains, allowing you to easily customize and modify the settings based on your specific preferences or evolving business requirements.
-
-**AWS CLI**
-+ To use the **CTR-NoInferred** template, run the following command on the CLI:
-
-  `aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Creates inferred profiles and auto-associates profiles" --template-id CTR-NoInferred `
-+ To use the **CTR-AutoAssociateOnly** template, run the following command on the CLI:
-
-  `aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Auto-associate with profiles only" --template-id CTR-AutoAssociateOnly `
-+ To use the **CTR** template, run the following command on the CLI:
-
-  `aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Creates inferred profiles only" --template-id CTR `
-
-**API**
-
-For information on using the API, see [PutProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutProfileObjectType.html)
-
-## How to update Contact Record type in the AWS Console
+## Update the contact record type (console)
 <a name="ctr-contact-record-template-usage-examples-console"></a>
 
-1. In the Customer Profiles console, select **View Details** in the **Customer Profiles domain** section.  
+1. In the Connect Customer Customer Profiles console, choose **View details** in the **Customer Profiles domain** section.  
 ![View details in the Customer Profiles domain section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-1.png)
 
 1. On the **Domain details** page, choose **Edit** in the **Profile creation and auto-association** section.  
 ![Edit in the Profile creation and auto-association section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-2.png)
 
-1. Select the desired Contact Record behavior you would like to apply to your Domain and choose **Save**.  
+1. Select the contact-record behavior you want and choose **Save**.  
 ![The desired Contact Record behavior you would like to apply to your Domain and choose Save.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ctr-contact-record-template-usage-examples-console-3.png)
+
+## Update the contact record type (AWS CLI)
+<a name="ctr-contact-record-template-usage-examples"></a>
++ CTR-NoInferred:
+
+  ```
+  aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Creates inferred profiles and auto-associates profiles" --template-id CTR-NoInferred
+  ```
++ CTR-AutoAssociateOnly:
+
+  ```
+  aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Auto-associate with profiles only" --template-id CTR-AutoAssociateOnly
+  ```
++ CTR:
+
+  ```
+  aws customer-profiles put-profile-object-type --domain-name {domain} --object-type-name CTR --description "Creates inferred profiles only" --template-id CTR
+  ```
+
+For information on using the API, see [PutProfileObjectType](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_PutProfileObjectType.html).
 
 ## Automatically add names from email contacts to a profile
 <a name="add-email-names-to-profile"></a>
 
-You can set up a flow to populate a name from an email contact to the customer's profile. Use the [Customer profiles](customer-profiles-block.md) block, configured to use the [Update profile](customer-profiles-block.md#customer-profiles-block-properties-update-profile) action. 
+You can set up a flow to populate a name from an email contact to the customer's profile. Use the [Customer profiles](customer-profiles-block.md) block, configured to use the [Update profile](customer-profiles-block.md#customer-profiles-block-properties-update-profile) action.

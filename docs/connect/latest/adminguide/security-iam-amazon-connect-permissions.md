@@ -231,7 +231,7 @@ To perform `Edit` actions, users also need `List` and `Describe` permissions.
 
 | Action/Use case | Permissions needed | 
 | --- | --- | 
-| View Lambda functions | `connect:ListLambdaFunctions` | 
+| View Lambda functions | `connect:ListIntegrationAssociations`<br />`connect:ListLambdaFunctions` | 
 | Add/remove Lambda functions | `connect:ListLambdaFunctions`<br />`connect:AssociateLambdaFunction`<br />`connect:DisassociateLambdaFunction`<br />`iam:PutRolePolicy`<br />`lambda:ListFunctions`<br />`lambda:AddPermission`<br />`lambda:RemovePermission` | 
 
 ### Flow logs section

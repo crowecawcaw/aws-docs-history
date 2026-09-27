@@ -3,7 +3,13 @@
 # Get started with Manager assist
 <a name="manager-assist-getting-started"></a>
 
-Before you can use manager assist, set up an [AI agent domain](https://docs.aws.amazon.com/connect/latest/adminguide/ai-agent-initial-setup.html) and ensure the instance is opted in to [cross-Region inference (CRIS)](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) if your instance is in Asia Pacific (Seoul) or Asia Pacific (Singapore). If your instance has been opted out, contact AWS Support to opt in. In addition to these two requirements, assign the required permissions and verify access.
+Before you can use manager assist, complete the following prerequisites:
+
+1. Set up an [AI agent domain](https://docs.aws.amazon.com/connect/latest/adminguide/ai-agent-initial-setup.html) for your instance.
+
+1. Manager assist is built on Amazon Bedrock foundation models and uses [cross-Region inference (CRIS)](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) in all AWS Regions where it is available. **If your instance has been opted out, contact AWS Support to opt in.**
+   + In most Regions (for example, the United States and Europe), manager assist uses a geographic inference profile, and inference processing stays within that geography. For example, an instance in Europe is processed within the European Union.
+   + In Asia Pacific (Seoul) and Asia Pacific (Singapore), no geographic inference profile is available, so manager assist uses the Global inference profile, which may route inference to any commercial AWS Region. Confirm that this meets your data-residency requirements before opting in.
 
 ## Assign permissions
 <a name="manager-assist-permissions"></a>

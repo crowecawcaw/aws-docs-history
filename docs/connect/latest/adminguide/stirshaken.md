@@ -45,7 +45,6 @@ Connect Customer assigns one of three attestation levels when signing outbound c
 Your calls receive A-level attestation if you are subject to AWS Service Terms or are a customer of an authorized AWS Solution Provider/Distribution Seller AND any of these conditions are met:
 + Number claimed through Connect Customer portal/API.
 + Number ported into Connect Customer.
-+ Third-party number mapped to your account with validated documentation.
 
 ## Requirements for B-level attestation
 <a name="attestation-level-b"></a>

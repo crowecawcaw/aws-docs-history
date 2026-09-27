@@ -58,7 +58,7 @@ A subset of fields in the Marketo-leads object map to the standard profile.
 | country | Address.Country | 
 | postalcode | Address.PostalCode | 
 | gender | Gender | 
-| dataOfBirth | BirthDate | 
+| dateOfBirth | BirthDate | 
 
 The Marketo-leads customer data from Marketo is associated with an Connect Customer customer profile using the indexes in the following table. 
 
@@ -69,4 +69,4 @@ The Marketo-leads customer data from Marketo is associated with an Connect Custo
 | \_salesforceAccountId | sfdcAccountId | 
 | \_salesforceContactId | sfdcContactId | 
 
-For example, you can use `_marketoLeadId`, `_salesforceAccountId`, and `_salesforceContactId` as a key name with the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to find a Connect Customer customer profile. You can find the Marketo-leads objects associated with a specific customer profile by using the [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) API with the `ProfileId` and `ObjectTypeName` set to `Marketo-leads`.
+For example, you can use `_marketoLeadId`, `_salesforceAccountId`, and `_salesforceContactId` as a key name with the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to find an Connect Customer customer profile. You can find the Marketo-leads objects associated with a specific customer profile by using the [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) API with the `ProfileId` and `ObjectTypeName` set to `Marketo-leads`.

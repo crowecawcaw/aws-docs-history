@@ -16,7 +16,7 @@ To request a quota increase, see [Requesting a quota increase](https://docs.aws.
 + [Important things to know](#important-quota-info)
 + [Connect Customer quotas](#connect-quotas)
 + [Connect Customer AppIntegrations service quotas](#app-integration-quotas)
-+ [Connect Customer agent assist service quotas](#connect-ai-agents-quotas)
++ [Connect Customer AI agents service quotas](#connect-ai-agents-quotas)
 + [Connect Customer Cases service quotas](#cases-quotas)
 + [Conversational analytics service quotas](#contactlens-quotas)
 + [Connect Customer Customer Profiles service quotas](#customer-profiles-quotas)
@@ -108,7 +108,7 @@ All AppIntegrations quotas are at the Account level.
 | Event integrations per Region | 10 | Yes | 
 | Applications per Region | 50 | Yes | 
 
-## Connect Customer agent assist service quotas
+## Connect Customer AI agents service quotas
 <a name="connect-ai-agents-quotas"></a>
 
 All Amazon Q quotas are at the Account level. 

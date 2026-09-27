@@ -34,7 +34,7 @@ AI agents support the ingestion of HTML, Word, PDF, and text files up to 1 MB. N
 + PDF files cannot be encrypted or password protected.
 + Actions and scripts embedded into PDF files are not supported.
 
-For a list of adjustable quotas, such as the number of quick responses per knowledge base, see [Connect Customer agent assist service quotas](amazon-connect-service-limits.md#connect-ai-agents-quotas).
+For a list of adjustable quotas, such as the number of quick responses per knowledge base, see [Connect Customer AI agents service quotas](amazon-connect-service-limits.md#connect-ai-agents-quotas).
 
 ## Integration overview
 <a name="ai-agent-overview"></a>

@@ -96,7 +96,7 @@ The following table lists which fields can be mapped from the Servicenow-task ob
 | sys\_created\_on | CreatedDate | 
 | sys\_updated\_on | UpdatedDate | 
 
-The Servicenow-task customer data from Servicenow is associated with a Connect Customer standard case using the indexes in the following table. 
+The Servicenow-task customer data from Servicenow is associated with an Connect Customer standard case using the indexes in the following table. 
 
 
 | Standard Index Name | Servicenow-task source field | 
@@ -151,7 +151,7 @@ The following table lists which fields can be mapped from the Servicenow-inciden
 | resolved\_at | ClosedDate | 
 | category | Reason | 
 
-The Servicenow-incident customer data from the Servicenow object is associated with a Connect Customer standard case using the indexes in the following table. 
+The Servicenow-incident customer data from the Servicenow object is associated with an Connect Customer standard case using the indexes in the following table. 
 
 
 | Standard Index Name | Servicenow source field | 

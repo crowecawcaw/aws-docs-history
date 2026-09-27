@@ -95,11 +95,11 @@ The following table lists which fields can be mapped from the Servicenow-sys\_us
 | country | Address.Country | 
 | zip | Address.PostalCode | 
 
-The Servicenow-sys\_user customer data from Servicenow object is associated with a Connect Customer customer profile using the indexes in the following table. 
+The Servicenow-sys\_user customer data from Servicenow object is associated with an Connect Customer customer profile using the indexes in the following table. 
 
 
 | Standard Index Name | Servicenow-sys\_user source field | 
 | --- | --- | 
 | \_serviceNowSystemId | sys\_id | 
 
-For example, you can use `_serviceNowSystemId` and `_serviceNowIncidentId` as a key name with the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to find a Connect Customer customer profile. You can find the Servicenow-sys\_user objects associated with a specific profile by using the [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) API with the `ProfileId` and `ObjectTypeName` set to `Servicenow-sys_user`.
+For example, you can use `_serviceNowSystemId` and `_serviceNowIncidentId` as a key name with the [SearchProfiles](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html) API to find an Connect Customer customer profile. You can find the Servicenow-sys\_user objects associated with a specific profile by using the [ListProfileObjects](https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_ListProfileObjects.html) API with the `ProfileId` and `ObjectTypeName` set to `Servicenow-sys_user`.
