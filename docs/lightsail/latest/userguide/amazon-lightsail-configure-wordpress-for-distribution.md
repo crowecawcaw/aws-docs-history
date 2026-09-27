@@ -27,7 +27,7 @@ Create and configure a WordPress instance as described in [Launch and configure 
 
 1. For **Caching behavior**, choose **Best for WordPress**.
 
-1. (Optional) To configure end-to-end encryption, change the origin protocol policy to **HTTPS only**. For more information, see [Origin protocol policy](amazon-lightsail-changing-distribution-origin.md#changing-distribution-origin-protocol-policy).
+1. (Optional) To configure end-to-end encryption, change the origin protocol policy to **HTTPS only**. For more information, see [Origin protocol policy](amazon-lightsail-changing-distribution-origin.md#changing-distribution-origin-protocol-policy). This requires your WordPress instance to serve HTTPS. For instructions, see [Enable HTTPS on your WordPress instance](amazon-lightsail-enabling-https-on-wordpress.md).
 
 1. Configure the remaining options and then choose **Create distribution**.
 
@@ -46,13 +46,23 @@ Complete the following steps to update the DNS records for your Lightsail DNS zo
 
 1. In the left navigation pane, choose **Domains & DNS**.
 
-1. Choose your DNS zone and then choose the **DNS records** tab.
+1. Under the **DNS zones** section of the page, choose the domain name to which you want to add the record that will direct traffic for your domain to your distribution.
 
-1. Delete the A and AAAA records for the domain that you specified in your certificate.
+1. Choose the **DNS records** tab. Then, choose **Add record**.
 
-1. Choose **Add record** and create a CNAME record that resolves your domain to the domain for your distribution (for example, d2vbec9EXAMPLE.cloudfront.net).
+1. Complete one of the following steps depending on the type of domain that you want to point to your distribution:
+   + Choose an address (A) record to point an apex domain (e.g., `example.com`) to your distribution.
 
-1. Choose **Save**.
+     If an A record for the apex of your domain is already present in your DNS zone, then you will need to edit that existing record instead of adding another A record.
+   + Choose a canonical name (CNAME) to point a sub domain, such as `website.example.com`, to your distribution.
+
+1. If you're adding an A record, then in the **Resolves to** text box choose the name of your distribution. If you're adding a CNAME record, then in the **Maps to** text box enter the default domain name of your distribution.
+**Note**  
+When you add an A record to your DNS zone, and choose the name of your distribution, you are in fact adding an alias record, which is different than an address record. Lightsail makes it easy for you to add alias records without the additional steps that are typically required at other DNS hosting providers.
+
+1. Choose the save icon to save the record to your DNS zone.
+
+   Repeat these steps to add additional DNS records for domains on your certificate that you are using with your distribution. Allow time for changes to propagate through the Internet's DNS. After a few minutes, you should see if your domain is pointing to your distribution. You should also test your distribution. For more information, see the following [Test your distribution](amazon-lightsail-testing-distribution.md).
 
 ## Allow static content to be cached by the distribution
 <a name="allow-static-content-caching-wordpress"></a>
