@@ -12,6 +12,9 @@ AWS ParallelCluster manages permissions that support multiple user access to clu
 
 We recommend that you use LDAP over TLS/SSL (abbreviated LDAPS for short) to ensure that any potentially sensitive information is transmitted over encrypted channels.
 
+**Note**  
+Make sure the UIDs and GIDs of directory service users and groups don't overlap with those that AWS ParallelCluster reserves. See [AWS ParallelCluster reserved users and groups](users-and-groups-v3.md).
+
 ```
 DirectoryService:
   DomainName: {{string}}

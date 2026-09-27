@@ -9,3 +9,4 @@ AWS ParallelCluster was built not only as a way to manage clusters, but as a ref
 + [AWS ParallelCluster processes](processes-v3.md)
 + [AWS services used by AWS ParallelCluster](aws-services-v3.md)
 + [AWS ParallelCluster internal directories](directories-v3.md)
++ [AWS ParallelCluster reserved users and groups](users-and-groups-v3.md)
