@@ -12,6 +12,7 @@ The local gateway is a core component of the architecture for your Outposts rack
 + [Route tables](routing.md)
 + [Route table routes](manage-lgw-routes.md)
 + [CoIP pools](coip-pools.md)
++ [Monitoring connectivity](monitor-lgw-connectivity.md)
 
 ## Local gateway basics
 <a name="local-gateway"></a>
