@@ -9,6 +9,8 @@ For notification about these updates, you can subscribe to the AWS RAM RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added support for sharing Amazon EventBridge custom event buses](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-eventbridge) | You can now share Amazon EventBridge (EventBridge) custom event buses with other AWS accounts, or with IAM roles and users, by using AWS Resource Access Manager (AWS RAM). | September 24, 2026 | 
+| [Added support for sharing Oracle Database@AWS Exascale storage vaults](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-oracle-database) | You can now share Oracle Database@AWS Exascale storage vaults with other AWS accounts within your organization. | September 23, 2026 | 
 | [Added support for sharing Amazon Elastic Block Store volumes](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-ec2) | You can now share Amazon Elastic Block Store (Amazon EBS) volumes with other AWS accounts or your organization. | August 20, 2026 | 
 | [Added support for sharing Amazon CloudFront resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-cloudfront) | You can now share Amazon CloudFront VPC Origins with other AWS accounts within your organization. | October 6, 2025 | 
 | [Added support to share Billing and Cost Management resources](https://docs.aws.amazon.com/ram/latest/userguide/shareable.html#shareable-bcm) | You can now share Billing and Cost Management dashboards with other AWS accounts or your organization with AWS RAM. | August 19, 2025 | 
