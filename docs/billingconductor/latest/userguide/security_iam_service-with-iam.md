@@ -102,6 +102,27 @@ The `Condition` element specifies when statements execute based on defined crite
 
 Billing Conductor defines its own set of condition keys and also supports using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
+Billing Conductor supports the following service-specific condition key.
+
+`billingconductor:PricingPlanArn`  
+The Amazon Resource Name (ARN) of the pricing plan in the request, specifically the `PricingPlanArn` member inside `AutoBillingTransferBillingGroupCreation`. Because the value is an ARN, use the ARN condition operators, such as `ArnEquals` and `ArnLike`, or their `IfExists` variants.  
+This condition key is supported only on the `billingconductor:UpdateBillingTransferPreference` action.
+
+To use this condition key in a policy, specify it with an ARN condition operator:
+
+```
+"Condition": {
+      "ArnEqualsIfExists": {
+            "billingconductor:PricingPlanArn": "pricing-plan-arn"
+      }
+}
+```
+
+**Note**  
+Billing Conductor adds `billingconductor:PricingPlanArn` to the request context only when the request carries a pricing plan ARN. The key is absent when the request turns the preference off, because a request that sets `Enabled` to `false` doesn't supply a pricing plan ARN. The key is also absent on `billingconductor:GetBillingTransferPreference`, which never sets it.  
+IAM evaluates a condition operator against an absent key as no match. A policy that uses `ArnEquals` with this key therefore denies both the request that turns the preference off and every `GetBillingTransferPreference` request. To restrict only which pricing plan can be selected, while still allowing the preference to be turned off, use `ArnEqualsIfExists` instead.  
+A request that's denied this way returns an `AccessDeniedException` stating that no identity-based policy allows the action. The message doesn't indicate that a condition key caused the denial.
+
 
 
  All Amazon EC2 actions support the `aws:RequestedRegion` and `ec2:Region` condition keys. For more information, see [Example: Restricting Access to a Specific Region](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExamplePolicies_EC2.html#iam-example-region). 

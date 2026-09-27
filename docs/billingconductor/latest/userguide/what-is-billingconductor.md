@@ -53,6 +53,9 @@ Organize accounts into Billing Conductor billing groups to view aggregated pro f
 **Assign AWS Organizations to billing transfer billing group**  
 When using billing transfer, you can use Billing Conductor to create billing groups that map one-to-one with an AWS Organizations so that the entire organization (including the management account) can view the pro forma costs data exclusively.
 
+**Create billing groups automatically for two-level transfers**  
+In two-level transfers, you can enable the auto billing group creation preference for an indirect billing transfer so that AWS Billing Conductor automatically creates a billing group for each new account that indirectly transfers its bill to your account. For more information, see [Automatically creating billing groups for two-level transfers](create-billing-group.md#auto-billing-group-creation-preference).
+
 **Custom pricing**  
 Set global or specific markups or discounts, and control Free Tier access.
 

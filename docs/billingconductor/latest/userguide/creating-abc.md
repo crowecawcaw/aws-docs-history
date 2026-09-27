@@ -14,6 +14,8 @@ For billing transfer billing groups, the primary account corresponds to the mana
 + [Creating billing groups](create-billing-group.md)
   + [Using Billing Conductor as a standalone service](create-billing-group.md#create-billing-group-standalone)
   + [Using Billing Conductor with billing transfer](create-billing-group.md#create-billing-group-tandem)
+    + [Automatically creating billing groups for two-level transfers](create-billing-group.md#auto-billing-group-creation-preference)
+    + [Creating a billing group manually](create-billing-group.md#create-billing-group-manual)
 + [Viewing your billing group details](viewing-abc.md)
   + [Viewing the billing group table](viewing-abc.md#table-billing-group)
   + [Viewing your pro forma configurations by billing group](viewing-abc.md#custom-pricing-view-proforma)

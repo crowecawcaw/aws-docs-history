@@ -14,6 +14,7 @@ This documentation helps you understand how to apply the shared responsibility m
 **Topics**
 + [Data protection in AWS Billing Conductor](data-protection.md)
 + [Identity and access management for AWS Billing Conductor](security-iam.md)
++ [Using service-linked roles for Billing Conductor](using-service-linked-roles.md)
 + [Logging and monitoring in AWS Billing Conductor](billing-security-logging.md)
 + [Compliance validation for AWS Billing Conductor](compliance-validation.md)
 + [Resilience in AWS Billing Conductor](disaster-recovery-resiliency.md)
