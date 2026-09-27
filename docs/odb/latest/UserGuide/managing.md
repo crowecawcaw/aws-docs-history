@@ -170,10 +170,10 @@ Some operations might also be available from the OCI console. Check the OCI docu
 Scale the ECPU count on an Exascale VM cluster up or down to match your workload demand. Scaling compute does not require downtime.
 
 **Expand storage**  
-Expand the storage capacity of an Exascale Storage Vault at any time without downtime. You cannot reduce the storage capacity after you expand it.
+Expand the storage capacity of an Exascale storage vault at any time without downtime. You cannot reduce the storage capacity after you expand it.
 
 **Delete an Exascale VM cluster**  
 Delete an Exascale VM cluster that you no longer need. You must delete all databases on the cluster before you can delete it.
 
-**Delete an Exascale Storage Vault**  
-Delete an Exascale Storage Vault that you no longer need. You must delete all Exascale VM clusters that reference the vault before you can delete it.
+**Delete an Exascale storage vault**  
+Delete an Exascale storage vault that you no longer need. You must delete all Exascale VM clusters that reference the vault before you can delete it.

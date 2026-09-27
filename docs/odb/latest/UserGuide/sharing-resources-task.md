@@ -24,7 +24,7 @@ Before you share Oracle Database@AWS resources, make sure that you have the foll
 ## Sharing Oracle Database@AWS resources with another account using AWS RAM
 <a name="sharing-exadata-infrastructure"></a>
 
-To share an Exadata infrastructure or ODB network with another AWS account, you create a resource share using AWS RAM. This allows the trusted account to create VM clusters on your Exadata infrastructure.
+To share an Exadata infrastructure, ODB network, or Exascale storage vault with another AWS account, you create a resource share using AWS RAM. This allows the trusted account to create VM clusters on your Exadata infrastructure.
 
 ### Console
 <a name="sharing-exadata-infrastructure.CON"></a>
@@ -35,17 +35,19 @@ To share an Exadata infrastructure or ODB network with another AWS account, you 
 
 1. For **Name**, enter a descriptive name for your resource share.
 
-1. Under **Select resource type**, choose either of the following resources:
+1. Under **Select resource type**, choose one of the following resources:
    + **Oracle Database@AWS ODB network**
    + **Oracle Database@AWS Exadata Infrastructure**
+   + **Oracle Database@AWS Exascale storage vault**
 
-1. Select the Exadata infrastructure resources you want to share. Choose Next until you get to **Grant access to principals**.
+1. Select the resources you want to share. Choose Next until you get to **Grant access to principals**.
 
 1. Under **Principals**, choose **AWS accounts**, and then enter the AWS account IDs you want to share with.
 
 1. Under **Managed permissions**, select the following permissions to allow the trusted account to create VM clusters on the shared Exadata infrastructure:
    + **AWSRAMDefaultPermissionODBNetwork**
    + **AWSRAMDefaultPermissionODBCloudExadataInfrastructure**
+   + **AWSRAMDefaultPermissionODBExascaleDbStorageVault**
 
 1. Choose **Create resource share**.
 
@@ -60,6 +62,8 @@ aws ram create-resource-share --region {{us-east-1}} \
     --resource-arns arn:aws:odb:{{us-east-1:111111111111:cloud-exadata-infrastructure/exa_infra_1}} \
     --principals {{222222222222}}
 ```
+
+To share an ODB network or Exascale storage vault instead, specify its ARN for the `--resource-arns` parameter.
 
 ## Viewing your resource shares
 <a name="viewing-resource-shares"></a>

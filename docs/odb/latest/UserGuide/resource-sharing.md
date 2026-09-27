@@ -3,7 +3,7 @@
 # Resource sharing in Oracle Database@AWS
 <a name="resource-sharing"></a>
 
-With Oracle Database@AWS, you can share Exadata infrastructure and your ODB network across multiple AWS accounts in the same AWS organization. This enables you to provision infrastructure once and reuse it across trusted accounts, allowing you to reduce costs while separating responsibilities.
+With Oracle Database@AWS, you can share Exadata infrastructure, your ODB network, and your Exascale storage vault across multiple AWS accounts in the same AWS organization. This enables you to provision infrastructure once and reuse it across trusted accounts, allowing you to reduce costs while separating responsibilities.
 
 When you share resources:
 + The account that owns the resource (owner account) maintains control over the resource lifecycle.
@@ -34,6 +34,7 @@ For example, an administrator can provision the Oracle Exadata infrastructure an
 You can share the following Oracle Database@AWS resources:
 + Oracle Exadata infrastructure
 + ODB network
++ Exascale storage vault
 
 Oracle Database@AWS shares the preceding resources through the following process:
 
@@ -68,10 +69,19 @@ Oracle Database@AWS grants the following permissions to trusted accounts:
 The following permissions are granted to trusted accounts:  
 + `odb:CreateCloudVmCluster`
 + `odb:CreateCloudAutonomousVmCluster`
++ `odb:CreateExadbVmCluster`
++ `odb:CreateAutonomousDatabase`
 + `odb:GetOdbNetwork`
 + `odb:ListOdbNetworks`
 + `odb:CreateOdbPeeringConnection`
 + `odb:ListOdbPeeringConnections`
+
+**For Exascale storage vault**  
+The following permissions are granted to trusted accounts:  
++ `odb:CreateExadbVmCluster`
++ `odb:ListExadbVmClusters`
++ `odb:GetExascaleDbStorageVault`
++ `odb:ListExascaleDbStorageVaults`
 
 Resource sharing respects the hierarchical nature of Oracle Database@AWS resources. For example, if you share Exadata infrastructure, trusted accounts can create VM clusters on this infrastructure, but they can't modify or delete the Exadata infrastructure itself.
 

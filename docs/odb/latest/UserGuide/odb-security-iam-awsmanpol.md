@@ -28,7 +28,7 @@ Additionally, AWS supports managed policies for job functions that span multiple
 You can attach the `AmazonODBReadOnlyAccess` policy to your IAM identities. With this policy attached, you can view all Oracle Database@AWS resources and related service resources.
 
 The policy includes permissions to:
-+ View and list all Oracle Database@AWS resources, including Exadata infrastructure, Exadata VM cluster resources, Autonomous VM cluster resources, Exascale Storage Vault resources, Exascale VM cluster resources, Autonomous Databases and their backups, DB nodes, DB servers, ODB networks, and ODB peering connections
++ View and list all Oracle Database@AWS resources, including Exadata infrastructure, Exadata VM cluster resources, Autonomous VM cluster resources, Exascale storage vault resources, Exascale VM cluster resources, Autonomous Databases and their backups, DB nodes, DB servers, ODB networks, and ODB peering connections
 + View unallocated resources for Exadata infrastructure
 + List DB system shapes, flex components, Grid Infrastructure versions, Grid Infrastructure minor versions, system versions, Autonomous Database versions, and Autonomous Database character sets
 + View resource policies and list tags for Oracle Database@AWS resources
@@ -44,7 +44,7 @@ To view the permissions for this policy, see [AmazonODBReadOnlyAccess](https://d
 You can attach the `AmazonODBFullAccess` policy to your IAM identities. With this policy attached, you can create and manage all Oracle Database@AWS resources and related service resources.
 
 The policy includes permissions to:
-+ Create, view, update, delete, and list all Oracle Database@AWS resources, including Exadata infrastructure, Exadata VM cluster resources, Autonomous VM cluster resources, Exascale Storage Vault resources, Exascale VM cluster resources, Autonomous Databases and their backups, DB nodes, DB servers, ODB networks, and ODB peering connections
++ Create, view, update, delete, and list all Oracle Database@AWS resources, including Exadata infrastructure, Exadata VM cluster resources, Autonomous VM cluster resources, Exascale storage vault resources, Exascale VM cluster resources, Autonomous Databases and their backups, DB nodes, DB servers, ODB networks, and ODB peering connections
 + Attach and detach virtual machines for Exascale VM cluster resources
 + Associate and disassociate IAM roles for VM cluster resources
 + Manage the Autonomous Database lifecycle, including start, stop, reboot, shrink, switchover, failover, and restore
@@ -185,11 +185,11 @@ To view the permissions for this policy, see [AmazonODBExadataVmClusterAdmin](ht
 ## AWS managed policy: AmazonODBExascaleStorageVaultAdmin
 <a name="odb-security-iam-awsmanpol-AmazonODBExascaleStorageVaultAdmin"></a>
 
-You can attach the `AmazonODBExascaleStorageVaultAdmin` policy to your IAM identities. With this policy attached, you can create and manage Exascale Storage Vault resources. You can also list Exascale VM cluster resources and view the DB servers that use an Exascale Storage Vault.
+You can attach the `AmazonODBExascaleStorageVaultAdmin` policy to your IAM identities. With this policy attached, you can create and manage Exascale storage vault resources. You can also list Exascale VM cluster resources and view the DB servers that use an Exascale storage vault.
 
 The policy includes permissions to:
 + Initialize the Oracle Database@AWS service
-+ Create, view, update, delete, and list Exascale Storage Vault resources
++ Create, view, update, delete, and list Exascale storage vault resources
 + List Exascale VM cluster resources
 + View and list DB servers
 + List DB system shapes and flex components
@@ -197,18 +197,18 @@ The policy includes permissions to:
 + List tags for Oracle Database@AWS resources
 + View Availability Zones
 + Create the service-linked role for Oracle Database@AWS
-+ Tag and untag Exascale Storage Vault resources
++ Tag and untag Exascale storage vault resources
 
 To view the permissions for this policy, see [AmazonODBExascaleStorageVaultAdmin](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonODBExascaleStorageVaultAdmin.html) in the *AWS Managed Policy Reference Guide*.
 
 ## AWS managed policy: AmazonODBExascaleVmClusterAdmin
 <a name="odb-security-iam-awsmanpol-AmazonODBExascaleVmClusterAdmin"></a>
 
-You can attach the `AmazonODBExascaleVmClusterAdmin` policy to your IAM identities. With this policy attached, you can manage Exascale VM cluster resources and their DB nodes. You can also view the Exascale Storage Vault and ODB network resources that an Exascale VM cluster attaches to.
+You can attach the `AmazonODBExascaleVmClusterAdmin` policy to your IAM identities. With this policy attached, you can manage Exascale VM cluster resources and their DB nodes. You can also view the Exascale storage vault and ODB network resources that an Exascale VM cluster attaches to.
 
 The policy includes permissions to:
 + Initialize the Oracle Database@AWS service
-+ View and list Exascale Storage Vault resources
++ View and list Exascale storage vault resources
 + Create, view, update, delete, and list Exascale VM cluster resources
 + Attach and detach virtual machines for Exascale VM cluster resources
 + Associate and disassociate IAM roles for Exascale VM cluster resources

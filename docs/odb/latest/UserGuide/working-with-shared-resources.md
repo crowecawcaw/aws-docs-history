@@ -8,6 +8,7 @@ After a resource has been shared with your trusted account and you've initialize
 **Topics**
 + [Limitations for shared resources in a trusted account](#limitations-shared-resources)
 + [Creating VM clusters on shared Exadata infrastructure](#creating-vm-clusters)
++ [Creating Exascale VM clusters on a shared Exascale storage vault](#creating-exascale-vm-clusters)
 + [Viewing shared resources in a trusted account](#viewing-shared-resources)
 + [Setting up ODB peering with shared ODB networks](#network-peering-shared)
 
@@ -77,6 +78,48 @@ aws odb create-cloud-autonomous-vm-cluster --region us-east-1  \
 ```
 
 The VM cluster is created on the specified shared Exadata infrastructure and is owned by your trusted account.
+
+## Creating Exascale VM clusters on a shared Exascale storage vault
+<a name="creating-exascale-vm-clusters"></a>
+
+If your trusted account has access to a shared Exascale storage vault and ODB network, you can create Exascale VM clusters that use the shared Exascale storage vault. This separates storage ownership from compute. Multiple trusted accounts can then run Exascale VM clusters against the same shared Exascale storage vault.
+
+### Console
+<a name="creating-exascale-vm-clusters.CON"></a>
+
+1. Open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/).
+
+1. In the navigation pane, choose **Exascale VM clusters**.
+
+1. Choose **Create Exascale VM cluster**.
+
+1. Select your ODB network and the shared Exascale storage vault on which you want to create the Exascale VM cluster, and configure the ECPU count (minimum 8 ECPUs).
+
+1. Complete the remaining fields as required for your Exascale VM cluster configuration.
+
+1. Choose **Create Exascale VM cluster**.
+
+### AWS CLI
+<a name="creating-exascale-vm-clusters.CLI"></a>
+
+To create an Exascale VM cluster on a shared Exascale storage vault using the AWS CLI, use the `create-exadb-vm-cluster` command. Specify the ARN of the shared Exascale storage vault for the `--exascale-db-storage-vault-id` parameter.
+
+```
+aws odb create-exadb-vm-cluster --region us-east-1 \
+    --exascale-db-storage-vault-id {{arn:aws:odb:us-east-1:111111111111:exascale-db-storage-vault/xsvault_aaaaaaaaaa}} \
+    --odb-network-id {{arn:aws:odb:us-east-1:111111111111:odb-network/odbnet_aaaaaaaaaa}} \
+    --display-name "{{Shared-ExaScaleVM-1}}" \
+    --shape "{{Exadata.X11M}}" \
+    --grid-image-id "{{gi-aaaaaaaaaa}}" \
+    --hostname "{{exavmhost}}" \
+    --node-count {{2}} \
+    --enabled-ecpu-count {{8}} \
+    --total-ecpu-count {{8}} \
+    --vm-file-system-storage-total-size-in-g-bs {{560}} \
+    --ssh-public-keys "{{ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQ...}}"
+```
+
+The Exascale VM cluster is created on the specified shared Exascale storage vault and is owned by your trusted account.
 
 ## Viewing shared resources in a trusted account
 <a name="viewing-shared-resources"></a>

@@ -5,7 +5,7 @@
 
 With Oracle Database@AWS, you can access Oracle Exadata infrastructure, Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS), and Oracle Autonomous Database Serverless managed by Oracle Cloud Infrastructure (OCI) inside AWS data centers. You can migrate your Oracle Exadata workloads, deploy elastic Exascale databases, and deploy serverless Oracle Autonomous Databases. You can also establish low-latency connectivity with applications running on AWS and integrate with AWS services. You get a single invoice through AWS Marketplace, which counts towards AWS commitments and Oracle Support rewards.
 
-The following diagram shows a high-level overview of an OCI region tied to an AWS data center that hosts Oracle Exadata infrastructure. Within an AWS Availability Zone (AZ), you can establish one or more peering connections (up to 45) between your Amazon VPCs and the private network that is tied to the data center. By peering these networks, application servers in the VPCs can access Oracle databases running on the Oracle Exadata infrastructure.
+The following diagram shows a high-level overview of an OCI region tied to an AWS data center that hosts Oracle Exadata infrastructure. Within an AWS Availability Zone (AZ), you can establish one or more peering connections (up to 125) between your Amazon VPCs and the private network that is tied to the data center. By peering these networks, application servers in the VPCs can access Oracle databases running on the Oracle Exadata infrastructure.
 
 ![Access Oracle databases that run on Oracle Exadata infrastructure hosted in an AWS data center with connectivity paths and service components.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-ovw.png)
 
@@ -76,7 +76,7 @@ For Autonomous Database Serverless and ExaDB-XS, you can accept a public offer o
 
 1. Create your Oracle Database@AWS resources:
    + For Oracle Exadata Database Service on Dedicated Infrastructure or Autonomous Database on Dedicated Exadata Infrastructure, create your ODB network, Oracle Exadata infrastructure, and Exadata VM clusters using the AWS console. Create your Exadata databases using OCI tools.
-   + For ExaDB-XS, create an ODB network, an Exascale Storage Vault, and an Exascale VM cluster using the AWS console. Create your Oracle Exadata databases using OCI tools.
+   + For ExaDB-XS, create an ODB network, an Exascale storage vault, and an Exascale VM cluster using the AWS console. Create your Oracle Exadata databases using OCI tools.
    + For Autonomous Database Serverless, create an ODB network and then create an Autonomous Database directly from the Oracle Database@AWS console. No Exadata infrastructure or VM cluster provisioning is required.
 
    For more information, see [Getting started with Oracle Database@AWS](getting-started.md).

@@ -9,7 +9,7 @@
 <a name="network-peering"></a>
 
 **Note**  
-Now, you can have up to 45 ODB peering connections between your Amazon VPCs and ODB network, allowing you to establish low-latency connectivity at scale between your Exadata databases in your ODB network and applications in your VPCs.
+Now, you can have up to 125 ODB peering connections between your Amazon VPCs and ODB network, allowing you to establish low-latency connectivity at scale between your Exadata databases in your ODB network and applications in your VPCs.
 
 With ODB peering connections, you can establish private network connectivity between your Oracle Exadata infrastructure and the applications running in your Amazon VPCs. Each ODB peering connection is a separate resource that you can create, view, and delete independently of the ODB network.
 
@@ -26,7 +26,7 @@ You can create an ODB peering connection between an ODB network in one account a
 ### Peering connection limits
 <a name="peering-limit"></a>
 
-You can create up to 45 peerings for a single ODB network.
+You can create up to 125 peerings for a single ODB network.
 
 ### Console
 <a name="CreatePeering.CON"></a>
@@ -325,7 +325,7 @@ Data Guard communications between ODB networks must be routed through the OCI ne
 <a name="multiple-app-vpcs-considerations"></a>
 
 Before implementing this architecture, consider the following:
-+ An ODB network supports up to a maximum of 45 peering connections.
++ An ODB network supports up to a maximum of 125 peering connections.
 + Each VPC CIDR block consumes routing resources in the ODB network.
 + CIDR blocks must not overlap between the ODB network and peered VPCs to avoid routing conflicts.
 + A VPC can establish multiple peering connections to different ODB networks, but only one peering connection to each ODB network.

@@ -63,7 +63,7 @@ When you create an ODB network, you specify information such as the following:
 </thead>
 <tbody>
   <tr><td>Canada (Central)</td><td><code>ca-central-1</code></td><td><code>cac1-az1</code>, <code>cac1-az4</code></td></tr>
-  <tr><td>US East (N. Virginia)</td><td><code>us-east-1</code></td><td><code>use1-az2</code>, <code>use1-az4</code>, <code>use1-az6</code></td></tr>
+  <tr><td>US East (N. Virginia)</td><td><code>us-east-1</code></td><td><code>use1-az1</code>, <code>use1-az2</code>, <code>use1-az4</code>, <code>use1-az6</code></td></tr>
   <tr><td>US East (Ohio)</td><td><code>us-east-2</code></td><td><code>use2-az1</code>, <code>use2-az2</code></td></tr>
   <tr><td>US West (N. California)</td><td><code>us-west-1</code></td><td><code>usw1-az1</code>, <code>usw1-az3</code></td></tr>
   <tr><td>US West (Oregon)</td><td><code>us-west-2</code></td><td><code>usw2-az3</code>, <code>usw2-az4</code></td></tr>
@@ -161,7 +161,7 @@ A Virtual Private Cloud (VPC) is a virtual network that you create in the AWS cl
 
 You can launch Amazon EC2 instances into your Amazon VPC. The EC2 instances can host application servers that communicate with Oracle Exadata databases. You can manage and launch the application servers just like any other EC2 instances in your VPC. For more information, see [What is Amazon EC2?](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) 
 
-By default, the ODB network doesn't have connectivity to VPCs. To connect the ODB network to your existing AWS infrastructure, create one or more peering connections (up to 45) between the ODB network and your VPCs. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb).
+By default, the ODB network doesn't have connectivity to VPCs. To connect the ODB network to your existing AWS infrastructure, create one or more peering connections (up to 125) between the ODB network and your VPCs. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb).
 
 ## ODB peering
 <a name="how-it-works.peering"></a>
@@ -225,7 +225,7 @@ To allow multiple VPCs to access Oracle Database@AWS resources in one ODB networ
 ### AWS Transit Gateway
 <a name="how-it-works-tgw"></a>
 
-An Amazon VPC transit gateway is a network transit hub used to interconnect VPCs and on-premises networks. An ODB network supports up to 45 direct peering connections. You can establish direct peering connections between your ODB network and multiple VPCs, or use a transit gateway for centralized routing. To use a transit gateway, peer your ODB network to a VPC and then attach this VPC to the transit gateway. The gateway can connect to multiple VPCs. With this transit gateway configuration, you can route traffic between multiple VPC subnets and your ODB network through a central hub.
+An Amazon VPC transit gateway is a network transit hub used to interconnect VPCs and on-premises networks. An ODB network supports up to 125 direct peering connections. You can establish direct peering connections between your ODB network and multiple VPCs, or use a transit gateway for centralized routing. To use a transit gateway, peer your ODB network to a VPC and then attach this VPC to the transit gateway. The gateway can connect to multiple VPCs. With this transit gateway configuration, you can route traffic between multiple VPC subnets and your ODB network through a central hub.
 
 ![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](https://docs.aws.amazon.com/odb/latest/UserGuide/images/ODB-tgw.png)
 
@@ -252,30 +252,30 @@ When you create a VM cluster, you specify information that includes the followin
 
 You can configure the CPU cores, memory, and local storage for each VM in a VM cluster. For more information, see [Step 3: Create an Exadata VM cluster or Autonomous VM cluster in Oracle Database@AWS](getting-started.md#getting-started-vm).
 
-## Exascale Storage Vaults
+## Exascale storage vaults
 <a name="how-it-works.exascale-storage-vault"></a>
 
-An Exascale Storage Vault is a pooled, shared storage resource for Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS). Unlike dedicated Exadata infrastructure, an Exascale Storage Vault provides elastic storage. Multiple Exascale VM clusters can draw from it independently.
+An Exascale storage vault is a pooled, shared storage resource for Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS). Unlike dedicated Exadata infrastructure, an Exascale storage vault provides elastic storage. Multiple Exascale VM clusters can draw from it independently.
 
-When you create an Exascale Storage Vault, you specify information that includes the following:
+When you create an Exascale storage vault, you specify information that includes the following:
 + An Availability Zone
 + The initial storage capacity (starting from 300 GB)
 
-You can expand the Exascale Storage Vault storage capacity at any time without downtime. Multiple Exascale VM clusters can reference the same Exascale Storage Vault, and each cluster draws compute and storage from the vault independently.
+You can expand the Exascale storage vault storage capacity at any time without downtime. Multiple Exascale VM clusters can reference the same Exascale storage vault, and each cluster draws compute and storage from the vault independently.
 
 ## Exascale VM clusters
 <a name="how-it-works.exascale-vm"></a>
 
-An Exascale VM cluster is a set of VMs for ExaDB-XS. An Exascale VM cluster references an Exascale Storage Vault for its storage instead of requiring dedicated Oracle Exadata infrastructure. It provides elastic compute starting from 8 ECPUs.
+An Exascale VM cluster is a set of VMs for ExaDB-XS. An Exascale VM cluster references an Exascale storage vault for its storage instead of requiring dedicated Oracle Exadata infrastructure. It provides elastic compute starting from 8 ECPUs.
 
 Key differences from Exadata VM clusters:
-+ No dedicated Exadata infrastructure is required. The Exascale VM cluster references an Exascale Storage Vault instead.
++ No dedicated Exadata infrastructure is required. The Exascale VM cluster references an Exascale storage vault instead.
 + Compute (ECPUs) and storage scale independently.
 + You pay for the resources you consume rather than provisioning a fixed number of database and storage servers.
 
 When you create an Exascale VM cluster, you specify information that includes the following:
 + An ODB network
-+ An Exascale Storage Vault
++ An Exascale storage vault
 + The ECPU count (starting from 8 ECPUs)
 
 ## Autonomous VM clusters
