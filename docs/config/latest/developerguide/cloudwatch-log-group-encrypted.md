@@ -21,6 +21,6 @@ KmsKeyId (Optional)Type: String
 Amazon Resource Name (ARN) of the ID for the KMS key that is used to encrypt the log group.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d357c19"></a>
+<a name="w2aac20c16c17b7d361c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

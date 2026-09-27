@@ -22,6 +22,6 @@ secretKeysType: CSV
 Comma-separated list of key names to search for in the environment variables of container definitions within Task Definitions. Extra spaces will be removed.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d669c19"></a>
+<a name="w2aac20c16c17b7d675c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

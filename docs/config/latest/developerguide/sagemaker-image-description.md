@@ -20,6 +20,6 @@ Checks if Amazon SageMaker images have a description. The rule is NON\_COMPLIANT
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1459c19"></a>
+<a name="w2aac20c16c17b7e1481c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

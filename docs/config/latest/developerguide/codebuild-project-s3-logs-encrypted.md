@@ -21,6 +21,6 @@ exemptedProjects (Optional)Type: CSV
 Comma-separated list of CodeBuild project names that are allowed to output unencrypted logs.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d381c19"></a>
+<a name="w2aac20c16c17b7d385c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

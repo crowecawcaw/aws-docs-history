@@ -21,6 +21,6 @@ minAvailabilityZones (Optional)Type: int
 Minimum number of expected Availability zones.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d243c19"></a>
+<a name="w2aac20c16c17b7d247c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -7,7 +7,9 @@ A conformance pack is a collection of AWS Config rules and remediation actions t
 
 Conformance packs are created by authoring a YAML template that contains the list of AWS Config managed or custom rules and remediation actions. You can also use AWS Systems Manager documents (SSM documents) to store your conformance pack templates on AWS and directly deploy conformance packs using SSM document names. You can deploy the template by using the AWS Config console or the AWS CLI.
 
-To quickly get started and to evaluate your AWS environment, use one of the [sample conformance pack templates](https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html). You can also create a conformance pack YAML file from scratch based on [Custom Conformance Pack](https://docs.aws.amazon.com/config/latest/developerguide/custom-conformance-pack.html).
+To quickly get started and to evaluate your AWS environment, use one of the [sample conformance pack templates](https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html).
+
+You can also create a conformance pack YAML file from scratch based on [Custom Conformance Pack](https://docs.aws.amazon.com/config/latest/developerguide/custom-conformance-pack.html).
 
 **Topics**
 + [Conformance Pack Dashboard](conformance-pack-dashboard.md)

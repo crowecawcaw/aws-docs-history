@@ -28,6 +28,6 @@ cloudformationRoleArnType: String
  The Amazon Resource Name (ARN) of the IAM role with policy permissions to detect drift for CloudFormation stacks. For information on required IAM permissions for the role, see [Detecting unmanaged configuration changes to stacks and resources \| Considerations when detecting drift](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#drift-considerations) in the *CloudFormation User Guide*. 
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d293c21"></a>
+<a name="w2aac20c16c17b7d297c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

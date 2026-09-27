@@ -20,6 +20,6 @@ Checks if DNS query logging is enabled for your Amazon Route 53 public hosted zo
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1349c19"></a>
+<a name="w2aac20c16c17b7e1371c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

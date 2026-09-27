@@ -24,7 +24,7 @@ temporaryPasswordValidity (Optional)Type: intDefault: 7
 Number of days a temporary password remains valid. Valid values are 1 to 365.
 
 minLength (Optional)Type: intDefault: 8  
-Minimum length required for user pool password. Valid values are 5 to 128.
+Minimum length required for user pool password. Valid values are 6 to 99.
 
 requireNumbers (Optional)Type: booleanDefault: True  
 Whether to require at least one number in password.
@@ -36,6 +36,6 @@ requireLowercase (Optional)Type: booleanDefault: True
 Whether to require at least one lowercase letter in password.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d421c19"></a>
+<a name="w2aac20c16c17b7d425c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

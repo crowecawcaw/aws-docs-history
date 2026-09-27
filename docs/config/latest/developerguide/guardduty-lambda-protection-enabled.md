@@ -20,6 +20,6 @@ Checks if Lambda Protection is enabled for an Amazon GuardDuty detector in your 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d901c19"></a>
+<a name="w2aac20c16c17b7d911c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

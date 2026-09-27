@@ -21,6 +21,6 @@ kmsKeyArns (Optional)Type: CSV
 Comma-separated list of Amazon Resource Names (ARNs) of AWS KMS keys for the rule to check. If provided, the rule is NON\_COMPLIANT if an AWS Cloud Trail event data store is not encrypted with one of these KMS keys.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d821c19"></a>
+<a name="w2aac20c16c17b7d831c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

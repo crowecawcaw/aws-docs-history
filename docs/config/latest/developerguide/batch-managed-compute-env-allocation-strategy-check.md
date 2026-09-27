@@ -21,6 +21,6 @@ allocationStrategyType: CSV
 Comma-separated list of allocation strategies for the rule to check. Valid values include: 'BEST\_FIT', 'BEST\_FIT\_PROGRESSIVE', 'SPOT\_CAPACITY\_OPTIMIZED', and 'SPOT\_PRICE\_CAPACITY\_OPTIMIZED'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d267c19"></a>
+<a name="w2aac20c16c17b7d271c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

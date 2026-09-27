@@ -20,6 +20,6 @@ Checks if enhanced monitoring is enabled for an Amazon MSK cluster set to PER\_T
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1129c19"></a>
+<a name="w2aac20c16c17b7e1143c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

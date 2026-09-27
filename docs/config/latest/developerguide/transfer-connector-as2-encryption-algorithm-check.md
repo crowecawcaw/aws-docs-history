@@ -21,6 +21,6 @@ approvedEncryptionAlgorithms (Optional)Type: CSV
 Comma-separated list of approved encryption algorithms for the rule to check. If provided, the rule is NON\_COMPLIANT if configuration.As2Config.EncryptionAlgorithm is configured with a value not specified in this parameter. Valid values include: 'AES128\_CBC', 'AES192\_CBC', 'AES256\_CBC', 'NONE', and 'DES\_EDE3\_CBC'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1575c19"></a>
+<a name="w2aac20c16c17b7e1597c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

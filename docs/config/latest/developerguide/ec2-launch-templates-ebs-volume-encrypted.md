@@ -20,6 +20,6 @@ Checks whether Amazon EC2 launch templates have encryption enabled for all attac
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d571c19"></a>
+<a name="w2aac20c16c17b7d577c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

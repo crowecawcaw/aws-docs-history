@@ -20,6 +20,6 @@ Checks the number of network hops that the metadata token can travel. This rule 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d237c19"></a>
+<a name="w2aac20c16c17b7d241c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

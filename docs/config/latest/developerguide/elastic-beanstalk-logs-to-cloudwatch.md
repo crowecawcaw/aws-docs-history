@@ -24,6 +24,6 @@ DeleteOnTerminate (Optional)Type: String
 Checks if logs are configured to be deleted upon termination of the environment. Valid values are `true` or `false`. The rule is NON\_COMPLIANT if the value of `logs.DeleteOnTerminate` does not match this parameter.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d771c19"></a>
+<a name="w2aac20c16c17b7d781c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

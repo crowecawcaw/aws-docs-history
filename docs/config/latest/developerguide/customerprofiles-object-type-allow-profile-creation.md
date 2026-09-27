@@ -20,6 +20,6 @@ Checks if Amazon Connect Customer Profiles object types allow the creation of a 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d429c19"></a>
+<a name="w2aac20c16c17b7d433c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

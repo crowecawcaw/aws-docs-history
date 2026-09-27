@@ -21,6 +21,6 @@ SecurityMode (Optional)Type: String
 String value of the advanced security mode for the rule to check. If provided, the rule is NON\_COMPLIANT if the advanced security mode for user pools does not match this parameter value. Valid values are AUDIT and ENFORCED
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d415c19"></a>
+<a name="w2aac20c16c17b7d419c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

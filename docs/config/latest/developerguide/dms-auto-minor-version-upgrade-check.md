@@ -20,6 +20,6 @@ Checks if an AWS Database Migration Service (AWS DMS) replication instance has a
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d463c19"></a>
+<a name="w2aac20c16c17b7d467c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

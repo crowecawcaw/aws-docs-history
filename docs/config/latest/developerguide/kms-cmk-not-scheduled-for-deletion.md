@@ -21,6 +21,6 @@ kmsKeyIds (Optional)Type: String
 (Optional) Comma-separated list of specific customer managed key IDs not to be scheduled for deletion. If you do not specify any keys, the rule checks all the keys.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1051c19"></a>
+<a name="w2aac20c16c17b7e1061c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

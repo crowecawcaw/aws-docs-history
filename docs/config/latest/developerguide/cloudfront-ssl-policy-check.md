@@ -21,6 +21,6 @@ securityPoliciesType: CSV
 Comma-separated list of CloudFront distribution security policies for the rule to check. For example: "TLSv1.2\_2018, TLSv1.2\_2019, TLSv1.2\_2021". For a list of valid value, see the Amazon CloudFront Developer Guide.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d327c19"></a>
+<a name="w2aac20c16c17b7d331c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

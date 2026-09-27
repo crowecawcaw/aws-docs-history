@@ -22,6 +22,6 @@ Comma-separated list of Amazon Resource Names (ARNs) for Amazon CloudWatch Logs 
 Valid values include: `arn:aws:logs:region:account-id:log-group:log_group_name:*` and `arn:aws:logs:region:account-id:log-group:log_group_name`.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1193c19"></a>
+<a name="w2aac20c16c17b7e1207c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

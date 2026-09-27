@@ -36,6 +36,6 @@ evaluationPeriods (Optional)Type: int
 The number of periods over which data is compared to the specified threshold.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d355c19"></a>
+<a name="w2aac20c16c17b7d359c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

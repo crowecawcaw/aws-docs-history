@@ -21,6 +21,6 @@ As of April 3, 2026, AWS Config has discontinued support for this managed rule. 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d679c19"></a>
+<a name="w2aac20c16c17b7d685c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

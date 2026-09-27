@@ -36,6 +36,6 @@ targetReadUtilization (Optional)Type: double
 The target utilization percentage for read capacity. Target utilization is expressed in terms of the ratio of consumed capacity to provisioned capacity.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d497c19"></a>
+<a name="w2aac20c16c17b7d501c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

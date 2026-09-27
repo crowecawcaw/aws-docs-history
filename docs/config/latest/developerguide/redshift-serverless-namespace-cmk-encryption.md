@@ -21,6 +21,6 @@ kmsKeyArns (Optional)Type: CSV
 Comma-separated list of Amazon Resource Names (ARNs) of customer managed keys for the rule to check. If provided, the rule is NON\_COMPLIANT if an Amazon Redshift Serverless namespace is not encrypted with one of these KMS keys.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1321c19"></a>
+<a name="w2aac20c16c17b7e1343c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

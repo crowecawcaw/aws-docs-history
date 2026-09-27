@@ -20,6 +20,6 @@ Checks if Amazon EventBridge custom event buses have a resource-based policy att
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d433c19"></a>
+<a name="w2aac20c16c17b7d437c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

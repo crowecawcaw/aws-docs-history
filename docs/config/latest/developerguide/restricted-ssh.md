@@ -23,6 +23,6 @@ Checks if the incoming SSH traffic for the security groups is accessible. The ru
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d969c21"></a>
+<a name="w2aac20c16c17b7d979c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -23,7 +23,7 @@ The following is an example payload of an Amazon SNS notification that is genera
                 "arn": "arn:aws:us-west-2b:123456789012:volume/vol-ce676ccc",
                 "resourceId": "vol-ce676ccc",
                 "awsAccountId": "123456789012",
-                "configurationStateID": "3e660fdf-4e34-4f32-afeb-0ace5bf3d63a",
+                "configurationStateId": 1394236028918,
                 "configurationItemStatus": "OK",
                 "relatedEvents": [],
                 "availabilityZone": "us-west-2b",

@@ -40,6 +40,6 @@ vpcIds (Optional)Type: CSV
 Comma-separated list of Amazon Virtual Private Clouds (Amazon VPC) IDs, for example 'vpc-1234abc0, vpc-ab1234c0'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1399c25"></a>
+<a name="w2aac20c16c17b7e1421c25"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

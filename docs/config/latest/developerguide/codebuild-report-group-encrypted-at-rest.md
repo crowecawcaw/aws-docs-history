@@ -20,6 +20,6 @@ Checks if an AWS CodeBuild report group has encryption at rest setting enabled. 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d387c19"></a>
+<a name="w2aac20c16c17b7d391c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

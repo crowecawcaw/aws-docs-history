@@ -21,6 +21,6 @@ deleteOnTermination (Optional)Type: boolean
 EBS volumes are marked for deletion when an instance is terminated. Possible values: True or False (other input values are marked as NON\_COMPLIANT). If set to `True`, the rule is NON\_COMPLIANT if a terminated EBS volume is not marked for deletion.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d637c19"></a>
+<a name="w2aac20c16c17b7d643c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

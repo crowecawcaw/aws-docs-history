@@ -20,6 +20,6 @@ Checks if AWS Redshift Serverless workgroups have the require\_ssl config parame
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1325c19"></a>
+<a name="w2aac20c16c17b7e1347c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

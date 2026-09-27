@@ -21,6 +21,6 @@ IamInstanceProfileArnList (Optional)Type: CSV
 Comma-separated list of IAM profile Amazon Resource Names (ARNs) that can be attached to Amazon EC2 instances.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d563c19"></a>
+<a name="w2aac20c16c17b7d569c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

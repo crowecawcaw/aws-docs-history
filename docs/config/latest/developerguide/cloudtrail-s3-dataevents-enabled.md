@@ -19,6 +19,6 @@ S3BucketNames (Optional)Type: String
 Comma-separated list of S3 bucket names for which data events logging should be enabled. Default behavior checks for all S3 buckets.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d343c17"></a>
+<a name="w2aac20c16c17b7d347c17"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

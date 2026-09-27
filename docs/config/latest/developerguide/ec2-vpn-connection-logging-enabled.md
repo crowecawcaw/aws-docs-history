@@ -20,6 +20,6 @@ Checks if AWS Site-to-Site VPN connections have Amazon CloudWatch logging enable
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d641c19"></a>
+<a name="w2aac20c16c17b7d647c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -16,7 +16,9 @@ You can deploy a conformance pack using AWS Config sample templates or your own 
 
 1. Navigate to the **Conformance packs** page and choose **Deploy conformance pack**.
 
-1. On the **Specify template** page, either choose a sample template or use an existing template. For more information, see [Conformance Pack Sample Templates.](https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html)
+1. On the **Specify template** page, either choose a sample template or use an existing template.
+
+   For more information, see [Conformance Pack Sample Templates.](https://docs.aws.amazon.com/config/latest/developerguide/conformancepack-sample-templates.html)
    + If you choose **Use sample template**, select a **Sample template** from the dropdown list of sample templates.
 
      For information about the contents of each template, see Conformance Pack Sample Templates.

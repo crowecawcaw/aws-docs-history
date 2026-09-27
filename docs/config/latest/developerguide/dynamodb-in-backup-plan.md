@@ -20,6 +20,6 @@ Checks if an Amazon DynamoDB table is present in AWS Backup plans. The rule is N
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d499c19"></a>
+<a name="w2aac20c16c17b7d503c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

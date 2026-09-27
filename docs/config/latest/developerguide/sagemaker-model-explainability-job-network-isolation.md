@@ -20,6 +20,6 @@ Checks whether an Amazon SageMaker model explainability job definition has netwo
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1475c19"></a>
+<a name="w2aac20c16c17b7e1497c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

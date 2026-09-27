@@ -21,6 +21,6 @@ minimumBackupRetentionPeriod (Optional)Type: int
 Minimum days backups should be kept. Valid values 1 to 35, default value is 7. The rule is NON\_COMPLIANT if value is greater than 'backupRetentionPeriod'. The rule is COMPLIANT if value is less than or equal to 'backupRetentionPeriod'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1139c19"></a>
+<a name="w2aac20c16c17b7e1153c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

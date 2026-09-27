@@ -20,6 +20,6 @@ Checks if the certificate associated with an Amazon CloudFront distribution is t
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d305c19"></a>
+<a name="w2aac20c16c17b7d309c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

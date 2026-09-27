@@ -21,6 +21,6 @@ logType (Optional)Type: CSV
 Comma-separated list of log types to be published to CloudWatch Logs. Valid values are 'connectionlog', 'userlog' Default value is 'connectionlog', 'userlog'. 
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1323c19"></a>
+<a name="w2aac20c16c17b7e1345c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

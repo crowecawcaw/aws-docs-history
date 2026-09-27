@@ -21,6 +21,6 @@ Checks if your Classic Load Balancer is configured with SSL or HTTPS listeners. 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d803c19"></a>
+<a name="w2aac20c16c17b7d813c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

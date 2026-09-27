@@ -3,7 +3,7 @@
 # rds-cluster-multi-az-enabled
 <a name="rds-cluster-multi-az-enabled"></a>
 
-Checks if Multi-Availability Zone (Multi-AZ) replication is enabled on Amazon Aurora and Multi-AZ DB clusters managed by Amazon Relational Database Service (Amazon RDS). The rule is NON\_COMPLIANT if an Amazon RDS instance is not configured with Multi-AZ. 
+Checks if Amazon Aurora DB clusters have DB instances deployed across multiple Availability Zones. The rule is NON\_COMPLIANT if the cluster's multiAZ property is false. 
 
 
 
@@ -20,6 +20,6 @@ Checks if Multi-Availability Zone (Multi-AZ) replication is enabled on Amazon Au
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1233c19"></a>
+<a name="w2aac20c16c17b7e1247c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -20,6 +20,6 @@ Checks whether Amazon CloudFront distributions use only trusted key groups for s
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d309c19"></a>
+<a name="w2aac20c16c17b7d313c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

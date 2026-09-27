@@ -20,6 +20,6 @@ Checks if a Network Load Balancer scheme is internal. The rule is NON\_COMPLIANT
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1177c19"></a>
+<a name="w2aac20c16c17b7e1191c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

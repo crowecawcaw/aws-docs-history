@@ -26,6 +26,6 @@ The rule will not return NON\_COMPLIANT if an EC2 instance is stopped and the SS
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d557c23"></a>
+<a name="w2aac20c16c17b7d563c23"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

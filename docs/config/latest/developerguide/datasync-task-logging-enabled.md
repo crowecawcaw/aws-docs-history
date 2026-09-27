@@ -21,6 +21,6 @@ logLevel (Optional)Type: String
 String value for the logging level. Valid values include: 'BASIC' and 'TRANSFER'. If not specified, the default value is 'BASIC'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d443c19"></a>
+<a name="w2aac20c16c17b7d447c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -29,6 +29,6 @@ maxCredentialUsageAgeType: intDefault: 90
 Maximum number of days a credential cannot be used. The default value is 90 days.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d957c21"></a>
+<a name="w2aac20c16c17b7d967c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

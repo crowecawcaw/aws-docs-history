@@ -21,6 +21,6 @@ logType (Optional)Type: String
 logType (Optional): Log type for the rule to check for firewalls: 'alert', 'flow', or 'both'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1161c19"></a>
+<a name="w2aac20c16c17b7e1175c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

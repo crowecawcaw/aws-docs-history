@@ -21,6 +21,6 @@ regionFanoutFactor (Optional)Type: intDefault: 3
 The number of regions the AWS CodePipeline has deployed to in all previous stages is the acceptable number of regions any stage can deploy to.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d407c19"></a>
+<a name="w2aac20c16c17b7d411c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

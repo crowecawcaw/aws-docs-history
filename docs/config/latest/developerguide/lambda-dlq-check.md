@@ -21,6 +21,6 @@ dlqArns (Optional)Type: CSV
 Comma-separated list of Amazon SQS and Amazon SNS ARNs that must be configured as the Lambda function dead-letter queue target
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1059c19"></a>
+<a name="w2aac20c16c17b7e1071c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

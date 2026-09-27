@@ -20,6 +20,6 @@ Checks if an Amazon MQ for ActiveMQ single-instance broker using the mq.m5 insta
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1107c19"></a>
+<a name="w2aac20c16c17b7e1121c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

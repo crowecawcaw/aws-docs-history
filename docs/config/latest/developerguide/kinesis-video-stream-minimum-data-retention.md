@@ -21,6 +21,6 @@ minDataRetentionInHoursType: int
 The minimum data retention in hours of the Amazon Kinesis Video stream for the rule to check. The rule is NON\_COMPLIANT if the data retention in hours is less than the value specified in this parameter. Valid values are 0 to 87600.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1049c19"></a>
+<a name="w2aac20c16c17b7e1059c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

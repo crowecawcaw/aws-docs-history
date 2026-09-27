@@ -20,6 +20,6 @@ Checks if connections to Amazon RDS for MariaDB DB instances with engine version
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1259c19"></a>
+<a name="w2aac20c16c17b7e1279c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

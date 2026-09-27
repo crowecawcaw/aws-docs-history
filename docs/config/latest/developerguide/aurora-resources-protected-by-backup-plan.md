@@ -39,6 +39,6 @@ backupVaultLockCheck (Optional)Type: String
 Accepted values: 'True' or 'False'. Enter 'True' for the rule to check if the resource is backed up in a locked vault
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d229c19"></a>
+<a name="w2aac20c16c17b7d233c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

@@ -27,6 +27,6 @@ SkipInactiveTaskDefinitions (Optional)Type: boolean
 Boolean flag to not check INACTIVE Amazon EC2 task definitions. If set to 'true', the rule won't evaluate INACTIVE Amazon EC2 task definitions. If set to 'false', the rule will evaluate the latest revision of INACTIVE Amazon EC2 task definitions.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d687c19"></a>
+<a name="w2aac20c16c17b7d693c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

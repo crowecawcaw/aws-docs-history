@@ -20,6 +20,6 @@ Checks if an Amazon Neptune cluster is configured with Amazon RDS Multi-AZ repli
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1151c19"></a>
+<a name="w2aac20c16c17b7e1165c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

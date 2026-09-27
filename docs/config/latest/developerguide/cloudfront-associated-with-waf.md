@@ -21,6 +21,6 @@ wafWebAclIds (Optional)Type: CSV
 Comma-separated list of web ACL IDs for WAF or web ACL Amazon Resource Names (ARNs) for WAFV2
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d303c19"></a>
+<a name="w2aac20c16c17b7d307c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

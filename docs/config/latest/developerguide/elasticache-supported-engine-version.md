@@ -24,6 +24,6 @@ latestRedisVersionType: String
 The latest recommended engine version for Redis. Valid values are in semantic versioning (SemVer) format with 3-component number for major, minor, and patch versions (for example, 7.0.5, not 7.0).
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d755c19"></a>
+<a name="w2aac20c16c17b7d765c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

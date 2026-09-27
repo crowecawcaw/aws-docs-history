@@ -24,6 +24,6 @@ latestWindowsVersion (Optional)Type: String
 Latest Windows supported 'PlatformVersion' in semantic versioning (SemVer) format. Parameter may be needed if Fargate was deployed and the 'PlatformVersion' was explicitly specified or CodeDeploy is used as the 'DeploymentController'
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d667c19"></a>
+<a name="w2aac20c16c17b7d673c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

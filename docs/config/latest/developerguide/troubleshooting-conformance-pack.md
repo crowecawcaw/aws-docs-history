@@ -6,11 +6,11 @@
 Check the following issues to help troubleshoot issues you might run into when using conformance packs.
 
 **Topics**
-+ [Failed status for a conformance pack](#w2aac22c41b7)
-+ [Dangling rules in a conformance pack](#w2aac22c41b9)
++ [Failed status for a conformance pack](#w2aac22c43b7)
++ [Dangling rules in a conformance pack](#w2aac22c43b9)
 
 ## Failed status for a conformance pack
-<a name="w2aac22c41b7"></a>
+<a name="w2aac22c43b7"></a>
 
 If you get an error indicating that the conformance pack failed while creating, updating, or deleting it, you can check the status of your conformance pack.
 
@@ -54,7 +54,7 @@ If you receive a failure while you create a conformance pack but the stackArn is
 If none of these steps worked and if the failure reason is an internal service error, then try operation again or contact the [AWS Support Center](https://console.aws.amazon.com/support/home#/).
 
 ## Dangling rules in a conformance pack
-<a name="w2aac22c41b9"></a>
+<a name="w2aac22c43b9"></a>
 
 Deploying a conformance pack involves the creation of an underlying AWS CloudFormation stack in the background to deploy the rules in the conformance pack template. These rules are [service-linked rules](https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html) and cannot be updated or deleted outside the conformance pack.
 
