@@ -8,6 +8,8 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated content: Available runtimes for CodeBuild standard images](available-runtimes.md) | Added the Node.js 26 runtime and Rust 1.97 for x86\_64 standard images. | September 22, 2026 | 
+| [Updated content: Available runtimes for CodeBuild standard images](available-runtimes.md) | Added the Amazon Linux 2023 AArch64 standard:4.0 image to the supported runtimes. | September 22, 2026 | 
 | [Updated content: webhook filter regular expression syntax](github-webhook.md) | Clarified that webhook filter patterns use RE2 regular expression syntax and which constructs are unsupported. | August 3, 2026 | 
 | [Updated content: [Lambda compute images](lambda-compute-images.md)](lambda-compute-images.md) | Added Lambda compute images for .NET 10, Go 1.25, Corretto 25, Node.js 24, and Python 3.14. | July 29, 2026 | 
 | [Updated content: [Bitbucket app password, API token, or access token](access-tokens-bitbucket.md)](access-tokens.md) | Add support for Bitbucket API tokens, which replace deprecated app passwords. | July 19, 2026 | 
