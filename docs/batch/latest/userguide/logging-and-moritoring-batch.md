@@ -19,6 +19,7 @@ The topics in this section can help you start logging and monitoring AWS Batch.
 
 **Topics**
 + [Using CloudWatch Logs with AWS Batch](using_cloudwatch_logs.md)
++ [Using CloudWatch Metrics with AWS Batch](using_cloudwatch_metrics.md)
 + [AWS Batch CloudWatch Container Insights](cloudwatch-container-insights.md)
 + [Use CloudWatch Logs to monitor AWS Batch on Amazon EKS jobs](batch-eks-cloudwatch-logs.md)
 + [Tutorial: Collect host-level logs with Fluent Bit](batch-host-logs-fluentbit.md)

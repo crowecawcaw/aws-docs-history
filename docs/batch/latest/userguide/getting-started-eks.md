@@ -252,6 +252,8 @@ All steps are required.
    ```
 **Note**  
 The path `aws-service-role/batch.amazonaws.com/` has been removed from the ARN of the service-linked role. This is because of an issue with the `aws-auth` configuration map. For more information, see [Roles with paths don't work when the path is included in their ARN in the aws-authconfigmap](https://github.com/kubernetes-sigs/aws-iam-authenticator/issues/268).
+**Important**  
+Once an AWS Batch-managed access entry is created for the AWS Batch service-linked role on the cluster (`accessEntry.status=ACTIVE`), it takes precedence over the `aws-auth` ConfigMap configuration for the role. The ConfigMap entries for the AWS Batch service-linked role are unused, and AWS Batch authenticates using the access entry instead. For more information about access entries, see [Amazon EKS access entry authentication](eks-access-entries.md).
 
 ## Step 3: Create an Amazon EKS compute environment
 <a name="getting-started-eks-step-2"></a>

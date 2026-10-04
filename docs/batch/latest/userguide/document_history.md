@@ -7,6 +7,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added CloudWatch metrics for AWS Batch jobs](https://docs.aws.amazon.com/batch/latest/userguide/using_cloudwatch_metrics.html) | Added AWS Batch job metrics that are published to CloudWatch under the `AWS/Batch` namespace, so you can monitor the throughput and latency of jobs as they move through the job lifecycle. | October 1, 2026 | 
 | [Updated AWSBatchServiceRole policy](https://docs.aws.amazon.com/batch/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | The `AWSBatchServiceRole` managed policy now includes the `ecs:UpdateCluster` permission. | August 25, 2026 | 
 | [Added Amazon ECS Managed Instances compute environments](https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html) | Added support for Amazon ECS Managed Instances as a new compute environment type. Amazon ECS Managed Instances provides fully managed Amazon EC2 capacity with broader compute flexibility than Fargate, including GPU instances, bare metal, and specific instance type selection. | August 24, 2026 | 
 | [Updated BatchServiceRolePolicy](https://docs.aws.amazon.com/batch/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-updates) | Updated the `BatchServiceRolePolicy` managed policy to add Amazon ECS capacity provider permissions, cluster update permissions, and tagging permissions for capacity provider resources. | August 5, 2026 | 

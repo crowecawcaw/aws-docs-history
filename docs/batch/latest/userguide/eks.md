@@ -23,6 +23,8 @@ You can get started by connecting a valid Amazon EKS cluster with AWS Batch. The
 
 AWS Batch on Amazon EKS supports Amazon EC2 instances (On-Demand and Spot) as compute resources. To use Fargate with AWS Batch, use an Amazon ECS compute environment instead. For more information, see [Fargate compute environments](fargate.md).
 
+AWS Batch can authenticate to your Amazon EKS cluster through either `aws-auth` ConfigMap or the Amazon EKS access entry API (recommended). For more information, see [Amazon EKS access entry authentication](eks-access-entries.md).
+
 ## Amazon EKS
 <a name="compute-environments-eks"></a>
 
@@ -36,3 +38,4 @@ AWS Batch on Amazon EKS supports Amazon EC2 instances (On-Demand and Spot) as co
 + [Run a DaemonSet on AWS Batch managed nodes](daemonset-on-batch-eks-nodes.md)
 + [Customize Amazon EKS launch templates](eks-launch-templates.md)
 + [How to upgrade from EKS AL2 to EKS AL2023](eks-migration-2023.md)
++ [Amazon EKS access entry authentication](eks-access-entries.md)

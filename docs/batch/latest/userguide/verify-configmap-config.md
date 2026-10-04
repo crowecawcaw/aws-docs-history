@@ -3,6 +3,12 @@
 # Verify that the `aws-auth ConfigMap` is configured correctly
 <a name="verify-configmap-config"></a>
 
+**Note**  
+For Amazon EKS access entry authentication instead of the `aws-auth` ConfigMap, see [Amazon EKS access entry authentication](eks-access-entries.md).
+
+**Important**  
+Once an AWS Batch-managed access entry is created for the AWS Batch service-linked role on a cluster (`accessEntry.status=ACTIVE`), it takes precedence over the `aws-auth` ConfigMap configuration for the role. The ConfigMap entries for the AWS Batch service-linked role are unused, and AWS Batch authenticates using the access entry instead. To return to ConfigMap authentication, you must set `desiredState=DISABLED` on all compute environments that target the cluster to remove the AWS Batch-managed access entry.
+
 To verify that the `aws-auth` `ConfigMap` is configured correctly:
 
 1. Retrieve the mapped roles in the `aws-auth` `ConfigMap`.

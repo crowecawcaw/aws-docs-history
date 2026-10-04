@@ -36,6 +36,7 @@ AWS Batch uses IAM policies, roles, and permissions, and runs on Amazon EC2, Ama
     + [Unsupported Kubernetes version](batch_eks_invalid_compute_environment.md#invalid_kubernetes_version)
     + [Instance profile doesn't exist](batch_eks_invalid_compute_environment.md#instance_profile_not_exist)
     + [Invalid Kubernetes namespace](batch_eks_invalid_compute_environment.md#invalid_kubernetes_namespace)
+    + [Amazon EKS access entry setup is incomplete](batch_eks_invalid_compute_environment.md#batch_eks_access_entry_incomplete)
     + [Deleted compute environment](batch_eks_invalid_compute_environment.md#deleted_compute_environment)
     + [Nodes don't join the Amazon EKS cluster](batch_eks_invalid_compute_environment.md#batch_eks_node_not_join_cluster)
   + [AWS Batch on Amazon EKS job is stuck in `RUNNABLE` status](batch_eks_job_stuck_in_runnable.md)

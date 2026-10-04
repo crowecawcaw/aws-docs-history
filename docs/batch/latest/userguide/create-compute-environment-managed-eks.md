@@ -22,6 +22,8 @@ Complete the following steps to create a managed compute environment using Amazo
 To create a compute environment in the AWS Batch console, choose an instance profile that has the `eks:ListClusters` and `eks:DescribeCluster` permissions.
 
 1. For **EKS cluster**, choose an existing Amazon EKS cluster.
+**Note**  
+The cluster's `authenticationMode` determines how AWS Batch authenticates to the cluster. You can set `eksConfiguration.accessEntry.desiredState` to `ENABLED` for AWS Batch to manage an Amazon EKS access entry on your behalf (recommended) instead of using `aws-auth` ConfigMap. For more information, see [Amazon EKS access entry authentication](eks-access-entries.md).
 
 1. For **Namespace**, enter a Kubernetes namespace to group your AWS Batch processes in the cluster.
 

@@ -64,6 +64,28 @@ This issue can occur if any of the following are true:
 
 To resolve this issue, see [Verify that the `aws-auth ConfigMap` is configured correctly](verify-configmap-config.md). For more information, see [Getting started with AWS Batch on Amazon EKS](getting-started-eks.md).
 
+## Amazon EKS access entry setup is incomplete
+<a name="batch_eks_access_entry_incomplete"></a>
+
+If AWS Batch created an Amazon EKS access entry on the cluster but couldn't finish associating the access policy that makes it usable, the compute environment status changes to `INVALID`. To resolve this issue, grant the missing Amazon EKS permissions and retry the operation.
+
+The `statusReason` parameter contains an error message that resembles the following.
+
+```
+CLIENT_ERROR - Access Entry setup incomplete on cluster [{{my-cluster}}]. Retry by calling UpdateComputeEnvironment.
+```
+
+This state can occur if AWS Batch couldn't associate the access policy with the new access entry. AWS Batch then couldn't delete the access entry to roll back. The usual cause is that the IAM identity that called `CreateComputeEnvironment` or `UpdateComputeEnvironment` isn't allowed to call `eks:AssociateAccessPolicy`, `eks:DeleteAccessEntry`, or both. If only the policy association fails, AWS Batch removes the access entry and the request fails with an error instead of leaving the compute environment `INVALID`.
+
+Verify that your IAM identity that calls `CreateComputeEnvironment` and `UpdateComputeEnvironment` is allowed to call all of the Amazon EKS actions that AWS Batch uses to manage an access entry. The first two actions read cluster state, and the remaining actions manage the access entry itself.
++ `eks:DescribeCluster`
++ `eks:DescribeAccessEntry`
++ `eks:CreateAccessEntry`
++ `eks:AssociateAccessPolicy`
++ `eks:DeleteAccessEntry`
+
+After you update the identity's permissions, call `UpdateComputeEnvironment` on the compute environment to retry the operation. For more information about the permissions that AWS Batch needs, see [Required permissions](eks-access-entries.md#eks-access-entries-permissions).
+
 ## Deleted compute environment
 <a name="deleted_compute_environment"></a>
 
