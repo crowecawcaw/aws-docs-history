@@ -12,6 +12,7 @@ RDS for Oracle Databases 11g, 12c, and 18c are no longer supported. If you maint
 + [Overview of RDS for Oracle engine upgrades](USER_UpgradeDBInstance.Oracle.Overview.md)
 + [Oracle major version upgrades](USER_UpgradeDBInstance.Oracle.Major.md)
 + [Oracle minor version upgrades](USER_UpgradeDBInstance.Oracle.Minor.md)
++ [Running minor version upgrade prechecks in Amazon RDS for Oracle](USER_UpgradeDBInstance.Oracle.Precheck.md)
 + [Considerations for Oracle database upgrades](USER_UpgradeDBInstance.Oracle.OGPG.md)
 + [Testing an Oracle DB upgrade](USER_UpgradeDBInstance.Oracle.UpgradeTesting.md)
 + [Upgrading the version of an RDS for Oracle DB instance](USER_UpgradeDBInstance.Oracle.Upgrading.md)

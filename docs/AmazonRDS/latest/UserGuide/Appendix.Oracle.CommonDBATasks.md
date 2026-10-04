@@ -83,6 +83,7 @@ The following are common DBA tasks for DB instances running Oracle:
   <tr><td><a href="Appendix.Oracle.CommonDBATasks.ResizeTempSpaceReadReplica.md">Resizing tablespaces, data files, and tempfiles in RDS for Oracle</a></td><td>Amazon RDS method: <code>rdsadmin.rdsadmin_util.resize_temp_tablespace</code>, <code>rdsadmin.rdsadmin_util.resize_tempfile</code>, or <code>rdsadmin.rdsadmin_util.autoextend_tempfile</code> procedures<br /><code>rdsadmin.rdsadmin_util.resize_datafile</code> or <code>rdsadmin.rdsadmin_util.autoextend_datafile</code> procedure<br />Oracle method: —</td></tr>
   <tr><td><a href="#Appendix.Oracle.CommonDBATasks.PurgeRecycleBin">Purging the recycle bin</a></td><td>Amazon RDS method: <code>EXEC rdsadmin.rdsadmin_util.purge_dba_recyclebin</code><br />Oracle method: <code>purge dba_recyclebin</code></td></tr>
   <tr><td><a href="Appendix.Oracle.CommonDBATasks.FullRedaction.md">Setting the default displayed values for full redaction</a></td><td>Amazon RDS method: <code>EXEC rdsadmin.rdsadmin_util.dbms_redact_upd_full_rdct_val</code><br />Oracle method: <code>exec dbms_redact.UPDATE_FULL_REDACTION_VALUES</code></td></tr>
+  <tr><td><a href="USER_UpgradeDBInstance.Oracle.Precheck.md">Running minor version upgrade prechecks in Amazon RDS for Oracle</a></td><td>Amazon RDS method: <code>rdsadmin.rdsadmin_precheck_tasks.precheck_minor_upgrade</code><br />Oracle method: —</td></tr>
 </tbody>
 </table>
 

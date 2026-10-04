@@ -36,6 +36,8 @@ If your MySQL DB instance uses read replicas, then you must upgrade all of the r
 
 Amazon RDS takes two or more DB snapshots during the upgrade process. Amazon RDS takes up to two snapshots of the DB instance *before* making any upgrade changes. If the upgrade doesn't work for your databases, you can restore one of these snapshots to create a DB instance running the old version. Amazon RDS takes another snapshot of the DB instance when the upgrade completes. Amazon RDS takes these snapshots regardless of whether AWS Backup manages the backups for the DB instance. 
 
+The time required to take these snapshots varies. It depends on your configuration and workload. For more information about automated backups, see [Introduction to backups](USER_WorkingWithAutomatedBackups.md).
+
 **Note**  
 Amazon RDS only takes DB snapshots if you have set the backup retention period for your DB instance to a number greater than 0. To change your backup retention period, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md). 
 

@@ -96,15 +96,15 @@ The following tables show the supported databases and database versions for the 
 
 | Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| db.m8a.48xlarge | No | No | No | No | No | No | 
-| db.m8a.24xlarge | No | No | No | No | No | No | 
-| db.m8a.16xlarge | No | No | Yes | No | No | No | 
-| db.m8a.12xlarge | No | No | Yes | No | No | No | 
-| db.m8a.8xlarge | No | No | Yes | No | No | No | 
-| db.m8a.4xlarge | No | No | Yes | No | No | No | 
-| db.m8a.2xlarge | No | No | Yes | No | No | No | 
-| db.m8a.xlarge | No | No | Yes | No | No | No | 
-| db.m8a.large | No | No | Yes | No | No | No | 
+| db.m8a.48xlarge | No | Yes | No | Yes | No | Yes | 
+| db.m8a.24xlarge | No | Yes | No | Yes | No | Yes | 
+| db.m8a.16xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.m8a.12xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.m8a.8xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.m8a.4xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.m8a.2xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.m8a.xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.m8a.large | No | Yes | Yes | Yes | No | Yes | 
 
 **db.m7i – general-purpose instance classes powered by 4th generation Intel Xeon Scalable processors**
 
@@ -413,15 +413,15 @@ The following tables show the supported databases and database versions for the 
 
 | Instance class | Db2 | MariaDB | Microsoft SQL Server | MySQL | Oracle | PostgreSQL | 
 | --- | --- | --- | --- | --- | --- | --- | 
-| db.r8a.48xlarge | No | No | No | No | No | No | 
-| db.r8a.24xlarge | No | No | No | No | No | No | 
-| db.r8a.16xlarge | No | No | Yes | No | No | No | 
-| db.r8a.12xlarge | No | No | Yes | No | No | No | 
-| db.r8a.8xlarge | No | No | Yes | No | No | No | 
-| db.r8a.4xlarge | No | No | Yes | No | No | No | 
-| db.r8a.2xlarge | No | No | Yes | No | No | No | 
-| db.r8a.xlarge | No | No | Yes | No | No | No | 
-| db.r8a.large | No | No | Yes | No | No | No | 
+| db.r8a.48xlarge | No | Yes | No | Yes | No | Yes | 
+| db.r8a.24xlarge | No | Yes | No | Yes | No | Yes | 
+| db.r8a.16xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.r8a.12xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.r8a.8xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.r8a.4xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.r8a.2xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.r8a.xlarge | No | Yes | Yes | Yes | No | Yes | 
+| db.r8a.large | No | Yes | Yes | Yes | No | Yes | 
 
 **db.r7i – memory-optimized instance classes preconfigured for high memory, storage, and I/O**
 

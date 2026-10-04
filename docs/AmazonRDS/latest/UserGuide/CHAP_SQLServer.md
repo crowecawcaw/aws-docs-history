@@ -10,7 +10,7 @@ Amazon RDS supports several versions and editions of Microsoft SQL Server. The f
 
 | Major version | Service Pack / GDR | Cumulative Update | Minor version | Knowledge Base Article | Release Date | 
 | --- | --- | --- | --- | --- | --- | 
-| SQL Server 2025 | Not applicable | CU7 | 17.0.4065.4 | [KB5096981](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5096981-cu7) | July 16, 2026 | 
+| SQL Server 2025 | Not applicable | CU8 | 17.0.4075.5 | [KB5104822](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5104822-cu8) | August 13, 2026 | 
 | SQL Server 2022 | Not applicable | CU26 | 16.0.4265.3 | [KB5093420](https://support.microsoft.com/en-us/servicing/sql/sql-server-2022/cumulative-update/kb5093420-cu26) | July 16, 2026 | 
 | SQL Server 2019 | GDR | CU32 GDR | 15.0.4480.2 | [KB5102335](https://support.microsoft.com/en-us/servicing/sql/sql-server-2019/general-distribution-release/kb5102335-july) | July 14, 2026 | 
 | SQL Server 2017 | GDR | CU31 GDR | 14.0.3540.1 | [KB5102337](https://support.microsoft.com/en-us/servicing/sql/sql-server-2017/general-distribution-release/kb5102337-july) | July 14, 2026 | 
@@ -88,7 +88,7 @@ The Amazon RDS implementation of Microsoft SQL Server on a DB instance has some 
 
 <table>
 <thead>
-  <tr><th>Instance class type</th><th>vCPU configured on RDS</th><th>Single-AZ</th><th>Multi-AZ with DBM</th><th>Multi-AZ with Always On AGs</th></tr>
+  <tr><th>Instance type</th><th>vCPU configured on RDS</th><th>Single-AZ</th><th>Multi-AZ with DBM</th><th>Multi-AZ with Always On AGs</th></tr>
 </thead>
 <tbody>
   <tr><td>db.*.micro to db.*.medium</td><td>N/A</td><td>30</td><td>N/A</td><td>N/A</td></tr>

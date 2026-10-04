@@ -51,7 +51,6 @@ When using IAM database authentication, the following limitations apply:
   For more information about global condition context keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 + For PostgreSQL, if the IAM role (`rds_iam`) is added to a user (including the RDS master user), IAM authentication takes precedence over password authentication, so the user must log in as an IAM user.
 + For PostgreSQL, Amazon RDS does not support enabling both IAM and Kerberos authentication methods at the same time.
-+ For PostgreSQL, you can't use IAM authentication to establish a replication connection.
 + You cannot use a custom Route 53 DNS record instead of the DB instance endpoint to generate the authentication token.
 + CloudWatch and CloudTrail don't log IAM authentication. These services do not track `generate-db-auth-token` API calls that authorize the IAM role to enable database connection.
 + IAM DB authentication requires compute resources on the database instance. You must have between 300 and 1000 MiB extra memory on your database for reliable connectivity. To see the memory needed for your workload, compare the RES column for RDS processes in the Enhanced Monitoring processlist before and after enabling IAM DB authentication. See [Viewing OS metrics in the RDS console](USER_Monitoring.OS.Viewing.md).

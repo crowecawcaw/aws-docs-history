@@ -9,7 +9,7 @@ Streaming audit logs to Amazon CloudWatch Logs lets you:
 + Store audit records in highly durable storage with a retention period you define.
 + Search and filter audit log data, and build metric filters and CloudWatch alarms.
 + Share log data between accounts and export it to Amazon S3.
-+ Stream data to , or process it in real time with .
++ Stream data to Amazon OpenSearch Service, or process it in real time with Amazon Kinesis Data Streams.
 
 ## Enabling CloudWatch streaming
 <a name="Appendix.SQLServer.Options.Audit.CloudWatch.Enabling"></a>

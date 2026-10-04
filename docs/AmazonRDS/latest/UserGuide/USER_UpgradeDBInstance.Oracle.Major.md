@@ -11,6 +11,7 @@ Make sure that you thoroughly test any upgrade to verify that your applications 
 **Topics**
 + [Supported versions for major upgrades](#USER_UpgradeDBInstance.Oracle.Major.supported-versions)
 + [Supported instance classes for major upgrades](#USER_UpgradeDBInstance.Oracle.Major.instance-classes)
++ [Pre-upgrade checklist for major version upgrades](#USER_UpgradeDBInstance.Oracle.Major.pre-upgrade-checklist)
 + [Gathering statistics before major upgrades](#USER_UpgradeDBInstance.Oracle.Major.gathering-stats)
 + [Allowing major upgrades](#USER_UpgradeDBInstance.Oracle.Major.allowing-upgrades)
 + [Upgrading to Oracle Database 26ai](#USER_UpgradeDBInstance.Oracle.Major.26ai)
@@ -37,6 +38,21 @@ A major version upgrade of Oracle Database must upgrade to a Release Update (RU)
 <a name="USER_UpgradeDBInstance.Oracle.Major.instance-classes"></a>
 
 Your current Oracle DB instance might run on a DB instance class that isn't supported for the version to which you are upgrading. In this case, before you upgrade, migrate the DB instance to a supported DB instance class. For more information about the supported DB instance classes for each version and edition of Amazon RDS for Oracle, see [DB instance classes](Concepts.DBInstanceClass.md).
+
+## Pre-upgrade checklist for major version upgrades
+<a name="USER_UpgradeDBInstance.Oracle.Major.pre-upgrade-checklist"></a>
+
+Before you perform a major version upgrade of your RDS for Oracle DB instance, complete the following preparation steps:
++ Verify that your applications are compatible with the target Oracle Database version. Test your application code, queries, and stored procedures against the target version.
++ Check for deprecated initialization parameters in the target version. Remove or replace any parameters that are no longer supported.
++ Verify that your option group is compatible with the target version. Some options require updates or have different settings for different major versions. To list the options available for a target version, run the [describe-option-group-options](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-option-group-options.html) AWS CLI command, for example:
+
+  ```
+  aws rds describe-option-group-options --engine-name oracle-ee --major-engine-version 21
+  ```
++ Verify that your parameter group is compatible with the target version. Some parameters have different valid ranges or default values in newer versions.
++ Confirm that the backup retention period for your DB instance is greater than 0. This ensures that Amazon RDS takes an automatic pre-upgrade snapshot that you can use for recovery.
++ Plan for read replica upgrades. Amazon RDS upgrades read replicas automatically after the source DB instance upgrade completes. Factor the additional downtime for replicas into your maintenance window planning.
 
 ## Gathering statistics before major upgrades
 <a name="USER_UpgradeDBInstance.Oracle.Major.gathering-stats"></a>

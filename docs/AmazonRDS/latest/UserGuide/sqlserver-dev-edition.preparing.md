@@ -41,7 +41,7 @@ You must obtain the SQL Server Developer Edition installation media from Microso
 
 1. Download the latest supported CU executable file and save it to your machine.
 
-1. Example files: `SQLServer2025-KB5084896-x64.exe` (CU5 for SQL Server 2025). See the supported versions table below for the required CU file name for each SQL Server version.
+1. Example files: `SQLServer2025-KB5104822-x64.exe` (CU8 for SQL Server 2025). See the supported versions table below for the required CU file name for each SQL Server version.
 
 **Important**  
 RDS for SQL Server only supports specific Cumulative Update (CU) versions. You must use the exact version listed in the table below. Do not use newer CU versions even if available from Microsoft, as they may not be compatible with RDS.
@@ -53,7 +53,13 @@ The following table lists the supported SQL Server Developer Edition version and
 
 | SQL Server Version | Supported CU | KB Article | Download File Name | 
 | --- | --- | --- | --- | 
-| SQL Server 2025 (Enterprise Edition capabilities) | `CU5` | [KB5084896](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/cumulativeupdate5) | `SQLServer2025-KB5084896-x64.exe` | 
-| SQL Server 2025 (Standard Edition capabilities) | `CU5` | [KB5084896](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/cumulativeupdate5) | `SQLServer2025-KB5084896-x64.exe` | 
+| SQL Server 2025 (Enterprise/Standard Developer Edition) | `CU8` | [KB5104822](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5104822-cu8) | `SQLServer2025-KB5104822-x64.exe` | 
+| SQL Server 2025 (Enterprise/Standard Developer Edition) | `CU7` | [KB5096981](https://support.microsoft.com/en-us/servicing/sql/sql-server-2025/cumulative-update/kb5096981-cu7) | `SQLServer2025-KB5096981-x64.exe` | 
+| SQL Server 2025 (Enterprise/Standard Developer Edition) | `CU6` | [KB5093421](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/cumulativeupdate6) | `SQLServer2025-KB5093421-x64.exe` | 
+| SQL Server 2025 (Enterprise/Standard Developer Edition) | `CU5` | [KB5084896](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2025/cumulativeupdate5) | `SQLServer2025-KB5084896-x64.exe` | 
+| SQL Server 2022 | `CU26` | [KB5093420](https://support.microsoft.com/en-us/servicing/sql/sql-server-2022/cumulative-update/kb5093420-cu26) | `SQLServer2022-KB5093420-x64.exe` | 
+| SQL Server 2022 | `CU25` | [KB5081477](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate25) | `SQLServer2022-KB5081477-x64.exe` | 
 | SQL Server 2022 | `CU21` | [KB5065865](https://learn.microsoft.com/en-us/troubleshoot/sql/releases/sqlserver-2022/cumulativeupdate21) | `SQLServer2022-KB5065865-x64.exe` | 
+| SQL Server 2019 | `CU32 GDR` | [KB5102335](https://support.microsoft.com/en-us/servicing/sql/sql-server-2019/general-distribution-release/kb5102335-july) | `SQLServer2019-KB5102335-x64.exe` | 
+| SQL Server 2019 | `CU32 GDR` | [KB5090407](https://support.microsoft.com/en-us/servicing/sql/sql-server-2019/cumulative-update/kb5090407-description-of-the-security-update-for-sql-server-2019-cu32-may-12-2026) | `SQLServer2019-KB5090407-x64.exe` | 
 | SQL Server 2019 | `CU32 GDR` | [KB5068404](https://support.microsoft.com/en-us/topic/kb5068404-description-of-the-security-update-for-sql-server-2019-cu32-november-11-2025-c203bfbf-036e-46d2-bc10-6c01200dc48a) | `SQLServer2019-KB5068404-x64.exe` | 
