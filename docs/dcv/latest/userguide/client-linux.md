@@ -39,7 +39,7 @@ The [latest packages](http://download.amazondcv.com/latest.html) page of the dow
    + RHEL, CentOS, and Rocky Linux
 
      ```
-     $  sudo yum install {{the downloaded .rpm file}}
+     $  sudo dnf install {{the downloaded .rpm file}}
      ```
    + Ubuntu
 
