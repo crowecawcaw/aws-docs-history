@@ -29,8 +29,8 @@
 
    ```
    openjdk version "1.8.0_504"
-   OpenJDK Runtime Environment Corretto-8.504.01.1 (build 1.8.0_504-b01)
-   OpenJDK 64-Bit Server VM Corretto-8.504.01.1 (build 25.504-b01, mixed mode)
+   OpenJDK Runtime Environment Corretto-8.504.04.1 (build 1.8.0_504-b04)
+   OpenJDK 64-Bit Server VM Corretto-8.504.04.1 (build 25.504-b04, mixed mode)
    ```
 
 ## Uninstall Amazon Corretto 8

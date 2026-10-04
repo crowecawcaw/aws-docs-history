@@ -101,7 +101,7 @@ https://corretto.aws/[latest/latest_checksum]/amazon-corretto-[corretto_version]
 ## Signature Verification
 <a name="signature"></a>
 
-The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/8.504.01.1/A122542AB04F24E3.pub) 
+The public key to verify the SIGNATURE file can be downloaded [here](https://corretto.aws/downloads/resources/8.504.04.1/A122542AB04F24E3.pub) 
 
 ## Versioned Downloads
 <a name="versioned-downloads"></a>
