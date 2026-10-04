@@ -33,7 +33,7 @@ The only required parameter is `--image-identifier` (which must be the ARN of th
 | --image-version | The version of the MicroVM image to run. Defaults to the latest active version. | 
 | --execution-role-arn | The IAM role that provides runtime permissions for the MicroVM to interact with other AWS services. | 
 | --idle-policy | Controls automatic suspend and resume behavior. See idle policy configuration in the following section. | 
-| --maximum-duration-in-seconds | The maximum duration the MicroVM can remain in a running or suspended state before Lambda terminates it. Range: 1–28,800 seconds (8 hours). | 
+| --maximum-duration-in-seconds | The maximum total lifespan of the MicroVM, including both running and suspended time. Lambda terminates the MicroVM when this duration is exceeded. Range: 1–28,800 seconds (8 hours). | 
 | --run-hook-payload | A string payload (max 16 KB) delivered to the /run lifecycle hook when the MicroVM starts. | 
 | --logging | Logging configuration. Customize the CloudWatch log group and stream, or disable logging entirely. | 
 | --ingress-network-connectors | The ARN(s) of ingress connectors that enable inbound HTTPS connectivity. | 
@@ -235,7 +235,7 @@ Your MicroVM begins receiving external traffic after the `/run` hook returns HTT
 | /aws/lambda-microvms/runtime/v1/run | After MicroVM starts from snapshot | Initialize per-tenant state, reset unique values, perform health checks. Traffic begins after this hook returns. | 
 | /aws/lambda-microvms/runtime/v1/resume | After MicroVM resumes from suspended state | Re-establish network connections, refresh credentials, validate state. The MicroVM remains in SUSPENDED state while this hook executes; it transitions to RUNNING after the hook returns. | 
 | /aws/lambda-microvms/runtime/v1/suspend | Before MicroVM suspends | Flush pending writes, close connections, release resources. | 
-| /aws/lambda-microvms/runtime/v1/terminate | Before MicroVM terminates | Flush data, notify external systems, clean up. | 
+| /aws/lambda-microvms/runtime/v1/terminate | Before MicroVM terminates | Flush data, notify external systems, clean up. This hook runs only on final termination, not when suspending. Use the /suspend hook for pre-suspend cleanup. | 
 
 For hooks that run during image creation (`/ready` and `/validate`), see [MicroVM image build hooks](microvms-images.md#microvms-images-build-hooks).
 
@@ -404,7 +404,7 @@ You create new MicroVMs by calling `run-microvm`. Each MicroVM has its own dedic
 
 Terminate a MicroVM when it is no longer needed. Termination releases all compute resources and stops all charges.
 
-Before releasing resources, Lambda calls your `/terminate` hook. Use it to flush pending data or notify external systems.
+Before releasing resources, Lambda calls your `/terminate` hook. Use it to flush pending data or notify external systems. The `/terminate` hook runs only on final termination – it does not run when a MicroVM is suspended.
 
 ```
 aws lambda-microvms terminate-microvm --microvm-identifier {{microvm-id}}

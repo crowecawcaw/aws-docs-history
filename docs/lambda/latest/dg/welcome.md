@@ -7,7 +7,7 @@ AWS Lambda is a serverless compute service. With Lambda, you can run code withou
 
 Lambda provides two compute primitives, each designed for different workload patterns:
 + **[Lambda Functions](lambda-functions-chapter.md)** – Run code in response to events or API calls without managing servers. You write a handler function, connect it to a trigger (API Gateway, Amazon S3, Amazon SQS, EventBridge, and 200\+ other AWS services), and Lambda executes it. Each invocation runs independently with no shared state, scaling horizontally to match demand. Lambda manages execution environments, scaling, routing, and fault tolerance.
-+ **[Lambda MicroVMs](lambda-microvms-guide.md)** – Isolated compute environments with near-instant startup and state retention for up to 8 hours. Designed for workloads needing a dedicated compute environment for each individual user or job. Lambda manages isolation, capacity, and networking. Your application uses Lambda MicroVMs APIs and HTTPS endpoints to connect each user/job to their compute environment.
++ **[Lambda MicroVMs](lambda-microvms-guide.md)** – Isolated compute environments with near-instant startup and a total lifespan of up to 8 hours (including both running and suspended time). Designed for workloads needing a dedicated compute environment for each individual user or job. Lambda manages isolation, capacity, and networking. Your application uses Lambda MicroVMs APIs and HTTPS endpoints to connect each user/job to their compute environment.
 
 For pricing information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/).
 
@@ -27,7 +27,7 @@ While they share this foundation, they serve different use cases:
 | --- | --- | --- | 
 | Best for | Request-response or event-driven workloads (APIs, data processing, automation) | Persistent environments running user or AI-produced untrusted code | 
 | Programming model | Function handler invoked in a supported runtime | Any application – run your own binaries, listen on ports, use Linux OS capabilities | 
-| Duration | Up to 15 minutes per invocation; multi-step workflows lasting up to a year with Lambda Durable Functions | Up to 8 hours per session; suspend and resume across sessions | 
+| Duration | Up to 15 minutes per invocation; multi-step workflows lasting up to a year with Lambda Durable Functions | Up to 8 hours total lifespan (running \+ suspended); suspend and resume across sessions | 
 | Runtime environment | Service-provided language runtimes; support for customer-provided runtimes | Customer-provided MicroVM images | 
 | Inbound Networking | Direct invocations or event-source integrations with AWS services; support for response streaming | Inbound access to any port using OSI Layer 7 protocols | 
 | Concurrency | One request per execution environment at a time | Multiple concurrent connections per MicroVM | 

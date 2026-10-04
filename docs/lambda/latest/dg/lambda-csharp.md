@@ -12,7 +12,7 @@ For information about using .NET layers, see [Working with layers for .NET Lambd
 | --- | --- | --- | --- | --- | --- | 
 | .NET 10 | `dotnet10` | Amazon Linux 2023 |  Nov 14, 2028  |  Dec 14, 2028  |  Jan 15, 2029  | 
 | .NET 9 (container only) | `dotnet9` | Amazon Linux 2023 |  Nov 10, 2026  |  Not scheduled  |  Not scheduled  | 
-| .NET 8 | `dotnet8` | Amazon Linux 2023 |  Nov 10, 2026  |  Feb 1, 2027  |  Mar 3, 2027  | 
+| .NET 8 | `dotnet8` | Amazon Linux 2023 |  Nov 10, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
 ## Setting up your .NET development environment
 <a name="csharp-dev-env"></a>

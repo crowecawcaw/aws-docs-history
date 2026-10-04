@@ -15,9 +15,9 @@ Lambda supports the following Java runtimes.<a name="java-runtimes"></a>
 | Java 17 | `java17.al2023` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 | Java 11 | `java11.al2023` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
 | Java 8 | `java8.al2023` | Amazon Linux 2023 |  Jun 30, 2029  |  Jul 31, 2029  |  Aug 31, 2029  | 
-| Java 17 | `java17` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 31, 2027  |  Aug 31, 2027  | 
-| Java 11 | `java11` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 31, 2027  |  Aug 31, 2027  | 
-| Java 8 | `java8.al2` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 31, 2027  |  Aug 31, 2027  | 
+| Java 17 | `java17` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
+| Java 11 | `java11` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
+| Java 8 | `java8.al2` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
 AWS provides the following libraries for Java functions. These libraries are available through [Maven Central Repository](https://search.maven.org/search?q=g:com.amazonaws).
 + [com.amazonaws:aws-lambda-java-core](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core) (required) – Defines handler method interfaces and the context object that the runtime passes to the handler. If you define your own input types, this is the only library that you need.
