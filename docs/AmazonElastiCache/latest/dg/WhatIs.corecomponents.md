@@ -42,7 +42,7 @@ The following diagram illustrates how ElastiCache Serverless works.
 ![A diagram of ElastiCache Serverless cache operation, from availability zones to the Customer VPC and then to the Service VPC.](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/images/ELC-serverless-works1.png)
 
 
-When you create a new serverless cache, ElastiCache creates a Virtual Private Cloud (VPC) Endpoint in the subnets of your choice in your VPC. Your application can connect to the cache through these VPC Endpoints. 
+When you create a new serverless cache, you choose a connection type. With a VPC endpoint, ElastiCache creates a Amazon Virtual Private Cloud (Amazon VPC) endpoint in the subnets of your choice, and your application connects to the cache through your VPC. With a public endpoint, your application connects to the cache directly over the internet, without a VPC.
 
 With ElastiCache Serverless you receive a single DNS endpoint that your application connects to. When you request a new connection to the endpoint, ElastiCache Serverless handles all cache connections through a proxy layer. The proxy layer helps reduce complex client configuration, because the client does not need to rediscover cluster topology in case of changes to the underlying cluster. The proxy layer is a set of proxy nodes that handle connections using a network load balancer. 
 

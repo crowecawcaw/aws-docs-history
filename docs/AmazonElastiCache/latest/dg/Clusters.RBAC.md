@@ -120,6 +120,8 @@ To use ElastiCache for Valkey or Redis OSS RBAC, you take the following steps:
 
 1. Assign the user group to a cache that has in-transit encryption enabled.
 
+Caches with a public endpoint require every user in the associated user group to use IAM authentication.
+
 These steps are described in detail as follows.
 
 **Topics**

@@ -8,6 +8,7 @@ To manage your cache, it's important that you know how your caches are performin
 **Topics**
 + [Metrics and events for Valkey and Redis OSS serverless caches](serverless-metrics-events-redis.md)
 + [Metrics and events for node-based Valkey and Redis OSS clusters](self-designed-metrics-events.valkey-and-redis.md)
++ [Monitoring ElastiCache with OpenTelemetry metrics](otel-metrics.md)
 + [Metrics and events for Memcached caches and clusters](serverless-metrics-events.memcached.md)
 + [Logging Amazon ElastiCache API calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Amazon SNS monitoring of ElastiCache events](ECEvents.md)

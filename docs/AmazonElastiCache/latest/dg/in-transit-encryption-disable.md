@@ -5,6 +5,9 @@
 
 Follow the instructions below to disable access control on a Valkey or Redis OSS TLS-enabled cache. Your cache will have one of two different types of configurations: AUTH default user access or User group access control list (RBAC). If your cache was created with the AUTH configuration, you have to change it to the RBAC configuration before you can disable the cache by removing the user groups. If your cache was created with the RBAC configuration, you can go straight into disabling it.
 
+**User group required for public endpoints**  
+ElastiCache Serverless caches with a public endpoint require a user group with IAM-authenticated users. You cannot remove the user group from a cache with a public endpoint.
+
 **To disable a Valkey or Redis OSS serverless cache configured with RBAC**
 
 1. Remove the user groups to disable the access control.

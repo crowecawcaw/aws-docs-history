@@ -52,7 +52,7 @@ When you launch an Amazon EC2 instance into your Amazon VPC, that instance will 
 ### Accessing ElastiCache resources from outside AWS
 <a name="access-from-outside-aws"></a>
 
-Amazon ElastiCache is an AWS service that provides cloud-based in-memory key-value store. The service is designed to be accessed exclusively from within AWS. However, if the ElastiCache cluster is hosted inside a VPC, you can use an EC2 instance configured for Network Address Translation (NAT) with port forwarding to provide outside access.
+Amazon ElastiCache is an AWS service that provides cloud-based in-memory key-value store. Node-based clusters and Serverless caches with a VPC endpoint are accessed from within AWS. Serverless caches with a public endpoint can be accessed directly over the internet. However, if the ElastiCache cluster is hosted inside a VPC, you can use an EC2 instance configured for Network Address Translation (NAT) with port forwarding to provide outside access.
 
 **Important**  
 This approach should be used for testing and development purposes only. For production workloads requiring external access, consider using [AWS Site-to-Site VPN](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) or [AWS Client VPN](https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/what-is.html) instead.

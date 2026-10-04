@@ -29,7 +29,7 @@ When using IAM authentication, the following limitations apply:
 + An IAM authenticated connection to ElastiCache for Valkey or Redis OSS will automatically be disconnected after 12 hours. The connection can be prolonged for 12 hours by sending an `AUTH` or `HELLO` command with a new IAM authentication token.
 + IAM re-authentication (`AUTH` or `HELLO` commands) is not supported inside `MULTI`/`EXEC` or Lua script blocks. However, you can run regular data commands inside `MULTI`/`EXEC` blocks on an IAM-authenticated connection.
 + Currently, IAM authentication supports the following global condition context keys:
-  + When using IAM authentication with serverless caches, `aws:VpcSourceIp`, `aws:SourceVpc`, `aws:SourceVpce`, `aws:CurrentTime`, `aws:EpochTime`, and `aws:ResourceTag/%s` (from associated serverless caches and users) are supported.
+  + When using IAM authentication with serverless caches with a VPC endpoint, `aws:VpcSourceIp`, `aws:SourceVpc`, `aws:SourceVpce`, `aws:CurrentTime`, `aws:EpochTime`, and `aws:ResourceTag/%s` (from associated serverless caches and users) are supported.
   + When using IAM authentication with replication groups, `aws:SourceIp` and `aws:ResourceTag/%s` (from associated replication groups and users) are supported.
 
   For more information about global condition context keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the IAM User Guide.
@@ -151,10 +151,165 @@ Replace `{{my-application-role}}` with the IAM role or user that needs to connec
      --user-group-id iam-user-group-01
    ```
 
+**Note**  
+Caches with a public endpoint require a user group where all users use IAM authentication. ElastiCache provides a default user (`default.iam-user`) and user group (`default.iam-user-group`) that you can use to get started.
+
 ## Connecting
 <a name="auth-iam-Connecting"></a>
 
-**Connect with token as password**
+### Connecting with GLIDE
+<a name="auth-iam-glide"></a>
+
+GLIDE 2.2 and later include built-in IAM authentication support. You configure your AWS credentials, and GLIDE handles token generation, caching, and refresh automatically. For installation instructions, see the [GLIDE documentation](https://glide.valkey.io) on the GLIDE website.
+
+**Python**
+
+```
+from glide import (
+    GlideClusterClient, GlideClusterClientConfiguration, NodeAddress,
+    ServerCredentials, IamAuthConfig, ServiceType,
+)
+
+config = GlideClusterClientConfiguration(
+    addresses=[NodeAddress("my-cache-x2e9hv.serverless.use1.cache.amazonaws.com", 6379)],
+    credentials=ServerCredentials(
+        username="my-iam-user",
+        iam_config=IamAuthConfig(
+            cluster_name="my-cache",
+            service=ServiceType.ELASTICACHE,
+            region="us-east-1",
+        ),
+    ),
+    use_tls=True,
+)
+
+client = await GlideClusterClient.create(config)
+await client.set("key", "value")
+result = await client.get("key")
+print(result)  # b"value"
+```
+
+**Java**
+
+```
+import glide.api.GlideClusterClient;
+import glide.api.models.configuration.IamAuthConfig;
+import glide.api.models.configuration.ServiceType;
+import glide.api.models.configuration.ServerCredentials;
+import glide.api.models.configuration.GlideClusterClientConfiguration;
+import glide.api.models.configuration.NodeAddress;
+
+import java.util.List;
+import java.util.Collections;
+
+List<NodeAddress> nodes = Collections.singletonList(
+    NodeAddress.builder()
+        .host("my-cache-x2e9hv.serverless.use1.cache.amazonaws.com")
+        .port(6379)
+        .build()
+);
+
+IamAuthConfig iamConfig = IamAuthConfig.builder()
+    .clusterName("my-cache")
+    .service(ServiceType.ELASTICACHE)
+    .region("us-east-1")
+    .build();
+
+GlideClusterClientConfiguration config = GlideClusterClientConfiguration.builder()
+    .addresses(nodes)
+    .credentials(ServerCredentials.builder()
+        .username("my-iam-user")
+        .iamConfig(iamConfig)
+        .build())
+    .useTLS(true)
+    .build();
+
+GlideClusterClient client = GlideClusterClient.createClient(config).get();
+client.set("key", "value").get();
+String result = client.get("key").get();
+System.out.println(result);  // "value"
+```
+
+### Connecting with the Developer Toolkit for ElastiCache
+<a name="auth-iam-toolkit"></a>
+
+The Developer Toolkit for ElastiCache (`developer-toolkit-elasticache`) is a standalone Python library and CLI that generates IAM authentication tokens. Use it with a Python Valkey or Redis OSS client library, such as valkey-py.
+
+```
+pip install developer-toolkit-elasticache
+```
+
+**Python with valkey-py**
+
+```
+import valkey
+from valkey.credentials import CredentialProvider
+from developer_toolkit_elasticache import ElastiCacheIAMAuthTokenProvider
+
+class ElastiCacheCredentialProvider(CredentialProvider):
+    def __init__(self, auth):
+        self._auth = auth
+    def get_credentials(self):
+        return self._auth.user_id, self._auth.get_token()
+
+auth = ElastiCacheIAMAuthTokenProvider(
+    serverless_cache_name="my-cache",
+    user_id="my-iam-user",
+    region="us-east-1",
+)
+
+# For a node-based cluster, use replication_group_id instead:
+# auth = ElastiCacheIAMAuthTokenProvider(
+#     replication_group_id="my-cluster",
+#     user_id="my-iam-user",
+#     region="us-east-1",
+# )
+
+client = valkey.ValkeyCluster(
+    host="my-cache-x2e9hv.serverless.use1.cache.amazonaws.com",
+    port=6379,
+    ssl=True,
+    credential_provider=ElastiCacheCredentialProvider(auth),
+)
+
+client.set("key", "value")
+result = client.get("key")
+print(result)  # b"value"
+```
+
+The Developer Toolkit does not automatically refresh tokens. IAM authentication tokens are valid for 15 minutes, so your application must generate a new token before the current token expires.
+
+**CLI with the Developer Toolkit**
+
+To generate a token from the command line:
+
+```
+developer-toolkit-elasticache generate_iam_auth_token \
+    --serverless-cache-name my-cache \
+    --user-id my-iam-user \
+    --region us-east-1
+```
+
+To connect with valkey-cli or redis-cli, set the authentication environment variable and connect:
+
+```
+export VALKEYCLI_AUTH=$(developer-toolkit-elasticache generate_iam_auth_token \
+    --serverless-cache-name my-cache \
+    --user-id my-iam-user \
+    --region us-east-1)
+
+valkey-cli -c -h my-cache-x2e9hv.serverless.use1.cache.amazonaws.com \
+    -p 6379 \
+    --tls \
+    --user my-iam-user
+```
+
+`VALKEYCLI_AUTH` requires valkey-cli 9.0 or later. For redis-cli, use `REDISCLI_AUTH` instead of `VALKEYCLI_AUTH`.
+
+For source code and additional examples, see the [Developer Toolkit for ElastiCache](https://github.com/aws/developer-toolkit-elasticache) repository on GitHub.
+
+### Connect with token as password
+<a name="auth-iam-manual-sigv4"></a>
 
 You first need to generate the short-lived IAM authentication token using an [AWS SigV4 pre-signed request](https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html). After that you provide the IAM authentication token as a password when connecting to a Valkey or Redis OSS cache, as shown in the example below. 
 
@@ -249,7 +404,8 @@ public class IAMAuthTokenRequest {
 }
 ```
 
-**Connect with credentials provider**
+### Connect with credentials provider
+<a name="auth-iam-credentials-provider"></a>
 
 The code below shows how to authenticate with ElastiCache using the IAM authentication credentials provider.
 

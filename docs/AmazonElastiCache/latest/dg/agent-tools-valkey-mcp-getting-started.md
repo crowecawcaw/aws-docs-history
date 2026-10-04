@@ -27,7 +27,9 @@
 
 Replace `<your-endpoint>` with the endpoint of your Valkey datastore. Your coding agent must have network access to the endpoint.
 
-**Connecting to Amazon ElastiCache:** ElastiCache Valkey clusters live in a private VPC and aren't reachable directly from your local machine. For SSM tunnel setup, IAM auth token generation, and TLS handling in tunnel mode, see the [ElastiCache connection guide](https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/specialized-skills/database-skills/amazon-elasticache/references/setup/connection-guide.md) in the AWS Agent Toolkit, or install the [Amazon ElastiCache Skill](agent-tools-skills.md) to let your agent handle the connection setup end-to-end. After the tunnel is established, use `VALKEY_HOST=127.0.0.1` in the config above.
+**Connecting to Amazon ElastiCache:** If your Valkey serverless cache has a public endpoint, use the public endpoint address as `VALKEY_HOST`. No tunnel is required. The connection requires TLS 1.3 and an IAM authentication token. For details on generating the token, see [Connect to a cache with a public endpoint](connecting-public-endpoint.md).
+
+For all other ElastiCache for Valkey caches, you cannot reach the cache directly from your local machine. For SSM tunnel setup, IAM auth token generation, and TLS handling in tunnel mode, see the [ElastiCache connection guide](https://github.com/aws/agent-toolkit-for-aws/blob/main/skills/specialized-skills/database-skills/amazon-elasticache/references/setup/connection-guide.md) in the AWS Agent Toolkit, or install the [Amazon ElastiCache Skill](agent-tools-skills.md) to let your agent handle the connection setup end-to-end. After the tunnel is established, use `VALKEY_HOST=127.0.0.1` in the config above.
 
 Restart your MCP client after saving the configuration.
 

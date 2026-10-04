@@ -42,7 +42,7 @@ aws elasticache describe-serverless-caches ^
 ```
 
 ## Connect to your Valkey Cache (Linux)
-<a name="w2aac14c19c37c29b1"></a>
+<a name="w2aac14c19b9c35c29b1"></a>
 
 Now that you have the endpoint you need, you can log in to your EC2 instance and connect to the cache. In the following example, you use the *valkey-cli* utility to connect to a cluster. The following command connects to a cache (note: replace cache-endpoint with the endpoint you retrieved in the previous step).
 
@@ -55,7 +55,7 @@ get a                  // Get value for key "a"
 ```
 
 ## Connect to your Valkey Cache (Windows)
-<a name="w2aac14c19c37c29b3"></a>
+<a name="w2aac14c19b9c35c29b3"></a>
 
 Now that you have the endpoint you need, you can log in to your EC2 instance and connect to the cache. In the following example, you use the *valkey-cli* utility to connect to a cluster. The following command connects to a cache. Open the Command Prompt and change to the Valkey or Redis OSS directory and run the command (note: replace Cache\_Endpoint with the endpoint you retrieved in the previous step).
 

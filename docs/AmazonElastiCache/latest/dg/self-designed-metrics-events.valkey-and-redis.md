@@ -9,10 +9,20 @@ ElastiCache offers a wide variety of metrics and events for monitoring node-base
 Amazon ElastiCache offers both serverless caches and node-based clusters. This page covers metrics and events for *node-based clusters*. If you are using serverless caches, see [Metrics and events for Valkey and Redis OSS serverless caches](serverless-metrics-events-redis.md).
 
 **Topics**
-+ [Metrics for node-based clusters](#self-designed-metrics.redis)
++ [OpenTelemetry metrics for node-based Valkey clusters (recommended)](#self-designed-otel-metrics)
++ [Classic CloudWatch metrics for Valkey and Redis OSS node-based clusters](#self-designed-metrics.redis)
 + [Events for node-based clusters (Valkey and Redis OSS)](#self-designed-events-redis)
 
-## Metrics for node-based clusters
+## OpenTelemetry metrics for node-based Valkey clusters (recommended)
+<a name="self-designed-otel-metrics"></a>
+
+ElastiCache emits OpenTelemetry (OTLP) metrics for node-based Valkey replication groups to CloudWatch. These metrics provide a broad set of metrics from the cache engine and the host, rich attributes for filtering and aggregation, and support for querying with PromQL.
+
+OpenTelemetry metrics are available for node-based Valkey replication groups running any Valkey version. Serverless caches, Redis OSS, Memcached, and AWS Outposts are not supported.
+
+For more information, see [Monitoring ElastiCache with OpenTelemetry metrics](otel-metrics.md) and [OpenTelemetry metrics reference for Amazon ElastiCache](otel-metrics-reference.md).
+
+## Classic CloudWatch metrics for Valkey and Redis OSS node-based clusters
 <a name="self-designed-metrics.redis"></a>
 
 When you create a node-based cluster, ElastiCache emits metrics at each node level, including both host-level metrics and cache metrics. 

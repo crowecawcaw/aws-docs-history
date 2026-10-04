@@ -18,7 +18,9 @@ ElastiCache offers serverless caching, which simplifies adding and operating a c
 
 ElastiCache Serverless also removes the need to plan and manage caching capacity. ElastiCache constantly monitors the cache’s memory, compute, and network bandwidth used by your application, and scales to meet the needs of your application. ElastiCache offers a simple endpoint experience for developers, by abstracting the underlying cache infrastructure and cluster design. ElastiCache manages hardware provisioning, monitoring, node replacements, and software patching automatically and transparently, so that you can focus on application development, rather than operating the cache. 
 
-ElastiCache Serverless is compatible with Valkey 7.2 and higher, Memcached 1.6.22 and above, and Redis OSS 7.1.
+ElastiCache Serverless supports two connection types. You can create a cache with the VPC or Public connection type. With a public endpoint, you can connect to your cache over the internet without a VPC. Public endpoints require IAM authentication and TLS 1.3 for every connection. You choose the connection type when you create the cache. For more information, see [Create a Valkey serverless cache with a public endpoint](serverless-public-endpoints-chapter.md).
+
+ElastiCache Serverless is compatible with Valkey 7.2 and later, Memcached 1.6.22 and later, and Redis OSS 7.1. Public endpoints are available on ElastiCache Serverless caches that use Valkey 9.0 or later.
 
 ## Creating a node-based cluster
 <a name="WhatIs.Overview.cluster"></a>

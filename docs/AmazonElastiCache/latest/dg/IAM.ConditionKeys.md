@@ -1231,5 +1231,25 @@ This section shows example policies for implementing fine-grained access control
 
 ------
 
+1. **elasticache:ConnectionType**: Deny creating serverless caches with a public connection type. Using the provided condition, administrators can prevent users from creating caches with public endpoints.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Deny",
+               "Action": "elasticache:CreateServerlessCache",
+               "Resource": "*",
+               "Condition": {
+                   "StringEquals": {
+                       "elasticache:ConnectionType": "public"
+                   }
+               }
+           }
+       ]
+   }
+   ```
+
 **Note**  
 When creating polices to enforce tags and other condition keys together, the conditional `IfExists` may be required on condition key elements due to the extra `elasticache:AddTagsToResource` policy requirements for creation requests with the `--tags` parameter.

@@ -8,6 +8,8 @@ ElastiCache serverless caches support the Internet Protocol versions 4 and 6 (IP
 + **IPv6** – The cache accepts only IPv6 connections.
 + **Dual stack** – The cache accepts both IPv4 and IPv6 connections.
 
+For caches with a public endpoint, the network type defaults to IPv4. You can select a different network type when creating the cache. Subnet configuration is not required.
+
 For dual stack serverless caches, the IP protocol used for a connection depends on how your client resolves the cache endpoint's DNS hostname.
 
 There are no additional charges for accessing ElastiCache over IPv6.
@@ -17,6 +19,8 @@ The network type can only be set when creating a serverless cache. You cannot ch
 
 ## Configuring subnets for network type
 <a name="serverless-network-type-subnets"></a>
+
+This section applies to caches with a VPC connection type. Caches with a public endpoint do not require subnet configuration.
 
 When you create a serverless cache, you can provide subnet IDs. ElastiCache uses those subnets to allocate IP addresses for your cache. The subnets you provide must support the network type you choose:
 + **IPv4** – Subnets must have IPv4 address space. Dual stack subnets (with both IPv4 and IPv6) are also supported.

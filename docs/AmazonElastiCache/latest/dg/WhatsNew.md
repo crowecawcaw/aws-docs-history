@@ -11,6 +11,7 @@ The following table describes important changes in each release of the *ElastiCa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Public endpoints for ElastiCache Serverless](#WhatsNew) | Added documentation for public endpoints, a new connectivity option for ElastiCache Serverless for Valkey that provides access to caches over the internet without a VPC. For more information, see [Create a Valkey serverless cache with a public endpoint](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/serverless-public-endpoints-chapter.html). | September 29, 2026 | 
 | [New Agent tools chapter with the ElastiCache agent skill](#WhatsNew) | Added a new Agent tools for ElastiCache chapter that documents how AI coding agents can work with ElastiCache using the ElastiCache skill from the AWS Agent Toolkit. For more information, see [Use the ElastiCache skill with AI coding agents](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/agent-tools-skills.html). | June 29, 2026 | 
 | [Support for ElastiCache for Memcached on-demand vertical scaling and automated horizontal scaling](#WhatsNew) | ElastiCache with Memcached now supports on-demand vertical scaling and automated horizontal scaling. This includes a policy update for the action `elasticache:ModifyCacheCluster`  | April 10, 2025 | 
 | [Support for ElastiCache with Valkey](#WhatsNew) | ElastiCache now supports Valkey. Valkey 7.2.6 is compatible with Redis OSS 7.2 For more information, see [Valkey](https://valkey.io/).  | October 8, 2024 | 
