@@ -32,6 +32,7 @@ Gateway versions 2.x.x can't be updated to 3.x.x.
 
 | Release Date | Software Version | Release Notes | 
 | --- | --- | --- | 
+| 2026-10-01 | 3.2.10 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways   | 
 | 2026-08-24 | 3.2.9 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways <br />+  Addressed issue with unplanned shutdown   | 
 | 2026-07-30 | 3.2.8 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways   | 
 | 2026-06-30 | 3.2.7 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways <br />+  Added support for PrivateLink FIPS endpoints   | 
@@ -56,6 +57,7 @@ The following table lists the release notes for gateways based on AL2.
 
 | Release Date | Software Version | Release Notes | 
 | --- | --- | --- | 
+| 2026-10-01 | 2.14.9 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways   | 
 | 2026-09-01 | 2.14.8 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways   | 
 | 2026-07-30 | 2.14.7 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways   | 
 | 2026-06-30 | 2.14.6 |  +  Updated operating system and software elements to improve security and performance for new and existing gateways   | 
