@@ -986,7 +986,7 @@ You can optionally specify the `model_package_group_name` to locate the existing
 
 Or, you can provide a previous baseline through the `supplied_baseline_constraints` parameter. If you specify both the `model_package_group_name` and the `supplied_baseline_constraints`, the `ClarifyCheck` step uses the baseline specified by the `supplied_baseline_constraints` parameter.
 
-For more information on using the `ClarifyCheck` step requirements, see the [ sagemaker.workflow.steps.ClarifyCheckStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.clarify_check_step.ClarifyCheckStep) in the *Amazon SageMaker AI SageMaker AI SDK for Python*. For an Amazon SageMaker Studio Classic notebook that shows how to use `ClarifyCheck` step in Pipelines, see [sagemaker-pipeline-model-monitor-clarify-steps.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/model-monitor-clarify-pipelines/sagemaker-pipeline-model-monitor-clarify-steps.ipynb).
+For more information on using the `ClarifyCheck` step requirements, see the [ sagemaker.workflow.steps.ClarifyCheckStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.clarify_check_step.ClarifyCheckStep) in the *Amazon SageMaker AI SageMaker AI SDK for Python (Boto)*. For an Amazon SageMaker Studio Classic notebook that shows how to use `ClarifyCheck` step in Pipelines, see [sagemaker-pipeline-model-monitor-clarify-steps.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/model-monitor-clarify-pipelines/sagemaker-pipeline-model-monitor-clarify-steps.ipynb).
 
 **Example Create a `ClarifyCheck` step for data bias check**  
 
@@ -1072,7 +1072,7 @@ When you specify the following, the `QualityCheck` step uses the baseline specif
 + `supplied_baseline_constraints`
 + `supplied_baseline_statistics`
 
-For more information on using the `QualityCheck` step requirements, see the [sagemaker.workflow.steps.QualityCheckStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.quality_check_step.QualityCheckStep) in the *Amazon SageMaker AI SageMaker AI SDK for Python*. For an Amazon SageMaker Studio Classic notebook that shows how to use `QualityCheck` step in Pipelines, see [sagemaker-pipeline-model-monitor-clarify-steps.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/model-monitor-clarify-pipelines/sagemaker-pipeline-model-monitor-clarify-steps.ipynb). 
+For more information on using the `QualityCheck` step requirements, see the [sagemaker.workflow.steps.QualityCheckStep](https://sagemaker.readthedocs.io/en/stable/workflows/pipelines/sagemaker.workflow.pipelines.html#sagemaker.workflow.quality_check_step.QualityCheckStep) in the *Amazon SageMaker AI SageMaker AI SDK for Python (Boto)*. For an Amazon SageMaker Studio Classic notebook that shows how to use `QualityCheck` step in Pipelines, see [sagemaker-pipeline-model-monitor-clarify-steps.ipynb](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-pipelines/tabular/model-monitor-clarify-pipelines/sagemaker-pipeline-model-monitor-clarify-steps.ipynb). 
 
 **Example Create a `QualityCheck` step for data quality check**  
 

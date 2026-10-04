@@ -20,6 +20,7 @@ HyperPod task governance EKS add-on installs [Kueue](https://github.com/kubernet
 
 | EKS HyperPod task governance add-on version | Version of Kueue that is installed as part of the add-on | 
 | --- | --- | 
+| v1.6.1-eksbuild.1 | v0.19.2 | 
 | v1.6.0-eksbuild.1 | v0.19.2 | 
 | v1.5.0-eksbuild.1 | v0.18.0 | 
 | v1.4.0-eksbuild.1 | v0.14.0 | 

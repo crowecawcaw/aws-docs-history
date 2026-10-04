@@ -8,3 +8,4 @@ This section provides guidance on managing SageMaker HyperPod through the SageMa
 **Topics**
 + [Managing SageMaker HyperPod Slurm clusters using the SageMaker console](sagemaker-hyperpod-operate-slurm-console-ui.md)
 + [Managing SageMaker HyperPod Slurm clusters using the AWS CLI](sagemaker-hyperpod-operate-slurm-cli-command.md)
++ [Migrating to API-driven Slurm configuration](sagemaker-hyperpod-slurm-api-config-migration.md)

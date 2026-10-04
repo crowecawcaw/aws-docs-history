@@ -12,14 +12,17 @@ Use this section to upgrade the HyperPod task governance Amazon EKS add-on betwe
 ## Upgrade from v1.5 to v1.6
 <a name="hp-eks-task-governance-upgrade-v15-to-v16"></a>
 
-Version v1.6.0-eksbuild.1 packages Kueue v0.19.2. You can upgrade directly from v1.5 with `aws eks update-addon`. This upgrade does not migrate custom resource definition (CRD) storage versions, so you do not need to back up or re-create any Kueue objects.
+Version v1.6.1-eksbuild.1 is the current v1.6 release and the default version. Like v1.6.0-eksbuild.1, it packages Kueue v0.19.2. You can upgrade directly from v1.5 or from v1.6.0-eksbuild.1 with `aws eks update-addon`. This upgrade does not migrate custom resource definition (CRD) storage versions, so you do not need to back up or re-create any Kueue objects.
+
+**Amazon EKS clusters that run Kubernetes version 1.33**  
+On clusters that run Kubernetes version 1.33, the Kueue controller in v1.6.0-eksbuild.1 can fail to start and restart repeatedly. Version v1.6.1-eksbuild.1 fixes this issue. If your cluster runs Kubernetes version 1.33, upgrade to v1.6.1-eksbuild.1 instead of v1.6.0-eksbuild.1.
 
 To upgrade the add-on to v1.6 through the Amazon EKS add-on interface, run the following command. Replace {{region}} with your Region and {{cluster-name}} with your Amazon EKS cluster name.
 
 ```
 aws eks update-addon --region {{region}} --cluster-name {{cluster-name}} \
   --addon-name amazon-sagemaker-hyperpod-taskgovernance \
-  --addon-version v1.6.0-eksbuild.1 --resolve-conflicts OVERWRITE
+  --addon-version v1.6.1-eksbuild.1 --resolve-conflicts OVERWRITE
 ```
 
 Wait until the status is `ACTIVE`:
@@ -119,7 +122,7 @@ Confirm that the backup directory contains a JSON file for each custom resource 
 
 1. **Update the add-on to your target version (v1.5.0-eksbuild.1 or later).**
 
-   Replace {{target-version}} with the target add-on version, for example `v1.5.0-eksbuild.1` or `v1.6.0-eksbuild.1`.
+   Replace {{target-version}} with the target add-on version, for example `v1.5.0-eksbuild.1` or `v1.6.1-eksbuild.1`.
 
    ```
    aws eks update-addon --region {{region}} --cluster-name {{cluster-name}} \

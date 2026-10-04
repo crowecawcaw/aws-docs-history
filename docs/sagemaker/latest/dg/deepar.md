@@ -26,7 +26,7 @@ DeepAR supports two data channels. The required `train` channel describes the tr
 
 When specifying the paths for the training and test data, you can specify a single file or a directory that contains multiple files, which can be stored in subdirectories. If you specify a directory, DeepAR uses all files in the directory as inputs for the corresponding channel, except those that start with a period (.) and those named *\_SUCCESS*. This ensures that you can directly use output folders produced by Spark jobs as input channels for your DeepAR training jobs.
 
-By default, the DeepAR model determines the input format from the file extension (`.json`, `.json.gz`, or `.parquet`) in the specified input path. If the path does not end in one of these extensions, you must explicitly specify the format in the SDK for Python. Use the `content_type` parameter of the [InputData](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) class.
+By default, the DeepAR model determines the input format from the file extension (`.json`, `.json.gz`, or `.parquet`) in the specified input path. If the path does not end in one of these extensions, you must explicitly specify the format in the SDK for Python (Boto). Use the `content_type` parameter of the [InputData](https://sagemaker.readthedocs.io/en/stable/api/sagemaker_train.html) class.
 
 The records in your input files should contain the following fields:
 + `start`—A string with the format `YYYY-MM-DD HH:MM:SS`. The start timestamp can't contain time zone information.

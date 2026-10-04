@@ -46,7 +46,9 @@ The following models are available for customization across serverless, SageMake
 
 | Provider | Model | Model ID | Serverless | Training Jobs | HyperPod | 
 | --- | --- | --- | --- | --- | --- | 
+| Alibaba | Qwen3.8 27B | huggingface-vlm-qwen3-8-27b | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.6 27B | huggingface-vlm-qwen3-6-27b | ✓ | ✓ | ✓ | 
+| Alibaba | Qwen3.6 A3B 35B | huggingface-vlm-qwen3-6-35b-a3b | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.5 27B | huggingface-vlm-qwen3-5-27b | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.5 9B | huggingface-vlm-qwen3-5-9b | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.5 4B | huggingface-vlm-qwen3-5-4b | ✓ | ✓ | ✓ | 
@@ -73,8 +75,12 @@ The following models are available for customization across serverless, SageMake
 | Meta | Llama 3.2 Instruct 3B | meta-textgeneration-llama-3-2-3b-instruct | ✓ | ✓ | ✓ | 
 | Meta | Llama 3.2 Instruct 1B | meta-textgeneration-llama-3-2-1b-instruct | ✓ | ✓ | ✓ | 
 | Meta | Llama 3.1 Instruct 8B | meta-textgeneration-llama-3-1-8b-instruct | ✓ | ✓ | ✓ | 
+| Mistral AI | Ministral 3 Instruct 2512 BF16 14B | huggingface-vlm-ministral-3-14b-instruct-2512-bf16 | ✓ | ✓ | ✓ | 
+| Mistral AI | Ministral 3 Instruct 2512 BF16 8B | huggingface-vlm-ministral-3-8b-instruct-2512-bf16 | ✓ | ✓ | ✓ | 
+| Mistral AI | Ministral 3 Instruct 2512 BF16 3B | huggingface-vlm-ministral-3-3b-instruct-2512-bf16 | ✓ | ✓ | ✓ | 
 | NVIDIA | Nemotron 3 Super 120B (A12B) | huggingface-llm-nvidia-nemotron-3-super-120b-a12b-bf16 | ✓ | ✓ | ✓ | 
 | NVIDIA | Nemotron 3 Nano 30B (A3B) | huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16 | ✓ | ✓ | ✓ | 
+| NVIDIA | Nemotron 3.5 Lightning 30B (A3B) | huggingface-reasoning-nemotron-3-5-lightning-30b-a3b-bf16 | ✓ | ✓ | ✓ | 
 | OpenAI | GPT OSS 120B | openai-reasoning-gpt-oss-120b | ✓ | ✓ | ✓ | 
 | OpenAI | GPT OSS 20B | openai-reasoning-gpt-oss-20b | ✓ | ✓ | ✓ | 
 

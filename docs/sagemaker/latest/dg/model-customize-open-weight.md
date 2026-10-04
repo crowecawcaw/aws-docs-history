@@ -22,7 +22,9 @@ The following table shows the supported fine-tuning recipes for each model, incl
 
 | Provider | Model | Model ID | SFT (LoRA) | SFT (FFT) | DPO (LoRA) | DPO (FFT) | RLVR (LoRA) | RLVR (FFT) | RLAIF (LoRA) | RLAIF (FFT) | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| Alibaba | Qwen3.8 27B | huggingface-vlm-qwen3-8-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.6 27B | huggingface-vlm-qwen3-6-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
+| Alibaba | Qwen3.6 A3B 35B | huggingface-vlm-qwen3-6-35b-a3b | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.5 27B | huggingface-vlm-qwen3-5-27b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.5 9B | huggingface-vlm-qwen3-5-9b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3.5 4B | huggingface-vlm-qwen3-5-4b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
@@ -30,7 +32,7 @@ The following table shows the supported fine-tuning recipes for each model, incl
 | Alibaba | Qwen3 14B | huggingface-reasoning-qwen3-14b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3 8B | huggingface-reasoning-qwen3-8b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3 4B | huggingface-reasoning-qwen3-4b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Alibaba | Qwen3 1.7B | huggingface-reasoning-qwen3-1-7b | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | 
+| Alibaba | Qwen3 1.7B | huggingface-reasoning-qwen3-1-7b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen3 0.6B | huggingface-reasoning-qwen3-06b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Alibaba | Qwen2.5 Instruct 72B | huggingface-llm-qwen2-5-72b-instruct | ✓ | ✓ | ✓ |  | ✓ |  | ✓ |  | 
 | Alibaba | Qwen2.5 Instruct 32B | huggingface-llm-qwen2-5-32b-instruct | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
@@ -38,7 +40,7 @@ The following table shows the supported fine-tuning recipes for each model, incl
 | Alibaba | Qwen2.5 Instruct 7B | huggingface-llm-qwen2-5-7b-instruct | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | DeepSeek | R1 Distill Qwen 32B | deepseek-llm-r1-distill-qwen-32b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | DeepSeek | R1 Distill Qwen 14B | deepseek-llm-r1-distill-qwen-14b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| DeepSeek | R1 Distill Qwen 7B | deepseek-llm-r1-distill-qwen-7b | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | 
+| DeepSeek | R1 Distill Qwen 7B | deepseek-llm-r1-distill-qwen-7b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | DeepSeek | R1 Distill Qwen 1.5B | deepseek-llm-r1-distill-qwen-1-5b | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | 
 | DeepSeek | R1 Distill Llama 70B | deepseek-llm-r1-distill-llama-70b | ✓ | ✓ | ✓ |  | ✓ |  | ✓ |  | 
 | DeepSeek | R1 Distill Llama 8B | deepseek-llm-r1-distill-llama-8b | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
@@ -49,6 +51,9 @@ The following table shows the supported fine-tuning recipes for each model, incl
 | Meta | Llama 3.2 Instruct 3B | meta-textgeneration-llama-3-2-3b-instruct | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
 | Meta | Llama 3.2 Instruct 1B | meta-textgeneration-llama-3-2-1b-instruct | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
 | Meta | Llama 3.1 Instruct 8B | meta-textgeneration-llama-3-1-8b-instruct | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
+| Mistral AI | Ministral 3 Instruct 2512 BF16 14B | huggingface-vlm-ministral-3-14b-instruct-2512-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
+| Mistral AI | Ministral 3 Instruct 2512 BF16 8B | huggingface-vlm-ministral-3-8b-instruct-2512-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
+| Mistral AI | Ministral 3 Instruct 2512 BF16 3B | huggingface-vlm-ministral-3-3b-instruct-2512-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | NVIDIA | Nemotron 3 Super 120B (A12B) | huggingface-llm-nvidia-nemotron-3-super-120b-a12b-bf16 | ✓ |  | ✓ |  | ✓ |  | ✓ |  | 
 | NVIDIA | Nemotron 3 Nano 30B (A3B) | huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | NVIDIA | Nemotron 3.5 Lightning 30B (A3B) | huggingface-reasoning-nemotron-3-5-lightning-30b-a3b-bf16 | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 

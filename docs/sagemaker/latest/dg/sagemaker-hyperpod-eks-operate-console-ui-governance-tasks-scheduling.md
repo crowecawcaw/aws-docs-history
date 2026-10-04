@@ -34,6 +34,7 @@ The following are labels for the available topology network layers that HyperPod
 + topology.k8s.aws/network-node-layer-1
 + topology.k8s.aws/network-node-layer-2
 + topology.k8s.aws/network-node-layer-3
++ topology.k8s.aws/network-node-layer-4
 + topology.k8s.aws/ultraserver-id
 
 To use topology-aware scheduling, include the following labels in your YAML file:
