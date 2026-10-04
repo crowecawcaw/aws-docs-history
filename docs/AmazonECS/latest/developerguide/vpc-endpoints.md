@@ -73,22 +73,23 @@ Before you set up interface VPC endpoints for Amazon ECS, be aware of the follow
 ## Understanding Amazon ECS endpoint naming patterns
 <a name="ecs-endpoint-naming-patterns"></a>
 
-It's important to understand that the Amazon ECS agent may make requests to endpoints with numbered suffixes, such as:
-+ `ecs-a-1.region.amazonaws.com`, `ecs-a-2.region.amazonaws.com`, etc. for agent endpoints
-+ `ecs-t-1.region.amazonaws.com`, `ecs-t-2.region.amazonaws.com`, etc. for telemetry endpoints
+The Amazon ECS container agent uses the [DiscoverPollEndpoint](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DiscoverPollEndpoint.html) API to find the agent and telemetry endpoints to connect to. The returned hostnames depend on whether the call uses the `com.amazonaws.{{region}}.ecs` interface VPC endpoint.
++ When the call goes through the `ecs` interface VPC endpoint, the returned endpoints use the base private DNS names `ecs-a.{{region}}.amazonaws.com` and `ecs-t.{{region}}.amazonaws.com`. A numeric identifier appears in the URL path, for example `https://ecs-a.{{region}}.amazonaws.com/acs/1/`.
++ When the call doesn't go through the `ecs` interface VPC endpoint, the returned endpoints can use numbered hostnames, such as `ecs-a-1.{{region}}.amazonaws.com` and `ecs-t-1.{{region}}.amazonaws.com`. These hostnames resolve to public endpoints.
 
-This behavior occurs because the Amazon ECS agent uses the [DiscoverPollEndpoint](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DiscoverPollEndpoint.html) API to dynamically determine which specific endpoint to connect to. If your VPC endpoints don't properly handle these numbered endpoint variations, the agent will fall back to using public endpoints, even if you've configured VPC endpoints for the base names.
+You don't need to create DNS records for numbered hostnames. If you use your own Route 53 private hosted zones instead of the endpoint's private DNS, create hosted zones only for the following domains:
++ `ecs.{{region}}.amazonaws.com`
++ `ecs-a.{{region}}.amazonaws.com`
++ `ecs-t.{{region}}.amazonaws.com`
 
-### The role of DiscoverPollEndpoint API
+### Troubleshooting agent connectivity through VPC endpoints
 <a name="ecs-discoverpollendpoint-role"></a>
 
-The [DiscoverPollEndpoint](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DiscoverPollEndpoint.html) API is used by the Amazon ECS agent to discover the appropriate endpoint to poll for tasks. When the agent calls this API, it receives a specific endpoint URL that may include a numbered suffix. To ensure your VPC endpoints work correctly, your network configuration must allow the agent to:
+If your container instances connect to numbered hostnames such as `ecs-a-1.{{region}}.amazonaws.com`, the agent's DiscoverPollEndpoint call isn't going through the `ecs` interface VPC endpoint. Check the following from the container instance:
++ `ecs.{{region}}.amazonaws.com` resolves to the private IP addresses of your `ecs` endpoint.
++ If the agent uses an HTTP proxy, either the proxy resolves `ecs.{{region}}.amazonaws.com` to your `ecs` endpoint, or the hostname is in `NO_PROXY`. Otherwise the proxy can send the call over the public path even when DNS on the instance is correct. For more information, see [Using an HTTP proxy for Amazon ECS Linux container instances](http_proxy_config.md).
 
-1. Access the DiscoverPollEndpoint API
-
-1. Connect to the returned endpoint URLs, including those with numbered suffixes
-
-If you're troubleshooting VPC endpoint connectivity issues, verify that your agent can reach both the base endpoints and any numbered variations that might be returned by the DiscoverPollEndpoint API.
+After the call goes through the `ecs` endpoint, the agent connects to `ecs-a.{{region}}.amazonaws.com` and `ecs-t.{{region}}.amazonaws.com`. Make sure that you also created the `ecs-agent` and `ecs-telemetry` interface VPC endpoints and that those hostnames resolve to their private IP addresses. For more information, see [Creating the VPC Endpoints for Amazon ECS](#ecs-setting-up-vpc-create).
 
 ## Creating the VPC Endpoints for Amazon ECS
 <a name="ecs-setting-up-vpc-create"></a>

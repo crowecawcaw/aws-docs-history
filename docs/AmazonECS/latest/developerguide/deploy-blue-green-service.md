@@ -12,12 +12,14 @@ Perform the following operations before you start a blue/green deployment.
 
 1. Configure the appropriate permissions.
    + For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md).
+   + If you're using VPC Lattice, for information about VPC Lattice permissions, see [`AmazonECSInfrastructureRolePolicyForVpcLattice`](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECSInfrastructureRolePolicyForVpcLattice).
    + For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md)
 
-1. (Optional) For managed traffic shifting, configure one of the following resources. If your service is headless (no load balancer or Service Connect), you can skip this step. Amazon ECS doesn't manage the traffic shift automatically for headless services.
+1. (Optional) For managed traffic shifting, configure one of the following resources. If your service is headless (no load balancer, Service Connect, or VPC Lattice), you can skip this step. Amazon ECS doesn't manage the traffic shift automatically for headless services.
    + Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md).
    + Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md).
    + Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md).
+   + VPC Lattice - For more information, see [VPC Lattice resources for blue/green, linear, and canary deployments](vpc-lattice-resources-for-blue-green.md).
 
 1. Decide if you want to run Lambda functions for the lifecycle stages.
    + PRE\_SCALE\_UP
@@ -165,6 +167,24 @@ Test traffic header rules enable you to validate new functionality with controll
 </table>
 
 
+1. (Optional) To use VPC Lattice for managed traffic shifting during blue/green deployments, expand **VPC Lattice - optional** and select **Use VPC Lattice**, then do the following:
+
+   1. For **VPC**, choose the VPC for your VPC Lattice resources. This must be the same VPC as your Fargate service.
+
+   1. For **Infrastructure role**, choose the Amazon ECS infrastructure IAM role that Amazon ECS uses to manage your VPC Lattice resources, or choose **Create a new infrastructure role**.
+
+   1. For **Container port name**, choose the port name from the task definition that maps to the container port that receives traffic from VPC Lattice.
+
+   1. For **VPC Lattice service**, choose **Create a new service** or **Use an existing service**. For **Service name**, enter a unique name for the service.
+
+   1. For **Listener**, choose **Create new listener** or **Use an existing listener**. For **Port**, enter a port from 1 to 65535. For **Protocol**, choose the protocol (for example, **HTTP**).
+
+   1. Under **Production listener rule**, enter a **Name**, a **Priority** from 1 to 100, and a **Path pattern** (maximum 200 characters). Amazon ECS uses this rule to route production traffic.
+
+   1. (Optional, recommended) Under **Test listener rule**, enter a **Name**, a **Priority** from 1 to 100, and a **Path pattern**. Amazon ECS uses this rule to route test traffic to the green service revision.
+
+   1. For **Target groups**, choose **Create two new target groups**, **Create green target group**, or **Use two existing target groups**. For a new target group, enter a **Target group name**, choose a **Protocol**, enter a **Port** from 1 to 65535, choose a **Health check protocol**, and enter a **Health check path**. For **Green target group name**, enter a name; the green target group uses the same configuration as the blue target group.
+
 1. (Optional) To help identify your service and tasks, expand the **Tags** section, and then configure your tags.
 
    To have Amazon ECS automatically tag all newly launched tasks with the cluster name and the task definition tags, select **Turn on Amazon ECS managed tags**, and then for **Propagate tags from**, choose **Task definitions**.
@@ -270,6 +290,21 @@ Test traffic header rules enable you to validate new functionality with controll
       --deployment-controller "type=ECS" \
       --deployment-configuration "strategy=BLUE_GREEN,maximumPercent=200,minimumHealthyPercent=100,bakeTimeInMinutes=0" \
       --load-balancers "targetGroupArn={{arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/MyBGtg1/abcdef1234567890}},containerName=nginx,containerPort=80,advancedConfiguration={alternateTargetGroupArn={{arn:aws:elasticloadbalancing:us-west-2:123456789012}}:{{targetgroup/MyBGtg2/0987654321fedcba}},productionListenerRule={{arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/MyLB/1234567890abcdef/1234567890abcdef}},roleArn={{arn:aws:iam::123456789012:role/ELBManagementRole}}}"
+   ```
+
+   Alternatively, you can use the following example which creates a blue/green deployment service with a VPC Lattice configuration:
+
+   ```
+   aws ecs create-service \
+      --cluster "{{arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster}}" \
+      --service-name "blue-green-example-service" \
+      --task-definition "nginxServer:1" \
+      --launch-type "FARGATE" \
+      --network-configuration "awsvpcConfiguration={subnets=[{{subnet-12345}},{{subnet-67890}},{{subnet-abcdef}},{{subnet-fedcba}}],securityGroups=[{{sg-12345}}],assignPublicIp=ENABLED}" \
+      --desired-count 3 \
+      --deployment-controller "type=ECS" \
+      --deployment-configuration "strategy=BLUE_GREEN,maximumPercent=200,minimumHealthyPercent=100,bakeTimeInMinutes=0" \
+      --vpc-lattice-configurations "portName=web,roleArn={{arn:aws:iam::111122223333:role/ecs-vpc-lattice-role}},targetGroupArn={{arn:aws:vpc-lattice:us-west-2:111122223333:targetgroup/primary-target-group/abcdef123456}},advancedConfiguration={alternateTargetGroupArn={{arn:aws:vpc-lattice:us-west-2:111122223333:targetgroup/alternate-target-group/ghijkl789012}},productionListenerRule={{arn:aws:vpc-lattice:us-west-2:111122223333:service/svc-0123456789abcdef0/listener/listener-0123456789abcdef0/rule/rule-0123456789abcdef0}},testListenerRule={{arn:aws:vpc-lattice:us-west-2:111122223333:service/svc-0123456789abcdef0/listener/listener-0123456789abcdef0/rule/rule-abcdef01234567890}}}"
    ```
 
 ------

@@ -143,7 +143,7 @@ To create a service by using defined parameters, follow these steps.
 
    1. If you chose **Replica**, to have Amazon ECS monitor the distribution of tasks across Availability Zones, and redistribute them when there is an imbalance, under **Availability Zone service rebalancing**, select **Availability Zone service rebalancing**.
 
-   1. For **Health check grace period**, enter the amount of time (in seconds) that the enter the amount of time (in seconds) that the service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used.
+   1. For **Health check grace period**, enter the amount of time (in seconds) that the service scheduler ignores unhealthy Elastic Load Balancing, VPC Lattice, and container health checks after a task has first started. If you do not specify a health check grace period value, the default value of 0 is used.
 
    1. Determine the deployment type for your service. Expand **Deployment options**, and then specify the following parameters.
 
@@ -229,7 +229,7 @@ To create a service by using defined parameters, follow these steps.
 
       For **TTL**, enter the time in seconds how long a record set is cached by DNS resolvers and by web browsers.
 
-1. (Optional) To interconnect your service using VPC Lattice, xxpand **VPC Lattice**, and then do the following:
+1. (Optional) To interconnect your service using VPC Lattice, expand **VPC Lattice**, and then do the following:
 
    1. Select **Turn on VPC Lattice**
 

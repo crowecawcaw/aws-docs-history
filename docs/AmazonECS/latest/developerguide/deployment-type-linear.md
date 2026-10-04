@@ -15,9 +15,9 @@ The following are resources involved in Amazon ECS linear deployments:
 + Deployment bake time - The time, in minutes, Amazon ECS waits after shifting all production traffic to the new service revision, before it terminates the old service revision. This is the duration when both blue and green service revisions are running simultaneously after the production traffic has shifted.
 + Lifecycle stages - A series of events in the deployment operation, such as "after production traffic shift".
 + Lifecycle hook - A Lambda function or pause point at a specific lifecycle stage. Lambda hooks invoke Lambda functions that you have defined to run custom code. Pause hooks pause the deployment and wait for you to call `ContinueServiceDeployment` to proceed. Hooks configured for `PRODUCTION_TRAFFIC_SHIFT` or `PRE_PRODUCTION_TRAFFIC_SHIFT` are invoked at every production traffic shift step.
-+ Target group - An Elastic Load Balancing resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
-+ Listener - A Elastic Load Balancing resource that checks for connection requests using the protocol and port that you configure. The rules that you define for a listener determine how Amazon ECS routes requests to its registered targets.
-+ Rule - An Elastic Load Balancing resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
++ Target group - An Elastic Load Balancing or VPC Lattice resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
++ Listener - An Elastic Load Balancing or VPC Lattice resource that checks for connection requests using the protocol and port that you configure. The rules that you define for a listener determine how Amazon ECS routes requests to its registered targets.
++ Rule - An Elastic Load Balancing or VPC Lattice resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
 
 ## Considerations
 <a name="linear-deployment-considerations"></a>
@@ -38,7 +38,7 @@ The Amazon ECS Linear deployment process follows a structured approach with six 
 
 1. Deployment Phase: Deploy the new service revision to the green environment. Amazon ECS launches new tasks using the updated service revision while the blue environment continues serving production traffic.
 
-1. Testing Phase: Validate the green environment using test traffic routing. The Application Load Balancer directs test requests to the green environment while production traffic remains on blue.
+1. Testing Phase: Validate the green environment using test traffic routing. Your traffic-shifting resource (an Application Load Balancer, Network Load Balancer, Service Connect, or VPC Lattice) directs test requests to the green environment while production traffic remains on blue.
 
 1. Linear Traffic Shifting Phase: Gradually shift production traffic from blue to green in equal percentage increments based on your configured deployment strategy.
 

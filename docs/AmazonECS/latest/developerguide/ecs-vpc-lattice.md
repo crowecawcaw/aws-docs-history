@@ -28,8 +28,8 @@ Using VPC Lattice with Amazon ECS may change the way you use other Amazon ECS se
 **Application Load Balancers**  
 You no longer need to create a specific Application Load Balancer to use with the Application Load Balancer target group type in VPC Lattice that then links to the Amazon ECS service. You only need to configure your Amazon ECS service with a VPC Lattice target group instead. You can also still choose to use Application Load Balancer with Amazon ECS at the same time.
 
-**Amazon ECS rolling deployments**  
-Only Amazon ECS rolling deployments work with VPC Lattice, and Amazon ECS safely brings tasks into and removes them from services during deployment. Code deploy and Blue/Green deployments aren't supported.
+**Amazon ECS deployments**  
+Amazon ECS rolling deployments and the Amazon ECS blue/green deployment strategy (including its linear and canary traffic-shifting configurations) work with VPC Lattice, and Amazon ECS safely brings tasks into and removes them from services during deployment. For the VPC Lattice resources required for blue/green, linear, and canary deployments, see [VPC Lattice resources for blue/green, linear, and canary deployments](vpc-lattice-resources-for-blue-green.md). The blue/green deployment powered by CodeDeploy (the `CODE_DEPLOY` deployment controller) isn't supported.
 
 To learn more about VPC Lattice, see the [Amazon VPC Lattice User Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/what-is-vpc-lattice.html).
 

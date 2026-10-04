@@ -108,7 +108,7 @@ To create a customer managed key (CMK) to encrypt ephemeral storage for Fargate 
          "Resource": "*",
          "Condition": {
            "StringEquals": {
-             "ecs:fargate-ephemeral-storage-kms-key": "arn:aws:kms:{{us-west-2}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
+             "ecs:fargate-ephemeral-storage-kms-key": "{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
            }
          }
        }

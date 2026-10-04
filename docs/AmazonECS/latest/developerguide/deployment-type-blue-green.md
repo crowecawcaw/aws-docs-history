@@ -25,10 +25,10 @@ The following are Amazon ECS blue/green deployment terms:
 + Green deployment - The new service revision that you want to deploy.
 + Lifecycle stages - A series of events in the deployment operation, such as "after production traffic shift".
 + Lifecycle hook - A Lambda function or pause point at a specific lifecycle stage. Lambda hooks invoke Lambda functions that you have defined to run custom code. Pause hooks pause the deployment and wait for you to call `ContinueServiceDeployment` to proceed.
-+ Listener - A Elastic Load Balancing resource that checks for connection requests using the protocol and port that you configure. The rules that you define for a listener determine how Amazon ECS routes requests to its registered targets.
-+ Rule - An Elastic Load Balancing resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
-+ Target group - An Elastic Load Balancing resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
-+ Traffic shift - The process Amazon ECS uses to shift traffic from the blue deployment to the green deployment. For services with a load balancer or Service Connect, Amazon ECS manages the traffic shift automatically. For headless services, Amazon ECS replaces the blue tasks with green tasks but doesn't manage traffic shifting.
++ Listener - An Elastic Load Balancing or VPC Lattice resource that checks for connection requests using the protocol and port that you configure. The rules that you define for a listener determine how Amazon ECS routes requests to its registered targets.
++ Rule - An Elastic Load Balancing or VPC Lattice resource associated with a listener. A rule defines how requests are routed and consists of an action, condition, and priority.
++ Target group - An Elastic Load Balancing or VPC Lattice resource used to route requests to one or more registered targets (for example, EC2 instances). When you create a listener, you specify a target group for its default action. Traffic is forwarded to the target group specified in the listener rule.
++ Traffic shift - The process Amazon ECS uses to shift traffic from the blue deployment to the green deployment. For services with a load balancer, Service Connect, or VPC Lattice, Amazon ECS manages the traffic shift automatically. For headless services, Amazon ECS replaces the blue tasks with green tasks but doesn't manage traffic shifting.
 
 ## Considerations
 <a name="blue-green-deployment-considerations"></a>

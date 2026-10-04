@@ -85,7 +85,7 @@ You can enable Action Logs programmatically by using the CloudWatch Logs vended 
    aws logs put-delivery-source \
        --name {{my-ecs-action-logs}} \
        --resource-arn arn:aws:ecs:{{region}}:{{account-id}}:cluster/{{cluster-name}} \
-       --log-type EcsActionLogs
+       --log-type ACTION_LOGS
    ```
 
 1. Configure the delivery destination by running the following command:

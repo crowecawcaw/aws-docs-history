@@ -139,3 +139,5 @@ To create a service in an IPv6-only configuration, create target groups with an 
        --serviceName {{ecs-service-vpc-lattice}} \
        --cli-input-json file://{{ecs-service-vpc-lattice.json}}
    ```
+
+   To use blue/green, linear, or canary deployments with VPC Lattice, add an `advancedConfiguration` block (the alternate target group and the production and test listener rules) to the `vpcLatticeConfigurations` entry and set the deployment strategy in `deploymentConfiguration`. For more information, see [VPC Lattice resources for blue/green, linear, and canary deployments](vpc-lattice-resources-for-blue-green.md).

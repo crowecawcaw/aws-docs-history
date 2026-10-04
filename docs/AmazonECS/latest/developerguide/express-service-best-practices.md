@@ -75,7 +75,7 @@ aws ecs update-express-gateway-service \
 
   You can modify the service metric's target value in your Express Mode service console. 
 
-  Consider adding a predictive scaling policy, especially if your traffic follows a time-based pattern. For more information, see [ Predictive Auto Scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/predictive-auto-scaling.html).
+  Consider adding a predictive scaling policy, especially if your traffic follows a time-based pattern. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md).
 + **Use multiple scaling metrics** - Consider using both CPU or Memory and request-based scaling for more responsive scaling.
 
   You can add multiple policies to a service. Express Mode adds one by default, but you can attach addtional policies to your service directly.

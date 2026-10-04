@@ -24,6 +24,7 @@ Before migrating your service from rolling to blue/green deployments, ensure you
   + Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md).
   + Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md).
   + Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md).
+  + VPC Lattice - For more information, see [VPC Lattice resources for blue/green, linear, and canary deployments](vpc-lattice-resources-for-blue-green.md).
 
 ## Procedure
 <a name="update-rolling-to-bluegreen-procedure"></a>

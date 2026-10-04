@@ -6,12 +6,14 @@
 To use a linear deployment with managed traffic shifting, your service must use one of the following features:
 + Elastic Load Balancing
 + Service Connect
++ VPC Lattice
 
 The following list provides a high-level overview of what you need to configure for Amazon ECS linear deployments:
-+ Your service uses an Application Load Balancer, Network Load Balancer, or Service Connect. Configure the appropriate resources.
++ Your service uses an Application Load Balancer, Network Load Balancer, Service Connect, or VPC Lattice. Configure the appropriate resources.
   + Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md).
   + Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md).
   + Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md).
+  + VPC Lattice - For more information, see [VPC Lattice resources for blue/green, linear, and canary deployments](vpc-lattice-resources-for-blue-green.md).
 + Set the service deployment controller to `ECS`.
 + Configure the deployment strategy as `linear` in your service definition.
 + Optionally, configure additional parameters such as:

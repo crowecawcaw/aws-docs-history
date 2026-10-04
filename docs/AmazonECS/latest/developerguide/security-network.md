@@ -38,6 +38,8 @@ We recommend that you configure your tasks to use the `awsvpc` network mode. Aft
 
 If you use a custom firewall with tasks or services, add an outbound rule to allow traffic for the Amazon ECS agent management endpoints ("`ecs-a-*.{{region}}.amazonaws.com`"), telemetry endpoints ("`ecs-t-*.{{region}}.amazonaws.com`"), and the Service Connect Envoy management endpoints ("`ecs-sc.{{region}}.api.aws`").
 
+If you use Amazon ECS Managed Instances, also add an outbound rule to allow traffic for the data plane endpoints ("`ecs-d-*.{{region}}.api.aws`"). Your managed instances use these endpoints for system log delivery and other data plane operations.
+
 ## AWS PrivateLink and Amazon ECS
 <a name="security-network-privatelink"></a>
 

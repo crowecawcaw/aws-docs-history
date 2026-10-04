@@ -74,3 +74,12 @@ You can implement an error retry and exponential back-off strategy to avoid the 
 + [Error retries and exponential backoff in AWS](https://docs.aws.amazon.com/general/latest/gr/api-retries.html) in the AWS General Reference Guide
 + [Exponential backoff and jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/) blog post
 + [Timeouts, retries, and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) article in the Amazon Builder’s Library
+
+Retries and back-off help your application recover from throttling, but they do not reduce the number of API requests you make. If you are consistently throttled, the most effective remedy is to lower your request rate at the source. Consider the following practices before requesting a quota increase:
++ **Spread out scheduled work.** Avoid running batch jobs, deployments, or polling loops for many resources at the same instant (for example, on the same cron minute). Distribute the work across a wider time window and add jitter to start times so that requests do not arrive as a single burst.
++ **Poll less frequently and react to events.** Instead of repeatedly calling `Describe` and `List` actions to detect change, lengthen your polling interval or subscribe to Amazon ECS state changes through Amazon EventBridge and react to changes as they happen.
++ **Cache and reuse results.** Cache the responses of read actions such as `DescribeTasks` and `ListTasks` and reuse them across your application, rather than calling the API for every task or on every request.
++ **Batch your requests.** Where an API accepts multiple resources in a single call (for example, passing multiple task IDs to `DescribeTasks`), use it instead of making one request per resource.
++ **Retrieve task metadata locally.** For information about a running task, use the [task metadata endpoint](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-metadata-endpoint-v4.html) from inside the task instead of calling `DescribeTasks`.
+
+Request-rate quotas protect service performance and fair usage across customers. If you have applied these practices and still require a higher request rate for a legitimate workload, you can request an increase as described in [Adjusting API throttling quotas](#throttling-increase).

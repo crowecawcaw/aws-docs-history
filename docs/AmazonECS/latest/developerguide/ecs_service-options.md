@@ -80,7 +80,7 @@ The deployment controller is the mechanism that determines how tasks are deploye
     + Acceptable deployment time: Your application can tolerate a longer deployment process, as rolling updates replace tasks one by one.
     + No need for instant roll back: Your service can tolerate a rollback process that takes minutes rather than seconds.
     + Simple deployment process: You prefer a straightforward deployment approach without the complexity of managing multiple environments, target groups, and listeners.
-    + No load balancer requirement: Your service doesn't use or require a load balancer, Application Load Balancer, Network Load Balancer, or Service Connect (which are required for blue/green deployments).
+    + No load balancer, Service Connect, or VPC Lattice requirement: Your service doesn't use or require an Application Load Balancer, Network Load Balancer, Service Connect, or VPC Lattice (which are required for blue/green deployments).
     + Stateful applications: Your application maintains state that makes it difficult to run two parallel environments.
     + Cost sensitivity: You want to minimize deployment costs by not running duplicate environments during deployment.
 
@@ -91,21 +91,21 @@ The deployment controller is the mechanism that determines how tasks are deploye
     + Service validation: When you need to validate new service revisions before directing production traffic to them
     + Zero downtime: When your service requires zero-downtime deployments
     + Instant roll back: When you need the ability to quickly roll back if issues are detected
-    + Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect
+    + Load balancer, Service Connect, or VPC Lattice requirement: When your service uses Application Load Balancer, Network Load Balancer, Service Connect, or VPC Lattice
   + `LINEAR`: A *linear* deployment strategy (`LINEAR`) gradually shifts traffic from the current production environment to a new environment in equal percentage increments over a specified time period. With Amazon ECS linear deployments, you can control the pace of traffic shifting and validate new service revisions with increasing amounts of production traffic.
 
     Amazon ECS linear deployments are best suited for the following scenarios:
     + Gradual validation: When you want to gradually validate your new service version with increasing traffic
     + Performance monitoring: When you need time to monitor metrics and performance during the deployment
     + Risk minimization: When you want to minimize risk by exposing the new version to production traffic incrementally
-    + Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect
+    + Load balancer, Service Connect, or VPC Lattice requirement: When your service uses Application Load Balancer, Network Load Balancer, Service Connect, or VPC Lattice
   + `CANARY`: A *canary* deployment strategy (`CANARY`) shifts a small percentage of traffic to the new service revision first, then shifts the remaining traffic all at once after a specified time period. This allows you to test the new version with a subset of users before full deployment.
 
     Amazon ECS canary deployments are best suited for the following scenarios:
     + Feature testing: When you want to test new features with a small subset of users before full rollout
     + Production validation: When you need to validate performance and functionality with real production traffic
     + Blast radius control: When you want to minimize blast radius if issues are discovered in the new version
-    + Load balancer requirement: When your service uses Application Load Balancer, Network Load Balancer, or Service Connect
+    + Load balancer, Service Connect, or VPC Lattice requirement: When your service uses Application Load Balancer, Network Load Balancer, Service Connect, or VPC Lattice
 + External
 
   Use a third-party deployment controller.
