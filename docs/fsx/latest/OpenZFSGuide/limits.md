@@ -159,9 +159,7 @@ Following are the default quotas for Amazon FSx for OpenZFS for each AWS account
 <a name="request-quota-increase"></a>
 
 You can request an increase for all AWS account quotas. You can also request an increase on the following file system quotas:
-+ Maximum number of volumes
 + Maximum number of user and group quotas per volume
-+ Maximum number of snapshots
 + Maximum storage capacity for file systems using the Intelligent-Tiering storage class
 
 **To request a quota increase**
