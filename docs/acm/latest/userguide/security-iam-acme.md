@@ -103,6 +103,8 @@ The role needs permissions for the certificate operations you want to allow. The
 
 You can restrict issuance using the same condition keys supported by `acm:RequestCertificate`, such as `acm:DomainNames` or `acm:KeyAlgorithm`. For more information, see [Use condition keys with ACM](acm-conditions.md).
 
+For the values ACM sets for each of those condition keys during ACME issuance, and for the additional `acm:AddTagsToCertificate` permission that an endpoint configured with certificate tags requires, see [Condition keys for ACME certificate requests](acm-conditions-acme.md).
+
 **Role session name and source identity**
 
 When ACM assumes the role, it sets a role session name and a source identity that appear in CloudTrail logs and that you can reference with the `sts:RoleSessionName` and `sts:SourceIdentity` condition keys:

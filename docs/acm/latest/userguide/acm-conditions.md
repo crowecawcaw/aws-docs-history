@@ -8,6 +8,8 @@ AWS Certificate Manager uses AWS Identity and Access Management (IAM)[ condition
 **Note**  
 Combine ACM condition keys with AWS [ global condition keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) such as `aws:PrincipalArn` to further restrict actions to specific users or roles.
 
+Certificates requested through an ACME endpoint are authorized as standard ACM actions, so these condition keys apply to them as well. The keys available on each action and the values ACM supplies differ from a direct API call. For those values, see [Condition keys for ACME certificate requests](acm-conditions-acme.md).
+
 ## Supported conditions for ACM
 <a name="acm-conditions-supported"></a>
 
@@ -23,6 +25,7 @@ Use the scroll bars to see the rest of the table.
 | `acm:KeyAlgorithm` | [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) | String | Filter requests based on ACM [key algorithm and size](https://docs.aws.amazon.com/acm/latest/userguide/acm-certificate.html#algorithms) | 
 | `acm:CertificateTransparencyLogging` | [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) | String (`ENABLED`, `DISABLED`) | Deprecated. This condition will continue to be enforced but [certificate transparency logging](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency) is always enabled for public certificates and cannot be disabled. | 
 | `acm:CertificateAuthority` | [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) | ARN | Filter requests based on [certificate authorities](https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-ca) in the ACM request | 
+| `acm:Export` | [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html) | String (`ENABLED`, `DISABLED`) | Filter requests based on the export option in the request. Use this condition to restrict the creation of [exportable public certificates](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html). | 
 | `acm:CertificateKeyPairOrigin` | [RequestCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RequestCertificate.html), [AddTagsToCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_AddTagsToCertificate.html), [RevokeCertificate](https://docs.aws.amazon.com/acm/latest/APIReference/API_RevokeCertificate.html) | String (`AWS_MANAGED`, `ACME`, `CUSTOMER_PROVIDED`) | Filter requests based on the certificate's key pair origin. For `RequestCertificate`, the value is always `AWS_MANAGED`. When requesting certificates through an ACME client, the value is `ACME`. For `AddTagsToCertificate` and `RevokeCertificate`, the value is read from the existing certificate. | 
 
 ## Example 1: Restricting validation method

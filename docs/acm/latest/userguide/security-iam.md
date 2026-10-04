@@ -14,6 +14,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 + [ACM API permissions: Actions and resources reference](authen-apipermissions.md)
 + [AWS managed policies for AWS Certificate Manager](security-iam-awsmanpol.md)
 + [Use condition keys with ACM](acm-conditions.md)
++ [Condition keys for ACME certificate requests](acm-conditions-acme.md)
 + [Use a service-linked role (SLR) with ACM](acm-slr.md)
 + [IAM for ACME certificate automation](security-iam-acme.md)
 + [Troubleshooting AWS Certificate Manager identity and access](security_iam_troubleshoot.md)
