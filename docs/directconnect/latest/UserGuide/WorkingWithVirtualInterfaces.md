@@ -49,6 +49,8 @@ SiteLink doesn't support all virtual interface types. The following table shows 
 
 Traffic routing behavior for traffic from AWS Regions (virtual or Transit Gateways) to on-premises locations over a SiteLink enabled virtual interface varies slightly from the default Direct Connect virtual interface behavior with an AWS path prepend. When SiteLink is enabled, virtual interfaces from an AWS Region prefer a BGP path with a lower AS path length from a Direct Connect location, regardless of the associated Region. For example , an associated Region is advertised for each Direct Connect location. If SiteLink is disabled, by default traffic coming from a virtual or Transit Gateway prefers a Direct Connect location that is associated with that AWS Region, even if the router from Direct Connect locations associated with different Regions advertises a path with a shorter AS path length. The virtual or Transit Gateway still prefers the path from Direct Connect locations local to the associated AWS Region.
 
+For a list of Direct Connect locations and their associated Regions, see [Associated Region](remote_regions.md#associated-region).
+
 SiteLink supports a maximum jumbo frame MTU size of either 8500 or 9001, depending on the virtual interface type. For more information, see [MTUs for private virtual interfaces or transit virtual interfaces](#set-jumbo-frames-vif).
 
 ## Prerequisites for virtual interfaces

@@ -5,7 +5,7 @@
 
 Direct Connect offers flat-rate as a new billing mode for dedicated connections, available alongside the existing pay-as-you-go model. You set the billing mode per connection, and you can switch a connection back to pay-as-you-go at any time. Flat-rate billing introduces **port-pairs**, a recommended setup that builds resiliency into your connection by default.
 
-Flat-rate billing applies to **dedicated** connections only. Hosted connections provisioned by an Direct Connect Partner are not eligible.
+Flat-rate billing applies to **dedicated** connections only. Hosted connections provisioned by a Direct Connect partner are not eligible.
 
 **Note**  
 For how flat-rate connections are priced — the fixed hourly rate, pricing tiers, and what the flat rate includes — see the [Direct Connect Pricing Guide](https://docs.aws.amazon.com/directconnect/latest/PricingGuide/pricing-flat-rate.html).
@@ -125,3 +125,7 @@ Yes. Billing mode is a per-connection setting that you can change. Billing mode 
 **Is flat-rate billing available for hosted connections?**
 
 No. Flat-rate billing applies to dedicated connections only.
+
+**Does flat-rate pricing cover point-to-point (PTP) routes?**
+
+Yes, if you advertise them over BGP. After Direct Connect learns your PTP routes, flat-rate pricing applies to traffic on those routes. Traffic on PTP routes that you don't advertise is billed at standard Direct Connect data transfer rates.
