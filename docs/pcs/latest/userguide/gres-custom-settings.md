@@ -64,7 +64,7 @@ A GRES configuration appears in two places in the Slurm configuration, and AWS P
 + The `Gres` setting in `slurm.conf` declares what the scheduler can allocate, in the form `name[:type]:count`. You supply it as a custom Slurm setting for the compute node group, in `slurmCustomSettings`. For more information, see [Custom Slurm settings for AWS PCS compute node groups](slurm-custom-settings-cng.md).
 
 AWS PCS renders your records into `gres.conf` and reconciles them with the GRES configuration it manages:
-+ If you declare a GPU record, it replaces the default GPU record that AWS PCS generates for the compute node group. A GPU record is a record that specifies `Name=gpu` or an `AutoDetect` attribute. You can declare at most one GPU record for a compute node group.
++ Any GPU record that you declare replaces the default GPU record that AWS PCS generates for the compute node group. A GPU record is a record that specifies `Name=gpu` or an `AutoDetect` attribute.
 + Records for other resources, such as `mps`, `shard`, or a resource name of your own, are added alongside the AWS PCS defaults.
 + AWS PCS derives the `GresTypes` setting and the `gres/*` entries of the `AccountingStorageTRES` setting in `slurm.conf` from the `Gres` setting.
 
@@ -78,9 +78,9 @@ Slurm needs both sides of the GRES configuration to schedule a resource, and a r
 AWS PCS validates the two against each other when you create or update a compute node group, and rejects the request in the following cases:
 + A `slurm.conf` `Gres` entry names a resource that no `gres.conf` record declares. This includes `gpu`: a `gpu` entry requires a GPU record in `gresCustomSettings`, even when the count is `0`.
 + A `slurm.conf` `Gres` entry declares a higher count of a resource than the `gres.conf` records declare. A lower count is allowed, down to `0`: the `gres.conf` records describe the devices that are present on the node, while `Gres` declares how many of them the scheduler can allocate.
-+ A `slurm.conf` `Gres` entry specifies a GPU type that differs from the `Type` of the GPU record in `gres.conf`.
++ A `slurm.conf` `Gres` entry specifies a GPU type that no GPU record in `gres.conf` declares.
 
-The last two checks depend on what your records declare. AWS PCS can't count devices that Slurm discovers when the node boots, so a record that only enables `AutoDetect` accepts any `gpu` count and type in the `Gres` entry. This is how MIG profiles pass validation. AWS PCS also skips the count check for shared GRES (`mps` and `shard`), and skips the type check when the GPU record declares no `Type`.
+The last two checks depend on what your records declare. AWS PCS can't count devices that Slurm discovers when the node boots, so a record that only enables `AutoDetect` accepts any `gpu` count and type in the `Gres` entry. This is how MIG profiles pass validation. AWS PCS also skips the count check for shared GRES (`mps` and `shard`), and skips the type check when a GPU record declares no `Type`.
 
 AWS PCS accepts a record that has no matching `Gres` entry. The resource exists on the node, but jobs can't request it. Add the `Gres` entry to make it schedulable.
 

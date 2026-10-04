@@ -50,7 +50,7 @@ AWS PCS creates a managed launch template for each compute node group. These are
 
    1. **IAM instance profile** – Choose an instance profile for the node group. An instance profile grants the instance permissions to access AWS resources and services securely. If you don't have one prepared, you can select **Create a basic profile** to have AWS PCS create one for you with the minimum policy, or see [IAM instance profiles for AWS Parallel Computing Service](security-instance-profiles.md).
 
-   1. **Subnets** – Choose one or more subnets in the VPC where your AWS PCS cluster is deployed. If you select multiple subnets, EFA communications won't be available between nodes, and communication between nodes in different subnets might have increased latency. Make sure the subnets you specify here match any that you define in the EC2 launch template.
+   1. **Subnets** – Choose one or more subnets in the VPC where your AWS PCS cluster is deployed. If you select multiple subnets, EFA communications won't be available between nodes, and communication between nodes in different subnets might have increased latency. Make sure the subnets you specify here match any that you define in the EC2 launch template. For On-Demand node groups with more than one subnet, the order in which you list the subnets sets the launch priority.
 
    1. **Instances** – Choose one or more instance types to fulfill scaling requests in the node group. All instance types must have the same processor architecture (x86\_64 or arm64) and number of vCPUs. If the instances have GPUs, all instance types must have the same number of GPUs.
 

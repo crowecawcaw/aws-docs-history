@@ -221,7 +221,7 @@ aws ssm put-parameter \
  The specific details for the launch template depend on whether your configuration file is stored in S3 or SSM. 
 
 #### Use a configuration stored in S3
-<a name="w2aac50c17c13b7c13b5"></a>
+<a name="w2aac50c19c13b7c13b5"></a>
 
 This script installs CloudWatch agent, imports a configuration file from an S3 bucket, and launches the CloudWatch agent with it. Replace the following values in this script with your own details:
 +  {{amzn-s3-demo-bucket}} – The name of an S3 bucket your account can read from 

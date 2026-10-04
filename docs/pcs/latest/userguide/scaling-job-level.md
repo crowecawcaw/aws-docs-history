@@ -21,6 +21,8 @@ AWS PCS evaluates each job and picks the appropriate approach. In practice, this
 + **All at once.** AWS PCS provides all the nodes the job needs together, or none. The job starts only once its full capacity is available.
 + **Incrementally.** For some jobs, such as those that need more capacity than a single Amazon EC2 request can provide, AWS PCS provides capacity as it becomes available, holding what it has acquired while it works toward the full set.
 
+When a compute node group uses the On-Demand purchase option and lists more than one subnet, AWS PCS launches instances in the subnet order you specified in the `CreateComputeNodeGroup` or `UpdateComputeNodeGroup` request. If a subnet can't provide the requested capacity, AWS PCS tries the next subnet in the list, continuing until it finds available capacity.
+
 When a job's full capacity isn't available, it doesn't start. AWS PCS might not launch any instances for the job, or it might release instances it had launched. The job remains pending, and AWS PCS re-evaluates it on later intervals until its capacity can be provided.
 
 **Example Large job with incremental capacity provisioning**  
