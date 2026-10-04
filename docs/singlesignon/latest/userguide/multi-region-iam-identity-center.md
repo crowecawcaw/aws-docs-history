@@ -20,7 +20,7 @@
  Before you replicate your IAM Identity Center instance, ensure the following requirements are met: 
 + **Instance type** - Your IAM Identity Center instance must be an [organization instance](organization-instances-identity-center.md). Multi-Region support is not available in [ account instances](account-instances-identity-center.md). 
 + **Identity source** - Your IAM Identity Center instance must be connected to an external identity provider (IdP), such as [Okta](https://www.okta.com/), or use the [Identity Center directory](quick-start-default-idc.md) as the identity source. Multi-Region support is not available for instances that use [Active Directory](gs-ad.md) as the identity source. 
-+ **AWS Regions** - Multi-Region support is available in [commercial Regions enabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#manage-acct-regions-considerations) in your AWS account. Opt-in Regions are not currently supported. 
++ **AWS Regions** - Multi-Region support is available in select AWS Regions. Confirm your primary and additional Regions are supported in [AWS Capabilities by Region](https://builder.aws.com/build/capabilities/explore). 
 + **KMS key type for encryption at rest** - Your IAM Identity Center instance must be configured with a multi-Region [customer managed KMS key](https://docs.aws.amazon.com/kms/latest/cryptographic-details/basic-concepts.html). The KMS key must be located in the same AWS account as IAM Identity Center. For more information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md). 
 +  **AWS managed application compatibility** - Visit the application table in [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md) to confirm the following two application requirements:
   +  All AWS managed applications that are in use by your organization must support IAM Identity Center that is configured with a customer managed KMS key.
@@ -32,7 +32,7 @@
 ## Choosing an additional Region
 <a name="choosing-additional-region"></a>
 
- When choosing an additional Region among commercial Regions enabled by default, consider these factors: 
+ When choosing an additional Region that supports multi-Region, consider these factors: 
 +  **Compliance requirements** – If you need to run AWS managed applications that access datasets limited to a specific Region for compliance reasons, choose the Region where the datasets reside. 
 +  **Performance optimization** – If data residency isn't a factor, select a Region closest to your application users to optimize their experience. 
 +  **Application support** – Verify that your required AWS applications are available in your chosen Region. 

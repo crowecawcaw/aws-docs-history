@@ -22,7 +22,7 @@ For instructions on enabling an organization instance of IAM Identity Center, se
 ## Instance configuration options
 <a name="instance-configuration-options"></a>
 
-When you enable an organization instance in an [AWS Region that is enabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#manage-acct-regions-considerations), you choose an instance configuration. In other Regions, your instance is created with default settings.
+When you enable an organization instance in a Region that supports multi-Region (see [AWS Capabilities by Region](https://builder.aws.com/build/capabilities/explore)), you choose an instance configuration. In other Regions, your instance is created with default settings.
 
 **Note**  
 The **Multi-Region instance** and **Custom instance** (create new key) options create a customer managed KMS key tagged with `CreatedBy: IAM Identity Center` and replicate it to the additional Region on your behalf. Verify that your IAM principal has `kms:CreateKey`, `kms:TagResource`, and `kms:ReplicateKey` permissions in addition to the [permissions needed to enable IAM Identity Center](security-iam-awsmanpol.md).

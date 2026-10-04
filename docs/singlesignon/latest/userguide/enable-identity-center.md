@@ -33,7 +33,7 @@ Choose the tab for the type of IAM Identity Center instance you want to enable, 
 
 1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon).
 
-1. This step applies only to [AWS Regions that are enabled by default](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#manage-acct-regions-considerations). If you are enabling IAM Identity Center in another Region, skip to Step 4.
+1. This step applies only in Regions that support multi-Region (see [AWS Capabilities by Region](https://builder.aws.com/build/capabilities/explore)); otherwise, skip to Step 4.
 
    Under **Instance configuration**, choose one of the following options:
    + **Single-Region instance** – Your instance is created in the current Region.
