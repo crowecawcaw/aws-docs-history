@@ -47,7 +47,7 @@ Follow the steps in this section to deploy your template and create a stack.
 
          You can directly manage encryption options for buckets that CloudFormation has created, for example, using the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/), or the AWS CLI. For more information, see [Setting default server-side encryption behavior for Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html) in the *Amazon Simple Storage Service User Guide*.
        + You can use your own bucket and manage its permissions by manually uploading templates to Amazon S3. When you create or update a stack, specify the Amazon S3 URL of a template file. 
-   + If you don't have a template ready, you can choose **Build from Infrastructure Composer** to create a template with Infrastructure Composer. For more information, see [Infrastructure Composer](infrastructure-composer-for-cloudformation.md).
+   + If you don't have a template ready, choose **Build with template studio**. For more information, see [Template studio](template-studio.md).
 
 1. Choose **Next** to continue and to validate the template.
 

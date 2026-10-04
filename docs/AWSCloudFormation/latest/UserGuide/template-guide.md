@@ -6,7 +6,7 @@
 An AWS CloudFormation template defines the AWS resources you want to create, update, or delete as part of a stack. It consists of several sections, but the only required section is the [Resources](resources-section-structure.md) section, which must declare at least one resource. 
 
 You can create templates using the following methods:
-+ **AWS Infrastructure Composer** – A visual interface for designing templates.
++ **Template studio** – Edit templates and view their resources in a visual diagram.
 + **Text Editor** – Write templates directly in JSON or YAML syntax.
 + **IaC generator** – Generate templates from resources provisioned in your account that are not currently managed by CloudFormation. The IaC generator works with a wide range of resource types that are supported by the Cloud Control API in your Region.
 
@@ -23,7 +23,7 @@ This section provides a comprehensive guide on how to use the different sections
 + [CloudFormation Linter](cfn-lint.md)
 + [CloudFormation Validate](cloudformation-validate.md)
 + [CloudFormation Guard](cloudformation-guard.md)
-+ [Infrastructure Composer](infrastructure-composer-for-cloudformation.md)
++ [Template studio](template-studio.md)
 + [IaC generator](generate-IaC.md)
 + [Get values stored in other services](dynamic-references.md)
 + [Get AWS values](pseudo-parameter-reference.md)

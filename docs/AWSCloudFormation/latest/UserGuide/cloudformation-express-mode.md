@@ -198,6 +198,7 @@ The following table compares express mode with AWS CDK hotswap deployments.
 
 ## Related resources
 <a name="express-mode-related-resources"></a>
++ [Understand stack deployment time](stack-deployment-time.md)
 + [Choose how to handle failures when provisioning resources](stack-failure-options.md)
 + [Nested stacks](using-cfn-nested-stacks.md)
 + [Update stacks using change sets](using-cfn-updating-stacks-changesets.md)

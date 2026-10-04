@@ -42,6 +42,7 @@ CloudFormation ensures all stack resources are created or deleted as appropriate
 + [Resource type support](resource-import-supported-resources.md)
 + [Use quick-create links to create CloudFormation stacks](cfn-console-create-stacks-quick-create-links.md)
 + [Deploy AWS CloudFormation stacks faster with express mode](cloudformation-express-mode.md)
++ [Understand stack deployment time](stack-deployment-time.md)
 + [Examples of CloudFormation stack operation commands for the AWS CLI and PowerShell](service_code_examples.md)
 
 ## Interfaces for managing your stacks

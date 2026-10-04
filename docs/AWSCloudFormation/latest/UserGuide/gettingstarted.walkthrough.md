@@ -33,11 +33,11 @@ CloudFormation is free, but you'll be charged for the Amazon EC2 and Amazon S3 r
 
 1. Choose **Create Stack**.
 
-1. On the **Create stack** page, choose **Build from Infrastructure Composer**, and then **Create in Infrastructure Composer**. This takes you to Infrastructure Composer in CloudFormation console mode where you can upload and validate the example template.
+1. On the **Create stack** page, choose **Build with template studio**. The template opens in template studio.
 
 1. To upload and validate the example template, do the following:
 
-   1. Choose **Template**. Then, copy and paste the following CloudFormation template into the template editor:
+   1. Copy and paste the following CloudFormation template into the template editor:
 
       ```
       AWSTemplateFormatVersion: 2010-09-09
@@ -123,9 +123,9 @@ CloudFormation is free, but you'll be charged for the Amazon EC2 and Amazon S3 r
 
    1. Choose **Validate** to make sure the YAML code is valid before uploading the template.
 
-   1. Next, choose **Create template** to create the template and add it to an S3 bucket.
+   1. Choose **Save and continue** to save the template to an S3 bucket.
 
-   1. From the dialog box that opens, make a note of the name of the S3 bucket so you can delete it later. Then, choose **Confirm and continue to CloudFormation**. This takes you to the CloudFormation console where the S3 path to your template is now specified.
+   1. From the dialog box that opens, make a note of the name of the S3 bucket so you can delete it later. Then, choose **Confirm and continue**. This returns you to the CloudFormation console with the S3 path to your template specified.
 
 1. On the **Create stack** page, choose **Next**.
 

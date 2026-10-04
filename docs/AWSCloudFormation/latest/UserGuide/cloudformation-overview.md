@@ -173,7 +173,7 @@ The calls that CloudFormation makes are all declared by your template. For examp
 
 **To create a stack**
 
-1. Use a text editor to create a CloudFormation template in YAML or JSON format. The CloudFormation template describes the resources you want and their settings. Use [Infrastructure Composer](infrastructure-composer-for-cloudformation.md) to visualize and validate your template. This helps you make sure that your template is properly structured and free of syntax errors. For more information, see [Working with CloudFormation templates](template-guide.md).
+1. Use a text editor to create a CloudFormation template in YAML or JSON format. The CloudFormation template describes the resources you want and their settings. Use [Template studio](template-studio.md) to visualize and validate your template. This helps you make sure that your template is properly structured and free of syntax errors. For more information, see [Working with CloudFormation templates](template-guide.md).
 
 1. Save the template locally or in an Amazon S3 bucket.
 
@@ -185,6 +185,9 @@ You can use your own bucket and manage its permissions by manually uploading tem
 Before provisioning resources, CloudFormation runs pre-deployment validation on your template. This checks for common errors such as invalid property syntax and resource name conflicts. If validation fails, the operation stops before any resources are created. Validation runs automatically on all Create Stack, Update Stack, and Create Change Set operations. To skip validation, use the `DisableValidation` parameter. For more information, see [Validate stack deployments](validate-stack-deployments.md).
 
 After all the resources have been created, CloudFormation reports that your stack has been created. You can then start using the resources in your stack. If stack creation fails, CloudFormation rolls back your changes by deleting the resources that it created.
+
+**Deployment time**  
+How long a stack operation takes depends on the resources in the stack. CloudFormation provisions independent resources in parallel and moves forward as soon as each resource is ready. In workloads that include resources such as database instances, load balancers, or NAT gateways, those resources take longer to become ready to serve traffic and account for most of the deployment time. For more information, see [Understand stack deployment time](stack-deployment-time.md).
 
 **Express mode**  
 For faster stack operations during development, use express mode. Express mode completes stack operations as soon as CloudFormation applies the resource configuration, without waiting for resources to fully stabilize. For more information, see [Express mode](cloudformation-express-mode.md).
@@ -199,7 +202,7 @@ When you need to update your stack's resources, you can modify the stack's templ
 
 **To update a stack with a change set**
 
-1. You can modify a CloudFormation stack template by using [Infrastructure Composer](infrastructure-composer-for-cloudformation.md) or a text editor. For more information, see [Update your stack template](using-cfn-updating-stacks-get-template.md).
+1. You can modify a CloudFormation stack template by using [Template studio](template-studio.md) or a text editor. For more information, see [Update your stack template](using-cfn-updating-stacks-get-template.md).
 
    As you update your template, keep in mind that updates can cause interruptions. Depending on the resource and properties that you are updating, an update might interrupt or even replace an existing resource. For more information, see [Understand update behaviors of stack resources](using-cfn-updating-stacks-update-behaviors.md).
 

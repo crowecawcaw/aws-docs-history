@@ -41,7 +41,7 @@ Best practices are recommendations that can help you use CloudFormation more eff
 
 **Authoring tools**  
 + [Use IaC Generator to create templates from existing resources](#iac-generator)
-+ [Use AWS Infrastructure Composer for visual template design](#infrastructure-composer)
++ [Use template studio to edit templates visually](#template-studio-best-practices)
 + [Consider using AWS Cloud Development Kit (AWS CDK) for complex infrastructure](#cdk-integration)
 
 **Security and compliance**  
@@ -318,18 +318,16 @@ The CloudFormation IaC (infrastructure as code) Generator helps you create Cloud
 
 For more information on IaC Generator, see [Generate templates from existing resources with IaC generator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/generate-IaC.html).
 
-## Use AWS Infrastructure Composer for visual template design
-<a name="infrastructure-composer"></a>
+## Use template studio to edit templates visually
+<a name="template-studio-best-practices"></a>
 
-AWS Infrastructure Composer is a visual design tool that helps you create, visualize, and modify CloudFormation templates using a drag-and-drop interface. It can be particularly beneficial when using CloudFormation in the following ways:
-+ *Architecture planning*: Design and validate infrastructure architectures before implementation
-+ *Template modernization*: Visualize existing templates to understand their structure and identify opportunities for improvement
-+ *Training and onboarding*: Help new team members understand CloudFormation concepts and AWS service relationships through visual learning
-+ *Stakeholder communication*: Present infrastructure designs to non-technical stakeholders using clear visual representations
-+ *Compliance reviews*: Use visual diagrams to facilitate security and compliance reviews of your infrastructure designs
-+ *Compliance reviews*: Use visual diagrams to facilitate security and compliance reviews of your infrastructure designs
+Template studio lets you edit a CloudFormation template while viewing a diagram of its resources and their relationships. Consider using template studio for the following tasks:
++ *Template authoring*: Edit YAML or JSON and see the diagram update to match the template.
++ *Template modernization*: Visualize existing templates to understand their structure and identify opportunities for improvement.
++ *Training and onboarding*: Help team members understand CloudFormation concepts and AWS service relationships.
++ *Reviews*: Use the resources diagram to support architecture, security, and compliance reviews.
 
-For more information on Infrastructure Composer, see [What is AWS Infrastructure Composer?](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/what-is-composer.html).
+For more information, see [Template studio](template-studio.md).
 
 ## Consider using AWS Cloud Development Kit (AWS CDK) for complex infrastructure
 <a name="cdk-integration"></a>

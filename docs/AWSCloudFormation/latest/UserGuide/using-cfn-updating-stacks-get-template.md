@@ -7,25 +7,17 @@ To modify the resources or properties in a CloudFormation stack, you must update
 
 If you only want to change the parameters or settings of the stack (like a stack's Amazon SNS topic), you can reuse the existing template without getting a copy.
 
-You can update a CloudFormation stack template by using a text editor or [Infrastructure Composer](infrastructure-composer-for-cloudformation.md).
+You can update a CloudFormation stack template by using a text editor or [Template studio](template-studio.md).
 
-**To update an existing stack template by using Infrastructure Composer**
+**To update an existing stack template by using template studio**
 
 1. Sign in to the AWS Management Console and open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/).
 
 1. On the **Stacks** page, choose the name of the stack to update.
 
-1. Choose the **Template** tab, and then choose **View in Infrastructure Composer**.
+1. Start an update, and then choose **Open in template studio**.
 
-   CloudFormation opens the template in Infrastructure Composer. 
-
-1. Update your template using one of the following methods:
-   + **Canvas** interface: Here, you can drag and drop from the **Resources** pallete. Configure resources by double-clicking on a card to open the **Resource properties** panel. Connect resources as needed. For detailed instructions on using the **Canvas** interface, see [How to compose in AWS Infrastructure Composer](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/using-composer-basics.html).
-   + **Template** interface: Switch from the **Canvas** to the **Template** interface. Make in-line updates to the template code. Toggle between JSON to YAML formats as needed. 
-
-1. Choose **Validate** to check for any syntax errors in the template.
-
-1. When you are ready to export changes to CloudFormation, choose **Update template**.
+1. Edit the template, and then choose **Save and continue**. Template studio attempts to validate the draft before saving. If validation fails, you can confirm that you want to save anyway. After saving, you return to the stack update.
 
 **To update an existing stack template by using the AWS CLI**
 

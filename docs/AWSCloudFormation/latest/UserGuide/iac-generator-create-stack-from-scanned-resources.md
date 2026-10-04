@@ -3,7 +3,7 @@
 # Create a CloudFormation stack from scanned resources
 <a name="iac-generator-create-stack-from-scanned-resources"></a>
 
-After you create your template, you can preview the generated template with Infrastructure Composer before creating the stack and importing the scanned resources. This helps you visualize the full application architecture with the resources and their relationships. For more information about Infrastructure Composer, see [Create templates visually with Infrastructure Composer](infrastructure-composer-for-cloudformation.md).
+After you create your template, use the **Canvas** view to preview its resources and their relationships before creating the stack and importing the scanned resources.
 
 **To create the stack and import the scanned resources**
 
@@ -15,7 +15,7 @@ After you create your template, you can preview the generated template with Infr
 
 1. On the **Template definition** tab, at the top of the **Template** section, you can switch the template from YAML to JSON syntax based on your preference. 
 
-1. Review the details of your template to make sure everything is set up correctly. To make it easier to review and understand the template, you can switch from the default code view to a graphical view of the infrastructure described in the template using Infrastructure Composer. To do so, under **Template**, choose **Canvas** instead of **Template**.
+1. Review the details of your template to make sure everything is set up correctly. To make it easier to review and understand the template, you can switch from the default code view to a graphical view of the infrastructure described in the template. To do so, under **Template**, choose **Canvas** instead of **Template**.
 
     **Canvas actions** 
    + To focus on the details of a specific resource within your template, double-click a card to bring up the **Resource properties** panel.

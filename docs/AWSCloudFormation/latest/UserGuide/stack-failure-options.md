@@ -85,7 +85,7 @@ Immutable update types aren't supported.
 1. On the **Update stack** page, choose a stack template by using one of the following options:
    + **Use existing template**
    + **Replace current template**
-   + **Edit template in Infrastructure Composer**
+   + **Open in template studio**
 
    Accept your settings and select **Next**.
 
