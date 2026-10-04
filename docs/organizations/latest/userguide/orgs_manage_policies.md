@@ -48,6 +48,7 @@ Declarative policies help you centrally configure and manage AWS services and th
 + **[Amazon Bedrock policies](orgs_manage_policies_bedrock.md)** allow you to enforce safeguards configured in Amazon Bedrock Guardrails automatically across any element in your organization structure for all model inference calls to Amazon Bedrock.
 + **[Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md)** allow you to centrally manage and stagger automatic upgrades across multiple AWS resources and accounts in your organization. 
 + **[Amazon S3 policies](orgs_manage_policies_s3.md)** allow you to centrally manage configurations for Amazon S3 resources at scale across the accounts in an organization. 
++ **[Amazon GuardDuty policies](orgs_manage_policies_guardduty.md)** allow you to centrally enable and manage GuardDuty across accounts in your AWS organization.
 
 The following table summarizes some of the characteristics of each policy type. For additional characteristics about these policy types, see [Quotas and service limits for AWS Organizations](orgs_reference_limits.md).
 

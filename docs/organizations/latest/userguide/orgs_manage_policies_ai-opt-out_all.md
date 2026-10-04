@@ -63,7 +63,7 @@ The following is a list of AWS services supported by the AI services opt-out pol
 + [Amazon Fraud Detector](https://docs.aws.amazon.com/frauddetector)
 + [AWS Glue](https://docs.aws.amazon.com/glue)
 + [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty)
-+ [Amazon Lex](https://docs.aws.amazon.com/lex)
++ [Amazon Lex V2](https://docs.aws.amazon.com/lex)
 + [Amazon Polly](https://docs.aws.amazon.com/polly)
 + [Amazon Q Developer](https://docs.aws.amazon.com/amazonq)
 + [Amazon Quick](https://docs.aws.amazon.com/quicksight)

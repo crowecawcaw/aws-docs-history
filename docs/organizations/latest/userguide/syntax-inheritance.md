@@ -15,6 +15,7 @@ Exactly how policies affect the OUs and accounts that inherit them depends on th
 + [Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md)
 + [S3 policies](orgs_manage_policies_s3.md)
 + [AWS Shield Network Security Director policies](orgs_manage_policies_network_security_director.md)
++ [Amazon GuardDuty policies](orgs_manage_policies_guardduty.md)
 
 The syntax for declarative policy types includes *[Inheritance operators](policy-operators.md)*, which enable you to specify with fine granularity what elements from the parent policies are applied and what elements can be overridden or modified when inherited by child OUs and accounts.
 

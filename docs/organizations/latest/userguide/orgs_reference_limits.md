@@ -135,11 +135,11 @@ The following table lists the AWS Organizations APIs for account management.
 | AWS Organizations API | Per account limit (rate, burst) | Per organization limit (rate, burst) | 
 | --- | --- | --- | 
 | CloseAccount | .05, 1 |  | 
-| CreateAccount, CreateGovCloudAccount | 0.1, 3 |  | 
+| CreateAccount, CreateGovCloudAccount | 0.1, 3.1 |  | 
 | DescribeAccount | 20, 30 | 24, 36 | 
-| DescribeCreateAccountStatus | 2, 2 | 2, 3 | 
-| LeaveOrganization | 1, 1 |  | 
-| ListCreateAccountStatus | 5, 8 | 6, 10 | 
+| DescribeCreateAccountStatus | 5, 6 | 6, 8 | 
+| LeaveOrganization | 1, 2 | 5, 6 | 
+| ListCreateAccountStatus | 5, 6 | 6, 8 | 
 
 ### Handshake management limits
 <a name="throttling-limits-handshake-management"></a>
@@ -150,12 +150,12 @@ The following table lists the AWS Organizations APIs for account handshake.
 
 | AWS Organizations API | Per account limit (rate, burst) | Per organization limit (rate, burst) | 
 | --- | --- | --- | 
-| AcceptHandshake | 1, 2 | 5, 5 | 
-| DescribeHandshake | 1, 2 | 6, 10 | 
+| AcceptHandshake | 1, 2 | 5, 6 | 
+| DescribeHandshake | 1, 2 | 6, 8 | 
 | CancelHandshake | 2, 3 |  | 
-| DeclineHandshake | 1, 1 | 5, 5 | 
-| InviteAccountToOrganization | 3, 5 |  | 
-| ListHandshakesForAccount, ListHandshakesForOrganization | 5, 8 | 6, 10 | 
+| DeclineHandshake | 1, 2 |  | 
+| InviteAccountToOrganization | 3, 4 |  | 
+| ListHandshakesForAccount, ListHandshakesForOrganization | 5, 7.5 | 6, 9 | 
 
 ### Organization management limits
 <a name="throttling-limits-organization-management"></a>
@@ -166,17 +166,18 @@ The following table lists the AWS Organizations APIs for organization management
 
 | AWS Organizations API | Per account limit (rate, burst) | Per organization limit (rate, burst) | 
 | --- | --- | --- | 
-| CreateOrganization, DeleteOrganization, EnableFullControl | 1, 1 |  | 
-| CreateOrganizationalUnit, DescribeOrganization | 1, 2 |  | 
+| CreateOrganization, DeleteOrganization, EnableAllFeatures | 1, 2 |  | 
+| CreateOrganizationalUnit | 2, 3 |  | 
+| DescribeOrganization | 2, 4 |  | 
 | MoveAccount, UpdateOrganizationalUnit, DeleteOrganizationalUnit | 2, 3 |  | 
-| DescribeOrganizationalUnit | 2, 2 | 2, 3 | 
-| ListAccounts | 8, 12 | 9, 15 | 
-| ListChildren | 6, 10 | 7, 12 | 
-| ListParents, ListAccountsForParent, ListOrganizationalUnitsForParent | 5, 8 | 6, 10 | 
-| ListRoots | 1, 2 | 1, 3 | 
+| DescribeOrganizationalUnit | 2, 3 | 2.4, 3.4 | 
+| ListAccounts | 8, 12 | 9.6, 14.4 | 
+| ListChildren | 6, 9 | 7.2, 10.8 | 
+| ListParents, ListAccountsForParent, ListOrganizationalUnitsForParent | 5, 7.5 | 6, 9 | 
+| ListRoots | 2, 3 | 2.4, 3.4 | 
 | ListTagsForResource | 10, 15 | 12, 18 | 
-| RemoveAccountFromOrganization | 2, 2 |  | 
-| TagResource, UntagResource | 4, 6 |  | 
+| RemoveAccountFromOrganization | 2, 3 |  | 
+| TagResource, UntagResource | 4, 5 | 4.8, 5.8 | 
 
 ### Policy management limits
 <a name="throttling-limits-policy-management"></a>
@@ -187,11 +188,17 @@ The following table lists the AWS Organizations APIs for policy management.
 
 | AWS Organizations API | Per account limit (rate, burst) | Per organization limit (rate, burst) | 
 | --- | --- | --- | 
-| CreatePolicy, DeletePolicy, AttachPolicy, DetachPolicy | 2, 3 |  | 
-| DescribePolicy | 2, 2 | 2, 3 | 
-| DisablePolicyType, EnablePolicyType | 1, 1 |  | 
-| ListPolicies, ListPoliciesForTarget, ListTargetsForPolicy | 5, 8 | 6, 10 | 
-| UpdatePolicy | 2, 3 |  | 
+| CreatePolicy, DeletePolicy, AttachPolicy, DetachPolicy | 2, 3 | 2.4, 3.4 | 
+| DeleteResourcePolicy | 2, 3 | 2.4, 3.4 | 
+| DescribeEffectivePolicy | 10, 12 |  | 
+| DescribePolicy | 2, 3 | 2.4, 3.4 | 
+| DescribeResourcePolicy | 2, 3 | 2.4, 3.4 | 
+| DisablePolicyType, EnablePolicyType | 1, 2 | 1.2, 2.2 | 
+| ListAccountsWithInvalidEffectivePolicy | 2, 3 | 2.4, 3.4 | 
+| ListEffectivePolicyValidationErrors | 5, 6 | 6, 8 | 
+| ListPolicies, ListPoliciesForTarget, ListTargetsForPolicy | 5, 7.5 | 6, 9 | 
+| PutResourcePolicy | 2, 3 | 2.4, 3.4 | 
+| UpdatePolicy | 2, 3 | 2.4, 3.4 | 
 
 ### Service management limits
 <a name="throttling-limits-serivce-management"></a>
@@ -203,6 +210,24 @@ The following table lists the AWS Organizations APIs for service management.
 | AWS Organizations API | Per account limit (rate, burst) | Per organization limit (rate, burst) | 
 | --- | --- | --- | 
 | EnableAWSServiceAccess, DisableAWSServiceAccess | 1, 2 |  | 
-| ListAWSServiceAccessForOrganization, ListDelegatedServicesForAccount | 1, 3 | 1, 4 | 
-| ListDelegatedAdministrators | 5, 8 | 6, 10 | 
+| ListAWSServiceAccessForOrganization, ListDelegatedServicesForAccount | 1, 2 | 1.2, 2.2 | 
+| ListDelegatedAdministrators | 5, 7.5 | 6, 9 | 
 | RegisterDelegatedAdministrator, DeregisterDelegatedAdministrator | 1, 2 |  | 
+
+### Responsibility transfer limits
+<a name="throttling-limits-responsibility-transfer"></a>
+
+The following table lists the AWS Organizations APIs for billing responsibility transfer.
+
+To accept a billing responsibility transfer invitation, use the `AcceptHandshake` API. Its limits are listed in the handshake management limits table earlier in this section.
+
+
+
+| AWS Organizations API | Per account limit (rate, burst) | Per organization limit (rate, burst) | 
+| --- | --- | --- | 
+| DescribeResponsibilityTransfer | 1, 2 |  | 
+| InviteOrganizationToTransferResponsibility | 1, 2 |  | 
+| ListInboundResponsibilityTransfers | 5, 6 |  | 
+| ListOutboundResponsibilityTransfers | 5, 6 |  | 
+| TerminateResponsibilityTransfer | 1, 2 |  | 
+| UpdateResponsibilityTransfer | 1, 2 |  | 

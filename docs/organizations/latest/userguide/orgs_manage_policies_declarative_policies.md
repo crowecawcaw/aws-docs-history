@@ -51,3 +51,4 @@ If a declarative policy is [detached](https://docs.aws.amazon.com/organizations/
 + [Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md)
 + [Amazon S3 policies](orgs_manage_policies_s3.md)
 + [AWS Shield Network Security Director policies](orgs_manage_policies_network_security_director.md)
++ [Amazon GuardDuty policies](orgs_manage_policies_guardduty.md)

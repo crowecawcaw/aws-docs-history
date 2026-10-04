@@ -9,6 +9,7 @@ The following table describes major documentation updates for AWS Organizations.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added Amazon GuardDuty policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html) | You can use Amazon GuardDuty policies to centrally enable and manage GuardDuty configurations across your AWS Organizations. These policies help you enable protection plans and maintain consistent threat-detection coverage across multiple accounts in your organization. | September 25, 2026 | 
 | [Added Amazon Connect Talent to AI services opt-out policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_all.html) | Added Amazon Connect Talent to the list of AWS services supported by the AI services opt-out policy. | September 15, 2026 | 
 | [Clarified Resource element requirement in SCPs](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html) | Clarified that each statement in an SCP must include a `Resource` or `NotResource` element. | June 23, 2026 | 
 | [Added AWS FinOps Agent to AI services opt-out policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_all.html) | Added AWS FinOps Agent to the list of AWS services supported by the AI services opt-out policy. | June 22, 2026 | 

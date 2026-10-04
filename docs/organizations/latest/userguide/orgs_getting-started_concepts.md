@@ -129,3 +129,4 @@ Declarative policies help you centrally configure and manage AWS services and th
 + **[Upgrade rollout policies](orgs_manage_policies_upgrade_rollout.md)** allow you to centrally manage and stagger automatic upgrades across multiple AWS resources and accounts in your organization. 
 + **[Amazon S3 policies](orgs_manage_policies_s3.md)** allow you to centrally manage configurations for Amazon S3 resources at scale across the accounts in an organization. 
 + **[AWS Shield Network Security Director policies](orgs_manage_policies_network_security_director.md)** allow you to centrally enable and manage AWS Shield Network Security Director across the accounts in an organization. 
++ **[Amazon GuardDuty policies](orgs_manage_policies_guardduty.md)** allow you to centrally enable and manage GuardDuty across accounts in your AWS organization.

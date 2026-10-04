@@ -23,3 +23,8 @@ For more detailed information, see [AWS Machine Learning and Artificial Intellig
 When you opt out of content use by an AWS AI service, that service deletes all of the associated historical content that was shared with AWS before you set the option. This deletion is limited to content stored that is not required to provide service functions.
 
 For example, when you use a service while opted in, that service might store copies of your content for service improvement. When you opt out, any copies that have been stored by the service for that purpose are deleted, but any content that is used to provide the service to you is not deleted.
+
+### Your opt-out preference is recorded in every AWS Region
+<a name="orgs_manage_policies-ai-opt-out-regions-metadata"></a>
+
+When you set an AI services opt-out policy, AWS applies it across all AWS Regions where the supporting services operate, including AWS Regions that are disabled by default. To enforce your choice consistently, each AWS Region independently stores the metadata for your preference. This metadata includes your account identifier and opt-out selection, regardless of whether you have enabled or disabled that AWS Region.
