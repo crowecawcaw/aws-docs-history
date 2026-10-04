@@ -6,7 +6,7 @@
 ## Foundation Deployment
 <a name="foundation-deployment"></a>
 
-Deploy the complete Automotive Data Platform foundation — DataZone V2 domain and all 9 governed data products — with a single command. See [Platform foundation](platform-foundation.md) for the full deploy runbook, stage-gate model, and stack naming conventions.
+Deploy the complete Automotive Data Platform foundation — DataZone V2 domain and all 10 core governed data products plus the 8 dealer- and parts-domain products — with a single command. See [Platform foundation](platform-foundation.md) for the full deploy runbook, stage-gate model, and stack naming conventions.
 
 ## Prerequisites
 <a name="prerequisites"></a>
@@ -22,7 +22,7 @@ Deploy the complete Automotive Data Platform foundation — DataZone V2 domain a
 # Bootstrap account-level resources (once per account)
 make bootstrap
 
-# Deploy all five per-stage stacks in dependency order
+# Deploy all seven per-stage stacks in dependency order
 make deploy STAGE=staging
 ```
 
@@ -30,10 +30,12 @@ make deploy STAGE=staging
 
  **What gets deployed**:
 +  `adp-staging-foundation-network`: VPC with private subnets and VPC endpoints
-+  `adp-staging-foundation-lake`: S3 Iceberg lake \+ KMS \+ 10 Glue databases
++  `adp-staging-foundation-lake`: S3 Iceberg lake \+ KMS \+ 11 Glue databases (10 core products \+ 1 dimensions)
 +  `adp-staging-foundation-datazone`: DataZone V2 domain \+ IAM roles
-+  `adp-staging-foundation-datazone-projects`: 9 producer projects \+ 1 smoke-test consumer project (all 9 data products registered)
-+  `adp-staging-foundation-governance`: Lake Formation tags \+ CloudTrail trail \+ 3 IDC groups
++  `adp-staging-foundation-datazone-projects`: 9 core-producer projects \+ 1 smoke-test consumer project
++  `adp-staging-foundation-governance`: Lake Formation tags \+ CloudTrail trail \+ 3 IDC groups; IaC cross-account LF grants to CMS/DMS consumer roles when supplied by context
++  `adp-staging-foundation-dealer-domain`: `adp_staging_dealer_domain` Glue database \+ 1 DataZone project \+ Glue/PySpark generator role for 5 dealer-ops products
++  `adp-staging-foundation-parts-domain`: `adp_staging_parts_domain` Glue database \+ 1 DataZone project \+ generator role for 3 ACES/PIES parts products
 
 ## Subscribe to Data Products
 <a name="subscribe-to-data-products"></a>
@@ -44,7 +46,7 @@ After deployment, consumers discover and subscribe to data products through the 
 
 1. Log in with IAM Identity Center credentials
 
-1. Browse the catalog — all 9 data products are discoverable
+1. Browse the catalog — all 10 core data products plus the 8 dealer- and parts-domain products are discoverable
 
 1. Submit subscription requests; producer domain owners approve via the DataZone V2 workflow
 

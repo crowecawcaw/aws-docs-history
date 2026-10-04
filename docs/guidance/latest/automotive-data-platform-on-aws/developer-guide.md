@@ -13,24 +13,27 @@ The v0.2 re-framing collapses the former collection of five independently-deploy
 ```
 automotive-data-platform-on-aws/
 ├── platform-foundation/          # ← canonical foundation deploy (v0.2+)
-│   ├── app.py                    # CDK app (5 stage stacks + bootstrap)
+│   ├── app.py                    # CDK app (7 stage stacks + bootstrap)
 │   ├── stacks/                   # network, lake, datazone, datazone-projects,
-│   │                             #   governance, vehicle_knowledge_base
+│   │                             #   governance, dealer_domain, parts_domain,
+│   │                             #   vehicle_knowledge_base
 │   ├── source/
-│   │   ├── data-products/        # 9 product generators + per-product schemas
+│   │   ├── data-products/        # 10 core product generators + per-product schemas
 │   │   ├── dimensions/           # 7 dimension-catalog generators
 │   │   ├── athena-queries/       # cross-product join examples
 │   │   ├── reference-consumers/  # predictive-maintenance SageMaker notebook
 │   │   ├── quality-dashboard/    # CloudWatch data-quality dashboard
 │   │   └── optional/cms_ingest/  # opt-in CMS DDB → ADP Iceberg ingest
-│   ├── scripts/                  # deploy, smoke-test, verify, teardown, profile
+│   ├── scripts/                  # deploy, smoke-test, verify, teardown, profile,
+│   │                             #   lint_no_licensed_autocare_ids.py (Auto Care lint)
 │   └── tests/                    # 150+ schema, FK, edge-case, distribution tests
 │
 ├── docs/
 │   ├── DEPLOYMENT.md             # per-stage runbook (authoritative for deploy)
 │   ├── data-contracts.md         # VSS subset, identifier formats, partitions
-│   ├── cvx-integration-contract.md  # contract for CVX consumers
+│   ├── cvx-integration-contract.md  # contract for Agentic Vehicle Experience (AVX) consumers
 │   ├── cms-ingest-optional-module.md # opt-in CMS ingest doc
+│   ├── parts-surface-boundary.md    # authoritative-vs-derived boundary for parts data
 │   └── tech.md                   # SDK/framework verification notes (see below)
 │
 ├── guidance-for-*/               # demoted — source-of-logic only (see Migration)
@@ -57,7 +60,7 @@ Each demoted subdir’s `README.md` carries a `DEPRECATED — see platform-found
 ### Per-product documentation
 <a name="per-product-documentation"></a>
 
-Each of the 9 data products has its own README that is the authoritative reference for schema, partitions, sample queries, edge-case injection rules, and lineage:
+Each of the 10 core data products has its own README that is the authoritative reference for schema, partitions, sample queries, edge-case injection rules, and lineage:
 
 ```
 platform-foundation/source/data-products/<product>/README.md
@@ -207,8 +210,8 @@ The complete list of sanctioned Makefile targets:
 |  `make venv`  | Create `.venv` and install dependencies | 
 |  `make install`  | Install / refresh dependencies into existing `.venv`  | 
 |  `make bootstrap`  | Deploy account-level `adp-shared-bootstrap` stack (once per account) | 
-|  `make deploy STAGE=staging\|prod`  | Deploy the 5 per-stage foundation stacks | 
-|  `make seed STAGE=staging\|prod`  | Master seed: dimensions \+ 9 generators \+ integrity tests | 
+|  `make deploy STAGE=staging\|prod`  | Deploy the 7 per-stage foundation stacks | 
+|  `make seed STAGE=staging\|prod`  | Master seed: dimensions \+ 10 generators \+ integrity tests | 
 |  `make seed-dimensions STAGE=staging\|prod`  | Generate dimension catalog only | 
 |  `make smoke-test STAGE=staging\|prod`  | Post-deploy DataZone subscription smoke test | 
 |  `make verify-standalone STAGE=staging\|prod`  | Synth-time check — no CMS ARNs leak into templates | 
@@ -359,7 +362,7 @@ The smoke test runs against the live staging environment after each merge to `ma
 | --- | --- | 
 |  `docs/DEPLOYMENT.md`  | Per-stage deploy runbook, prereqs, smoke tests, tear-down, troubleshooting | 
 |  `docs/data-contracts.md`  | VSS signal subset, identifier formats, partition conventions | 
-|  `docs/cvx-integration-contract.md`  | CVX subscription flow, sample Athena queries, Bedrock KB seeding | 
+|  `docs/cvx-integration-contract.md`  | AVX subscription flow, sample Athena queries, Bedrock KB seeding | 
 |  `docs/cms-ingest-optional-module.md`  | Opt-in CMS → ADP ingest module | 
 |  `docs/tech.md`  | SDK/framework verification notes — DataZone V2, Glue Iceberg, Bedrock KB, Lake Formation | 
 |  `platform-foundation/README.md`  | Foundation-level overview | 

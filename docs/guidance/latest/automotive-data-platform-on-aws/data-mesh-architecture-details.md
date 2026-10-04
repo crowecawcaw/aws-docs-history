@@ -17,8 +17,9 @@ See [Platform foundation](platform-foundation.md) for the full deploy topology a
 + Networking: VPC endpoints for AWS services
 
  **Projects**:
-+ 9 producer projects — one per data product (`vehicle_telemetry_aggregated`, `customer_360`, `service_records`, and 6 others; see [Data products](data-products.md))
++ 9 core producer projects — one per core data product except `tire_health` (`vehicle_telemetry_aggregated`, `customer_360`, `service_records`, and 6 others; see [Data products](data-products.md))
 + 1 smoke-test consumer project for subscription validation
++ 2 domain projects (`dealer_domain`, `parts_domain`) for the DMS-accelerator products
 
  **Environments per project**:
 + Development: Sandbox for experimentation
@@ -28,7 +29,7 @@ See [Platform foundation](platform-foundation.md) for the full deploy topology a
 ## Data Product Registration
 <a name="data-product-registration"></a>
 
-The foundation deploy automatically registers all 9 governed data products in the DataZone V2 domain. See [Data products](data-products.md) for complete schemas, partition schemes, and subscription patterns for each product.
+The foundation deploy automatically registers 12 DataZone projects covering 10 core governed data products (`tire_health` is catalogued through the `vehicle_telemetry_aggregated` project and its shared Glue database) plus 8 dealer- and parts-domain products in the DataZone V2 domain. See [Data products](data-products.md) for complete schemas, partition schemes, and subscription patterns for each product.
 
 ### Example: `customer_360` Data Product
 <a name="example-customer_360-data-product"></a>
@@ -126,4 +127,4 @@ WHERE c.health_score < 50
 + Deployment time: 45–90 minutes via `make deploy STAGE=<stage>` 
 
  **Integration**:
-+ All 9 data products registered automatically by the `datazone-projects` stack
++ All 10 core data products plus the 8 dealer- and parts-domain products are catalogued automatically by the `datazone-projects`, `dealer-domain`, and `parts-domain` stacks

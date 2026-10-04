@@ -44,7 +44,7 @@ aws bedrock-agent stop-ingestion-job \
   --region us-east-1 || true
 ```
 
-For the full Vehicle Knowledge Base teardown procedure, see `docs/DEPLOYMENT.md` § Vehicle Knowledge Base (Bedrock KB \+ AOSS) deploy — Tear-down.
+For the full Vehicle Knowledge Base teardown procedure, see `docs/DEPLOYMENT.md` § Vehicle Knowledge Base (Bedrock KB \+ S3 Vectors) deploy — Tear-down.
 
 ## Teardown command
 <a name="teardown-command"></a>

@@ -11,7 +11,7 @@
 
 | Service | Usage | Monthly Cost | Notes | 
 | --- | --- | --- | --- | 
-| Amazon DataZone V2 | 1 domain, 10 projects | $50–100 | Data catalog, governance, and subscription workflows | 
+| Amazon DataZone V2 | 1 domain, 12 projects | $50–100 | Data catalog, governance, and subscription workflows | 
 | AWS Lake Formation | Tag-based access control | $0 | No additional charge | 
 | Amazon Macie | S3 classification (bootstrap) | $5–20 | Scales with data volume | 
 | Additional S3 | Metadata storage | $5 | DataZone metadata | 

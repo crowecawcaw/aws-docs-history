@@ -96,7 +96,7 @@ The architecture diagram contains following components:
 <a name="this-implementation"></a>
 
 This Automotive Data Platform uses **Amazon DataZone V2** as the primary catalog and governance surface for the following reasons:
-+  **Rapid Deployment**: One foundation deploy (`make deploy STAGE=`) provisions the complete DataZone V2 domain and all 9 governed data products
++  **Rapid Deployment**: One foundation deploy (`make deploy STAGE=`) provisions the complete DataZone V2 domain and all 10 core governed data products plus the 8 dealer- and parts-domain products
 +  **Integrated Governance**: DataZone V2 combines data catalog, producer/consumer project management, subscription workflows, and Lake Formation tag-based access control in a single managed service
 +  **Managed Service**: Focus on data products, not infrastructure management
 +  **AWS Native**: Seamless integration with S3 Iceberg lake, Glue, Athena, Lake Formation, Macie, CloudTrail, and IAM Identity Center

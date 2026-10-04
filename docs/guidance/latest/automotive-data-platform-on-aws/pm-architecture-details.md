@@ -203,37 +203,37 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
    + Max runtime: 2 hours
    + Spot instances: Enabled (70% cost savings)
 
- **Hyperparameters**:
+      **Hyperparameters**:
 
-```
-{
-  "num_trees": 100,
-  "num_samples_per_tree": 256,
-  "feature_dim": 25,
-  "eval_metrics": ["accuracy", "precision", "recall"]
-}
-```
+     ```
+     {
+       "num_trees": 100,
+       "num_samples_per_tree": 256,
+       "feature_dim": 25,
+       "eval_metrics": ["accuracy", "precision", "recall"]
+     }
+     ```
 
- **Training Data**:
-+ Input: S3 path to ML features (last 90 days)
-+ Content type: text/csv
-+ S3 data distribution: FullyReplicated
+      **Training Data**:
+   + Input: S3 path to ML features (last 90 days)
+   + Content type: text/csv
+   + S3 data distribution: FullyReplicated
 
-  1.  **Create SageMaker Model** 
-+ Model name: `tire-prediction-model-{timestamp}` 
-+ Model artifacts: From training job output
-+ Inference image: SageMaker RCF inference container
+1.  **Create SageMaker Model** 
+   + Model name: `tire-prediction-model-{timestamp}` 
+   + Model artifacts: From training job output
+   + Inference image: SageMaker RCF inference container
 
-  1.  **Update SSM Parameter** 
-+ Parameter: `/predictive-maintenance/latest-model` 
-+ Value: Model name
-+ Type: String
-+ Used by inference pipeline to get latest model
+1.  **Update SSM Parameter** 
+   + Parameter: `/predictive-maintenance/latest-model` 
+   + Value: Model name
+   + Type: String
+   + Used by inference pipeline to get latest model
 
-  1.  **Send Notification** 
-+ SNS topic: `ml-training-notifications` 
-+ Message: Training completion status, model metrics
-+ Recipients: ML team, operations team
+1.  **Send Notification** 
+   + SNS topic: `ml-training-notifications` 
+   + Message: Training completion status, model metrics
+   + Recipients: ML team, operations team
 
  **Model Evaluation**:
 + Unsupervised learning (no labeled failure data)
@@ -262,24 +262,24 @@ The ML approach uses unsupervised anomaly detection with Amazon SageMaker’s Ra
    + Max payload: 6 MB
    + Batch strategy: MultiRecord
 
- **Transform Configuration**:
-+ Input: S3 path to yesterday’s features
-+ Output: S3 bucket `predictive-maintenance-raw-predictions-{account-id}` 
-+ Content type: text/csv
-+ Split type: Line
-+ Compression: None
+      **Transform Configuration**:
+   + Input: S3 path to yesterday’s features
+   + Output: S3 bucket `predictive-maintenance-raw-predictions-{account-id}` 
+   + Content type: text/csv
+   + Split type: Line
+   + Compression: None
 
-  1.  **Monitor Transform Job** 
-+ Lambda: `monitor-transform-job` 
-+ Logic: Poll job status every 60 seconds
-+ Timeout: 2 hours
-+ Error handling: Fail Step Function if job fails
+1.  **Monitor Transform Job** 
+   + Lambda: `monitor-transform-job` 
+   + Logic: Poll job status every 60 seconds
+   + Timeout: 2 hours
+   + Error handling: Fail Step Function if job fails
 
-  1.  **Process Predictions** 
-+ Lambda: `process-predictions` 
-+ Runtime: Python 3.11
-+ Memory: 1024 MB
-+ Timeout: 10 minutes
+1.  **Process Predictions** 
+   + Lambda: `process-predictions` 
+   + Runtime: Python 3.11
+   + Memory: 1024 MB
+   + Timeout: 10 minutes
 
  **Processing Logic**:
 

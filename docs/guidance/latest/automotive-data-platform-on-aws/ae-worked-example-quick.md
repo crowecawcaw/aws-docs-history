@@ -3,7 +3,7 @@
 # Example 2: Natural-language queries for business executives
 <a name="ae-worked-example-quick"></a>
 
-The same nine ADP governed data products that ground the CVX agent can also power a self-service natural-language query experience for business users who need answers without writing SQL.
+The same nine ADP governed data products that ground the AVX agent can also power a self-service natural-language query experience for business users who need answers without writing SQL.
 
  [Amazon Quick Suite](https://docs.aws.amazon.com/quicksuite/latest/userguide/) (including [Amazon Quick Desktop](https://docs.aws.amazon.com/quick/latest/userguide/what-is-desktop.html), the desktop client) connects to Amazon DataZone as a data source, inheriting the subscription and governance model DataZone enforces. A business user who has been granted access to the relevant ADP consumer project through DataZone can ask questions in plain English — the Quick Suite layer translates them to SQL against the underlying Athena tables and returns the answer.
 

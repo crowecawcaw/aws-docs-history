@@ -191,13 +191,13 @@ echo "Exit code: $?"   # Must be 0
 
 The smoke test logs a warning and falls through to a direct Athena read of the Glue table during pre-seed deploys. Row count > 0 is required only after the seed generators have published the asset.
 
-## Bedrock Knowledge Base and AOSS Issues
-<a name="bedrock-knowledge-base-and-aoss-issues"></a>
+## Bedrock Knowledge Base and S3 Vectors Issues
+<a name="bedrock-knowledge-base-and-s3-vectors-issues"></a>
 
 ### Bedrock KB cross-account integration: `AccessDeniedException` on Retrieve
 <a name="bedrock-kb-cross-account-integration-accessdeniedexception-on-retrieve"></a>
 
- **Symptom**: CVX agent calling `bedrock-agent-runtime:Retrieve` against the ADP-owned Bedrock Knowledge Base receives `AccessDeniedException`, even after DataZone subscription is active.
+ **Symptom**: Agentic Vehicle Experience (AVX) agent calling `bedrock-agent-runtime:Retrieve` against the ADP-owned Bedrock Knowledge Base receives `AccessDeniedException`, even after DataZone subscription is active.
 
  **Cause**: Bedrock KB ingestion reads source documents via the KB’s data-source IAM role calling S3 directly (`s3:ListBucket` / `s3:GetObject`). It does **not** use Lake Formation vended credentials. DataZone subscription grants are LF-mediated and do not cover Bedrock KB S3 reads. Two valid integration patterns exist:
 
@@ -205,9 +205,9 @@ The smoke test logs a warning and falls through to a direct Athena read of the G
 
 Deploy the Bedrock KB in the same account as the ADP lake. The KB data-source role inherits in-account IAM; no bucket policy or LF grant changes are required. The lake KMS CMK key policy already permits in-account principals via the `kms:ViaService = s3.us-east-1.amazonaws.com` condition.
 
- **Pattern (b) — Cross-account** (CVX KB in a different account from ADP):
+ **Pattern (b) — Cross-account** (AVX KB in a different account from ADP):
 
-1. ADP must add an explicit S3 bucket policy on `adp-{stage}-foundation-lake-<account>-us-east-1` allowing the CVX KB data-source role ARN `s3:ListBucket` and `s3:GetObject` on the `knowledge/vehicle_knowledge_base/sources/*` prefix.
+1. ADP must add an explicit S3 bucket policy on `adp-{stage}-foundation-lake-<account>-us-east-1` allowing the AVX KB data-source role ARN `s3:ListBucket` and `s3:GetObject` on the `knowledge/vehicle_knowledge_base/sources/*` prefix.
 
 1. ADP must update the lake KMS key policy (`alias/adp-{stage}-foundation-lake`) to allow that role `kms:Decrypt` and `kms:DescribeKey`.
 
@@ -220,26 +220,26 @@ aws kms describe-key --key-id "alias/adp-staging-foundation-lake" \
 ```
 
 **Important**  
-Pattern (b) requires an explicit ADP-side IaC change (bucket policy \+ KMS key policy scoped to the CVX KB role ARN). It is not a default capability of the foundation. File an ADP-side spec before wiring cross-account access; do not add ad-hoc policies.
+Pattern (b) requires an explicit ADP-side IaC change (bucket policy \+ KMS key policy scoped to the AVX KB role ARN). It is not a default capability of the foundation. File an ADP-side spec before wiring cross-account access; do not add ad-hoc policies.
 
-### VKB / AOSS stack deploy fails with hard-coded sentinel error or KB is missing
-<a name="vkb-aoss-stack-deploy-fails-with-hard-coded-sentinel-error-or-kb-is-missing"></a>
+### VKB / S3 Vectors stack deploy fails with hard-coded sentinel error or KB is missing
+<a name="vkb-s3-vectors-stack-deploy-fails-with-hard-coded-sentinel-error-or-kb-is-missing"></a>
 
  **Symptom A**: Attempting to deploy a legacy `guidance-for-vehicle-knowledge-base/` directory fails immediately with `collection_arn` set to a hard-coded sentinel string (for example, a literal `"unresolved"`) or a `ValueError` on an unresolved CDK token.
 
- **Symptom B**: After deploying the platform-foundation stack set, no Bedrock Knowledge Base resource exists and CVX grounding returns empty results.
+ **Symptom B**: After deploying the platform-foundation stack set, no Bedrock Knowledge Base resource exists and AVX grounding returns empty results.
 
  **Cause A**: The legacy `guidance-for-vehicle-knowledge-base/` directory was deprecated in v0.2 and has been deleted. Any reference to that path is invalid.
 
- **Cause B**: The Vehicle Knowledge Base stack (`adp-{stage}-foundation-vehicle-knowledge-base`) is a separate, optional deploy that incurs \~$345/month for the AOSS vectorsearch collection (2-OCU minimum). It is **not** included in the base `make deploy STAGE=staging` run.
+ **Cause B**: The Vehicle Knowledge Base stack (`adp-{stage}-foundation-vehicle-knowledge-base`) is a separate, optional deploy that incurs single-digit dollars per month (usage-priced with Amazon S3 Vectors). It is **not** included in the base `make deploy STAGE=staging` run.
 
  **Fix**:
 
 1. Use the platform-foundation Makefile — do not reference the legacy directory.
 
-1. Acknowledge the \~$345/month AOSS cost before proceeding.
+1. Acknowledge the S3 Vectors usage-based cost model before proceeding (estimated single-digit dollars per month per stage).
 
-1. Deploy the VKB stack explicitly. Follow `docs/DEPLOYMENT.md` § Vehicle Knowledge Base — the full operator runbook is there. Key commands:
+1. Deploy the VKB stack explicitly. Follow `docs/DEPLOYMENT.md` § Vehicle Knowledge Base (Bedrock KB \+ S3 Vectors) deploy — the full operator runbook is there. Key commands:
 
    ```
    cd platform-foundation
@@ -279,9 +279,13 @@ Pattern (b) requires an explicit ADP-side IaC change (bucket policy \+ KMS key p
 
  **Symptom**: Running the `vehicle_telemetry_aggregated` or `energy_usage` generator locally via `make seed STAGE=staging` fails with `PicklingError: RecursionError: Stack overflow` or `cloudpickle` serialization error.
 
- **Cause**: PySpark 3.5.x only supports Python 3.7–3.11. The local venv on Python 3.12\+ (including 3.14) cannot serialize the generator closures via cloudpickle.
+ **Cause**: PySpark 3.5.x’s vendored `cloudpickle` recurses past the Python stack limit on Python 3.14 code objects. The generators no longer trigger this at HEAD — commit `6fd0827` deleted the sole driver round-trip (`spark.createDataFrame([(i, v) for i, v in enumerate(vins)], …​)`) that pushed a Python object through the RDD path. Both generators are otherwise pure Spark SQL with no UDFs, so the incompatibility is now unreachable rather than worked around.
 
- **Fix**: Use the Glue 5.1 managed-compute path instead of the local venv. Glue 5.1 pins Spark 3.5.6 \+ Python 3.11, bypassing the local incompatibility entirely:
+ **Fix**:
+
+1. Update to the latest `main` — the fix ships with the ADP HEAD. Verify with `git log --oneline — platform-foundation/source/data-products/vehicle_telemetry_aggregated/`.
+
+1. If the error persists after updating, run the generator via the AWS Glue 5.1 managed-compute path instead of the local venv (Glue pins Python 3.11 \+ Spark 3.5.6, sidestepping any local-Python drift):
 
 ```
 cd platform-foundation
@@ -295,7 +299,7 @@ python3 scripts/run-pyspark-products.py \
     --timeout-min 30 --wait
 ```
 
-The remaining 6 pandas-tier data products generate cleanly via `make seed STAGE=staging` — the PySpark path applies only to `vehicle_telemetry_aggregated` and `energy_usage`.
+The remaining 8 pandas-tier data products (including `tire_health`) generate cleanly via `make seed STAGE=staging` — the PySpark path applies only to `vehicle_telemetry_aggregated` and `energy_usage`.
 
 ### Glue 5.1 job: `Format != ICEBERG` on `aws glue get-table`
 <a name="glue-5-1-job-format-iceberg-on-aws-glue-get-table"></a>
@@ -505,4 +509,4 @@ aws kms describe-key --key-id "alias/adp-${STAGE}-foundation-lake" \
  **Documentation**:
 +  `docs/DEPLOYMENT.md` — canonical deploy runbook, stage gate, and full troubleshooting reference.
 +  `docs/cms-ingest-optional-module.md` — CMS→ADP ingest module operator guide.
-+  `docs/cvx-integration-contract.md` — CVX cross-account KB integration IAM contract.
++  `docs/cvx-integration-contract.md` — AVX cross-account KB integration IAM contract.

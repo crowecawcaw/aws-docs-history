@@ -4,24 +4,26 @@
 <a name="platform-foundation"></a>
 
 **Note**  
- **Cost estimate**: Foundation-only (staging or prod stage) runs approximately **$300–600/month** in `us-east-1` at development-workload query volumes. The largest single component is the Vehicle Knowledge Base (Amazon OpenSearch Serverless), which commits \~$345/month per stage at the 2-OCU minimum regardless of query volume. Adding the optional CMS→ADP ingest module raises the estimate to \~$550–860/month. See `docs/DEPLOYMENT.md` § *Vehicle Knowledge Base (Bedrock KB \+ AOSS) deploy* for the AOSS cost warning before deploying to a second stage.
+ **Cost estimate**: Foundation-only (staging or prod stage) runs approximately **$300–400/month** in `us-east-1` at development-workload query volumes. The Vehicle Knowledge Base (Amazon S3 Vectors) is now usage-priced at single-digit dollars per month (previously \~$345/month per stage with AOSS 2-OCU minimum). Adding the optional CMS→ADP ingest module raises the estimate to \~$450–700/month. See `docs/DEPLOYMENT.md` § *Vehicle Knowledge Base (Bedrock KB \+ S3 Vectors) deploy* for deployment instructions.
 
 ## Single-foundation-deploy model
 <a name="single-foundation-deploy-model"></a>
 
-ADP v0.2 is one foundation deploy — not five independently-deployable guidances. A single invocation of `make deploy STAGE=staging` (or `STAGE=prod`) deploys all infrastructure required to publish the full set of 9 governed data products. The five per-stage stacks and one account-singular bootstrap stack together constitute the entire platform:
+ADP v0.2 is one foundation deploy — not five independently-deployable guidances. A single invocation of `make deploy STAGE=staging` (or `STAGE=prod`) deploys all infrastructure required to publish the full set of 10 core data products plus the 8 DMS-accelerator dealer- and parts-domain products. The seven per-stage stacks and one account-singular bootstrap stack together constitute the entire platform:
 
 
 | Deploy order | Stack logical name | Purpose | 
 | --- | --- | --- | 
 | Bootstrap (once per account) |  `adp-shared-bootstrap`  | Enables the Amazon Macie session at account level. Deployed once via `make bootstrap` before the first stage deploy; not stage-bound and not included in per-stage teardown. Re-running is idempotent (CloudFormation no-op when the stack is already up). | 
 | 1 |  `adp-{stage}-foundation-network`  | VPC and VPC endpoints for S3, Glue, and Athena. | 
-| 2 |  `adp-{stage}-foundation-lake`  | Amazon S3 lake bucket (Iceberg, KMS-encrypted, versioned), plus 10 AWS Glue databases: 9 per-product databases (`adp_{stage}_<product>`) and 1 shared dimensions database (`adp_{stage}_dimensions`). | 
+| 2 |  `adp-{stage}-foundation-lake`  | Amazon S3 lake bucket (Iceberg, KMS-encrypted, versioned), plus 11 AWS Glue databases: 10 per-product databases (`adp_{stage}_<product>`) and 1 shared dimensions database (`adp_{stage}_dimensions`). | 
 | 3 |  `adp-{stage}-foundation-datazone`  | Amazon DataZone V2 domain (`adp-{stage}-foundation-domain`) and associated IAM roles. | 
-| 4 |  `adp-{stage}-foundation-datazone-projects`  | 10 DataZone projects: 9 producer projects (one per governed data product) plus 1 smoke-test consumer project with auto-grant subscriptions. | 
-| 5 |  `adp-{stage}-foundation-governance`  | AWS Lake Formation tag-based access control, AWS CloudTrail data-event trail on the lake bucket, and 3 IAM Identity Center groups per stage. The Macie session lives in `adp-shared-bootstrap`; the per-stage Macie classification job is created post-deploy via `scripts/macie-create-job.sh`. | 
+| 4 |  `adp-{stage}-foundation-datazone-projects`  | 10 DataZone projects in this stack: 9 producer projects (one per core data product except `tire_health`) plus 1 smoke-test consumer project with auto-grant subscriptions. Combined with the dealer- and parts-domain stacks below, the domain carries 12 projects total. | 
+| 5 |  `adp-{stage}-foundation-governance`  | AWS Lake Formation tag-based access control, AWS CloudTrail data-event trail on the lake bucket, and 3 IAM Identity Center groups per stage. The Macie session lives in `adp-shared-bootstrap`; the per-stage Macie classification job is created post-deploy via `scripts/macie-create-job.sh`. Also emits cross-account Lake Formation grants directly from IaC when the CMS or DMS consumer role ARN is supplied via CDK context (`-c cmsConsumerRoleArn=`, `-c dmsConsumerRoleArn=`). | 
+| 6 |  `adp-{stage}-foundation-dealer-domain`  |  `adp_{stage}_dealer_domain` Glue database, one DataZone project inside the existing domain, and a region-suffixed Glue/PySpark generator IAM role. Product owner metadata `"DMS accelerator"`. Five Iceberg products: `service_records` (dealer-scoped), `dealer_performance`, `certification_scores`, `dealer_inventory`, `deal_pipeline`. Tables are populated by one-shot Glue/PySpark generators; the stack emits zero `AWS::Glue::Table` resources. | 
+| 7 |  `adp-{stage}-foundation-parts-domain`  |  `adp_{stage}_parts_domain` Glue database, one DataZone project, and a region-suffixed generator IAM role. Three ACES/PIES-shaped Iceberg products: `parts_catalog` (PIES 8.0 shape), `parts_fitment` (ACES 5.0 shape), `parts_interchange`. Auto Care licensing constraint enforced at CI by `platform-foundation/scripts/lint_no_licensed_autocare_ids.py`; see [Data products](data-products.md) § "Additional catalog domains". | 
 
-Both `staging` and `prod` stages coexist in the same AWS account in `us-east-1`, isolated by resource-name prefix. The foundation publishes 9 governed data products consumed by the CVX agent platform and SageMaker Studio reference-consumer notebooks. For the complete product catalog, see [Data products](data-products.md).
+Both `staging` and `prod` stages coexist in the same AWS account in `us-east-1`, isolated by resource-name prefix. The foundation publishes 10 core data products plus the dealer- and parts-domain products consumed by the Agentic Vehicle Experience (AVX) agent platform, SageMaker Studio reference-consumer notebooks, and the Dealer Management System (DMS) accelerator. For the complete product catalog, see [Data products](data-products.md).
 
 ## Stage gate
 <a name="stage-gate"></a>
@@ -94,7 +96,7 @@ or
 make deploy STAGE=prod
 ```
 
-This deploys all five per-stage stacks in dependency order (network → lake → datazone → datazone-projects → governance). Approximate time: 15–25 minutes per stage; DataZone domain creation is the slow step. See `docs/DEPLOYMENT.md` § *Stage deploy (`make deploy STAGE=…​`)* for the expected outcome verification table.
+This deploys all seven per-stage stacks in dependency order (network → lake → datazone → datazone-projects → governance → dealer-domain → parts-domain). Approximate time: 15–25 minutes per stage; DataZone domain creation is the slow step. See `docs/DEPLOYMENT.md` § *Stage deploy (`make deploy STAGE=…​`)* for the expected outcome verification table.
 
 ### Step 4: Seed the data lake
 <a name="step-4-seed-the-data-lake"></a>
@@ -103,7 +105,7 @@ This deploys all five per-stage stacks in dependency order (network → lake →
 make seed STAGE=staging
 ```
 
- `make seed` is the master seed target: it generates dimension catalogs plus 9 product generators, runs referential-integrity tests, and uploads results to the stage’s lake bucket. For PySpark-tier products (`vehicle_telemetry_aggregated`, `energy_usage`), generation runs via AWS Glue 5.1 (managed compute) rather than the local venv. See `docs/DEPLOYMENT.md` § *Post-deploy seed validation* and § *PySpark generators (Glue 5.1) — sample tier* for the four-phase seeding flow.
+ `make seed` is the master seed target: it generates dimension catalogs plus 10 core product generators, runs referential-integrity tests, and uploads results to the stage’s lake bucket. For PySpark-tier products (`vehicle_telemetry_aggregated`, `energy_usage`), generation runs via AWS Glue 5.1 (managed compute) rather than the local venv. See `docs/DEPLOYMENT.md` § *Post-deploy seed validation* and § *PySpark generators (Glue 5.1) — sample tier* for the four-phase seeding flow.
 
 ### Step 5: Smoke-test
 <a name="step-5-smoke-test"></a>
@@ -112,19 +114,19 @@ make seed STAGE=staging
 make smoke-test STAGE=staging
 ```
 
-The smoke test validates the DataZone subscription flow end-to-end — domain availability, Glue catalog reachability, project exports, and a live `SELECT COUNT(*)` on `vehicle_telemetry_aggregated`. The deploy is not complete until the smoke test exits 0. See `docs/DEPLOYMENT.md` § *Smoke test* for the five-step test sequence and the post-deploy CloudWatch monitoring scan pattern.
+The smoke test validates the DataZone subscription flow end-to-end — domain availability, Glue catalog reachability, project exports, and a live `SELECT COUNT(*)` on `vehicle_telemetry_aggregated`. The Athena workgroup is derived from `STAGE` (`adp-{stage}-analytics`), so the smoke gate is not vacuous — it always runs against the workgroup that actually exists for the deployed stage. The deploy is not complete until the smoke test exits 0. See `docs/DEPLOYMENT.md` § *Smoke test* for the five-step test sequence and the post-deploy CloudWatch monitoring scan pattern.
 
 ## Cross-cutting governance layer
 <a name="cross-cutting-governance-layer"></a>
 
-The `governance` stack deploys four cross-cutting controls that apply to all 9 governed data products. These controls are not per-product — they are platform-wide and cannot be selectively disabled per product.
+The `governance` stack deploys four cross-cutting controls that apply to all governed data products in the domain. These controls are not per-product — they are platform-wide and cannot be selectively disabled per product.
 
 ### Lake Formation tag-based access control
 <a name="lake-formation-tag-based-access-control"></a>
 
-The `governance` stack registers the S3 lake bucket with AWS Lake Formation and applies tag-based access control (LF-TBAC) across all 10 Glue databases. Access is governed by the three IAM Identity Center groups created in the same stack:
+The `governance` stack registers the S3 lake bucket with AWS Lake Formation and applies tag-based access control (LF-TBAC) across all 13 Glue databases (10 core-product databases, the `dimensions` database, and the two DMS-domain databases). Access is governed by the three IAM Identity Center groups created in the same stack:
 +  `adp-{stage}-data-owners` — Lake Formation data-owner permissions; intended for data product producers and platform engineers.
-+  `adp-{stage}-data-consumers` — Lake Formation consumer permissions; intended for analysts, SageMaker Studio notebook users, and application consumers such as CVX agents.
++  `adp-{stage}-data-consumers` — Lake Formation consumer permissions; intended for analysts, SageMaker Studio notebook users, and application consumers such as AVX agents.
 +  `adp-{stage}-platform-admins` — Administrative permissions for platform operations and Lake Formation grant management.
 
 Fine-grained column-level permissions are applied on PII-bearing tables. Bedrock Knowledge Base ingestion reads the lake via S3 directly (not via Lake Formation vended credentials) — see `docs/DEPLOYMENT.md` § *Bedrock KB cross-account integration* for the integration patterns and the cross-account grant requirement.
@@ -149,12 +151,12 @@ The three IAM Identity Center (IDC) groups per stage are described in the Lake F
 ## Vehicle Knowledge Base
 <a name="vehicle-knowledge-base"></a>
 
-The Vehicle Knowledge Base (`vehicle_knowledge_base`) is the ninth governed data product. It differs from the other eight Iceberg-backed products in that it is stored as direct S3 artifacts (Markdown documents, DTC guides, TSBs, recall notices) backed by an Amazon Bedrock Knowledge Base with an Amazon OpenSearch Serverless (AOSS) vectorsearch collection.
+The Vehicle Knowledge Base (`vehicle_knowledge_base`) is the ninth governed data product. It differs from the other eight Iceberg-backed products in that it is stored as direct S3 artifacts (Markdown documents, DTC guides, TSBs, recall notices) backed by an Amazon Bedrock Knowledge Base with an Amazon S3 Vectors index.
 
-**Warning**  
-AOSS vectorsearch collections have a 2-OCU minimum. Each stage (staging, prod) costs **\~$345/month** at idle, even with `STANDBY_REPLICAS=DISABLED`. Two stages = \~$700/month continuous. Validate the staging-MVP business case before deploying the production stage. See `docs/DEPLOYMENT.md` § *Vehicle Knowledge Base (Bedrock KB \+ AOSS) deploy* for the full operator runbook including the eight-step deploy sequence and tear-down instructions.
+**Note**  
+Amazon S3 Vectors is usage-priced, reducing the per-stage cost from \~$345/month (AOSS 2-OCU minimum) to single-digit dollars per month. This pricing applies to both staging and prod. See `docs/DEPLOYMENT.md` § *Vehicle Knowledge Base (Bedrock KB \+ S3 Vectors) deploy* for the full operator runbook including the deployment sequence and tear-down instructions.
 
-The Vehicle Knowledge Base is consumed by the CVX agent platform for retrieval-augmented generation (RAG) over vehicle maintenance and diagnostic documentation. For the `vehicle_knowledge_base` data product’s technical specification — including its S3 prefix layout and DataZone project — see [Data products](data-products.md).
+The Vehicle Knowledge Base is consumed by the AVX agent platform for retrieval-augmented generation (RAG) over vehicle maintenance and diagnostic documentation. For the `vehicle_knowledge_base` data product’s technical specification — including its S3 prefix layout and DataZone project — see [Data products](data-products.md).
 
 ## Optional CMS→ADP ingest module
 <a name="optional-cmsadp-ingest-module"></a>

@@ -17,4 +17,4 @@ The following table illustrates how different functions within the same organiza
 
 Each row in this table represents a different team, a different tool, and a different interaction model — but they all start with the same foundation deploy and the same DataZone subscription mechanism. Adding a new consumption pattern does not require rebuilding the data foundation; it requires subscribing to the data products the new pattern needs and building the consumption layer on top of them.
 
-Example 1 (below) corresponds to the first row: a customer-service conversational agent (CVX). Examples 2 and 3 both build on the executive-reporting row — an ad hoc natural-language query interface (Amazon Quick Suite) and a proactive scheduled briefing agent on the same foundation, respectively.
+Example 1 (below) corresponds to the first row: a customer-service conversational agent (AVX). Examples 2 and 3 both build on the executive-reporting row — an ad hoc natural-language query interface (Amazon Quick Suite) and a proactive scheduled briefing agent on the same foundation, respectively.

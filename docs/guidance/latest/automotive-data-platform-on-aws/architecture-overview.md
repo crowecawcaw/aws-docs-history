@@ -14,22 +14,24 @@ The architecture diagram in this section is being updated to reflect the platfor
 ## Foundation topology
 <a name="foundation-topology"></a>
 
-The `platform-foundation/` CDK app is the single entry point for all ADP infrastructure. It provisions five per-stage stacks plus one account-singular bootstrap stack. Stack names follow the `adp-{stage}-foundation- ` prefix pattern; resources within each stack follow `adp_{stage}_` naming for Glue databases and `adp-{stage}-*` for IAM Identity Center groups.
+The `platform-foundation/` CDK app is the single entry point for all ADP infrastructure. It provisions seven per-stage stacks plus one account-singular bootstrap stack. Stack names follow the `adp-{stage}-foundation- ` prefix pattern; resources within each stack follow `adp_{stage}_` naming for Glue databases and `adp-{stage}-*` for IAM Identity Center groups.
 
 ### Per-stage stacks
 <a name="per-stage-stacks"></a>
 
-The five per-stage stacks deploy in dependency order (1–5) and are gated behind a `STAGE`-required Makefile entry point. Both `staging` and `prod` stages are supported; `staging` and `prod` deploy independently into the same AWS account in `us-east-1`.
+The seven per-stage stacks deploy in dependency order (1–7) and are gated behind a `STAGE`-required Makefile entry point. Both `staging` and `prod` stages are supported; `staging` and `prod` deploy independently into the same AWS account in `us-east-1`.
 
 
 | Deploy order | Stack logical name | Purpose | 
 | --- | --- | --- | 
 | Bootstrap (once) |  `adp-shared-bootstrap`  | Enables the Amazon Macie session at account level. Deployed once per account via `make bootstrap`; not part of per-stage teardown. | 
 | 1 |  `adp-{stage}-foundation-network`  | VPC and VPC endpoints. | 
-| 2 |  `adp-{stage}-foundation-lake`  | Amazon S3 lake bucket (Iceberg, KMS-encrypted, versioned), plus 10 AWS Glue databases — 9 per-product (`adp_{stage}_<product>`) and 1 shared dimensions database (`adp_{stage}_dimensions`). | 
+| 2 |  `adp-{stage}-foundation-lake`  | Amazon S3 lake bucket (Iceberg, KMS-encrypted, versioned), plus 11 AWS Glue databases — 10 per-product (`adp_{stage}_<product>`) and 1 shared dimensions database (`adp_{stage}_dimensions`). | 
 | 3 |  `adp-{stage}-foundation-datazone`  | Amazon DataZone V2 domain and associated IAM roles. | 
-| 4 |  `adp-{stage}-foundation-datazone-projects`  | 10 DataZone projects: 9 producer projects (one per data product) and 1 smoke-test consumer project with auto-grant subscriptions. | 
-| 5 |  `adp-{stage}-foundation-governance`  | AWS Lake Formation tag-based access control, AWS CloudTrail data-event trail on the lake bucket, and 3 IAM Identity Center groups (`adp-{stage}-data-owners`, `adp-{stage}-data-consumers`, `adp-{stage}-platform-admins`). | 
+| 4 |  `adp-{stage}-foundation-datazone-projects`  | 10 DataZone projects: 9 producer projects (one per core data product) and 1 smoke-test consumer project with auto-grant subscriptions. | 
+| 5 |  `adp-{stage}-foundation-governance`  | AWS Lake Formation tag-based access control, AWS CloudTrail data-event trail on the lake bucket, 3 IAM Identity Center groups (`adp-{stage}-data-owners`, `adp-{stage}-data-consumers`, `adp-{stage}-platform-admins`), and IaC-defined cross-account Lake Formation grants to the CMS and DMS consumer principals when they are enabled by context. | 
+| 6 |  `adp-{stage}-foundation-dealer-domain`  |  `adp_{stage}_dealer_domain` Glue database, one DataZone project inside the existing domain, and a region-suffixed Glue/PySpark generator role for the 5 dealer-operations products consumed by the DMS accelerator. | 
+| 7 |  `adp-{stage}-foundation-parts-domain`  |  `adp_{stage}_parts_domain` Glue database, one DataZone project, and a region-suffixed generator role for the 3 ACES/PIES-shaped parts products. | 
 
 Stage names and stack-name prefixes are strictly controlled. The Makefile fails closed if `STAGE` is omitted. Resource naming is a deterministic function of `{stage}` — no timestamps, no random suffixes — to support idempotent re-deploys and cross-stage comparison.
 
@@ -43,11 +45,12 @@ This prefix-based isolation means that `make deploy STAGE=staging` and `make dep
 ## DataZone V2 domain and projects
 <a name="datazone-v2-domain-and-projects"></a>
 
-The `adp-{stage}-foundation-datazone-projects` stack creates one Amazon DataZone V2 domain with 10 projects:
-+  **9 producer projects** — one per data product, each publishing its Glue database as a DataZone asset catalog entry with auto-granted access within the domain.
+The `adp-{stage}-foundation-datazone-projects` stack creates one Amazon DataZone V2 domain with 10 projects; the two DMS-accelerator domain stacks add 2 more inside the same domain for a total of 12 projects:
++  **9 core-catalog producer projects** — one per core data product except `tire_health`, each publishing its Glue database as a DataZone asset catalog entry with auto-granted access within the domain.
 +  **1 smoke-test consumer project** — subscribes to one or more products end-to-end; validates the DataZone subscription flow as part of `make smoke-test STAGE=`.
++  **2 domain projects** — `dealer_domain` and `parts_domain`, provisioned by the `dealer-domain` and `parts-domain` stacks. Each catalogs the products of its Glue database and inherits the same domain-wide governance.
 
-The DataZone domain name follows `adp-{stage}-foundation-domain`. All 9 data products are governed within this domain; consumers (CVX agents, SageMaker Studio notebooks, BI tools) subscribe via DataZone to access product assets under Lake Formation-enforced permissions.
+The DataZone domain name follows `adp-{stage}-foundation-domain`. All core data products are governed within this domain; consumers (AVX agents, SageMaker Studio notebooks, BI tools, and the DMS accelerator) subscribe via DataZone to access product assets under Lake Formation-enforced permissions.
 
 For the complete data product catalog — technical names, domains, partitions, and per-product subscription patterns — see [Data products](data-products.md).
 
@@ -59,7 +62,9 @@ ADP’s governance layer is deployed as part of the `governance` stack rather th
 ### Lake Formation tag-based access control
 <a name="lake-formation-tag-based-access-control"></a>
 
-The `governance` stack registers the S3 lake bucket with AWS Lake Formation and applies tag-based access control (LF-TBAC) across all 10 Glue databases. Data owners are granted access via the `adp-{stage}-data-owners` IAM Identity Center group; consumers via `adp-{stage}-data-consumers`; platform administrators via `adp-{stage}-platform-admins`. Fine-grained column-level permissions are applied on PII-bearing tables.
+The `governance` stack registers the S3 lake bucket with AWS Lake Formation and applies tag-based access control (LF-TBAC) across all Glue databases in the domain (10 core- product databases \+ `dimensions` \+ the two DMS-domain databases). Data owners are granted access via the `adp-{stage}-data-owners` IAM Identity Center group; consumers via `adp-{stage}-data-consumers`; platform administrators via `adp-{stage}-platform-admins`. Fine-grained column-level permissions are applied on PII-bearing tables.
+
+The `governance` stack also emits cross-account Lake Formation grants directly from infrastructure-as-code when the CMS or DMS consumer principal is enabled by CDK context flag (`-c cmsConsumerRoleArn=…​` and `-c dmsConsumerRoleArn=…​`). Consumer-role ARN shape is validated at synth time. This closes the historical deploy-gap where the LF share existed only as a runbook step; see the closed spec at `.kiro/specs/2026-08-26-adp-dealer-domain/` and commit `0768396` for the code path.
 
 ### Amazon Macie classification
 <a name="amazon-macie-classification"></a>
@@ -93,14 +98,16 @@ The platform-foundation model organizes the data platform into four integrated l
 
 Amazon DataZone V2 provides the data catalog, lineage tracking, and self-service subscription surface. Producers publish data products to the domain; consumers discover, subscribe, and access products via DataZone’s UI or API. The subscription model is auto-granted within the domain — no manual approval step is required for intra-domain subscriptions during smoke-test validation.
 
-See [Data products](data-products.md) for the full catalog of 9 published data products.
+See [Data products](data-products.md) for the full catalog of 10 core data products plus the 8 dealer- and parts-domain products.
 
 ### Lake layer
 <a name="lake-layer"></a>
 
-Amazon S3 provides the storage substrate for all data products. Eight of the 9 products are stored as Apache Iceberg tables (ACID transactions, schema evolution, time-travel queries). One product (`vehicle_knowledge_base`) uses direct S3 storage backed by a Bedrock Knowledge Base with an Amazon OpenSearch Serverless index.
+Amazon S3 provides the storage substrate for all data products. Nine of the 10 core products are stored as Apache Iceberg tables (ACID transactions, schema evolution, time-travel queries). One product (`vehicle_knowledge_base`) uses direct S3 storage backed by a Bedrock Knowledge Base with an Amazon S3 Vectors index. The 5 dealer-domain and 3 parts-domain products are also Iceberg tables in the same S3 lake bucket.
 
-AWS Glue provides the catalog metadata layer (10 databases, one per product plus one shared dimensions database) and the compute layer (Glue 5.1 Spark jobs for data generation and transformation). Amazon Athena Engine V3 provides the serverless SQL query layer for analyst and notebook consumers.
+AWS Glue provides the catalog metadata layer (13 databases in total across the seven stacks: 10 core-product databases, 1 shared dimensions database, 1 dealer-domain database, and 1 parts-domain database) and the compute layer (Glue 5.1 Spark jobs for data generation and transformation). Amazon Athena Engine V3 provides the serverless SQL query layer for analyst and notebook consumers.
+
+The 3 curated pandas-tier products (`charging_sessions`, `energy_usage`, `service_records`) were migrated to Iceberg with a `bucket(16, vin)` partition transform by spec `2026-09-19-adp-curated-products-vin-scope-pruning`. The transform distributes rows by VIN hash so that VIN-scoped queries converge on a bounded, predictable worst-case scan; see `.kiro/specs/2026-09-19-adp-curated-products-vin-scope-pruning/spec.md` § "Decision" and Group 4 for the variance-reduction analysis behind the choice.
 
 ### Governance layer
 <a name="governance-layer"></a>
@@ -111,7 +118,7 @@ The cross-cutting governance layer (Lake Formation, Macie, CloudTrail, IDC group
 <a name="consumers-layer"></a>
 
 Consumers access data products via Amazon DataZone subscriptions. The primary consumer patterns documented in this release are:
-+  **CVX agents** — subscribe to ADP products via DataZone to ground multi-channel customer conversations; see `docs/cvx-integration-contract.md` for the canonical Athena query patterns and cross-product join examples.
++  **Agentic Vehicle Experience (AVX) agents** — subscribe to ADP products via DataZone to ground multi-channel customer conversations; see `docs/cvx-integration-contract.md` for the canonical Athena query patterns and cross-product join examples.
 +  **SageMaker Studio notebooks** — the reference predictive-maintenance notebook subscribes to four products, joins them in Athena, and trains an Isolation-Forest model. See `platform-foundation/source/reference-consumers/predictive-maintenance/`.
 +  **BI and analytics tools** — subscribe via DataZone; query via Athena; no direct S3 access required.
 
@@ -123,14 +130,14 @@ This section lists the primary AWS services deployed by the foundation. For the 
 ### Data lake and storage
 <a name="data-lake-and-storage"></a>
 +  [**Amazon S3**](https://aws.amazon.com/s3/) — lake bucket (Iceberg, KMS-encrypted, versioned, server-side access logging)
-+  [**AWS Glue Data Catalog**](https://aws.amazon.com/glue/) — 10 databases (9 products \+ 1 dimensions)
++  [**AWS Glue Data Catalog**](https://aws.amazon.com/glue/) — 13 databases (10 core products \+ 1 dimensions \+ 2 domain databases: `dealer_domain`, `parts_domain`)
 +  [**AWS Lake Formation**](https://aws.amazon.com/lake-formation/) — tag-based access control, fine-grained permissions
 +  [**Amazon Athena**](https://aws.amazon.com/athena/) — serverless SQL queries (Engine V3) with Lake Formation inheritance
 +  [**AWS Glue ETL**](https://aws.amazon.com/glue/) (Glue 5.1) — Spark-based data generation and transformation
 
 ### Catalog and governance
 <a name="catalog-and-governance"></a>
-+  [**Amazon DataZone**](https://aws.amazon.com/datazone/) — V2 domain, 10 projects, auto-grant subscriptions, lineage
++  [**Amazon DataZone**](https://aws.amazon.com/datazone/) — V2 domain, 12 projects, auto-grant subscriptions, lineage
 +  [**AWS CloudTrail**](https://aws.amazon.com/cloudtrail/) — data-event logging on lake bucket
 +  [**Amazon Macie**](https://aws.amazon.com/macie/) — automated PII classification on lake prefixes
 +  [**AWS IAM Identity Center**](https://aws.amazon.com/iam/identity-center/) — 3 groups per stage (`data-owners`, `data-consumers`, `platform-admins`)
@@ -139,7 +146,7 @@ This section lists the primary AWS services deployed by the foundation. For the 
 ### Knowledge and AI
 <a name="knowledge-and-ai"></a>
 +  [**Amazon Bedrock Knowledge Bases**](https://aws.amazon.com/bedrock/knowledge-bases/) — `vehicle_knowledge_base` product (DTCs, TSBs, recalls, owner manuals)
-+  [**Amazon OpenSearch Serverless**](https://aws.amazon.com/opensearch-service/) — vector index backing the Bedrock Knowledge Base (\~$345/mo AOSS commitment per stage)
++  [**Amazon S3 Vectors**](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) — vector index backing the Bedrock Knowledge Base (usage-priced, single-digit dollars per month)
 
 ### Analytics and machine learning
 <a name="analytics-and-machine-learning"></a>
@@ -179,14 +186,14 @@ This section lists the primary AWS services deployed by the foundation. For the 
 <a name="performance-efficiency"></a>
 + Athena partition pruning (per-product partition schemes; see [Data products](data-products.md) for partition columns)
 + Glue Spark for distributed data generation at scale
-+ OpenSearch Serverless (AOSS) auto-scales for Knowledge Base queries
++ S3 Vectors auto-scales for Knowledge Base queries
 
 ### Cost optimization
 <a name="cost-optimization"></a>
 + Serverless architecture (Athena, Glue, Lambda) — pay-per-use
 + S3 Intelligent-Tiering eligible for infrequently-accessed synthetic data
-+ Foundation-only cost estimate: \~$300–600/month; with optional CMS-ingest: \~$550–860/month
-+ Vehicle Knowledge Base (AOSS): \~$345/month per stage — largest single component
++ Foundation-only cost estimate: \~$300–400/month; with optional CMS-ingest: \~$450–700/month
++ Vehicle Knowledge Base (S3 Vectors): single-digit dollars per month per stage (reduced from \~$345/month AOSS 2-OCU minimum)
 + No QuickSight, no Aurora, no Step Functions pipelines — v0.2 removes all v0.1 per-guidance overhead
 
 ### Sustainability
@@ -202,4 +209,4 @@ For detailed deployment procedures — including `make bootstrap`, `make deploy 
 
 For the full data product catalog including technical names, partition schemes, and DataZone subscription patterns, see [Data products](data-products.md).
 
-For cross-product Athena query patterns and CVX agent integration, see `docs/cvx-integration-contract.md`.
+For cross-product Athena query patterns and AVX agent integration, see `docs/cvx-integration-contract.md`.
