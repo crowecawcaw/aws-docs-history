@@ -3,7 +3,7 @@
 # Signing Up for AWS GovCloud (US) Support
 <a name="customer-supp"></a>
 
- Support is available for the AWS GovCloud (US) Regions. As an AWS GovCloud (US) customer, you can access the Support engineers 24 hours a day by phone, email, and chat. In cases where U.S. citizens are needed, AWS can route cases to U.S. citizen support engineers. All AWS Support engineers in the AWS Region (`aws` partition) can access support cases from the AWS GovCloud (US) Region. Customers use general support resources for basic support cases that do not contain sensitive (that is, export-controlled) data. For more information see [AWS GovCloud (US) Region Support](https://aws.amazon.com/govcloud-us/support/).
+ Support is available for the AWS GovCloud (US) Regions. As an AWS GovCloud (US) customer, you have access to a dedicated team of US-based, US citizen support engineers 24 hours a day, 7 days a week by phone, email, and chat. AWS Support makes every reasonable effort to ensure technical support cases for the AWS GovCloud (US) Regions are handled exclusively by US-based personnel who are US citizens throughout the entire case lifecycle. Billing and account questions route through your associated commercial account and may be handled by teams outside the AWS GovCloud (US) Regions. For more information, see [AWS GovCloud (US) Region Support](https://aws.amazon.com/govcloud-us/support/).
 
 **Important**  
 Do not enter any export-controlled data in your support cases.

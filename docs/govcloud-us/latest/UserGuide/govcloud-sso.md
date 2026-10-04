@@ -34,7 +34,6 @@ The following differences apply to IAM Identity Center:
 + The email address `no-reply@us-gov-home.awsapps.com` is used for sending email-verification, password reset, and user invitation emails to GovCloud.
 
   The email address `no-reply@<identitystore_id>.us-gov-home.awsapps.com` is used for sending forgotten password emails.
-+ Multi-Region support is presently not available.
 + If you filter access to specific AWS domains by using a web content filtering solution such as next-generation firewalls (NGFW) or Secure Web Gateways (SWG), you must add the following domains to your web-content filtering solution allowlists. Doing so enables you to access your AWS access portal.
   +  `start.us-gov-home.awsapps.com` 
   +  `start.[Region].us-gov-home.awsapps.com` 

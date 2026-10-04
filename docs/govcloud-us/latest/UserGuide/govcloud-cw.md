@@ -20,7 +20,6 @@ The following differences apply to Amazon CloudWatch:
 + The GetMetricWidgetImage API is not available.
 +  [Dashboard sharing](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.html) is not available.
 + You cannot create CloudWatch alarms for Trusted Advisor metrics.
-+  Amazon CloudWatch cross-account observability is not available.
 
 ## Documentation
 <a name="govcloud-cw-docs"></a>

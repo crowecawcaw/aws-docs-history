@@ -30,5 +30,5 @@ The following differences apply to AWS Support:
 <a name="govcloud-support-itar"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-+ Support engineers in the AWS Region (`aws` partition) can access support cases from the AWS GovCloud (US) Region.
++ Technical support cases for the AWS GovCloud (US) Regions are handled by a dedicated team of US-based, US citizen cloud support engineers. AWS Support makes every reasonable effort to ensure these cases are handled exclusively by US citizens throughout the entire case lifecycle.
 + Do not enter any export-controlled data in your support cases.

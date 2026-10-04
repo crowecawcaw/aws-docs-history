@@ -12,7 +12,9 @@ Do not enter any export-controlled data in your support cases.
 <a name="how_shared_suplong_unified_operations_differs"></a>
 
 The following differences apply to AWS Support Unified Operations:
-+  AWS Security Incident Response is not available in AWS GovCloud (US) Regions.
++  AWS Security Incident Response (SIR) and its AWS Customer Incident Response Team (CIRT) engagement process are not available in AWS GovCloud (US) Regions. Security incidents raised through support cases are handled through standard AWS incident response workflows.
++ AWS DevOps Agent is not available in AWS GovCloud (US) Regions.
++ AI-powered troubleshooting is not available in AWS GovCloud (US) Regions.
 
 ## Documentation
 <a name="govcloud-support-uops-docs"></a>
@@ -23,5 +25,5 @@ The following differences apply to AWS Support Unified Operations:
 <a name="govcloud-support-uops-itar"></a>
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
-+ Support engineers in the AWS Region (`aws` partition) can access support cases from the AWS GovCloud (US) Region.
++ Technical support cases for the AWS GovCloud (US) Regions are handled by a dedicated team of US-based, US citizen cloud support engineers. AWS Support makes every reasonable effort to ensure these cases are handled exclusively by US citizens throughout the entire case lifecycle.
 + Do not enter any export-controlled data in your support cases.
