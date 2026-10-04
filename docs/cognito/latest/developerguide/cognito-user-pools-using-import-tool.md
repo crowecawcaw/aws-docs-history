@@ -122,6 +122,58 @@ When you create an import job in the Amazon Cognito console, you can create the 
 
 1. Note the role ARN. You'll provide the ARN when you create your import job.
 
+Alternatively, you can create the same role with the AWS CLI. The following commands create a role that Amazon Cognito can assume, attach a policy that permits writing to CloudWatch Logs, and return the role ARN. Replace {{REGION}} with the AWS Region of your user pool and {{ACCOUNT}} with your AWS account ID.
+
+**To create the CloudWatch Logs IAM role for user pool import (AWS CLI)**
+
+1. Create the role with a trust policy that allows Amazon Cognito to assume it.
+
+   ```
+   aws iam create-role \
+       --role-name {{CognitoUserImportRole}} \
+       --assume-role-policy-document '{
+           "Version": "2012-10-17",
+           "Statement": [
+               {
+                   "Effect": "Allow",
+                   "Principal": { "Service": "cognito-idp.amazonaws.com" },
+                   "Action": "sts:AssumeRole"
+               }
+           ]
+       }'
+   ```
+
+1. Attach a policy that permits the role to write import results to CloudWatch Logs.
+
+   ```
+   aws iam put-role-policy \
+       --role-name {{CognitoUserImportRole}} \
+       --policy-name {{CognitoUserImportLogsPolicy}} \
+       --policy-document '{
+           "Version": "2012-10-17",
+           "Statement": [
+               {
+                   "Effect": "Allow",
+                   "Action": [
+                       "logs:CreateLogGroup",
+                       "logs:CreateLogStream",
+                       "logs:PutLogEvents",
+                       "logs:DescribeLogStreams"
+                   ],
+                   "Resource": "arn:aws:logs:{{REGION}}:{{ACCOUNT}}:log-group:/aws/cognito/*"
+               }
+           ]
+       }'
+   ```
+
+1. Retrieve the role ARN to use as {{ROLE\_ARN}} when you create your import job.
+
+   ```
+   aws iam get-role \
+       --role-name {{CognitoUserImportRole}} \
+       --query 'Role.Arn' --output text
+   ```
+
 ## Creating the user import CSV file
 <a name="cognito-user-pools-using-import-tool-csv-header"></a>
 

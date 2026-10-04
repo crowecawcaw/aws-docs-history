@@ -110,10 +110,17 @@ func requestDidSucceed(apiResult: APIResult!) {
 After the user authenticates with Login with Amazon and is redirected back to your website, the Login with Amazon access\_token is provided in the query string. Pass that token into the credentials login map.
 
 ```
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-   IdentityPoolId: 'IDENTITY_POOL_ID',
-   Logins: {
-       'www.amazon.com': 'Amazon Access Token'
-   }
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
+const client = new S3Client({
+   region: 'REGION',
+   credentials: fromCognitoIdentityPool({
+       identityPoolId: 'IDENTITY_POOL_ID',
+       logins: {
+           'www.amazon.com': 'Amazon Access Token'
+       },
+       clientConfig: { region: 'REGION' }
+   })
 });
 ```

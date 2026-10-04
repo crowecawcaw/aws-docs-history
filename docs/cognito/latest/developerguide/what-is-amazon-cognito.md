@@ -6,6 +6,7 @@
 Amazon Cognito is an identity platform for web and mobile apps. It’s a user directory, an authentication server, and an authorization service for OAuth 2.0 access tokens and AWS credentials. With Amazon Cognito, you can authenticate and authorize users from the built-in user directory, from your enterprise directory, and from consumer identity providers like Google and Facebook.
 
 **Topics**
++ [Which parts of Amazon Cognito do you need?](#what-is-amazon-cognito-choosing)
 + [User pools](#what-is-amazon-cognito-user-pools)
 + [Identity pools](#what-is-amazon-cognito-identity-pools)
 + [Features of Amazon Cognito](#what-is-amazon-cognito-features)
@@ -17,6 +18,22 @@ Amazon Cognito is an identity platform for web and mobile apps. It’s a user di
 + [Getting started with AWS](cognito-getting-started-account-iam.md)
 
 The two components that follow make up Amazon Cognito. They operate independently or in tandem, based on your access needs for your users.
+
+## Which parts of Amazon Cognito do you need?
+<a name="what-is-amazon-cognito-choosing"></a>
+
+Amazon Cognito answers two different questions. Choose based on what your application must do.
+
+Who is this user? (authentication)  
+Use a [user pool](#what-is-amazon-cognito-user-pools). A user pool is a user directory that draws from the OpenID Connect (OIDC) standard to authenticate users and issue JSON web tokens (JWTs) to your app or API. Users can sign in directly, through social providers like Google and Apple, or through enterprise SAML and OIDC providers. Most applications that need sign-up and sign-in start here.
+
+What AWS resources may this user reach? (authorization)  
+Use an [identity pool](#what-is-amazon-cognito-identity-pools). An identity pool exchanges a trusted token (from a user pool, a social provider, or a SAML or OIDC provider) for temporary, limited-privilege AWS credentials so that your app can call services like Amazon S3 and Amazon DynamoDB on the user's behalf. An identity pool can also issue limited-privilege credentials to guest users who haven't signed in, without any token.
+
+Do you need both?  
+Use them together when your app signs users in *and* needs to grant them direct AWS resource access: authenticate with a user pool, then exchange the user pool token with an identity pool for AWS credentials.
+
+Neither component requires the other. A user pool can issue tokens to your own back end with no identity pool. An identity pool can broker credentials for a provider that you already have, even without a user pool. For more information about the differences between the two components, see [Amazon Cognito user pools and identity pools comparison](#what-is-amazon-cognito-features-comparison). To start building, see [Getting started with Amazon Cognito](#getting-started-overview).
 
 ## User pools
 <a name="what-is-amazon-cognito-user-pools"></a>

@@ -200,18 +200,24 @@ Apple doesn’t provide an SDK that supports Sign in with Apple for JavaScript. 
 Sign in with Apple uses a session object to track its state. Amazon Cognito uses the ID token from this session object to authenticate the user, generate the unique identifier, and, if needed, grant the user access to other AWS resources.
 
 ```
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
 function signinCallback(authResult) {
-     // Add the apple's id token to the Amazon Cognito credentials login map.
-     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'IDENTITY_POOL_ID',
-        Logins: {
-           'appleid.apple.com': authResult['id_token']
-        }
+     // Attach a Cognito identity pool credentials provider to your service client,
+     // passing the Apple ID token in the logins map.
+     const client = new S3Client({
+        region: 'REGION',
+        credentials: fromCognitoIdentityPool({
+           identityPoolId: 'IDENTITY_POOL_ID',
+           logins: {
+              'appleid.apple.com': authResult['id_token']
+           },
+           clientConfig: { region: 'REGION' }
+        })
      });
 
-     // Obtain AWS credentials
-     AWS.config.credentials.get(function(){
-        // Access AWS resources here.
-     });
+     // The provider resolves and caches AWS credentials the first time the
+     // client makes a request. Access AWS resources with client here.
 }
 ```

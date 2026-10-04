@@ -7,7 +7,7 @@ Configuring a domain is an optional part of setting up a user pool. A user pool 
 
 M2M authorization is also available without a domain. You can request client-credentials access tokens with the [GetClientToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetClientToken.html) API operation, which uses the Amazon Cognito API instead of the token endpoint.
 
-Users authenticate with managed login pages at the domain associated with your user pool. You have two options for configuring this domain: you can either use the default Amazon Cognito hosted domain, or you can configure a custom domain that you own.
+Users authenticate with managed login pages at the domain associated with your user pool. You have two options for configuring this domain: you can either use the default Amazon Cognito prefix domain, or you can configure a custom domain that you own.
 
 The custom domain option has more options for flexibility, security and control. For example, a familiar, organization-owned domain can encourage user trust and make the sign-in process more intuitive. However, the custom domain approach requires some additional overhead, like managing the SSL certificate and DNS configuration.
 

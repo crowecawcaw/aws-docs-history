@@ -27,6 +27,12 @@ For more information about implementing custom authentication, see [Custom authe
 
 Authentication between the API operations [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) or [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html), and [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html). In this flow, a user authenticates by answering successive challenges until authentication either fails or the user is issued tokens. A challenge response might be a new challenge. In this case, your application responds as many times as necessary to new challenges. Successful authentication happens when the define auth challenge function analyzes the results so far, determines all challenges have been answered, and returns `IssueTokens`.
 
+**Why your custom authentication trigger didn't fire**  
+If your Create auth challenge or Verify auth challenge response function isn't invoked, the cause is usually one of the following:  
+The app client must permit a custom-authentication flow. Activate `ALLOW_CUSTOM_AUTH` (or, for choice-based sign-in, `ALLOW_USER_AUTH`) on the app client, and begin sign-in with the matching flow. A pool that only permits SRP or password authentication never enters the custom challenge sequence.
+Amazon Cognito invokes the three functions in order. It always calls Define auth challenge first, and it calls Create auth challenge and Verify auth challenge response only when your Define auth challenge function returns `challengeName: CUSTOM_CHALLENGE`. If Create isn't running, confirm that Define returns `challengeName: CUSTOM_CHALLENGE` with `issueTokens: false` and `failAuthentication: false`, rather than setting `issueTokens: true` or `failAuthentication: true`.
+All three triggers must be assigned to the user pool. A missing assignment for any one of them breaks the chain.
+
 **Topics**
 + [SRP authentication in custom challenge flows](#user-pool-lambda-challenge-srp-authentication)
 + [Define Auth challenge Lambda trigger](user-pool-lambda-define-auth-challenge.md)

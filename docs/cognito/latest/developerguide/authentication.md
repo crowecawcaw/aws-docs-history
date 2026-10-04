@@ -48,7 +48,7 @@ To configure available authentication flows for an app client with the Amazon Co
 ```
 "ExplicitAuthFlows": [ 
    "ALLOW_USER_AUTH",
-   "ALLOW_USER_SRP_AUTH
+   "ALLOW_USER_SRP_AUTH"
 ]
 ```
 

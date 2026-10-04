@@ -12,6 +12,9 @@ The request includes `codeParameter`. This is a string that acts as a placeholde
 **Note**  
 The input event for a custom message Lambda function with the `CustomMessage_AdminCreateUser` trigger source includes a username and verification code. Because an admin-created user must receive both their user name and code, the response from your function must include placeholder variables for the username and code. The placeholders for your message are the values of `request.usernameParameter` and `request.codeParameter`. These values are typically `{username}` and `{####}`; as a best practice, reference the input values instead of hardcoding the variable names.
 
+**Note**  
+Messages that you configure in the **Message templates** menu of the Amazon Cognito console can override a body that your custom message function sets. If your function's message doesn't appear, check whether a console message template is configured for the same event. For more information, see [Configuring MFA, authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md).
+
 **Topics**
 + [Custom message Lambda trigger sources](#cognito-user-pools-lambda-trigger-syntax-custom-message-trigger-source)
 + [Custom message Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-custom-message)
@@ -108,9 +111,12 @@ This example Lambda function customizes an email or SMS message when the service
 
 Amazon Cognito can invoke a Lambda trigger at multiple events: post-registration, resending a verification code, recovering a forgotten password, or verifying a user attribute. The response includes messages for both SMS and email. The message must include the code parameter `"####"`. This parameter is the placeholder for the verification code that the user receives.
 
-The maximum length for an email message is 20,000 UTF-8 characters,. This length includes the verification code. You can use HTML tags in these email messages.
+The maximum length for an email message is 20,000 UTF-8 characters. This length includes the verification code. You can use HTML tags in these email messages.
 
 The maximum length of SMS messages is 140 UTF-8 characters. This length includes the verification code.
+
+**Note**  
+If your function returns an email message longer than 20,000 UTF-8 characters, Amazon Cognito doesn't return an error. Instead, it silently discards your custom message and sends the default message for that event. If your custom message isn't reaching users, check its length against this limit first.
 
 ------
 #### [ Node.js ]
@@ -178,6 +184,9 @@ The request that Amazon Cognito sent to this example custom message Lambda funct
 Your custom messages must insert the values of `codeParameter` and `usernameParameter` into `smsMessage` and `emailMessage` in the response object. In this example, the function writes the same message to the response fields `event.response.smsMessage` and `event.response.emailMessage`.
 
 The maximum length of an email message is 20,000 UTF-8 characters. This length includes the verification code. You can use HTML tags in these emails. The maximum length of SMS messages is 140 UTF-8 characters. This length includes the verification code.
+
+**Note**  
+If your function returns an email message longer than 20,000 UTF-8 characters, Amazon Cognito doesn't return an error. Instead, it silently discards your custom message and sends the default message for that event. If your custom message isn't reaching users, check its length against this limit first.
 
 The response includes messages for both SMS and email. 
 

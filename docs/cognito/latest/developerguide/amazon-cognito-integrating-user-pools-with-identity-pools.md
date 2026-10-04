@@ -77,6 +77,8 @@ You can derive the value for {{<region>}} from the **User Pool ID**. For example
 #### [ JavaScript ]
 
 ```
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+
 var cognitoUser = userPool.getCurrentUser();
 
 if (cognitoUser != null) {
@@ -84,13 +86,18 @@ if (cognitoUser != null) {
 		if (result) {
 			console.log('You are now logged in.');
 
-			// Add the User's Id Token to the Cognito credentials login map.
-			AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-				IdentityPoolId: '{{YOUR_IDENTITY_POOL_ID}}',
-				Logins: {
+			// Create a credentials provider with the user's ID token in the logins map.
+			const region = '{{<region>}}';
+			const credentials = fromCognitoIdentityPool({
+				identityPoolId: '{{YOUR_IDENTITY_POOL_ID}}',
+				logins: {
 					'cognito-idp.{{<region>}}.amazonaws.com/{{<YOUR_USER_POOL_ID>}}': result.getIdToken().getJwtToken()
-				}
+				},
+				clientConfig: { region }
 			});
+
+			// Attach the provider to each service client that needs credentials.
+			const client = new SomeServiceClient({ region, credentials });
 		}
 	});
 }

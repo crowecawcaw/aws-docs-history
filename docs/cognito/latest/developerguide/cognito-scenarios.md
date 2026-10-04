@@ -3,7 +3,7 @@
 # Common Amazon Cognito scenarios
 <a name="cognito-scenarios"></a>
 
-This topic describes six common scenarios for using Amazon Cognito.
+This topic describes seven common scenarios for using Amazon Cognito.
 
 The two main components of Amazon Cognito are user pools and identity pools. User pools are user directories that provide sign-up and sign-in options for your web and mobile app users. Identity pools provide temporary AWS credentials to grant your users access to other AWS services.
 
@@ -18,6 +18,8 @@ With an identity pool, your users can obtain temporary AWS credentials to access
 + [Access AWS services with a user pool and an identity pool](#scenario-aws-and-user-pool)
 + [Authenticate with a third party and access AWS services with an identity pool](#scenario-identity-pool)
 + [Access AWS AppSync resources with Amazon Cognito](#scenario-appsync)
++ [Authorize machine-to-machine (M2M) applications](#scenario-machine-to-machine)
++ [Step-up authentication](#scenario-step-up-authentication)
 
 ## Authenticate with a user pool
 <a name="scenario-basic-user-pool"></a>
@@ -79,3 +81,20 @@ You can grant your users access to AWS AppSync resources with tokens from a succ
 You can also sign requests to the AWS AppSync GraphQL API with the IAM credentials that you receive from an identity pool. See [AWS\_IAM authorization](https://docs.aws.amazon.com/appsync/latest/devguide/security-authz.html#aws-iam-authorization).
 
 ![Access AWS AppSync resources through a user pool or an identity pool](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-appsync.png)
+
+
+## Authorize machine-to-machine (M2M) applications
+<a name="scenario-machine-to-machine"></a>
+
+With machine-to-machine (M2M) authorization, an application, service, or device can authenticate as itself and get authorized access to your APIs, with no signed-in user. Amazon Cognito authorizes an application instead of a user and issues only an access token—no ID token and no refresh token. This is the model for workloads such as an application that autonomously collects data from a fleet of Internet of Things (IoT) devices, where each device connects to your API and pushes data with no human in the loop.
+
+To enable M2M authorization, build an app client that has a client secret, and enable it for the `client_credentials` grant. Your machine identity requests tokens from the authorization server and presents them to your resource server. For more information, see [Machine-to-machine (M2M) authorization](cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-about-m2m) and [Token endpoint](token-endpoint.md).
+
+## Step-up authentication
+<a name="scenario-step-up-authentication"></a>
+
+Consider a banking application that lets users sign in with a username and password. To make a wire transfer, the application requires multi-factor authentication (MFA). When a user attempts a transfer, the application inspects the `acr` claim in the user's access and ID tokens, determines that the authentication level is insufficient, and redirects the user to Amazon Cognito to complete MFA. Amazon Cognito then issues a new token with an elevated authentication level, and the application allows the transfer.
+
+Before you redirect a user to Amazon Cognito for step-up authentication, evaluate the tokens that your application already holds. Compare the `auth_time` claim to the maximum age that the operation allows, and compare the token's `acr` level to the level that the operation requires. Redirect the user to Amazon Cognito to complete the authentication flow only when the required authentication level or freshness isn't already met.
+
+For more information about ACR levels, AMR values, and other step-up authentication concepts, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md). For the mechanics of requesting step-up authentication, see [Step-up authentication with the USER\_AUTH flow](authentication-flows-selection-sdk.md#cognito-user-pools-step-up-user-auth) for the `USER_AUTH` flow, and [Authorize endpoint](authorization-endpoint.md) and [Login endpoint](login-endpoint.md) for managed login.

@@ -7,6 +7,11 @@ User pools aren't only a customer identity and access management (CIAM) user dir
 
 When you create users as an administrator, Amazon Cognito sets a temporary password for them and sends a welcome, or invitation, message. They can follow the link in their invitation message and sign in for the first time, setting a password and confirming their account. The page that follows describes how to create new users and configure the welcome message. For more information about user creation with the user pools API and an AWS SDK or CDK, see [AdminCreateUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html).
 
+**Users with temporary passwords start in the FORCE\_CHANGE\_PASSWORD status**  
+When you create a user with a temporary password, Amazon Cognito places the user in the `FORCE_CHANGE_PASSWORD` status. A user in this status can't sign in until they set a permanent password in response to a `NEW_PASSWORD_REQUIRED` challenge.
+
+To move an administrator-created user to the `CONFIRMED` status without a first-time sign-in, call the [AdminSetUserPassword](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html) API operation with `Permanent` set to `True`. This request sets a permanent password and confirms the user.
+
 After you create your user pool, you can create users using the AWS Management Console, as well as the AWS Command Line Interface or the Amazon Cognito API. You can create a profile for a new user in a user pool and send a welcome message with sign-up instructions to the user via SMS or email.
 
 The following are some examples of how administrators can manage users in user pools.

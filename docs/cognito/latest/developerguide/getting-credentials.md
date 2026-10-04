@@ -7,10 +7,7 @@ You can use Amazon Cognito to deliver temporary, limited-privilege credentials t
 
 Amazon Cognito supports both authenticated and unauthenticated identities. Unauthenticated users do not have their identity verified, making this role appropriate for guest users of your app or in cases when it doesn't matter if users have their identities verified. Authenticated users log in to your application through a third-party identity provider, or a user pool, that verifies their identities. Make sure you scope the permissions of resources appropriately so you don't grant access to them from unauthenticated users.
 
-Amazon Cognito identities are not credentials. They are exchanged for credentials using web identity federation support in the AWS Security Token Service (AWS STS). The recommended way to obtain AWS credentials for your app users is to use `AWS.CognitoIdentityCredentials`. The identity in the credentials object is then exchanged for credentials using AWS STS.
-
-**Note**  
-If you created your identity pool before February 2015, you must reassociate your roles with your identity pool to use the `AWS.CognitoIdentityCredentials` constructor without the roles as parameters. To do so, open the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home), choose **Manage identity pools**, select your identity pool, choose **Edit identity Pool**, specify your authenticated and unauthenticated roles, and save the changes. 
+Amazon Cognito identities are not credentials. They are exchanged for credentials using web identity federation support in the AWS Security Token Service (AWS STS). To obtain AWS credentials for your app users, use your AWS SDK's Cognito identity pool credential provider. For example, in the AWS SDK for JavaScript (v3), use the `fromCognitoIdentityPool` function from the `@aws-sdk/credential-providers` package. The identity is then exchanged for credentials using AWS STS.
 
 Web identity credentials providers are part of the default credential provider chain in AWS SDKs. To set your identity pool token in a local `config` file for an AWS SDK or the AWS CLI, add a `web_identity_token_file` profile entry. See [Assume role credential provider](https://docs.aws.amazon.com/sdkref/latest/guide/feature-assume-role-credentials.html) in the AWS SDKs and Tools Reference Guide.
 
@@ -108,46 +105,54 @@ credentialsProvider.getIdentityId().continueWith(block: { (task) -> AnyObject? i
 ## JavaScript
 <a name="getting-credentials-1.javascript"></a>
 
-If you have not yet created one, create an identity pool in the [Amazon Cognito console](https://console.aws.amazon.com/cognito) before using `AWS.CognitoIdentityCredentials`.
+If you have not yet created one, create an identity pool in the [Amazon Cognito console](https://console.aws.amazon.com/cognito) before using `fromCognitoIdentityPool`.
 
-After you configure an identity pool with your identity providers, you can use `AWS.CognitoIdentityCredentials` to authenticate users. To configure your application credentials to use `AWS.CognitoIdentityCredentials`, set the `credentials` property of either `AWS.Config` or a per-service configuration. The following example uses `AWS.Config`: 
+After you configure an identity pool with your identity providers, you can use the `fromCognitoIdentityPool` function from the `@aws-sdk/credential-providers` package to authenticate users. Rather than setting a global `AWS.config.credentials`, attach the credentials provider directly to each service client through its `credentials` property. The v3 SDK resolves the provider lazily the first time the client makes a request, so there is no separate call to obtain credentials. The following example attaches the provider to an `S3Client`: 
 
 ```
-// Set the region where your identity pool exists (us-east-1, eu-west-1)
-AWS.config.region = 'us-east-1';
+import { S3Client } from "@aws-sdk/client-s3";
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
 
-// Configure the credentials provider to use your identity pool
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'IDENTITY_POOL_ID',
-    Logins: { // optional tokens, used for authenticated login
-        'graph.facebook.com': 'FBTOKEN',
-        'www.amazon.com': 'AMAZONTOKEN',
-        'accounts.google.com': 'GOOGLETOKEN',
-        'appleid.apple.com': 'APPLETOKEN'
-    }
+// Set the region where your identity pool exists (for example, us-east-1 or eu-west-1)
+const region = "REGION";
+
+// Attach the credentials provider to your service client
+const client = new S3Client({
+  region,
+  credentials: fromCognitoIdentityPool({
+    identityPoolId: "IDENTITY_POOL_ID",
+    logins: { // optional tokens, used for authenticated login
+      "graph.facebook.com": "FBTOKEN",
+      "www.amazon.com": "AMAZONTOKEN",
+      "accounts.google.com": "GOOGLETOKEN",
+      "appleid.apple.com": "APPLETOKEN"
+    },
+    clientConfig: { region },
+  }),
 });
 
-// Make the call to obtain credentials
-AWS.config.credentials.get(function(){
-
-    // Credentials will be available when this function is called.
-    var accessKeyId = AWS.config.credentials.accessKeyId;
-    var secretAccessKey = AWS.config.credentials.secretAccessKey;
-    var sessionToken = AWS.config.credentials.sessionToken;
-
-});
+// Credentials are resolved lazily when the client first makes a request.
+// To inspect them directly, call the provider and await the result
+// (from inside an async function):
+const credentials = await client.config.credentials();
+const { accessKeyId, secretAccessKey, sessionToken } = credentials;
 ```
 
-The optional `Logins` property is a map of identity provider names to the identity tokens for those providers. How you get the token from your identity provider depends on the provider you use. For example, if Facebook is one of your identity providers, you might use the `FB.login` function from the [Facebook SDK](https://developers.facebook.com/docs/facebook-login/web) to get an identity provider token: 
+The optional `logins` property is a map of identity provider names to the identity tokens for those providers. How you get the token from your identity provider depends on the provider you use. For example, if Facebook is one of your identity providers, you might use the `FB.login` function from the [Facebook SDK](https://developers.facebook.com/docs/facebook-login/web) to get an identity provider token: 
 
 ```
 FB.login(function (response) {
     if (response.authResponse) { // logged in
-        AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-          IdentityPoolId: 'us-east-1:1699ebc0-7900-4099-b910-2df94f52a030',
-          Logins: {
-            'graph.facebook.com': response.authResponse.accessToken
-          }
+        const region = "us-east-1";
+        const client = new S3Client({
+          region,
+          credentials: fromCognitoIdentityPool({
+            identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
+            logins: {
+              "graph.facebook.com": response.authResponse.accessToken
+            },
+            clientConfig: { region },
+          }),
         });
 
         console.log('You are now logged in.');
@@ -159,10 +164,11 @@ FB.login(function (response) {
 
 **Retrieving an Amazon Cognito identity**
 
-You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately if you're allowing unauthenticated users or after you've set the login tokens in the credentials provider if you're authenticating users:
+You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user. If you allow unauthenticated users, you can retrieve it immediately. If you authenticate users, retrieve it after you set the login tokens. The `fromCognitoIdentityPool` provider exposes the `identityId` on the credentials that it resolves, so you can read it from the resolved credentials of a client that uses the provider:
 
 ```
-var identityId = AWS.config.credentials.identityId;
+// Inside an async function:
+const { identityId } = await client.config.credentials();
 ```
 
 ## Unity

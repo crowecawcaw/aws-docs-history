@@ -3,9 +3,9 @@
 # Using the Amazon Cognito prefix domain for managed login
 <a name="cognito-user-pools-assign-domain-prefix"></a>
 
-The default experience for managed login is hosted on a domain that AWS owns. This approach has a low barrier to entry—choose a prefix name and it's active—but doesn't have the trust-inspiring features of a custom domain. There isn't a cost difference between the Amazon Cognito domain option and the custom domain option. The only difference is the domain in the web address that you direct your users to. For cases of third-party IdP redirects and client-credentials flows, the hosted domain has little visible effect. A custom domain is better for cases where your users sign in with managed login and would interact with a authentication domain that doesn't match the application domain.
+The default experience for managed login is hosted on a domain that AWS owns. This approach has a low barrier to entry—choose a prefix name and it's active—but doesn't have the trust-inspiring features of a custom domain. There isn't a cost difference between the Amazon Cognito domain option and the custom domain option. The only difference is the domain in the web address that you direct your users to. For cases of third-party IdP redirects and client-credentials flows, the prefix domain has little visible effect. A custom domain is better for cases where your users sign in with managed login and would interact with a authentication domain that doesn't match the application domain.
 
-The hosted Amazon Cognito domain has a prefix of your choosing, but is hosted at the root domain `amazoncognito.com`. The following is an example:
+The prefix domain has a prefix of your choosing and is a subdomain of the regional `amazoncognito.com` authentication domain. The following is an example:
 
 ```
 https://{{cognitoexample}}.auth.{{ap-south-1}}.amazoncognito.com
@@ -21,6 +21,7 @@ User pool parent domains take the following formats.
 auth.{{Region}}.amazoncognito.com
 auth-fips.{{Region}}.amazoncognito.com
 ```
+The `auth-fips` domain is a Federal Information Processing Standard (FIPS) 140-3 compliant endpoint. It provides encryption in transit with FIPS-validated cryptographic modules. Direct your users to this endpoint when your application must meet FIPS compliance requirements. FIPS endpoints for Amazon Cognito managed login are available in a subset of AWS Regions in the US and are not offered in all Regions. For more information about FIPS and the Regions where Amazon Cognito provides FIPS endpoints, see [FIPS 140-3](https://aws.amazon.com/compliance/fips/).
 
 To add an app client and a user pool domain with the AWS Management Console, see [Creating an app client](user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create).
 

@@ -90,10 +90,17 @@ credentialsProvider.logins = @{ "login.provider.com": token }
 <a name="set-up-open-id-1.javascript"></a>
 
 ```
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
- IdentityPoolId: 'IDENTITY_POOL_ID',
- Logins: {
-    'login.provider.com': token
- }
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
+const client = new S3Client({
+ region: 'REGION',
+ credentials: fromCognitoIdentityPool({
+    identityPoolId: 'IDENTITY_POOL_ID',
+    logins: {
+       'login.provider.com': token
+    },
+    clientConfig: { region: 'REGION' }
+ })
 });
 ```

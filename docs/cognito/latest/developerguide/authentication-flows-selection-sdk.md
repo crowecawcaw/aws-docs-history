@@ -14,11 +14,15 @@ Some authentication methods are fixed to one of the two flow types, and some met
 **Topics**
 + [Choice-based authentication](#authentication-flows-selection-choice)
 + [Client-based authentication](#authentication-flows-selection-client)
++ [Step-up authentication with the USER\_AUTH flow](#cognito-user-pools-step-up-user-auth)
 
 ## Choice-based authentication
 <a name="authentication-flows-selection-choice"></a>
 
 Your application can request the following authentication methods in choice-based authentication. Declare these options in the `PREFERRED_CHALLENGE` parameter of [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#CognitoUserPools-InitiateAuth-request-AuthParameters) or [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html#CognitoUserPools-AdminInitiateAuth-request-AuthParameters), or in the `ChallengeName` parameter of [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html#CognitoUserPools-RespondToAuthChallenge-request-ChallengeName) or [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html#CognitoUserPools-AdminRespondToAuthChallenge-request-ChallengeName).
+
+**Important**  
+Choice-based sign-in has two prerequisites. Your app client must activate the `ALLOW_USER_AUTH` authentication flow, and the passwordless and passkey methods (`EMAIL_OTP`, `SMS_OTP`, `WEB_AUTHN`) require a user pool on the **Essentials** or **Plus** [feature plan](cognito-sign-in-feature-plans.md)—they aren't available on the **Lite** tier. `PASSWORD` (including SRP) is available on all feature plans. If a choice-based method doesn't appear for your users, confirm both the app-client flow and the feature plan before troubleshooting further.
 
 1. `EMAIL_OTP` and `SMS_OTP`
 
@@ -119,3 +123,35 @@ Client-based authentication supports the following authentication flows. Declare
 With client-based authentication, Amazon Cognito assumes that you have determined how your user wants to authenticate before they begin authentication flows. The logic of determining the sign-in factor that a user wants to provide must be determined with default settings or custom prompts, then declared in the first request to your user pool. The `InitiateAuth` request declares a sign-in `AuthFlow` that directly corresponds to one of the listed options, for example `USER_SRP_AUTH`. With this declaration, the request also includes the parameters to begin authentication, for example `USERNAME`, `SECRET_HASH`, and `SRP_A`. Amazon Cognito might follow up this request with additional challenges like `PASSWORD_VERIFIER` for SRP or `SOFTWARE_TOKEN_MFA` for password sign-in with TOTP MFA.
 
 To [configure your app client](authentication.md#authentication-implement) for client-based authentication, add any authentication flows other than `ALLOW_USER_AUTH` to the allowed authentication flows. Examples are `ALLOW_USER_PASSWORD_AUTH`, `ALLOW_CUSTOM_AUTH`, `ALLOW_REFRESH_TOKEN_AUTH`. To permit client-based authentication flows, no additional user pool configuration is required.
+
+## Step-up authentication with the USER\_AUTH flow
+<a name="cognito-user-pools-step-up-user-auth"></a>
+
+You request step-up authentication in the existing `USER_AUTH` flow with the [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) and [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) operations. There are no new API operations. The corresponding server-side operations, [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) and [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html), support the same step-up parameters and behavior, and `AdminInitiateAuth` can also optionally take an access token. This flow works both when a user has an existing ID token and when a user authenticates toward a target level for the first time. For more information about the flow, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow).
+
+For more information about ACR levels and AMR values, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md).
+
+**Note**  
+Step-up authentication requires the Essentials or Plus feature plan.
+
+You pass the step-up parameters in the `AuthParameters` map of your `InitiateAuth` (or `AdminInitiateAuth`) request: the new `TARGET_ACR_VALUES` and `MAX_AGE`, together with the existing `USERNAME`, `ACCESS_TOKEN`, and `PREFERRED_CHALLENGE`. For the definition and constraints of each parameter, see [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) and [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) in the *Amazon Cognito user pools API Reference*.
+
+The following table describes how Amazon Cognito responds to combinations of these parameters.
+
+
+**USER\_AUTH step-up authentication behavior**  
+
+| Parameters | Behavior | 
+| --- | --- | 
+| TARGET\_ACR\_VALUES and ACCESS\_TOKEN, with MAX\_AGE satisfied | Amazon Cognito steps the user up from the token's current factors to the highest-priority satisfiable level. | 
+| TARGET\_ACR\_VALUES and ACCESS\_TOKEN, with MAX\_AGE not satisfied | Amazon Cognito authenticates the user from scratch toward the target level. | 
+| TARGET\_ACR\_VALUES without ACCESS\_TOKEN | Amazon Cognito authenticates the user from scratch toward the target level. | 
+| Neither parameter | The USER\_AUTH flow behaves as it does without step-up authentication. | 
+
+Keep the following behavior in mind when you design a step-up authentication flow.
++ Step-up authentication is all-or-nothing. If reaching the target level requires multiple challenges, for example a password and a TOTP for level 4, and the user fails any challenge, the step-up attempt fails entirely. Amazon Cognito doesn't issue intermediate tokens.
++ If the presented token already meets or exceeds the requested level, Amazon Cognito returns an error instead of issuing a new token. This prevents applications from using step-up authentication as a token-refresh mechanism.
++ The user must already have the factors to satisfy a requested level. If the user has no factors configured to meet any requested target level, Amazon Cognito returns an error. Step-up authentication doesn't prompt the user to set up new factors.
++ MFA is a floor. If the MFA settings of the user or the user pool require MFA, initial sign-in still enforces and prompts that MFA challenge even when the target level is lower and wouldn't otherwise require MFA. MFA that threat protection (advanced security features) prompts for is also enforced on initial sign-in, even when the requested target ACR level wouldn't otherwise require MFA. `TARGET_ACR_VALUES` can't suppress a required MFA prompt. At most, the target can influence which of several enabled MFA factors Amazon Cognito prompts for. If a step-up request targets a lower level, for example level 1, for a user who is required to use MFA, Amazon Cognito silently enforces the required MFA. It steps the user up and doesn't return an error.
+
+Requesting step-up authentication with `TARGET_ACR_VALUES` requires the Essentials or Plus feature plan. For more information, see [Feature plan requirements](cognito-user-pools-step-up-authentication.md#cognito-user-pools-step-up-authentication-tiers).

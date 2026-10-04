@@ -5,7 +5,7 @@
 
 The user pool access token contains claims about the authenticated user, a list of the user's groups, and a list of scopes. The purpose of the access token is to authorize API operations. Your user pool accepts access tokens to authorize user self-service operations. For example, you can use the access token to grant your user access to add, change, or delete user attributes.
 
-With [OAuth 2.0 scopes](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) in an access token, derived from the custom scopes that you add to your user pool, you can authorize your user to retrieve information from an API. For example, Amazon API Gateway supports authorization with Amazon Cognito access tokens. You can populate a REST API authorizer with information from your user pool, or use Amazon Cognito as a JSON Web Token (JWT) authorizer for an HTTP API. To generate an access token with custom scopes, you must request it through your user pool [public endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html).
+With [OAuth 2.0 scopes](https://www.rfc-editor.org/rfc/rfc6749#section-3.3) in an access token, derived from the custom scopes that you add to your user pool, you can authorize your user to retrieve information from an API. For example, Amazon API Gateway supports authorization with Amazon Cognito access tokens. You can populate a REST API authorizer with information from your user pool. For details, see [Control access to REST APIs using Amazon Cognito user pools as authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html). You can also use Amazon Cognito as a JWT authorizer for an HTTP API. For details, see [Control access to HTTP APIs with JWT authorizers in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-jwt-authorizer.html). To generate an access token with custom scopes, you must request it through your user pool [public endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html).
 
 With the Essentials or Plus [feature plan](cognito-sign-in-feature-plans.md), you can also implement a pre token generation Lambda trigger that adds scopes to your access tokens at runtime. For more information, see [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md).
 
@@ -112,6 +112,16 @@ The user's username in the user pool.
 
 **More resources**
 + [How to customize access tokens in Amazon Cognito user pools](https://aws.amazon.com/blogs/security/how-to-customize-access-tokens-in-amazon-cognito-user-pools/)
+
+## Machine-to-machine access token payload
+<a name="user-pool-access-token-payload-m2m"></a>
+
+Because a machine-to-machine (M2M) access token authorizes an application instead of a user, its payload differs from the user access token described previously. In M2M authorization, the `sub` claim contains the ID of the app client that requested the token, not a user identifier, and the `sub` and `client_id` claims have the same value. The token carries the custom scopes that authorize requests to your resource server, along with standard claims such as `iss`, `token_use` (with a value of `access`), `exp`, `iat`, and `jti`.
+
+Because M2M authorization involves no user and issues no refresh token, an M2M access token omits several claims that a user access token contains. Your resource server can't expect these claims:
++ The `username` and `cognito:groups` claims, which identify an authenticated user and their group membership.
++ The `device_key` claim, which identifies a remembered user device.
++ The `origin_jti` claim, which links a token to a revocable refresh token that M2M authorization doesn't issue.
 
 ## Access token signature
 <a name="user-pool-access-token-signature"></a>

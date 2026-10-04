@@ -147,8 +147,8 @@ Tag the IAM roles used with identity pools and modify your policies to allow ope
 
 ```
 aws iam tag-role \
-    -\-role-name {{MyIdentityPoolRole}} \
-    -\-tags Key=CognitoServiceCall,Value=true
+    --role-name {{MyIdentityPoolRole}} \
+    --tags Key=CognitoServiceCall,Value=true
 ```
 
 Then modify your network-based policies to allow tagged principals. For example, in an RCP:

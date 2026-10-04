@@ -37,8 +37,13 @@ You must prepare IAM roles whose credentials you want to pass to your users. The
 
 **Important**  
 If you map custom attributes from a Amazon Cognito user pool to principal tags, ensure that end users cannot modify those attributes. An attribute that a user can change through `UpdateUserAttributes` should not serve as a security boundary in your IAM policies. To prevent user modification, do one of the following:  
-Remove the attribute from your app client's [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes).
+Remove the attribute from the [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html#CognitoUserPools-CreateUserPoolClient-request-WriteAttributes) of every app client in your user pool, not only the app client that you configured in your identity pool.
 Define the attribute as `Mutable: false` when you add it to your user pool schema.
+User attributes are shared by all app clients in a user pool. If a user changes an attribute through any app client, the new value appears in that user's ID tokens from every app client.  
+When you don't specify `WriteAttributes` for an app client, the app client has write access to all standard and custom attributes. Specify `WriteAttributes` for each app client that you create, including app clients that you add later.  
+Users can't change an immutable attribute after their user profile is created. However, they can set its value when they sign up. If your user pool allows self-service sign-up, remove the attribute from the `WriteAttributes` of every app client. Then do one of the following:  
+Set the value when you create users with `AdminCreateUser`.
+Reject sign-up requests that contain unexpected values. For more information, see [Pre sign-up Lambda trigger](user-pool-lambda-pre-sign-up.md).
 Additionally, ensure that attribute values mapped to principal tags do not contain characters that have special meaning in IAM policy evaluation, such as `*` (asterisk) or `?` (question mark). In IAM policy `Resource` elements and `StringLike` condition operators, these characters function as wildcards. If you set an attribute value to `*` and map it to a principal tag, the `${aws:PrincipalTag/{{tagkey}}}` evaluation might match more resources than intended. This can grant access to resources belonging to other tenants or projects. Validate attribute values in your application logic. Alternatively, use a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) to reject or sanitize values that contain these characters before your application passes them as principal tags.  
 If your application requires the attribute to remain user-writable for other purposes, use a [pre token generation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-token-generation.html) to validate or override the claim before it is included in the ID token.
 
@@ -68,14 +73,13 @@ Consider a scenario where an employee from the legal department of a company nee
 **Claims**
 
 ```
-            { .
-              .
+{
+            "...": "other claims",
             "sub" : "57e7b692-4f66-480d-98b8-45a6729b4c88",
             "department" : "legal",
             "clearance" : "confidential",
-             .
-             .
-            }
+            "...": "other claims"
+        }
 ```
 
 These attributes can be mapped to tags and referenced in IAM permissions policies as principal tags. You can now manage access by changing the user profile on the identity provider's end. Alternatively, you can change attributes on the resource side by using names or tags without changing the policy itself.

@@ -11,7 +11,7 @@ When you have an AWS WAF web ACL associated with a user pool, Amazon Cognito for
 <a name="user-pool-waf-things-to-know"></a>
 + You can't configure web ACL rules to match on personally identifiable information (PII) in user pool requests, for example usernames, passwords, phone numbers, or email addresses. This data won't be available to AWS WAF. Instead, configure your web ACL rules to match on session data in the headers, path, and body like IP addresses, browser agents, and requested API operations.
 + Amazon Cognito supports body-based web ACL rules only for requests to the user pools API. For managed login and the classic hosted UI, Amazon Cognito doesn't forward the request body and inspects only the headers and other non-body components.
-+ Web ACL rule conditions can only return custom block responses to users' **first** request to a user-interactive managed login page. When subsequent connections match a custom block response condition, they return your custom status code, header, and redirect responses, but a default block message.
++ Web ACL rules can return your custom block response only when the browser loads a managed login page. Requests that the page sends without reloading, such as when a user submits the sign-in form, receive a default `403` block response instead.
 + Requests blocked by AWS WAF do not count towards the request rate quota for any request type. The AWS WAF handler is called before the API-level throttling handlers.
 + When you create a web ACL, a small amount of time passes before the web ACL has fully propagated and is available to Amazon Cognito. The propagation time can be from a few seconds to a number of minutes. AWS WAF returns a [`WAFUnavailableEntityException`](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html#API_AssociateWebACL_Errors) when you attempt to associate a web ACL before it has fully propagated.
 + You can associate one web ACL with each user pool.
@@ -19,6 +19,7 @@ When you have an AWS WAF web ACL associated with a user pool, Amazon Cognito for
 + You can’t associate a web ACL that uses AWS WAF [Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) with an Amazon Cognito user pool. The ATP feature is in the `AWS-AWSManagedRulesATPRuleSet` managed rule group. Before you associate a web ACL with a user pool, be sure that it doesn’t use this managed rule group.
 + When you have an AWS WAF web ACL associated with a user pool, and a rule in your web ACL presents a CAPTCHA, this can cause an unrecoverable error in managed login TOTP registration. To create a rule that has a CAPTCHA action and doesn't affect managed login TOTP, see [Configuring your AWS WAF web ACL for managed login TOTP MFA](user-pool-settings-mfa-totp.md#totp-waf).
 + When a rule in your web ACL returns a custom block response, Amazon Cognito adds a Content-Security-Policy header to that response. This policy allows scripts only from the same origin as your user pool domain and from the AWS WAF CAPTCHA and challenge scripts that Amazon Cognito provides. It blocks any other inline or third-party script, including a script that your custom response body uses to redirect the user. For more information, see [Content-Security-Policy on custom block responses](#user-pool-waf-custom-response-csp).
++ When a rule in your web ACL returns a custom block response with an HTTP status code of 500 or higher in response to a managed login or classic hosted UI request, Amazon Cognito returns a `403 (Forbidden)` status code instead. For more information, see [Status codes in custom block responses](#user-pool-waf-custom-response-status).
 
 AWS WAF inspects requests to the following endpoints.
 
@@ -32,7 +33,7 @@ You can configure the rules in your web ACL with rule actions that **Count**, **
 
 **Important**  
 Your options to customize the error response depends on the way you make an API request.  
-You can customize the error code and response body of managed login requests. You can only present a CAPTCHA for your user to solve in managed login.
+You can customize the error code and response body of managed login requests. Amazon Cognito returns custom error codes of 500 and higher as `403`. For more information, see [Status codes in custom block responses](#user-pool-waf-custom-response-status). You can only present a CAPTCHA for your user to solve in managed login.
 For requests that you make with the Amazon Cognito[ user pools API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/Welcome.html), you can customize the response body of a request that receives a **Block** response. You can also specify a custom error code in the range 400–499.
 The AWS Command Line Interface (AWS CLI) and the AWS SDKs return a `ForbiddenException` error to requests that produce a **Block** or **CAPTCHA** response.
 
@@ -48,6 +49,14 @@ Any other inline script, and any script hosted on a domain other than your user 
 If your custom response needs to redirect the user, return an HTTP 3xx status code and a `Location` header instead of a script-based redirect. This pattern doesn't depend on script execution and isn't affected by the CSP.
 
 This behavior applies in all AWS Regions where you can associate a web ACL with a user pool.
+
+## Status codes in custom block responses
+<a name="user-pool-waf-custom-response-status"></a>
+
+Amazon Cognito doesn't return `5xx` status codes from AWS WAF custom block responses. When a web ACL rule returns a custom block response with a status code of 500 or higher, Amazon Cognito responds with a `403 (Forbidden)` status code instead. The response still includes the headers and body from your custom response. This behavior applies as follows:
++ **Managed login pages** – When the browser loads a managed login page, Amazon Cognito returns `403` with the headers and body from your custom response. Requests that the page sends without reloading, such as form submissions, receive the default `403` block response without your custom headers or body.
++ **Classic hosted UI pages and other user pool endpoints** – Amazon Cognito returns `403` with the headers and body from your custom response for classic hosted UI pages. The [identity provider and relying party endpoints](federation-endpoints.md) behave the same way, whether your user pool uses managed login or classic hosted UI branding.
++ **User pools API** – The user pools API returns your custom status code only when it's in the range 400–499, and returns `403` for other status codes.
 
 ## Associating a web ACL with your user pool
 <a name="user-pool-waf-setting-up"></a>

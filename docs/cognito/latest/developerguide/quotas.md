@@ -382,7 +382,7 @@ The following quotas describe the maximum number or length of items that you can
 | App clients per user pool | 1,000 | Yes | 10,000 | 
 | User pools per Region | 1,000 | Yes | 10,000 | 
 | Identity providers per user pool | 300 | Yes | 1,000 | 
-| Resource servers per user pool | 25 | Yes | 300 | 
+| Resource servers per user pool | 100 | Yes | 300 | 
 | Users per user pool | 40,000,000 | Yes | Contact your account team. | 
 | Total combined changes in pre token generation Lambda trigger[1](#cognito-resource-quotas-claims-note) | 5,000 | Yes | Contact your account team. | 
 | Managed login branding styles per user pool | 20 | No | N/A | 

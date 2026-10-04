@@ -272,21 +272,27 @@ To enable login with Google in your application, follow the [Google documentatio
 Successful authentication results in a response object that contains an `id_token` that Amazon Cognito uses to authenticate the user and generate a unique identifier:
 
 ```
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
 
-     // Add the Google ID token to the Amazon Cognito credentials login map.
-     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        IdentityPoolId: 'IDENTITY_POOL_ID',
-        Logins: {
-           'accounts.google.com': authResult['id_token']
-        }
+     // Attach a Cognito identity pool credentials provider to your service client,
+     // passing the Google ID token in the logins map.
+     const client = new S3Client({
+        region: 'REGION',
+        credentials: fromCognitoIdentityPool({
+           identityPoolId: 'IDENTITY_POOL_ID',
+           logins: {
+              'accounts.google.com': authResult['id_token']
+           },
+           clientConfig: { region: 'REGION' }
+        })
      });
 
-     // Obtain AWS credentials
-     AWS.config.credentials.get(function(){
-        // Access AWS resources here.
-     });
+     // The provider resolves and caches AWS credentials the first time the
+     // client makes a request. Access AWS resources with client here.
   }
 }
 ```

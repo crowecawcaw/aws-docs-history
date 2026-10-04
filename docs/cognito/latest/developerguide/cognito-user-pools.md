@@ -80,7 +80,28 @@ Some sessions aren’t a human-to-machine interaction. You might need a service 
 ### Managed login
 <a name="cognito-user-pools-hosted-ui"></a>
 
-When you don’t want to build a user interface, you can present your users with a customized managed login pages. Managed login is a set of web pages for sign-up, sign-in, multi-factor authentication (MFA), and password reset. You can add managed login to your existing domain, or use a prefix identifier in an AWS subdomain.
+When you don’t want to build a user interface, you can present your users with a customized managed login pages. Managed login is a set of web pages for sign-up, sign-in, multi-factor authentication (MFA), and password reset. You can add managed login to your existing domain, or use a prefix domain in an AWS subdomain.
+
+Managed login has an alternative: the classic hosted UI, a first-generation version with a simpler design and fewer features. You choose one or the other for a user pool domain—they aren't used together. The following table compares the two options.
+
+
+| Feature | Classic hosted UI | Managed login | 
+| --- | --- | --- | 
+| Branding version | Hosted UI (classic) | Managed login | 
+| Customization | File-based branding (logo image and a CSS values file) | Visual branding editor in the Amazon Cognito console | 
+| Feature plans | All plans, including Lite | Essentials and Plus | 
+| Passkey sign-in | Not available | Available | 
+
+**Note**  
+The classic hosted UI is available in all feature plans, including Lite. Managed login and its branding editor require the Essentials or Plus feature plan. For more information, see [User pool feature plans](cognito-sign-in-feature-plans.md).
+
+To set up managed login, complete these prerequisites in order:
+
+1. Create a user pool. See [Getting started with user pools](getting-started-user-pools.md).
+
+1. Add a user pool domain (a prefix domain or a custom domain). See [Configuring a user pool domain](cognito-user-pools-assign-domain.md).
+
+1. Create an app client and set its branding version and return URL. See [User pool managed login](cognito-user-pools-managed-login.md).
 
 **Related topics**
 + [User pool managed login](cognito-user-pools-managed-login.md)

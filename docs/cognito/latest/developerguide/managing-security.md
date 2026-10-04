@@ -30,6 +30,7 @@ Guard against disclosure of existing usernames and aliases in your user pool. Re
 **Topics**
 + [Security best practices for Amazon Cognito user pools](user-pool-security-best-practices.md)
 + [Adding MFA to a user pool](user-pool-settings-mfa.md)
++ [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md)
 + [Working with user devices in your user pool](amazon-cognito-user-pools-device-tracking.md)
 + [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md)
 + [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md)

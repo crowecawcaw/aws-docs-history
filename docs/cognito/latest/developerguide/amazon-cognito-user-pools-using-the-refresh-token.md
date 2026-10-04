@@ -24,6 +24,9 @@ The [token endpoint](token-endpoint.md) in user pools with a [domain](cognito-us
 
 You can optionally configure refresh token rotation in your app client. With refresh token rotation, your client can invalidate the original refresh token and issue a new refresh token with each token refresh. When this setting is enabled, each successful request in all forms of token refresh return a new ID, access, *and* refresh token. When this setting is disabled, token-refresh requests return new access and ID tokens only and the original refresh token remains valid. The new refresh token is valid for the remaining duration of the original refresh token. You can configure [app clients](user-pool-settings-client-apps.md) to rotate refresh tokens or to carry over the original refresh token. To allow for retries for a brief duration, you can also configure a grace period for the original refresh token of up to 60 seconds.
 
+**Note**  
+Rotation reissues a refresh token within the *same* fixed validity window. It doesn't extend the window. Each new refresh token is valid only for the time remaining on the original `RefreshTokenValidity` period, no matter how many times the token rotates. For example, suppose you set `RefreshTokenValidity` to 30 days and a session rotates its refresh token every day. The session still expires 30 days after the *first* sign-in, not 30 days after the most recent rotation. To keep a user signed in past that window, they must reauthenticate.
+
 **Things to know about refresh token rotation**
 + After you enable refresh token rotation, new claims are added in JSON web tokens from your user pool. The `origin_jti` and `jti` claims are added to access and ID tokens. These claims increase the size of the JWTs.
 + Refresh token rotation isn't compatible with the authentication flow `REFRESH_TOKEN_AUTH`. To implement refresh token rotation, you must disable this authentication flow in your app client and design your application to submit token-refresh requests with the [GetTokensFromRefreshToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetTokensFromRefreshToken.html) API operation or the equivalent SDK method.
@@ -63,7 +66,7 @@ Configure refresh token rotation in a [CreateUserPoolClient](https://docs.aws.am
 
 ```
 "RefreshTokenRotation" : {
-   "Feature" : "ENABLED,
+   "Feature" : "ENABLED",
    "RetryGracePeriodSeconds" : 10
 }
 ```

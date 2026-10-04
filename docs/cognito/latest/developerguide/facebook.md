@@ -167,6 +167,9 @@ To add Facebook authentication, follow the [Facebook Login for the Web](https://
 After you authenticate your user with the Facebook SDK, add the session token to the Amazon Cognito credentials provider.
 
 ```
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+import { S3Client } from "@aws-sdk/client-s3";
+
 FB.login(function (response) {
 
   // Check if the user logged in successfully.
@@ -174,18 +177,21 @@ FB.login(function (response) {
 
     console.log('You are now logged in.');
 
-    // Add the Facebook access token to the Amazon Cognito credentials login map.
-    AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      IdentityPoolId: 'IDENTITY_POOL_ID',
-      Logins: {
-        'graph.facebook.com': response.authResponse.accessToken
-      }
+    // Attach a Cognito identity pool credentials provider to your service client,
+    // passing the Facebook access token in the logins map.
+    const client = new S3Client({
+      region: 'REGION',
+      credentials: fromCognitoIdentityPool({
+        identityPoolId: 'IDENTITY_POOL_ID',
+        logins: {
+          'graph.facebook.com': response.authResponse.accessToken
+        },
+        clientConfig: { region: 'REGION' }
+      })
     });
 
-    // Obtain AWS credentials
-    AWS.config.credentials.get(function(){
-        // Access AWS resources here.
-    });
+    // The provider resolves and caches AWS credentials the first time the
+    // client makes a request. Access AWS resources with client here.
 
   } else {
     console.log('There was a problem logging you in.');
@@ -197,7 +203,7 @@ FB.login(function (response) {
 The Facebook SDK obtains an OAuth token that Amazon Cognito uses to generate AWS credentials for your authenticated end user. Amazon Cognito also uses the token to check against your user database for the existence of a user matching this particular Facebook identity. If the user already exists, the API returns the existing identifier. Otherwise a new identifier is returned. Identifiers are automatically cached by the client SDK on the local device.
 
 **Note**  
-After you set the logins map, make a call to `refresh` or `get` to get the credentials. For a code example, see "Use Case 17, Integrating User Pools with Cognito Identity," in the [JavaScript README file](https://github.com/amazon-archives/amazon-cognito-identity-js/blob/master/README.md).
+The credentials provider resolves AWS credentials lazily the first time your service client makes a request. For more information about using Amazon Cognito identity pools with the AWS SDK for JavaScript, see [AWS SDK for JavaScript v3 Developer Guide](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/).
 
 ### Unity
 <a name="using-facebook-1.unity"></a>

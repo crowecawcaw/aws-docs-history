@@ -287,23 +287,32 @@ override func logins () -> AWSTask<NSDictionary> {
 ### JavaScript
 <a name="implement-id-provider-1.javascript"></a>
 
-Once you obtain an identity ID and session token from your backend, you will pass them into the `AWS.CognitoIdentityCredentials` provider. The logins key must match the token's `iss` claim. For identity pools in Regions that use the global issuer, use `cognito-identity.amazonaws.com`. For identity pools in other Regions, use `cognito-identity.{{region}}.amazonaws.com`. For more information, see [Regional token issuer format](#regional-token-issuer-format).
+Once you obtain an identity ID and session token from your backend, you will pass them to the `fromCognitoIdentity` provider from `@aws-sdk/credential-providers`. The logins key must match the token's `iss` claim. For identity pools in Regions that use the global issuer, use `cognito-identity.amazonaws.com`. For identity pools in other Regions, use `cognito-identity.{{region}}.amazonaws.com`. For more information, see [Regional token issuer format](#regional-token-issuer-format).
 
 ```
+import { fromCognitoIdentity } from "@aws-sdk/credential-providers";
+
 const token = 'TOKEN_RETURNED_FROM_YOUR_PROVIDER';
+const region = 'IDENTITY_POOL_REGION';
 
 // Extract the issuer from the token
 const payload = token.split('.')[1];
 const claims = JSON.parse(Buffer.from(payload, 'base64url').toString());
 const providerName = claims.iss;
 
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-   IdentityPoolId: 'IDENTITY_POOL_ID',
-   IdentityId: 'IDENTITY_ID_RETURNED_FROM_YOUR_PROVIDER',
-   Logins: {
+// Your backend already established the identity, so use fromCognitoIdentity
+// (which calls GetCredentialsForIdentity directly for the identity ID you pass)
+// rather than fromCognitoIdentityPool (which would call GetId and resolve a new identity).
+const credentials = fromCognitoIdentity({
+   identityId: 'IDENTITY_ID_RETURNED_FROM_YOUR_PROVIDER',
+   logins: {
       [providerName]: token
-   }
+   },
+   clientConfig: { region }
 });
+
+// Attach the provider to each service client that needs credentials.
+const client = new SomeServiceClient({ region, credentials });
 ```
 
 ### Unity

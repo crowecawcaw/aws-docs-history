@@ -25,6 +25,7 @@ You can add an OIDC IdP to your user pool in the AWS Management Console, through
 + [Add an OIDC IdP to your user pool](#cognito-user-pools-oidc-idp-step-2)
 + [Test your OIDC IdP configuration](#cognito-user-pools-oidc-idp-step-3)
 + [OIDC user pool IdP authentication flow](cognito-user-pools-oidc-flow.md)
++ [Step-up authentication for federated users](#cognito-user-pools-step-up-federation)
 
 ## Prerequisites
 <a name="cognito-user-pools-oidc-idp-prerequisites"></a>
@@ -191,3 +192,33 @@ The following example link sets up silent redirect to the `MyOIDCIdP` provider f
 ```
 https://{{mydomain.auth.us-east-1.amazoncognito.com}}/oauth2/authorize?identity_provider={{MyOIDCIdP}}&response_type=code&client_id={{1example23456789}}&redirect_uri={{https://www.example.com}}
 ```
+
+## Step-up authentication for federated users
+<a name="cognito-user-pools-step-up-federation"></a>
+
+For federated users who sign in through an OpenID Connect (OIDC) identity provider (IdP), Amazon Cognito passes through the ACR and AMR values of the OIDC IdP instead of computing its own. The OIDC IdP owns authentication for these federated users. Step-up authentication for a federated user happens through the OIDC IdP: Amazon Cognito redirects to the IdP with `acr_values`. For more information about ACR levels and AMR values, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md).
+
+You map the ACR values of the OIDC IdP to Amazon Cognito levels with the `AcrMapping` field on the IdP. Configure this field with the [CreateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.html) or [UpdateIdentityProvider](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.html) operation. Amazon Cognito maps the ACR value of the OIDC IdP to a Amazon Cognito level, then stamps the corresponding level name that you configured for your user pool onto the Amazon Cognito token. The following example configures an `AcrMapping` for an OIDC provider.
+
+```
+{
+  "ProviderName": "MyOktaIdP",
+  "ProviderType": "OIDC",
+  "AcrMapping": {
+    "Level1": "urn:okta:loa:1",
+    "Level2": "urn:okta:loa:2",
+    "Level3": "urn:okta:loa:3",
+    "Level4": "urn:okta:loa:4"
+  }
+}
+```
+
+Setting `AcrMapping` on the identity provider is available in all feature plans. It isn't restricted to the Essentials or Plus feature plan.
+
+The following behavior applies to federated users who sign in through an OIDC IdP.
++ If the OIDC IdP returns an ACR value that isn't in the configured `AcrMapping`, Amazon Cognito sets the token's `acr` claim to the lowest level (the default `urn:cognito:loa:1`, or the level-1 name that you configured for your user pool). This isn't an error.
++ Amazon Cognito drops any AMR value that it doesn't recognize and retains only the known values.
++ If the OIDC IdP doesn't support ACR and AMR, or returns no AMR values that Amazon Cognito recognizes, Amazon Cognito sets `fed` as a default placeholder AMR value.
++ Amazon Cognito trusts the `acr` and `amr` values that the OIDC IdP asserts, subject to mapping and filtering. It doesn't validate which challenges the IdP actually performed.
+
+In a federation flow, your application redirects to the `/oauth2/authorize` endpoint with the target level or levels expressed in the names of your user pool. Amazon Cognito translates the values to the values that the OIDC IdP expects with the `AcrMapping`, redirects to the IdP, receives the ACR and AMR values of the IdP, maps them back, and issues Amazon Cognito tokens. For more information about configuring an IdP, see [Configuring identity providers](cognito-user-pools-identity-provider.md).

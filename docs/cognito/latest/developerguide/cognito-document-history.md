@@ -7,6 +7,7 @@ The following table describes important additions to the documentation for Amazo
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Status codes in AWS WAF custom block responses](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html#user-pool-waf-custom-response-status) | Amazon Cognito now returns a `403` status code in place of `5xx` status codes from AWS WAF custom block responses in managed login and the classic hosted UI. | October 1, 2026 | 
 | [Amazon Cognito Sync is no longer open to new customers.](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html) | Amazon Cognito Sync is no longer open to new customers. For alternatives to Amazon Cognito Sync, please explore AWS AppSync and DynamoDB. [Learn more](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html). | July 31, 2026 | 
 | [Machine-to-machine authorization with GetClientToken](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html#get-client-token) | You can now issue access tokens for machine-to-machine (M2M) authorization with the Amazon Cognito `GetClientToken` API operation, without a user pool domain. | July 29, 2026 | 
 | [Password hash user import](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html) | You can now import users with their existing password hashes, enabling immediate sign-in without requiring password resets. | July 13, 2026 | 

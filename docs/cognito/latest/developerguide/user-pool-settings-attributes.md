@@ -278,6 +278,14 @@ In a [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/la
 ],
 ```
 
+The following example configures a user pool where each user signs in with only their email address as the username. As a best practice, also set `email` as a required sign-up attribute so that new users provide their email address when they sign up through managed login:
+
+```
+"UsernameAttributes": [
+   "email"
+],
+```
+
 ------
 
 When you configure username attributes, your can make [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) API requests that pass an email address or phone number in the `username` parameter. The following is the behavior of the code`SignUp` API operation with username attributes.
@@ -287,17 +295,22 @@ When you configure username attributes, your can make [SignUp](https://docs.aws.
 + If the `username` string contains an email address or phone number that is already in use, the `SignUp` API returns an exception.
 + The `SignUp` API populates the `username` attribute with a [UUID](cognito-terms.md#terms-uuid) for your user. This UUID has the same value as the `sub` claim in the user identity token.
 
-You can use an email address or phone number in place of the username in all APIs except the [ListUsers](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html) operation. In `ListUsers` API requests, you can specify a `Filter` of `email` or `phone_number`. If you filter by `username`, you must supply the UUID username, not the email address or phone number.
+You can use an email address or phone number in place of the username in all APIs except the [ListUsers](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html) operation. This includes post-sign-up operations such as [ConfirmSignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmSignUp.html) and [ResendConfirmationCode](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.html). Although `SignUp` sets the `username` attribute to the UUID, you can still pass the user's email address or phone number as the `Username` value in the `SignUp` request. In `ListUsers` API requests, you can specify a `Filter` of `email` or `phone_number`. To filter by `username`, supply the UUID username. You can't filter by the email address or phone number in a `username` filter.
 
 ## Custom attributes
 <a name="user-pool-settings-custom-attributes"></a>
 
 You can add up to 50 custom attributes to your user pool. You can specify a minimum and/or maximum length for custom attributes. However, the maximum length for any custom attribute can be no more than 2048 characters. The name of a custom attribute must match the regular expression pattern that's described in the `Name` parameter of [SchemaAttributeType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html).
 
+**Custom attributes are permanent**  
+You can't remove or change a custom attribute after you add it to your user pool. You can't delete or rename the attribute. You also can't change its data type, mutability, or length constraints. Plan your custom attribute schema before you add attributes to a production user pool.
+
 **Each custom attribute has the following characteristics:**
 + You can define it as a string, number, boolean, or `DateTime` object. Amazon Cognito writes custom attribute values to the ID token only as strings.
 **Note**  
 In the Amazon Cognito console, you can add custom attributes only of the string and number data types. Additional options like boolean and `DateTime` attribute data types are only available in the `SchemaAttributes` property of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) API requests.
+**Note**  
+Regardless of the data type that you assign, Amazon Cognito stores and transmits every custom attribute value as a string. When you set a value in an API or SDK request — for example [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html), [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html), or [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) — you must pass the value as a string, even for a `Number`, `Boolean`, or `DateTime` attribute. Pass `"42"` rather than `42`, and `"true"` rather than `true`. A native number or boolean is rejected before the value is stored; depending on your SDK, this surfaces as a client-side type-validation error or a service `InvalidParameterException`. Your application is responsible for parsing the string back to its intended type when it reads the attribute.
 + You can't require that users provide a value for the attribute.
 + You can't remove or change it after you add it to the user pool.
 + The character length of the attribute name is within the limit that Amazon Cognito accepts. For more information, see [Quotas in Amazon Cognito](quotas.md).
@@ -336,6 +349,10 @@ For each app client, you can set read and write permissions for each user attrib
 
 As a best practice, specify attribute read and write permissions when you create an app client. Grant your app client access to the minimum set of user attributes that you need for the operation of your application.
 
+**Important**  
+When you don't specify `WriteAttributes` for an app client, the app client has write access to all standard and custom attributes. Users can change the value of these attributes for themselves with `UpdateUserAttributes`.  
+Your application or identity pool might make authorization decisions based on an attribute. In that case, remove the attribute from the `WriteAttributes` of every app client in your user pool. User attributes are shared by all app clients in a user pool. A value that a user writes through one app client appears in the tokens that all app clients issue.
+
 **Note**  
 [DescribeUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html) only returns values for `ReadAttributes` and `WriteAttributes` when you configure app client permissions other than the default.
 
@@ -353,7 +370,7 @@ As a best practice, specify attribute read and write permissions when you create
 
 1. On the **Edit attribute read and write permissions** page, configure your read and write permissions, and then choose **Save changes**.
 
-Repeat these steps for each app client that uses the custom attribute.
+Repeat these steps for each app client that uses the custom attribute. To make an attribute read-only in your apps, remove write permission for that attribute from every app client in your user pool.
 
 For each app client, you can mark attributes as readable or writeable. This applies to both standard and custom attributes. Your app can retrieve the value of attributes that you mark as readable, and can set or modify the value of attributes that you mark as writeable. If your app tries to set a value for an attribute that it isn't authorized to write, Amazon Cognito returns `NotAuthorizedException`. [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) requests include an access token with an app client claim; Amazon Cognito only returns values for attributes that your app client can read. Your user's ID token from an app only contains claims that correspond to the readable attributes. All app clients can write user pool required attributes. You can only set the value of an attribute in an Amazon Cognito user pools API request when you also provide a value for any required attributes that don't yet have a value.
 

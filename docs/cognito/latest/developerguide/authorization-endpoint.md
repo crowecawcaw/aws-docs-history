@@ -338,3 +338,28 @@ Amazon Cognito might deny your request. Negative requests come with an HTTP erro
     ```
     HTTP 1.1 302 Found Location: https://client_redirect_uri?error=invalid_request&error_description=Read+timed+out
     ```
+
+## Example: Step-up authentication request
+<a name="authorization-endpoint-step-up"></a>
+
+Amazon Cognito supports step-up authentication with managed login. It isn't supported in the hosted UI. If your application relies on ACR and AMR, use managed login.
+
+For more information about ACR levels and AMR values, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md).
+
+The `/oauth2/authorize` endpoint accepts the following URL parameters for step-up authentication.
+
+`acr_values`  
+A space-separated, URL-encoded list of target ACR authentication level URIs, from highest to lowest. Amazon Cognito evaluates the list from left to right, enforces the first valid level that the user can satisfy, and ignores values that it doesn't recognize. This parameter behaves the same as the `TARGET_ACR_VALUES` API parameter. Requires the Essentials or Plus feature plan.
+
+`max_age`  
+A non-negative integer that specifies the maximum number of seconds since the user last authenticated. If the current time minus `auth_time` is greater than `max_age`, the user must authenticate again from scratch instead of only stepping up. This behavior is identical to the `MAX_AGE` API parameter.
+
+Combine `acr_values` with `max_age` to require a specific authentication level with recent authentication for a sensitive operation.
+
+The following example `/oauth2/authorize` request asks Amazon Cognito to try level 4 first. If the user can't satisfy level 4, for example because they have no TOTP configured, Amazon Cognito falls back to level 3, assuming the user has an SMS or email one-time password configured. The request also requires that the user authenticated within the last 3,600 seconds. The example client ID {{1example23456789}} and the other italicized values are placeholders. Replace them with your own values.
+
+```
+GET https://{{mydomain}}.auth.us-east-1.amazoncognito.com/oauth2/authorize?response_type=code&client_id={{1example23456789}}&redirect_uri=https://{{YOUR_APP}}/redirect_uri&state={{STATE}}&scope=openid+profile+aws.cognito.signin.user.admin&acr_values=urn%3Acognito%3Aloa%3A4+urn%3Acognito%3Aloa%3A3&max_age=3600
+```
+
+The behavior on an insufficient feature plan differs from the API. The managed login authorize endpoint silently ignores `acr_values` and proceeds with normal authentication, without an error. The API returns a `FeatureUnavailableInTierException`. For more information, see [Feature plan requirements](cognito-user-pools-step-up-authentication.md#cognito-user-pools-step-up-authentication-tiers).

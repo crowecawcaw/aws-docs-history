@@ -38,6 +38,7 @@ A confidential client has server-side resources that can be trusted with a **cli
 A client secret, or client password, is a fixed string that your app must use in all API requests to the app client. Your app client must have a client secret to perform `client_credentials` grants. For more information, see [IETF RFC 6749 \#2.3.1](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1).  
 Each app client can have up to two secrets at a time, enabling secret rotation without downtime. When you create an app client, you can either let Amazon Cognito generate a secret value or provide your own custom secret value. You can't change secrets after you create an app. You can add a second secret with the [AddUserPoolClientSecret](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AddUserPoolClientSecret.html) API operation to rotate secrets. When you add a secret, you can either let Amazon Cognito generate a secret value or provide your own custom secret value. To delete a secret, use the [DeleteUserPoolClientSecret](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteUserPoolClientSecret.html) API operation. You cannot delete the only secret associated with an app client. You can also delete an app to block access from apps that use that app client ID.  
 The Amazon Cognito console creates app clients with client secrets when you select the **Traditional web application** and **Machine-to-machine application** options for application type. Choose one of these options to generate a client secret, or create the client programmatically with [CreateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.html) and set `GenerateSecret` to `true`.
+You can't change whether an app client has a client secret after you create the app client. The [UpdateUserPoolClient](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.html) operation can't add or remove a client secret. To change this configuration, create a new app client. You don't need to recreate the user pool, and your other app clients aren't affected.
 
 You can use a confidential client, and a client secret, with a public app. Use an Amazon CloudFront proxy to add a `SECRET_HASH` in transit. For more information, see [Protect public clients for Amazon Cognito by using an Amazon CloudFront proxy](https://aws.amazon.com/blogs/security/protect-public-clients-for-amazon-cognito-by-using-an-amazon-cloudfront-proxy/) on the AWS blog.
 
@@ -138,6 +139,8 @@ Client credentials grants add costs to your AWS bill. For more information, see 
 1. Choose an existing user pool from the list, or create a user pool. Both options prompt you to configure an app client with application-specific settings.
 
 1. Choose an **Application type** that reflects your application architecture.
+**Important**  
+Your **Application type** selection also sets defaults for other app client settings, including whether Amazon Cognito generates a client secret. The **Traditional web application** and **Machine-to-machine application** types generate a client secret. For more information, see [App client types](#user-pool-settings-client-app-client-types).
 
 1. **Name your application** with a friendly identifier.
 

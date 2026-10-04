@@ -69,35 +69,49 @@ func identityDidChange(notification: NSNotification!) {
 ### Initially unauthenticated user
 <a name="switching-identities-1.javascript-unauth"></a>
 
-Users typically start with the unauthenticated role. For this role, you set the credentials property of your configuration object without a Logins property. In this case, your default configuration might look like the following:
+Users typically start with the unauthenticated role. For this role, you create a `fromCognitoIdentityPool` credentials provider without a `logins` property and attach it to your service clients. In this case, your default configuration might look like the following:
 
 ```
-// set the default config object
-var creds = new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: 'us-east-1:1699ebc0-7900-4099-b910-2df94f52a030'
+import { fromCognitoIdentityPool } from "@aws-sdk/credential-providers";
+
+// Create a credentials provider without a logins map for the unauthenticated role.
+const region = "us-east-1";
+const credentials = fromCognitoIdentityPool({
+    identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
+    clientConfig: { region }
 });
-AWS.config.credentials = creds;
+
+// Attach the provider to each service client that needs credentials.
+const client = new SomeServiceClient({ region, credentials });
 ```
 
 ### Switch to authenticated user
 <a name="switching-identities-1.javascript-auth"></a>
 
-When an unauthenticated user logs in to an IdP and you have a token, you can switch the user from unauthenticated to authenticated by calling a custom function that updates the credentials object and adds the Logins token:
+When an unauthenticated user logs in to an IdP and you have a token, you can switch the user from unauthenticated to authenticated by calling a custom function that creates a new `fromCognitoIdentityPool` provider with the `logins` map that contains the token:
 
 ```
 // Called when an identity provider has a token for a logged in user
 function userLoggedIn(providerName, token) {
-    creds.params.Logins = creds.params.Logins || {};
-    creds.params.Logins[providerName] = token;
+    // Re-create the provider with a logins map to switch to the authenticated role.
+    const credentials = fromCognitoIdentityPool({
+        identityPoolId: "us-east-1:1699ebc0-7900-4099-b910-2df94f52a030",
+        logins: {
+            [providerName]: token
+        },
+        clientConfig: { region }
+    });
 
-    // Expire credentials to refresh them on the next request
-    creds.expired = true;
+    // Re-create any service clients so they pick up the new credentials.
+    // SomeServiceClient is a placeholder: import the client for the service you're calling
+    // (for example, S3Client from @aws-sdk/client-s3).
+    const client = new SomeServiceClient({ region, credentials });
 }
 ```
 
-You can also create a `CognitoIdentityCredentials` object. If you do, you must reset the credentials properties of any existing service objects to reflect the updated credentials configuration information. See [Using the global configuration object](https://docs.aws.amazon.com/sdk-for-javascript/latest/developer-guide/global-config-object.html).
+Because the `fromCognitoIdentityPool` provider is attached directly to each service client, switching from the unauthenticated to the authenticated role means creating a new provider with the `logins` map and passing it to any service clients that you create afterward. Unlike the AWS SDK for JavaScript v2, the v3 SDK doesn't use a global configuration object, so there are no shared credentials to reset.
 
-For more information about the `CognitoIdentityCredentials` object, see [AWS.CognitoIdentityCredentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityCredentials.html) in the AWS SDK for JavaScript API Reference.
+For more information about the `fromCognitoIdentityPool` provider, see [AWS SDK for JavaScript v3 credential providers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/).
 
 ## Unity
 <a name="switching-identities-1.unity"></a>

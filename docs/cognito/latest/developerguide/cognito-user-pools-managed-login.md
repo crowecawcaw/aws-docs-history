@@ -8,7 +8,7 @@ You can choose a web domain to host services for your user pool. An Amazon Cogni
 + A ready-to-use user interface (UI) for authentication operations like sign-in, sign-out and password management. The *managed login pages* act as a web front end for authentication services.
 + A service provider (SP), or relying party (RP), to SAML 2.0 IdPs, OIDC IdPs, Facebook, Login with Amazon, Sign in with Apple, and Google.
 
-An additional option that shares some features with managed login is the classic *hosted UI*. The classic hosted UI is a first-generation version of the managed login services. Hosted UI IdP and RP services generally have the same characteristics as managed login, but the login pages have a simpler design and fewer features. For example, passkey sign-in isn't available in the classic hosted UI. In the Lite [feature plan](cognito-sign-in-feature-plans.md), the classic hosted UI is your only option for user pool domain services.
+Managed login has an alternative: the classic *hosted UI*. You choose one or the other for a user pool domain—managed login and the classic hosted UI aren't used together. The classic hosted UI is a first-generation version of the managed login services. Hosted UI IdP and RP services generally have the same characteristics as managed login, but the login pages have a simpler design and fewer features. For example, passkey sign-in isn't available in the classic hosted UI. In the Lite [feature plan](cognito-sign-in-feature-plans.md), the classic hosted UI is your only option for user pool domain services.
 
 The managed login pages are a collection of web interfaces for basic sign-up, sign-in, multi-factor authentication and password-reset activities in your user pool. They also connect users to one or more third-party identity providers (IdPs) when you want to give users a choice of sign-in option. Your app can invoke your managed login pages in users' browsers when you want to authenticate and authorize users.
 
@@ -17,12 +17,14 @@ You can make the managed login user experience fit your brand with custom logos,
 **Branding editor**  
 An updated user experience with the most up-to-date authentication options and a visual editor in the Amazon Cognito console.
 
-**Hosted UI branding**  
+**Hosted UI (classic) branding**  
 A familiar user experience for previous adopters of Amazon Cognito user pools. Branding for the hosted UI is a file-based system. To apply branding to hosted UI pages, you upload a logo image file and a file that sets values for several predetermined CSS style options.
 
 The branding editor isn't available in all feature plans for user pools. For more information, see [User pool feature plans](cognito-sign-in-feature-plans.md).
 
 For more information about constructing requests to managed login and hosted UI services, see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md).
+
+Managed login supports step-up authentication with the `acr_values` and `max_age` parameters on the authorize and login endpoints. For more information, see the [authorize endpoint](authorization-endpoint.md#authorization-endpoint-step-up) and [login endpoint](login-endpoint.md#login-endpoint-step-up).
 
 **Note**  
 Amazon Cognito managed login doesn't support custom authentication with [custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md).
@@ -30,8 +32,8 @@ Amazon Cognito managed login doesn't support custom authentication with [custom 
 **Topics**
 + [Managed login localization](#managed-login-localization)
 + [Terms documents](#managed-login-terms-documents)
-+ [Setting up managed login with AWS Amplify](#cognito-user-pools-app-integration-amplify)
 + [Setting up managed login with the Amazon Cognito console](#set-up-managed-login)
++ [Setting up managed login with AWS Amplify](#cognito-user-pools-app-integration-amplify)
 + [Viewing your sign-in page](#view-login-pages)
 + [Customizing your authentication pages](#cognito-user-pools-app-integration-customize-hosted-ui)
 + [Things to know about managed login and the hosted UI](#managed-login-things-to-know)
@@ -126,6 +128,31 @@ The following is an example [CreateTerms](https://docs.aws.amazon.com/cognito-us
 **Note**  
 You must create both a terms of use and a privacy policy document for your app client before Amazon Cognito will display terms documents in your managed login pages.
 
+## Setting up managed login with the Amazon Cognito console
+<a name="set-up-managed-login"></a>
+
+The first requirement for managed login and hosted UI is a user pool domain. In the user pools console, navigate to the **Domain** tab of your user pool and add a **Cognito domain** or a **custom domain**. You can also choose a domain during the process of creating a new user pool. For more information, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md). When a domain is active in your user pool, all app clients serve public authentication pages on that domain.
+
+When you create or modify a user pool domain, you set the **Branding version** for your domain. This branding version is a choice of **Managed login** or **Hosted UI (classic)**. Your choice of branding version applies to all app clients that use the sign-in services at your domain.
+
+The next step is to create an [app client](user-pool-settings-client-apps.md) from the **App clients** tab of your user pool. In the process of creating an app client, Amazon Cognito will ask you for information about your application, then prompt you to select a **Return URL**. The return URL is also called the relying party (RP) URL, the redirect URI, and the callback URL. This is the URL that your application runs from, for example `https://www.example.com` or `myapp://example`.
+
+The branding version that you set on the domain determines the *style* of your sign-in pages: choose **Managed login** to design pages in the branding editor, or **Hosted UI (classic)** to apply file-based hosted UI branding. For more information about the branding editor and the feature plans that support it, see [User pool feature plans](cognito-sign-in-feature-plans.md).
+
+After you configure a domain and an app client and set a branding version in your user pool, your managed login pages become available on the internet.
+
+**To set up managed login in the Amazon Cognito console**
+
+1. Add a user pool domain. In the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home), choose your user pool, open the **Domain** tab, and add a **Cognito domain** (prefix domain) or a **custom domain**. For more information, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md).
+
+1. Set the branding version for the domain. When you create or modify the domain, choose **Managed login** or **Hosted UI (classic)**. This choice sets the style of your sign-in pages and applies to all app clients that use the domain.
+
+1. Create an app client. On the **App clients** tab, create an [app client](user-pool-settings-client-apps.md) and set its return URL (also called the callback URL or redirect URI) to the URL that your application runs from.
+
+1. (Managed login only) Customize the style. Open the branding editor for your app client to design your sign-in pages. The branding editor is available in a subset of feature plans; for more information, see [User pool feature plans](cognito-sign-in-feature-plans.md).
+
+1. View your sign-in page. On the **Login pages** tab for your app client, choose **View login pages** to open your managed login pages.
+
 ## Setting up managed login with AWS Amplify
 <a name="cognito-user-pools-app-integration-amplify"></a>
 
@@ -138,17 +165,6 @@ The following examples show how to use AWS Amplify to set up managed login with 
 + [Swift](https://docs.amplify.aws/swift/build-a-backend/auth/concepts/external-identity-providers/)
 + [Flutter](https://docs.amplify.aws/flutter/build-a-backend/auth/concepts/external-identity-providers/)
 + [Android](https://docs.amplify.aws/android/build-a-backend/auth/concepts/external-identity-providers/)
-
-## Setting up managed login with the Amazon Cognito console
-<a name="set-up-managed-login"></a>
-
-The first requirement for managed login and hosted UI is a user pool domain. In the user pools console, navigate to the **Domain** tab of your user pool and add a **Cognito domain** or a **custom domain**. You can also choose a domain during the process of creating a new user pool. For more information, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md). When a domain is active in your user pool, all app clients serve public authentication pages on that domain.
-
-When you create or modify a user pool domain, you set the **Branding version** for your domain. This branding version is a choice of **Managed login** or **Hosted UI (classic)**. Your choice of branding version applies to all app clients that use the sign-in services at your domain.
-
-The next step is to create an [app client](user-pool-settings-client-apps.md) from the **App clients** tab of your user pool. In the process of creating an app client, Amazon Cognito will ask you for information about your application, then prompt you to select a **Return URL**. The return URL is also called the relying party (RP) URL, the redirect URI, and the callback URL. This is the URL that your application runs from, for example `https://www.example.com` or `myapp://example`.
-
-After you configure a domain and app client with a branding style in your user pool, your managed login pages become available on the internet.
 
 ## Viewing your sign-in page
 <a name="view-login-pages"></a>

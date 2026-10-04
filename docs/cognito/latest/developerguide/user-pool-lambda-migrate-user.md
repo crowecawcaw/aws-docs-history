@@ -11,6 +11,7 @@ To migrate users from your existing user directory into Amazon Cognito user pool
 + [Migrate user Lambda trigger sources](#user-pool-lambda-migrate-user-trigger-source)
 + [Migrate user Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-user-migration)
 + [Example: Migrate a user with an existing password](#aws-lambda-triggers-user-migration-example-1)
++ [Troubleshooting the migrate user trigger](#user-pool-lambda-migrate-user-troubleshooting)
 
 ## Migrate user Lambda trigger sources
 <a name="user-pool-lambda-migrate-user-trigger-source"></a>
@@ -165,3 +166,17 @@ exports.handler = (event, context, callback) => {
 ```
 
 ------
+
+## Troubleshooting the migrate user trigger
+<a name="user-pool-lambda-migrate-user-troubleshooting"></a>
+
+If migration doesn't work as expected even though your function returns the documented response, check the following common causes.
+
+**The trigger isn't invoked**  
+Amazon Cognito invokes the migrate user trigger only when the user doesn't already exist in the user pool. It applies only to the `USER_PASSWORD_AUTH`, `ADMIN_USER_PASSWORD_AUTH`, and `USER_AUTH` (with a password) sign-in flows, and to the forgot-password flow. It isn't invoked for SRP (`USER_SRP_AUTH`) sign-in, because the user's password never reaches your function in that flow, or for [passwordless](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless) sign-in. If your trigger doesn't fire, confirm the app client permits one of these flows and that the user isn't already present in the pool.
+
+**Amazon Cognito can't invoke the function**  
+If you set the trigger with a resource-based policy on the function rather than through the Amazon Cognito console, the policy must allow the `cognito-idp.amazonaws.com` service principal to call `lambda:InvokeFunction`, scoped to your user pool ARN. The console adds this permission for you; a function wired up with infrastructure as code or the Lambda API needs it added explicitly. Without it, migration fails because Amazon Cognito can't invoke the trigger.
+
+**The user signs in but no profile is created**  
+Amazon Cognito creates the migrated user only when your function returns the response in the exact shape it expects: the `userAttributes` field must be present and must include every attribute marked required on the user pool. A function that authenticates the user but returns an empty or malformed `response` object, or omits a required attribute, completes the sign-in call without persisting a profile. Return `userAttributes` with all required attributes, and set `finalUserStatus` and `messageAction` as needed.

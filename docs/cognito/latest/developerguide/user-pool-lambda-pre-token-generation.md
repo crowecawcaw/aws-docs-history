@@ -372,7 +372,7 @@ export const handler = function(event, context) {
           "arn:aws:iam::123456789012:role/new_roleB",
           "arn:aws:iam::123456789012:role/new_roleC"
         ],
-        "preferredRole": "arn:aws:iam::123456789012:role/new_role",
+        "preferredRole": "arn:aws:iam::123456789012:role/new_role"
       }
     }
   };
@@ -528,7 +528,7 @@ Amazon Cognito passes event information to your Lambda function. The function th
     "request": {
         "userAttributes": {
             "sub": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
-            "cognito:user_status": "CONFIRMED"
+            "cognito:user_status": "CONFIRMED",
             "email_verified": "true",
             "phone_number_verified": "true",
             "phone_number": "+12065551212",

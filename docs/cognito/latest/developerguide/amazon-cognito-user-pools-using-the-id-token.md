@@ -7,6 +7,8 @@ The ID token is a [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) th
 
 You can set the ID token expiration to any value between 5 minutes and 1 day. You can set this value per app client.
 
+The ID token includes the `acr` and `amr` claims, which describe the authentication level that the user satisfied and the methods that they completed. For more information, see [ACR and AMR token claims](cognito-user-pools-step-up-authentication.md#cognito-user-pools-step-up-token-claims).
+
 **Important**  
 When your user signs in with managed login, Amazon Cognito sets session cookies that are valid for 1 hour. If you use managed login for authentication in your application, and specify a minimum duration of less than 1 hour for your access and ID tokens, your users will still have a valid session until the cookie expires. If the user has tokens that expire during the one-hour session, the user can refresh their tokens without the need to reauthenticate.
 
