@@ -19,6 +19,27 @@ If you have encrypted access to some of your resources, Resource Explorer is una
 The following tables list the resource types that are supported for searching in AWS Resource Explorer.
 
 **Note**  
+As of September 30, 2026, Resource Explorer no longer supports the following resource types:  
+**AWS App Mesh**— `appmesh:mesh`
+**AWS App Mesh**— `appmesh:mesh/virtualGateway`
+**AWS App Mesh**— `appmesh:mesh/virtualGateway/gatewayRoute`
+**AWS App Mesh**— `appmesh:mesh/virtualNode`
+**AWS App Mesh**— `appmesh:mesh/virtualRouter`
+**AWS App Mesh**— `appmesh:mesh/virtualRouter/route`
+**AWS App Mesh**— `appmesh:mesh/virtualService`
+**Amazon FinSpace**— `finspace:environment`
+**AWS IoT Greengrass**— `greengrass:connectorsDefinition`
+**AWS IoT Greengrass**— `greengrass:coresDefinition`
+**AWS IoT Greengrass**— `greengrass:devicesDefinition`
+**AWS IoT Greengrass**— `greengrass:functionsDefinition`
+**AWS IoT Greengrass**— `greengrass:groups`
+**AWS IoT Greengrass**— `greengrass:loggersDefinition`
+**AWS IoT Greengrass**— `greengrass:resourcesDefinition`
+**AWS IoT Greengrass**— `greengrass:subscriptionsDefinition`
+**AWS Proton**— `proton:environment-account-connection`
+**AWS Proton**— `proton:environment-template`
+**AWS Proton**— `proton:service-template`
+Resource Explorer continues to support AWS IoT Greengrass Version 2 resource types, including `greengrass:components:versions`.  
 As of May 20, 2026, Resource Explorer no longer supports the following resource types:  
 **Amazon Inspector**— `inspector:target/template`
 **AWS Panorama**— `panorama:device`
@@ -27,6 +48,7 @@ As of May 15, 2026, Resource Explorer no longer supports the following resource 
 **AWS IoT Events**— `iotevents:alarmModel`
 **AWS IoT Events**— `iotevents:detectorModel`
 **AWS IoT Events**— `iotevents:input`
+**Amazon Redshift**— `redshift:hsmclientcertificate`
 As of February 10, 2026, Resource Explorer no longer supports the following resource types:  
 **Amazon Chime**— `chime:media-pipeline`
 As of February 10, 2026, Resource Explorer no longer supports the following resource types:  
@@ -78,7 +100,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + [AWS AppConfig](#services-appconfig)
 + [Amazon AppFlow](#services-appflow)
 + [AppIntegrations](#services-app-integrations)
-+ [AWS App Mesh](#services-appmesh)
 + [Amazon AppStream](#services-appstream)
 + [AWS AppSync](#services-appsync)
 + [AWS Application Discovery Service](#services-ds)
@@ -150,7 +171,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + [Amazon EventBridge Schemas](#services-schemas)
 + [Amazon FSx](#services-fsx)
 + [AWS Fault Injection Service](#services-fis)
-+ [Amazon FinSpace](#services-finspace)
 + [Firehose](#services-firehose)
 + [Amazon Forecast](#services-forecast)
 + [Amazon Fraud Detector](#services-frauddetector)
@@ -180,7 +200,7 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + [Amazon Managed Service for Apache Flink](#services-kinesisanalytics)
 + [Amazon Kinesis Video Streams](#services-kinesisvideo)
 + [AWS Lambda](#services-lambda)
-+ [Amazon Lex](#services-lex)
++ [Amazon Lex V2](#services-lex)
 + [AWS License Manager](#services-license-manager)
 + [Amazon MQ](#services-mq)
 + [AWS Mainframe Modernization](#services-m2)
@@ -198,7 +218,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + [AWS Outposts](#services-outposts)
 + [Amazon Personalize](#services-personalize)
 + [AWS Private Certificate Authority](#services-acm-pca)
-+ [AWS Proton](#services-proton)
 + [Amazon Quick](#services-quicksight)
 + [Amazon Redshift](#services-redshift)
 + [Amazon Rekognition](#services-rekognition)
@@ -333,16 +352,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 <a name="services-app-integrations"></a>
 + `app-integrations:application`
 + `app-integrations:event-integration`
-
-### AWS App Mesh
-<a name="services-appmesh"></a>
-+ `appmesh:mesh`
-+ `appmesh:mesh/virtualGateway`
-+ `appmesh:mesh/virtualGateway/gatewayRoute`
-+ `appmesh:mesh/virtualNode`
-+ `appmesh:mesh/virtualRouter`
-+ `appmesh:mesh/virtualRouter/route`
-+ `appmesh:mesh/virtualService`
 
 ### Amazon AppStream
 <a name="services-appstream"></a>
@@ -823,10 +832,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + `fis:experiment`
 + `fis:experiment-template`
 
-### Amazon FinSpace
-<a name="services-finspace"></a>
-+ `finspace:environment`
-
 ### Firehose
 <a name="services-firehose"></a>
 + `firehose:deliverystream`
@@ -984,14 +989,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 ### AWS IoT Greengrass
 <a name="services-greengrass"></a>
 + `greengrass:components:versions`
-+ `greengrass:connectorsDefinition`
-+ `greengrass:coresDefinition`
-+ `greengrass:devicesDefinition`
-+ `greengrass:functionsDefinition`
-+ `greengrass:groups`
-+ `greengrass:loggersDefinition`
-+ `greengrass:resourcesDefinition`
-+ `greengrass:subscriptionsDefinition`
 
 ### AWS IoT SiteWise
 <a name="services-iotsitewise"></a>
@@ -1058,7 +1055,7 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 + `lambda:function/version`
 + `lambda:layer/version`
 
-### Amazon Lex
+### Amazon Lex V2
 <a name="services-lex"></a>
 + `lex:bot`
 + `lex:bot-alias`
@@ -1156,12 +1153,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 <a name="services-acm-pca"></a>
 + `acm-pca:certificate-authority`
 
-### AWS Proton
-<a name="services-proton"></a>
-+ `proton:environment-account-connection`
-+ `proton:environment-template`
-+ `proton:service-template`
-
 ### Amazon Quick
 <a name="services-quicksight"></a>
 + `quicksight:dataset`
@@ -1173,7 +1164,6 @@ As of July 9, 2024, Resource Explorer no longer supports the following resource 
 <a name="services-redshift"></a>
 + `redshift:cluster`
 + `redshift:eventsubscription`
-+ `redshift:hsmclientcertificate`
 + `redshift:parametergroup`
 + `redshift:snapshot`
 + `redshift:snapshotcopygrant`
