@@ -20,7 +20,7 @@ Review the failure reason to help you troubleshoot why the run failed. The follo
 | IMPORT\_FAILED | The import failed. Check that the input file exists and the run role can access input. | 
 | INACTIVE\_OMICS\_STORAGE\_RESOURCE  | The HealthOmics storage URI isn't in ACTIVE state. Activate the read set and try again. To learn more about activating read sets, see [Activating read sets in HealthOmics](activating-read-sets.md). | 
 | INPUT\_URI\_NOT\_FOUND | The provided URI does not exist: {{uri}}. Check that the URI path exists and confirm that the role can access the object. | 
-| INSTANCE\_RESERVATION\_FAILED | There isn't enough instance capacity to complete the workflow run. Wait and try the workflow run again. | 
+| INSTANCE\_RESERVATION\_FAILED | There isn't enough instance capacity to complete the workflow run. Wait and try the workflow run again. To learn more about instance reservation failed error mitigations, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](#workflows-mitigate-instance-reservation-failed). | 
 | INVALID\_ECR\_IMAGE\_URI | The Amazon ECR image URI structure isn't valid. Provide a valid URI and try again. | 
 | INVALID\_TASK\_RESOURCE\_VALUE | The requested GPU, CPU, or memory is either too high for available compute capacity, or is less than the minimum value of 1 for task {{ID}}. | 
 | INVALID\_URI\_INPUT | The URI structure isn't a valid {{uri}}. Check the URI structure and try again. | 
@@ -34,6 +34,42 @@ Review the failure reason to help you troubleshoot why the run failed. The follo
 | WORKFLOW\_RUN\_FAILED | Workflow run failed. Review the CloudWatch Logs engine log stream: {{ID}} to debug the failure. | 
 | WORKFLOW\_VER\_VALIDATION\_FAILED | HealthOmics doesn't support requested Nextflow version: {{version}} --. The latest supported version is {{version}}. Modify your Nextflow version to a supported version and try again. | 
 | UNSUPPORTED\_GPU\_INSTANCE\_TYPE | The requested instance type is not supported in {{Region}}. Retry the run with a GPU instance type supported in this Region. Available instance types are {{GPU instance types}}. | 
+
+## Mitigating INSTANCE\_RESERVATION\_FAILED errors
+<a name="workflows-mitigate-instance-reservation-failed"></a>
+
+GPU instances are on-demand resources that may not always be immediately available in your preferred Availability Zone or Region.
+
+**What HealthOmics does automatically**
+
+HealthOmics performs several optimizations on your behalf to maximize GPU acquisition success:
++ **Multi-AZ search**: HealthOmics checks multiple Availability Zones for GPU capacity, not just a single AZ.
++ **Automatic retries**: When a GPU is not immediately available, HealthOmics retries multiple times to acquire capacity as it becomes available.
++ **GPU retention across tasks**: When your workflow has sequential tasks that require a GPU, HealthOmics retains the GPU you already have for subsequent tasks rather than releasing it and re-requesting, ensuring successful completion of multi-step GPU workflows.
+
+The following additional best practices can further improve your success rate when running GPU-accelerated workflows on HealthOmics:
+
+1. **Use accelerator bundles to maximize flexibility**
+
+   Instead of requesting a specific GPU instance type, use accelerator bundles that allow HealthOmics to select from multiple compatible GPU generations (for example, g4dn, g5, g6). The more GPU types your workflow can accept, the higher the probability of finding available capacity.
+
+   To learn more, see [Task accelerators in a HealthOmics workflow definition](task-accelerators.md). For example:
+   + `nvidia-t4-a10g-l4` draws from G4, G5, and G6 instance families
+   + `nvidia-l4-a10g` draws from G5 and G6 instance families
+
+1. **Consider running your workflow in another AWS Region**
+
+   GPU availability varies across AWS Regions. If your data residency requirements allow it, consider running GPU-intensive workflows in a different Region where capacity may be more readily available. To learn more about supported Regions, see [Service quotas and endpoints for AWS HealthOmics](https://docs.aws.amazon.com/general/latest/gr/healthomics-quotas.html).
+
+1. **Configure resource fallback (Only WDL workflows)**
+
+   For WDL workflows, the `omicsResourceFallbackOrder` directive lets you define an ordered list of resource profiles (GPU or CPU) per task. If your preferred accelerator type is unavailable, HealthOmics automatically tries the next accelerator type or CPU instead of failing. You can also specify how long HealthOmics should search for a GPU. Use cases include:
+   + **GPU to GPU fallback** — try your preferred accelerator first, then fall back to an alternative (for example, try `nvidia-l40s` first, then `nvidia-l4`).
+   + **GPU to CPU fallback** — add a final CPU-only profile so the task completes even when no GPU capacity is available.
+**Note**  
+The `omicsResourceFallbackOrder` directive is currently supported for WDL workflows only. Nextflow support is planned.
+
+   To learn more, see [Advanced resource configuration](advanced-resource-configuration.md).
 
 ## Guidance for unresponsive runs
 <a name="workflows-guidance-unresponsive-runs"></a>
