@@ -1,5 +1,7 @@
 
 
+Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
+
 # Encryption at rest for Amazon WorkSpaces Secure Browser
 <a name="encryption-rest"></a>
 
@@ -69,7 +71,7 @@ The following permissions are required by WorkSpaces Secure Browser:
 + `kms:ReEncryptTo` and `kms:ReEncryptFrom` — Request for the AWS KMS key to permit re-encryption from or to a KMS key. 
 
 ### Scoping WorkSpaces Secure Browser permissions on your AWS KMS key
-<a name="w2aac19c14c17c11c19c11"></a>
+<a name="w2aac23c14c17c11c19c11"></a>
 
 When the principal in a key policy statement is an [AWS service principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services), we strongly recommend that you use the [ aws:SourceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) or [ aws:SourceAccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount) global condition keys, in addition to the Encryption Context.
 
@@ -95,7 +97,7 @@ The source ARN and source account values are included in the authorization conte
 Before resource creation, the key policy should only use the `aws:SourceAccount` Condition, as the full resource arn will not exist yet. Following resource creation, the key policy can be updated to include the `aws:SourceArn` and `kms:EncryptionContext` Conditions.
 
 ### Example of Scoped CMK key policy with `aws:SourceAccount`
-<a name="w2aac19c14c17c11c19c13"></a>
+<a name="w2aac23c14c17c11c19c13"></a>
 
 ```
 {
@@ -128,7 +130,7 @@ Before resource creation, the key policy should only use the `aws:SourceAccount`
 ```
 
 ### Example of scoped CMK key policy with `aws:SourceArn` and resource wildcard
-<a name="w2aac19c14c17c11c19c15"></a>
+<a name="w2aac23c14c17c11c19c15"></a>
 
 ```
 {
@@ -161,7 +163,7 @@ Before resource creation, the key policy should only use the `aws:SourceAccount`
 ```
 
 ### Example of scoped CMK key policy with `aws:SourceArn`
-<a name="w2aac19c14c17c11c19c17"></a>
+<a name="w2aac23c14c17c11c19c17"></a>
 
 ```
 {
@@ -201,7 +203,7 @@ Before resource creation, the key policy should only use the `aws:SourceAccount`
 After you create the resource, you can update the wildcard in `SourceArn` for it. If you use WorkSpaces Secure Browser to create a new resource that requires CMK access, ensure you update its key policy accordingly.
 
 ### Example of scoped CMK key policy with `aws:SourceArn` and resource-specific `EncryptionContext`
-<a name="w2aac19c14c17c11c19c19"></a>
+<a name="w2aac23c14c17c11c19c19"></a>
 
 ```
 {

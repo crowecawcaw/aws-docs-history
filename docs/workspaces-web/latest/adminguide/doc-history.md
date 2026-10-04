@@ -1,5 +1,7 @@
 
 
+Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see [Amazon WorkSpaces Secure Browser availability change](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html). 
+
 # Document history for the Amazon WorkSpaces Secure Browser Administration Guide
 <a name="doc-history"></a>
 
@@ -7,6 +9,7 @@ The following table describes the documentation releases for Amazon WorkSpaces S
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon WorkSpaces Secure Browser will no longer be available to new customers starting October 29, 2026.](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html) | Amazon WorkSpaces Secure Browser will no longer be open to new customers starting October 29, 2026. If you would like to use Amazon WorkSpaces Secure Browser, sign up prior to that date. Existing customers can continue to use the service as normal. | September 29, 2026 | 
 | [Session Logger](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/session-logger.html) | Set up Session Logger to capture a wide range of session events. | August 1, 2025 | 
 | [CloudWatch metrics](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/monitoring-cloudwatch.html) | Updated CloudWatch metrics. | July 21, 2025 | 
 | [Toolbar controls](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/monitoring-overview.html) | With toolbar controls, you can configure the toolbar presentation for end user sessions. | February 21, 2025 | 
