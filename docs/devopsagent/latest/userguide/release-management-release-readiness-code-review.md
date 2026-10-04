@@ -78,7 +78,12 @@ You can request a code review on-demand through DevOps Agent chat:
 + "What release risks exist in the latest changes to repo order-service?"
 
 The agent evaluates the specified scope — a branch, commit, or set of changes — and returns a release readiness report. The report includes:
-+ **Recommended action** — BLOCK, Proceed with Caution, or Safe to Release
++ **Recommended action** can be one of the following:
+  + **BLOCK**: A critical risk was confirmed with high confidence or reproduced by testing. Resolve it before releasing.
+  + **Deploy with Caution**: Actionable risks were found that do not meet the block threshold. Review them before releasing.
+  + **Standard Deployment**: No actionable release risks were identified.
+  + **Request Permissions**: The review could not complete because it lacked the access required to analyze the change. Grant the requested access and run the review again.
+  + **Insufficient Data**: The review could not answer critical questions from the available change context. See the report's critical gaps for what was missing.
 + **Changes summary** — What was modified and the scope of impact
 + **Risk analysis** — Specific findings with affected code locations
 + **Recommendations** — Actionable steps to resolve each finding

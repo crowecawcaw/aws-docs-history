@@ -24,7 +24,7 @@ The agent assesses changes through multiple lenses:
 + **Cross-repository dependency analysis** — Maps how your repositories interact and identifies when a change in one repository will break consumers in another, using a knowledge graph built from indexing your connected repositories.
 + **Access-control verification** — For CloudFormation changes, verifies that IAM policies, resource policies, and network configurations follow well architected best practices.
 
-Each review produces a report with a recommended action (BLOCK, Proceed with Caution, or Safe to Release), a changes summary, specific risk findings with affected code locations, and actionable recommendations. For more information, see [Release readiness code reviews](release-management-release-readiness-code-review.md).
+Each review produces a report with a recommended action (BLOCK, Deploy with Caution, Standard Deployment, Request Permissions, or Insufficient Data), a changes summary, specific risk findings with affected code locations, and actionable recommendations. For more information, see [Release readiness code reviews](release-management-release-readiness-code-review.md).
 
 ## Release testing
 <a name="release-testing"></a>

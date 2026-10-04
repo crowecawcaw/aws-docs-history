@@ -102,7 +102,7 @@ These actions control access to the Prevention feature:
 <a name="backlog-task-management-actions"></a>
 
 These actions control the ability to manage recommendations as backlog tasks:
-+ **aidevops:CreateBacklogTask** – Allows users to create an incident investigation or prevention evaluation task.
++ **aidevops:CreateBacklogTask** – Allows users to create an incident investigation or prevention evaluation task. Users also need this permission to run a custom agent on demand.
 + **aidevops:UpdateBacklogTask** – Allows users to approve a mitigation plan or cancel an active investigation or evaluation.
 + **aidevops:GetBacklogTask** – Allows users to retrieve details about a specific task.
 + **aidevops:ListBacklogTasks** – Allows users to list tasks for an Agent Space, filtered by task type, status, priority, or creation time.
@@ -124,6 +124,16 @@ These actions control the ability to add and manage assets in an Agent Space, in
 + **aidevops:DeleteAssetFile** – Allows users to remove a single file from an asset.
 + **aidevops:ListAssetFiles** – Allows users to list the files within an asset.
 + **aidevops:ListAssetTypes** – Allows users to list the asset types supported by AWS DevOps Agent. This action is not scoped to a specific Agent Space and requires `Resource: "*"`.
+
+## Trigger management actions
+<a name="trigger-management-actions"></a>
+
+These actions control the ability to manage triggers that run custom agents automatically, on a schedule or when an event arrives. For details on triggers, see [Executing custom agents](custom-agents-executing-custom-agents.md).
++ **aidevops:CreateTrigger** – Allows users to create a trigger for a custom agent in an Agent Space.
++ **aidevops:GetTrigger** – Allows users to retrieve the details of a specific trigger.
++ **aidevops:UpdateTrigger** – Allows users to update the configuration of an existing trigger.
++ **aidevops:DeleteTrigger** – Allows users to delete a trigger from an Agent Space.
++ **aidevops:ListTriggers** – Allows users to list the triggers in an Agent Space.
 
 ## AWS Support integration actions
 <a name="aws-support-integration-actions"></a>
@@ -183,7 +193,6 @@ This policy grants access to investigation and prevention features without admin
       "Effect": "Allow",
       "Action": [
         "aidevops:GetAgentSpace",
-        "aidevops:InvokeAgent",
         "aidevops:ListExecutions",
         "aidevops:ListJournalRecords",
         "aidevops:ListAssociations",
@@ -212,6 +221,11 @@ This policy grants access to investigation and prevention features without admin
         "aidevops:CreateAssetFile",
         "aidevops:UpdateAsset",
         "aidevops:UpdateAssetFile",
+        "aidevops:CreateTrigger",
+        "aidevops:GetTrigger",
+        "aidevops:UpdateTrigger",
+        "aidevops:DeleteTrigger",
+        "aidevops:ListTriggers",
         "aidevops:DescribeSupportLevel",
         "aidevops:ListPendingMessages"
       ],
@@ -249,6 +263,8 @@ This policy grants view-only access to investigations and recommendations:
         "aidevops:GetAsset",
         "aidevops:GetAssetContent",
         "aidevops:GetAssetFile",
+        "aidevops:GetTrigger",
+        "aidevops:ListTriggers",
         "aidevops:GetAccountUsage"
       ],
       "Resource": "*"

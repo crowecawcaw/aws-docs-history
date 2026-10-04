@@ -268,6 +268,7 @@ To prevent users in your organization from enabling access tokens, create a Serv
 | --- | --- | --- | 
 | HTTP 401 Unauthorized | Token is invalid or expired. | Create a new token or rotate the existing token in the web app. | 
 | HTTP 400 "A2A-Version header required" | Missing protocol version header. Only A2A v1.0 is supported. | Add A2A-Version: 1.0 header to A2A requests. | 
-| HTTP 400 "Agent space not resolved from credentials" | An A2A \+ SigV4 request does not include the X-Agent-Space-Id header. | Add X-Agent-Space-Id: <agentSpaceId> to the request. | 
+| HTTP 400 "Agent space not resolved" | An A2A \+ SigV4 request does not include the X-Agent-Space-Id header. | Add X-Agent-Space-Id: <agentSpaceId> to the request. | 
+| HTTP 400 "Agent space not resolved from credentials" | An A2A \+ Bearer token request uses a token that is not bound to an Agent Space. | Create the token from the target Agent Space, or switch to SigV4 and set the X-Agent-Space-Id header. | 
 | Request timeout | Initial responses take 5–30 seconds. Investigations take 5–8 minutes. | Set client timeout to at least 120 seconds. | 
 | Connection refused | Incorrect endpoint URL or Region. | Verify the URL format: https://connect.aidevops.{region}.api.aws | 

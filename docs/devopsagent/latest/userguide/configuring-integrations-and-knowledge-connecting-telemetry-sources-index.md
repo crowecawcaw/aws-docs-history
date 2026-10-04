@@ -51,3 +51,6 @@ For any other telemetry source, including Prometheus metrics, you can use AWS De
 To learn about bring-your-own integrations, see the following
 + [Invoking DevOps Agent through Webhook](configuring-integrations-and-knowledge-invoking-devops-agent-through-webhook.md)
 + [Connecting MCP Servers](configuring-integrations-and-knowledge-connecting-mcp-servers.md)
+
+For provider-maintained integrations, see the following:
++ [Honeycomb integration with AWS DevOps Agent](https://docs.honeycomb.io/integrations/aws-devops-agent) on the Honeycomb website

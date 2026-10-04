@@ -3,7 +3,7 @@
 # Custom agent outputs
 <a name="custom-agents-custom-agent-outputs"></a>
 
-Custom agents produce text responses in the invocation trajectory and can create persistent resources within your Agent Space — artifacts and recommendations. While agents can also perform actions through MCP tools — such as creating tickets, sending messages, or updating external systems — this page covers the outputs tied directly to your Agent Space.
+Custom agents produce text responses in the invocation trajectory and can create persistent resources within your Agent Space — artifacts and recommendations. They can also send notifications to your configured notification channels as they work. While agents can additionally perform actions through Model Context Protocol (MCP) tools — such as creating tickets or updating external systems — this page covers the outputs tied directly to your Agent Space.
 
 ## Text responses
 <a name="text-responses"></a>
@@ -44,6 +44,36 @@ The agent handles the details of composing and persisting the artifact. You only
 After an invocation completes, any artifacts produced appear as links at the end of the invocation trajectory. Choose an artifact link to view its rendered content — charts, tables, and topology diagrams are displayed as interactive visual elements.
 
 You can also browse all artifacts in your Agent Space from the **Artifacts** page. Use the search field to find artifacts by title.
+
+## Notifications
+<a name="notifications"></a>
+
+Notifications let you follow a running agent in real time. A custom agent sends short progress updates to your configured notification channels while it works. For example, a notification might appear as a message in the chat thread for the invocation. Unlike text responses, which are recorded in the invocation trajectory, notifications reach you as work happens, so you learn about a notable finding when it occurs rather than only at the end.
+
+The agent sends each notification to the notification channels set up for your Agent Space, such as a connected Slack channel. If you have not set up a notification channel, the agent still runs as normal; it just does not send a notification. To set up a chat channel, follow the steps in [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.md).
+
+### Producing notifications
+<a name="producing-notifications"></a>
+
+Sending notifications is a built-in capability available to all custom agents. No additional skill assignment or configuration is required. Include instructions in your system prompt describing when the agent should notify you, and the agent activates the required tools automatically.
+
+For example:
+
+```
+## Notifications
+Send a notification whenever you find a resource in a non-compliant state, and
+one at the end summarizing what you found. Keep each notification to a short
+title and a one- or two-sentence body.
+```
+
+Each notification has a title and a body. You control whether and when the agent sends notifications through your system prompt instructions, together with the findings of the invocation. If you give no notification instructions, you do not receive notifications.
+
+When a custom agent delegates work to a subagent, that subagent can send notifications too, so a finding that surfaces deep in a long invocation still reaches you as it happens. To learn how delegation works, see [Custom Agents](working-with-devops-agent-custom-agents-index.md).
+
+### Viewing notifications
+<a name="viewing-notifications"></a>
+
+Notifications appear in your configured notification channels as they are sent during the invocation. For example, they can appear as messages in the chat thread for the invocation, linked back to the invocation so you can open it for full detail. The agent's complete reasoning and results remain available in the invocation trajectory regardless of which notifications were sent.
 
 ## Recommendations
 <a name="recommendations"></a>

@@ -48,6 +48,60 @@ To create a test profile:
 
 **Note:** The application must be accessible over the public internet. Private network endpoints are not currently supported.
 
+## Testing applications that require authentication
+<a name="testing-applications-that-require-authentication"></a>
+
+If your application requires a user to sign in, you can store credentials on the test profile so the release testing agent can sign in and explore your application without manual intervention. Credentials are stored encrypted and are used only to log in to the target application you specify.
+
+When you configure an authenticated test profile, choose a two-factor authentication (2FA) method that matches how the target application challenges users at login:
++ **None** – Username and password only. The agent signs in with the stored credentials and no additional verification step.
++ **TOTP (time-based one-time password)** – A static value from the target application's authenticator setup. Supply it as a Base32 string or an `otpauth://` URI, or upload the setup QR code, which decodes to the same `otpauth://` URI. The agent uses the stored secret when it signs in. Use this when the application prompts for a verification or authenticator code.
++ **Email** – A one-time code delivered to an email address. The agent retrieves the emailed code at login. Use this when the application emails a verification code instead of using an authenticator.
+
+At a 2FA prompt, the agent automatically generates or retrieves the code, submits it, and continues testing without further action from you.
+
+**Note:** TOTP is supported for UI and API test profiles. Email 2FA is supported for UI test profiles only.
+
+### Configuring TOTP
+<a name="configuring-totp"></a>
+
+1. When adding or editing a test profile, select the **Authenticated** user type.
+
+1. Under the 2FA method, choose **TOTP**.
+
+1. Provide the TOTP secret in one of the following ways:
+
+   1. Enter the **Base32 secret** (for example, `JBSWY3DPEHPK3PXP`) from the target application's authenticator setup.
+
+   1. Enter the **`otpauth://` URI** from the authenticator setup.
+
+   1. Choose **Upload QR code** to upload the setup QR code image. The secret is decoded from the image and filled in for you automatically.
+
+1. Save the test profile.
+
+At login, the agent uses the stored secret to complete the verification step when the application prompts for a code. For **UI** profiles the code is entered into the browser; for **API** profiles the code is included in the authentication request body. The secret is stored encrypted and is never exposed in test output or logs.
+
+**Note:** Only time-based codes (TOTP) are supported. Counter-based one-time passwords (HOTP) and hardware security keys are not supported.
+
+### Configuring email 2FA
+<a name="configuring-email-2fa"></a>
+
+Email 2FA lets the agent retrieve a one-time code that the target application sends to an email address at login. This method applies to UI test profiles only.
+
+1. When adding or editing a test profile, select the **Authenticated** user type.
+
+1. Under the 2FA method, choose **Email**.
+
+1. (Optional) Enter a **sender filter** — an email address (for example, `noreply@service.com`). When set, the agent only accepts codes sent from that address.
+
+1. Save the test profile. The test profile page displays a **forwarding address** in the form `mfa+<testProfileId>@<stage>.<region>.release-testing.aidevops.aws.dev`.
+
+1. In the mailbox that receives the login codes for your test account, create a one-time rule that forwards the verification emails to the forwarding address shown on the test profile.
+
+At login, expect the application to email a verification code to your test account. Your forwarding rule delivers the code to the forwarding address, and the agent retrieves and submits it to complete the sign-in.
+
+**Note:** Some enterprise mail systems block automatic forwarding to external addresses. If your test account's mailbox cannot forward externally, email 2FA cannot be used for that account.
+
 ## Running tests from a test profile
 <a name="running-tests-from-a-test-profile"></a>
 
