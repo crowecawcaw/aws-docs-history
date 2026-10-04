@@ -5,6 +5,9 @@
 # AWS Systems Manager Hybrid Activations
 <a name="activations"></a>
 
+**The Hybrid Activations page will be deprecated on December 31, 2026.**  
+As we simplify the Systems Manager console experience, hybrid activations will move to the unified Systems Manager console. All your existing activations stay available via API and viewable in the unified console. [Learn more](systems-manager-unified-console.md)
+
 To configure non-EC2 machines for use with AWS Systems Manager in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment, you create a *hybrid activation*. Non-EC2 machine types supported as managed nodes include the following:
 + Servers on your own premises (on-premises servers)
 + AWS IoT Greengrass core devices

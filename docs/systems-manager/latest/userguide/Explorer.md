@@ -5,6 +5,9 @@
 # AWS Systems Manager Explorer
 <a name="Explorer"></a>
 
+**The Explorer page will be deprecated on December 31, 2026.**  
+As we simplify the Systems Manager console experience, Resource Data Sync will move to OpsCenter. All your operational data stays available via API and viewable in the relevant AWS service consoles. [Learn more](changes-to-explorer.md)
+
 AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your AWS resources. Explorer displays an aggregated view of operations data (OpsData) for your AWS accounts and across AWS Regions. In Explorer, OpsData includes metadata about the managed nodes in your [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types) environment. OpsData also includes information provided by other Systems Manager tools, including Patch Manager patch compliance and State Manager association compliance details. To further simplify how you access OpsData, Explorer displays information from supporting AWS services like AWS Config, AWS Trusted Advisor, AWS Compute Optimizer, and AWS Support (support cases).
 
 To raise operational awareness, Explorer also displays operational work items (OpsItems). Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category. You can group and filter information in Explorer to focus on items that are relevant to you and that require action. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues. To get started with Explorer, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/explorer). In the navigation pane, choose **Explorer**.
@@ -82,6 +85,7 @@ Yes. When you turn on the default rules for creating OpsItems during Integrated 
 + [How does Explorer relate to OpsCenter?](#Explorer-learn-more-OpsCenter)
 + [What is OpsData?](#Explorer-learn-more-OpsData)
 + [Is there a charge to use Explorer?](#Explorer-learn-more-cost)
++ [Changes to AWS Systems Manager Explorer](changes-to-explorer.md)
 + [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)
 + [Using Explorer](Explorer-using.md)
 + [Exporting OpsData from Systems Manager Explorer](Explorer-exporting-OpsData.md)
