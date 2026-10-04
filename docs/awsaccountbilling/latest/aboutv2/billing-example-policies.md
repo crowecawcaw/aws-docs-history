@@ -311,44 +311,65 @@ To protect your account password, contact information, and security questions, d
 <a name="example-billing-s3-bucket"></a>
 
 The following policy allows Billing and Cost Management to save your detailed AWS bills to an Amazon S3 bucket if you own both the AWS account and the Amazon S3 bucket. This policy must be applied to the Amazon S3 bucket, rather than an IAM user. This is because it's a resource-based policy, not a user-based policy. We recommend that you deny IAM user access to the bucket for IAM users who don't need access to your bills.
-
-Replace {{amzn-s3-demo-bucket1}} with the name of your bucket.
++ Replace {{amzn-s3-demo-bucket1}} with the name of your bucket.
++ Replace `{{${AccountId}}}` with your AWS account ID.
 
 For more information, see [ Using Bucket Policies and User Policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) in the *Amazon Simple Storage Service User Guide*.
 
-------
-#### [ JSON ]
+The following example shows a bucket policy that grants the AWS billing reports and AWS Data Exports service principals permission to write reports to your bucket.
 
-****  
+**Example – Bucket policy for AWS billing report delivery**  
 
 ```
 {
-  "Version":"2012-10-17",		 	 	 
-  "Statement": [
-  {
-    "Effect": "Allow",
-    "Principal": {
-      "Service": "billingreports.amazonaws.com"
-    },
-    "Action": [
-      "s3:GetBucketAcl",
-      "s3:GetBucketPolicy"
-    ],
-    "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket1}}"
-  },
-  {
-    "Effect": "Allow",
-    "Principal": {
-      "Service": "billingreports.amazonaws.com"
-    },
-    "Action": "s3:PutObject",
-    "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket1}}/*"
-  }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "billingreports.amazonaws.com",
+                    "bcm-data-exports.amazonaws.com"
+                ]
+            },
+            "Action": [
+                "s3:GetBucketAcl",
+                "s3:GetBucketPolicy"
+            ],
+            "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket1}}",
+            "Condition": {
+                "StringLike": {
+                    "aws:SourceArn": [
+                        "arn:aws:cur:us-east-1:${AccountId}:definition/*",
+                        "arn:aws:bcm-data-exports:us-east-1:${AccountId}:export/*"
+                    ],
+                    "aws:SourceAccount": "${AccountId}"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "billingreports.amazonaws.com",
+                    "bcm-data-exports.amazonaws.com"
+                ]
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket1}}/*",
+            "Condition": {
+                "StringLike": {
+                    "aws:SourceArn": [
+                        "arn:aws:cur:us-east-1:${AccountId}:definition/*",
+                        "arn:aws:bcm-data-exports:us-east-1:${AccountId}:export/*"
+                    ],
+                    "aws:SourceAccount": "${AccountId}"
+                }
+            }
+        }
+    ]
 }
 ```
-
-------
 
 ## Find products and prices
 <a name="example-policy-pe-api"></a>

@@ -18,7 +18,7 @@ This is the total amount of unused funds that are currently available in your AW
 Your account might have unapplied funds or credit memos for various reasons, such as past overpayments, missing remittance advice, or billing adjustments. To use unapplied funds or credit memos towards your invoice payments or refund this amount, send the AWS remittance instructions using the email address in your invoice. You can also contact Support by following the instructions in [Contacting Support](billing-get-answers.md#billing-support). After you request to use your unapplied funds, you can pay the total outstanding balance excluding the unapplied funds amount.  
 **Total unapplied funds** do not include AWS Credits. For more information, see [Applying AWS credits](useconsolidatedbilling-credits.md).
 
-You can search and filter the **Payments due**, **Unapplied funds**, and **Payment history** tables described in the following procedures. Choose the gear icon to change the default columns and customize other table settings. Download items individually by choosing the appropriate ID, or choose **Download**, and then ** Download CSV** to download a CSV file of the table for reporting purposes.<a name="view-outstanding-invoices-procedure"></a>
+You can search and filter the **Payments due**, **Unapplied funds**, and **Transactions** tables described in the following procedures. Choose the gear icon to change the default columns and customize other table settings. Download items individually by choosing the appropriate ID, or choose **Download**, and then ** Download CSV** to download a CSV file of the table for reporting purposes.<a name="view-outstanding-invoices-procedure"></a>
 
 **To view remaining invoice payments**
 
@@ -62,4 +62,17 @@ You can search and filter the **Payments due**, **Unapplied funds**, and **Payme
 
    For each invoice, you can view the payment method used and download the invoice PDF. You can select an invoice to complete a payment. To find specific records, you can filter and sort the table, including by purchase order. If you use transfer billing, the table also reflects your transfer billing activity.
 
-   To see detailed settlement information, choose an ID in the table to open its details page. Details pages are available for invoices, payments, and credit memos. On an invoice details page, you can see all the payments, adjustments, and credit memos, and how each was applied to the invoice.
+Each invoice, payment, and credit memo in the **Transactions** table has a details page that shows how payments and credits were applied. Use it to reconcile your account when one payment covers several invoices, or when you pay one invoice in several payments.<a name="view-transaction-details-procedure"></a>
+
+**To view transaction details**
+
+1. Open the AWS Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/).
+
+1. In the navigation pane, choose **Payments**.
+
+1. Choose the **Transactions** tab, and then choose the ID of an invoice, payment, or credit memo to open its details page.
+   + **Invoice** – The **Transaction history** table lists the payments, credit memos, and adjustments applied to the invoice, with the balance due after each one. **Additional information** shows the charge type, purchase order number, billing period, service provider, usage consolidation account, and payment method.
+   + **Payment** – The **Invoices paid** table lists the invoices that the payment was applied to, with the payment's available balance after each one.
+   + **Credit memo** – The **Invoices credited** table lists the invoices that the credit memo was applied to, with each invoice's starting and ending balance.
+
+   To open a related record, choose its ID. To download the PDF, choose **Download invoice** or **Download credit memo**. Each details page has its own URL, which you can bookmark or share with others who have access to the account.
