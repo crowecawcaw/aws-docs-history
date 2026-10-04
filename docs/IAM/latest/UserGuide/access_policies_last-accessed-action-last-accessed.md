@@ -119,7 +119,7 @@ AWS provides action last accessed information in JSON format to streamline the a
 |  [Amazon Kinesis Analytics V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonkinesisanalyticsv2.html)  | kinesisanalytics | 
 |  [AWS Key Management Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awskeymanagementservice.html)  | kms | 
 |  [AWS Lambda](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslambda.html)  | lambda | 
-|  [Amazon Lex](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html)  | lex | 
+|  [Amazon Lex V2](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlexv2.html)  | lex | 
 |  [AWS License Manager Linux Subscriptions Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awslicensemanagerlinuxsubscriptionsmanager.html)  | license-manager-linux-subscriptions | 
 |  [Amazon Lightsail](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonlightsail.html)  | lightsail | 
 |  [Amazon CloudWatch Logs](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoncloudwatchlogs.html)  | logs | 
