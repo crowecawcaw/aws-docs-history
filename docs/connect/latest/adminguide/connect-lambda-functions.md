@@ -203,7 +203,7 @@ The Lambda function response could be either a STRING\_MAP or JSON and has to be
 ![The invoke AWS Lambda function flow block that highlights the use of either string map or json.](https://docs.aws.amazon.com/connect/latest/adminguide/images/verify-function-lambda-response-validation.png)
 
 
-The Lambda response can be up to 32kb. If you fail to reach Lambda, the function throws an exception, the response is not understood, or the Lambda function takes more time than the limit, the flow jumps to the `Error` label.
+The Lambda response can be up to 64 KB. If you fail to reach Lambda, the function throws an exception, the response is not understood, or the Lambda function takes more time than the limit, the flow jumps to the `Error` label.
 
 Test the output returned from your Lambda function to confirm that it will be correctly consumed when returned to Connect Customer. The following example shows a sample response in Node.JS:
 
@@ -245,7 +245,7 @@ def lambda_handler(event, context):
  return resultMap
 ```
 
-The output returned from the function must be a flat object of key/value pairs, with values that include only alphanumeric, dash, and underscore characters. The size of the returned data must be less than 32 KB of UTF-8 data.
+The output returned from the function must be a flat object of key/value pairs, with values that include only alphanumeric, dash, and underscore characters. The size of the returned data must be less than 64 KB of UTF-8 data.
 
 The following example shows the JSON output from these Lambda functions:
 

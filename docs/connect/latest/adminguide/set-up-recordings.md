@@ -44,7 +44,7 @@ You only need to perform these steps for chat conversations if [enhanced contact
 
 1. Set up a queue that will be used for making outbound calls. In the **Outbound whisper flow** box, choose the flow that has [Set recording and analytics behavior](set-recording-behavior.md) in it. 
 
-**To set up human readable logs that contain key interaction points with Amazon Lex**
+**To set up human readable logs that contain key interaction points with Amazon Lex V2**
 
 1. Log in to the Connect Customer console.
 

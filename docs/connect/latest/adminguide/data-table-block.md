@@ -134,7 +134,7 @@ The following image shows the **Properties** page of the **Data Table** block co
 + **Primary value group limit** – Up to 5 primary value groups per block
 + **Group name uniqueness** – Must be unique across the entire contact flow
 + **Attribute matching** – Primary attributes use exact matching to locate rows
-+ **Return behavior** – Returns complete records, not just selected attributes. If no primary value group is configured, the entire table will be loaded with in 32KB limit.
++ **Return behavior** – Returns complete records, not just selected attributes. If no primary value group is configured, the entire table is loaded within the 64 KB limit.
 
 ### Accessing retrieved data for List
 <a name="data-table-list-accessing-data"></a>

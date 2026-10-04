@@ -45,7 +45,7 @@ You can use rules to filter out conversations where you expect these scenarios t
 
    1. The answer is automatically selected based on the generative AI recommendation, but you can change it.
 
-   1.  You can get generative AI-powered recommendations by choosing **Ask AI** for up to 10 questions per contact. For more information, see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas).
+   1.  You can get generative AI-powered recommendations by choosing **Ask AI** for up to 30 questions per contact. For more information, see [Conversational analytics service quotas](amazon-connect-service-limits.md#contactlens-quotas).
 
 1.  You can choose the time associated with a transcript reference to be directed to the point in the conversation   
 ![Generative AI-powered recommendations while evaluating agent performance.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-generative-ai-powered-recommendations-performance.png)

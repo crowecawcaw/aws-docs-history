@@ -43,7 +43,7 @@ This step assumes it's the first time you've opened the Amazon Lex console. If y
 1. Choose the following link to open the Amazon Lex console, or enter the URL in your web browser: **[https://console.aws.amazon.com/lex/](https://console.aws.amazon.com/lex/)**.
 
 1. If this is the first time you've created Amazon Lex bot, choose **Get Started**. Otherwise, you're already in the Amazon Lex dashboard.  
-![The Amazon Lex console, the bots page, the create bot button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-console1.png)
+![The Amazon Lex V2 console, the bots page, the create bot button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-console1.png)
 
 1. Choose **Create a blank bot**.  
 ![The configure bot settings page, the create a blank bot option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot.png)
@@ -51,8 +51,8 @@ This step assumes it's the first time you've opened the Amazon Lex console. If y
 1. Enter the following information:
    + **Bot name **— For this tutorial, name the bot **HelpDesk**.  
 ![The the bot configuration section, the bot name box, the description box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config1.png)
-   + IAM permissions: Choose **Create a role with basic Amazon Lex permissions**.  
-![The IAM permissions section, the option to Create a role with basic Amazon Lex permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-iam-permissions.png)
+   + IAM permissions: Choose **Create a role with basic Amazon Lex V2 permissions**.  
+![The IAM permissions section, the option to Create a role with basic Amazon Lex V2 permissions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-iam-permissions.png)
    + **COPPA**— Choose whether the bot is subject to the [Children's Online Privacy Protection Act](https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/childrens-online-privacy-protection-rule).
    + **Idle session timeout**— Choose how long the bot should wait to get input from a caller before ending the session.
 
@@ -70,8 +70,8 @@ Go to [Part 2: Add intents to your Amazon Lex bot](#tutorial-lex-bot-intents).
 
 An intent is the action the user wants to perform. In this part, add two intents to the bot. Each intent represents a reason that users call the Help Desk: password reset and network issues.
 
-1. In the Amazon Lex console, in the **Intent details** section, enter **PasswordReset** as the name of your intent.  
-![The Amazon Lex console, the Intent page, the Intent details section, the intent name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot4.png)
+1. In the Amazon Lex V2 console, in the **Intent details** section, enter **PasswordReset** as the name of your intent.  
+![The Amazon Lex V2 console, the Intent page, the Intent details section, the intent name.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot4.png)
 
 1. Scroll to the **Sample utterances** section.  
 ![The sample utterances section, the box to add utterances, the add utterance button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-utterances.png)
@@ -83,7 +83,7 @@ An intent is the action the user wants to perform. In this part, add two intents
 1. On the left navigation menu, choose **All intents list**.
 
 1. On the left navigation menu, choose **Back to intents list**.  
-![The Amazon Lex navigation menu, the back to intents list link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config3.png)
+![The Amazon Lex V2 navigation menu, the back to intents list link.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-bot-config3.png)
 
 1. Choose **Add intent**, **Add empty intent**, and assign the name **NetworkIssue**. Scroll down the page and add the following sample utterances:
    + **I can't access the internet**
@@ -97,7 +97,7 @@ When you're done, go to [Part 3: Build and test the Amazon Lex bot](#tutorial-le
 Build and test your bot to make sure that it works as intended before you publish it.
 
 1. In the Amazon Lex console, choose **Build**. The build might take a minute or two.  
-![The Amazon Lex console, the Build button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot11.png)
+![The Amazon Lex V2 console, the Build button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot11.png)
 
 1. When it's finished building, choose **Test**.
 
@@ -105,10 +105,10 @@ Build and test your bot to make sure that it works as intended before you publis
 ![The test draft version page, the box to enter an intent such as I forgot my password.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot12.png)
 
 1. The verification looks like what's shown in the following image.   
-![The verification message from Amazon Lex, Intent PasswordReset is fullfilled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot13.png)
+![The verification message from Amazon Lex V2, Intent PasswordReset is fullfilled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot13.png)
 
 1. To confirm that the **NetworkIssue** intent is working, type **my email is down**. The verification looks like what's shown in the following image.   
-![The verification message from Amazon Lex, Intent NetworkIssue is fullfilled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot14.png)
+![The verification message from Amazon Lex V2, Intent NetworkIssue is fullfilled.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot14.png)
 
 Go to [Step 2: Add permissions to Amazon Lex bot](#tutorial1-add-permissions-for-bot).
 
@@ -126,7 +126,7 @@ To use a bot in your flow, add it to your Connect Customer instance.
 ![The Connect Customer left-side navigation pane, the flows option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot19.png)
 
 1. Under **Amazon Lex**, use the drop-down arrow to choose **HelpDesk**. Under **Alias**, choose **TestBotAlias**, and then choose **\+ Add Lex Bot**, and then choose **Add Amazon Lex Bot**.  
-![The flows page, the Amazon Lex section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot20.png)
+![The flows page, the Amazon Lex V2 section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-lex-custom-bot20.png)
 
 1. When you're done, choose Connect Customer to navigate back to instances page.  
 ![The instance name in a breadcrumb at the top of the Contact flows page.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial-connect-instances2.png)
@@ -229,8 +229,8 @@ In this step, create a flow that's specific to the IT Help Desk experience that 
 1.  Configure the **Get customer input** block, as shown in the following images. Choose **Text-to-speech or chat text**, **Set manually**, and enter *How can I help* in the text box. Set the **Interpret as** dropdown box to **Text**.  
 ![The Properties page of the Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input1.png)
 
-   The following image shows the Amazon Lex tab. Choose the name of your Amazon Lex bot from the dropdown list. For **Alias** enter **$LATEST**.  
-![The Amazon Lex tab, the name and alias of the bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input2.png)
+   The following image shows the Amazon Lex V2 tab. Choose the name of your Amazon Lex V2 bot from the dropdown list. For **Alias** enter **$LATEST**.  
+![The Amazon Lex V2 tab, the name and alias of the bot.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input2.png)
 
 1. While still in the **Get customer input** block, choose **Add an intent**.  
 ![The Intents section, the Add an intent option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/tutorial1-configure-get-customer-input4.png)

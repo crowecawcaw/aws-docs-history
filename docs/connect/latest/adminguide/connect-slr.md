@@ -29,7 +29,7 @@ The [AmazonConnectServiceLinkedRolePolicy](https://docs.aws.amazon.com/connect/l
 
   It also grants `s3:PutObject`, `s3:PutObjectAcl`, and `s3:GetObjectAcl` to the bucket specified for exported reports.
 + Action: Amazon CloudWatch Logs `logs:CreateLogStream`, `logs:DescribeLogStreams`, and `logs:PutLogEvents` to the CloudWatch Logs group specified for flow logging.
-+ Action: Amazon Lex `lex:ListBots`, `lex:ListBotAliases` for all bots created in the account across all Regions.
++ Action: Amazon Lex V2 `lex:ListBots`, `lex:ListBotAliases` for all bots created in the account across all Regions.
 + Action: Connect Customer Customer Profiles `profile:*` on all Connect Customer Customer Profiles resources with the `amazon-connect-` domain prefix and template resources associated with your Connect Customer instance, except for the following actions which are explicitly denied:
   + `profile:CreateDomain`
   + `profile:UpdateDomain`

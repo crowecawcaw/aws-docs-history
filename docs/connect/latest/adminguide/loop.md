@@ -32,7 +32,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 + All flows
 
 ## Properties
-<a name="w2aac18c17c69b6"></a>
+<a name="w2aac20c17c69b6"></a>
 
  The following image shows the **Properties** page of the **Loop** block. It is configured to repeat three times, and then it branches. 
 
@@ -44,7 +44,7 @@ In the **Select an action** dropdown, choose from the following options:
 + Set array for looping
 
 ## Set number of loops
-<a name="w2aac18c17c69b8"></a>
+<a name="w2aac20c17c69b8"></a>
 
 ![Loop configuration dialog with Select an action dropdown set to Set number of loops and Set loop name section highlighted.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set number of loops highlight.png)
 
@@ -55,7 +55,7 @@ When select an action is set to "Set number of loops", note the following proper
 + If Loop Name is provided, you can access the current index through $.Loop.<yourLoopName>.Index, starts from 0
 
 ## Set array for looping
-<a name="w2aac18c17c69c10"></a>
+<a name="w2aac20c17c69c10"></a>
 
 ![Loop configuration panel showing action selection, array for looping options, and loop name settings.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set array for looping.png)
 

@@ -21,7 +21,7 @@ The Set Attributes block supports the following namespaces:
 + Lambda invocation – Attributes generated or returned by Lambda function calls
 +  Loop – Attributes created or updated within looping constructs in a journey
 +  Delivery receipts – Attributes populated based on message delivery results, such as DeliveryStatus. 
-+  Outbound communication – Attributes related to outbound campaign execution, such as ChannelType or outbound communication ID. 
++  Outbound communication – Attributes related to outbound campaign execution, such as ChannelType, outbound communication ID, or the dialed contact ID for voice. 
 
 Example use case:
 + You can use the Set Attributes block to retry a failed SMS message on another channel. When an SMS delivery receipt returns a DeliveryStatus of failed, you can set an attribute preferredChannel to Email and route the flow to an email delivery branch. This helps ensure the customer still receives the message without manual intervention.

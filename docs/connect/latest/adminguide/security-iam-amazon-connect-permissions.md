@@ -135,8 +135,8 @@ To perform `Edit` actions, users also need `List` and `Describe` permissions.
 
 | Action/Use case | Permissions needed | 
 | --- | --- | 
-| View call recording | `connect:DescribeInstance`<br />`connect:ListInstanceStorageConfigs`<br />`connect:DescribeInstanceStorageConfig` | 
-| Edit call recording | `connect:AssociateInstanceStorageConfig`<br />`connect:UpdateInstanceStorageConfig`<br />`connect:DisassociateInstanceStorageConfig`<br />`s3:ListAllMyBuckets`<br />`s3:GetBucketLocation`<br />`s3:GetBucketAcl`<br />`s3:CreateBucket`<br />`kms:CreateGrant`<br />`kms:DescribeKey`<br />`kms:ListAliases`<br />`kms:RetireGrant`<br />`iam:PutRolePolicy` | 
+| View call recording | `connect:DescribeInstance`<br />`connect:ListInstanceStorageConfigs`<br />`connect:DescribeInstanceStorageConfig`<br />`connect:DescribeInstanceAttribute` | 
+| Edit call recording | `connect:AssociateInstanceStorageConfig`<br />`connect:UpdateInstanceStorageConfig`<br />`connect:DisassociateInstanceStorageConfig`<br />`connect:UpdateInstanceAttribute`<br />`s3:ListAllMyBuckets`<br />`s3:GetBucketLocation`<br />`s3:GetBucketAcl`<br />`s3:CreateBucket`<br />`kms:CreateGrant`<br />`kms:DescribeKey`<br />`kms:ListAliases`<br />`kms:RetireGrant`<br />`iam:PutRolePolicy` | 
 
 ### Screen recording section
 <a name="screen-recording-section"></a>

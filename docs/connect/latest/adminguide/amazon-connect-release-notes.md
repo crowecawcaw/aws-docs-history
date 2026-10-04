@@ -1010,7 +1010,7 @@ For more information, see [Use generative AI-powered email conversation overview
 ### Connect Customer makes it easier to get customer input on outbound calls
 <a name="outboundcalls-oct25"></a>
 
-Connect Customer supports [Get customer input](get-customer-input.md) and [Store customer input](store-customer-input.md) flow blocks for outbound voice whisper flows. The **Get customer input block** allows a prompt to be played to a customer on an outbound call after they answer the call but before they are connected with an agent, and the customer's response can be collected through either DTMF input or by using an Amazon Lex bot.
+Connect Customer supports [Get customer input](get-customer-input.md) and [Store customer input](store-customer-input.md) flow blocks for outbound voice whisper flows. The **Get customer input block** allows a prompt to be played to a customer on an outbound call after they answer the call but before they are connected with an agent, and the customer's response can be collected through either DTMF input or by using an Amazon Lex V2 bot.
 
 This capability allows you to capture interactive and dynamic customer input on outbound calls before these are connected to an agent. For example, you can use the **Get customer input** block to obtain customer consent for call recording as part of outbound calls placed by agents, and use it to trigger Connect Customer conversational analytics recording and analytics. 
 
@@ -3397,7 +3397,7 @@ Agents can view call unredacted transcripts in the CCP and agent application. Fo
 #### Support for Lex intent confidence scores and sentiment analysis
 <a name="lex-sentiment-scores-june-2022"></a>
 
-You can further personalize the automated self-service customer experience using Amazon Lex intent confidence scores and sentiment analysis as a branch within your flows. For more information, see the [Get customer input](https://docs.aws.amazon.com/connect/latest/adminguide/get-customer-input.html) block. For a list of new contact attributes, see [Amazon Lex contact attributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#attribs-lex-table).
+You can further personalize the automated self-service customer experience using Amazon Lex V2 intent confidence scores and sentiment analysis as a branch within your flows. For more information, see the [Get customer input](https://docs.aws.amazon.com/connect/latest/adminguide/get-customer-input.html) block. For a list of new contact attributes, see [Amazon Lex V2 contact attributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#attribs-lex-table).
 
 #### Metrics Updates
 <a name="metrics-june-2022"></a>
@@ -3820,10 +3820,10 @@ Released Apple Messages for Business for general availability (GA). For more inf
 
 Released Connect Customer quick connects management API for general availability (GA). For more information, see [Connect Customer Service API Reference](https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html). The quick connects API also supports AWS CloudFormation. For more information, see [Connect Customer Resource Type Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Connect.html) in the AWS CloudFormation User Guide.
 
-#### Support for Amazon Lex V2 console and APIs
+#### Support for Amazon Lex V2 V2 console and APIs
 <a name="lexv2-june2021"></a>
 
-For more information on using the Amazon Lex V2 console with Connect Customer, see [Add an Amazon Lex bot](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-lex). Added these three APIs: AssociateLexBot, DisassociateLexBot, and ListLexBots. See the [Connect Customer Service API Reference](https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html). 
+For more information on using the Amazon Lex V2 V2 console with Connect Customer, see [Add an Amazon Lex V2 bot](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-lex). Added these three APIs: AssociateLexBot, DisassociateLexBot, and ListLexBots. See the [Connect Customer Service API Reference](https://docs.aws.amazon.com/connect/latest/APIReference/Welcome.html). 
 
 #### Chat: Increase to chat agent concurrency
 <a name="chat-june2021"></a>

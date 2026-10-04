@@ -52,7 +52,7 @@ You can choose to set attributes on:
 
   Flow attributes are useful in situations where you don't want to persist the data throughout the contact, such as when you need to use sensitive information like the customer's credit card number to do a Lambda data dip.
   + Flow attributes are temporary variables stored locally and only used in the flow. They aren't visible anywhere outside the flow, not even when the contact is transferred to another flow. 
-  + They can be up to 32 KB (the maximum size of the contact record attributes section).
+  + They can be up to 64 KB.
   + They aren't passed to a Lambda unless they are explicitly configured as parameters: in the **Invoke AWS Lambda function** block, choose **Add a parameter**. 
   + They aren't passed to modules. You can set a flow attribute within a module, but it won't be passed out of the module.
   + They don't appear in the contact record. 
@@ -83,15 +83,15 @@ You can choose to set attributes on:
 
 Attributes can be up to 32 KB, which is the maximum size of the contact record attributes section. When the attributes for a contact exceed 32 KB, the contact is routed down the **Error** branch. As a mitigation, consider the following options:
 + Remove unnecessary attributes by setting their values to empty.
-+ If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. This way you aren't needlessly persisting the 32 KB of information from one flow to another. 
++ If the attributes are only used in one flow and don't need to be referred to outside of that flow (for example, by a Lambda or another flow), then use flow attributes. Flow-scoped attributes support up to 64 KB.
 
 ## Configuration tips
 <a name="set-contact-attributes-tips"></a>
 + When using a user-defined destination key, you can name it anything you want but don't include the **$** and **.** (period) characters. They are not allowed because they are both used in defining the attribute paths in JSONPath.
-+ You can use the **Set contact attributes** block to set the language attribute required for an Amazon Lex V2 bot. (Your language attribute in Connect Customer must match the language model used to build your Amazon Lex V2 bot.) The following image shows a language attribute set to Spanish.  
++ You can use the **Set contact attributes** block to set the language attribute required for an Amazon Lex V2 V2 bot. (Your language attribute in Connect Customer must match the language model used to build your Amazon Lex V2 V2 bot.) The following image shows a language attribute set to Spanish.  
 ![The properties page for Set contact attributes, Value set to Spanish.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-contact-attributes-language.png)
 
-  Or, you can use the [Set voice](set-voice.md) block to set the language required for an Amazon Lex V2 bot. 
+  Or, you can use the [Set voice](set-voice.md) block to set the language required for an Amazon Lex V2 V2 bot. 
 + You can use the **Set contact attributes** block to update the task template currently in use on task contacts. The following image shows a task template being set to the "Password reset template".  
 ![The Set contact attributes block configured with System namespace, Task template key, Set manually selected, and Password reset template chosen from the Task template dropdown.](https://docs.aws.amazon.com/connect/latest/adminguide/images/set-contact-attributes-task-template.png)
   + Task templates can only be updated on in-progress task contacts before they are connected to an agent.

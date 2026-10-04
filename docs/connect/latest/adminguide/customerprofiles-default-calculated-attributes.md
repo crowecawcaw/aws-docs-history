@@ -1047,3 +1047,57 @@ Connect Customer Customer Profiles provides out-of-the box default attributes ba
     "Launched": false
   }
 ```
+
+**High lifetime value**
+
+```
+{
+    "CalculatedAttributeName": "_lifetime_value_high",
+    "DisplayName": "High lifetime value",
+    "Description": "Returns true if a customer's total order value exceeds the high lifetime value threshold.",
+    "AttributeDetails": {
+      "Attributes": [
+        {
+          "Name": "TotalPrice"
+        }
+      ],
+      "Expression": "{_order.TotalPrice}"
+    },
+    "Statistic": "SUM",
+    "Conditions": {
+      "Range": null,
+      "ObjectCount": null,
+      "Threshold": {
+        "Value": 1000,
+        "Operator": "GREATER_THAN"
+      }
+    }
+  }
+```
+
+**Low lifetime value**
+
+```
+{
+    "CalculatedAttributeName": "_lifetime_value_low",
+    "DisplayName": "Low lifetime value",
+    "Description": "Returns true if a customer's total order value is below the low lifetime value threshold.",
+    "AttributeDetails": {
+      "Attributes": [
+        {
+          "Name": "TotalPrice"
+        }
+      ],
+      "Expression": "{_order.TotalPrice}"
+    },
+    "Statistic": "SUM",
+    "Conditions": {
+      "Range": null,
+      "ObjectCount": null,
+      "Threshold": {
+        "Value": 200,
+        "Operator": "LESS_THAN"
+      }
+    }
+  }
+```

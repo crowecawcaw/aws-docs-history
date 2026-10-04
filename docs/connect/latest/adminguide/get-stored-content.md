@@ -11,7 +11,7 @@ This topic specifies the flow block for getting stored content to be used within
 Use this block to retrieve stored data from your S3 bucket when you need to make branching decisions in your flows. For example, this block can be used to access email message bodies stored in your Amazon S3 buckets. The following options are currently available for this flow block:
 
 Email message (Plain text)  
-This block will download the plain text version of the email message present in your S3 bucket and store it on the `$.Email.EmailMessage.Plaintext` flow attribute. The email message content is downloaded as a plain text file and the maximum size supported is currently 32 KB due to the maximum size of flow attributes limits. Make sure to [Enable email for your Connect Customer instance](enable-email1.md) before using this option.
+This block will download the plain text version of the email message present in your S3 bucket and store it on the `$.Email.EmailMessage.Plaintext` flow attribute. The email message content is downloaded as a plain text file and the maximum size supported is currently 64 KB due to the maximum size of flow attributes limits. Make sure to [Enable email for your Connect Customer instance](enable-email1.md) before using this option.
 
 ## Use cases for this block
 <a name="get-stored-content-use-case"></a>
@@ -91,5 +91,5 @@ The following code example shows how to use the `LoadContactContent` in the Conn
 
 A contact is routed down the Error branch if the flows services runs into any of the following error scenarios:
 + When using Email message (Plain text):
-  + When the size of the email message in plaintext format is more than 32KB.
+  + When the size of the email message in plaintext format is more than 64 KB.
   + Connect Customer is unable to download the email body from the S3 bucket. This might be due to the S3 bucket policy not being set up correctly (see [Step 4: Enable email and create an Amazon S3 bucket](enable-email1.md#enable-email-buckets)), Amazon Connect does not have proper access to the S3 bucket (see [Step 5: Configure a CORS policy](enable-email1.md#config-email-attachments-cors1)), or there is no email message in plaintext format available on the contact.

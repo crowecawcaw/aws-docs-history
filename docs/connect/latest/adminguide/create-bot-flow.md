@@ -32,7 +32,7 @@ This topic explains how to add a previously created conversational AI bot to a f
 1. Choose **Save**.
 
 **Important**  
-If you're using an Amazon Lex V2 bot, your language attribute in Connect Customer must match the language model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot) block to indicate the Connect Customer language model, or use a [Set contact attributes](set-contact-attributes.md) block.
+If you're using an Amazon Lex V2 V2 bot, your language attribute in Connect Customer must match the language model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot) block to indicate the Connect Customer language model, or use a [Set contact attributes](set-contact-attributes.md) block.
 
 ## How to find intents for Amazon Lex V1 bots, cross-Region bots, or dynamically set bots
 <a name="find-notlisted-intents"></a>

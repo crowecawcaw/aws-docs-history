@@ -101,6 +101,78 @@ Configuration options:
 ![Observe block configuration showing Action Triggered event type with resource type options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-flow-action-started.png)
 
 
+### Flow Action Completed Event
+<a name="testing-simulation-observe-flow-action-completed"></a>
+
+This event observes when a specific action in your flow is completed successfully. Where the Flow Action Started event tells you when an action begins, the Flow Action Completed event tells you when it has completed successfully. More importantly, it makes the data that action produced available for you to validate and log in your test.
+
+Think of it as the moment a Lambda function returns its response, a Lex bot resolves an intent, or an Agentic CX (customer experience) interaction completes successfully. At that point the action's results (such as an order status returned by a Lambda, the intent and slots resolved by a Lex bot, or the context variables produced by an Agentic CX interaction) become available to assert in Check blocks and Log data actions further along in your test.
+
+When you would use this event:
+
+Observe a completed action whenever you want to validate the output of that action, not just that it ran. For example, confirm or log that a Lambda returned `orderStatus = "Shipped"`, that a Lex bot resolved the `CheckOrderStatus` intent with the expected slot values, or that an Agentic CX interaction set the expected context variable.
+
+Configuration options:
++ **Event Type** – Choose "Action completed" from the dropdown.
++ **Resource Type** – Choose the completed flow action to observe:
+  + **Lambda Function** – Detects when a Lambda function invocation completes successfully (select from the dropdown or specify the function ARN).
+  + **Lex Bot** – Detects when a Lex bot interaction completes successfully (select from the dropdown or specify the bot ARN and alias).
+  + **Agentic CX** – Detects when an Agentic CX interaction completes successfully (select the Agentic CX workspace, application, and alias from the dropdown).
+
+**Important**  
+The results of an action only become available for reference after a Flow Action Completed observation for that action matches during test execution. If you reference `$.LambdaInvocation.ResultData.*`, `$.Lex.*`, or `$.AgenticCX.*` values without first observing the corresponding action's completion, those references resolve to an empty value and your assertion will fail. Always place a Flow Action Completed observation for an action before any Check or Log data step that references that action's results.
+
+![Observe block configured for the Action completed event and Agentic CX resource type.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-flow-action-completed-agentic-cx.png)
+
+
+#### What Data Becomes Available After an Action Completes?
+<a name="testing-simulation-observe-flow-action-completed-data"></a>
+
+When a Flow Action Completed observation matches, the results of that action are captured and made available under a dedicated namespace that you can reference by JSONPath, the same way you reference attributes in your flows:
++ **Lambda results** – reference under `$.External.<key>` (for example, `$.External.orderStatus`). You can also use the flow-language path `$.LambdaInvocation.ResultData.<key>`, which resolves to the same data.
++ **Lex results** – reference under `$.Lex.<path>` (for example, `$.Lex.IntentName`, `$.Lex.Slots.OrderNumber`, or `$.Lex.IntentConfidence.Score`).
++ **Agentic CX results** – reference under `$.AgenticCX.ContextVariables.<key>` for context variables the interaction produced, and `$.AgenticCX.metadata.<key>` for interaction metadata.
+
+Once your observations of these actions match successfully, these references resolve to exactly the same values they would during a real contact. This ensures that the assertions you write in a test match the behavior your customers experience.
+
+**Note**  
+Only single values can be referenced. A reference that points to an entire object or list, rather than a specific value inside it, resolves to an empty value. For example, reference `$.Lex.Slots.OrderNumber` (a value), not `$.Lex.Slots` (an object). When the same action type completes successfully more than once, references resolve to the most recently captured results.
+
+#### How Do You Reference an Action's Results?
+<a name="testing-simulation-observe-flow-action-completed-reference-results"></a>
+
+Example configuration to validate the order status returned by a Lambda function.
+
+1. Add an **Observe** block and select the **Flow Action Completed** event, with **Resource Type** set as **Lambda function** and **Target resource** set to your Lambda function.
+
+1. Add a **Check** block to the same interaction group: **Namespace** = **External**, **Key** = `orderStatus`, **Condition** = **Equals**, **Value** = `Shipped`.
+
+1. Add a **Log data** action: **Log identifier** = `"Order status"`, **Log value** = `$.External.orderStatus`.
+
+What happens: When the Lambda completes successfully during the simulated contact, the observation matches and captures the Lambda's results. The Check block then confirms `orderStatus` equals `Shipped`, and the Log data action records the value in your test results for later review. Lex and Agentic CX interactions follow the same pattern using their respective namespaces.
+
+![Interaction group showing a Flow action completed Observe block connected to a Check block and a Log data action.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-flow-action-completed-lambda-workflow.png)
+
+
+![Observe block configured for the Action completed event, Lambda function resource type, and getCustomerInfo target resource.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-flow-action-completed-lambda.png)
+
+
+![Check block configured to validate that the External orderStatus attribute equals Shipped.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-flow-action-completed-lambda.png)
+
+
+![Log data action configured to record Order status using the $.External.orderStatus JSONPath expression.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-action-log-data-flow-action-completed-lambda.png)
+
+
+#### What Happens When an Action Takes the Error Branch?
+<a name="testing-simulation-observe-flow-action-completed-error-branch"></a>
+
+A Flow Action Completed observation matches only when the action completes successfully, meaning it takes the success or another default branch in your flow (not the error branch). "Completed" here means the action finished and succeeded.
+
+If the action takes the error branch, it is not treated as completed. The observation does not match, so it keeps waiting for a successful completion that does not arrive. It times out after 5 minutes, causing the test to fail. Any Check or Log data steps attached to that observation do not run, because the completion event was never matched.
+
+**Note**  
+This applies equally to Lambda, Lex, and Agentic CX actions.
+
 ## How often should the event occur?
 <a name="testing-simulation-observe-event-frequency"></a>
 

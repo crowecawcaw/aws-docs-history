@@ -5,7 +5,7 @@
 
 The topics in this section explain how to set up and test WhatsApp Business messaging for Connect Customer. You use [AWS End User Messaging Social](https://docs.aws.amazon.com/social-messaging/latest/userguide/what-is-service.html) to link a WhatsApp Business Account and phone number to a Connect Customer instance, then import the linked phone number into Connect Customer. Customers can then use WhatsApp to send messages to your call center. 
 
-You can also use Amazon Lex to automate responses to customer questions, which saves agents time and effort. For more information, see [Getting started with Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/getting-started.html) in the *Amazon Lex Developer Guide*.
+You can also use Amazon Lex to automate responses to customer questions, which saves agents time and effort. For more information, see [Getting started with Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/getting-started.html) in the *Amazon Lex V2 Developer Guide*.
 
 **Topics**
 + [Prerequisites](#whatsapp-prerequisites)

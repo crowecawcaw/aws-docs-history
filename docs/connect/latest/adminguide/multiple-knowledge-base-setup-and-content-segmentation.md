@@ -12,12 +12,12 @@ You can control how your AI agent queries content at two levels:
 + **Content level:** Use content segmentation to query only specific content within a single knowledge base.
 
 **Topics**
-+ [How to configure your orchestration agent to query multiple knowledge bases](#w2aac30c34c13)
-+ [Content segmentation](#w2aac30c34c15)
++ [How to configure your orchestration agent to query multiple knowledge bases](#w2aac32c34c13)
++ [Content segmentation](#w2aac32c34c15)
 + [Add citation data to your AI agent trace](#add-citation-data-ai-agent-trace)
 
 ## How to configure your orchestration agent to query multiple knowledge bases
-<a name="w2aac30c34c13"></a>
+<a name="w2aac32c34c13"></a>
 
 You can configure multiple Retrieve tools to query different knowledge bases. Depending on your use case, you can either:
 + Query all knowledge bases simultaneously (parallel invocation)
@@ -151,7 +151,7 @@ The model's ability to select the correct Retrieve tool depends on several facto
 Your use case might require additional prompt modifications beyond the examples provided here.
 
 ## Content segmentation
-<a name="w2aac30c34c15"></a>
+<a name="w2aac32c34c15"></a>
 
 With content segmentation, you can tag your knowledge base content and filter retrieval results based on those tags. When your LLM tool queries the knowledge base, it can specify tags to retrieve only content matching those tags, enabling targeted responses from specific content subsets.
 
@@ -159,12 +159,12 @@ With content segmentation, you can tag your knowledge base content and filter re
 Content segmentation is not available with the Web crawler data source type.
 
 ### Tagging content by data source type
-<a name="w2aac30c34c15b7"></a>
+<a name="w2aac32c34c15b7"></a>
 
 The process for tagging content varies depending on your data source type.
 
 #### S3, Salesforce, SharePoint, Zendesk, and ServiceNow
-<a name="w2aac30c34c15b7b5"></a>
+<a name="w2aac32c34c15b7b5"></a>
 
 After creating your knowledge base, you can apply tags to individual content items for segmentation. Tags are applied at the content level, meaning each piece of content must be tagged individually.
 
@@ -173,7 +173,7 @@ To tag content, use the Amazon Connect [TagResource API](https://docs.aws.amazon
 For examples of tagging content, see the [content segmentation workshop](https://catalog.workshops.aws/workshops/9657f1e6-9357-4d9f-8733-d334ebec0aab/en-US/01-foundation/07-content-segmentation).
 
 ##### Using tags in the Retrieve tool
-<a name="w2aac30c34c15b7b5b9"></a>
+<a name="w2aac32c34c15b7b5b9"></a>
 
 After your content is tagged, you can filter retrieval results by specifying tag filters in the Retrieve tool configuration.
 
@@ -191,7 +191,7 @@ You can use any filter configuration that starts with `retrievalConfiguration.fi
 
 
 #### Bedrock knowledge base
-<a name="w2aac30c34c15b7b7"></a>
+<a name="w2aac32c34c15b7b7"></a>
 
 For Bedrock knowledge base data sources, content is not stored as Amazon Connect resources, so tagging through the TagResource API is not available. Instead, you must define metadata fields directly on your Bedrock knowledge base data sources.
 
@@ -200,7 +200,7 @@ For S3 data sources, see the Document metadata fields section in the [Amazon Bed
 For other data source types, see [Custom transformation during ingestion](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-custom-transformation.html) in the Amazon Bedrock documentation.
 
 ##### Using metadata fields in the Retrieve tool
-<a name="w2aac30c34c15b7b7b9"></a>
+<a name="w2aac32c34c15b7b7b9"></a>
 
 Bedrock knowledge bases automatically provide built-in metadata fields on all files. You can use these fields to filter retrieval results in the Retrieve tool using the same configuration method shown in the example above.
 

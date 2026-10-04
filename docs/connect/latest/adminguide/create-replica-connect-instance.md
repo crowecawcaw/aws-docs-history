@@ -47,7 +47,7 @@ The `replicaAlias` attribute in the [ReplicateInstance](https://docs.aws.amazon.
 
   In the case of resource name conflicts, [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) doesn't synchronize the resource across Regions. Instead it throws a `ResourceConflictException` error. After you resolve the name conflict (for example, delete the resource in the replica instance), you can run `ReplicateInstance` again to synchronize the resource.
 + After running `ReplicateInstance`, you must use the [AssociateTrafficDistributionGroupUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_AssociateTrafficDistributionGroupUser.html) API to associate agents to either the default traffic distribution group or a custom traffic distribution group.
-+ Running [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) does not synchronize Lambda functions or Amazon Lex bots, or other third-party / integrations you might have.
++ Running [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) does not synchronize Lambda functions or Amazon Lex V2 bots, or other third-party / integrations you might have.
 
 ## Characteristics of the replica instance
 <a name="replica-characteristics"></a>

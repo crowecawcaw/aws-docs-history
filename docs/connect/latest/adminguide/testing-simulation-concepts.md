@@ -23,7 +23,7 @@ Actors represent roles to be played in the testing framework. When observing eve
 Use interaction groups to create simulated interactions with the contact center. Each interaction group has three defined steps, described as the following blocks: 
 
 Observe  
-For each interaction group, you must configure an observe block to validate the expected interaction from the system. There are four types of event you can observe from, which are test started, message received, action triggered, and test completed.  
+For each interaction group, you must configure an observe block to validate the expected interaction from the system. There are five event types you can observe: test started, message received, action triggered, action completed, and test completed.  
 Observe currently supports message received in English only. Messages received in other languages are not supported at this time and will cause the observe block to fail during test execution.
 ![The Observe block in the test simulation configuration.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-observe-block.png)
 

@@ -38,7 +38,7 @@ In this step you'll create a custom bot to demonstrate the Press or Say integrat
 1. Choose **Next**.
 
 1. Provide language and voice specific information:
-   + **Language** — Select language and locale from the list of [Languages and locales supported by Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html). 
+   + **Language** — Select language and locale from the list of [Languages and locales supported by Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html). 
    + **Voice interaction** — Select the voice for your bot to use when speaking to callers. The default voice for Connect Customer is Joanna.
 
 1. Choose **Done**. The AccountBalance bot is created, and the **Intent** page is displayed.
@@ -307,7 +307,7 @@ Connect Customer uses Amazon Lex resource-based policies to make calls to your A
 <a name="lex-bot-create-flow-add-bot"></a>
 
 **Important**  
-If you're using an Amazon Lex V2 bot, your language attribute in Connect Customer must match the language model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot) block to indicate the Connect Customer language model, or use a [Set contact attributes](set-contact-attributes.md) block.
+If you're using an Amazon Lex V2 V2 bot, your language attribute in Connect Customer must match the language model used to build your Lex bot. This is different than Amazon Lex (Classic). Use a [Set voice](set-voice.md#set-voice-lexv2bot) block to indicate the Connect Customer language model, or use a [Set contact attributes](set-contact-attributes.md) block.
 
 Next, create a new flow that uses your Amazon Lex bot. When you create the flow, you configure the message played to callers.
 

@@ -103,7 +103,7 @@ The following table contains some examples on configurations and their results:
 | en-US | Ruth | neural | conversational | Success branch: Even though Ruth does not support conversational speech style, the block does not take the error branch. Instead, when the voice is synthesized, it just uses no speaking style. | 
 | ar-AE | Ruth | neural | none | Success branch: This block does not do validation on language code. Only the voice is used to synthesize speech. However, language code being incorrect might result in erroneous behavior when used with Lex V2 bots. | 
 
-## Use an Amazon Lex V2 bot with Connect Customer
+## Use an Amazon Lex V2 V2 bot with Connect Customer
 <a name="set-voice-lexv2bot"></a>
 
 If you're using an Amazon Lex V2 bot, your language attribute in Connect Customer must match the language model used to build your Lex bot. This is different than Amazon Lex (Classic). 

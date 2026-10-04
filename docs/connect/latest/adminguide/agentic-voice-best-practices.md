@@ -30,13 +30,14 @@ The Advanced ASR speech model preference is a streaming recognizer designed for 
 
 The controls in this section are set with standard Lex V2 session attributes in the `x-amz-lex` namespace. You set them when you start a conversation and can override them in a Lambda function (for example, to relax detection only while collecting a sensitive value).
 
-Scope every attribute to an intent and slot:
+Scope these attributes to an intent and slot:
 
 ```
 x-amz-lex:audio:<setting>:<intentName>:<slotToElicit>
 ```
 + Use `*` as the intent or slot name to set a default that applies everywhere.
 + Any intent- or slot-specific setting takes precedence over a `*` default.
++ `x-amz-lex:audio:locale-override` is an exception. It takes no intent and slot suffix, and it applies to every turn in the conversation. For more information, see [Language hints for multilingual recognition](#agentic-voice-asr-language-hints).
 
 **Do:**
 + Set conservative values only on the slots that need them (for example, an account-number slot), and leave everything else on defaults.
@@ -94,13 +95,13 @@ Advanced ASR ends a turn when either condition is met first:
 | Setting | Session attribute | Default | Range | 
 | --- | --- | --- | --- | 
 | End-of-turn confidence threshold | x-amz-lex:audio:end-confidence-threshold | 0.7 | 0.5–0.9 | 
-| End-of-turn silence timeout | x-amz-lex:audio:end-timeout-ms | 5,000 ms | 500–10,000 ms | 
+| End-of-turn silence timeout | x-amz-lex:audio:end-timeout-ms | 640 ms | 500–10,000 ms | 
 
 Higher values make the bot wait longer and end turns more conservatively (fewer premature cutoffs, slightly more latency). Lower values end turns sooner (lower latency, higher chance of cutting off a caller who pauses). The confidence threshold is the primary lever; the silence timeout only matters when confidence has not already ended the turn.
 
 **Out-of-range behavior:**
 + `end-confidence-threshold` outside 0.5–0.9 is rejected with an invalid session attribute error.
-+ `end-timeout-ms` below 500 or above 10,000 is silently clamped to the nearest supported value.
++ `end-timeout-ms` is not clamped. The speech model rejects values below 500 or above 10,000 and continues with the previous setting. Keep the value within 500–10,000 ms.
 
 **Choosing values**
 
@@ -109,7 +110,7 @@ Higher values make the bot wait longer and end turns more conservatively (fewer 
 
 | Scenario | Recommended settings | Notes | 
 | --- | --- | --- | 
-| Natural conversation | Defaults (0.7 / 5,000 ms) | Tuned for responsive general-purpose turn taking. | 
+| Natural conversation | Defaults (0.7 / 640 ms) | Tuned for responsive general-purpose turn taking. | 
 | Sensitive or dictated input (OTP, account number) | threshold: 0.9, timeout: 6,000–8,000 ms | Tolerates pauses. Reset for the next slot after collection. | 
 | Short exchanges (yes/no, single word) | threshold: \~0.5, timeout: \~500 ms | Faster turns. Test for premature cutoffs first. | 
 
@@ -144,19 +145,22 @@ A single default for every intent and slot:
 ### Language hints for multilingual recognition
 <a name="agentic-voice-asr-language-hints"></a>
 
-Advanced ASR recognizes multiple languages in the same conversation without being told which languages to expect. It detects the language from the caller's speech, so a caller can start in English and switch to Spanish and the transcription follows. This is the default behavior and needs no configuration.
+Advanced ASR recognizes multiple languages in the same conversation. By default it is biased toward a single language: the language of the bot locale that handles the contact — the language your flow sets, for example in the **Set voice** block, or the bot locale you invoke. Recognition is not restricted to that language, but it is weighted toward it, so a caller who switches languages mid-conversation might be transcribed less accurately.
 
-If you already know which languages your callers use, you can bias recognition toward them with language hints. Hints help most when two languages sound similar. They also help when short utterances — a single word, a digit, a yes/no — give the model little to work with. You set them with:
+If your callers use more than one language, or a language other than the bot locale, list the languages you expect with language hints. Hints replace the default single-language bias, so a caller can start in English and switch to Spanish and the transcription follows. Hints help most in two cases: when two languages sound similar, and when short utterances — a single word, a digit, a yes/no — give the model little to work with. You set them with:
 
 ```
-x-amz-lex:audio:locale-override:<intentName>:<slotToElicit>
+x-amz-lex:audio:locale-override
 ```
 
-Default: no hints — Advanced ASR detects the language on its own.
+Default: not set — Advanced ASR biases recognition toward the language of the bot locale handling the contact.
 
-Scope the attribute the same way as the other controls in this section. Use `*:*` to bias every turn in the conversation, or name an intent and slot to bias only the turns where you know the expected language.
+**Important**  
+Unlike the other controls in this section, this attribute is not scoped to an intent and slot. Use the attribute name exactly as shown, with no `:<intentName>:<slotToElicit>` suffix. Adding a suffix such as `:*:*` prevents Advanced ASR from applying the hints, and the conversation proceeds with the default bias toward the bot locale instead. Hints apply to every turn in the conversation.
 
 Set the value to the language codes you want to bias toward, most likely first. Use a comma-separated list, optionally wrapped in brackets and quotes if that is easier to produce from your flow or Lambda function. Advanced ASR ignores surrounding whitespace and treats underscores as hyphens, so `pt_BR` and `pt-BR` are equivalent.
+
+The hints you set replace the default bias toward the bot locale rather than adding to it. If callers might also speak the bot locale's language, include that language in your list.
 
 The following table shows example attribute values and the languages each one biases Advanced ASR toward.
 
@@ -165,13 +169,13 @@ The following table shows example attribute values and the languages each one bi
 
 | Attribute value | Languages Advanced ASR is biased toward | 
 | --- | --- | 
-| Attribute not set | None. Advanced ASR detects the language from the caller's speech. | 
+| Attribute not set | The language of the bot locale handling the contact — for example US English for an en\_US bot locale. This is the default. | 
 | es,en-US | Spanish, then US English | 
 | ["ja"] | Japanese | 
 | [ "es" , "en" ] | Spanish, then English | 
 | fr, de , it | French, then German, then Italian | 
 + Each entry must be a valid language code. Use a two- or three-letter base code, optionally followed by a hyphen and a region subtag — for example `es`, `en-US`, or `pt-BR`.
-+ Entries that do not match that form are dropped, and the remaining valid entries are still applied. If no valid entry remains, the conversation proceeds with no hints instead of failing.
++ Entries that do not match that form are dropped, and the remaining valid entries are still applied. If no valid entry remains, the conversation falls back to the default bias toward the bot locale instead of failing.
 + Advanced ASR passes through and ignores a well-formed code that it does not recognize. The code does not produce an error, but it does not bias recognition either, so verify the codes you send.
 + Advanced ASR removes duplicates. It applies at most 10 hints and ignores any beyond the tenth.
 
@@ -181,13 +185,14 @@ The following example biases recognition for a line whose callers speak Spanish 
 {
   "sessionState": {
     "sessionAttributes": {
-      "x-amz-lex:audio:locale-override:*:*": "es,en-US"
+      "x-amz-lex:audio:locale-override": "es,en-US"
     }
   }
 }
 ```
-+ Leave the attribute unset unless you have a specific reason to bias recognition. Detection handles most multilingual conversations.
-+ List only the languages your callers actually speak, most likely first.
++ Leave the attribute unset when your callers speak the language of the bot locale. The default bias already matches them.
++ Set hints when a line is genuinely multilingual, or when callers speak a language other than the bot locale.
++ List only the languages your callers actually speak, most likely first. If callers might also speak the bot locale's language, include it in the list.
 + List languages beyond those your callers actually speak. A long list dilutes the bias and removes the benefit of setting hints at all.
 + Send a single hint to lock the conversation to one language. A hint biases recognition; it does not restrict it. To restrict the languages the AI agent responds in, see [Restricting to specific languages](#agentic-voice-multilingual-restricting).
 
@@ -218,8 +223,8 @@ Validate latency end-to-end with your actual tool calls. The goal is that the ca
 | --- | --- | --- | 
 | x-amz-lex:allow-interrupt:<intent>:<slot> | true | Barge-in. Set false for disclaimers. | 
 | x-amz-lex:audio:end-confidence-threshold:<intent>:<slot> | 0.7 | Primary EOT signal. Range 0.5–0.9. Out-of-range rejected. | 
-| x-amz-lex:audio:end-timeout-ms:<intent>:<slot> | 5,000 ms | EOT fallback. Range 500–10,000 ms. Out-of-range clamped. | 
-| x-amz-lex:audio:locale-override:<intent>:<slot> | Not set | Language hints biasing recognition. Comma-separated codes, max 10. | 
+| x-amz-lex:audio:end-timeout-ms:<intent>:<slot> | 640 ms | EOT fallback. Keep within 500–10,000 ms. Out-of-range values are not clamped; the speech model rejects them. | 
+| x-amz-lex:audio:locale-override | Not set (bias toward the bot locale) | Language hints biasing recognition. Replaces the default bot-locale bias. Comma-separated codes, max 10. Not scoped—use the name with no intent or slot suffix. | 
 
 ### Common ASR mistakes
 <a name="agentic-voice-asr-common-mistakes"></a>
@@ -232,7 +237,8 @@ Validate latency end-to-end with your actual tool calls. The goal is that the ca
 | Low confidence threshold while collecting dictated digits | Bot cuts the caller off between groups | Raise confidence and timeout on that slot, reset after. | 
 | Disabling barge-in globally | Caller can't correct the bot anywhere | Disable only on disclaimer/compliance prompts. | 
 | Applying a \*:\* default to fix one slot | Changes pacing for the whole bot | Scope the attribute to the specific intent/slot. | 
-| Setting threshold outside 0.5–0.9 | Request is rejected with an error | Keep it in range. Only end-timeout-ms clamps silently. | 
+| Setting threshold outside 0.5–0.9 | Request is rejected with an error | Keep it in range. | 
+| Adding an intent and slot suffix to locale-override | The hints are never applied, and recognition stays biased toward the bot locale | Use x-amz-lex:audio:locale-override with no suffix. | 
 | Leaving input window open during a long tool call | Caller sits in dead air | Finish the tool call first or play a filler prompt. | 
 | Treating an EOT re-prompt as real barge-in | Wrong fix applied to allow-interrupt | Tune the end-of-turn settings instead. | 
 | Listing many languages in locale-override | Dilutes the bias it was set to provide | List only the languages callers speak, most likely first. | 

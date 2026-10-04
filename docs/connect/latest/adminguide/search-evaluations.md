@@ -6,7 +6,7 @@
 Users can search for evaluated contacts and view evaluations side-by-side alongside audio or screen recordings, conversation transcripts, summaries and insights. 
 
 ## Searching for evaluated contacts
-<a name="w2aac36c13c43b5"></a>
+<a name="w2aac38c13c43b5"></a>
 
 1. Log in to Connect Customer with a user account that has [permissions to search for and view contacts](contact-search.md#required-permissions-search-contacts) and either the **Evaluation forms - perform evaluations** or **Evaluation forms – view my received evaluations** permission. 
 
@@ -18,7 +18,7 @@ Users can search for evaluated contacts and view evaluations side-by-side alongs
 1. Choose the contact ID in the search results to open a contact and review associated evaluations.
 
 ## View evaluations on the contact details page
-<a name="w2aac36c13c43b7"></a>
+<a name="w2aac38c13c43b7"></a>
 
 1. Choose **Evaluations** on the top right of the page.
 

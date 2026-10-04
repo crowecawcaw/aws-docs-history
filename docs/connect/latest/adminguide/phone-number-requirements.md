@@ -68,7 +68,7 @@ Porting is not supported.
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 2AM-4AM or 10AM-12PM or 3PM-5PM UTC-3 Buenos Aires time | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Argentinian AFIP (Federal Tax Agency) extract, as proof of CUIT (Clave Única de Identificación Tributaria - Unique Tax Payer ID) <br />4.  Scanned copy of the Power of Attorney assigning the signatory sufficient attributes that allow them to request the portability, or Company Statute where the signatory appears with such attributes  <br />5.  Scanned copy of the DNI (National Identity Card) of the signatory with power of attorney  | 
+| Monday–Friday 02:00–04:00 or 10:00–12:00 or 15:00–17:00 UTC-3 Buenos Aires time | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Argentinian AFIP (Federal Tax Agency) extract, as proof of CUIT (Clave Única de Identificación Tributaria - Unique Tax Payer ID) <br />4.  Scanned copy of the Power of Attorney assigning the signatory sufficient attributes that allow them to request the portability, or Company Statute where the signatory appears with such attributes  <br />5.  Scanned copy of the DNI (National Identity Card) of the signatory with power of attorney  | 
 | Preset UIFN times only | Service Provider Change Authorization and Designation of Agency provided by Amazon  | 
 
 ## Australia (AU)
@@ -93,8 +93,8 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Type of number | Portability windows | Required Documents | 
 | --- | --- | --- | 
-| Local telephone numbers | Monday-Friday 8 AM -5 PM AEST/AEDT  | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we might provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers, as well as account number with current provider.   | 
-| Toll-free prefixes: \+61 13, \+61 1800 | Monday-Friday 8 AM -3:30 PM AEST/AEDT  | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we might provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers, as well as ABN/ACN, and account number with current provider.   | 
+| Local telephone numbers | Monday–Friday 08:00–17:00 AEST/AEDT  | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we might provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers, as well as account number with current provider.   | 
+| Toll-free prefixes: \+61 13, \+61 1800 | Monday–Friday 08:00–15:30 AEST/AEDT  | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we might provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers, as well as ABN/ACN, and account number with current provider.   | 
 
 ## Austria (AT)
 <a name="austria-requirements"></a>
@@ -119,7 +119,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Belgium (BE)
 <a name="belgium-requirements"></a>
@@ -144,7 +144,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Mandatory to provide service address for the numbers <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Mandatory to provide service address for the numbers <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 **Note**  
 Ordering and porting of \+32 78 national numbers is not supported.
@@ -293,7 +293,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 7 AM to 5 PM CST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.   | 
+| Monday–Friday 07:00–17:00 CST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.   | 
 
 ## Chile (CL)
 <a name="chile-requirements"></a>
@@ -316,7 +316,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 9 PM to 3 AM PST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Copy of legal representative's photo ID <br />4.  Copy of local business registration <br />5.  Copy of the RUT (Rol Unico Tributario) - Official Chilean tax identification <br />6.  Completed and signed "Declaration of Mass Communications Number Usage - Chile" form   | 
+| Monday–Friday 21:00–03:00 PST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Copy of legal representative's photo ID <br />4.  Copy of local business registration <br />5.  Copy of the RUT (Rol Unico Tributario) - Official Chilean tax identification <br />6.  Completed and signed "Declaration of Mass Communications Number Usage - Chile" form   | 
 
 ## China (CN)
 <a name="china-requirements"></a>
@@ -421,7 +421,7 @@ Porting is not supported.
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Copy of **Certificate of Directors and Secretary of the Company** <br />4.  Copy of **Certificate of Incorporation** <br />5.  Copy of legal representative's photo ID   | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Copy of **Certificate of Directors and Secretary of the Company** <br />4.  Copy of **Certificate of Incorporation** <br />5.  Copy of legal representative's photo ID   | 
 
 ## Czech Republic (CZ)
 <a name="czech-republic-requirements"></a>
@@ -443,7 +443,7 @@ Porting is not supported.
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 3 PM to 4 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Business registration. <br />4.  Documents required per Type of Number as listed in the previous table for ordering numbers    | 
+| Monday–Friday 15:00–16:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Business registration. <br />4.  Documents required per Type of Number as listed in the previous table for ordering numbers    | 
 
 ## Denmark (DK)
 <a name="denmark-requirements"></a>
@@ -468,7 +468,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required per Type of Number as listed in the previous table for ordering numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required per Type of Number as listed in the previous table for ordering numbers    | 
 
 ## Dominican Republic (DOM)
 <a name="dom-requirements"></a>
@@ -490,7 +490,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Porting is available only for **Local telephone numbers**<br />Monday-Friday 10:00PM to 04:00AM PST |  1.  Letter of Authorization (LOA) signed: When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it <br />2.  Only Local Address accepted <br />3.  Copy of the ID or passport of an authorized representative who signs the LOA <br />4.  Copy of Local Commercial Registry Number known as RNC / "Número de Registro Mercantil".    | 
+| Porting is available only for **Local telephone numbers**<br />Monday–Friday 22:00–04:00 PST |  1.  Letter of Authorization (LOA) signed: When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it <br />2.  Only Local Address accepted <br />3.  Copy of the ID or passport of an authorized representative who signs the LOA <br />4.  Copy of Local Commercial Registry Number known as RNC / "Número de Registro Mercantil".    | 
 
 ## Ecuador (ECU)
 <a name="ecu-requirements"></a>
@@ -530,7 +530,7 @@ Not supported
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 03:00AM to 05:00AM CST |  1.   Letter of Authorization (LOA) Portability Form. When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />2.  Copy of Local Business Registration with local representative(s) information. <br />3.  Local ID "Documento Unico de Identidad (DUI)" from local representative. <br />4.  Tax Number registration (Número de Identificación Tributaria). <br />5.  Valid proofs of address include, for example, utility bills issued in the previous three months.   | 
+| Monday–Friday 03:00–05:00 CST |  1.   Letter of Authorization (LOA) Portability Form. When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />2.  Copy of Local Business Registration with local representative(s) information. <br />3.  Local ID "Documento Unico de Identidad (DUI)" from local representative. <br />4.  Tax Number registration (Número de Identificación Tributaria). <br />5.  Valid proofs of address include, for example, utility bills issued in the previous three months.   | 
 
 ## Estonia (EE)
 <a name="estonia-requirements"></a>
@@ -554,7 +554,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  LOA template has to include a local address. <br />4.  If this is a company, a business number is required.   | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  LOA template has to include a local address. <br />4.  If this is a company, a business number is required.   | 
 
 ## Finland (FI)
 <a name="finland-requirements"></a>
@@ -577,7 +577,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## France (FR)
 <a name="france-requirements"></a>
@@ -669,7 +669,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  For business ports, end user stamp is mandatory on the LOA. <br />4.  If the number to be ported is an extended line, the main line must be ported.  <br />5.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers. **Toll-free numbers can be ported only if you have the number ownership certificate from the regulator.**   | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  For business ports, end user stamp is mandatory on the LOA. <br />4.  If the number to be ported is an extended line, the main line must be ported.  <br />5.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers. **Toll-free numbers can be ported only if you have the number ownership certificate from the regulator.**   | 
 
 ## Greece (GR)
 <a name="greece-requirements"></a>
@@ -693,7 +693,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Company registration certificate <br />4.  Copy of LOA signatory's photo ID/ Passport <br />5.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Company registration certificate <br />4.  Copy of LOA signatory's photo ID/ Passport <br />5.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Guatemala (GT)
 <a name="guatemala-requirements"></a>
@@ -798,7 +798,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 8 PM to 12 AM CET | 1.  Last invoice: must be within the last 6 months <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 20:00–00:00 CET | 1.  Last invoice: must be within the last 6 months <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Iceland (IS)
 <a name="iceland-requirements"></a>
@@ -857,7 +857,7 @@ Not supported
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  It is mandatory to provide the main telephone number on the account. <br />4.  It is mandatory to provide a Wholesale Account number.  <br />5.  Type of the line mandatory on the LOA.  <br />6.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  It is mandatory to provide the main telephone number on the account. <br />4.  It is mandatory to provide a Wholesale Account number.  <br />5.  Type of the line mandatory on the LOA.  <br />6.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Israel (IL)
 <a name="il-requirements"></a>
@@ -902,7 +902,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| For local numbers: Monday-Friday 6AM to 9AM CET<br />For toll-free numbers: Monday-Friday 6AM-4PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Migration code of the requested number is mandatory. Obtain this code from the losing carrier.  <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| For local numbers: Monday–Friday 06:00–09:00 CET<br />For toll-free numbers: Monday–Friday 06:00–16:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Migration code of the requested number is mandatory. Obtain this code from the losing carrier.  <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Jamaica (JM)
 <a name="jamaica-requirements"></a>
@@ -969,7 +969,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Lithuania (LT)
 <a name="lithuania-requirements"></a>
@@ -993,7 +993,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.   VAT number and local address is needed on the LOA. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.   VAT number and local address is needed on the LOA. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Luxembourg (LU)
 <a name="luxembourg-requirements"></a>
@@ -1017,7 +1017,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  You must provide the account number from the Main Losing Carrier to which the requested DID is assigned. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  You must provide the account number from the Main Losing Carrier to which the requested DID is assigned. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Macao (MO)
 <a name="mo-requirements"></a>
@@ -1162,7 +1162,7 @@ Not supported
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET or 2 PM to 4 PM CET | 1.  Last invoice  <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Copy of a representative's photo ID  <br />4.  Copy of local business registration   | 
+| Monday–Friday 10:00–12:00 CET or 14:00–16:00 CET | 1.  Last invoice  <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Copy of a representative's photo ID  <br />4.  Copy of local business registration   | 
 
 ## Monaco (MC)
 <a name="mc-requirements"></a>
@@ -1207,7 +1207,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 8 AM to 3 PM NZT | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Wholesale account number of the phone number from the current carrier.    | 
+| Monday–Friday 08:00–15:00 NZT | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Wholesale account number of the phone number from the current carrier.    | 
 
 ## Netherlands (NL)
 <a name="netherlands-requirements"></a>
@@ -1233,7 +1233,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Nicaragua (NI)
 <a name="nicaragua-requirements"></a>
@@ -1289,7 +1289,7 @@ Numbers are available to businesses only, not individuals. The DID type is Landl
 
 | Supported Regions | Portability windows | Required Documents | 
 | --- | --- | --- | 
-| Europe (Frankfurt) <br />Europe (London) | Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Europe (Frankfurt) <br />Europe (London) | Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Panama (PA)
 <a name="panama-requirements"></a>
@@ -1311,7 +1311,7 @@ Numbers are available to businesses only, not individuals. The DID type is Landl
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 12 AM to 2 AM PST | **For porting local numbers**:1.  Last invoice and proof of payment <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Copy of legal representative's photo ID <br />4.  Copy of local business registration <br />**For porting toll-free numbers**:1.  Transfer Request <br />2.  Proof of contract termination with the current provider, with a defined disconnection date within at least 14 days. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers.  | 
+| Monday–Friday 00:00–02:00 PST | **For porting local numbers**:1.  Last invoice and proof of payment <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Copy of legal representative's photo ID <br />4.  Copy of local business registration <br />**For porting toll-free numbers**:1.  Transfer Request <br />2.  Proof of contract termination with the current provider, with a defined disconnection date within at least 14 days. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers.  | 
 
 ## Peru (PE)
 <a name="peru-requirements"></a>
@@ -1335,7 +1335,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 PM to 4 AM PST |  1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Copy of legal representative's photo ID <br />4.  Copy of local business registration   | 
+| Monday–Friday 22:00–04:00 PST |  1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Copy of legal representative's photo ID <br />4.  Copy of local business registration   | 
 
 ## Philippines (PH)
 <a name="ph-requirements"></a>
@@ -1384,7 +1384,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 12 AM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 00:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Portugal (PT)
 <a name="portugal-requirements"></a>
@@ -1409,7 +1409,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  CVP (Código de Validação de Portabilidade) of the requested number is mandatory. Obtain this code from the losing carrier. <br />4.  Copy of legal representative's photo ID <br />5.  Business registration (Certidão de Registo Comercial) <br />6.  Documents required per Type of Number as listed in the previous table for ordering numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  CVP (Código de Validação de Portabilidade) of the requested number is mandatory. Obtain this code from the losing carrier. <br />4.  Copy of legal representative's photo ID <br />5.  Business registration (Certidão de Registo Comercial) <br />6.  Documents required per Type of Number as listed in the previous table for ordering numbers    | 
 
 ## Puerto Rico (PR)
 <a name="puerto-rico-requirements"></a>
@@ -1431,7 +1431,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM PST | 1.  Last invoice  <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.    | 
+| Monday–Friday 10:00–12:00 PST | 1.  Last invoice  <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.    | 
 
 ## Reunion (RE)
 <a name="re-requirements"></a>
@@ -1477,7 +1477,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM PST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 PST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Saba (BQ)
 <a name="saba-requirements"></a>
@@ -1591,8 +1591,8 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Type of number | Portability windows | Required Documents | 
 | --- | --- | --- | 
-| National prefixes: \+65 6 | Monday-Friday 9 AM to 5 PM SGT | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  List of Port in Numbers   | 
-| Toll-free prefixes: \+65 1800 | Monday-Friday 9 AM to 5 PM SGT | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Company registration documents <br />4.  List of Port in Numbers   | 
+| National prefixes: \+65 6 | Monday–Friday 09:00–17:00 SGT | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  List of Port in Numbers   | 
+| Toll-free prefixes: \+65 1800 | Monday–Friday 09:00–17:00 SGT | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Company registration documents <br />4.  List of Port in Numbers   | 
 
 ## Sint Eustatius (BQ)
 <a name="sinteustatius-requirements"></a>
@@ -1650,7 +1650,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Slovenia (SI)
 <a name="slovenia-requirements"></a>
@@ -1675,7 +1675,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## South Africa (ZA)
 <a name="southafrica-requirements"></a>
@@ -1703,7 +1703,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Supported Regions | Portability windows | Required Documents | 
 | --- | --- | --- | 
-| Africa (Cape Town) | Monday - Friday 5 PM to 8 PM SAST | 1.  Last invoice. <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers.   | 
+| Africa (Cape Town) | Monday–Friday 17:00–20:00 SAST | 1.  Last invoice. <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it. <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers.   | 
 
 ## South Korea (KR)
 <a name="southkorea-requirements"></a>
@@ -1732,11 +1732,11 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Type of number | Portability windows | Required documents | 
 | --- | --- | --- | 
-| Geographic Prefixes: \+82 2 (any \+82 number other than \+821, \+825, \+827, \+82308) | Monday-Friday 9 AM to 6 PM KST | New SIP Order Form and SIP Port Form for the existing number(s). Use the forms that are provided to you when you make the request. Documents must be signed by a company employee whose month and year of birth are noted, and the company stamp must be applied. Along with these forms the following documents are required:1.  Korean Business Certificate within 6 months. The certificate must match the geographic zone <br />2.  Personal ID for person signing the form <br />3.  Certificate of Seal Impression <br />Submit an Support ticket to verify the portability of your number(s). | 
-| National Prefixes: \+82 50 | Monday-Friday 9 AM to 6 PM KST | New SIP Order Form and SIP Port Form for the existing number(s). Use the forms that are provided to you when you make the request. Documents must be signed by a company employee whose month and year of birth are noted, and the company stamp must be applied. Along with these forms the following documents are required:1.  Korean Business Certificate within 6 months. The certificate must match the geographic zone <br />2.  Personal ID for person signing the form <br />3.  Certificate of Seal Impression <br />Submit an Support ticket to verify the portability of your number(s). | 
-| Representative numbers: \+82 15, \+82 16 | Monday-Friday 9 AM to 6 PM KST | RN/TFN change form is required. Use the form that is provided to you when you make the request. Along with this form the following documents are required:1.  Copy of the company certified registration within 6 months  <br />Submit an Support ticket to verify the portability of your number(s). | 
-| Toll-free prefixes: \+82 80 | Monday-Friday 9 AM to 6 PM KST | RN/TFN change form required. Use the form that is provided to you when you make the request. Along with this form the following documents are required:1.  Copy of the company certified registration within 6 months  <br />Submit an Support ticket to verify the documents for new number(s) ordering. | 
-| VoIP prefixes numbers: \+82 70 | Monday-Friday 9 AM to 6 PM KST | Effectively, callforward to another \+8270 is possible.<br />New SIP Order Form and SIP Port Form for the existing number(s). Use the forms that are provided to you when you make the request. Documents must be signed by a company employee whose month and year of birth are noted, and the company stamp must be applied. Along with these forms the following documents are required:1.  Korean Business Certificate within 6 months. The certificate must match the geographic zone. <br />2.  Personal ID for person signing the form. <br />3.  Certificate of Seal Impression <br />Submit an Support ticket to verify the portability of your number(s). | 
+| Geographic Prefixes: \+82 2 (any \+82 number other than \+821, \+825, \+827, \+82308) | Monday–Friday 09:00–18:00 KST | New SIP Order Form and SIP Port Form for the existing number(s). Use the forms that are provided to you when you make the request. Documents must be signed by a company employee whose month and year of birth are noted, and the company stamp must be applied. Along with these forms the following documents are required:1.  Korean Business Certificate within 6 months. The certificate must match the geographic zone <br />2.  Personal ID for person signing the form <br />3.  Certificate of Seal Impression <br />Submit an Support ticket to verify the portability of your number(s). | 
+| National Prefixes: \+82 50 | Monday–Friday 09:00–18:00 KST | New SIP Order Form and SIP Port Form for the existing number(s). Use the forms that are provided to you when you make the request. Documents must be signed by a company employee whose month and year of birth are noted, and the company stamp must be applied. Along with these forms the following documents are required:1.  Korean Business Certificate within 6 months. The certificate must match the geographic zone <br />2.  Personal ID for person signing the form <br />3.  Certificate of Seal Impression <br />Submit an Support ticket to verify the portability of your number(s). | 
+| Representative numbers: \+82 15, \+82 16 | Monday–Friday 09:00–18:00 KST | RN/TFN change form is required. Use the form that is provided to you when you make the request. Along with this form the following documents are required:1.  Copy of the company certified registration within 6 months  <br />Submit an Support ticket to verify the portability of your number(s). | 
+| Toll-free prefixes: \+82 80 | Monday–Friday 09:00–18:00 KST | RN/TFN change form required. Use the form that is provided to you when you make the request. Along with this form the following documents are required:1.  Copy of the company certified registration within 6 months  <br />Submit an Support ticket to verify the documents for new number(s) ordering. | 
+| VoIP prefixes numbers: \+82 70 | Monday–Friday 09:00–18:00 KST | Effectively, callforward to another \+8270 is possible.<br />New SIP Order Form and SIP Port Form for the existing number(s). Use the forms that are provided to you when you make the request. Documents must be signed by a company employee whose month and year of birth are noted, and the company stamp must be applied. Along with these forms the following documents are required:1.  Korean Business Certificate within 6 months. The certificate must match the geographic zone. <br />2.  Personal ID for person signing the form. <br />3.  Certificate of Seal Impression <br />Submit an Support ticket to verify the portability of your number(s). | 
 
 ## Spain (ES)
 <a name="spain-requirements"></a>
@@ -1751,6 +1751,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 | Type of Number | Are there ID requirements? | Acceptable Identification | 
 | --- | --- | --- | 
 | Local telephone numbers  | Yes | Your business address in Spain in the relevant geographic zone, and your company tax ID. A copy of the business registration (Agencia Tributaria or Registro Mercantil). If the address on the business registration is different than the address provided for the telephone numbers, you must also provide a proof of address. | 
+| Telephone numbers to be used as outbound caller ID by commercial automated calling services: \+34 400 | Yes | Your business address in Spain, and your company tax ID. A copy of the business registration (Agencia Tributaria or Registro Mercantil). | 
 | Toll-free prefixes: \+34 900 | No |  | 
 
 ### Number portability
@@ -1760,7 +1761,10 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  CIF/NIF (VAT number) <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 08:00–11:00, 11:00–14:00, 14:00–17:00 (Europe/Madrid) | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  CIF/NIF (VAT number) <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+
+**Note**  
+\+34 400 numbers can only make national outbound commercial calls. Inbound calls are blocked. Number portability is not supported for \+34 400.
 
 ## Sweden (SE)
 <a name="sweden-requirements"></a>
@@ -1786,7 +1790,7 @@ Number portability is not available for \+46 77 numbers.
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Your tax number has to be provided. A Swedish organization number usually contains 12 digits, starting with **16** if it is from a company, or **19** or **20** if it's personal. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
+| Monday–Friday 10:00–12:00 CET | 1.   Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Your tax number has to be provided. A Swedish organization number usually contains 12 digits, starting with **16** if it is from a company, or **19** or **20** if it's personal. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
 ## Switzerland (CH)
 <a name="switzerland-requirements"></a>
@@ -1810,7 +1814,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 10 AM to 12 PM CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers  <br />4.  Proof of address <br />5.  Company registration   | 
+| Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers  <br />4.  Proof of address <br />5.  Company registration   | 
 
 ## Taiwan (TW)
 <a name="tw-requirements"></a>
@@ -1842,7 +1846,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Type of Number | Portability windows | Required Documents | 
 | --- | --- | --- | 
-| Local telephone numbers | Monday-Friday 9 AM to 5 PM ICT | The business address must be in Thailand1.  Complete the form provided with contact name, contact phone number and contact email address. <br />2.  Last invoice <br />3.  Copy of company affidavit of end user (not over than 90 days from the date of issue) <br />4.  Copy of authorized director ID with signature <br />5.  Copy of Authorization representative ID with signature  | 
+| Local telephone numbers | Monday–Friday 09:00–17:00 ICT | The business address must be in Thailand1.  Complete the form provided with contact name, contact phone number and contact email address. <br />2.  Last invoice <br />3.  Copy of company affidavit of end user (not over than 90 days from the date of issue) <br />4.  Copy of authorized director ID with signature <br />5.  Copy of Authorization representative ID with signature  | 
 
 **Additional requirements for Thailand**: See [Things to know about Thailand number porting](porting-numbers-th.md).
 
@@ -1924,7 +1928,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| For local (geographic) numbers: Monday-Friday 9AM to 11AM GMT<br />For non-geographic (national, toll-free) numbers: Monday-Friday 9AM to 11AM GMT or 0AM to 4AM GMT | 1.  Last invoice <br />2.  Site address in the UK for local numbers. <br />3.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  When porting \+44 300 numbers, additional documents might be required to prove you are a public sector or non-profit body. | 
+| For local (geographic) numbers: Monday–Friday 09:00–11:00 GMT<br />For non-geographic (national, toll-free) numbers: Monday–Friday 09:00–11:00 GMT or 00:00–04:00 GMT | 1.  Last invoice <br />2.  Site address in the UK for local numbers. <br />3.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  When porting \+44 300 numbers, additional documents might be required to prove you are a public sector or non-profit body. | 
 
 ## United States (US)
 <a name="us-requirements"></a>
@@ -1946,7 +1950,7 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 
 | Portability windows | Required Documents | 
 | --- | --- | 
-| Monday-Friday 7 AM to 5PM CST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.    | 
+| Monday–Friday 07:00–17:00 CST | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.    | 
 
 ## Uruguay (UY)
 <a name="uy-requirements"></a>

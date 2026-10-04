@@ -47,6 +47,8 @@ If you enabled chat barge-in before the release of multi-party chats in December
   + **Call recordings**: Choose **Edit**, specify the bucket and KMS key for recordings of voice conversations, and then choose **Save**. 
 
     When this bucket is created, call recording is enabled at the instance level. The next step for setting up this functionality is to [set up recording behavior in a flow](set-up-recordings.md).
+
+    Under **Agent privacy**, you can choose **Auto-mute agent on hold**. When this option is enabled, agents are automatically muted while they're on hold and unmuted when they resume the contact. Agents can't change their mute state while on hold. Agent audio isn't captured in call recordings or streamed to Contact Lens during hold.
   + **Chat transcripts**: Choose **Edit**, specify the bucket and KMS key for recordings (transcripts) of chat conversations, and then choose **Save**. 
 
     When this bucket is created, chat transcripts are enabled at the instance level. Now all chat transcripts will be stored here.

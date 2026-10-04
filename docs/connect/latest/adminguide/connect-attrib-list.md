@@ -25,7 +25,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 + [External tool attributes](#external-tool-attributes)
 + [User-defined attributes](#user-defined-attributes)
 + [Flow attributes](#flow-attributes)
-+ [Loop Attributes](#w2aac18c54b9c43)
++ [Loop Attributes](#w2aac20c54b9c43)
 + [Flow modules attributes](#flow-modules-attributes)
 + [Data Table attributes](#data-table-attributes)
 + [Apple Messages for Business attributes](#apple-messages-for-business-attributes)
@@ -256,8 +256,8 @@ The following table lists the attributes that are returned from Amazon Lex bots.
 
 | Attribute | Description | Type | JSONPath Reference | 
 | --- | --- | --- | --- | 
-| Alternate Intents | List of alternate intents available from Amazon Lex. Each intent has a corresponding confidence score and slots to fill. | Lex | $.Lex.AlternativeIntents.{{x}}.IntentName<br />$.Lex.AlternativeIntents.{{x}}.IntentConfidence.Score <br />$.Lex.AlternativeIntents.{{x}}.Slots <br />$.Lex.AlternativeIntents.{{y.}}IntentName <br />$.Lex.AlternativeIntents.{{y}}.IntentConfidence.Score <br />$.Lex.AlternativeIntents.{{y}}.Slots <br /> $.Lex.AlternativeIntents.{{z}}.IntentName<br /> $.Lex.AlternativeIntents.{{z}}.IntentConfidence.Score<br />$.Lex.AlternativeIntents.{{z}}.Slots <br />Where {{x}}, {{y,}} and {{z}} are the intent names in the Lex response | 
-| Intent Confidence Score | The intent confidence score returned by Amazon Lex. | Lex | $.Lex.IntentConfidence.Score | 
+| Alternate Intents | List of alternate intents available from Amazon Lex V2. Each intent has a corresponding confidence score and slots to fill. | Lex | $.Lex.AlternativeIntents.{{x}}.IntentName<br />$.Lex.AlternativeIntents.{{x}}.IntentConfidence.Score <br />$.Lex.AlternativeIntents.{{x}}.Slots <br />$.Lex.AlternativeIntents.{{y.}}IntentName <br />$.Lex.AlternativeIntents.{{y}}.IntentConfidence.Score <br />$.Lex.AlternativeIntents.{{y}}.Slots <br /> $.Lex.AlternativeIntents.{{z}}.IntentName<br /> $.Lex.AlternativeIntents.{{z}}.IntentConfidence.Score<br />$.Lex.AlternativeIntents.{{z}}.Slots <br />Where {{x}}, {{y,}} and {{z}} are the intent names in the Lex response | 
+| Intent Confidence Score | The intent confidence score returned by Amazon Lex V2. | Lex | $.Lex.IntentConfidence.Score | 
 | Intent name | The user intent returned by Amazon Lex. | Lex | $.Lex.IntentName | 
 | Sentiment Label | The inferred sentiment that Amazon Comprehend has the highest confidence in.  | Lex | $.Lex.SentimentResponse.Label | 
 | Sentiment scores | The likelihood that the sentiment was correctly inferred.  | Lex | $.Lex.SentimentResponse.Scores.Positive<br />$.Lex.SentimentResponse.Scores.Negative<br />$.Lex.SentimentResponse.Scores.Mixed<br />$.Lex.SentimentResponse.Scores.Neutral | 
@@ -337,7 +337,7 @@ Flow attributes are like a type user-defined attribute, however, they are restri
 
 Flow attributes are useful in situations where you don't want to persist the data throughout the contact, such as when you need to use sensitive information like the customer's credit card number to do a Lambda data dip.
 + Flow attributes are temporary variables stored locally and only used in the flow. They aren't visible anywhere outside the flow, not even when the contact is transferred to another flow. 
-+ They can be up to 32 KB (the maximum size of the contact record attributes section).
++ They can be up to 64 KB.
 + They aren't passed to a Lambda unless they are explicitly configured as parameters: in the **Invoke AWS Lambda function** block, choose **Add a parameter**. 
 + They aren't passed to modules. You can set a flow attribute within a module, but it won't be passed out of the module.
 + They don't appear in the contact record. 
@@ -351,7 +351,7 @@ Flow attributes are useful in situations where you don't want to persist the dat
 | Any name you choose | A flow attribute has two parts:+  Destination key: this is any name you choose for the key. However, the **$** and **.** (period) characters are not allowed because they are both used in defining the attribute paths in JSONPath. <br />+  Value: this is can be any value you choose.  | Flow | $.FlowAttributes.*name\_of\_your\_destination\_key* | 
 
 ## Loop Attributes
-<a name="w2aac18c54b9c43"></a>
+<a name="w2aac20c54b9c43"></a>
 
 The following table lists the attributes that are available with the Loop block if a LoopName is specified in the Loop block.
 
@@ -404,7 +404,7 @@ Attributes returned when using the List action in a Data Table block to retrieve
 + The list returns complete records (all attributes), not just selected ones.
 + If no matching records are found, the primaryKeyGroups array will be empty.
 + When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.ResultData.primaryKeyGroups.default[index]`.
-+ The List namespace has a maximum data limit of 32 KB.
++ The List namespace has a maximum data limit of 64 KB.
 + When accessing array elements in flow blocks, use backticks to wrap the JSONPath reference: ``$.DataTableList.ResultData.primaryKeyGroups.<GroupName>[index]``
 
 
@@ -486,6 +486,7 @@ The following table lists the attribute that Connect Customer automatically make
 | Attribute | Type | JSONPath reference | Description | 
 | --- | --- | --- | --- | 
 | Profile ID | user-defined | $.Attributes.connect\_customer-profile\_profile-id | The Customer Profiles profile ID associated with the contact being dialed. Use this value with the **Customer Profiles** block to retrieve profile data. | 
+| Customer-defined dial attribute | user-defined | $.Attributes.<key> | An attribute that you add to the dial request in the **Send communication** block of a campaign flow. For more information, see [Add contact attributes to voice dials](journey-flow-block-send-communication.md#campaigns-add-dial-attributes). | 
 
 To access customer data from a segment in your contact flow, use the **Customer Profiles** block with the **Get profile** action. Set the identifier type to **Profile ID** and use `$.Attributes.connect_customer-profile_profile-id` as the identifier value. After the block runs, you can access standard profile attributes using `$.Customer.<AttributeName>` (for example, `$.Customer.FirstName`). To access custom attributes, use `$.Customer.Attributes.<CustomAttributeName>`.
 

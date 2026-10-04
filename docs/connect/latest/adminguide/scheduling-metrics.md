@@ -14,6 +14,10 @@ These metrics are available in AWS Regions only where [Forecasting & agent sched
 
 This metric measures the percentage of time that an agent correctly follows their schedule. 
 
+Adherence is calculated as Adherent time divided by the sum of Adherent time and Non-adherent time. Scheduled time is not used in this calculation.
+
+When adherence thresholds are configured, time that an agent is adherent outside their scheduled shift counts toward Adherent time. As a result, Adherent time plus Non-adherent time can be greater than Scheduled time. The Adherence percentage cannot be derived from Scheduled time.
+
 **Metric type**: String
 + Min value: 0.00%
 + Max value: 100.00%

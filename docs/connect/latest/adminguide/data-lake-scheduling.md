@@ -481,6 +481,14 @@ If you are unable to access the scheduling tables by using Option 1, try using O
 | data\_lake\_last\_processed\_timestamp | timestamp |  Yes  | Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness. | 
 | projected\_average\_time\_to\_complete | float |  Yes  | Denotes the average time to complete in hours | 
 | projected\_backlog | integer |  Yes  | Denotes the backlog items | 
+| unplanned\_shrinkage\_percentage | float | Yes | Denotes the unplanned shrinkage percentage applied to the interval. This field is populated only when the channel is ALL. | 
+| required\_agent\_count\_with\_shrinkage | float | Yes | Denotes the required agent count adjusted for unplanned shrinkage. This field is populated only when the channel is ALL. | 
+| scheduled\_agent\_count\_with\_shrinkage | float | Yes | Denotes the scheduled agent count adjusted for unplanned shrinkage. This field is populated only when the channel is ALL. | 
+| scheduled\_occupancy\_with\_shrinkage | float | Yes | Denotes the occupancy percentage adjusted for unplanned shrinkage. This field is populated only when the channel is ALL. | 
+| projected\_service\_level\_percentage\_with\_shrinkage | float | Yes | Denotes the projected service level percentage based on scheduled headcount adjusted for unplanned shrinkage. This field is not populated when the channel is ALL. | 
+| projected\_average\_speed\_of\_answer\_with\_shrinkage | float | Yes | Denotes the projected average speed of answer in seconds based on scheduled headcount adjusted for unplanned shrinkage. This field is not populated when the channel is ALL. | 
+| projected\_average\_time\_to\_complete\_with\_shrinkage | float | Yes | Denotes the average time to complete in hours adjusted for unplanned shrinkage. This field is not populated when the channel is ALL. | 
+| projected\_backlog\_with\_shrinkage | integer | Yes | Denotes the backlog items adjusted for unplanned shrinkage. This field is not populated when the channel is ALL. | 
 
 ## Schedule goals
 <a name="data-lake-schedule-goals"></a>

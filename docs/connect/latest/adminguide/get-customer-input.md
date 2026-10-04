@@ -17,7 +17,7 @@ This block accepts only individual digits (0-9) and the special characters \# an
 
 This block is designed to be used in the following scenarios:
 + Create interactive phone menus where customers can respond using touch-tone keypads. For example, "Press 1 for Sales, press 2 for Support."
-+ Enable voice-activated prompts by using this block with Amazon Lex bots. Customers can interrupt the prompts by speaking. This provides them with a more natural and responsive interaction.
++ Enable voice-activated prompts by using this block with Amazon Lex V2 bots. Customers can interrupt the prompts by speaking. This provides them with a more natural and responsive interaction.
 + Route the customer to specific paths within the flow based on their input. This helps direct the customer to the appropriate department or service based on their needs.
 + Gather feedback from customers by presenting options that allow them to express their satisfaction or concerns.
 + Conduct surveys and poll customers to collect valuable feedback and insights.
@@ -182,13 +182,13 @@ The following code example shows how a DTMF configuration would be represented b
 ![The Aliases tab, the Use in flow and flow modules toggle.](https://docs.aws.amazon.com/connect/latest/adminguide/images/bot-alias-enabled.png)
 
       1. Refresh the flow designer to see the selections in **Get customer input** block.
-  + **Use sentiment override**: Branch based on sentiment score, before the Amazon Lex intent. 
+  + **Use sentiment override**: Branch based on sentiment score, before the Amazon Lex V2 intent. 
 
     The sentiment score is based on the last utterance of the customer. It is not based on the entire conversation.
 
     For example, a customer calls and they have a negative sentiment because their preferred appointment time isn't available. You can branch the flow based on their negative sentiment score, for example, if their negative sentiment is more than 80%. Or, a customer calls and has a positive sentiment of more than 80%, you can branch to upsell them on services.
 
-    The following image shows the Intents section of the Amazon Lex tab. It is configured to route the contact when their negative sentiment score is 80%.  
+    The following image shows the Intents section of the Amazon Lex V2 tab. It is configured to route the contact when their negative sentiment score is 80%.  
 ![The properties page of the Get customer input block, the Intents section.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-properties5.png)
 
     If you add both negative and positive sentiment scores, the negative score is always evaluated first. 
@@ -304,7 +304,7 @@ You can allow customers to interrupt the Amazon Lex bot mid-sentence using their
 #### [ Amazon Lex ]
 + **Barge-in**
 
-  Barge-in is enabled globally by default. You can disable it in the Amazon Lex console. For more information, see [Enabling your bot to be interrupted by your user](https://docs.aws.amazon.com/lexv2/latest/dg/interrupt-bot.html). Additionally, you can modify barge-in behavior, by using the `allow-interrupt` session attribute. For example, `x-amz-lex:allow-interrupt:*:*` allows interrupt for all intents and all slots. For more information, see [ Configuring timeouts for capturing user input](https://docs.aws.amazon.com/lexv2/latest/dg/session-attribs-speech.html) in the *Amazon Lex V2 Developer Guide*.
+  Barge-in is enabled globally by default. You can disable it in the Amazon Lex V2 console. For more information, see [Enabling your bot to be interrupted by your user](https://docs.aws.amazon.com/lexv2/latest/dg/interrupt-bot.html). Additionally, you can modify barge-in behavior, by using the `allow-interrupt` session attribute. For example, `x-amz-lex:allow-interrupt:*:*` allows interrupt for all intents and all slots. For more information, see [ Configuring timeouts for capturing user input](https://docs.aws.amazon.com/lexv2/latest/dg/session-attribs-speech.html) in the *Amazon Lex V2 V2 Developer Guide*.
 
 ------
 #### [ Amazon Lex (Classic) ]
@@ -395,7 +395,7 @@ The following code sample shows how an Amazon Lex configuration would be represe
 #### Fragmented action representation
 <a name="flow-language-frag-gci"></a>
 
-The following code sample represents a fragmented [Compare](https://docs.aws.amazon.com/connect/latest/APIReference/flow-control-actions-compare.html) action for a Amazon Lex sentiment score returned from a Lex bot after the conversation. 
+The following code sample represents a fragmented [Compare](https://docs.aws.amazon.com/connect/latest/APIReference/flow-control-actions-compare.html) action for a Amazon Lex V2 sentiment score returned from a Lex bot after the conversation. 
 
 ```
 {
@@ -435,11 +435,11 @@ The following image shows an example of what this block looks like when it is co
 ![A configured Get customer input block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/get-customer-input-branches.png)
 
 
-1. **Timeout**: What to do when no input is provided by the customer for the specified chat timeout in Amazon Lex or the **Set timeout** value specified for DTMF.
+1. **Timeout**: What to do when no input is provided by the customer for the specified chat timeout in Amazon Lex V2 or the **Set timeout** value specified for DTMF.
 
 1. **Default**: If the customer enters input that doesn't match any condition in DTMF, or an intent executed in Amazon Lex bot. This the preceding image, the contact is routed down the **Default** branch if they enter a value other than 1 or 2.
 
-1. **Error**: If the block is run but results in an error for DTMF, or an intent is not fulfilled in Amazon Lex bot.
+1. **Error**: If the block is run but results in an error for DTMF, or an intent is not fulfilled in Amazon Lex V2 bot.
 
 ### Touchtone buffering
 <a name="get-customer-input-touchtone-buffering"></a>
@@ -454,7 +454,7 @@ For more information, see [Set Touchtone Buffer Behavior](set-touchtone-buffer-b
 <a name="get-customer-input-tips"></a>
 + For information about choosing a prompt from the Connect Customer library or an S3 bucket, see the [Play prompt](play.md) block.
 + You can configure this block to accept DTMF input or a chat response. You can also configure it work with Amazon Lex for example, a contact can be routed based on their utterance.
-  + Session attributes available for the integration with Amazon Lex. This topic explains some of the session attributes available for the integration with Amazon Lex. For a list of all the available Amazon Lex session attributes, see [Configuring timeouts for capturing user input](https://docs.aws.amazon.com/lexv2/latest/dg/session-attribs-speech). When you use text, either for text-to-speech or chat, you can use a maximum of 3,000 billed characters (6,000 total characters).
+  + Session attributes available for the integration with Amazon Lex. This topic explains some of the session attributes available for the integration with Amazon Lex V2. For a list of all the available Amazon Lex V2 session attributes, see [Configuring timeouts for capturing user input](https://docs.aws.amazon.com/lexv2/latest/dg/session-attribs-speech). When you use text, either for text-to-speech or chat, you can use a maximum of 3,000 billed characters (6,000 total characters).
   + Amazon Lex bots support both spoken utterances and keypad input when used in a flow.
   + For both voice and DTMF, there can be only one set of session attributes per conversation. Following is the order of precedence: 
 
@@ -539,7 +539,7 @@ Connect Customer includes a set of sample flows. For instructions that explain h
 ## More resources
 <a name="get-customer-input-scenarios"></a>
 
-See the following topics to learn more about Amazon Lex and adding prompts. 
+See the following topics to learn more about Amazon Lex V2 and adding prompts. 
 + [Create conversational AI bots in Connect Customer](connect-conversational-ai-bots.md)
 + [How to use the same Amazon Lex bot for voice and chat](one-bot-voice-chat.md)
 + [Add text-to-speech to prompts in flow blocks in Amazon Polly](text-to-speech.md)

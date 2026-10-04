@@ -5,7 +5,7 @@
 
 Following this list of best practices can help you ensure your Connect Customer contact center is PCI-compliant. 
 + Conduct compliance eligibility audits for all services used in your contact center, as well as any third party integration points.
-+ Payment card information (PCI) should be collected using encrypted DTMF. You can also use Amazon Lex to gather PCI information using speech input. Amazon Lex is [PCI compliant](https://docs.aws.amazon.com/lexv2/latest/dg/compliance.html).
++ Payment card information (PCI) should be collected using encrypted DTMF. You can also use Amazon Lex V2 to gather PCI information using speech input. Amazon Lex is [PCI compliant](https://docs.aws.amazon.com/lexv2/latest/dg/compliance.html).
 + If PCI is captured in call recordings, the PCI data must be scrubbed from the recording and obfuscated from any logs or transcriptions. We recommend working with an Amazon Solution Architect if you need help doing this. 
 + Use encryption in transit and at rest for any downstream integration points.
 + Enable multi-factor authentication (MFA) for any access to PCI as Connect Customer is a public endpoint.

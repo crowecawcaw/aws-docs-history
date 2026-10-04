@@ -35,7 +35,7 @@ The following tables list the various Connect Customer feature specifications.
 | Quick connects you can assign to a queue | 700 | 
 | Participants on a conference call | 6<br />The participants are the customer, agent, and others who can be agents or external third-parties. | 
 | Contact record retention for all channels and subtypes (voice, email, tasks, and chat, including SMS, WhatsApp, and Apple Messages for Business). | 24 months from the time the associated contact was initiated. <br />You can choose to stream contact records to Kinesis so you can manage retention and perform advanced analysis. | 
-| Maximum size of the returned data in a Lambda function | Less than 32KB of UTF-8 data | 
+| Maximum size of the returned data in a Lambda function | Less than 64 KB of UTF-8 data | 
 | Limit on creating and deleting instances | 100 instances can be created or deleted in 30 days<br />Connect Customer enforces a limit on the **total** number of instances that you can create and delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.<br />For example, if you create 80 instances and delete 20 over the course of 30 days, you must wait an additional 30 days before you can create or delete any more instances. If you create and delete the same instance 100 times in 30 days, the limit also applies.  | 
 | Searchable custom contact attributes | 50 | 
 | Replica instances (created by using the [ReplicateInstance](https://docs.aws.amazon.com/connect/latest/APIReference/API_ReplicateInstance.html) API) | 5 per account | 

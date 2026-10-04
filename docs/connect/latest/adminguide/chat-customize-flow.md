@@ -30,8 +30,8 @@ Add a [Play prompt](play.md) block before a [AWS Lambda function](invoke-lambda-
 1. To disconnect the participant, call the [ DisconnectParticipant](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_DisconnectParticipant.html) API. 
 
 **Note**  
-A custom participant cannot be added to a chat when an agent or Amazon Lex bot is already present on the contact. 
-A custom participant will be disconnected when an agent or Amazon Lex bot joins a contact.
+A custom participant cannot be added to a chat when an agent or Amazon Lex V2 bot is already present on the contact. 
+A custom participant will be disconnected when an agent or Amazon Lex V2 bot joins a contact.
 Only one custom participant can be present on a contact.
 A custom participant is not permitted to access attachments a customer might upload.
 

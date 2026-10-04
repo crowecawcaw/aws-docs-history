@@ -26,6 +26,12 @@ Examples:
 + Namespace = System, Key = Queue name – Checks the name of the current queue
 + Namespace = System, Key = Customer address or number – Validates the source phone number or address
 + Namespace = User defined, Key = Customer type – Examines a custom contact attribute
++ Namespace = External or LambdaInvocation, Key = `orderStatus` – Checks a value returned by the most recent completed Lambda invocation
++ Namespace = Lex, Key = `IntentName` – Checks the intent resolved by the most recent completed Amazon Lex interaction
++ Namespace = Agentic CX, Key = `ContextVariables.customerIntent` – Checks a context variable produced by the most recent completed Agentic CX interaction
+
+![Check block configured to validate that the Agentic CX Context Variables isAuthenticated value equals yes.](https://docs.aws.amazon.com/connect/latest/adminguide/images/test-check-flow-action-completed-agentic-cx.png)
+
 
 ### Condition type
 <a name="testing-simulation-check-condition-type"></a>

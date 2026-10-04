@@ -127,3 +127,75 @@ Your Lambda function can use any logic to determine the source address. Use any 
 
 **Fallback for an unresolved dynamic source**  
 The dynamic source phone number can resolve to a null or empty value at runtime. For example, your Lambda function returns `null` for a profile's `sourcePhoneNumber`. In that case, the voice call falls back to the default source phone number set in the journey's telephony channel configuration. If the resolved value is instead a non-empty but invalid phone number (for example, not in E.164 format), the profile is not dialed and is dropped with an error that you can view as an event in your data lake.
+
+## Add contact attributes to voice dials
+<a name="campaigns-add-dial-attributes"></a>
+
+For voice dials, you can attach a set of contact attributes to the dial request in the **Send communication** block. Connect Customer sets these attributes on the contact that it creates for the dial, so they are available in the outbound voice contact flow and to agents and AI agents.
+
+For example, suppose a campaign calls customers about an item in their cart. With each dial, you can pass the product name and offer code as the `Product` and `OfferCode` attributes. You can then use these attributes in the outbound voice contact flow in ways such as the following:
++ Greet the customer by name, or mention the offer, by using a [Play prompt](play.md) block.
++ Give the agent the customer's name, product, and offer when the call connects, so the agent can continue the conversation without asking the customer to repeat details. To show these details in a screen pop, launch a step-by-step guide with a [Show view](show-view-block.md) block by using a [Set event flow](set-event-flow.md) block. For more information, see [Display contact attributes in the agent workspace](display-contact-attributes-sg.md).
++ Give an AI agent the same context by using an [AWS Lambda function](invoke-lambda-function-block.md) block to add the attributes to the AI agent session. For more information, see [Add customer data to an AI agent session](ai-agent-session.md).
++ Route the call based on the offer, for example to a team of specialists, by using a [Check contact attributes](check-contact-attributes.md) block.
+
+**Note**  
+Adding contact attributes to a dial request is supported for the voice channel only.
+
+**How it works**
+
+Each attribute is a key-value pair. The value can be a static string, or a campaign-flow reference such as `$.Customer.FirstName` or `$.FlowAttributes.OfferCode` that Connect Customer resolves at dial time. Connect Customer stores the resolved attributes on the created contact, where you reference them as `$.Attributes.{{key}}` in the outbound voice contact flow.
+
+**Add attributes in the Send communication block**
+
+In the **Send communication** block, under **Pass attribute to contact**, enter a **Key**. Then, for **Value**, select **Set manually** or **Set dynamically**:
++ **Set manually**: Enter a value, such as `EARNIT` or `$.FlowAttributes.OfferCode`.
++ **Set dynamically**: Displays two dropdown lists. Choose a namespace in the first list, and then choose an attribute in the second list. For example, enter the Key `FirstName`, choose the **Customer** namespace, and then choose the **First name** attribute.
+
+The following image shows the **Pass attribute to contact** options configured to add the attribute `OfferCode` with the value `EARNIT` using **Set manually**.
+
+![The Pass attribute to contact panel in the Send communication block, with Key set to OfferCode, Set manually selected, and Value set to EARNIT.](https://docs.aws.amazon.com/connect/latest/adminguide/images/campaign-send-communication-pass-attribute.png)
+
+
+**Add attributes by using the API or AWS CLI**
+
+If you create the campaign flow by using the API or AWS CLI, add the attributes to the `Attributes` map under `Parameters` in the `PutDialRequest` action. Each entry maps a key to a static value or a reference. For more information, see [Create a campaign flow](create-campaigns-api-cli.md#create-campaigns-api-cli-flows).
+
+```
+{
+  "Identifier": "PutDialRequest",
+  "Type": "PutDialRequest",
+  "Parameters": {
+    "Attributes": {
+      "OfferCode": "$.FlowAttributes.OfferCode",
+      "Product": "Running shoes"
+    }
+  }
+}
+```
+
+**Use the attributes in the outbound voice contact flow**
+
+In the outbound voice contact flow, reference each attribute as `$.Attributes.{{key}}`. For the preceding example, use `$.Attributes.OfferCode` and `$.Attributes.Product`.
+
+**Verify the attributes**
+
+After a dial, the attributes are persisted on the contact. To confirm them, open the contact on the contact details page and review the **User defined attributes** section, or call `DescribeContact`.
+
+**Limits and behavior**
++ Adding contact attributes to a dial request is supported for the voice channel only.
++ **Keys** can be 1–32,767 characters, using letters, numbers, hyphens (`-`), and underscores (`_`).
++ **Values** can be up to 32,767 characters, after Connect Customer resolves any dynamic references.
++ All contact attributes for a contact share a combined limit of 32 KB, including system-managed attributes. For more information, see [UpdateContactAttributes](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateContactAttributes.html).
++ Avoid the `connect_` prefix, which is used for system-managed attributes. If a key that you provide matches a system-managed key, such as `connect_customer-profile_profile-id`, Connect Customer overwrites your value with the system value.
++ Static values can't be empty. If a reference can't be resolved at dial time, the attribute is added to the contact with an empty value, and the dial still succeeds.
+
+## Reference the dialed contact ID in the campaign flow
+<a name="campaigns-reference-contact-id"></a>
+
+After a voice dial, Connect Customer makes the created contact's ID available in the campaign flow as `$.OutboundCommunication.Telephony.ContactId`. This value is populated for voice contacts, and is null when no contact was created.
+
+Use this contact ID to get details about the call that aren't in the delivery receipt. For example, add a **Custom action (Invoke Lambda)** block after the **Send communication** block, and have your Lambda function call [DescribeContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeContact.html) with the contact ID. You can then branch the campaign flow based on how the call was handled, such as which agent took the call.
+
+**Pricing**  
+Custom action channel and Lambda pricing will apply when you use a Custom action (Invoke Lambda) block.

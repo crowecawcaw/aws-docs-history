@@ -293,6 +293,10 @@ The following table lists legacy permissions. You can not access these permissio
 | Profile explorer - Create | CustomerProfiles.ProfileExplorer.Create | [Create a Domain layout](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-customer-profiles_CreateDomainLayout.html) | 
 | Profile explorer - Edit | CustomerProfiles.ProfileExplorer.Edit | [Edit a Domain layout](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-customer-profiles_UpdateDomainLayout.html) | 
 | Profile explorer - Delete | CustomerProfiles.ProfileExplorer.Delete | [Delete a Domain layout](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-customer-profiles_DeleteDomainLayout.html) | 
+| Predictive Insights - View | CustomerProfiles.PredictiveInsights.View | View [Predictive Insights](customer-profiles-predictive-insights.md). | 
+| Predictive Insights - Create | CustomerProfiles.PredictiveInsights.Create | Create Predictive Insights. | 
+| Predictive Insights - Edit | CustomerProfiles.PredictiveInsights.Edit | Edit Predictive Insights. | 
+| Predictive Insights - Delete | CustomerProfiles.PredictiveInsights.Delete | Delete Predictive Insights. | 
 
 ## Scheduling
 <a name="scheduling-permissions-list"></a>
