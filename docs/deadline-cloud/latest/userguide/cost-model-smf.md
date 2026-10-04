@@ -21,7 +21,7 @@ Because the file system must be provisioned to handle peak throughput, scaling t
 With service-managed fleets, costs are structured differently:
 
 Compute (worker time)  
-You pay for EC2 instances only while they are processing jobs. There is no cost to provision or decommission workers. When the fleet scales to zero workers, your compute cost drops to zero. For more information about pricing, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
+You incur service-managed fleet charges while workers are running, including time spent starting, processing jobs, waiting for work, and stopping. When the fleet scales to zero workers, worker compute costs drop to zero. For more information about pricing, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
 
 Storage (Amazon EBS)  
 Each worker uses a local Amazon Elastic Block Store (Amazon EBS) volume. Deadline Cloud charges for Amazon EBS storage only while the worker instance exists. The storage cost is included in the Deadline Cloud service-managed fleet pricing.
@@ -75,20 +75,8 @@ Workers scale up to process all frames and then scale down to zero. Each worker 
 + **Amazon S3 requests**: A small number of GET requests as workers download assets (fractions of a cent per 1,000 requests).
 When the job finishes, costs return to the Amazon S3 storage charge only. There is no ongoing file system cost.
 
-For additional pricing examples, see AWS Deadline Cloud pricing.
+For additional pricing examples, see AWS Deadline Cloud pricing.<a name="cost-model-smf-tips"></a>
 
-## Tips for managing service-managed fleet costs
-<a name="cost-model-smf-tips"></a>
-+ **Use Spot Instances** – Spot Instances provide significant savings over On-Demand pricing. Because render tasks are typically short and can be retried, Spot interruptions have minimal impact.
-+ **Set fleet maximum size** – Limit the maximum number of workers in your fleet to control the peak compute cost per job. For more information, see [Auto scaling configuration](auto-scaling-configuration.md).
-+ **Use budgets** – Create an Deadline Cloud budget to set spending limits and receive notifications. For more information, see [Control costs with a budget](using-budget-manager.md).
-+ **Manage job attachment storage** – Apply an Amazon S3 Lifecycle configuration to automatically delete old job attachment files. Because job attachments uses content-addressable storage, unchanged files are not re-uploaded, which keeps storage costs low for iterative workflows.
-+ **Right-size your instances** – Choose the smallest instance type that meets your workload's CPU and memory requirements. Larger instances cost more per hour but may complete tasks faster, so compare total cost (rate × duration) across instance sizes.
-+ **Consider Wait and Save** – For non-urgent workloads, Wait and Save offers lower compute prices in exchange for flexible job start times.
+To choose limits for fleet capacity and cumulative spending, see [Control spending and capacity](manage-costs.md#cost-concurrency-controls).<a name="cost-model-smf-related"></a>
 
-## Related resources
-<a name="cost-model-smf-related"></a>
-+ [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/)
-+ [Cost management](cost-management.md)
-+ [Control costs with a budget](using-budget-manager.md)
-+ [Amazon Simple Storage Service pricing](https://aws.amazon.com/s3/pricing/)
+To understand charges from storage, logging, networking, and other connected services, see [Understand estimated and actual costs for Deadline Cloud](cost-management.md).

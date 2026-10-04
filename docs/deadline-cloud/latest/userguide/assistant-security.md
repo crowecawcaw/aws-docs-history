@@ -15,7 +15,7 @@ The Deadline Cloud assistant operates within the existing Deadline Cloud securit
 ## Model information
 <a name="assistant-model-information"></a>
 
-The Deadline Cloud assistant uses Anthropic Claude Sonnet 4.5 (`anthropic.claude-sonnet-4-5-20250929-v1:0`) as its foundation model, accessed through Amazon Bedrock cross-region inference profiles. The assistant also includes a knowledge base built from public Deadline Cloud documentation, public AWS documentation, and public documentation for popular digital content creation applications. This knowledge base is fetched by the assistant at invocation time. AWS did not use customer data from any Deadline Cloud account to build or fine-tune the assistant.
+The Deadline Cloud assistant uses Anthropic Claude Sonnet 4.6 (`anthropic.claude-sonnet-4-6`) as its foundation model, accessed through Amazon Bedrock cross-region inference profiles. The assistant also includes a knowledge base built from public Deadline Cloud documentation, public AWS documentation, and public documentation for popular digital content creation applications. This knowledge base is fetched by the assistant at invocation time. AWS did not use customer data from any Deadline Cloud account to build or fine-tune the assistant.
 
 ## Data privacy
 <a name="assistant-data-privacy"></a>

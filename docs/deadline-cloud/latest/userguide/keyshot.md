@@ -44,7 +44,9 @@ To use KeyShot with Deadline Cloud:
 
 1. Create a service-managed fleet and associate it with a queue. Your queue must be set up with a queue environment that includes your custom conda channel that contains the KeyShot package. For more information, see [Creating a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html).
 
-1. Install the Deadline Cloud monitor and KeyShot submitter on your artist workstation using the Deadline Cloud Submitter and monitor installers. For more information, see [Set up your workstation](submitter.md).
+1. Install the Deadline Cloud monitor on your artist workstation. For more information, see [Set up your workstation](submitter.md).
+
+1. Install the KeyShot submitter on your artist workstation. For more information, see [Installing the submitter](#keyshot-installing-submitter).
 
 ## Installation
 <a name="keyshot-installation"></a>
@@ -54,18 +56,12 @@ The KeyShot submitter extension allows you to submit jobs to Deadline Cloud dire
 ### Installing the submitter
 <a name="keyshot-installing-submitter"></a>
 
-To install the submitter:
-
-1. Download the [Deadline Cloud submitter installer](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/submitter.html).
-
-1. Run the installer and follow the on-screen instructions.
-
-1. Launch KeyShot after installation.
+The Deadline Cloud submitter installer doesn't include the KeyShot submitter. The submitter is a single script, `Submit to AWS Deadline Cloud.py`, that you build from the [deadline-cloud-for-keyshot repository](https://github.com/aws-deadline/deadline-cloud-for-keyshot) on the GitHub website and copy into your KeyShot scripts folder. For build steps and the scripts folder location on Windows and macOS, see the [deadline-cloud-for-keyshot development guide](https://github.com/aws-deadline/deadline-cloud-for-keyshot/blob/mainline/DEVELOPMENT.md) on the GitHub website.
 
 ### Updating the submitter
 <a name="keyshot-updating-submitter"></a>
 
-To update the submitter to the latest version, download and run the latest submitter installer.
+To update the submitter, build the script again from the latest version of the repository and replace the copy in your KeyShot scripts folder.
 
 ## Using the KeyShot submitter
 <a name="keyshot-using-submitter"></a>
@@ -136,7 +132,7 @@ After selecting your submission option, the Deadline Cloud submitter interface a
 ### Using unsupported versions
 <a name="keyshot-unsupported-versions"></a>
 
-Deadline Cloud only supports and tests the workstation and worker software versions in the table above. When using the submitter, the worker uses the KeyShot version from your custom conda package. Ensure that your custom conda channel contains packages for all KeyShot versions that you intend to use.
+Deadline Cloud only supports and tests the workstation and worker software versions in the preceding table. When using the submitter, the worker uses the KeyShot version from your custom conda package. Ensure that your custom conda channel contains packages for all KeyShot versions that you intend to use.
 
 If you require an unsupported version of KeyShot, you can build a custom conda recipe and channel for your desired version to be installed on the worker. Use the [sample conda recipe for KeyShot](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025) on the GitHub website as a starting point. For more information about creating custom conda channels, see [Creating custom conda channels](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/configure-jobs-s3-channel.html).
 

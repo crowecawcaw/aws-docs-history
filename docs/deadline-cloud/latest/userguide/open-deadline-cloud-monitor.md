@@ -53,6 +53,8 @@ When you use the console, you must be able to sign in to AWS using an AWS Identi
    + The first time you open the Deadline Cloud monitor, you must provide the monitor URL and create a profile name. Next you sign in to the monitor with your Deadline Cloud credentials.
    + After you create a profile, you open the monitor by selecting a profile. You might need to enter your Deadline Cloud credentials.
 
+   If you access Deadline Cloud with IAM credentials instead of a monitor URL, you can sign in with the AWS Management Console or with an existing AWS profile. For more information, see [Sign in to the desktop monitor with the AWS Management Console or an AWS profile](monitor-sign-in-aws-credentials.md).
+
 ## Change your language settings
 <a name="w2aac13c25c15"></a>
 

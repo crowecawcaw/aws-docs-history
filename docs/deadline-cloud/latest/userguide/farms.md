@@ -22,7 +22,7 @@ With a Deadline Cloud farm, you can manage users and project resources. A *farm*
 
    If you choose to customize encryption settings using the checkbox, enter a AWS KMS ARN, or create a new AWS KMS by choosing **Create new KMS key**.
 
-1. (Optional) For **Cost scale factor**, enter a value to adjust how costs are displayed in the usage explorer and budget manager. Values less than 1 represent discounts, values greater than 1 represent premiums, and 1 (the default) leaves costs unchanged. For more information, see [Cost scale factor](manage-costs.md#cost-scale-factor).
+1. (Optional) For **Cost scale factor**, enter a value to adjust how costs are displayed in the usage explorer and budget manager. Values less than 1 represent discounts, values greater than 1 represent premiums, and 1 (the default) leaves costs unchanged. For more information, see [Adjust usage explorer and budget estimates with the cost scale factor](using-usage-explorer.md#cost-scale-factor).
 
 1. (Optional) Choose **Add new tag** to add one or more tags to your farm.
 

@@ -16,6 +16,15 @@ How auto scaling works depends on your fleet type:
 + **Service-managed fleets** – Deadline Cloud automatically implements auto scaling based on your configuration. You configure the settings and the service handles worker provisioning.
 + **Customer-managed fleets** – If you have completed the auto scaling setup for your customer-managed fleet, the auto scaling configuration works the same as for service-managed fleets. The service uses the configuration to calculate desired capacity and sends recommended fleet size events to your fleet. For more information, see [Set up auto scaling for customer-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/create-auto-scaling.html) in the *Deadline Cloud Developer Guide*.
 
+## Minimum and maximum worker counts
+<a name="auto-scaling-worker-counts"></a>
+
+The **minimum worker count** keeps at least the configured number of workers running. A minimum above zero can reduce job start latency, but those workers continue to incur costs while they wait for work.
+
+The **maximum worker count** caps the total number of workers that can run simultaneously in the fleet. When the fleet reaches the maximum, it doesn't start more workers even when jobs are waiting. Use this setting to limit peak compute usage and the fleet's peak spend rate.
+
+A worker-count limit controls usage at one point in time. To cap cumulative estimated spending over a project or billing period, also create a [Control costs with a budget](using-budget-manager.md).
+
 ## Scale out rate
 <a name="auto-scaling-scale-out-rate"></a>
 
@@ -70,7 +79,12 @@ The following diagrams show how minimum worker count and standby worker count af
 
 ------
 
-To automatically adjust your standby worker count on a schedule, use the sample AWS CloudFormation (CloudFormation) template at [fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling) on the GitHub website.
+## Adjust capacity for busy periods
+<a name="auto-scaling-temporary-capacity"></a>
+
+You can temporarily increase the maximum worker count, scale out rate, or standby worker count before a delivery deadline or another period of increased job activity. Lower the settings afterward to return to your normal capacity and cost limits.
+
+To change standby capacity on a schedule, use the [fleet\_standby\_scheduling](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/cloudformation/farm_templates/fleet_standby_scheduling) sample on the GitHub website. If you need more capacity than your account quotas allow, see [Service quotas and throttling for Deadline Cloud](deadline-cloud-quotas.md).
 
 ## Configuring auto scaling settings
 <a name="auto-scaling-configure"></a>

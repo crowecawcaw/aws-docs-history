@@ -13,7 +13,7 @@ The queue stops assigning new tasks to workers and cancels tasks that are runnin
 
 You can add several limit actions to one budget at different remaining amounts. For example, stop scheduling new work when $500 remains so that current frames finish, and cancel all work when $0 remains as a hard stop.
 
-Each budget tracks the estimated cost of a single queue. To give each project, department, or vendor its own spending cap, route each one's jobs through its own queue and create a budget for that queue. For an overview of how budgets combine with worker counts, resource limits, and job priority, see [Control costs and concurrency](cost-concurrency-controls.md).
+Each budget tracks the estimated cost of a single queue. To give each project, department, or vendor its own spending cap, route each one's jobs through its own queue and create a budget for that queue. For an overview of how budgets combine with worker counts, resource limits, and job priority, see [Control spending and capacity](manage-costs.md#cost-concurrency-controls).
 
 To receive notifications before a budget reaches its limit, use the EventBridge events that Deadline Cloud sends as spending crosses each threshold percentage. For more information, see [Monitor a budget with EventBridge events](budget-threshold-events.md).
 

@@ -5,6 +5,8 @@
 
 The Deadline Cloud budget manager helps you control spending on a queue. You can create budget amounts and limits, and set automated actions to help reduce or stop additional spending against the budget. Each budget tracks the estimated cost of one queue, so you can give each project, department, or vendor its own queue and its own spending cap.
 
+Budgets use the same cost estimates as the usage explorer. Before you set a budget amount, review [How the usage explorer and budgets estimate costs](using-usage-explorer.md#manage-costs-assumptions) to understand how Deadline Cloud calculates the estimate. To understand why the estimate can differ from your AWS bill, see [Understand estimated and actual costs for Deadline Cloud](cost-management.md). To align usage explorer and budget estimates with your organization's pricing, see [Adjust usage explorer and budget estimates with the cost scale factor](using-usage-explorer.md#cost-scale-factor).
+
 ![The budget manager showing active budgets with status, resource, remaining percentage, and remaining amount.](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/images/monitor/budget-manager.png)
 
 

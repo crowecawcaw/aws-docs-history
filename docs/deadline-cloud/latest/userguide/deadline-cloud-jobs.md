@@ -23,7 +23,25 @@ A job consists of:
 + Environment – Set up and tear down instructions shared by multiple steps or tasks.
 
 **Topics**
++ [Control job worker limits and priority](#jobs-scheduling-controls)
 + [Using a Deadline Cloud submitter](jobs-using-submitter.md)
 + [Load and submit shared job bundles](jobs-shared-bundles.md)
 + [Processing Deadline Cloud jobs](jobs-processing.md)
 + [Monitoring Deadline Cloud jobs](jobs-monitoring.md)
+
+## Control job worker limits and priority
+<a name="jobs-scheduling-controls"></a>
+
+Use job-level controls to limit how much fleet capacity one job can use and to determine which waiting jobs receive workers first:
+
+Maximum worker count  
+Limits the number of workers that can process a job at the same time. Other jobs can use the remaining workers in the fleet. Set this value when you submit the job or change it later in the Deadline Cloud monitor.  
+
+```
+deadline bundle submit my_job --max-worker-count 50
+```
+
+Priority  
+Determines the approximate order in which jobs receive available workers. Higher-priority jobs generally run before lower-priority jobs. Jobs with the same priority run in the order received.
+
+For information about changing these properties after submission, see [Using the Deadline Cloud monitor](working-with-deadline-monitor.md).

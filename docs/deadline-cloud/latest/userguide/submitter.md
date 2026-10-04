@@ -38,15 +38,16 @@ With the installer, you can install the following submitters:
 | [Autodesk Arnold for Maya](autodesk-maya.md) | 7.1 - 7.5 | Included | Included | Included | 
 | [Autodesk Maya](autodesk-maya.md) | 2023 - 2027 | Included | Included | Included | 
 | [Autodesk VRED](autodesk-vred.md) | 2025 - 2026 | Included | Not included | Not included | 
-| [Blender](blender.md) | 3.6 - 5.1 | Included | Included | Included | 
+| [Blender](blender.md) | 3.6 - 5.2 | Included | Included | Included | 
 | [Chaos V-Ray for Maya](autodesk-maya.md) | 6 - 7 | Included | Included | Included | 
 | [Foundry Nuke](foundry-nuke.md) | 15 - 17 | Included | Included | Included | 
-| [KeyShot Studio](keyshot.md) | 2023 - 2025 | Included | Not included | Included | 
 | [Maxon Cinema 4D](maxon-cinema-4d.md) | 2024 - 2026 | Included | Not included | Included | 
 | [Maxon Redshift for Maya](autodesk-maya.md) | 2025-2026 | Included | Included | Included | 
 | [SideFX Houdini](sidefx-houdini.md) | 19.5 - 22.0 | Included | Included | Included | 
 
 The standard installer doesn't include the Unreal Engine submitter, which has a separate setup process. For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine) on the GitHub website.
+
+The standard installer also doesn't include the KeyShot submitter. For installation instructions, see [Installing the submitter](keyshot.md#keyshot-installing-submitter).
 
 ------
 #### [ Windows ]
@@ -153,7 +154,7 @@ DeadlineCloudMonitor_x64-setup.exe /S /D={InstallDirectory}
 
 **To install Deadline Cloud monitor AppImage on RPM or Debian distros**
 **Note**  
-Deadline Cloud monitor requires GLIBC 2.34 or later. On Ubuntu 22 machines, install the Debian package instead of the AppImage. For instructions, see the **Linux (Debian)** tab.
+Deadline Cloud monitor requires GLIBC 2.34 or later. On Ubuntu 22.04, the AppImage can't make secure (TLS) connections, so profiles fail to load and the monitor shows a warning at startup. Install the Debian package instead of the AppImage. For instructions, see the **Linux (Debian)** tab.
 
 1. Download the Deadline Cloud monitor AppImage:
 

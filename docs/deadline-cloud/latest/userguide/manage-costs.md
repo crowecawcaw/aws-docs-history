@@ -1,77 +1,35 @@
 
 
-# Track spending and usage for Deadline Cloud farms
+# Manage costs and usage for Deadline Cloud farms
 <a name="manage-costs"></a>
 
-The AWS Deadline Cloud budget manager and usage explorer are cost management tools that provide the approximate cost of using Deadline Cloud based on available information about cost variables. The cost management tools don't guarantee the amount owed for your actual use of Deadline Cloud and other AWS services.
+Use the cost management topics to control estimated spending and capacity, review farm usage, and understand what drives your actual costs.
 
-To help you manage costs for Deadline Cloud, you can use the following features:
-+ **Budget manager** – With the Deadline Cloud budget manager, you can create and edit budgets to help manage project costs. 
-+ **Usage explorer** – With the Deadline Cloud usage explorer, you can view how many AWS resources are used and the estimated costs for those resources.
-+ **Cost scale factor** – With the cost scale factor, you can adjust how costs are displayed in the usage explorer and budget manager to reflect discounts or premiums that apply to your organization.
-+ **AWS cost allocation tags** – With cost allocation tags, you can track detailed costs for all of your AWS services. For more information, see [Organizing and tracking costs using AWS cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html).
+**Note**  
+The budget manager and usage explorer show estimates based on available pricing and usage information. Use your AWS bill as the source of record for actual charges.
 
-## Cost assumptions
-<a name="manage-costs-assumptions"></a>
+## Control spending and capacity
+<a name="cost-concurrency-controls"></a>
 
-The basic calculation used by the Deadline Cloud cost management tools is:
+Budgets are the primary Deadline Cloud control for cumulative estimated spending. Combine a budget with capacity or concurrency controls when you also need to limit peak compute usage, prevent one job from consuming the fleet, or protect a shared resource.<a name="cost-concurrency-comparison"></a>
++ <a name="cost-concurrency-budgets"></a>[Control costs with a budget](using-budget-manager.md) – Set a cumulative estimated spending limit for a queue and choose what happens when spending reaches a threshold. Use a separate queue and budget for each project, department, or vendor that needs its own spending cap.
++ <a name="cost-concurrency-fleet-max"></a><a name="cost-concurrency-spend-rate"></a>[Minimum and maximum worker counts](auto-scaling-configuration.md#auto-scaling-worker-counts) – Set the minimum and maximum workers in a fleet. The maximum worker count limits concurrent compute usage. Your actual spend rate also depends on factors such as instance types and licenses.<a name="cost-concurrency-market-options"></a>
 
-```
-Cost per job =
-    (CMF run time x CMF compute rate) +
-    (SMF run time x SMF compute rate) +
-    (License run time x license rate)
-```
-+ Run time is the sum of all tasks in a job, from start time to end time.
-+ Compute rate is determined by the [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/) for service-managed fleets. For customer-managed fleets, the compute rate is estimated to be $1 per worker hour.
-+ License rate is determined by the Deadline Cloud base license price and is only available for service-managed fleets. Additional tiers are not included. For more information about license pricing, see [AWS Deadline Cloud pricing](https://aws.amazon.com/deadline-cloud/pricing/).
+  To combine Spot, On-Demand, or Wait and Save capacity, see [Service-managed fleets](fleet-types.md#fleet-types-smf).
++ <a name="cost-concurrency-job-max"></a><a name="cost-concurrency-priority"></a>[Control job worker limits and priority](deadline-cloud-jobs.md#jobs-scheduling-controls) – Limit the workers assigned to one job and set job priority. Use these controls to prevent one large job from consuming the fleet or to prioritize urgent work.
++ <a name="cost-concurrency-limits"></a>[Create resource limits for jobs](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/build-job-limits.html) – Limit the tasks that can use a constrained resource, such as floating software licenses or a file server with limited throughput.
 
-The cost estimate from the Deadline Cloud cost management tools may vary from your actual costs for a number of reasons. Common reasons include:
-+ Customer owned resources and their pricing. You can choose to bring your own resources, either from AWS or externally from on-premises or other cloud providers. Actual costs of these resources are not calculated.
-+ Idle worker costs. Idle worker costs are not included when the worker status is IDLE. This situation can happen for fleets with a minimum instance count greater than zero, or when workers transition between jobs. Idle worker cost are not included in calculations.
-+ Worker stop and start time. After workers complete a job, the cost for moving from IDLE to STOPPING and from STOPPING to STOPPED is not included in Deadline Cloud cost estimates.
-+ Promotional credits, discounts, and custom pricing agreements. The cost management tools don't account for promotional credits, private pricing agreements, or other discounts. You may be eligible for other discounts that are not part of the estimate. To adjust displayed costs to reflect these factors, use the [Cost scale factor](#cost-scale-factor).
-+ Asset storage. Asset storage is not included in the cost and usage estimates.
-+ Changes in price. AWS offers pay-as-you-go pricing for most services. Prices may change over time. The cost management tools use the most up-to-date prices publicly available, but there may be delays after changes.
-+ Taxes. The cost management tools don't include taxes applied to our purchase of the service.
-+ Rounding. The cost management tool perform mathematical rounding of pricing data.
-+ Currency. Cost estimates are made in U.S. dollars. Global exchange rates vary over time. If you translate estimates to a different currency base on the current exchange, changes in the exchange rate affect the estimate. 
-+ Outside licensing. If you choose to use pre-purchased licences ([Software licensing for service-managed fleets](smf-licensing.md)), Deadline Cloud cost management tools can't account for this cost.
+### Combine controls
+<a name="cost-concurrency-choosing"></a>
 
-## Cost scale factor
-<a name="cost-scale-factor"></a>
+Use multiple controls when your workload has more than one constraint:
++ **Set a project budget and limit peak capacity.** Set a maximum worker count on each fleet and create a budget for the project's queue. The worker count limits concurrent compute usage. When cumulative estimated spending reaches a threshold, the budget either stops scheduling new tasks or also cancels running tasks, depending on the limit action that you choose.
++ **Keep a large job from delaying urgent work.** Set a maximum worker count on the large job and assign a higher priority to urgent jobs. The job limit reserves fleet capacity, and priority determines which waiting work runs first.
++ **Limit compute and software-license use.** Set the fleet's maximum worker count to cap total compute and create a resource limit that matches the number of available licenses.
++ <a name="cost-concurrency-crunch"></a>**Temporarily increase capacity for a busy period.** Before a delivery deadline, you can raise fleet worker limits, adjust the budget amount or actions, and add standby workers. Restore the previous settings after the busy period. For capacity options, see [Adjust capacity for busy periods](auto-scaling-configuration.md#auto-scaling-temporary-capacity).
 
-The cost scale factor is a farm-level setting that applies a multiplier to the calculated costs displayed in the usage explorer and budget manager. Use the cost scale factor to align cost estimates with your organization's actual pricing, such as private pricing agreements, promotional credits, or internal cost allocation markups.
-
-### Cost scale factor values
-<a name="cost-scale-factor-values"></a>
-
-The cost scale factor accepts values from 0 to 100:
-+ **Values less than 1** represent discounts. For example, a value of 0.75 applies a 25% discount to displayed costs.
-+ **Values greater than 1** represent premiums or markups. For example, a value of 1.5 applies a 50% markup to displayed costs.
-+ **A value of 1** (the default) leaves costs unchanged.
-
-### Configure the cost scale factor
-<a name="cost-scale-factor-configure"></a>
-
-You can configure the cost scale factor when you create a farm or by editing an existing farm's settings.
-
-**To configure the cost scale factor for an existing farm**
-
-1. Open the [AWS Deadline Cloud (Deadline Cloud) console](https://console.aws.amazon.com/deadlinecloud/home). In the navigation pane, choose **Farms and other resources**.
-
-1. Select the farm you want to modify.
-
-1. Choose **Actions**, then choose **Edit**.
-
-1. For **Cost scale factor**, enter a value between 0 and 100.
-
-1. Choose **Save changes**.
-
-### Effects of the cost scale factor on cost tools
-<a name="cost-scale-factor-effects"></a>
-
-After you configure a cost scale factor, the value affects the usage explorer and budget manager in the following ways:
-+ **Usage explorer** – All new queries display cost data modified by the cost scale factor.
-+ **New budgets** – Budgets created after you configure the cost scale factor use the new value for all cost calculations.
-+ **Existing budgets** – Existing budgets use the cost scale factor for new cost calculations, but their accumulated cost history is not recalculated. To recalculate accumulated costs with the new factor, delete and recreate the budget.
+## Other cost management goals
+<a name="cost-management-other-goals"></a>
++ [Track usage and costs with the Deadline Cloud usage explorer](using-usage-explorer.md) – Filter farm usage and understand the estimates and cost scale factor used by the usage explorer and budgets.
++ [Understand the cost model for service-managed fleets](cost-model-smf.md) – Understand worker metering and compare the elastic service-managed fleet cost model with a traditional render farm.
++ [Understand estimated and actual costs for Deadline Cloud](cost-management.md) – See why usage explorer and budget estimates differ from actual costs, including charges from connected AWS services.

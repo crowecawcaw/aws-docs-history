@@ -26,7 +26,7 @@ The following table summarizes support for each application. Select an applicati
 | [Autodesk Arnold for Maya](autodesk-maya.md) | 7.1 - 7.5 | Windows, macOS, Linux | Linux | Yes | 
 | [Autodesk Maya](autodesk-maya.md) | 2023 - 2027 | Windows, macOS, Linux | Linux | Yes | 
 | [Autodesk VRED](autodesk-vred.md) | 2025 - 2026 | Windows | Linux | No | 
-| [Blender](blender.md) | 3.6 - 5.1 | Windows, macOS, Linux | Linux | Not needed | 
+| [Blender](blender.md) | 3.6 - 5.2 | Windows, macOS, Linux | Linux | Not needed | 
 | [Chaos V-Ray for Maya](autodesk-maya.md) | 6 - 7 | Windows, macOS, Linux | Linux | Yes | 
 | [Foundry Nuke](foundry-nuke.md) | 15 - 17 | Windows, macOS, Linux | Linux | Yes | 
 | [KeyShot Studio](keyshot.md) | 2023 - 2025 | Windows, macOS | No | No | 

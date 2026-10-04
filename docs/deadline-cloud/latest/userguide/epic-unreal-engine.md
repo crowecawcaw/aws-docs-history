@@ -178,7 +178,7 @@ There are 4 ways to install the required Python dependencies.
 1. If you've built and installed the plugin from the release branch above, you can install from pip. Use the following install command, adjusting the paths to your Unreal installation:
 
 ```
-"C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\ThirdParty\Python3\Win64\python" -m pip install deadline-cloud-for-unreal-engine --target "C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\Content\Python\libraries"
+"C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\ThirdParty\Python3\Win64\python" -m pip install "deadline-cloud-for-unreal-engine[console]" --target "C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\Content\Python\libraries"
 ```
 
 2. Alternatively in your `.uplugin` file (in the above steps this would live at `C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\UnrealDeadlineCloudService.uplugin`) you can add a `PythonRequirements` section which matches the latest release of `deadline-cloud-for-unreal-engine` in GitHub/PyPI, for example:
@@ -190,11 +190,15 @@ There are 4 ways to install the required Python dependencies.
         "Platform": "All",
         "Requirements":
         [
-            "deadline-cloud-for-unreal-engine>=0.5.0"
+            "deadline-cloud-for-unreal-engine>=0.5.0",
+            "deadline[console]>=0.60.4,<0.61",
+            "typing_extensions>=4.14.1"
         ]
     }
 ]
 ```
+
+The `PythonRequirements` section in `src/unreal_plugin/UnrealDeadlineCloudService.uplugin` is the source of truth for this list. The `deadline[console]` requirement installs `awscrt` for AWS console sign-in. The explicit transitive requirements prevent Unreal Engine's PipInstall cache from using stale packages.
 
 You may wish to deactivate the "strict hash" feature in Unreal's Python settings, or add hash settings for specific library and dependency versions you wish to consume.
 
@@ -203,7 +207,7 @@ You may wish to deactivate the "strict hash" feature in Unreal's Python settings
 ```
 pip install hatch
 hatch build
-"C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\ThirdParty\Python3\Win64\python" -m pip install dist\deadline_cloud_for_unreal_engine-0.2.2.post21-py3-none-any.whl --target "C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\Content\Python\libraries"
+"C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\ThirdParty\Python3\Win64\python" -m pip install "dist\deadline_cloud_for_unreal_engine-0.2.2.post21-py3-none-any.whl[console]" --target "C:\Program Files\Epic Games\UE_5.5\Engine\Plugins\UnrealDeadlineCloudService\Content\Python\libraries"
 ```
 
 4. Lastly, Python dependencies can be installed by the submitter installer. These may be out of date with your code above from the release or mainline branch, and this method should not currently be preferred.
@@ -243,7 +247,7 @@ If you already have a Windows fleet and don't need to set up a new fleet, you ca
 ### Creating a service-managed fleet (SMF)
 <a name="unreal-engine-create-smf"></a>
 
-Follow the [service-managed fleets user guide](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html) to create an SMF if you don't already have one. On [service-managed fleets (SMFs)](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html), the Unreal Engine and adaptor are automatically available using the `deadline-cloud` conda channel with the [default queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment). You are ready to start rendering. Continue with [Submitting a test render](#unreal-engine-test-render) below to submit a test render job.
+Follow the [service-managed fleets user guide](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html) to create an SMF if you don't already have one. On [service-managed fleets (SMFs)](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html), the Unreal Engine and adaptor are automatically available using the `deadline-cloud-v2` and `deadline-cloud` conda channels with the [default queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment). You are ready to start rendering. Continue with [Submitting a test render](#unreal-engine-test-render) to submit a test render job.
 
 ### Creating a customer-managed fleet (CMF)
 <a name="unreal-engine-create-cmf"></a>
@@ -302,12 +306,161 @@ This example uses the Meerkat Demo from the Unreal Marketplace:
        + Expand **Job Attachments**:
          + Under **Input Files**, select **Show Auto-Detected**.
          + Verify that the list of auto-detected files populates correctly.
+       + (Optional) Expand **Profiling Settings**:
+         + Enable **Insights CPU**, **Insights GPU**, or **Insights Memory** to capture Unreal Insights traces.
+         + Enable **CSV Profiler** to capture CSV profiler output.
+         + For **CSV Capture Frames**, enter the number of frames to capture. The default is `300`.
+         + Enable **MemReport** to run `MemReport -full` after rendering finishes.
      + Under **Job Template Overrides**:
        + Update the Unreal Engine version in **CondaPackages** if you are using a different version than 5.6.
          + Unreal Engine version autodetection is coming in a future release.
    + Choose **Render (Remote)**.
 
 1. You can go to Deadline Cloud monitor and watch the progress of your job.
+
+## Unreal Engine profiling output
+<a name="unreal-engine-profiling-output"></a>
+
+Remote renders write profiling artifacts to the Unreal Engine `<Project>/Saved/Profiling` directory, independent of the configured MRQ output directory. Job attachments upload the profiling artifacts with the job outputs.
+
+
+| Output | Directory | 
+| --- | --- | 
+| Unreal Insights traces | Saved/Profiling/DeadlineCloud | 
+| CSV profiler output | Saved/Profiling/CSV | 
+| Memory reports | Saved/Profiling/MemReports | 
+
+Unreal Insights creates one startup trace for project initialization and a separate trace for each render task. When the remote job finishes, download the artifacts from Deadline Cloud monitor or your configured output storage. The submitter does not copy the artifacts into your local Unreal Engine project directory.
+
+## Dynamic chunking
+<a name="unreal-engine-dynamic-chunking"></a>
+
+Dynamic chunking lets the Deadline Cloud scheduler dispatch contiguous frame ranges to workers. The scheduler can adjust later chunk sizes from completed task runtimes, which can improve load balancing when frame render times vary.
+
+Dynamic chunking is optional. Standard render job data assets continue to use shots-per-task or frames-per-task settings.
+
+### Prerequisites
+<a name="unreal-engine-dynamic-chunking-prerequisites"></a>
+
+Before you configure dynamic chunking, complete the following tasks:
++ Install version `0.7.1` or later of the Unreal Engine submitter plugin.
++ Use version `0.7.1` or later of `unrealengine-openjd` on workers.
++ Configure an Deadline Cloud queue and fleet that can render Unreal Engine jobs.
+
+**Important**  
+The submitter and worker adaptor must both support dynamic chunking. An older adaptor can render the full MRQ sequence for every dispatched chunk.
+
+The provided dynamic chunking templates support the base render workflow. Perforce, Unreal Game Sync (UGS), and Movie Pipeline Queue (MPQ) variants are not supported.
+
+### How dynamic chunking works
+<a name="unreal-engine-dynamic-chunking-how"></a>
+
+The submitter reads the effective frame range from the Movie Render Queue (MRQ) job and sends the range to Deadline Cloud. The scheduler then dispatches contiguous frame ranges to workers. For example, a frame range of `1-10` and a default chunk size of `5` creates the ranges `1-5` and `6-10`.
+
+When **Target Runtime Seconds** is greater than `0`, the scheduler can adjust later chunk sizes based on observed runtimes. The target is a scheduling hint and does not guarantee a task duration.
+
+MRQ accepts contiguous start and end frame overrides. A single-frame chunk uses a range such as `5-5`.
+
+### Creating a dynamic chunking render step
+<a name="unreal-engine-dynamic-chunking-render-step"></a>
+
+1. In the Unreal Engine Content Browser, create a **Deadline Cloud Render Step** data asset.
+
+1. Name the asset, for example, `DynamicChunkingRenderStep`.
+
+1. For the template, select `Content/Python/openjd_templates/dynamic_chunking/dynamic_chunking_render_step.yml`.
+
+1. Save the data asset.
+
+The template defines the Open Job Description (OpenJD) `CHUNK[INT]` task parameter used by the scheduler. Unreal Engine does not have a corresponding editable value type, so the parameter might not appear in the data asset. Do not add or replace the parameter manually.
+
+### Creating a dynamic chunking render job
+<a name="unreal-engine-dynamic-chunking-render-job"></a>
+
+1. In the Unreal Engine Content Browser, create a **Deadline Cloud Render Job** data asset.
+
+1. Name the asset, for example, `DynamicChunkingRenderJob`.
+
+1. For the template, select `Content/Python/openjd_templates/dynamic_chunking/dynamic_chunking_render_job.yml`.
+
+1. Review the job parameter definitions in the following table.
+
+1. In **Steps**, add `DynamicChunkingRenderStep`.
+
+1. Save the data asset.
+
+
+| Parameter | Description | Action | 
+| --- | --- | --- | 
+| Frames | Effective MRQ frame range | Leave unchanged. The submitter sets the value. | 
+| ChunkSize | Default number of frames in each chunk | Set an initial chunk size. The default is 50. | 
+| TargetRuntimeSeconds | Target runtime for adjusted chunks | Use 0 for a fixed chunk size, or use a positive value for dynamic adjustment. | 
+| CondaPackages | Unreal Engine and adaptor packages used by the worker | Keep the default unless you use a compatible custom adaptor. Dynamic chunking requires unrealengine-openjd version 0.7.1 or later. | 
+| CondaChannels | Conda channels that contain the packages | Use the defaults unless your fleet uses custom channels. | 
+| ExtraCmdArgs | Additional Unreal Engine command-line arguments | Optional. Keep the default for standard configurations. | 
+
+### Selecting the dynamic chunking job preset
+<a name="unreal-engine-dynamic-chunking-preset"></a>
+
+1. In Unreal Engine, choose **Edit**, and then choose **Project Settings**.
+
+1. Choose **Plugins**, and then choose **Deadline Cloud**.
+
+1. For **Default Job Preset**, select `DynamicChunkingRenderJob`.
+
+1. Close **Project Settings**.
+
+You can instead select `DynamicChunkingRenderJob` as the **Job Preset** for an individual job in the MRQ Deadline Cloud settings.
+
+### Submitting a dynamically chunked render
+<a name="unreal-engine-dynamic-chunking-submit"></a>
+
+1. In Unreal Engine, choose **Window**, **Cinematics**, and then **Movie Render Queue**.
+
+1. Add the level sequence that you want to render.
+
+1. Configure the MRQ output settings and frame range.
+
+1. For **Job Preset**, select `DynamicChunkingRenderJob`.
+
+1. Under **Job Template Overrides**, enter values for **Default Dynamic Chunk Size** and **Target Runtime Seconds**.
+
+1. Choose **Render (Remote)**.
+
+1. In Deadline Cloud monitor, inspect the frame range assigned to each task.
+
+The submitter derives `Frames` from the MRQ range. You do not need to enter an OpenJD frame expression.
+
+### Choosing chunking settings
+<a name="unreal-engine-dynamic-chunking-settings"></a>
+
+Start with a small test job before you tune a production render.
+
+
+| Workload | Suggested starting point | 
+| --- | --- | 
+| Validate the configuration | Use a ChunkSize of 5 and TargetRuntimeSeconds of 0. | 
+| Similar render time for every frame | Choose a fixed ChunkSize and use TargetRuntimeSeconds of 0. | 
+| Variable frame render times | Choose an initial ChunkSize and a positive TargetRuntimeSeconds value. | 
+| Short frames with significant task startup time | Increase ChunkSize to reduce startup overhead. | 
+| Long or unpredictable frames | Decrease ChunkSize to distribute work more evenly. | 
+
+A smaller chunk size gives the scheduler more opportunities to balance work, but increases task and Unreal Engine startup overhead. A larger chunk size reduces overhead, but can leave workers idle near the end of a job.
+
+### Troubleshooting dynamic chunking
+<a name="unreal-engine-dynamic-chunking-troubleshooting"></a>
+
+
+| Issue | Cause | Resolution | 
+| --- | --- | --- | 
+| Every task renders the full sequence | The worker uses an adaptor version earlier than 0.7.1. | Update unrealengine-openjd to version 0.7.1 or later. | 
+| A task reports rejected legacy keys | A bundle or custom template emits chunk\_size or chunk\_id for a 1.0 adaptor. | Update the template to use shots\_per\_task and task\_index. | 
+| Dynamic chunking controls are missing | The standard render job preset is selected. | Select DynamicChunkingRenderJob and verify that it uses dynamic\_chunking\_render\_job.yml. | 
+| Submission reports a missing or invalid Frames value | MRQ did not provide a frame range, or the submitter is earlier than version 0.7.1. | Verify the MRQ output frame range and update the submitter. | 
+| The job uses unexpected chunk sizes | A positive target runtime allows the scheduler to adjust chunks. | Set Target Runtime Seconds to 0. | 
+| A Perforce, UGS, or MPQ job does not use dynamic chunking | The provided templates support only the base render workflow. | Use the base dynamic chunking job. | 
+
+In the worker log, search for `Rendering custom frame range` or `Rendering dynamic chunk frame range`. The logged range confirms which frames the scheduler assigned to the worker action.
 
 ## Setting up a customer-managed fleet (CMF) worker
 <a name="unreal-engine-cmf-worker-setup"></a>
@@ -1115,12 +1268,17 @@ This setup improves job routing consistency and ensures rendering happens on the
 #### Service-managed fleets (SMF)
 <a name="unreal-engine-smf"></a>
 
-On service-managed fleets, the Unreal Engine and adaptor are automatically available using the `deadline-cloud` conda channel with the default queue environment. This setup provides the easiest experience.
+On service-managed fleets, the Unreal Engine and adaptor are automatically available using the `deadline-cloud-v2` and `deadline-cloud` conda channels with the default queue environment. This setup provides the easiest experience.
 
 #### Customer-managed fleets (CMF)
 <a name="unreal-engine-cmf"></a>
 
 For customer-managed fleets, Unreal Engine and the adaptor must be manually installed on worker hosts. This setup provides more control and supports additional features like Perforce integration. For detailed instructions, see [Setting up a customer-managed fleet (CMF) worker](#unreal-engine-cmf-worker-setup).
+
+### Submission hooks in Unreal Engine
+<a name="unreal-engine-submission-hooks"></a>
+
+The Unreal Engine submitter supports environment hooks for the pre-GUI, pre-submission, and post-submission phases. Pre-GUI hooks run when Unreal Engine builds a Deadline Cloud job's C\+\+ Details panel. For instructions on configuring hooks and their Unreal Engine behavior, see [Submission hooks in Unreal Engine](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/submission-hooks.html#submission-hooks-unreal-engine).
 
 ## Unreal Engine rendering features
 <a name="unreal-engine-rendering-features"></a>
@@ -1135,6 +1293,7 @@ Unreal Engine's rendering system provides comprehensive support for:
 | Project Plugins | Custom plugin support | Automatic detection and inclusion | 
 | Asset Dependencies | Content file management | Comprehensive asset tracking | 
 | Sticky Rendering | Application persistence between shots | Improved performance for multi-shot sequences | 
+| Dynamic chunking | Contiguous frame ranges with adjustable chunk sizes | Improved load balancing when frame runtimes vary | 
 
 All rendering features are automatically detected and configured by the Unreal Engine integrated submitter. The adaptor maintains proper dependency handling and supports efficient multi-shot rendering without restarting Unreal Engine.
 

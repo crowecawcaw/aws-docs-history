@@ -58,6 +58,7 @@ Conda provides packages from *channels*. A channel is a location where packages 
   + `blender=4.5`
   + `blender=5.0`
   + `blender=5.1`
+  + `blender=5.2`
   + `blender-openjd`
 + Chaos V-Ray for Maya
   + `maya-vray=2025.7`

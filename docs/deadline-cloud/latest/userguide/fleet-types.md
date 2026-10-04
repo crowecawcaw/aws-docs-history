@@ -26,6 +26,11 @@ You don't have to choose only one fleet type. A farm can contain both, for examp
 
 With a service-managed fleet, you choose the instance capabilities, operating system, and market option (spot, on-demand, or wait-and-save), and Deadline Cloud handles the rest. Associate the fleet with a queue that uses the default conda queue environment. Deadline Cloud then configures the workers with packages for supported digital content creation (DCC) applications and renderers.
 
+Each service-managed fleet uses one market option. Wait and Save provides delayed job scheduling for lower cost. To combine Spot, On-Demand, or Wait and Save capacity, create a separate fleet for each option and associate the fleets with the same queue. Use each fleet's maximum worker count to control how much capacity that market option can provide.
+
+**Note**  
+When a queue has multiple compatible fleets, Deadline Cloud can run work on any of those fleets and doesn't provide a built-in setting to prefer one fleet. If a queue is associated with Wait and Save and Spot or On-Demand fleets, it might not process jobs with Wait and Save instances. For more information, see [Associate a queue and fleet](associate-a-queue-and-fleet.md). To automatically balance Wait and Save and Spot capacity, see [Manage hybrid Wait and Save plus Spot fleet capacity with CloudFormation](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/examples-cfn-capacity-manager.html) in the *Deadline Cloud Developer Guide*.
+
 For more information, see the following:
 + [Service-managed fleets](smf-manage.md)
 + [Software licensing for service-managed fleets](smf-licensing.md)
