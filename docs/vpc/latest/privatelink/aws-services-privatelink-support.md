@@ -477,6 +477,7 @@ Choose the link in the **AWS service** column to see the documentation for servi
 
 - **IAM Identity Center**
   - com.amazonaws.{{region}}.identitystore
+  - com.amazonaws.{{region}}.sso
   - com.amazonaws.{{region}}.sso-oauth
 
 - ** [IAM Roles Anywhere](https://docs.aws.amazon.com/rolesanywhere/latest/userguide/vpc-interface-endpoints.html) **
@@ -559,7 +560,7 @@ Choose the link in the **AWS service** column to see the documentation for servi
 - **AWS Launch Wizard**
   - com.amazonaws.{{region}}.launchwizard
 
-- ** [Amazon Lex](https://docs.aws.amazon.com/lexv2/latest/dg/vpc-interface-endpoints.html) **
+- ** [Amazon Lex V2](https://docs.aws.amazon.com/lexv2/latest/dg/vpc-interface-endpoints.html) **
   - com.amazonaws.{{region}}.models-v2-lex
   - com.amazonaws.{{region}}.runtime-v2-lex
 
@@ -903,9 +904,8 @@ Choose the link in the **AWS service** column to see the documentation for servi
   - com.amazonaws.{{region}}.transcribe
   - com.amazonaws.{{region}}.transcribestreaming
 
-- **AWS Transfer for SFTP**
+- **AWS Transfer Family**
   - com.amazonaws.{{region}}.transfer
-  - com.amazonaws.{{region}}.transfer.server
 
 - ** [AWS Transform](https://docs.aws.amazon.com/transform/latest/userguide/vpc-interface-endpoints.html) **
   - com.amazonaws.{{region}}.transform
@@ -1128,7 +1128,6 @@ The following is example output. The complete output is not shown.
     "com.amazonaws.us-east-1.appstream.streaming",
     "com.amazonaws.us-east-1.awsconnector",
     . . .
-    "com.amazonaws.us-east-1.transfer.server"
 ]
 ```
 
