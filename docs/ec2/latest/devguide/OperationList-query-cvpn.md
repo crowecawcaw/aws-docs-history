@@ -5,6 +5,11 @@
 
 The following API actions are available for AWS Client VPN. To learn more about Client VPN, see the [Site-to-Site VPN product page](https://aws.amazon.com/vpn/) and the [Site-to-Site VPN documentation](https://docs.aws.amazon.com/vpn/).
 
+**Authorization policies**
++ [DeleteClientVpnEndpointAuthorizationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteClientVpnEndpointAuthorizationPolicy.html)
++ [GetClientVpnEndpointAuthorizationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetClientVpnEndpointAuthorizationPolicy.html)
++ [ModifyClientVpnEndpointAuthorizationPolicy](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyClientVpnEndpointAuthorizationPolicy.html)
+
 **Authorization rules**
 + [AuthorizeClientVpnIngress](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeClientVpnIngress.html)
 + [DescribeClientVpnAuthorizationRules](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeClientVpnAuthorizationRules.html)
