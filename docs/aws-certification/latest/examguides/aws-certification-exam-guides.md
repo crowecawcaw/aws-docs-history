@@ -44,12 +44,6 @@ Validate technical skills in implementing data pipelines and data stores on AWS.
 [AWS Certified Developer - Associate (DVA-C02)](../developer-associate-02.html)  
 Validate technical skills in developing and maintaining applications on AWS. This exam is intended for individuals who perform a developer role and validates proficiency in developing, deploying, and debugging cloud-based applications.
 
-[AWS Certified Machine Learning Engineer - Associate (MLA-C01)](../machine-learning-engineer-associate-01.html)  
-Validate technical skills in implementing ML solutions on AWS. This exam is intended for individuals who perform an ML engineer role and validates the ability to implement, deploy, and maintain ML solutions.  
-**Exam update: MLA-C02 beta**  
-This exam is being updated. Registration for the beta exam for the updated version (MLA-C02) opens September 1, 2026. The last day to take the current exam (MLA-C01) is September 28, 2026.  
-On September 29, 2026, the beta exam will be available in English only. The MLA-C01 exam will continue to be offered in Korean, Japanese, and Simplified Chinese during the beta exam period.
-
 [AWS Certified Machine Learning Engineer - Associate (MLA-C02)](../machine-learning-engineer-associate-02.html)  
 Validate technical skills in implementing AI and ML solutions on AWS. This exam is intended for individuals who perform an ML engineer role and validates the ability to implement, deploy, and maintain AI and ML solutions.
 
