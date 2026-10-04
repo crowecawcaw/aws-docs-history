@@ -22,7 +22,7 @@ Sellers in India have specific registration requirements and can only set INR fo
 
 For step-by-step onboarding instructions, see the [Channel Partner Onboarding Guide](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Private+Offers+-Seller+Sign+Up+Onboarding+Guide+2019.pdf).
 
-Once you have completed these requirements, please provide the ISV with your 12-digit AWS account ID so they can create a selling authorization that allows you to resell their products. For a step-by-step walkthrough of the process, see this [interactive demo](https://awsmarketplace.storylane.io/share/5oeofjaq5s4s).
+Once you have completed these requirements, please provide the ISV with your 12-digit AWS account ID so they can create a selling authorization that allows you to resell their products. For a step-by-step walkthrough of the process, see this [interactive demo](https://awsmarketplace.storylane.io/share/5oeofjaq5s4s) on the AWS Marketplace Storylane website.
 
 ## Understanding Channel Partner Private Offers (CPPO)
 <a name="understanding-cppo"></a>
@@ -46,7 +46,7 @@ You determine the wholesale cost in one of the following ways:
 In both cases, after the buyer pays for the private offer, AWS Marketplace uses the standard process to distribute the funds to the AWS Marketplace Channel Partner and the ISV based on the agreed-to pricing. Listing fees are deducted from the amount disbursed to the ISV. Listing fee is calculated based on the discounted price offered by ISV to Channel Partner. For listing fee tiers, see [Understanding listing fees for AWS Marketplace sellers](listing-fees.md).
 
 **Tip**  
-ISVs and Channel Partners can use the **Partners** menu on the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home) to view selling authorizations.
+ISVs and Channel Partners can use the **Partners** menu on [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) to view selling authorizations.
 
 For detailed instructions about creating private offers, see [AWS Marketplace Channel Partner Private Offer – Create Offer](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Consulting+Partner+Creates+(1).pdf).
 

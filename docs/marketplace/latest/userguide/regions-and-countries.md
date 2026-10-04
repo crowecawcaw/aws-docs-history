@@ -11,11 +11,10 @@ Sellers in India have geographic restrictions and can only sell to buyers in Ind
 ## AWS Regions
 <a name="product-regions"></a>
 
- When creating or editing server or machine learning product information, you can limit your product to specific AWS Regions where your users can install and use the product.
-
- For server products, including Amazon Machine Image (AMI)-, container-, and CloudFormation-based products, you can select specific Regions where the product is available. You can also choose to automatically make your product available in new US Regions, non-US Regions, or all Regions as they become available.
-
- For machine learning products, you can either select specific Regions, or all Regions including future Regions as they become available.
+ Whether you choose the AWS Regions for your product depends on its product type.
++ **Amazon Machine Image (AMI)-based products**, including AMI products delivered with a CloudFormation template, and **EC2 Image Builder component products** – You choose the Regions where buyers can install and use your product. You can also turn on future Region support, which adds your product to new Regions as they launch. You can include all new Regions or only new US Regions. For steps, see [Managing AMI-based product availability by AWS Region and country](single-ami-regions.md) and [Managing EC2 Image Builder product availability by AWS Region and country](single-ib-regions.md).
++ **Container products** – You don't choose Regions. AWS Marketplace stores your container images and Helm charts in the US East (N. Virginia) Region. Buyers who subscribe can deploy your product in other Regions. They pull the image from the US East (N. Virginia) Region.
++ **Machine learning products** – You don't choose Regions. AWS Marketplace makes your product available in the Regions where it supports machine learning products. For the criteria, see [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing).
 
  For more information about AWS Regions, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the AWS General Reference.
 

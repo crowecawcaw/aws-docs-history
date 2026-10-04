@@ -162,22 +162,14 @@ To create a selling authorization Service-Linked Role:
 **Note**  
 This SLR is required for ISVs, DSORs, and Channel Partners to create and accept selling authorizations.
 
-##### Channel Partner Submission Program enrollment
-<a name="india-seller-cppo-submission-program"></a>
+##### Becoming a Channel Partner
+<a name="india-seller-becoming-channel-partner"></a>
 
-To request allowlisting through the Channel Partner Submission Program:
-
-1. Complete the [enrollment request form](https://pages.awscloud.com/awsmp_consulting_partner_offers).
-
-1. In the **Briefly describe support required** field, enter: "I would like to enroll my AWS account ID XXXX-XXXX-XXXX into the Channel Program".
-
-1. Submit the request.
-
-Once your request is submitted, approved, and processed, a response email is sent to the Channel Partner, and ISVs are authorized to enable your AWS account ID to resell their products.
+After you complete the preliminary steps, follow the instructions for your role:
++ **Channel Partners** — To create your Channel Partner Private Offer in AWS Partner Central, see [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md).
++ **ISVs** — To create a selling authorization that lets your Channel Partner resell your products, see [Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV](channel-partner-isv-info.md).
 
 We recommend verifying your e-invoicing status using the India e-Invoicing portal before initiating any new agreements to avoid processing delays.
-
-After you complete the preliminary steps, create the Channel Partner Private Offer in AWS Partner Central. For step-by-step instructions, see [Creating private offers as an AWS Marketplace Channel Partner](channel-partner-offers.md) and [Creating a selling authorization for an AWS Marketplace Channel Partner as an ISV](channel-partner-isv-info.md).
 
 **Note**  
 Sellers in India and DSORs can only send resale authorizations to channel partners in India. If you issue a resale authorization to a channel partner based outside India, the resale authorization fails. Your channel partner can only create CPPO in the same currency and can extend CPPOs to buyers in India only.

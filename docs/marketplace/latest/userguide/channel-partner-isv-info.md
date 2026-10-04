@@ -9,12 +9,12 @@ As an independent software vendor (ISV), you can authorize AWS Marketplace Chann
 + SaaS-based products
 + Professional services products
 
-The following procedure outlines how ISVs can create a selling authorization for an AWS Marketplace Channel Partner. To use this feature, you must have permissions to use the **Selling authorizations** tab in the AWS Marketplace Management Portal. For more information, see [Policies for AWS Marketplace sellers](detailed-management-portal-permissions.md#seller-managed-policies). 
+The following procedure outlines how ISVs can create a selling authorization for an AWS Marketplace Channel Partner. To use this feature, you must have permissions to use the **Selling authorizations** tab in AWS Partner Central. For more information, see [Policies for AWS Marketplace sellers](detailed-management-portal-permissions.md#seller-managed-policies). 
 
 ## Create a selling authorization
 <a name="create-selling-authorization"></a>
 
-1. Sign in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home) with your AWS Marketplace Seller account.
+1. Sign in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) with your AWS Marketplace Seller account.
 **Tip**  
 Ensure that you are signed out from another AWS account before signing in with your AWS Marketplace Seller account.
 
