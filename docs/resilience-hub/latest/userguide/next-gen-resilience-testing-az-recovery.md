@@ -11,19 +11,20 @@ The **Availability Zone: recovery** test injects the symptoms of a power interru
 + Most meaningful for multi-AZ architectures where traffic can shift to healthy AZs. Can also be run against single-AZ services.
 + If you have AWS Application Recovery Controller (ARC) zonal autoshift enabled on your resources, the test exercises that shift automatically. If autoshift is not configured, the action is skipped.
 + **Availability Zone** – Choose the AZ to impair. Select an AZ where your service has resources deployed.
-+ **Duration** – The length of time the test actions run. It takes a few additional minutes afterward to collect final results before the test ends. Defaults to your RTO from your service policy plus 30 minutes when you first create the test. Set it longer than your RTO to validate that recovery is sustained.
++ **Duration** – The length of time the test actions run. It takes a few additional minutes afterward to collect final results before the test ends. Defaults to your RTO from your service policy plus 30 minutes when you first create the test. Set it longer than your RTO to validate that recovery is sustained. The minimum duration is 10 minutes.
 
 This test runs the following AWS FIS actions to impair the Availability Zone that you select. If your service has no resources matching an action's target type, that action is skipped. For details about each action, see the [AWS FIS actions reference](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html).
 
 
 | Action | Description | 
 | --- | --- | 
-| aws:ec2:stop-instances | Stops instances in the impaired AZ for the duration. | 
+| aws:ec2:stop-instances | Stops instances in the impaired AZ and restarts them 5 minutes before the test actions end. | 
 | aws:ec2:api-insufficient-instance-capacity-error | Blocks new instance launches in the impaired AZ. | 
 | aws:ec2:asg-insufficient-instance-capacity-error | Prevents Auto Scaling from provisioning capacity in the AZ. | 
 | aws:network:disrupt-connectivity | Blocks traffic entering and leaving the subnet, and blocks access to Amazon S3 Express One Zone directory buckets if present. | 
 | aws:rds:failover-db-cluster | Fails over the cluster if the writer is in the impaired AZ. | 
 | aws:elasticache:replicationgroup-interrupt-az-power | Terminates cache nodes in the impaired AZ without replacement for the duration. | 
+| aws:ebs:pause-volume-io | After instances restart, pauses I/O for 5 minutes on half of the Amazon EBS volumes in the impaired AZ (at least one). Only volumes that persist after instance termination are targeted. | 
 | aws:arc:start-zonal-autoshift | Shifts traffic to healthy AZs. | 
 
 To see this test's parameters and their default values, use `get-test-template`.

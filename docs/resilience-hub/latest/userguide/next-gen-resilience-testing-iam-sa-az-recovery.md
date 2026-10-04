@@ -3,7 +3,7 @@
 # Availability Zone: recovery
 <a name="next-gen-resilience-testing-iam-sa-az-recovery"></a>
 
-The **Availability Zone: recovery** template runs AWS FIS actions against the following services: Amazon EC2, Amazon EC2 Auto Scaling, Amazon ElastiCache, Amazon RDS, network ACLs, and AWS Application Recovery Controller zonal shift. Attach the following permissions policy to the execution role.
+The **Availability Zone: recovery** template runs AWS FIS actions against the following services: Amazon EC2, Amazon EBS, Amazon EC2 Auto Scaling, Amazon ElastiCache, Amazon RDS, network ACLs, and AWS Application Recovery Controller zonal shift. Attach the following permissions policy to the execution role.
 
 ```
 {

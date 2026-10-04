@@ -23,7 +23,7 @@ The **Multi-Region: isolation** test blocks connectivity between two Regions, in
 This test runs the following AWS FIS actions to drop traffic to the dependencies that you select. Actions inject 100% packet loss on Amazon EC2 instances, Amazon ECS tasks (Amazon EC2 and Fargate), and Amazon EKS pods (Amazon EC2). If your service has no resources matching an action's target type, that action is skipped.
 
 **Note**  
-The actions used to block dependencies require additional setup: SSM Agent installed on Amazon EC2 instances, an SSM Agent container in your Amazon ECS task definition, or a Kubernetes service account for Amazon EKS pods.
+The actions used to block dependencies require additional setup: SSM Agent installed on Amazon EC2 instances, an SSM Agent container in your Amazon ECS task definition, or a Kubernetes service account for Amazon EKS pods. For Amazon EKS pods, complete the **(Optional) Resilience testing** parts of the Amazon EKS permissions steps. For more information, see [Required IAM permissions and roles](next-gen-iam-permissions.md).
 
 
 | Action | Description | 
