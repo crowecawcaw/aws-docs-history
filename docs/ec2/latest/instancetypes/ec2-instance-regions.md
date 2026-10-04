@@ -85,7 +85,7 @@ The following instance types are available in Asia Pacific (Hyderabad).
 + **Compute Optimized:** C5 \| C5d \| C6a \| C6g \| C6i \| C6in \| C7g \| C7i \| C7i-flex \| C8g \| C8gn \| C8i \| C8i-flex
 + **Memory Optimized:** R5 \| R5d \| R6a \| R6g \| R6i \| R7a \| R7g \| R7gd \| R7i \| R8g \| R8i \| R8i-flex \| U-6tb1 \| U7i-6tb \| U7i-8tb \| U7i-12tb \| X2idn \| X2iedn
 + **Storage Optimized:** I3 \| I3en \| I4i \| I7i \| I7ie
-+ **Accelerated Computing:** G6 \| G6e \| P6-B200 \| P6-B300
++ **Accelerated Computing:** G6 \| G6e \| P6-B200 \| P6-B300 \| Trn2 \| Trn2u
 
 ## Asia Pacific (Jakarta) — `ap-southeast-3`
 <a name="instance-types-ap-southeast-3"></a>
@@ -263,7 +263,7 @@ The following instance types are available in Europe (Frankfurt).
 + **Compute Optimized:** C3 \| C4 \| C5 \| C5a \| C5ad \| C5d \| C5n \| C6a \| C6g \| C6gd \| C6gn \| C6i \| C6id \| C6in \| C7a \| C7g \| C7gd \| C7i \| C7i-flex \| C8a \| C8g \| C8gd \| C8gn \| C8i \| C8id \| C8i-flex \| C8in \| C8ine \| C9g \| C9gd
 + **Memory Optimized:** R3 \| R4 \| R5 \| R5a \| R5ad \| R5b \| R5d \| R5dn \| R5n \| R6a \| R6g \| R6gd \| R6i \| R6id \| R6idn \| R6in \| R7a \| R7g \| R7gd \| R7i \| R7iz \| R8a \| R8g \| R8gd \| R8i \| R8id \| R8i-flex \| R8in \| R8idn \| R8ib \| R8idb \| R9g \| R9gd \| U-3tb1 \| U-6tb1 \| U7i-6tb \| U7i-8tb \| U7i-12tb \| U7in-16tb \| U7in-24tb \| X1 \| X1e \| X2idn \| X2iedn \| X8g \| X8i \| z1d
 + **Storage Optimized:** D2 \| D3 \| D3en \| I2 \| I3 \| I3en \| I4i \| I7i \| I7ie \| I8g \| I8ge \| Im4gn \| Is4gen
-+ **Accelerated Computing:** DL2q \| F2 \| G4dn \| G5 \| G5g \| G6 \| G6e \| G6f \| Gr6 \| Gr6f \| G7e \| Inf1 \| Inf2 \| P4d \| P4de
++ **Accelerated Computing:** DL2q \| F2 \| G4dn \| G5 \| G5g \| G6 \| G6e \| G6f \| Gr6 \| Gr6f \| G7 \| G7e \| Inf1 \| Inf2 \| P4d \| P4de
 + **Previous Generation:** A1 \| C3 \| C4 \| I2 \| M3 \| M4 \| R3 \| R4
 
 ## Europe (Ireland) — `eu-west-1`
@@ -329,7 +329,7 @@ The following instance types are available in Europe (Stockholm).
 + **Compute Optimized:** C5 \| C5a \| C5d \| C5n \| C6g \| C6gd \| C6gn \| C6i \| C6in \| C7a \| C7g \| C7gd \| C7i \| C7i-flex \| C8g \| C8gn \| C8i \| C8id
 + **Memory Optimized:** R5 \| R5b \| R5d \| R5dn \| R5n \| R6g \| R6gd \| R6i \| R6idn \| R6in \| R7a \| R7g \| R7gd \| R7i \| R8g \| R8gd \| R8i \| R8id \| R8i-flex \| U-6tb1 \| U7i-6tb \| U7i-8tb \| U7i-12tb \| U7in-24tb \| X2idn \| X2iedn \| X8g \| X8aedz \| X8i
 + **Storage Optimized:** D2 \| I3 \| I3en \| I4i \| I7i \| I7ie \| I8g \| I8ge
-+ **Accelerated Computing:** G4dn \| G5 \| G6 \| G6e \| G6f \| Gr6 \| Gr6f \| G7e \| Inf1 \| Inf2 \| P4d \| P5 \| P5e \| P5en \| P6-B200
++ **Accelerated Computing:** G4dn \| G5 \| G6 \| G6e \| G6f \| Gr6 \| Gr6f \| G7 \| G7e \| Inf1 \| Inf2 \| P4d \| P5 \| P5e \| P5en \| P6-B200
 + **High Performance Computing:** Hpc6a \| Hpc6id \| Hpc7a \| Hpc8a
 
 ## Europe (Zurich) — `eu-central-2`
