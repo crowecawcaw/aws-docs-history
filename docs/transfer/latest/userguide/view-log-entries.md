@@ -19,7 +19,9 @@
 ![An example logging screen, showing a session where a user connects, and then later disconnects, from the SFTP server.](https://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-02.png)
    + If your server has a managed workflow associated with it, you can view logs for the workflow runs.
 **Note**  
-The format for the log stream for the workflow is `{{username}}.{{workflowId}}.{{uniqueStreamSuffix}}`. For example, **decrypt-user.w-a1111222233334444.aaaa1111bbbb2222** could be the name of a log stream for user **decrypt-user** and workflow **w-a1111222233334444**.   
+The format for the workflow log stream depends on which logging mechanism the workflow uses:  
+If the workflow uses a logging role, the format is `{{username}}.{{workflowId}}.{{uniqueStreamSuffix}}`. For example, **decrypt-user.w-a1111222233334444.aaaa1111bbbb2222** could be the name of a log stream for user **decrypt-user** and workflow **w-a1111222233334444**.
+If the workflow uses a structured log destination, the format is `{{workflowId}}/{{executionId}}`. For example, **w-a1111222233334444/aaaa1111bbbb2222** could be the name of a log stream for workflow **w-a1111222233334444**.  
 ![An example logging screen, showing entries for one run through a workflow, with the StepStarted log entry expanded.](https://docs.aws.amazon.com/transfer/latest/userguide/images/log-example-workflow.png)
 
 **Note**  

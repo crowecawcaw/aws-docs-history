@@ -10,7 +10,7 @@ For all AWS Transfer Family servers, we provide structured logging. We recommend
 + Create aggregated metrics and visualizations that can be added to CloudWatch dashboards.
 + Track usage and performance data by using log groups to create consolidated log metrics, visualizations, and dashboards.
 
-To enable logging for workflows that are attached to servers, you must use a logging role.
+To enable logging for a workflow that does not have a structured log destination configured, you must use a logging role on the server that the workflow is attached to. If the workflow has a structured log destination configured (a CloudWatch Logs log group specified in its `StructuredLogDestinations` parameter), Transfer Family delivers the workflow execution logs to that log group and a logging role is not required. For details, see [Managing logging for workflows](cloudwatch-workflows.md).
 
 **Note**  
 When you add a logging role, the logging group is always `/aws/transfer/{{your-serverID}}`, and can't be changed. This means, that unless you are sending your structured server logs to the same group, you will be logging to two separate logging groups.  
@@ -19,8 +19,8 @@ To modify your logging group, see [StructuredLogDestinations](https://docs.aws.a
 
 If you create a new server by using the Transfer Family console, logging is enabled by default. After you create the server, you can use the `UpdateServer` API operation to change your logging configuration. For details, see [StructuredLogDestinations](https://docs.aws.amazon.com/transfer/latest/APIReference/API_UpdateServer.html#TransferFamily-UpdateServer-request-StructuredLogDestinations).
 
-Currently, for workflows, if you want logging enabled, you must specify a logging role:
-+ If you associate a workflow with a server, using either the `CreateServer` or `UpdateServer` API operation, the system does not automatically create a logging role. If you want to log your workflow events, you need to explicitly attach a logging role to the server.
+For a workflow that does not have a structured log destination configured, if you want logging enabled, you must specify a logging role:
++ If you associate a workflow with a server, using either the `CreateServer` or `UpdateServer` API operation, the system does not automatically create a logging role. If you want to log the events of a workflow that does not have a structured log destination, you need to explicitly attach a logging role to the server.
 + If you create a server using the Transfer Family console and you attach a workflow, logs are sent to a log group that contains the server ID in the name. The format is `/aws/transfer/{{server-id}}`, for example, `/aws/transfer/s-1111aaaa2222bbbb3`. The server logs can be sent to this same log group or a different one.
 
 **Logging considerations for creating and editing servers in the console**

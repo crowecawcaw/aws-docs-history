@@ -62,7 +62,7 @@ There are four main views.
 ## Available actions
 <a name="end-user-actions"></a>
 
-Most of the actions are available from the **Actions** menu. For the other main action, downloading files, you use the download icon after you select a file (currently, you can only download one file at a time).
+Most of the actions are available from the **Actions** menu. To download a single file, you can also use the download icon that appears next to the filename.
 
 ![Screen showing files and their corresponding download icons.](https://docs.aws.amazon.com/transfer/latest/userguide/images/webapp-enduser-download.png)
 
@@ -70,9 +70,9 @@ Most of the actions are available from the **Actions** menu. For the other main 
 From a folder, use the **Actions** menu to perform any of the following tasks:
 + Copy one or more files to another location.
 + Create a folder.
++ Download one or more files and folders. A single file downloads as-is; selecting multiple items, or any folder, packages your selection into a single `.zip` file that preserves the original folder structure.
 + Delete one or more files.
-+ Upload one or more files.
-+ Upload an entire folder (including subfolders if any).
++ Upload one or more files or folders, including any subfolders.
 + Select a folder and navigate to it. You can then perform any of the previously listed actions.
 + Sort by page.
 + Filter by file or folder name per folder and subfolders.

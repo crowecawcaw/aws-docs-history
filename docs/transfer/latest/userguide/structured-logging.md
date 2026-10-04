@@ -22,11 +22,11 @@ Transfer Family provides two ways to log events to CloudWatch:
 + JSON structured logging
 + Logging via a logging role
 
-For Transfer Family servers, you can choose the logging mechanism that you prefer. For connectors and workflows, only logging roles are supported.
+For Transfer Family servers and managed workflows, you can choose the logging mechanism that you prefer. For connectors, only logging roles are supported.
 
 **JSON structured logging**
 
-For logging server events, we recommend using JSON structured logging. This provides a more comprehensive logging format that enables CloudWatch log querying. For this type of logging, the IAM policy for the user that creates the server (or edits the server's logging configuration) must contain the following permissions:
+For logging server and managed workflow events, we recommend using JSON structured logging. This provides a more comprehensive logging format that enables CloudWatch log querying. For servers, this type of logging requires that the IAM policy for the user that creates the server (or edits the server's logging configuration) contains the following permissions:
 + `logs:CreateLogDelivery`
 + `logs:DeleteLogDelivery`
 + `logs:DescribeLogGroups`
@@ -65,7 +65,7 @@ For details on setting up JSON structured logging, see [Creating, updating, and 
 
 **Logging role**
 
-To log events for a managed workflow that is attached to a server, as well as for connectors, you need to specify a logging role. To set access, you create a resource-based IAM policy and an IAM role that provides that access information. The following is an example policy for an AWS account that can log server events.
+For connectors, and for managed workflows when you are not using JSON structured logging, you need to specify a logging role. To set access, you create a resource-based IAM policy and an IAM role that provides that access information. The following is an example policy for an AWS account that can log server events.
 
 ```
 {
