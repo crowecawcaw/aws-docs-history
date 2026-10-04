@@ -3,11 +3,18 @@
 # Submitting files with a job
 <a name="submitting-files-with-a-job"></a>
 
-With Deadline Cloud, you can enable job workflows to access input files that are unavailable in shared file system locations on worker hosts. Job attachments allow rendering jobs to access files residing only on a local workstation drive or a service-managed fleet environment. When submitting a job bundle, you can include lists of input files and directories required by the job. Deadline Cloud identifies these non-shared files, uploads them from the local machine to Amazon S3, and downloads them to the worker host. It streamlines the process of transferring input assets to render nodes, ensuring all required files are accessible for distributed job execution.
+A job bundle defines its job attachments in two places:
++ **`PATH` job parameters** in the job template. A parameter's `dataFlow` property marks its value as an input (`IN`), an output (`OUT`), or both (`INOUT`). Its `objectType` property says whether the value is a `FILE` or a `DIRECTORY`. For more information, see [JobPathParameterDefinition](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#22-jobpathparameterdefinition) in the [Open Job Description specification](https://github.com/OpenJobDescription/openjd-specifications) on the GitHub website.
++ **The asset references file** (`asset_references.yaml` or `asset_references.json`), which lists input files, input directories, and output directories. For more information, see [Asset references elements for job bundles](build-job-bundle-assets.md).
 
-You can specify the files for jobs directly in the job bundle, use parameters in the job template that you provide using environment variables or a script, and use the job's `assets_references` file. You can use one of these methods or a combination of all three. You can specify a storage profile for the bundle for the job so that it only uploads files that have changed on the local workstation.
+The Deadline Cloud [integrated submitter plugins](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/jobs-using-submitter.html) automatically find the files that your scene references. The plugins list these files on the submitter's **Job attachments** tab, where you can add any files or directories that the submitter didn't find. To open the same tab for a job bundle of your own, use the `deadline bundle gui-submit` command.
 
-This section uses an example job bundle from GitHub to demonstrate how Deadline Cloud identifies the files in your job to upload, how those files are organized in Amazon S3, and how they are made available to the worker hosts processing your jobs. 
+The following image shows the **Job attachments** tab. It lists the input files, input directories, and output directory that the submitter detected automatically.
+
+![The Job attachments tab of a submitter, listing automatically detected input files, input directories, and an output directory.](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/images/bundle-gui-submit-job-attachments.png)
+
+
+The following topics show how job attachments handles these files, using the [job\_attachments\_devguide job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide) on the GitHub website.
 
 **Topics**
 + [How Deadline Cloud uploads files to Amazon S3](what-job-attachments-uploads-to-amazon-s3.md)

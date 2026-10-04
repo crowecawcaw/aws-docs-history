@@ -16,7 +16,7 @@ You can store your assets in a file system shared between your workers, or you c
 **Topics**
 + [Open Job Description (OpenJD) templates for Deadline Cloud](build-job-bundle.md)
 + [Using files in your jobs](using-files-in-your-jobs.md)
-+ [Use job attachments to share files](build-job-attachments.md)
++ [Job attachments](build-job-attachments.md)
 + [Create resource limits for jobs](build-job-limits.md)
 + [How to submit a job to Deadline Cloud](submit-jobs-how.md)
 + [Share job bundles on your queue](share-job-bundles.md)

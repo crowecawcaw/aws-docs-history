@@ -3,6 +3,9 @@
 # How jobs find job attachment input files
 <a name="how-jobs-find-job-attachments-input-files"></a>
 
+**Note**  
+The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`. The examples also modify the [job\_attachments\_devguide job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide) on the GitHub website.
+
  For a job to use the files that Deadline Cloud uploads to Amazon S3 using job attachments, your job needs those files available through the file system on the worker hosts. When a session for your job runs on a worker host, Deadline Cloud downloads the input files for the job into a temporary directory on the worker host's local drive and adds path mapping rules for each of the job's root paths to its file system location on the local drive. For more information about sessions, see [How jobs are run](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions) on the GitHub website. 
 
  For this example, start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any previously submitted jobs finish running, and then delete the job logs from the logs directory: 

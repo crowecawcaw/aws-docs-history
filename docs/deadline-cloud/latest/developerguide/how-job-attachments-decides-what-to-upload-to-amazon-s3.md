@@ -3,6 +3,9 @@
 # How Deadline Cloud chooses the files to upload
 <a name="how-job-attachments-decides-what-to-upload-to-amazon-s3"></a>
 
+**Note**  
+The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`. The examples also modify the [job\_attachments\_devguide job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/job_attachments_devguide) on the GitHub website.
+
  The files and directories that job attachments considers for upload to Amazon S3 as inputs to your job are: 
 +  The values of all `PATH`-type job parameters defined in the job bundle's job template with a `dataFlow` value of `IN` or `INOUT`.
 +  The files and directories listed as inputs in the job bundle's asset references file. 
@@ -95,7 +98,7 @@ done
 aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID --query 'attachments.manifests[*]'
 ```
 
- The root path for set of input files is always the longest common subpath of those files. If your job was submitted from Windows instead and there are input files with no common subpath because they were on different drives, you see a separate root path on each drive. The paths in a manifest are always relative to the root path of the manifest, so the input files that were uploaded are: 
+ The root path for the set of input files is always the longest common subpath of those files. If your job was submitted from Windows instead and there are input files with no common subpath because they were on different drives, you see a separate root path on each drive. The paths in a manifest are always relative to the root path of the manifest, so the input files that were uploaded are: 
 +  `/home/cloudshell-user/job_attachments_devguide/script.sh` – The script file in the job bundle. 
 +  `/shared/projects/project2/file.txt` – The file in a `SHARED` file system location in the `WSAll` storage profile that is **not** in the list of required file system locations for queue `Q1`. 
 

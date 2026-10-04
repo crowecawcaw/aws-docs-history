@@ -3,6 +3,9 @@
 # Getting output files from a job
 <a name="getting-output-files-from-a-job"></a>
 
+**Note**  
+The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`.
+
 This example shows how Deadline Cloud identifies the output files that your jobs generate, decides whether to upload those files to Amazon S3, and how you can get those output files on your workstation. 
 
  Use the `job_attachments_devguide_output` job bundle instead of the `job_attachments_devguide` job bundle for this example. Start by making a copy of the bundle in your AWS CloudShell environment from your clone of the Deadline Cloud samples GitHub repository: 
@@ -26,7 +29,7 @@ parameterDefinitions:
 ...
 ```
 
- The `dataFlow` property of the parameter has the value `OUT`. Deadline Cloud uses the value of `dataFlow` job parameters with a value of `OUT` or `INOUT` as outputs of your job. If the file system location passed as a value to these kinds of job parameters is remapped to a local file system location on the worker that runs the job, then Deadline Cloud will look for new files at the location and upload those to Amazon S3 as job outputs. 
+The `OutputDir` parameter's `dataFlow` value of `OUT` marks its value as an output location. If no `SHARED` location in the job's storage profile covers `./output_dir`, the worker checks it for new files after each task and uploads them to Amazon S3 as job outputs.
 
  To see how this process works, first start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any previously submitted jobs finish running. Then delete the job logs from the logs directory: 
 
@@ -99,7 +102,7 @@ aws s3 cp --quiet s3://$Q1_S3_BUCKET/$OBJECT_KEY /dev/stdout | jq .
 }
 ```
 
- This shows that the content of the output file is saved to Amazon S3 the same way that job input files are saved. Similar to input files, the output file is stored in S3 with an object name containing the hash of the file and the prefix `DeadlineCloud/Data`. 
+ The manifest shows that the content of the output file is saved to Amazon S3 the same way that job input files are saved. Similar to input files, the output file is stored in S3 with an object name containing the hash of the file and the prefix `DeadlineCloud/Data`. 
 
 ```
 $ aws s3 ls --recursive s3://$Q1_S3_BUCKET | grep 34178940e1ef9956db8ea7f7c97ed842
@@ -112,7 +115,7 @@ $ aws s3 ls --recursive s3://$Q1_S3_BUCKET | grep 34178940e1ef9956db8ea7f7c97ed8
 deadline job download-output --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID
 ```
 
- The value of the `OutputDir` job parameter in the submitted job is `./output_dir`, so the output are downloaded to a directory called `output_dir` within the job bundle directory. If you specified an absolute path or different relative location as the value for `OutputDir`, then the output files would be downloaded to that location instead. 
+ The value of the `OutputDir` job parameter in the submitted job is `./output_dir`, so the output files are downloaded to a directory called `output_dir` within the job bundle directory. If you specified an absolute path or different relative location as the value for `OutputDir`, then the output files would be downloaded to that location instead. 
 
 ```
 $ deadline job download-output --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID

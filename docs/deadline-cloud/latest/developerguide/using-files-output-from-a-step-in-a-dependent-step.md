@@ -3,6 +3,9 @@
 # Using files from a step in a dependent step
 <a name="using-files-output-from-a-step-in-a-dependent-step"></a>
 
+**Note**  
+The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1` and the storage profile `WSAll`.
+
 This example shows how one step in a job can access the outputs from a step that it depends on in the same job. 
 
  To make the outputs of one step available to another, Deadline Cloud adds additional actions to a session to download those outputs before running tasks in the session. You tell it which steps to download the outputs from by declaring those steps as dependencies of the step that needs to use the outputs. 

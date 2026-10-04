@@ -3,6 +3,9 @@
 # How Deadline Cloud uploads files to Amazon S3
 <a name="what-job-attachments-uploads-to-amazon-s3"></a>
 
+**Note**  
+The commands on this page are written for the sample project from [Sample project infrastructure](sample-project-infrastructure.md) and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md). The sample project defines several resources that this page refers to by name, such as the queue `Q1`.
+
 This example shows how Deadline Cloud uploads files from your workstation or worker host to Amazon S3 so that they can be shared. It uses a sample job bundle from the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples) on the GitHub website and the [Deadline Cloud CLI](https://pypi.org/project/deadline/) on the PyPI website to submit jobs.
 
  Start by cloning the deadline-cloud-samples repository into your [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html) environment, then copy the `job_attachments_devguide` job bundle into your home directory: 
@@ -107,7 +110,7 @@ aws s3 ls s3://$Q1_S3_BUCKET --recursive
 }
 ```
 
-This indicates that the file `script.sh` was uploaded, and the hash of that file's contents is `87cb19095dd5d78fcaf56384ef0e6241`. This hash value matches the value in the object name `DeadlineCloud/Data/87cb19095dd5d78fcaf56384ef0e6241.xxh128`. It is used by Deadline Cloud to know which object to download for this file's contents.
+The manifest shows that the file `script.sh` was uploaded, and the hash of that file's contents is `87cb19095dd5d78fcaf56384ef0e6241`. This hash value matches the value in the object name `DeadlineCloud/Data/87cb19095dd5d78fcaf56384ef0e6241.xxh128`. Deadline Cloud uses the hash to know which object to download for this file's contents.
 
  For the full schema for the manifest file, see the [deadline-cloud-job-attachments repository](https://github.com/aws-deadline/deadline-cloud-job-attachments/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py) on the GitHub website. 
 
@@ -116,7 +119,7 @@ When you use the [CreateJob operation](https://docs.aws.amazon.com/deadline-clou
 ```
 {
     "attachments": {
-        "file system": "COPIED",
+        "fileSystem": "COPIED",
         "manifests": [
             {
                 "inputManifestHash": "5b0db3d311805ea8de7787b64cbbe8b3",

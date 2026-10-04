@@ -66,6 +66,8 @@ When your job is running on a Deadline Cloud worker, it has access to environmen
 
 **Topics**
 + [Job template elements for job bundles](build-job-bundle-template.md)
++ [Job parameter types](build-job-bundle-parameter-types.md)
++ [Expressions in job templates](build-job-bundle-expressions.md)
 + [Task chunking for job templates](build-job-bundle-chunking.md)
 + [Parameter values elements for job bundles](build-job-bundle-parameters.md)
 + [Asset references elements for job bundles](build-job-bundle-assets.md)

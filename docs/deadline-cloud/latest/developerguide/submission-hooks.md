@@ -14,7 +14,7 @@ There are two ways to configure hooks:
 Both sources can be active at the same time. When both are present, environment hooks run first, then bundle hooks.
 
 **Note**  
-In-application (DCC) submitters such as Maya, Nuke, or Blender run environment hooks for the pre-submission and post-submission phases only. The pre-GUI phase does not apply to DCC submitters. For more information, see [Pre-GUI hooks](#submission-hooks-pre-gui).
+In-application (DCC) submitters such as Maya, Nuke, or Blender run environment hooks for the pre-submission and post-submission phases only. The Unreal Engine submitter also supports pre-GUI hooks. For more information, see [Pre-GUI hooks](#submission-hooks-pre-gui).
 
 ## Hook types
 <a name="submission-hooks-types"></a>
@@ -27,7 +27,7 @@ Deadline Cloud supports three hook types that correspond to different points in 
 Pre-GUI hooks run before the submission dialog opens. You can use pre-GUI hooks for the following tasks:
 
 **Important**  
-Pre-GUI hooks run only with the standalone GUI submitter (`deadline bundle gui-submit`). They do not run in in-application (DCC) submitters such as Maya, Nuke, or Blender, because those applications build their submission dialog directly and do not invoke the pre-GUI phase. Pre-GUI hooks also do not apply to CLI submission (`deadline bundle submit`), which has no GUI phase. Pre-submission and post-submission hooks work across all submission methods.
+Pre-GUI hooks run with the standalone GUI submitter (`deadline bundle gui-submit`) and the Unreal Engine submitter. They do not run with CLI submission (`deadline bundle submit`) or other in-application submitters such as Maya, Nuke, or Blender. Pre-submission and post-submission hooks work across all submission methods.
 + Pre-populate job name, description, and priority
 + Set parameter defaults based on the current scene or pipeline context
 + Query a project management system for task metadata
@@ -77,6 +77,17 @@ The following table describes the shared job properties that you can set with th
 
 **Note**  
 CLI-supplied `--parameter` values take precedence over hook-supplied `parameters`.
+
+#### Submission hooks in Unreal Engine
+<a name="submission-hooks-unreal-engine"></a>
+
+The Unreal Engine submitter has no Qt submission dialog. Its pre-GUI hooks run when Unreal Engine builds a job's C\+\+ Details panel in either of these locations:
++ The `DeadlineCloudRenderJob` data asset editor.
++ The **Movie Render Queue**, **Deadline Cloud**, **Preset Overrides** panel.
+
+**Render (Remote)** submits every queued MRQ job. Open the Details panel for each job that a pre-GUI hook must modify before you submit the queue.
+
+A pre-GUI hook changes only the in-memory panel and does not save the `.uasset` file. The hook runs again the first time you open a saved job's panel in a new Unreal Editor session.
 
 ### Pre-submission hooks
 <a name="submission-hooks-pre-submission"></a>
@@ -370,7 +381,8 @@ The submitter blocks submission until you resolve the issue. Post-submission hoo
 Hooks work with the following submission methods:
 + `deadline bundle submit` (CLI) – Pre-submission and post-submission hooks run. The CLI has no GUI phase, so pre-GUI hooks do not apply.
 + `deadline bundle gui-submit` (standalone GUI) – All phases run, including pre-GUI hooks.
-+ In-application (DCC) submitters – Pre-submission and post-submission hooks run. DCC submitters do not invoke the pre-GUI phase.
++ In-application (DCC) submitters other than Unreal Engine – Pre-submission and post-submission hooks run. These submitters do not invoke the pre-GUI phase.
++ Unreal Engine submitter – All phases run. Pre-GUI hooks run when Unreal Engine builds a Deadline Cloud job's C\+\+ Details panel.
 
 The standalone GUI copies `hooks.yaml` to the job history bundle and resolves script paths back to your original bundle directory.
 

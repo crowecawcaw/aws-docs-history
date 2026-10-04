@@ -12,7 +12,7 @@ Your teammates browse, preview, and submit shared bundles with the job bundle br
 Before you begin, complete the following prerequisites:
 + Create a job bundle. For more information, see [Open Job Description (OpenJD) templates for Deadline Cloud](build-job-bundle.md).
 + Install the Deadline Cloud CLI and configure it with a default farm and queue. You can also pass the `--farm-id` and `--queue-id` options to each command.
-+ Configure a queue with job attachments. For more information, see [Use job attachments to share files](build-job-attachments.md).
++ Configure a queue with job attachments. For more information, see [Job attachments](build-job-attachments.md).
 
 The following topics describe how to publish, use, and manage the bundles shared on your queue.
 

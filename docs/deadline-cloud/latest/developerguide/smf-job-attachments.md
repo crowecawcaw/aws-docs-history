@@ -5,7 +5,7 @@
 
 Job attachments transfer files between your workstation and Deadline Cloud workers using Amazon Simple Storage Service (Amazon S3). You can use job attachments alone or together with shared storage to attach auxiliary data to jobs that isn't shared with other jobs, such as job scripts, configuration files, or project assets stored locally.
 
-For information about how job attachments work, see [Job attachments](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html) in the *Deadline Cloud User Guide*. For details about specifying input and output files in job bundles, see [Use job attachments to share files](build-job-attachments.md).
+For information about how job attachments work, see [Job attachments](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html) in the *Deadline Cloud User Guide*. For details about specifying input and output files in job bundles, see [Job attachments](build-job-attachments.md).
 
 ## Choose a filesystem mode
 <a name="smf-job-attachments-filesystem-modes"></a>
