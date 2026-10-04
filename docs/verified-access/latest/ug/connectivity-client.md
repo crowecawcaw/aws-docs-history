@@ -28,7 +28,7 @@ Before you begin, complete the following prerequisites:
 + Create a Verified Access instance with a trust provider.
 + Create a TCP endpoint for your application.
 + Disconnect your computer from any VPN clients to avoid routing issues.
-+ Enable IPv6 on your computer. For instructions, see the documentation for the operating system that is running on your computer.
++ Enable IPv6 on your computer. The Connectivity Client requires only that the IPv6 network stack is enabled on the local device. An IPv4-only internet connection is sufficient; working IPv6 internet connectivity is not required. For instructions on enabling IPv6, see the documentation for the operating system that is running on your computer.
 + On a Windows computer, verify that [Trusted Platform Module (TPM)](https://support.microsoft.com/en-us/topic/what-s-a-trusted-platform-module-tpm-705f241d-025d-4470-80c5-4feeb24fa1ee) is supported and install the [WebView2](https://developer.microsoft.com/en-us/microsoft-edge/webview2) runtime.
 
 ## Download the Connectivity Client
@@ -120,6 +120,7 @@ The following information can help you troubleshoot issues with the client.
 + [When signing in, the browser doesn't open to complete authentication by the IdP](#issue-signing-in)
 + [After authentication, the client status is "not connected"](#issue-not-connected)
 + [Can't connect using a Chrome or Edge browser](#issue-chrome-edge)
++ [The client won't connect on an IPv4-only network](#issue-ipv4-only-network)
 
 ### When signing in, the browser doesn't open to complete authentication by the IdP
 <a name="issue-signing-in"></a>
@@ -145,6 +146,13 @@ The following information can help you troubleshoot issues with the client.
 **Possible cause**: When connecting to a web application using a Chrome or Edge browser, the browser fails to resolve the IPv6 domain name.
 
 **Solution**: Contact [AWS Support](https://aws.amazon.com/premiumsupport/).
+
+### The client won't connect on an IPv4-only network
+<a name="issue-ipv4-only-network"></a>
+
+**Possible cause**: The IPv6 network stack is not enabled on the device. The Connectivity Client requires the IPv6 stack to be enabled locally, even when the device has an IPv4-only internet connection.
+
+**Solution**: Enable IPv6 on your computer. An IPv4-only internet connection is sufficient and working IPv6 internet connectivity is not required. For instructions on enabling IPv6, see the documentation for the operating system that is running on your computer.
 
 ## Version history
 <a name="connectivity-client-version-history"></a>
