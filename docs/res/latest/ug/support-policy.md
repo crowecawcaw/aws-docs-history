@@ -1,5 +1,7 @@
 
 
+End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
+
 # Research and Engineering Studio support policy
 <a name="support-policy"></a>
 
@@ -26,6 +28,8 @@ If you're running a version approaching its end of supported life (EOSL) date, p
 | 2025.09.x | 9/30/2026 | 
 | 2025.12.x | 12/31/2026 | 
 | 2026.03.x | 3/30/2027 | 
+| 2026.06.x | 6/30/2027 | 
+| 2026.09.x | 9/30/2027 | 
 
 **Important**  
 You are responsible for patching your infra / VDI hosts after deployment.

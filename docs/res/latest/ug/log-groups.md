@@ -1,5 +1,7 @@
 
 
+End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
+
 # Amazon CloudWatch Logs
 <a name="log-groups"></a>
 
@@ -19,7 +21,6 @@ Research and Engineering Studio creates the following log groups in CloudWatch d
 | /aws/lambda/{{<installation-stack-name>}}-backend-lambda | Never expire | 
 | /aws/lambda/{{<environment-name>}}-dcv-session-management-lambda | Never expire | 
 | /{{<installation-stack-name>}}/cluster-manager | 3 months | 
-| /{{<installation-stack-name>}}/vdc/controller | 3 months | 
 | /{{<installation-stack-name>}}/vdc/dcv-connection-gateway | 3 months | 
 
 If you would like to change the default retention for a log group, you can go to the [CloudWatch console](https://console.aws.amazon.com/cloudwatch) and follow the directions to [ Change log data retention in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#SettingLogRetention).

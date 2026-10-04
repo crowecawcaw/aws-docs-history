@@ -1,5 +1,7 @@
 
 
+End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
+
 # Issue RunBooks
 <a name="res-troubleshooting-issue-runbooks"></a>
 
@@ -137,7 +139,7 @@ If the status is inactive, failed, or you see errors in the logs, then the insta
 The issue could have one of three possible root causes.
 
 #### Root cause 1: Incorrect ldap connection details entered
-<a name="w2aac27c13b7c11c15b1"></a>
+<a name="w2aac31c13b7c11c15b1"></a>
 
 Review the logs. If you see the following repeated multiple times, the instance was unable to join the Active Directory.
 
@@ -168,7 +170,7 @@ Review the logs. If you see the following repeated multiple times, the instance 
 1. After you update the table, delete the cluster-manager and vdc-controller currently running the environment instances. Auto scaling will start new instances using the latest values from the DynamoDB table.
 
 #### Root cause 2: Incorrect ServiceAccount username entered
-<a name="w2aac27c13b7c11c15b3"></a>
+<a name="w2aac31c13b7c11c15b3"></a>
 
 If the logs return `Insufficient permissions to modify computer account`, the ServiceAccount name entered during stack creation could be incorrect.
 
@@ -181,7 +183,7 @@ If the logs return `Insufficient permissions to modify computer account`, the Se
 1. If the value was updated, delete the currently running cluster-manager and vdc-controller instances of the environment. Auto scaling will start new instances using the latest value from Secrets Manager.
 
 #### Root cause 3: Incorrect ServiceAccount password entered
-<a name="w2aac27c13b7c11c15b5"></a>
+<a name="w2aac31c13b7c11c15b5"></a>
 
 If the logs display `Invalid credentials`, the ServiceAccount password entered during stack creation might be incorrect.
 

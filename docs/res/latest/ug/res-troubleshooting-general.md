@@ -1,5 +1,7 @@
 
 
+End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
+
 # General Debugging and Monitoring
 <a name="res-troubleshooting-general"></a>
 
@@ -75,7 +77,6 @@ Those groups are named as follows:
   + `virtual-desktop-app/ - virtual desktop bootstrap and DCV related`
   + `vdc/ - virtual desktop related`
     + `dcv-connection-gateway/ - desktop related`
-    + `controller/ - main desktop controller host`
     + `dcv-session/ - desktop session related`
 
 When examining log groups, it can be helpful to filter using upper and lower case strings such as the following. This will output only those messages containing the noted strings.
@@ -130,15 +131,14 @@ The CloudFormation stacks created during environment creation contain resources,
 For each of the stacks, the Events, Resources, and Outputs tab can be referred to for information about the stacks.
 
 RES stacks:
-+ <envname>-bootstrap
++ <envname>-resbase
 + <envname>-cluster
-+ <envname>-metrics
-+ <envname>-directoryservice
-+ <envname>-identity-provider
-+ <envname>-shared-storage
-+ <envname>-cluster-manager
++ <envname>-sharedstorage
++ <envname>-identity
++ <envname>-bastionhost
++ <envname>-clustermanager
 + <envname>-vdc
-+ <envname>-bastion-host
++ <envname>-resfinalizer
 
 Demo Environment Stack (If you are deploying a demo environment and do not have these external resources available, you can use AWS High Performance Compute recipes to generate resources for a demo environment.)
 + <envname>

@@ -1,5 +1,7 @@
 
 
+End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
+
 # Secrets management
 <a name="secrets-management"></a>
 
@@ -30,11 +32,9 @@ The following secret ARN values are contained in the `{{<envname>}}-cluster-sett
 | vdc.dcv\_connection\_gateway.certificate.certificate\_secret\_arn | stack | 
 | vdc.dcv\_connection\_gateway.certificate.private\_key\_secret\_arn | stack | 
 | cluster.load\_balancers.internal\_alb.certificates.private\_key\_secret\_arn | stack | 
-| directoryservice.root\_username\_secret\_arn |  | 
 | vdc.client\_secret | stack | 
 | cluster.load\_balancers.external\_alb.certificates.certificate\_secret\_arn | stack | 
 | cluster.load\_balancers.internal\_alb.certificates.certificate\_secret\_arn | stack | 
-| directoryservice.root\_password\_secret\_arn |  | 
 | cluster.secretsmanager.kms\_key\_id |  | 
 | cluster.load\_balancers.external\_alb.certificates.private\_key\_secret\_arn | stack | 
 | cluster-manager.client\_secret |  | 

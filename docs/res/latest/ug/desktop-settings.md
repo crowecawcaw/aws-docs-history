@@ -1,5 +1,7 @@
 
 
+End of development notice: AWS is discontinuing development of Research and Engineering Studio on AWS (RES). 2026.09 is the final release, supported through September 30, 2027. RES remains open source and keeps running in your account. For more information, see [RES end of support](res-end-of-support.md).
+
 # Desktop settings
 <a name="desktop-settings"></a>
 
@@ -50,5 +52,8 @@ The default size of the root volume on virtual desktop sessions.
 
 **Allowed instance types**  
 The list of instance families and sizes that can be launched for this RES environment. Instance family and instance size combinations are both accepted. For example, if you specify 'm7a', all sizes of the m7a family will be available to launch as VDI sessions. If you specify 'm7a.24xlarge', only m7a.24xlarge will be available to launch as a VDI session. This list affects all projects in the environment.
+
+**Smart retry**  
+Enables RES to automatically select the instance type and subnet at launch time for all virtual desktops. RES tries multiple instance type and subnet combinations from the software stack's allowed instance types until one has capacity. When this setting is enabled, the instance type and subnet cannot be set on the session request. Smart retry applies only when launching new virtual desktops and does not apply when resuming existing desktops. To manually update the instance type of a virtual desktop after launch, first disable smart retry.
 
 ![Desktop settings](https://docs.aws.amazon.com/res/latest/ug/images/res-virtual-desktop-settings2.png)
