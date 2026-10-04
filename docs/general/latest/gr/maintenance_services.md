@@ -10,6 +10,7 @@ Customers can't on-board to services and features in the maintenance stage. Cust
 | Service | Announcement Date | Resources | 
 | --- | --- | --- | 
 | AWS Application Discovery Service | October 7, 2025 | [AWS Application Discovery Service availability change](https://docs.aws.amazon.com/application-discovery/latest/userguide/application-discovery-service-availability-change.html) | 
+| Amazon Chime SDK SIP Media Application | September 29, 2026 | [Amazon Chime SDK SIP Media Application availability change guide](https://docs.aws.amazon.com/chime-sdk/latest/ag/sip-applications-maintenance-mode.html) | 
 | AWS Cloud9 | July 25, 2024 | [How to migrate from AWS Cloud9 to AWS IDE Toolkits or AWS CloudShell](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/) | 
 | Amazon Cloud Directory | October 7, 2025 | [Amazon Cloud Directory availability change](https://docs.aws.amazon.com/clouddirectory/latest/developerguide/cloud-directory-availability-change.html) | 
 | Amazon CloudSearch | July 25, 2024 | [Transition from Amazon CloudSearch to Amazon OpenSearch Service](https://aws.amazon.com/blogs/big-data/transition-from-amazon-cloudsearch-to-amazon-opensearch-service/) | 
@@ -45,6 +46,7 @@ Customers can't on-board to services and features in the maintenance stage. Cust
 | Amazon Timestream for LiveAnalytics | June 20, 2025 | [What is Timestream for InfluxDB?](https://docs.aws.amazon.com/timestream/latest/developerguide/timestream-for-influxdb.html) | 
 | AWS Usage Report | October 7, 2025 | [AWS Usage Report documentation](https://docs.aws.amazon.com/cur/latest/userguide/what-is-cur.html) | 
 | Amazon WorkSpaces PCoIP Web Access | November 7, 2025 | [WorkSpaces Web Access](https://docs.aws.amazon.com/workspaces/latest/userguide/amazon-workspaces-web-access.html) | 
+| Amazon WorkSpaces Secure Browser | September 29, 2026 | [Amazon WorkSpaces Secure Browser availability change guide](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/workspaces-secure-browser-maintenance-mode.html) | 
 | Amazon Bedrock Agents Classic | June 30, 2026 | [Amazon Bedrock Agents Classic availability change](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html) | 
 | Amazon Cognito Sync | June 30, 2026 | [Amazon Cognito Sync availability change](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sync-availability-change.html) | 
 | Amazon Kendra | June 30, 2026 | [Amazon Kendra availability change](https://docs.aws.amazon.com/kendra/latest/dg/kendra-availability-change.html) | 

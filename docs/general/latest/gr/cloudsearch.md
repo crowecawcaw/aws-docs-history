@@ -25,19 +25,3 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Frankfurt) | eu-central-1 |  cloudsearch.eu-central-1.amazonaws.com  | HTTPS | 
 | Europe (Ireland) | eu-west-1 |  cloudsearch.eu-west-1.amazonaws.com  | HTTPS | 
 | South America (São Paulo) | sa-east-1 |  cloudsearch.sa-east-1.amazonaws.com  | HTTPS | 
-
-## Service quotas
-<a name="limits_cloudsearch"></a>
-
-
-| Name | Default | Adjustable | Description | 
-| --- | --- | --- | --- | 
-| Document batch size | Each supported Region: 5 Megabytes | No | The size of document batch uploads. | 
-| Document size | Each supported Region: 1 Megabytes | No | The size of individual documents. | 
-| Domains per account | Each supported Region: 100 | No | Number of search domains you can create per AWS account. | 
-| Index fields | Each supported Region: 200 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudsearch/quotas/L-157D9EF5)  | The number of index fields per domain. A dynamic field counts as one index field, but typically matches multiple document fields. Dynamic fields can cause the total number of fields in your index to exceed this limit. If you use dynamic fields, keep the number of index fields below 1,000 to avoid performance issues. | 
-| Partition count | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudsearch/quotas/L-8F8C64E6)  | The minimum number of partitions your search index is distributed across per Amazon CloudSearch domain. | 
-| Replication count | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/cloudsearch/quotas/L-30D9C10F)  | The minimum number of replicas each partition of your Amazon CloudSearch domain would contain. | 
-| Search document fields | Each supported Region: 200 | No | Number of fields per document. | 
-
-For more information, see [Understanding Amazon CloudSearch Quotas](https://docs.aws.amazon.com/cloudsearch/latest/developerguide/limits.html) in the *Amazon CloudSearch Developer Guide*. 

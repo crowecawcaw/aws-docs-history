@@ -22,6 +22,7 @@ Full shutdown represents the final stage in the lifecycle of a service or featur
 | AWS Elastic Disaster Recovery (CloudEndure DR - GovCloud) | April 24, 2025 | 
 | AWS Elemental MediaStore | November 12, 2025 | 
 | Amazon Elastic Transcoder | November 13, 2025 | 
+| Amazon FinSpace | October 7, 2026 | 
 | AWS IoT Analytics | December 15, 2025 | 
 | AWS IoT 1-Click | January 29, 2025 | 
 | Fleet Hub for AWS IoT Device Management | October 18, 2025 | 
@@ -33,6 +34,7 @@ Full shutdown represents the final stage in the lifecycle of a service or featur
 | Amazon Lookout for Vision | October 31, 2025 | 
 | Amazon Lumberyard | May 1, 2021 | 
 | AWS Mainframe Modernization Application Testing | October 7, 2025 | 
+| Amazon Mechanical Turk | September 29, 2026 | 
 | AWS Mobile Hub | October 31, 2021 | 
 | AWS NICE EnginFrame | September 25, 2025 | 
 | Amazon Nimble Studio | June 30, 2024 | 

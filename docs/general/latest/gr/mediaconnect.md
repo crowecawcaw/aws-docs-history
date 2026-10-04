@@ -48,9 +48,12 @@ The following are the service endpoints and service quotas for this service.
 | Bridges | Each supported Region: 40 | No | The maximum number of bridges that a gateway can have. | 
 | Entitlements | Each supported Region: 50 | No | The maximum number of entitlements that you can grant on a flow. | 
 | Flows | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-A99016A8)  | The maximum number of flows that you can create in each AWS Region. | 
+| MediaConnectRouterTypeMediaLiveChannelInputs | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-25EA13F4)  | The maximum number of MediaLive channel inputs of type MediaConnect router that you can create in an AWS region | 
 | Outputs | Each supported Region: 50 | No | The maximum number of outputs that a flow can have. | 
 | RouterInputs | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-77138741)  | The maximum number of router inputs that you can create in an AWS region | 
 | RouterNetworkInterfaces | Each supported Region: 10 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-6C50CD26)  | The maximum number of router network interfaces that you can create in an AWS region | 
 | RouterOutputs | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-58DF4801)  | The maximum number of router outputs that you can create in an AWS region | 
+| StandardTypeDestinationEndpoints | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-1D9B2049)  | The maximum number of standard type destination endpoints that you can create in an AWS region | 
+| StandardTypeSourceEndpoints | Each supported Region: 1,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mediaconnect/quotas/L-FC90A5C2)  | The maximum number of standard type source endpoints that you can create in an AWS region | 
 
 For more information, see [Quotas](https://docs.aws.amazon.com/mediaconnect/latest/ug/quotas.html) in the *AWS Elemental MediaConnect User Guide*.

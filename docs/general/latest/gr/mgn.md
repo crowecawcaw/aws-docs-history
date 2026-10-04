@@ -60,8 +60,8 @@ The following are the service endpoints and service quotas for this service.
 | --- | --- | --- | --- | 
 | Concurrent jobs in progress | Each supported Region: 20 | No | Concurrent jobs in progress | 
 | Concurrent jobs in progress | Each supported Region: 20 | No | Concurrent jobs in progress | 
-| Max Active Source Servers | Each supported Region: 150 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-FBAE4C1D)  | Max Active Source Servers | 
 | Max Active Source Servers | Each supported Region: 150 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-9A599620)  | Max Active Source Servers | 
+| Max Active Source Servers | Each supported Region: 150 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-FBAE4C1D)  | Max Active Source Servers | 
 | Max Kubernetes applications per cluster | Each supported Region: 100 | No | Max Kubernetes applications per cluster | 
 | Max Kubernetes clusters per account | Each supported Region: 100 | No | Max Kubernetes clusters per account | 
 | Max NSX gateway policy rules per network migration definition | Each supported Region: 2,500 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-13A5D930)  | Max NSX gateway policy rules per network migration definition | 
@@ -93,12 +93,12 @@ The following are the service endpoints and service quotas for this service.
 | Max concurrent Jobs per Source Server | Each supported Region: 1 | No | Max concurrent Jobs per Source Server | 
 | Max concurrent Jobs per Source Server | Each supported Region: 1 | No | Max concurrent Jobs per Source Server | 
 | Max conversions per Kubernetes cluster | Each supported Region: 5,000 | No | Max conversions per Kubernetes cluster | 
-| Max network migration definitions per account per Region | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-0336ACF5)  | Max network migration definitions per account per Region | 
 | Max network migration definitions per account per Region | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-D617A7E7)  | Max network migration definitions per account per Region | 
+| Max network migration definitions per account per Region | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-0336ACF5)  | Max network migration definitions per account per Region | 
 | Max source servers per application | Each supported Region: 200 | No | Max source servers per application | 
 | Max source servers per application | Each supported Region: 200 | No | Max source servers per application | 
-| Max target FSx file systems per account | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-8EABFFBF)  | Max target FSx file systems per account | 
 | Max target FSx file systems per account | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-DC1BBA2A)  | Max target FSx file systems per account | 
+| Max target FSx file systems per account | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/mgn/quotas/L-8EABFFBF)  | Max target FSx file systems per account | 
 
 The following table lists additional information.
 

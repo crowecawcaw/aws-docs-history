@@ -18,7 +18,13 @@ The following table shows the AWS Regions and endpoints for AWS MCP Server.
 | Region name | Region | Endpoint | Protocol | 
 | --- | --- | --- | --- | 
 | US East (N. Virginia) | us-east-1 | aws-mcp.us-east-1.api.aws/mcp | HTTPS | 
+| US West (Oregon) | us-west-2 | aws-mcp.us-west-2.api.aws/mcp | HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 | aws-mcp.ap-southeast-1.api.aws/mcp | HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 | aws-mcp.ap-southeast-2.api.aws/mcp | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 | aws-mcp.ap-northeast-1.api.aws/mcp | HTTPS | 
 | Europe (Frankfurt) | eu-central-1 | aws-mcp.eu-central-1.api.aws/mcp | HTTPS | 
+| Europe (Ireland) | eu-west-1 | aws-mcp.eu-west-1.api.aws/mcp | HTTPS | 
+| Europe (London) | eu-west-2 | aws-mcp.eu-west-2.api.aws/mcp | HTTPS | 
 
 ## Service quotas
 <a name="aws-mcp_quotas"></a>

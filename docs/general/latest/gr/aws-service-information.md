@@ -185,7 +185,6 @@ Choose one of the following links to go to the page for that service. To view th
 + [AWS Management Console](mgmt-console.md)
 + [Amazon MWAA](mwaa.md)
 + [AWS Marketplace](aws-marketplace.md)
-+ [Mechanical Turk](amt.md)
 + [Amazon MSK](msk.md)
 + [Amazon MSK Connect](msk-connect.md)
 + [MediaConnect](mediaconnect.md)
