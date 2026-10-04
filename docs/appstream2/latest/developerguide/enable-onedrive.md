@@ -25,14 +25,14 @@ Follow these steps to enable OneDrive for your WorkSpaces Applications users.
 
 1. In the **Enable OneDrive for Business** dialog box, in **OneDrive domain name**, type the name of at least one organizational domain that is associated with your OneDrive account. To specify another domain, choose **Add another domain**, and type the name of the domain.
 
-1. For each domain, you can specify whether users need to get admin consent before linking their OneDrive for Business account to WorkSpaces Applications. **Require OneDrive for Business admin consent** is disabled by default. When you check the box, users are prompted to get the admin consent before linking their OneDrive for Business account. 
+1. For each domain, choose whether users reuse existing Microsoft consent. **Reuse existing Microsoft consent** is selected by default. When it is selected, users are prompted for consent only if they or an administrator have not already granted it. When it is cleared, users are prompted for consent every time they link their OneDrive for Business account. Your Azure Active Directory environment, not WorkSpaces Applications, decides whether a user needs administrator approval.
 
 1. After you add OneDrive domain names, choose **Enable**.
 
 Before your users can use OneDrive with WorkSpaces Applications, you must provide them with permissions to link their OneDrive account with third-party web applications. To do so, follow the steps in the next section.
 
 **Important**  
-You must configure your Microsoft Azure Active Directory environment to allow end-user consent to applications. For more information, see [Configure how end-users consent to applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent) in the Azure Active Directory [Application management](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/) documentation.
+Unless an administrator grants consent for the whole tenant and you select **Reuse existing Microsoft consent** for the domain, you must configure your Microsoft Azure Active Directory environment to allow end-user consent to applications. For more information, see [Configure how end-users consent to applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-user-consent) in the Azure Active Directory [Application management](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/) documentation.
 
 **Provide Your Users with Permissions to Link OneDrive with WorkSpaces Applications**
 

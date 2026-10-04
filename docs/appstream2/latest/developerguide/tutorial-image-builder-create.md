@@ -20,6 +20,8 @@ After you launch an image builder and it is running, your account may incur nomi
    + Alternatively, choose **Images** in the left navigation pane, then the **Image Builder** tab, **Launch Image Builder**.
 
 1. For **Step 1: Choose Image**, choose a base image. If you are launching the image builder for the first time, you can use one of the latest base images released by AWS (selected by default). For a list of the latest versions of base images released by AWS, see [WorkSpaces Applications Base Image and Managed Image Update Release Notes](base-image-version-history.md). If you have already created images, or you want to update applications in an existing image, you can select one of your existing images. Be sure to select an image that aligns with the instance family that you need. For more information, see [WorkSpaces Applications Instance Families](instance-types.md).
+**Note**  
+To create a unified graphics image, select the unified graphics base image (the AWS base image with the name prefix `AppStream-Graphics-NV-`). You can launch the image builder on any supported graphics family. You can also launch the image builder from one of your existing generation-specific graphics images; when you create the image, WorkSpaces Applications converts it to a unified graphics image as long as a graphics driver is detected. In either case, the resulting unified graphics image supports graphics instance families based on the installed graphics driver version. For supported driver versions, see [Install NVIDIA GRID drivers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvidia-GRID-driver.html). For more information, see [Unified graphics images](unified-graphics-images.md).
 
    Choose **Next**.
 

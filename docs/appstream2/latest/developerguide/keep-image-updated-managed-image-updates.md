@@ -9,6 +9,10 @@ WorkSpaces Applications provides an automated way to update your image with the 
 Managed WorkSpaces Applications Image Updates is available for Microsoft Windows Server, Red Hat Enterprise Linux, and Rocky Linux operating systems.
 
 **Note**  
+When you update a generation-specific graphics image (for example, a Graphics G6 image), managed WorkSpaces Applications image updates produce a unified graphics image. WorkSpaces Applications selects an appropriate instance type to launch a temporary image builder, re-tags the image with expanded instance-family compatibility, and validates driver compatibility, which might require a driver update. After the update completes, the image shows compatibility with all supported graphics families. For more information, see [Unified graphics images](unified-graphics-images.md).  
+When available, the graphics driver version appears in the image details.
+
+**Note**  
 After your new image is created, you're responsible for maintaining updates for the operating system. To do so, you can continue using managed WorkSpaces Applications image updates.  
 You are responsible for maintaining updates for the Amazon EC2 Windows Paravirtual (PV) driver, ENA driver, and AWS NVMe driver. For more information about how to update the drivers, see [Manage device drivers for your EC2 instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-device-drivers.html).  
 You're also responsible for maintaining your applications and their dependencies. To add other applications, update existing applications, or change image settings, you must start and reconnect to the image builder that you used to create the image. Or, if you deleted that image builder, launch a new image builder that is based on your image. Then, make your changes and create a new image.

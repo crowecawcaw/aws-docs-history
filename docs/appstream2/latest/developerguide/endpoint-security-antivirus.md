@@ -39,7 +39,7 @@ Endpoint security vendors provide instructions for use with virtual desktop envi
 
 |  **Service**  |  **Processes**  | 
 | --- | --- | 
-|  AmazonCloudWatchAgent  |  "C:\\Program Files\\Amazon\\AmazonCloudWatchAgent\\start-amazon- cloudwatch-agent.exe"  | 
+|  AmazonCloudWatchAgent  |  "C:\\Program Files\\Amazon\\AmazonCloudWatchAgent\\amazon-cloudwatch-agent.exe"  | 
 |  AmazonSSMAgent  |  "C:\\Program Files\\Amazon\\SSM\\amazon-ssm-agent.exe"  | 
 |  Amazon DCV  | "C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvserver.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvagent.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvdrivehelper.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvprinterhelper.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvwebauthnnativemsghost.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvwebrtcnativemsghost.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\dcvlogonhelper.exe"<br />"C:\\Program Files\\NICE\\DCV\\Server\\bin\\xpstopdf.exe" | 
 |  WorkSpaces Applications  |  "C:\\Program Files\\Amazon\\AppStream2\\StorageConnector\\StorageConnector.exe" <br /> In the folder "C:\\Program Files\\Amazon\\Photon\\" <br /> ".\\Agent\\PhotonAgent.exe"<br /> ".\\Agent\\s5cmd.exe"<br /> ".\\WebServer\\PhotonAgentWebServer.exe"<br /> ".\\CustomShell\\PhotonWindowsAppSwitcher.exe"<br /> ".\\CustomShell\\PhotonWindowsCustomShell.exe"<br /> ".\\CustomShell\\PhotonWindowsCustomShellBackground.exe"  | 

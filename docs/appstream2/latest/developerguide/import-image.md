@@ -68,6 +68,9 @@ Library Support
 
 If you want to use image with graphics instances such as Accelerated.g4dn, Accelerated.g5, Accelerated.g6, Accelerated.g6e, or Accelerated.g7 you must install proper GRID driver on your AMI. For more details please refer to [Install NVIDIA GRID drivers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvidia-GRID-driver.html). If the drivers are not setup correctly the streaming will work, however, graphics card may not be available.
 
+**Note**  
+Unified graphics images are not supported for imported images. An imported graphics image is compatible with the specific Accelerated instance family that you configure it for. For more information about unified graphics images, see [Unified graphics images](unified-graphics-images.md).
+
 **Important**  
 "Owner Account Id" of the AMI must be your AWS account id. You cannot import a public EC2 AMI.  
 Perform any Windows updates and disable automatic Windows updates before importing the image.  

@@ -9,51 +9,55 @@ Make sure that the access control lists (ACLs) for your Amazon S3 buckets are di
 
 This section presents examples of typical use cases for bucket policies. These sample policies use {{bucket}} as the resource value. To test these policies, replace the {{user input placeholders}} with your own information (such as your bucket name). 
 
-------
-#### [ JSON ]
-
-****  
+**Note**  
+WorkSpaces Applications doesn't support confused deputy prevention for application icons, so the statement that grants access to the application icon object can't include a condition. For more information, see [Example: WorkSpaces Applications Application Amazon S3 bucket policy cross-service confused deputy prevention](example-s3-bucket.md).
 
 ```
-{ 
-  "Version":"2012-10-17",		 	 	 
-  "Statement": [     
-      { 
-       "Sid": "AllowAppStream2.0ToRetrieveObjects", 
-       "Effect": "Allow", 
-       "Principal": { 
-          "Service": ["appstream.amazonaws.com"]         
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+       "Sid": "AllowAppStream20ToRetrieveObjects",
+       "Effect": "Allow",
+       "Principal": {
+          "Service": ["appstream.amazonaws.com"]
         },
         "Action": ["s3:GetObject"],
-        "Resource": [           
+        "Resource": [
            "arn:aws:s3:::{{bucket}}/{{VHD object}}",
            "arn:aws:s3:::{{bucket}}/{{Setup script object}}",
-           "arn:aws:s3:::{{bucket}}/{{Application icon object}}",
            "arn:aws:s3:::{{bucket}}/{{Session scripts zip file object}}"
-         ]         
-      }      
+         ],
+        "Condition": {
+          "StringEquals": {
+            "aws:SourceAccount": "{{111122223333}}"
+          }
+        }
+      },
+      {
+       "Sid": "AllowRetrievalPermissionsToS3AppIconsForAppStream",
+       "Effect": "Allow",
+       "Principal": {
+          "Service": ["appstream.amazonaws.com"]
+        },
+        "Action": ["s3:GetObject"],
+        "Resource": "arn:aws:s3:::{{bucket}}/{{Application icon object}}"
+      }
   ]
 }
 ```
-
-------
 
 **Note**  
 The bucket policy example defines specific objects in the S3 bucket that WorkSpaces Applications can access. You can also use prefixes and wildcards to simplify policy management as you increase your app blocks. For more information about bucket policies, see [Using bucket policies](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html). For more information about common bucket examples, see [Bucket policy examples](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html).
 
 If you are using an WorkSpaces Applications app block, then WorkSpaces Applications requires additional permissions to upload the application package to your appropriate Amazon S3 bucket. For more information about WorkSpaces Applications app blocks, see [WorkSpaces Applications App Blocks](appstream-app-blocks.md).
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-  "Version":"2012-10-17",		 	 	 
+  "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "AllowAppStream2.0ToPutAndRetrieveObjects",
+      "Sid": "AllowAppStream20ToPutAndRetrieveObjects",
       "Effect": "Allow",
       "Principal": {
         "Service": [
@@ -62,7 +66,7 @@ If you are using an WorkSpaces Applications app block, then WorkSpaces Applicati
       },
       "Action": [
         "s3:GetObject",
-        "s3:ListBucket", 
+        "s3:ListBucket",
         "s3:PutObject",
         "s3:GetBucketOwnershipControls"
       ],
@@ -70,12 +74,27 @@ If you are using an WorkSpaces Applications app block, then WorkSpaces Applicati
         "arn:aws:s3:::{{bucket}}",
         "arn:aws:s3:::{{bucket}}/{{AppStream2}}/*",
         "arn:aws:s3:::{{bucket}}/{{Setup script object}}",
-        "arn:aws:s3:::{{bucket}}/{{Application icon object}}",
         "arn:aws:s3:::{{bucket}}/{{Session scripts zip file object}}"
-      ]
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "{{111122223333}}"
+        }
+      }
+    },
+    {
+      "Sid": "AllowRetrievalPermissionsToS3AppIconsForAppStream",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "appstream.amazonaws.com"
+        ]
+      },
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::{{bucket}}/{{Application icon object}}"
     }
   ]
 }
 ```
-
-------

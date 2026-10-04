@@ -12,9 +12,7 @@ When you create a fleet or image builder, you must select an image that is compa
 The following table summarizes the available instance families and provides the base image naming format for each. Select an instance type from an instance family based on the requirements of the applications that you plan to stream on your fleet, and match the base image according to the following table.
 
 **Note**  
-If your use case involves real-time audio-video (AV) or other scenarios that require high frame rates and your display performance isn't as expected, consider scaling up to a larger instance size.  
-Graphics Pro are no longer available after 10/31/2025 due to End of Life of hardware supporting Graphics Pro instance types.   
-Graphics Design instances will no longer be available from AWS after 12/31/2025 due to End of Life of hardware supporting Graphics Design instance types. 
+If your use case involves real-time audio-video (AV) or other scenarios that require high frame rates and your display performance isn't as expected, consider scaling up to a larger instance size.
 
 
 | Instance Family | Description | Base Image Name | 
@@ -35,7 +33,10 @@ Graphics Design instances will no longer be available from AWS after 12/31/2025 
 | Graphics G6e | Powered by NVIDIA L40S Tensor Core GPUs and third generation AMD EPYC processors. | [Import Image](import-image.md) for Accelerated.g6e.\* instance types | 
 | Graphics G7 | Powered by NVIDIA RTX PRO 4500 Blackwell Server Edition GPUs to support graphics-intensive and AI inference applications. | For stream.graphics.g7.\* instance types:<br />AppStream-Graphics-G7-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}<br />AppStream-Graphics-G7-RockyLinux8-{{MM-DD-YYYY}}<br />AppStream-Graphics-G7-RHEL8-{{MM-DD-YYYY}} | 
 |  |  | [Import Image](import-image.md) for Accelerated.g7.\* instance types | 
+| Graphics NV (unified) | A single graphics base image compatible with all supported graphics families: Graphics G4dn, G5, G6, Gr6, G6f, Gr6f, and G7. Use this image to create a fleet on any family, or to change a fleet's instance type across families. See [Unified graphics images](unified-graphics-images.md). | For stream.graphics.g4dn/g5/g6/gr6/g6f/gr6f/g7.\* instance types:<br />AppStream-Graphics-NV-{{WinServerOperatingSystemVersion}}-{{MM-DD-YYYY}}<br />AppStream-Graphics-NV-RockyLinux8-{{MM-DD-YYYY}}<br />AppStream-Graphics-NV-RHEL8-{{MM-DD-YYYY}} | 
 |  |  |  | 
+
+The graphics instance families that are available for a graphics image depend on the installed graphics driver version. If the installed driver version doesn't support an instance type, that instance type isn't available for selection. For supported driver versions, see [Install NVIDIA GRID drivers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nvidia-GRID-driver.html).
 
 WorkSpaces Applications instances have one 200 GB fixed-size volume, which is used for the C drive. Because WorkSpaces Applications is non-persistent, each instance's volume is immediately deleted after each user session.
 

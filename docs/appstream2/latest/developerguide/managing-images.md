@@ -10,6 +10,7 @@ Images that are available to you are listed in the **Image Registry** in the Wor
 **Topics**
 + [Default Application and Windows Settings and Application Launch Performance in Amazon WorkSpaces Applications](customizing-appstream-images.md)
 + [Manage WorkSpaces Applications Agent Versions](base-images-agent.md)
++ [Unified graphics images](unified-graphics-images.md)
 + [WorkSpaces Applications Agent Release Notes](agent-software-versions.md)
 + [Tutorial: Create a Custom WorkSpaces Applications Image by Using the WorkSpaces Applications Console](tutorial-image-builder.md)
 + [Administer Your Amazon WorkSpaces Applications Images](administer-images.md)

@@ -3,12 +3,11 @@
 # Example: WorkSpaces Applications Elastic fleets session script Amazon S3 bucket policy cross-service confused deputy prevention
 <a name="example-elastic-fleets"></a>
 
-**Example `aws:SourceAccount` Conditional:**    
-****  
+**Example `aws:SourceAccount` Conditional:**  
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -21,8 +20,8 @@
             "Resource": "arn:aws:s3:::{{your-bucket-name}}/{{your-session-script-path}}",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "{{your AWS account ID}}"
-                } 
+                    "aws:SourceAccount": "{{111122223333}}"
+                }
             }
         }
     ]

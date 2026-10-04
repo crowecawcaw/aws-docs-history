@@ -27,6 +27,8 @@ The fleet type determines its immediate availability and how you pay for it. For
    + For **Display Name**, enter a name to display for the fleet (maximum of 100 characters). Special characters aren't allowed.
    + For **Description**, enter a description for the fleet (maximum of 256 characters).
    + For **Choose instance type**, choose the instance type that meets the performance requirements of your applications. All streaming instances in your fleet launch with the instance type that you select. For more information, see [WorkSpaces Applications Instance Families](instance-types.md).
+**Note**  
+If the image that you selected is a unified graphics image, the console lists the graphics instance families that the image supports (the families allowed by the image's graphics driver version). You can select any of these instance types, and the fleet launches on that graphics family. For more information, see [Unified graphics images](unified-graphics-images.md).
      + You can use stream.\* instance types for images with `type = "native"` and `type = "BYOL"`. To use any of the following instance types, you must use the [Import Image](import-image.md) option to import an EC2 AMI and create an image with `type = "custom"`.
        + GeneralPurpose.\*
        + MemoryOptimized.\*

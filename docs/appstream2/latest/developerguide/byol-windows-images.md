@@ -137,6 +137,9 @@ The following instance types are available for BYOL Amazon WorkSpaces Applicatio
 + **Memory-optimized:** stream.memory.large, stream.memory.xlarge, stream.memory.2xlarge, stream.memory.4xlarge, stream.memory.8xlarge
 + **Graphics (requires separate approval):** stream.graphics.g6 and stream.graphics.g7 families
 
+**Note**  
+BYOL is not supported with unified graphics images. BYOL graphics deployments continue to use per-family graphics images (for example, the stream.graphics.g6 and stream.graphics.g7 families), each of which requires separate approval. For more information about unified graphics images, see [Unified graphics images](unified-graphics-images.md).
+
 ## Region availability
 <a name="byol-region-availability"></a>
 

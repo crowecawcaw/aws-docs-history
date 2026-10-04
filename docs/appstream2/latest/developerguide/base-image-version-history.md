@@ -7,12 +7,12 @@ Amazon WorkSpaces Applications provides base images to help you create images th
 
 **Important**  
 Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS Support.
-+ Windows Server 2025 Base — Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
-+ Windows Server 2022 Base — Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
++ Windows Server 2025 Base — Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, Graphics G7, and Graphics NV
++ Windows Server 2022 Base — Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, Graphics G7, and Graphics NV
 + Windows Server 2019 Base — Available on the following image types: Base, Graphics G4dn and Graphics G5
 + Windows Server 2016 Base — Available on the following image types: Base, Graphics G4dn and Graphics G5
-+ Red Hat Enterprise Linux 8 – Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
-+ Rocky Linux 8 – Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, and Graphics G7
++ Red Hat Enterprise Linux 8 – Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, Graphics G7, and Graphics NV
++ Rocky Linux 8 – Available on the following image types: Base, Graphics G4dn, Graphics G5, Graphics G6, Graphics G7, and Graphics NV
 
 After you create your own image that includes your own applications, you are responsible for installing and maintaining the updates for the operating system, your applications, and their dependencies. WorkSpaces Applications provides an automated way to update your image using managed WorkSpaces Applications image updates. With managed image updates, you select the image that you want to update. WorkSpaces Applications creates an image builder in the same AWS account and Region to install the updates and create the new image. After the new image is created, you can test it on a pre-production fleet before updating your production fleets or sharing the image with other AWS accounts. For more information, see "Keep Your WorkSpaces Applications Image Up-to-Date" in [Administer Your Amazon WorkSpaces Applications Images](administer-images.md).
 
@@ -28,6 +28,7 @@ The following table lists the latest released images.
 | Graphics G5 |  +  AppStream-Graphics-G5-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G5-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G5-WinServer2019-08-31-2026 <br />+  AppStream-Graphics-G5-WinServer2016-11-10-2025 <br />+  AppStream-Graphics-G5-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G5-RockyLinux8-08-31-2026   | 
 | Graphics G6  |  +  AppStream-Graphics-G6-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G6-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G6-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G6-RockyLinux8-08-31-2026   | 
 | Graphics G7  |  +  AppStream-Graphics-G7-WinServer2025-08-31-2026 <br />+  AppStream-Graphics-G7-WinServer2022-08-31-2026 <br />+  AppStream-Graphics-G7-RHEL8-08-31-2026 <br />+  AppStream-Graphics-G7-RockyLinux8-08-31-2026   | 
+| Graphics NV (unified) |  +  AppStream-Graphics-NV-WinServer2025-09-22-2026 <br />+  AppStream-Graphics-NV-WinServer2022-09-22-2026 <br />+  AppStream-Graphics-NV-RHEL8-09-22-2026 <br />+  AppStream-Graphics-NV-RockyLinux8-09-22-2026   | 
 | Sample apps | Amazon-AppStream2-Sample-Image-06-17-2024<br />For information about how to access this base image, see [Get Started with Amazon WorkSpaces Applications: Set Up With Sample Applications](getting-started.md). | 
 
 The following table lists the software components for the latest released base images and the components that are available if you update your image using managed image updates. If the version is marked “latest”, the current stable software component available from the vendor will be installed. If the version is marked “not included”, managed image updates is not managing the component and the version will not be changed when you update your image.

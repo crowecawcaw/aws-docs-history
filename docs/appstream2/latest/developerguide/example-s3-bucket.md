@@ -11,18 +11,13 @@ The resource policies below show how to prevent the confused deputy problem with
 + The `aws:SourceAccount` with your AWS account ID
 + The global condition context key `aws:SourceArn`
 
-WorkSpaces Applications currently doesn't support confused deputy prevention for application icons. The service only supports VHD files and setup scripts. If you try to add additional conditions for application icons, the icons won't be displayed to end users.
+WorkSpaces Applications currently doesn't support confused deputy prevention for application icons. WorkSpaces Applications only supports VHD files and setup scripts. If you try to add additional conditions for application icons, the icons won't be displayed to end users.
 
-In the following example, the bucket policy only allows WorkSpaces Applications Elastic fleet resources in the owner's account to access `ELASTIC_FLEET_EXAMPLE_BUCKET`.
-
-------
-#### [ JSON ]
-
-****  
+In the following example, the bucket policy only allows WorkSpaces Applications Elastic fleet resources in the owner's account to access `ELASTIC-FLEET-EXAMPLE-BUCKET`.
 
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "ConfusedDeputyPreventionExamplePolicy",
@@ -37,7 +32,7 @@ In the following example, the bucket policy only allows WorkSpaces Applications 
             ],
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "{{your AWS account ID}}"
+                    "aws:SourceAccount": "{{111122223333}}"
                 }
             }
         },
@@ -53,8 +48,6 @@ In the following example, the bucket policy only allows WorkSpaces Applications 
     ]
 }
 ```
-
-------
 
 You can also use the `aws:SourceArn` condition to limit resource access for specific resources. 
 
@@ -107,14 +100,9 @@ You can use the `aws:SourceArn` and `aws:SourceAccount` conditions to limit the 
 **Note**  
 If you don’t know the full ARN of a resources, or if you want to specify multiple resources, use the `aws:SourceArn` global context condition key with wildcards (\*) for the unknown portions of the ARN.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "ConfusedDeputyPreventionExamplePolicy",
@@ -129,10 +117,10 @@ If you don’t know the full ARN of a resources, or if you want to specify multi
             ],
             "Condition": {
                 "ArnLike": {
-                "aws:SourceArn": "arn:aws:appstream:{{us-east-1}}:{{111122223333}}:app-block/*"
+                    "aws:SourceArn": "arn:aws:appstream:{{us-east-1}}:{{111122223333}}:app-block/*"
                 },
                 "StringEquals": {
-                    "aws:SourceAccount": "{{your AWS account ID}}"
+                    "aws:SourceAccount": "{{111122223333}}"
                 }
             }
         },
@@ -148,5 +136,3 @@ If you don’t know the full ARN of a resources, or if you want to specify multi
     ]
 }
 ```
-
-------
