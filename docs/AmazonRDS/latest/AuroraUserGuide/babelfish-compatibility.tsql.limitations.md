@@ -44,9 +44,6 @@ Babelfish is available with Aurora PostgreSQL-Compatible Edition. For more infor
 | Procedure or function parameter limit | Babelfish supports a maximum of 100 parameters for a procedure or function. | 
 | ROWGUIDCOL | This clause is currently ignored. Queries referencing `$GUIDGOL` cause a syntax error. | 
 | SEQUENCE object support | SEQUENCE objects are supported for the data types tinyint, smallint, int, bigint, numeric, and decimal.<br />Aurora PostgreSQL supports precision to 19 places for data types numeric and decimal in a SEQUENCE. | 
-| Server-level roles | The `sysadmin` server-level role is supported. Other server-level roles (other than `sysadmin`) aren't supported. | 
-| Database-level roles other than `db_owner` | The `db_owner` database-level roles and user-defined database-level roles are supported. Other database-level roles (other than db\_owner) aren't supported. | 
-| SQL keyword SPARSE | The keyword SPARSE is accepted and ignored. | 
 | SQL keyword clause `ON filegroup` | This clause is currently ignored. | 
 | SQL keywords `CLUSTERED` and `NONCLUSTERED` for indexes and constraints | Babelfish accepts and ignores the `CLUSTERED` and `NONCLUSTERED` keywords. | 
 | `sysdatabases.cmptlevel` | `sysdatabases.cmptlevel` is always set to 120. | 

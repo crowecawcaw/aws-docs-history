@@ -68,6 +68,21 @@ The following tables show the compute, memory, storage, and bandwidth specificat
 | db.r8gd.xlarge | 4 | — | 32 | 1 x 237 NVMe SSD | Up to 10,000 | Up to 12.5 | 
 | db.r8gd.large | 2 | — | 16 | 1 x 118 NVMe SSD | Up to 10,000 | Up to 12.5 | 
 
+**db.r8a – memory-optimized instance classes powered by 5th Generation AMD EPYC processors**
+
+
+| Instance class | vCPU | ECU | Memory (GiB) | Instance storage (GiB) | Max. EBS bandwidth (Mbps) | Network bandwidth (Gbps) | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| db.r8a.48xlarge | 192 | — | 1536 | EBS-optimized only | 60,000 | 75 | 
+| db.r8a.24xlarge | 96 | — | 768 | EBS-optimized only | 30,000 | 40 | 
+| db.r8a.16xlarge | 64 | — | 512 | EBS-optimized only | 20,000 | 30 | 
+| db.r8a.12xlarge | 48 | — | 384 | EBS-optimized only | 15,000 | 22.5 | 
+| db.r8a.8xlarge | 32 | — | 256 | EBS-optimized only | 10,000 | 15 | 
+| db.r8a.4xlarge | 16 | — | 128 | EBS-optimized only | Up to 10,000 | Up to 15 | 
+| db.r8a.2xlarge | 8 | — | 64 | EBS-optimized only | Up to 10,000 | Up to 15 | 
+| db.r8a.xlarge | 4 | — | 32 | EBS-optimized only | Up to 10,000 | Up to 12.5 | 
+| db.r8a.large | 2 | — | 16 | EBS-optimized only | Up to 10,000 | Up to 12.5 | 
+
 **db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**
 
 

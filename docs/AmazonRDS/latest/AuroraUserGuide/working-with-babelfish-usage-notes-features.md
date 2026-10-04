@@ -20,3 +20,4 @@ For information about the PostgreSQL and AWS extensions that Babelfish supports,
 + [Using Full Text Search in Babelfish](babelfish-postgres-fulltextsearch.md)
 + [Babelfish supports Geospatial data types](babelfish-geospatial.md)
 + [Understanding partitioning in Babelfish](babelfish-partition.md)
++ [Babelfish temporary tables on read replicas](babelfish-temp-tables-read-replicas.md)

@@ -7,11 +7,12 @@
 +  Babelfish doesn't support the following Aurora features: 
   + AWS Identity and Access Management
   + Database Activity Streams (DAS)
-  + RDS Data API with Aurora PostgreSQL Aurora serverless and provisioned
-  + RDS Proxy with RDS for SQL Server
+  + RDS Data API with Aurora PostgreSQL
+  + RDS Proxy
   + Salted challenge response authentication mechanism (SCRAM)
   + Query editor
   + Zero-ETL integrations
+  + [Querying Iceberg and Parquet data](query-iceberg-and-parquet-data.md)
 +  Babelfish doesn't provide the following client driver API support: 
   +  API requests with the connection attributes related to Microsoft Distributed Transaction Coordinator (MSDTC) aren't supported. These include XA calls by the SQLServerXAResource class in the SQL server JDBC driver. 
 + Babelfish currently doesn't support the following Aurora PostgreSQL extensions:

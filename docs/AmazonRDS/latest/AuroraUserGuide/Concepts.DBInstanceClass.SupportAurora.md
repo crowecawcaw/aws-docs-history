@@ -69,6 +69,27 @@ The following tables show the supported DB instance classes for the Amazon Auror
 </table>
 
 
+**db.r8a – memory-optimized instance classes powered by 5th Generation AMD EPYC processors**  
+
+
+<table>
+<thead>
+  <tr><th>Instance class</th><th>Aurora MySQL</th><th>Aurora PostgreSQL</th></tr>
+</thead>
+<tbody>
+  <tr><td>db.r8a.48xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.24xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.16xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.12xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.8xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.4xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.2xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.xlarge</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+  <tr><td>db.r8a.large</td><td>3.08.0 and higher, 3.09.0 and higher, 3.10.0 and higher, 3.11.1, 3.12.0, 8.4.7 and higher</td><td>14.17 and higher, 15.10 and higher, 16.8 and higher, 17.4 and higher, 18.3</td></tr>
+</tbody>
+</table>
+
+
 **db.r8g – memory-optimized instance classes powered by AWS Graviton4 processors**  
 
 

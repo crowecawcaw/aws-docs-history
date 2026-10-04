@@ -15,13 +15,12 @@ You can enable log exports to CloudWatch Logs from the console, AWS CLI, and RDS
 To export your IAM DB authentication error logs to CloudWatch Logs when creating a DB cluster from the AWS CLI, use the following command:
 
 ```
-aws rds create-db-cluster --db-cluster-identifier {{mydbinstance}} \
+aws rds create-db-cluster --db-cluster-identifier {{mydbcluster}} \
 --region {{us-east-1}} \
---engine {{postgres}} \
+--engine {{aurora-postgresql}} \
 --engine-version {{16}} \
 --master-username {{master}} \
 --master-user-password {{password}} \
---publicly-accessible \
 --enable-iam-database-authentication \
 --enable-cloudwatch-logs-exports=iam-db-auth-error
 ```

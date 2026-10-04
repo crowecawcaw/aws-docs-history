@@ -32,32 +32,27 @@ In the table you can find information about certain functionality that isn't cur
 | Cursor (fetch behaviors) | The following cursor fetch behaviors aren't supported: FETCH PRIOR, FIRST, LAST, ABSOLUTE, abd RELATIVE | 
 | Cursor-typed output parameters | Cursor-typed variables and parameters aren't supported for output parameters (an error is raised).  | 
 | Cursor options | SCROLL, KEYSET, DYNAMIC, FAST\_FORWARD, SCROLL\_LOCKS, OPTIMISTIC, TYPE\_WARNING, and FOR UPDATE | 
-| Data encryption | Data encryption isn't supported. | 
 | Data-tier applications (DAC) | Data-tier applications (DAC) import or export operations with DAC package (.dacpac) or DAC backup (.bacpac) files aren't supported. | 
 | DBCC commands  | Microsoft SQL Server Database Console Commands (DBCC) aren't supported. DBCC CHECKIDENT is supported in Babelfish 3.4.0 and higher releases. | 
 | DROP IF EXISTS | This syntax isn't supported for USER and SCHEMA objects. It's supported for the objects TABLE, VIEW, PROCEDURE, FUNCTION, and DATABASE. | 
-| Encryption | Built-in functions and statements don't support encryption. | 
 | ENCRYPT\_CLIENT\_CERT connections | Client certificate connections aren't supported. | 
 | EXECUTE AS statement | This statement isn't supported. | 
 | EXECUTE AS SELF clause | This clause isn't supported in functions, procedures, or triggers. | 
 | EXECUTE AS USER clause | This clause isn't supported in functions, procedures, or triggers. | 
 | Foreign key constraints referencing database name | Foreign key constraints that reference the database name aren't supported. | 
 | FORMAT | User-defined types aren't supported. | 
-| Function declarations with greater than 100 parameters | Function declarations that contain more than 100 parameters aren't supported. | 
 | Function calls that include DEFAULT as a parameter value | DEFAULT isn't a supported parameter value for a function call. DEFAULT as a parameter value for a function call is supported from Babelfish 3.4.0 and higher releases. | 
 | Functions, externally defined | External functions, including SQL CLR functions, aren't supported. | 
 | Global temporary tables (tables with names that start with \#\#) | Global temporary tables aren't supported. | 
 | Graph functionality | All SQL graph functionality isn't supported. | 
 | General Extended stored procedures | System stored procedures that provide an interface from an instance of SQL Server to external programs, for various maintenance activities aren't supported. This includes `xp_cmdshell` and other system stored procedures. For more information, see [ General Extended stored procedures](https://learn.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql?view=sql-server-ver16). | 
-| Identifiers (variables or parameters) with multiple leading @ characters | Identifiers that start with more than one leading `@` aren't supported. | 
 | Identifiers, table or column names that contain @ or ]] characters | Table or column names that contain an `@` sign or square brackets aren't supported. | 
 | Inline indexes | Inline indexes aren't supported. | 
 | Invoking a procedure whose name is in a variable | Using a variable as a procedure name isn't supported. | 
 | Materialized views | Materialized views aren't supported. | 
 | NOT FOR REPLICATION clause | This syntax is accepted and ignored.  | 
 | ODBC escape functions | ODBC escape functions aren't supported. | 
-| Procedure calls that includes DEFAULT as a parameter value | DEFAULT isn't a supported parameter value. DEFAULT as a parameter value for a function call is supported from Babelfish 3.4.0 and higher releases. | 
-| Procedure declarations with more than 100 parameters | Declarations with more than 100 parameters aren't supported. | 
+| Procedure and function declarations with more than 100 parameters | Declarations with more than 100 parameters aren't supported. | 
 | Procedures, externally defined | Externally defined procedures, including SQL CLR procedures, aren't supported. | 
 | Procedure versioning | Procedure versioning isn't supported. | 
 | Procedures WITH RECOMPILE | WITH RECOMPILE (when used in conjunction with the DECLARE and EXECUTE statements) isn't supported. | 
@@ -235,7 +230,6 @@ The following syntax isn't supported:
 + CREATE, ALTER, DROP SECURITY POLICY
 + CREATE, ALTER, DROP SELECTIVE XML INDEX clause
 + CREATE, ALTER, DROP SERVICE
-+ CREATE, ALTER, DROP SPATIAL INDEX
 + CREATE, ALTER, DROP TYPE
 + CREATE, ALTER, DROP XML INDEX
 + CREATE, ALTER, DROP XML SCHEMA COLLECTION
@@ -259,7 +253,6 @@ The following syntax isn't supported:
 + REVERT
 + SELECT TOP... WITH TIES
 + SELECT... FOR BROWSE
-+ SELECT... FOR XML AUTO
 + SELECT... FOR XML EXPLICIT
 + SEND
 + SET DATEFORMAT

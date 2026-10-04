@@ -23,15 +23,16 @@ This section demonstrates a complete implementation of `pg_columnmask` using a s
        (2, 'Jane Smith', 'jane.smith@example.com', '987-65-4321', 60000.00);
    ```
 
-1. Create custom masking functions:
+1. Create custom masking functions. The `mask_ssn` function uses `BEGIN ATOMIC` syntax for early binding semantics (see [Secure masking function development](AuroraPostgreSQL.Security.DynamicMasking.BestPractices.md#AuroraPostgreSQL.Security.DynamicMasking.BestPractices.MaskingDevelopment)). PL/pgSQL functions are also supported, as shown with `mask_salary`:
 
    ```
    CREATE OR REPLACE FUNCTION public.mask_ssn(ssn TEXT)
-       RETURNS TEXT AS $$
-       BEGIN
-           RETURN 'XXX-XX-' || RIGHT(ssn, 4);
+       RETURNS TEXT
+       LANGUAGE SQL
+       IMMUTABLE PARALLEL SAFE STRICT
+       BEGIN ATOMIC
+           SELECT 'XXX-XX-' || right(ssn, 4);
        END;
-       $$ LANGUAGE plpgsql;
    
    CREATE OR REPLACE FUNCTION public.mask_salary(salary NUMERIC, multiplier NUMERIC DEFAULT 0.0)
        RETURNS NUMERIC AS $$

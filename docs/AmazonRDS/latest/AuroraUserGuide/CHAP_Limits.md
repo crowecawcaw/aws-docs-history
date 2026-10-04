@@ -102,7 +102,7 @@ Aurora cluster volume maximum size varies by engine version:
 + Aurora MySQL version 3.10 (compatible with MySQL 8.0.42) and higher  
 **128 TiB maximum:**  
 + All earlier Aurora PostgreSQL versions
-+ All available Aurora MySQL 3 versions; Aurora MySQL version 2, versions 2.09 and higher
++ Aurora MySQL 3 versions lower than 3.10; Aurora MySQL version 2, versions 2.09 and higher
 For more information on automatic storage scaling, see [How Aurora storage automatically resizes](Aurora.Overview.StorageReliability.md#aurora-storage-growth).  
 To monitor the remaining storage space, you can use the `AuroraVolumeBytesLeftTotal` metric. For more information, see [Cluster-level metrics for Amazon Aurora](Aurora.AuroraMonitoring.Metrics.md#Aurora.AuroraMySQL.Monitoring.Metrics.clusters).
 

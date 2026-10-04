@@ -209,3 +209,148 @@ Subquery cache does not support certain patterns of correlated subqueries. Those
 + IN/EXISTS/ANY/ALL correlated subqueries
 + Correlated subqueries containing nondeterministic functions. 
 + Correlated subqueries that reference outer table columns with datatypes that don't support hashing or equality operations.
+
+## Improving Aurora PostgreSQL query performance using subquery window transformation
+<a name="apg-corsubquery-window-transformation"></a>
+
+Aurora PostgreSQL can accelerate correlated aggregate subqueries by transforming them into equivalent window functions. This optimization applies to scalar correlated subqueries in a WHERE clause that compare an outer expression against an aggregate, such as the following query pattern:
+
+```
+SELECT o.id, o.amount
+FROM orders o, products p
+WHERE p.id = o.product_id
+  AND o.amount < (
+    SELECT 0.2 * avg(o2.amount)
+    FROM orders o2
+    WHERE o2.product_id = p.id
+  );
+```
+
+The transformation is a plan-level rewrite that changes only the execution plan, not the query results.
+
+**Note**  
+Subquery window transformation is available in Aurora PostgreSQL beginning with version 18.6, while Babelfish for Aurora PostgreSQL supports this feature from 6.2.0 onwards. For Babelfish for Aurora PostgreSQL, the feature is controlled by the `babelfishpg_tsql.apg_enable_subquery_to_window_transform` parameter, which is turned `ON` by default.
+
+### When to use subquery window transformation
+<a name="apg-corsub-window-transform-when"></a>
+
+Consider enabling this transformation if you have queries that match the self-correlation pattern: an outer row compared against an aggregate computed over the same table with a correlation condition.
+
+This transformation is complementary to the existing correlated subquery transformation, which rewrites correlated subqueries as outer joins. The subquery window transformation rewrites them as window functions instead. The two transformations cover different patterns:
++ The correlated subquery transformation applies to subqueries in both the SELECT list and the WHERE clause. The subquery must return an aggregate function such as `avg(x)` or `count(*)`, without any surrounding expression.
++ The subquery window transformation applies only to WHERE-clause subqueries that use the self-correlation pattern, where the subquery's table also appears in the outer FROM. It additionally supports cases where the aggregate is combined with a constant factor (for example, `0.2 * avg(o2.amount)`) that the correlated subquery transformation can't handle.
+
+You can enable both transformations at the same time. When a query qualifies for both, the subquery window transformation is applied; when it qualifies for only one, that transformation is applied.
+
+### Enabling subquery window transformation
+<a name="apg-corsub-window-transform-enable"></a>
+
+To enable the transformation of correlated aggregate subqueries into window functions, set the `apg_enable_subquery_to_window_transform` parameter to `ON`. The default value of this parameter is `OFF`.
+
+You can modify the cluster or instance parameter group to set the parameters. To learn more, see [Parameter groups for Amazon Aurora](USER_WorkingWithParamGroups.md).
+
+Alternatively, you can configure the setting for just the current session by the following command:
+
+```
+SET apg_enable_subquery_to_window_transform TO ON;
+```
+
+To disable the transformation, set the parameter to `OFF` using the same methods. Changes take effect without an instance reboot; session-level SET is immediate, and parameter-group changes apply to new connections.
+
+**Note**  
+For Babelfish for Aurora PostgreSQL, only `babelfishpg_tsql.apg_enable_subquery_to_window_transform` controls whether the transformation applies. The `apg_enable_subquery_to_window_transform` parameter has no effect under the T-SQL dialect.
+
+### Verifying the transformation
+<a name="apg-corsub-window-transform-verify"></a>
+
+Use the EXPLAIN command to verify if the correlated subquery has been transformed into a window function in the query plan.
+
+When the transformation is enabled, the query plan contains a `WindowAgg` node instead of a `SubPlan` node. For example:
+
+```
+postgres=> SET apg_enable_subquery_to_window_transform TO ON;
+SET
+postgres=> EXPLAIN (COSTS FALSE)
+SELECT o.id, o.amount
+FROM orders o, products p
+WHERE p.id = o.product_id
+  AND o.amount < (
+    SELECT 0.2 * avg(o2.amount)
+    FROM orders o2
+    WHERE o2.product_id = p.id
+  );
+
+                      QUERY PLAN
+------------------------------------------------------
+ Subquery Scan on _sw
+   Filter: (_sw.amount < (0.2 * _sw._w_agg_result))
+   ->  WindowAgg
+         Window: w1 AS (PARTITION BY o.product_id)
+         ->  Sort
+               Sort Key: o.product_id
+               ->  Hash Join
+                     Hash Cond: (o.product_id = p.id)
+                     ->  Seq Scan on orders o
+                     ->  Hash
+                           ->  Seq Scan on products p
+```
+
+The same query is not transformed when the GUC parameter is turned `OFF`. The plan will not have a `WindowAgg` node but a `SubPlan` instead.
+
+```
+postgres=> SET apg_enable_subquery_to_window_transform TO OFF;
+SET
+postgres=> EXPLAIN (COSTS FALSE)
+SELECT o.id, o.amount
+FROM orders o, products p
+WHERE p.id = o.product_id
+  AND o.amount < (
+    SELECT 0.2 * avg(o2.amount)
+    FROM orders o2
+    WHERE o2.product_id = p.id
+  );
+
+                 QUERY PLAN
+---------------------------------------------
+ Hash Join
+   Hash Cond: (o.product_id = p.id)
+   Join Filter: (o.amount < (SubPlan 1))
+   ->  Seq Scan on orders o
+   ->  Hash
+         ->  Seq Scan on products p
+   SubPlan 1
+     ->  Aggregate
+           ->  Seq Scan on orders o2
+                 Filter: (product_id = p.id)
+```
+
+**Note**  
+For Babelfish for Aurora PostgreSQL, use the following commands to verify the transformation.  
+To turn the transformation on or off within a session:  
+
+```
+SELECT set_config('babelfishpg_tsql.apg_enable_subquery_to_window_transform', 'true', false);
+SELECT set_config('babelfishpg_tsql.apg_enable_subquery_to_window_transform', 'false', false);
+```
+To view the query plan:  
+
+```
+SET BABELFISH_SHOWPLAN_ALL ON
+-- run your query
+SET BABELFISH_SHOWPLAN_ALL OFF
+```
+
+### Limitations
+<a name="apg-corsub-window-transform-limitations"></a>
+
+If a query doesn't meet these conditions, it runs with its original plan; no error is raised.
++ The transformation applies only to a scalar subquery in the outer query's WHERE clause. Subqueries in the SELECT list, and subqueries nested inside an OR condition, aren't transformed. AND with other predicates is supported.
++ The subquery's FROM clause must reference exactly one table, and that same table must appear exactly once in the outer query's FROM clause. References through a view or CTE don't count as the same table.
++ The outer query must use only inner joins throughout. Outer joins, LATERAL references, CTEs, window functions, and grouping sets (CUBE, ROLLUP, GROUPING SETS) anywhere in the outer query disqualify it.
++ The subquery target must be a supported built-in aggregate (SUM, COUNT, AVG, MIN, or MAX), optionally combined with literal constants (for example, `0.2 * avg(o2.amount)`). Ordered-set and user-defined aggregates such as ARRAY\_AGG, STRING\_AGG, JSON\_AGG, and PERCENTILE\_CONT aren't supported.
++ The correlated predicate must be a plain equality (=) between simple column references on both sides. Compound keys (multiple ANDed equalities) are allowed as long as every outer-side column belongs to the same outer table. Additional non-correlated predicates on the subquery table may be combined with AND.
++ The subquery can't contain a GROUP BY, HAVING, LIMIT, ORDER BY, DISTINCT, or FOR UPDATE clause; set operations (UNION, INTERSECT, EXCEPT); set-returning functions; window functions; CTEs; nested subqueries; or volatile functions such as `random()` or `clock_timestamp()`.
++ The join between the correlated table and any other outer table must be on a column with a primary-key or unique constraint, so that at most one row from the other outer table matches each row from the correlated table.
+
+**Note**  
+The performance impact of the transformation varies depending on your schema, data, and workload. Correlated subquery execution with window function transformation can significantly improve performance as the number of rows produced by the outer query increases. We strongly recommend that you test this feature in a non-production environment with your actual schema, data, and workload before enabling it in a production environment.

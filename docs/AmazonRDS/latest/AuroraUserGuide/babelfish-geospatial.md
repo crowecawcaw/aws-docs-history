@@ -16,6 +16,8 @@ These data types allow for the storage and manipulation of spatial data, but wit
 + Supports linestring data type (from version 5.4.0) defined by a sequence of points and the line segments connecting them and a valid Spatial Reference System Identifier (SRID). A linestring may contain points with Z (elevation), M (measure) values and can be empty.
 + Supports polygon data type (from version 5.5.0 and 6.0.0). A Polygon is a two-dimensional surface stored as a sequence of points defining an exterior bounding ring and zero or more interior rings.
 + Supports Multipoint data type (from version 5.6.0 and 6.1.0). A MultiPoint is a collection of zero or more points. The boundary of a MultiPoint instance is empty.
++ Supports MultiLineString data type (from version 5.7.0 and 6.2.0). A MultiLineString is a collection of zero or more geometry or geography LineString instances.
++ Supports Spatial Indexes (from version 5.7.0 and 6.2.0). This allows you to index a spatial table column.
 + Applications connecting to Babelfish through drivers like JDBC, ODBC, DOTNET, and PYTHON can utilize this Geospatial feature.
 
 ### Geometry data type functions supported in Babelfish
@@ -58,6 +60,9 @@ Starting with versions 5.6.0 and 6.1.0, Babelfish includes support for the follo
 + **<geometry\_instance>.MakeValid()** – Creates a valid representation of a given invalid geometry without losing any of the input vertices.
 + **Parse ({{WKT representation}})** – Creates a geometry instance from a Well-Known Text (WKT) string, assuming SRID 0. Equivalent to STGeomFromText() but without requiring the SRID parameter. Supports optional Z and M values.
 
+Starting with versions 5.7.0 and 6.2.0, Babelfish includes support for the following spatial data function:
++ **STMLineFromText ({{multilinestring\_tagged\_text}}, SRID )** – Creates a multilinestring instance using WKT representation.
+
 ### Geography data type functions supported in Babelfish
 <a name="babelfish-geospatial-overview-geography"></a>
 + **STGeomFromText ({{geography\_tagged\_text}}, SRID )** – Creates a geography instance using WKT representation.
@@ -98,16 +103,18 @@ Starting with versions 5.6.0 and 6.1.0, Babelfish includes support for the follo
 + **<geography\_instance>.MakeValid()** – Creates a valid representation of a given invalid geography without losing any of the input vertices.
 + **Parse ({{WKT representation}})** – Creates a geography instance from a Well-Known Text (WKT) string, assuming SRID 4326. Equivalent to STGeomFromText() but without requiring the SRID parameter. Supports optional Z and M values.
 
+Starting with versions 5.7.0 and 6.2.0, Babelfish includes support for the following spatial data function:
++ **STMLineFromText ({{multilinestring\_tagged\_text}}, SRID )** – Creates a multilinestring instance using WKT representation.
+
 ## Limitations in Babelfish for Geospatial data types
 <a name="babelfish-geospatial-limitations"></a>
-+ Geometry and Geography types other than point, linestring, polygon and multipoint instances aren't currently supported:
++ Geometry and Geography types other than point, linestring, polygon, multipoint and multilinestring instances aren't currently supported:
   + CircularString
   + CompoundCurve
   + CurvePolygon
-  + MultiLineString
   + MultiPolygon
   + GeometryCollection
-+ Currently, spatial indexing isn't supported for Geospatial data types.
++ When creating a spatial index, the USING clause and WITH tuning options aren't currently supported. Basic CREATE SPATIAL INDEX is supported.
 + Only the listed functions are currently supported for these data types. For more information, see [Geometry data type functions supported in Babelfish](#babelfish-geospatial-overview-geometry) and [Geography data type functions supported in Babelfish](#babelfish-geospatial-overview-geography).
 + STDistance function output for Geography data might have minor precision variations compared to T-SQL. This is due to the underlying PostGIS implementation. For more information, see [ST\_Distance](https://postgis.net/docs/ST_Distance.html)
 + STIsValid function output for both Geometry and Geography data might have some deviations compared to T-SQL. Due to this, the functions - STDistance, STContains, STInstersects, STDisjoint, STDimension, STArea, STEquals may also deviate from T-SQL for some cases ( returns output instead of throwing error ). This is due to the underlying PostGIS implementation. For more information, see [ST\_IsValid](https://postgis.net/docs/ST_IsValid.html).

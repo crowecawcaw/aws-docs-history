@@ -19,7 +19,8 @@ CREATE EXTENSION pg_columnmask;
 This command installs the `pg_columnmask` extension, creates the necessary catalog tables, and registers the built-in masking functions. The extension installation is database-specific, meaning you must install it separately in each database where the functionality is required.
 
 **Note**  
-Connections made before installing this extension will still show unmasked data. Close and reconnect to fix this.
+Masking policies take effect for sessions that start after you install the extension. Reconnect any existing sessions to apply masking.
+Masking on a table is never applied for the table owner or `rds_superuser`.
 
 Verify the extension installation by checking the available masking functions:
 

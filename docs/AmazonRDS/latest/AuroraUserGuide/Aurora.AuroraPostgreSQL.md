@@ -25,6 +25,7 @@ For information about local write forwarding on Aurora PostgreSQL secondary DB c
 + [Using Kerberos authentication with Aurora PostgreSQL](postgresql-kerberos.md)
 + [Migrating data to Amazon Aurora with PostgreSQL compatibility](AuroraPostgreSQL.Migrating.md)
 + [Optimizing query performance in Aurora PostgreSQL](AuroraPostgreSQL.optimizing.queries.md)
++ [Querying Apache Iceberg and Parquet data directly in Aurora PostgreSQL](query-iceberg-and-parquet-data.md)
 + [Working with unlogged tables in Aurora PostgreSQL](aurora-postgresql-unlogged-tables.md)
 + [Working with PostgreSQL autovacuum on Amazon Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.Autovacuum.md)
 + [Managing TOAST OID contention in Amazon Aurora PostgreSQL](Appendix.PostgreSQL.CommonDBATasks.TOAST_OID.md)

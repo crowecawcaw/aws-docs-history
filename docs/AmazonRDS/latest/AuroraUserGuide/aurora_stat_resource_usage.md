@@ -24,7 +24,8 @@ SETOF record with columns:
 + pid - Process identifier
 + allocated\_memory - Total memory allocated by process in bytes
 + used\_memory - Actually used memory by process in bytes
-+ cpu\_usage\_percent - CPU usage percentage of the process
++ cpu\_usage\_percent - CPU usage percentage of the process (all threads)
++ worker\_threads\_cpu\_usage\_percent - CPU usage percentage of the worker threads (all threads except the main thread) of the process. For backend processes that don't use worker threads, this value is 0.
 
 ## Usage notes
 <a name="aurora_stat_resource_usage-usage-notes"></a>
@@ -38,6 +39,15 @@ This function is available starting with the following Aurora PostgreSQL version
 + Aurora PostgreSQL 14.18 and higher 14 versions
 + Aurora PostgreSQL 13.21 and higher 13 versions
 
+The `worker_threads_cpu_usage_percent` column is available starting with the following Aurora PostgreSQL versions:
++ Aurora PostgreSQL 18.6 and higher 18 versions
++ Aurora PostgreSQL 17.11 and higher 17 versions
++ Aurora PostgreSQL 16.15 and higher 16 versions
++ Aurora PostgreSQL 15.19 and higher 15 versions
++ Aurora PostgreSQL 14.24 and higher 14 versions
+
+In earlier versions, the function returns only the first four columns.
+
 ## Examples
 <a name="aurora_stat_resource_usage-examples"></a>
 
@@ -45,16 +55,14 @@ The following example shows the output of the `aurora_stat_resource_usage` funct
 
 ```
 => select * from aurora_stat_resource_usage();
- pid  | allocated_memory | used_memory |   cpu_usage_percent   
-------+------------------+-------------+-----------------------
-  666 |          1074032 |      333544 |   0.00729274882897963
-  667 |           787312 |      287360 | 0.0029263928146372746
-  668 |          3076776 |     1563488 |  0.006013116835953961
-  684 |           803744 |      307480 |  0.002226855426881142
- 2401 |          1232992 |      943144 |                     0
-  647 |             8000 |         944 |   0.48853387812429855
-  659 |           319344 |      243000 | 0.0004135602076683591
-  663 |           262000 |      185736 |  0.008181301476644002
-  664 |             9024 |        1216 |   0.10992313082653653
-(9 rows)
+ pid  | allocated_memory | used_memory |   cpu_usage_percent   | worker_threads_cpu_usage_percent
+------+------------------+-------------+-----------------------+----------------------------------
+  666 |          1074032 |      333544 |   0.00729274882897963 |                                0
+  668 |          3076776 |     1563488 |  0.006013116835953961 |                                0
+ 2401 |          1232992 |      943144 |                     0 |                                0
+  664 |          1161616 |      797584 |     81.19999999999999 |                             67.8
+  671 |          1087888 |      789352 |                  62.4 |                             52.4
+(5 rows)
 ```
+
+*The last two rows show backend processes whose worker threads consume CPU. For backend processes that don't use worker threads, the value is 0.*

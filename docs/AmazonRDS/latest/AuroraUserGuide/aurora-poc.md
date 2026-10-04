@@ -164,7 +164,7 @@ Where practical, start with a cluster using the following settings. Skip this st
 
  By using the cluster endpoint for write operations, you always connect to a DB instance in the cluster that has read/write capability. By default, only one DB instance in an Aurora cluster has read/write capability. This DB instance is called the *primary instance*. If the original primary instance becomes unavailable, Aurora activates a failover mechanism and a different DB instance takes over as the primary. 
 
- Similarly, by directing `SELECT` statements to the reader endpoint, you spread the work of processing queries among the DB instances in the cluster. Each reader connection is assigned to a different DB instance using round-robin DNS resolution. Doing most of the query work on the read-only DB Aurora Replicas reduces the load on the primary instance, freeing it to handle DDL and DML statements. 
+ Similarly, by directing `SELECT` statements to the reader endpoint, you spread the work of processing queries among the DB instances in the cluster. The reader endpoint uses DNS resolution to route each new connection to one of the available Aurora Replicas, rather than distributing connections in a strict round-robin order. Doing most of the query work on the read-only DB Aurora Replicas reduces the load on the primary instance, freeing it to handle DDL and DML statements. 
 
  Using these endpoints reduces the dependency on hard-coded hostnames, and helps your application to recover more quickly from DB instance failures. 
 
