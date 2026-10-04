@@ -66,6 +66,8 @@ Below are the release notes for ARM64 Base DLAMI:
  Below are the Release notes for X86 PyTorch DLAMIs:
 
 ** **GPU** **
++ [GPU PyTorch 2.14 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.14-amazon-linux-2023.md)
++ [GPU PyTorch 2.14 (Ubuntu 26.04)](aws-deep-learning-x86-gpu-pytorch-2.14-ubuntu-26-04.md)
 + [GPU PyTorch 2.13 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.13-amazon-linux-2023.md)
 + [GPU PyTorch 2.13 (Ubuntu 26.04)](aws-deep-learning-x86-gpu-pytorch-2.13-ubuntu-26-04.md)
 + [GPU PyTorch 2.12 (Amazon Linux 2023)](aws-deep-learning-x86-gpu-pytorch-2.12-amazon-linux-2023.md)

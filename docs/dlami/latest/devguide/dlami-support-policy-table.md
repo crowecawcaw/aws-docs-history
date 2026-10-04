@@ -15,6 +15,7 @@ We recommend that you migrate to PyTorch 2.13 or later DLAMIs, which continue to
 
 |  Framework  |  Current version  |  CUDA version  |  GitHub GA  |  End of patch  | 
 | --- | --- | --- | --- | --- | 
+| PyTorch | 2.14.0 | 13.0 | 2026-09-02 | 2027-09-02 | 
 | PyTorch | 2.13.0 | 13.0 | 2026-07-08 | 2027-07-08 | 
 | PyTorch | 2.12.0 | 13.0 | 2026-05-13 | 2027-05-13 | 
 | PyTorch | 2.11.0 | 13.0 | 2026-03-23 | 2027-03-23 | 
