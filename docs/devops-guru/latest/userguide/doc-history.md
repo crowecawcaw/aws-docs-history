@@ -1,5 +1,7 @@
 
 
+End of support notice: On September 30, 2027, AWS will end support for Amazon DevOps Guru. After September 30, 2027, you will no longer be able to access the Amazon DevOps Guru console or Amazon DevOps Guru resources. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
+
 # Amazon DevOps Guru document history
 <a name="doc-history"></a>
 
@@ -9,6 +11,7 @@ The following table describes the documentation for this release of DevOps Guru
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [End of support notice](#doc-history) | End of support notice: On September 30, 2027, AWS will end support for Amazon DevOps Guru. After September 30, 2027, you will no longer be able to access the Amazon DevOps Guru console or Amazon DevOps Guru resources. For more information, see [Amazon DevOps Guru end of support](https://docs.aws.amazon.com/devops-guru/latest/userguide/devops-guru-end-of-support.html). | September 29, 2026 | 
 | [Managed policy updates](#doc-history) | Amazon SNS subscriptions and subscription list access have been added to the `AmazonDevOpsGuruConsoleFullAccess` policy. Subscription list access has also been added to the `AmazonDevOpsGuruReadOnlyAccess` policy. For more information, see [Identity-based policies for Amazon DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/security_iam_id-based-policy-examples.html). | August 9, 2023 | 
 | [Customer managed encryption keys](#doc-history) | DevOps Guru now supports encryption with customer managed keys using AWS KMS. For more information, see [Data protection in DevOps Guru](https://docs.aws.amazon.com/devops-guru/latest/userguide/data-protection.html). | July 5, 2023 | 
 | [DevOps Guru for RDS supports RDS PostgreSQL](#doc-history) | DevOps Guru for RDS can detect performance bottlenecks and other insights in PostgreSQL databases. For more information, see [Benefits of DevOps Guru for RDS](https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-rds.overview.benefits.html). | March 30, 2023 | 

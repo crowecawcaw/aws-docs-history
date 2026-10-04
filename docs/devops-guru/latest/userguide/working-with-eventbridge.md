@@ -1,5 +1,7 @@
 
 
+End of support notice: On September 30, 2027, AWS will end support for Amazon DevOps Guru. After September 30, 2027, you will no longer be able to access the Amazon DevOps Guru console or Amazon DevOps Guru resources. For more information, see [Amazon DevOps Guru end of support](devops-guru-end-of-support.md).
+
 # Working with Amazon EventBridge
 <a name="working-with-eventbridge"></a>
 
@@ -23,7 +25,7 @@ You can select any of the following predefined patterns to filter events or crea
 The following are example events from DevOps Guru. Events are emitted on a best-effort basis. To learn more about event patterns, see [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) or [Amazon EventBridge event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html).
 
 ### DevOps Guru New Insight Open Event
-<a name="w2aac31c11b5"></a>
+<a name="w2aac35c11b5"></a>
 
 When DevOps Guru opens a new insight, it sends the following event.
 
@@ -80,7 +82,7 @@ When DevOps Guru opens a new insight, it sends the following event.
 ```
 
 ### Custom sample event pattern for high severity new Insight
-<a name="w2aac31c11b7"></a>
+<a name="w2aac35c11b7"></a>
 
 Rules use event patterns to select events and route them to targets. The following is a sample DevOps Guru event pattern.
 
