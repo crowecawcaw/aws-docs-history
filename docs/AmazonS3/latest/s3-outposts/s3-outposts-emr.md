@@ -76,7 +76,7 @@ The following example policy shows how to grant the required permissions. After 
  3.   "Statement": [
  4.         {
  5.   "Effect": "Allow",
- 6.             "Resource": "arn:aws:s3-outposts:{{us-west-2}}:{{111122223333}}:outpost/{{op-01ac5d28a6a232904}}/accesspoint/{{access-point-name}},
+ 6.             "Resource": "arn:aws:s3-outposts:{{us-west-2}}:{{111122223333}}:outpost/{{op-01ac5d28a6a232904}}/accesspoint/{{access-point-name}}",
  7.             "Action": [
  8.                 "s3-outposts:*"
  9.             ]

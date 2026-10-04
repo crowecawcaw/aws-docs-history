@@ -41,7 +41,7 @@ The following AWS CLI example puts a policy on an Outposts access point.
                "AWS":"{{123456789012}}"
             },
             "Action":"s3-outposts:*",
-            "Resource":"arn:aws:s3-outposts:{{region}}:{{123456789012}}:outpost/{{op-01ac5d28a6a232904}}/accesspoint/{{example-outposts-access-point}}
+            "Resource":"arn:aws:s3-outposts:{{region}}:{{123456789012}}:outpost/{{op-01ac5d28a6a232904}}/accesspoint/{{example-outposts-access-point}}"
          }
       ]
    }
