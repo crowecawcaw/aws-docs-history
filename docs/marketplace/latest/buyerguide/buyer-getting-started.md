@@ -16,5 +16,6 @@ Buyers in India can purchase products from sellers in India with specific billin
 + [Managing subscriptions in AWS Marketplace](buyer-managing-subscriptions.md)
 + [Tutorial: Buying an AMI-based software product](tutorial-buying-ami.md)
 + [Buyers in India FAQ](india-buyer-faq.md)
++ [Buying through Brazil 2P FAQ](brazil-2p-buyer-faq.md)
 
 For information about getting started with data products, see [Subscribing to data products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/subscribe-to-data-sets.html) in the *AWS Data Exchange User Guide*.
