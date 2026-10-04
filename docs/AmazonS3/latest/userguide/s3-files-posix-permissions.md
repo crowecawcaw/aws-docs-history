@@ -98,6 +98,37 @@ $ ls -ltr /mnt/s3files/
 
 The file is now owned by `ec2-user` and no longer requires root to access.
 
+## Setting POSIX metadata on a directory
+<a name="s3-files-posix-permissions-directories"></a>
+
+A directory's ownership and permissions come from a single object: the zero-byte directory marker at the prefix key with a trailing slash, for example `data/`. S3 Files reads POSIX metadata from that one marker object to determine the directory's owner, group, and permissions. The objects inside the directory do not affect it. Each child object carries its own metadata and governs only itself.
+
+When a directory's objects were written to your bucket before the file system existed, the directory marker has no POSIX metadata. This also applies when the objects were written through the Amazon S3 console, AWS CLI, or AWS SDK. In that case, S3 Files assigns the directory the default `root:root` ownership with `0755` permissions. With these permissions, all users can read and traverse the directory, but only the owner (root) can create or delete files within it. As a result, a non-root user receives a permission error when writing to the directory.
+
+For directories, set the `file-permissions` value with directory bits, for example `0040755`. For more values, see [Permission values reference](#s3-files-posix-permissions-reference).
+
+To update the directory's metadata in place, copy the directory marker object onto itself with new metadata. This keeps any content stored in the object.
+
+```
+aws s3api copy-object \
+    --bucket BUCKET_NAME \
+    --key data/ \
+    --copy-source BUCKET_NAME/data/ \
+    --metadata-directive REPLACE \
+    --metadata '{"file-owner":"1001", "file-group":"1001", "file-permissions":"0040755"}'
+```
+
+If the command returns a 404 error, the directory marker object doesn't exist. The directory is implied only by its child keys, so it uses the `root:root` default. Create the marker object with the metadata.
+
+```
+aws s3api put-object \
+    --bucket BUCKET_NAME \
+    --key data/ \
+    --metadata '{"file-owner":"1001", "file-group":"1001", "file-permissions":"0040755"}'
+```
+
+Setting metadata on the directory marker changes only the directory itself. To change a child file's ownership, set metadata on that file object. For instructions, see [Setting POSIX metadata on existing objects](#s3-files-posix-permissions-existing-objects).
+
 ## Setting POSIX metadata on new uploads
 <a name="s3-files-posix-permissions-new-uploads"></a>
 

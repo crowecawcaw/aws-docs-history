@@ -56,7 +56,7 @@ var response = s3Client.putObject(putObjectRequestBuilder.build());
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
 ```
 s3.put_object(Bucket='{{amzn-s3-demo-bucket}}--{{use2-az2}}--x-s3', Key='2024-11-05-sdk-test', Body=b'123456789', WriteOffsetBytes=9)

@@ -54,12 +54,23 @@ Requirements for non-filterable metadata keys are as follows.
 
 For more information about non-filterable metadata keys, see [Non-filterable metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable).
 
+## Index mode
+<a name="s3-vectors-indexes-mode"></a>
+
+Each vector index has an index mode, which determines the query capabilities the index supports. The modes are `ENHANCED` and `CLASSIC`. We recommend `ENHANCED` for almost all workloads, because it gives you higher recall on filtered queries and additional filter operators. For what each mode supports, see [Metadata filtering](s3-vectors-metadata-filtering.md).
+
+A new vector index inherits the default index mode of the vector bucket that contains it. A vector bucket created on or after September 30, 2026 has a default index mode of `ENHANCED`, and indexes in it cannot use `CLASSIC`. A vector bucket created before that date has a default index mode of `CLASSIC`, so that indexes you already had are unchanged and indexes you create in it later behave consistently with them.
+
+You can read an index's mode with [GetIndex](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_GetIndex.html) and change it with [UpdateIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_UpdateIndexMode.html). You can read a bucket's default with [GetVectorBucket](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_GetVectorBucket.html) and change it with [PutVectorBucketDefaultIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_PutVectorBucketDefaultIndexMode.html), which applies to indexes you create afterward. To move an existing index, see [Changing a vector index's mode](s3-vectors-index-mode.md).
+
 **Topics**
 + [Vector index naming requirements](#s3-vectors-indexes-naming)
 + [Dimension requirements](#s3-vectors-indexes-dimensions)
 + [Distance metric options](#s3-vectors-indexes-distance-metrics)
 + [Non-filterable metadata keys](#s3-vectors-indexes-metadata)
++ [Index mode](#s3-vectors-indexes-mode)
 + [Creating a vector index in a vector bucket](s3-vectors-create-index.md)
++ [Changing a vector index's mode](s3-vectors-index-mode.md)
 + [Listing vector indexes](s3-vectors-index-list.md)
 + [Deleting a vector index](s3-vectors-index-delete.md)
 + [Using tags with S3 vector indexes](vector-index-tagging.md)

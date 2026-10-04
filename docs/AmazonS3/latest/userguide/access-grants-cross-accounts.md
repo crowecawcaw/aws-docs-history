@@ -335,7 +335,7 @@ To use this example command, replace the `{{user input placeholders}}` with your
 	{
 		"Effect": "Allow", 
 		"Action": [
-			"s3:GetDataAccess",
+			"s3:GetDataAccess"
 		],
 			"Resource": "arn:aws:s3:{{us-east-2}}:{{111122223333}}:access-grants/default"
 		} 

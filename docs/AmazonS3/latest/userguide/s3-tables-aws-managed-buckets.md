@@ -40,7 +40,7 @@ The following example policy allows you to create an AWS managed table bucket th
              "s3tables:CreateNamespace",
              "s3tables:CreateTable",
              "s3tables:GetTable",
-             "s3tables:PutTablePolicy"
+             "s3tables:PutTablePolicy",
              "s3tables:PutTableEncryption",
              "kms:DescribeKey"
          ],

@@ -55,7 +55,7 @@ The following is an example of a manifest in a `manifest.json` file for a CSV-fo
     "version": "2016-11-30",
     "creationTimestamp" : "1514944800000",
     "fileFormat": "CSV",
-    "fileSchema": "Bucket, Key, VersionId, IsLatest, IsDeleteMarker, Size, LastModifiedDate, ETag, StorageClass, IsMultipartUploaded, ReplicationStatus, EncryptionStatus, ObjectLockRetainUntilDate, ObjectLockMode, ObjectLockLegalHoldStatus, IntelligentTieringAccessTier, BucketKeyStatus, ChecksumAlgorithm, ObjectAccessControlList, ObjectOwner",
+    "fileSchema": "Bucket, Key, VersionId, IsLatest, IsDeleteMarker, Size, LastModifiedDate, ETag, StorageClass, IsMultipartUploaded, ReplicationStatus, EncryptionStatus, ObjectLockRetainUntilDate, ObjectLockMode, ObjectLockLegalHoldStatus, IntelligentTieringAccessTier, BucketKeyStatus, ChecksumAlgorithm, ObjectAccessControlList, ObjectOwner, IntelligentTieringReferenceDate",
     "files": [
         {
             "key": "Inventory/{{amzn-s3-demo-source-bucket}}/2016-11-06T21-32Z/files/939c6d46-85a9-4ba8-87bd-9db705a579ce.csv.gz",
@@ -74,7 +74,7 @@ The following is an example of a manifest in a `manifest.json` file for an ORC-f
     "version": "2016-11-30",
     "creationTimestamp" : "1514944800000",
     "fileFormat": "ORC",
-    "fileSchema": "struct<bucket:string,key:string,version_id:string,is_latest:boolean,is_delete_marker:boolean,size:bigint,last_modified_date:timestamp,e_tag:string,storage_class:string,is_multipart_uploaded:boolean,replication_status:string,encryption_status:string,object_lock_retain_until_date:timestamp,object_lock_mode:string,object_lock_legal_hold_status:string,intelligent_tiering_access_tier:string,bucket_key_status:string,checksum_algorithm:string,object_access_control_list:string,object_owner:string>",
+    "fileSchema": "struct<bucket:string,key:string,version_id:string,is_latest:boolean,is_delete_marker:boolean,size:bigint,last_modified_date:timestamp,e_tag:string,storage_class:string,is_multipart_uploaded:boolean,replication_status:string,encryption_status:string,object_lock_retain_until_date:timestamp,object_lock_mode:string,object_lock_legal_hold_status:string,intelligent_tiering_access_tier:string,bucket_key_status:string,checksum_algorithm:string,object_access_control_list:string,object_owner:string,intelligent_tiering_reference_date:timestamp>",
     "files": [
         {
             "key": "inventory/{{amzn-s3-demo-source-bucket}}/data/d794c570-95bb-4271-9128-26023c8b4900.orc",
@@ -93,7 +93,7 @@ The following is an example of a manifest in a `manifest.json` file for a Parque
     "version": "2016-11-30",
     "creationTimestamp" : "1514944800000",
     "fileFormat": "Parquet",
-    "fileSchema": "message s3.inventory { required binary bucket (UTF8); required binary key (UTF8); optional binary version_id (UTF8); optional boolean is_latest; optional boolean is_delete_marker; optional int64 size; optional int64 last_modified_date (TIMESTAMP_MILLIS); optional binary e_tag (UTF8); optional binary storage_class (UTF8); optional boolean is_multipart_uploaded; optional binary replication_status (UTF8); optional binary encryption_status (UTF8); optional int64 object_lock_retain_until_date (TIMESTAMP_MILLIS); optional binary object_lock_mode (UTF8); optional binary object_lock_legal_hold_status (UTF8); optional binary intelligent_tiering_access_tier (UTF8); optional binary bucket_key_status (UTF8); optional binary checksum_algorithm (UTF8); optional binary object_access_control_list (UTF8); optional binary object_owner (UTF8);}",
+    "fileSchema": "message s3.inventory { required binary bucket (UTF8); required binary key (UTF8); optional binary version_id (UTF8); optional boolean is_latest; optional boolean is_delete_marker; optional int64 size; optional int64 last_modified_date (TIMESTAMP_MILLIS); optional binary e_tag (UTF8); optional binary storage_class (UTF8); optional boolean is_multipart_uploaded; optional binary replication_status (UTF8); optional binary encryption_status (UTF8); optional int64 object_lock_retain_until_date (TIMESTAMP_MILLIS); optional binary object_lock_mode (UTF8); optional binary object_lock_legal_hold_status (UTF8); optional binary intelligent_tiering_access_tier (UTF8); optional binary bucket_key_status (UTF8); optional binary checksum_algorithm (UTF8); optional binary object_access_control_list (UTF8); optional binary object_owner (UTF8); optional int64 intelligent_tiering_reference_date (TIMESTAMP_MILLIS);}",
     "files": [
         {
            "key": "inventory/{{amzn-s3-demo-source-bucket}}/data/d754c470-85bb-4255-9218-47023c8b4910.parquet",

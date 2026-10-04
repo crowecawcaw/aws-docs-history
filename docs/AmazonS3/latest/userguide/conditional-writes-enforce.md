@@ -89,7 +89,7 @@ This policy also sets the `s3:ObjectCreationOperation` condition key which allow
                 "AWS": "arn:aws:iam::111122223333:user/Alice"
             },
             "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket1}}/*",
+            "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket1}}/*"
         },
         {
             "Sid": "BlockNonConditionalObjectCreation",

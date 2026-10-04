@@ -28,6 +28,6 @@ Quotas, also referred to as limits, are the maximum number of service resources 
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
-| Table Buckets | 10 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 table buckets that you can create per AWS Region in an account. | 
+| Table Buckets | 100 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 table buckets that you can create per AWS Region in an account. | 
 | Namespaces | 10,000 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 table namespaces that you can create per table bucket. | 
 | Tables | 10,000 | To request a quota increase, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase). | The number of Amazon S3 tables that you can create per table bucket. | 

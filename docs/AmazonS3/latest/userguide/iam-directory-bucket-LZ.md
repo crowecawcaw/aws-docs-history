@@ -53,7 +53,7 @@ The condition key `s3express:AllAccessRestrictedToLocalZoneGroup` doesn't suppor
             "Sid": "Access-to-specific-LocalZones-only",
             "Effect": "Deny",
             "Action": [
-                "s3express:*",
+                "s3express:*"
             ],
             "Resource": "*",
             "Condition": {

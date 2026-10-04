@@ -5,7 +5,17 @@
 
 Apache Iceberg Version 3 (V3) is the latest version of the Apache Iceberg table format specification, introducing advanced capabilities for building petabyte-scale data lakes with improved performance and reduced operational overhead. V3 addresses common performance bottlenecks encountered with Version 2 (V2), particularly around batch updates and compliance deletes.
 
-AWS provides support for deletion vectors, row lineage, and the variant data type as defined in the Apache Iceberg Version 3 (V3) specification. You can use these features with Apache Spark on [Amazon EMR](https://docs.aws.amazon.com/prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-emr.html), [AWS Glue ETL](https://docs.aws.amazon.com/prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-glue.html), [Amazon SageMaker Unified Studio Notebooks](https://docs.aws.amazon.com/next-generation-sagemaker/), and Apache Iceberg tables in [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html), including [Amazon S3 Tables](https://aws.amazon.com/s3/features/tables/). The variant data type is specific to S3 Tables.
+AWS provides support for the capabilities defined in the Apache Iceberg Version 3 (V3) specification. These capabilities include deletion vectors, row lineage, and column default values. They also include the following data types:
++ variant
++ geometry
++ geography
++ unknown
++ nanosecond-precision timestamps without a time zone
++ nanosecond-precision timestamps with a time zone
+
+S3 Tables support all of the data types that V3 introduces.
+
+You can use Apache Iceberg V3 with Apache Spark on [Amazon EMR](https://docs.aws.amazon.com/prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-emr.html), [AWS Glue ETL](https://docs.aws.amazon.com/prescriptive-guidance/latest/apache-iceberg-on-aws/iceberg-glue.html), [Amazon SageMaker Unified Studio Notebooks](https://docs.aws.amazon.com/next-generation-sagemaker/), and tables in [AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html), including [Amazon S3 Tables](https://aws.amazon.com/s3/features/tables/).
 
 ## Key Features in V3
 <a name="key-features-v3"></a>
@@ -18,6 +28,19 @@ Enables precise change tracking at the row level. Your downstream systems can pr
 
 Variant data type  
 With the variant data type, you can write semi-structured data like JSON directly in Iceberg tables without defining a fixed schema in advance. V3 compatible engines shred your semi-structured data into hidden columns as you write it, generating Parquet column statistics that query engines use for optimizations like file pruning. This reduces the data your analytical queries scan. S3 Tables provides ongoing table maintenance for variant columns, including compaction, so you can consolidate data from semi-structured sources into larger files that Iceberg engines can read efficiently.
+
+Geospatial data types  
+The `geometry` and `geography` types store points, lines, and polygons as native columns instead of encoded strings or paired latitude and longitude values. `geometry` operates on a Cartesian plane. `geography` treats coordinates as spherical coordinates on a spheroid. Both types recognize spatial reference system identifier (SRID) 0 and SRID 4326. Workloads such as fleet tracking and asset mapping can filter on location at query time. For examples, see [Using the geospatial data types](#using-the-geospatial-data-types).
+
+Nanosecond-precision timestamps  
+`timestamp(9)` records event times to nanosecond precision without a time zone, and `timestamptz(9)` records them with a time zone. Telemetry, sensor fusion, and financial workloads can store timestamps at source precision instead of encoding them as integers and converting them on read. For examples, see [Using nanosecond-precision timestamps](#using-nanosecond-precision-timestamps).
+
+Column default values  
+A field can carry an `initial-default` value, used to populate the field for records written before the field was added to the schema, and a `write-default` value, used when a writer omits the column. Column default values populate a newly added column for existing rows, with no backfill. For examples, see [Using column default values](#using-column-default-values).  
+The V3 specification requires that all columns of `unknown`, `variant`, `geometry`, and `geography` type default to null. Non-null `initial-default` or `write-default` values are invalid for those four types.
+
+Unknown type  
+The `unknown` type represents a column whose type has not yet been resolved. It must be optional with null defaults and is not stored in data files, which makes it useful for placeholder columns during schema evolution and when migrating from other table formats. For examples, see [Using the unknown type](#using-the-unknown-type).
 
 ## Version Compatibility
 <a name="version-compatibility"></a>
@@ -40,6 +63,7 @@ V3 is a one-way upgrade. Once a table is upgraded from V2 to V3, it cannot be do
 Before working with V3 tables, ensure you have:
 + An AWS account with appropriate IAM permissions
 + Access to one or more AWS analytics services (EMR, Glue, Amazon SageMaker Unified Studio Notebooks, or S3 Tables)
++ To use the `geometry` and `geography` types in Apache Spark, set `spark.sql.geospatial.enabled=true` in your Spark configuration. On AWS Glue, set it through the job's `--conf` argument. The variant, unknown, nanosecond timestamp, and column default value features need no additional Spark configuration.
 + An S3 bucket for storing table data and metadata
 + A table bucket to get started with S3 Tables or a general purpose S3 bucket if you are building your own Iceberg infrastructure
 + AWS Glue catalog configured
@@ -82,7 +106,7 @@ SET TBLPROPERTIES ('format-version' = '3')
 ```
 
 **Important**  
-V3 is a one-way upgrade. Once a table is upgraded from V2 to V3, it cannot be downgraded back to V2 through standard operations.
+V3 is a one-way upgrade. Once a table is upgraded from V2 to V3, it cannot be downgraded back to V2 through standard operations. Before you upgrade, verify that every engine that reads or writes the table supports V3. Amazon Athena can't read V3 tables. For engine support, see [Troubleshooting](#troubleshooting).
 
 **What happens during upgrade:**
 + A new metadata snapshot is created atomically
@@ -179,6 +203,105 @@ INSERT INTO myns.events VALUES (
 
 With S3 Tables, table maintenance for variant columns, including compaction, runs automatically. Compaction consolidates data from semi-structured sources from small files into larger files that Iceberg engines can read more efficiently, improving query performance over time.
 
+### Using the geospatial data types
+<a name="using-the-geospatial-data-types"></a>
+
+**Creating a table with geospatial columns using Spark SQL:**
+
+```
+CREATE TABLE IF NOT EXISTS myns.vehicle_telemetry (
+    vehicle_id     string,
+    event_time     timestamp,
+    position       geometry(4326),
+    service_area   geography(4326),
+    firmware       string
+)
+USING iceberg
+TBLPROPERTIES ('format-version' = '3')
+```
+
+**Inserting geospatial values:**
+
+```
+INSERT INTO myns.vehicle_telemetry VALUES (
+    'v-1024',
+    TIMESTAMP '2026-09-18 14:22:31.123456',
+    ST_SetSrid(ST_GeomFromWKT('POINT (1 2)'), 4326),
+    ST_SetSrid(ST_GeogFromWKT('POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0))'), 4326),
+    'fw-3.2.1'
+)
+```
+
+**Filtering on location:**
+
+```
+SELECT vehicle_id, event_time
+FROM myns.vehicle_telemetry
+WHERE ST_Intersects(
+        position,
+        ST_SetSrid(ST_GeomFromWKT('POLYGON ((0 0, 10 0, 10 10, 0 10, 0 0))'), 4326)
+      )
+```
+
+**Note**  
+Existing columns that hold encoded coordinates, such as paired `double` values or WKT strings, are not converted when you upgrade a table to V3. To adopt the geospatial types for existing data, add a column of the new type and populate it.
+
+**Note**  
+Geodesic spatial predicates over `geography` are engine-dependent. Spatial predicates in Apache Spark on Amazon EMR and AWS Glue operate on `geometry`.
+
+### Using nanosecond-precision timestamps
+<a name="using-nanosecond-precision-timestamps"></a>
+
+**Creating a table with a nanosecond timestamp column using Spark SQL:**
+
+```
+CREATE TABLE IF NOT EXISTS myns.trades (
+    trade_id     bigint,
+    executed_at  timestamptz(9),
+    symbol       string,
+    price        decimal(18,8)
+)
+USING iceberg
+TBLPROPERTIES ('format-version' = '3')
+```
+
+`timestamp(9)` stores a timestamp without a time zone. `timestamptz(9)` stores one with a time zone.
+
+**Note**  
+Reading or writing a nanosecond column with an engine that supports only microsecond precision truncates the value. Confirm that your engine supports nanosecond precision before you rely on it.
+
+### Using column default values
+<a name="using-column-default-values"></a>
+
+**Adding a column with a default value using Spark SQL:**
+
+```
+ALTER TABLE myns.orders
+ADD COLUMN currency string DEFAULT 'USD'
+```
+
+Rows written before the `currency` column was added return `USD` rather than null, and no data files are rewritten. The value is stored once in the table's schema metadata as the field's `initial-default` and substituted at read time.
+
+**Note**  
+Columns of `unknown`, `variant`, `geometry`, and `geography` type must default to null, so a non-null default value is invalid for them. For examples of those types, see [Using the unknown type](#using-the-unknown-type), [Using the variant data type](#using-variant-data-type), and [Using the geospatial data types](#using-the-geospatial-data-types).
+
+### Using the unknown type
+<a name="using-the-unknown-type"></a>
+
+**Creating a table with an unknown column using Spark SQL:**
+
+```
+CREATE TABLE IF NOT EXISTS myns.staging_events (
+    event_id   bigint,
+    payload    string,
+    reserved   unknown
+)
+USING iceberg
+TBLPROPERTIES ('format-version' = '3')
+```
+
+An `unknown` column must be optional, always reads as null, and is not written to data files. You can later evolve it to a concrete type.
+
 ## Best Practices for V3
 <a name="best-practices-v3"></a>
 
@@ -235,6 +358,10 @@ When migrating from V2 to V3:
 + Backup strategy - Test snapshot-based recovery procedures
 + Monitoring - Update monitoring dashboards for V3-specific metrics
 
+The V3 data types are supported only for tables that use the Parquet data file format. They are not supported for tables that use the ORC or Avro data file formats.
+
+For V3 tables, the sort and Z-order compaction strategies don't support the variant, geometry, geography, and nanosecond-precision timestamp data types.
+
 ### Considerations for compaction
 <a name="considerations-for-compaction"></a>
 
@@ -271,6 +398,10 @@ Error: "format-version 3 is not supported"
 
 
   \*Partial Region availability
+
+  S3 Tables support all V3 data types.
+
+  Column default values are supported in S3 Tables. They are also supported in AWS Glue version 5.1 and later, and in Amazon Redshift.
 
 Performance degradation after upgrade  
 + Verify there are no compaction failures. See [Logging and monitoring for S3 Tables](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-monitoring-overview.html) for more details.
@@ -317,6 +448,8 @@ Incompatibility with third-party tools
 <a name="availability"></a>
 
 Apache Iceberg V3 support for deletion vectors and row lineage is available across all AWS Regions where Amazon EMR, AWS Glue Data Catalog, AWS Glue ETL, and S3 Tables operate.
+
+Column default values and the geometry, geography, unknown, and nanosecond-precision timestamp data types are available in all AWS Regions where S3 Tables are available.
 
 The variant data type in S3 Tables is available in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Asia Pacific (Mumbai), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Asia Pacific (Tokyo), Canada (Central), Europe (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and South America (São Paulo).
 

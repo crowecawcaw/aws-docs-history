@@ -20,7 +20,7 @@ Choose your access method based on your specific AWS Glue ETL job requirements:
 + **Amazon S3 Tables Catalog for Apache Iceberg** – Use only for legacy applications or specific programmatic scenarios that require the Java client library. This method is not recommended for new AWS Glue ETL job implementations due to additional `JAR` dependency management and complexity.
 
 **Note**  
-S3 Tables is supported on [AWS Glue version 5.0 or higher](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
+S3 Tables is supported on [AWS Glue version 5.0 or higher](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html). Apache Iceberg V3 requires AWS Glue version 5.1 or higher, and the V3 data types require AWS Glue version 6.0 or higher.
 
 ## Step 1 – Prerequisites
 <a name="glue-etl-prereqs"></a>

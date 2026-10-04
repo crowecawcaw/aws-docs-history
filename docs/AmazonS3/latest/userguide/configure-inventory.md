@@ -90,7 +90,7 @@ The following is the example bucket policy.
                     "aws:SourceArn": "arn:aws:s3:::DOC-EXAMPLE-SOURCE-BUCKET"
                 },
                 "StringEquals": {
-                    "aws:SourceAccount": "source-123456789012",
+                    "aws:SourceAccount": "111122223333",
                     "s3:x-amz-acl": "bucket-owner-full-control"
                 }
             }
@@ -122,10 +122,10 @@ For directory buckets, you must manually add a destination bucket policy. The de
             ],
             "Condition": {
                 "ArnLike": {
-                    "aws:SourceARN": "arn:aws:s3express:{{region}}:{{source-account-id}}:bucket/{{DOC-EXAMPLE-SOURCE-BUCKET}}--{{zone-id}}--x-s3"
+                    "aws:SourceARN": "arn:aws:s3express:{{us-west-2}}:{{111122223333}}:bucket/{{DOC-EXAMPLE-SOURCE-BUCKET}}--{{zone-id}}--x-s3"
                 },
                 "StringEquals": {
-                    "aws:SourceAccount": "{{source-account-id}}",
+                    "aws:SourceAccount": "{{111122223333}}",
                     "s3:x-amz-acl": "bucket-owner-full-control"
                 }
             }
@@ -296,6 +296,7 @@ Both the AWS managed key (`aws/s3`) and your customer managed keys appear in the
    + **Object owner** – The owner of the object.
    + **Storage class** – The storage class that's used for storing the object. 
    + **Intelligent-Tiering: Access tier** – Indicates the access tier (frequent or infrequent) of the object if it was stored in the S3 Intelligent-Tiering storage class. For more information, see [Storage class for automatically optimizing data with changing or unknown access patterns](storage-class-intro.md#sc-dynamic-data-access).
+   + You can add the optional **S3 Intelligent-Tiering reference date** field to your inventory report. For objects in the S3 Intelligent-Tiering storage class, this field reports the date that S3 Intelligent-Tiering uses to determine tier-transition eligibility. This date reflects when the object was last considered active for tiering. To include this field, select **S3 Intelligent-Tiering reference date** under the additional metadata fields when you create or edit an inventory configuration, or add `IntelligentTieringReferenceDate` to the `OptionalFields` list in a `PutBucketInventoryConfiguration` request. For more information, see [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md).
    + **ETag** – The entity tag (ETag) is a hash of the object. The ETag reflects changes only to the contents of an object, not to its metadata. The ETag might or might not be an MD5 digest of the object data. Whether it is depends on how the object was created and how it is encrypted. For more information, see [Object](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Object.html) in the *Amazon Simple Storage Service API Reference*.
    + **Checksum algorithm** – Indicates the algorithm that is used to create the checksum for the object. Supported values include `CRC64NVME`, `CRC32`, `CRC32C`, `SHA1`, `SHA256`, `MD5`, `XXHASH64`, `XXHASH3`, `XXHASH128`, and `SHA512`. For more information, see [Using supported checksum algorithms](checking-object-integrity-upload.md#using-additional-checksums).
    + **All Object Lock configurations** – The Object Lock status of the object, including the following settings: 

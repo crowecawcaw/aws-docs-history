@@ -867,7 +867,7 @@ To restrict a user from configuring an S3 Inventory report that includes specifi
  9. 			},
 10. 			"Action": "s3:PutInventoryConfiguration",			
 11. 			"Resource": 
-12. 				"arn:aws:s3:::{{{{amzn-s3-demo-source-bucket}}}}",
+12. 				"arn:aws:s3:::{{{{amzn-s3-demo-source-bucket}}}}"
 13. 
 14. 		},
 15. 		{

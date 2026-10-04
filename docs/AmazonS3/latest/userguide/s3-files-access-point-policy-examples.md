@@ -19,42 +19,7 @@ S3 Files evaluates `s3files:ClientMount`, `s3files:ClientWrite`, and `s3files:Cl
 
 This pattern applies when a role (for example, an EC2 instance role or an ECS task role) must mount the file system through one access point only. The condition key is `s3files:AccessPointArn`. The policy requires both an `Allow` for the intended access point and an explicit `Deny` for every other access point. IAM allow grants are additive across identity and resource policies; without an explicit deny, a separate policy can grant access to a different access point.
 
-**Example file system policy:**
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "AllowComputeAOnlyViaSpecificAP",
-      "Effect": "Allow",
-      "Principal": { "AWS": "arn:aws:iam::ACCOUNT:role/compute-a-role" },
-      "Action": [
-        "s3files:ClientMount",
-        "s3files:ClientWrite"
-      ],
-      "Condition": {
-        "StringEquals": {
-          "s3files:AccessPointArn": "arn:aws:s3files:REGION:ACCOUNT:file-system/fs-ID/access-point/fsap-ID"
-        }
-      }
-    },
-    {
-      "Sid": "DenyComputeAIfWrongAP",
-      "Effect": "Deny",
-      "Principal": { "AWS": "arn:aws:iam::ACCOUNT:role/compute-a-role" },
-      "Action": "s3files:Client*",
-      "Condition": {
-        "StringNotEquals": {
-          "s3files:AccessPointArn": "arn:aws:s3files:REGION:ACCOUNT:file-system/fs-ID/access-point/fsap-ID"
-        }
-      }
-    }
-  ]
-}
-```
-
-The role `compute-a-role` is allowed to mount and write only when the request targets `fsap-ID`, and is explicitly denied on every other access point on this file system. An explicit deny in a resource policy cannot be overridden by identity policies, so this restriction holds even if a broader IAM policy is attached to the role later.
+A role is allowed to mount and write only when the request targets `fsap-ID`, and is explicitly denied on every other access point on this file system. An explicit deny in a resource policy cannot be overridden by identity policies, so this restriction holds even if a broader IAM policy is attached to the role later.
 
 **Mount command:**
 

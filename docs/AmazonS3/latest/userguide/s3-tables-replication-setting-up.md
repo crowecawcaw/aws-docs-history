@@ -442,6 +442,7 @@ If you are replicating to a different AWS account, the destination account must 
                "Resource": "arn:aws:kms:us-west-2:{{444455556666}}:key/DESTINATION-KEY-ID-1"
            }
        ]
+   }
    ```
 
 ### Step 3: Create a replication configuration

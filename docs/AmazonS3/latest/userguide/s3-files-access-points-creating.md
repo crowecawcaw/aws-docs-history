@@ -33,7 +33,7 @@ This section explains how to use the Amazon S3 console to create an access point
    + **Group ID** – Enter a numeric POSIX group ID for the user.
    + **Secondary group IDs** – Enter an optional comma-separated list of secondary group IDs.
 
-1. (Optional) For **Root directory creation permissions**, you can specify the permissions to use when S3 Files creates the root directory path, if specified and the root directory doesn't already exist.
+1. (Optional) For **Root directory creation permissions**, you can specify the permissions to use when S3 Files creates the root directory path, if specified and the root directory doesn't already exist. If the root directory already exists, including a directory imported from the linked S3 bucket, S3 Files doesn't apply these permissions. To change the directory's owner or permissions, see [Setting POSIX metadata on a directory](s3-files-posix-permissions.md#s3-files-posix-permissions-directories).
 **Note**  
 If you don't specify any root directory ownership and permissions, and the root directory does not already exist, S3 Files will not create the root directory. Any attempts to mount the file system by using the access point will fail.
    + **Owner user ID** – Enter the numeric POSIX user ID to use as the root directory owner.

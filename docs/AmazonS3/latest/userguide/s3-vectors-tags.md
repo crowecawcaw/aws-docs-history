@@ -83,7 +83,7 @@ In this vector bucket policy, IAM principals (users and roles) can perform opera
         "AWS": "{{111122223333}}"
       },
       "Action": "s3vectors:PutVectorBucketPolicy",
-      "Resource": "arn:aws::s3vectors:{{us-west-2}}:{{111122223333}}:bucket/{{amzn-s3-demo-vector-bucket}}",
+      "Resource": "arn:aws:s3vectors:{{us-west-2}}:{{111122223333}}:bucket/{{amzn-s3-demo-vector-bucket}}",
       "Condition": {
         "StringEquals": {
           "aws:ResourceTag/{{project}}": "${aws:PrincipalTag/{{project}}}"
@@ -109,7 +109,7 @@ In this IAM policy, IAM principals (users or roles) can modify tags on a vector 
       "Action": [
         "s3vectors:TagResource"
       ],
-      "Resource": "arn:aws::s3vectors:{{us-west-2}}:{{111122223333}}:bucket/*",
+      "Resource": "arn:aws:s3vectors:{{us-west-2}}:{{111122223333}}:bucket/*",
       "Condition": {
         "StringEquals": {
           "aws:ResourceTag/{{project}}": "${aws:PrincipalTag/{{project}}}"
@@ -141,7 +141,7 @@ In this IAM policy, the condition statement allows access to the vector bucket's
       "Sid": "AllowAccessToTaggedBucket",
       "Effect": "Allow",
       "Action": "*",
-      "Resource": "arn:aws::s3vectors:{{us-west-2}}:{{111122223333}}:bucket/*",
+      "Resource": "arn:aws:s3vectors:{{us-west-2}}:{{111122223333}}:bucket/*",
       "Condition": {
         "StringEquals": {
           "s3vectors:VectorBucketTag/{{Environment}}": "{{Production}}"

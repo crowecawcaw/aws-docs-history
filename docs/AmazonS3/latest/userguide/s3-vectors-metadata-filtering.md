@@ -7,12 +7,20 @@ Metadata filtering allows you to filter query results based on specific attribut
 
 S3 Vectors supports two types of metadata: filterable metadata and non-filterable metadata. The key difference is that filterable metadata can be used in query filters but has stricter size limitations, while non-filterable metadata can't be used in filters but can store larger amounts of data within its size limits. For more information about metadata limits, including size limits per vector and maximum metadata keys per vector, see [Limitations and restrictions](s3-vectors-limitations.md).
 
-S3 Vectors performs vector search and filter evaluation in tandem. S3 Vectors searches through candidate vectors in the index to find the top K similar vectors while simultaneously validating if each candidate vector matches your metadata filter conditions. For example, if you search for similar movie embeddings and you filter by genre='mystery', S3 Vectors only returns similar movie embeddings where the genre metadata matches 'mystery'. In contrast to applying the metadata filter after the vector search, this filtering approach is more likely to find matching results. Note: queries with filters may return fewer than top K results when the vector index contains very few matching results.
+S3 Vectors evaluates your metadata filter before it runs vector search, a technique known as pre-filtering. S3 Vectors first identifies the vectors that match your filter, then only searches those vectors for the most similar ones, ensuring high recall even when filters match a small fraction of vectors. For example, if you search for similar movie embeddings and you filter by genre='mystery', S3 Vectors first identifies the vectors where the genre metadata is 'mystery', then only searches those for the closest matches to your query vector.
+
+Pre-filtering applies to vector indexes whose index mode is `ENHANCED`. Vector buckets created on or after September 30, 2026 create `ENHANCED` indexes. In a vector bucket created before that date, indexes have the index mode `CLASSIC`.
+
+S3 Vectors performs vector search and filter evaluation in tandem on a vector index whose index mode is `CLASSIC`. S3 Vectors searches through candidate vectors in the index to find the top K similar vectors while simultaneously validating if each candidate vector matches your metadata filter conditions. On a `CLASSIC` index, queries with filters may return fewer than top K results when the vector index contains very few matching results.
+
+To move an existing index to `ENHANCED`, see [Changing a vector index's mode](s3-vectors-index-mode.md).
 
 **Topics**
 + [Filterable metadata](#s3-vectors-metadata-filtering-filterable)
++ [Filter constraints per query](#s3-vectors-metadata-filtering-constraints)
 + [Examples of valid filterable metadata](#s3-vectors-metadata-filtering-examples)
 + [Non-filterable metadata](#s3-vectors-metadata-filtering-non-filterable)
++ [Query performance with filters](#s3-vectors-metadata-filtering-performance)
 
 ## Filterable metadata
 <a name="s3-vectors-metadata-filtering-filterable"></a>
@@ -32,11 +40,21 @@ The following operations can be used with filterable metadata.
 | $gte | Number | Greater than or equal comparison | 
 | $lt | Number | Less than comparison | 
 | $lte | Number | Less than or equal comparison | 
+| $startsWith | String | Prefix match. Matches values that begin with the specified string. | 
 | $in | Non-empty array of primitives | Match any value in array | 
 | $nin | Non-empty array of primitives | Match none of the values in array | 
 | $exists | Boolean | Check if field exists | 
 | $and | Non-empty array of filters | Logical AND of multiple conditions | 
 | $or | Non-empty array of filters | Logical OR of multiple conditions | 
+
+`$startsWith` requires `ENHANCED` query behavior. It is available on a vector index whose index mode is `ENHANCED`, and on a `CLASSIC` index when the request sets `queryMode` to `ENHANCED`.
+
+## Filter constraints per query
+<a name="s3-vectors-metadata-filtering-constraints"></a>
+
+On a vector index whose index mode is `ENHANCED`, a single query filter can use up to 100 filter constraints. Each value the filter evaluates counts as one constraint: `{"category": "electronics"}` is one, `{"region": {"$in": ["us-east-1", "us-west-2", "eu-west-1"]}}` is three, and `{"$and": [{"category": "electronics"}, {"price": {"$lte": 500}}]}` is two. This limit only applies to `ENHANCED` indexes.
+
+Typical filtered queries are well within 100 constraints. For guidance on writing filters that stay within the limit, see [S3 Vectors best practices](s3-vectors-best-practices.md).
 
 ## Examples of valid filterable metadata
 <a name="s3-vectors-metadata-filtering-examples"></a>
@@ -77,6 +95,13 @@ This filter matches vectors where the genre metadata key equals "documentary". W
 ```
 {"year": {"$lte": 2020}}
 ```
+
+**Prefix match**  
+
+```
+{"s3_path": {"$startsWith": "/marketing/"}}
+```
+This filter matches vectors whose s3\_path metadata begins with "/marketing/". Useful for hierarchical paths and URL prefixes.
 
 **Array operations**  
 
@@ -126,3 +151,10 @@ While you can't filter on non-filterable metadata, you can retrieve it alongside
 + Include it in vector exports by using the [ListVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_ListVectors.html) API operation.
 
 For more information about configuring non-filterable metadata, see [Creating a vector index in a vector bucket](s3-vectors-create-index.md).
+
+## Query performance with filters
+<a name="s3-vectors-metadata-filtering-performance"></a>
+
+Because an `ENHANCED` index evaluates your filter before it searches, the work a filtered query does depends on the filter you send. Three things increase that work, and with it the query's latency: a larger vector index, a filter that matches a larger share of the vectors in the index, and a filter with more constraints.
+
+Because actual performance varies with your dataset size, dimensions, and filters, we recommend testing with representative data and queries. For guidance on writing filters, see [S3 Vectors best practices](s3-vectors-best-practices.md).

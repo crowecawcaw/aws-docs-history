@@ -12,7 +12,7 @@ You can view detailed information about a vector bucket, including its propertie
 
 1. In the navigation pane, choose **Vector buckets**.
 
-1. The console displays a list of all your vector buckets. Find a bucket based on the start of the bucket name, enter a vector bucket name or prefix in the search box above the bucket list. Once you locate your vector bucket, you can view detailed information about it, including its encryption settings, tags, and creation details in the **Properties** tab.
+1. The console displays a list of all your vector buckets. Find a bucket based on the start of the bucket name, enter a vector bucket name or prefix in the search box above the bucket list. Once you locate your vector bucket, you can view detailed information about it, including its encryption settings, tags, default index mode for new vector indexes, and creation details in the **Properties** tab.
 
 ## Using the AWS CLI
 <a name="cli-procedure"></a>

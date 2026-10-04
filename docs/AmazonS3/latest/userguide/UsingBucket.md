@@ -14,7 +14,7 @@ The following sections provide more information about general purpose buckets, i
 + [Common general purpose bucket patterns](#bucket-patterns-overview)
 + [Permissions](#about-access-permissions-create-bucket)
 + [Managing public access to general purpose buckets](#block-public-access-intro)
-+ [Managing public access to general purpose buckets](#bucket-tagging-intro)
++ [Managing tags for general purpose buckets](#bucket-tagging-intro)
 + [General purpose buckets configuration options](#bucket-config-options-intro)
 + [General purpose buckets operations](#bucket-operations-limits)
 + [General purpose buckets performance monitoring](#bucket-monitoring-use-cases)
@@ -84,7 +84,7 @@ s3:ListAllMyBuckets
 ```
 In some rare cases, requests can also fail because of an AWS Region outage.
 
-## Managing public access to general purpose buckets
+## Managing tags for general purpose buckets
 <a name="bucket-tagging-intro"></a>
 
 You can add tags to your Amazon S3 buckets to categorize and track your AWS costs or for access control. You can use tags as cost allocation tags to track storage costs in AWS Billing and Cost Management. You can also use tags for attribute-based access control (ABAC), to scale access permissions and grant access to S3 buckets based on their tags.

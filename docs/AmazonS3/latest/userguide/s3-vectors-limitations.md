@@ -19,6 +19,7 @@ Amazon S3 Vectors has certain limitations and restrictions that you should be aw
 + Vectors per [DeleteVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_DeleteVectors.html) API call: Up to 500
 + Vectors per [GetVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_GetVectors.html) API call: Up to 100
 + Top-K results per [QueryVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_QueryVectors.html) request: Up to 10,000
++ Filter constraints per [QueryVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_QueryVectors.html) request on an `ENHANCED` index: Up to 100
 + Results per page in a [QueryVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_QueryVectors.html) response: Up to 100
 + Vectors listed per page in a [ListVectors](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_ListVectors.html) response: Up to 1,000
 + Vector buckets listed per page in a [ListVectorBuckets](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_ListVectorBuckets.html) response: Up to 500.

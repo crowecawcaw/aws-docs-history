@@ -23,34 +23,7 @@
 
 Remember that Multi-Region Access Points work by routing requests to buckets, not by fulfilling requests themselves. This is important to remember because the originator of the request must have permissions to the Multi-Region Access Point and be allowed to access the individual buckets in the Multi-Region Access Point. Otherwise, the request might be routed to a bucket where the originator doesn't have permissions to fulfill the request. A Multi-Region Access Point and the buckets associated can be owned by the same or another AWS account. However, VPCs from different accounts can use a Multi-Region Access Point if the permissions are configured correctly. 
 
-Because of this, the VPC endpoint policy must allow access both to the Multi-Region Access Point and to each underlying bucket that you want to be able to fulfill requests. For example, suppose that you have a Multi-Region Access Point with the alias `mfzwi23gnjvgw.mrap`. It is backed by buckets `amzn-s3-demo-bucket1` and `amzn-s3-demo-bucket2`, all owned by AWS account `123456789012`. In this case, the following VPC endpoint policy would allow `GetObject` requests from the VPC made to `mfzwi23gnjvgw.mrap` to be fulfilled by either backing bucket. 
-
-------
-#### [ JSON ]
-
-****  
-
-```
-{
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-    {
-        "Sid": "Read-buckets-and-MRAP-VPCE-policy",
-        "Principal": "*",
-        "Action": [
-            "s3:GetObject"
-        ],
-        "Effect": "Allow",
-        "Resource": [
-            "arn:aws:s3:::amzn-s3-demo-bucket1/*",
-            "arn:aws:s3:::amzn-s3-demo-bucket2/*",
-            "arn:aws:s3::111122223333:accesspoint/mfzwi23gnjvgw.mrap/object/*"
-        ]
-    }]
-}
-```
-
-------
+Because of this, the VPC endpoint policy must allow access both to the Multi-Region Access Point and to each underlying bucket that you want to be able to fulfill requests.
 
 As mentioned previously, you also must make sure that the Multi-Region Access Point policy is configured to support access through a VPC endpoint. You don't need to specify the VPC endpoint that is requesting access. The following sample policy would grant access to any requester trying to use the Multi-Region Access Point for the `GetObject` requests. 
 

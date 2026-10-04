@@ -42,7 +42,7 @@ S3 Tables supports these compaction strategies for tables:
 + **Z-order**
   + Optimizes data organization by blending multiple attributes into a single scalar value that can be used for sorting, allowing efficient querying across multiple dimensions. This strategy is recommended when you need to query data across multiple dimensions simultaneously. This strategy requires you to define a sort order in your Iceberg table properties using the `sort_order` table property.
 
-Compaction will incur additional costs. The `z-order` and `sort` compaction strategies may incur a higher cost than `binpack`. For more information, see the pricing information in the .[Amazon S3 pricing](https://aws.amazon.com/s3/pricing/).
+Compaction will incur additional costs. The `z-order` and `sort` compaction strategies may incur a higher cost than `binpack`. For more information, see the pricing information in the [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/).
 
 ### Compaction Examples
 <a name="tables-compaction-examples"></a>

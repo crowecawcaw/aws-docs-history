@@ -22,7 +22,7 @@ This policy demonstrates how to grant specific permissions to users from differe
             "Sid": "CrossAccountBucketAccess",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam:{{123456789012}}:role/Admin"
+                "AWS": "arn:aws:iam::{{123456789012}}:role/Admin"
             },
             "Action": [
                 "s3vectors:CreateIndex",
@@ -53,7 +53,7 @@ This policy demonstrates how to deny specific vector index level actions to an I
             "Sid": "DenyIndexLevelActions",
             "Effect": "Deny",
             "Principal": {
-                "AWS": "arn:aws:iam:{{123456789012}}:role/{{External-Role-Name}}"
+                "AWS": "arn:aws:iam::{{123456789012}}:role/{{External-Role-Name}}"
             },
             "Action": [
                 "s3vectors:QueryVectors",
@@ -84,7 +84,7 @@ This policy demonstrates how to deny modification requests for both vector index
             "Sid": "DenyModificationActionsAtBucketandIndexLevels",
             "Effect": "Deny",
             "Principal": {
-                "AWS": "arn:aws:iam:{{123456789012}}:role/{{External-Role-Name}}"
+                "AWS": "arn:aws:iam::{{123456789012}}:role/{{External-Role-Name}}"
             },
             "Action": [
                 "s3vectors:CreateVectorBucket",

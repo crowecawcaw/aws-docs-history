@@ -31,12 +31,16 @@ The following considerations apply to snapshot management. For more information 
 + Snapshots will be preserved only when both criteria are satisfied: the minimum number of snapshots to keep and the specified retention period.
 + Snapshot management deletes expired snapshot metadata from Apache Iceberg, preventing time travel queries for expired snapshots and optionally deleting associated data files.
 + Snapshot management does not support retention values you configure as Iceberg table properties in the `metadata.json` file or through an `ALTER TABLE SET TBLPROPERTIES` SQL command, including branch or tag-based retention. Snapshot management is disabled when you configure a branch or tag-based retention policy, or configure a retention policy on the `metadata.json` file that is longer than the values configured through the `PutTableMaintenanceConfiguration` API. In these cases S3 will not expire or remove snapshots and you will need to manually delete snapshots or remove the properties from your Iceberg table to avoid storage charges.
++ Snapshot expiration does not use `unreferencedDays` (a setting for unreferenced file removal) or evaluate an object's creation time. When snapshot expiration removes the last snapshot reference to an object, Amazon S3 immediately marks the object as noncurrent, regardless of its age. Amazon S3 permanently deletes the object after the configured `nonCurrentDays` period.
 
 ## Considerations for unreferenced file removal
 <a name="s3-tables-unreferenced-file-removal-considerations"></a>
 
 The following considerations apply to unreferenced file removal. For more information about unreferenced file removal, see [Maintenance for table buckets](s3-table-buckets-maintenance.md).
 + Unreferenced file removal deletes data and metadata files that are no longer referenced by Iceberg metadata if their creation time is before the retention period.
++ **Delayed commits** – Workloads such as high-throughput streaming pipelines can create data objects before a commit adds references to those objects in a table snapshot. Configure `unreferencedDays` to be longer than the maximum expected time between object creation and successful commit completion, including processing delays and retries.
+
+  If an object reaches the configured `unreferencedDays` age before its commit completes, Amazon S3 marks the object as noncurrent because no snapshot references it yet. If a later commit then references that object, queries and maintenance operations that read it fail. Amazon S3 permanently deletes the noncurrent object after the configured `nonCurrentDays` period, and the object cannot be recovered.
 
 ## S3 table and table buckets maintenance operations limits and related APIs
 <a name="s3-tables-maintenance-limits"></a>

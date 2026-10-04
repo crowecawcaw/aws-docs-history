@@ -15,7 +15,7 @@ arn:aws:s3tables:{{Region}}:{{OwnerAccountID}}:bucket/{{bucket-name}}
 
 All table buckets and tables are private and can't be made public. These resources can only be accessed by users who are explicitly granted access. To grant access, you can use IAM resource-based policies for table buckets and tables, and IAM identity-based policies for users and roles.
 
-By default, you can create up to 10 table buckets per AWS Region in an AWS account. To request a quota increase for table buckets or tables, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase).
+By default, you can create up to 100 table buckets per AWS Region in an AWS account. To request a quota increase for table buckets or tables, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase).
 
 ## Types of table buckets
 <a name="s3-tables-buckets-types"></a>

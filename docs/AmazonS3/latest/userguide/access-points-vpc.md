@@ -51,36 +51,6 @@ To use an access point with a VPC, you must modify the access policy for your VP
 **Note**  
 To make resources accessible only within a VPC, make sure to create a [private hosted zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-creating.html) for your VPC endpoint. To use a private hosted zone, [modify your VPC settings](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-updating) so that the [VPC network attributes](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-dns.html#vpc-dns-support) `enableDnsHostnames` and `enableDnsSupport` are set to `true`.
 
-The following example policy statement configures a VPC endpoint to allow calls to `GetObject` for a bucket named `awsexamplebucket1` and an access point named `example-vpc-ap`.
-
-------
-#### [ JSON ]
-
-****  
-
-```
-{
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-    {
-        "Principal": "*",
-        "Action": [
-            "s3:GetObject"
-        ],
-        "Effect": "Allow",
-        "Resource": [
-            "arn:aws:s3:::awsexamplebucket1/*",
-            "arn:aws:s3:us-west-2:123456789012:accesspoint/example-vpc-ap/object/*"
-        ]
-    }]
-}
-```
-
-------
-
-**Note**  
-The `"Resource"` declaration in this example uses an Amazon Resource Name (ARN) to specify the access point. For more information about access point ARNs, see [Referencing access points with ARNs, access point aliases, or virtual-hosted–style URIs](access-points-naming.md). 
-
 For more information about VPC endpoint policies, see [Using endpoint policies for Amazon S3](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-s3.html#vpc-endpoints-policies-s3) in the *VPC User Guide*.
 
 For a tutorial on creating access points with VPC endpoints, see [Managing Amazon S3 access with VPC endpoints and access points](https://aws.amazon.com/blogs/storage/managing-amazon-s3-access-with-vpc-endpoints-and-s3-access-points/).

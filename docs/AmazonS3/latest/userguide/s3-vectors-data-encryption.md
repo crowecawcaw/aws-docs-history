@@ -79,8 +79,8 @@ To use a customer managed KMS key with S3 Vectors, you must update your key poli
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam:{{123456789012}}:role/VectorApplicationRole",
-                    "arn:aws:iam:{{123456789012}}:user/DataScientist"
+                    "arn:aws:iam::{{123456789012}}:role/VectorApplicationRole",
+                    "arn:aws:iam::{{123456789012}}:user/DataScientist"
                 ]
             },
             "Action": [

@@ -23,7 +23,9 @@ To use an Object Lambda Access Point with the AWS CLI or AWS SDKs, you need to k
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-1. In the left navigation pane, choose **Object Lambda Access Points**.
+1. In the left navigation pane, under **Access management and security**, choose **Access Points**.
+
+1. Choose the **Object Lambda** tab.
 
 1. Choose the option button next to the Object Lambda Access Point whose ARN you want to copy.
 
@@ -84,7 +86,9 @@ When you delete an Object Lambda Access Point, the Object Lambda Access Point al
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/).
 
-1. In the left navigation pane, choose **Object Lambda Access Points**.
+1. In the left navigation pane, under **Access management and security**, choose **Access Points**.
+
+1. Choose the **Object Lambda** tab.
 
 1. For the Object Lambda Access Point that you want to use, copy the **Object Lambda Access Point alias** value.
 

@@ -11,7 +11,7 @@ Table buckets have the following Amazon Resource Name (ARN) format:
 arn:aws:s3tables:{{region}}:{{owner-account-id}}:bucket/{{bucket-name}}
 ```
 
-By default, you can create up to 10 table buckets per Region in an AWS account. To request a quota increase for table buckets or tables, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase).
+By default, you can create up to 100 table buckets per Region in an AWS account. To request a quota increase for table buckets or tables, contact [Support](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase).
 
 When you create a table bucket you can specify the encryption type for that will be used to encrypt the tables you create in that bucket. For more information about bucket encryption options, see [Protecting S3 table data with encryption](s3-tables-encryption.md).
 

@@ -64,34 +64,7 @@ In this IAM policy, users or roles with this policy can only create access point
 }
 ```
 
-#### 1.2 - Access Point policy to restrict operations on the access point using tags
-<a name="example-access-points-user-policy-resource-tag"></a>
-
-In this Access Point policy, IAM principals (users and roles) can perform operations using the `GetObject` action on the access point only if the value of the access point's `project` tag matches the value of the principal's `project` tag.
-
-```
-{
-  "Version": "2012-10-17",		 	 	 
-  "Statement": [
-    {
-      "Sid": "AllowObjectOperations",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "{{111122223333}}"
-      },
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws::s3:{{region}}:{{111122223333}}:accesspoint/{{{{my-access-point}}}}",
-      "Condition": {
-        "StringEquals": {
-          "aws:ResourceTag/project": "${aws:PrincipalTag/project}"
-        }
-      }
-    }
-  ]
-}
-```
-
-#### 1.3 - IAM policy to modify tags on existing resources maintaining tagging governence
+#### 1.2 - IAM policy to modify tags on existing resources maintaining tagging governence
 <a name="example-access-points-user-policy-tag-keys"></a>
 
 In this IAM policy, IAM principals (users or roles) can modify tags on an access point only if the value of the access point's `project` tag matches the value of the principal's `project` tag. Only the four tags `project`, `environment`, `owner`, and `cost-center` specified in the `aws:TagKeys` condition keys are permitted for these access points. This helps enforce tag governance, prevents unauthorized tag modifications, and keeps the tagging schema consistent across your access points.
@@ -125,7 +98,7 @@ In this IAM policy, IAM principals (users or roles) can modify tags on an access
 }
 ```
 
-#### 1.4 - Using the s3:AccessPointTag condition key
+#### 1.3 - Using the s3:AccessPointTag condition key
 <a name="example-access-points-policy-bucket-tag"></a>
 
 In this IAM policy, the condition statement allows access to the bucket's data if the access point has the tag key `Environment` and tag value `Production`. 
@@ -149,31 +122,12 @@ In this IAM policy, the condition statement allows access to the bucket's data i
 }
 ```
 
-#### 1.5 - Using a bucket delegate policy
+#### 1.4 - Using a bucket delegate policy
 <a name="example-access-points-policy-delegate"></a>
 
 In Amazon S3, you can delegate access to or control of your S3 bucket policy to another AWS account or to a specific AWS Identity and Access Management (IAM) user or role in the other account. The delegate bucket policy grants this other account, user, or role permission to your bucket and its objects. For more information, see [Permission delegation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html#permission-delegation). 
 
-If using a delegate bucket policy, such as the following: 
-
-```
-{
-  "Version": "2012-10-17",		 	 	 
-    "Statement": {
-      "Principal": {"AWS": "*"},
-        "Effect": "Allow",
-        "Action": ["s3:*"],
-        "Resource":["arn:aws::s3:::{{{{amzn-s3-demo-bucket}}}}/*", "arn:aws::s3:::{{amzn-s3-demo-bucket}}"],
-           "Condition": {
-             "StringEquals" : {
-                "s3:DataAccessPointAccount" : "111122223333"
-             }
-           }
-    }
-}
-```
-
-In the following IAM policy, the condition statement allows access to the bucket's data if the access point has the tag key `Environment` and tag value `Production`. 
+If you use a delegate bucket policy, you can use an IAM policy like the following. The condition statement allows access to the bucket\\'s data if the access point has the tag key `Environment` and tag value `Production`. 
 
 ```
 {

@@ -106,7 +106,7 @@ For more information, see [list-objects-v2](https://docs.aws.amazon.com/cli/late
 
 Understanding your storage class usage helps determine appropriate storage tiers in functionally equivalent systems. For more information, see [Understanding and managing Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) in the Amazon S3 User Guide.
 
-### To review setorage class selection and usage
+### To review storage class selection and usage
 <a name="s3-storage-classes-how"></a>
 
 You can use Amazon S3 Storage Lens to review your storage class selection and usage. For more information, see [Understanding and manage Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) in the Amazon S3 User Guide.

@@ -22,3 +22,20 @@ You can achieve multi-tenancy by organizing your vector data using a single vect
 
 **Configuring non-filterable metadata fields for vector indexes**  
 When creating a vector index, configure metadata fields that don't require filtering as non-filterable metadata keys. For example, store text chunks for vector embeddings as non-filterable metadata fields when you need them only for reference. For more information, see [Non-filterable metadata](s3-vectors-metadata-filtering.md#s3-vectors-metadata-filtering-non-filterable).
+
+**Choosing an index mode**  
+Use the `ENHANCED` index mode for workloads that filter on metadata. It applies your filter before the vector search, ensuring high recall even when filters match a small fraction of vectors, and it supports the `$startsWith` operator. Use `CLASSIC` only if your queries can neither be simplified to 100 or fewer filter constraints nor split across smaller queries; for both techniques, see Writing filters for lower latency. To run a single query with `ENHANCED` behavior without changing an index, set `queryMode` to `ENHANCED` on a `QueryVectors` request.
+
+**Writing filters for lower latency**  
+A filtered query's latency grows with the work its filter does: with the size of the vector index, with the share of the index your filter matches, and with the number of constraints the filter evaluates. To keep filtered queries fast, prefer selective filters and use the fewest constraints that express what you need.  
+When a query would otherwise filter on a long list of values, attach a single metadata key that captures the group those values belong to, and filter on that one key instead. Filtering on a list uses one constraint per value; the following uses 3 constraints:  
+
+```
+{"documentId": {"$in": ["doc-001", "doc-002", "doc-003"]}}
+```
+A user who can access 300 documents would need a 300-value list, which uses 300 constraints. Instead, attach a `caseId` to each vector when you write it, and filter on that single key, which uses one constraint:  
+
+```
+{"caseId": "case-4471"}
+```
+If a query cannot be simplified this way, you can split its filter across smaller queries, run them in parallel, and merge the results by distance. Set `returnDistance` to `true` on each query so that every result includes its distance to merge on. For queries that must match a large share of your index, you can also divide the vectors across multiple vector indexes so that each query filters less data.

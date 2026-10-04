@@ -27,12 +27,15 @@ For the latest version of the client catalog JAR, see the [s3-tables-catalog Git
 **Prerequisites**
 + Attach the `AmazonS3TablesFullAccess` policy to the IAM role you use for Amazon EMR.
 
+**Note**  
+Apache Iceberg V3 requires Amazon EMR release 7.12 or later. The variant data type requires Amazon EMR release 8.0 or later. The geometry, geography, unknown, and nanosecond-precision timestamp data types require Amazon EMR release 8.1 or later.
+
 **To set up an Amazon EMR cluster to query tables with Spark**
 
 1. Create a cluster with the following configuration. To use this example, replace the `{{user input placeholders}}` with your own information.
 
    ```
-   aws emr create-cluster --release-label emr-7.5.0 \
+   aws emr create-cluster --release-label emr-7.12.0 \
    --applications Name=Spark \
    --configurations file://configurations.json \
    --region {{us-east-1}} \
@@ -85,9 +88,11 @@ The following prerequisites are required to query tables with Spark on Amazon EM
 **To set up an Amazon EMR cluster to query tables with Spark**
 
 1. Create a cluster with the following configuration. To use this example, replace the `{{user input placeholder}}` values with your own information.
+**Note**  
+Apache Iceberg V3 requires Amazon EMR release 7.12 or later. The variant data type requires Amazon EMR release 8.0 or later. The geometry, geography, unknown, and nanosecond-precision timestamp data types require Amazon EMR release 8.1 or later.
 
    ```
-   aws emr create-cluster --release-label emr-7.5.0 \
+   aws emr create-cluster --release-label emr-7.12.0 \
    --applications Name=Spark \
    --configurations file://configurations.json \
    --region {{us-east-1}} \

@@ -49,56 +49,6 @@ You can use the following condition keys in the `Condition` element of a file sy
 | --- | --- | --- | 
 | s3files:AccessPointArn | ARN of the S3 Files access point to which the client is connecting. | String | 
 
-## File system policy examples
-<a name="s3-files-security-iam-policy-examples"></a>
-
-### Example: Grant read-only access
-<a name="s3-files-security-iam-policy-example-readonly"></a>
-
-The following file system policy grants only `ClientMount` (read-only) permissions to the `ReadOnly` IAM role. Replace {{111122223333}} with your AWS account ID.
-
-```
-{
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::{{111122223333}}:role/ReadOnly"
-            },
-            "Action": [
-                "s3files:ClientMount"
-            ]
-        }
-    ]
-}
-```
-
-### Example: Grant access to an S3 Files access point
-<a name="s3-files-security-iam-policy-example-accesspoint"></a>
-
-The following file system policy uses a condition element to grant a specific access point full access to the file system when mounting through the access point specified. Replace the access point ARN and account ID with your values. For more information, see [Creating access points for an S3 file system](s3-files-access-points-creating.md).
-
-```
-{
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::{{555555555555}}:role/S3FilesAccessPointFullAccess"
-            },
-            "Action": [
-                "s3files:Client*"
-            ],
-            "Condition": {
-                "StringEquals": {
-                    "s3files:AccessPointArn": "arn:{{partition}}:s3files:{{region}}:{{account-id}}:file-system/{{fs-1234567890}}/access-point/{{fsap-0987654321}}"
-                }
-            }
-        }
-    ]
-}
-```
-
 ## POSIX permissions
 <a name="s3-files-security-iam-posix"></a>
 
