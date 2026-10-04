@@ -1560,7 +1560,7 @@ An [Amazon Machine Image (AMI)](#AmazonMachineImage) attribute that allows users
 AWS Launch Wizard is a cloud solution that offers a guided way of sizing, configuring, and deploying AWS resources for third-party applications, such as Microsoft SQL Server Always On and HANA based SAP systems, without the need to manually identify and provision individual AWS resources.   
 See also [https://aws.amazon.com/launchwizard](https://aws.amazon.com/launchwizard/).
 
-**Amazon Lex**<a name="lex"></a>  
+**Amazon Lex V2**<a name="lex"></a>  
 Amazon Lex is a fully managed artificial intelligence (AI) service with advanced natural language models to design, build, test, and deploy conversational interfaces in applications.   
 See also [https://aws.amazon.com/lex/](https://aws.amazon.com/lex/).
 
