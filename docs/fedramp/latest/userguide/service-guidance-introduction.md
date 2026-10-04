@@ -25,3 +25,7 @@ The following AWS services have FedRAMP Rev5 RSC service guidance available:
 +  [Amazon Elastic Compute Cloud (EC2)](amazon-elastic-cloud-compute-ec2.md) 
 +  [Amazon Neptune](amazon-neptune.md) 
 +  [Amazon RDS](amazon-rds.md) 
++  [AWS CloudHSM](aws-cloudhsm.md) 
++  [AWS Directory Service](aws-directory-service.md) 
++  [AWS Identity and Access Management (IAM)](aws-identity-and-access-management-iam.md) 
++  [AWS Managed Services (AMS)](aws-managed-services-ams.md) 
