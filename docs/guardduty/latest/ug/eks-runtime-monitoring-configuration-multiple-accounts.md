@@ -10,7 +10,7 @@ In a multiple-account environments, only the delegated GuardDuty administrator a
 
 This section provides steps to configure EKS Runtime Monitoring and manage the GuardDuty security agent for the EKS clusters that belong to the delegated GuardDuty administrator account.
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters), you can choose a preferred approach and follow the steps as mentioned in the following table.
+Based on the approaches in [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md), you can choose a preferred approach and follow the steps as mentioned in the following table.
 
 
 |  **Preferred approach to manage GuardDuty security agent**  | **Steps** | 
@@ -25,7 +25,7 @@ Based on the [Approaches to manage GuardDuty security agent in Amazon EKS cluste
 
 This section includes steps to enable EKS Runtime Monitoring and manage security agent for all member accounts. This includes the delegated GuardDuty administrator account, existing member accounts, and the new accounts that join the organization.
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters), you can choose a preferred approach and follow the steps as mentioned in the following table.
+Based on the approaches in [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md), you can choose a preferred approach and follow the steps as mentioned in the following table.
 
 
 |  **Preferred approach to manage GuardDuty security agent**  | **Steps** | 
@@ -40,7 +40,7 @@ Based on the [Approaches to manage GuardDuty security agent in Amazon EKS cluste
 
 This section includes the steps to enable EKS Runtime Monitoring and manage GuardDuty security agent for existing active member accounts in your organization.
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters), you can choose a preferred approach and follow the steps as mentioned in the following table.
+Based on the approaches in [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md), you can choose a preferred approach and follow the steps as mentioned in the following table.
 
 
 |  **Preferred approach to manage GuardDuty security agent**  |  **Steps**  | 
@@ -55,7 +55,7 @@ Based on the [Approaches to manage GuardDuty security agent in Amazon EKS cluste
 
 The delegated GuardDuty administrator account can auto-enable EKS Runtime Monitoring and choose an approach for how to manage the GuardDuty security agent for new accounts that join your organization.
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters), you can choose a preferred approach and follow the steps as mentioned in the following table.
+Based on the approaches in [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md), you can choose a preferred approach and follow the steps as mentioned in the following table.
 
 
 |  **Preferred approach to manage GuardDuty security agent**  |  **Steps**  | 
@@ -70,7 +70,7 @@ Based on the [Approaches to manage GuardDuty security agent in Amazon EKS cluste
 
 This section includes the steps to configure EKS Runtime Monitoring and manage security agent for individual active member accounts.
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters), you can choose a preferred approach and follow the steps as mentioned in the following table.
+Based on the approaches in [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md), you can choose a preferred approach and follow the steps as mentioned in the following table.
 
 
 |  **Preferred approach to manage GuardDuty security agent**  |  **Steps**  | 

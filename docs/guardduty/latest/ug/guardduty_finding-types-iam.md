@@ -394,7 +394,7 @@ If this activity is unexpected, your credentials may be compromised. For more in
 This finding's default severity is High. However, if the API was invoked by an account affiliated with your AWS environment, the severity is Medium.
 + **Data source: **CloudTrail management events or CloudTrail data events for S3
 
-This finding informs you when your Amazon EC2 instance credentials are used to invoke APIs from an IP address or an Amazon VPC endpoint, that is owned by a different AWS account than the one that the associated Amazon EC2 instance is running in. VPC endpoint detection is only available for services that support network activity events for VPC endpoints. For information about services that support network activity events for VPC endpoints, see [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide*.
+This finding informs you when your Amazon EC2 instance credentials are used to invoke APIs from an IP address or a Amazon VPC endpoint, that is owned by a different AWS account than the one that the associated Amazon EC2 instance is running in. VPC endpoint detection is only available for services that support network activity events for VPC endpoints. For information about services that support network activity events for VPC endpoints, see [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide*.
 
 AWS does not recommend redistributing temporary credentials outside of the entity that created them (for example, AWS applications, Amazon EC2, or AWS Lambda). However, authorized users can export credentials from their Amazon EC2 instances to make legitimate API calls. If the `remoteAccountDetails.Affiliated` field is `True` the API was invoked from an account associated with the same administrator account. To rule out a potential attack and verify the legitimacy of the activity, contact the AWS account owner or IAM principal to whom these credentials are assigned.
 
@@ -475,7 +475,7 @@ If this activity is unexpected, your credentials may be compromised. For more in
 ## UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS
 <a name="unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws"></a>
 
-### Credentials that were created exclusively for an AWS Amazon ECS task are being used from another account within AWS
+### Credentials that were created exclusively for an AWS Amazon ECS task or AWS Lambda function are being used from another account within AWS
 <a name="unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws_description"></a>
 
 **Default severity: High\***
@@ -484,7 +484,7 @@ If this activity is unexpected, your credentials may be compromised. For more in
 This finding's default severity is High. However, if the API was invoked by an account affiliated with your AWS environment, the severity is Medium.
 + **Data source: **CloudTrail management events or CloudTrail data events for S3
 
-This finding informs you when your AWS Amazon ECS task credentials are used to invoke APIs from an IP address or an Amazon VPC endpoint, that is owned by a different AWS account than the one that the associated resource is running in. VPC endpoint detection is only available for services that support network activity events for VPC endpoints. For information about services that support network activity events for VPC endpoints, see [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide*.
+This finding informs you when your AWS Amazon ECS task credentials or AWS Lambda function credentials are used to invoke APIs from an IP address or a Amazon VPC endpoint, that is owned by a different AWS account than the one that the associated resource is running in. VPC endpoint detection is only available for services that support network activity events for VPC endpoints. For information about services that support network activity events for VPC endpoints, see [Logging network activity events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) in the *AWS CloudTrail User Guide*.
 
 AWS does not recommend redistributing temporary credentials outside of the entity that created them (for example, AWS applications, Amazon EC2, or Amazon Elastic Container Service). However, authorized users can export credentials from their resources to make legitimate API calls. If the `remoteAccountDetails.affiliated` field is `True` it means that the API was invoked from an account associated with the same administrator account. To rule out a potential attack and verify the legitimacy of the activity, contact the AWS account owner or IAM principal to whom these credentials are assigned.
 
@@ -496,7 +496,7 @@ For Amazon ECS tasks, credentials are associated with the task role and detectio
 
 **Remediation recommendations:**
 
-This finding gets generated when AWS API requests are made inside AWS through an resource outside of your AWS account, by using your AWS Amazon ECS task role. It may be customary, such as for Transit Gateway architecture in a [hub and spoke](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-vpc-solution.html) configuration, to route traffic through a single hub egress VPC with AWS service endpoints. If this is expected behavior, we recommend that you use [Suppression rules](findings_suppression-rule.md) with filter criteria finding type, which should be UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS.
+This finding gets generated when AWS API requests are made inside AWS through an resource outside of your AWS account, by using your AWS Amazon ECS task credentials or AWS Lambda function credentials. It may be customary, such as for Transit Gateway architecture in a [hub and spoke](https://docs.aws.amazon.com/whitepapers/latest/building-scalable-secure-multi-vpc-network-infrastructure/transit-vpc-solution.html) configuration, to route traffic through a single hub egress VPC with AWS service endpoints. If this is expected behavior, we recommend that you use [Suppression rules](findings_suppression-rule.md) with filter criteria finding type, which should be UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS.
 
 In response to this finding you can use the following workflow to determine a course of action:
 

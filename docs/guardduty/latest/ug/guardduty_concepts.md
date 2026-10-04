@@ -11,7 +11,7 @@ You can also invite other accounts to enable GuardDuty and become associated wit
 Users of the administrator account can configure GuardDuty as well as view and manage GuardDuty findings for their own account and all of their member accounts. For information about the number of member accounts that your administrator account can manage, see [GuardDuty quotas](guardduty_limits.md).  
 Users of member accounts can configure GuardDuty as well as view and manage GuardDuty findings in their account (either through the GuardDuty management console or GuardDuty API). Users of member accounts can't view or manage findings in other members' accounts.   
 An AWS account can't be a GuardDuty administrator account and member account at the same time. An AWS account can accept only one membership invitation. Accepting a membership invitation is optional.  
-For more information, see [Multiple accounts in Amazon GuardDuty](guardduty_accounts.md).
+For more information, see [Managing multiple accounts in Amazon GuardDuty](guardduty_accounts.md).
 
 **Attack sequence**  
 An attack sequence is a correlation of multiple events that, as observed by GuardDuty, happened in a specific sequence that matches the pattern of a suspicious activity. GuardDuty uses its [Extended Threat Detection](guardduty-extended-threat-detection.md) capability to detect these multi-stage attacks that span foundational data sources, AWS resources, and timeline, in your account.  

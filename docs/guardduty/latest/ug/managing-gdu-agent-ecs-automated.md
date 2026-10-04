@@ -7,7 +7,7 @@ Runtime Monitoring supports managing the security agent for your Amazon ECS clus
 
 Before proceeding with the steps in this section, make sure to follow [Prerequisites for AWS Fargate (Amazon ECS only) support](prereq-runtime-monitoring-ecs-support.md).
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon ECS-Fargate resources](how-runtime-monitoring-works-ecs-fargate.md#gdu-runtime-approaches-agent-deployment-ecs-clusters), choose a preferred method to enable GuardDuty automated agent for your resources.
+Based on the approaches in [Deploying the security agent to Amazon ECS on Fargate](how-runtime-monitoring-works-ecs-fargate.md), choose a preferred method to enable GuardDuty automated agent for your resources.
 
 **Topics**
 

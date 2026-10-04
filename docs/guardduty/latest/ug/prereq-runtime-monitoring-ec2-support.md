@@ -67,7 +67,7 @@ If your account is a member account, contact the associated delegated administra
 ## When using automated agent configuration
 <a name="runtime-ec2-prereq-automated-agent"></a>
 
-To [Use automated agent configuration (recommended)](how-runtime-monitoring-works-ec2.md#use-automated-agent-config-ec2), your AWS account must meet the following prerequisites:
+To [Automated agent configuration (recommended)](how-runtime-monitoring-works-ec2.md#use-automated-agent-config-ec2), your AWS account must meet the following prerequisites:
 + When using inclusion tags with automated agent configuration, for GuardDuty to create an SSM association for a new instance, make sure that the new instance is SSM managed and shows up under **Fleet Manager** in the [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/) console.
 + When using exclusion tags with automated agent configuration:
   + Add the `GuardDutyManaged`:`false` tag before configuring the GuardDuty automated agent for your account.

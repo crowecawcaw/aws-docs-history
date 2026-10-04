@@ -55,7 +55,7 @@ When you enable GuardDuty, it immediately starts analyzing VPC flow log data fro
 Lambda Protection is an optional enhancement to Amazon GuardDuty. Presently, Lambda Network Activity Monitoring includes Amazon VPC flow logs from all Lambda functions for your account, even those logs that don't use VPC networking. To protect your Lambda function from potential security threats, you will need to configure Lambda Protection in your GuardDuty account. For more information, see [Lambda Protection](lambda-protection.md).
 
 [GuardDuty Runtime Monitoring](runtime-monitoring.md)  
-When you manage the security agent (either manually or through GuardDuty) in EKS Runtime Monitoring or Runtime Monitoring for EC2 instances, and GuardDuty is presently deployed on an Amazon EC2 instance and receives the [Collected runtime event types](runtime-monitoring-collected-events.md) from this instance, GuardDuty will not charge your AWS account for the analysis of VPC flow logs from this Amazon EC2 instance. This helps GuardDuty avoid double usage cost in the account.
+When the GuardDuty security agent is deployed on an Amazon EC2 instance and receives runtime events from it, GuardDuty does not charge your AWS account for analyzing VPC flow logs from that instance. This avoids double usage costs.
 
 GuardDuty doesn't manage your flow logs or make them accessible in your account. To manage access to and retention of your flow logs, you must configure the VPC Flow Logs feature. 
 

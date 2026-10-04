@@ -70,7 +70,7 @@ The following table shows all of the active finding types, grouped by their sour
 | [Policy:IAMUser/RootCredentialUsage](guardduty_finding-types-iam.md#policy-iam-rootcredentialusage) | IAM | CloudTrail management events or CloudTrail data events for S3 | Low | 
 | [Policy:IAMUser/ShortTermRootCredentialUsage](guardduty_finding-types-iam.md#policy-iam-user-short-term-root-credential-usage) | IAM | CloudTrail management events or CloudTrail data events for S3 | Low | 
 | [UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS](guardduty_finding-types-iam.md#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws) | IAM | CloudTrail management events or CloudTrail data events for S3 | High | 
-| [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS](guardduty_finding-types-iam.md#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws) | IAM | CloudTrail management events | High | 
+| [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS](guardduty_finding-types-iam.md#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws) | IAM | CloudTrail management events or CloudTrail data events for S3 | High | 
 | [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.OutsideAWS](guardduty_finding-types-iam.md#unauthorizedaccess-iam-resourcecredentialexfiltrationoutsideaws) | IAM | CloudTrail management events or CloudTrail data events for S3 | High | 
 | [Impact:EC2/MaliciousDomainRequest.Custom](guardduty_finding-types-ec2.md#impact-ec2-maliciousdomainrequest-custom) | Amazon EC2 | DNS logs | Medium | 
 | [Backdoor:EC2/C&CActivity.B\!DNS](guardduty_finding-types-ec2.md#backdoor-ec2-ccactivitybdns) | Amazon EC2 | DNS logs | High | 

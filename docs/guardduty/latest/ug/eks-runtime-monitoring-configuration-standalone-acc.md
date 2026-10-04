@@ -9,7 +9,7 @@ If your account is associated with a GuardDuty administrator account through AWS
 
 After you enable Runtime Monitoring, ensure to install GuardDuty security agent through automated configuration or manual deployment. As a part of completing all the steps listed in the following procedure, make sure to install the security agent.
 
-Based on the [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters), you can choose a preferred approach and follow the steps as mentioned in the following table.
+Based on the approaches in [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md), you can choose a preferred approach and follow the steps as mentioned in the following table.
 
 
 |  **Preferred approach to manage GuardDuty security agent**  | **Steps** | 

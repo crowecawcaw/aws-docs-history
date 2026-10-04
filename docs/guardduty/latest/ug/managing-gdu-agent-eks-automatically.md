@@ -7,7 +7,7 @@ Runtime Monitoring supports enabling the security agent through GuardDuty automa
 
 Before proceeding, make sure that you have followed the [Prerequisites for Amazon EKS cluster support](prereq-runtime-monitoring-eks-support.md).
 
-Based on your preferred approach on how to [Manage security agent through GuardDuty](how-runtime-monitoring-works-eks.md#eks-runtime-using-gdu-agent-management-auto), choose the steps in the following sections accordingly.
+Based on your preferred approach on how to [Automated agent configuration (recommended)](how-runtime-monitoring-works-eks.md#eks-runtime-using-gdu-agent-management-auto), choose the steps in the following sections accordingly.
 
 ## Configuring Automated agent for multi-account environments
 <a name="eks-runtime-monitoring-agent-manage-multiple-account"></a>
@@ -46,7 +46,7 @@ It may take up to 24 hours to update the configuration for the member accounts.
 It may take up to 24 hours to update the configuration for the member accounts.
 
 **To manage GuardDuty security agent for existing active member accounts in your organization**
-+ For GuardDuty to receive the runtime events from the EKS clusters that belong to the existing active member accounts in the organization, you must choose a preferred approach to manage the GuardDuty security agent for these EKS clusters. For more information about each of these approaches, see [Approaches to manage GuardDuty security agent in Amazon EKS clusters](how-runtime-monitoring-works-eks.md#eksrunmon-approach-to-monitor-eks-clusters).
++ For GuardDuty to receive the runtime events from the EKS clusters that belong to the existing active member accounts in the organization, you must choose a preferred approach to manage the GuardDuty security agent for these EKS clusters. For more information about each of these approaches, see [Deploying the security agent to Amazon EKS](how-runtime-monitoring-works-eks.md).
 
 
 <table>

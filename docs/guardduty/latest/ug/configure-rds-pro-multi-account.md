@@ -3,7 +3,7 @@
 # Enabling RDS Protection in multiple-account environments
 <a name="configure-rds-pro-multi-account"></a>
 
-In a multiple-account environment, only the delegated GuardDuty administrator account has the option to enable or disable the RDS Protection feature for the member accounts in their organization. The GuardDuty member accounts can't modify this configuration from their accounts. The delegated GuardDuty administrator account manages their member accounts using AWS Organizations. This delegated GuardDuty administrator account can choose to auto-enable RDS login activity monitoring for all the new accounts as they join the organization. For more information about multiple-account environments, see [Multiple accounts in GuardDuty](guardduty_accounts.md).
+In a multiple-account environment, only the delegated GuardDuty administrator account has the option to enable or disable the RDS Protection feature for the member accounts in their organization. The GuardDuty member accounts can't modify this configuration from their accounts. The delegated GuardDuty administrator account manages their member accounts using AWS Organizations. This delegated GuardDuty administrator account can choose to auto-enable RDS login activity monitoring for all the new accounts as they join the organization. For more information about multiple-account environments, see [Managing multiple accounts](guardduty_accounts.md).
 
 ## Enabling RDS Protection for delegated GuardDuty administrator account
 <a name="configure-rds-pro-delegatedadmin"></a>

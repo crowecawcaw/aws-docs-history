@@ -23,7 +23,7 @@ If the previously listed scenarios apply to you, then GuardDuty will take the fo
 + For a shared VPC that has been used by at least one participant account, GuardDuty neither deletes the VPC endpoint nor the security group associated with the shared VPC resource.
 + For an Amazon EKS resource, GuardDuty deletes the security agent. This is independent of whether it was managed manually or through GuardDuty.
 
-  For an Amazon ECS resource, because an ECS task is immutable, GuardDuty can't uninstall the security agent from that resource. This is independent of how you manage the security agent – manually or automatically through GuardDuty. After you disable Runtime Monitoring, GuardDuty will not attach a sidecar container when a new ECS task starts running. For information about working with Fargate-ECS tasks, see [How Runtime Monitoring works with Fargate (Amazon ECS only)](how-runtime-monitoring-works-ecs-fargate.md).
+  For an Amazon ECS resource, because an ECS task is immutable, GuardDuty can't uninstall the security agent from that resource. This is independent of how you manage the security agent – manually or automatically through GuardDuty. After you disable Runtime Monitoring, GuardDuty will not attach a sidecar container when a new ECS task starts running. For information about working with Fargate-ECS tasks, see [Deploying the security agent to Amazon ECS on Fargate](how-runtime-monitoring-works-ecs-fargate.md).
 
   For an Amazon EC2 resource, GuardDuty uninstalls the security agent from all the Systems Manager (SSM) managed Amazon EC2 instances only when it meets the following conditions:
   + Your resource is **not** tagged with `GuardDutyManaged`:`false` exclusion tag.

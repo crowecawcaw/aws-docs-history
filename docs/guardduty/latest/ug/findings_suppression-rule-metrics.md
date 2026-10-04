@@ -10,7 +10,7 @@ GuardDuty emits FindingsMatchedByFilter when a finding matches a suppression rul
 
 GuardDuty publishes suppression rule metrics based on your account configuration:
 + For standalone accounts (not part of an organization), GuardDuty publishes metrics to that account.
-+ For accounts that are part of an organization, GuardDuty publishes metrics to the delegated GuardDuty administrator account. For more information about how administrator and member accounts work in GuardDuty, see [Multiple accounts in Amazon GuardDuty](guardduty_accounts.md).
++ For accounts that are part of an organization, GuardDuty publishes metrics to the delegated GuardDuty administrator account. For more information about how administrator and member accounts work in GuardDuty, see [Managing multiple accounts in Amazon GuardDuty](guardduty_accounts.md).
 
 ## Metric details
 <a name="suppression-rule-metric-details"></a>

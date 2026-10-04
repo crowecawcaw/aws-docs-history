@@ -61,7 +61,7 @@ Here are some of the key ways in which Amazon GuardDuty can help you monitor, de
 GuardDuty offers flexibility to use Malware Protection for S3 independently, without enabling the Amazon GuardDuty service. For more information about getting started with only Malware Protection for S3, see [GuardDuty Malware Protection for S3](gdu-malware-protection-s3.md). To use all other protection plans, you must enable the GuardDuty service.
 
 **Manage multiple-account environment**  
-You can manage a multiple-account AWS environment by using either AWS Organizations (recommended) or legacy invitation method. For more information, see [Multiple accounts in GuardDuty](guardduty_accounts.md).
+You can manage a multiple-account AWS environment by using either AWS Organizations (recommended) or legacy invitation method. For more information, see [Managing multiple accounts](guardduty_accounts.md).
 
 **Generates security findings for detected threats**  
 When GuardDuty detects potential security threats associated with your AWS resources, it starts generating security findings that provide information about the potentially compromised resource. After you enable GuardDuty in your account, generate [Sample findings](sample_findings.md) to view the associated [Finding details](guardduty_findings-summary.md). For a complete list of security findings, see [GuardDuty finding types](guardduty_finding-types-active.md).  

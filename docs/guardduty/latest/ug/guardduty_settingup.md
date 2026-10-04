@@ -82,7 +82,7 @@ If GuardDuty is not already enabled, designating a delegated administrator will 
 
  **To add member accounts** 
 
-This procedure covers adding members accounts to a GuardDuty delegated administrator account through AWS Organizations. There is also the option to add members by invitation. To learn more about both methods for associating members in GuardDuty, see [Multiple accounts in Amazon GuardDuty](guardduty_accounts.md).
+This procedure covers adding members accounts to a GuardDuty delegated administrator account through AWS Organizations. There is also the option to add members by invitation. To learn more about both methods for associating members in GuardDuty, see [Managing multiple accounts in Amazon GuardDuty](guardduty_accounts.md).
 
 1. Log in to the delegated administrator account
 
