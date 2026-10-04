@@ -61,9 +61,6 @@ Whether to reject connections if client doesn't provide a certificate. Boolean v
 `ssl_options.depth`  
 Maximum certificate chain depth for verification.
 
-`ssl_options.hostname_verification`  
-Hostname verification mode. Supported values: `wildcard`, `none`
-
 ### Unsupported SSL options
 <a name="ssl-unsupported-options"></a>
 

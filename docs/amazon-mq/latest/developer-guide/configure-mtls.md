@@ -41,9 +41,6 @@ Peer verification mode. Supported values: `verify_none`, `verify_peer`
 `management.ssl.depth`  
 Maximum certificate chain depth for verification.
 
-`management.ssl.hostname_verification`  
-Hostname verification mode. Supported values: `wildcard`, `none`
-
 The following SSL configuration values are not supported:
 
 ### View complete list

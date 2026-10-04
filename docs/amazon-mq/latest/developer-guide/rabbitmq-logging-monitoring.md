@@ -12,11 +12,16 @@ Starting with RabbitMQ 4.2, `RabbitMQIOReadAverageTime` and `RabbitMQIOWriteAver
 **Note**  
 The management plugin is [not recommended for production or long-term monitoring by open source RabbitMQ](https://www.rabbitmq.com/docs/management). We recommend using Prometheus to query per-node metrics from RabbitMQ 4.2 onwards.
 
+**Note**  
+The `FederationCount` and `FederationLinksCount` metrics are emitted only for brokers that use the RabbitMQ federation plugin. We recommend that you create a CloudWatch alarm on `FederationLinksCount` dropping to `0`, or below your expected baseline, to detect a loss of federation links.
+
 
 | Metric | Unit | Description | 
 | --- | --- | --- | 
 | ExchangeCount | Count | The total number of exchanges configured on the broker. | 
 | QueueCount | Count | The total number of queues configured on the broker. | 
+| FederationCount | Count | The total number of federation upstreams configured on the broker across all virtual hosts. | 
+| FederationLinksCount | Count | The total number of running federation links on the broker across all virtual hosts. A federation link is the connection that transfers messages for each combination of a federated exchange or queue and an upstream. As a result, this value can be greater than FederationCount. | 
 | ConnectionCount | Count | The total number of connections established on the broker. | 
 | ChannelCount | Count | The total number of channels established on the broker. The concept of channels is specific to AMQP 0-9-1.  | 
 | ConsumerCount | Count | The total number of consumers connected to the broker. | 
