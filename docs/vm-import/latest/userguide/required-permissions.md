@@ -17,6 +17,9 @@ Your users, groups, and roles need the following permissions in their IAM policy
 **Important**  
 VM Import/Export validates that you have `iam:PassRole` permission for the role specified in the `RoleName` parameter, or for the default `vmimport` role if none is specified. Ensure that your IAM policy grants `iam:PassRole` on the role ARN you intend to use. For more information, see [Grant a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*.
 
+**Important**  
+Certain condition keys will not work with `iam:PassRole` for VM Import/Export. Because VM Import/Export makes the request on your behalf, some properties of the initial request are not preserved. Some keys, such as `aws:SourceVpc`, `aws:SourceVpce`, and `aws:VpcSourceIp`, are not available and might cause your requests to fail. For more information, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
+
 **Note**  
 Some actions require the use of an Amazon Simple Storage Service (Amazon S3) bucket. This example policy does not grant permission to create S3 buckets. The user or role that you use will need to specify an existing bucket, or have permissions to create a new bucket with the `s3:CreateBucket` action.
 

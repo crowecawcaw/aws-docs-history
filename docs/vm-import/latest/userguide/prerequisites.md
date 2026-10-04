@@ -66,6 +66,7 @@ The following Linux/Unix operating systems are support by VM Import/Export.<a na
   - **Version:** 12.2 / **Kernel:** 6.1.0 / **Service pack:** -
   - **Version:** 12.4 / **Kernel:** 6.1.0 / **Service pack:** -
   - **Version:** 12.7 / **Kernel:** 6.1.0 / **Service pack:** -
+  - **Version:** 13.6 / **Kernel:** 6.12.0 / **Service pack:** -
 
 - **Fedora**
   - **Version:** 18 / **Kernel:** 3.2.5 / **Service pack:** -
