@@ -46,7 +46,7 @@ If a resource type does not have a checkmark in the Cross-Region backup or Cross
 | Amazon EFS | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ |  |  |  |  | 
 | FSx for Lustre | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  | 
 | FSx for Windows File Server | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓8 | ✓ |  |  |  |  | 
-| FSx for ONTAP | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ |  |  |  |  |  | 
+| FSx for ONTAP | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  | 
 | FSx for OpenZFS | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  |  |  | 
 | AWS Storage Gateway | ✓ | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ |  |  |  |  | 
 | Amazon DocumentDB | ✓ 3 | ✓ 3 |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  | 
