@@ -7,6 +7,7 @@ The following table describes the releases for Network Load Balancers.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Zonal shift for additional target group configurations](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/enable-zonal-shift.html) | You can now enable zonal shift on Network Load Balancers with cross-zone load balancing enabled when target groups have connection termination for unhealthy targets enabled, use the UDP protocol, or have an Application Load Balancer as a target. | September 24, 2026 | 
 | [Listener rules](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html) | This release adds support for listener rules on Network Load Balancers, enabling custom traffic routing based on source IP address type. You can route IPv4 and IPv6 traffic to separate target groups using a single dual-stack load balancer. | July 10, 2026 | 
 | [Weighted target groups](#doc-history) | This release adds support for default action with weighted target groups. | November 19, 2025 | 
 | [QUIC and TCP\_QUIC Protocol Support](#doc-history) | This release adds support for QUIC and TCP\_QUIC protocols. | November 13, 2025 | 

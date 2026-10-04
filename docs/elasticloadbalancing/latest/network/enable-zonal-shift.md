@@ -5,13 +5,8 @@
 
 Zonal shift is disabled by default and must be enabled on each Network Load Balancer. This ensures that you can start a zonal shift using only the specific Network Load Balancers that you want. For more information, see [Zonal shift for your Network Load Balancer](zonal-shift.md).
 
-**Prerequisites**
-
-If you enable cross-zone load balancing for the load balancer, every target group attached to the load balancer must meet the following requirements before you can enable zonal shift.
-+ The target group protocol must be `TCP` or `TLS`.
-+ The target group type must not be `alb`.
-+ [Connection termination for unhealthy targets](edit-target-group-attributes.md#unhealthy-target-connection-termination) must be disabled.
-+ The `load_balancing.cross_zone.enabled` target group attribute must be `true` or `use_load_balancer_configuration` (the default).
+**Prerequisite**  
+If you enable cross-zone load balancing for the load balancer, the `load_balancing.cross_zone.enabled` attribute of every target group attached to the load balancer must be `true` or `use_load_balancer_configuration` (the default) before you can enable zonal shift.
 
 ------
 #### [ Console ]
