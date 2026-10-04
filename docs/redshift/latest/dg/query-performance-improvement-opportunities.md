@@ -94,7 +94,7 @@ Spilling to disk slows the query that spills, because disk access is much slower
 + Give the query more memory by temporarily increasing its slot count if you use manual WLM (see [wlm\_query\_slot\_count](r_wlm_query_slot_count.md)).
 + Add nodes or move to a larger node type when spill is unavoidable at your data volume.
 
-**Monitor spill proactively.** If you use manual WLM on a provisioned cluster, create a query monitoring rule (QMR) on the `query_temp_blocks_to_disk` metric. This metric measures the temporary disk space used for intermediate results, in 1 MB blocks. Then choose an action:
+**Monitor spill proactively.** Create a query monitoring rule (QMR) on the `query_temp_blocks_to_disk` metric. This metric measures the temporary disk space used for intermediate results, in 1 MB blocks. Then choose an action:
 
 **log**  
 Records the query for review.

@@ -12,7 +12,7 @@ Autonomics improve query performances on your cluster and help manage storage co
 ## Managing extra compute resources for autonomics
 <a name="t_extra-compute-autonomics_enable"></a>
 
-By default, extra compute resources for autonomics are disabled for both provisioned clusters and serverless workgroups, with the exception of serverless workgroups with AI-driven scaling and optimization. For serverless workgroups with AI-driven scaling and optimization, extra compute resources for autonomics are always enabled and managed automatically depending on your price-performance profile.
+By default, extra compute resources for autonomics are disabled for both provisioned clusters and serverless workgroups, with the exception of serverless workgroups with AI-driven scaling and optimization. For serverless workgroups with AI-driven scaling and optimization, Amazon Redshift Serverless automatically enables and manages extra compute resources for autonomics, based on your price-performance profile.
 
 You can choose to enable extra compute resources both during or after creating the cluster or workgroup.
 
@@ -71,7 +71,7 @@ While creating a new workgroup, you can enable extra compute resources for auton
 + You will create a serverless workgroup with extra compute enabled.
 
 **Note**  
-The **Enable extra compute** option may not be available if you have selected a **Price-performance target**. This is because for serverless workgroups with AI-driven scaling and optimization, extra compute resources for autonomics are automatically enabled and managed based on your price-performance profile.
+The **Enable extra compute** option might not be available if you have selected a **Price-performance target**. This is because Amazon Redshift Serverless automatically enables and manages extra compute resources for autonomics in workgroups with AI-driven scaling and optimization, based on your price-performance profile.
 
 To enable extra compute resources after creating a workgroup:
 + Navigate to the workgroup in the Amazon Redshift Serverless console.
@@ -79,7 +79,7 @@ To enable extra compute resources after creating a workgroup:
 + Choose **Enable extra compute**.
 
 **Note**  
-The **Edit autonomics configuration** option may be grayed out if the workgroup has a **Price-performance target** set. This is because for serverless workgroups with AI-driven scaling and optimization, extra compute resources for autonomics are automatically enabled and managed based on your price-performance profile.
+The **Edit autonomics configuration** option might be grayed out if the workgroup has a **Price-performance target** set. This is because Amazon Redshift Serverless automatically enables and manages extra compute resources for autonomics in workgroups with AI-driven scaling and optimization, based on your price-performance profile.
 
 ### Managing extra compute autonomics for serverless workgroups using the AWS CLI
 <a name="t_extra-compute-autonomics_enable_serverless_cli"></a>

@@ -40,6 +40,8 @@ When you write a drop statement for a materialized view and a view with a matchi
 
 Dropping an Iceberg materialized view is a metadata-only operation. Amazon Redshift removes the table entry from the AWS Glue Data Catalog but does not delete the underlying data files or Iceberg metadata files in Amazon S3. You are responsible for removing orphaned files after dropping an Iceberg materialized view. To remove orphaned data and metadata files, use [Deleting orphan files](https://docs.aws.amazon.com/glue/latest/dg/orphan-file-deletion.html) in AWS Glue or table maintenance for Amazon S3 Table Buckets.
 
+The CASCADE option is not supported for Iceberg materialized views.
+
 ## Example
 <a name="mv_DROP_MATERIALIZED_VIEW-examples"></a>
 

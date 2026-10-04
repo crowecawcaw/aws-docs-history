@@ -9,6 +9,8 @@ Displays grants for a user, role, or object. The object can be a database, a sch
 
 If more than 10,000 rows would results from SHOW GRANTS, then the command raises an error.
 
+For a database in an Amazon Redshift warehouse with federated permissions, SHOW GRANTS also displays DEBUG permission grants, including grants to a global identity, grants to an IdC group, and grants to the administrators of a consumer account. For more information about the DEBUG permission, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
 ## Required permissions
 <a name="r_SHOW_GRANTS-permissions"></a>
 
@@ -101,6 +103,18 @@ SHOW GRANTS on database demo_db;
  demo_db       | UPDATE         |         112 | alice         | user          | f            | TABLES          | dbadmin
  demo_db       | DELETE         |         112 | alice         | user          | f            | TABLES          | dbadmin
  demo_db       | REFERENCES     |         112 | alice         | user          | f            | TABLES          | dbadmin
+```
+
+The following example shows the DEBUG permission grants on a database named `sales_db` in an Amazon Redshift warehouse with federated permissions. A grant to a global identity appears with an `identity_type` of `global_user`, a grant to an IdC group appears with an `identity_type` of `global_group`, and a grant to account administrators appears with an `identity_type` of `admins_of_account`.
+
+```
+SHOW GRANTS ON DATABASE sales_db;
+
+ database_name | privilege_type | identity_id | identity_name                        | identity_type     | admin_option | privilege_scope | grantor_name 
+---------------+----------------+-------------+--------------------------------------+-------------------+--------------+-----------------+--------------
+ sales_db      | DEBUG          |         145 | IAM:sales_auditor                    | global_user       | f            | DATABASE        | dbadmin
+ sales_db      | DEBUG          |         178 | myidc:audit_team                     | global_group      | f            | DATABASE        | dbadmin
+ sales_db      | DEBUG          |         203 | 123456789012                         | admins_of_account | f            | DATABASE        | dbadmin
 ```
 
 The following command shows all grants on a schema named `demo`.

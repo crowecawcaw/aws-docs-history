@@ -9,13 +9,6 @@ The following are considerations and limitations for sharing Amazon Redshift dat
 
 This feature is supported only with [ cluster versions 197 and onwards](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-197).
 
-**Unsupported Regions**
-+ Africa (Cape Town)
-+ Asia Pacific (Hyderabad)
-+ Europe (Milan)
-+ Europe (Spain)
-+ Middle East (UAE)
-
 **Environment Requirements**
 
 Both registered and consumer Redshift instances must meet these requirements:
@@ -68,6 +61,16 @@ Note: In current release of Redshift, metadata of FGAC related tables accessed o
 + IAM role associated with a user by using ALTER USER SET GLOBAL IDENTITY is only used when the query is against Redshift Warehouse with Federated Permissions and only when the query targets a relation, such as SELECT, UDPATE and DELETE queries.
 + Such IAM role is also used SHOW DATABASES, SHOW SCHEMAS and SHOW TABLES queries against resources in Redshift Warehouse with Federated Permissions.
 + Such IAM role is not used on data definition queries such as CREATE, ALTER and DROP.
+
+**Secure logging DEBUG permission**
++ The DEBUG permission can be granted only on a database in an Amazon Redshift warehouse with federated permissions, not on a local database or a database created from an AWS Lake Formation or AWS Glue Data Catalog catalog.
++ Only a superuser or the database owner can grant or revoke DEBUG.
++ DEBUG can be granted only to a global identity, an IdC group, or the administrators of a consumer account. It can't be granted to PUBLIC, to a local user, or to a local group.
++ For the ADMINS OF ACCOUNT grantee form, only the same account that owns the producer can be specified.
++ DEBUG isn't included in GRANT ALL ON DATABASE and must be granted explicitly. It can be granted on only one database per statement and can't be combined with other permissions in the same statement.
++ DEBUG is prospective only. Records generated while DEBUG was active remain visible for the lifetime of the log.
++ For a query that joins multiple databases with federated permissions, DEBUG must be granted on every database that contributes FGAC-protected data to the query. Otherwise, the records for the query remain redacted.
++ For more information, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
 
 **Error Message**
 + Any unsupported operations against database in Amazon Redshift Federated Permissions catalog will show following error:

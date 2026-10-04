@@ -54,7 +54,6 @@ Amazon Redshift performs incremental refresh when the materialized view definiti
 Incremental refresh is supported for materialized views that use:
 + `SELECT ... FROM ... WHERE ... GROUP BY` with COUNT and SUM aggregate functions
 + Inner joins between Iceberg source tables
-+ UNION ALL
 
 Amazon Redshift automatically falls back to full refresh when:
 + The materialized view uses SQL constructs not supported for incremental refresh. For more information, see the Limitations section that follows and [Refreshing a materialized view](materialized-view-refresh.md).
@@ -64,7 +63,7 @@ Amazon Redshift automatically falls back to full refresh when:
 ## Concurrent refresh
 <a name="materialized-view-iceberg-concurrent-refresh"></a>
 
-Multiple Amazon Redshift clusters or workgroups can attempt to refresh the same Iceberg materialized view concurrently. Amazon Redshift uses optimistic concurrency control (OCC) through the AWS Glue Data Catalog's conditional update mechanism to ensure that only one refresh succeeds. If a concurrent refresh is detected, Amazon Redshift checks whether the materialized view is still stale. If another cluster has already completed the refresh, the operation returns success without redoing work.
+Multiple Amazon Redshift clusters or workgroups can attempt to refresh the same Iceberg materialized view concurrently. Amazon Redshift uses optimistic concurrency control (OCC) through the AWS Glue Data Catalog's conditional update mechanism to ensure that only one refresh succeeds. If a concurrent refresh is detected, Amazon Redshift checks whether the materialized view is still stale. If another cluster has already completed the refresh, the operation aborts.
 
 ## Compaction and table maintenance
 <a name="materialized-view-iceberg-compaction"></a>
@@ -74,7 +73,6 @@ For Iceberg materialized views stored in Amazon S3 Table Buckets, Amazon S3 Tabl
 For materialized views stored in general-purpose Amazon S3 buckets (specified via the `LOCATION` parameter), Amazon Redshift doesn't perform compaction. Over time, incremental refresh produces many small data files that can degrade read performance. To maintain read performance, use the following recommended practices:
 + Run compaction regularly using an external tool such as Apache Spark's `rewrite_data_files` procedure.
 + Configure Iceberg snapshot expiration to limit storage growth from historical snapshots.
-+ Amazon Redshift recognizes compaction operations as maintenance activities and doesn't fall back to full refresh when compaction has occurred.
 
 For source tables, configure snapshot retention to exceed your expected refresh interval. When source table snapshots expire before the next refresh, Amazon Redshift can no longer compute an incremental delta and falls back to full refresh.
 
@@ -85,7 +83,7 @@ For source tables, configure snapshot retention to exceed your expected refresh 
 <a name="materialized-view-iceberg-permissions"></a>
 
 The following permissions are required:
-+ **CREATE** – The caller needs CREATE TABLE permission in the target AWS Glue database. The IAM role associated with the external schema (the MV definer role) must have SELECT permission via AWS Lake Formation on all source tables.
++ **CREATE** – The caller needs CREATE TABLE permission in the target AWS Glue database. The IAM role associated with the external schema (the MV definer role) must have SELECT permission on all source tables, granted via AWS Lake Formation or AWS Glue resource policies.
 + **REFRESH** – The caller needs ALTER permission on the materialized view. The MV definer role (recorded at create time) must have SELECT permission on all source tables.
 + **DROP** – The caller needs DROP permission on the materialized view.
 + **QUERY** – The caller needs SELECT permission on the materialized view, granted via AWS Lake Formation or AWS Glue resource policies.
@@ -142,13 +140,22 @@ Note that this system view only records refreshes performed by the local cluster
 ### Discovering Iceberg materialized views
 <a name="materialized-view-iceberg-discovering"></a>
 
-Use [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md) to find Iceberg materialized views in your external schemas:
+Use the [SHOW TABLES](r_SHOW_TABLES.md) command to find Iceberg materialized views. Iceberg materialized views appear with `table_type = 'EXTERNAL TABLE'` and `table_subtype = 'ICEBERG MATERIALIZED VIEW'`. SHOW TABLES works across all catalog paths (external schemas, `awsdatacatalog`, and Amazon S3 Tables).
+
+```
+SHOW TABLES FROM SCHEMA awsdatacatalog.mydb LIKE '%';
+```
+
+You can also use [SVV\_EXTERNAL\_TABLES](r_SVV_EXTERNAL_TABLES.md) to find Iceberg materialized views in your external schemas, where they appear with `tabletype = 'EXTERNAL TABLE'`:
 
 ```
 SELECT schemaname, tablename, location
 FROM svv_external_tables
-WHERE tabletype = 'MATERIALIZED VIEW';
+WHERE tabletype = 'EXTERNAL TABLE';
 ```
+
+**Note**  
+SVV\_EXTERNAL\_TABLES enumerates Iceberg materialized views only for external schemas. Iceberg materialized views accessed through `awsdatacatalog` or Amazon S3 Tables catalogs are not enumerated by SVV\_EXTERNAL\_TABLES; use SHOW TABLES to discover them.
 
 [STV\_MV\_INFO](r_STV_MV_INFO.md) doesn't include Iceberg materialized views.
 
@@ -170,7 +177,7 @@ The following SQL constructs are allowed in the materialized view definition but
 + Outer joins (LEFT, RIGHT, FULL)
 + Window functions
 + Subqueries
-+ Set operations other than UNION ALL (INTERSECT, EXCEPT)
++ Set operations
 + GROUPING SETS, ROLLUP, CUBE
 + Aggregate functions other than COUNT and SUM
 + COUNT(DISTINCT), SUM(DISTINCT)
@@ -178,6 +185,7 @@ The following SQL constructs are allowed in the materialized view definition but
 Additional limitations:
 + Automatic query rewriting to use materialized views is not supported for Iceberg materialized views.
 + Automated materialized views are not supported for Iceberg materialized views.
++ Autorefresh is not supported for Iceberg materialized views. You must refresh them manually using [REFRESH MATERIALIZED VIEW](materialized-view-refresh-sql-command.md).
 + Iceberg materialized views are supported only on Redshift Serverless and provisioned clusters with RG instance types. RA3 and DC2 instance types are not supported.
 + Fine-grained access control (FGAC) is not supported on Iceberg materialized views.
 + CASCADE refresh is not supported for Iceberg materialized views.

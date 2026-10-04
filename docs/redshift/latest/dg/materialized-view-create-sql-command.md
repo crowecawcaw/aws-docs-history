@@ -89,7 +89,7 @@ To create a materialized view, you must have the following privileges:
 ### Iceberg materialized views
 <a name="mv_CREATE_MATERIALIZED_VIEW_iceberg_usage"></a>
 
-To create an Iceberg materialized view, you must have CREATE TABLE permission in the target AWS Glue Data Catalog database. The IAM role associated with the external schema (the MV definer role) must have SELECT permission via AWS Lake Formation on all source tables referenced in the query.
+To create an Iceberg materialized view, you must have CREATE TABLE permission in the target AWS Glue Data Catalog database. The IAM role associated with the external schema (the MV definer role) must have SELECT permission on all source tables referenced in the query.
 
 All identifiers in the materialized view definition (table names, column names, aliases) must be lowercase. The AWS Glue Data Catalog stores identifiers in lowercase for Hive compatibility. Amazon Redshift rejects CREATE MATERIALIZED VIEW statements with USING ICEBERG that contain uppercase identifiers.
 
@@ -105,6 +105,7 @@ You can't use the following with Iceberg materialized views:
 + BACKUP clause
 + DISTSTYLE, DISTKEY, or SORTKEY clauses
 + References to Amazon Redshift native tables, temporary tables, or system tables
++ AUTO REFRESH (autorefresh is not supported; refresh Iceberg materialized views manually)
 
 For more information about Iceberg materialized view capabilities and limitations, see [Materialized views stored as Apache Iceberg tables](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-iceberg.html).
 

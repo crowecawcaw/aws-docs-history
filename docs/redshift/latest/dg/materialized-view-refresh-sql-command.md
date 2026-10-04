@@ -55,11 +55,9 @@ Some operations in Amazon Redshift interact with materialized views. Some of the
 
 For Iceberg materialized views created with USING ICEBERG, the following usage notes apply:
 + The caller must have ALTER permission on the materialized view. The MV definer role (the IAM role recorded at create time) must have SELECT permission on all source tables.
-+ Amazon Redshift determines whether the materialized view is stale by comparing the current Iceberg snapshot IDs of source tables against the snapshot IDs recorded at the last refresh. If all snapshot IDs match, Amazon Redshift returns "Materialized view is up to date" without further processing.
 + For incremental refresh, Amazon Redshift supports only COUNT and SUM aggregate functions. Materialized views using other aggregates (MIN, MAX, AVG) use full refresh.
-+ Multiple Amazon Redshift clusters can attempt to refresh the same Iceberg materialized view concurrently. Amazon Redshift uses optimistic concurrency control (OCC) through the AWS Glue Data Catalog to ensure that only one refresh succeeds. If another cluster completes the refresh first, the local operation returns success.
++ Multiple Amazon Redshift clusters can attempt to refresh the same Iceberg materialized view concurrently. Amazon Redshift uses optimistic concurrency control (OCC) through the AWS Glue Data Catalog to ensure that only one refresh succeeds. If another cluster completes the refresh first, the local operation aborts.
 + CASCADE and RESTRICT options are not supported for Iceberg materialized views.
-+ If metadata integrity validation detects that the materialized view was modified outside of Amazon Redshift, Amazon Redshift automatically performs a full refresh to restore consistency.
 
 The following operations on base tables force a full recomputation on the next refresh:
 + Source table snapshot expiration (when snapshots recorded at the last refresh are no longer available).
@@ -110,7 +108,7 @@ For more information about materialized-view limitations, including the effect o
 
 For Iceberg materialized views, Amazon Redshift doesn't support incremental refresh for materialized views defined with any of the following SQL elements:
 + OUTER JOIN (RIGHT, LEFT, or FULL)
-+ Set operations: INTERSECT, EXCEPT. UNION ALL is supported for incremental refresh.
++ Set operations: UNION, UNION ALL, INTERSECT, EXCEPT, MINUS.
 + Aggregate functions other than COUNT and SUM
 + DISTINCT aggregate functions, such as COUNT(DISTINCT) and SUM(DISTINCT)
 + Window functions

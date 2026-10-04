@@ -301,6 +301,19 @@ GRANT CONNECT [ON WORKGROUP]
 TO <prefix>:<username> | ROLE <prefix>:<rolename> | PUBLIC;
 ```
 
+### Granting the DEBUG permission
+<a name="grant-debug-syntax"></a>
+
+The following is the syntax for granting the DEBUG permission on a database in an Amazon Redshift warehouse with federated permissions. You can grant DEBUG to a global identity, to an IdC (AWS IAM Identity Center) group, or to the administrators of a consumer account. To begin using the DEBUG permission, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
+```
+GRANT DEBUG
+    ON DATABASE {{federated_db_name}}
+    TO { {{<prefix>:<name>}}
+       | ROLE {{<idc_prefix>:<group_name>}}
+       | ADMINS OF ACCOUNT '{{account_id}}' }
+```
+
 ## Parameters
 <a name="r_GRANT-parameters"></a>
 
@@ -399,6 +412,12 @@ By default, users are granted permission to create temporary tables by their aut
 
 ON DATABASE *db\_name*   <a name="grant-database"></a>
 Grants the specified permissions on a database.
+
+DEBUG   <a name="grant-debug"></a>
+Grants permission to see unredacted secure logging records for a database in an Amazon Redshift warehouse with federated permissions. By default, when a query accesses fine-grained access control (FGAC) protected data in such a database, Amazon Redshift masks sensitive values in the log records that are generated for that query. Granting DEBUG allows the specified grantee to see those log records without redaction. You can grant DEBUG only on a database in an Amazon Redshift warehouse with federated permissions, and only to a global identity, an IdC group, or the administrators of a consumer account. For more information about secure logging, see [Secure logging](https://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing-secure-logging.html) in the *Amazon Redshift Management Guide*; for usage notes, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
+ADMINS OF ACCOUNT '*account\_id*'   <a name="grant-admins-of-account"></a>
+For the DEBUG permission, grants the permission to all superusers on the specified consumer account. Records authorized this way are also unredacted when Amazon Redshift exports system table data to Amazon S3 Tables. This grantee form is supported only for the DEBUG permission, and the account that you specify must be the same account that owns the producer.
 
 USAGE   <a name="grant-usage"></a>
 Grants USAGE permission on a specific schema, which makes objects in that schema accessible to users. Specific actions on these objects must be granted separately (for example, SELECT or UPDATE permission on tables) for local Amazon Redshift schemas. By default, all users have CREATE and USAGE permission on the PUBLIC schema.   

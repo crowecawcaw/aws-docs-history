@@ -279,6 +279,19 @@ REVOKE SELECT ON [ TABLE ] table_name [, ...]
             FROM { RLS | MASKING } POLICY policy_name [, ...]
 ```
 
+### Revoking the DEBUG permission
+<a name="revoke-debug-syntax"></a>
+
+The following is the syntax for revoking the DEBUG permission on a database in an Amazon Redshift warehouse with federated permissions. Revoking DEBUG is prospective only: it prevents new log records from being generated with DEBUG access, but log records generated while DEBUG was active remain visible. For more information about the DEBUG permission, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
+```
+REVOKE DEBUG
+    ON DATABASE {{federated_db_name}}
+    FROM { {{<prefix>:<name>}}
+         | ROLE {{<idc_prefix>:<group_name>}}
+         | ADMINS OF ACCOUNT '{{account_id}}' }
+```
+
 ## Parameters
 <a name="r_REVOKE-parameters"></a>
 
@@ -366,6 +379,12 @@ By default, users are granted permission to create temporary tables by their aut
 
 ON DATABASE *db\_name*   
 Revokes the permissions on the specified database.
+
+DEBUG   
+Revokes permission to see unredacted secure logging records for a database in an Amazon Redshift warehouse with federated permissions. Revoking DEBUG is prospective only: it prevents new log records from being generated with DEBUG access, but records generated while DEBUG was active remain visible. For more information, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
+ADMINS OF ACCOUNT '*account\_id*'   
+For the DEBUG permission, revokes the permission from the administrators of the specified consumer account. This grantee form is supported only for the DEBUG permission.
 
 USAGE   
 Revokes USAGE permissions on objects within a specific schema, which makes these objects inaccessible to users. Specific actions on these objects must be revoked separately (such as the EXECUTE permission on functions).  

@@ -80,7 +80,7 @@ SHOW TABLES FROM SCHEMA dev.s1 LIKE '%view' LIMIT 1;
  dev           | s1          | late_binding_view | VIEW       | {alice=arwdRxtDPA/alice,bob=d/alice} |         | alice |                   |                    |            | LATE BINDING VIEW
 ```
 
-Iceberg materialized views appear with `table_subtype = 'MATERIALIZED VIEW'` in SHOW TABLES output. Unlike standard (RMS) materialized views which have `table_type = 'VIEW'`, Iceberg materialized views have `table_type = 'EXTERNAL TABLE'`.
+Iceberg materialized views appear in SHOW TABLES output with `table_type = 'EXTERNAL TABLE'` and `table_subtype = 'ICEBERG MATERIALIZED VIEW'`. This distinguishes them from standard (RMS) materialized views, which have `table_type = 'VIEW'` and `table_subtype = 'MATERIALIZED VIEW'`.
 
 The following example lists tables in a AWS Glue database, where Iceberg materialized views can be identified by `table_subtype`:
 

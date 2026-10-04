@@ -38,6 +38,20 @@ GRANT CREATE ON DATABASE "sales_db@finance-catalog" TO "IAMR:sales_admin";
 REVOKE TEMP ON DATABASE "sales_db@finance-catalog" FROM "IAMR:sales_analyst";
 ```
 
+You can grant the DEBUG permission to allow selected entities to see unredacted secure logging records for a database that uses fine-grained access control in an Amazon Redshift warehouse with federated permissions. You can grant DEBUG to a global identity, an IdC group, or the administrators of a consumer account. For more information, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
+```
+GRANT DEBUG ON DATABASE "sales_db@finance-catalog" TO "IAM:sales_auditor";  
+
+GRANT DEBUG ON DATABASE "sales_db@finance-catalog" TO "IAMR:audit_role";  
+
+GRANT DEBUG ON DATABASE "sales_db@finance-catalog" TO ROLE "myidc:audit_team";  
+
+GRANT DEBUG ON DATABASE "sales_db@finance-catalog" TO ADMINS OF ACCOUNT '123456789012';  
+
+REVOKE DEBUG ON DATABASE "sales_db@finance-catalog" FROM "IAM:sales_auditor";
+```
+
 For more information about Amazon Redshift federated permissions supported syntax for grant, see [Permissions you can grant on Amazon Redshift federated permissions catalog](#federated-permissions-managing-access-grant-allowed).
 
 ## Fine-grained access control
@@ -169,6 +183,21 @@ REVOKE { { SELECT | UPDATE | DELETE }
 ( column_name [, ...] ) [, ...] | ALL [ PRIVILEGES ] ( column_name [,...] ) }  
 ON { table_name | database@catalog.schema_name.table_name }  
 FROM { username | ROLE role_name | PUBLIC }
+```
+
+#### Secure logging DEBUG permission
+<a name="federated-permissions-managing-access-grant-allowed-debug"></a>
+
+The DEBUG permission controls visibility of unredacted secure logging records on a database that uses fine-grained access control in an Amazon Redshift warehouse with federated permissions. You can grant it to a global identity (an IAM user, IAM role, or IdC user specified by a provider-prefixed name), to an IdC group (specified with ROLE), or to the administrators of a consumer account. For an account grantee, you can specify only the same account that owns the producer. For usage notes and restrictions, see [Usage notes for granting the DEBUG permission](r_GRANT-usage-notes.md#r_GRANT-usage-notes-debug).
+
+```
+GRANT DEBUG  
+ON DATABASE {{database@catalog}}  
+TO { {{prefix:name}} | ROLE {{idc_prefix:group_name}} | ADMINS OF ACCOUNT '{{account_id}}' }  
+
+REVOKE DEBUG  
+ON DATABASE {{database@catalog}}  
+FROM { {{prefix:name}} | ROLE {{idc_prefix:group_name}} | ADMINS OF ACCOUNT '{{account_id}}' }
 ```
 
 ### Scoped Permissions
