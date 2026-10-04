@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonConnectServiceLinkedRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: September 07, 2018, 00:21 UTC 
-+ **Edited time:** May 27, 2026, 21:57 UTC
++ **Edited time:** October 02, 2026, 23:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy`
 
 ## Policy version
 <a name="AmazonConnectServiceLinkedRolePolicy-version"></a>
 
-**Policy version:** v55 (default)
+**Policy version:** v56 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -340,7 +340,8 @@ The policy's default version is the version that defines the permissions for the
         "social-messaging:SendWhatsAppMessage",
         "social-messaging:PostWhatsAppMessageMedia",
         "social-messaging:GetWhatsAppMessageMedia",
-        "social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber"
+        "social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber",
+        "social-messaging:SendWhatsAppCallEvent"
       ],
       "Resource" : "arn:aws:social-messaging:*:*:phone-number-id/*",
       "Condition" : {

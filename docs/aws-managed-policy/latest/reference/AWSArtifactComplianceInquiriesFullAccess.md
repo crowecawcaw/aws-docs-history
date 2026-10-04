@@ -16,13 +16,13 @@ You can attach `AWSArtifactComplianceInquiriesFullAccess` to your users, groups,
 <a name="AWSArtifactComplianceInquiriesFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 30, 2026, 19:27 UTC 
-+ **Edited time:** July 23, 2026, 20:12 UTC
++ **Edited time:** September 30, 2026, 22:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSArtifactComplianceInquiriesFullAccess`
 
 ## Policy version
 <a name="AWSArtifactComplianceInquiriesFullAccess-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -52,6 +52,24 @@ The policy's default version is the version that defines the permissions for the
         "artifact:PutComplianceInquiryFeedback"
       ],
       "Resource" : "arn:aws:artifact:*:*:compliance-inquiry/*"
+    },
+    {
+      "Sid" : "NotificationConfigurationListActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "notifications:ListNotificationConfigurations",
+        "notifications:ListChannels",
+        "notifications:ListEventRules"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "NotificationConfigurationContactReadActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "notifications-contacts:GetEmailContact"
+      ],
+      "Resource" : "arn:aws:notifications-contacts::*:emailcontact/*"
     }
   ]
 }

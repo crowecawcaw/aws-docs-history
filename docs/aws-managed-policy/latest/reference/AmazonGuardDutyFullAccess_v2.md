@@ -16,13 +16,13 @@ You can attach `AmazonGuardDutyFullAccess_v2` to your users, groups, and roles.
 <a name="AmazonGuardDutyFullAccess_v2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 04, 2025, 20:22 UTC 
-+ **Edited time:** February 12, 2026, 17:59 UTC
++ **Edited time:** September 28, 2026, 21:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonGuardDutyFullAccess_v2`
 
 ## Policy version
 <a name="AmazonGuardDutyFullAccess_v2-version"></a>
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -61,7 +61,8 @@ The policy's default version is the version that defines the permissions for the
         "organizations:DescribeOrganizationalUnit",
         "organizations:DescribeAccount",
         "organizations:DescribeOrganization",
-        "organizations:ListAccounts"
+        "organizations:ListAccounts",
+        "organizations:ListRoots"
       ],
       "Resource" : "*"
     },

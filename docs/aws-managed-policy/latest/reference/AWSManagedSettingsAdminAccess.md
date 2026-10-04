@@ -16,13 +16,13 @@ You can attach `AWSManagedSettingsAdminAccess` to your users, groups, and roles.
 <a name="AWSManagedSettingsAdminAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 22, 2026, 01:27 UTC 
-+ **Edited time:** September 01, 2026, 00:37 UTC
++ **Edited time:** September 30, 2026, 22:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSManagedSettingsAdminAccess`
 
 ## Policy version
 <a name="AWSManagedSettingsAdminAccess-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -57,7 +57,12 @@ The policy's default version is the version that defines the permissions for the
         "account:PutContactInformation",
         "account:StartPrimaryEmailUpdate",
         "account:AcceptPrimaryEmailUpdate",
-        "account:GetPrimaryEmailUpdateStatus"
+        "account:GetPrimaryEmailUpdateStatus",
+        "account:SendPhoneNumberVerification",
+        "account:VerifyPhoneNumber",
+        "notifications:AssociateManagedNotificationAccountContact",
+        "notifications:DisassociateManagedNotificationAccountContact",
+        "notifications:ListManagedNotificationChannelAssociations"
       ],
       "Resource" : "*"
     },

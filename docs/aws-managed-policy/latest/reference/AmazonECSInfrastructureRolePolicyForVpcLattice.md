@@ -16,13 +16,13 @@ You can attach `AmazonECSInfrastructureRolePolicyForVpcLattice` to your users, g
 <a name="AmazonECSInfrastructureRolePolicyForVpcLattice-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 15, 2024, 20:02 UTC 
-+ **Edited time:** November 15, 2024, 20:02 UTC
++ **Edited time:** September 29, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForVpcLattice`
 
 ## Policy version
 <a name="AmazonECSInfrastructureRolePolicyForVpcLattice-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -58,6 +58,30 @@ The policy's default version is the version that defines the permissions for the
       "Action" : "vpc-lattice:ListTargets",
       "Resource" : [
         "arn:aws:vpc-lattice:*:*:targetgroup/*"
+      ]
+    },
+    {
+      "Sid" : "GetRule",
+      "Effect" : "Allow",
+      "Action" : "vpc-lattice:GetRule",
+      "Resource" : [
+        "arn:aws:vpc-lattice:*:*:service/*/listener/*/rule/*"
+      ]
+    },
+    {
+      "Sid" : "UpdateRule",
+      "Effect" : "Allow",
+      "Action" : "vpc-lattice:UpdateRule",
+      "Resource" : [
+        "arn:aws:vpc-lattice:*:*:service/*/listener/*/rule/*"
+      ]
+    },
+    {
+      "Sid" : "UpdateListener",
+      "Effect" : "Allow",
+      "Action" : "vpc-lattice:UpdateListener",
+      "Resource" : [
+        "arn:aws:vpc-lattice:*:*:service/*/listener/*"
       ]
     },
     {

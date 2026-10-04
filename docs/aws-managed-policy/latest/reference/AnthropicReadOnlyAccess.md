@@ -16,13 +16,13 @@ You can attach `AnthropicReadOnlyAccess` to your users, groups, and roles.
 <a name="AnthropicReadOnlyAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 01, 2026, 04:57 UTC 
-+ **Edited time:** September 25, 2026, 20:17 UTC
++ **Edited time:** October 02, 2026, 16:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AnthropicReadOnlyAccess`
 
 ## Policy version
 <a name="AnthropicReadOnlyAccess-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -49,7 +49,9 @@ The policy's default version is the version that defines the permissions for the
         "aws-external-anthropic:GetAccountStatus",
         "aws-external-anthropic:CallWithBearerToken",
         "aws-external-anthropic:ListKeys",
-        "aws-external-anthropic:GetKey"
+        "aws-external-anthropic:GetKey",
+        "aws-external-anthropic:GetUserProfile",
+        "aws-external-anthropic:ListUserProfiles"
       ],
       "Resource" : "*"
     },

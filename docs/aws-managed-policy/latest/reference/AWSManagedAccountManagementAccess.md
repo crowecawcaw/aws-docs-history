@@ -16,13 +16,13 @@ You can attach `AWSManagedAccountManagementAccess` to your users, groups, and ro
 <a name="AWSManagedAccountManagementAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 20, 2026, 19:57 UTC 
-+ **Edited time:** July 20, 2026, 19:57 UTC
++ **Edited time:** October 01, 2026, 19:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSManagedAccountManagementAccess`
 
 ## Policy version
 <a name="AWSManagedAccountManagementAccess-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -32,24 +32,39 @@ The policy's default version is the version that defines the permissions for the
 ```
 {
   "Version" : "2012-10-17",
-  "Statement" : {
-    "Effect" : "Allow",
-    "Action" : [
-      "iam:AttachRolePolicy",
-      "iam:CreateRole",
-      "iam:DeleteRole",
-      "iam:DeleteRolePermissionsBoundary",
-      "iam:DeleteRolePolicy",
-      "iam:DetachRolePolicy",
-      "iam:PutRolePermissionsBoundary",
-      "iam:PutRolePolicy",
-      "iam:TagRole",
-      "iam:UntagRole",
-      "iam:UpdateAssumeRolePolicy",
-      "iam:UpdateRole"
-    ],
-    "Resource" : "arn:*:iam::*:role/managed/*"
-  }
+  "Statement" : [
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:AttachRolePolicy",
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:DeleteRolePermissionsBoundary",
+        "iam:DeleteRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:GetRole",
+        "iam:ListAttachedRolePolicies",
+        "iam:ListRolePolicies",
+        "iam:PutRolePermissionsBoundary",
+        "iam:PutRolePolicy",
+        "iam:TagRole",
+        "iam:UntagRole",
+        "iam:UpdateAssumeRolePolicy",
+        "iam:UpdateRole"
+      ],
+      "Resource" : "arn:*:iam::*:role/managed/*"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "sts:AssumeRole",
+      "Resource" : "arn:*:iam::*:role/managed/AWSManagedAccountManagementAccessRole",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}"
+        }
+      }
+    }
+  ]
 }
 ```
 

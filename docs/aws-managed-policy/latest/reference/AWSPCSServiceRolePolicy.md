@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSPCSServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 27, 2024, 16:01 UTC 
-+ **Edited time:** February 12, 2026, 18:01 UTC
++ **Edited time:** September 30, 2026, 18:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSPCSServiceRolePolicy`
 
 ## Policy version
 <a name="AWSPCSServiceRolePolicy-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -172,7 +172,9 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:ec2:*:*:capacity-reservation/*",
         "arn:aws:resource-groups:*:*:group/*",
         "arn:aws:ec2:*:*:fleet/*",
-        "arn:aws:ec2:*:*:spot-instances-request/*"
+        "arn:aws:ec2:*:*:spot-instances-request/*",
+        "arn:aws:ec2:*:*:secondary-interface/*",
+        "arn:aws:ec2:*:*:secondary-subnet/*"
       ]
     },
     {

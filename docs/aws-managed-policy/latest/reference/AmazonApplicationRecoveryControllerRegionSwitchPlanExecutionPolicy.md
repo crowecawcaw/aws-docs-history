@@ -16,13 +16,13 @@ You can attach `AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPoli
 <a name="AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 03, 2025, 19:34 UTC 
-+ **Edited time:** March 05, 2026, 19:27 UTC
++ **Edited time:** October 02, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy`
 
 ## Policy version
 <a name="AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -58,6 +58,26 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Resource" : "*",
       "Sid" : "CloudWatch"
+    },
+    {
+      "Sid" : "ServiceQuotasRead",
+      "Effect" : "Allow",
+      "Action" : [
+        "servicequotas:GetServiceQuota",
+        "servicequotas:GetRequestedServiceQuotaChange"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "ServiceQuotasWrite",
+      "Effect" : "Allow",
+      "Action" : "servicequotas:RequestServiceQuotaIncrease",
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

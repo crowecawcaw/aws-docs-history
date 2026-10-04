@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonEKSServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: February 21, 2020, 20:10 UTC 
-+ **Edited time:** August 21, 2026, 17:17 UTC
++ **Edited time:** October 01, 2026, 16:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy`
 
 ## Policy version
 <a name="AmazonEKSServiceRolePolicy-version"></a>
 
-**Policy version:** v27 (default)
+**Policy version:** v28 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -187,6 +187,20 @@ The policy's default version is the version that defines the permissions for the
     {
       "Effect" : "Allow",
       "Action" : [
+        "eks:CreateCertificateAuthority",
+        "eks:DeleteCertificateAuthority",
+        "eks:ActivateCertificateAuthority"
+      ],
+      "Resource" : "arn:aws:eks:*:*:cluster/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
         "eks:CreateAccessEntry",
         "eks:DeleteAccessEntry"
       ],
@@ -296,7 +310,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "ec2:DeleteLaunchTemplate",
-        "ec2:TerminateInstances"
+        "ec2:TerminateInstances",
+        "ec2:RebootInstances"
       ],
       "Resource" : [
         "arn:aws:ec2:*:*:launch-template/*",
@@ -312,7 +327,8 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "ec2:DeleteLaunchTemplate",
-        "ec2:TerminateInstances"
+        "ec2:TerminateInstances",
+        "ec2:RebootInstances"
       ],
       "Resource" : "*",
       "Condition" : {

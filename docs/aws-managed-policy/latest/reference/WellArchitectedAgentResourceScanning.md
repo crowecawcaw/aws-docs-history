@@ -16,13 +16,13 @@ You can attach `WellArchitectedAgentResourceScanning` to your users, groups, and
 <a name="WellArchitectedAgentResourceScanning-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 16, 2026, 20:27 UTC 
-+ **Edited time:** July 16, 2026, 20:27 UTC
++ **Edited time:** September 30, 2026, 18:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/WellArchitectedAgentResourceScanning`
 
 ## Policy version
 <a name="WellArchitectedAgentResourceScanning-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -430,6 +430,7 @@ The policy's default version is the version that defines the permissions for the
         "resource-explorer-2:List*",
         "resource-groups:Get*",
         "resource-groups:List*",
+        "resource-groups:SearchResources",
         "robomaker:Describe*",
         "robomaker:List*",
         "rolesanywhere:Get*",
@@ -580,6 +581,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:GetStackPolicy",
         "cloudformation:GetTemplate",
         "cloudformation:ListStackInstances",
+        "cloudformation:ListStackResources",
         "cloudformation:ListStacks",
         "cloudformation:ListStackSets",
         "cloudformation:ListTypes",
