@@ -17,7 +17,7 @@ Aurora DSQL maintains referential integrity in two steps: snapshot verification 
 **Referential integrity checks incur extra reads**  
 All data manipulation language (DML) operations on referenced or referencing tables incur extra reads to guarantee referential integrity. Before you add a foreign key constraint to a table, benchmark the workload and validate that the performance characteristics meet your expectations.
 
-## Example scenarios
+## Foreign key example scenarios
 <a name="fk-occ-examples"></a>
 
 In the following scenario, the `orders` table has a foreign key constraint on its `product_id` column that references the `products` table. This makes `products` the referenced table and `orders` the referencing table.
@@ -85,6 +85,8 @@ Updating `name` (a non-key column) doesn't conflict with the foreign key on `pro
 
 ## Best practices with foreign keys in Aurora DSQL
 <a name="fk-occ-best-practices"></a>
+
+Follow these recommendations when you use foreign key constraints in Aurora DSQL:
 
 Implement retry logic  
 Conflicts cause errors instead of waits. Design your workload to retry failed transactions. For more information about concurrency in Aurora DSQL, see [Concurrency control in Aurora DSQL](working-with-concurrency-control.md).

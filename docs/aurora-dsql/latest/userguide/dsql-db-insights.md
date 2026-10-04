@@ -182,7 +182,7 @@ The Aurora DSQL system diagnostics AI skill automates health-check analysis of y
 
 To analyze cluster health, issue a prompt such as:
 
-*"Check the performance of my Aurora DSQL cluster {{cluster-id}} in us-east-1 and write me a markdown report."*
+*"Check the performance of my Aurora DSQL cluster {{cluster-id}} in {{us-east-1}} and write me a markdown report."*
 
 The skill uses the CloudWatch Model Context Protocol (MCP) server to analyze the `db.active_sessions.avg` metric across a selection of time frames and returns a Markdown report. You can direct this performance comparison window in the prompt:
 
