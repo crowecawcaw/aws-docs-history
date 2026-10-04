@@ -167,7 +167,7 @@ The steps here assume that you have an environment with the AWS CLI, and AWS CDK
    export AMP_WS_ARN={{AMP_ARN}}
    ```
 
-1. You must create a service account token with ADMIN access for calling Grafana HTTP APIs. For details, see [Using service accounts](v12-authenticating-grafana-apis.md#v12-service-accounts). You can use the AWS CLI with the following commands to create the token. You will need to replace the {{GRAFANA\_ID}} with the ID of your Grafana workspace (it will be in the form `g-123example`). This key will expire after 7,200 seconds, or 2 hours. You can change the time (`seconds-to-live`), if you need to. The deployment takes under one hour.
+1. You must create a service account token with ADMIN access for calling Grafana HTTP APIs. For details, see [Using service accounts](v13-authenticating-grafana-apis.md#v13-service-accounts). You can use the AWS CLI with the following commands to create the token. You will need to replace the {{GRAFANA\_ID}} with the ID of your Grafana workspace (it will be in the form `g-123example`). This key will expire after 7,200 seconds, or 2 hours. You can change the time (`seconds-to-live`), if you need to. The deployment takes under one hour.
 
    ```
    GRAFANA_SA_ID=$(aws grafana create-workspace-service-account \
@@ -243,7 +243,7 @@ One way this solution is provided to you is as a Terraform solution. You will pr
    export TF_VAR_s3_bucket_id={{S3_ID}}
    ```
 
-1. You must create a service account token with ADMIN access for calling Grafana HTTP APIs. For details, see [Using service accounts](v12-authenticating-grafana-apis.md#v12-service-accounts). You can use the AWS CLI with the following commands to create the token. You will need to replace the {{GRAFANA\_ID}} with the ID of your Grafana workspace (it will be in the form `g-123example`). This key will expire after 7,200 seconds, or 2 hours. You can change the time (`seconds-to-live`), if you need to. The deployment takes under one hour.
+1. You must create a service account token with ADMIN access for calling Grafana HTTP APIs. For details, see [Using service accounts](v13-authenticating-grafana-apis.md#v13-service-accounts). You can use the AWS CLI with the following commands to create the token. You will need to replace the {{GRAFANA\_ID}} with the ID of your Grafana workspace (it will be in the form `g-123example`). This key will expire after 7,200 seconds, or 2 hours. You can change the time (`seconds-to-live`), if you need to. The deployment takes under one hour.
 
    ```
    GRAFANA_SA_ID=$(aws grafana create-workspace-service-account \

@@ -53,7 +53,7 @@ Starting in Amazon Managed Grafana version 12, SigV4 authentication support in t
 
  The Prometheus data source allows you to run instant queries, which query only the latest value. You can visualize the results in a table panel to see all available labels of a time series.
 
- Instant query results are made up of only one data point per series. They can be shown in the graph panel with the help of series overrides. To show them in the graph as a latest value point, add a series override and select `Points > true`. To show a horizontal line across the whole graph, add a series override and select `Transform > constant` For more information about series overrides, see [Series overrides](graph-panel.md#graph-panel-series-overrides). 
+ Instant query results are made up of only one data point per series. They can be shown in the graph panel with the help of series overrides. To show them in the graph as a latest value point, add a series override and select `Points > true`. To show a horizontal line across the whole graph, add a series override and select `Transform > constant` For more information about series overrides, see [Series overrides](v9-panels-graph.md#v9-panels-graph-series-overrides). 
 
 ### Query editor in Explore
 <a name="p-query-editor-in-explore"></a>
@@ -89,7 +89,7 @@ The metrics browser has a hard limit of 10,000 labels (keys) and 50,000 label va
 
  Instead of hardcoding things such as server, application and sensor name in your metric queries, you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates and variables](templates-and-variables.md). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 ### Query variable
 <a name="p-query-variable"></a>
@@ -113,7 +113,7 @@ The metrics browser has a hard limit of 10,000 labels (keys) and 50,000 label va
 **Note**  
  Support for `$__range`, `$__range_s`, and `$__range_ms` are available only from Grafana v5.3. 
 
- You can use some global variables in query variables: `$__interval`, `$__interval_ms`, `$__range`, `$__range_s`, and `$__range_ms`. For more information, see [Global variables](variables-types.md#global-variables). These can be convenient to use with the `query_result` function when you must filter variable queries because the `label_values` function doesn’t support queries. 
+ You can use some global variables in query variables: `$__interval`, `$__interval_ms`, `$__range`, `$__range_s`, and `$__range_ms`. For more information, see [Global variables](v13-dash-variable-add.md#v13-dash-variable-add-global). These can be convenient to use with the `query_result` function when you must filter variable queries because the `label_values` function doesn’t support queries. 
 
  To get the correct instances when changing the time range on the dashboard, make sure to set the variable’s `refresh` trigger to be `On Time Range Change`. 
 
@@ -148,7 +148,7 @@ Regex:
 ## Annotations
 <a name="p-annotations"></a>
 
- You can use annotations to overlay rich event information on top of graphs. You add annotation queries using the Dashboard menu or Annotations view. For more information, see [Annotations](dashboard-annotations.md). 
+ You can use annotations to overlay rich event information on top of graphs. You add annotation queries using the Dashboard menu or Annotations view. For more information, see [Annotate visualizations](v13-dash-annotations.md). 
 
  Prometheus supports two ways to query annotations. 
 +  A regular metric query 

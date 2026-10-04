@@ -21,7 +21,7 @@ To use AWS data source configuration, first you use the Amazon Managed Grafana c
 
 1. Sign into the Grafana workspace console using IAM Identity Center if necessary.
 
-1. In the left navigation bar in the Grafana workspace console, choose **Apps** then **AWS Data Sources** (in Grafana v8, choose the AWS icon from the left menu).
+1. In the left navigation bar in the Grafana workspace console, choose **Apps** then **AWS Data Sources**.
 
 1. Choose the **AWS services** tab, then **Timestream**.
 

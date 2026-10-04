@@ -197,7 +197,7 @@ Content-Type: application/json
 ## Create notification channel
 <a name="v10-Grafana-API-AlertNotificationChannels-Create"></a>
 
-To see what notification channels are supported by Amazon Managed Grafana, see the list of supported notifiers in [Working with contact points](alert-contact-points.md).
+To see what notification channels are supported by Amazon Managed Grafana, see the list of supported notifiers in [Contact points](v10-alerting-overview.md#v10-alerting-overview-contact-points).
 
 ```
 POST /api/alert-notifications

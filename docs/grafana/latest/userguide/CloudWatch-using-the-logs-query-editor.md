@@ -12,7 +12,7 @@
 ## Using template variables
 <a name="cloudwatch-using-template-variables"></a>
 
- As with several other data sources, the CloudWatch data source supports the use of template variables in queries. For more information, see [Templates and variables](templates-and-variables.md). 
+ As with several other data sources, the CloudWatch data source supports the use of template variables in queries. For more information, see [Variables](v13-dash-variables.md). 
 
 ## Deep linking from Grafana panels to the CloudWatch Logs console
 <a name="deep-linking-from-grafana-panels-to-the-cloudwatch-console-2"></a>
@@ -22,4 +22,4 @@
 ## Alerting
 <a name="cloudwatch-alerting"></a>
 
- Because CloudWatch Logs queries can return numeric data, for example, through the use of the `stats` command, alerts are supported. For more information, see [Grafana alerting](alerts-overview.md). 
+ Because CloudWatch Logs queries can return numeric data, for example, through the use of the `stats` command, alerts are supported. For more information, see [Overview](v13-alerting-overview.md). 

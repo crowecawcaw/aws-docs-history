@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
-For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
 
 By default, the graph uses the standard [Color scheme](v10-panels-configure-standard-options.md#v10-panels-standard-options-color-scheme) option to assign series colors. You can also use the legend to open the color picker by selecting the legend series color icon. Setting color this way automatically creates an override rule that set’s a specific color for a specific series.
 

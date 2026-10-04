@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
-For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).
 
 Use contact points to define how your contacts are notified when an alert rule fires. A contact point can have one or more contact point types, for example, email, Slack, webhook, and so on. When an alert rule fires, a notification is sent to all contact point types listed for a contact point. Contact points can be configured for the Grafana Alertmanager as well as external alertmanagers.
 

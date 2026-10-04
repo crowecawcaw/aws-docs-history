@@ -96,7 +96,7 @@ The following are policy statement examples you can add for Amazon Managed Grafa
       "Condition": {
         "StringEquals": {
           "kms:ViaService": [
-            "grafana.<region>.amazonaws.com"
+            "grafana.{{us-east-1}}.amazonaws.com"
           ]
         }
       }
@@ -112,7 +112,7 @@ The following are policy statement examples you can add for Amazon Managed Grafa
       "Condition": {
         "StringEquals": {
           "kms:ViaService": [
-            "grafana.<region>.amazonaws.com"
+            "grafana.{{us-east-1}}.amazonaws.com"
           ],
           "kms:GrantConstraintType": "EncryptionContextSubset"
         },

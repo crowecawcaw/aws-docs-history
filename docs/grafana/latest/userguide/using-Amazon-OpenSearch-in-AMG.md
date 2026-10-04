@@ -75,7 +75,7 @@ A lower limit for the auto group by time interval. Recommended to be set to writ
 ### Logs
 <a name="ES-logs-beta"></a>
 
-Two parameters, `Message field name` and `Level field name`, can optionally be configured from the data source settings page that determine which fields will be used for log messages and log levels when visualizing logs in [Explore](explore.md). 
+Two parameters, `Message field name` and `Level field name`, can optionally be configured from the data source settings page that determine which fields will be used for log messages and log levels when visualizing logs in [Explore in Grafana version 13](v13-explore.md). 
 
  For example, if you use a default setup of Filebeat for shipping logs to OpenSearch Service, the following configuration should work. 
 +  **Message field name:** message 

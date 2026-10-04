@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
-For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).
 
 For external Alert manager data sources (including Amazon Managed Service for Prometheus), you can suppress alert notifications with a *silence*. A silence only stops notifications from being created: Silences do not prevent alert rules from being evaluated, and they do not stop alerting instances from being shown in the user interface. When you silence an alert, you specify a window of time for it to be suppressed.
 

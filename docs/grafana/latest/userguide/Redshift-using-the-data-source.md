@@ -76,16 +76,16 @@ Because Grafana supports macros that Redshift does not, the fully rendered query
 ## Templates and variables
 <a name="using-redshift-templates-variables"></a>
 
-For more information about how to add a new Redshift query varialble, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your Redshift data source as your data source for the available queries.
+For more information about how to add a new Redshift query varialble, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your Redshift data source as your data source for the available queries.
 
 Any value queried from a Amazon Redshift table can be used as a variable. Be sure to avoid selecting too many values, as this can cause performance issues. 
 
-After creating a variable, you can use it in your Redshift queries by using [Variable syntax](templates-and-variables.md#variable-syntax). For more information about variables, see [Templates and variables](templates-and-variables.md).
+After creating a variable, you can use it in your Redshift queries by using [Variable syntax](v13-dash-variable-syntax.md). For more information about variables, see [Variables](v13-dash-variables.md).
 
 ## Annotations
 <a name="using-redshift-annotations"></a>
 
-[Annotations](dashboard-annotations.md) allows you to overlay rich event information on top of graphs. You can add annotations by selecting the panel or by adding annotation queries using the **Annotations** view, opened from the **Dashboard** menu. 
+[Annotate visualizations](v13-dash-annotations.md) allows you to overlay rich event information on top of graphs. You can add annotations by selecting the panel or by adding annotation queries using the **Annotations** view, opened from the **Dashboard** menu. 
 
 Example query to automatically add annotations:
 

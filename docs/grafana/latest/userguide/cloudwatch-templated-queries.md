@@ -5,7 +5,7 @@
 
  Instead of hardcoding details such as servers, applications, and sensor names in your metric queries, you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- See [Templates](templates-and-variables.md#templates) for an introduction to the templating feature and the different types of template variables. 
+ See [Variables](v13-dash-variables.md) for an introduction to the templating feature and the different types of template variables. 
 
 ## Query variable
 <a name="cloudwatch-query-variable"></a>

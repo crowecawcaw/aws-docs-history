@@ -50,7 +50,7 @@ To query metrics, enter values into the editor fields:
 ## Templates and variables
 <a name="honeycomb-templates"></a>
 
-To add a new Honeycomb query variable, see [Adding a query variable](variables-types.md#add-a-query-variable).
+To add a new Honeycomb query variable, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query).
 
 YOu can create variables containing Datasets, Columns, or Column Values.
 +  If no dataset is selected, the variable will contain datasets. 
@@ -67,7 +67,7 @@ To see the query you have created in the Honeycomb UI from the Query Editor, cho
 ## Import a dashboard for Honeycomb
 <a name="honeycomb-import"></a>
 
-To import a dashboard, see [Importing a dashboard](dashboard-export-and-import.md#importing-a-dashboard). 
+To import a dashboard, see [Importing dashboards](v13-dash-importing.md). 
 
 To find your imported dashboards, choose **Configuration**, **Data sources**. 
 

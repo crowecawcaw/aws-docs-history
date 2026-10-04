@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 12.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
-For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
 
 The dashboard settings page enables you to:
 + Edit general dashboard properties, including time settings.
@@ -60,7 +60,7 @@ An annotation query is a query that queries for events. These events can be visu
 
 1. Complete the rest of the form to build a query and annotation.
 
-The query editor UI changes based on the data source that you select. see the [Data source](AMG-data-sources.md) documentation for details on how to construct a query. Or, for data source plugins that you install from the [Find plugins with the plugin catalog](grafana-plugins.md#plugin-catalog), you can use the [documentation on the Grafana Labs website](https://grafana.com/docs/grafana/v10.3/datasources/).
+The query editor UI changes based on the data source that you select. see the [Data source](AMG-data-sources.md) documentation for details on how to construct a query. Or, for data source plugins that you install from the [Find plugins with the plugin catalog](grafana-plugins.md#plugin-catalog), you can use the [documentation on the Grafana Labs website](https://grafana.com/docs/grafana/latest/datasources/).
 
 **Adding a variable**
 

@@ -8,7 +8,7 @@ Starting in Amazon Managed Grafana version 12, SigV4 authentication support in t
 
 **To manually add the Prometheus data source**
 
-1.  In the Grafana console side menu, pause on the **Administration** menu item (or the **Configuration** (gear) icon in Grafana v8), then choose **Data Sources**.
+1.  In the Grafana console side menu, pause on the **Administration** menu item, then choose **Data Sources**.
 
 1. Choose **Add data source**.
 

@@ -1,0 +1,23 @@
+
+
+# Text
+<a name="v13-panels-text"></a>
+
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
+
+Text visualizations enable you to directly include text or HTML in your dashboards. This can be used to add contextual information and descriptions or embed complex HTML.
+
+**Mode**
+
+**Mode** determines how embedded content appears. It has the following options:
++ **Markdown** – This option formats the content as markdown.
++ **HTML** – This setting renders the content as sanitized HTML.
++ **Code** – This setting renders content inside a read-only code editor. Select an appropriate language to apply syntax highlighting to the embedded text.
+
+**Variables**
+
+Variables in the content will be expanded for display.

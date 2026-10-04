@@ -7,11 +7,6 @@ For dashboards and dashboard folders, you can use the **Permissions** page to re
 
 Amazon Managed Grafana provides the following permission levels. The permissions vary based on the version of Grafana the workspace supports.
 
-**For workspaces that support version 8:**
-+ `Admin`: Can edit and create dashboards and edit permissions. Can also add, edit, and delete folders. 
-+ `Edit`: Can edit and create dashboards. **Can't** edit folder or dashboard permissions, or add, edit, or delete folders. 
-+ `View`: Can only view existing dashboards and folders.
-
 **For workspaces that support version 9 and above:**
 + `Admin`: Can create, edit or delete a dashboard. Can add, edit, or delete folders, and create dashboards and subfolders in a folder. Administrators can also change dashboard and folder permissions.
 + `Edit`: Can create, edit, or delete a dashboard. Can edit or delete a folder, and create dashboards and subfolders in a folder. An editor **can't** change folder or dashboard permissions.

@@ -266,7 +266,7 @@ ORDER BY 1
 
  Instead of hardcoding things such as server, application and sensor name in your metric queries you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates and variables](templates-and-variables.md). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 ### Query variable
 <a name="mssql-query-variable"></a>
@@ -336,12 +336,12 @@ ORDER BY atimestamp
 
  `${servers:csv}` 
 
- For more information about variable formatting options, see [Templates and variables](templates-and-variables.md). 
+ For more information about variable formatting options, see [Variables](v13-dash-variables.md). 
 
 ## Annotations
 <a name="mssql-annotations"></a>
 
- You can use annotations to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotations](dashboard-annotations.md). 
+ You can use annotations to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotate visualizations](v13-dash-annotations.md). 
 
  **Columns:** 
 

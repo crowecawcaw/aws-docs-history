@@ -211,7 +211,7 @@ ORDER BY time
 
  Instead of hardcoding things such as server, application and sensor name in your metric queries you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates](templates-and-variables.md#templates). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 ### Query variable
 <a name="postgresql-query-variable"></a>
@@ -300,12 +300,12 @@ ORDER BY atimestamp ASC
 
  `${servers:csv}` 
 
- For more information about variable formatting options, see [Templates and variables](templates-and-variables.md). 
+ For more information about variable formatting options, see [Variables](v13-dash-variables.md). 
 
 ## Annotations
 <a name="postgresql-annotations"></a>
 
- Use annotations to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotations](dashboard-annotations.md). 
+ Use annotations to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotate visualizations](v13-dash-annotations.md). 
 
  The following example code shows a query using a time column with epoch values. 
 

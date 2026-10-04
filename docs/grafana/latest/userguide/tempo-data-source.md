@@ -23,7 +23,7 @@
 ## Trace to logs
 <a name="tempo-trace-to-logs"></a>
 
- This is a configuration for the trace to logs feature. The target data source currently must be Loki. For more information, see [Tracing integration](explore.md#tracing-integration). 
+ This is a configuration for the trace to logs feature. The target data source currently must be Loki. For more information, see [Tracing in Explore](v13-explore-tracing.md). 
 + **Data source** – Target data source.
 + **Tags** – The tags that will be used in the Loki query. The default is `'cluster', 'hostname', 'namespace', pod'`
 + **Span start time shift** – Shift in the start time for the Loki query based on the span start time. In order to extend to the past, you need to use a negative value. Time units can be used here, for example, 5s, 1m, 3h. The default is 0.

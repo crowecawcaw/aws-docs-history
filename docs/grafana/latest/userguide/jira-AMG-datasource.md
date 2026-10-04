@@ -53,19 +53,19 @@ The Jira data source queries Jira for issues, which can represent bugs, user sto
 
 1.  Filter or sort the issues. To do so, enter any valid JQL expression to filter or sort the issues based on any of their fields such as **Project**, **Assignee**, or **Sprint** with the Atlassian query language JQL. 
 
-From here, you can display your data in a table or use Grafana transformations to manipulate that issue data, run calculations, or turn the data into a time series graph. For more information, see [Applying a transformation](panel-transformations.md#apply-a-transformation).
+From here, you can display your data in a table or use Grafana transformations to manipulate that issue data, run calculations, or turn the data into a time series graph. For more information, see [Add a transformation function to data](v13-panels-xform.md#v13-panels-xform-add).
 
 ## Time series query
 <a name="jira-timeseries-query"></a>
 
 To show time series data, choose a **Date** field along with a numeric field, then switch to graph visualization. For example: **Sprint Start Date**, **Story point estimate**.
 
-The preceding example, on its own, is not very useful. The numeric field can be (and will most likely be) calculated from Transformations. Using the **Group By** Transformation would allow grouping by **Sprint Start Date** and summarizing the **Story point estimate** allowing a visualization of Story Points over time per Sprint. For more information about transformations, see [Applying a transformation](panel-transformations.md#apply-a-transformation). 
+The preceding example, on its own, is not very useful. The numeric field can be (and will most likely be) calculated from Transformations. Using the **Group By** Transformation would allow grouping by **Sprint Start Date** and summarizing the **Story point estimate** allowing a visualization of Story Points over time per Sprint. For more information about transformations, see [Add a transformation function to data](v13-panels-xform.md#v13-panels-xform-add). 
 
 ## Templates and variables
 <a name="jira-templates"></a>
 
-To add a new Jira query variable, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your Jira data source as the data source.
+To add a new Jira query variable, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your Jira data source as the data source.
 
 You can define variables on your dashboards and reference them in JQL expressions. For example, you can create a project status dashboard and choose between projects, or an epic status dashboard and choose different epics, or a task status dashboard and choose different assignees.
 

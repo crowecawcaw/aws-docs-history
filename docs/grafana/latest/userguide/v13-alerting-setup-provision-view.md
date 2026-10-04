@@ -1,0 +1,25 @@
+
+
+# Viewing provisioned alerting resources in Grafana
+<a name="v13-alerting-setup-provision-view"></a>
+
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
+
+You can verify that your alerting resources were created in Grafana.
+
+**To view your provisioned resources in Grafana**
+
+1. Open your Grafana instance.
+
+1. Navigate to Alerting.
+
+1. Click an alerting resource folder, for example, Alert rules.
+
+   Provisioned resources are labeled **Provisioned**, so that it is clear that they were not created manually.
+
+**Note**  
+You cannot edit provisioned resources from Grafana. You can only change the resource properties by changing the provisioning file and restarting Grafana or carrying out a hot reload. This prevents changes being made to the resource that would be overwritten if a file is provisioned again or a hot reload is carried out.

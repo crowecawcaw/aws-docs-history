@@ -3,12 +3,78 @@
 # Differences between Grafana versions
 <a name="version-differences"></a>
 
-When [creating a Grafana workspace](AMG-create-workspace.md), you must choose a Grafana version to create. You can choose between versions compatible with Grafana versions 8, 9, 10, and 12. Each of these has added functionality from the previous version. The following topics describe the changes in versions 9, 10, and 12, including changes that might break functionality that you use in previous versions.
+When [creating a Grafana workspace](AMG-create-workspace.md), you must choose a Grafana version to create. Amazon Managed Grafana supports versions 9, 10, 12, and 13. Each of these has added functionality from the previous version. The following topics describe the changes in versions 9, 10, 12, and 13, including changes that might break functionality that you use in previous versions.
 
 **Note**  
-You can read version-specific documentation for using your Grafana workspace in the [Working in Grafana version 12](using-grafana-v12.md), [Working in Grafana version 10](using-grafana-v10.md), [Working in Grafana version 9](using-grafana-v9.md), and [Working in Grafana version 8](using-grafana-v8.md) topics.
+You can read version-specific documentation for using your Grafana workspace in the [Working in Grafana version 13](using-grafana-v13.md), [Working in Grafana version 12](using-grafana-v12.md), [Working in Grafana version 10](using-grafana-v10.md), and [Working in Grafana version 9](using-grafana-v9.md) topics.
 
 For detailed notes by version, and more information from Grafana Labs, see [What's new in Grafana](https://grafana.com/docs/grafana/latest/whatsnew/) in the *Grafana Labs documentation*.
+
+## Grafana version 13
+<a name="version-diff-v13"></a>
+
+The following features were added in Grafana version 13.
+
+**Git Sync**
++ **Git Sync for dashboards and folders** – You can connect your Grafana workspace to a Git repository to manage dashboards and folders as code. You can edit a dashboard in the workspace and then save, commit, and open a pull request without leaving Grafana, and changes in the repository are synchronized back to the workspace.
++ **Git Sync support for GitHub Enterprise** – Git Sync now works with GitHub Enterprise. You can provision dashboards as JSON files and manage folders in a GitHub Enterprise repository, and changes are synchronized in both directions between the repository and your workspace.
++ **Authoring information for Git Sync commits** – When Git Sync creates a commit, you can include authoring information. If you do not enable commit signing, you can use an author override. If you do not select an author override, the signed-in Grafana user's name and email are used as the commit author.
++ **Import a dashboard from the UI** – You can import an existing dashboard into a Git Sync connected repository directly from the Grafana interface, so the dashboard is stored as code and kept in sync without editing repository files by hand.
++ **Sync to the repository root** – Git Sync can synchronize dashboards and folders to the root of a repository, without requiring a parent folder. You can manage resources as code at the top level of the repository.
++ **Verified commits** – Git Sync can sign the commits it creates with a configured signing key, so your Git provider marks them as verified. GPG, SSH, and S/MIME signing keys are supported.
+
+**Dashboards and visualizations**
++ **Dynamic dashboards** – Dynamic dashboards are generally available and enabled by default. Every new and existing dashboard uses the new layout engine, editing experience, and dashboard structure. Existing dashboards are migrated to the new schema automatically the first time you open them.
++ **Restore deleted dashboards** – Restoring deleted dashboards is generally available. Use the **Recently deleted** view to restore a dashboard you removed without rebuilding it from scratch.
++ **Revamped gauge visualization** – The redesigned gauge visualization is generally available, with a refreshed layout and additional display options.
++ **Ad hoc filters renamed to Filters** – **Ad hoc filters** variables are now named **Filters**. In the dashboard schema, they are still referred to as `"kind": "AdhocVariable"`, so existing dashboards and provisioning continue to work.
++ **Filter and Group by dashboard control** – A new **Filter and Group by** dashboard control makes exploring data across a dashboard faster, with quick filters and grouping.
++ **Legend limits** – Panels that display large numbers of series can now limit how many legend items are rendered, improving performance and clarity.
++ **Updated visualization suggestions** – Visualization suggestions are generally available and produce higher-quality recommendations that use information provided by data sources.
++ **Redesigned query variable editor** – The query variable editor has a new design that makes working with query variables easier. A dialog box shows a preview of the variable values at the top, with a tabbed editor below, so you can review results while you edit.
++ **Multi-select grouping for dashboards** – In edit mode, you can select multiple panels at once and group them into a row or a tab, so you can restructure a dashboard without moving panels one at a time.
++ **Saved queries** – Saved queries help you discover, reuse, and share queries across your organization. You can open saved queries from the command palette for faster discovery, and provision them with Terraform to manage them as code.
++ **Revamped Grafana homepage** – The Grafana homepage has a refreshed design, along with several new features.
++ **Clearer auto layout indication when editing dashboards** – When you edit a dashboard that uses auto layout, Grafana manages panel sizes for you. The editing experience now makes it clearer why resizing a panel by dragging its lower-right corner has no effect, and how to change the layout.
++ **Annotation clustering** – Annotations that fall close together on the time axis are grouped into clusters, so panels that contain many annotations stay readable.
++ **Panel styles** – Apply a curated set of colors, thresholds, and display options to a panel with a single click in the panel editor. Panel styles are supported in the time series, stat, gauge, bar gauge, and bar chart visualizations.
++ **Copy and paste panel styles** – Copy the display options and field styling from one panel and paste them onto another panel of the same type, without duplicating panels or reconfiguring options manually.
++ **Section-level variables** – You can define variables at the level of a dashboard section, such as a row or a tab, so a variable applies to the panels in that section instead of the entire dashboard.
++ **Faceted series filtering in the legend** – The panel legend supports a faceted filter based on series labels, so you can show or hide series by selecting label values instead of toggling series one at a time.
++ **Map a variable to multiple values** – A single variable can map to multiple values, and each value can carry multiple properties. This lets one variable represent several related values without defining separate variables.
++ **Sidebar and toolbar improvements for the new dashboard experience** – The new dashboard experience includes sidebar and toolbar enhancements that make creating and editing dashboards more discoverable, consistent, and easier to navigate.
+
+**Transformations**
++ **Time series to table transformation** – A transformation converts time series data into a table format, so you can display time series results in a table panel with each series represented as a row.
+
+**Data sources**
++ **Elasticsearch raw queries with DSL and ES\|QL** – The Elasticsearch data source adds a raw query editor with support for Elasticsearch Query DSL and ES\|QL, in addition to the visual query builder.
++ **OpenSearch index browser** – The OpenSearch data source adds an index picker to both the data source configuration and the query editor. A **Select index** button opens a searchable browser of the available indices, each shown with its document count and cluster health. You can search by substring, use `*` and `?` as wildcards, or wrap your input in `/…/` for a regular expression match.
++ **Oracle Easy Connect Plus** – The Oracle data source supports Easy Connect Plus, a connection method that encodes the host, port, and service name in a single string, such as `host:port/service`. The port is optional and defaults to `1521`.
++ **Azure Monitor Metrics Batch API** – The Azure Monitor data source supports the Azure Monitor Metrics Batch API. Grafana groups eligible metric queries and sends them together instead of one request per resource, which reduces the number of calls to Azure, speeds up queries, and lowers the chance of throttling on dashboards that query many resources.
++ **PromQL querying for CloudWatch** – The Amazon CloudWatch data source plugin adds a PromQL query type. You can now query CloudWatch metrics using PromQL, with both `Builder` and `Code` editing modes.
+
+**Alerting**
++ **Provenance support in notification app platform APIs** – The `grafana.com/provenance` annotation on alerting notification resources is now read and enforced when writing through the Kubernetes-style API. Previously the annotation was silently ignored.
+
+<a name="version-diff-v13-breaking-changes"></a>**Breaking changes**
+
+Grafana version 13 includes changes that might break functionality that you use in previous versions. When updating to a new version, we recommend that you test in a non-production environment before updating your production workspaces.
+
+**Important**  
+**Legacy Alertmanager configuration API endpoints changed** – Several Alertmanager configuration API endpoints that rely on legacy single-tenant Alertmanager configuration semantics, which were deprecated in Grafana version 12, are removed or restricted in Grafana version 13. Alerting automation that calls these legacy endpoints stops working after you upgrade.  
+**Action required:** Review any external automation, scripts, or integrations that manage Alertmanager configuration through the Grafana HTTP API, and migrate them to the supported alerting provisioning endpoints (for example, the `/api/v1/provisioning` endpoints). For the current API, see [Alerting contact points API](v13-Grafana-API-AlertingNotificationChannels.md).
++ **Deprecated data source APIs disabled by default** – Data source APIs that reference a data source by its numeric `id`, deprecated in Grafana version 9 in favor of APIs that use a `uid`, are disabled by default in Grafana version 13. Update any automation that references data sources by numeric `id` to use the data source `uid` instead.
++ **AWS IoT TwinMaker app plugin not supported** – Beginning with Grafana version 13, the AWS IoT TwinMaker app plugin (`grafana-iot-twinmaker-app`) is not supported. Grafana version 13 upgrades the core application to React 19, and the plugin's `SceneViewer` panel depends on React APIs that are removed in React 19, so it does not render after you upgrade. The plugin is also no longer available in the Grafana plugin catalog. If your dashboards use the AWS IoT TwinMaker app plugin, they do not work in a version 13 workspace. Before you update a workspace that uses this plugin, review the affected dashboards and plan for alternative visualizations.
+
+Amazon Managed Grafana v13 includes features from open source Grafana v13.0 through v13.2. For AWS-specific features, see the Amazon Managed Grafana User Guide. For detailed information about what's new, see [What's new in Grafana](https://grafana.com/docs/grafana/latest/whatsnew/) for v13.x in the *Grafana Labs documentation*. Version 13.x includes changes that might break functionality, so test in a non-production environment before updating production workspaces.
+
+For more details on breaking changes, see the following topics in the *Grafana Labs documentation*:
+
+**Grafana 13**
++ [What's new in Grafana v13.2](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v13-2/)
++ [What's new in Grafana v13.1](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v13-1/)
++ [What's new in Grafana v13.0](https://grafana.com/docs/grafana/latest/whatsnew/whats-new-in-v13-0/)
 
 ## Grafana version 12
 <a name="version-diff-v12"></a>

@@ -197,7 +197,7 @@ Content-Type: application/json
 ## Create notification channel
 <a name="v12-Grafana-API-AlertNotificationChannels-Create"></a>
 
-To see what notification channels are supported by Amazon Managed Grafana, see the list of supported notifiers in [Working with contact points](alert-contact-points.md).
+To see what notification channels are supported by Amazon Managed Grafana, see the list of supported notifiers in [Contact points](v12-alerting-overview.md#v12-alerting-overview-contact-points).
 
 In Grafana version 12, use the Alerting Provisioning API to create contact points. The legacy `/api/alert-notifications` endpoint is no longer available.
 

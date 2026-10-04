@@ -75,7 +75,7 @@ The SAP HANA Grafana plugin comes with an SQL query editor where you can enter a
 ## Annotations
 <a name="saphana-annotations"></a>
 
-You can use SAP HANA queries as the sources of Grafana annotations. Your annotation query should return at least one time column and one text column. For more information about annotations, see [Annotations](dashboard-annotations.md).
+You can use SAP HANA queries as the sources of Grafana annotations. Your annotation query should return at least one time column and one text column. For more information about annotations, see [Annotate visualizations](v13-dash-annotations.md).
 
 **To create annotations from SAP HANA**
 
@@ -94,7 +94,7 @@ You can use SAP HANA queries as the sources of Grafana annotations. Your annotat
 ## Templates and variables
 <a name="saphana-templates"></a>
 
-To add a new SAP HANA query variable, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your SAP HANA data source as your data source.
+To add a new SAP HANA query variable, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your SAP HANA data source as your data source.
 
 The following example query returns the distinct list of `username` from the `users` table.
 

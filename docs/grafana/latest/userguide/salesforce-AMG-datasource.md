@@ -115,8 +115,8 @@ SELECT UserId, LoginTime from LoginHistory where LoginTime > $__timeFrom
 ## Templates and variables
 <a name="salesforce-templates"></a>
 
-To add a new Salesforce query variable, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your Salesforce data source as your data source. You can use any SOQL query here.
+To add a new Salesforce query variable, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your Salesforce data source as your data source. You can use any SOQL query here.
 
 If you want to use name/value pairs, for example a user id and user name, return two fields from your SOQL query. The first field will be used as the ID. Do this when you want to filter by key (ID, etc) in your query editor SOQL.
 
-Use the variable in your SOQL queries by using Variable syntax. For more information, see [Variable syntax](templates-and-variables.md#variable-syntax).
+Use the variable in your SOQL queries by using Variable syntax. For more information, see [Variable syntax](v13-dash-variable-syntax.md).

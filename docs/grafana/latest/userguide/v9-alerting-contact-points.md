@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
-For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).
 
 Use contact points to define how your contacts are notified when an alert is initiated. A contact point can have one or more contact point integrations, for example, Amazon Simple Notification Service or Slack. When an alert is initiated, a notification is sent to all contact point integrations listed for a contact point. Optionally, use [notification templates](v9-alerting-create-templates.md) to customize the notification messages for the contact point types.
 

@@ -75,7 +75,7 @@ Specify your OpenSearch or legacy Elasticsearch version in the version dropdown 
 ### Logs
 <a name="opensearch-logs-beta"></a>
 
-Two parameters, `Message field name` and `Level field name`, can optionally be configured from the data source settings page that determine which fields will be used for log messages and log levels when visualizing logs in [Explore](explore.md). 
+Two parameters, `Message field name` and `Level field name`, can optionally be configured from the data source settings page that determine which fields will be used for log messages and log levels when visualizing logs in [Explore in Grafana version 13](v13-explore.md). 
 
  For example, if you use a default setup of Filebeat for shipping logs to OpenSearch, the following configuration should work. 
 +  **Message field name:** message 
@@ -121,7 +121,7 @@ Some metric aggregations are called pipeline aggregations; for example, *Moving 
 
 Instead of hardcoding things such as server, application, and sensor name in your metric queries you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates and variables](templates-and-variables.md). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 #### Query variable
 <a name="opensearch-query-variable"></a>
@@ -163,7 +163,7 @@ These queries by default return results in term order (which can then be sorted 
 ### Annotations
 <a name="opensearch-annotations"></a>
 
-Annotations allow you to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu or Annotations view. Grafana can query any OpenSearch index for annotation events. For more information, see [Annotations](dashboard-annotations.md). 
+Annotations allow you to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu or Annotations view. Grafana can query any OpenSearch index for annotation events. For more information, see [Annotate visualizations](v13-dash-annotations.md). 
 
 
 |  Name  |  Description  | 
@@ -177,7 +177,7 @@ Annotations allow you to overlay rich event information on top of graphs. You ad
 ### Querying logs
 <a name="opensearch-querying-logs-beta"></a>
 
- Querying and displaying log data from OpenSearch is available in Explore. To display your logs, select the OpenSearch data source, and then optionally enter a Lucene query. For more information, see [Explore](explore.md). 
+ Querying and displaying log data from OpenSearch is available in Explore. To display your logs, select the OpenSearch data source, and then optionally enter a Lucene query. For more information, see [Explore in Grafana version 13](v13-explore.md). 
 
 #### Log queries
 <a name="opensearch-log-queries"></a>

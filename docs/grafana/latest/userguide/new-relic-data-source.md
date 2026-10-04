@@ -58,7 +58,7 @@ For example:
 ### Templates and variables
 <a name="newrelic-templates-and-variables"></a>
 
-1.  Create a template variable for your dashboard. For more information, see [Templates and variables](templates-and-variables.md). 
+1.  Create a template variable for your dashboard. For more information, see [Variables](v13-dash-variables.md). 
 
 1.  Select the "Query" type. 
 

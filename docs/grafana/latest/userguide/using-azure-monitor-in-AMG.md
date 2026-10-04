@@ -124,7 +124,7 @@ az ad sp create-for-rbac -n "http://localhost:3000"
 +  Chaining template variables: `ResourceNames($rg, $ns)` 
 +  Do not quote parameters: `MetricNames(hg, Microsoft.Network/publicIPAddresses, grafanaIP)` 
 
- For more information about templating and template variables, see [Templates](templates-and-variables.md#templates). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 ### List of supported Azure Monitor metrics
 <a name="list-of-supported-azure-monitor-metrics"></a>
@@ -134,7 +134,7 @@ az ad sp create-for-rbac -n "http://localhost:3000"
 ### Azure Monitor alerting
 <a name="azure-monitor-alerting"></a>
 
- Grafana alerting is supported for the Azure Monitor service. This is not Azure Alerts support. For more information about Grafana alerting, see [Grafana alerting](alerts-overview.md). 
+ Grafana alerting is supported for the Azure Monitor service. This is not Azure Alerts support. For more information about Grafana alerting, see [Overview](v13-alerting-overview.md). 
 
 ## Querying the Application Insights service
 <a name="query-the-application-insights-service"></a>
@@ -175,7 +175,7 @@ az ad sp create-for-rbac -n "http://localhost:3000"
 
  Use the one of the following queries in the **Query** field in the Variable edit view. 
 
- For more information about templating and template variables, see [Templates](templates-and-variables.md#templates). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 
 |  Name  |  Description  | 
@@ -191,7 +191,7 @@ az ad sp create-for-rbac -n "http://localhost:3000"
 ### Application Insights alerting
 <a name="application-insights-alerting"></a>
 
- Grafana alerting is supported for Application Insights. This is not Azure Alerts support. For more information about Grafana alerting, see [Grafana alerting](alerts-overview.md). 
+ Grafana alerting is supported for Application Insights. This is not Azure Alerts support. For more information about Grafana alerting, see [Overview](v13-alerting-overview.md). 
 
 ## Querying the Azure Log Analytics service
 <a name="querying-the-azure-log-analytics-service"></a>
@@ -274,14 +274,14 @@ AzureActivity
 <a name="azure-log-analytics-builtin-variables"></a>
 
  There are also some Grafana variables that can be used in Azure Log Analytics queries: 
-+  `$__interval` - Grafana calculates the minimum time grain that can be used to group by time in queries. It returns a time grain such as `5m` or `1h` that can be used in the bin function; for example, `summarize count() by bin(TimeGenerated, $__interval)`. For more information about interval variables, see [Adding an interval variable](variables-types.md#add-an-interval-variable). 
++  `$__interval` - Grafana calculates the minimum time grain that can be used to group by time in queries. It returns a time grain such as `5m` or `1h` that can be used in the bin function; for example, `summarize count() by bin(TimeGenerated, $__interval)`. For more information about interval variables, see [Adding an interval variable](v13-dash-variable-add.md#v13-dash-variable-add-internal). 
 
 ### Templating with variables for Azure Log Analytics
 <a name="templating-with-variables-for-azure-log-analytics"></a>
 
  Any Log Analytics query that returns a list of values can be used in the **Query** field in the Variable edit view. There is also one Grafana function for Log Analytics that returns a list of workspaces. 
 
- For information about templates and template variables, see [Templates and variables](templates-and-variables.md). 
+ For information about templates and template variables, see [Variables](v13-dash-variables.md). 
 
 
 |  Name  |  Description  | 
@@ -324,7 +324,7 @@ Perf
 ### Azure Log Analytics alerting
 <a name="azure-log-analytics-alerting"></a>
 
- Grafana alerting is supported for Application Insights. This is not Azure Alerts support. For more information about alerting in Grafana workspaces, see [Grafana alerting](alerts-overview.md).
+ Grafana alerting is supported for Application Insights. This is not Azure Alerts support. For more information about alerting in Grafana workspaces, see [Overview](v13-alerting-overview.md).
 
 ## Querying the Application Insights Analytics service
 <a name="query-the-application-insights-analytics-service"></a>

@@ -111,7 +111,7 @@
 
  Instead of hardcoding things such as server, application, and sensor name in your metric queries, you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates and variables](templates-and-variables.md). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
  To create a variable using tag values, use the Grafana functions `tags` and `tag_values`. 
 
@@ -174,12 +174,12 @@ tag_values(server, server=~${__searchFilter:regex})
 server=~${servers:regex}
 ```
 
- For more information, see [Advanced variable format options](templates-and-variables.md#advanced-variable-format-options). 
+ For more information, see [Variable syntax](v13-dash-variable-syntax.md). 
 
 ## Annotations
 <a name="graphite-annotations"></a>
 
- Annotations enable you to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotations](dashboard-annotations.md). 
+ Annotations enable you to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. For more information, see [Annotate visualizations](v13-dash-annotations.md). 
 
  Graphite supports two ways to query annotations:
 + A regular metric query. For this, you use the **Graphite query** text box.

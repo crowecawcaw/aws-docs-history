@@ -24,7 +24,7 @@
 ## Query traces
 <a name="jaeger-query-traces"></a>
 
- You can query and display traces from Jaeger via Explore. For more information, see [Explore](explore.md). 
+ You can query and display traces from Jaeger via Explore. For more information, see [Explore in Grafana version 13](v13-explore.md). 
 
  The Jaeger query editor allows you to query by trace ID directly or selecting a trace from trace selector. To query by trace ID, insert the ID into the text input. 
 

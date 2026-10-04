@@ -50,16 +50,16 @@ Amazon Managed Grafana supports macros that Athena does not, which means a query
 ## Templates and variables
 <a name="using-Athena-templates-variables"></a>
 
-For more information about adding a Athena query variable, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your Athena data source as your data source for the available queries.
+For more information about adding a Athena query variable, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your Athena data source as your data source for the available queries.
 
 Any value queried from an Athena table can be used as a variable. Avoid selecting too many values, as this can cause performance issues.
 
-After creating a variable, you can use it in your Athena queries by using [Variable syntax](templates-and-variables.md#variable-syntax). For more information about variables, see [Templates and variables](templates-and-variables.md).
+After creating a variable, you can use it in your Athena queries by using [Variable syntax](v13-dash-variable-syntax.md). For more information about variables, see [Variables](v13-dash-variables.md).
 
 ## Annotations
 <a name="using-Athena-annotations"></a>
 
-[Annotations](dashboard-annotations.md) allow you to overlay rich event information on top of graphs. You can add annotations by selecting the panel or by adding annotation queries using the **Dashboard** menu **Annotations** view. 
+[Annotate visualizations](v13-dash-annotations.md) allow you to overlay rich event information on top of graphs. You can add annotations by selecting the panel or by adding annotation queries using the **Dashboard** menu **Annotations** view. 
 
 An example query to automatically add annotations:
 

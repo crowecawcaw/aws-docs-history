@@ -32,7 +32,7 @@ The same options are available to you when you first create your workspace.
 1. Select **Edit** next to either **Grafana alerting**, **Plugin management**, or **IP Address Type**.
    + **Grafana alerting**
 
-     You can enable [Grafana alerting](v10-alerts.md). To view Prometheus alerts in your Grafana workspace, select the check box to **Turn Grafana alerting on**. In workspaces running version 8 or 9, this will send multiple notifications for your Grafana alerts. If you use alerts defined in Grafana, we recommend updating your workspace to version 10.4 or later.
+     You can enable [Grafana alerting](v10-alerts.md). To view Prometheus alerts in your Grafana workspace, select the check box to **Turn Grafana alerting on**. In workspaces running version 9, this will send multiple notifications for your Grafana alerts. If you use alerts defined in Grafana, we recommend updating your workspace to version 10.4 or later.
 
      If you want to the classic Grafana alerts instead, *clear* the check box next to **Turn Grafana alerting on**. This turns on the [classic dashboard alerts](old-alerts-overview.md). Even if you don't turn Grafana alerting on, your existing Grafana alerts are evaluated.
 **Note**  

@@ -1,0 +1,124 @@
+
+
+# Configure a legend
+<a name="v13-panels-configure-legend"></a>
+
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
+
+A panel includes a legend that you can use to interpret data displayed in a visualization. Each legend option adds context and clarity to the data illustrated in a visualization.
+
+Legends are supported for the following visualizations:
++ [Bar chart](v13-panels-bar-chart.md)
++ [Candlestick](v13-panels-candlestick.md)
++ [Histogram](v13-panels-histogram.md)
++ [Pie chart](v13-panels-piechart.md)
++ [State timeline](v13-panels-state-timeline.md)
++ [Status history](v13-panels-status-history.md)
++ [Time series](v13-panels-time-series.md)
++ [Trend](v13-panels-trend.md)
+
+[Geomaps](v13-panels-geomap.md) and [Heatmaps](v13-panels-heatmap.md) also have legends, but they only provide the choice to display or not display a legend, and don't support other legend options.
+
+## Legend options
+<a name="v13-panels-legend-options"></a>
+
+You can find the following options under the **Legend** section in the panel edit pane.
+
+**Note**  
+Not all of the options listed apply to all visualizations with legends.
+
+**Visibility**
+
+Set whether the legend is displayed or not. Use the switch to toggle a legend on or off.
+
+**Mode**
+
+Set the format in which the legend is displayed. Choose from:
++ **List**
++ **Table**
+
+When you format a legend as a table, other information about the legend, such as associated values or where it's located in the visualization, might be displayed as well.
+
+**Placement**
+
+Set where on the visualization a legend is displayed. Choose from:
++ **Bottom**
++ **Right**
+
+**Width**
+
+If you set the legend placement to **Right**, the **Width** option becomes available. Leave the field empty to allow Grafana to automatically set the legend width, or enter a vale in the field.
+
+**Values**
+
+You can add more context to a visualization by adding series data values or [calculations](v13-panels-calculation-types.md) to a legend. You can add as many values as you like. After you apply your changes, you can scroll the legend to see all values.
+
+**Limit**
+
+Set the maximum number of series to display in the visualization by default. This is useful for reducing clutter when a query returns a large number of series. This option is supported on the following visualizations: time series, bar chart, bar gauge, candlestick, histogram, pie chart, state timeline, status history, trend, and XY chart.
+
+**Series visibility**
+
+Filter which series are shown by using a faceted filter. You can filter series **By name** or **By labels**, and use the **Select all**, **Deselect all**, and **Clear all** actions to manage your selection. You can also select **Pin to sidebar** to keep the filter visible while you work. This option is supported on time series visualizations.
+
+## Changing a series color
+<a name="v13-panels-legend-change-color"></a>
+
+By default, Grafana sets the color of your series data, but you can change them through the panel legend.
+
+**To change a series color**
+
+1. Navigate to the panel you want to update.
+
+1. In the legend, select the color bar associated with the series.
+
+1. Select a pre-set color in the **Colors** tab or set a custom color in the **Custom** tab, using the picker or RGB values.
+
+1. Save the dashboard.
+
+## Isolating series data in a visualization
+<a name="v13-panels-legend-isolate"></a>
+
+Visualizations can often be visually complex, and include many data series. You can simplify the view by removing series data from the visualization through the legend, which isolates the data you want to see. When you do this, Grafana automatically creates a new override in the **Override** tab.
+
+**To isolate series data in a visualization**
+
+1. Navigate to the panel you want to update.
+
+1. In the legend, select the label of the series you want to isolate.
+
+   The system removes from view all other series data.
+
+1. To incrementally add series data back to an isolated series, press the **Ctrl** or **Command** key and select the label of the series you want to add.
+
+1. To save your changes so that they appear to all viewers of the panel, save the dashboard.
+
+To revert back to the default view that includes all data, click any series label twice.
+
+## Sorting series
+<a name="v13-panels-legend-sort"></a>
+
+When you format a legend as a table and add values to it, you can sort the series in the table by those values.
+
+**To sort series**
+
+1. Navigate to the panel you want to update.
+
+1. Hover over any part of the panel you want to work on to display the menu on the top right corner of the panel.
+
+1. From the menu, choose **Edit**.
+
+1. Scroll to the **Legend** section of the panel edit pane.
+
+1. Under **Values**, select the value or calculation that you want to show.
+
+   The legend now displays values.
+
+1. Choose the calculation name header in the legend table to sort the values in the table in ascending or descending order.
+
+**Note**  
+This feature is only supported in these panels: bar chart, histogram, time series.

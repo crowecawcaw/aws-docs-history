@@ -39,7 +39,7 @@ To make changes to the configuration of your workspace, see [Configure a Amazon 
 1.  In the Preferences section, you can edit any of the following: 
    +  **UI Theme** – To set a theme, choose **Dark** or **Light**. **Default** is either the dark theme or the theme selected by your Grafana administrator. 
    +  **Home Dashboard** 
-   +  **Timezone** – Choose to select an option in the **Timezone** list. **Default** is either the browser local timezone or the timezone selected by your Grafana administrator. For more information, see [Time range controls](dashboard-time-range-controls.md).. 
+   +  **Timezone** – Choose to select an option in the **Timezone** list. **Default** is either the browser local timezone or the timezone selected by your Grafana administrator. For more information, see [Setting dashboard time range](v13-dash-using-dashboards.md#v13-dash-setting-dashboard-time-range).. 
 
 1.  Choose **Save**. 
 

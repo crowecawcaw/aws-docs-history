@@ -80,7 +80,7 @@ From the GitLab Query Editor you can select different resource types, such as co
 ## Templates and variables
 <a name="gitlab-templates"></a>
 
-To add a new GitLab query variable, see [Adding a query variable](variables-types.md#add-a-query-variable). Use your GitLab data source as the data source. Choose a resource type: **Releases**, **Projects**, or **Labels**.
+To add a new GitLab query variable, see [Adding a query variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your GitLab data source as the data source. Choose a resource type: **Releases**, **Projects**, or **Labels**.
 
 To get a dynamic list of projects, labels, and so on to choose from, create a Query type variable. Query type variables use the GitLab Query Editor to query and return Projects, Labels, and so on. The following example creates a Project variable to parameterize your queries
 

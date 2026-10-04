@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 10.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
-For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
 
 Workspaces that choose not to use Grafana alerting use the [Classic dashboard alerts](old-alerts-overview.md). To switch to the new Grafana alerting, you must opt in to the feature. To see details about the differences between classic dashboard alerting and Grafana alerting, see [Grafana alerting vs legacy dashboard alerting](#v10-alerting-diff-old-new). GrafanaLabs has announced that classic dashboard alerts will be removed in version 11.
 

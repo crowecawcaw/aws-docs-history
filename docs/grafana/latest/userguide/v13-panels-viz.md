@@ -1,0 +1,119 @@
+
+
+# Visualizations available in Grafana version 13
+<a name="v13-panels-viz"></a>
+
+****  
+This documentation topic is designed for Grafana workspaces that support **Grafana version 13.x**.  
+For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
+For Grafana workspaces that support Grafana version 9.x, see [Working in Grafana version 9](using-grafana-v9.md).
+
+Grafana offers a variety of visualizations to support different use cases. This section of the documentation highlights the built-in visualizations, their options and typical usage.
+
+A common panel to get started with, and to learn the basics of using panels, is the [Time series](v13-panels-time-series.md) panel.
+
+**Note**  
+If you are unsure which visualization to pick, Grafana can provide visualization suggestions based on the panel query. When you select a visualization, Grafana will show a preview with that visualization applied.
++ Graphs & charts
+  + [Time series](v13-panels-time-series.md) is the default and main Graph visualization.
+  + [State timeline](v13-panels-state-timeline.md) for state changes over time.
+  + [Status history](v13-panels-status-history.md) for periodic state over time.
+  + [Bar chart](v13-panels-bar-chart.md) shows any categorical data.
+  + [Histogram](v13-panels-histogram.md) calculates and shows value distribution in a bar chart.
+  + [Heatmap](v13-panels-heatmap.md) visualizes data in two dimensions, used typically for the magnitude of a phenomenon.
+  + [Pie chart](v13-panels-piechart.md) is typically used where proportionality is important.
+  + [Candlestick](v13-panels-candlestick.md) is typically for financial data where the focus is price/data movement.
+  + [Gauge](v13-panels-gauge.md) is the traditional rounded visual showing how far a single metric is from a threshold.
+  + [Trend](v13-panels-trend.md) for datasets that have a sequential, numeric x that is not time.
+  + [XY Chart](v13-panels-xychart.md) provides a way to visualize arbitrary x and y values in a graph.
++ Stats & numbers
+  + [Stat](v13-panels-stat.md) for big stats and optional sparkline.
+  + [Bar gauge](v13-panels-bar-gauge.md) is a horizontal or vertical bar gauge.
++ Misc
+  + [Table](v13-panels-table.md) is the main and only table visualization.
+  + [Logs](v13-panels-logs.md) is the main visualization for logs.
+  + [Node graph](v13-panels-node-graph.md) for directed graphs or networks.
+  + [Traces](v13-panels-traces.md) is the main visualization for traces.
+  + [Flame graph](v13-panels-flamegraph.md) is the main visualization for profiling.
+  + [Geomap](v13-panels-geomap.md) helps you visualize geospatial data.
++ Widgets
+  + [Dashboard list](v13-panels-dashboard-list.md) can list dashboards.
+  + [Alert list](v13-panels-alert-list.md) can list alerts.
+  + [Text](v13-panels-text.md) can show markdown and html.
+  + [News](v13-panels-news.md) can show RSS feeds.
+
+## Get more
+<a name="v13-panels-getmore"></a>
+
+You can add more visualization types by installing panel plugins from the [Find plugins with the plugin catalog](grafana-plugins.md#plugin-catalog).
+
+## Examples
+<a name="v13-panels-examples"></a>
+
+In the following sections you can find visualizations examples.
+
+## Graphs
+<a name="v13-panels-ex-graphs"></a>
+
+For time based line, area, and bar charts, we recommend the default [time series](v13-panels-time-series.md) visualization.
+
+![An image showing examples of times series visualizations in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/time_series_example.png)
+
+
+For categorical data, use a [bar chart](v13-panels-bar-chart.md).
+
+![An image showing examples of bar chart visualizations in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/barchart_example.png)
+
+
+## Big numbers & stats
+<a name="v13-panels-ex-numbers"></a>
+
+A [stat](v13-panels-stat.md) visualization shows one large stat value with an optional graph sparkline. You can control the background or value color using thresholds or color scales.
+
+![An image showing an example of a stat visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/stat_panel_example.png)
+
+
+## Gauge
+<a name="v13-panels-ex-gauge"></a>
+
+If you want to present a value as it relates to a min and max value, you have two options. First a standard radial [gauge](v13-panels-gauge.md):
+
+![An image showing an example of a gauge visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/gauge_example.png)
+
+
+Secondly, Grafana also has a horizontal or vertical [bar gauge](v13-panels-bar-gauge.md) with three distinct display modes.
+
+![An image showing an example of a gauge visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/bar_gauge_example.png)
+
+
+## Table
+<a name="v13-panels-ex-table"></a>
+
+To show data in a table layout, use a [table](v13-panels-table.md) visualization.
+
+![An image showing an example of a table visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/table_example.png)
+
+
+## Pie chart
+<a name="v13-panels-ex-piechart"></a>
+
+To display reduced series, or values in a series, from one or more queries, as they relate to each other, use a [pie chart](v13-panels-piechart.md) visualization.
+
+![An image showing an example of a pie chart visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/pie_chart_example.png)
+
+
+## Heatmaps
+<a name="v13-panels-ex-heatmaps"></a>
+
+To show value distribution over time, use a [heatmap](v13-panels-heatmap.md) visualization.
+
+![An image showing an example of a heatmap visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/heatmap_example.jpg)
+
+
+## State timeline
+<a name="v13-panels-ex-state"></a>
+
+A [state timeline](v13-panels-state-timeline.md) shows discrete state changes over time. When used with time series, thresholds are used to turn numerical values into discrete state regions.
+
+![An image showing an example of a state timeline visualization in Grafana.](https://docs.aws.amazon.com/grafana/latest/userguide/images/viz/state_timeline_example.png)

@@ -5,9 +5,9 @@
 
 ****  
 This documentation topic is designed for Grafana workspaces that support **Grafana version 9.x**.  
+For Grafana workspaces that support Grafana version 13.x, see [Working in Grafana version 13](using-grafana-v13.md).  
 For Grafana workspaces that support Grafana version 12.x, see [Working in Grafana version 12](using-grafana-v12.md).  
-For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).  
-For Grafana workspaces that support Grafana version 8.x, see [Working in Grafana version 8](using-grafana-v8.md).
+For Grafana workspaces that support Grafana version 10.x, see [Working in Grafana version 10](using-grafana-v10.md).
 
 You can create and manage recording rules for an external Grafana Mimir or Loki instance. Recording rules calculate frequently needed expressions or computationally expensive expressions in advance and save the result as a new set of time series. Querying this new time series is faster, especially for dashboards since they query the same expression every time the dashboards refresh.
 
@@ -30,7 +30,7 @@ If you do not want to manage alerting rules for a particular Loki or Prometheus 
    + Select the **Mimir or Loki recording rule** option.
    + In **Rule name**, add a descriptive name. This name is displayed in the alert rules list. It is also the `alertname` label for every alert instance that is created from this rule.
    + From the **Select data source** dropdown, select a Prometheus, or Loki data source.
-   + From the **Namespace** dropdown, select an existing rule namespace. Otherwise, choose **Add new** and enter a name to create one. Namespaces can contain one or more rule groups and only have an organizational purpose. For more information, see [Cortex or Loki rule groups and namespaces](alert-rules.md#alert-rule-groups).
+   + From the **Namespace** dropdown, select an existing rule namespace. Otherwise, choose **Add new** and enter a name to create one. Namespaces can contain one or more rule groups and only have an organizational purpose. For more information, see [Grafana Mimir or Loki rule groups and namespaces](v9-alerting-managerules-mimir-loki-groups.md).
    + From the **Group** dropdown, select an existing group within the selected namespace. Otherwise, choose **Add new** and enter a name to create one. Newly created rules are appended to the end of the group. Rules within a group run sequentially at a regular interval, with the same evaluation time.
 
 1. In **Step 2**, add the query to evaluate.
@@ -38,7 +38,7 @@ If you do not want to manage alerting rules for a particular Loki or Prometheus 
    The value can be a PromQL or LogQL expression. The rule initiates an alert if the evaluation result has at least one series with a value that is greater than 0. An alert is created for each series.
 
 1. In **Step 3**, add additional metadata associated with the rule.
-   + Add a description and summary to customize alert messages. Use the guidelines in [Annotations and labels for alerting rules](alert-rules.md#alert-rule-labels).
+   + Add a description and summary to customize alert messages. Use the guidelines in [Labels and annotations](v9-alerting-explore-labels.md).
    + Add Runbook URL, panel, dashboard, and alert IDs.
    + Add custom labels.
 

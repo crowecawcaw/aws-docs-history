@@ -34,7 +34,7 @@
 +  Add fields parsed from the log message. 
 +  Add a link that uses the value of the field. 
 
- You can use this functionality to link to your tracing backend directly from your logs, or link to a user profile page if a userId is present in the log line. These links appear in the log details. For more information, see [Labels and detected fields](explore.md#labels-and-detected-fields). 
+ You can use this functionality to link to your tracing backend directly from your logs, or link to a user profile page if a userId is present in the log line. These links appear in the log details. For more information, see [Log details view](v13-explore-logs.md#v13-explore-log-details-view). 
 
 Each derived field consists of the following: 
 +  **Name** – Shown in the log details as a label. 
@@ -114,7 +114,7 @@ Each derived field consists of the following:
 
  Instead of hardcoding things such as server, application and sensor name in your metric queries, you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates and variables](templates-and-variables.md). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 ## Annotations
 <a name="loki-annotations"></a>

@@ -135,7 +135,7 @@ The latter option is only available when running Grafana on GCE virtual machine.
 +  5m for time ranges >= 23 hours and < 6 days 
 +  1h for time ranges >= 6 days 
 
- The other automatic option is `grafana auto`. This will automatically set the group by time depending on the time range chosen and the width of the graph panel. For more information, see [Adding an interval variable](variables-types.md#add-an-interval-variable). 
+ The other automatic option is `grafana auto`. This will automatically set the group by time depending on the time range chosen and the width of the graph panel. For more information, see [Adding an interval variable](v13-dash-variable-add.md#v13-dash-variable-add-internal). 
 
  It is also possible to choose fixed time intervals to group by, such as `1h` or `1d`. 
 
@@ -249,7 +249,7 @@ The SLO query builder in the Google Cloud Monitoring data source allows you to d
 
  Instead of hardcoding things such as server, application and sensor name in your metric queries you can use variables in their place. Variables are shown as dropdown select boxes at the top of the dashboard. You can use these dropdown boxes to change the data being displayed in your dashboard. 
 
- For more information about templating and template variables, see [Templates and variables](templates-and-variables.md). 
+ For more information about templating and template variables, see [Variables](v13-dash-variables.md). 
 
 ### Query variable
 <a name="google-query-variable"></a>
@@ -284,7 +284,7 @@ The SLO query builder in the Google Cloud Monitoring data source allows you to d
 
  You can use annotations to overlay rich event information on top of graphs. You add annotation queries via the Dashboard menu / Annotations view. Annotation rendering is expensive so it is important to limit the number of rows returned. There is no support for showing Google Cloud Monitoring annotations and events yet but it works well with [custom metrics](https://cloud.google.com/monitoring/custom-metrics/) in Google Cloud Monitoring.
 
-For more information about annotations, see [Annotations](dashboard-annotations.md). 
+For more information about annotations, see [Annotate visualizations](v13-dash-annotations.md). 
 
  With the query editor for annotations, you can select a metric and filters. The **Title** and **Text** fields support templating and can use data returned from the query. For example, the Title field could have the following text: 
 

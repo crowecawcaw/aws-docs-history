@@ -101,7 +101,7 @@ Use the query editor to query Dynatrace metrics and problems. The query type can
 #### Using template variables
 <a name="using-template-variables"></a>
 
- To add a new Dynatrace query variable, see [add a new template variable](variables-types.md#add-a-query-variable). Use your Dynatrace data source as your data source for the following available queries: 
+ To add a new Dynatrace query variable, see [add a new template variable](v13-dash-variable-add.md#v13-dash-variable-add-query). Use your Dynatrace data source as your data source for the following available queries: 
 + `Query type`— Select a query type. The query type associates some data with some key or descriptor.
 
 
@@ -129,4 +129,4 @@ After creating a variable, you can find it in the **Metric** drop-down menu.
 ##### Import a dashboard for Dynatrace
 <a name="dynatrace-import"></a>
 
-To import a dashboard, see [Importing a dashboard](dashboard-export-and-import.md#importing-a-dashboard). Imported dashboards can be found in **Configuration** > **Data Sources** > select your Dynatrace data source > select the **Dashboards** tab to see available pre-made dashboards.
+To import a dashboard, see [Importing dashboards](v13-dash-importing.md). Imported dashboards can be found in **Configuration** > **Data Sources** > select your Dynatrace data source > select the **Dashboards** tab to see available pre-made dashboards.
