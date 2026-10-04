@@ -76,7 +76,9 @@ Certificate Revocation List (CRL):
 ```
 
 **Note**  
-The CRL will only be deposited in Amazon S3 after a certificate has been issued that refers to it. Prior to that, there will only be an `acm-pca-permission-test-key` file visible in the Amazon S3 bucket.
+When you configure a CRL for a CA, AWS Private CA writes a test object to the Amazon S3 bucket to verify that it has permission to write to the bucket. The object is named `acm-pca-permission-test-key`, or `acm-pca-permission-test-key-private` if `S3ObjectAcl` is set to `BUCKET_OWNER_FULL_CONTROL`.  
+For a complete CRL, AWS Private CA writes the first CRL to the bucket shortly after you configure the CRL, typically within 30 minutes, even if the CA hasn't issued any certificates. The CRL is empty until you revoke a certificate, and AWS Private CA updates it periodically.  
+For partitioned CRLs, AWS Private CA writes the CRL for a partition only after the CA issues a certificate that refers to that partition. AWS Private CA also writes a complete CRL, `{{CA-ID}}.crl`, to the bucket shortly after you configure the CRL, even if the CA hasn't issued any certificates. If the CA has always used partitioned CRLs, no certificate refers to this CRL, so it's always empty and you can ignore it.
 
 ## Access policies for CRLs in Amazon S3
 <a name="s3-policies"></a>
