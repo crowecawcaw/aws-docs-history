@@ -29,7 +29,7 @@ Choosing the number of brokers for your Express-based cluster is easy. Each Expr
 
 For example, if your streaming application needs 45 MBps of data ingress (write) and 90 MBps data egress (read) capacity, you can simply use 3 express.m7g.large brokers to meet your throughput needs. Each express.m7g.large broker will handle 15 MBps of of ingress and 30 MBps egress. See the following table for our recommended throughput limits for each Express broker size. If your throughput exceeds the recommended limits, you may experience degraded performance and you should reduce your traffic or scale your cluster. If your throughput exceeds the recommended limits and reaches the per broker quota, MSK will throttle your client traffic to prevent futher overload.
 
-You can also use our see the [MSK Sizing and Pricing](https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fdy7oqpxkwhskb.cloudfront.net%2FMSK_Sizing_Pricing.xlsx&wdOrigin=BROWSELINK) spreadsheet to evaluate multiple scenarios and consider other factors, such as partition count.
+You can also use our see the [MSK Sizing and Pricing](samples/MSK_Sizing_Pricing.zip) spreadsheet to evaluate multiple scenarios and consider other factors, such as partition count.
 
 The following table lists the recommended maximum throughput per broker for each instance size.
 

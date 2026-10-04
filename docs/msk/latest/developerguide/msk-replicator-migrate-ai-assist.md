@@ -3,6 +3,22 @@
 # Assess migration readiness with AI tools
 <a name="msk-replicator-migrate-ai-assist"></a>
 
+Before you begin a migration, you can use AI-assisted tooling to evaluate your source Apache Kafka cluster and plan your target Amazon MSK deployment. Two options are available:
++ **AWS Transform migration assessments** — Build a total cost of ownership (TCO) business case for moving Apache Kafka workloads to Amazon MSK. Start here if you need cost projections and a migration business case for stakeholders.
++ **The migrate-to-msk AI skill** — Run a detailed, cluster-level compatibility analysis against MSK Express requirements, and optionally load test a candidate Express cluster before you migrate.
+
+## Build a migration business case with AWS Transform
+<a name="msk-replicator-migrate-ai-transform"></a>
+
+AWS Transform migration assessments use agentic AI to evaluate the migration of on-premises Apache Kafka clusters to Amazon MSK. The assessment analyzes your workloads, recommends the best-fit AWS services, and generates a total cost of ownership (TCO) business case with pricing options and actionable next steps in minutes. For Apache Kafka workloads, the assessment agent provides compatibility checks, right-sized MSK Express broker recommendations, and projected costs, so that you can build a migration business case and make migration decisions more quickly.
+
+You can run an assessment through natural-language chat in the AWS Transform web experience, or through the AWS Transform MCP server from an MCP-compatible AI assistant. For more information about assessments, the inventory data sources they accept, and the reports they produce, see [Migration assessments](https://docs.aws.amazon.com/transform/latest/userguide/transform-app-assessments.html) in the *AWS Transform User Guide*.
+
+After you have a business case and a target broker recommendation, you can use the migrate-to-msk AI skill for a deeper compatibility analysis of your cluster configuration, and then use Amazon MSK Replicator to move your data.
+
+## Assess MSK Express compatibility with the migrate-to-msk skill
+<a name="msk-replicator-migrate-ai-skill"></a>
+
 You can use the migrate-to-msk AI skill to assess your source cluster's compatibility with Amazon MSK Express and generate a right-sized target cluster recommendation before you begin migration. The skill simplifies the analysis that you would otherwise perform manually by comparing your Apache Kafka configuration against Express requirements. You can also run an optional simulation that deploys a temporary Express cluster at your target size and drives a synthetic load at a throughput you choose, so you can see how that cluster behaves under load before you migrate.
 
 **Prerequisites**  
