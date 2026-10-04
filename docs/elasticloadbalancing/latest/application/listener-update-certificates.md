@@ -77,7 +77,7 @@ Resources:
 ## Add certificates to the certificate list
 <a name="add-certificates"></a>
 
-You can add certificates to the certificate list for your listener using the following procedure. If you created the listener using the AWS Management Console, we added the default certificate to the certificate list for you. Otherwise, the certificate list is empty. Adding the default certificate to the certificate list ensures that this certificate is used with the SNI protocol even if it is replaced as the default certificate. For more information, see [SSL certificates for your Application Load Balancer](https-listener-certificates.md).
+You can add certificates to the certificate list for your listener using the following procedure. If you created the listener using the AWS Management Console, we added the default certificate to the certificate list for you. Otherwise, the certificate list is empty. Adding the default certificate to the certificate list ensures that this certificate is used with the SNI extension even if it is replaced as the default certificate. For more information, see [SSL certificates for your Application Load Balancer](https-listener-certificates.md).
 
 ------
 #### [ Console ]

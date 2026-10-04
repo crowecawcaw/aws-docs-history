@@ -5,7 +5,7 @@
 
 When you create a secure listener for your Application Load Balancer, you must deploy at least one certificate on the load balancer. The load balancer requires X.509 certificates (SSL/TLS server certificates). Certificates are a digital form of identification issued by a certificate authority (CA). A certificate contains identification information, a validity period, a public key, a serial number, and the digital signature of the issuer.
 
-When you create a certificate for use with your load balancer, you must specify a domain name. The domain name on the certificate must match the custom domain name record so that we can verify the TLS connection. If they do not match, the traffic is not encrypted.
+When you create a certificate for use with your load balancer, you must specify a domain name. The domain name on the certificate must match the host name the client requests so that the client can verify the certificate during the TLS handshake. If they do not match, the client cannot validate the certificate and the connection fails. The load balancer does not serve the traffic unencrypted.
 
 You must specify a fully qualified domain name (FQDN) for your certificate, such as `www.example.com` or an apex domain name such as `example.com`. You can also use an asterisk (\*) as a wild card to protect several site names in the same domain. When you request a wild-card certificate, the asterisk (\*) must be in the leftmost position of the domain name and can protect only one subdomain level. For instance, `*.example.com` protects `corp.example.com`, and `images.example.com`, but it cannot protect `test.login.example.com`. Also note that `*.example.com` protects only the subdomains of `example.com`, it does not protect the bare or apex domain (`example.com`). The wild-card name appears in the **Subject** field and in the **Subject Alternative Name** extension of the certificate. For more information about public certificates, see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/acm-public-certificates.html) in the *AWS Certificate Manager User Guide*.
 
@@ -18,7 +18,7 @@ Alternatively, you can use SSL/TLS tools to create a certificate signing request
 
 When you create an HTTPS listener, you must specify exactly one certificate. This certificate is known as the *default certificate*. You can replace the default certificate after you create the HTTPS listener. For more information, see [Replace the default certificate](listener-update-certificates.md#replace-default-certificate).
 
-If you specify additional certificates in a [certificate list](#sni-certificate-list), the default certificate is used only if a client connects without using the Server Name Indication (SNI) protocol to specify a hostname or if there are no matching certificates in the certificate list.
+If you specify additional certificates in a [certificate list](#sni-certificate-list), the default certificate is used only if a client connects without using the Server Name Indication (SNI) extension to specify a hostname or if there are no certificates in the certificate list whose CN or SAN matches that hostname. When one or more match, the load balancer selects only from those matched certificates. If none of the matched certificates is compatible with the client, the handshake fails. The load balancer does not fall back to the default certificate.
 
 If you do not specify additional certificates but need to host multiple secure applications through a single load balancer, you can use a wildcard certificate or add a Subject Alternative Name (SAN) for each additional domain to your certificate.
 
@@ -26,6 +26,9 @@ If you do not specify additional certificates but need to host multiple secure a
 <a name="sni-certificate-list"></a>
 
 After you create an HTTPS listener, you can add certificates to the certificate list. If you created the listener using the AWS Management Console, we added the default certificate to the certificate list for you. Otherwise, the certificate list is empty. Using a certificate list enables the load balancer to support multiple domains on the same port and provide a different certificate for each domain. For more information, see [Add certificates to the certificate list](listener-update-certificates.md#add-certificates).
+
+**Note**  
+A default certificate takes part in SNI selection only if it is explicitly added to this certificate list using the [AddListenerCertificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_AddListenerCertificates.html) API. Otherwise, it is used as described in the [Default certificate](#default-certificate) section.
 
 The load balancer uses a smart certificate selection algorithm with support for SNI. If the hostname provided by a client matches a single certificate in the certificate list, the load balancer selects this certificate. If a hostname provided by a client matches multiple certificates in the certificate list, the load balancer selects the best certificate that the client can support. Certificate selection is based on the following criteria in the following order:
 + Public key algorithm (prefer ECDSA over RSA)
