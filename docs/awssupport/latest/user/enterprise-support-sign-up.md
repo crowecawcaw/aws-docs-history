@@ -32,7 +32,7 @@ Self-service subscription is available to AWS customers who meet all of the foll
 1. Review the Enterprise Support benefits and pricing, then choose **Next** to check your account's eligibility.  
 ![Review upgrade page showing Enterprise Support plan benefits and a Next button to check eligibility.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-review-benefits.png)
 
-1. If your account is eligible, you proceed to the confirmation page. If validation fails, the page lists each reason. See [Troubleshooting](#enterprise-sign-up-troubleshooting) to resolve eligibility failures.
+1. If your account is eligible, you proceed to the confirmation page. If validation fails, the page lists each reason. See [Troubleshooting AWS Enterprise Support sign-up](#enterprise-sign-up-troubleshooting) to resolve eligibility failures.
 
 1. On the confirmation page, review what to expect and the subscription terms, select the checkbox to accept the terms, and then choose **Submit request**.  
 ![Confirmation page showing subscription terms, the acceptance checkbox, and the Submit request button.](https://docs.aws.amazon.com/awssupport/latest/user/images/enterprise-sign-up-confirm.png)
@@ -43,15 +43,17 @@ Self-service subscription is available to AWS customers who meet all of the foll
 ## Understanding post-enrollment steps
 <a name="enterprise-sign-up-post-subscription"></a>
 
-After your account is enrolled:
+After your account is enrolled, the following events occur:
 + You receive an email confirmation. Billing starts when your account is subscribed and appears on your monthly AWS bill. For details, see [AWS Support pricing](https://aws.amazon.com/premiumsupport/pricing/).
 + AWS assigns a designated Technical Account Manager (TAM) to your team within the first few business days. Your TAM reaches out to introduce themselves and schedule an onboarding session.
 
-## Troubleshooting
+## Troubleshooting AWS Enterprise Support sign-up
 <a name="enterprise-sign-up-troubleshooting"></a>
 
 ### Eligibility failures
 <a name="enterprise-sign-up-eligibility-failures"></a>
+
+The following errors can appear when you check your account's eligibility:
 
 Management account required  
 You're signed in as a member account of an AWS Organization, or as a standalone account that isn't part of an organization. Only the organization's management account can submit an Enterprise Support subscription request. Sign out, sign in with your management account, and reopen the Support Plans console. If your account isn't part of an organization, create one by following the steps in [Creating an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tutorials_basic.html) in the *AWS Organizations User Guide*.
@@ -79,6 +81,8 @@ The console couldn't complete the eligibility check, usually because of a transi
 
 ### Enrollment failures after you submit your request
 <a name="enterprise-sign-up-enrollment-failures"></a>
+
+The following errors can occur after you submit your enrollment request:
 
 Taking longer than expected  
 Activation didn't complete within the expected window, and your request might still be processing. Check your support plan in the Support Plans console before resubmitting.
