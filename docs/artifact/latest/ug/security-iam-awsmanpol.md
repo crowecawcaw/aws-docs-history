@@ -94,10 +94,17 @@ You can attach the `AWSArtifactComplianceInquiriesFullAccess` policy to your IAM
 
 With this policy attached, you can create, list, view, export, and submit feedback on AWS Artifact compliance inquiries for Assurance Assistant. 
 
+You can also select an existing notification configuration when you create an inquiry. 
+
+**Note**  
+This policy lets you select an existing notification configuration, but you can't use it to create a new one. Before a configuration is available to select, you must set up AWS User Notifications separately. First, select notification hubs. Then, create a notification configuration with a verified email recipient. Until you do, no configurations appear in the list when you create an inquiry. For more information, see [Configuring email notifications in AWS Artifact](managing-notifications.md). 
+
  **Permissions details** 
 
 This policy includes the following permissions.
 +  `artifact` – Allows principals to create, list, view, export, and submit feedback on compliance inquiries in AWS Artifact. 
++  `notifications` – Allows principals to list the existing notification configurations that they can select when they create an inquiry, and to read each configuration's delivery channels and event rules so that AWS Artifact can show which notifications the configuration sends. 
++  `notifications-contacts` – Allows principals to view the email contact for each delivery channel on those notification configurations. 
 
  
 
@@ -111,6 +118,7 @@ View details about updates to AWS managed policies for AWS Artifact since this s
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [AWSArtifactComplianceInquiriesFullAccess](security-iam-awsmanpol.html#security-iam-awsmanpol-AWSArtifactComplianceInquiriesFullAccess) – Update to an existing policy  | Added AWS User Notifications and AWS User Notifications Contacts (`notifications` and `notifications-contacts`) permissions. With these permissions, you can select an existing notification configuration when you create a compliance inquiry. [AWSArtifactComplianceInquiriesReadOnlyAccess](security-iam-awsmanpol.html#security-iam-awsmanpol-AWSArtifactComplianceInquiriesReadOnlyAccess) is unchanged. | 2026-09-30 | 
 |  [AWSArtifactComplianceInquiriesFullAccess](security-iam-awsmanpol.html#security-iam-awsmanpol-AWSArtifactComplianceInquiriesFullAccess) – Update to an existing policy  | Added the `artifact:PutComplianceInquiryFeedback` permission. With this permission, you can submit feedback on compliance inquiry responses. | 2026-07-23 | 
 |  Introduced AWS Compliance Inquiries managed policies  | Introduced [AWSArtifactComplianceInquiriesReadOnlyAccess](security-iam-awsmanpol.html#security-iam-awsmanpol-AWSArtifactComplianceInquiriesReadOnlyAccess) and [AWSArtifactComplianceInquiriesFullAccess](security-iam-awsmanpol.html#security-iam-awsmanpol-AWSArtifactComplianceInquiriesFullAccess) managed policies for Assurance Assistant. | 2026-06-30 | 
 |  [AWSArtifactReportsReadOnlyAccess](#security-iam-awsmanpol-AWSArtifactReportsReadOnlyAccess) – Update to an existing policy  | AWS Artifact added the `artifact:ListReportVersions` permission to allow listing report versions. | 2025-12-15 | 
