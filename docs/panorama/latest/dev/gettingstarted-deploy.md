@@ -16,7 +16,7 @@ In a retail setting, analyzing foot traffic patterns enables you to predict traf
 + [Import the sample application](#gettingstarted-deploy-import)
 + [Deploy the application](#gettingstarted-deploy-deploy)
 + [View the output](#gettingstarted-deploy-view)
-+ [Enable the SDK for Python](#gettingstarted-deploy-redeploy)
++ [Enable the SDK for Python (Boto)](#gettingstarted-deploy-redeploy)
 + [Clean up](#gettingstarted-deploy-cleanup)
 + [Next steps](#gettingstarted-deploy-next)
 
@@ -202,7 +202,7 @@ The sample model has 1000 classes including many animals, food, and common objec
 
 For simplicity, the sample application uses a lightweight classification model. The model outputs a single array with a probability for each of its classes. Real-world applications more frequently use object detection models that have multidimensional output. For sample applications with more complex models, see [Sample applications, scripts, and templates](panorama-samples.md).
 
-## Enable the SDK for Python
+## Enable the SDK for Python (Boto)
 <a name="gettingstarted-deploy-redeploy"></a>
 
 The sample application uses the AWS SDK for Python (Boto) to send metrics to Amazon CloudWatch. To enable this functionality, create a role that grants the application permission to send metrics, and redeploy the application with the role attached.

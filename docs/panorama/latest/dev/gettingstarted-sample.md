@@ -19,7 +19,7 @@ In this example, the application uses the AWS Panorama Application SDK to get fr
 + [Building with the sample application](#gettingstarted-sample-adapting)
 + [Changing the computer vision model](#gettingstarted-sample-model)
 + [Preprocessing images](#gettingstarted-sample-preprocessing)
-+ [Uploading metrics with the SDK for Python](#gettingstarted-sample-metrics)
++ [Uploading metrics with the SDK for Python (Boto)](#gettingstarted-sample-metrics)
 + [Next steps](#gettingstarted-sample-nextsteps)
 
 ## The application manifest
@@ -354,12 +354,12 @@ Before the application sends an image to the model, it prepares it for inference
 
 This process gives the model values in a predictable range centered around 0. It matches the preprocessing applied to images in the training dataset, which is a standard approach but can vary per model.
 
-## Uploading metrics with the SDK for Python
+## Uploading metrics with the SDK for Python (Boto)
 <a name="gettingstarted-sample-metrics"></a>
 
-The sample application uses the SDK for Python to upload metrics to Amazon CloudWatch.
+The sample application uses the SDK for Python (Boto) to upload metrics to Amazon CloudWatch.
 
-**Example [application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/application.py) – SDK for Python**  
+**Example [application.py](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/application.py) – SDK for Python (Boto)**  
 
 ```
     def process_streams(self):
@@ -440,7 +440,7 @@ Resources:
       Path: /service-role/
 ```
 
-The sample application installs the SDK for Python and other dependencies with pip. When you build the application container, the `Dockerfile` runs commands to install libraries on top of what comes with the base image.
+The sample application installs the SDK for Python (Boto) and other dependencies with pip. When you build the application container, the `Dockerfile` runs commands to install libraries on top of what comes with the base image.
 
 **Example [Dockerfile](https://github.com/awsdocs/aws-panorama-developer-guide/blob/main/sample-apps/aws-panorama-sample/packages/123456789012-SAMPLE_CODE-1.0/Dockerfile)**  
 
