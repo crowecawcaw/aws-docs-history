@@ -12,6 +12,7 @@ Tag keys and their values are returned by many different API calls. Denying acce
 + [Tag basics](#tag-basics)
 + [Tag your resources](#tag-resources)
 + [Tag restrictions](#tag-restrictions)
++ [Sharing tags](#sharing-tags)
 + [Tags and access management](#tag-resources-access-management)
 + [Tag your resources for billing](#tag-resources-for-billing)
 + [Tag resource permissions](supported-iam-actions-tagging.md)
@@ -34,6 +35,8 @@ The following diagram illustrates how tagging works. In this example, you've ass
 We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. For more information about how to implement an effective resource tagging strategy, see the [Tagging Best Practices AWS Whitepaper](https://docs.aws.amazon.com/whitepapers/latest/tagging-best-practices/tagging-best-practices.html).
 
 Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. Also, tags are not automatically assigned to your resources. You can edit tag keys and values, and you can remove tags from a resource at any time. You can set the value of a tag to an empty string, but you can't set the value of a tag to null. If you add a tag that has the same key as an existing tag on that resource, the new value overwrites the old value. If you delete a resource, any tags for the resource are also deleted.
+
+For AMIs, you can share tags with other AWS accounts by using the `ec2:SharedTag/` prefix. For more information, see [Sharing tags](#sharing-tags).
 
 **Note**  
 After you delete a resource, its tags might remain visible in the console, API, and CLI output for a short period. These tags will be gradually disassociated from the resource and be permanently deleted.
@@ -67,7 +70,19 @@ The following basic restrictions apply to tags:
 
 You can't terminate, stop, or delete a resource based solely on its tags; you must specify the resource identifier. For example, to delete snapshots that you tagged with a tag key called `DeleteMe`, you must use the `DeleteSnapshots` action with the resource identifiers of the snapshots, such as `snap-1234567890abcdef0`. 
 
-When you tag public or shared resources, the tags you assign are available only to your AWS account; no other AWS account will have access to those tags. For tag-based access control to shared resources, each AWS account must assign its own set of tags to control access to the resource.
+When you tag public or shared resources, the tags you assign are available only to your AWS account; no other AWS account will have access to those tags. For tag-based access control to shared resources, each AWS account must assign its own set of tags to control access to the resource. For an exception to this rule, see [Sharing tags](#sharing-tags).
+
+## Sharing tags
+<a name="sharing-tags"></a>
+
+By default, user-defined tags are private to the AWS account that creates them. However, for image resources, you can use the `ec2:SharedTag/` prefix to create tags that are visible to all AWS accounts with which you share the image.
+
+The following rules apply to shared tags:
++ Amazon EC2 supports shared tags only for image resources. You cannot use the `ec2:SharedTag/` prefix on other EC2 resource types.
++ Only the resource owner can create, modify, or delete tags with the `ec2:SharedTag/` prefix. Accounts with which you share the image can view these tags but cannot change them.
++ Shared tags count against the resource owner's tags-per-resource quota (50 tags per resource). They do not count against the quota of accounts with which you share the image.
++ When you copy an image that has shared tags, Amazon EC2 copies the shared tags to the new image.
++ Shared tags can affect access management. Before you share tags, review [Tags and access management](#tag-resources-access-management).
 
 ## Tags and access management
 <a name="tag-resources-access-management"></a>
@@ -75,6 +90,8 @@ When you tag public or shared resources, the tags you assign are available only 
 If you're using AWS Identity and Access Management (IAM), you can control which users in your AWS account have permission to create, edit, or delete tags. For more information, see [Grant permission to tag Amazon EC2 resources during creation](supported-iam-actions-tagging.md).
 
 You can also use resource tags to implement attribute-based control (ABAC). You can create IAM policies that allow operations based on the tags for the resource. For more information, see [Control access using attribute-based access](iam-policies-for-amazon-ec2.md#control-access-with-tags).
+
+When you use shared tags (tags with the `ec2:SharedTag/` prefix), be aware of the access-management implications. Unlike other user-defined tags, shared tags are visible to every AWS account that you share the image with. We recommend that you use shared tags only for values that you intend all accounts with access to see. If those accounts have attribute-based access control (ABAC) policies that evaluate tags, those policies also apply to the shared image. Only the resource owner can create, modify, or delete shared tags. As a result, accounts that you share the image with can't change the tag values that their policies depend on. When you use a shared image, the image owner sets its `ec2:SharedTag/` tags and you can't change them, so account for these tags in any ABAC policies that you use to control access to the image. For more information about shared tags, see [Sharing tags](#sharing-tags).
 
 ## Tag your resources for billing
 <a name="tag-resources-for-billing"></a>

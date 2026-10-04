@@ -57,7 +57,7 @@ Capacity Block sizes of 64 instances are not supported for all instance types in
 | p4de.24xlarge | ✓ |  |  | ✓ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
 | trn1.32xlarge | ✓ | ✓ |  | ✓ | ✓ |  |  |  |  |  | ✓ |  | ✓ |  | ✓ |  |  |  |  |  | 
 | trn2.3xlarge |  |  |  |  |  |  |  |  |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  | 
-| trn2.48xlarge |  | ✓ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+| trn2.48xlarge |  | ✓ |  |  |  |  |  |  |  |  |  | ✓ |  |  |  |  |  |  |  |  | 
 
 ### UltraServer Capacity Blocks
 <a name="capacity-blocks-ultraserver-prerequisites"></a>

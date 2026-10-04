@@ -26,7 +26,7 @@ Consider the following when sharing AMIs with specific organizations or organiza
 + **Sharing limits** – The AMI owner can share an AMI with any organization or OU, including organizations and OUs that they’re not a member of.
 
   For the maximum number of entities to which an AMI can be shared within a Region, see the [Amazon EC2 service quotas](https://docs.aws.amazon.com/general/latest/gr/ec2-service.html#limits_ec2).
-+ **Tags** – You can't share user-defined tags (tags that you attach to an AMI). When you share an AMI, your user-defined tags are not available to any AWS account in an organization or OU with which the AMI is shared.
++ **Tags** – When you share an AMI, other accounts cannot see the tags that you attached to it. The exception is tags with the `ec2:SharedTag/` prefix, which are visible to all AWS accounts with which you shared the AMI. Only the resource owner can create, modify, or delete tags with this prefix. For more information about shared tags, see [Sharing tags](Using_Tags.md#sharing-tags).
 + **ARN format** – When you specify an organization or OU in a command, make sure to use the correct ARN format. You'll get an error if you specify only the ID, for example, if you specify only `o-123example` or `ou-1234-5example`.
 
   Correct ARN formats:
