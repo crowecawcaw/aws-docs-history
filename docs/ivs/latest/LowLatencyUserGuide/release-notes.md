@@ -5,6 +5,48 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## October 1, 2026
+<a name="oct01-26-player-web-ll"></a>
+
+### IVS Player SDK: Web 1.57.0
+<a name="oct01-26-player-web-ll-1570"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web player 1.57.0](player-web.md) & [Video.js integration](player-videojs.md) & [JW player integration](player-jwplayer.md)  | **NPM Package:** [https://www.npmjs.com/package/amazon-ivs-player](https://www.npmjs.com/package/amazon-ivs-player)<br />**Script asset: **[https://player.live-video.net/1.57.0/amazon-ivs-player.min.js](https://player.live-video.net/1.57.0/amazon-ivs-player.min.js)<br />**Video.js tech asset: **[https://player.live-video.net/1.57.0/amazon-ivs-videojs-tech.min.js](https://player.live-video.net/1.57.0/amazon-ivs-videojs-tech.min.js)<br />**Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.57.0/web/](https://aws.github.io/amazon-ivs-player-docs/1.57.0/web/)+  Bug fixes and stability improvements.  | 
+
+## October 1, 2026
+<a name="oct01-26-player-mobile-ll"></a>
+
+### IVS Player SDK: Android 1.57.0, iOS 1.57.0
+<a name="oct01-26-player-mobile-ll-1570"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android player 1.57.0](player-android.md) | **Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.57.0/android/](https://aws.github.io/amazon-ivs-player-docs/1.57.0/android/)+  Bug fixes and stability improvements.  | 
+| [iOS player 1.57.0](player-ios.md) | **Download: **[https://player.live-video.net/1.57.0/AmazonIVSPlayer.xcframework.zip](https://player.live-video.net/1.57.0/AmazonIVSPlayer.xcframework.zip)<br />**Reference documentation: **[https://aws.github.io/amazon-ivs-player-docs/1.57.0/ios/](https://aws.github.io/amazon-ivs-player-docs/1.57.0/ios/)+  Bug fixes and stability improvements.  | 
+
+#### Mobile SDK Size: Android
+<a name="player-mobile-1570-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 1.615 MB | 4.134 MB | 
+| armeabi-v7a | 1.435 MB | 2.936 MB | 
+| x86\_64 | 1.616 MB | 4.218 MB | 
+| x86  | 1.677 MB | 4.219 MB | 
+
+#### Mobile SDK Size: iOS
+<a name="player-mobile-1570-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 0.852 MB | 1.852 MB | 
+
 ## September 24, 2026
 <a name="sep24-26-broadcast-mobile-ll"></a>
 
