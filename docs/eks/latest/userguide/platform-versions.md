@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Amazon EKS platform versions represent the capabilities of the Amazon EKS cluster control plane, such as which Kubernetes API server flags are enabled, as well as the current Kubernetes patch version. Each Kubernetes minor version has one or more associated Amazon EKS platform versions. The platform versions for different Kubernetes minor versions are independent. You can [retrieve your cluster’s current platform version](#get-platform-version) using the AWS CLI or AWS Management Console. If you have a local cluster on AWS Outposts, see [Learn Kubernetes and Amazon EKS platform versions for AWS Outposts](eks-outposts-platform-versions.md) instead of this topic.
 
-When a new Kubernetes minor version is available in Amazon EKS, such as 1.36, the initial Amazon EKS platform version for that Kubernetes minor version starts at `eks.1`. However, Amazon EKS releases new platform versions periodically to enable new Kubernetes control plane settings and to provide security fixes.
+When a new Kubernetes minor version is available in Amazon EKS, such as 1.37, the initial Amazon EKS platform version for that Kubernetes minor version starts at `eks.1`. However, Amazon EKS releases new platform versions periodically to enable new Kubernetes control plane settings and to provide security fixes.
 
 When new Amazon EKS platform versions become available for a minor version:
 + The Amazon EKS platform version number is incremented (`eks.<n+1>`).
@@ -33,6 +33,16 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/versioning/platform-versions.adoc.atom
 ```
 
+## Kubernetes version `1.37`
+<a name="platform-versions-1-37"></a>
+
+The following admission controllers are enabled for all `1.37` platform versions: `NodeRestriction`, `ExtendedResourceToleration`, `NamespaceLifecycle`, `LimitRanger`, `ServiceAccount`, `TaintNodesByCondition`, `PodSecurity`, `Priority`, `DefaultTolerationSeconds`, `DefaultStorageClass`, `StorageObjectInUseProtection`, `PersistentVolumeClaimResize`, `RuntimeClass`, `CertificateApproval`, `CertificateSigning`, `CertificateSubjectRestriction`, `DefaultIngressClass`, `MutatingAdmissionWebhook`, `ValidatingAdmissionWebhook`, `ResourceQuota`.
+
+
+| Kubernetes version | EKS platform version | Release notes | Release date | 
+| --- | --- | --- | --- | 
+|  `1.37.0`  |  `eks.4`  | Initial release of Kubernetes version `1.37` for EKS. For more information, see [Kubernetes 1.37](kubernetes-versions-standard.md#kubernetes-1-37). | October 1, 2026 | 
+
 ## Kubernetes version `1.36`
 <a name="platform-versions-1-36"></a>
 
@@ -41,6 +51,9 @@ The following admission controllers are enabled for all `1.36` platform versions
 
 | Kubernetes version | EKS platform version | Release notes | Release date | 
 | --- | --- | --- | --- | 
+|  `1.36.4`  |  `eks.13`  | New platform version with security fixes and enhancements. | September 16, 2026 | 
+|  `1.36.3`  |  `eks.12`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
+|  `1.36.3`  |  `eks.11`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
 |  `1.36.2`  |  `eks.10`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
 |  `1.36.2`  |  `eks.9`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
 |  `1.36.2`  |  `eks.8`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
@@ -57,6 +70,8 @@ The following admission controllers are enabled for all `1.35` platform versions
 
 | Kubernetes version | EKS platform version | Release notes | Release date | 
 | --- | --- | --- | --- | 
+|  `1.35.8`  |  `eks.23`  | New platform version with security fixes and enhancements. | September 16, 2026 | 
+|  `1.35.7`  |  `eks.22`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
 |  `1.35.6`  |  `eks.21`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
 |  `1.35.6`  |  `eks.20`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
 |  `1.35.6`  |  `eks.19`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
@@ -80,6 +95,8 @@ The following admission controllers are enabled for all `1.34` platform versions
 
 | Kubernetes version | EKS platform version | Release notes | Release date | 
 | --- | --- | --- | --- | 
+|  `1.34.11`  |  `eks.33`  | New platform version with security fixes and enhancements. | September 16, 2026 | 
+|  `1.34.10`  |  `eks.32`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
 |  `1.34.9`  |  `eks.31`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
 |  `1.34.9`  |  `eks.30`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
 |  `1.34.9`  |  `eks.29`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
@@ -111,6 +128,8 @@ The following admission controllers are enabled for all `1.33` platform versions
 
 | Kubernetes version | EKS platform version | Release notes | Release date | 
 | --- | --- | --- | --- | 
+|  `1.33.13`  |  `eks.47`  | New platform version with security fixes and enhancements. | September 16, 2026 | 
+|  `1.33.13`  |  `eks.46`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
 |  `1.33.13`  |  `eks.45`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
 |  `1.33.13`  |  `eks.44`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
 |  `1.33.13`  |  `eks.43`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
@@ -154,6 +173,8 @@ The following admission controllers are enabled for all `1.32` platform versions
 
 | Kubernetes version | EKS platform version | Release notes | Release date | 
 | --- | --- | --- | --- | 
+|  `1.32.13`  |  `eks.54`  | New platform version with security fixes and enhancements. | September 16, 2026 | 
+|  `1.32.13`  |  `eks.53`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
 |  `1.32.13`  |  `eks.52`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
 |  `1.32.13`  |  `eks.51`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
 |  `1.32.13`  |  `eks.50`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
@@ -206,6 +227,8 @@ The following admission controllers are enabled for all `1.31` platform versions
 
 | Kubernetes version | EKS platform version | Release notes | Release date | 
 | --- | --- | --- | --- | 
+|  `1.31.14`  |  `eks.70`  | New platform version with security fixes and enhancements. | September 16, 2026 | 
+|  `1.31.14`  |  `eks.69`  | New platform version with security fixes and enhancements. | September 8, 2026 | 
 |  `1.31.14`  |  `eks.68`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
 |  `1.31.14`  |  `eks.67`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
 |  `1.31.14`  |  `eks.66`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
@@ -253,69 +276,6 @@ The following admission controllers are enabled for all `1.31` platform versions
 |  `1.31.2`  |  `eks.12`  | New platform version with Amazon EKS Hybrid Nodes support and enhancements to control plane observability. See [Amazon EKS Hybrid Nodes overview](hybrid-nodes-overview.md) and see [Amazon EKS enhances performance observability](https://aws.amazon.com/blogs/containers/amazon-eks-enhances-kubernetes-control-plane-observability/), respectively. | November 15, 2024 | 
 |  `1.31.1`  |  `eks.6`  | New platform version with security fixes and enhancements. | October 21, 2024 | 
 |  `1.31.0`  |  `eks.4`  | Initial release of Kubernetes version `1.31` for EKS. For more information, see [Kubernetes 1.31](kubernetes-versions-extended.md#kubernetes-1-31). | September 26, 2024 | 
-
-## Kubernetes version `1.30`
-<a name="platform-versions-1-30"></a>
-
-The following admission controllers are enabled for all `1.30` platform versions: `NodeRestriction`, `ExtendedResourceToleration`, `NamespaceLifecycle`, `LimitRanger`, `ServiceAccount`, `TaintNodesByCondition`, `PodSecurity`, `Priority`, `DefaultTolerationSeconds`, `DefaultStorageClass`, `StorageObjectInUseProtection`, `PersistentVolumeClaimResize`, `RuntimeClass`, `CertificateApproval`, `CertificateSigning`, `CertificateSubjectRestriction`, `DefaultIngressClass`, `MutatingAdmissionWebhook`, `ValidatingAdmissionWebhook`, `ResourceQuota`.
-
-
-| Kubernetes version | EKS platform version | Release notes | Release date | 
-| --- | --- | --- | --- | 
-|  `1.30.14`  |  `eks.76`  | New platform version with security fixes and enhancements. | August 17, 2026 | 
-|  `1.30.14`  |  `eks.75`  | New platform version with security fixes and enhancements. | August 7, 2026 | 
-|  `1.30.14`  |  `eks.74`  | New platform version with security fixes and enhancements. | July 23, 2026 | 
-|  `1.30.14`  |  `eks.73`  | New platform version with security fixes and enhancements. | July 14, 2026 | 
-|  `1.30.14`  |  `eks.72`  | New platform version with security fixes and enhancements. 1.30 `eks.71` was discarded internally and never released. | June 22, 2026 | 
-|  `1.30.14`  |  `eks.70`  | New platform version with security fixes and enhancements. | June 3, 2026 | 
-|  `1.30.14`  |  `eks.69`  | New platform version with security fixes and enhancements. | May 26, 2026 | 
-|  `1.30.14`  |  `eks.68`  | New platform version with security fixes and enhancements. 1.30 `eks.67` was discarded internally and never released. | May 19, 2026 | 
-|  `1.30.14`  |  `eks.66`  | New platform version with security fixes and enhancements. 1.30 `eks.65` was discarded internally and never released. | May 07, 2026 | 
-|  `1.30.14`  |  `eks.64`  | New platform version with security fixes and enhancements. | April 3, 2026 | 
-|  `1.30.14`  |  `eks.63`  | New platform version with security fixes and enhancements. 1.30 `eks.61` and 1.30 `eks.62` were discarded internally and never released. | March 18, 2026 | 
-|  `1.30.14`  |  `eks.60`  | New platform version with security fixes and enhancements. | March 5, 2026 | 
-|  `1.30.14`  |  `eks.59`  | New platform version with security fixes and enhancements. | February 24, 2026 | 
-|  `1.30.14`  |  `eks.58`  | New platform version with security fixes and enhancements. | January 28, 2026 | 
-|  `1.30.14`  |  `eks.57`  | New platform version with security fixes and enhancements. 1.30 `eks.56` was discarded internally and never released. | January 16, 2026 | 
-|  `1.30.14`  |  `eks.55`  | New platform version with security fixes and enhancements. | December 19, 2025 | 
-|  `1.30.14`  |  `eks.54`  | New platform version with security fixes and enhancements. | November 18, 2025 | 
-|  `1.30.14`  |  `eks.53`  | New platform version with security fixes and enhancements. | November 17, 2025 | 
-|  `1.30.14`  |  `eks.52`  | New platform version with security fixes and enhancements. | November 6, 2025 | 
-|  `1.30.14`  |  `eks.51`  | New platform version with security fixes and enhancements. | October 30, 2025 | 
-|  `1.30.14`  |  `eks.50`  | New platform version with security fixes and enhancements. | October 28, 2025 | 
-|  `1.30.14`  |  `eks.49`  | New platform version with security fixes and enhancements. | October 15, 2025 | 
-|  `1.30.14`  |  `eks.48`  | New platform version with security fixes and enhancements. | October 15, 2025 | 
-|  `1.30.14`  |  `eks.47`  | New platform version with security fixes and enhancements. | October 2, 2025 | 
-|  `1.30.14`  |  `eks.46`  | New platform version with security fixes and enhancements. | September 29, 2025 | 
-|  `1.30.14`  |  `eks.45`  | New platform version with security fixes and enhancements. | September 29, 2025 | 
-|  `1.30.14`  |  `eks.44`  | New platform version with security fixes and enhancements. | September 16, 2025 | 
-|  `1.30.14`  |  `eks.43`  | New platform version with security fixes and enhancements. | September 5, 2025 | 
-|  `1.30.14`  |  `eks.42`  | New platform version with security fixes and enhancements. | August 25, 2025 | 
-|  `1.30.14`  |  `eks.41`  | New platform version with security fixes and enhancements. | August 17, 2025 | 
-|  `1.30.14`  |  `eks.40`  | New platform version with security fixes and enhancements. 1.30 `eks.38` and 1.30 `eks.39` were discarded internally and never released. | July 30, 2025 | 
-|  `1.30.13`  |  `eks.37`  | New platform version with security fixes and enhancements. | June 26, 2025 | 
-|  `1.30.13`  |  `eks.36`  | New platform version with security fixes and enhancements. | June 11, 2025 | 
-|  `1.30.13`  |  `eks.35`  | New platform version with security fixes and enhancements. | May 30, 2025 | 
-|  `1.30.11`  |  `eks.34`  | New platform version with security fixes and enhancements. | May 16, 2025 | 
-|  `1.30.11`  |  `eks.33`  | New platform version with security fixes and enhancements. | April 29, 2025 | 
-|  `1.30.11`  |  `eks.32`  | New platform version with security fixes and enhancements. | April 18, 2025 | 
-|  `1.30.11`  |  `eks.31`  | New platform version with security fixes and enhancements. | April 18, 2025 | 
-|  `1.30.11`  |  `eks.30`  | New platform version with security fixes and enhancements. | April 2, 2025 | 
-|  `1.30.10`  |  `eks.29`  | New platform version with security fixes and enhancements. | March 17, 2025 | 
-|  `1.30.10`  |  `eks.28`  | New platform version with security fixes and enhancements. | March 4, 2025 | 
-|  `1.30.9`  |  `eks.27`  | New platform version with security fixes and enhancements. | February 24, 2025 | 
-|  `1.30.8`  |  `eks.25`  | New platform version with security fixes and enhancements. | January 17, 2025 | 
-|  `1.30.8`  |  `eks.24`  | New platform version with security fixes and enhancements. | January 3, 2025 | 
-|  `1.30.7`  |  `eks.23`  | New platform version with security fixes and enhancements. | December 13, 2024 | 
-|  `1.30.6`  |  `eks.22`  | New platform version with security fixes and enhancements. | December 13, 2024 | 
-|  `1.30.6`  |  `eks.21`  | New platform version with security fixes and enhancements. | December 13, 2024 | 
-|  `1.30.6`  |  `eks.20`  | New platform version with Amazon EKS Hybrid Nodes support and enhancements to control plane observability. See [Amazon EKS Hybrid Nodes overview](hybrid-nodes-overview.md) and see [Amazon EKS enhances performance observability](https://aws.amazon.com/blogs/containers/amazon-eks-enhances-kubernetes-control-plane-observability/), respectively. | November 15, 2024 | 
-|  `1.30.5`  |  `eks.12`  | New platform version with security fixes and enhancements. | October 21, 2024 | 
-|  `1.30.4`  |  `eks.8`  | New platform version with security fixes and enhancements. | September 3, 2024 | 
-|  `1.30.3`  |  `eks.7`  | New platform version with security fixes and enhancements. | August 28, 2024 | 
-|  `1.30.3`  |  `eks.6`  | New platform version with security fixes and enhancements. | August 9, 2024 | 
-|  `1.30.2`  |  `eks.5`  | New platform version with security fixes and enhancements. | July 2, 2024 | 
-|  `1.30.0`  |  `eks.2`  | Initial release of Kubernetes version `1.30` for EKS. | May 23, 2024 | 
 
 ## Get current platform version
 <a name="get-platform-version"></a>

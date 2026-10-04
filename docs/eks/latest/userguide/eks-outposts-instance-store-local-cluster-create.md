@@ -48,7 +48,7 @@ When you create a local cluster, note the following:
 aws eks create-cluster \
   --name my-cluster \
   --role-arn arn:aws:iam::111122223333:role/myEKSClusterRole \
-  --kubernetes-version 1.36 \
+  --kubernetes-version 1.37 \
   --resources-vpc-config subnetIds=subnet-ExampleID1,endpointPrivateAccess=true,endpointPublicAccess=true \
   --logging '{"clusterLogging":[{"types":["api","audit","authenticator","controllerManager","scheduler"],"enabled":true}]}' \
   --access-config authenticationMode=API_AND_CONFIG_MAP,bootstrapClusterCreatorAdminPermissions=true \
@@ -86,7 +86,7 @@ aws eks create-cluster \
 {
     "name": "my-cluster",
     "roleArn": "arn:aws:iam::111122223333:role/myEKSClusterRole",
-    "version": "1.36",
+    "version": "1.37",
     "resourcesVpcConfig": {
         "subnetIds": ["subnet-ExampleID1"],
         "endpointPublicAccess": true,

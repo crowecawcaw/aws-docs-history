@@ -17,7 +17,7 @@ The table below shows the supported GPU instance types for each EKS-optimized ac
 | AL2023 x86\_64 NVIDIA | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7, g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn | 
 | AL2023 ARM NVIDIA | p6e-gb200, p6e-gb300, g5g | 
 | AL2023 x86\_64 Neuron | inf1, inf2, trn1, trn2 | 
-| Bottlerocket x86\_64 aws-k8s-nvidia | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn | 
+| Bottlerocket x86\_64 aws-k8s-nvidia | p6-b300, p6-b200, p5, p5e, p5en, p4d, p4de, p3, p3dn, g7 (EKS 1.37 or later), g7e, gr6, g6, g6e, g6f, gr6f, g5, g4dn | 
 | Bottlerocket aarch64/arm64 aws-k8s-nvidia | g5g | 
 | Bottlerocket x86\_64 aws-k8s | inf1, inf2, trn1, trn2 | 
 
@@ -78,7 +78,7 @@ In addition to the standard EKS AMI components, the EKS-optimized Bottlerocket N
 
 For details on the NVIDIA CUDA user mode driver and the CUDA runtime/libraries used within application containers, see the [NVIDIA documentation](https://docs.nvidia.com/deploy/cuda-compatibility/why-cuda-compatibility.html#why-cuda-compatibility). The CUDA version shown from `nvidia-smi` is the version of the NVIDIA CUDA user mode driver installed on the host, which must be compatible with the CUDA runtime/libraries used in application containers.
 
-See the Bottlerocket Version Information in the [Bottlerocket documentation](https://bottlerocket.dev/en/) for details on the installed packages and their versions. The EKS-optimized Bottlerocket NVIDIA AMIs support kernel 6.12 for Kubernetes versions 1.33 through 1.35 and kernel 6.18 for Kubernetes version 1.36 and later. These AMIs include the NVIDIA driver 580 version for Kubernetes versions 1.34 and above. The NVIDIA 580 driver is required to use CUDA 13\+.
+See the Bottlerocket Version Information in the [Bottlerocket documentation](https://bottlerocket.dev/en/) for details on the installed packages and their versions. The EKS-optimized Bottlerocket NVIDIA AMIs support kernel 6.12 for Kubernetes versions 1.33 through 1.35 and kernel 6.18 for Kubernetes version 1.36 and later. These AMIs include the NVIDIA driver 580 version for Kubernetes versions 1.34 through 1.36. The NVIDIA 580 driver is required to use CUDA 13\+. The EKS-optimized Bottlerocket NVIDIA AMIs for 1.37 and later additionally support NVIDIA driver version 595 needed for the `g7` instance type.
 
 ## EKS-optimized Neuron AMIs
 <a name="eks-amis-neuron"></a>

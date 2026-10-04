@@ -21,12 +21,13 @@ The following table lists the latest version of the Amazon EKS add-on type for e
 
 | Kubernetes version | CoreDNS version | 
 | --- | --- | 
-| 1.36 | v1.14.3-eksbuild.16 | 
-| 1.35 | v1.14.3-eksbuild.16 | 
-| 1.34 | v1.13.2-eksbuild.24 | 
-| 1.33 | v1.12.4-eksbuild.31 | 
-| 1.32 | v1.11.4-eksbuild.53 | 
-| 1.31 | v1.11.4-eksbuild.53 | 
+| 1.37 | v1.14.7-eksbuild.10 | 
+| 1.36 | v1.14.7-eksbuild.10 | 
+| 1.35 | v1.14.7-eksbuild.10 | 
+| 1.34 | v1.13.2-eksbuild.50 | 
+| 1.33 | v1.12.4-eksbuild.57 | 
+| 1.32 | v1.11.4-eksbuild.79 | 
+| 1.31 | v1.11.4-eksbuild.79 | 
 
 **Important**  
 If you’re self-managing this add-on, the versions in the table might not be the same as the available self-managed versions. For more information about updating the self-managed type of this add-on, see [Update the CoreDNS Amazon EKS self-managed add-on](coredns-add-on-self-managed-update.md).

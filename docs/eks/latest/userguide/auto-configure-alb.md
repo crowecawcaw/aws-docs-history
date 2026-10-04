@@ -215,25 +215,33 @@ EKS Auto Mode will automatically delete the associated load balancer in your AWS
 ## IngressClassParams Reference
 <a name="ingress-reference"></a>
 
-The table below is a quick reference for commonly used configuration options.
+The following table lists the fields that you can set in an `IngressClassParams` resource. The settings apply to all Ingresses that use the IngressClass.
 
 
 | Field | Description | Example value | 
 | --- | --- | --- | 
 |  `scheme`  | Defines whether the ALB is internal or internet-facing |  `internet-facing`  | 
+|  `loadBalancerName`  | Sets the name of the ALB. The name can be up to 32 characters. Overrides the `alb.ingress.kubernetes.io/load-balancer-name` annotation. |  `my-alb`  | 
 |  `namespaceSelector`  | Restricts which namespaces can use this IngressClass |  `environment: prod`  | 
 |  `group.name`  | Groups multiple Ingresses to share a single ALB |  `retail-apps`  | 
-|  `ipAddressType`  | Sets IP address type for the ALB |  `dualstack`  | 
+|  `ipAddressType`  | Sets the IP address type for the ALB. Valid values are `ipv4`, `dualstack`, and `dualstack-without-public-ipv4`. |  `dualstack`  | 
 |  `subnets.ids`  | List of subnet IDs for ALB deployment |  `subnet-xxxx, subnet-yyyy`  | 
-|  `subnets.tags`  | Tag filters to select subnets for ALB |  `Environment: prod`  | 
+|  `subnets.matchTags`  | Tag filters to select subnets for ALB. Each filter has a `key` and a list of `values`. |  `key: Environment, values: [prod]`  | 
 |  `certificateARNs`  | ARNs of SSL certificates to use |  ` arn:aws:acm:region:account:certificate/id`  | 
+|  `sslPolicy`  | Sets the security policy for HTTPS listeners. Overrides the `alb.ingress.kubernetes.io/ssl-policy` annotation. |  `ELBSecurityPolicy-TLS13-1-2-2021-06`  | 
+|  `inboundCIDRs`  | CIDR blocks that are allowed to access the ALB. Overrides the `alb.ingress.kubernetes.io/inbound-cidrs` annotation. |  `10.0.0.0/16, 192.168.0.0/24`  | 
+|  `prefixListsIDs`  | IDs of managed prefix lists that are allowed to access the ALB. Overrides the `alb.ingress.kubernetes.io/security-group-prefix-lists` annotation. |  `pl-00000000, pl-11111111`  | 
+|  `targetType`  | Sets the target type for target groups. Valid values are `instance` and `ip`. The default is `ip`. |  `instance`  | 
 |  `tags`  | Custom tags for AWS resources |  `Environment: prod, Team: platform`  | 
 |  `loadBalancerAttributes`  | Load balancer specific attributes |  `idle_timeout.timeout_seconds: 60`  | 
+|  `listeners`  | Sets [listener attributes](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ListenerAttribute.html) on listeners that your Ingresses define. Each entry matches a listener by `port` and `protocol` (`HTTP` or `HTTPS`) and lists `attributes` as `key` and `value` pairs. This field doesn’t create listeners. Overrides the `alb.ingress.kubernetes.io/listener-attributes.${Protocol}-${Port}` annotation for the same attribute key. |  `port: 443, protocol: HTTPS, attributes: routing.http.response.server.enabled: "false"`  | 
+|  `minimumLoadBalancerCapacity.capacityUnits`  | Reserves a minimum capacity for the ALB, in load balancer capacity units (LCUs). Set to `0` to remove the reservation. Overrides the `alb.ingress.kubernetes.io/minimum-load-balancer-capacity` annotation. |  `1000`  | 
+|  `ipamConfiguration.ipv4IPAMPoolId`  | ID of the Amazon VPC IP Address Manager (IPAM) pool that an internet-facing ALB uses for its public IPv4 addresses. Overrides the `alb.ingress.kubernetes.io/ipam-ipv4-pool-id` annotation. |  `ipam-pool-0123456789abcdef0`  | 
 
 ## Considerations
 <a name="_considerations"></a>
 + You cannot use Annotations on an IngressClass to configure load balancers with EKS Auto Mode. IngressClass configuration should be done through IngressClassParams. However, you can use annotations on individual Ingress resources to configure load balancer behavior (such as `alb.ingress.kubernetes.io/security-group-prefix-lists` or `alb.ingress.kubernetes.io/conditions.*`).
-+ You cannot set [ListenerAttribute](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ListenerAttribute.html) with EKS Auto Mode.
++ To set [ListenerAttribute](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_ListenerAttribute.html) values for all Ingresses in an IngressClass, use the `listeners` field in IngressClassParams. For more information, see [IngressClassParams Reference](#ingress-reference).
 + You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop).
 + For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference).
 + For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md).
@@ -250,7 +258,11 @@ The following tables provide a detailed comparison of changes in IngressClassPar
 |  `elbv2.k8s.aws/v1beta1`  |  `eks.amazonaws.com/v1`  | API version change | 
 |  `spec.certificateArn`  |  `spec.certificateARNs`  | Support for multiple certificate ARNs | 
 |  `spec.subnets.tags`  |  `spec.subnets.matchTags`  | Changed subnet matching schema | 
-|  `spec.listeners.listenerAttributes`  | Not supported | Not yet supported by EKS Auto Mode | 
+|  `spec.listeners.listenerAttributes`  |  `spec.listeners.attributes`  | Renamed field for listener attributes | 
+|  `spec.PrefixListsIDs`  |  `spec.prefixListsIDs`  | Only the `prefixListsIDs` spelling is supported | 
+|  `spec.sslRedirectPort`  | Not supported | Use the `alb.ingress.kubernetes.io/ssl-redirect` annotation on Ingress objects | 
+|  `spec.wafv2AclArn`  | Not supported | Use the `alb.ingress.kubernetes.io/wafv2-acl-arn` annotation on Ingress objects | 
+|  `spec.wafv2AclName`  | Not supported | Use the `alb.ingress.kubernetes.io/wafv2-acl-name` annotation on Ingress objects | 
 
 ### Ingress annotations
 <a name="_ingress_annotations"></a>
@@ -262,11 +274,10 @@ The following tables provide a detailed comparison of changes in IngressClassPar
 |  `alb.ingress.kubernetes.io/group.name`  | Not supported | Specify groups in IngressClass only | 
 |  `alb.ingress.kubernetes.io/waf-acl-id`  | Not supported | Use WAF v2 instead | 
 |  `alb.ingress.kubernetes.io/web-acl-id`  | Not supported | Use WAF v2 instead | 
-|  `alb.ingress.kubernetes.io/wafv2-acl-name`  | Not supported | Upcoming soon | 
 |  `alb.ingress.kubernetes.io/dry-run-plan`  | Not supported | Dry-run plan is currently not supported | 
 |  `alb.ingress.kubernetes.io/create-acm-cert`  | Not supported | ACM certificate creation is currently not supported | 
 |  `alb.ingress.kubernetes.io/acm-pca-arn`  | Not supported | ACM PCA ARN is currently not supported | 
-|  `alb.ingress.kubernetes.io/auth-type: oidc`  | Not supported | OIDC Auth Type is currently not supported | 
+|  `alb.ingress.kubernetes.io/auth-type: oidc`  | Supported with additional RBAC | Grant the load balancer controller `get` access to the OIDC `Secret`. For more information, see [Grant the EKS Auto Mode load balancer controller access to a specific Secret](auto-managed-rbac-example.md). | 
 
 ### TargetGroupBinding
 <a name="_targetgroupbinding"></a>

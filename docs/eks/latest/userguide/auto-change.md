@@ -15,6 +15,30 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## October 1, 2026
+<a name="_october_1_2026"></a>
+
+ **Feature**: Starting with EKS 1.37, newly created Auto Mode Node Pools default to `consolidationPolicy: Balanced` instead of `WhenEmptyOrUnderutilized`. While `WhenEmptyOrUnderutilized` disrupts a node’s workloads whenever it sees a replacement candidate that yields any cost savings (as little as USD 0.01 per hour), `Balanced` approves the disruption when the hourly cost savings is worth the cost of disrupting the Pods on that node. You should see fewer Pod evictions at roughly the same cost.
+
+To keep the previous default behavior on a new EKS 1.37 Auto Mode Node Pool, set it explicitly:
+
+```
+apiVersion: karpenter.sh/v1
+kind: NodePool
+metadata:
+  name: example
+spec:
+  ...
+  disruption:
+    consolidationPolicy: WhenEmptyOrUnderutilized
+```
+
+If you manage Auto Mode Node Pools through GitOps (for example, Argo CD or Flux):
++ Manifests that omit `consolidationPolicy` will show `Balanced` on the live object after 1.37 while your Git source still has no value. Set `consolidationPolicy` explicitly in your manifests if you want Git and cluster to match.
++ The default is applied only at resource create time. A GitOps sync that deletes and recreates an unset Auto Mode Node Pool (or a fresh cluster bootstrapped on 1.37) picks up `Balanced` even if the "same" Auto Mode Node Pool was previously `WhenEmptyOrUnderutilized`. Set the field to avoid a silent flip on recreate.
+
+EKS 1.37 also updates the two EKS Auto Mode Node Pools (general-purpose, system) to `consolidationPolicy: Balanced`. Because EKS Auto reconciles these hourly, you cannot override this field on them in place. If a specific workload needs the previous `WhenEmptyOrUnderutilized` behavior, update the workload to target a [NodePool](associate-workload.md) that sets `consolidationPolicy: WhenEmptyOrUnderutilized`.
+
 ## September 14, 2026
 <a name="_september_14_2026"></a>
 

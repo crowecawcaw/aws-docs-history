@@ -23,7 +23,7 @@ Many of the considerations are different than the considerations for creating a 
  **Prerequisites** 
 + Familiarity with the [Outposts deployment options](eks-outposts.md#outposts-overview-comparing-deployment-options), [Select instance types and placement groups for Amazon EKS clusters on AWS Outposts based on capacity considerations](eks-outposts-capacity-considerations.md), and [VPC requirements and considerations](eks-outposts-vpc-subnet-requirements.md).
 + An existing Outpost. For more information, see [What is AWS Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html).
-+ The `kubectl` command line tool is installed on your computer or AWS CloudShell. The version can be the same as or up to one minor version earlier or later than the Kubernetes version of your cluster. For example, if your cluster version is `1.29`, you can use `kubectl` version `1.28`, `1.29`, or `1.30` with it. To install or upgrade `kubectl`, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
++ The `kubectl` command line tool is installed on your computer or AWS CloudShell. The version can be the same as or up to one minor version earlier or later than the Kubernetes version of your cluster. For example, if your cluster version is `1.33`, you can use `kubectl` version `1.32`, `1.33`, or `1.34` with it. To install or upgrade `kubectl`, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
 + Version `2.12.3` or later or version `1.27.160` or later of the AWS Command Line Interface (AWS CLI) installed and configured on your device or AWS CloudShell. To check your current version, use `aws --version | cut -d / -f2 | cut -d ' ' -f1`. Package managers such as `yum`, `apt-get`, or Homebrew for macOS are often several versions behind the latest version of the AWS CLI. To install the latest version, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and [Quick configuration with aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config) in the * AWS Command Line Interface User Guide*. The AWS CLI version that is installed in AWS CloudShell might also be several versions behind the latest version. To update it, see [Installing AWS CLI to your home directory](https://docs.aws.amazon.com/cloudshell/latest/userguide/vm-specs.html#install-cli-software) in the * AWS CloudShell User Guide*.
 + An IAM principal (user or role) with permissions to `create` and `describe` an Amazon EKS cluster. For more information, see [Create a local Kubernetes cluster on an Outpost](security-iam-id-based-policy-examples.md#policy-create-local-cluster) and [List or describe all clusters](security-iam-id-based-policy-examples.md#policy-example2).
 
@@ -60,7 +60,7 @@ You could also use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/referenc
      metadata:
        name: my-cluster
        region: region-code
-       version: "1.36"
+       version: "1.37"
      
      vpc:
        clusterEndpoints:

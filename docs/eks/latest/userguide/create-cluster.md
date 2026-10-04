@@ -87,7 +87,7 @@ You can create a cluster by using:
 
 1. Replace {{my-cluster}} with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
 
-1. Replace {{1.36}} with any [Amazon EKS supported version](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
+1. Replace {{1.37}} with any [Amazon EKS supported version](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
 
 1. Change the values for `vpc-private-subnets` to meet your requirements. You can also add additional IDs. You must specify at least two subnet IDs. If you’d rather specify public subnets, you can change `--vpc-private-subnets` to `--vpc-public-subnets`. Public subnets have an associated route table with a route to an internet gateway, but private subnets don’t have an associated route table. We recommend using private subnets whenever possible.
 
@@ -96,7 +96,7 @@ You can create a cluster by using:
 1. Run the following command:
 
    ```
-   eksctl create cluster --name my-cluster --region region-code --version 1.36 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
+   eksctl create cluster --name my-cluster --region region-code --version 1.37 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
    ```
 
    Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
@@ -217,7 +217,7 @@ You might receive an error that one of the Availability Zones in your request do
 1. Create your cluster with the command that follows. Before running the command, make the following replacements:
    + Replace {{region-code}} with the AWS Region that you want to create your cluster in.
    + Replace {{my-cluster}} with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
-   + Replace {{1.36}} with any [Amazon EKS supported version](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
+   + Replace {{1.37}} with any [Amazon EKS supported version](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html).
    + Replace {{111122223333}} with your account ID and {{myAmazonEKSClusterRole}} with the name of your cluster IAM role.
    + Replace the values for `subnetIds` with your own. You can also add additional IDs. You must specify at least two subnet IDs.
 
@@ -228,7 +228,7 @@ You might receive an error that one of the Availability Zones in your request do
    + (Optional) To manage the egress path from the control plane to your VPC yourself, add `controlPlaneEgressMode=CUSTOMER_ROUTED` to `--resources-vpc-config`. The default is `AWS_MANAGED`. You can also change this setting after cluster creation. For more information, see [Configuring control plane egress routing](control-plane-egress.md).
 
      ```
-     aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.36 \
+     aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.37 \
         --role-arn arn:aws:iam::111122223333:role/myAmazonEKSClusterRole \
         --resources-vpc-config subnetIds=subnet-ExampleID1,subnet-ExampleID2,securityGroupIds=sg-ExampleID1
      ```

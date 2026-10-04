@@ -15,12 +15,12 @@ Use the [describe-addon-versions API](https://docs.aws.amazon.com/eks/latest/API
 
 1. Determine the name of the add-on you want to retrieve version compatibility information for, such as `amazon-cloudwatch-observability`.
 
-1. Determine the Kubernetes version of your cluster, such as `1.36`.
+1. Determine the Kubernetes version of your cluster, such as `1.37`.
 
 1. Use the AWS CLI to retrieve the addon versions that are compatible with the Kubernetes version of your cluster.
 
    ```
-   aws eks describe-addon-versions --addon-name amazon-cloudwatch-observability --kubernetes-version 1.36
+   aws eks describe-addon-versions --addon-name amazon-cloudwatch-observability --kubernetes-version 1.37
    ```
 
    An example output is as follows.
@@ -45,7 +45,7 @@ Use the [describe-addon-versions API](https://docs.aws.amazon.com/eks/latest/API
                        ],
                        "compatibilities": [
                            {
-                               "clusterVersion": "1.36",
+                               "clusterVersion": "1.37",
                                "platformVersions": [
                                    "*"
                                ],
@@ -59,7 +59,7 @@ Use the [describe-addon-versions API](https://docs.aws.amazon.com/eks/latest/API
    }
    ```
 
-   This output shows that addon version `vX.X.X-eksbuild.X` is compatible with Kubernetes cluster version `1.36`.
+   This output shows that addon version `vX.X.X-eksbuild.X` is compatible with Kubernetes cluster version `1.37`.
 
 ## Add-on compatibility with compute types
 <a name="_add_on_compatibility_with_compute_types"></a>

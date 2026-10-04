@@ -54,14 +54,14 @@ If you’re upgrading a node group that’s deployed with a launch template to a
 
 You can’t directly upgrade a node group that’s deployed without a launch template to a new launch template version. Instead, you must deploy a new node group using the launch template to update the node group to a new launch template version.
 
-You can upgrade a node group to the same version as the control plane’s Kubernetes version. For example, if you have a cluster running Kubernetes `1.36`, you can upgrade nodes currently running Kubernetes `1.35` to version `1.36` with the following command.
+You can upgrade a node group to the same version as the control plane’s Kubernetes version. For example, if you have a cluster running Kubernetes `1.37`, you can upgrade nodes currently running Kubernetes `1.36` to version `1.37` with the following command.
 
 ```
 eksctl upgrade nodegroup \
   --name=node-group-name \
   --cluster=my-cluster \
   --region=region-code \
-  --kubernetes-version=1.36
+  --kubernetes-version=1.37
 ```
 
 ## AWS Management Console

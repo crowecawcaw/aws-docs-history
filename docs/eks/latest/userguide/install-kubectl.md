@@ -20,7 +20,7 @@ Once the AWS CLI is installed, there are two other tools you should install to c
 This topic helps you to download and install, or update, the `kubectl` binary on your device. The binary is identical to the [upstream community versions](https://kubernetes.io/docs/tasks/tools/#kubectl). The binary is not unique to Amazon EKS or AWS. Use the steps below to get the specific version of `kubectl` that you need, although many builders simply run `brew install kubectl` to install it.
 
 **Note**  
-You must use a `kubectl` version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.35` `kubectl` client works with Kubernetes `1.34`, `1.35`, and `1.36` clusters.
+You must use a `kubectl` version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.36` `kubectl` client works with Kubernetes `1.35`, `1.36`, and `1.37` clusters.
 
 **Tip**  
 You can also use `kubectl` directly from the EKS console via AWS CloudShell. Choose **Connect** on any cluster details page to get a pre-configured session. For more information, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md).
