@@ -32,7 +32,7 @@ For a complete list of AWS SDK developer guides and code examples, see [Using Am
     + [`StartTopicsDetectionJob`](example_comprehend_StartTopicsDetectionJob_section.md)
 + [Scenarios](service_code_examples_scenarios.md)
   + [Build an Amazon Transcribe streaming app](example_cross_TranscriptionStreamingApp_section.md)
-  + [Building an Amazon Lex chatbot](example_cross_LexChatbotLanguages_section.md)
+  + [Building an Amazon Lex V2 chatbot](example_cross_LexChatbotLanguages_section.md)
   + [Create a messaging application](example_cross_SQSMessageApp_section.md)
   + [Create an application to analyze customer feedback](example_cross_FSA_section.md)
   + [Detect document elements](example_comprehend_Usage_DetectApis_section.md)

@@ -23,7 +23,7 @@ To determine the dominant language used in text, use the [DetectDominantLanguage
 
 **Topics**
 + [Using the AWS Command Line Interface](#get-started-api-dominant-language-cli)
-+ [Using the AWS SDK for Java, SDK for Python, or SDK for .NET](#get-started-api-dominant-language-java)
++ [Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET](#get-started-api-dominant-language-java)
 
 ### Using the AWS Command Line Interface
 <a name="get-started-api-dominant-language-cli"></a>
@@ -51,7 +51,7 @@ Amazon Comprehend responds with the following:
 }
 ```
 
-### Using the AWS SDK for Java, SDK for Python, or SDK for .NET
+### Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET
 <a name="get-started-api-dominant-language-java"></a>
 
 For SDK examples of how to determine the dominant language, see [Use `DetectDominantLanguage` with an AWS SDK or CLI](example_comprehend_DetectDominantLanguage_section.md).
@@ -63,7 +63,7 @@ To determine the named entities in a document, use the [DetectEntities](https://
 
 **Topics**
 + [Using the AWS Command Line Interface](#get-started-api-entities-cli)
-+ [Using the AWS SDK for Java, SDK for Python, or SDK for .NET](#get-started-api-entities-java)
++ [Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET](#get-started-api-entities-java)
 
 ### Using the AWS Command Line Interface
 <a name="get-started-api-entities-cli"></a>
@@ -103,7 +103,7 @@ Amazon Comprehend responds with the following:
 }
 ```
 
-### Using the AWS SDK for Java, SDK for Python, or SDK for .NET
+### Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET
 <a name="get-started-api-entities-java"></a>
 
 For SDK examples of how to determine the dominant language, see [Use `DetectEntities` with an AWS SDK or CLI](example_comprehend_DetectEntities_section.md).
@@ -115,7 +115,7 @@ To determine the key noun phrases used in text, use the [DetectKeyPhrases](https
 
 **Topics**
 + [Using the AWS Command Line Interface](#get-started-api-key-phrases-cli)
-+ [Using the AWS SDK for Java, SDK for Python, or SDK for .NET](#get-started-api-key-phrases-java)
++ [Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET](#get-started-api-key-phrases-java)
 
 ### Using the AWS Command Line Interface
 <a name="get-started-api-key-phrases-cli"></a>
@@ -153,7 +153,7 @@ Amazon Comprehend responds with the following:
 }
 ```
 
-### Using the AWS SDK for Java, SDK for Python, or SDK for .NET
+### Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET
 <a name="get-started-api-key-phrases-java"></a>
 
 For SDK examples that detect key phrases, see [Use `DetectKeyPhrases` with an AWS SDK or CLI](example_comprehend_DetectKeyPhrases_section.md).
@@ -171,7 +171,7 @@ Amazon Comprehend provides the following API operations for analyzing sentiment:
 
 **Topics**
 + [Using the AWS Command Line Interface](#get-started-api-sentiment-cli)
-+ [Using the AWS SDK for Java, SDK for Python, or SDK for .NET](#get-started-api-sentiment-java)
++ [Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET](#get-started-api-sentiment-java)
 
 ### Using the AWS Command Line Interface
 <a name="get-started-api-sentiment-cli"></a>
@@ -202,7 +202,7 @@ aws comprehend detect-sentiment \
 }
 ```
 
-### Using the AWS SDK for Java, SDK for Python, or SDK for .NET
+### Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET
 <a name="get-started-api-sentiment-java"></a>
 
 For SDK examples that determine the sentiment of input text, see [Use `DetectSentiment` with an AWS SDK or CLI](example_comprehend_DetectSentiment_section.md).
@@ -311,7 +311,7 @@ To parse text to extract the individual words and determine the parts of speech 
 
 **Topics**
 + [Using the AWS Command Line Interface.](#get-started-api-syntax-cli)
-+ [Using the AWS SDK for Java, SDK for Python, or SDK for .NET](#get-started-api-syntax-java)
++ [Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET](#get-started-api-syntax-java)
 
 ### Using the AWS Command Line Interface.
 <a name="get-started-api-syntax-cli"></a>
@@ -406,7 +406,7 @@ Amazon Comprehend responds with the following:
 }
 ```
 
-### Using the AWS SDK for Java, SDK for Python, or SDK for .NET
+### Using the AWS SDK for Java, SDK for Python (Boto), or SDK for .NET
 <a name="get-started-api-syntax-java"></a>
 
 For SDK examples that detect the syntax of input text, see [Use `DetectSyntax` with an AWS SDK or CLI](example_comprehend_DetectSyntax_section.md).
