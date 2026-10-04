@@ -154,7 +154,7 @@ aws emr-containers update-virtual-cluster \
   }'
 ```
 
-To remove the limits from a virtual cluster, pass an empty `schedulerConfiguration`. This clears the configuration, so no limits apply and the virtual cluster returns to default (unlimited) behavior. Note that *omitting* `schedulerConfiguration` from the request instead leaves the existing limits unchanged — you must pass an empty object to clear them.
+To remove your custom limits from a virtual cluster, pass an empty `schedulerConfiguration`. This clears the values that you configured. The per-virtual-cluster concurrency limit then returns to its default of 1000 concurrent job runs. Note that *omitting* `schedulerConfiguration` from the request instead leaves the existing limits unchanged — you must pass an empty object to clear them.
 
 ```
 aws emr-containers update-virtual-cluster \
@@ -191,5 +191,5 @@ The right limits depend on three things: how much work your Amazon EKS cluster c
 
 ### Considerations for concurrent job limits
 <a name="virtual-cluster-job-concurrency-considerations"></a>
-+ No limits are applied by default. Existing virtual clusters and workloads are unaffected unless you explicitly set `schedulerConfiguration`.
++ By default, the per-virtual-cluster concurrency limit is set to 1000 concurrent job runs. This default helps prevent too many jobs from overloading the cluster. You can override the default by setting `maxConcurrentJobRuns` in the virtual cluster's `schedulerConfiguration`. The values in the earlier examples, such as 500, are sample overrides rather than the default.
 + Because the counters are maintained across a distributed system, you can sometimes expect a small transient delta from the true value. Internal reconciliation corrects any drift.

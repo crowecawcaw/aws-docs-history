@@ -7,19 +7,14 @@ To use the `StartJobRun` command to submit a job run on an EKS cluster, you must
 
 The following permissions must be included in the trust policy for the job execution role.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-  "Version":"2012-10-17",		 	 	 
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
       "Principal": {
-        "Federated": "arn:aws:iam::{{AWS_ACCOUNT_ID}}:oidc-provider/{{OIDC_PROVIDER}}"
+        "Federated": "arn:aws:iam::{{111122223333}}:oidc-provider/{{OIDC_PROVIDER}}"
       },
       "Action": "sts:AssumeRoleWithWebIdentity",
       "Condition": {
@@ -27,15 +22,13 @@ The following permissions must be included in the trust policy for the job execu
           "{{OIDC_PROVIDER}}:aud": "sts.amazonaws.com"
         },
         "StringLike": {
-          "{{OIDC_PROVIDER}}:sub": "system:serviceaccount:{{NAMESPACE}}:emr-containers-sa-*-*-{{AWS_ACCOUNT_ID}}-{{BASE36_ENCODED_ROLE_NAME}}"
+          "{{OIDC_PROVIDER}}:sub": "system:serviceaccount:{{NAMESPACE}}:emr-containers-sa-*-*-{{111122223333}}-{{BASE36_ENCODED_ROLE_NAME}}"
         }
       }
     }
   ]
 }
 ```
-
-------
 
 The trust policy in the preceding example grants permissions only to an Amazon EMR managed Kubernetes service account with a name that matches the `emr-containers-sa-*-*-{{AWS_ACCOUNT_ID}}-{{BASE36_ENCODED_ROLE_NAME}}` pattern. Service accounts with this pattern will be automatically created at job submission, and scoped to the namespace where you submit the job. This trust policy allows these service accounts to assume the execution role and get the temporary credentials of the execution role. Service accounts from a different Amazon EKS cluster or from a different namespace within the same EKS cluster are restricted from assuming the execution role.
 

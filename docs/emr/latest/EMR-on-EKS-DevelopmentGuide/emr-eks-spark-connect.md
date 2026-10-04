@@ -48,13 +48,18 @@ Add the following permissions to your IAM role to create and interact with a Spa
             ]
         },
         {
-            "Sid": "PassRoleToEMRContainers",
+            "Sid": "PassRoleToEKSPodIdentity",
             "Effect": "Allow",
             "Action": "iam:PassRole",
             "Resource": "arn:aws:iam::{{account-id}}:role/{{ExecutionRole}}",
             "Condition": {
-                "StringLike": {
-                    "iam:PassedToService": "emr-containers.amazonaws.com"
+                "StringEquals": {
+                    "iam:PassedToService": "pods.eks.amazonaws.com"
+                },
+                "ArnLike": {
+                    "iam:AssociatedResourceARN": [
+                        "arn:aws:eks:{{region}}:{{account-id}}:cluster/{{eks-cluster-name}}"
+                    ]
                 }
             }
         }
@@ -75,7 +80,7 @@ Create a security configuration with a system namespace:
 ```
 aws emr-containers create-security-configuration \
   --name "{{security-config-name}}" \
-  --security-configuration '{
+  --security-configuration-data '{
     "authenticationConfiguration": {
       "identityCenterConfiguration": {
         "enableIdentityCenter": false
@@ -126,7 +131,7 @@ aws emr-containers create-virtual-cluster \
 After creating a security configuration, create a Spark Connect managed endpoint on your virtual cluster.
 
 **Note**  
-The first Spark Connect endpoint on an EKS cluster takes longer to become `ACTIVE` than subsequent ones. For the first endpoint on the EKS cluster, Amazon EMR on EKS provisions the shared networking components used for connectivity — an internal Network Load Balancer (NLB) and a VPC interface endpoint (AWS PrivateLink) — which can take several minutes. These components are created only once per EKS cluster and are reused by all later endpoints on that cluster, so subsequent endpoints start up faster.
+The first Spark Connect endpoint on an EKS cluster takes longer to become `ACTIVE` than subsequent ones. For the first endpoint on the EKS cluster, Amazon EMR on EKS provisions the shared networking components used for connectivity — an internal Network Load Balancer (NLB), a VPC interface endpoint (AWS PrivateLink), and a one-off Envoy router deployment (in the `spark-connect-router` namespace) that routes gRPC traffic to endpoints — which can take several minutes. These components are created only once per EKS cluster and are reused by all later endpoints on that cluster, so subsequent endpoints start up faster.
 
 ```
 aws emr-containers create-managed-endpoint \
@@ -135,9 +140,11 @@ aws emr-containers create-managed-endpoint \
   --type "SPARK_CONNECT" \
   --release-label "emr-7.14.0-latest" \
   --execution-role-arn "arn:aws:iam::{{account-id}}:role/{{ExecutionRole}}" \
-  --security-configuration-id {{SECURITY_CONFIGURATION_ID}} \
   --session-idle-timeout-in-minutes 60
 ```
+
+**Note**  
+By default, a Spark Connect managed endpoint starts with *2 executors*. If you don't provide configuration overrides, the endpoint uses this default. To run with a different number of executors, set `spark.executor.instances` in the configuration overrides, as shown in the following example.
 
 The following example includes Spark configuration overrides with dynamic allocation and a monitoring configuration to export Spark logs to Amazon S3:
 
@@ -148,7 +155,6 @@ aws emr-containers create-managed-endpoint \
   --type "SPARK_CONNECT" \
   --release-label "emr-7.14.0-latest" \
   --execution-role-arn "arn:aws:iam::{{account-id}}:role/{{ExecutionRole}}" \
-  --security-configuration-id {{SECURITY_CONFIGURATION_ID}} \
   --session-idle-timeout-in-minutes 60 \
   --configuration-overrides '{
     "applicationConfiguration": [
@@ -205,7 +211,7 @@ After the endpoint is active, obtain session credentials and connect from a PySp
 
    ```
    aws emr-containers get-managed-endpoint-session-credentials \
-     --virtual-cluster-id {{VIRTUAL_CLUSTER_ID}} \
+     --virtual-cluster-identifier {{VIRTUAL_CLUSTER_ID}} \
      --endpoint-identifier {{ENDPOINT_ID}} \
      --execution-role-arn "arn:aws:iam::{{account-id}}:role/{{ExecutionRole}}" \
      --credential-type "TOKEN"
@@ -228,14 +234,14 @@ After the endpoint is active, obtain session credentials and connect from a PySp
 
    Use the `credentials.token` value as the `x-aws-proxy-auth` parameter when connecting to the auth proxy URL.
 
-1. Install the PySpark client matching the Spark version on your endpoint (Spark 3.5.8 for `emr-7.14.0`, Spark 4.0.2 for `emr-spark-8.1.0`):
+1. Install the PySpark client matching the Spark version on your endpoint (Spark 3.5.8 for `emr-7.14.0`, Spark 4.1.1 for `emr-spark-8.1.0`):
 
    ```
    # For emr-7.14.0
    pip install pyspark[connect]==3.5.8
    
    # For emr-spark-8.1.0
-   pip install pyspark[connect]==4.0.2
+   pip install pyspark[connect]==4.1.1
    
    pip install boto3
    ```
@@ -282,7 +288,7 @@ auth_proxy_url = endpoint_response['endpoint']['authProxyUrl']
 
 # Get session token
 creds_response = client.get_managed_endpoint_session_credentials(
-    virtualClusterId=VIRTUAL_CLUSTER_ID,
+    virtualClusterIdentifier=VIRTUAL_CLUSTER_ID,
     endpointIdentifier=ENDPOINT_ID,
     executionRoleArn=EXECUTION_ROLE,
     credentialType='TOKEN'
@@ -311,10 +317,10 @@ Consider the following when running interactive workloads through Spark Connect 
 + Session tokens are time-limited. When a token expires, gRPC calls fail with an authentication error. Call `GetManagedEndpointSessionCredentials` to obtain a new token and create a new `SparkSession` with the updated token.
 + Each security configuration has a one-to-one relationship with a virtual cluster. You cannot share a security configuration across multiple virtual clusters.
 + You must delete all endpoints using a security configuration before you can delete the security configuration.
-+ The PySpark version installed locally must match the Apache Spark version on your endpoint (Spark 3.5.8 for `emr-7.14.0`, Spark 4.0.2 for `emr-spark-8.1.0`). A version mismatch causes connection errors or unexpected behavior.
++ The PySpark version installed locally must match the Apache Spark version on your endpoint (Spark 3.5.8 for `emr-7.14.0`, Spark 4.1.1 for `emr-spark-8.1.0`). A version mismatch causes connection errors or unexpected behavior.
 + The Spark Connect endpoint type is `SPARK_CONNECT`. This is different from Livy interactive endpoints (type `JUPYTER_ENTERPRISE_GATEWAY`).
 + The `sessionIdleTimeoutInMinutes` parameter controls how long an idle session persists before automatic termination. Default is 60 minutes.
 + Spark Connect endpoints don't support Trusted Identity Propagation.
 + Spark Connect endpoints don't support Lake Formation fine-grained access control (FGAC) yet. To enforce access control, use the IAM execution role associated with the endpoint.
-+ Spark Connect endpoints use a Network Load Balancer (NLB) to route gRPC traffic. The NLB is created when the first Spark Connect endpoint is created and is only deleted when the last session-enabled virtual cluster is deleted. You are responsible for NLB costs while it exists, in addition to EKS compute resources consumed by the Spark driver and executors during your session.
++ Spark Connect endpoints use a Network Load Balancer (NLB) to route gRPC traffic. The NLB is created when the first Spark Connect endpoint is created and is only deleted when the last session-enabled virtual cluster is deleted. Amazon EMR on EKS also runs a single Envoy router (in the `spark-connect-router` namespace, one per EKS cluster) that routes gRPC traffic to endpoints; it is created with the first Spark Connect endpoint and terminated when the last session-enabled virtual cluster is deleted. You are responsible for NLB costs and the EKS compute consumed by the Envoy router while they exist, in addition to EKS compute resources consumed by the Spark driver and executors during your session.
 + Python UDFs (`@udf`, `spark.udf.register`) require the local Python minor version to match the remote worker version, or they fail with `PYTHON_VERSION_MISMATCH`. Built-in SQL functions and DataFrame operations do not require a Python version match.
