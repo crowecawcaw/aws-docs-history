@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Getting started with Amazon Managed Blockchain (AMB) Query
 <a name="getting-started"></a>
 
@@ -506,7 +508,7 @@ The following example shows how to get a token's balance on the *Ethereum Mainne
 
 **Example**  
 
-1. Open the Amazon Managed Blockchain console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
+1. Open the Amazon Managed Blockchain (AMB) console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
 1. Choose **Query editor** from the **Query **section.
 

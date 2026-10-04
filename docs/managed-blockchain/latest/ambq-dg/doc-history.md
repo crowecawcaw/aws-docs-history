@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Document history for the AMB Query User Guide
 <a name="doc-history"></a>
 
@@ -7,6 +9,7 @@ The following table describes the documentation releases for AMB Query.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [End of support notice](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html) | End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html). | September 29, 2026 | 
 | [AMB Query supports Bitcoin transaction identifiers and transaction hashes](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#bitcoin-enhancement) | For Bitcoin networks, AMB Query API operations support both the transaction identifier (`transactionId`) and the transaction hash (`transactionHash`). | March 21, 2024 | 
 | [Support for API usage metrics on Amazon CloudWatch](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/cw-usage-metrics.html) | AMB Query added support for API usage metrics on CloudWatch. These usage metrics correspond to the AMB Query service quotas.  | February 8, 2024 | 
 | [Support for transactions that have not reached finality](https://docs.aws.amazon.com/managed-blockchain/latest/AMBQ-APIReference/API_GetTransaction.html) | AMB Query added support for transactions that have not reached *[*finality*](https://docs.aws.amazon.com/managed-blockchain/latest/ambq-dg/key-concepts.html#finality)*. It also removes support for the `status` property from the response of the `GetTransaction` operation. Instead, you will use the `confirmationStatus` and `executionStatus` properties to determine the status of the transaction.  | February 1, 2024 | 
