@@ -69,13 +69,13 @@ AWS Outposts supports AWS services based on the AWS Region in which your Outpost
 The following table indicates AWS Outposts support for AWS services in North America Regions.
 
 
-| AWS Region | Application Load Balancer | Amazon EBS | Amazon EC2 | Amazon ECS | Amazon EKS | Amazon EMR | AWS IoT Greengrass | Amazon RDS SQL, MySQL, PostgreSQL, and Oracle | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| US East (N. Virginia) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US East (Ohio) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West (N. California) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| US West (Oregon) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
-| Canada (Central) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| AWS Region | Application Load Balancer | Amazon EBS | Amazon EC2 | Amazon ECS | Amazon EKS | AWS IoT Greengrass | Amazon RDS SQL, MySQL, PostgreSQL, and Oracle | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| US East (N. Virginia) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| US East (Ohio) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| US West (N. California) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| US West (Oregon) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| Canada (Central) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 
 ### Asia Pacific
 <a name="service-asia-pacific"></a>
@@ -83,9 +83,9 @@ The following table indicates AWS Outposts support for AWS services in North Ame
 The following table indicates AWS Outposts support for AWS services in Asia Pacific Regions.
 
 
-| AWS Region | Application Load Balancer | Amazon EBS | Amazon EC2 | Amazon ECS | Amazon EKS | Amazon EMR | AWS IoT Greengrass | Amazon RDS SQL, MySQL, PostgreSQL, and Oracle | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Asia Pacific (Singapore) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| AWS Region | Application Load Balancer | Amazon EBS | Amazon EC2 | Amazon ECS | Amazon EKS | AWS IoT Greengrass | Amazon RDS SQL, MySQL, PostgreSQL, and Oracle | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Asia Pacific (Singapore) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 
 ### Europe
 <a name="service-europe"></a>
@@ -93,9 +93,9 @@ The following table indicates AWS Outposts support for AWS services in Asia Paci
 The following table indicates AWS Outposts support for AWS services in Europe Regions.
 
 
-| AWS Region | Application Load Balancer | Amazon EBS | Amazon EC2 | Amazon ECS | Amazon EKS | Amazon EMR | AWS IoT Greengrass | Amazon RDS SQL, MySQL, PostgreSQL, and Oracle | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | 
-| Europe (London) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
+| AWS Region | Application Load Balancer | Amazon EBS | Amazon EC2 | Amazon ECS | Amazon EKS | AWS IoT Greengrass | Amazon RDS SQL, MySQL, PostgreSQL, and Oracle | 
+| --- | --- | --- | --- | --- | --- | --- | --- | 
+| Europe (London) | Yes | Yes | Yes | Yes | Yes | Yes | Yes | 
 
 ## Pricing
 <a name="pricing"></a>
