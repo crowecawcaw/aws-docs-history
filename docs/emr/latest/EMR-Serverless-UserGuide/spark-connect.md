@@ -47,7 +47,7 @@ Grants permission to generate the Spark UI URL and provides access to the logs f
                 "emr-serverless:ListSessions"
             ],
             "Resource": [
-                "arn:aws:emr-serverless:{{region}}:{{account-id}}:/applications/{{application-id}}"
+                "arn:aws:emr-serverless:{{us-east-1}}:{{111122223333}}:/applications/{{application-id}}"
             ]
         },
         {
@@ -60,7 +60,7 @@ Grants permission to generate the Spark UI URL and provides access to the logs f
                 "emr-serverless:GetResourceDashboard"
             ],
             "Resource": [
-                "arn:aws:emr-serverless:{{region}}:{{account-id}}:/applications/{{application-id}}/sessions/*"
+                "arn:aws:emr-serverless:{{us-east-1}}:{{111122223333}}:/applications/{{application-id}}/sessions/*"
             ]
         },
         {
@@ -70,7 +70,7 @@ Grants permission to generate the Spark UI URL and provides access to the logs f
                 "iam:PassRole"
             ],
             "Resource": [
-                "arn:aws:iam::{{account-id}}:role/{{EMRServerlessExecutionRole}}"
+                "arn:aws:iam::{{111122223333}}:role/{{EMRServerlessExecutionRole}}"
             ],
             "Condition": {
                 "StringLike": {

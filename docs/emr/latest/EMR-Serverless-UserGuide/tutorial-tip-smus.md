@@ -338,7 +338,7 @@ Attach permissions for the downstream services the job will access. The role nee
                 "logs:DescribeLogGroups",
                 "logs:DescribeLogStreams"
             ],
-            "Resource": "arn:aws:logs:{{region}}:{{account-id}}:*"
+            "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:*"
         }
     ]
 }
@@ -455,7 +455,6 @@ The DataZone user role for the project environment must have permissions to inte
                 "emr-serverless:StartApplication",
                 "emr-serverless:StopApplication",
                 "emr-serverless:ListApplications",
-                "emr-serverless:CreatePresignedUrl",
                 "emr-serverless:AccessLivyEndpoints",
                 "emr-serverless:StartJobRun",
                 "emr-serverless:GetJobRun",
@@ -468,7 +467,7 @@ The DataZone user role for the project environment must have permissions to inte
         {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::{{account-id}}:role/emr-serverless-tip-job-role",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/emr-serverless-tip-job-role",
             "Condition": {
                 "StringLike": {
                     "iam:PassedToService": "emr-serverless.amazonaws.com"

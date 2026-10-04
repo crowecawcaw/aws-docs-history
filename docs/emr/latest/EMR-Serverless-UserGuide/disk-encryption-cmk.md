@@ -137,7 +137,6 @@ The job runtime role must have the following permissions in its IAM policy:
 
 ```
 {
-    "Sid": "Enable GDK and Decrypt",
     "Version": "2012-10-17",		 	 	 
     "Statement": {
         "Effect": "Allow",
@@ -145,7 +144,7 @@ The job runtime role must have the following permissions in its IAM policy:
             "kms:GenerateDataKey",
             "kms:Decrypt"
         ],
-        "Resource": "key-arn"
+        "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}"
     }
 }
 ```
@@ -210,7 +209,7 @@ The following IAM policy provides the permissions to `kms:DescribeKey`, `kms:Gen
             "kms:GenerateDataKey",
             "kms:Decrypt"
         ],
-        "Resource": "key-arn"
+        "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{1234abcd-12ab-34cd-56ef-1234567890ab}}"
     }
 }
 ```
