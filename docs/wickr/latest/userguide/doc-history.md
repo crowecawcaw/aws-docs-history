@@ -9,6 +9,7 @@ The following table describes the documentation releases for Wickr.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support responsibilities](#doc-history) | Added the Wickr support model to the troubleshooting topics, and consolidated the standalone Support topic into it. For more information, see [Troubleshooting and support for AWS Wickr](https://docs.aws.amazon.com/wickr/latest/userguide/troubleshoot.html). | September 29, 2026 | 
 | [Search in conversations](#doc-history) | Users can now use filters to limit search results to the active conversation. For more information, see [Search files or messages](https://docs.aws.amazon.com/wickr/latest/userguide/room-search.html). | September 18, 2025 | 
 | [Mute notifications](#doc-history) | Users and moderators can pause message alerts for specific conversations. For more information, see [Mute notifications in the Wickr client](https://docs.aws.amazon.com/wickr/latest/userguide/mute-notifications.html). | May 30, 2025 | 
 | [File management](#doc-history) | Users and moderators can upload, view, delete, and organize files in group and room conversations. For more information, see [Manage files in the Wickr client](https://docs.aws.amazon.com/wickr/latest/userguide/room-file-management.html). | February 4, 2025 | 

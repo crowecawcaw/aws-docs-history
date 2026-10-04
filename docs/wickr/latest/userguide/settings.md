@@ -12,7 +12,6 @@ You can modify your account settings, manage contacts, manage client settings, r
 + [Contacts in the Wickr client](contacts.md)
 + [Settings in the Wickr client](app-settings.md)
 + [Refer a friend in the Wickr client](referral.md)
-+ [Support in the Wickr client](support.md)
 + [Typing indicators in the Wickr client](typing-indicators.md)
 + [Dark mode in the Wickr client](dark-mode.md)
 + [Check for updates in the Wickr client](updates.md)
