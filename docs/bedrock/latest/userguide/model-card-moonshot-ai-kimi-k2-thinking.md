@@ -15,11 +15,11 @@ Kimi K2 Thinking is Moonshot AI's reasoning model with chain-of-thought capabili
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
 + **Model EOL date:** N/A
-+ **End User License Agreements and Terms of Use:** [View](https://huggingface.co/moonshotai/Kimi-K2-Thinking/blob/main/LICENSE)
 + **Model lifecycle:** Active
 + **Context window:** 256K tokens
 + **Max output tokens:** 16K
 + **Reasoning:** Supported
++ **End User License Agreements and Terms of Use:** [View](https://huggingface.co/moonshotai/Kimi-K2-Thinking/blob/main/LICENSE) *(Note- Access through Amazon Bedrock is considered access through "**Certified Inference Partners**")*
 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.html)** | **[Endpoints supported](endpoints.html)** | 

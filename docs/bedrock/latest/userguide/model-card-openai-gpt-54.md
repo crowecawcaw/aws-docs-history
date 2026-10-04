@@ -17,8 +17,8 @@ GPT-5.4 brings frontier reasoning, coding, computer use, long-context workflows,
 + **Model EOL date:** N/A
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
 + **Model lifecycle:** Active
-+ **Context window:** 1M tokens
-+ **Max output tokens:** N/A
++ **Context window:** 1,050,000 tokens
++ **Max output tokens:** 128,000
 + **Marketplace product ID:** `prod-3bbohv3635iau`
 
 
@@ -107,7 +107,7 @@ Long-context rates apply to all input and output tokens, not just tokens above 2
 
 | **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
-| In-Region | $3.30 | — | $0.33 | $19.80 | 
+| In-Region | $3.375 | — | $0.3375 | $20.25 | 
 
 ## Programmatic Access
 <a name="model-card-openai-gpt-54-programmatic-access"></a>

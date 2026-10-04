@@ -83,6 +83,9 @@ You can use structured outputs across the following Amazon Bedrock features:
 **Note**  
 Structured outputs is incompatible with citations for Anthropic models. If you enable citations while using structured outputs, the model will return a 400 error.
 
+**Important**  
+Some Geographic cross-Region inference profiles don't support structured outputs for every model. For example, structured outputs aren't supported for Claude Haiku 4.5 through the India (`in.anthropic`) inference profile. Check the [model card](model-cards.md) for model-specific limitations.
+
 ## Supported models
 <a name="structured-output-supported-models"></a>
 

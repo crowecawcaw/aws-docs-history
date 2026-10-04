@@ -5,7 +5,7 @@
 
 You can create an automatic model evaluation job using the AWS Management Console, AWS CLI, or a supported AWS SDK. In an automatic model evaluation job, the model you select performs inference using either prompts from a supported built-in dataset or your own custom prompt dataset. Each job also requires you to select a task type. The task type provides you with some recommended metrics, and built-in prompt datasets. To learn more about available task types and metrics, see [Model evaluation task types in Amazon Bedrock](model-evaluation-tasks.md).
 
-The following examples show you how to create an automatic model evaluation job using the Amazon Bedrock console, AWS CLI, SDK for Python.
+The following examples show you how to create an automatic model evaluation job using the Amazon Bedrock console, AWS CLI, SDK for Python (Boto).
 
 All automatic model evaluation jobs require that you create an IAM service role. To learn more about the IAM requirements for setting up a model evaluation job, see [Service role requirements for model evaluation jobs](model-evaluation-security-service-roles.md).
 
@@ -58,7 +58,7 @@ Also, if you are creating a human-based model evaluation job, the Amazon S3 outp
 Once the status changes **Completed**, then you can view the job's report card.
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
 The following example creates an automatic evaluation job using Python.
 

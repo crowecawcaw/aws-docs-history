@@ -27,6 +27,9 @@ Group memberships are resolved from the data source. During ingestion, Bedrock M
 **Note**  
 Group memberships are as fresh as the last sync. Permission changes between syncs are not reflected until the next ingestion job completes. For connectors that support real-time ACL verification, this check catches permission changes that occurred since the last sync.
 
+**Note**  
+For users who belong to very large groups, ACL propagation can lag behind sync completion. Even after a knowledge base refresh finishes successfully, a user in a large group may not immediately be able to retrieve answers from content they have access to. Resolving and propagating group membership at this scale can take some time to complete. If a user reports missing content shortly after a sync, allow time for propagation to finish and retry before treating it as an access issue.
+
 ## Connector support matrix
 <a name="kb-managed-acl-connector-support"></a>
 
@@ -41,6 +44,7 @@ Not all connectors support ACL awareness. The following table shows which connec
 | [OneDrive](kb-managed-ds-onedrive-acl.md) | Supported | Supported | Uses application-level permissions (2LO). Requires ENTRA\_APP\_ID auth type. | 
 | [Google Drive](kb-managed-ds-googledrive-acl.md) | Supported | Supported | Uses domain-wide delegation (2LO). Requires SERVICE\_ACCOUNT auth type. | 
 | [Confluence](kb-managed-ds-confluence-acl.md) | Supported | Supported | Uses admin API token for real-time checks. Requires BASIC auth type. | 
+| [Confluence Data Center](kb-managed-ds-confluence-onprem-acl.md) | Supported | Supported | Uses the Confluence Data Center admin REST API for real-time checks over a VPC configuration. Requires BASIC or PERSONAL\_TOKEN auth type. | 
 | [Amazon S3](kb-managed-ds-s3-acl.md) | Supported | Not supported | ACLs defined through a customer-provided ACL configuration file in Amazon S3. No real-time verification because the customer-provided metadata file is the source of truth. | 
 | [Custom](kb-managed-ds-custom-acl.md) | Supported | Not supported | ACLs defined through customer-provided metadata. No real-time verification because the customer-provided metadata is the source of truth. | 
 | Web Crawler | Not supported | N/A | Web content has no permission model. ACL awareness cannot be enabled for this connector. | 
@@ -50,6 +54,7 @@ For connector-specific ACL configuration details, see:
 + [ACL awareness for OneDrive](kb-managed-ds-onedrive-acl.md)
 + [ACL awareness for Google Drive](kb-managed-ds-googledrive-acl.md)
 + [ACL awareness for Confluence](kb-managed-ds-confluence-acl.md)
++ [ACL awareness for Confluence Data Center](kb-managed-ds-confluence-onprem-acl.md)
 + [ACL awareness for Amazon S3](kb-managed-ds-s3-acl.md)
 + [ACL awareness for Custom](kb-managed-ds-custom-acl.md)
 

@@ -89,6 +89,8 @@ Amazon Bedrock offers three inference options: **In-Region** keeps requests with
 ## Quotas and Limits
 <a name="model-card-amazon-nova-2-sonic-quotas"></a>
 
+The default quota for Nova 2 Sonic is 20 concurrent `InvokeModelWithBidirectionalStream` sessions per AWS account in each supported Region. This quota is not adjustable.
+
 Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.html). For more information, see [Quotas for Amazon Bedrock](quotas.md) documentation and see the [limits](/general/latest/gr/bedrock.html#limits_bedrock) for the model.
 
 ## Sample Code

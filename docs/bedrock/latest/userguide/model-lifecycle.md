@@ -7,11 +7,13 @@ This page describes the model lifecycle policy for models launched on Amazon Bed
 
 Every model on Amazon Bedrock has one of three states: **Active**, **Legacy**, or **End-of-Life (EOL)**. You can see the status of a model in the console, and when you make a [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html) or [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) call, the state is shown in the `modelLifecycle` field in the response.
 
-Before using a model, review the [model card](model-cards.md) for its EOL policy, including how much notice you will receive before the model is deprecated. Every model card shows two things:
+Before using a model, review the [model card](model-cards.md) for its EOL policy, including how much notice you will receive before the model is deprecated. Where applicable, model cards show two things:
 
 1. An **EOL no sooner than** date: the model will not reach EOL before this date.
 
 1. The **Legacy period**: the notice period before EOL. There are two Legacy periods: 6 months and 45 days. Most models have a 6-month Legacy period.
+
+GPT-6.1 Sol follows the OpenAI first-party model's lifecycle and end-of-life terms. This includes the deprecation notice period and exceptions for safety or compliance. This model has no separate Bedrock minimum-availability date. See [GPT-6.1 Sol](model-card-openai-gpt-6-1-sol.md) and [OpenAI model deprecation notice periods](https://developers.openai.com/api/docs/deprecations#model-deprecation-notice-periods).
 
 When a model enters its Legacy period, the EOL date of the model is added to the model card.
 

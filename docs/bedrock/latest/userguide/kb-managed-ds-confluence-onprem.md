@@ -61,3 +61,5 @@ Setting up a Confluence Data Center data source involves the following steps:
 1. **Set up authentication.** Create your credentials in Confluence and store them in AWS. See [Set up Basic or PAT authentication for Confluence Data Center](kb-managed-confluence-onprem-auth-setup.md).
 
 1. **Connect the data source.** Create the Confluence Data Center data source in the knowledge base using the AWS Management Console or the API. See [Connect a Confluence Data Center data source](kb-managed-ds-confluence-onprem-connect.md).
+
+1. **(Optional) Enable document-level access control.** Filter query results by each user's Confluence permissions. See [Document-level access controls](kb-managed-ds-confluence-onprem-acl.md).

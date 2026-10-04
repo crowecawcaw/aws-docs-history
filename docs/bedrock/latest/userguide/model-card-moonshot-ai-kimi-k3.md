@@ -15,9 +15,9 @@ Kimi K3 is Moonshot AI's most capable open-weight model, combining native vision
 + **Legacy period:** at least 45 days
 + **Model lifecycle policy:** [Bedrock Model Lifecycle](model-lifecycle.md)
 + **Model EOL date:** N/A
-+ **End User License Agreements and Terms of Use:** [View](https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE)
 + **Model lifecycle:** Active
 + **Context window:** 1M tokens
++ **End User License Agreements and Terms of Use:** [View](https://huggingface.co/moonshotai/Kimi-K3/blob/main/LICENSE) *(Note- Access through Amazon Bedrock is considered access through "**Certified Inference Partners**")*
 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.html)** | **[Endpoints supported](endpoints.html)** | 

@@ -5,7 +5,7 @@
 
 You can list your current RAG evaluation jobs that you've created using the AWS CLI, or a supported AWS SDK. In the Amazon Bedrock console, you can also view a table containing your current evaluation jobs.
 
-The following examples show you how to find your RAG evaluation jobs using the AWS Management Console, AWS CLI and SDK for Python.
+The following examples show you how to find your RAG evaluation jobs using the AWS Management Console, AWS CLI and SDK for Python (Boto).
 
 ------
 #### [ Amazon Bedrock console ]
@@ -32,9 +32,9 @@ aws bedrock list-evaluation-jobs --max-items 5
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
-The following examples show how to use the AWS SDK for Python to find a RAG evaluation job you have previously created. 
+The following examples show how to use the AWS SDK for Python (Boto) to find a RAG evaluation job you have previously created. 
 
 ```
 import boto3

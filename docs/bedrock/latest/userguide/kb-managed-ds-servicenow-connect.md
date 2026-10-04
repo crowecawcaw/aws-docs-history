@@ -26,14 +26,16 @@ Complete authentication setup first. See [Set up OAuth 2.0 Client Credentials au
 
 1. Under **Authentication**, select or create an AWS Secrets Manager secret containing your `clientId`, `clientSecret`, and `instanceUrl`.
 
-1. Under **Sync scope**, select the content to crawl: knowledge articles, service catalog items, and their attachments. You can also choose whether to crawl inactive service catalog items and whether to restrict the crawl to public knowledge articles only.
+1. (Optional) To enable document-level access control, select **Crawl Access Control Lists (ACLs)**. This option cannot be changed after creation. For details, see [Document-level access controls](kb-managed-ds-servicenow-acl.md).
+
+1. Under **Sync scope**, select the content to crawl: knowledge articles, service catalog items, and their attachments. You can also choose whether to crawl inactive service catalog items.
 
 1. (Optional) To limit the crawl, add knowledge base, knowledge article category, or service catalog filters.
 
 ------
 #### [ API ]
 
-To create a ServiceNow data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a ServiceNow data source. For a description of each field, see the connector parameters reference that follows.
+To create a ServiceNow data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a ServiceNow data source. To enable document-level access control, set `aclEnabled` to `true`. For a description of each field, see the connector parameters reference that follows.
 
 ```
 aws bedrock-agent create-data-source \
@@ -52,6 +54,7 @@ The `servicenow-managed-connector.json` file contains the following:
             "type": "SERVICENOW",
             "connectorType": "SERVICENOW",
             "version": "1",
+            "aclEnabled": false,
             "connectionConfiguration": {
                 "secretArn": "{{arn:aws:secretsmanager:us-west-2:123456789012:secret:bedrock-servicenow-creds}}",
                 "authType": "OAUTH2",
@@ -62,8 +65,7 @@ The `servicenow-managed-connector.json` file contains the following:
                 "crawlServiceCatalogs": true,
                 "crawlKnowledgeArticleAttachments": true,
                 "crawlServiceCatalogAttachments": true,
-                "crawlInactiveServiceCatalogItems": false,
-                "crawlPublicKnowledgeArticlesOnly": false
+                "crawlInactiveServiceCatalogItems": false
             },
             "filterConfiguration": {
                 "knowledgeArticleFilter": {
@@ -115,7 +117,6 @@ The following table describes the `dataEntityConfiguration` fields, which contro
 | crawlKnowledgeArticleAttachments | Yes | Whether to crawl attachments on knowledge articles. | 
 | crawlServiceCatalogAttachments | Yes | Whether to crawl attachments on service catalog items. | 
 | crawlInactiveServiceCatalogItems | Yes | Whether to crawl inactive service catalog items. | 
-| crawlPublicKnowledgeArticlesOnly | Yes | Whether to restrict the crawl to public knowledge articles only. | 
 
 The following table describes the optional `filterConfiguration` fields, which scope the crawl.
 
@@ -128,7 +129,14 @@ The following table describes the optional `filterConfiguration` fields, which s
 | serviceCatalogFilter | No | Scopes service catalog crawling. Contains inclusionServiceCatalogSysIds (a list of service catalog sys IDs) and inclusionServiceCatalogCategorySysIds (a list of service catalog category sys IDs). On large instances, filtering by sys ID significantly reduces sync time. | 
 | maxFileSizeInMegaBytes | No | Maximum size, in megabytes, of any single file the connector ingests. Provide as a numeric string (for example, "500"). | 
 
+
+**aclEnabled (optional)**  
+
+| Field | Required | Description | 
+| --- | --- | --- | 
+| aclEnabled | No | Set to true to enable document-level access control, which enforces each user's ServiceNow user criteria at query time. Requires additional read roles on the service account and knowledge base configuration in ServiceNow. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-servicenow-acl.md). | 
+
 ## Next steps
 <a name="kb-managed-ds-servicenow-connect-next"></a>
 
-After you create the data source, sync it to ingest content into your knowledge base. For details, see [Sync a data source](kb-managed-sync.md). Because ServiceNow doesn't support document-level access control, all authenticated users who can query the knowledge base can see all crawled content.
+After you create the data source, sync it to ingest content into your knowledge base. For details, see [Sync a data source](kb-managed-sync.md). To filter query results by each user's ServiceNow user criteria, see [Document-level access controls](kb-managed-ds-servicenow-acl.md).

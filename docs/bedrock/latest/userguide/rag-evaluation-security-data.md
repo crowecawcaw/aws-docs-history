@@ -177,7 +177,7 @@ Example KMS key policy
             "Action": [
                 "kms:Decrypt",
                 "kms:GenerateDataKey",
-                "kmsDescribeKey"
+                "kms:DescribeKey"
             ],
             "Resource": "*"
        }

@@ -17,7 +17,7 @@ Note the following information about Geographic cross-Region inference:
 
 To allow an IAM user or role to invoke a Geographic cross-Region inference profile, you need to allow access to the following resources:
 
-1. The geography-specific cross-Region inference profile (these profiles have geographic prefixes such as `us`, `eu`, `apac`)
+1. The geography-specific cross-Region inference profile (these profiles have geographic prefixes such as `us`, `eu`, `apac`, `in`)
 
 1. The foundation model in the source Region
 

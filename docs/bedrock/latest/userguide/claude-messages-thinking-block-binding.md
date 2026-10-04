@@ -17,6 +17,7 @@ If your harness sends conversation history back exactly as it received it, nothi
 | --- | --- | 
 | Model | The model reading the block is allowed to read the producer's thinking. A model cannot read another model's thinking unless the two are explicitly compatible. This check applies on any thinking-capable model. | 
 | Conversation prefix | The top-level system prompt, tools, and all message content before the block are unchanged from the request that produced it. Claude Fable 5.1 runs this check. Claude Mythos 5.1 records the same signature but doesn't run it. | 
+| Organization | The thinking block was produced by the same AWS account, or an account in the same customer group. A block replayed from a different account — or one minted in a Claude app (claude.ai or Claude Code) — is removed before the model runs; the request still succeeds. Applies on Claude Sonnet 5.5. | 
 
 **Note**  
 A thinking block whose signature has been altered or cannot be decrypted always returns a 400, regardless of these checks or the beta value.
@@ -70,7 +71,26 @@ When the beta value is sent, the response may include a top-level `input_transfo
 }
 ```
 
-This is a top-level array (a sibling of `usage`), present only with the beta value; `[]` when no blocks were removed and absent otherwise. Each entry contains a `path` identifying the removed block and a `reason` — one of `model_binding_mismatch` or `prefix_binding_mismatch`. In streaming responses, the array appears within the message object inside the `message_start` event. Removed blocks do not count toward `input_tokens`.
+This is a top-level array (a sibling of `usage`), present only with the beta value; `[]` when no blocks were removed and absent otherwise. Each entry contains a `path` identifying the removed block and a `reason`: `model_binding_mismatch` (created by a different model), `prefix_binding_mismatch` (the conversation prefix changed), `organization_binding_mismatch` (created by another account or customer group), or `end_user_binding_mismatch` (created in a Claude app). In streaming responses, the array appears within the message object inside the `message_start` event. Removed blocks do not count toward `input_tokens`.
+
+## Organization-locked thinking
+<a name="claude-messages-thinking-block-binding-organization-locked"></a>
+
+On Claude Sonnet 5.5, each thinking block is also bound to the AWS account (or customer group) that produced it, in addition to the model and conversation-prefix checks. A block replayed from a different account, or one minted in a Claude app (claude.ai or Claude Code), is dropped before the model runs; the request still succeeds and the model does not see that earlier reasoning.
+
+By default the drop is silent. With the `thinking-binding-controls-2026-08-01` beta, each dropped block is listed in the top-level `input_transformations` array:
+
+```
+{
+    "input_transformations": [
+        {"type": "thinking_dropped", "path": "messages.1.content.0", "reason": "organization_binding_mismatch"}
+    ]
+}
+```
+
+Replaying thinking blocks within the same AWS account (or customer group) is unaffected. Without the `thinking-binding-controls-2026-08-01` beta, the response does not include an `input_transformations` field. In the same-account case with the beta, the field is present as an empty array (`[]`).
+
+This binding applies on Claude Sonnet 5.5; earlier models are unaffected.
 
 ## Error responses
 <a name="claude-messages-thinking-block-binding-error-responses"></a>

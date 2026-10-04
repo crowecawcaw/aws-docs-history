@@ -68,9 +68,9 @@ After submitting you would get the following response.
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
-The following examples show how to use the AWS SDK for Python to delete a model evaluation job. Use the `jobIdentifiers` parameter to specify a list of ARNS for the model evaluation jobs that you want to delete. You can delete up to 25 model evaluation jobs in a single call to `BatchDeleteEvaluationJob`. If you need to delete more jobs, make further calls to `BatchDeleteEvaluationJob`.
+The following examples show how to use the AWS SDK for Python (Boto) to delete a model evaluation job. Use the `jobIdentifiers` parameter to specify a list of ARNS for the model evaluation jobs that you want to delete. You can delete up to 25 model evaluation jobs in a single call to `BatchDeleteEvaluationJob`. If you need to delete more jobs, make further calls to `BatchDeleteEvaluationJob`.
 
 ```
 import boto3

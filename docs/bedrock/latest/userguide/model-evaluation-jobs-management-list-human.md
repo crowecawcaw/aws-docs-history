@@ -5,7 +5,7 @@
 
 You can list your current model evaluation jobs that use human workers using the AWS CLI, or a supported AWS SDK. In the Amazon Bedrock console, you can also view a table containing your current model evaluation jobs.
 
-The following examples show you how to find your model evaluation jobs using the AWS Management Console, AWS CLI and SDK for Python.
+The following examples show you how to find your model evaluation jobs using the AWS Management Console, AWS CLI and SDK for Python (Boto).
 
 ------
 #### [ Amazon Bedrock console ]
@@ -32,9 +32,9 @@ aws bedrock list-evaluation-jobs --max-items 5
 ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
-The following examples show how to use the AWS SDK for Python to find a model evaluation job you have previously created. 
+The following examples show how to use the AWS SDK for Python (Boto) to find a model evaluation job you have previously created. 
 
 ```
 import boto3

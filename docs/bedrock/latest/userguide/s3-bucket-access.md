@@ -23,7 +23,7 @@ The following describes how to determine where you need to attach the necessary 
   + If you prefer to use a custom service role or the identity that requires access isn't a service role, navigate to [Attach permissions to an IAM identity to allow it to access an Amazon S3 bucket](#s3-bucket-access-identity) to learn how to create an identity-based policy with the proper permissions.
 + Resource-based permissions
   + If the identity requires access to S3 data in the same account, you don't need attach an S3 bucket policy to the bucket containing the data.
-  + If the identity requires access to S3 data in a different account, navigate to [Attach a bucket policy to an Amazon S3 bucket to allow another account to access it](#s3-bucket-access-cross-account) to learn how to create an S3 bucket policy with the proper permissions.
+  + If the identity requires access to S3 data in a different account, the bucket owner must attach an S3 bucket policy that grants the identity the proper permissions. To learn how to create an S3 bucket policy, see [Bucket policies for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html) in the Amazon S3 User Guide.
 **Important**  
 Automatic creation of a service role in the AWS Management Console attaches the proper identity-based permissions to the role, but you still must configure the S3 bucket policy if the identity that requires access to it is in a different AWS account.
 
@@ -36,7 +36,6 @@ Proceed through the topics that pertain to your use case:
 
 **Topics**
 + [Attach permissions to an IAM identity to allow it to access an Amazon S3 bucket](#s3-bucket-access-identity)
-+ [Attach a bucket policy to an Amazon S3 bucket to allow another account to access it](#s3-bucket-access-cross-account)
 + [(Advanced security option) Include conditions in a statement for more fine-grained access](#s3-bucket-access-conditions)
 
 ## Attach permissions to an IAM identity to allow it to access an Amazon S3 bucket
@@ -104,81 +103,6 @@ Add, modify, and remove the statements, resources, and conditions in the followi
 ------
 
 After modifying the policy to your use case, attach it to the service role (or IAM identity) that requires access to the S3 bucket. To learn how to attach permissions to an IAM identity, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html).
-
-## Attach a bucket policy to an Amazon S3 bucket to allow another account to access it
-<a name="s3-bucket-access-cross-account"></a>
-
-This topic provides a template for a resource-based policy to attach to an S3 bucket to allow an IAM identity to access data in the bucket. The policy includes the following statements defining permissions for an identity to access the bucket:
-
-1. Permissions to retrieve data from an S3 bucket.
-
-1. (If you need to write data to an S3 location) Permissions to write data to an S3 bucket.
-
-1. (If the S3 bucket is encrypted with an KMS key) Permissions to describe and decrypt the KMS key that encrypted the S3 bucket.
-**Note**  
-If your S3 bucket is versioning-enabled, each object version that you upload by using this feature can have its own encryption key. You're responsible for tracking which encryption key was used for which object version.
-
-The permissions are similar to the identity-based permissions described in [Attach permissions to an IAM identity to allow it to access an Amazon S3 bucket](#s3-bucket-access-identity). However, each statement also requires you to specify the identity for which to grant permissions to the resource in the `Principal` field. Specify the identity (with most features in Amazon Bedrock, this is the service role) in the `Principal` field. Add, modify, and remove the statements, resources, and conditions in the following policy and replace {{${values}}} as necessary:
-
-------
-#### [ JSON ]
-
-****  
-
-```
-{
-    "Version":"2012-10-17",		 	 	 
-    "Statement": [
-        {
-            "Sid": "ReadS3Bucket",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::{{111122223333}}:role/{{ServiceRole}}"
-            },
-            "Action": [
-                "s3:GetObject",
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::{{${S3Bucket}}}",
-                "arn:aws:s3:::{{${S3Bucket}}}/*"
-            ]
-        },
-        {
-            "Sid": "WriteToS3Bucket",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::{{111122223333}}:role/{{ServiceRole}}"
-            },
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::{{${S3Bucket}}}",
-                "arn:aws:s3:::{{${S3Bucket}}}/*"
-            ]
-        },
-        {
-            "Sid": "DecryptKMSKey",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::{{111122223333}}:role/{{ServiceRole}}"
-            },
-            "Action": [
-                "kms:Decrypt",
-                "kms:DescribeKey"
-            ],
-            "Resource": "arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{${KMSKeyId}}}"
-        }
-    ]
-}
-```
-
-------
-
-After modifying the policy to your use case, attach it to the S3 bucket. To learn how to attach a bucket policy to an S3 bucket, see [Adding a bucket policy by using the Amazon S3 console](https://docs.aws.amazon.com/AmazonS3/latest/userguide/add-bucket-policy.html).
 
 ## (Advanced security option) Include conditions in a statement for more fine-grained access
 <a name="s3-bucket-access-conditions"></a>

@@ -50,6 +50,7 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
+| [Claude Sonnet 5.5](model-card-anthropic-claude-sonnet-5-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Opus 5.5](model-card-anthropic-claude-opus-5-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Fable 5.1](model-card-anthropic-claude-fable-5-1.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Mythos 5.1](model-card-anthropic-claude-mythos-5-1.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
@@ -179,8 +180,11 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 <a name="model-endpoints-openai"></a>
 
 
+**Endpoint support for OpenAI models**  
+
 | Model name | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
+| [GPT-6.1 Sol](model-card-openai-gpt-6-1-sol.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [GPT-6 Astra](model-card-openai-gpt-6-astra.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [GPT-5.6 Sol](model-card-openai-gpt-56-sol.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Daybreak Red: GPT-5.6 Cyber](model-card-openai-gpt-56-cyber.md) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
@@ -254,8 +258,9 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
-| [Grok 4.3](model-card-xai-grok-4-3.md) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| [Grok 4.7](model-card-xai-grok-4-7.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Grok 4.6](model-card-xai-grok-4-6.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| [Grok 4.3](model-card-xai-grok-4-3.md) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 
 ## Z.AI
 <a name="model-endpoints-z.ai"></a>

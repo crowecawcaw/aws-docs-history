@@ -36,41 +36,4 @@ Please refer to [models at a glance](model-cards.md) to see product IDs for indi
 | Stable Image Ultra 1.0 | prod-7boen2z2wnxrg | 
 | Stability 3.5 Large 1.0 | prodview-ajc3gw4mjy7my | 
 
-You can use the following template to attach an IAM policy that controls model access permissions to a role:
-
-```
-{
-    "Version": "2012-10-17", 		 	 	 
-    "Statement": [
-        {
-            "Sid": "AllowBedrockModelAccess",
-            "Effect": "Allow",
-            "Action": [
-                "aws-marketplace:Subscribe",
-                "aws-marketplace:Unsubscribe",
-                "aws-marketplace:ViewSubscriptions"
-            ],
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws-marketplace:ProductId": [
-                        "{{product-id-1}}",
-                        "{{product-id-2}}"
-                    ]
-                }
-            }
-        },
-        {
-            "Sid": "AllowBedrockInvokeModel",
-            "Effect": "Allow",
-            "Action": [
-                "bedrock:InvokeModel",
-                "bedrock:InvokeModelWithResponseStream"
-            ],
-            "Resource": "arn:aws:bedrock:*::foundation-model/*"
-        }
-    ]
-}
-```
-
-For more examples of how to manage model access with IAM policies, see [Identity-based policy examples for Amazon Bedrock](security_iam_id-based-policy-examples.md).
+For examples of how to manage model access with IAM policies, see [Identity-based policy examples for Amazon Bedrock](security_iam_id-based-policy-examples.md).

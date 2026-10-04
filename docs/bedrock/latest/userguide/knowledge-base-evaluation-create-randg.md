@@ -198,7 +198,7 @@ To create a job using the following instructions, you need a prompt dataset. If 
   ```
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
 The following python example demonstrates how to make a *Retrieve and generate* boto3 API request.
 

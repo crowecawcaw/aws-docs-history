@@ -40,6 +40,8 @@ Complete authentication setup first. See [User-managed setup (3LO)](kb-managed-s
 
 1. (Optional) Expand **Sensitivity labels** to exclude documents that carry specific Microsoft Purview sensitivity labels. Select default labels (such as **Confidential**) or enter custom label names. For details, see [Exclude documents by sensitivity label](#kb-managed-sharepoint-sensitivity-labels).
 
+1. (Optional) Expand **Custom metadata fields** to declare up to 30 SharePoint columns, by exact case-sensitive name, to extract as filterable document metadata.
+
 ------
 #### [ API ]
 
@@ -61,6 +63,10 @@ The `sharepoint-managed-connector.json` file contains the following:
         "connectorParameters": {
             "type": "SHAREPOINT",
             "version": "1",
+            "customMetadataFields": [
+                "{{Department}}",
+                "{{Priority}}"
+            ],
             "aclEnabled": false,
             "connectionConfiguration": {
                 "secretArn": "{{arn:aws:secretsmanager:us-west-2:123456789012:secret:bedrock-sharepoint-creds}}",
@@ -82,6 +88,8 @@ The `sharepoint-managed-connector.json` file contains the following:
     }
 }
 ```
+
+The optional `customMetadataFields` field is set within `connectorParameters` for the SharePoint connector. Each entry is a SharePoint column name to extract as filterable document metadata. For the full field description, see [Connector parameters](#kb-managed-config-sharepoint).
 
 For an `OAUTH2_APP` data source, set `authType` to `OAUTH2_APP` and omit `certificateS3Path`. For user-managed setup (3LO), set `authType` to `MANAGED_OAUTH2` and omit `certificateS3Path`. You cannot create a 3LO secret through the API: first sign in through the console to create the secret, then set `secretArn` to that secret's ARN. For details, see [User-managed setup (3LO)](kb-managed-sharepoint-3lo-setup.md).
 
@@ -128,6 +136,13 @@ The data source configuration uses the following connector parameters. To connec
 | Field | Required | Description | 
 | --- | --- | --- | 
 | aclEnabled | No | Set to true to enable document-level access control. Requires ENTRA\_ID\_APP\_ONLY authentication. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-sharepoint-acl.md). | 
+
+
+**customMetadataFields (optional)**  
+
+| Field | Required | Description | 
+| --- | --- | --- | 
+| customMetadataFields | No | A list of up to 30 unique source-side field names to extract as filterable document metadata attributes, which you can use in Retrieve and AgenticRetrieveStream metadata filters. Field names are case-sensitive and must match the SharePoint column names exactly. A name cannot begin with an underscore, which is reserved for system-managed attributes. Extraction is best-effort: a field that cannot be matched or crawled produces a warning on the ingestion job without failing the sync. You can view the values of the custom metadata along with the values of built-in metadata fields (e.g. author) via the sync report. | 
 
 ## Exclude documents by sensitivity label
 <a name="kb-managed-sharepoint-sensitivity-labels"></a>

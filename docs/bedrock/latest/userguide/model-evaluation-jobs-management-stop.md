@@ -5,7 +5,7 @@
 
 You can stop a model evaluation job that is currently processing using the AWS Management Console, AWS CLI, or a supported AWS SDK.
 
-The following examples show you how to stop a model evaluation job using the AWS Management Console, AWS CLI, and SDK for Python
+The following examples show you how to stop a model evaluation job using the AWS Management Console, AWS CLI, and SDK for Python (Boto)
 
 ------
 #### [ Amazon Bedrock console ]
@@ -23,9 +23,9 @@ The following example shows you how to stop a model evaluation job using the AWS
 1. Then, choose **Stop evaluation**.
 
 ------
-#### [ SDK for Python ]
+#### [ SDK for Python (Boto) ]
 
-The following example shows you how to stop a model evaluation job using the SDK for Python
+The following example shows you how to stop a model evaluation job using the SDK for Python (Boto)
 
 ```
 import boto3

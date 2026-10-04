@@ -10,6 +10,7 @@ The supported models are as follows:
 
 | Model | Model ID | 
 | --- | --- | 
+| Claude Sonnet 5.5 | `anthropic.claude-sonnet-5-5` | 
 | Claude Opus 5.5 | `anthropic.claude-opus-5-5` | 
 | Claude Fable 5.1 | `anthropic.claude-fable-5-1` | 
 | Claude Mythos 5.1 | `anthropic.claude-mythos-5-1` | 

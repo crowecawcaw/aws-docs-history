@@ -17,8 +17,8 @@ GPT-5.5 is OpenAI's most capable model, designed for advanced coding, research, 
 + **Model EOL date:** N/A
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
 + **Model lifecycle:** Active
-+ **Context window:** 1M tokens
-+ **Max output tokens:** N/A
++ **Context window:** 1,050,000 tokens
++ **Max output tokens:** 128,000
 + **Marketplace product ID:** `prod-indw4nwkcsyua`
 
 

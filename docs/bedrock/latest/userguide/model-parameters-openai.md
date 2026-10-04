@@ -3,7 +3,9 @@
 # OpenAI models
 <a name="model-parameters-openai"></a>
 
-OpenAI offers the following open-weight models:
+GPT-6.1 Sol is available through `bedrock-mantle` in `us-east-1` and through US geographic cross-Region inference on `bedrock-runtime`. Use `openai.gpt-6.1-sol` on Mantle and `us.openai.gpt-6.1-sol` on Runtime. For model details, pricing, reasoning settings, and OpenAI first-party lifecycle terms, see [GPT-6.1 Sol](model-card-openai-gpt-6-1-sol.md).
+
+For the complete OpenAI model catalog, see [OpenAI](model-cards-openai.md). The request and response guidance below describes the following open-weight models:
 + [gpt-oss-20b](https://huggingface.co/openai/gpt-oss-20b) – A smaller model optimized for lower latency and local or specialized use cases.
 + [gpt-oss-120b](https://huggingface.co/openai/gpt-oss-120b) – A larger model optimized for production and general purpose or high-reasoning use cases.
 
@@ -19,7 +21,7 @@ The following table summarizes information about the models:
 | Output modalities supported | Text | Text | 
 | Context window | 128,000 | 128,000 | 
 
-The OpenAI models support the following features:
+These open-weight models support the following features:
 + [Model invocation](inference.md) with the following operations:
   + [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html)
   + [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html)

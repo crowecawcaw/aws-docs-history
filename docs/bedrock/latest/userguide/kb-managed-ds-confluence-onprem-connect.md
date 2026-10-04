@@ -28,6 +28,8 @@ Complete the VPC configuration and authentication setup first. See [Configure VP
 
 1. Under **Authentication**, select **Basic authentication** or **Personal access token**, then select the AWS Secrets Manager secret that holds the matching credentials.
 
+1. (Optional) To enable document-level access control, select **Control document access with ACLs**. This option cannot be changed after you create the data source. For details, see [Document-level access controls](kb-managed-ds-confluence-onprem-acl.md).
+
 1. (Optional) Expand **Sync scope** to choose which entity types to crawl (pages, page attachments, blogs, blog attachments, personal spaces).
 
 1. (Optional) Expand **Entity URLs** to use URL-based filtering to sync specific Confluence spaces, pages, and blogs.
@@ -37,7 +39,7 @@ Complete the VPC configuration and authentication setup first. See [Configure VP
 ------
 #### [ API ]
 
-To create a Confluence Data Center data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Basic authentication. To use a personal access token instead, change `authType` to `PERSONAL_TOKEN`. For a description of each field, see the connector parameters reference that follows.
+To create a Confluence Data Center data source, send a [CreateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateDataSource.html) request with an Agents for Amazon Bedrock build-time endpoint. The following AWS Command Line Interface example creates a data source that uses Basic authentication. To use a personal access token instead, change `authType` to `PERSONAL_TOKEN`. To enable document-level access control, set `aclEnabled` to `true`. For a description of each field, see the connector parameters reference that follows.
 
 ```
 aws bedrock-agent create-data-source \
@@ -91,6 +93,9 @@ For managed knowledge bases, `CreateDataSource` is asynchronous: the data source
 
 The data source configuration uses the following connector parameters. To connect to Confluence Data Center, specify `CONFLUENCEONPREM` as the connector type in `connectorParameters`. For the fields that wrap `connectorParameters` (such as `deletionProtectionConfiguration` and `mediaExtractionConfiguration`), see [Connect a data source](kb-managed-connect-ds.md).
 
+**Set `aclEnabled` explicitly**  
+If you omit `aclEnabled`, it defaults to `false` for Confluence Data Center. Because ACL configuration is permanent after the data source is created, set `aclEnabled` to `true` explicitly if you want document-level access control. For details, see [Document-level access controls](kb-managed-ds-confluence-onprem-acl.md).
+
 
 **connectionConfiguration**  
 
@@ -127,10 +132,17 @@ Unlike Confluence Cloud, Confluence Data Center does not support crawling archiv
 | exclusionMimeTypes | No | MIME types to exclude. | 
 | maxFileSizeInMegaBytes | No | Maximum size, in megabytes, of any single file the connector ingests. Provide as a numeric string (for example, "50"). | 
 
+
+**aclEnabled (optional)**  
+
+| Field | Required | Description | 
+| --- | --- | --- | 
+| aclEnabled | No | Whether document-level access control is enabled. Set to true to enable, or false to disable. If you omit this field, it defaults to false. You cannot change this setting after you create the data source. For details, see [Document-level access controls](kb-managed-ds-confluence-onprem-acl.md). | 
+
 ## Change the authentication method
 <a name="kb-managed-ds-confluence-onprem-change-auth"></a>
 
-You can change a data source's authentication method (for example, from Basic to personal access token) by updating the data source with the new `authType` and a secret that contains the matching credentials, using the [UpdateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateDataSource.html) operation or the AWS Management Console.
+You can change a data source's authentication method (for example, from Basic to personal access token) by updating the data source with the new `authType` and a secret that contains the matching credentials, using the [UpdateDataSource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateDataSource.html) operation or the AWS Management Console. The document-level access control setting is fixed when you create a data source, so to add or remove ACLs you must create a new data source.
 
 ## Next steps
 <a name="kb-managed-ds-confluence-onprem-connect-next"></a>

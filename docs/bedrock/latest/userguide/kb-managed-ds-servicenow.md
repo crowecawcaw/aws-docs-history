@@ -5,9 +5,6 @@
 
 ServiceNow is a cloud-based platform for IT service management, knowledge management, and service catalogs. You can connect your ServiceNow instance as a data source for your managed knowledge base to crawl knowledge articles and service catalog items.
 
-**Important**  
-ServiceNow data sources don't support document-level access control lists (ACLs). All authenticated users who can query the knowledge base can see all crawled content.
-
 ## Supported features
 <a name="kb-managed-supported-features-servicenow"></a>
 
@@ -16,6 +13,7 @@ With a ServiceNow data source, you can use the following features:
 + Automatic detection of common document fields (such as title and author)
 + Incremental content syncs for added, updated, and deleted content, based on the `sys_updated_on` timestamp
 + OAuth 2.0 Client Credentials (2LO) authentication
++ Document-level access control (ACLs), with ServiceNow user criteria enforcement
 
 ## Authentication method
 <a name="kb-managed-servicenow-auth-methods"></a>
@@ -42,5 +40,7 @@ Setting up a ServiceNow data source involves the following steps:
 1. **Set up authentication.** Configure the service account and OAuth application in ServiceNow, and store the credentials in AWS. See [Set up OAuth 2.0 Client Credentials authentication for ServiceNow](kb-managed-servicenow-oauth2-setup.md).
 
 1. **Connect the data source.** Create the ServiceNow data source in the knowledge base using the AWS Management Console or the API. See [Connect a ServiceNow data source](kb-managed-ds-servicenow-connect.md).
+
+1. **(Optional) Enable document-level access control.** Filter query results by each user's ServiceNow user criteria. See [Document-level access controls](kb-managed-ds-servicenow-acl.md).
 
 If you run into issues, see [Troubleshoot a ServiceNow data source](kb-managed-ds-servicenow-troubleshooting.md).
