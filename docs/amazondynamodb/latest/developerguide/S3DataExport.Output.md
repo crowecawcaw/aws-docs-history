@@ -57,6 +57,9 @@ The `manifest-summary.json` file contains summary information about the export j
 **Note**  
 The `exportType` field is present in the `manifest-summary.json` file only for incremental exports, where it has a value of `INCREMENTAL_EXPORT`. It is not included in the summary manifest for full exports.
 
+**Note**  
+If the export request included a filter, the summary manifest also includes the filter specification that was applied.
+
 #### The files manifest
 <a name="S3DataExport.Output_Manifest_Files"></a>
 

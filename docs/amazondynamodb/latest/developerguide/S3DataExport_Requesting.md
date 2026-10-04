@@ -11,6 +11,7 @@ Requester pays Amazon S3 buckets aren't supported.
 DynamoDB supports both full export and incremental export:
 + With **full exports**, you can export a full snapshot of your table from any point in time within the point-in-time recovery (PITR) window to your Amazon S3 bucket.
 + With **incremental exports**, you can export data from your DynamoDB table that was changed, updated, or deleted between a specified time period, within your PITR window, to your Amazon S3 bucket. 
++ With **filtered export**, you can export a subset of your DynamoDB table data instead of the entire table. You can apply a filter to both full exports and incremental exports. For more information about how filtered export works, see [Filtering a table export](S3DataExport.Filtered.md).
 
 **Topics**
 + [Prerequisites](#S3DataExport_Requesting_Permissions)
@@ -146,6 +147,8 @@ If you choose to encrypt your export using a key protected by AWS Key Management
    1. For **Export view type**, select either **New and old images** or **New images only**. New image provides the latest state of the item. Old image provides the state of the item right before the specified “start date and time”. The default setting is **New and old images**. For more information on new images and old images, see [Incremental export output](S3DataExport.Output.md#incremental-export-output).
 
 ------
+
+1. (Optional) To export only a subset of your table data, specify a filter for the export. You can provide a filter expression for any attributes, a key condition expression to select items by their partition key value, and a projection expression to choose which attributes to include in the output. For more information about how these expressions work and how they affect the data processed, see [Filtering a table export](S3DataExport.Filtered.md).
 
 1. Choose **Export** to begin.
 
@@ -405,6 +408,177 @@ client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTi
 ```
 
 ------
+
+**Filtered export**
+
+The following examples export a subset of a table by including a `FilterSpecification` on the export request. Each example uses a key condition expression to select a single partition key value, a filter expression to match a non-key attribute, and a projection expression to choose the attributes in the output. You can apply a `FilterSpecification` to a full export or an incremental export. An expression can be up to 4 KB in size, an attribute name can be up to 250 bytes, an attribute value can be up to 2 MB, and an expression can contain at most 300 operators. When you provide a key condition expression, the partition key can't also appear in the filter expression. For more information, see [Filtering a table export](S3DataExport.Filtered.md).
+
+------
+#### [ AWS CLI ]
+
+```
+aws dynamodb export-table-to-point-in-time \
+  --table-arn arn:aws:dynamodb:us-east-1:111122223333:table/MusicCollection \
+  --s3-bucket ddb-export-musiccollection-9012345678 \
+  --s3-prefix 2020-Nov \
+  --export-format DYNAMODB_JSON \
+  --export-time 1604632434 \
+  --s3-sse-algorithm AES256 \
+  --filter-specification '{
+    "KeyConditionExpression": "customer_id = :cid",
+    "FilterExpression": "#tier = :premium",
+    "ProjectionExpression": "customer_id, #tier",
+    "ExpressionAttributeNames": {"#tier": "tier"},
+    "ExpressionAttributeValues": {":cid": {"S": "cust-123"}, ":premium": {"S": "premium"}}
+  }'
+```
+
+------
+#### [ Python ]
+
+```
+import boto3
+from datetime import datetime
+
+client = boto3.client('dynamodb')
+
+client.export_table_to_point_in_time(
+    TableArn='arn:aws:dynamodb:us-east-1:111122223333:table/TABLE',
+    ExportTime=datetime(2023, 9, 20, 12, 0, 0),
+    S3Bucket='bucket',
+    S3Prefix='prefix',
+    S3SseAlgorithm='AES256',
+    ExportFormat='DYNAMODB_JSON',
+    FilterSpecification={
+        'KeyConditionExpression': 'customer_id = :cid',
+        'FilterExpression': '#tier = :premium',
+        'ProjectionExpression': 'customer_id, #tier',
+        'ExpressionAttributeNames': {'#tier': 'tier'},
+        'ExpressionAttributeValues': {
+            ':cid': {'S': 'cust-123'},
+            ':premium': {'S': 'premium'}
+        }
+    }
+)
+```
+
+------
+#### [ Java ]
+
+```
+DynamoDbClient client = DynamoDbClient.create();
+
+client.exportTableToPointInTime(b -> b
+    .tableArn("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE")
+    .exportTime(Instant.parse("2023-09-20T12:00:00Z"))
+    .s3Bucket("bucket")
+    .s3Prefix("prefix")
+    .s3SseAlgorithm(S3SseAlgorithm.AES256)
+    .exportFormat(ExportFormat.DYNAMODB_JSON)
+    .filterSpecification(f -> f
+        .keyConditionExpression("customer_id = :cid")
+        .filterExpression("#tier = :premium")
+        .projectionExpression("customer_id, #tier")
+        .expressionAttributeNames(Map.of("#tier", "tier"))
+        .expressionAttributeValues(Map.of(
+            ":cid", AttributeValue.fromS("cust-123"),
+            ":premium", AttributeValue.fromS("premium")))));
+```
+
+------
+#### [ .NET ]
+
+```
+var client = new AmazonDynamoDBClient();
+
+await client.ExportTableToPointInTimeAsync(new ExportTableToPointInTimeRequest
+{
+    TableArn = "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE",
+    ExportTime = new DateTime(2023, 9, 20, 12, 0, 0, DateTimeKind.Utc),
+    S3Bucket = "bucket",
+    S3Prefix = "prefix",
+    S3SseAlgorithm = S3SseAlgorithm.AES256,
+    ExportFormat = ExportFormat.DYNAMODB_JSON,
+    FilterSpecification = new FilterSpecification
+    {
+        KeyConditionExpression = "customer_id = :cid",
+        FilterExpression = "#tier = :premium",
+        ProjectionExpression = "customer_id, #tier",
+        ExpressionAttributeNames = new Dictionary<string, string>
+        {
+            { "#tier", "tier" }
+        },
+        ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+        {
+            { ":cid", new AttributeValue { S = "cust-123" } },
+            { ":premium", new AttributeValue { S = "premium" } }
+        }
+    }
+});
+```
+
+------
+#### [ JavaScript ]
+
+```
+import { DynamoDBClient, ExportTableToPointInTimeCommand } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient();
+
+await client.send(new ExportTableToPointInTimeCommand({
+    TableArn: "arn:aws:dynamodb:us-east-1:111122223333:table/TABLE",
+    ExportTime: new Date("2023-09-20T12:00:00Z"),
+    S3Bucket: "bucket",
+    S3Prefix: "prefix",
+    S3SseAlgorithm: "AES256",
+    ExportFormat: "DYNAMODB_JSON",
+    FilterSpecification: {
+        KeyConditionExpression: "customer_id = :cid",
+        FilterExpression: "#tier = :premium",
+        ProjectionExpression: "customer_id, #tier",
+        ExpressionAttributeNames: { "#tier": "tier" },
+        ExpressionAttributeValues: {
+            ":cid": { S: "cust-123" },
+            ":premium": { S: "premium" }
+        }
+    }
+}));
+```
+
+------
+#### [ Go ]
+
+```
+cfg, _ := config.LoadDefaultConfig(context.TODO())
+client := dynamodb.NewFromConfig(cfg)
+
+exportTime := time.Date(2023, 9, 20, 12, 0, 0, 0, time.UTC)
+client.ExportTableToPointInTime(context.TODO(), &dynamodb.ExportTableToPointInTimeInput{
+    TableArn:       aws.String("arn:aws:dynamodb:us-east-1:111122223333:table/TABLE"),
+    ExportTime:     &exportTime,
+    S3Bucket:       aws.String("bucket"),
+    S3Prefix:       aws.String("prefix"),
+    S3SseAlgorithm: types.S3SseAlgorithmAes256,
+    ExportFormat:   types.ExportFormatDynamodbJson,
+    FilterSpecification: &types.FilterSpecification{
+        KeyConditionExpression: aws.String("customer_id = :cid"),
+        FilterExpression:       aws.String("#tier = :premium"),
+        ProjectionExpression:   aws.String("customer_id, #tier"),
+        ExpressionAttributeNames: map[string]string{
+            "#tier": "tier",
+        },
+        ExpressionAttributeValues: map[string]types.AttributeValue{
+            ":cid":     &types.AttributeValueMemberS{Value: "cust-123"},
+            ":premium": &types.AttributeValueMemberS{Value: "premium"},
+        },
+    },
+})
+```
+
+------
+
+**Note**  
+DynamoDB validates your expressions before a filtered export starts. If you provide a `FilterSpecification` without any expression, or if an expression is invalid, the request fails with a `ValidationException`. The `DescribeExport` operation returns the `FilterSpecification` that you applied to an export. The `ListExports` operation is unchanged, and filtering doesn't introduce a new export type. The export type (`FULL_EXPORT` or `INCREMENTAL_EXPORT`) still determines when data is exported. The filter determines what data is exported.
 
 **Note**  
 If you choose to encrypt your export using a key protected by AWS Key Management Service (AWS KMS), the key must be in the same Region as the destination S3 bucket.

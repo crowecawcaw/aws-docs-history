@@ -189,7 +189,7 @@ controller.updateBoardAndTurn(item, value, session["username"])
 ```
 
 The function returns true if the item update was successful; otherwise, it returns false. Note the following about the `updateBoardAndTurn` function:
-+ The function calls the `update_item` function of the SDK for Python to make a finite set of updates to an existing item. The function maps to the `UpdateItem` operation in DynamoDB. For more information, see [UpdateItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html). 
++ The function calls the `update_item` function of the SDK for Python (Boto) to make a finite set of updates to an existing item. The function maps to the `UpdateItem` operation in DynamoDB. For more information, see [UpdateItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateItem.html). 
 **Note**  
 The difference between the `UpdateItem` and `PutItem` operations is that `PutItem` replaces the entire item. For more information, see [PutItem](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html).
 
