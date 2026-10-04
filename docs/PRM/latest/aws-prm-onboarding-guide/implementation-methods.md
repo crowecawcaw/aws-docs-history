@@ -12,7 +12,7 @@ Partner Revenue Measurement supports the following implementation methods. Choos
 | Method | Description | Best For | 
 | --- | --- | --- | 
 | [AWS Marketplace Metering](marketplace-metering.md) | Zero-touch revenue attribution through AWS Marketplace product metadata | Amazon Machine Image (AMI) and Machine Learning (ML) products listed on AWS Marketplace | 
-| [Resource Tagging](resource-tagging.md) | Tag AWS resources with your product code using the aws-apn-id tag key | SaaS, Professional Services, and any product type where you can tag AWS resources | 
+| [Resource Tagging](resource-tagging.md) | Tag AWS resources with your product code using the tag key format aws-apn-id-{{partner-central-aws-account-id}} (e.g., aws-apn-id-012345678901). For how to construct your tag key, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction) | SaaS, Professional Services, and any product type where you can tag AWS resources | 
 | [User Agent String](user-agent-string.md) | Include a User Agent string in regular AWS API/CLI calls with your product code | Products with direct regular AWS API/CLI access; AMI/ML products seeking attribution beyond EC2/SageMaker | 
 
 **Note**  
@@ -51,12 +51,12 @@ The following decision tree helps you determine the right implementation method:
 | Scenario | Use Resource Tagging when... | Use User Agent String when... | Marketplace Metering | 
 | --- | --- | --- | --- | 
 | Managed Services Provider (MSP) or Systems Integrator (SI/GSI) with limited access | Where write access allows. Provide IaC templates with tags embedded for customer to run | In management regular AWS API/CLI calls. Modify agents or installers to include UA strings | — | 
-| Multi-partner on same AWS resource | Single aws-apn-id tag limit per resource — may conflict with other partners | Each partner uses own UA string in their respective regular AWS API/CLI calls, no conflicts | — | 
+| Multi-partner on same AWS resource | Each partner can apply their own unique tag key (aws-apn-id-{{partner-central-aws-account-id}}). When more than one partner tags the same resource, each partner receives revenue attribution | Each partner uses own UA string in their respective regular AWS API/CLI calls, no conflicts | — | 
 | Backfill existing resources | Bulk tag via Tag Editor or scripted bulk tagging for large-scale backfill. Revenue attribution will only be moving forward from the time tags are applied | Add UA to existing regular AWS API/CLI calls — often the lowest-effort path. Revenue attribution will only be moving forward from the time User Agent strings are implemented | — | 
 
 ## Key Considerations
 <a name="key-considerations"></a>
-+ **Resource Tagging:** Tags are key-value pairs applied to a resource to hold metadata about that resource, in this case a partner identifier. The tag type is a user-defined tag, and can be managed (updated or removed), and counts against the 50-tag-per-resource limit. Only one partner identifier is allowed per resource. Attribution is continuous while the tag is present.
++ **Resource Tagging:** Tags are key-value pairs applied to a resource to hold metadata about that resource, in this case a partner identifier. The tag type is a user-defined tag, and can be managed (updated or removed), and counts against the 50-tag-per-resource limit. Attribution is continuous while the tag is present.
 + **User Agent String:** Ephemeral, specific to the regular AWS API/CLI operation carried out on a specific AWS resource, and is read-only. Allows multiple partners to independently use their identifier within their respective regular AWS API/CLI calls. Visible in CloudTrail, enabling customers to govern partner-solution interactions within their AWS resources. Requires at least one regular AWS API/CLI call per resource per month for attribution.
-+ **Multi-partner:** User Agent String avoids the single `aws-apn-id` tag-per-resource limitation when multiple partners operate on the same AWS resource.
++ **Multi-partner:** For multi-partner scenarios, both Resource Tagging and User Agent String are supported. With Resource Tagging, each partner applies their own partner-unique tag key (`aws-apn-id-{{partner-central-aws-account-id}}`), so up to 10 partners can tag the same resource and each receives independent attribution. When more than one partner tags the same resource, or uses the user agent string in an API call involving the same resource, each partner receives revenue attribution.
 + **Production only:** Partner Revenue Measurement is intended to measure production workloads. Dev/test/staging environments can be used for validating your implementation before rolling out to production.

@@ -29,7 +29,9 @@ If resource tags are not generating revenue attribution:
 
 **Verify tag implementation**
 
-1. Check tag key is exactly: **aws-apn-id** (lowercase)
+1. Check tag key matches the format: **aws-apn-id-{{partner-central-aws-account-id}}** (or the simple `aws-apn-id` key). For how to construct your tag key, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction)
+
+1. Confirm your Partner Central AWS account ID is correct. For where to find it, see [Where do I find my Partner Central AWS Account ID?](partner-faqs.md#where-account-id-faq)
 
 1. Verify tag value format: **pc:product-code**
 
@@ -41,14 +43,10 @@ If resource tags are not generating revenue attribution:
 
 1. Verify tags are applied correctly using [AWS Tag Editor](automated-tagging.md#tag-editor-bulk-tagging) or reach out to your AWS partner management team or [APN Support](https://partnercentral.awspartner.com/partnercentral2/s/support) (Partner Central login required) for assistance
 
-### Tag conflicts with other partners
+### Multi-partner scenarios
 <a name="tag-conflicts"></a>
 
-Since an AWS resource can only have one tag with the `aws-apn-id` key, only one partner identifier is allowed per resource. If another partner's tag exists on a resource, resource tagging creates a conflict.
-
-For multi-partner scenarios where multiple partners operate on the same AWS resource, consider using the [User Agent String](user-agent-string.md) method instead. Each partner can independently use their own identifier within their respective regular AWS API/CLI calls without conflicts.
-
-If you must use resource tagging, coordinate with the other partner and the customer to determine tag ownership before making changes.
+Multiple partners can tag the same AWS resource without conflict. Each partner uses their own partner-unique tag key in the format `aws-apn-id-{{partner-central-aws-account-id}}`, with the tag value `pc:{{product-code}}`, and up to 10 partners can tag the same resource. Because each partner tags under their own unique key, an existing partner tag does not need to be removed and does not create a conflict. If your tag is not generating attribution, confirm your key uses the exact format `aws-apn-id-{{partner-central-aws-account-id}}` and that the value is `pc:{{product-code}}`. For how to construct your tag key, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction).
 
 ## User Agent String Issues
 <a name="user-agent-troubleshooting"></a>
@@ -118,7 +116,7 @@ For official validation, contact your AWS partner management team or [APN Suppor
 
 | Method | Issue | Cause | Solution | 
 | --- | --- | --- | --- | 
-| Resource Tagging | Tags not working | Wrong tag format | Use aws-apn-id key with pc:product-code value | 
+| Resource Tagging | Tags not working | Wrong tag format | Use aws-apn-id-{{partner-central-aws-account-id}} key (or aws-apn-id) with pc:product-code value. See [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction) | 
 | Resource Tagging | No revenue attribution | Resources not incurring spend | Ensure resources are actively consuming AWS services and incurring charges | 
 | Resource Tagging | Product code mismatch | Incorrect product code | Verify code in AWS Marketplace Management Portal (see [Product Code Retrieval](product-code-retrieval.md)) | 
 | User Agent String | String not in CloudTrail | SDK not configured correctly | Verify SDK client configuration includes User Agent string for all service clients | 

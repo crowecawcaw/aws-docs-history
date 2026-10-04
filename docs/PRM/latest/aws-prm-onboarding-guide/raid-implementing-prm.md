@@ -23,7 +23,7 @@ The Revenue Attribution ID format is `ra-<13 character string>` (for example, `r
 <a name="raid-resource-tagging"></a>
 
 Add the tag to your resources:
-+ Tag Key: `aws-apn-id`
++ Tag Key: `aws-apn-id-{{partner-central-aws-account-id}}`
 + Tag Value: `<RA ID>`
 + Example: `ra-aabbccddee001`
 

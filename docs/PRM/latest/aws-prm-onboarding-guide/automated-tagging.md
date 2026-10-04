@@ -5,6 +5,8 @@
 
 We encourage you to automate your tagging resources as much as possible. You can automate your tagging by adding a tag line to your AWS CloudFormation template, AWS Cloud Development Kit (AWS CDK), Terraform, or by using the AWS Tag Editor.
 
+All examples on this page use the account-suffixed tag key format `aws-apn-id-{{partner-central-aws-account-id}}`. Replace `012345678901` with your Partner Central AWS account ID and `5ugbbrmu7ud3u5hsipfzug61p` with your product code. For how to construct your tag key, including backward compatibility with the legacy `aws-apn-id` key and how attribution appears in the dashboard, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction).
+
 **Warning**  
 Only tag resources that are directly used or influenced by your partner solution.
 
@@ -13,13 +15,10 @@ Only tag resources that are directly used or influenced by your partner solution
 
 **Stack-level propagation (recommended):** Tags applied at the stack level propagate automatically to all resources in the stack that support tagging. This is the simplest approach when your entire stack belongs to your partner solution.
 
-**Note**  
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following examples.
-
 ```
 aws cloudformation create-stack --stack-name my-stack \
   --template-body file://template.yaml \
-  --tags Key=aws-apn-id,Value=pc:5ugbbrmu7ud3u5hsipfzug61p
+  --tags Key=aws-apn-id-012345678901,Value=pc:5ugbbrmu7ud3u5hsipfzug61p
 ```
 
 **Note**  
@@ -33,7 +32,7 @@ Resources:
     Type: 'AWS::EC2::Instance'
     Properties:
       Tags:
-        - Key: "aws-apn-id"
+        - Key: "aws-apn-id-012345678901"
           Value: "pc:5ugbbrmu7ud3u5hsipfzug61p"
 ```
 
@@ -46,18 +45,15 @@ A tag in AWS CDK is applied to a given construct and all of its taggable childre
 
 **Stack-level propagation (recommended):** Tag the stack to propagate to all resources.
 
-**Note**  
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following examples.
-
 ```
-Tags.of(stack).add('aws-apn-id', 'pc:5ugbbrmu7ud3u5hsipfzug61p');
+Tags.of(stack).add('aws-apn-id-012345678901', 'pc:5ugbbrmu7ud3u5hsipfzug61p');
 ```
 
 **Per-resource tagging:**
 
 ```
 {
-    "Key" : "aws-apn-id",
+    "Key" : "aws-apn-id-012345678901",
     "Value" : "pc:5ugbbrmu7ud3u5hsipfzug61p"
 }
 ```
@@ -67,28 +63,25 @@ Tags.of(stack).add('aws-apn-id', 'pc:5ugbbrmu7ud3u5hsipfzug61p');
 
 **Provider-level default tags (recommended):** The `default_tags` block applies the tag to every resource Terraform creates or manages through that provider.
 
-**Note**  
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following examples.
-
 ```
 provider "aws" {
   default_tags {
     tags = {
-      aws-apn-id = "pc:5ugbbrmu7ud3u5hsipfzug61p"
+      aws-apn-id-012345678901 = "pc:5ugbbrmu7ud3u5hsipfzug61p"
     }
   }
 }
 ```
 
 **Note**  
-Some Terraform resource types do not support `default_tags` (e.g., `aws_autoscaling_group`). If you also define the same tag key in a resource's `tags` block, Terraform raises a conflict. Use either `default_tags` or per-resource tags for the `aws-apn-id` tag, not both on the same resource.
+Some Terraform resource types do not support `default_tags` (e.g., `aws_autoscaling_group`). If you also define the same tag key in a resource's `tags` block, Terraform raises a conflict. Use either `default_tags` or per-resource tags for the `aws-apn-id-{{partner-central-aws-account-id}}` tag, not both on the same resource.
 
 **Per-resource tagging:** Add the tag to individual resource blocks when you need to tag only specific resources.
 
 ```
 resource "aws_instance" "example" {
   tags = {
-    aws-apn-id = "pc:5ugbbrmu7ud3u5hsipfzug61p"
+    aws-apn-id-012345678901 = "pc:5ugbbrmu7ud3u5hsipfzug61p"
   }
 }
 ```
@@ -120,7 +113,7 @@ The AWS Tag Editor only works for resources running in the account.
 
 1. Choose **Manage tags of selected resources**.
 
-1. Enter `aws-apn-id` in the **Tag Key** field.
+1. Enter `aws-apn-id-012345678901` in the **Tag Key** field (replace `012345678901` with your Partner Central AWS account ID).
 
 1. Enter `pc:5ugbbrmu7ud3u5hsipfzug61p` in the **Tag Value** field (replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code).
 
@@ -136,22 +129,16 @@ You can use the AWS CLI to tag resources in bulk using the command line.
 **Important**  
 For resources provisioned by infrastructure as code templates (CloudFormation, CDK, Terraform, etc.), it is recommended to update the templates instead of using CLI commands.
 
-**Note**  
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following example.
-
 ```
 aws resourcegroupstaggingapi tag-resources \
     --resource-arn-list arn:aws:ec2:region:account-id:instance/i-1234567890abcdef0 \
-    --tags aws-apn-id=pc:5ugbbrmu7ud3u5hsipfzug61p
+    --tags aws-apn-id-012345678901=pc:5ugbbrmu7ud3u5hsipfzug61p
 ```
 
 ## API/SDK Bulk Tagging
 <a name="sdk-bulk-tagging"></a>
 
 Use the Resource Groups Tagging API to tag multiple resources across different service types in a single call. This is the most efficient approach for large-scale tagging.
-
-**Note**  
-Replace `5ugbbrmu7ud3u5hsipfzug61p` with your product code in the following example.
 
 ```
 import boto3
@@ -162,7 +149,7 @@ tagging.tag_resources(
         'arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0',
         'arn:aws:s3:::my-bucket'
     ],
-    Tags={'aws-apn-id': 'pc:5ugbbrmu7ud3u5hsipfzug61p'}
+    Tags={'aws-apn-id-012345678901': 'pc:5ugbbrmu7ud3u5hsipfzug61p'}
 )
 ```
 

@@ -3,7 +3,9 @@
 # Amazon Bedrock - Resource Tagging
 <a name="bedrock-best-practices"></a>
 
-Amazon Bedrock uses *application inference profiles* as the taggable resource for Partner Revenue Measurement. You must create an application inference profile, tag it with the `aws-apn-id` tag, and then use that profile for all model invocations.
+Amazon Bedrock uses *application inference profiles* as the taggable resource for Partner Revenue Measurement. You must create an application inference profile, tag it with the `aws-apn-id-{{partner-central-aws-account-id}}` tag, and then use that profile for all model invocations. For how to construct your tag key, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction).
+
+All examples on this page use the account-suffixed tag key format. Replace `012345678901` with your Partner Central AWS account ID and `5ugbbrmu7ud3u5hsipfzug61p` with your product code. For how to construct your tag key, including backward compatibility with the legacy `aws-apn-id` key and how attribution appears in the dashboard, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction).
 
 ## Understanding inference profiles
 <a name="bedrock-inference-profiles"></a>
@@ -15,7 +17,7 @@ Amazon Bedrock offers the following types of inference profiles:
 + **Application inference profiles** – User-created profiles to measure costs and model usage. You can create a profile that routes requests to one Region or to multiple Regions.
 
 **Warning**  
-**System-defined inference profiles do not support tagging.** While system-defined (cross-region) inference profiles enhance flexibility in model usage by routing requests across multiple Regions, they do not support attaching custom tags for measuring, managing, and controlling costs across workloads and tenants. Only **application inference profiles** support the `aws-apn-id` tag required for Partner Revenue Measurement attribution. You must create an application inference profile to use Resource Tagging with Amazon Bedrock.
+**System-defined inference profiles do not support tagging.** While system-defined (cross-region) inference profiles enhance flexibility in model usage by routing requests across multiple Regions, they do not support attaching custom tags for measuring, managing, and controlling costs across workloads and tenants. Only **application inference profiles** support the `aws-apn-id-{{partner-central-aws-account-id}}` tag required for Partner Revenue Measurement attribution. You must create an application inference profile to use Resource Tagging with Amazon Bedrock.
 
 ## Prerequisites
 <a name="bedrock-prerequisites"></a>
@@ -89,10 +91,10 @@ The tag value must use the format `pc:{{product-code}}`, where `{{product-code}}
    ```
    aws bedrock tag-resource \
      --resource-arn "arn:aws:bedrock:us-east-1:{{123456789012}}:application-inference-profile/{{k1c3lwu20lem}}" \
-     --tags Key=aws-apn-id,Value=pc:{{5ugbbrmu7ud3u5hsipfzug61p}}
+     --tags Key=aws-apn-id-012345678901,Value=pc:{{5ugbbrmu7ud3u5hsipfzug61p}}
    ```
 
-   Use the ARN from the previous step. Replace `{{5ugbbrmu7ud3u5hsipfzug61p}}` with your AWS Marketplace product code. For details on the tag format, see [Resource Tagging](resource-tagging.md).
+   Use the ARN from the previous step. Replace `012345678901` with your Partner Central AWS account ID and `{{5ugbbrmu7ud3u5hsipfzug61p}}` with your AWS Marketplace product code. For details on the tag format, see [Resource Tagging](resource-tagging.md).
 
 1. **Verify the tag.**
 
@@ -107,7 +109,7 @@ The tag value must use the format `pc:{{product-code}}`, where `{{product-code}}
    {
      "tags": [
        {
-         "key": "aws-apn-id",
+         "key": "aws-apn-id-012345678901",
          "value": "pc:{{5ugbbrmu7ud3u5hsipfzug61p}}"
        }
      ]

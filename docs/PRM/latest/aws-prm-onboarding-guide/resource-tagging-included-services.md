@@ -3,7 +3,7 @@
 # Included AWS Services
 <a name="resource-tagging-included-services"></a>
 
-The following AWS services are supported for resource tagging implementation. Resources must be tagged with key `aws-apn-id` and value `pc:product-code` format.
+The following AWS services are supported for resource tagging implementation. Resources must be tagged with key `aws-apn-id-{{partner-central-aws-account-id}}` and value `pc:{{product-code}}` format. For how to construct your tag key, see [Constructing Your Tag Key and Value](manual-tagging.md#tag-key-construction).
 
 For a downloadable version of this list, download the [Resource Tagging Included Services (CSV)](samples/resource-tagging-included-services.zip).
 
@@ -32,6 +32,7 @@ For a downloadable version of this list, download the [Resource Tagging Included
 | Amazon Cognito | AmazonCognito | Excludes Amazon Cognito add-ons | 
 | Amazon Comprehend | comprehend | None | 
 | Amazon Connect | AmazonConnect | Includes Full Connect Unlimited AI and A La Carte; excludes Cases, Entity Resolution, Legacy Pinpoint Engagement, Meetings SDK, ContactLens, Chat, Email, Lex, Q in Connect, Tasks, Voice, Customer Profiles, Outbound Campaigns Processing, Telephony | 
+| Amazon Connect Decisions | AWSSupplyChain | Includes Demand Teammate and Supply Teammate. Revenue attribution available from September 1, 2026 | 
 | AWS Data Pipeline | datapipeline | None | 
 | AWS Database Migration Service | AWSDatabaseMigrationSvc | None | 
 | AWS DataSync | AWSDataSync | None | 
@@ -58,6 +59,7 @@ For a downloadable version of this list, download the [Resource Tagging Included
 | Amazon FinSpace | AmazonFinSpace | Excludes any kdb Insights software license amount | 
 | Amazon FSx | AmazonFSx | None | 
 | Amazon GameLift | AmazonGameLift | Excludes GameLift Anywhere, FleetIQ, and FlexMatch when using either EC2 for GameLift or On-premises for GameLift | 
+| Amazon GameLift Streams | AmazonGameLiftStreams | Excludes Game Data Storage Hours operation. Revenue attribution available from September 1, 2026 | 
 | AWS Glue | AWSGlue | None | 
 | AWS HealthImaging | AmazonMedicalImaging | None | 
 | AWS HealthLake | AmazonHealthLake | Excludes FHIR data export and transformation | 
@@ -85,12 +87,14 @@ For a downloadable version of this list, download the [Resource Tagging Included
 | Amazon Redshift | AmazonRedshift | Amazon Redshift Provisioned and Amazon Redshift Serverless | 
 | Amazon Relational Database Service (RDS) | AmazonRDS | Includes all RDS engines, Amazon RDS Custom, AWS Local Zones deployment; excludes Db2 licensing fees | 
 | AWS Resilience Hub | AWSResilienceHub | None | 
+| AWS RTB Fabric | AWSRTBFabric | Revenue attribution available from September 1, 2026 | 
 | Amazon Route 53 | AmazonRoute53 | Excludes Amazon Route 53 Resolver, Traffic Flow, and CIDR block storage | 
 | Amazon S3 | AmazonS3 | Includes storage cost only and all storage tiers; excludes Requests | 
 | Amazon S3 Glacier | AmazonGlacier | Excludes Glacier Deep Archive | 
 | Amazon SageMaker AI | AmazonSageMaker | Excludes Amazon SageMaker AI training plans for training jobs or HyperPod clusters | 
 | AWS Secrets Manager | AWSSecretsManager | None | 
 | AWS Security Hub | AWSSecurityHub | None | 
+| Amazon Simple Email Service (SES) | AmazonSES | Excludes Dedicated IPs (managed) subscription, Insight Count for Recipients-Validation, Queries for Virtual Deliverability Manager, Incoming mail chunk and message received, Virtual Deliverability Manager (IP, Domain, InboxTest and Subscription). Revenue attribution available from September 1, 2026 | 
 | Amazon Simple Notification Service (SNS) | AmazonSNS | None | 
 | Amazon Simple Queue Service (SQS) | AWSQueueService | None | 
 | AWS Step Functions | AmazonStates | None | 
