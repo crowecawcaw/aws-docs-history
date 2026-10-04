@@ -33,7 +33,7 @@ SSD-backed volumes are optimized for transactional workloads involving frequent 
   <tr><td><b>Max IOPS</b></td><td>80,000 3 (25.6 KiB I/O 4)</td><td>16,000 (16 KiB I/O 4)</td><td>256,000 3 (16 KiB I/O 4) </td><td>64,000 (16 KiB I/O 4)</td></tr>
   <tr><td><b>Max throughput</b></td><td>2,000 MiB/s</td><td>250 MiB/s 1</td><td>4,000 MiB/s</td><td>1,000 MiB/s 2</td></tr>
   <tr><td><b>Amazon EBS Multi-attach</b></td><td colspan="2">Not supported</td><td colspan="2">Supported</td></tr>
-  <tr><td><b>NVMe reservations</b></td><td colspan="2">Not supported</td><td>Supported</td><td>Not supported</td></tr>
+  <tr><td><b>NVMe reservations</b></td><td colspan="2">Not supported</td><td>Supported</td><td>Supported</td></tr>
   <tr><td><b>Boot volume</b></td><td colspan="4">Supported</td></tr>
 </tbody>
 </table>

@@ -36,8 +36,9 @@ There is no charge to modify the configuration of a volume. You are charged for 
 + The new volume size can't exceed the supported capacity of its file system and partitioning scheme. For more information, see [Amazon EBS volume constraints](volume_constraints.md).
 + If you are not changing the volume type, then volume size and performance modifications must be within the limits of the current volume type. If you are changing the volume type, then volume size and performance modifications must be within the limits of the target volume type. For more information, see [Amazon EBS volume types](ebs-volume-types.md)
 + [ Nitro-based instances](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) support volumes provisioned with up to 256,000 IOPS. Other instance types can be attached to volumes provisioned with up to 64,000 IOPS, but can achieve up to 32,000 IOPS.
-+ You can't modify the volume type for Multi-Attach enabled `io2` volumes.
-+ You can't modify the volume type, size, or Provisioned IOPS of Multi-Attach enabled `io1` volumes.
++ For Multi-Attach enabled volumes, you can change the volume type between `io1` and `io2` in either direction, including while the volume is attached. Other volume type changes are not supported.
+
+  When you change the volume type between `io1` and `io2` for a Multi-Attach enabled volume, the volume's NVMe reservations enablement state is carried forward to the target volume type.
 + A root volume of type `io1`, `io2`, `gp2`, `gp3`, or `standard` can't be modified to an `st1` or `sc1` volume, even if it is detached from the instance.
 + If the volume was attached before November 3, 2016 23:40 UTC, you must initialize Elastic Volumes support. For more information, see [Initializing Elastic Volumes Support](requesting-ebs-volume-modifications.md#initialize-modification-support).
 + While `m3.medium` instances fully support volume modification, `m3.large`, `m3.xlarge`, and `m3.2xlarge` instances might not support all volume modification features.

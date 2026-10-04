@@ -7,7 +7,7 @@ Multi-Attach enabled volumes can be managed in much the same way that you would 
 
 When you create a new volume, Multi-Attach is disabled by default. You can enable Multi-Attach when you create a volume.
 
-You can also enable Multi-Attach for `io2` volumes after creation, but only if they are not attached to any instances. You can't enable Multi-Attach for `io1` volumes after creation.
+You can also enable Multi-Attach for `io1` and `io2` volumes after creation, but only if they are not attached to any instances.
 
 After you enable Multi-Attach for a volume, you can attach the volume to an instance in the same way that you attach any other EBS volume. For more information, see [Attach an Amazon EBS volume to an Amazon EC2 instance](ebs-attaching-volume.md).
 

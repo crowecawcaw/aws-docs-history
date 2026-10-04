@@ -3,7 +3,7 @@
 # Use NVMe reservations with Multi-Attach enabled Amazon EBS volumes
 <a name="nvme-reservations"></a>
 
-Multi-Attach enabled `io2` volumes support NVMe reservations, which is a set of industry-standard storage fencing protocols. These protocols enable you to create and manage reservations that control and coordinate access from multiple instances to a shared volume. Shared storage applications use reservations to make sure that data remains consistent.
+Multi-Attach enabled `io1` and `io2` volumes support NVMe reservations, which is a set of industry-standard storage fencing protocols. These protocols enable you to create and manage reservations that control and coordinate access from multiple instances to a shared volume. Shared storage applications use reservations to make sure that data remains consistent.
 
 **Topics**
 + [Requirements](#nvme-reservations-reqs)
@@ -14,7 +14,7 @@ Multi-Attach enabled `io2` volumes support NVMe reservations, which is a set of 
 ## Requirements
 <a name="nvme-reservations-reqs"></a>
 
-NVMe reservations is supported with Multi-Attach enabled `io2` volumes only. Multi-Attach enabled volumes can be attached only to instances built on the Nitro system.
+NVMe reservations is supported with Multi-Attach enabled `io1` and `io2` volumes. Multi-Attach enabled volumes can be attached only to instances built on the Nitro system.
 
 NVMe reservations is supported with the following operating systems:
 + SUSE Linux Enterprise 12 SP3 and later
@@ -30,9 +30,9 @@ If you're using EC2Launch v2 to initialize your disks, you must upgrade to versi
 ## Enabling support for NVMe reservations
 <a name="nvme-reservations-enable"></a>
 
-Support for NVMe reservations is enabled by default for all Multi-Attach enabled `io2` volumes created after **September 18, 2023**.
+Support for NVMe reservations is enabled by default for all Multi-Attach enabled `io2` volumes created after **September 18, 2023**, and for all Multi-Attach enabled `io1` volumes created after **October 1, 2026**.
 
-To enable support for NVMe reservations for existing `io2` volumes created before September 18, 2023, you must detach all instances from the volume and then reattach the required instances. All attachments made after detaching all of the instances will have NVMe reservations enabled.
+To enable support for NVMe reservations for existing `io2` volumes created before September 18, 2023, or existing `io1` volumes created before October 1, 2026, you must detach all instances from the volume and then reattach the required instances. All attachments made after detaching all of the instances will have NVMe reservations enabled.
 
 ## Supported NVMe Reservation commands
 <a name="nvme-reservations-commands"></a>

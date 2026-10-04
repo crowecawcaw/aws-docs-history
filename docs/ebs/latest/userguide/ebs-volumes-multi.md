@@ -21,16 +21,13 @@ There are no additional charges for using Amazon EBS Multi-Attach. You are bille
 + **Linux instances** support Multi-Attach enabled `io1` and `io2` volumes. **Windows instances** support Multi-Attach enabled `io2` volumes only.
 + The maximum number of Amazon EBS volumes that you can attach to an instance depends on the instance type and instance size. For more information, see [ instance volume limits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html).
 + Multi-Attach is supported exclusively on [Provisioned IOPS SSD (`io1` and `io2`) volumes](provisioned-iops.md#EBSVolumeTypes_piops).
-+ Multi-Attach for `io1` volumes is available in the following Regions only: US East (N. Virginia), US West (Oregon), and Asia Pacific (Seoul).
++ Multi-Attach for `io1` volumes is available in all Regions that support `io1`.
 
   Multi-Attach for `io2` is available in all Regions that support `io2`.
 **Note**  
 For better performance, consistency, and durability at a lower cost, we recommend that you use `io2` volumes.
-+ `io1` volumes with Multi-Attach enabled are not supported with [instances built on the Nitro System](https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html) that support the Scalable Reliable Datagram (SRD) networking protocol only. To use Multi-Attach with these instance types, you must use `io2`.
 + Standard file systems, such as XFS and EXT4, are not designed to be accessed simultaneously by multiple servers, such as EC2 instances. You should use a clustered file system to make sure that your data is resilient and reliable for your production workloads.
-+ Multi-Attach enabled `io2` volumes support I/O fencing. I/O fencing protocols control write access in a shared storage environment to maintain data consistency. Your applications must provide write ordering for the attached instances to maintain data consistency. For more information, see [Use NVMe reservations with Multi-Attach enabled Amazon EBS volumes](nvme-reservations.md).
-
-  Multi-Attach enabled `io1` volumes do not support I/O fencing.
++ Multi-Attach enabled `io1` and `io2` volumes support I/O fencing. I/O fencing protocols control write access in a shared storage environment to maintain data consistency. Your applications must provide write ordering for the attached instances to maintain data consistency. For more information, see [Use NVMe reservations with Multi-Attach enabled Amazon EBS volumes](nvme-reservations.md).
 + Multi-Attach enabled volumes can't be created as boot volumes.
 + Multi-Attach enabled volumes can be attached to one block device mapping per instance.
 + Multi-Attach can't be enabled during instance launch using either the Amazon EC2 console or RunInstances API.
@@ -43,16 +40,18 @@ For better performance, consistency, and durability at a lower cost, we recommen
   <tr><th></th><th><code>io2</code> volumes</th><th><code>io1</code> volumes</th></tr>
 </thead>
 <tbody>
-  <tr><td>Modify volume type</td><td>✗</td><td>✗</td></tr>
-  <tr><td>Modify volume size</td><td>✓</td><td>✗</td></tr>
-  <tr><td>Modify provisioned IOPS</td><td>✓</td><td>✗</td></tr>
-  <tr><td>Enable Multi-Attach</td><td>✓ *</td><td>✗</td></tr>
-  <tr><td>Disable Multi-Attach</td><td>✓ *</td><td>✗</td></tr>
+  <tr><td>Modify volume type</td><td>✓ **</td><td>✓ **</td></tr>
+  <tr><td>Modify volume size</td><td>✓</td><td>✓</td></tr>
+  <tr><td>Modify provisioned IOPS</td><td>✓</td><td>✓</td></tr>
+  <tr><td>Enable Multi-Attach</td><td>✓ *</td><td>✓ *</td></tr>
+  <tr><td>Disable Multi-Attach</td><td>✓ *</td><td>✓ *</td></tr>
 </tbody>
 </table>
 
 
   \* You can't enable or disable Multi-Attach while the volume is attached to an instance.
+
+  \*\* Volume type modification for Multi-Attach enabled volumes is supported only between `io1` and `io2`, in either direction, including while the volume is attached. Other volume type changes are not supported.
 + Multi-Attach enabled volumes are deleted on instance termination if the last attached instance is terminated and if that instance is configured to delete the volume on termination. If the volume is attached to multiple instances that have different delete on termination settings in their volume block device mappings, the last attached instance's block device mapping setting determines the delete on termination behavior.
 
   To ensure predictable delete on termination behavior, enable or disable delete on termination for all of the instances to which the volume is attached. For more information, see [ Preserve data when an instance is terminated](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/preserving-volumes-on-termination.html).
