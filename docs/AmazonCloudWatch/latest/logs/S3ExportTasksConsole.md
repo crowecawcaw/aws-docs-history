@@ -269,7 +269,7 @@ In this procedure, you create the export task for exporting logs from a log grou
 
 1. Under **Choose S3 bucket**, choose the account associated with the S3 bucket.
 
-1. For **S3 bucket name**, choose an &S3; bucket.
+1. For **S3 bucket name**, choose an Amazon S3 bucket.
 
 1. For **S3 Bucket prefix**, enter the randomly generated string that you specified in the bucket policy.
 

@@ -275,7 +275,7 @@ Not as long as the state file is available and no file rotation has happened sin
 Configuring multiple log sources to send data to a single log stream is not supported.
 
 **What API calls does the agent make (or what actions should I add to my IAM policy)?**  
-The CloudWatch Logs agent requires permission to perform `CreateLogGroup`, `CreateLogStream`, `DescribeLogStreams`, `DescribeLogGrooupd`, `PutLogEvents` and `PutRetentionPolicy` actions. If you're using the latest agent, `DescribeLogStreams` is not needed. See the sample IAM policy below.    
+The CloudWatch Logs agent requires permission to perform `CreateLogGroup`, `CreateLogStream`, `DescribeLogStreams`, `DescribeLogGroups`, `PutLogEvents` and `PutRetentionPolicy` actions. If you're using the latest agent, `DescribeLogStreams` is not needed. See the sample IAM policy below.    
 ****  
 
 ```

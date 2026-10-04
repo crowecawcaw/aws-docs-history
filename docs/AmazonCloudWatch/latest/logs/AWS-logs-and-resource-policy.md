@@ -47,6 +47,7 @@ Some services require additional permissions before they can deliver logs. Witho
 | AWS Elemental MediaPackage | [Guide](https://docs.aws.amazon.com/mediapackage/latest/ug/access-logging.html) |
 | AWS Elemental MediaTailor | [Guide](https://docs.aws.amazon.com/mediatailor/latest/ug/monitoring-cw-logs.html) |
 | AWS Entity Resolution | [Guide](https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html) |
+| Amazon EventBridge Event Bus (Custom) | [Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-custom-bus-observability.html) |
 | Amazon EventBridge Event Buses | [Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus-logs.html) |
 | Amazon EventBridge Pipes | [Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-logs.html) |
 | AWS Fargate | [Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html) |

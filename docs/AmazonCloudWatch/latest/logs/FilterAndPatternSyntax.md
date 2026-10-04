@@ -50,7 +50,7 @@ There is a limit of 2 regex for each filter pattern when creating a delimited or
 **Note**  
 Either *m* or *n* can be omitted if you chose not to define a minimum or maximum.
 + `|`: Boolean "Or", which matches the term on either side of the vertical bar. For example:
-  + `%gra|ey%` can match "gray" or "grey"
+  + `%gray|grey%` can match "gray" or "grey"
   + `%^starting|^initializing|^shutting down%` can match match "starting ...", or "initializing ...", or "shutting down", but won't match "skipping initializing ..."
   + `%abcc|ab[^c]$%` can match "abcc ..." and "aba", but won't match "aac ..."
 + `\`: Escape character, which allows you to use the literal meaning of an operator instead of its special meaning. For example, `%\[.\]%` matches any single character surrounded by "[" and "]" since the brackets are escaped, such as "[a]", "[b]", "[7]", "[@]", "[]]", and "[ ]".
@@ -384,6 +384,8 @@ You can only use up to one wildcard selector in a property selector.
 
 ------
 #### [ Example: Filter pattern that matches a JSON property with a period (.) in the key ]
+
+You can create filter patterns to match JSON property names that contain a period (`.`) by using bracket notation. Enclose the property name in single quotation marks (`'`). Double quotation marks (`"`) aren't supported inside bracket notation and cause the filter pattern to fail with a syntax error. The following filter pattern matches the property `cluster.name`.
 
 ```
 { $.['cluster.name'] = "c" }
