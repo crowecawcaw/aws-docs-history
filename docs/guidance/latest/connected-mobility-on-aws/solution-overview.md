@@ -9,16 +9,36 @@ Amazon Web Services (AWS) automotive customers have asked for ways to manage fle
 
 The Guidance for Connected Mobility on AWS addresses these needs by providing a modern, scalable telemetry architecture designed to handle high-volume, real-time data streams from connected vehicle fleets. The guidance accelerates development by providing tested, production-ready components that follow AWS Well-Architected principles.
 
+## Migrating from AWS IoT FleetWise
+<a name="migrating-from-aws-iot-fleetwise"></a>
+
+**Important**  
+Per the [AWS IoT FleetWise availability-change notice](https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/iotfleetwise-availability-change.html):  
+The Guidance for Connected Mobility on AWS provides guidance on how to develop and deploy modular services for connected mobility solutions that can be used to achieve equivalent capabilities as AWS IoT FleetWise.
+For a concept-by-concept map of AWS IoT FleetWise capabilities to their equivalents in this guidance — including an explicit disclosure of two categories that do NOT claim parity (**data destinations**: architecturally different, not missing; **vision-system data**: not covered) — see [docs/migrating-from-fleetwise.md](https://github.com/aws-solutions-library-samples/guidance-for-connected-mobility-on-aws/blob/main/docs/migrating-from-fleetwise.md) in the source repository.  
+Throughout this guidance, **"FleetWise Edge" / "FWE"** refers to the open-source [AWS IoT FleetWise Edge Agent](https://github.com/aws/aws-iot-fleetwise-edge) — an artifact built from source and deployed with this guidance — not the AWS IoT FleetWise managed service. This guidance does not call the managed service.
+
 ## Multi-source telemetry architecture
 <a name="multi-source-telemetry"></a>
 
-A core design principle of this guidance is source-agnostic telemetry processing. The architecture normalizes data from multiple telemetry sources into a common signal catalog format before it enters the processing pipeline. This means the same downstream processors — trip detection, safety events, maintenance alerts, geofence evaluation — work identically regardless of how the data arrives. The guidance supports three telemetry ingestion modes today, and the architecture is extensible to additional sources:
+A core design principle of this guidance is source-agnostic telemetry processing. The architecture normalizes data from multiple telemetry sources into a common signal catalog format before it enters the processing pipeline. This means the same downstream processors — trip detection, safety events, maintenance alerts, geofence evaluation — work identically regardless of how the data arrives.
+
+**Important**  
+ **Why source-agnostic normalization matters:** every downstream capability in this guidance — trip detection, safety-event evaluation, maintenance alerting, geofence monitoring, and predictive-maintenance models — is written once, against the common signal catalog, rather than once per telemetry source. Adding a fourth ingestion mode means writing a new preprocessor that maps into the catalog; it does not mean rewriting trip detection, safety events, or any other consumer. The three modes below are three different answers to the same question — "how does raw vehicle data enter the pipeline?" — and all three converge on the identical `cms-telemetry-preprocessed` topic before anything else touches the data.
+
+The guidance supports three telemetry ingestion modes today, and the architecture is extensible to additional sources:
 +  **MQTT Direct** — Vehicles or simulators publish JSON telemetry directly to AWS IoT Core via MQTT. IoT rules route messages to Amazon MSK topics for stream processing. This mode is suitable for custom telematics devices, aftermarket hardware, or any system that can publish MQTT messages.
 +  **AWS IoT FleetWise Edge Agent** — The [AWS IoT FleetWise Edge Agent](https://github.com/aws/aws-iot-fleetwise-edge) runs on the vehicle ECU (or in a Docker container for simulation) and collects raw CAN bus signals based on campaign-driven collection schemes pushed from the cloud. The agent encodes collected signals as protobuf and uploads them to IoT Core. The FWTelemetryProcessor Flink application decodes the protobuf, maps CAN signal IDs to human-readable names using the decoder manifest, and feeds the normalized data into the standard processing pipeline. This mode enables dynamic data collection — you control which signals are collected, at what frequency, and for which vehicles, all without deploying new software to the vehicle.
 +  **Cloud-to-cloud OEM telemetry** — The OEMTelemetryProcessor enables integration with third-party OEM APIs and telematics providers without modifying the core processing pipeline. Customers define transform manifests that map OEM-specific data formats to the signal catalog. Manifests support field mapping, unit conversion (multiply, formula, lookup table), conditional mapping, and validation rules. This mode supports any cloud-based data source — OEM telematics APIs, third-party fleet management platforms, or enterprise data lakes.
 
+**Note**  
+This pipeline is a **format translator**, not a data-quality-correction layer. Each mode’s Flink processor extracts fields, converts units, and maps names into the signal catalog — it does not detect flatlined sensors, suppress duplicate messages, correct sensor drift, or flag out-of-range readings. If your use case needs that class of data-quality correction on top of normalized telemetry, see the [Automotive Data Platform (ADP)](https://github.com/aws-solutions-library-samples/guidance-for-automotive-data-platform-on-aws) guidance’s telemetry-normalization pattern chapter, which documents windowing, stateful per-VIN baselines, pattern detection (flatlines, duplicates, drift), and threshold anomaly detection as an architecture pattern you can build on top of a normalized signal stream like this one.
+
 ## AWS IoT FleetWise integration
 <a name="fleetwise-integration-overview"></a>
+
+**Important**  
+ **AWS IoT FleetWise is no longer onboarding new customers to the managed cloud service.** Existing AWS IoT FleetWise customers can continue using the managed service as described below. If you are new to FleetWise-style vehicle data collection, this guidance implements the same core concepts — signal catalogs, decoder manifests, and campaign-driven collection — as open-source, CMS-native components (backed by AWS IoT Core, Amazon DynamoDB, and Amazon S3) that do not depend on the managed FleetWise control plane. You can pair the open-source [AWS IoT FleetWise Edge Agent](https://github.com/aws/aws-iot-fleetwise-edge) with this guidance’s own campaign management and signal catalog to get the equivalent capability — dynamic, campaign-driven data collection without deploying new software to the vehicle — without needing a managed FleetWise account. See [Multi-source telemetry architecture](#multi-source-telemetry) for how this guidance’s **FleetWise Edge Agent** mode fits alongside MQTT Direct and cloud-to-cloud OEM telemetry as one of three source-agnostic ingestion paths.
 
  [AWS IoT FleetWise](https://aws.amazon.com/iot-fleetwise/) provides a purpose-built service for collecting, transforming, and transferring vehicle data to the cloud. This guidance integrates the [FleetWise Edge Agent](https://github.com/aws/aws-iot-fleetwise-edge) as a first-class telemetry source, bringing several capabilities that differentiate it from traditional MQTT-based telemetry:
 +  **Signal catalogs** — A centralized definition of all vehicle signals with standardized naming following the [COVESA Vehicle Signal Specification (VSS)](https://covesa.global/). The catalog maps between raw CAN bus signal names (from DBC files), JSON field names used in the processing pipeline, and VSS paths. The guidance includes a catalog with 271 signals across 15 CAN messages, and the catalog is extensible through the UI or API.
@@ -50,8 +70,9 @@ Provided features allow you to:
 + Switch between light and dark mode themes with persistent preference
 + Deploy infrastructure using AWS CDK with a streamlined phase-based approach
 + Securely authenticate and authorize users through Amazon Cognito
-+ Engage with a conversational in-UI fleet assistant powered by Amazon Bedrock AgentCore and an automotive data knowledge base — fleet-driver and service-advisor personas are inferred from Amazon Cognito user claims
-+ Deploy a Bedrock multi-agent stack (supervisor agent and specialist agents) as an opt-in component that powers the in-UI assistant and enables extensible agent-based vehicle operations
++ Engage with a conversational in-UI fleet assistant powered by Amazon Bedrock AgentCore (deployed from the companion Agentic Vehicle Experience (AVX) accelerator) and an automotive data knowledge base — fleet-driver and service-advisor personas are inferred from Amazon Cognito user claims
++ Consume ADP curated products (maintenance cost, charging sessions, energy usage) through cross-region Athena to power CMS Fleet Intelligence surfaces without duplicating source-of-truth data
++ Deliver telemetry and other data products to third-party subscribers over the Connected Services subscription plane — subscribers hold their own Amazon Cognito identity, enroll vehicles into their subscription scope, and pull records over REST from the same platform vehicles ingest into (partial: `DataProductsView’s "Create data product" flow is a UI-shape stub without persistence)
 + Manage fleet bulk lifecycle operations — bulk enroll and unenroll vehicles, and synchronize enrollment status — with role-based access control that differentiates platform-administrator (cross-fleet) operations from fleet-operator (per-fleet) operations
 + Enable drivers to claim their own assigned vehicle through the Fleet Manager web application or companion iOS application
 
@@ -68,7 +89,7 @@ Use this navigation table to quickly find answers to these questions:
 
 | If you want to . . . | Read . . . | 
 | --- | --- | 
-| Know the cost for running this solution.<br />The estimated cost for running this solution in the us-east-1 Region is USD $400.00 per month for processing 1,000 vehicles with moderate usage. |  [Cost](plan-your-deployment.md#cost)  | 
+| Know the cost for running this solution.<br />The estimated cost for running this solution is USD $400.00 per month for processing 1,000 vehicles with moderate usage. |  [Cost](plan-your-deployment.md#cost)  | 
 | Understand the security considerations for this solution. |  [Security](security.md)  | 
 | Know how to plan for quotas for this solution. |  [Quotas](plan-your-deployment.md#quotas)  | 
 | Know which AWS Regions are supported for this solution. |  [Supported AWS Regions](plan-your-deployment.md#supported-aws-regions)  | 

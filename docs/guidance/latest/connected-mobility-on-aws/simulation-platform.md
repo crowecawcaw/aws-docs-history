@@ -57,8 +57,8 @@ The cloud simulation service runs on AWS infrastructure, eliminating the need fo
 
  **Architecture:** 
 +  **API Lambda** — A Lambda function (`simulation_lambda.py`) serves as the orchestrator. It receives simulation requests through API Gateway and manages ECS tasks.
-+  **ECS Cluster** — An ECS cluster runs simulation tasks using Fargate (MQTT Direct) or EC2-backed capacity (FleetWise Edge). EC2 instances are t4g.small ARM64 with Amazon Linux 2023 ECS-optimized AMI.
-+  **Worker Tasks** — In MQTT Direct mode, a single Fargate task runs the simulator. In FleetWise Edge mode, two separate EC2-backed tasks run on the same host: `fwe-agent` (FleetWise Edge Agent) and `fwe-simulator` (Python simulator with python-can). Both share virtual CAN interfaces (vcan0, vcan1…​) via HOST network mode for per-vehicle isolation.
++  **ECS Cluster** — An ECS cluster runs simulation tasks using Fargate (MQTT Direct) or EC2-backed capacity (FleetWise Edge). EC2 instances are t4g.medium ARM64 with Amazon Linux 2023 ECS-optimized AMI.
++  **Worker Tasks** — In MQTT Direct mode, a single Fargate task runs the simulator. In FleetWise Edge mode, an EC2-backed task runs the `fwe-agent` (FleetWise Edge Agent) with a persistent `vehicle-ecu` sidecar container that owns the command subscription and vehicle presence state. Per-trip simulator tasks write to the same virtual CAN interface. All tasks share virtual CAN interfaces (vcan0, vcan1…​) via HOST network mode for per-vehicle isolation.
 +  **DynamoDB** — A simulations table tracks task state (running, completed, stopped) with task ARN references.
 
  **How it works:** 
@@ -71,7 +71,7 @@ The cloud simulation service runs on AWS infrastructure, eliminating the need fo
 
    1. In **MQTT Direct** mode: a single Fargate task (`sim-worker`) runs the simulator with network access to IoT Core.
 
-   1. In **FleetWise Edge** mode: two separate EC2-backed tasks — `fwe-agent` (long-lived, runs the FleetWise Edge Agent binary) and `fwe-simulator` (per-trip, generates CAN signals on the assigned vcan interface). The Lambda retrieves the vehicle’s IoT certificate from DynamoDB and passes it to the FWE agent container. Each vehicle gets a unique vcan interface (vcan0, vcan1, vcan2…​) to prevent cross-contamination.
+   1. In **FleetWise Edge** mode: an EC2-backed `fwe-agent` task (long-lived, persistent per vehicle) runs both the FleetWise Edge Agent binary and a `vehicle-ecu` sidecar container. The vehicle-ecu container owns the command subscription, manages vehicle presence state, and emits current state to the CAN interface on an idle cadence. Per-trip simulator tasks signal the vehicle-ecu via the DynamoDB `tripIntent` attribute and write CAN frames to the assigned vcan interface. The Lambda retrieves the vehicle’s IoT certificate from DynamoDB and passes it to the FWE agent container. Each vehicle gets a unique vcan interface (vcan0, vcan1, vcan2…​) to prevent cross-contamination.
 
 1. The Lambda stores the simulation ID, task ARN, configuration, and status in DynamoDB.
 

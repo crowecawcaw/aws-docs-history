@@ -1,0 +1,6 @@
+
+
+# Remote vehicle diagnostics
+<a name="remote-diagnostics"></a>
+
+This chapter describes the remote-diagnostics stack that ships with the guidance as an integrated capability. Fleet operators using an OEM-delivered instance of this platform read DTCs on demand, retrieve freeze-frame data, clear diagnostic information, run diagnostic routines under a safety envelope, and dispatch service work to a dealer-side technician — all through the same operator surface that carries the rest of the fleet’s operational data. The chapter is structured to answer three questions in order: what the underlying standard defines and where its reference deployment stops fitting at fleet scale; which parts of the standard the platform preserves and which it replaces (the compliance stance); and how the resulting design works end to end — including the typed routine result contracts that shape the operator UI, and the cross-platform diagnostic session handoff to the companion Dealer Management System accelerator. Readers familiar with ASAM SOVD, ISO 14229 (UDS), and AWS IoT Core will recognise most of the primitives; the value in this chapter is the specific way they compose into an integrated platform capability.

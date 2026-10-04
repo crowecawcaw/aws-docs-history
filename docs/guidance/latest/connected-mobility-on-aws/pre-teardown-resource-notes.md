@@ -14,18 +14,16 @@ The guidance deploys several Amazon ECS services across dedicated clusters. Clou
 
 If any ECS tasks remain in a `STOPPING` or `DEPROVISIONING` state after the stack delete completes, wait up to 10 minutes for ECS to drain them. Amazon VPC and ECS resources can remain queryable for a short period after deletion — this is expected behavior.
 
-## Amazon Bedrock agents
-<a name="bedrock-agents-manual-delete"></a>
+## Amazon Bedrock AgentCore runtimes
+<a name="agentcore-runtime-manual-delete"></a>
 
-The guidance creates Amazon Bedrock agents and agent aliases via the `bedrock-agents` CDK stack. When this stack is destroyed, CloudFormation deletes the Bedrock **agent resource** it manages; however, the **AgentCore Runtime** endpoint (if deployed separately via the AgentCore SDK) is not managed by the CDK stack and is not automatically deleted.
-
-To remove AgentCore Runtime deployments:
+The in-UI conversational assistant is served by an Amazon Bedrock AgentCore text runtime deployed from the companion Agentic Vehicle Experience (AVX) repository, not from any CMS stack. Uninstalling CMS does not delete the AgentCore runtime. If you no longer need the assistant, delete the AVX-side runtime independently:
 
 1. Sign in to the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/).
 
 1. In the navigation pane, choose **AgentCore** and then **Runtimes**.
 
-1. Locate runtimes associated with the guidance deployment (for example, runtimes prefixed with `vsa_supervisor_`).
+1. Locate runtimes associated with the AVX deployment (typically prefixed with `vsa_supervisor_`).
 
 1. Select each runtime and choose **Delete**.
 
@@ -35,6 +33,7 @@ If you deployed the AgentCore runtime using `agentcore deploy`, you can also del
 ```
 agentcore delete --runtime-id <runtime-id>
 ```
+For the AVX repository’s own uninstall procedure, see the AVX documentation.
 
 ## Amazon ECR container images
 <a name="ecr-images-note"></a>

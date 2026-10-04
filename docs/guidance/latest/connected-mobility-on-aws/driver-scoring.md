@@ -53,7 +53,6 @@ The final `driverScore` is stored on the trip record in DynamoDB and displayed i
 <a name="scoring-display"></a>
 
 The Fleet Manager UI displays driver scores in several places:
-+  **Dashboard** — Fleet-wide driver score distribution widget
 +  **Driver detail page** — Per-driver score history across trips
 +  **Trip detail page** — Individual trip score with breakdown of safety events that caused deductions
 +  **Map view** — Vehicle cards show the current trip’s running score

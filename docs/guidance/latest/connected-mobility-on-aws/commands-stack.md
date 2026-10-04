@@ -12,13 +12,13 @@ The remote commands system uses a request/response pattern over MQTT:
 
 1. Fleet Manager UI or API sends a command request
 
-1. Commands Lambda publishes the command payload to `cms/commands/{vehicleId}/request` via IoT Core MQTT
+1. Commands Lambda publishes the command to both vehicle telemetry paths via IoT Core MQTT on every command: a protobuf payload to `cms/commands/things/{vin}/executions/{executionId}/request/protobuf` for FWE agents, and a JSON payload to the legacy `cms/commands/{vehicleId}/request` topic for MQTT Direct simulators
 
 1. Command is stored in DynamoDB with status `SENT` 
 
-1. Vehicle (or simulator) receives the command, executes it, and publishes a response to `cms/commands/{vehicleId}/response` 
+1. Vehicle (or simulator) executes the command and publishes a response on the matching topic: an FWE agent publishes a `CommandResponse` protobuf to `cms/commands/things/{vin}/executions/{executionId}/response/protobuf`; a simulator publishes JSON to the legacy `cms/commands/{vehicleId}/response` topic
 
-1. IoT Rule triggers the Command Response Handler Lambda
+1. A single IoT Rule per response topic triggers the Command Response Handler Lambda, which decodes either payload shape
 
 1. Response Handler updates the command status in DynamoDB (SUCCEEDED, FAILED, TIMEOUT, IN\_PROGRESS)
 

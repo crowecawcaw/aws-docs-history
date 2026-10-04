@@ -9,7 +9,7 @@
 The Fleet Manager UI cannot establish a WebSocket connection for real-time telemetry. The browser developer tools show the WebSocket upgrade request returning HTTP 401. This occurs because the `$connect` route on the WebSocket API requires a valid Cognito JWT, passed as the `token` query parameter on the upgrade URL.
 
 ### Diagnosis
-<a name="diagnosis-7"></a>
+<a name="diagnosis-8"></a>
 
 1. Confirm the WebSocket endpoint is the correct one from the CloudFormation outputs:
 
@@ -38,7 +38,7 @@ The Fleet Manager UI cannot establish a WebSocket connection for real-time telem
    ```
 
 ### Resolution
-<a name="resolution-25"></a>
+<a name="resolution-24"></a>
 
  **If the upgrade request lacks the token parameter:** 
 

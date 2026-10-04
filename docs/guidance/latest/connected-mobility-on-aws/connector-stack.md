@@ -1,6 +1,6 @@
 
 
-# OEM cloud connector (ConnectorStack)
+# OEM cloud connector
 <a name="connector-stack"></a>
 
 The ConnectorStack deploys an ECS Fargate task that ingests telemetry from a third-party OEM telematics API and writes clean JSON records to the `cms-telemetry-oem` Kafka topic.

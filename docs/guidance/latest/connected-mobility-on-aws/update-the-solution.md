@@ -19,7 +19,6 @@ The guidance supports five distinct update paths. Selecting the correct path avo
 |  [UI assets only](#update-ui-only)  | React frontend bundle; no infrastructure changes | 2-5 min | 
 |  [Backend Lambda or CDK changes](#update-backend-lambda-cdk)  | Lambda functions, stack parameters, or CDK constructs | 15-45 min | 
 |  [Flink streaming processor](#update-flink-processor)  | Kinesis Data Analytics Apache Flink application code or configuration | 5-15 min | 
-|  [Bedrock agents](#update-bedrock-agents)  | Agent definitions, knowledge base, or Bedrock stack configuration | 10-20 min | 
 |  [Cross-major-version upgrade](#update-cross-major-version)  | Breaking changes between major guidance versions | 45-65 min (full redeploy) | 
 
 ## Update 1 - UI assets only
@@ -142,34 +141,15 @@ The publish-gate validator checks that every `cms-{stage}-flink-*` Kinesis Analy
 **Note**  
 The FWE decoder manifest is managed by the Flink CDK stack. To regenerate it: run `DRY_RUN=1 python3 deployment/scripts/generate_decoder_manifest.py` to validate, then remove `DRY_RUN=1` to write the updated `deployment/fwe-config/DecoderManifest.bin`, commit the file, and redeploy the Flink stack. Do not upload the manifest manually — that causes bucket drift.
 
-## Update 4 - Bedrock agents
+## Update 4 - Conversational assistant (AVX)
 <a name="update-bedrock-agents"></a>
 
-The `cms-{stage}-bedrock-agents` stack is deployed independently and is not included in the `deploy-all` target. Use the dedicated target when updating agent definitions, knowledge base configuration, or the Bedrock model identifier.
+The in-UI conversational assistant is deployed by the companion Agentic Vehicle Experience (AVX) accelerator, not by this repository. To update the supervisor agent, its specialist tools, the Bedrock model identifier, or the AgentCore runtime configuration, follow the AVX accelerator’s own update procedure.
 
-```
-make -C deployment deploy-bedrock-agents \
-  DEPLOYMENT_STAGE=staging \
-  AWS_REGION=us-west-2
-```
-
- **Bedrock model identifier validation:** 
-
-Before deploying, the Makefile automatically validates the configured Bedrock model identifier against the live AWS Bedrock catalog. If the model is not available or has been deprecated, the deploy aborts with a clear error. To run the validation separately:
-
-```
-make -C deployment validate-bedrock-model \
-  BEDROCK_AGENT_MODEL=us.anthropic.claude-sonnet-4-6 \
-  AWS_REGION=us-west-2 \
-  AWS_PROFILE=default
-```
-
- **Expected outcome:** 
-
-The `cms-{stage}-bedrock-agents` CloudFormation stack reaches `UPDATE_COMPLETE` state. The Bedrock agent aliases are updated and the knowledge base remains attached.
+To point CMS at a different AVX deployment (for example, after AVX has been redeployed with a new API Gateway URL), update `vsaApiEndpoint` in `deployment/config/<stage>.env` and run `make regenerate-runtime-config DEPLOYMENT_STAGE=<stage>` — this regenerates the CloudFront-served `runtimeConfig.json` without redeploying any CMS stack.
 
 **Note**  
-The Bedrock agents stack is independent of the other guidance stacks. You can update it without redeploying the data-processing, storage, or Flink stacks.
+The historical `make deploy-bedrock-agents` target that previously updated a CMS-side `cms-{stage}-bedrock-agents` stack was retired in the v0.4.0 release along with the Virtual Fleet Operator supervisor and its four specialist agents. The target survives as a no-op stub for backward compatibility with continuous integration callers.
 
 ## Update 5 - Cross-major-version upgrade
 <a name="update-cross-major-version"></a>

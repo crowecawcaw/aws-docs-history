@@ -48,21 +48,25 @@ guidance-for-connected-mobility-on-aws/
 ├── deployment/
 │   ├── app.py                          # CDK application entry point
 │   ├── stacks/                         # CDK stack definitions
-│   │   ├── bedrock_agents_stack.py     # Bedrock supervisor + specialist agents (opt-in)
 │   │   ├── commands_stack.py           # Remote vehicle commands API
-│   │   ├── connector_stack.py          # OEM cloud-to-cloud connector (ECS Fargate)
+│   │   ├── connected_services_consumer_stack.py  # CMS-side feed-cache table (opt-in)
+│   │   ├── connected_services_ui_stack.py        # Connected Services portal SPA (opt-in)
+│   │   ├── connector_stack.py          # OEM cloud-to-cloud connector (ECS Fargate, opt-in)
 │   │   ├── data_processing_stack.py    # Signal catalog and transform manifests
-│   │   ├── fwe_telemetry_stack.py      # FleetWise Edge integration
+│   │   ├── dms_service_events_stack.py # EventBridge bridge to the DMS accelerator (opt-in)
+│   │   ├── eval_user_stack.py          # Staging eval-runner Cognito user (staging only)
+│   │   ├── fleet_intelligence_analytics_stack.py # Cross-region Athena workgroup (us-east-1)
 │   │   ├── flink_stack.py              # Flink stream processing applications
-│   │   ├── infrastructure_stack.py     # VPC, subnets, networking
+│   │   ├── fwe_telemetry_stack.py      # FleetWise Edge integration + CampaignSyncProcessor
 │   │   ├── iot_stack.py                # Fleet management IoT components
 │   │   ├── msk_stack.py                # MSK cluster, VPC, and ElastiCache
 │   │   ├── predictive_agent_stack.py   # Predictive maintenance AI agent
 │   │   ├── simulation_stack.py         # ECS Fargate vehicle simulator
 │   │   ├── storage_stack.py            # DynamoDB tables
-│   │   ├── tco_stack.py                # TCO and cost analytics
+│   │   ├── subscriptions_stack.py      # Connected Services subscription plane (opt-in)
 │   │   ├── telemetry_integration_stack.py  # MSK-IoT connectivity
 │   │   ├── ui_stack.py                 # Frontend, API Gateway, Cognito
+│   │   ├── waf_stack.py                # AWS WAF web ACL for the Fleet Manager
 │   │   └── ws_fanout_stack.py          # Kafka to WebSocket real-time fan-out
 │   ├── Makefile                        # Deployment automation
 │   └── requirements.txt
@@ -77,9 +81,13 @@ guidance-for-connected-mobility-on-aws/
 ├── services/
 │   ├── commands/                       # Remote commands Lambda + protobuf
 │   ├── connectors/
-│   │   └── oem1/                       # OEM1 cloud connector (gRPC streaming)
+│   │   ├── oem1/                       # OEM1 cloud connector (gRPC streaming)
+│   │   └── subscriptions/              # Connected Services subscription plane
 │   ├── data_processing/                # Data processing service
+│   ├── fleet_intelligence/             # Fleet Intelligence Tier 1 services (ADP-backed)
 │   └── simulation/                     # Vehicle simulation service
+├── modules/
+│   └── connected_services_ui/          # Connected Services portal SPA
 ├── scripts/                            # Utility scripts
 └── tests/e2e/                          # End-to-end tests
 ```
@@ -101,15 +109,20 @@ The solution is deployed as a set of modular CDK stacks defined in `deployment/a
 |  `IoTStack`  | Fleet management IoT components | Always deployed | 
 |  `TelemetryIntegrationStack`  | MSK-IoT connectivity (IoT rules, VPC destinations) |  `DEPLOY_TELEMETRY_INTEGRATION=true`  | 
 |  `FlinkStack`  | Flink stream processing applications (trip detection, safety, maintenance, telemetry, FWE decode, OEM transform, campaign sync, geofence, event-driven, simulator preprocessor) | Always deployed | 
-|  `FweTelemetryStack`  | FleetWise Edge IoT rules, VPC endpoints, CampaignSyncProcessor |  `DEPLOY_FLEETWISE=true`  | 
+|  `FweTelemetryStack`  | FleetWise Edge IoT rules, VPC endpoints, CampaignSyncProcessor | Always deployed | 
+|  `FleetIntelligenceAnalyticsStack`  | Athena workgroup \+ results bucket (in `us-east-1`) that Fleet Intelligence uses to query ADP curated products cross-region | Always deployed | 
 |  `UIStack`  | React frontend (Cloudscape Design), API Gateway, Cognito authentication, Amazon Location Service | Always deployed | 
+|  `WafStack`  | AWS WAF web ACL fronting the Fleet Manager CloudFront distribution | Always deployed | 
 |  `CommandsStack`  | Remote vehicle commands API via IoT Core MQTT, geofence management | Always deployed | 
-|  `ConnectorStack`  | OEM cloud-to-cloud connector — ECS Fargate gRPC streaming worker, landing on `cms-telemetry-oem`  | Always deployed | 
+|  `ConnectorStack`  | OEM cloud-to-cloud connector — ECS Fargate gRPC streaming worker, landing on `cms-telemetry-oem`  |  `CONNECTOR_NAME=<name>`  | 
 |  `WsFanoutStack`  | Kafka to WebSocket real-time telemetry fan-out for the Fleet Manager UI | Always deployed | 
-|  `TcoStack`  | TCO and cost analytics | Always deployed | 
+|  `SubscriptionsStack`  | Connected Services subscription plane — subscription CRUD, availability, records pull, admin routes |  `DEPLOY_SUBSCRIPTIONS=true`  | 
+|  `ConnectedServicesUiStack`  | Connected Services portal SPA (standalone CloudFront distribution on its own subdomain) |  `DEPLOY_CONNECTED_SERVICES_UI=true`  | 
+|  `ConnectedServicesConsumerStack`  | CMS-side feed-cache table for the Fleet Manager portal’s own consumption of the CS subscription plane |  `DEPLOY_CONNECTED_SERVICES_CONSUMER=true`  | 
+|  `DmsServiceEventsStack`  | EventBridge bridge that publishes vehicle-lifecycle events to the DMS accelerator |  `DEPLOY_DMS_SERVICE_EVENTS=true`  | 
 |  `PredictiveAgentStack`  | Predictive maintenance AI agent |  `DEPLOY_PREDICTIVE_AGENT=true`  | 
 |  `SimulationStack`  | ECS Fargate vehicle simulation service |  `DEPLOY_SIMULATION=true`  | 
-|  `BedrockAgentsStack`  | Bedrock supervisor and specialist agents with Amazon Bedrock AgentCore runtime (opt-in) |  `make deploy-bedrock-agents` (not included in `deploy-all`) | 
+|  `EvalUserStack`  | Cognito eval-runner user for regression testing (staging only) | Staging only | 
 
 ### Customizing stacks
 <a name="customizing-cdk-stacks"></a>
@@ -771,15 +784,15 @@ GSIs and ISVs can extend this guidance by:
 + Implementing additional API endpoints
 + Adding machine learning models for predictive analytics
 
-## CVX assistant integration
-<a name="cvx-assistant-integration"></a>
+## Agentic Vehicle Experience (AVX) assistant integration
+<a name="avx-assistant-integration"></a>
 
 The Fleet Manager UI includes a conversational assistant panel backed by the Amazon Bedrock AgentCore text runtime. The assistant routes user messages to a Bedrock supervisor agent that grounds responses against the Automotive Data Platform Knowledge Base.
 
-### VSA API endpoint helper
+### AVX API endpoint helper
 <a name="vsa-api-endpoint"></a>
 
-The `getVsaApiEndpoint()` helper in `modules/cms_ui/source/frontend/src/config/api.ts` reads the `vsaApiEndpoint` field from the runtime configuration JSON that CloudFront serves at `/runtimeConfig.json`. The value points to the deployed CVX API Gateway stage URL.
+The `getVsaApiEndpoint()` helper in `modules/cms_ui/source/frontend/src/config/api.ts` reads the `vsaApiEndpoint` field from the runtime configuration JSON that CloudFront serves at `/runtimeConfig.json`. The value points to the deployed AVX API Gateway stage URL. (The `vsa*` prefix on the field, helper, and AgentCore runtime name is a historical artifact of the AVX repository’s earlier "Vehicle Semantic Assistant" naming; the field, the helper, and the runtime identifier are the same values the AVX repository ships today.)
 
 ```
 // modules/cms_ui/source/frontend/src/config/api.ts
@@ -801,7 +814,7 @@ The helper falls back to an environment variable for local development so the as
 ### Chat message fetch pattern
 <a name="chat-agent-fetch-pattern"></a>
 
-The `ChatAgent` component in `modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx` sends each user message to the `/assistant/chat` route of the VSA API endpoint using a standard `fetch` call. The AgentCore text runtime (`vsa_supervisor_text_staging` or the production equivalent) handles the request and streams back a text response.
+The `ChatAgent` component in `modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx` sends each user message to the `/assistant/chat` route of the AVX API endpoint using a standard `fetch` call. The AgentCore text runtime (`vsa_supervisor_text_staging` or the equivalent runtime published by the AVX repository) handles the request and streams back a text response.
 
 ```
 // modules/cms_ui/source/frontend/src/components/commons/ChatAgent.tsx
@@ -836,66 +849,16 @@ The Fetch Interceptor in `modules/cms_ui/source/frontend/src/auth/fetchIntercept
 
 The backend AgentCore handler infers the user persona from the Cognito `custom:role` claim that the UI passes as a JWT. The two supported personas are `fleet_driver` (default) and `service_advisor` (when `custom:role=service-advisor`). The supervisor agent selects specialist tools and tone based on the persona.
 
-To add a third persona, update the persona-routing logic in the CVX supervisor agent and ensure the corresponding Cognito user attribute is populated during user provisioning.
+To add a third persona, update the persona-routing logic in the AVX supervisor agent and ensure the corresponding Cognito user attribute is populated during user provisioning.
 
-## Bedrock agent tool extension
+## Extending the AVX conversational assistant
 <a name="bedrock-agent-tool-extension"></a>
 
-The `BedrockAgentsStack` in `deployment/stacks/bedrock_agents_stack.py` provisions four Bedrock agents — `cms-cost-agent`, `cms-maintenance-agent`, `cms-rebalancing-agent`, and `cms-recall-warranty-agent` — each with a `prod` alias. Agent configuration is loaded from JSON snapshots in `deployment/scripts/bedrock_agents_snapshot/`.
+The in-UI conversational assistant is deployed by the companion Agentic Vehicle Experience (AVX) accelerator, not by this repository. The v0.4.0 release retired the CMS-side `cms-{stage}-bedrock-agents` stack that previously held the Virtual Fleet Operator supervisor and its specialist agents (`cms-cost-agent`, `cms-maintenance-agent`, `cms-rebalancing-agent`, and `cms-recall-warranty-agent`); the fleet-view landing surface it fed is now rendered deterministically by `services/fleet_intelligence/`.
 
-### Adding a tool to an agent
-<a name="adding-a-tool-to-an-agent"></a>
+To add a specialist tool or agent, extend the supervisor agent in the AVX repository following the tool-extension pattern documented there. If the new tool needs to call CMS data, expose the required data through an existing CMS API surface — for example, `main_api/index.py` for fleet and vehicle reads — and configure the AVX supervisor to call that surface with the caller’s Cognito access token. The Fetch Interceptor documented above ensures the token is attached automatically for endpoints matching `vsaApiEndpoint`.
 
-Add the tool implementation to the relevant module under `modules/predictive_agent/agent/` or `modules/campaign_manager/`, then update the corresponding agent snapshot in `deployment/scripts/bedrock_agents_snapshot/` to reference the new action group.
-
-```
-# Example: adding an action group to a Bedrock agent snapshot
-# File: deployment/scripts/bedrock_agents_snapshot/cms-maintenance-agent.json
-
-{
-  "agentName": "cms-maintenance-agent",
-  "foundationModel": "us.anthropic.claude-sonnet-4-6",
-  "actionGroups": [
-    {
-      "actionGroupName": "MaintenanceTools",
-      "actionGroupExecutor": {
-        "lambda": "arn:aws:lambda:<region>:<account-id>:function:cms-<stage>-maintenance-tools"
-      },
-      "apiSchema": { ... }
-    }
-  ]
-}
-```
-
-### Inference-profile IAM pattern
-<a name="inference-profile-iam-pattern"></a>
-
-Bedrock cross-region inference profiles require two IAM policy statements: one for the inference profile resource (which includes the account ID) and one for the underlying foundation model (which does not include an account ID). The `BedrockAgentsStack` encodes this pattern automatically based on the resolved inference profile ID.
-
-```
-# Pattern used in deployment/stacks/bedrock_agents_stack.py
-
-from aws_cdk import Stack
-import aws_cdk.aws_iam as iam
-
-account = Stack.of(self).account
-profile_id = "us.anthropic.claude-sonnet-4-6"
-
-# Strip geographic prefix to get the foundation model ID
-fm_id = profile_id.split(".", 1)[1]  # "anthropic.claude-sonnet-4-6"
-
-iam.PolicyStatement(
-    actions=["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
-    resources=[
-        # Inference profile ARN — includes account ID
-        f"arn:aws:bedrock:*:{account}:inference-profile/{profile_id}",
-        # Foundation model ARN — no account ID
-        f"arn:aws:bedrock:*::foundation-model/{fm_id}",
-    ],
-)
-```
-
-If you add a new agent that invokes a different inference profile, apply this same two-statement pattern to the agent service role.
+The cross-region inference-profile IAM pattern (two policy statements: one for the inference-profile ARN with an account ID, one for the foundation-model ARN without) is a Bedrock invocation concern and is applied on the AVX side to the AgentCore runtime execution role. See the AVX developer guide for the concrete pattern; no equivalent policy is applied by any stack in this repository.
 
 ## OEM connector extension
 <a name="oem-connector-extension"></a>

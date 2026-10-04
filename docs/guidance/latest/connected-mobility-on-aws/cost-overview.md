@@ -3,7 +3,7 @@
 # Cost
 <a name="cost-overview"></a>
 
-As of March 2026, the cost for running this Guidance with the default settings in the US East (N. Virginia) Region is approximately **$400.00 per month** for processing 1,000 vehicles with moderate usage.
+As of March 2026, the cost for running this Guidance with the default settings is approximately **$400.00 per month** for processing 1,000 vehicles with moderate usage. This guidance ships as a single-environment deployment.
 
 **Note**  
 The primary cost drivers are:  
@@ -11,7 +11,7 @@ Amazon MSK cluster (\~49% of total cost)
 Amazon Managed Service for Apache Flink (\~27% of total cost)
 VPC and NAT Gateway (\~15% of total cost)
 
-The following table provides a sample cost breakdown for deploying this Guidance with the default parameters in the US East (N. Virginia) Region for one month.
+The following table provides a sample cost breakdown for deploying this Guidance with the default parameters for one month. The dollar figures are AWS us-east-1 list prices as of March 2026; substitute the equivalent Region’s pricing when planning against a different deploy Region.
 
 
 | AWS Service | Dimensions | Cost [USD] | 

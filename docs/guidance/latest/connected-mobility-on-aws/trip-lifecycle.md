@@ -42,6 +42,23 @@ The TripProcessor maintains trip state in three locations:
 
 1.  **DynamoDB** — The authoritative trip record. Written on trip start (PutItem), updated periodically during the trip (UpdateItem every 5 messages to append route points and update metrics), and finalized on trip end (UpdateItem with COMPLETED status and final metrics).
 
+## Closing trips that never close
+<a name="trip-stuck-sweeper"></a>
+
+The TripProcessor closes a trip when it sees an ignition-off frame, or when a 30-minute inactivity timeout fires. Both paths depend on the processor continuing to see telemetry for that vehicle, and in practice three situations defeat them:
++ The simulator or the Edge Agent stops without emitting an ignition-off frame.
++ The Flink application restarts mid-trip — a deploy, a failure, a scaling event — and loses the in-memory vehicle-to-trip map that gates the timeout path.
++ Telemetry simply stops arriving for a vehicle, with no indicator either way.
+
+In all three the trip stays `ACTIVE` indefinitely. That is more than cosmetic: the vehicle appears to be permanently driving, and aggregate mileage, duration and driver scoring are computed from trip records, so every downstream figure derived from them is wrong.
+
+A scheduled Lambda closes them as a third layer. It runs hourly on the EventBridge rule `cms-trip-sweeper-hourly`, scans the trips table for `status=ACTIVE`, and for any row whose `lastUpdated` is older than a threshold — two hours by default, configurable through `STUCK_THRESHOLD_MS` — updates the row to `COMPLETED` with an end time, a duration and audit fields recording that the sweep closed it rather than a telemetry frame. A `DRY_RUN` setting logs what would be closed without writing.
+
+The sweeper is deliberately conservative: it keys on `lastUpdated` rather than on trip start, so a long but genuinely active trip is not closed while telemetry is still arriving. Its permissions are limited to scanning and updating that one table.
+
+**Note**  
+The sweeper publishes a `TripsClosed` metric under the `CMS/TripSweeper` namespace, and that metric is the signal worth watching rather than the sweep itself. An occasional closure is the mechanism working as intended. A **sustained** nonzero rate means the primary closure paths are failing upstream — most often a processor that is running but idle — and the sweeper is masking it. No alarm ships on this metric; see [What no alarm covers](mon-build-a-dashboard.md).
+
 ## Trip DynamoDB record
 <a name="trip-dynamodb-record"></a>
 

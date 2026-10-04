@@ -5,7 +5,7 @@
 
 The signal catalog defines the standard telemetry format used throughout the guidance. All data sources (MQTT Direct simulator, FleetWise Edge Agent, OEM APIs) transform their data to match this catalog before entering the processing pipeline.
 
-The catalog is stored in the `cms-dev-signal-catalog` DynamoDB table and loaded into Redis by the SignalCatalogLoader on Flink startup. The signal catalog maps between three representations:
+The catalog is stored in the `cms-{stage}-signal-catalog` DynamoDB table and loaded into Redis by the SignalCatalogLoader on Flink startup. The signal catalog maps between three representations:
 +  **DBC Signal** — The CAN bus signal name as defined in the DBC file (`services/simulation/can/cms-fleet.dbc`)
 +  **JSON Field** — The field name used in standard telemetry JSON messages
 +  **VSS Path** — The COVESA Vehicle Signal Specification path used by FleetWise

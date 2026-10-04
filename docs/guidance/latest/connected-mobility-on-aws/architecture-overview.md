@@ -21,7 +21,7 @@ The architecture diagrams in this guide are currently being updated to reflect t
 **Note**  
 CloudFormation resources are created from [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/) constructs.
 
-The solution architecture consists of 14 integrated stacks deployed across four phase groups:
+The solution architecture consists of the following integrated CDK stacks deployed across four phase groups. The core stacks are always deployed; the **Connected Services** and **Dealer Management System integration** stacks below are opt-in behind `DEPLOY_*` environment variables and are not part of `make deploy-all`.
 
 1.  **InfrastructureStack** – Provides the foundational networking and caching infrastructure including Amazon VPC with public and private subnets, NAT Gateway for secure internet access, and Amazon ElastiCache for Redis to maintain real-time vehicle state for sub-second lookups.
 
@@ -43,27 +43,33 @@ The solution architecture consists of 14 integrated stacks deployed across four 
 
 1.  **FleetWiseStack** – Deploys AWS IoT FleetWise resources including signal catalogs, decoder manifests, and campaign management infrastructure for FleetWise Edge Agent integration.
 
-1.  **ConnectorStack** – Deploys an Amazon ECS Fargate worker for cloud-to-cloud OEM telemetry ingestion. The gRPC-streaming connector receives telemetry from an OEM vehicle data cloud and lands it on the `cms-telemetry-oem` Kafka topic, where the OEMTelemetryProcessor applies transform manifest normalization before routing through the standard pipeline.
+1.  **ConnectorStack** (optional, `CONNECTOR_NAME=<name>`) – Deploys an Amazon ECS Fargate worker for cloud-to-cloud OEM telemetry ingestion. The gRPC-streaming connector receives telemetry from an OEM vehicle data cloud and lands it on the `cms-telemetry-oem` Kafka topic, where the OEMTelemetryProcessor applies transform manifest normalization before routing through the standard pipeline.
 
 1.  **WsFanoutStack** – Deploys a Kafka-to-WebSocket bridge that fans out per-fleet telemetry topics (`cms-fleet-{fleetId}-telemetry`) to connected Fleet Manager UI clients in real time. The WebSocket API `$connect` route uses a Cognito JWT Lambda REQUEST authorizer, requiring a valid bearer token on upgrade.
 
-1.  **BedrockAgentsStack** (optional, not included in `deploy-all`) – Deploys a Bedrock multi-agent system consisting of a supervisor agent and specialist sub-agents, together with an Amazon Bedrock AgentCore runtime for both bidirectional voice and HTTP text invocation modes. The stack is provisioned separately with `make deploy-bedrock-agents` to let operators control Bedrock inference costs independently.
+1.  **FleetIntelligenceAnalyticsStack** – Deploys the Athena workgroup and results bucket (in `us-east-1`) that the Fleet Intelligence services use to read curated maintenance-cost products cross-region from the companion Automotive Data Platform (ADP) accelerator.
 
-1.  **TcoStack** – Deploys cost analytics infrastructure for fleet total cost of ownership tracking.
+1.  **SubscriptionsStack** (optional, `DEPLOY_SUBSCRIPTIONS=true`) – Deploys the Connected Services subscription plane: `Subscription`, `Product`, and `VehicleAvailability` records, a `subscriber` Cognito group, and the routes that let an external subscriber pull data-product records over REST. See [Third-party data delivery](third-party-data-delivery.md).
+
+1.  **ConnectedServicesUiStack** (optional, `DEPLOY_CONNECTED_SERVICES_UI=true`) – Deploys the Connected Services portal — a standalone React SPA on its own CloudFront distribution and subdomain that surfaces the CMS data model (signal catalog, vehicle models, ECUs, decoder manifests, campaigns, simulation) to producers and external systems.
+
+1.  **ConnectedServicesConsumerStack** (optional, `DEPLOY_CONNECTED_SERVICES_CONSUMER=true`) – Deploys the CMS-side feed-cache DynamoDB table that supports the CMS Fleet Manager portal’s own consumption of the Connected Services subscription plane.
+
+1.  **DmsServiceEventsStack** (optional, `DEPLOY_DMS_SERVICE_EVENTS=true`) – Publishes vehicle-lifecycle events to an EventBridge bus consumed by the companion Dealer Management System (DMS) accelerator.
 
 ### Deployment flow
 <a name="deployment-flow"></a>
 
 The solution uses four sequential phase groups to manage stack dependencies. Run each group as a single `make` target or use `make deploy-all` for a fully automated end-to-end deploy.
 
- **phase-foundation** – Deploys the data-processing seed stack (signal catalog, decoder manifest), StorageStack, IoTStack, UIStack, MSKStack, and TelemetryIntegrationStack. Duration: 15–20 minutes (MSK cluster creation dominates).
+ **phase-foundation** – Deploys the data-processing seed stack (signal catalog, decoder manifest), StorageStack, IoTStack, UIStack, MSKStack, TelemetryIntegrationStack, and FleetIntelligenceAnalyticsStack. Duration: 15–20 minutes (MSK cluster creation dominates).
 
- **phase-streaming** – Deploys FlinkStack (builds the universal Flink JAR and deploys all 10 Flink applications) and the FleetWise integration stacks. Duration: 10–15 minutes.
+ **phase-streaming** – Deploys FlinkStack (builds the universal Flink JAR and deploys all 10 Flink applications) and the FweTelemetryStack (FleetWise Edge integration \+ CampaignSyncProcessor start-up). Duration: 10–15 minutes.
 
  **phase-seeds** – Seeds the signal catalog, decoder manifest, event catalog, and default fleet enrollment into DynamoDB. Duration: 3–5 minutes.
 
- **phase-services** – Deploys SimulationStack, CommandsStack, WsFanoutStack, ConnectorStack, and TcoStack. Also runs `make regenerate-runtime-config` and seeds demo personas. Duration: 5–10 minutes.
-
- **deploy-bedrock-agents** (optional) – Deploys BedrockAgentsStack as a separate, opt-in step. Operators who do not require the in-UI conversational assistant can skip this target to avoid Bedrock inference costs.
+ **phase-services** – Deploys SimulationStack, CommandsStack, and WsFanoutStack. Also runs `make regenerate-runtime-config` and seeds demo personas. Duration: 5–10 minutes.
 
 Total deployment time: 45–65 minutes.
+
+The Connected Services stacks (`SubscriptionsStack`, `ConnectedServicesUiStack`, `ConnectedServicesConsumerStack`) and the DMS integration stack (`DmsServiceEventsStack`) are opt-in and are deployed with their own Makefile targets after the core deployment completes.

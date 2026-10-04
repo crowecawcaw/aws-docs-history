@@ -3,58 +3,44 @@
 # Amazon Bedrock troubleshooting
 <a name="bedrock-troubleshooting"></a>
 
-## Problem: Bedrock invocation returns AccessDenied
-<a name="problem-bedrock-access-denied"></a>
+The in-UI conversational assistant is served by the companion Agentic Vehicle Experience (AVX) accelerator’s Amazon Bedrock AgentCore text runtime. Bedrock invocation errors (for example, `AccessDeniedException` when the AgentCore runtime calls a foundation model or a cross-account knowledge base) are diagnosed and remediated on the AVX side — see the AVX repository’s troubleshooting guide for the cross-region inference-profile IAM patterns and the ADP Knowledge Base cross-account resource-based policy.
 
-A Lambda function or ECS task invoking a Bedrock model returns an `AccessDeniedException`. This most commonly occurs when the IAM policy for a cross-region inference profile uses the wrong ARN format.
+CMS-side symptoms are limited to the wire path between the Fleet Manager UI and the AVX API.
+
+## Problem: Assistant panel reports "not configured"
+<a name="problem-assistant-not-configured"></a>
+
+The Fleet Manager UI chat panel opens but reports the assistant as unavailable. The browser network tab shows no requests to `/assistant/chat`.
 
 ### Diagnosis
 <a name="diagnosis-6"></a>
 
-Check the Lambda or ECS task CloudWatch logs for the full error:
-
-```
-STAGE=staging
-aws logs tail /aws/lambda/cms-$STAGE-bedrock-supervisor \
-  --since 15m --filter-pattern "AccessDeniedException"
-```
-
-The error message typically identifies whether the failing ARN is the inference profile or the underlying foundation model.
-
-### Resolution
-<a name="resolution-24"></a>
-
-Bedrock cross-region inference profiles require **two** separate IAM policy statements with different ARN formats:
-
-1.  **Inference profile ARN** — includes the AWS account ID and uses a geographic prefix on the model ID:
+1. Fetch `/runtimeConfig.json` from the CloudFront-served UI and inspect the `vsaApiEndpoint` field:
 
    ```
-   {
-     "Effect": "Allow",
-     "Action": ["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
-     "Resource": "arn:aws:bedrock:*:<account-id>:inference-profile/us.anthropic.claude-sonnet-4-*"
-   }
+   STAGE=staging
+   CLOUDFRONT_URL=$(aws cloudformation describe-stacks \
+     --stack-name cms-$STAGE-ui \
+     --query "Stacks[0].Outputs[?OutputKey=='CloudFrontURL'].OutputValue" \
+     --output text)
+   curl -s "$CLOUDFRONT_URL/runtimeConfig.json" | grep -i vsa
    ```
 
-1.  **Foundation model ARN** — does NOT include an account ID (the account field is empty):
+1. If `vsaApiEndpoint` is missing or empty, the ChatAgent has no target endpoint. Populate it and regenerate the runtime config:
 
    ```
-   {
-     "Effect": "Allow",
-     "Action": ["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
-     "Resource": "arn:aws:bedrock:*::foundation-model/anthropic.claude-sonnet-4-*"
-   }
+   # Set vsaApiEndpoint in deployment/config/<stage>.env, then:
+   make -C deployment regenerate-runtime-config DEPLOYMENT_STAGE=$STAGE
    ```
 
-Common mistakes:
-+ Adding an account ID to the foundation-model ARN — the ARN will never match and all invocations fail.
-+ Omitting the account ID from the inference-profile ARN — the ARN is malformed and access is denied.
-+ Using `bedrock:InvokeModel` only without `bedrock:InvokeModelWithResponseStream` — streaming calls (used by the Strands agent framework) require the streaming action.
+## Problem: Chat requests return HTTP 401 or 403
+<a name="problem-assistant-401-403"></a>
 
-After correcting the IAM policy, redeploy the affected stack:
+The chat panel sends requests to `/assistant/chat` but receives HTTP 401 or 403 responses.
 
-```
-cd deployment
-cdk deploy cms-$STAGE-bedrock-agents \
-  --require-approval never
-```
+### Diagnosis
+<a name="diagnosis-7"></a>
+
+The Cognito access token is attached to `vsaApiEndpoint`-matching requests by the frontend Fetch Interceptor. Verify in the browser developer tools that the outbound request carries an `Authorization: Bearer <token>` header. If the header is missing, the interceptor is not matching the endpoint — check that `vsaApiEndpoint` in `runtimeConfig.json` matches the origin the interceptor is configured to enrich.
+
+If the header is present but AVX still returns 401 or 403, the CMS Cognito user pool is not trusted by the AVX API’s authorizer. Verify with the AVX operator that the CMS user pool ARN is on the AVX API’s trust list.

@@ -15,13 +15,13 @@ Ten applications process different aspects of telemetry data. All share a single
 | --- | --- | --- | --- | 
 | SimulatorPreprocessor |  `cms-telemetry-raw`  | — | Decodes gzip\+base64 telemetry from the simulator, outputs clean JSON to `cms-telemetry-preprocessed`  | 
 | EventDrivenTelemetryProcessor |  `cms-telemetry-preprocessed`  | — | Routes messages to domain-specific topics and writes Last Known State to Redis | 
-| TelemetryProcessor |  `cms-telemetry-preprocessed`  |  `cms-dev-storage-telemetry`  | Writes telemetry records, tags with tripId | 
-| TripProcessor |  `cms-telemetry-trips`  |  `cms-dev-storage-trips`  | Trip lifecycle (create/update/complete) | 
-| SafetyProcessor |  `cms-telemetry-safety`  |  `cms-dev-storage-safety-events`  | Safety event detection | 
-| MaintenanceProcessor |  `cms-telemetry-maintenance`  |  `cms-dev-storage-maintenance-alerts`  | Maintenance alert generation | 
+| TelemetryProcessor |  `cms-telemetry-preprocessed`  |  `cms-{stage}-storage-telemetry`  | Writes telemetry records, tags with tripId | 
+| TripProcessor |  `cms-telemetry-trips`  |  `cms-{stage}-storage-trips`  | Trip lifecycle (create/update/complete) | 
+| SafetyProcessor |  `cms-telemetry-safety`  |  `cms-{stage}-storage-safety-events`  | Safety event detection | 
+| MaintenanceProcessor |  `cms-telemetry-maintenance`  |  `cms-{stage}-storage-maintenance-alerts`  | Maintenance alert generation | 
 | FWTelemetryProcessor |  `fw-telemetry-raw`  | — | Decodes FWE protobuf, maps CAN signals to standard format, outputs to `cms-telemetry-preprocessed`  | 
-| CampaignSyncProcessor |  `fw-checkin`  |  `cms-dev-campaigns`  | Resolves campaigns, pushes decoder manifests and collection schemes to FWE agents via IoT Core MQTT | 
-| GeofenceProcessor |  `cms-telemetry-preprocessed`  |  `cms-dev-storage-geofences` / `cms-dev-storage-safety-events`  | Evaluates vehicle positions against active geofences, generates boundary crossing events | 
+| CampaignSyncProcessor |  `fw-checkin`  |  `cms-{stage}-campaigns`  | Resolves campaigns, pushes decoder manifests and collection schemes to FWE agents via IoT Core MQTT | 
+| GeofenceProcessor |  `cms-telemetry-preprocessed`  |  `cms-{stage}-storage-geofences` / `cms-{stage}-storage-safety-events`  | Evaluates vehicle positions against active geofences, generates boundary crossing events | 
 | OEMTelemetryProcessor |  `cms-telemetry-oem`  | — | Transforms OEM-specific telemetry to standard format using S3-hosted transform manifests, outputs to `cms-telemetry-raw`  | 
 
 ### FleetWise telemetry processor
@@ -42,7 +42,7 @@ The CampaignSyncProcessor manages the FleetWise Edge agent lifecycle:
 
 1. CampaignSyncProcessor consumes the checkin and extracts the vehicle VIN
 
-1. Processor queries the `cms-dev-campaigns` DynamoDB table for active campaigns targeting the vehicle
+1. Processor queries the `cms-{stage}-campaigns` DynamoDB table for active campaigns targeting the vehicle
 
 1. Processor generates protobuf decoder manifest and collection scheme messages
 
@@ -86,13 +86,13 @@ The GeofenceProcessor evaluates vehicle positions against active geofences store
 
 1. Extracts vehicle ID, latitude, and longitude
 
-1. Queries the `cms-dev-storage-geofences` DynamoDB table for active geofences (vehicle-specific and global)
+1. Queries the `cms-{stage}-storage-geofences` DynamoDB table for active geofences (vehicle-specific and global)
 
 1. Calculates distance from vehicle position to geofence center using the Haversine formula
 
 1. Compares distance against the geofence radius
 
-1. On boundary crossing (enter or exit), generates a safety event and writes to the `cms-dev-storage-safety-events` DynamoDB table
+1. On boundary crossing (enter or exit), generates a safety event and writes to the `cms-{stage}-storage-safety-events` DynamoDB table
 
 1. Deduplicates events: only fires once per boundary crossing direction (enter or exit), preventing repeated alerts while a vehicle remains inside or outside a geofence
 

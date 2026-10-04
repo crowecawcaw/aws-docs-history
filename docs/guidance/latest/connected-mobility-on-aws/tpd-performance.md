@@ -1,0 +1,6 @@
+
+
+# Performance: throughput, latency, and isolation
+<a name="tpd-performance"></a>
+
+Performance in a multi-consumer Kafka design rests on three things. Partitioning sets the ceiling on parallelism: a consumer group scales up to the number of partitions on a topic, so partition count is chosen for the most demanding consumer, not the average. Consumer-group isolation keeps one third party from affecting another: each consumer reads from its own group, so a slow or failed consumer builds its own lag rather than back-pressuring the shared platform. Quotas make that isolation enforceable: Kafka client quotas on a per-principal basis cap the throughput any single consumer can draw, preventing a misbehaving or bursty third party from starving the vehicles and internal services that share the cluster. Latency is a function of the delivery pattern chosen — direct access is lowest, private-connectivity delivery adds a small and predictable hop, and replication or mediated delivery adds the most. The reliability objective is that no third-party consumer can move the platform’s own latency or availability outside its commitment.

@@ -3,15 +3,7 @@
 # Fleet Manager console
 <a name="fleet-manager-console"></a>
 
-The Fleet Manager console is a React-based web application built with [Cloudscape Design System](https://cloudscape.design/). It provides fleet operators with real-time visibility into vehicle status, trip history, safety events, maintenance alerts, and data collection campaigns. The console connects to the Fleet Management API and Commands API documented in the [Developer guide](developer-guide.md).
-
-## Dashboard
-<a name="fm-dashboard"></a>
-
-![Fleet Manager Dashboard](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-dashboard.png)
-
-
-The dashboard is the landing page after sign-in. It displays configurable widgets for fleet-wide metrics including vehicle utilization, distance driven, driver safety scores, braking events, battery state of health, and vehicle health status. Operators can add, remove, and rearrange widgets to customize their view. Action buttons provide quick access to the fleet map, simulation, and fleet management.
+The Fleet Manager console is a React-based web application built with [Cloudscape Design System](https://cloudscape.design/). It provides fleet operators with real-time visibility into vehicle status, trip history, safety events, maintenance alerts, and data collection campaigns. The console connects to the Fleet Management API and Commands API documented in the [Developer guide](developer-guide.md). After sign-in, the console opens on the Lifecycle view of [Fleet Intelligence](#fm-fleet-intelligence).
 
 ## Fleet management
 <a name="fm-fleet-management"></a>
@@ -134,15 +126,6 @@ The campaigns view lists all FleetWise data collection campaigns with their stat
 ![Campaign Detail](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/fm-campaign-detail.png)
 
 
-## Analytics
-<a name="fm-analytics"></a>
-
-The analytics section provides four views:
-+  **Telemetry dashboard** — Real-time and historical telemetry visualization across the fleet.
-+  **Driver behavior** — Driver safety score trends, event frequency analysis, and fleet-wide behavior patterns.
-+  **Geofence events** — Geofence entry/exit events with map visualization.
-+  **Trip analytics** — Trip duration, distance, and efficiency metrics across the fleet.
-
 ## Settings
 <a name="fm-settings"></a>
 
@@ -175,8 +158,13 @@ Each vehicle has a default assigned driver shown on the vehicle detail page. Dri
 
 The Fleet Manager console includes a conversational assistant panel that lets users ask questions about their fleet, vehicles, and diagnostic trouble codes in natural language. The assistant is accessible from the navigation bar and opens as a side panel within the Fleet Manager interface.
 
-When a user sends a message, the Fleet Manager web application routes the request to the `/assistant/chat` endpoint of the VSA API, which forwards it to the AgentCore text runtime (`vsa_supervisor_text_staging`). The runtime invokes a Bedrock supervisor agent that coordinates a set of specialist agents to fulfill the request. The supervisor grounds responses in the Automotive Data Platform (ADP) knowledge base, which contains vehicle diagnostic guides, DTC explanations, and maintenance procedures. Responses are streamed back to the chat panel.
+When a user sends a message, the Fleet Manager web application routes the request to the `/assistant/chat` endpoint of the AVX API, which forwards it to the AgentCore text runtime (`vsa_supervisor_text_staging`). The runtime invokes a Bedrock supervisor agent that coordinates a set of specialist tools to fulfill the request. The supervisor grounds responses in the Automotive Data Platform (ADP) knowledge base, which contains vehicle diagnostic guides, DTC explanations, and maintenance procedures. Responses are streamed back to the chat panel.
 
 The assistant adapts its behavior based on the authenticated user’s Cognito claims. A user with the default `fleet_driver` role receives driving-focused guidance — trip summaries, safety event explanations, and DTC context for their own vehicle. A user with `custom:role=service-advisor` in their Cognito profile receives a service-advisor persona, which provides broader cross-vehicle diagnostic context suited for workshop and service center use cases.
 
-The assistant capability requires the optional `cms-{stage}-bedrock-agents` stack. Deploy it with `make deploy-bedrock-agents` after the core platform is running. If the stack is not deployed, the assistant panel is present in the UI but the `/assistant/chat` endpoint is not available. See [Architecture details](architecture-details.md) for the BedrockAgentsStack configuration and the inference-profile IAM pattern required for cross-region model invocation.
+The assistant is served by the companion Agentic Vehicle Experience (AVX) accelerator, not by any stack in this repository. Populate the `vsaApiEndpoint` field in `runtimeConfig.json` at UI deploy time to point to a deployed AVX API Gateway stage. If `vsaApiEndpoint` is unset (or AVX has not been deployed), the assistant panel is present in the UI but reports the assistant as not configured; the rest of the Fleet Manager application operates normally. See [Architecture details](architecture-details.md) for the CMS-side integration surface.
+
+## Fleet Intelligence
+<a name="fm-fleet-intelligence"></a>
+
+The `/fleet-intelligence/*` route family surfaces cost-per-mile, preventive-maintenance compliance, fleet rebalancing, warranty (read-only recalls and coverage), and per-vehicle sell-timing analysis. `/fleet-intelligence/lifecycle` is the landing route after the v0.4.0 release swapped it in for the retired Virtual Fleet Operator (VFO) Fleet Command Center. Maintenance cost per vehicle per month is read cross-region from the Automotive Data Platform (ADP) accelerator’s curated products via the Athena workgroup deployed by `cms-{stage}-fleet-intelligence-analytics` in `us-east-1`. Sell-timing crossover month, fit R², and provenance are computed deterministically from a linear fit of maintenance cost versus straight-line depreciation. See [Fleet Intelligence](fleet-intelligence.md) in the architecture-details chapter for the ADP data path and IAM.

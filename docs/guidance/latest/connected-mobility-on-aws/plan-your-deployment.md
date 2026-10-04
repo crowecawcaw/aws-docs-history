@@ -118,13 +118,15 @@ The cost estimates below are based on the following telemetry profile per vehicl
 +  **Data per vehicle per month:** \~216 MB
 +  **Active fleet percentage:** 30% of vehicles driving at any given time during peak hours
 
-All estimates use US East (N. Virginia) pricing as of March 2026.
+All estimates use AWS us-east-1 list pricing as of March 2026 as a representative baseline; substitute the equivalent Region’s pricing for a different deploy Region.
 
 The cost model separates two categories of expense:
 +  **Telemetry processing costs** (Table A) — services that scale with vehicle count and message volume: Amazon MSK, Amazon Managed Service for Apache Flink, AWS IoT Core, telemetry S3 storage, VPC/NAT Gateway networking, and Amazon ElastiCache. These dominate total cost and scale predictably with fleet size.
-+  **Other component costs** (Table B) — platform services and optional components: the Fleet Manager web application, API layer, Amazon Cognito authentication, Amazon Location Service, Amazon DynamoDB, AWS Lambda, Amazon CloudFront, Amazon ECS Fargate workers (OEM connector, simulation, WebSocket fan-out), and optionally Amazon Bedrock agent invocations and Amazon Bedrock AgentCore runtime. These include a fixed baseline plus variable usage costs.
++  **Other component costs** (Table B) — platform services and optional components: the Fleet Manager web application, API layer, Amazon Cognito authentication, Amazon Location Service, Amazon DynamoDB, AWS Lambda, Amazon CloudFront, and Amazon ECS Fargate workers (OEM connector, simulation, WebSocket fan-out). These include a fixed baseline plus variable usage costs.
 
-The $400 per month baseline figure used in the overview applies to 1,000 vehicles at moderate usage: Table A (\~$364) \+ Table B fixed baseline (\~$44) is approximately $408, which rounds to the approximately $400 per month figure cited in the overview. All figures are estimates. Bedrock agent invocations, ECS Fargate worker uptime, and AgentCore runtime are variable additions on top of this baseline and are flagged as estimates below.
+The $400 per month baseline figure used in the overview applies to 1,000 vehicles at moderate usage: Table A (\~$364) \+ Table B fixed baseline (\~$44) is approximately $408, which rounds to the approximately $400 per month figure cited in the overview. All figures are estimates. ECS Fargate worker uptime is a variable addition on top of this baseline and is flagged as an estimate below.
+
+The in-UI conversational assistant is served by an Amazon Bedrock AgentCore text runtime deployed from the companion Agentic Vehicle Experience (AVX) accelerator, not from any stack in this repository. Its cost is captured in the AVX accelerator’s own documentation and does not appear in the tables below.
 
 ### Table A: Telemetry processing costs
 <a name="cost-telemetry-processing"></a>
@@ -162,12 +164,10 @@ These costs cover the Fleet Manager application layer, optional ECS Fargate work
 | Amazon ECS Fargate — simulation | Cloud vehicle simulation in MQTT Direct mode (on-demand; stops when simulation ends) | Variable (\~$2–$10 estimate) | On-demand only; $0 when idle | 
 | Amazon ECS — FleetWise simulation | FleetWise Edge simulation on EC2 (t4g.small ARM64) with virtual CAN isolation | Variable (\~$5–$20 estimate) | Per active simulation session | 
 | Amazon ECS Fargate — WebSocket fan-out | Kafka-to-WebSocket bridge for real-time telemetry in the Fleet Manager UI | Variable (\~$3–$10 estimate) | Scales with connected UI sessions | 
-| Amazon Bedrock (agent invocations) | Supervisor and specialist multi-agent calls for the in-UI conversational fleet assistant (opt-in: `make deploy-bedrock-agents`) | Variable (\~$5–$50 estimate) | Highly variable; depends on assistant usage, token counts, and number of specialist agent hops. $0 if `deploy-bedrock-agents` is not run. | 
-| Amazon Bedrock AgentCore Runtime | AgentCore text and bidirectional runtime hosting for the fleet assistant | Variable (\~$0–$20 estimate) | Per-invocation fee structure; verify current pricing at deploy time. $0 if not deployed. | 
-|  **Variable additions subtotal**  |  |  **\~$20–$105 estimate**  | Flagged as estimates; actual cost depends on deployment choices and usage patterns | 
+|  **Variable additions subtotal**  |  |  **\~$15–$55 estimate**  | Flagged as estimates; actual cost depends on deployment choices and usage patterns | 
 
 **Note**  
-Bedrock agent invocations and AgentCore Runtime costs are estimates only. Actual costs depend on the number of assistant sessions, the length of each conversation, and how many specialist agent hops occur per query. These components are opt-in and are not deployed by `make deploy-all`. To omit Bedrock costs entirely, skip the `make deploy-bedrock-agents` step.
+ECS Fargate worker costs above are estimates. Actual costs depend on the number of active simulation sessions, the connector connection uptime, and the number of connected WebSocket clients. The in-UI conversational assistant is served by the companion AVX accelerator and its Amazon Bedrock costs are documented separately in that repository.
 
 ### Cost reconciliation to baseline
 <a name="cost-reconciliation"></a>
@@ -180,8 +180,8 @@ The approximately $400 per month baseline used in this guide is the sum of Table
 | Table A: Telemetry processing (MSK \+ Flink \+ IoT Core \+ S3 \+ VPC/NAT \+ ElastiCache) | \~$364 | 
 | Table B: Other components fixed (CloudFront \+ API Gateway \+ Lambda \+ Cognito \+ DynamoDB \+ Location Service) | \~$44 | 
 |  **Baseline total (1,000 vehicles, no optional components)**  |  **\~$408 (rounds to \~$400)**  | 
-| Table B: Variable additions (ECS Fargate workers \+ Bedrock agents \+ AgentCore, when deployed) | \~$20–$105 estimate | 
-|  **Total with optional components at moderate usage**  |  **\~$428–$513 estimate**  | 
+| Table B: Variable additions (ECS Fargate workers, when deployed) | \~$15–$55 estimate | 
+|  **Total with optional components at moderate usage**  |  **\~$423–$463 estimate**  | 
 
 ### Cost by fleet size
 <a name="cost-by-fleet-size"></a>
@@ -199,7 +199,7 @@ The approximately $400 per month baseline used in this guide is the sum of Table
 | 100,000 vehicles | $1,944 | $2,160 | $130 | $350 |  **\~$4,584**  | 
 
 **Note**  
-The totals above reflect Table A (telemetry processing) and the Table B fixed baseline only. Variable Table B additions (Bedrock agents, ECS Fargate workers) are not included in these totals. Add the Table B variable estimate to the applicable fleet-size row for a total-cost projection when optional components are deployed.
+The totals above reflect Table A (telemetry processing) and the Table B fixed baseline only. Variable Table B additions (ECS Fargate workers) are not included in these totals. Add the Table B variable estimate to the applicable fleet-size row for a total-cost projection when optional components are deployed.
 
  **Cost per vehicle per month:** 
 
@@ -323,7 +323,7 @@ The cost curve has three distinct regions:
 +  **CloudWatch log retention:** Set log retention to 30 days for development, 90 days for production (default is indefinite).
 +  **Flink checkpointing:** Increase checkpoint interval from 60s to 120s for non-critical processors to reduce state backend I/O.
 +  **IoT Core message batching:** The simulator compresses telemetry with gzip, reducing message size from \~8 KB to \~2 KB (75% reduction in IoT Core message costs).
-+  **Bedrock cost control:** Deploy `make deploy-bedrock-agents` only in environments where the in-UI conversational fleet assistant is needed. Omitting this stack from development environments eliminates Bedrock invocation costs entirely.
++  **Development environment cost control:** Set `SIM_IMAGE_MODE=asset` locally only for active simulator Dockerfile development. In non-development environments, use the default published images to avoid the additional container build cost and Amazon ECR storage. The in-UI conversational assistant costs live in the companion AVX accelerator’s own bill — omitting the AVX deployment (or leaving `runtimeConfig.json’s `vsaApiEndpoint` unset) eliminates the assistant-side Amazon Bedrock invocation cost entirely.
 
 ## Security
 <a name="security-arch"></a>
@@ -465,8 +465,8 @@ Before deploying the guidance, verify you have sufficient quotas for the followi
  **Amazon ECS (when using simulation or OEM connector):** 
 + Fargate task vCPU per Region: Default varies by Region. For large simulations running multiple concurrent vehicle sessions, verify the Fargate task concurrency limit in your target Region and request an increase if needed.
 
- **Amazon Bedrock (when `make deploy-bedrock-agents` is run):** 
-+ Invocations per minute for `us.anthropic.claude-sonnet-4-6`: Soft limit, Region-dependent. Check the Bedrock console Service Quotas page in your target Region before deploying the Bedrock agents stack at scale.
+**Note**  
+The in-UI conversational assistant is served by the companion Agentic Vehicle Experience (AVX) accelerator, not by this repository. If you deploy AVX, verify the AWS Bedrock quotas for the configured cross-region inference profile (typically `us.anthropic.claude-sonnet-4-6`) in the AVX target Region.
 
 ### Requesting quota increases
 <a name="requesting-quota-increases"></a>
@@ -499,7 +499,7 @@ Most quota increases are processed within 24-48 hours.
 + Flink: 1 KPU per application
 + DynamoDB: On-demand billing
 
- **Expected cost:** \~$250-300/month (telemetry processing \+ fixed platform baseline; excludes optional Bedrock/ECS variable components)
+ **Expected cost:** \~$250-300/month (telemetry processing \+ fixed platform baseline; excludes optional ECS Fargate variable components)
 
  **Telemetry capacity:** 
 + Messages per second: \~100-500
@@ -515,7 +515,7 @@ Most quota increases are processed within 24-48 hours.
 + Flink: 2 KPUs per application
 + DynamoDB: On-demand billing
 
- **Expected cost:** \~$410-600/month (telemetry processing \+ fixed platform baseline; excludes optional Bedrock/ECS variable components)
+ **Expected cost:** \~$410-600/month (telemetry processing \+ fixed platform baseline; excludes optional ECS Fargate variable components)
 
  **Telemetry capacity:** 
 + Messages per second: \~500-2,000

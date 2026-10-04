@@ -70,9 +70,9 @@ The SimulationStack deploys cloud-based simulation infrastructure.
 ## FleetWise Edge integration
 <a name="fleetwise-integration"></a>
 
-The FleetWiseStack deploys AWS IoT FleetWise resources for edge agent integration.
+The FleetWiseStack (implemented as `FweTelemetryStack` in `deployment/stacks/fwe_telemetry_stack.py`) provisions the CMS-native infrastructure that receives telemetry from the [open-source AWS IoT FleetWise Edge Agent (FWE)](https://github.com/aws/aws-iot-fleetwise-edge). It does **not** call the AWS IoT FleetWise managed service — no `AWS::IoTFleetWise::*` resource is created, and no `iotfleetwise` API is invoked. See [Migrating from AWS IoT FleetWise](solution-overview.md#migrating-from-aws-iot-fleetwise) for the equivalent-capabilities framing and links to AWS’s availability-change notice.
 
- **AWS IoT FleetWise** – Manages signal catalogs, vehicle models, decoder manifests, and campaign definitions for FleetWise Edge Agent integration. The stack creates the FleetWise signal catalog from the signal catalog, configures decoder manifests for CAN bus signal mapping, and provisions campaign infrastructure. For more details, see [AWS IoT FleetWise](https://aws.amazon.com/iot-fleetwise/).
+ **Signal catalogs, decoder manifests, and campaigns** – This stack seeds and manages the CMS-native equivalents of these FleetWise concepts in Amazon DynamoDB. The stack creates IoT rules for FWE protobuf telemetry and checkin messages, VPC endpoints for the IoT Data Plane, and the `CampaignSyncProcessor` Flink application that resolves active campaigns from DynamoDB and pushes decoder manifests \+ collection schemes to FWE agents over IoT Core MQTT. The open-source FWE agent binary itself is [built from source](https://github.com/aws/aws-iot-fleetwise-edge) and packaged as a container image; its lifecycle is independent of the managed-service availability status.
 
 ## Fleet Manager application
 <a name="fleet-manager-app"></a>
