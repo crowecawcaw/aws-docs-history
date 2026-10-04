@@ -7,6 +7,7 @@ The following table describes important documentation updates in the *AWS Fault 
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Non-root container image for Amazon ECS task actions](https://docs.aws.amazon.com/fis/latest/userguide/ecs-task-actions.html) |  AWS FIS provides a non-root variant of the SSM agent sidecar image for Amazon ECS task actions. The non-root image has the required fault injection dependencies pre-installed and runs without root privileges.  | September 29, 2026 | 
 | [New action for AWS Direct Connect](https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html#directconnect-actions-reference.html) |  You can use the **aws:directconnect:virtual-interface** action to test the resilience of the AWS Direct Connect connection by temporarily disrupting the Border Gateway Protocol sessions between the on-premises networks and peers associated with target Virtual Interfaces.  | December 18, 2025 | 
 | [New scenarios](https://docs.aws.amazon.com/fis/latest/userguide/scenario-library-scenarios.html) |  You can now use the new "AZ: Application Slowdown" and "Cross-AZ: Traffic Slowdown" scenarios.  | November 12, 2025 | 
 | [New parameter for SSM documents](https://docs.aws.amazon.com/fis/latest/userguide/actions-ssm-agent.html) |  The **AWSFIS-Run-Network-Latency-Sources** and **AWSFIS-Run-Network-Packet-Loss-Sources** SSM documents now support the **flowsPercent** parameter.  | November 12, 2025 | 

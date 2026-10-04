@@ -7,6 +7,8 @@
 
  These actions use [ AWS Systems Manager (SSM) documents](actions-ssm-agent.html#fis-ssm-docs) to inject faults. To use `aws:ecs:task` actions, you will need to add a container with an SSM Agent to your Amazon Elastic Container Service (Amazon ECS) task definition. The container runs an [AWS FIS defined script](#ecs-task-reference) that registers the Amazon ECS task as Managed Instance in the SSM service. Additionally, the script retrieves task metadata to add tags to the Managed Instance. The setup will allow AWS FIS to resolve the target task. This paragraph refers to the **Setup** in the diagram below. 
 
+ AWS FIS also provides a non-root variant of the SSM agent image. The non-root image has the required fault injection dependencies pre-installed and runs the SSM agent as a dedicated `ssmagent` user (UID/GID 61555), requiring no root privileges. For image URIs, see [Non-root container images](#ecs-task-container-images). 
+
  When you run an AWS FIS experiment targeting `aws:ecs:task`, AWS FIS maps the target Amazon ECS tasks you specify in an AWS FIS experiment template to a set of SSM managed instances using a resource tag, `ECS_TASK_ARN`. The tag value is the ARN of the associated Amazon ECS task where the SSM documents should be executed. This paragraph refers to the **Fault Injection** in the diagram below. 
 
  The following diagram exemplifies the setup and fault injection on a task with one existing container. 
@@ -203,6 +205,39 @@ else
   exit 1
 fi
 ```
+
+## Non-root container images
+<a name="ecs-task-container-images"></a>
+
+The non-root SSM agent container image provided by AWS FIS is hosted in Amazon ECR in each supported AWS Region. When you reference an image from Amazon ECR, you must use the full image URI.
+
+The non-root container image is also available in the [AWS ECR Public Gallery](https://gallery.ecr.aws/aws-fis/aws-fis-ssm-agent-non-root).
+
+
+| AWS Region | Image URI | 
+| --- | --- | 
+| US East (Ohio) | 111204668964.dkr.ecr.us-east-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| US East (N. Virginia) | 237024525506.dkr.ecr.us-east-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| US West (N. California) | 044771288121.dkr.ecr.us-west-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| US West (Oregon) | 584751651166.dkr.ecr.us-west-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Africa (Cape Town) | 323960980714.dkr.ecr.af-south-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Hong Kong) | 382188660849.dkr.ecr.ap-east-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Mumbai) | 547703943082.dkr.ecr.ap-south-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Osaka) | 577137987168.dkr.ecr.ap-northeast-3.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Seoul) | 706243847951.dkr.ecr.ap-northeast-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Singapore) | 893410593473.dkr.ecr.ap-southeast-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Sydney) | 088923313816.dkr.ecr.ap-southeast-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Asia Pacific (Tokyo) | 734102830451.dkr.ecr.ap-northeast-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Canada (Central) | 303185496657.dkr.ecr.ca-central-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Frankfurt) | 294983767828.dkr.ecr.eu-central-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Ireland) | 676591241388.dkr.ecr.eu-west-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (London) | 292832244570.dkr.ecr.eu-west-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Milan) | 950165721128.dkr.ecr.eu-south-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Paris) | 175562788122.dkr.ecr.eu-west-3.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Spain) | 762616536414.dkr.ecr.eu-south-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Stockholm) | 981005111022.dkr.ecr.eu-north-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| Europe (Zurich) | 532975550017.dkr.ecr.eu-central-2.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
+| South America (São Paulo) | 005407597607.dkr.ecr.sa-east-1.amazonaws.com/aws-fis-ssm-agent-non-root:latest | 
 
 ## Example experiment template
 <a name="example-ecs-task-experiment-template"></a>
