@@ -12,6 +12,7 @@ Data is migrated from the blue environment to the green environment. When the ne
 + [Changes that usually don't cause blue/green deployments](#nobg)
 + [Blue/Green Deployment options](#bg-deployment-options)
 + [Determining whether a change will cause a blue/green deployment](#dryrun)
++ [Validating a domain update](#validating-updates)
 + [Tracking a configuration change](#initiating-tracking-configuration-changes)
 + [Stages of a configuration change](#managedomains-config-stages)
 + [Performance impact of blue/green deployments](#performance-impact-bluegreen)
@@ -312,6 +313,94 @@ while True:
 
 ------
 
+## Validating a domain update
+<a name="validating-updates"></a>
+
+Before Amazon OpenSearch Service applies a domain configuration change, it validates the requested change against your domain's current state. Each validation result is classified by severity:
++ **Critical** – A blocking failure. The change can't proceed until you resolve the underlying issue. Critical failures can't be accepted.
++ **Warning** – Advisory guidance about a change that may succeed but carries risk. For example, dedicated coordinator nodes that may be undersized for your data node configuration. You can accept a warning to let the change proceed.
+
+By default, any warning blocks the change. To proceed, accept the warning by including its code in the `AcceptedWarnings` parameter of your update request. Validation advisory is available for all Amazon OpenSearch Service domains, across both OpenSearch and Elasticsearch versions.
+
+### Reviewing validation results
+<a name="validation-reviewing-results"></a>
+
+Run a dry run with `DryRunMode` set to `Verbose` to review validation results before you apply a change. Each result appears in the `ValidationFailures` list returned by [DescribeDryRunProgress](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDryRunProgress.html) (for dry runs) and [DescribeDomainChangeProgress](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_DescribeDomainChangeProgress.html) (for submitted changes), with its code, message, and severity. Severity is also included in Amazon EventBridge notifications.
+
+For the full list of validation codes, whether each one can be accepted (**Overridable?**), and troubleshooting steps, see [Troubleshooting validation errors](#validation).
+
+### Accepting a warning
+<a name="validation-accepting-warning"></a>
+
+------
+#### [ API ]
+
+Include the code of each warning you want to accept in the `AcceptedWarnings` parameter of [UpdateDomainConfig](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_UpdateDomainConfig.html). This parameter applies only to the current update and isn't persisted on the domain. The warnings accepted for the most recent change are returned in the `AcceptedWarnings` field of `DescribeDomainChangeProgress` and `DescribeDryRunProgress`.
+
+```
+POST https://es.{{us-east-1}}.amazonaws.com/2021-01-01/opensearch/domain/{{my-domain}}/config
+{
+   "ClusterConfig": {
+      ...
+   },
+   "AcceptedWarnings": ["CoordinatorNodeUndersized"]
+}
+```
+
+------
+#### [ CloudFormation ]
+
+Set the `AcceptedWarnings` property on your domain resource to accept warnings directly in your template. Include the code of each warning you want to accept. As with the API, this property applies only to the update it's included in and isn't persisted on the domain.
+
+```
+Resources:
+  MyDomain:
+    Type: AWS::OpenSearchService::Domain
+    Properties:
+      DomainName: my-domain
+      ClusterConfig:
+        ...
+      AcceptedWarnings:
+        - CoordinatorNodeUndersized
+```
+
+------
+#### [ Console ]
+
+**Accept a warning from a dry run (before applying the change)**
+
+1. In the OpenSearch Service console, choose your domain, then choose **Cluster configuration**, and then **Edit**.
+
+1. Make your configuration changes. **Run a dry run before saving** stays selected by default.
+
+1. Choose **Run** to start the dry run.
+
+1. When the dry run finishes with validation results, an alert appears above the form, split into **Critical issues (N)** and **Warnings (N)**. Each entry shows the issue code and its message.
+
+1. Choose **Acknowledge warnings**.
+
+1. In the dialog, select each warning you want to accept. Critical failures are listed but can't be selected.
+
+1. Choose **Acknowledge and dry run** to re-validate with those warnings accepted.
+
+1. When no blocking failures remain, choose **Save changes** to apply the update. The warnings you accepted carry into that submission.
+
+**Accept a warning after a change fails validation**
+
+1. On the domain's detail page, find the in-progress change and choose **View details** on the change progress panel.
+
+1. The **Validation** stage shows as failed, with **Critical issues (N)** and **Warnings (N)** sections.
+
+1. Resolve any critical failures. These can't be accepted. Some are environmental (for example, freeing IP addresses in a subnet) and don't require editing your requested configuration.
+
+1. Select each warning you want to accept in the **Warnings** table.
+
+1. Choose **Acknowledge and retry** to resubmit the change with those warnings accepted.
+
+1. If you resolved a critical failure outside the console and have no warnings to accept, choose **Retry** to resubmit the change unchanged.
+
+------
+
 ## Tracking a configuration change
 <a name="initiating-tracking-configuration-changes"></a>
 
@@ -405,26 +494,31 @@ OpenSearch Service isolates your domain if it remains in an unusable state for m
 The following table lists the possible domain issues that OpenSearch Service might surface, and steps to resolve them.
 
 
-| Issue | Error code | Troubleshooting steps | 
-| --- | --- | --- | 
-| Security group not found | SecurityGroupNotFound | The security group associated with your OpenSearch Service domain does not exist. To resolve this issue, [create a security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#creating-security-groups) with the specified name. | 
-| Subnet not found | SubnetNotFound | The subnet associated with your OpenSearch Service domain does not exist. To resolve this issue, [create a subnet](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-subnets.html#create-subnets) in your VPC. | 
-| Service-linked role not configured | SLRNotConfigured | The [service-linked role](slr.md) for OpenSearch Service is not configured. The service-linked role is predefined by OpenSearch Service and includes all the permissions the service requires to call other AWS services on your behalf. If the role doesn't exist, you might need to [create it manually](slr-aos.md#create-slr). | 
-| Not enough IP addresses | InsufficientFreeIPsForSubnets | One or more of your VPC subnets don't have enough IP addresses to update your domain. To calculate how many IP addresses you need, see [Reserving IP addresses in a VPC subnet](vpc.md#reserving-ip-vpc-endpoints). | 
-| Cognito user pool doesn't exist | CognitoUserPoolNotFound | OpenSearch Service can't find the Amazon Cognito user pool. Confirm that you created one and have the correct ID. To find the ID, you can use the Amazon Cognito console or the following AWS CLI command:<pre>aws cognito-idp list-user-pools --max-results 60 --region {{us-east-1}}</pre> | 
-| Cognito identity pool doesn't exist | CognitoIdentityPoolNotFound | OpenSearch Service can't find the Cognito identity pool. Confirm that you created one and have the correct ID. To find the ID, you can use the Amazon Cognito console or the following AWS CLI command:<pre>aws cognito-identity list-identity-pools --max-results 60 --region {{us-east-1}}</pre> | 
-| Cognito domain not found for user pool | CognitoDomainNotFound | The user pool does not have a domain name. You can configure one using the Amazon Cognito console or the following AWS CLI command:<pre>aws cognito-idp create-user-pool-domain --domain {{my-domain}} --user-pool-id {{id}}</pre> | 
-| Cognito role not configured | CognitoRoleNotConfigured | The IAM role that grants OpenSearch Service permission to configure the Amazon Cognito user and identity pools, and use them for authentication, is not configured. Configure the role with an appropriate permission set and trust relationship. You can use the console, which creates the default [CognitoAccessForAmazonOpenSearch](cognito-auth.md#cognito-auth-role) role for you, or you can manually configure a role using the AWS CLI or the AWS SDK. | 
-| Unable to describe user pool | UserPoolNotDescribable | The specified Amazon Cognito role doesn't have permission to describe the user pool associated with your domain. Make sure the role permissions policy allows the cognito-identity:DescribeUserPool action. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role) for the full permissions policy. | 
-| Unable to describe identity pool | IdentityPoolNotDescribable | The specified Amazon Cognito role doesn't have permission to describe the identity pool associated with your domain. Make sure the role permissions policy allows the cognito-identity:DescribeIdentityPool action. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role) for the full permissions policy. | 
-| Unable to describe user and identity pool | CognitoPoolsNotDescribable | The specified Amazon Cognito role doesn't have permission to describe the user and identity pools associated with your domain. Make sure the role permissions policy allows the cognito-identity:DescribeIdentityPool and cognito-identity:DescribeUserPool actions. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role) for the full permissions policy. | 
-| KMS key not enabled | KMSKeyNotEnabled | The AWS Key Management Service (AWS KMS) key used to encrypt your domain is disabled. [Re-enable the key](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys) immediately. | 
-| Custom certificate not in ISSUED state | InvalidCertificate | If your domain uses a custom endpoint, you secure it by either generating an SSL certificate in AWS Certificate Manager (ACM) or importing one of your own. The certificate status must be **Issued**. If you receive this error, [check the status of your certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-describe.html) in the ACM console. If the status is Expired, Failed, Inactive, or Pending validation, see the ACM [troubleshooting documentation](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html) to resolve the issue. | 
-| Not enough capacity to launch chosen instance type | InsufficientInstanceCapacity | The requested instance type capacity is not available. For example, you might have requested five `i3.16xlarge.search` nodes, but OpenSearch Service doesn't have enough `i3.16xlarge.search` hosts available, so the request can't be fulfilled. Check the [supported instance types](supported-instance-types.md) in OpenSearch Service and choose a different instance type. | 
-| Red indexes in cluster | RedCluster | One or more indexes in your cluster have a red status, leading to an overall red cluster status. To troubleshoot and remediate this issue, see [Red cluster status](handling-errors.md#handling-errors-red-cluster-status). | 
-| Memory circuit breaker, too many requests | TooManyRequests | There are too many search and write requests to your domain, so OpenSearch Service can't update its configuration. You can reduce the number of requests, scale instances vertically up to 64 GiB of RAM, or scale horizontally by adding instances. | 
-| New configuration can't hold data (low disk space) | InsufficientStorageCapacity | The configured storage size can't hold all of the data on your domain. To resolve this issue, [choose a larger volume](limits.md#ebsresource), [delete unused indexes](https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/), or increase the number of nodes in the cluster to immediately free up disk space. | 
-| Shards pinned to specific nodes | ShardMovementBlocked | One or more indexes in your domain are attached to specific nodes and can't be reassigned. This most likely happened because you configured shard allocation filtering, which lets you specify which nodes are allowed to host the shards of a particular index.<br />To resolve this issue, remove shard allocation filters from all affected indexes:<pre>PUT my-index/_settings<br />{  <br />  "settings": {    <br />    "index.routing.allocation.require._name": null  <br />  }<br />}</pre> | 
-| New configuration can't hold all shards (shard count) | TooManyShards | The shard count on your domain is too high, which prevents OpenSearch Service from moving them to the new configuration. To resolve this issue, scale your domain horizonally by adding nodes of the same configuration type as your current cluster nodes. Note that the [maximum EBS volume size](limits.md#ebsresource) depends on the node's instance type.To prevent this issue in the future, see [Choosing the number of shards](bp-sharding.md) and define a sharding strategy that is appropriate for your use case. | 
-| The subnet associated with your domain does not support IPv4 addresses | `ResultCodeIPv4BlockNotExists` | To resolve this issue, [create a subnet or update the existing subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-IP-address-range) in your VPC according to the configured IP address type of the domain. If your domain uses an **IPv4 only** address type, use an IPv4-only subnet. If your domain uses **Dual-stack mode**, use a dual-stack subnet. | 
-| The subnet associated with your domain does not support IPv6 addresses | `ResultCodeIPv6BlockNotExists` | To resolve this issue, [create a subnet or update the existing subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-IP-address-range) in your VPC according to the configured IP address type of the domain. If your domain uses an **IPv4 only** address type, use an IPv4-only subnet. If your domain uses **Dual-stack mode**, use a dual-stack subnet. | 
+| Issue | Error code | Overridable? | Troubleshooting steps | 
+| --- | --- | --- | --- | 
+| Security group not found | SecurityGroupNotFound | No | The security group associated with your OpenSearch Service domain does not exist. To resolve this issue, [create a security group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html#creating-security-groups) with the specified name. | 
+| Subnet not found | SubnetNotFound | No | The subnet associated with your OpenSearch Service domain does not exist. To resolve this issue, [create a subnet](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-subnets.html#create-subnets) in your VPC. | 
+| Service-linked role not configured | SLRNotConfigured | No | The [service-linked role](slr.md) for OpenSearch Service is not configured. The service-linked role is predefined by OpenSearch Service and includes all the permissions the service requires to call other AWS services on your behalf. If the role doesn't exist, you might need to [create it manually](slr-aos.md#create-slr). | 
+| Not enough IP addresses | InsufficientFreeIPsForSubnets | No | One or more of your VPC subnets don't have enough IP addresses to update your domain. To calculate how many IP addresses you need, see [Reserving IP addresses in a VPC subnet](vpc.md#reserving-ip-vpc-endpoints). | 
+| Cognito user pool doesn't exist | CognitoUserPoolNotFound | No | OpenSearch Service can't find the Amazon Cognito user pool. Confirm that you created one and have the correct ID. To find the ID, you can use the Amazon Cognito console or the following AWS CLI command:<pre>aws cognito-idp list-user-pools --max-results 60 --region {{us-east-1}}</pre> | 
+| Cognito identity pool doesn't exist | CognitoIdentityPoolNotFound | No | OpenSearch Service can't find the Cognito identity pool. Confirm that you created one and have the correct ID. To find the ID, you can use the Amazon Cognito console or the following AWS CLI command:<pre>aws cognito-identity list-identity-pools --max-results 60 --region {{us-east-1}}</pre> | 
+| Cognito domain not found for user pool | CognitoDomainNotFound | No | The user pool does not have a domain name. You can configure one using the Amazon Cognito console or the following AWS CLI command:<pre>aws cognito-idp create-user-pool-domain --domain {{my-domain}} --user-pool-id {{id}}</pre> | 
+| Cognito role not configured | CognitoRoleNotConfigured | No | The IAM role that grants OpenSearch Service permission to configure the Amazon Cognito user and identity pools, and use them for authentication, is not configured. Configure the role with an appropriate permission set and trust relationship. You can use the console, which creates the default [CognitoAccessForAmazonOpenSearch](cognito-auth.md#cognito-auth-role) role for you, or you can manually configure a role using the AWS CLI or the AWS SDK. | 
+| Unable to describe user pool | UserPoolNotDescribable | No | The specified Amazon Cognito role doesn't have permission to describe the user pool associated with your domain. Make sure the role permissions policy allows the cognito-identity:DescribeUserPool action. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role) for the full permissions policy. | 
+| Unable to describe identity pool | IdentityPoolNotDescribable | No | The specified Amazon Cognito role doesn't have permission to describe the identity pool associated with your domain. Make sure the role permissions policy allows the cognito-identity:DescribeIdentityPool action. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role) for the full permissions policy. | 
+| Unable to describe user and identity pool | CognitoPoolsNotDescribable | No | The specified Amazon Cognito role doesn't have permission to describe the user and identity pools associated with your domain. Make sure the role permissions policy allows the cognito-identity:DescribeIdentityPool and cognito-identity:DescribeUserPool actions. See [About the CognitoAccessForAmazonOpenSearch role](cognito-auth.md#cognito-auth-role) for the full permissions policy. | 
+| KMS key not enabled | KMSKeyNotEnabled | No | The AWS Key Management Service (AWS KMS) key used to encrypt your domain is disabled. [Re-enable the key](https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys) immediately. | 
+| Custom certificate not in ISSUED state | InvalidCertificate | No | If your domain uses a custom endpoint, you secure it by either generating an SSL certificate in AWS Certificate Manager (ACM) or importing one of your own. The certificate status must be **Issued**. If you receive this error, [check the status of your certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-describe.html) in the ACM console. If the status is Expired, Failed, Inactive, or Pending validation, see the ACM [troubleshooting documentation](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html) to resolve the issue. | 
+| Not enough capacity to launch chosen instance type | InsufficientInstanceCapacity | No | The requested instance type capacity is not available. For example, you might have requested five `i3.16xlarge.search` nodes, but OpenSearch Service doesn't have enough `i3.16xlarge.search` hosts available, so the request can't be fulfilled. Check the [supported instance types](supported-instance-types.md) in OpenSearch Service and choose a different instance type. | 
+| Red indexes in cluster | RedCluster | No | One or more indexes in your cluster have a red status, leading to an overall red cluster status. To troubleshoot and remediate this issue, see [Red cluster status](handling-errors.md#handling-errors-red-cluster-status). | 
+| Memory circuit breaker, too many requests | TooManyRequests | No | There are too many search and write requests to your domain, so OpenSearch Service can't update its configuration. You can reduce the number of requests, scale instances vertically up to 64 GiB of RAM, or scale horizontally by adding instances. | 
+| New configuration can't hold data (low disk space) | InsufficientStorageCapacity | No | The configured storage size can't hold all of the data on your domain. To resolve this issue, [choose a larger volume](limits.md#ebsresource), [delete unused indexes](https://opensearch.org/docs/latest/opensearch/rest-api/index-apis/delete-index/), or increase the number of nodes in the cluster to immediately free up disk space. | 
+| Shards pinned to specific nodes | ShardMovementBlocked | No | One or more indexes in your domain are attached to specific nodes and can't be reassigned. This most likely happened because you configured shard allocation filtering, which lets you specify which nodes are allowed to host the shards of a particular index.<br />To resolve this issue, remove shard allocation filters from all affected indexes:<pre>PUT my-index/_settings<br />{  <br />  "settings": {    <br />    "index.routing.allocation.require._name": null  <br />  }<br />}</pre> | 
+| New configuration can't hold all shards (shard count) | TooManyShards | Yes | The shard count on your domain is too high, which prevents OpenSearch Service from moving them to the new configuration. To resolve this issue, scale your domain horizonally by adding nodes of the same configuration type as your current cluster nodes. Note that the [maximum EBS volume size](limits.md#ebsresource) depends on the node's instance type. This is an advisory warning. If you understand the impact and want to proceed anyway, accept it by including TooManyShards in the AcceptedWarnings parameter of your update request.To prevent this issue in the future, see [Choosing the number of shards](bp-sharding.md) and define a sharding strategy that is appropriate for your use case. | 
+| New configuration exceeds the maximum number of shards per node | MaxShardCountExceeded | Yes | The number of shards that would be placed on each node in the new configuration exceeds the maximum allowed per node. To resolve this issue, add more nodes of the same configuration type to your domain, or [delete unused indexes](https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/) to reduce the total shard count, then try again. This is an advisory warning. If you understand the impact and want to proceed anyway, accept it by including `MaxShardCountExceeded` in the `AcceptedWarnings` parameter of your update request. To prevent this issue in the future, see [Choosing the number of shards](bp-sharding.md) and define a sharding strategy that is appropriate for your use case. | 
+| Cross-cluster connection exceeds the shard limit | RemoteClusterTooManyShards | No | The total number of shards across your [cross-cluster search](cross-cluster-search.md) connections exceeds the allowed limit, so OpenSearch Service can't move shards to the new configuration. To resolve this issue, reduce the shard count on the connected domains by adding nodes of the same configuration type or [deleting unused indexes](https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/), then try again. | 
+| New configuration exceeds the maximum shards per node for a Multi-AZ with Standby domain | HAMaxShardCountExceeded | No | Domains that use [Multi-AZ with Standby](managedomains-multiaz.md#managedomains-za-standby) enforce a stricter per-node shard limit, and the new configuration would exceed it. To resolve this issue, add more nodes of the same configuration type, or [delete unused indexes](https://opensearch.org/docs/latest/api-reference/index-apis/delete-index/) to reduce the total shard count, then try again. To prevent this issue in the future, see [Choosing the number of shards](bp-sharding.md). | 
+| Dedicated coordinator node is below the recommended memory size | CoordinatorNodeUndersized | Yes | Each dedicated coordinator node should have at least as much memory as a data node, up to a maximum of 64 GB. To resolve this issue, choose a larger coordinator node instance type. This is an advisory warning. If you understand the impact and want to proceed anyway, accept it by including `CoordinatorNodeUndersized` in the `AcceptedWarnings` parameter of your update request. For sizing guidance, see [Dedicated coordinator nodes in Amazon OpenSearch Service](Dedicated-coordinator-nodes.md). | 
+| Total vCPU of dedicated coordinator nodes is below recommended size | CoordinatorVCpuRatioTooLow | Yes | The total vCPU of your dedicated coordinator nodes is below the recommended minimum of 10% of your total data node vCPU, which can leave insufficient coordination capacity for your cluster. To resolve this issue, increase the coordinator node count or choose a larger coordinator instance type. This is an advisory warning. To proceed without changes, include `CoordinatorVCpuRatioTooLow` in the `AcceptedWarnings` parameter of your update request. For sizing guidance, see [Dedicated coordinator nodes in Amazon OpenSearch Service](Dedicated-coordinator-nodes.md). | 
+| The subnet associated with your domain does not support IPv4 addresses | `ResultCodeIPv4BlockNotExists` | No | To resolve this issue, [create a subnet or update the existing subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-IP-address-range) in your VPC according to the configured IP address type of the domain. If your domain uses an **IPv4 only** address type, use an IPv4-only subnet. If your domain uses **Dual-stack mode**, use a dual-stack subnet. | 
+| The subnet associated with your domain does not support IPv6 addresses | `ResultCodeIPv6BlockNotExists` | No | To resolve this issue, [create a subnet or update the existing subnet](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html#subnet-IP-address-range) in your VPC according to the configured IP address type of the domain. If your domain uses an **IPv4 only** address type, use an IPv4-only subnet. If your domain uses **Dual-stack mode**, use a dual-stack subnet. | 

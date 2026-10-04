@@ -29,7 +29,7 @@ OpenSearch Service has two broad categories of service software updates:
 
 Optional service software updates generally include enhancements and support for new features or functionality. Optional updates aren't enforced on your domains, and there's no hard deadline to install them. The availability of the update is communicated through email and a console notification. You can choose to apply the update immediately or reschedule it for a more appropriate date and time. You can also schedule it during the domain's [off-peak window](off-peak.md). The majority of software updates are optional.
 
-Regardless of whether or not you schedule an update, if the `UseLatestServiceSoftwareForBlueGreen` setting is enabled and you make a change on the domain that causes a [blue/green deployment](managedomains-configuration-changes.md), OpenSearch Service automatically updates your service software for you. If this setting is disabled, the service software is not automatically updated during a blue/green deployment.
+By default, if you make a change on the domain that causes a [blue/green deployment](managedomains-configuration-changes.md), OpenSearch Service automatically updates your service software for you. This behavior is controlled by the `UseLatestServiceSoftwareForBlueGreen` setting, which is enabled by default. If you disable this setting, the service software is not automatically updated during a blue/green deployment.
 
 You can configure your domain to automatically apply optional updates during [off-peak hours](off-peak.md). When this option is turned on, OpenSearch Service waits at least 13 days from when an optional update is available and then schedules the update after seven days. You receive a console notification when the update is scheduled and you can choose to reschedule it for a later date.
 
@@ -59,7 +59,7 @@ Consider the following when deciding whether to update your domain:
 + Updates typically complete within minutes, but can also take several hours or even days if your system is experiencing heavy load. Consider updating your domain during the configured [off-peak window](off-peak.md) to avoid long update periods. 
 
 **Note**  
-The `UseLatestServiceSoftwareForBlueGreen` setting is disabled by default. When enabled, any blue/green deployment on your domain automatically applies the latest available service software update along with the configuration change. To enable this setting, use the `UpdateDomainConfig` API or the AWS CLI.
+The `UseLatestServiceSoftwareForBlueGreen` setting is enabled by default. When enabled, any blue/green deployment on your domain automatically applies the latest available service software update along with the configuration change. To disable this setting, use the `UpdateDomainConfig` API or the AWS CLI.
 
 ## Starting a service software update
 <a name="service-software-requesting"></a>
@@ -265,7 +265,7 @@ Your domain must meet all of the following conditions for a rollback to be avail
 + **A previous software version exists** – Rollback is available only for software updates applied after this feature became generally available (GA). Domains that have not yet undergone a software update since GA do not have a previous version to roll back to.
 + **Only one rollback is permitted per update** – Once a rollback is complete, the domain is considered to be in a rolled-back state. You cannot roll back again until a new software update has been successfully applied.
 + **Software update was explicitly initiated** – Rollback is only available when the software update was explicitly initiated by you or automatically scheduled by OpenSearch Service as part of a mandatory or optional update. Rollback is not available when:
-  + The software update was applied during a blue/green deployment triggered by a configuration change. This includes cases where the `UseLatestServiceSoftwareForBlueGreen` setting is enabled, which bundles the latest software update with configuration changes. This setting is disabled by default.
+  + The software update was applied during a blue/green deployment triggered by a configuration change. This includes cases where the `UseLatestServiceSoftwareForBlueGreen` setting is enabled, which bundles the latest software update with configuration changes. This setting is enabled by default.
   + The update was applied during a service-initiated maintenance operation on your domain, such as infrastructure recovery, automated remediation, or other internal operations performed by OpenSearch Service to maintain the health and availability of your domain.
 
 ### Rollback time windows
