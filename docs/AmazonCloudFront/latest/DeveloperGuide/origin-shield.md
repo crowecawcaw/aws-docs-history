@@ -114,6 +114,7 @@ If your origin is in an AWS Region, first determine whether your origin is in a 
 + Europe (Frankfurt) – `eu-central-1`
 + Europe (Ireland) – `eu-west-1`
 + Europe (London) – `eu-west-2`
++ Europe (Paris) – `eu-west-3`
 + South America (São Paulo) – `sa-east-1`
 + Middle East (UAE) – `me-central-1`
 
@@ -133,7 +134,6 @@ If your origin is in an AWS Region in which CloudFront offers Origin Shield (see
 | Asia Pacific (Hong Kong) – `ap-east-1` | Asia Pacific (Singapore) – `ap-southeast-1` | 
 | Canada (Central) – `ca-central-1` | US East (N. Virginia) – `us-east-1` | 
 | Europe (Milan) – `eu-south-1` | Europe (Frankfurt) – `eu-central-1` | 
-| Europe (Paris) – `eu-west-3` | Europe (London) – `eu-west-2` | 
 | Europe (Stockholm) – `eu-north-1` | Europe (London) – `eu-west-2` | 
 | Middle East (Bahrain) – `me-south-1` | Asia Pacific (Mumbai) – `ap-south-1` | 
 

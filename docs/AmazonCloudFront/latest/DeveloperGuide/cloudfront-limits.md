@@ -107,7 +107,7 @@ CloudFront is subject to the following quotas.
 |  Entity  |  Default quota  | 
 | --- | --- | 
 | Trust stores per AWS account | 20<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
-| Distributions per trust store | 25 | 
+| Distributions per trust store | 300 | 
 | CA bundle size | 1 MB | 
 | Certificate size in CA bundle | 16384<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
 | Number of certificates in CA bundle | 25 | 
