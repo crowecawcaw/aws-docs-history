@@ -6,14 +6,19 @@
 ## Introduction
 <a name="introduction"></a>
 
-The Kiro User Activity Dashboard provides enterprise visibility into [Kiro](https://kiro.dev/) AI coding assistant usage across your AWS accounts. It tracks per-user credit consumption, model usage, and overage risk. Cloud financial management (FinOps) and engineering leaders can use this data to manage Kiro adoption at scale.
+The Kiro User Activity Dashboard provides enterprise visibility into [Kiro](https://kiro.dev/) AI coding assistant usage across your AWS accounts. It tracks per-user credit consumption, model usage, overage risk, and the cost of licences nobody is using. Cloud financial management (FinOps) and engineering leaders can use this data to manage Kiro adoption at scale.
+
+The dashboard answers two different questions from two different data sources. **How is Kiro being used?** comes from the Kiro user activity report: messages, credits, models, and client types, per user per day. **What are we paying for, and is it being used?** comes from your AWS Cost and Usage Report (CUR): which licences appear on each month’s bill, which of them consumed credits, and what the ones that did not have cost you. Because Kiro allocates and resets plan credits per calendar month, both halves are scoped by a single **Billing period** control.
 
 Key capabilities include:
++ Licence-level subscription tracking: how many Kiro licences are billed in a month, how many were used, and how many sat idle
++ Idle licence reclaim reporting, with the cost attributable to the months a licence went unused
 + Credit consumption monitoring with tier-based utilization thresholds
 + Per-user and per-account usage breakdown across all Kiro-enabled regions
 + Model-level message tracking (Claude Opus, Sonnet, Haiku, and other models)
 + Subscription tier right-sizing recommendations (upgrade, downgrade, right-sized)
 + Overage detection and at-risk user identification (at or above 75% plan utilization)
++ Under-utilization detection (below 25% of plan), for conversations with team managers rather than direct action
 + New user adoption tracking
 
 The following screenshot shows the Executive Summary tab of the Kiro User Activity Dashboard:
@@ -28,28 +33,33 @@ Get more familiar with the Dashboard using the live, interactive demo dashboard 
 
 The dashboard has five tabs:
 +  **Executive Summary**:
-  + Active Users, Total Messages, Credits Used, Overage Credits, New Users KPIs
-  + Daily Active Users by Client Type
+  + Total Kiro Subscriptions, Active Kiro Licences, and Idle Kiro Licences KPIs (from CUR)
+  + Total Messages, Credits Used, and Overage Credits KPIs (from the activity report)
+  + Active Users by Client Type and Daily Active Users by Client Type
   + Credits by Subscription Tier
   + Messages by Model
-  + Daily Credits Consumed by Tier
 +  **User Engagement**:
-  + Top 50 Users by Message Count colored by Model
-  + Monthly User Summary pivot table with tier recommendations
-  + Utilization percentage and credits per message metrics
+  + Users by Message Count, and Top 50 Users by Message Count colored by Model
+  + User Summary pivot table with per-user monthly utilization and tier recommendations
+  + Idle Kiro Licences table, listing reclaim candidates with licence tenure and idle cost
 +  **Credit & Overage Tracking**:
-  + Daily Credits Used vs Overage
   + Users at Risk KPI (at or above 75% plan utilization)
   + Users in Overage KPI
+  + Users Below 25% of Plan KPI
+  + Daily Credits Used vs Overage
   + Monthly Credits and Overage pivot table
 +  **Model & Client Breakdown**:
   + Daily Messages by Model
-  + Monthly Model and Client pivot table with user counts and efficiency metrics
+  + Monthly Messages by Model and Client Type pivot table with user counts
 +  **About**:
   + Dashboard version and release information
   + Legal notice
 
-All tabs include shared filter controls for lookback period, AWS Account, User, Model, and Client Type.
+All tabs include shared filter controls for Billing period, AWS Account, User, Model, and Client Type.
+
+**Important**  
+The **Billing period** control scopes every widget on every tab, including the subscription KPIs and the Idle Kiro Licences table. Set it to a **whole calendar month**, and prefer a month that has closed.  
+Kiro allocates and resets plan credits per calendar month, so a partial window understates plan utilization. It also under-reports subscriptions: Kiro subscription fee lines are dated either on the first of the billing month or spread daily through month end, and CUR delivery lag means the current month’s fee lines may not have arrived yet. A window that ends mid-month can therefore miss a licence’s billing rows entirely, and the licence drops out of the roster instead of being reported. The control defaults to the previous month for this reason, which is the most recent fully delivered bill.
 
 ## Architecture
 <a name="architecture"></a>
@@ -69,6 +79,12 @@ The following diagram shows the pull-based data collection flow:
 
 1. Amazon Quick Suite ingests data from Amazon Athena (through a bounded two-year view over the table) into SPICE (Super-fast, Parallel, In-memory Calculation Engine) and applies calculated fields for utilization metrics, tier recommendations, and overage tracking.
 
+The dashboard uses a **second** dataset, built from your existing AWS Cost and Usage Report rather than from the Kiro activity report. The activity report only contains users who did something, so it has no way to represent a subscribed-but-idle user. Subscription counts, the active and idle split, and all cost figures therefore come from CUR:
+
+1. An Athena view over your CUR 2.0 table selects Kiro line items (`line_item_product_code = 'Kiro'`) for the last 18 months, at one row per billing line per subscriber. Subscription fee lines and credit-consumption lines are both retained, because the dashboard needs to distinguish them: the billing operation distinguishes them, not the pricing unit, because the same consumption arrives under two different pricing units. The view also joins the activity report per licence and month, so credit consumption that produces no billing record still registers as activity. It resolves a human-readable email from the same join, falling back to the raw Identity Center user ID for a subscriber who has never generated activity.
+
+1. Quick Suite ingests that view into a second SPICE dataset. Both datasets expose a `usage_date` column under the same name, which is what allows the single **Billing period** control to scope both of them at once.
+
 ## Prerequisites
 <a name="prerequisites"></a>
 
@@ -77,6 +93,8 @@ The following diagram shows the pull-based data collection flow:
 1.  [Deploy](data-collection-deployment.md) or [Update](data-collection-update.md) the Data Collection Stack with the **Kiro User Activity Data Collection Module** enabled (see [Step 1](#step-1-enable-the-kiro-user-activity-module-in-the-data-collection-stack)).
 
 1.  **Kiro user activity reporting enabled** — Each source account must have Kiro user activity reporting enabled and writing CSV reports to an Amazon S3 bucket. This is configured in each account through the Kiro console.
+
+1.  **An AWS Cost and Usage Report (CUR 2.0) data export**: required by the subscription and cost widgets, which read Kiro line items from CUR rather than from the activity report. The foundational dashboards in step 1 already set this up. If your organization’s Kiro subscriptions are billed in a payer account whose CUR you do not collect, those licences do not appear in the subscription KPIs or the Idle Kiro Licences table, although any activity they generate still appears in the usage widgets.
 
 1.  **Amazon Quick Suite Enterprise Edition** — Required for SPICE datasets and calculated fields.
 
@@ -268,51 +286,103 @@ You do not need to redeploy the dashboard. New accounts automatically appear as 
 ## Usage Guide
 <a name="usage-guide"></a>
 
+A typical review runs left to right. Set the **Billing period** to the month you are reviewing, read the Executive Summary to see whether the licence pool is the right size, use User Engagement to decide what to do about individual licences, and use Credit & Overage Tracking to spot people on the wrong tier. Model & Client Breakdown answers a separate question about which models and clients your developers actually work in.
+
 **Example**  
-Start with the Executive Summary tab to get a high-level view of Kiro adoption and credit consumption:  
-+  **Active Users KPI** — Distinct users with at least one message in the selected period
-+  **Credits Used KPI** — Total credits consumed in the selected lookback period
-+  **Overage Credits KPI** — Credits consumed beyond plan allocation
-+  **New Users KPI** — Users flagged as new by Kiro
-+  **Daily Active Users by Client Type** — Tracks adoption across Kiro client types (`KIRO_IDE`, `KIRO_CLI`, and `PLUGIN`)
-+  **Credits by Subscription Tier** — Shows consumption distribution across the Pro, ProPlus, ProMax, and Power tiers
-+  **Messages by Model** — Identifies which models drive the most activity
-Drill into individual user behavior:  
-+  **Top 50 Users** — Identifies power users and potential champions
-+  **Monthly User Summary** — Pivot table grouped by year, month, account, and user with key metrics:
-  + Total messages, credits used, plan credits, monthly utilization %, credits per message
-  + Tier recommendation (Upgrade Candidate, Downgrade Candidate, Review Overage Settings, or Right-Sized)
-Monitor credit health and identify risk:  
-+  **Users at Risk** — Count of users at or above 75% of their monthly plan credits
-+  **Users in Overage** — Count of users who have exceeded their plan allocation
-+  **Daily Credits vs Overage** — Visualizes daily burn rate against plan limits
-+  **Monthly Credits pivot** — Detailed per-user credit tracking with overage breakdown
-Understand AI model utilization patterns:  
-+  **Daily Messages by Model** — Stacked bar chart showing model popularity over time
-+  **Monthly Model and Client pivot** — Groups data by model and client type with user counts, message volumes, and cost efficiency
+This tab answers whether you are buying the right number of Kiro licences and whether they are being used. The first three KPIs come from billing data and count **licences**; the next three come from the activity report and count **usage**. They deliberately measure different populations and will not reconcile with each other, because CUR also covers accounts whose Kiro activity report you are not collecting.  
++  **Total Kiro Subscriptions**: licences that appear on the selected month’s bill. This is your licence pool for that month, and it is the denominator for everything else on the tab. A licence cancelled in a previous month simply has no fee line in the selected month and drops out on its own.
++  **Active Kiro Licences**: of those, the ones that consumed credits during the month. Someone was working in Kiro on this licence.
++  **Idle Kiro Licences**: the remainder, billed for the month but with no credit consumption in it. These are your reclaim candidates, and the count turns red when it is above zero. Active plus Idle always equals Total, so the three read as one sentence.
++  **Total Messages**, **Credits Used**, **Overage Credits**: volume for the month from the activity report. Overage Credits is consumption beyond the plan allocation, which is billed at a higher rate than in-plan credits.
++  **Active Users by Client Type**: distinct users who appear in the activity report, split across `KIRO_IDE`, `KIRO_CLI`, and `PLUGIN`. Use it to see which surfaces adoption is actually happening on.
++  **Daily Active Users by Client Type**: the same population broken down by day, which shows whether usage is steady or concentrated in bursts.
++  **Credits by Subscription Tier**: where consumption sits across Pro, ProPlus, ProMax, and Power. Read alongside the tier recommendations on the next tab.
++  **Messages by Model**: which models drive the most activity.
+This tab is where you decide what to do about individual licences. The **User Summary** pivot handles people who are using Kiro, and the **Idle Kiro Licences** table handles the ones who are not.  
++  **Users by Message Count** and **Top 50 Users by Message Count**: identify your heaviest users and likely internal champions. The Top 50 chart colors each bar by model, so you can also see whose work depends on which model.
++  **User Summary**: one row per user per month, with total messages, credits used, plan credits, monthly utilization percentage, credits per message, and a tier recommendation of Upgrade Candidate, Downgrade Candidate, Review Overage Settings, or Right-Sized. Because plan credits reset monthly, select a single month for these figures to be meaningful.
++  **Idle Kiro Licences**: licences on the selected month’s bill that consumed no credits during it, which matches the Idle Kiro Licences KPI on the Executive Summary. Read it left to right as a case for or against reclaiming each licence:
+  +  **Licence Since** and **Last Activity**: when the licence first appeared on a bill, and the last day any credits were consumed on it. Both are all-time and can fall outside the selected month. A blank Last Activity means the licence has never been used at all, which makes it the most reclaimable kind.
+  +  **Months Active**: how long the person used Kiro before going quiet. This is the column that prevents over-reacting. Somebody productive for a year who has been quiet for two months, perhaps on parental leave or between projects, is a different case from a licence barely touched since it was bought.
+  +  **Months Idle**: whole calendar months of no credit consumption, measured to the last day of the selected period.
+  +  **Monthly Fee** and **Inactivity Cost**: what the licence costs per month, taken from what CUR actually charged rather than from a price list, and Months Idle multiplied by that fee. Inactivity Cost is cumulative across the whole idle stretch rather than for the selected month alone, so a licence idle since March shows six months of fees in a September review, not one.
+This tab is about whether individual users are on the right plan. The three KPIs mark out the two ends of the utilization range, and the pivot shows who sits where.  
++  **Users at Risk**: users at or above 75% of their monthly plan credits. They are on course to exceed their plan.
++  **Users in Overage**: users who have already exceeded it and are consuming credits at the overage rate.
++  **Users Below 25% of Plan**: users who consumed less than a quarter of their allowance. Treat this list differently from the idle licences: low credit consumption is not the same as low productivity, since an experienced developer can be effective on very few credits. Share it with the relevant team managers to judge whether Kiro is landing, rather than acting on it directly.
++  **Daily Credits Used vs Overage**: daily burn rate with the overage portion stacked on top, which shows when in the month users cross their plan limit.
++  **Monthly Credits and Overage by User**: per-user detail behind the three KPIs, with plan credits, credits used, utilization percentage, overage credits, and the tier recommendation.
+This tab describes how developers work rather than what it costs. Use it when choosing which models to make available, or when sizing the impact of a model deprecation.  
++  **Daily Messages by Model**: a stacked bar chart of model popularity over time.
++  **Monthly Messages by Model and Client Type**: message volumes and distinct user counts grouped by model, client type, and subscription tier.
+This tab reports **messages**, not credits. The Kiro activity report writes a user’s daily credit total on a single one of that user’s model rows rather than splitting it per model, so credits cannot be attributed to an individual model from this data source. Any per-model credit figure would report which row happened to carry the total, not which model spent it.
+
+### How licences are counted
+<a name="how-licences-are-counted"></a>
+
+One licence is **one subscriber within one AWS account**, identified by the IAM Identity Center user ID in the CUR line item resource ID, paired with the account that is billed for it.
+
+This matters when the same person is subscribed in more than one account, which happens in organizations that run separate AWS accounts per team or per environment. That person holds two licences, is billed twice, and either licence can go idle and be reclaimed independently of the other. Counting distinct subscribers instead would collapse the two into one and hide the wasted spend, so the subscription KPIs count the pair and a single person can legitimately appear twice in the Idle Kiro Licences table under different accounts.
+
+Grouping only by subscriber has the same effect inside the idle table: if a person works in one account and lets the licence in a second account sit unused, the active account’s last-activity date would mask the abandoned licence. All of the idle calculations are therefore evaluated per account and subscriber together.
 
 ## Calculated Fields Reference
 <a name="calculated-fields-reference"></a>
 
-The following calculated fields are created in the Quick Suite dataset:
+### Activity dataset
+<a name="activity-dataset"></a>
+
+Fields derived from the Kiro user activity report, which is one row per user per day per model:
 
 
 | Field | Logic | Purpose | 
 | --- | --- | --- | 
-|  `report_date`  |  `parseDate({date}, "yyyy-MM-dd")`  | Date type for time-series | 
+|  `usage_date`  |  `parseDate({date}, "yyyy-MM-dd")`  | Date type for time-series, and the column the Billing period control filters on | 
 |  `user`  | Email if available, cleaned userid otherwise | Human-readable display | 
-|  `plan_credits`  | Pro=1000, ProPlus=2000, ProMax=5000, Power=10000, Free=50 | Monthly plan allocation | 
+|  `plan_credits`  | Pro=1000, ProPlus=2000, ProMax=5000, Power=10000, Free=50 | Plan allocation for the tier on that row | 
 |  `plan_utilization_pct`  |  `credits_used / plan_credits`  | Per-day utilization (not used directly by the pivots; see `monthly_plan_utilization_pct`) | 
 |  `in_overage_flag`  | 1 if overage\_credits > 0 | Overage counter | 
 |  `credits_per_message`  |  `credits_used / total_messages`  | Efficiency metric | 
 |  `is_new_user`  | 1 if new\_user = true | Adoption counter | 
-|  `monthly_plan_utilization_pct`  | Cumulative monthly credits per user / plan\_credits (analysis-level, aggregated over the calendar month) | Monthly utilization — the basis for utilization %, at-risk, and tier recommendations | 
+|  `monthly_plan_credits`  | The highest plan allocation the licence held during the calendar month (analysis-level) | The month’s effective allowance, resolved to a single figure for a licence that changed tier mid-month | 
+|  `monthly_tier`  | The tier matching `monthly_plan_credits`  | The tier label to group by for any monthly figure, so a licence that changed tier mid-month appears once | 
+|  `monthly_plan_utilization_pct`  | Cumulative monthly credits per user / `monthly_plan_credits` (analysis-level, aggregated over the calendar month) | Monthly utilization, the basis for utilization %, at-risk, under-utilization, and tier recommendations | 
 |  `monthly_overage_credits`  | Sum of a user’s overage credits over the calendar month (analysis-level) | Monthly overage total | 
-|  `at_risk_flag`  | 1 if monthly utilization >= 75% | Risk threshold | 
-|  `tier_recommendation_monthly`  | Any monthly overage → Upgrade Candidate (or Review Overage Settings if already on Power, the top tier); else monthly utilization <30% on a tier above Pro → Downgrade Candidate; else Right-Sized | Tier optimization (evaluated on monthly, not per-day, usage) | 
+|  `monthly_credits_per_message`  | Monthly credits summed, divided by monthly messages summed, per user | Efficiency metric at monthly grain. Averaging the per-row ratio instead understates it, because the activity report writes a user’s daily credit total on one model row only | 
+|  `at_risk_flag`  | 1 if monthly utilization >= 75%, for a recognized tier | Risk threshold. Requires a known plan allocation, so an unrecognized tier is excluded rather than silently counted as 0% and dropped from the at-risk count | 
+|  `underutilized_flag`  | 1 if monthly utilization < 25%, for a recognized tier | Under-utilization threshold. Requires a known plan allocation, so a tier the dashboard does not recognize is excluded rather than reported as unused | 
+|  `tier_recommendation_monthly`  | No known plan allocation gives Unknown Tier; else any monthly overage gives Upgrade Candidate (or Review Overage Settings if already on Power, the top tier); else monthly utilization below 30% on a tier above Pro gives Downgrade Candidate; else Right-Sized | Tier optimization, evaluated on monthly rather than per-day usage | 
 
 **Note**  
-Utilization, at-risk, and tier-recommendation logic all evaluate usage over the **calendar month**, because Kiro plan credits are allocated and reset per calendar month. Set the dashboard’s lookback period to a full calendar month when reviewing these metrics.
+ `tier_key` and the tier spellings. The subscription tier is normalized once into a `tier_key` column, lowercased with underscores, hyphens and spaces removed, and every comparison matches on that rather than on the raw `Subscription_Tier` value.  
+This is deliberate rather than defensive. Kiro spells the same tier differently depending on where you read it: the activity report writes `PRO_PLUS` and `PRO_MAX`, the CUR line item usage type uses `KiroEnterprise-ProPlus`, and the Kiro documentation gives `ProPlus` and `ProMax`. Matching any single spelling means the other two fall through to a zero plan allowance. Normalizing accepts all of them.  
+A tier with no known allowance reports `Unknown Tier` and is excluded from the at-risk and under-utilization counts, rather than being reported as 0% utilized.
+
+### Subscription dataset
+<a name="subscription-dataset"></a>
+
+Fields derived from CUR, evaluated per account and subscriber together. Except where noted, all of them are scoped to the selected **Billing period**:
+
+
+| Field | Logic | Purpose | 
+| --- | --- | --- | 
+|  `subscription_key`  |  `account_id` and `resource_id` combined | The unit of licence counting. See [How licences are counted](#how-licences-are-counted)  | 
+|  `period_total_cost`  | Every Kiro charge for the licence in the period, whatever the billing operation | Defines the roster: a licence with no charge in the month is not on that month’s bill. Deliberately unfiltered, so a charge under an unrecognized billing operation cannot remove the licence from the Total, Active and Idle counts | 
+|  `period_subscription_cost`  | Subscription fee charges only | The basis for `monthly_fee`, kept separate from the roster above | 
+|  `period_active_flag`  | 1 if the licence consumed credits in the period, according to the Kiro activity report **or** a billing record | Defines active. Credit consumption included in a subscription does not always produce a billing record, so billing alone cannot answer this | 
+|  `inactive_in_period`  |  `period_total_cost > 0` and `period_active_flag = 0`  | The idle test, and the filter behind the Idle Kiro Licences KPI and table | 
+|  `last_activity_date`  | Newest credit-consumption date for the licence, **all-time**, from the activity report or a billing record | Last Activity column. Not scoped to the period, so it can show later activity for a licence that was idle during the month under review | 
+|  `first_billed_date`  | Oldest fee line date for the licence, **all-time**  | Licence Since column, and the starting point for a licence that has never consumed credits | 
+|  `monthly_fee`  | Subscription cost divided by the number of distinct months billed in the period | What the licence costs per month, taken from actual charges so tier changes, discounts, and private pricing are all reflected without maintaining a price list | 
+|  `months_idle`  | Whole calendar months from the last activity to the end of the selected period | Months Idle column, and the multiplier for Inactivity Cost | 
+|  `months_active`  | Months licensed minus months idle | Months Active column: how long the person used Kiro before going quiet | 
+|  `inactivity_cost`  |  `monthly_fee` multiplied by `months_idle`  | Inactivity Cost column: what the idle months have cost, cumulatively rather than for the selected month alone | 
+
+**Note**  
+Utilization, at-risk, under-utilization, and tier-recommendation logic all evaluate usage over the **calendar month**, because Kiro plan credits are allocated and reset per calendar month. The subscription and idle fields are scoped to the selected month for the same reason. Set the **Billing period** control to a full calendar month when reviewing any of these metrics.  
+Two consequences are worth knowing when reading the idle table:  
+ **Months Active and Licence Since are bounded by data retention.** The subscription view keeps 18 months of CUR, so a licence bought before that shows the oldest date available rather than its true start, and Months Active reads as a minimum rather than an exact tenure. Several licences sharing the same Licence Since date is the signal that you are at that boundary.
+ **A licence that was idle in the month under review but has since been used again** reports the selected period as its idle span, not the true gap. The figure is a floor, and the Last Activity column shows the later date so the licence is not reclaimed by mistake.
 
 ## Update
 <a name="update"></a>

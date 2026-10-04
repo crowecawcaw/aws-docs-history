@@ -207,7 +207,7 @@ Note: This step is done in the target account where the CID lives, this may diff
                    {
                    "Effect": "Allow",
                    "Principal": {
-                           "Federated": "arn:aws:iam::ACCOUNT_ID:saml-provider/Quick SightProvider"
+                           "Federated": "arn:aws:iam::111122223333:saml-provider/Quick SightProvider"
                    },
                    "Action": "sts:AssumeRoleWithSAML",
                    "Condition": {
@@ -219,7 +219,7 @@ Note: This step is done in the target account where the CID lives, this may diff
                    {
                    "Effect": "Allow",
                    "Principal": {
-                           "Federated": "arn:aws:iam::ACCOUNT_ID:saml-provider/Quick SightProvider"
+                           "Federated": "arn:aws:iam::111122223333:saml-provider/Quick SightProvider"
                    },
                    "Action": "sts:TagSession",
                    "Condition": {

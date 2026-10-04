@@ -18,11 +18,36 @@ Subscribe to the RSS feed to get notified about new releases automatically: [clo
 
 The highlights below cover notable releases from the past year, most recent first.
 
+## Kiro User Activity Dashboard v1.1.1: tier and idle-licence reporting fixes (September 25, 2026)
+<a name="whats-new-kiro-user-activity-111"></a>
+
+Update if you have users on Pro Plus or Pro Max, or licences that changed tier mid-month.
++  **Tier reporting for Pro Plus and Pro Max** — the report writes `PRO_PLUS` and `PRO_MAX`, which did not match the tier ladder, so Plan Credits and Plan Utilization read 0, the tier recommendation always read Downgrade Candidate, and Users at Risk under-counted those licences. Subscription Type also showed "monthly-subscription" rather than the tier, and an unrecognized tier now reports Unknown Tier.
++  **Licences in active use were reported idle** — with an Inactivity Cost and a blank Last Activity. Credits included in a subscription do not always produce a billing record, so activity is now read from the Kiro activity report.
++  **A licence that changed tier mid-month appeared twice** — once per tier, with contradictory recommendations. Tier, allowance, and utilization now resolve once per licence-month.
+
+This release changes an Athena view, so update with `--recursive` and refresh SPICE for both datasets.
+
+See the [Kiro User Activity Dashboard](kiro-user-activity-dashboard.md).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-kiro-user-activity.md).
+
+## Kiro User Activity Dashboard v1.1.0: licence-level subscription visibility (September 16, 2026)
+<a name="whats-new-kiro-user-activity-110"></a>
++  **Licence-centric KPIs** — Total Active and Total Inactive Kiro Users become Active Kiro Licences and Idle Kiro Licences, counted per subscriber **and** account, so the same person subscribed in two accounts holds two independently reclaimable licences.
++  **Idle licence cost attribution** — the Idle Kiro Licences table gains licence tenure, months active, months idle, monthly fee, and the cost attributable to the idle months.
++  **Billing period control** — a single whole-month control scopes every widget on every tab, because Kiro allocates and resets plan credits per calendar month. "Inactive" means billed in the selected month with no credit consumption in it.
++  **New Users Below 25% of Plan KPI** — the low-utilization counterpart to the at-risk and overage KPIs.
+
+See the [Kiro User Activity Dashboard](kiro-user-activity-dashboard.md).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-kiro-user-activity.md).
+
 ## CID Data Collection v3.14.8: refactored Service Quotas module (August 26, 2026)
 <a name="whats-new-cid-data-collection-31408"></a>
-+  **Native quota utilization API** — the Service Quotas module now uses the native Service Quotas utilization API to retrieve quota values and usage, improving accuracy and reliability of the collected data.
-+  **Parallel regional processing** — quotas are now collected across regions in parallel, significantly reducing collection time.
-+  **Collect all quotas** — improved logic now collects all quotas rather than only those with applied quota changes, giving broader visibility into quota utilization.
++  **Native quota utilization API** — the Service Quotas module now retrieves quota values and usage from the Service Quotas utilization API, improving accuracy and reliability.
++  **Parallel regional processing** — quotas are collected across regions in parallel, significantly reducing collection time.
++  **All quotas collected** — rather than only those with applied quota changes, giving broader visibility into quota utilization.
 
 See [CID Data Collection](data-collection.md).
 
