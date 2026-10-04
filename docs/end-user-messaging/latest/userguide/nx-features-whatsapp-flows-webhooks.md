@@ -1,0 +1,177 @@
+
+
+# Receiving Flow responses and status changes
+<a name="nx-features-whatsapp-flows-webhooks"></a>
+
+When a user completes a Flow or when a Flow's status changes, AWS End User Messaging delivers webhook notifications through your existing configured event destination. No additional setup or new event types are required — Flow events are delivered automatically to the same event destination you use for messages and delivery receipts. You must have an event destination enabled to receive these notifications. For more information about event destinations, see [Configuration sets](nx-features-configuration-sets.md).
+
+## Flow response messages
+<a name="nx-features-whatsapp-flows-webhooks-response"></a>
+
+When a user completes a Flow, you receive an inbound message with the type `interactive` and the subtype `nfm_reply`. The `response_json` field contains the data submitted by the user as a JSON string.
+
+The following example shows a Flow response webhook payload:
+
+```
+{
+    "messages": [
+        {
+            "from": "14085551234",
+            "id": "wamid.XXX",
+            "timestamp": "1234567890",
+            "type": "interactive",
+            "interactive": {
+                "type": "nfm_reply",
+                "nfm_reply": {
+                    "response_json": "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"phone\":\"+14085551234\"}",
+                    "body": "Sent",
+                    "name": "flow"
+                }
+            }
+        }
+    ]
+}
+```
+
+The `response_json` contains key-value pairs corresponding to the form field names defined in your Flow JSON and the values entered by the user. Parse this JSON string to extract the submitted data.
+
+## Flow status change notifications
+<a name="nx-features-whatsapp-flows-webhooks-status"></a>
+
+When Meta changes a Flow's status (for example, from PUBLISHED to BLOCKED), you receive a notification through your event destination. The following example shows a status change payload:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "FLOW_STATUS_CHANGE",
+                        "flow_id": "{FLOW_ID}",
+                        "old_status": "PUBLISHED",
+                        "new_status": "BLOCKED",
+                        "reason": "Policy violation detected"
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Monitor these status change events to detect when Meta blocks or throttles your Flows so you can take corrective action.
+
+## Endpoint health notifications (dynamic Flows)
+<a name="nx-features-whatsapp-flows-webhooks-endpoint"></a>
+
+For dynamic Flows with an endpoint, Meta monitors endpoint health and sends notifications when issues are detected. You receive these through your configured event destination.
+
+**Endpoint error rate** — Sent when the error rate exceeds a threshold in the last 30 minutes:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "ENDPOINT_ERROR_RATE",
+                        "flow_id": "{FLOW_ID}",
+                        "error_rate": 14.28,
+                        "threshold": 10,
+                        "alert_state": "ACTIVATED",
+                        "errors": [
+                            { "error_type": "CAPABILITY_ERROR", "error_rate": 66.66, "error_count": 2 },
+                            { "error_type": "TIMEOUT", "error_rate": 33.33, "error_count": 1 }
+                        ]
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+**Endpoint latency** — Sent when the p90 latency exceeds the threshold:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "ENDPOINT_LATENCY",
+                        "flow_id": "{FLOW_ID}",
+                        "p90_latency": 8000,
+                        "p50_latency": 500,
+                        "requests_count": 34,
+                        "threshold": 7000,
+                        "alert_state": "ACTIVATED"
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+**Endpoint availability** — Sent when endpoint availability drops below the threshold:
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "ENDPOINT_AVAILABILITY",
+                        "flow_id": "{FLOW_ID}",
+                        "availability": 75,
+                        "threshold": 90,
+                        "alert_state": "ACTIVATED"
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+Monitor these events to detect and resolve endpoint issues before Meta blocks or throttles your Flow. For more information about setting up dynamic Flows, see [Setting up Dynamic Flows](nx-features-whatsapp-flows-dynamic.md).
+
+## Flow version expiry warnings
+<a name="nx-features-whatsapp-flows-webhooks-expiry"></a>
+
+Meta sends a warning webhook when the Flow JSON version used by your Flow is approaching its end-of-life date. When a version expires, you cannot send the Flow until you update to a newer version.
+
+```
+{
+    "entry": [
+        {
+            "id": "WHATSAPP_BUSINESS_ACCOUNT_ID",
+            "changes": [
+                {
+                    "value": {
+                        "event": "FLOW_VERSION_EXPIRY_WARNING",
+                        "flow_id": "{FLOW_ID}",
+                        "warning": "Your current Flow version will freeze in 21 days. You won't be able to send the Flow after it expires. Please migrate to the recommended version as soon as possible."
+                    },
+                    "field": "flows"
+                }
+            ]
+        }
+    ]
+}
+```
+
+When you receive this warning, update your Flow JSON to use the recommended version (currently 7.3) by calling `UpdateWhatsAppFlowAssets` with the updated JSON, then re-publish the Flow.

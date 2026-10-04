@@ -1,0 +1,16 @@
+
+
+# Managing access using policies
+<a name="nx-security-iam-access-manage"></a>
+
+You control access in AWS by creating policies and attaching them to AWS identities or resources. A policy is an object in AWS that, when associated with an identity or resource, defines their permissions. AWS evaluates these policies when a principal (user, root user, or role session) makes a request. Permissions in the policies determine whether the request is allowed or denied. Most policies are stored in AWS as JSON documents. For more information about the structure and contents of JSON policy documents, see [Overview of JSON policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#access_policies-json) in the *IAM User Guide*.
+
+With policies, administrators specify who has access to what by defining which *principal* can perform *actions* on what *resources*, and under what *conditions*. By default, users and roles have no permissions. An IAM administrator creates IAM policies and adds them to roles, and then users can assume the roles.
+
+**Identity-based policies**. Identity-based policies are JSON permissions policy documents that you can attach to an identity, such as an IAM user, group of users, or role. These policies control what actions users and roles can perform, on which resources, and under what conditions. To learn how to create an identity-based policy, see [Define custom IAM permissions with customer managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*.
+
+**Resource-based policies**. Resource-based policies are JSON policy documents that you attach to a resource. Examples of resource-based policies are IAM *role trust policies* and Amazon S3 *bucket policies*. In services that support resource-based policies, service administrators can use them to control access to a specific resource. For the resource where the policy is attached, the policy defines what actions a specified principal can perform on that resource and under what conditions. You must [specify a principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html) in a resource-based policy. You cannot use AWS managed policies from IAM in a resource-based policy.
+
+**Other policy types**. AWS supports additional, less-common policy types that can set the maximum permissions granted to you by the more common policy types. Permissions boundaries set the maximum permissions that an identity-based policy can grant to an IAM entity. Service control policies (SCPs) specify the maximum permissions for an organization or organizational unit in AWS Organizations. Resource control policies (RCPs) set the maximum available permissions for resources in your accounts. Session policies are advanced policies that you pass as a parameter when you programmatically create a temporary session for a role or federated user.
+
+**Multiple policy types**. When multiple types of policies apply to a request, the resulting permissions are more complicated to understand. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*.

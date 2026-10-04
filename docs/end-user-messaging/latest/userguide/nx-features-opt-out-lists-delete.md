@@ -1,0 +1,33 @@
+
+
+# Delete an opt-out list in AWS End User Messaging
+<a name="nx-features-opt-out-lists-delete"></a>
+
+Use the AWS End User Messaging console or AWS CLI to delete an opt-out list.
+
+------
+#### [ Delete opt-out list (Console) ]
+
+To delete an opt-out list using the AWS End User Messaging console, follow these steps:
+
+1. Open the AWS End User Messaging console at [https://console.aws.amazon.com/end-user-messaging/](https://console.aws.amazon.com/end-user-messaging/).
+
+1. In the navigation pane, under **Configurations**, choose **Opt-out lists**.
+
+1. On the **Opt-out lists** page, choose an opt-out list, choose **Delete**.
+
+------
+#### [ Delete opt-out list (AWS CLI) ]
+
+You can use the [delete-opt-out-list](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/delete-opt-out-list.html) command to delete an opt-out list
+
+At the command line, enter the following command:
+
+```
+$ aws pinpoint-sms-voice-v2 delete-opt-out-list \
+> --opt-out-list-name {{optOutListName}}
+```
+
+In the preceding example, replace {{optOutListName}} with a name that makes the opt-out list easy to identify.
+
+------

@@ -1,0 +1,63 @@
+
+
+# Edit an Amazon SNS event destination in AWS End User Messaging
+<a name="nx-features-configuration-sets-sns-edit"></a>
+
+Use the AWS End User Messaging console or AWS CLI to edit an Amazon SNS event destination.
+
+------
+#### [ Update an Amazon SNS event destination (Console) ]
+
+To update an AWS End User Messaging event destination using the AWS End User Messaging console, follow these steps:
+
+1. Open the AWS End User Messaging console at [https://console.aws.amazon.com/end-user-messaging/](https://console.aws.amazon.com/end-user-messaging/).
+
+1. In the navigation pane, under **Configurations**, choose **Configuration sets**.
+
+1. On the **Configuration sets** page, choose the configuration set to add an event destination to. 
+
+1. On the **Configuration sets** page, choose the configuration set to edit. 
+
+1. On the **Configuration set details** page, choose a Amazon SNS event destination and then **Edit**.
+
+1. From the **Destination type** dropdown choose Amazon SNS.
+
+   1. **New Amazon SNS topic** – Choose this option, AWS End User Messaging creates a topic in your account. The topic is automatically created with all of the required permissions. For more information on Amazon SNS topics see [Configuring Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html) in the [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/).
+
+   1. **Existing Amazon SNS topic** – Choose this option if you have an existing Amazon SNS topic in the **Topic arn** dropdown.
+
+1. Under **Event types**, choose:
+   + **All SMS events (Recommended)** – Choose this option to send all SMS events listed in [Event types](configuration-sets-event-types.md) to Amazon SNS.
+   + **Custom SMS events** – Choose this option choose specific SMS events to send to Amazon SNS. To edit the list of events choose **Edit SMS event selection**. On **Edit SMS event selection** check only the events you want to send to Amazon SNS. Choose **Save selection**.
+   + **All voice events (Recommended)** – Choose this option to send all voice events listed in [Event types](configuration-sets-event-types.md) to Amazon SNS.
+   + **Custom voice events** – Choose this option choose specific voice events to send to Amazon SNS. To edit the list of events choose **Edit voice event selection**. On **Edit voice event selection** check only the events you want to send to Amazon SNS. Choose **Save selection**.
+   + **All MMS events (Recommended)** – Choose this option to send all MMS events listed in [Event types](configuration-sets-event-types.md) to Amazon SNS.
+   + **Custom MMS events** – Choose this option choose specific MMS events to send to Amazon SNS. To edit the list of events choose **Edit MMS event selection**. On **Edit MMS event selection** check only the events you want to send to Amazon SNS. Choose **Save selection**.
+
+1. Choose **Edit event**.
+
+------
+#### [ Update an Amazon SNS event destination (AWS CLI) ]
+
+You can use the [update-event-destination](https://docs.aws.amazon.com/cli/latest/reference/pinpoint-sms-voice-v2/update-event-destination.html) command to update an event destination.
+
+The procedure for updating an Amazon SNS event destination is similar to the process for creating an event destination.
+
+**To update an Amazon SNS event destination in the AWS CLI**
++ At the command line, run the following command:
+
+  ```
+  $ aws pinpoint-sms-voice-v2 update-event-destination \
+  > --event-destination-name {{eventDestinationName}} \
+  > --configuration-set-name {{configurationSet}} \
+  > --matching-event types {{eventTypes}} \
+  > --sns-destination TopicArn=arn:aws:sns:{{us-east-1}}:{{111122223333}}:{{snsTopic}}
+  ```
+
+  In the preceding command, make the following changes:
+  + Replace {{eventDestinationName}} with a name of the event destination that you want to modify.
+  + Replace {{configurationSet}} with the name of the configuration set that you want to associate the event destination with. You can associate the event destination with a different configuration set.
+  + Replace {{eventTypes}} with one or more of the event types listed in [Event types for SMS, MMS, and voice](configuration-sets-event-types.md).
+  + Replace the value of `TopicArn` with the Amazon Resource Name (ARN) of the Amazon SNS topic that you want to send events to.
+
+------

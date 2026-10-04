@@ -1,0 +1,14 @@
+
+
+# Inter-network traffic privacy
+<a name="nx-security-inter-network-traffic-privacy"></a>
+
+*Inter-network traffic privacy* refers to securing connections and traffic between AWS End User Messaging and your on-premises clients and applications, and between AWS End User Messaging and other AWS resources in the same AWS Region. The following features and practices can help you secure inter-network traffic privacy for AWS End User Messaging.
+
+**Traffic between AWS End User Messaging and on-premises clients and applications**. To establish a private connection between AWS End User Messaging and clients and applications on your on-premises network, you can use AWS Direct Connect. This enables you to link your network to an AWS Direct Connect location by using a standard, fiber-optic Ethernet cable. One end of the cable is connected to your router. The other end is connected to an AWS Direct Connect router. For more information, see [What is AWS Direct Connect?](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html) in the *AWS Direct Connect User Guide*.
+
+To help secure access to AWS End User Messaging through published APIs, we recommend that you comply with AWS End User Messaging requirements for API calls. AWS End User Messaging requires clients to use Transport Layer Security (TLS) 1.2 or later. Clients must also support cipher suites with perfect forward secrecy (PFS), such as Ephemeral Diffie-Hellman (DHE) or Elliptic Curve Diffie-Hellman Ephemeral (ECDHE). Most modern systems such as Java 7 and later support these modes. In addition, requests must be signed using an access key ID and a secret access key that is associated with an AWS Identity and Access Management (IAM) principal for your AWS account. Alternatively, you can use the [AWS Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) (AWS STS) to generate temporary security credentials to sign requests.
+
+**Traffic between AWS End User Messaging and other AWS resources**. To secure communications between AWS End User Messaging and other AWS resources in the same AWS Region, AWS End User Messaging uses HTTPS and TLS 1.2 by default.
+
+**Understanding SMS traffic outside the AWS boundary**. At AWS, we take data protection seriously. We employ a variety of security measures to safeguard the data you store and process within our cloud environment. However, it is important to understand that the level of protection may differ when data leaves the AWS boundary and is processed or transmitted by external parties. The SMS protocol does not support encryption. To send an SMS message, AWS is required to transmit the SMS message outside of the AWS boundary, and the SMS message will not be end-to-end encrypted.
