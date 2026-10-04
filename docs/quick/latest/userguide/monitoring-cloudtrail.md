@@ -33,12 +33,12 @@ To learn more about CloudTrail, including how to configure and enable it, see th
 
 CloudTrail is enabled on your AWS account when you create the account. When supported event activity occurs in Amazon Quick, that activity is recorded in a CloudTrail event along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For more information, see [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html). 
 
-For an ongoing record of events in your AWS account, including events for Amazon Quick, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all . The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
+For an ongoing record of events in your AWS account, including events for Amazon Quick, create a trail. A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all AWS Regions. The trail logs events from all Regions in the AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze and act upon the event data collected in CloudTrail logs. For more information, see the following: 
 + [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html)
 + [CloudTrail Supported Services and Integrations](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.html#cloudtrail-aws-service-specific-topics-integrations)
 + [Configuring Amazon SNS Notifications for CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/getting_notifications_top_level.html)
 + [Receiving CloudTrail Log Files from Multiple Regions](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.html) and [Receiving CloudTrail Log Files from Multiple Accounts](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.html)
-+ [Cross-Account CloudTrail Logging](https://docs.aws.amazon.com/lake-formation/latest/dg/cross-account-logging.html) in the AWS Lake Formation Developer Guide Guide – This topic includes instructions for including principal identities in cross-account CloudTrail logs.
++ [Cross-Account CloudTrail Logging](https://docs.aws.amazon.com/lake-formation/latest/dg/cross-account-logging.html) in the AWS Lake Formation Developer Guide – This topic includes instructions for including principal identities in cross-account CloudTrail logs.
 
 Amazon Quick supports logging the following actions as events in CloudTrail log files:
 + Whether the request was made with root or AWS Identity and Access Management user credentials
@@ -88,7 +88,7 @@ Amazon Quick adds new event names as features launch and evolve. The non-API eve
 
  A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't appear in any specific order.
 
-The following example shows a CloudTrail log entry that demonstrates the BatchCreateUser action.
+The following example shows a CloudTrail log entry that demonstrates the `BatchCreateUser` operation:
 
 ```
 { 
@@ -96,9 +96,9 @@ The following example shows a CloudTrail log entry that demonstrates the BatchCr
    "userIdentity":
 	{ 
 	   "type":"Root",
-	   "principalId":"123456789012",
-	   "arn":"arn:aws:iam::123456789012:root",
-	   "accountId":"123456789012",
+	   "principalId":"111122223333",
+	   "arn":"arn:aws:iam::111122223333:root",
+	   "accountId":"111122223333",
 	   "userName":"test-username"
 	},
 	   "eventTime":"2017-04-19T03:16:13Z",
@@ -110,7 +110,7 @@ The following example shows a CloudTrail log entry that demonstrates the BatchCr
 	   "eventID":"e7d2382e-70a0-3fb7-9d41-a7a913422240",
 	   "readOnly":false,
 	   "eventType":"AwsServiceEvent",
-	   "recipientAccountId":"123456789012",
+	   "recipientAccountId":"111122223333",
 	   "serviceEventDetails":
 	   { 
 		   "eventRequestDetails":
@@ -163,7 +163,7 @@ Data-event resource-type availability varies by account and AWS Region. If a res
 **Note**  
 The casing of `Quicksight` compared with `QuickSight` in resource type ARNs is intentional and varies by resource type. Use the exact casing shown above when configuring event selectors.
 
-### Enabling data events
+### Enabling Amazon Quick data events
 <a name="logging-data-events-enabling"></a>
 
 Use advanced event selectors to enable data events. Include a management-events selector to retain management event logging:
@@ -171,7 +171,7 @@ Use advanced event selectors to enable data events. Include a management-events 
 ```
 aws cloudtrail put-event-selectors \
   --trail-name {{your-trail-name}} \
-  --region {{us-east-1}} \
+  --region {{your-region}} \
   --advanced-event-selectors '[
     { "Name": "All management events",
       "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Management"] } ] },
@@ -260,140 +260,76 @@ The following example shows an `InvokeAction` data event for a successful email 
 
 The following non-API events are captured in your CloudTrail trail:
 
-**User management**
+### User management
+<a name="user-management-event"></a>
+
+User management events include the following:
 +  **CreateAccount** – Create Account
-
-  
 + **BatchCreateUser** – Create User
-
-  
 + **BatchResendUserInvite** – Invite User
-
-  
 + **UpdateGroups** – Update Groups
 
   This event works with Enterprise edition only.
-
-  
 + **UpdateSpiceCapacity** – Update SPICE Capacity
-
-  
 + **DeleteUser** – Delete User
-
-  
 + **Unsubscribe** – Unsubscribe User
 
-  
+### Subscription
+<a name="subscription-events"></a>
 
-**Subscription**
+Subscription events include the following:
 + **CreateSubscription** – Create Subscription
-
-  
 + **UpdateSubscription** – Update Subscription
-
-  
 + **DeleteSubscription** – Delete Subscription
 
-  
+### Dashboard
+<a name="dashboard-events"></a>
 
-**Dashboard**
+Dashboard events include the following:
 + **GetDashboard** – Get Dashboard
-
-  
 + **CreateDashboard** – Create Dashboard
-
-  
 + **UpdateDashboard** – Update Dashboard
-
-  
 + **UpdateDashboardAccess** – Update Dashboard Access
-
-  
 + **DeleteDashboard** – Delete Dashboard
 
-  
+### Analysis
+<a name="analysis-events"></a>
 
-**Analysis**
+Analysis events include the following:
 + **GetAnalysis** – Get Analysis
-
-  
 + **CreateAnalysis** – Create Analysis
-
-  
 + **UpdateAnalysisAccess** – Update Analysis Access
-
-  
 + **UpdateAnalysis** – Update Analysis
-
-  
   + **RenameAnalysis** – Rename Analysis
-
-    
   + **CreateVisual** – Create Visual
-
-    
   + **RenameVisual** – Rename Visual
-
-    
   + **DeleteVisual** – Delete Visual
-
-    
   + **DeleteAnalysis** – Delete Analysis
 
-    
+### Data source
+<a name="data-source-events"></a>
 
-**Data source**
+Data source events include the following:
 + **CreateDataSource** – Create Data Source
-
-  
   + **FlatFile** – Flat file
-
-    
   + **External** – External
-
-    
   + **S3** – S3
-
-    
   + **ImportS3ManifestFile** – S3 Manifest File
-
-    
   + **Presto** – Presto
-
-    
   + **RDS** – RDS
-
-    
   + **Redshift** – Redshift (manual)
-
-    
 + **UpdateDataSource** – Update Data Source
-
-  
 + **DeleteDataSource** – Delete Data Source
 
-  
+### Data set
+<a name="data-set-events"></a>
 
-**Data set**
+Data set events include the following:
 +  **CreateDataSet** – Create Data Set
-
-  
   + **CustomSQL** – Custom SQL
-
-    
   + **SQLTable** – SQL Table
-
-    
   + **File** – CSV or XLSX
-
-    
 + **UpdateDataSet** – Update SQL Join Dataset
-
-  
 + **UpdateDatasetAccess** – Update Dataset Access
-
-  
 + **DeleteDataSet** – Delete Dataset
-
-  
 + **Querydatabase** – During a dataset refresh, query data source.

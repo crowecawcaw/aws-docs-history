@@ -85,6 +85,7 @@ When configuring document-level ACLs for your knowledge bases, be aware of these
   1. Assign the email address to the new employee.
 
   This ensures access permissions are properly synchronized before the new user begins using Quick.
++ **Large group membership propagation delay** – For users who belong to very large groups, ACL propagation can lag behind sync completion. Even after a knowledge base refresh finishes successfully, a user in a large group may not immediately be able to retrieve answers from content they have access to. Resolving and propagating group membership at this scale can take some time to complete. If a user reports missing content shortly after a sync, allow time for propagation to finish and retry before treating it as an access issue.
 
 **Research compatibility**  
 Knowledge bases with document-level ACLs enabled aren't currently compatible with Quick Research. If you need to use documents from an ACL-enabled knowledge base for research, create a separate knowledge base without ACLs for those documents.

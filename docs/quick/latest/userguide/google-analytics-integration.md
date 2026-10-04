@@ -27,7 +27,7 @@ If you are using **Default OAuth app** authentication, skip this section and go 
 For Custom OAuth app authentication, complete the following steps in the Google Cloud Console before you configure Amazon Quick. When you enable the API in step 3, search for and enable the **Google Analytics Data API**.
 
 ### Create an OAuth client in Google Cloud Console
-<a name="w2aac46c28c93c19b7"></a>
+<a name="w2aac46c28c97c19b7"></a>
 
 Create an OAuth client in the Google Cloud Console to get the client credentials that you need for Amazon Quick. For more information, see [Using OAuth 2.0 to Access Google APIs](https://developers.google.com/identity/protocols/oauth2) on the Google website.
 
@@ -172,7 +172,7 @@ The actions that you can use depend on the Analytics properties and accounts acc
 To edit, share, or delete your connector, see [Managing existing integrations](integration-workflows.md#managing-existing-integrations).
 
 ### Common Google authentication issues
-<a name="w2aac46c28c93c43b5"></a>
+<a name="w2aac46c28c97c43b5"></a>
 + **Sign-in fails (Default OAuth app or Custom OAuth app)** – Verify that your Google account is active and that you can sign in to [the Google website](https://accounts.google.com) directly. For Custom OAuth app, confirm that the redirect URI in your Google Cloud OAuth client matches the Amazon Quick callback URL.
 + **App blocked by administrator** – If your Google Workspace administrator restricts third-party app access, you might see an error when you attempt to sign in. Contact your Google Workspace administrator to allow the Amazon Quick app.
 + **Invalid client credentials (Custom OAuth app)** – Verify that the Client ID and Client secret match the values in your Google Cloud OAuth client.

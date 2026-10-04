@@ -14,6 +14,7 @@ Use the following sections add and customize filter controls to an analysis. To 
 + [Pinning filter controls to the top of a sheet](#filter-controls-pin)
 + [Customizing filter controls](#filter-controls-customize)
 + [Sorting filter control values](#filter-controls-sort)
++ [Hierarchy filter controls](#hierarchy-controls)
 + [Cascading filter controls](#cascading-controls)
 
 ## Adding filter controls
@@ -260,8 +261,21 @@ You can configure sort order for cross-sheet filter controls through the cross-s
 **Note**  
 Dashboard controls inherit the sort configuration from the analysis. Sort configuration changes are not available to dashboard readers.
 
+## Hierarchy filter controls
+<a name="hierarchy-controls"></a>
+
+If your filter control is from a hierarchy filter, it appears as a single dropdown that holds several related fields as a nested tree (for example, Region → Country → City). Readers expand each level to drill from broadest to most detailed. For information about creating the filter itself, see [Hierarchy filters](hierarchy-filter.md).
+
+A hierarchy filter control has the following behavior:
++ **Nested tree.** Opening the control shows a **Select all** option, and then each top-level value as an expandable node. Readers choose the arrow next to a value to reveal its child values, and so on down the hierarchy.
++ **Parent auto-selection.** Selecting a value at a lower level auto-selects its parent chain, so readers always see the full path of their choice.
++ **Per-level search.** The search bar at the top searches values in the highest level only. Lower levels have their own search boxes. A separate search box appears at a level whenever that level contains more than 10 unique values. If a level contains more than 1,000 unique values, only a search box appears and no values are displayed. In that case, readers search to find and select the values they want.
+
 ## Cascading filter controls
 <a name="cascading-controls"></a>
+
+**Note**  
+For a single control that nests levels of a hierarchy instead of chaining separate controls, see [Hierarchy filters](hierarchy-filter.md).
 
 You can limit the values displayed in the control, so they only show values that are valid for what is selected in other controls. This is called a cascading control.
 

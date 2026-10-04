@@ -245,7 +245,7 @@ If you encounter an issue that is not covered in the preceding sections, contact
 <a name="mcp-integration-limitations"></a>
 
 When you use MCP integrations in Amazon Quick, be aware of the following limitations:
-+ MCP operations have a fixed 60-second timeout. Operations that exceed this limit automatically fail with an HTTP 424 error.
++ MCP operations have a fixed 5-minute timeout. Operations that exceed this limit automatically fail with an HTTP 424 error.
 + For MCP servers that you reach through a VPC connection, DNS resolution for the authorization server hostname must be reachable from the auth-server VPC connection's subnets and DNS resolver endpoints. This is the same constraint that applies to the resource-server VPC connection for the MCP server hostname. If you do not configure an auth-server VPC connection, the OAuth endpoints must be reachable over the public internet.
 + Custom HTTP headers are not supported in MCP operations. Only standard system headers are transmitted.
 + For custom MCP connectors, tool lists do not update automatically. To pick up server-side tool changes, open the connector details page and choose **Sync**. Built-in MCP connectors sync automatically. For more information, see [MCP Sync](#mcp-integration-sync).
@@ -257,4 +257,3 @@ When you use MCP integrations in Amazon Quick, be aware of the following limitat
   + Amazon Quick does not extract the `scope` parameter from the server's initial 401 `WWW-Authenticate` challenge. Amazon Quick determines scopes from the Protected Resource Metadata document instead.
   + When the metadata does not specify supported scopes, Amazon Quick applies default scopes rather than omitting them. This behavior might cause authentication failures with servers that do not recognize the default scopes.
 + Only Dynamic Client Registration (DCR) is supported for automatic client registration. Client ID Metadata Documents are not supported.
-+ Well-known URI discovery uses the server root path only. Path-specific metadata locations (path-insertion discovery) are not supported. This limitation might prevent discovery of servers that serve metadata only at path-specific URIs.

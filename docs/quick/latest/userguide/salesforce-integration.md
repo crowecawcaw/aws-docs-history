@@ -112,6 +112,7 @@ For example: `https://us-east-1.quicksight.aws.amazon.com/sn/oauthcallback`
 Move the following scopes from **Available OAuth Scopes** to **Selected OAuth Scopes**:
 + Access the identity URL service (id, profile, email, address, phone)
 + Manage user data via APIs (api)
++ Access Salesforce hosted MCP servers (mcp\_api)
 + Manage user data via Web browsers (web)
 + Full access (full)
 + Access Visualforce applications (visualforce)

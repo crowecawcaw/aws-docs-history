@@ -23,4 +23,5 @@ Use the following sections to learn more about each type of filter you can creat
 + [Adding numeric filters](add-a-numeric-filter-data-prep.md)
 + [Adding date filters](add-a-date-filter2.md)
 + [Adding filter conditions (group filters) with AND and OR operators](add-a-compound-filter.md)
++ [Hierarchy filters](hierarchy-filter.md)
 + [Creating cascading filters](use-a-cascading-filter.md)

@@ -71,7 +71,7 @@ To set up CloudWatch Logs for Amazon Quick, use the following IAM policy example
         "Sid": "QuicksightLogDeliveryPermissions",
         "Effect": "Allow",
         "Action": "quicksight:AllowVendedLogDeliveryForResource",
-        "Resource": "arn:aws:quicksight:region:account-id:account/account-id"
+        "Resource": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
     }]
 }
 ```
@@ -91,7 +91,7 @@ You must also allow the `delivery.logs.amazonaws.com` service principal in your 
     "Resource": "*",
     "Condition": {
         "StringLike": {
-            "kms:EncryptionContext:SourceArn": "arn:partition:logs:region:account-id:*"
+            "kms:EncryptionContext:SourceArn": "arn:{{partition}}:logs:{{your-region}}:{{your-account-id}}:*"
         }
     }
 }
@@ -107,56 +107,56 @@ Create a delivery source with the [PutDeliverySource](https://docs.aws.amazon.co
 ```
 {
     "logType": "CHAT_LOGS",
-    "name": "my-quick-suite-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-suite-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
 ```
 {
     "logType": "FEEDBACK_LOGS",
-    "name": "my-quick-suite-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-suite-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
 ```
 {
     "logType": "AGENT_HOURS_LOGS",
-    "name": "my-quick-suite-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-suite-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
 ```
 {
     "logType": "INDEX_USAGE_LOGS",
-    "name": "my-quick-index-usage-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-index-usage-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
 ```
 {
     "logType": "KB_FILE_SYNC_LOGS",
-    "name": "my-quick-kb-file-sync-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-kb-file-sync-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
 ```
 {
     "logType": "AGENT_METADATA_LOGS",
-    "name": "my-quick-agent-metadata-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-agent-metadata-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
 ```
 {
     "logType": "DLP_LOGS",
-    "name": "my-quick-dlp-delivery-source",
-    "resourceArn": "arn:aws:quicksight:your-region:your-account-id:account/account-id"
+    "name": "{{my-quick-dlp-delivery-source}}",
+    "resourceArn": "arn:aws:quicksight:{{your-region}}:{{your-account-id}}:account/{{your-account-id}}"
 }
 ```
 
@@ -278,8 +278,8 @@ This log type captures the usage logs for different agents within your Quick acc
 + `subscription_type` – Subscription tier of the user. Values: `ENTERPRISE`, `PROFESSIONAL`.
 + `reporting_service` – The Quick surface that consumed agent hours. Current values include `FLOW`, `AUTOMATION`, and `RESEARCH`. New values might appear as additional Quick features begin metering agent hours.
 + `usage_group` – Whether the usage is covered by the subscription entitlement or billed as overage. Values:
-  + `Included` – Usage within the daily entitlement grant for the subscription tier. No incremental charge.
-  + `Extra` – Overage beyond the daily grant. Billed on consumption.
+  + `Included` – Usage within the monthly entitlement grant for the subscription tier. No incremental charge.
+  + `Extra` – Overage beyond the monthly grant. Billed on consumption.
 + `usage_hours` – Decimal value indicating the agent hours consumed for this record
 + `service_resource_arn` – ARN of the resource that consumed the hours (for example, a flow, automation, or research session)
 + `resource_arn` – Resource ARN of your Amazon Quick account
@@ -469,7 +469,7 @@ The following example shows a skipped document log where crawling was skipped du
 }
 ```
 
-## DLP logs
+## Data loss prevention (DLP) logs
 <a name="quicksuite-dlp-logs"></a>
 
 Data loss prevention (DLP) logs capture DLP activity: the enforcement decision for each scanned file, and changes to your DLP configurations. Use them to audit policy changes and to monitor enforcement. The specific event is identified by `event_type`.
@@ -571,6 +571,8 @@ The `file_name` field is customer content. When you configure a customer managed
 
 ## Security considerations
 <a name="quicksuite-chat-feedback-security-considerations"></a>
+
+Consider the following security practices when you configure log delivery:
 + **Encryption** – Use customer-managed AWS KMS keys for sensitive data.
 + **Access control** – Implement least-privilege IAM policies.
 + **Data retention** – Configure appropriate retention policies for your compliance requirements.
