@@ -41,4 +41,5 @@ There can be a delay between when you incur a charge and when you receive a noti
 + [Deleting a budget](budgets-delete.md)
 + [Configuring budget actions](budgets-controls.md)
 + [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md)
++ [Adding email recipients to a budget notification](budgets-email-recipients.md)
 + [Receiving budget alerts in chat applications](sns-alert-chime.md)

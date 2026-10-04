@@ -69,6 +69,8 @@ You can't use the **Linked account** filter within a linked account.
    Next to the threshold, choose **Actual** to create an alert for actual spend. Or, choose **Forecasted** to create an alert for forecasted spend.
 
 1. (Optional) Under **Notification preferences**, for **Email recipients**, enter the email addresses that you want the alert to notify. Separate multiple email addresses with commas. A notification can be sent to a maximum of 10 email addresses.
+**Important**  
+Email recipients must verify their email address before receiving budget notifications. For more information, see [Adding email recipients to a budget notification](budgets-email-recipients.md).
 
 1. (Optional) Under **Notification preferences**, for **Amazon SNS Alerts**, enter the Amazon Resource Name (ARN) for your Amazon SNS topic. For instructions on how to create a topic, see [Creating an Amazon SNS topic for budget notifications](budgets-sns-policy.md).
 **Important**  

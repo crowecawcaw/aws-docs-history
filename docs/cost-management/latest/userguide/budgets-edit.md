@@ -6,6 +6,8 @@
 **Note**  
 You can't edit the budget name.
 
+To add or edit email recipients on an existing budget's notifications, see [Adding email recipients to a budget notification](budgets-email-recipients.md).
+
 **To edit a budget**
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/cost-management/](https://console.aws.amazon.com/cost-management/).

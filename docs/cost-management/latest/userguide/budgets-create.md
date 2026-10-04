@@ -11,6 +11,8 @@ You can create and set up a budget in two ways:
 + [Using a budget template (simplified)](budget-templates.md)
 + [Customizing a budget (advanced)](custom-budgets.md)
 
+To learn how to add email recipients to your budget notifications and how email verification works, see [Adding email recipients to a budget notification](budgets-email-recipients.md).
+
 ## Billing view prerequisites and monitoring
 <a name="budget-billing-view"></a>
 
