@@ -3,9 +3,14 @@
 # Release notes
 <a name="transform-vmware-release-notes"></a>
 
-The following release notes cover the latest changes to [Migrations (including VMware)](transform-app-vmware.md). For a list of changes across the full AWS Transform service, see the [changelog](https://docs.aws.amazon.com/transform/latest/userguide/change-log.html).
+The following release notes cover the latest changes to AWS Transform for migrations, including [Migration assessments](transform-app-assessments.md) and [Migrations (including VMware)](transform-app-vmware.md). For a list of changes across the full AWS Transform service, see the [changelog](https://docs.aws.amazon.com/transform/latest/userguide/change-log.html).
 
 For supported AWS Transform regions, see [Supported Regions](https://docs.aws.amazon.com/transform/latest/userguide/regions.html). For supported target regions, see the [account connector setup page](https://docs.aws.amazon.com/transform/latest/userguide/transform-vmware-connect-target-account.html#transform-vmware-cta-supported-regions).
+
+## September 2026
+<a name="transform-vmware-release-notes-september-2026"></a>
++ AWS Transform migration assessments now assess self-managed Apache Kafka clusters for migration to Amazon MSK Express. AWS Transform recommends a broker configuration and estimates the total cost of ownership across broker hours, storage, data-in, and cross-Availability Zone transfer, along with a compatibility review of the source cluster. [Learn more about analytics assessments](https://docs.aws.amazon.com/transform/latest/userguide/transform-app-assessments-analytics.html).
++ AWS Transform migration assessments now include Compute Savings Plans and Amazon EC2 Instance Savings Plans as pricing options for Amazon EC2 recommendations, alongside On-Demand and Reserved Instances, so you can compare committed-use discounts in your migration business case. [Learn more about compute assessments](https://docs.aws.amazon.com/transform/latest/userguide/transform-app-assessments-compute.html).
 
 ## August 2026
 <a name="transform-vmware-release-notes-august-2026"></a>

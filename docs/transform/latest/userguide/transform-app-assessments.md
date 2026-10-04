@@ -3,15 +3,17 @@
 # Migration assessments
 <a name="transform-app-assessments"></a>
 
-AWS Transform assessments help you evaluate the cost, feasibility, and business value of migrating on-premises infrastructure to AWS. Assessments provide automated right-sizing recommendations, multi-scenario comparison, and interactive refinement through chat.
+AWS Transform assessments help you evaluate the cost, feasibility, and business value of migrating on-premises infrastructure to AWS. Using agentic AI, AWS Transform generates a data-driven total cost of ownership (TCO) business case in minutes from a server inventory, finding the best-fit AWS services for your workloads and producing pricing options, licensing analysis, and actionable next steps. From there, you refine the business case through natural language chat—adding missing inventory, adjusting on-premises costs, modeling alternative AWS services, changing assumptions, and exploring what-if scenarios—without re-running the full assessment.
 
 You can use migration assessments to:
-+ Get cost estimates for Amazon RDS for SQL Server, Amazon EC2, Amazon EBS, Amazon S3, and Amazon FSx
++ Get cost estimates for compute, databases, storage, analytics, and end user computing workloads on AWS
 + Receive automated right-sizing recommendations
 + Assess business value and sustainability impact
 + Compare multiple migration scenarios side by side
 + Refine assessments interactively through chat
 + Generate executive presentations and detailed reports
+
+Assessment results can also help you understand whether you qualify for AWS programs and incentives, such as the AWS Migration Acceleration Program (MAP).
 
 ## Prerequisites
 <a name="transform-app-assessments-prerequisites"></a>
@@ -47,7 +49,7 @@ After you review results, you can create additional scenarios, compare scenarios
 ## Uploading inventory data
 <a name="transform-app-assessments-upload-inventory"></a>
 
-AWS Transform accepts inventory data from multiple sources. The following table lists the supported data formats.
+AWS Transform accepts inventory data from a broad set of sources, so you can work with the data you already have rather than running a new collection. The following table lists the supported data formats.
 
 
 | Data source | Description | 
@@ -55,9 +57,10 @@ AWS Transform accepts inventory data from multiple sources. The following table 
 | AWS Transform Discovery Tool export | Automated server inventory discovered by the AWS Transform discovery tool | 
 | RVTools | Exports from VMware environments in ZIP/CSV or Excel format. Both full exports and vInfo-only exports are supported. | 
 | CMDB data | Configuration management database exports | 
-| Partner discovery tools | Data from AWS partner discovery tools | 
-| Migration Evaluator | Quick Insights file from the Migration Evaluator console | 
-| MPA format | Migration Portfolio Assessment import file | 
+| Migration Evaluator | Quick Insights file from the AWS Migration Evaluator console | 
+| MPA format | AWS Migration Portfolio Assessment (MPA) import file | 
+| NetApp Data Infrastructure Insights (DII) | Exports from NetApp Data Infrastructure Insights | 
+| Partner discovery tools | Exports from AWS partner and third-party discovery tools, including ModelizeIT, Cloudamize, Matilda Cloud, and Device42 | 
 | AWS Transform data template | Microsoft Excel file created from the AWS Transform Assessment Data template | 
 
 AWS Transform automatically identifies the file format during ingestion. The ingestion process validates your data, accepts partial data when some fields are missing, and supports incremental uploads. You can upload additional files at any time to supplement your inventory.
@@ -69,6 +72,7 @@ After AWS Transform processes your inventory data, it generates a discovery summ
 + Server count by operating system
 + Physical and virtual server breakdown
 + SQL Server detection
++ Apache Kafka cluster detection
 + Storage summaries
 + Data quality warnings
 
@@ -81,7 +85,7 @@ After you review the discovery results, you can refine the scope of your assessm
 + Query inventory for specific servers or workloads
 + Exclude servers from the assessment scope
 + Review server groupings and application dependencies
-+ Identify SQL Server workloads for specialized assessment
++ Identify SQL Server and Apache Kafka workloads for specialized assessment
 
 ## Configuring assessment scenarios
 <a name="transform-app-assessments-configure-scenarios"></a>
@@ -93,8 +97,11 @@ The following table lists the available assumption categories.
 
 | Assumption | Description | 
 | --- | --- | 
-| Pricing model | Database Savings Plans (for Amazon RDS for SQL Server), On-Demand, or Reserved Instances | 
+| Pricing model | On-Demand, Reserved Instances, or Savings Plans; Database Savings Plans for Amazon RDS for SQL Server | 
 | Target AWS Region | The AWS Region where you plan to host migrated workloads | 
+| Utilization and right-sizing | The performance tier and utilization assumptions used to right-size Amazon EC2 instances | 
+| Processor architecture | Whether recommendations use x86, AWS Graviton, or either architecture | 
+| Tenancy | Shared, dedicated, or mixed tenancy for Amazon EC2 instances | 
 | Instance type exclusions | Amazon EC2 instance families or types to exclude from recommendations | 
 | Amazon EBS configuration | Volume type and performance settings for storage | 
 | SQL Server licensing | Bring Your Own Media (BYOM) or License Included (LI) for Amazon RDS for SQL Server; License Included (LI) or Bring Your Own License (BYOL) for SQL Server on EC2 | 
@@ -102,88 +109,13 @@ The following table lists the available assumption categories.
 ## Assessment capabilities
 <a name="transform-app-assessments-capabilities"></a>
 
-AWS Transform assessments cover multiple dimensions of your migration. The following sections describe each assessment capability.
-
-### Amazon EC2 right-sizing
-<a name="transform-app-assessments-capabilities-ec2"></a>
-
-AWS Transform analyzes your on-premises server specifications and recommends appropriately sized Amazon EC2 instances. The recommendations account for CPU, memory, and performance requirements.
-
-### Amazon EBS storage
-<a name="transform-app-assessments-capabilities-ebs"></a>
-
-AWS Transform recommends Amazon EBS volume types and configurations based on your current storage usage and performance requirements.
-
-### Amazon FSx
-<a name="transform-app-assessments-capabilities-fsx"></a>
-
-AWS Transform evaluates file storage workloads and provides recommendations for Amazon FSx migration, including cost estimates for supported Amazon FSx file system types.
-
-### Amazon RDS for SQL Server
-<a name="transform-app-assessments-capabilities-rds-sql"></a>
-
-AWS Transform assesses the cost of migrating on-premises SQL Server databases to Amazon RDS for SQL Server. Using AI-powered agents, AWS Transform analyzes your on-premises SQL Server environment and delivers a complete migration business case in minutes, with compute and memory recommendations matched to your workload requirements so you avoid over-provisioning and only pay for what you need.
-
-The RDS for SQL Server assessment includes the following capabilities:
-+ Bring Your Own Media (BYOM) licensing, allowing you to use your existing SQL Server licenses
-+ License Included (LI) licensing options
-+ Cost optimization using Database Savings Plans, which offer up to 20% savings compared to On-Demand pricing
-+ Eligibility assessment for the AWS Migration Acceleration Program (MAP), which provides credits and support to offset migration costs
-
-You can start your RDS for SQL Server assessment with any supported data format, including RVTools exports, Configuration management database (CMDB) data, exports from the AWS Transform discovery tool, and other third-party discovery tools. Create what-if scenarios to compare multiple cost models with customized assumptions including region, resource utilization, and pricing terms.
-
-Example prompts:
-+ "Estimate the cost of migrating my SQL Server databases to RDS for SQL Server"
-+ "Compare BYOM vs License Included pricing for RDS for SQL Server"
-+ "Show me Database Savings Plans options for my RDS workloads"
-
-### Amazon EC2 SQL Server
-<a name="transform-app-assessments-capabilities-sql"></a>
-
-AWS Transform assesses SQL Server workloads and provides recommendations for running SQL Server on Amazon EC2, including licensing analysis and dedicated host mappings.
-
-### On-premises pricing
-<a name="transform-app-assessments-capabilities-onprem-pricing"></a>
-
-AWS Transform estimates your current on-premises costs to provide a baseline for comparison with AWS pricing. You can make overall cost adjustments through chat. On-premises cost adjustments are reflected in the PDF report and chat responses, but not in the PPTX export.
-
-Example prompts:
-+ "Update the on-premises server cost to $500 per server per month"
-+ "Add $50,000 annual data center facility costs"
-
-### Sustainability
-<a name="transform-app-assessments-capabilities-sustainability"></a>
-
-AWS Transform estimates the carbon footprint reduction that results from migrating to AWS. You can explore sustainability metrics through chat.
-
-Try prompts such as:
-+ "Show me the estimated carbon reduction for this migration"
-+ "What is the energy efficiency improvement for my workloads on AWS?"
-
-### Business value assessment
-<a name="transform-app-assessments-capabilities-business-value"></a>
-
-AWS Transform evaluates the broader business value of migration beyond infrastructure cost savings. The assessment covers staff productivity, resilience, and business agility.
-
-Here are some example prompts:
-+ "Estimate staff productivity gains from migrating to AWS"
-+ "What resilience improvements can I expect after migration?"
-+ "Show me the business agility benefits of this migration"
-
-### Network costs
-<a name="transform-app-assessments-capabilities-network"></a>
-
-AWS Transform estimates network-related costs for your migration, including data transfer and connectivity requirements.
-
-### Support costs
-<a name="transform-app-assessments-capabilities-support"></a>
-
-AWS Transform includes AWS Support plan costs in the assessment based on your selected support tier.
-
-### End user computing
-<a name="transform-app-assessments-capabilities-euc"></a>
-
-AWS Transform assesses end user computing workloads and provides recommendations for AWS end user computing services.
+AWS Transform assessments cover the workload categories that matter most in a typical enterprise migration. The following topics describe each assessment capability in detail.
++ [Compute assessments](transform-app-assessments-compute.md)—best-fit, lowest-cost Amazon EC2 instance recommendations, including AWS Graviton, Dedicated Hosts, and multiple pricing models.
++ [Database assessments](transform-app-assessments-databases.md)—Microsoft SQL Server on Amazon RDS for SQL Server and on Amazon EC2, with licensing analysis and edition recommendations.
++ [Storage assessments](transform-app-assessments-storage.md)—block, object, and file storage across Amazon EBS, Amazon S3, and Amazon FSx for NetApp ONTAP.
++ [Analytics assessments](transform-app-assessments-analytics.md)—self-managed Apache Kafka clusters assessed for Amazon MSK Express.
++ [Business value assessments](transform-app-assessments-business-value.md)—quantified business value across the AWS Cloud Value Framework pillars.
++ [Additional cost components](transform-app-assessments-cost-components.md)—on-premises pricing, network, support, and end user computing cost components.
 
 ## Using chat-based assessments
 <a name="transform-app-assessments-chat"></a>
@@ -200,15 +132,15 @@ You can get a rough cost estimate by describing your environment in chat without
 You can use prompts like these:
 + "I have 200 Windows servers and 150 Linux servers, estimate my AWS costs"
 + "Give me a rough estimate for migrating 500 VMs to AWS"
-+ "Estimate costs for 50 servers with an average of 8 CPUs and 32 GB RAM"
++ "How much would running 2000 large Linux servers with roughly 500 TB of SAN storage cost? About 300 run MySQL and about 100 run Oracle."
 
 ### Adding inventory through chat
 <a name="transform-app-assessments-chat-add-inventory"></a>
 
-You can provide inventory details directly through chat to supplement or replace uploaded files.
+You can provide inventory details directly through chat to supplement or replace uploaded files. When a server is missing from an export, you can add it in chat rather than regenerating and re-uploading the file.
 
 Use prompts like the following:
-+ "Include a database server running Oracle on 4 CPUs with 128 GB RAM"
++ "There is a server missing from my inventory. It is called prod-server5, it runs SQL Server Standard Edition on Windows, and has 128 CPU cores and 256 GB of RAM."
 + "Add 20 web servers running Linux with 4 CPUs and 16 GB RAM"
 
 ### Modifying costs and adding services
@@ -223,7 +155,7 @@ Example prompts for on-premises adjustments:
 You can also add rough cost estimates for AWS services that are not fully supported by AWS Transform assessments. This provides a more complete analysis, but these estimates are less accurate than the automated recommendations.
 + "Add AWS Backup costs for all migrated servers"
 + "Include Amazon CloudWatch monitoring costs in the estimate"
-+ "Add AWS Direct Connect costs for a 10 Gbps connection"
++ "Migrate servers svr1, svr2, and svr3 to Amazon Connect. Remove them from EC2 and add $10,000 a month in Amazon Connect costs."
 
 ## Comparing scenarios
 <a name="transform-app-assessments-compare-scenarios"></a>
@@ -236,7 +168,7 @@ You can create multiple assessment scenarios with different assumptions and comp
 Try prompts such as:
 + "Create a BYOM scenario for migrating SQL Server databases to RDS for SQL Server"
 + "Create a scenario with Database Savings Plans for RDS for SQL Server"
-+ "Create a LI scenario for all SQL Server workloads on EC2"
++ "Create a scenario with AWS Graviton instances where supported"
 + "Create a scenario with all workloads in us-west-2"
 
 ### Running comparisons
@@ -268,7 +200,7 @@ After you complete your assessment, you can generate deliverables in multiple fo
 | --- | --- | --- | 
 | PPTX (PowerPoint) | Executive presentation with summary findings and recommendations | Fixed structure | 
 | XLSX (Excel) | Detailed data export with server-level recommendations and cost breakdowns | Fixed structure | 
-| PDF | Report document | Customizable through chat | 
+| PDF | Report document with sections for compute, storage, licensing, and cost comparisons | Customizable through chat | 
 
 ## Related topics
 <a name="transform-app-assessments-related"></a>

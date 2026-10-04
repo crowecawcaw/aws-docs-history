@@ -118,7 +118,7 @@ If you plan to modify the AWS Transform MGN template to enable post-launch actio
 }
 ```
 
-## Supported target regions
+## Supported target Regions
 <a name="transform-vmware-cta-supported-regions"></a>
 
 A migration target region is the AWS Region where migrated resources are deployed, including landing zones, network infrastructure, and server rehosting. When you create the connector, specify a target AWS Region. You can use any of the following AWS Regions:
@@ -126,6 +126,8 @@ A migration target region is the AWS Region where migrated resources are deploye
 + US East (Ohio)
 + US West (N. California)
 + US West (Oregon)
++ AWS GovCloud (US-East)
++ AWS GovCloud (US-West)
 + Africa (Cape Town)
 + Asia Pacific (Hong Kong)
 + Asia Pacific (Taipei)
@@ -157,4 +159,5 @@ A migration target region is the AWS Region where migrated resources are deploye
 
 **Important**  
 If you specify a target AWS Region that differs from the AWS Transform AWS Region, some of your data is transferred across AWS Regions.  
-Note that your server replication data goes directly from your source environment to your target account and region.
+Note that your server replication data goes directly from your source environment to your target account and Region.  
+You can specify AWS GovCloud (US-East) and AWS GovCloud (US-West) as migration targets only when you use AWS Transform in the AWS GovCloud (US) partition. These Regions aren't available as targets for workspaces in commercial [AWS Regions](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region).

@@ -308,7 +308,8 @@ Linux
 SSH reachable from the discovery tool VM on TCP/22 (or a custom port), and an account that can run shell commands. Network connection tracking can also use SNMP on UDP/161 instead of SSH. `sudo` is optional. Without it, the discovery tool still collects most data, but the server UUID, LVM detection, and process-level network connection details are missing. For details, see [Linux servers (SSH)](discovery-tool-permissions.md#discovery-tool-permissions-linux).
 
 Windows  
-WinRM enabled and reachable on TCP/5985 (HTTP) or TCP/5986 (HTTPS), or a custom port. The discovery tool runs all Windows commands through PowerShell remoting, so PowerShell must be present on the target server. PowerShell 3.0 or later provides full data coverage. For details, see [Windows servers (WinRM) — OS metrics](discovery-tool-permissions.md#discovery-tool-permissions-windows-os).
+WinRM enabled and reachable on TCP/5985 (HTTP) or TCP/5986 (HTTPS), or a custom port. The discovery tool runs all Windows commands through PowerShell remoting, so PowerShell must be present on the target server. PowerShell 3.0 or later provides full data coverage. For details, see [Windows servers (WinRM) — OS metrics](discovery-tool-permissions.md#discovery-tool-permissions-windows-os).  
+If Windows PowerShell Transcription logging is enabled on your target servers, the discovery tool's frequent PowerShell commands can generate thousands of transcript files each day on each server. This can fill the target server's system disk quickly. See [Set up WinRM and WMI](#discovery-tool-winrm-setup) for the recommended mitigation before enabling collection on Windows targets.
 
 Because collection uses standard operating system commands rather than an agent, the discovery tool works across a wide range of operating system versions, including older ones. The following operating systems are validated end to end. Other versions that meet the requirements in the preceding list are also collected.
 + **Linux** – Amazon Linux 2, Amazon Linux 2023, RHEL 7.9, Rocky Linux 9.7, AlmaLinux 9.7, SLES 12 SP5, Debian 11, Ubuntu 16.04, and Ubuntu 22.04
@@ -369,6 +370,25 @@ For network collection, ensure these conditions are met:
 + WMI namespace permissions are set up for Windows accounts with namespaces: `\\root\\standardcimv2`, `MSFT_NetTCPConnection` class
 
 For SQL Server collection, a Windows account (local or domain) belonging to the **Local Administrator Group** is required because of complex WMI objects permission requirements.
+
+**PowerShell Transcription logging**
+
+If Windows PowerShell Transcription logging is enabled on your target servers, every command that the discovery tool sends writes a transcript file to that server's local disk. The Group Policy key `HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription` controls this behavior, and a value of `EnableTranscripting = 1` turns it on. By default, transcription writes transcript files to the service account's Documents folder. If the Group Policy sets an `OutputDirectory`, transcription writes them to that path instead.
+
+To check whether transcription is enabled on a target server, run the following command on that server in PowerShell:
+
+```
+Get-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription" -ErrorAction SilentlyContinue
+```
+
+If the command returns no output, transcription is not enabled by Group Policy. If it returns a property named `EnableTranscripting` with a value of `1`, transcription is active.
+
+The discovery tool communicates with Windows targets approximately every 15 seconds for network data collection, generating thousands of transcript files each day on each server. This can fill the target server's system disk quickly, causing OS or application failures on monitored machines.
+
+**Important**  
+**Recommended mitigation:** Before enabling collection on Windows targets, ask your IT or domain administrator to create an exemption for the Windows service account used by the discovery tool from the **Turn on PowerShell Transcription** Group Policy setting (**Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows PowerShell**). The specific exemption mechanism depends on your domain's Group Policy structure. For User Configuration policies, security group filtering can target the account directly. For Computer Configuration policies, OU-scoped targeting is the typical approach.
+
+If transcription logging is a compliance requirement, implement periodic cleanup of the transcript output directory to prevent disk exhaustion. In the default configuration, transcripts are written to the service account's Documents folder (`%USERPROFILE%\Documents`).
 
 ### Set up SSH
 <a name="discovery-tool-ssh-setup"></a>
