@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Create a Hyperledger Fabric Blockchain Network on Amazon Managed Blockchain (AMB)
 <a name="create-network"></a>
 
@@ -16,7 +18,7 @@ When you create the network and the first member in your AWS account, the networ
 You can create a Hyperledger Fabric network using the AWS Management Console, the AWS CLI, or the AMB Access SDK [CreateNetwork](https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/>CreateNetwork.html) action.
 
 ### To create a Hyperledger Fabric network using the AWS Management Console
-<a name="w2aac11c11b5b1"></a>
+<a name="w2aac15c11b5b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -49,7 +51,7 @@ You can create a Hyperledger Fabric network using the AWS Management Console, th
    The **Networks** list shows the name and **Network ID** of the network you created, with a **Status** of **Creating**. It takes around 30 minutes for AMB Access to create your network, after which the **Status** is **Available**.
 
 ### To create a Hyperledger Fabric network using the AWS CLI
-<a name="w2aac11c11b5b3"></a>
+<a name="w2aac15c11b5b3"></a>
 
 Use the `create-network` command as shown in the following example. Consider the following:
 + The example shows `HYPERLEDGER_FABRIC` as the `Framework` and `2.2` as the `FrameworkVersion`. The `FrameworkConfiguration` properties for `--network-configuration` and `--member-configuration` options might be different for other frameworks and versions.

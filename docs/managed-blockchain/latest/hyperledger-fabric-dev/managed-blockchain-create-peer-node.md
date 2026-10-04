@@ -1,12 +1,14 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Create a Hyperledger Fabric Peer Node on Amazon Managed Blockchain (AMB)
 <a name="managed-blockchain-create-peer-node"></a>
 
 You can create a Hyperledger Fabric peer node in a member that is in your AWS account using the AWS Management Console, the AWS CLI, or the AMB Access SDK [CreateNode](https://docs.aws.amazon.com/managed-blockchain/latest/APIReference/>API_CreateNode.html) action.
 
 ## To create a peer node using the AWS Management Console
-<a name="w2aac21c13b5b1"></a>
+<a name="w2aac25c13b5b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -17,7 +19,7 @@ You can create a Hyperledger Fabric peer node in a member that is in your AWS ac
 1. Choose configuration parameters for your peer node according to the guidelines in [Work with Hyperledger Fabric Peer Nodes on AMB Access](managed-blockchain-hyperledger-peer-nodes.md), and then choose **Create peer node**.
 
 ## To create a peer node using the AWS CLI
-<a name="w2aac21c13b5b3"></a>
+<a name="w2aac25c13b5b3"></a>
 + Use the `create-node` command, as shown in the following example. Replace the value of `--network-id`, `--member-id`, and `AvailabilityZone` as appropriate.
 
   ```

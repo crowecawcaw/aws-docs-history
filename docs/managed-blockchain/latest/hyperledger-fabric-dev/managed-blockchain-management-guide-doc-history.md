@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Document History for Amazon Managed Blockchain (AMB) Hyperledger Fabric Developer Guide
 <a name="managed-blockchain-management-guide-doc-history"></a>
 
@@ -7,6 +9,7 @@ The following table describes important additions to the Amazon Managed Blockcha
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [End of support notice](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html) | End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html). | September 29, 2026 | 
 | [Amazon Managed Blockchain (AMB) Access](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/what-is-managed-blockchain.html) | Updated terminology to change Amazon Managed Blockchain to Amazon Managed Blockchain (AMB) Access. | July 27, 2023 | 
 | [Updated for Hyperledger Fabric v2.2.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/framework-client.html) | Updated channel configuration file examples, Java chaincode examples, and getting started tutorial for Hyperledger Fabric v2.2. | January 4, 2022 | 
 | [Updated for support of customer managed AWS KMS keys.](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-encryption-at-rest.html) | Updated for support of encryption at rest using customer managed keys in AWS Key Management Service (AWS KMS) for new member resources. | June 10, 2021 | 

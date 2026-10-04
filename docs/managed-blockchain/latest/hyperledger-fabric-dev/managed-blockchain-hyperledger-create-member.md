@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Create a Member and Join a Network
 <a name="managed-blockchain-hyperledger-create-member"></a>
 
@@ -8,7 +10,7 @@ You can use the AMB Access console, the AWS CLI, or the AMB Access SDK [CreateMe
 After you create the member, for the member to be functional on the network, your account must have a VPC endpoint associated with the VPC endpoint service name published by the network. For more information, see [Create an Interface VPC Endpoint for Amazon Managed Blockchain (AMB) Hyperledger Fabric](managed-blockchain-endpoints.md). You also must create at least one peer node in your membership. For more information, see [Work with Hyperledger Fabric Peer Nodes on AMB Access](managed-blockchain-hyperledger-peer-nodes.md).
 
 ## To accept an invitation to create a member and join a network using the AWS Management Console
-<a name="w2aac17c15b9b1"></a>
+<a name="w2aac21c15b9b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -25,7 +27,7 @@ After you create the member, for the member to be functional on the network, you
 1. Choose **Create member and join network**.
 
 ## To accept an invitation to create a member and join a network using the AWS CLI
-<a name="w2aac17c15b9b3"></a>
+<a name="w2aac21c15b9b3"></a>
 + Use the `create-member` command similar to the example below. Replace the value of `--network-id` with the Network ID that you are joining and `--invitation-id` with the Invitation ID sent to your account from the network.
 
   ```

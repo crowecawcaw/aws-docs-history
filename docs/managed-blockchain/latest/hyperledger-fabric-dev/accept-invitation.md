@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Work with Invitations
 <a name="accept-invitation"></a>
 
@@ -10,7 +12,7 @@ You can see all pending, accepted, and rejected invitations for your AWS account
 You can set up Amazon CloudWatch Events along with Amazon Simple Notification Service so that you receive an alert when there is an invitation for your account. For more information, see [Automating AMB Access Proposal Notifications with CloudWatch Events](automating-proposals-with-cloudwatch-events.md).
 
 ## To list blockchain network member invitations for your AWS account using the console
-<a name="w2aac17c13b9b1"></a>
+<a name="w2aac21c13b9b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -30,7 +32,7 @@ You can set up Amazon CloudWatch Events along with Amazon Simple Notification Se
 
 
 ## To list blockchain network member invitations for your AWS account using the AWS CLI
-<a name="w2aac17c13b9b3"></a>
+<a name="w2aac21c13b9b3"></a>
 + Use the following command:
 
   ```

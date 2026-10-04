@@ -1,19 +1,21 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Prerequisites and Considerations
 <a name="get-started-prerequisites"></a>
 
 To complete this tutorial, you must have the resources listed in this section. Unless specifically stated otherwise, the requirements apply to both network creators and invited members.
 
 **Topics**
-+ [A Linux Client (EC2 Instance)](#w2aab9b9b7)
-+ [A VPC](#w2aab9b9b9)
++ [A Linux Client (EC2 Instance)](#w2aac13b9b7)
++ [A VPC](#w2aac13b9b9)
 + [Permissions to Create an Interface VPC Endpoint](#vpc-endpoint-permissions)
 + [EC2 Security Groups That Allow Communication on Required Ports](#get-started-prerequisites-sgs)
 + [Additional Considerations](#additional-considerations)
 
 ## A Linux Client (EC2 Instance)
-<a name="w2aab9b9b7"></a>
+<a name="w2aac13b9b7"></a>
 
 You must have a Linux computer with access to resources in the VPC to serve as your Hyperledger Fabric client. This computer must have version 1.16.149 or later of the AWS CLI installed. Earlier versions of the AWS CLI do not have the `managedblockchain` command. We recommend that you use the latest version of the AWS CLI available. For information about updating the AWS CLI, see [Update the AWS CLI version 2 on Linux](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html#cliv2-linux-upgrade) in the *AWS Command Line Interface User Guide*.
 
@@ -22,7 +24,7 @@ We recommend creating an Amazon Elastic Compute Cloud (Amazon EC2) instance in t
 An AWS CloudFormation template to create a Hyperledger Fabric client is available in the [amazon-managed-blockchain-client-templates repository](https://github.com/awslabs/amazon-managed-blockchain-client-templates) on Github. For more information, see the [readme.md](https://github.com/awslabs/amazon-managed-blockchain-client-templates/blob/master/README.md) in that repository. For more information about using CloudFormation, see [Getting Started](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/GettingStarted.Walkthrough.html) in the *AWS CloudFormation User Guide*.
 
 ## A VPC
-<a name="w2aab9b9b9"></a>
+<a name="w2aac13b9b9"></a>
 
 You must have a [VPC](https://docs.aws.amazon.com/vpc/latest/userguide/) with an IPv4 CIDR block, and the `enableDnsHostnames` and `enableDnsSupport` options must be set to `true`. If you will connect to the Hyperledger Fabric client using SSH, the VPC must have an internet gateway, and the security group configuration associated with the Hyperledger Framework client must allow inbound SSH access from your SSH client.
 + For more information about creating a suitable network, see [Getting Started with IPv4 for Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/getting-started-ipv4.html) tutorial in the *Amazon VPC User Guide*.

@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Step 8: Invite Another AWS Account to be a Member and Create a Multi-Member Channel
 <a name="get-started-joint-channel"></a>
 
@@ -13,7 +15,7 @@ After the invitation proposal is approved, the invited account can create a memb
 Create a proposal to invite an AWS account to create a member and join the network according to the following procedures. You need the AWS account ID of the member you want to invite. You can also invite your own account to create an additional member. If you are using the CLI, you also need the Network ID and Member ID that you created in [Step 1: Create the Network and First Member](get-started-create-network.md).
 
 ### To create an invitation proposal using the AWS Management Console
-<a name="w2aab9c25b7b5b1"></a>
+<a name="w2aac13c25b7b5b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -32,7 +34,7 @@ The member who submits the proposal must also vote on it. A Yes vote is not auto
 1. Choose **Create**.
 
 ### To create an invitation proposal using the AWS CLI
-<a name="w2aab9c25b7b5b3"></a>
+<a name="w2aac13c25b7b5b3"></a>
 + Type a command similar to the following. Replace the value of `Principal` with the AWS account ID that you want to invite. Replace the value of `--member-id` with the value for the member in your account that submits the proposal.
 
   ```
@@ -75,7 +77,7 @@ After you create the invitation proposal, use the first member that you created 
 To accept an invitation to create a member and join a network, the steps are similar whether you are creating a member in a AMB Access network in a different AWS account or your own AWS account. You first create the member as shown in the following procedures. If you use the AWS CLI, make sure that you have the relevant information, including the Network ID and the Invitation ID that the network sent to your account. When you create a member, you specify the name that identifies your member on the network. You also specify the admin user and password to authenticate to your member certificate authority (CA).
 
 ### To accept an invitation to create a member and join a network using the AWS Management Console
-<a name="w2aab9c25c11b5b1"></a>
+<a name="w2aac13c25c11b5b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -92,7 +94,7 @@ To accept an invitation to create a member and join a network, the steps are sim
 1. Choose **Create member and join network**.
 
 ### To accept an invitation to create a member and join a network using the AWS CLI
-<a name="w2aab9c25c11b5b3"></a>
+<a name="w2aac13c25c11b5b3"></a>
 + Use the `create-member` command similar to the example below. Replace the value of `--network-id` with the Network ID that you are joining and `--invitation-id` with the Invitation ID sent to your account from the network.
 
   ```
@@ -113,7 +115,7 @@ To accept an invitation to create a member and join a network, the steps are sim
   ```
 
 ### Additional Steps to Configure a Member
-<a name="w2aab9c25c11b7"></a>
+<a name="w2aac13c25c11b7"></a>
 
 After you create the member, perform the following steps to configure the member. As you perform the steps, replace values with those specific to your member configuration, including the Member ID returned by the previous command. The Network ID and `OrderingServiceEndpoint` are the same for all members.
 + [Step 2: Create and Configure the Interface VPC Endpoint](get-started-create-endpoint.md)

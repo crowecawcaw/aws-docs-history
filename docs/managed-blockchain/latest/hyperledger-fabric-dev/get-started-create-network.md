@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Step 1: Create the Network and First Member
 <a name="get-started-create-network"></a>
 
@@ -13,7 +15,7 @@ Each member that is created accrues charges according to the membership rate for
 Create the network using the AWS CLI or AMB Access console according to the following instructions. It takes around 30 minutes for AMB Access to provision resources and bring the network online.
 
 ## To create a Hyperledger Fabric network using the AWS Management Console
-<a name="w2aab9c11b9b1"></a>
+<a name="w2aac13c11b9b1"></a>
 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/).
 
@@ -46,7 +48,7 @@ Create the network using the AWS CLI or AMB Access console according to the foll
    The **Networks** list shows the name and **Network ID** of the network you created, with a **Status** of **Creating**. It takes around 30 minutes for AMB Access to create your network, after which the **Status** is **Available**.
 
 ## To create a Hyperledger Fabric network using the AWS CLI
-<a name="w2aab9c11b9b3"></a>
+<a name="w2aac13c11b9b3"></a>
 
 Use the `create-network` command as shown in the following example. Consider the following:
 + The example shows `HYPERLEDGER_FABRIC` as the `Framework` and `2.2` as the `FrameworkVersion`. The `FrameworkConfiguration` properties for `--network-configuration` and `--member-configuration` options might be different for other frameworks and versions.
