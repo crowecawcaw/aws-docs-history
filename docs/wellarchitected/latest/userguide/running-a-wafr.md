@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Running a WAFR
 <a name="running-a-wafr"></a>
 

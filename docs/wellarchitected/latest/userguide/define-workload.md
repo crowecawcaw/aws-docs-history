@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Defining a workload in AWS WA Tool
 <a name="define-workload"></a>
 
@@ -59,7 +61,7 @@ The name must be between 3 and 100 characters. At least three characters must no
 
    If a required box is blank or if a specified value is not valid, you must correct the issue before you can continue.
 
-1. (Optional) In the **Apply Profile** step, associate a profile with the workload by selecting an existing profile, searching for the profile name, or choosing **Create profile** to [create a profile](creating-a-profile.md). Choose **Next**.
+1. (Optional) In the **Apply Profile** step, associate a profile with the workload by selecting an existing profile, searching for the profile name, or choosing **Create profile** to [create a profile](tool-creating-a-profile.md). Choose **Next**.
 
 1. Choose the lenses that apply to this workload. Up to 20 lenses can be added to a workload. For descriptions of official AWS lenses, see [Lenses](lenses.md).
 

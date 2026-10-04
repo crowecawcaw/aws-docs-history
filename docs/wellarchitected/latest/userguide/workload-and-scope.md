@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Workload and scope
 <a name="workload-and-scope"></a>
 

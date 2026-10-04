@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Determining which lens to upgrade in AWS WA Tool
 <a name="lenses-selecting"></a>
 

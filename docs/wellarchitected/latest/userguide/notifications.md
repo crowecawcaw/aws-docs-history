@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Notifications
 <a name="notifications"></a>
 
@@ -23,7 +25,7 @@ There are two types of **Profile notifications**:
 + Profile upgrade
 + Profile deletion
 
- When a profile associated with a workload has been edited (for more information, see [Editing a profile in AWS WA Tool](editing-profiles.md)), a notification that there is a new version of the profile is displayed in **Profile notifications**.
+ When a profile associated with a workload has been edited (for more information, see [Editing a profile in AWS WA Tool](tool-editing-profiles.md)), a notification that there is a new version of the profile is displayed in **Profile notifications**.
 
  When the owner of a shared profile deletes it, if you have a workload associated with the deleted profile, you will receive a notification that you can still use the profile in your existing workload, but you will not be able to add it to new workloads.
 
@@ -43,4 +45,4 @@ There are two types of **Profile notifications**:
 
 Once the profile is upgraded, the latest version number and updated date is displayed in the **Profile** section of the workload. 
 
-See [Using profiles in AWS WA Tool](profiles.md) for more information.
+See [Tool profiles](tool-profiles.md) for more information.

@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Activating support in AWS WA Tool for other AWS services
 <a name="activate-integrations"></a>
 

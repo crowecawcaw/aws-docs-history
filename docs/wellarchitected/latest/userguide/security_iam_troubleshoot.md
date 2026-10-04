@@ -1,14 +1,16 @@
 
 
-# Troubleshooting AWS Well-Architected Tool identity and access
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# Troubleshooting AWS Well-Architected identity and access
 <a name="security_iam_troubleshoot"></a>
 
-Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS WA Tool and IAM.
+Use the following information to help you diagnose and fix common issues that you might encounter when working with AWS Well-Architected and IAM.
 
 **Topics**
-+ [I'm not authorized to perform an action in AWS WA Tool](#security_iam_troubleshoot-no-permissions)
++ [I'm not authorized to perform an action in AWS Well-Architected](#security_iam_troubleshoot-no-permissions)
 
-## I'm not authorized to perform an action in AWS WA Tool
+## I'm not authorized to perform an action in AWS Well-Architected
 <a name="security_iam_troubleshoot-no-permissions"></a>
 
 If the AWS Management Console tells you that you're not authorized to perform an action, then you must contact your administrator for assistance. Your administrator is the person that provided you with your sign-in credentials.

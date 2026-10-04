@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Setting up the connector
 <a name="setting-up-jira"></a>
 

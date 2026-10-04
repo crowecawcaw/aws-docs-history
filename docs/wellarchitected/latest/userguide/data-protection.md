@@ -1,9 +1,11 @@
 
 
-# Data protection in AWS Well-Architected Tool
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# Data protection in AWS Well-Architected
 <a name="data-protection"></a>
 
-The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Well-Architected Tool. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
+The AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in AWS Well-Architected. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq/).  For information about data protection in Europe, see the [General Data Protection Regulation (GDPR) Center](https://aws.amazon.com/compliance/gdpr-center/). 
 
 For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways:
 + Use multi-factor authentication (MFA) with each account.
@@ -13,22 +15,22 @@ For data protection purposes, we recommend that you protect AWS account credenti
 + Use advanced managed security services such as Amazon Macie, which assists in discovering and securing sensitive data that is stored in Amazon S3.
 + If you require FIPS 140-3 validated cryptographic modules when accessing AWS through a command line interface or an API, use a FIPS endpoint. For more information about the available FIPS endpoints, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
 
-We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS WA Tool or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
+We strongly recommend that you never put confidential or sensitive information, such as your customers' email addresses, into tags or free-form text fields such as a **Name** field. This includes when you work with AWS Well-Architected or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into tags or free-form text fields used for names may be used for billing or diagnostic logs. If you provide a URL to an external server, we strongly recommend that you do not include credentials information in the URL to validate your request to that server.
 
 ## Encryption at rest
 <a name="data_protection-encryption-at-rest"></a>
 
-All data stored by AWS WA Tool is encrypted at rest.
+All data stored by AWS Well-Architected is encrypted at rest.
 
 ## Encryption in transit
 <a name="data_protection-encryption-in-transit"></a>
 
-All data sent to and from AWS WA Tool is encrypted in transit.
+All data sent to and from AWS Well-Architected is encrypted in transit.
 
 ## How AWS uses your data
 <a name="data_protection-how-aws-uses-data"></a>
 
-The AWS Well-Architected team collects aggregated data from the AWS Well-Architected Tool to provide and improve the AWS WA Tool service for customers. Individual customer data may be shared with AWS account teams to support our customers’ efforts to improve their workloads and architecture. The AWS Well-Architected team can only access workload properties and selected choices for each question. AWS does not share any data from the AWS WA Tool outside of AWS.
+The AWS Well-Architected team collects aggregated data from the AWS Well-Architected to provide and improve the AWS Well-Architected service for customers. Individual customer data may be shared with AWS account teams to support our customers’ efforts to improve their workloads and architecture. The AWS Well-Architected team can only access workload properties and selected choices for each question. AWS does not share any data from the AWS Well-Architected outside of AWS.
 
 Workload properties that the AWS Well-Architected team has access to include:
 + Workload name

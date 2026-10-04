@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # EventBridge
 <a name="eventbridge"></a>
 
@@ -48,14 +50,14 @@ This section includes example events from AWS Well-Architected Tool.
       "eventVersion":"1.08",
       "userIdentity":{
          "type":"AssumedRole",
-         "principalId":"AROA4JUSXMN5ZR6S7LZNP:sample-user",
+         "principalId":"AKIAI44QH8DHBEXAMPLE:sample-user",
          "arn":"arn:aws:sts::123456789012:assumed-role/Admin/example-user",
          "accountId":"123456789012",
          "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
          "sessionContext":{
             "sessionIssuer":{
                "type":"Role",
-               "principalId":"AROA4JUSXMN5ZR6S7LZNP",
+               "principalId":"AKIAI44QH8DHBEXAMPLE",
                "arn":"arn:aws:iam::123456789012:role/Admin",
                "accountId":"123456789012",
                "userName":"Admin"
@@ -116,14 +118,14 @@ This section includes example events from AWS Well-Architected Tool.
       "eventVersion":"1.08",
       "userIdentity":{
          "type":"AssumedRole",
-         "principalId":"AROA4JUSXMN5ZR6S7LZNP:example-user",
+         "principalId":"AKIAI44QH8DHBEXAMPLE:example-user",
          "arn":"arn:aws:sts::123456789012:assumed-role/Admin/example-user",
          "accountId":"123456789012",
          "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
          "sessionContext":{
             "sessionIssuer":{
                "type":"Role",
-               "principalId":"AROA4JUSXMN5ZR6S7LZNP",
+               "principalId":"AKIAI44QH8DHBEXAMPLE",
                "arn":"arn:aws:iam::123456789012:role/Admin",
                "accountId":"123456789012",
                "userName":"Admin"

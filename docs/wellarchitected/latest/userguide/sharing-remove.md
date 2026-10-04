@@ -1,6 +1,8 @@
 
 
-# Delete shared access in AWS Well-Architected Tool
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# Delete shared access in AWS Well-Architected
 <a name="sharing-remove"></a>
 
 You can delete a workload invitation. Deleting a workload invitation removes shared access to the workload.

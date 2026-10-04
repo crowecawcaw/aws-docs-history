@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Activating Trusted Advisor for a workload in IAM
 <a name="activate-ta-in-iam"></a>
 

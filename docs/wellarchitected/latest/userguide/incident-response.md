@@ -1,9 +1,11 @@
 
 
-# Incident response in AWS Well-Architected Tool
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# Incident response in AWS Well-Architected
 <a name="incident-response"></a>
 
-Incident response for AWS Well-Architected Tool is an AWS responsibility. AWS has a formal, documented policy and program that governs incident response.
+Incident response for AWS Well-Architected is an AWS responsibility. AWS has a formal, documented policy and program that governs incident response.
 
 AWS operational issues with broad impact are posted on the [AWS Service Health Dashboard.](https://status.aws.amazon.com/)
 

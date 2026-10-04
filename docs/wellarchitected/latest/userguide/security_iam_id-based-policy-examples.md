@@ -1,25 +1,25 @@
 
 
-# AWS Well-Architected Tool identity-based policy examples
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# AWS Well-Architected identity-based policy examples
 <a name="security_iam_id-based-policy-examples"></a>
 
-By default, users and roles don't have permission to create or modify AWS WA Tool resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
+By default, users and roles don't have permission to create or modify AWS Well-Architected resources. They also can't perform tasks using the AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need. The administrator must then attach those policies to the users or groups that require those permissions.
 
 To learn how to create an IAM identity-based policy using these example JSON policy documents, see [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*.
 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
-+ [Using the AWS WA Tool console](#security_iam_id-based-policy-examples-console)
++ [Using the AWS Well-Architected console](#security_iam_id-based-policy-examples-console)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
-+ [Granting full access to workloads](#security_iam_id-based-policy-examples-full-access)
-+ [Granting read-only access to workloads](#security_iam_id-based-policy-examples-readonly-access)
-+ [Accessing one workload](#security_iam_id-based-policy-examples-access-one-workload)
-+ [Using a service-specific condition key for the AWS Well-Architected Tool Connector for Jira](#security_iam_id-based-policy-examples-service-specific-condition-key)
++ [AWS Well-Architected Tool examples](#security_iam_id-based-policy-examples-tool)
++ [AWS Well-Architected Agent examples](#security_iam_id-based-policy-examples-agent)
 
 ## Policy best practices
 <a name="security_iam_service-with-iam-policy-best-practices"></a>
 
-Identity-based policies determine whether someone can create, access, or delete AWS WA Tool resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations:
+Identity-based policies determine whether someone can create, access, or delete AWS Well-Architected resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations:
 + **Get started with AWS managed policies and move toward least-privilege permissions** – To get started granting permissions to your users and workloads, use the *AWS managed policies* that grant permissions for many common use cases. They are available in your AWS account. We recommend that you reduce permissions further by defining AWS customer managed policies that are specific to your use cases. For more information, see [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#aws-managed-policies) or [AWS managed policies for job functions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions.html) in the *IAM User Guide*.
 + **Apply least-privilege permissions** – When you set permissions with IAM policies, grant only the permissions required to perform a task. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as *least-privilege permissions*. For more information about using IAM to apply permissions, see [ Policies and permissions in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *IAM User Guide*.
 + **Use conditions in IAM policies to further restrict access** – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must be sent using SSL. You can also use conditions to grant access to service actions if they are used through a specific AWS service, such as CloudFormation. For more information, see [ IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*.
@@ -28,18 +28,18 @@ Identity-based policies determine whether someone can create, access, or delete 
 
 For more information about best practices in IAM, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
 
-## Using the AWS WA Tool console
+## Using the AWS Well-Architected console
 <a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the AWS Well-Architected Tool console, you must have a minimum set of permissions. These permissions must allow you to list and view details about the AWS WA Tool resources in your AWS account. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities (users or roles) with that policy.
+To access the AWS Well-Architected console, you must have a minimum set of permissions. These permissions must allow you to list and view details about AWS Well-Architected resources in your AWS account, including workloads, lenses, and agent profiles. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities (users or roles) with that policy.
 
-To ensure that those entities can still use the AWS WA Tool console, also attach the following AWS managed policy to the entities:
+To ensure that those entities can still use the AWS Well-Architected console, also attach the following AWS managed policy to the entities:
 
 ```
 WellArchitectedConsoleReadOnlyAccess
 ```
 
-To allow the ability to create, change, and delete workloads, attach the following AWS managed policy to the entities:
+To allow the ability to create, change, and delete workloads and manage agent profiles, attach the following AWS managed policy to the entities:
 
 ```
 WellArchitectedConsoleFullAccess
@@ -89,7 +89,12 @@ This example shows how you might create a policy that allows IAM users to view t
 }
 ```
 
-## Granting full access to workloads
+## AWS Well-Architected Tool examples
+<a name="security_iam_id-based-policy-examples-tool"></a>
+
+The following examples show policies for common access patterns in the AWS Well-Architected Tool.
+
+### Granting full access to workloads
 <a name="security_iam_id-based-policy-examples-full-access"></a>
 
 In this example, you want to grant a user in your AWS account full access to your workloads. Full access allows the user to perform all actions in AWS WA Tool. This access is required to define workloads, delete workloads, view workloads, and update workloads.
@@ -116,7 +121,7 @@ In this example, you want to grant a user in your AWS account full access to you
 
 ------
 
-## Granting read-only access to workloads
+### Granting read-only access to workloads
 <a name="security_iam_id-based-policy-examples-readonly-access"></a>
 
 In this example, you want to grant a user in your AWS account read-only access to your workloads. Read-only access only allows the user to view workloads in AWS WA Tool.
@@ -144,7 +149,7 @@ In this example, you want to grant a user in your AWS account read-only access t
 
 ------
 
-## Accessing one workload
+### Accessing one workload
 <a name="security_iam_id-based-policy-examples-access-one-workload"></a>
 
 In this example, you want to grant a user in your AWS account read-only access to one of your workloads, `99999999999955555555555566666666`, in the `us-west-2` Region. Your account ID is `777788889999`.
@@ -172,7 +177,7 @@ In this example, you want to grant a user in your AWS account read-only access t
 
 ------
 
-## Using a service-specific condition key for the AWS Well-Architected Tool Connector for Jira
+### Using a service-specific condition key for the AWS Well-Architected Tool Connector for Jira
 <a name="security_iam_id-based-policy-examples-service-specific-condition-key"></a>
 
  This example demonstrates how to use the service-specific condition key `wellarchitected:JiraProjectKey` to control which Jira projects can be linked to workloads in your account. 
@@ -223,3 +228,117 @@ In this example, you want to grant a user in your AWS account read-only access t
 ```
 
 ------
+
+## AWS Well-Architected Agent examples
+<a name="security_iam_id-based-policy-examples-agent"></a>
+
+The following examples show policies for common access patterns in AWS Well-Architected Agent.
+
+### Allow AWS WA Agent profile administration
+<a name="security_iam_id-based-policy-examples-agent-admin"></a>
+
+This policy grants full administrative access to AWS WA Agent, including creating and managing profiles, goals, and application context. Attach this policy to users who set up and configure AWS WA Agent profiles for your organization.
+
+This policy also grants `iam:PassRole` so the administrator can pass the execution role to AWS WA Agent during profile creation. The condition restricts `PassRole` to the Well-Architected Agent service principal.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AgentProfileManagement",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:CreateAgentProfile",
+                "wellarchitected:UpdateAgentProfile",
+                "wellarchitected:DeleteAgentProfile",
+                "wellarchitected:GetAgentProfile",
+                "wellarchitected:ListAgentProfiles"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AgentGoalManagement",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:CreateAgentGoal",
+                "wellarchitected:UpdateAgentGoal",
+                "wellarchitected:DeleteAgentGoal"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AgentContextManagement",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:CreateAgentContext",
+                "wellarchitected:UpdateAgentContext",
+                "wellarchitected:DeleteAgentContext"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AgentRecommendationGeneration",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:StartAgentRecommendationGeneration",
+                "wellarchitected:GetAgentRecommendationGeneration",
+                "wellarchitected:ListAgentRecommendationGenerations"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "PassExecutionRole",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::*:role/service-role/*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "wellarchitected-agent.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+### Allow viewing and acting on AWS WA Agent recommendations
+<a name="security_iam_id-based-policy-examples-agent-consumer"></a>
+
+This policy grants access to view recommendations and update their status without allowing profile management. Attach this policy to users who triage and act on recommendations but do not configure AWS WA Agent profiles.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewRecommendations",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:ListAgentRecommendations",
+                "wellarchitected:GetAgentRecommendation",
+                "wellarchitected:ListAgentRecommendationItems"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ActOnRecommendations",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:UpdateAgentRecommendationStatus",
+                "wellarchitected:PutAgentRecommendationFeedback"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ViewProfiles",
+            "Effect": "Allow",
+            "Action": [
+                "wellarchitected:GetAgentProfile",
+                "wellarchitected:ListAgentProfiles"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```

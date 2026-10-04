@@ -1,7 +1,9 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Creating a profile
-<a name="creating-a-profile"></a>
+<a name="tool-creating-a-profile"></a>
 
 **To create a profile**
 

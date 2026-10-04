@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Providing users, groups, or roles access to AWS WA Tool
 <a name="iam-auth-access"></a>
 
@@ -24,4 +26,4 @@ You can grant users, groups, or roles full control or read-only access to AWS We
 
 1. To grant read-only access, apply the ** WellArchitectedConsoleReadOnlyAccess** managed policy to the permission set or role. Principals with this role can only view resources.
 
-For more information on these policies, see [AWS managed policies for AWS Well-Architected Tool](security-iam-awsmanpol.md).
+For more information on these policies, see [AWS managed policies for AWS Well-Architected](security-iam-awsmanpol.md).

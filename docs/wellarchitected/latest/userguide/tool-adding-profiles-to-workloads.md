@@ -1,7 +1,9 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Adding a profile to a workload in AWS WA Tool
-<a name="adding-profiles-to-workloads"></a>
+<a name="tool-adding-profiles-to-workloads"></a>
 
 You can add a profile to an existing workload, or when defining a workload, to speed up the workload review process. AWS WA Tool uses the information gathered from your profile to prioritize questions in the workload review that are relevant to your business. 
 
@@ -15,7 +17,7 @@ Only one profile can be associated with a workload.
 
 1. In the **Profile** section, choose **Add profile**.
 
-1. Select the profile you want to apply to the workload from the list of available profiles, or choose **Create profile**. For more information, see [Creating a profile](creating-a-profile.md).
+1. Select the profile you want to apply to the workload from the list of available profiles, or choose **Create profile**. For more information, see [Creating a profile](tool-creating-a-profile.md).
 
 1. Choose **Save**.
 

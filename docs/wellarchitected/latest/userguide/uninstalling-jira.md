@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Uninstalling the connector
 <a name="uninstalling-jira"></a>
 

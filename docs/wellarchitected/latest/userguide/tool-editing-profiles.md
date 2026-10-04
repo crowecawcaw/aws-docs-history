@@ -1,7 +1,9 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Editing a profile in AWS WA Tool
-<a name="editing-profiles"></a>
+<a name="tool-editing-profiles"></a>
 
 **To edit a profile**
 

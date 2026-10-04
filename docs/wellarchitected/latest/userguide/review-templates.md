@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Review templates in AWS WA Tool
 <a name="review-templates"></a>
 

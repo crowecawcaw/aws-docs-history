@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Sharing your AWS WA Tool resources
 <a name="sharing"></a>
 
@@ -7,7 +9,7 @@ To share a resource that you own, do the following:
 + [Activate resource sharing within AWS Organizations](#getting-started-sharing-orgs) (optional)
 + [Share a workload](workloads-sharing.md)
 + [Share a custom lens](lenses-sharing.md)
-+ [Share a profile](sharing-profiles.md)
++ [Share a profile](tool-sharing-profiles.md)
 + [Share a review template](sharing-review-templates.md)
 
 **Notes**  

@@ -1,7 +1,9 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # What is AWS Well-Architected Tool?
-<a name="intro"></a>
+<a name="tool"></a>
 
 AWS Well-Architected Tool (AWS WA Tool) is a service in the cloud that provides a consistent process for measuring your architecture using AWS best practices. AWS WA Tool helps you throughout the product lifecycle by doing the following:
 + Assisting with documenting the decisions that you make
@@ -17,5 +19,18 @@ Integrations with [AWS Trusted Advisor](https://docs.aws.amazon.com/awssupport/l
 This service is intended for those involved in technical product development, such as chief technology officers (CTOs), architects, developers, and operations team members. AWS customers use AWS WA Tool to document their architectures, provide product launch governance, and to understand and manage the risks in their technology portfolio.
 
 **Topics**
-+ [What is AWS Well-Architected Framework?](waf.md)
-+ [AWS Well-Architected Tool glossary](definitions.md)
++ [Getting started with AWS Well-Architected Tool](getting-started.md)
++ [Tutorial: Document an AWS Well-Architected Tool workload](tutorial.md)
++ [Well-Architected Framework Review (WAFR)](wa-framework-review.md)
++ [Workloads](workloads.md)
++ [Using lenses in AWS WA Tool](lenses.md)
++ [Review templates in AWS WA Tool](review-templates.md)
++ [Tool profiles](tool-profiles.md)
++ [AWS Well-Architected Tool Connector for Jira](jira.md)
++ [Milestones](milestones.md)
++ [Share invitations](invitations.md)
++ [Notifications](notifications.md)
++ [Dashboard](dashboard.md)
++ [Sharing your AWS WA Tool resources](sharing.md)
++ [Tagging your AWS WA Tool resources](tagging.md)
++ [EventBridge](eventbridge.md)

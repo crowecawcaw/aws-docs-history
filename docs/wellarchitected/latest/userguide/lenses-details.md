@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Viewing lens details for a workload in AWS WA Tool
 <a name="lenses-details"></a>
 

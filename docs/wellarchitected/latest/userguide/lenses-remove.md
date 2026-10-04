@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Removing a lens from a workload in AWS WA Tool
 <a name="lenses-remove"></a>
 

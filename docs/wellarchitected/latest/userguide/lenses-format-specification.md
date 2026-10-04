@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Lens format specification in AWS WA Tool
 <a name="lenses-format-specification"></a>
 

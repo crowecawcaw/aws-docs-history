@@ -1,6 +1,8 @@
 
 
-# Accept and reject workload invitations in AWS Well-Architected Tool
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# Accept and reject workload invitations in AWS Well-Architected
 <a name="sharing-invitations"></a>
 
 A workload invitation is a request to share a workload that is owned by another AWS account. If you accept the workload invitation, the workload is added to your **Workloads** and **Dashboard** pages. If you reject the workload invitation, it's removed from the workload invitation list.

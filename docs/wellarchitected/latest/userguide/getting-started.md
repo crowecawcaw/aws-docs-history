@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Getting started with AWS Well-Architected Tool
 <a name="getting-started"></a>
 

@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # The AWS Well-Architected Tool Properties tab
 <a name="details-properties"></a>
 

@@ -1,14 +1,16 @@
 
 
-# How AWS Well-Architected Tool works with IAM
+AWS Well-Architected Agent is in preview release and is subject to change.
+
+# AWS Well-Architected Tool access model
 <a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to AWS WA Tool, learn what IAM features are available to use with AWS WA Tool.
+Before you use IAM to manage access to AWS Well-Architected, learn what IAM features are available to use with AWS Well-Architected.
 
 
-**IAM features you can use with AWS Well-Architected Tool**  
+**IAM features you can use with AWS Well-Architected**  
 
-| IAM feature | AWS WA Tool support | 
+| IAM feature | AWS Well-Architected support | 
 | --- | --- | 
 | [Identity-based policies](#security_iam_service-with-iam-id-based-policies) |  Yes | 
 | [Resource-based policies](#security_iam_service-with-iam-resource-based-policies) |  No  | 
@@ -22,9 +24,9 @@ Before you use IAM to manage access to AWS WA Tool, learn what IAM features are 
 | [Service roles](#security_iam_service-with-iam-roles-service) |  No  | 
 | [Service-linked roles](#security_iam_service-with-iam-roles-service-linked) |  No  | 
 
-To get a high-level view of how AWS WA Tool and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
+To get a high-level view of how AWS Well-Architected and other AWS services work with most IAM features, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
-## AWS WA Tool identity-based policies
+## AWS Well-Architected identity-based policies
 <a name="security_iam_service-with-iam-id-based-policies"></a>
 
 **Supports policy actions:** Yes
@@ -33,7 +35,7 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 
 The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-## Resource-based policies within AWS WA Tool
+## Resource-based policies within AWS Well-Architected
 <a name="security_iam_service-with-iam-resource-based-policies"></a>
 
 **Supports resource-based policies:** No 
@@ -42,7 +44,7 @@ Resource-based policies are JSON policy documents that you attach to a resource.
 
 To enable cross-account access, you can specify an entire account or IAM entities in another account as the principal in a resource-based policy. For more information, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html) in the *IAM User Guide*.
 
-## Policy actions for AWS WA Tool
+## Policy actions for AWS Well-Architected
 <a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
 **Supports policy actions:** Yes
@@ -51,9 +53,9 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 
 The `Action` element of a JSON policy describes the actions that you can use to allow or deny access in a policy. Include actions in a policy to grant permissions to perform the associated operation.
 
-Policy actions in AWS WA Tool use the following prefix before the action: `wellarchitected:`. For example, to allow an entity to define a workload, an administrator must attach a policy that allows `wellarchitected:CreateWorkload` actions. Similarly, to prevent an entity from deleting workloads, an administrator can attach a policy that denies `wellarchitected:DeleteWorkload` actions. Policy statements must include either an `Action` or `NotAction` element. AWS WA Tool defines its own set of actions that describe tasks that you can perform with this service.
+Policy actions in AWS Well-Architected use the following prefix before the action: `wellarchitected:`. For example, to allow an entity to define a workload, an administrator must attach a policy that allows `wellarchitected:CreateWorkload` actions. Similarly, to prevent an entity from deleting workloads, an administrator can attach a policy that denies `wellarchitected:DeleteWorkload` actions. Policy statements must include either an `Action` or `NotAction` element. AWS Well-Architected defines its own set of actions that describe tasks that you can perform with this service.
 
-To see a list of AWS WA Tool actions, see [Actions Defined by AWS Well-Architected Tool](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-actions-as-permissions) in the *Service Authorization Reference*. 
+To see a list of AWS Well-Architected actions, see [Actions Defined by AWS Well-Architected](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-actions-as-permissions) in the *Service Authorization Reference*. 
 
 ## Policy resources
 <a name="security_iam_service-with-iam-id-based-policies-resources"></a>
@@ -68,7 +70,7 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 "Resource": "*"
 ```
 
-To see a list of AWS WA Tool resource types and their ARNs, see [Resources defined by AWS Well-Architected Tool](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#your_service-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by AWS Well-Architected Tool](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#your_service-actions-as-permissions).
+To see a list of AWS Well-Architected resource types and their ARNs, see [Resources defined by AWS Well-Architected](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions defined by AWS Well-Architected](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-actions-as-permissions).
 
 The AWS WA Tool workload resource has the following ARN:
 
@@ -90,15 +92,15 @@ To specify all workloads that belong to a specific account, use the wildcard (\*
 "Resource": "arn:aws:wellarchitected:{{us-west-2}}:{{123456789012}}:workload/*" 
 ```
 
-Some AWS WA Tool actions, such as those for creating and listing workloads, cannot be performed on a specific resource. In those cases, you must use the wildcard (\*).
+Some AWS Well-Architected actions, such as those for creating and listing workloads, cannot be performed on a specific resource. In those cases, you must use the wildcard (\*).
 
 ```
 "Resource": "*"
 ```
 
-To see a list of AWS WA Tool resource types and their ARNs, see [Resources Defined by AWS Well-Architected Tool](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Well-Architected Tool](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-actions-as-permissions).
+To see a list of AWS Well-Architected resource types and their ARNs, see [Resources Defined by AWS Well-Architected](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-resources-for-iam-policies) in the *Service Authorization Reference*. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Well-Architected](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awswell-architectedtool.html#awswell-architectedtool-actions-as-permissions).
 
-## Policy condition keys for AWS WA Tool
+## Policy condition keys for AWS Well-Architected
 <a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
 **Supports service-specific policy condition keys:** Yes
@@ -107,20 +109,20 @@ Administrators can use AWS JSON policies to specify who has access to what. That
 
 The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-AWS WA Tool provides one service-specific condition key (`wellarchitected:JiraProjectKey`) and supports using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *Service Authorization Reference*.
+AWS Well-Architected provides one service-specific condition key (`wellarchitected:JiraProjectKey`) and supports using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *Service Authorization Reference*.
 
 Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**.
 
 The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
-## ACLs in AWS WA Tool
+## ACLs in AWS Well-Architected
 <a name="security_iam_service-with-iam-acls"></a>
 
 **Supports ACLs:** No 
 
 Access control lists (ACLs) control which principals (account members, users, or roles) have permissions to access a resource. ACLs are similar to resource-based policies, although they do not use the JSON policy document format.
 
-## Authorization based on AWS WA Tool tags
+## Authorization based on AWS Well-Architected tags
 <a name="security_iam_service-with-iam-tags"></a>
 
 **Supports ABAC (tags in policies):** Yes
@@ -133,28 +135,28 @@ If a service supports all three condition keys for every resource type, then the
 
 For more information about ABAC, see [Define permissions with ABAC authorization](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction_attribute-based-access-control.html) in the *IAM User Guide*. To view a tutorial with steps for setting up ABAC, see [Use attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_attribute-based-access-control.html) in the *IAM User Guide*.
 
-## Using temporary credentials with AWS WA Tool
+## Using temporary credentials with AWS Well-Architected
 <a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
 **Supports temporary credentials:** Yes
 
 Temporary credentials provide short-term access to AWS resources and are automatically created when you use federation or switch roles. AWS recommends that you dynamically generate temporary credentials instead of using long-term access keys. For more information, see [Temporary security credentials in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*.
 
-## Cross-service principal permissions for AWS WA Tool
+## Cross-service principal permissions for AWS Well-Architected
 <a name="security_iam_service-with-iam-principal-permissions"></a>
 
 **Supports forward access sessions (FAS):** Yes
 
  Forward access sessions (FAS) use the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services. For policy details when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html). 
 
-## Service roles for AWS WA Tool
+## Service roles for AWS Well-Architected
 <a name="security_iam_service-with-iam-roles-service"></a>
 
 **Supports service roles:** No 
 
  A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*. 
 
-## Service-linked roles for AWS WA Tool
+## Service-linked roles for AWS Well-Architected
 <a name="security_iam_service-with-iam-roles-service-linked"></a>
 
 **Supports service-linked roles:** No 

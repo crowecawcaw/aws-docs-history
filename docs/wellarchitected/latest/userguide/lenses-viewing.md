@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Viewing custom lenses in AWS WA Tool
 <a name="lenses-viewing"></a>
 

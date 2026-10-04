@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Publishing a custom lens in AWS WA Tool for the first time
 <a name="lenses-publish"></a>
 

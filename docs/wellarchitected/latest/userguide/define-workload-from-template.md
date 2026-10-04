@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # Defining a workload from a template in AWS WA Tool
 <a name="define-workload-from-template"></a>
 
@@ -22,9 +24,9 @@ You can also choose **Define from review template** from the **Define workload**
 
 1. On the **Specify properties** step, fill out required fields for the workload properties, and choose **Next**. For more detail, see [Defining a workload in AWS WA Tool](define-workload.md).
 
-1. (Optional) On the **Apply Profile** step, associate a profile with the workload by selecting an existing profile, searching for the profile name, or choosing **Create profile** to [create a profile](creating-a-profile.md). Choose **Next**.
+1. (Optional) On the **Apply Profile** step, associate a profile with the workload by selecting an existing profile, searching for the profile name, or choosing **Create profile** to [create a profile](tool-creating-a-profile.md). Choose **Next**.
 
-   [Well-Architected profiles](profiles.md) and review templates can be used in tandem. The questions that are pre-filled in your review template remain answered in the workload, and the questions are prioritized based on your profile.
+   [Well-Architected profiles](tool-profiles.md) and review templates can be used in tandem. The questions that are pre-filled in your review template remain answered in the workload, and the questions are prioritized based on your profile.
 
 1. (Optional) On the **Apply lenses** step, you may choose to apply additional lenses from **Custom lenses** or **Lens catalog** that were not already applied to the review template.
 

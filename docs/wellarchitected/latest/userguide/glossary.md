@@ -1,5 +1,7 @@
 
 
+AWS Well-Architected Agent is in preview release and is subject to change.
+
 # AWS Glossary
 <a name="glossary"></a>
 
