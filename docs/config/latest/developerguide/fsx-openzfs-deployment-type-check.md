@@ -21,6 +21,6 @@ deploymentTypesType: CSV
 Comma-separated list of allowed Deployment types for the rule to check. 
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d873c19"></a>
+<a name="w2aac20c16c17b7d867c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

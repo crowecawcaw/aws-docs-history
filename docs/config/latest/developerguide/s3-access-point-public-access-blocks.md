@@ -13,7 +13,7 @@ Checks if Amazon S3 access points have block public access settings enabled. The
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Malaysia), Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Canada West (Calgary) Region
 
 **Parameters:**
 
@@ -21,6 +21,6 @@ excludedAccessPoints (Optional)Type: CSV
 Comma-separated list of names for allowed public Amazon S3 access points.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1401c19"></a>
+<a name="w2aac20c16c17b7e1385c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

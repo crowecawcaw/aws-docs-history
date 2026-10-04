@@ -13,7 +13,7 @@ Checks if storage encryption is enabled for your Amazon DocumentDB (with MongoDB
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** Only available in Asia Pacific (Mumbai), Europe (Paris), US East (Ohio), Europe (Ireland), Middle East (UAE), Europe (Frankfurt), South America (Sao Paulo), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), US East (N. Virginia), Asia Pacific (Seoul), Europe (London), Europe (Milan), Asia Pacific (Tokyo), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Canada (Central), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Europe (Stockholm), Middle East (Bahrain), China (Beijing), Asia Pacific (Thailand), Africa (Cape Town), Asia Pacific (Osaka), Asia Pacific (Malaysia), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), US West (N. California), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 
@@ -21,6 +21,6 @@ kmsKeyArns (Optional)Type: CSV
 A comma-separated list of KMS key ARNs to compare with the KmsKeyID of the encrypted cluster.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d495c19"></a>
+<a name="w2aac20c16c17b7d489c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

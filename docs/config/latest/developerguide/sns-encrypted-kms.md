@@ -21,7 +21,7 @@ kmsKeyIds (Optional)Type: CSV
 Comma-separated list of AWS KMS key Amazon Resource Names (ARNs), KMS alias ARNs, KMS alias names, or KMS key IDs for the rule to check.
 
 ## Proactive Evaluation
-<a name="w2aac20c16c17b7e1557c19"></a>
+<a name="w2aac20c16c17b7e1541c19"></a>
 
  For steps on how to run this rule in proactive mode, see [Evaluating Your Resources with AWS Config Rules](./evaluating-your-resources.html#evaluating-your-resources-proactive). For this rule to return COMPLIANT in proactive mode, the resource configuration schema for the [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html) API needs to include the following inputs, encoded as a string: 
 
@@ -37,6 +37,6 @@ Comma-separated list of AWS KMS key Amazon Resource Names (ARNs), KMS alias ARNs
  For more information on proactive evaluation, see [Evaluation Mode](./evaluate-config-rules.html). 
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1557c21"></a>
+<a name="w2aac20c16c17b7e1541c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

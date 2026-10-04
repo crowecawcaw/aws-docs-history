@@ -13,7 +13,7 @@ Checks if an AWS CloudTrail multi-Region trail is enabled and logs all read S3 d
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions
 
 **Parameters:**
 

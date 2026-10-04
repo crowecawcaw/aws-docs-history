@@ -13,7 +13,7 @@ Checks if the Amazon FSx for WINDOWS file systems are configured with certain de
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Taipei), Canada West (Calgary) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Canada West (Calgary) Region
 
 **Parameters:**
 
@@ -21,6 +21,6 @@ deploymentTypesType: CSV
 Comma-separated list of allowed Deployment types for the rule to check. 
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d879c19"></a>
+<a name="w2aac20c16c17b7d873c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

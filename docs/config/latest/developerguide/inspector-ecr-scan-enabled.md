@@ -13,13 +13,13 @@ Checks if Amazon Inspector V2 ECR scanning is activated for your single or multi
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Mexico (Central), Israel (Tel Aviv), Canada West (Calgary), Europe (Spain), China (Ningxia) Region
 
 **Parameters:**
 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d983c19"></a>
+<a name="w2aac20c16c17b7d977c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

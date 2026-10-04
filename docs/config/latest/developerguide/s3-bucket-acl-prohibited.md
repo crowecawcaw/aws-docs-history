@@ -13,13 +13,13 @@ Checks if Amazon Simple Storage Service (Amazon S3) Buckets allow user permissio
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand) Region
 
 **Parameters:**
 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1407c19"></a>
+<a name="w2aac20c16c17b7e1391c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

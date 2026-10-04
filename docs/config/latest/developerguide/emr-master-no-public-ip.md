@@ -21,6 +21,6 @@ This rule checks clusters that are in RUNNING or WAITING state. This rule requir
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d819c19"></a>
+<a name="w2aac20c16c17b7d813c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

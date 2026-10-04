@@ -25,6 +25,6 @@ kmsKeyArns (Optional)Type: CSV
 Comma separated list of Amazon Resource Name (ARN) of the KMS key that should be used for encrypted secrets in an EKS cluster.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d745c21"></a>
+<a name="w2aac20c16c17b7d739c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

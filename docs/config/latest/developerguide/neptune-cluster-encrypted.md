@@ -13,7 +13,7 @@ Checks if storage encryption is enabled for your Amazon Neptune DB clusters. The
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Jakarta), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Europe (Milan), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Hyderabad), Asia Pacific (Melbourne), Europe (Milan), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
 
 **Parameters:**
 
@@ -21,6 +21,6 @@ KmsKeyArns (Optional)Type: CSV
 A comma-separated list of KMS key ARNs to compare with the KmsKeyId of the encrypted cluster.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1161c19"></a>
+<a name="w2aac20c16c17b7e1155c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

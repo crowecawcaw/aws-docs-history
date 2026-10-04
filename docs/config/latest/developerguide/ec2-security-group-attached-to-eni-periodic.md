@@ -21,6 +21,6 @@ This rule reports on the `AWS::EC2::SecurityGroup` resource type. However, in or
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d619c19"></a>
+<a name="w2aac20c16c17b7d613c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

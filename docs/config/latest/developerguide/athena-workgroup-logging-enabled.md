@@ -13,7 +13,7 @@ Checks if Amazon Athena WorkGroup publishes usage metrics to Amazon CloudWatch. 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Asia Pacific (Thailand), Asia Pacific (Malaysia), Mexico (Central), Asia Pacific (Taipei) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Mexico (Central) Region
 
 **Parameters:**
 

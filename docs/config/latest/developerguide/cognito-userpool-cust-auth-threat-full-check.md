@@ -13,7 +13,7 @@ Checks if Amazon Cognito user pools have threat protection enabled with full-fun
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except China (Beijing), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except China (Beijing), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
 
 **Parameters:**
 

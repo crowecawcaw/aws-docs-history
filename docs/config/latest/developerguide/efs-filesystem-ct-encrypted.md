@@ -21,6 +21,6 @@ kmsKeyArns (Optional)Type: String
 (Optional) Comma-separated list of Amazon Resource Names (ARNs) for AWS KMS keys. If provided, the rule checks if the specified KMS keys do not encrypt an Amazon EFS file system.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d707c19"></a>
+<a name="w2aac20c16c17b7d701c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

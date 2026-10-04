@@ -21,6 +21,6 @@ allowedUserGroupIDs (Optional)Type: CSV
 A comma-separated list of User Group IDs that are approved for ElastiCache replication group access.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d751c19"></a>
+<a name="w2aac20c16c17b7d745c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

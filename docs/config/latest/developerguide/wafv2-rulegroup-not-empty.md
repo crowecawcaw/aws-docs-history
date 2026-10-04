@@ -20,6 +20,6 @@ Checks if WAFv2 Rule Groups contain rules. The rule is NON\_COMPLIANT if there a
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1641c19"></a>
+<a name="w2aac20c16c17b7e1625c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

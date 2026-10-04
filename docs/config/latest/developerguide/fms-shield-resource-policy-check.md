@@ -39,6 +39,6 @@ fmsRemediationEnabled (Optional)Type: boolean
 If true, AWS Firewall Manager will update NON\_COMPLIANT resources according to FMS policy. AWS Config ignores this parameter when you create this rule.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d849c21"></a>
+<a name="w2aac20c16c17b7d843c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

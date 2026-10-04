@@ -3,7 +3,7 @@
 # Querying the Current Configuration State of AWS Resources with AWS Config
 <a name="querying-AWS-resources"></a>
 
-You can use AWS Config to query the current configuration state of AWS resources based on configuration properties for a single account and Region or across multiple accounts and Regions. You can perform property-based queries against current AWS resource state metadata across a list of resources that AWS Config supports. For more information on the list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html#supported-resource-types).
+You can use AWS Config to query the current configuration state of AWS resources based on configuration properties for a single account and Region or across multiple accounts and Regions. You can perform property-based queries against current AWS resource state metadata across a list of resources that AWS Config supports. For more information on the list of supported resource types, see [Supported Resource Types](https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html#supported-resources).
 
 *Advanced queries* provides a single query endpoint and a query language to get current resource state metadata without performing service-specific describe API calls. You can use configuration aggregators to run the same queries from a central account across multiple accounts and AWS Regions. 
 

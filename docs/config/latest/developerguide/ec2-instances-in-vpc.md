@@ -24,6 +24,6 @@ vpcId (Optional)Type: String
 VPC ID that contains these EC2 instances.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d989c21"></a>
+<a name="w2aac20c16c17b7d983c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

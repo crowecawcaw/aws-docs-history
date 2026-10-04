@@ -21,6 +21,6 @@ logLevelType: String
 The minimum application log level for the rule to check. The rule is NON\_COMPLIANT if configuration.loggingConfig.applicationLogLevel is configured with a value not specified in this parameter. Valid values include: 'TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', and 'FATAL'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1073c19"></a>
+<a name="w2aac20c16c17b7e1067c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

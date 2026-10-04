@@ -13,7 +13,7 @@ Checks if AWS Network Firewall firewalls have logging enabled. The rule is NON\_
 
 **Trigger type:** Periodic
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Canada West (Calgary), China (Ningxia) Region
 
 **Parameters:**
 
@@ -21,6 +21,6 @@ logType (Optional)Type: String
 logType (Optional): Log type for the rule to check for firewalls: 'alert', 'flow', or 'both'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1175c19"></a>
+<a name="w2aac20c16c17b7e1169c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

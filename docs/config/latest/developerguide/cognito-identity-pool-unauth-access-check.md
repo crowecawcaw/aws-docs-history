@@ -13,7 +13,7 @@ Checks if Amazon Cognito Identity Pool allows unauthenticated identities. The ru
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (Malaysia), AWS GovCloud (US-East), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except AWS GovCloud (US-East), China (Ningxia) Region
 
 **Parameters:**
 

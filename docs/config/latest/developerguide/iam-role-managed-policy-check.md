@@ -21,6 +21,6 @@ managedPolicyArnsType: CSV
 Comma-separated list of AWS managed policy Amazon Resource Names (ARNs). For more information, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) and [AWS managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d951c19"></a>
+<a name="w2aac20c16c17b7d945c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

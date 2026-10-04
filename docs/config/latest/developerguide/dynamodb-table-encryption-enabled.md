@@ -20,6 +20,6 @@ Checks if the Amazon DynamoDB tables are encrypted and checks their status. The 
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d519c19"></a>
+<a name="w2aac20c16c17b7d513c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

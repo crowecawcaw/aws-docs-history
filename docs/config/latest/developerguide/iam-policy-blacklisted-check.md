@@ -25,6 +25,6 @@ Comma separated list of resourcetypes and list of resource name pairs. For examp
 For the exception list, specify the name of the resource and not the full ARN. Not valid: `arn:aws:iam::444455556666:role/Admin`. Valid: `Admin`.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d941c19"></a>
+<a name="w2aac20c16c17b7d935c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

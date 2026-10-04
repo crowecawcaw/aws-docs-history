@@ -21,6 +21,6 @@ supportedEngineVersionType: String
 String value for the rule to check the minimum supported engine version for the RabbitMQ broker. RabbitMQ brokers use semantic versioning specification: X.Y.Z. X denotes the major version, Y represents the minor version, and Z denotes the patch version.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1227c19"></a>
+<a name="w2aac20c16c17b7e1221c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

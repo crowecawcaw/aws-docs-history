@@ -21,6 +21,6 @@ This rule only evaluates the latest active revision of an Amazon ECS task defini
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d667c19"></a>
+<a name="w2aac20c16c17b7d661c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

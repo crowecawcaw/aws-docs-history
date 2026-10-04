@@ -21,6 +21,6 @@ approvedMdnSigningAlgorithmsType: CSV
 Comma-separated list of approved MDN signing algorithms for the rule to check. The rule is NON\_COMPLIANT if configuration.As2Config.MdnSigningAlgorithm is configured with a value not specified in this parameter. Valid values include: 'SHA256', 'SHA384', 'SHA512', 'SHA1', 'DEFAULT', and 'NONE'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1599c19"></a>
+<a name="w2aac20c16c17b7e1583c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).
