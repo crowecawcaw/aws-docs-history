@@ -3,6 +3,9 @@
 # AWS Backint Agent for SAP ASE
 <a name="ase-backint"></a>
 
+**Note**  
+End of support notice: On October 29, 2026, AWS will end support for new customers for AWS Backint Agent for SAP ASE. After September 29, 2027, support for AWS Backint Agent for SAP ASE will completely end and you will no longer be able to access any AWS Backint Agent for SAP ASE resources. For more information, see [AWS Backint Agent for SAP ASE end of support](ase-backint-end-of-support.md).
+
  AWS Backint Agent for SAP ASE is a backup and restore application for SAP ASE relational database management systems (RDBMS) running on Amazon EC2 instances. AWS Backint Agent runs as a standalone application that integrates with your existing workflows to back up your SAP ASE database to Amazon S3.
 
  AWS Backint Agent runs on the SAP ASE database instance, where backups and transaction logs are transferred from SAP ASE to AWS Backint agent. Based on the configurations in your agent file, AWS Backint agent stores your files in Amazon S3. To restore your SAP ASE database, specify the backup location Amazon S3.
@@ -15,6 +18,7 @@
 + [Supported Database Versions](#ase-backint-database-versions)
 + [Supported Operating Systems](#ase-backint-operating-systems)
 + [Supported AWS Regions](#ase-backint-regions)
++ [AWS Backint Agent for SAP ASE end of support](ase-backint-end-of-support.md)
 + [Prerequisites](ase-backint-preprequisites.md)
 + [Installation](ase-backint-install.md)
 + [Backup and Restore](ase-backint-dump-load.md)
