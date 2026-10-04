@@ -224,6 +224,12 @@ EventBridge must have access to the Amazon Virtual Private Cloud (Amazon VPC) re
 
   To set up a VPC endpoint, see [Create a VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws) in the *AWS PrivateLink User Guide*. For service name, select `com.amazonaws.{{region}}.pipes-data`.
 
+  If your Amazon MSK cluster runs in a fully isolated private subnet, EventBridge reaches the cluster and the services it depends on only through interface VPC endpoints. This applies when the subnet has no internet gateway and no NAT gateway. In this case, create interface VPC endpoints for the following services in addition to `pipes-data`:
+  + `com.amazonaws.{{region}}.lambda` – always required.
+  + `com.amazonaws.{{region}}.sts` – always required.
+  + `com.amazonaws.{{region}}.secretsmanager` – required when your cluster uses secret-based authentication, such as SASL/SCRAM or mTLS, so that EventBridge can retrieve the secret from Secrets Manager.
+  + `com.amazonaws.{{region}}.kms` – required when the pipe uses a customer managed key, so that EventBridge can decrypt that key.
+
 Configure your Amazon VPC security groups with the following rules (at minimum):
 + Inbound rules – Allow all traffic on the Amazon MSK broker port for the security groups specified for your source.
 + Outbound rules – Allow all traffic on port 443 for all destinations. Allow all traffic on the Amazon MSK broker port for the security groups specified for your source.

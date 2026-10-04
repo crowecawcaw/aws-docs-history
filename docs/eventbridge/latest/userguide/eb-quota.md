@@ -91,6 +91,12 @@ The Service Quotas console provides information about EventBridge quotas. Along 
 | Targets per rule | Each supported Region: 5 | No | Maximum number of targets that can be associated with a rule | 
 | Throttle limit in transactions per second for control plane APIs | Each supported Region: 50 per second | No | Maximum number of requests per second for EventBridge control plane API operations. Additional requests are throttled. | 
 | UpdateEndpoint throttle limit in transactions per second | Each supported Region: 5 per second | No | The maximum number of requests per second for UpdateEndpoint API. Additional requests are throttled. | 
+| [EventsV2] Combined ingestion throughput and count per Event Group per second | Each supported Region: 1,500 per second | No | The maximum event throughput per Event Group per Second. Counted as the sum of (number of events) \+ (total size of those events in KB) delivered to a given event group within any one-second window. | 
+| [EventsV2] Event Buses | Each supported Region: 5 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/events/quotas/L-DF788473)  | The maximum number of V2 Event Buses owned by this account per Region. Does not include buses shared with this account. | 
+| [EventsV2] Event Sources | Each supported Region: 200 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/events/quotas/L-D082A4F6)  | The maximum number of Event Sources owned by this account per Region. | 
+| [EventsV2] Events per second per custom event bus | Each supported Region: 500,000 per second | No | The maximum number of events per second ingested per custom event bus, counted across all event sources and all accounts the bus is shared with. | 
+| [EventsV2] Resource policy size per event bus | Each supported Region: 20,480 Bytes |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/events/quotas/L-5D1D13E3)  | The maximum size, in bytes, of the customer-managed (default) resource policy of a V2 event bus. Policies that AWS Resource Access Manager writes for a shared bus do not count against this quota. | 
+| [EventsV2] Subscribers per V2 Event Bus | Each supported Region: 10,000 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/events/quotas/L-39263BDC)  | The maximum number of Subscribers that can be associated with each V2 Event Bus owned by this account, across all accounts it is shared with. | 
 
 In addition, EventBridge has the following quotas that are not managed through the Service Quotas console.
 

@@ -16,7 +16,7 @@ This chapter contains the following topics:
 + [Ordering and deduplicating events on a Custom Event Bus](eb-custom-bus-ordering.md)
 + [Migrating from Custom Event Bus - Classic to the Custom Event Bus](eb-custom-bus-migrate.md)
 + [Access control for the Custom Event Bus](eb-custom-bus-access.md)
-+ [Encrypting events on a Custom Event Bus](eb-custom-bus-encryption.md)
++ [Encryption at Rest for Amazon EventBridge Custom Event Bus](eb-custom-bus-encryption.md)
 + [Observability for the Custom Event Bus: metrics, logs, and CloudTrail](eb-custom-bus-observability.md)
 + [Creating Custom Event Bus resources with CloudFormation](eb-custom-bus-cloudformation.md)
 + [Names, endpoints, and IAM permissions for the Custom Event Bus](eb-custom-bus-names.md)
