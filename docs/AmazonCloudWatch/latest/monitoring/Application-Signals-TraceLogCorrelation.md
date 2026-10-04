@@ -8,7 +8,8 @@ You can enable *trace to log correlation* in Application Signals. This automatic
 For example, suppose you notice a spike in a latency graph. You can choose the point on the graph to load the diagnostics information for that point in time. You then choose the relevant trace to get more information. When you view the trace information, you can scroll down to see the logs associated with the trace. These logs might reveal patterns or error codes associated with the issues causing the latency spike.
 
 **Instrument your application before configuring trace log correlation**  
-Your application must already be instrumented for Application Signals before you configure trace log correlation. The Application Signals instrumentation is what populates the `trace_id`, `span_id`, and `trace_flags` MDC values at runtime. Without instrumentation, these values remain empty (for example, `trace_id=`) and correlation does not work.
+Your application must already be instrumented for Application Signals before you configure trace log correlation. The Application Signals instrumentation is what populates the `trace_id`, `span_id`, and `trace_flags` Mapped Diagnostic Context (MDC) values at runtime. Without instrumentation, these values remain empty (for example, `trace_id=`) and correlation does not work.  
+For instrumentation setup instructions, see the enablement guide for your architecture: [Enable your applications on Amazon EKS clusters](CloudWatch-Application-Signals-Enable-EKS.md), [Enable your applications on Amazon ECS](CloudWatch-Application-Signals-Enable-ECSMain.md), or [Enable your applications on Amazon EC2](CloudWatch-Application-Signals-Enable-EC2Main.md).
 
 To achieve trace log correlation, Application Signals relies on the following:
 + [ Logger MDC auto-instrumentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/logger-mdc-instrumentation.md) for Java.

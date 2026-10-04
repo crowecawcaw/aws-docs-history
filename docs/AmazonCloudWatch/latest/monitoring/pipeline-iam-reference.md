@@ -610,6 +610,7 @@ You have less than 5 minutes after receiving the pipeline ARN to create this res
                     "logs:CreateLogStream",
                     "logs:PutLogEvents"
                 ],
+                "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*",
                 "Condition": {
                     "StringEquals": {
                         "aws:SourceArn": "arn:aws:observabilityadmin:{{us-east-1}}:{{111122223333}}:telemetry-pipeline/{{your-pipeline-id}}"
@@ -665,8 +666,9 @@ If a resource policy already exists, add the new statement to the existing `Stat
                    "Service": "existing-service.amazonaws.com"
                },
                "Action": [
-                   "logs:SomeAction"
-               ]
+                   "logs:PutLogEvents"
+               ],
+               "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*"
            },
            {
                "Effect": "Allow",
@@ -677,6 +679,7 @@ If a resource policy already exists, add the new statement to the existing `Stat
                    "logs:CreateLogStream",
                    "logs:PutLogEvents"
                ],
+               "Resource": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:{{your-log-group-name}}:*",
                "Condition": {
                    "StringEquals": {
                        "aws:SourceArn": "arn:aws:observabilityadmin:{{us-east-1}}:{{111122223333}}:telemetry-pipeline/{{your-pipeline-id}}"

@@ -81,7 +81,6 @@ For services that use the [CloudWatch agent](Install-CloudWatch-Agent.md), you m
 | AWS Elemental MediaLive |  | No | Yes | 
 | AWS Elemental MediaLive | `AWS::MediaLive::Channel` | Yes | No | 
 | AWS Elemental MediaPackage | `AWS::MediaPackage::Channel` | Yes | No | 
-| AWS Elemental MediaStore | `AWS::MediaStore::Container` | Yes | Yes | 
 | AWS Elemental MediaTailor |  | No | Yes | 
 | Amazon EMR | `AWS::EMR::Cluster` | Yes | Yes | 
 | Amazon EventBridge | `AWS::Events::Rule` | Yes | Yes | 

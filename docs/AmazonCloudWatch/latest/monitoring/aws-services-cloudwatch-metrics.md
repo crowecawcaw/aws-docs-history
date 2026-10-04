@@ -83,7 +83,6 @@
 | AWS Elemental MediaConvert | `AWS/MediaConvert` | [Using CloudWatch Metrics to View Metrics for AWS Elemental MediaConvert Resources](https://docs.aws.amazon.com/mediaconvert/latest/ug/MediaConvert-metrics.html) | 
 | AWS Elemental MediaLive | `AWS/MediaLive` | [ Monitoring activity using Amazon CloudWatch metrics ](https://docs.aws.amazon.com/medialive/latest/ug/monitoring-eml-metrics.html) | 
 | AWS Elemental MediaPackage | `AWS/MediaPackage` | [Monitoring AWS Elemental MediaPackage with Amazon CloudWatch Metrics](https://docs.aws.amazon.com/mediapackage/latest/ug/monitoring-cloudwatch.html#metrics) | 
-| AWS Elemental MediaStore | `AWS/MediaStore` | [Monitoring AWS Elemental MediaStore with Amazon CloudWatch Metrics](https://docs.aws.amazon.com/mediastore/latest/ug/monitor-with-cloudwatch-metrics.html) | 
 | AWS Elemental MediaTailor | `AWS/MediaTailor` | [Monitoring AWS Elemental MediaTailor with Amazon CloudWatch](https://docs.aws.amazon.com/mediatailor/latest/ug/monitoring-cloudwatch.html) | 
 | AWS End User Messaging SMS  | `AWS/SMSVoice` | [ Monitoring AWS End User Messaging SMS with Amazon CloudWatch](https://docs.aws.amazon.com/sms-voice/latest/userguide/monitoring-cloudwatch.html)  | 
 | AWS End User Messaging Social | `AWS/SocialMessaging` | [ Monitoring AWS End User Messaging Social with Amazon CloudWatch](https://docs.aws.amazon.com/social-messaging/latest/userguide/monitoring-cloudwatch.html)  | 
@@ -120,7 +119,6 @@
 | AWS License Manager | `AWSLicenseManager/licenseUsage`<br />`AWS/LicenseManager/LinuxSubscriptions` | [ Monitoring license usage with Amazon CloudWatch](https://docs.aws.amazon.com/license-manager/latest/userguide/monitoring-cloudwatch.html)<br />[ Usage metrics and Amazon CloudWatch alarms for Linux subscriptions](https://docs.aws.amazon.com/license-manager/latest/userguide/linux-subscriptions-usage-alarms.html) | 
 | Amazon Location Service | `AWS/Location` | [ Amazon Location Service metrics exported to Amazon CloudWatch](https://docs.aws.amazon.com/location/latest/developerguide/monitoring-using-cloudwatch.html#metrics-exported-to-cloudwatch) | 
 | Amazon Lookout for Equipment | `AWS/lookoutequipment` | [ Monitoring Lookout for Equipment with Amazon CloudWatch](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/monitoring-cloudwatch.html) | 
-| Amazon Lookout for Vision | `AWS/LookoutVision` | [ Monitoring Lookout for Vision with Amazon CloudWatch](https://docs.aws.amazon.com/lookout-for-vision/latest/developer-guide/monitoring-cloudwatch.html) | 
 | AWS Mainframe Modernization | `` | [ Monitoring AWS Mainframe Modernization with Amazon CloudWatch](https://docs.aws.amazon.com/m2/latest/userguide/monitoring-cloudwatch.html) | 
 | Amazon Machine Learning | `AWS/ML` | [Monitoring Amazon ML with CloudWatch Metrics](https://docs.aws.amazon.com/machine-learning/latest/dg/cw-doc.html) | 
 | Amazon Managed Blockchain | `AWS/managedblockchain` | [ Use Hyperledger Fabric Peer Node Metrics on Amazon Managed Blockchain](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-peer-node-metrics.html) | 

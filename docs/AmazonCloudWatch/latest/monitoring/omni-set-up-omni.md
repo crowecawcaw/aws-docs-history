@@ -38,7 +38,9 @@ For instructions, see [Set up Omni for a single account](omni-set-up-omni-for-a-
 
 An administrator creates the domain once from the management account. Any member account can then create its own space, which is automatically linked to the domain.
 
-For instructions, see [Set up Omni for your organization](omni-set-up-omni-for-your-organization.md).
+This path requires **trusted access** between AWS Organizations and CloudWatch, enabled for your organization.
+
+For prerequisites and instructions, see [Set up Omni for your organization](omni-set-up-omni-for-your-organization.md).
 
 **Your organization already has a domain**
 

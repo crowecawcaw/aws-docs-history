@@ -48,6 +48,8 @@ You continue to configure how telemetry is collected and stored (log groups, ret
 
 **Get started**
 
+To try Omni before you set anything up, open the playground, a shared environment with sample data that requires no AWS account or setup. Choose **Explore the playground** on the Omni page in the CloudWatch console, or **Try playground** on the sign-in page.
+
 1. Set up your domain and space. See [Set up Omni](omni-set-up-omni.md).
 
 1. Send telemetry from your applications or agents. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).

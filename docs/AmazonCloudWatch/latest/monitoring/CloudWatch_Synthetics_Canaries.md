@@ -31,9 +31,6 @@ CloudWatch Synthetics integrates well with the X-Ray Trace Map, which uses Cloud
 
 CloudWatch Synthetics is currently available in all commercial AWS Regions and the GovCloud Regions.
 
-**Note**  
-In Asia Pacific (Osaka), AWS PrivateLink is not supported. In Asia Pacific (Jakarta), AWS PrivateLink and X-Ray are not supported.
-
 **Topics**
 + [Required roles and permissions for CloudWatch canaries](CloudWatch_Synthetics_Canaries_Roles.md)
 + [Creating a canary](CloudWatch_Synthetics_Canaries_Create.md)

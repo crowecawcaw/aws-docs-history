@@ -7,6 +7,12 @@ OTel Container Insights collects and sends container logs to Amazon CloudWatch L
 
 No additional setup is required for basic log collection. Log collection is enabled by default when you follow the [Quick start: OTel Container Insights on Amazon EKS](container-insights-eks-otel-quickstart.md).
 
+**Log collection costs**  
+Enabling log collection ingests all container stdout and stderr from every pod in the cluster, which can significantly increase CloudWatch Logs costs. To control cost, filter logs before ingestion and set a retention policy on the log groups. For information about filtering, see [Log filtering](container-insights-eks-otel-advanced.md#container-insights-eks-otel-advanced-log-filtering). For information about retention policies, see [Set log retention](#container-insights-eks-otel-logs-retention).
+
+**Correlating logs with traces**  
+Collecting container logs does not by itself correlate them with traces in CloudWatch Application Signals. To correlate traces with logs, instrument your application for Application Signals by using the enablement guide for your architecture, such as [Enable your applications on Amazon EKS clusters](CloudWatch-Application-Signals-Enable-EKS.md), and then configure your logging output as described in [Enable trace to log correlation](Application-Signals-TraceLogCorrelation.md).
+
 ## Prerequisites
 <a name="container-insights-eks-otel-logs-prereqs"></a>
 

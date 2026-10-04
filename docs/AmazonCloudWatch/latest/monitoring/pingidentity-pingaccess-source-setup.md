@@ -60,7 +60,7 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
       "Resource": "arn:aws:sqs:<region>:<account-id>:<queue-name>",
       "Condition": {
         "ArnEquals": {
-          "aws:SourceArn": "arn:aws:s3:::<YOUR-BUCKET>"
+          "aws:SourceArn": "arn:aws:s3:::amzn-s3-demo-bucket"
         },
         "StringEquals": {
           "aws:SourceAccount": "<account-id>"
@@ -164,7 +164,7 @@ Configure Fluent Bit to collect both audit log files and deliver them to Amazon 
 [OUTPUT]
     Name              s3
     Match             pingaccess.*
-    Bucket            <YOUR-BUCKET>
+    Bucket            amzn-s3-demo-bucket
     Region            <region>
     S3_Key_Format     /pingaccess/%Y/%m/%d/%H/%M/%S.log.gz
     compression       gzip
@@ -202,13 +202,11 @@ Create an IAM policy with the following permissions for the Fluent Bit host to w
         "s3:GetBucketLocation",
         "s3:ListBucket",
         "s3:ListMultipartUploadParts",
-        "s3:AbortMultipartUpload",
-        "s3:CreateMultipartUpload",
-        "s3:CompleteMultipartUpload"
+        "s3:AbortMultipartUpload"
       ],
       "Resource": [
-        "arn:aws:s3:::<YOUR-BUCKET>",
-        "arn:aws:s3:::<YOUR-BUCKET>/pingaccess/*"
+        "arn:aws:s3:::amzn-s3-demo-bucket",
+        "arn:aws:s3:::amzn-s3-demo-bucket/pingaccess/*"
       ]
     }
   ]

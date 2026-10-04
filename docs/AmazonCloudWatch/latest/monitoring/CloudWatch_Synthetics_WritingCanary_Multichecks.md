@@ -65,14 +65,14 @@ Global settings provide default configurations that apply to all steps unless ov
 
 | Property | Type | Default | Range | Description | 
 | --- | --- | --- | --- | --- | 
-|  stepTimeout  | integer | 30000 | 5000-300000 | Default timeout for all steps (milliseconds) | 
+|  stepTimeout  | integer | 5000 | 1000-300000 | Default timeout for all steps (milliseconds) | 
 
  **Example** 
 
 ```
 {
   "globalSettings": {
-    "stepTimeout": 60000,
+    "stepTimeout": 60000
             
   }
 }
@@ -192,7 +192,7 @@ Monitor web endpoints and APIs with comprehensive request and response validatio
 
 | Property | Type | Default | Range | Description | 
 | --- | --- | --- | --- | --- | 
-|  timeout  | integer | 30000 | 5000-300000 | Request timeout (milliseconds) | 
+|  timeout  | integer | 5000 | 1000-300000 | Request timeout (milliseconds) | 
 |  waitTime  | integer | 0 | 0-60 | Delay before request (seconds) | 
 |  headers  | object | - | - | Custom HTTP headers | 
 |  body  | string | - | - | Request body for POST/PUT operations | 
@@ -247,7 +247,7 @@ Validate DNS resolution and record information.
 | --- | --- | --- | --- | 
 |  recordType  | string | "A" | DNS record type: A, CNAME, MX,  TXT, NS | 
 |  nameserver  | string | - | Specific DNS server to query | 
-|  timeout  | integer | 30000 | Query timeout (5000-300000ms) | 
+|  timeout  | integer | 5000 | Query timeout (1000-300000ms) | 
 |  port  | integer | 53 | DNS server port (1-65535) | 
 |  protocol  | string | "UDP" | Protocol: UDP or TCP | 
 |  assertions  | array | - | DNS response validation rules | 
@@ -290,7 +290,7 @@ Monitor SSL certificate health and configuration.
 | Property | Type | Default | Description | 
 | --- | --- | --- | --- | 
 |  port  | integer | 443 | SSL port (1-65535) | 
-|  timeout  | integer | 30000 | Connection timeout (5000-300000ms) | 
+|  timeout  | integer | 5000 | Connection timeout (1000-300000ms) | 
 |  sni  | boolean | TRUE | Server Name Indication | 
 |  verifyHostname  | boolean | TRUE | Hostname verification | 
 |  allowSelfSigned  | boolean | FALSE | Accept self-signed certificates | 
@@ -335,9 +335,7 @@ Test TCP port connectivity and response validation.
 
 | Property | Type | Default | Description | 
 | --- | --- | --- | --- | 
-|  timeout  | integer | 30000 | Overall timeout (5000-300000ms) | 
-|  connectionTimeout  | integer | 3000 | Connection timeout (5000-300000ms) | 
-|  readTimeout  | integer | 2000 | Data read timeout (5000-300000ms) | 
+|  timeout  | integer | 5000 | Overall timeout (1000-300000ms) | 
 |  sendData  | string | - | Data to send after connection | 
 |  expectedResponse  | string | - | Expected response data | 
 |  encoding  | string | "UTF-8" | Data encoding: UTF-8, ASCII, HEX | 
@@ -351,7 +349,7 @@ Test TCP port connectivity and response validation.
   "checkerType": "TCP",
   "hostname": "db.example.com",
   "port": 3306,
-  "connectionTimeout": 5000,
+  "timeout": 5000,
   "sendData": "SELECT 1",
   "expectedResponse": "1",
   "assertions": [

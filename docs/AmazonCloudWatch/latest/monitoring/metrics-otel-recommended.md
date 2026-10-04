@@ -18,6 +18,7 @@ With OpenTelemetry metrics in CloudWatch, you get:
 + [How CloudWatch stores histogram metrics](metrics-otel-histograms.md)
 + [Query metrics with PromQL](CloudWatch-PromQL.md)
 + [Anomaly detection using PromQL](anomaly_detection_promql.md)
++ [CloudWatch detailed monitoring for OpenTelemetry metrics](resource-metrics-configuration.md)
 + [OTel metrics pricing and storage](metrics-otel-pricing.md)
 + [Migrate from Classic to OTel metrics](metrics-otel-migrate.md)
 + [AWS vended metrics in OpenTelemetry format](CloudWatch-OTelEnrichment.md)

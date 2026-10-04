@@ -100,7 +100,6 @@ Most APIs that support AWS CloudTrail logging also report usage metrics to Cloud
 | Amazon Lex | `Amazon Lex` | 
 | Amazon Lightsail | `Lightsail` | 
 | Amazon Location Service | `Location` | 
-| Amazon Lookout for Vision | `Lookout for Vision` | 
 | Amazon Machine Learning | `Amazon Machine Learning` | 
 | Amazon Macie | `Macie` | 
 | Amazon Managed Blockchain (AMB) Query | `Amazon Managed Blockchain Query` | 
@@ -109,7 +108,6 @@ Most APIs that support AWS CloudTrail logging also report usage metrics to Cloud
 | AWS Elemental MediaConnect | `MediaConnect` | 
 | AWS Elemental MediaConvert | `MediaConvert` | 
 | AWS Elemental MediaLive | `MediaLive` | 
-| AWS Elemental MediaStore | `Mediastore` | 
 | AWS Elemental MediaTailor | `MediaTailor` | 
 | AWS Mobile Hub | `Mobile Hub` | 
 | AWS Network Firewall | `Network Firewall` | 

@@ -203,7 +203,7 @@ The following `az` commands act on the subscription that is active in the Azure 
 
 1. Create a trust policy that allows the agent's service account to assume the role. Save it to a file named `trust-policy.json`. Replace {{account-id}} with your AWS account ID and {{issuer-host}} with the issuer URL without the `https://` prefix.
 **Reusing an existing IAM role**  
-If you reuse an existing role, merge this policy with the role's existing trust policy.
+If you reuse an existing role, merge this policy with the role's existing trust policy. Each statement is identified by its cluster-specific OIDC provider principal and its `Condition` block, not by a `Sid`, so you don't need to set or preserve one.
 
    ```
    {

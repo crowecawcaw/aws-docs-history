@@ -524,7 +524,9 @@ dotnet add package OpenTelemetry.Instrumentation.AspNetCore
 dotnet add package OpenTelemetry.Instrumentation.Http
 ```
 
-**Add the CloudWatch plugin for OpenTelemetry with the SDK.** The plugin generates the request, error, and duration span metrics that power the service views (including the **Errors** metric), and it meters every span before sampling, so those metrics reflect all requests rather than the sampled subset. It is available for Python, Node.js, Java, and .NET. See the table below for package names and links. The plugin needs a metrics pipeline to emit into. If your application exports traces but no metrics, the plugin stays inert and **Errors** remains unpopulated. Configure a metrics exporter alongside your trace exporter.
+------
+
+**Add the CloudWatch plugin for OpenTelemetry with the SDK.** The plugin generates the request, error, and duration span metrics that power the service views (including the **Errors** metric), and it meters every span before sampling, so those metrics reflect all requests rather than the sampled subset. It is available for Python, Node.js, Java, and .NET. The following table lists the package names and links. The plugin needs a metrics pipeline to emit into. If your application exports traces but no metrics, the plugin stays inert and **Errors** remains unpopulated. Configure a metrics exporter alongside your trace exporter.
 
 If you instrument with the ADOT SDK instead and sample, your span metrics are computed from the sampled spans only.
 
@@ -535,8 +537,6 @@ If you instrument with the ADOT SDK instead and sample, your span metrics are co
 | Python | cloudwatch-plugin-otel | [Python plugin README](https://github.com/aws-observability/aws-otel-python-instrumentation/blob/main/cloudwatch-plugin-otel/README.md) | 
 | Node.js | @aws/cloudwatch-plugin-otel | [Node.js plugin README](https://github.com/aws-observability/aws-otel-js-instrumentation/blob/main/cloudwatch-plugin-otel/README.md) | 
 | .NET | AWS.OpenTelemetry.CloudWatchPluginOtel | [.NET plugin README](https://github.com/aws-observability/aws-otel-dotnet-instrumentation/blob/main/src/AWS.OpenTelemetry.CloudWatch.Plugin/README.md) | 
-
-------
 
 **Enable auto-instrumentation**
 

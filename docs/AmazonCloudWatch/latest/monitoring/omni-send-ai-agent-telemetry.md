@@ -261,6 +261,9 @@ OTEL_METRICS_EXPORTER=none \
 opentelemetry-instrument python /path/to/your/agent.py
 ```
 
+**Important**  
+You must set `AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT=true` to keep GenAI content, including model inputs, outputs, and tool calls, on spans. If it is `false` or unset, this content is removed from spans and emitted as OpenTelemetry log events instead.
+
 ------
 #### [ Node.js ]
 
@@ -389,18 +392,6 @@ aws xray update-trace-segment-destination --destination CloudWatchLogs --region 
 
 **Note**  
 You must configure the AgentCore Runtime execution role with the required telemetry permissions. See [Execution role for running an agent in AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html#runtime-permissions-execution).
-
-**To send traces to AgentCore's custom log group**, you must also attach the following statement to the agent runtime's execution role. `logs:PutResourcePolicy` does not support resource-level permissions, so the statement grants it on all resources:
-
-```
-{
-  "Effect": "Allow",
-  "Action": [
-    "logs:PutResourcePolicy"
-  ],
-  "Resource": "*"
-}
-```
 + A runtime deployed from a container image also needs permission to pull the image from Amazon ECR.
 
 Continue to Step 3.
@@ -408,7 +399,7 @@ Continue to Step 3.
 ## AWS Lambda
 <a name="omni-send-ai-agent-telemetry-aws-lambda"></a>
 
-We recommend the [AWS Distro for OpenTelemetry Lambda layer](https://aws-otel.github.io/docs/getting-started/lambda#getting-started-with-aws-lambda-layers). Follow those instructions to attach the appropriate layer and configure its execution wrapper. Then set the following environment variables.
+We recommend the latest OpenTelemetry distribution Lambda layer. For the latest ARN for your language and AWS Region, see [Lambda layer ARNs](https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns). To use a specific version, select the Lambda layer ARN listed in the [Python release notes](https://github.com/aws-observability/aws-otel-python-instrumentation/releases) or [JavaScript release notes](https://github.com/aws-observability/aws-otel-js-instrumentation/releases) on the GitHub website. Follow the layer instructions to attach it and configure its execution wrapper. Then set the following environment variables.
 
 ------
 #### [ Python ]
@@ -641,7 +632,7 @@ The following table lists common troubleshooting steps for missing or incomplete
 | No spans are created | Auto-instrumentation did not start. Verify that the distribution and required instrumentation packages are installed in the application's runtime environment and that the application uses the documented startup command. Instrumentation must initialize before the agent framework is imported. For Python, also check package-manager environments, development reloaders, and pre-fork workers. For Node.js, verify the CommonJS or ESM preload configuration and confirm that the instrumentation is not disabled. Do not create another tracer provider or exporter. Temporarily use OTEL\_TRACES\_EXPORTER=console,otlp for Python or OTEL\_LOG\_LEVEL=debug for Node.js to inspect startup. | 
 | HTTP spans appear, but agent, model, or tool spans do not | Verify that the framework and instrumentation versions are supported and that the corresponding instrumentation package is installed and enabled. Confirm that it is not listed in OTEL\_PYTHON\_DISABLED\_INSTRUMENTATIONS or OTEL\_NODE\_DISABLED\_INSTRUMENTATIONS. OpenInference startup code must run before the agent is created. | 
 | Duplicate agent, model, or tool spans appear | Two equivalent instrumentations may be active. The distribution attempts to detect equivalent instrumentation at startup. If detection fails, add the corresponding AWS instrumentation, such as aws\_langchain or aws\_openai\_agents, to OTEL\_NODE\_DISABLED\_INSTRUMENTATIONS. | 
-| Spans are created locally but do not reach CloudWatch | Verify OTEL\_TRACES\_EXPORTER, OTEL\_EXPORTER\_OTLP\_PROTOCOL, the OTLP endpoint, and OTEL\_EXPORTER\_OTLP\_TRACES\_HEADERS. Check exporter errors and network connectivity. On AWS Lambda, Amazon EC2, Amazon ECS, or Amazon EKS, verify that the compute role has [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html). On AgentCore, verify the execution-role permissions shown in the AgentCore section. | 
+| Spans are created locally but do not reach CloudWatch | Verify OTEL\_TRACES\_EXPORTER, OTEL\_EXPORTER\_OTLP\_PROTOCOL, the OTLP endpoint, and OTEL\_EXPORTER\_OTLP\_TRACES\_HEADERS. Check exporter errors and network connectivity. On AWS Lambda, Amazon EC2, Amazon ECS, or Amazon EKS, verify that the compute role has [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html). On AgentCore, verify the execution-role permissions described in the AgentCore section. | 
 | The exporter returns 404 | OTEL\_EXPORTER\_OTLP\_ENDPOINT automatically appends /v1/traces. If the configured value already includes that path, use OTEL\_EXPORTER\_OTLP\_TRACES\_ENDPOINT instead so the path is not appended twice. | 
 | Only the AgentCore runtime invocation span appears | AgentCore telemetry is working, but application auto-instrumentation did not start. Follow the checks in the first row. For a custom image, start the application under opentelemetry-instrument or the Node.js register hook. AgentCore enables agent observability, and the distribution derives the OTLP trace-export settings; you do not need to set OTEL\_TRACES\_EXPORTER on the runtime resource. | 
 | Spans reach the log group but do not appear under Agent traces | Verify that Transaction Search is enabled and that the trace destination is CloudWatch Logs. Traces sent before Transaction Search was enabled are not searchable. After changing the destination, wait 10 minutes and invoke the agent again. | 

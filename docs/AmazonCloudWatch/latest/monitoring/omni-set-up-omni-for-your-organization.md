@@ -26,6 +26,7 @@ Organization domain setup involves two roles:
 
 **Prerequisites**
 + Access to the AWS Organizations **management account** with permission to enable Omni and create a domain.
++ **Trusted access** between AWS Organizations and CloudWatch, enabled for your organization. Enabling trusted access requires the `organizations:EnableAWSServiceAccess` and `iam:CreateServiceLinkedRole` permissions. See [Amazon CloudWatch and AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-cloudwatch.html).
 + The AWS Region you want to work in.
 + **Note:** If you plan to use IAM Identity Center, the Organization domain must be created in the same Region as the primary Region of IAM Identity Center. If your member accounts need to create spaces in other Regions, enable [IAM Identity Center multi-Region replication](https://docs.aws.amazon.com/singlesignon/latest/userguide/multi-region-iam-identity-center.html) to include your desired Regions.
 

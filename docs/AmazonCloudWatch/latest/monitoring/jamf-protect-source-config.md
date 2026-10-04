@@ -51,13 +51,13 @@ Configure the Amazon SQS queue policy to allow the Amazon S3 bucket to send mess
         "Service": "s3.amazonaws.com"
       },
       "Action": "sqs:SendMessage",
-      "Resource": "arn:aws:sqs:<region>:<account-id>:<queue-name>",
+      "Resource": "arn:aws:sqs:{{us-east-1}}:{{111122223333}}:{{queue-name}}",
       "Condition": {
         "ArnEquals": {
-          "aws:SourceArn": "arn:aws:s3:::<YOUR-BUCKET>"
+          "aws:SourceArn": "arn:aws:s3:::amzn-s3-demo-bucket"
         },
         "StringEquals": {
-          "aws:SourceAccount": "<account-id>"
+          "aws:SourceAccount": "{{111122223333}}"
         }
       }
     }
@@ -99,22 +99,22 @@ Apply the following bucket policy to your Amazon S3 bucket to allow the Jamf IAM
       "Sid": "S3Access",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::<<YOUR-ACCOUNT>>:user/<<JAMF-IAM-USER>>"
+        "AWS": "arn:aws:iam::{{111122223333}}:user/{{JAMF-IAM-USER}}"
       },
       "Action": [
         "s3:PutObject",
         "s3:GetObject"
       ],
-      "Resource": "arn:aws:s3:::<<YOUR-BUCKET>>/jamf-protect-logs/*"
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket/jamf-protect-logs/*"
     },
     {
       "Sid": "S3ListBucket",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::<<YOUR-ACCOUNT>>:user/<<JAMF-IAM-USER>>"
+        "AWS": "arn:aws:iam::{{111122223333}}:user/{{JAMF-IAM-USER}}"
       },
       "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::<<YOUR-BUCKET>>",
+      "Resource": "arn:aws:s3:::amzn-s3-demo-bucket",
       "Condition": {
         "StringLike": {
           "s3:prefix": "jamf-protect-logs/*"

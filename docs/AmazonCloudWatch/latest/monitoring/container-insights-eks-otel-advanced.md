@@ -81,6 +81,8 @@ You can reduce CloudWatch Logs costs by excluding logs that match specific crite
 
 The `exclude_filters` configuration removes log entries that match the specified log level before the agent sends them to CloudWatch Logs. This reduces your log ingestion volume and associated costs.
 
+For additional cost control, set a log retention policy on your log groups to automatically delete older logs. For more information, see [Set log retention](container-insights-eks-otel-logs.md#container-insights-eks-otel-logs-retention). Also consider using the CloudWatch Logs Infrequent Access log class for log groups that you query infrequently. For more information, see [CloudWatch Logs log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html).
+
 ## Multi-account collection
 <a name="container-insights-eks-otel-advanced-multi-account"></a>
 

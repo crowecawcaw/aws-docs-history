@@ -12,18 +12,18 @@ source:
   s3:
     aws:
       region: "us-east-1"
-      sts_role_arn: "arn:aws:iam::<account>:role/<role-name>"
+      sts_role_arn: "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
     compression: "automatic"
     codec:
       ndjson:
     data_source_name: "jamf_protect"
-    default_bucket_owner: "123456789012"
+    default_bucket_owner: "111122223333"
     bucket_owners:
-      my-bucket: "123456789012"
+      amzn-s3-demo-bucket: "111122223333"
     disable_bucket_ownership_validation: false
     notification_type: "sqs"
     sqs:
-      queue_url: "https://sqs.region.amazonaws.com/<account>/<queue-name>"
+      queue_url: "https://sqs.{{us-east-1}}.amazonaws.com/{{111122223333}}/{{queue-name}}"
 ```Parameters
 
 `notification_type` (required)  
