@@ -1275,12 +1275,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [CreateDataApp](${APIReferenceDocPage}API_CreateDataApp.html)  **
-  - **Description:** Grants permission to create data apps
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
 - **   [CreateDataProduct](${APIReferenceDocPage}API_CreateDataProduct.html)  **
   - **Description:** Grants permission to create data product
   - **Resource types (\*required):** 
@@ -1467,18 +1461,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [DeleteConversation](${APIReferenceDocPage}API_DeleteConversation.html)  **
-  - **Description:** Grants permission to delete conversations
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
-- **   [DeleteDataApp](${APIReferenceDocPage}API_DeleteDataApp.html)  **
-  - **Description:** Grants permission to delete data apps
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
 - **   [DeleteDataExportConfiguration](${APIReferenceDocPage}API_DeleteDataExportConfiguration.html)  **
   - **Description:** Grants permission to delete DataZone catalog data export configuration
   - **Resource types (\*required):** 
@@ -1629,12 +1611,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [DeregisterAgentArtifact](${APIReferenceDocPage}API_DeregisterAgentArtifact.html)  **
-  - **Description:** Grants permission to deregister agent artifacts
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
 - **   [DisassociateEnvironmentRole](${APIReferenceDocPage}API_AssociateEnvironmentRole.html)  **
   - **Description:** Grants permission to disassociate a role in a default service blueprint environment
   - **Resource types (\*required):** 
@@ -1715,12 +1691,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetCurrentEffectivePolicy](${APIReferenceDocPage}API_GetCurrentEffectivePolicy.html)  **
   - **Description:** Grants permission to Get Current Effective Policy
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Read
-
-- **   [GetDataApp](${APIReferenceDocPage}API_GetDataApp.html)  **
-  - **Description:** Grants permission to get data apps
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
@@ -1947,12 +1917,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
-- **   [InvokeAgent](${APIReferenceDocPage}API_InvokeAgent.html)  **
-  - **Description:** Grants permission to invoke agent
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
 - **   [ListAccountEnvironments](${APIReferenceDocPage}API_ListAccountEnvironments.html)  **
   - **Description:** Grants permission to list Environments across all domains in an AWS Account
   - **Resource types (\*required):** 
@@ -1967,18 +1931,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListAccountsInAccountPool]({APIReferenceDocPage}API_ListAccountsInAccountPool.html)  **
   - **Description:** Grants permission to list accounts in an account pool
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** List
-
-- **   [ListAgentArtifacts](${APIReferenceDocPage}API_ListAgentArtifacts.html)  **
-  - **Description:** Grants permission to list agent artifacts
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** List
-
-- **   [ListAgentSessionRecords](${APIReferenceDocPage}API_ListAgentSessionRecords.html)  **
-  - **Description:** Grants permission to list agent session records
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -2009,12 +1961,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [ListConversations](${APIReferenceDocPage}API_ListConversations.html)  **
   - **Description:** Grants permission to list conversations
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** List
-
-- **   [ListDataApps](${APIReferenceDocPage}API_ListDataApps.html)  **
-  - **Description:** Grants permission to list data apps
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
@@ -2175,12 +2121,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListSharedDataApps](${APIReferenceDocPage}API_ListSharedDataApps.html)  **
-  - **Description:** Grants permission to list shared data apps
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** List
-
 - **   [ListSubscriptionGrants](${APIReferenceDocPage}API_ListSubscriptionGrants.html)  **
   - **Description:** Grants permission to List subscription grants for a subscribed principal
   - **Resource types (\*required):** 
@@ -2252,12 +2192,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** List
-
-- **   [RegisterAgentArtifact](${APIReferenceDocPage}API_RegisterAgentArtifact.html)  **
-  - **Description:** Grants permission to register agent artifacts
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
 
 - **   [RejectPredictions](${APIReferenceDocPage}API_RejectPredictions.html)  **
   - **Description:** Grants permission to reject prediction
@@ -2379,12 +2313,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
-- **   [StopAgent](${APIReferenceDocPage}API_StopAgent.html)  **
-  - **Description:** Grants permission to stop agent
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
 - **   [StopCompute](${APIReferenceDocPage}API_StopCompute.html)  **
   - **Description:** Grants permission to stop compute
   - **Resource types (\*required):** 
@@ -2447,18 +2375,6 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [UpdateConnection](${APIReferenceDocPage}API_UpdateConnection.html)  **
   - **Description:** Grants permission to update connections
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
-- **   [UpdateConversation](${APIReferenceDocPage}API_UpdateConversation.html)  **
-  - **Description:** Grants permission to update conversations
-  - **Resource types (\*required):** 
-  - **Condition keys:**  
-  - **Access level:** Write
-
-- **   [UpdateDataApp](${APIReferenceDocPage}API_UpdateDataApp.html)  **
-  - **Description:** Grants permission to update data apps
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write

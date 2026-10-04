@@ -26,6 +26,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   CreateResourceMetricsConfiguration  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:CreateResourceMetricsConfiguration](#list_cloudwatch-action-CreateResourceMetricsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteAlarmMuteRule  **
   - **SDK client:** cloudwatch
   - **IAM action:**  [cloudwatch:DeleteAlarmMuteRule](#list_cloudwatch-action-DeleteAlarmMuteRule) 
@@ -64,6 +71,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DeleteMetricStream  **
   - **SDK client:** cloudwatch
   - **IAM action:**  [cloudwatch:DeleteMetricStream](#list_cloudwatch-action-DeleteMetricStream) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteResourceMetricsConfiguration  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:DeleteResourceMetricsConfiguration](#list_cloudwatch-action-DeleteResourceMetricsConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -190,6 +204,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   GetOTelEnrichment  **
   - **SDK client:** cloudwatch
   - **IAM action:**  [cloudwatch:GetOTelEnrichment](#list_cloudwatch-action-GetOTelEnrichment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetResourceMetricsConfiguration  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:GetResourceMetricsConfiguration](#list_cloudwatch-action-GetResourceMetricsConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -337,6 +358,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [cloudwatch:UntagResource](#list_cloudwatch-action-UntagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [oam:UntagResource](https://docs.aws.amazon.com/OAM/latest/APIReference/API_UntagResource.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
+- **   UpdateOTelEnrichment  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:UpdateOTelEnrichment](#list_cloudwatch-action-UpdateOTelEnrichment) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   UpdateResourceMetricsConfiguration  **
+  - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:UpdateResourceMetricsConfiguration](#list_cloudwatch-action-UpdateResourceMetricsConfiguration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateAccessGrant  **
   - **SDK client:** cloudwatchomni
   - **IAM action:**  [cloudwatch:CreateAccessGrant](#list_cloudwatch-action-CreateAccessGrant)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
@@ -396,10 +431,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreateView  **
   - **SDK client:** cloudwatchomni
-  - **IAM action:**  [cloudwatch:CreateView](#list_cloudwatch-action-CreateView) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [cloudwatch:CreateView](#list_cloudwatch-action-CreateView)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [cloudwatch:TagResource](#list_cloudwatch-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   DeleteAccessGrant  **
   - **SDK client:** cloudwatchomni
@@ -834,6 +867,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [CreateResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_CreateResourceMetricsConfiguration.html)  **
+  - **Description:** Grants permission to create a resource metrics configuration that enables detailed monitoring for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:ResourceArn](#list_cloudwatch-cloudwatch_ResourceArn)
+  - **Access level:** Write
+
 - **   [CreateServiceLevelObjective](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK)  **
   - **Description:** Grants permission to create a service level objective
   - **Resource types (\*required):** 
@@ -946,6 +985,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to delete an omni thread
   - **Resource types (\*required):** 
   - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** Write
+
+- **   [DeleteResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteResourceMetricsConfiguration.html)  **
+  - **Description:** Grants permission to delete a resource metrics configuration and disable detailed monitoring for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:ResourceArn](#list_cloudwatch-cloudwatch_ResourceArn)
   - **Access level:** Write
 
 - **   [DeleteServiceLevelObjective](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK)  **
@@ -1174,6 +1219,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to fetch logs, metrics, and traces
   - **Resource types (\*required):** 
   - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** Read
+
+- **   [GetResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetResourceMetricsConfiguration.html)  **
+  - **Description:** Grants permission to retrieve the resource metrics configuration and detailed monitoring status for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:ResourceArn](#list_cloudwatch-cloudwatch_ResourceArn)
   - **Access level:** Read
 
 - **   [GetService](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK)  **
@@ -1608,6 +1659,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Write
 
+- **   [UpdateResourceMetricsConfiguration](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateResourceMetricsConfiguration.html)  **
+  - **Description:** Grants permission to update the resource metrics configuration for a resource
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:ResourceArn](#list_cloudwatch-cloudwatch_ResourceArn)
+  - **Access level:** Write
+
 - **   [UpdateServiceLevelObjective](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Monitoring-Sections.html#ApplicationSignals-PreviewSDK)  **
   - **Description:** Grants permission to update a service level objective
   - **Resource types (\*required):** [slo\*](#list_cloudwatch-resource-slo)
@@ -1696,6 +1753,12 @@ The following actions are defined by Amazon CloudWatch but are not directly invo
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [UpdateOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html)  **
+  - **Description:** Grants permission to update the metric filters of OTel Enrichment of vended metrics for PromQL querying
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 
 
 ## Resource types defined by Amazon CloudWatch
@@ -1741,6 +1804,7 @@ Amazon CloudWatch defines the following condition keys that can be used in the `
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the presence of tags in the request | ArrayOfString | 
 |   [cloudwatch:AlarmActions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-alarm-actions.html)  | Filters access by defined alarm actions | ArrayOfString | 
 |   [cloudwatch:HasAccessGrant](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/reference_policies_condition-keys.html)  | Filters access by the presence of access grants associated with the request | String | 
+|   [cloudwatch:ResourceArn](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-resource-arn.html)  | Filters access by the ARN of the AWS resource that a resource metrics configuration request targets | ARN | 
 |   [cloudwatch:namespace](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-namespace.html)  | Filters access by the presence of optional namespace values | String | 
 |   [cloudwatch:requestInsightRuleLogGroups](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-contributor.html)  | Filters access by the Log Groups specified in an Insight Rule | ArrayOfString | 
 |   [cloudwatch:requestManagedResourceARNs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/iam-cw-condition-keys-contributor.html)  | Filters access by the Resource ARNs specified in a managed Insight Rule | ArrayOfARN | 

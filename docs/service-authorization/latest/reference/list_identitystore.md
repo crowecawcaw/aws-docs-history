@@ -59,6 +59,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sso-directory:ListGroupsForMember](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroupMembershipsForMember.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [sso-directory:ListGroupsForUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroupMembershipsForMember.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
+- **   DescribeIdentityStore  **
+  - **IAM action:**  [identitystore:DescribeIdentityStore](#list_identitystore-action-DescribeIdentityStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   DescribeUser  **
   - **IAM action:**  [identitystore:DescribeUser](#list_identitystore-action-DescribeUser)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [sso-directory:DescribeUser](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_DescribeUser.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
@@ -96,6 +102,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sso-directory:ListGroups](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListGroups.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [sso-directory:SearchGroups](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
+- **   ListIdentityStores  **
+  - **IAM action:**  [identitystore:ListIdentityStores](#list_identitystore-action-ListIdentityStores) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListUsers  **
   - **IAM action:**  [identitystore:ListUsers](#list_identitystore-action-ListUsers)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [sso-directory:ListUsers](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_ListUsers.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
@@ -105,6 +117,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [identitystore:UpdateGroup](#list_identitystore-action-UpdateGroup)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sso-directory:UpdateGroup](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_UpdateGroup.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sso-directory:UpdateGroupDisplayName](https://docs.aws.amazon.com/singlesignon/latest/userguide/iam-auth-access-using-id-policies.html#policyexample)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   UpdateIdentityStore  **
+  - **IAM action:**  [identitystore:UpdateIdentityStore](#list_identitystore-action-UpdateIdentityStore) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   UpdateUser  **
   - **IAM action:**  [identitystore:UpdateUser](#list_identitystore-action-UpdateUser)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

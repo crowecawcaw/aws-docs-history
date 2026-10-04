@@ -118,7 +118,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [CreateConnection](https://docs.aws.amazon.com/interconnect/latest/api/API_CreateConnection.html)  **
   - **Description:** Grants permission to create a connection
   - **Resource types (\*required):** [connection\*](#list_interconnect-resource-connection)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_interconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_interconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_interconnect-aws_TagKeys)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_interconnect-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_interconnect-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_interconnect-aws_TagKeys)<br />[interconnect:RemoteAccount](#list_interconnect-interconnect_RemoteAccount)
   - **Access level:** Write
 
 - **   [DeleteConnection](https://docs.aws.amazon.com/interconnect/latest/api/API_DeleteConnection.html)  **
@@ -198,8 +198,8 @@ The following resource types are defined by this service and can be used in the 
 
 | Resource types | ARN | Condition keys | 
 | --- | --- | --- | 
-|  [connection](https://docs.aws.amazon.com/interconnect/latest/api/Connection.html)  | arn:${Partition}:interconnect:${Region}:${Account}:connection/${Id} | [aws:ResourceTag/${TagKey}](#list_interconnect-aws_ResourceTag___TagKey_) | 
-|  [environment](https://docs.aws.amazon.com/interconnect/latest/api/Environment.html)  | arn:${Partition}:interconnect:${Region}:${Account}:environment/${Id} |   | 
+|  [connection](https://docs.aws.amazon.com/interconnect/latest/api/API_Connection.html)  | arn:${Partition}:interconnect:${Region}:${Account}:connection/${Id} | [aws:ResourceTag/${TagKey}](#list_interconnect-aws_ResourceTag___TagKey_) | 
+|  [environment](https://docs.aws.amazon.com/interconnect/latest/api/API_Environment.html)  | arn:${Partition}:interconnect:${Region}:${Account}:environment/${Id} |   | 
 
 ## Condition keys for AWS Interconnect
 <a name="list_interconnect-policy-keys"></a>
@@ -213,3 +213,4 @@ AWS Interconnect defines the following condition keys that can be used in the `C
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by a tag key and value pair that is allowed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by a tag key and value pair of a resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by a list of tag keys that are allowed in the request | ArrayOfString | 
+|   [interconnect:RemoteAccount](https://docs.aws.amazon.com/interconnect/latest/userguide/security-iam-service-with-iam.html#interconnect_RemoteAccount)  | Filters access by the remote partner account identifier supplied when creating a connection | String | 

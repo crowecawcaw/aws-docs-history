@@ -108,6 +108,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
   - **Access level:** List
 
+- **   [PutVectorBucketDefaultIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_PutVectorBucketDefaultIndexMode.html)  **
+  - **Description:** Grants permission to update the default index mode for a specified vector bucket
+  - **Resource types (\*required):** [VectorBucket\*](#list_s3vectors-resource-VectorBucket)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
+  - **Access level:** Write
+
 - **   [PutVectorBucketPolicy](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_PutVectorBucketPolicy.html)  **
   - **Description:** Grants permission to add an IAM resource policy to a specified vector bucket
   - **Resource types (\*required):** [VectorBucket\*](#list_s3vectors-resource-VectorBucket)
@@ -137,6 +143,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [Index](#list_s3vectors-resource-Index) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_s3vectors-aws_TagKeys)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
   - **Resource types (\*required):** [VectorBucket](#list_s3vectors-resource-VectorBucket) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_s3vectors-aws_TagKeys)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
   - **Access level:** Tagging, Write
+
+- **   [UpdateIndexMode](https://docs.aws.amazon.com/AmazonS3/latest/API/API_S3VectorBuckets_UpdateIndexMode.html)  **
+  - **Description:** Grants permission to update the index mode for a specified vector index
+  - **Resource types (\*required):** [Index\*](#list_s3vectors-resource-Index)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_s3vectors-aws_ResourceTag___TagKey_)<br />[s3vectors:VectorBucketTag/${TagKey}](#list_s3vectors-s3vectors_VectorBucketTag___TagKey_)
+  - **Access level:** Write
 
 
 

@@ -786,6 +786,12 @@ The following actions are defined by AWS WAF V2 but are not directly invocable t
 
 
 
+- **   [DescribeTopContributorsByEvent](https://docs.aws.amazon.com/waf/latest/APIReference/API_DescribeTopContributorsByEvent.html)  **
+  - **Description:** Grants permission to retrieve the top contributors of an event detected by the AWS WAF anti-DDoS managed rule group, used by shield:DescribeAttack
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [DisassociateFirewallManager](https://docs.aws.amazon.com/waf/latest/APIReference/API_DisassociateFirewallManager.html)  **
   - **Description:** Grants permission to disassociate Firewall Manager from a WebACL
   - **Resource types (\*required):** [webacl\*](#list_wafv2-resource-webacl)

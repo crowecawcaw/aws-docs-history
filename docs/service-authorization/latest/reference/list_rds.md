@@ -935,7 +935,6 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CopyDBSnapshot  **
   - **SDK client:** rds
   - **IAM action:**  [rds:AddTagsToResource](#list_rds-action-AddTagsToResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [rds:CopyCustomDBEngineVersion](#list_rds-action-CopyCustomDBEngineVersion)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [rds:CopyDBSnapshot](#list_rds-action-CopyDBSnapshot)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   CopyOptionGroup  **

@@ -97,6 +97,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListBusinessSupportAccountCharges  **
+  - **IAM action:**  [billing:ListBusinessSupportAccountCharges](#list_billing-action-ListBusinessSupportAccountCharges) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListBusinessSupportSubscriptionHistory  **
+  - **IAM action:**  [billing:ListBusinessSupportSubscriptionHistory](#list_billing-action-ListBusinessSupportSubscriptionHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListEnterpriseSupportLinkedAccountCharges  **
   - **IAM action:**  [billing:ListEnterpriseSupportLinkedAccountCharges](#list_billing-action-ListEnterpriseSupportLinkedAccountCharges) 
   - **Condition key:** 
@@ -228,6 +240,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Read
+
+- **   [ListBusinessSupportAccountCharges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to view Business Support charges broken down by linked account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
+- **   [ListBusinessSupportSubscriptionHistory](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to view Business Support subscription contract history
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
 
 - **   [ListEnterpriseSupportLinkedAccountCharges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
   - **Description:** Grants permission to view Enterprise Support charges broken down by linked account

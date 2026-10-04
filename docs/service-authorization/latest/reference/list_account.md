@@ -112,9 +112,21 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   SendPhoneNumberVerification  **
+  - **IAM action:**  [account:SendPhoneNumberVerification](#list_account-action-SendPhoneNumberVerification) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartPrimaryEmailUpdate  **
   - **IAM action:**  [account:StartPrimaryEmailUpdate](#list_account-action-StartPrimaryEmailUpdate)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:UpdateAccountEmailAddress](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   VerifyPhoneNumber  **
+  - **IAM action:**  [account:VerifyPhoneNumber](#list_account-action-VerifyPhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 
 
@@ -216,10 +228,22 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [accountInOrganization](#list_account-resource-accountInOrganization) / **Condition keys:**  
   - **Access level:** Write
 
+- **   [SendPhoneNumberVerification](https://docs.aws.amazon.com/accounts/latest/reference/API_SendPhoneNumberVerification.html)  **
+  - **Description:** Grants permission to send a verification code to the primary contact phone number for an account
+  - **Resource types (\*required):** [account](#list_account-resource-account) / **Condition keys:**  
+  - **Resource types (\*required):** [accountInOrganization](#list_account-resource-accountInOrganization) / **Condition keys:**  
+  - **Access level:** Write
+
 - **   [StartPrimaryEmailUpdate](https://docs.aws.amazon.com/accounts/latest/reference/API_StartPrimaryEmailUpdate.html)  **
   - **Description:** Grants permission to start the process to update the primary email address of an account
   - **Resource types (\*required):** [accountInOrganization](#list_account-resource-accountInOrganization)
   - **Condition keys:** [account:EmailTargetDomain](#list_account-account_EmailTargetDomain)
+  - **Access level:** Write
+
+- **   [VerifyPhoneNumber](https://docs.aws.amazon.com/accounts/latest/reference/API_VerifyPhoneNumber.html)  **
+  - **Description:** Grants permission to verify the primary contact phone number for an account by submitting a verification code
+  - **Resource types (\*required):** [account](#list_account-resource-account) / **Condition keys:**  
+  - **Resource types (\*required):** [accountInOrganization](#list_account-resource-accountInOrganization) / **Condition keys:**  
   - **Access level:** Write
 
 

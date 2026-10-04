@@ -587,7 +587,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [SendMessage](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_SendMessage.html)  **
   - **Description:** Grants permission to send chat messages
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [TagResource](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_TagResource.html)  **
@@ -637,7 +637,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [UpdateBacklogTask](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateBacklogTask.html)  **
   - **Description:** Grants permission to update a task
   - **Resource types (\*required):** [agentspace\*](#list_devops-agent-resource-agentspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
+  - **Condition keys:** [aidevops:SourceAgentSpaceArn](#list_devops-agent-aidevops_SourceAgentSpaceArn)<br />[aidevops:TargetAgentSpaceArn](#list_devops-agent-aidevops_TargetAgentSpaceArn)<br />[aws:ResourceTag/${TagKey}](#list_devops-agent-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [UpdateGoal](https://docs.aws.amazon.com/devopsagent/latest/APIReference/API_UpdateGoal.html)  **
@@ -720,8 +720,8 @@ AWS DevOps Agent Service defines the following condition keys that can be used i
 
 | Condition keys | Description | Type | 
 | --- | --- | --- | 
-|   [aidevops:SourceAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the source AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | String | 
-|   [aidevops:TargetAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the target AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | String | 
+|   [aidevops:SourceAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the source AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | ARN | 
+|   [aidevops:TargetAgentSpaceArn](https://docs.aws.amazon.com/devopsagent/latest/userguide/)  | Filters access by the target AgentSpace ARN on the request. Set by the service from the request context, not supplied by the caller | ARN | 
 |   [aws:RequestTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requesttag)  | Filters access by the tags that are passed in the request | String | 
 |   [aws:ResourceTag/${TagKey}](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag)  | Filters access by the tags associated with the resource | String | 
 |   [aws:TagKeys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-tagkeys)  | Filters access by the tag keys that are passed in the request | ArrayOfString | 

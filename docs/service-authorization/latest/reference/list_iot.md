@@ -1883,10 +1883,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   OpenTunnel  **
   - **SDK client:** iotsecuretunneling
-  - **IAM action:**  [iot:OpenTunnel](#list_iot-action-OpenTunnel) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [iot:OpenTunnel](#list_iot-action-OpenTunnel)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iot:TagResource](#list_iot-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   RotateTunnelAccessToken  **
   - **SDK client:** iotsecuretunneling

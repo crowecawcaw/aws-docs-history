@@ -836,7 +836,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StartTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html)  **
   - **Description:** Grants permission to start a new task from the specified task definition on the specified container instance or instances
   - **Resource types (\*required):** [task-definition\*](#list_ecs-resource-task-definition)
-  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ecs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ecs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ecs-aws_TagKeys)<br />[ecs:cluster](#list_ecs-ecs_cluster)<br />[ecs:container-instances](#list_ecs-ecs_container-instances)<br />[ecs:enable-ebs-volumes](#list_ecs-ecs_enable-ebs-volumes)<br />[ecs:enable-execute-command](#list_ecs-ecs_enable-execute-command)<br />[ecs:ResourceTag/${TagKey}](#list_ecs-ecs_ResourceTag___TagKey_)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_ecs-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_ecs-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_ecs-aws_TagKeys)<br />[ecs:cluster](#list_ecs-ecs_cluster)<br />[ecs:container-instances](#list_ecs-ecs_container-instances)<br />[ecs:enable-ebs-volumes](#list_ecs-ecs_enable-ebs-volumes)<br />[ecs:enable-execute-command](#list_ecs-ecs_enable-execute-command)<br />[ecs:ResourceTag/${TagKey}](#list_ecs-ecs_ResourceTag___TagKey_)<br />[ecs:task-cpu](#list_ecs-ecs_task-cpu)<br />[ecs:task-memory](#list_ecs-ecs_task-memory)
   - **Access level:** Write
 
 - **   [StopServiceDeployment](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopServiceDeployment.html)  **

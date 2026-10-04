@@ -128,15 +128,15 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [CreateUserProfile](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
-  - **Description:** Grants permission to create a user profile in a workspace
-  - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Description:** Grants permission to create a user profile
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [CreateUserProfileEnrollmentUrl](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to create an enrollment URL for a user profile
-  - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [CreateVault](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
@@ -273,8 +273,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetUserProfile](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
   - **Description:** Grants permission to retrieve details of a user profile
-  - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Read
 
 - **   [GetVault](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
@@ -356,9 +356,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [ListUserProfiles](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
-  - **Description:** Grants permission to list user profiles in a workspace
-  - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Description:** Grants permission to list user profiles
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** List
 
 - **   [ListVaults](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
@@ -446,9 +446,9 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Write
 
 - **   [UpdateUserProfile](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **
-  - **Description:** Grants permission to update a user profile in a workspace
-  - **Resource types (\*required):** [workspace\*](#list_aws-external-anthropic-resource-workspace)
-  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_aws-external-anthropic-aws_ResourceTag___TagKey_)
+  - **Description:** Grants permission to update a user profile
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** Write
 
 - **   [UpdateVault](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions)  **

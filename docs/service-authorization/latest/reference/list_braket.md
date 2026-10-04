@@ -41,7 +41,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateJob  **
   - **IAM action:**  [braket:CreateJob](#list_braket-action-CreateJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [braket:TagResource](#list_braket-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** braket.amazonaws.com, sagemaker.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** braket.amazonaws.com / **Access level:** Write
 
 - **   CreateQuantumTask  **
   - **IAM action:**  [braket:CreateQuantumTask](#list_braket-action-CreateQuantumTask)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

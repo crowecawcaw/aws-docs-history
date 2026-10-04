@@ -71,6 +71,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [vpc-lattice:TagResource](#list_vpc-lattice-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateServiceNetworkVpcAssociation  **
+  - **IAM action:**  [vpc-lattice:AssociateViaAWSService](#list_vpc-lattice-action-AssociateViaAWSService)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
   - **IAM action:**  [vpc-lattice:CreateServiceNetworkVpcAssociation](#list_vpc-lattice-action-CreateServiceNetworkVpcAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [vpc-lattice:TagResource](#list_vpc-lattice-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
@@ -762,7 +763,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListServiceNetworkVpcAssociations](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_ListServiceNetworkVpcAssociations.html)  **
   - **Description:** Grants permission to list some or all service network and VPC associations
   - **Resource types (\*required):** 
-  - **Condition keys:** [vpc-lattice:ServiceNetworkArn](#list_vpc-lattice-vpc-lattice_ServiceNetworkArn)<br />[vpc-lattice:VpcId](#list_vpc-lattice-vpc-lattice_VpcId)
+  - **Condition keys:** [vpc-lattice:ServiceNetworkArn](#list_vpc-lattice-vpc-lattice_ServiceNetworkArn)
   - **Access level:** List
 
 - **   [ListServiceNetworkVpcEndpointAssociations](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_ListServiceNetworkVpcEndpointAssociations.html)  **

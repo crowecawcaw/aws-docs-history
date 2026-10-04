@@ -229,6 +229,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_security-ir-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [GetFindingMetrics](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetFindingMetrics.html)  **
+  - **Description:** Grants permission to retrieve finding-lifecycle metrics for a membership over a date range
+  - **Resource types (\*required):** [membership\*](#list_security-ir-resource-membership)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_security-ir-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetMembership](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetMembership.html)  **
   - **Description:** Grants permission to get a membership
   - **Resource types (\*required):** [membership\*](#list_security-ir-resource-membership)

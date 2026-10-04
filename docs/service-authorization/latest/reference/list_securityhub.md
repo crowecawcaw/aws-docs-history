@@ -472,6 +472,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetRemediationsV2  **
+  - **IAM action:**  [securityhub:GetRemediationsV2](#list_securityhub-action-GetRemediationsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetResourcesStatisticsV2  **
   - **IAM action:**  [securityhub:GetResourcesStatisticsV2](#list_securityhub-action-GetResourcesStatisticsV2) 
   - **Condition key:** 
@@ -546,6 +552,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ListEnabledProductsForImport  **
   - **IAM action:**  [securityhub:ListEnabledProductsForImport](#list_securityhub-action-ListEnabledProductsForImport) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListExposuresByRemediationV2  **
+  - **IAM action:**  [securityhub:ListExposuresByRemediationV2](#list_securityhub-action-ListExposuresByRemediationV2) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** List
@@ -1162,6 +1174,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetRemediationsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetRemediationsV2.html)  **
+  - **Description:** Grants permission to retrieve a list of remediation targets and their metadata
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetResourcesStatisticsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesStatisticsV2.html)  **
   - **Description:** Grants permission to retrieve aggregate statistics about resources
   - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
@@ -1237,6 +1255,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [ListEnabledProductsForImport](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListEnabledProductsForImport.html)  **
   - **Description:** Grants permission to retrieve the Security Hub integrated products that are currently enabled
   - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListExposuresByRemediationV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListExposuresByRemediationV2.html)  **
+  - **Description:** Grants permission to retrieve a list of exposure findings associated with a remediation target
+  - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** List
 

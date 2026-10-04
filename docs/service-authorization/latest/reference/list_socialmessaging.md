@@ -30,6 +30,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [social-messaging:TagResource](#list_socialmessaging-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** social-messaging.amazonaws.com / **Access level:** Write
 
+- **   CreateWhatsAppDataset  **
+  - **IAM action:**  [social-messaging:CreateWhatsAppDataset](#list_socialmessaging-action-CreateWhatsAppDataset) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateWhatsAppFlow  **
   - **IAM action:**  [social-messaging:CreateWhatsAppFlow](#list_socialmessaging-action-CreateWhatsAppFlow) 
   - **Condition key:** 
@@ -92,6 +98,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetLinkedWhatsAppBusinessAccountPhoneNumber  **
   - **IAM action:**  [social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber](#list_socialmessaging-action-GetLinkedWhatsAppBusinessAccountPhoneNumber) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWhatsAppBusinessPublicKey  **
+  - **IAM action:**  [social-messaging:GetWhatsAppBusinessPublicKey](#list_socialmessaging-action-GetWhatsAppBusinessPublicKey) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -178,8 +190,20 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [social-messaging:PutWhatsAppBusinessAccountEventDestinations](#list_socialmessaging-action-PutWhatsAppBusinessAccountEventDestinations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** social-messaging.amazonaws.com / **Access level:** Write
 
+- **   PutWhatsAppBusinessPublicKey  **
+  - **IAM action:**  [social-messaging:PutWhatsAppBusinessPublicKey](#list_socialmessaging-action-PutWhatsAppBusinessPublicKey) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   SendWhatsAppCallEvent  **
   - **IAM action:**  [social-messaging:SendWhatsAppCallEvent](#list_socialmessaging-action-SendWhatsAppCallEvent) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   SendWhatsAppConversionEvent  **
+  - **IAM action:**  [social-messaging:SendWhatsAppConversionEvent](#list_socialmessaging-action-SendWhatsAppConversionEvent) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -240,6 +264,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to associate a WhatsApp Business Account with your AWS account
   - **Resource types (\*required):** 
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_socialmessaging-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_socialmessaging-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [CreateWhatsAppDataset](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_CreateWhatsAppDataset.html)  **
+  - **Description:** Grants permission to create a new WhatsApp dataset for a WhatsApp Business Account
+  - **Resource types (\*required):** [waba\*](#list_socialmessaging-resource-waba)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [CreateWhatsAppFlow](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_CreateWhatsAppFlow.html)  **
@@ -304,6 +334,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [GetLinkedWhatsAppBusinessAccountPhoneNumber](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetLinkedWhatsAppBusinessAccountPhoneNumber.html)  **
   - **Description:** Grants permission to view the details of a phone number
+  - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetWhatsAppBusinessPublicKey](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_GetWhatsAppBusinessPublicKey.html)  **
+  - **Description:** Grants permission to retrieve the WhatsApp business public key for a phone number
   - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
   - **Access level:** Read
@@ -392,9 +428,21 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [PutWhatsAppBusinessPublicKey](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_PutWhatsAppBusinessPublicKey.html)  **
+  - **Description:** Grants permission to set the WhatsApp business public key for a phone number
+  - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [SendWhatsAppCallEvent](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppCallEvent.html)  **
   - **Description:** Grants permission to send a voice calling event through WhatsApp
   - **Resource types (\*required):** [phone-number-id\*](#list_socialmessaging-resource-phone-number-id)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SendWhatsAppConversionEvent](https://docs.aws.amazon.com/social-messaging/latest/APIReference/API_SendWhatsAppConversionEvent.html)  **
+  - **Description:** Grants permission to send a conversion event through WhatsApp
+  - **Resource types (\*required):** [waba\*](#list_socialmessaging-resource-waba)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_socialmessaging-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

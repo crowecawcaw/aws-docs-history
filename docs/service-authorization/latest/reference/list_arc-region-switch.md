@@ -110,6 +110,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListServiceQuotaWarnings  **
+  - **IAM action:**  [arc-region-switch:ListServiceQuotaWarnings](#list_arc-region-switch-action-ListServiceQuotaWarnings) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTagsForResource  **
   - **IAM action:**  [arc-region-switch:ListTagsForResource](#list_arc-region-switch-action-ListTagsForResource) 
   - **Condition key:** 
@@ -243,6 +249,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list Route 53 health checks in a specific AWS Region using the Region switch Regional data plane
   - **Resource types (\*required):** [plan\*](#list_arc-region-switch-resource-plan)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_arc-region-switch-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListServiceQuotaWarnings](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListServiceQuotaWarnings.html)  **
+  - **Description:** Grants permission to list service quota warnings for plans that have opted in to the feature
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
   - **Access level:** List
 
 - **   [ListTagsForResource](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_ListTagsForResource.html)  **

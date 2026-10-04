@@ -1016,10 +1016,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DeleteAssociation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteAssociation.html)  **
   - **Description:** Grants permission to disassociate a specified SSM document from a specified instance
-  - **Resource types (\*required):** [association](#list_ssm-resource-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [document](#list_ssm-resource-document) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:DocumentCategories](#list_ssm-ssm_DocumentCategories)<br />[ssm:DocumentType](#list_ssm-ssm_DocumentType)<br />[ssm:resourceTag/${TagKey}](#list_ssm-ssm_resourceTag___TagKey_)
-  - **Resource types (\*required):** [instance](#list_ssm-resource-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:resourceTag/${TagKey}](#list_ssm-ssm_resourceTag___TagKey_)
-  - **Resource types (\*required):** [managed-instance](#list_ssm-resource-managed-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:resourceTag/tag-key](#list_ssm-ssm_resourceTag_tag-key)
+  - **Resource types (\*required):** [association\*](#list_ssm-resource-association)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [DeleteCloudConnector](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeleteCloudConnector.html)  **
@@ -1121,10 +1119,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [DescribeAssociation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociation.html)  **
   - **Description:** Grants permission to view details about the specified association for a specified instance or target
-  - **Resource types (\*required):** [association](#list_ssm-resource-association) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)
-  - **Resource types (\*required):** [document](#list_ssm-resource-document) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:DocumentCategories](#list_ssm-ssm_DocumentCategories)<br />[ssm:DocumentType](#list_ssm-ssm_DocumentType)<br />[ssm:resourceTag/${TagKey}](#list_ssm-ssm_resourceTag___TagKey_)
-  - **Resource types (\*required):** [instance](#list_ssm-resource-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:resourceTag/${TagKey}](#list_ssm-ssm_resourceTag___TagKey_)
-  - **Resource types (\*required):** [managed-instance](#list_ssm-resource-managed-instance) / **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)<br />[ssm:resourceTag/tag-key](#list_ssm-ssm_resourceTag_tag-key)
+  - **Resource types (\*required):** [association\*](#list_ssm-resource-association)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_ssm-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [DescribeAssociationExecutionTargets](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociationExecutionTargets.html)  **

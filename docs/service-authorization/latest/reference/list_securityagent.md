@@ -527,6 +527,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateIntegration  **
+  - **IAM action:**  [securityagent:UpdateIntegration](#list_securityagent-action-UpdateIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   UpdatePentest  **
   - **IAM action:**  [securityagent:UpdatePentest](#list_securityagent-action-UpdatePentest) 
   - **Condition key:** 
