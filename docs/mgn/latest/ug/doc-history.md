@@ -13,6 +13,7 @@ For additional details regarding new features and major updates, [see the MGN re
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added Oracle Linux 7.9 support | Added Oracle Linux 7.9 to the list of supported Linux operating systems. | September 29, 2026 | 
 | Update support matrix with new OS | Added Debian 12 to the list of supported Linux operating systems. | September 23, 2026 | 
 | Added Amazon EBS volume settings to the default EC2 launch template | You can now configure the **Volume initialization rate** and **Delete on termination** Amazon EBS volume settings in the default EC2 launch template. For more information, see [Default EC2 launch template settings](launch-template.md#default-ec2-launch-template). | September 8, 2026 | 
 | Added AlmaLinux 8 support | Added AlmaLinux 8.6, 8.7, 8.8, 8.9, and 8.10 to the list of supported Linux operating systems. | September 6, 2026 | 

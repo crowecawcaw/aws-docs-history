@@ -66,6 +66,9 @@ Ensure that your Linux source server meets these installation requirements prior
 ![Terminal commands showing mount output filtered for tmp, then remounting and verifying.](https://docs.aws.amazon.com/mgn/latest/ug/images/agent66.png)
 + The AWS Transform MGN user needs to be either a root user or a user in the sudoers list. 
 + Ensure that the dhclient package is installed. If not, install the package using:
+**Note**  
+The `dhclient` requirement does not apply to operating systems where the `dhclient` utility has been removed. Examples include RHEL 10, SLES 16, Oracle Linux 10, and AlmaLinux 10.  
+Refer to your operating system's documentation for how to obtain IP addresses, network configuration, and other information from a DHCP server.
 
    For Redhat/CentOS/Fedora/AmazonLinux: 
 
