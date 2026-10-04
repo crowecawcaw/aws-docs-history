@@ -16,6 +16,14 @@ When multiple AWS Glue Data Catalog tables share the same Amazon S3 location and
 
 Amazon S3 lifecycle expiration rules that apply to Iceberg table storage locations can delete manifest and data files that are still referenced by active snapshots. If your bucket has lifecycle expiration rules, ensure they exclude the Iceberg table storage path.
 
+**Delayed commits:**
+
+Delayed commits might occur in high-throughput streaming pipelines. Configure `orphanFileRetentionPeriodInDays` to exceed the maximum expected time between file creation and successful commit completion, including processing delays and commit retries.
+
+The orphan file deletion optimizer uses the Iceberg table metadata that's available when it runs. If a file reaches the configured age limit before the commit adds it to the Iceberg table metadata, the optimizer can identify the file as an orphan file and delete it.
+
+A later commit can then add the deleted file to the Iceberg table metadata. This can cause queries and table optimizer runs to fail.
+
 ## Known issues
 <a name="known-issues"></a>
 
@@ -63,6 +71,10 @@ The following considerations apply to the snapshot retention and the orphan file
 
    For detailed instructions on setting up versioning and creating life cycle rules, see [https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html). 
 +  For proper orphan file determination, ensure that the provided table location and any sub-paths don't overlap with or contain data from any other tables or data sources. If paths overlap, you risk unrecoverable data loss from unintended deletion of files. 
+
+**Important**  
+`orphanFileRetentionPeriodInDays` applies only to the orphan file deletion optimizer. The snapshot retention optimizer does not use this value or evaluate file age in Amazon S3.  
+When `cleanExpiredFiles` is `true`, files that are no longer referenced by any retained snapshot are deleted as part of snapshot expiration. Configure `snapshotRetentionPeriodInDays` and `numberOfSnapshotsToRetain` according to your time travel and rollback requirements.
 
 ## Debugging OversizedAllocationException exception
 <a name="debug-exception"></a>

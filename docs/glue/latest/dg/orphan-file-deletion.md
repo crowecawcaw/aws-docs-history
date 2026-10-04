@@ -18,6 +18,10 @@ The orphan file deletion optimizer in AWS Glue scans the table metadata and the 
 **Important**  
  By default, orphan file deletion evaluates files across your AWS Glue table location. While you can configure a sub-prefix to limit the scope of evaluation by using API parameter, you must ensure your table location doesn't contain files from other data sources or tables. If your table location overlaps with other data sources, the service might identify and delete unrelated files as orphans. 
 
+**Important**  
+The orphan file deletion optimizer determines whether files are referenced by using the Iceberg table metadata that's available when it runs. A file awaiting a delayed or retried commit is not yet referenced by that metadata. The optimizer can delete the file after it reaches the configured retention age.  
+Configure `orphanFileRetentionPeriodInDays` to exceed the maximum expected time between file creation and successful commit completion, including retries. For more information, see [Considerations and limitations](optimizer-notes.md).
+
 **Topics**
 + [Enabling orphan file deletion](enable-orphan-file-deletion.md)
 + [Updating orphan file deletion optimizer](update-orphan-file-deletion.md)

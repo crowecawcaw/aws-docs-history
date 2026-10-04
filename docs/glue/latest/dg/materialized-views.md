@@ -18,6 +18,7 @@ When you create a materialized view using Spark in AWS Glue, the view definition
 + [Permissions for materialized views](#materialized-views-permissions)
 + [Monitoring materialized view operations](#materialized-views-monitoring)
 + [Example: Complete workflow](#materialized-views-complete-workflow)
++ [System-managed materialized views](#materialized-views-system-managed)
 + [Considerations and limitations](#materialized-views-considerations-limitations)
 
 ## How materialized views work with AWS Glue
@@ -807,6 +808,50 @@ REFRESH MATERIALIZED VIEW customer_summary FULL
 SELECT * FROM customer_summary
 ```
 
+## System-managed materialized views
+<a name="materialized-views-system-managed"></a>
+
+A system-managed materialized view is a materialized view that only AWS Glue can write. AWS Glue writes both its data and its definition, and no other engine or user can modify it. This protects the materialized view from unintended changes, so you can share it as a trusted, consistent dataset. AWS Glue stores the materialized view as a standard Apache Iceberg table in an Amazon S3 Tables bucket within your account.
+
+System-managed materialized views require AWS Glue 6.0 or later. To create one, set the Spark session configuration `spark.sql.mv.managed.enabled` to `true`. System-managed materialized views are stored only in Amazon S3 Tables; Amazon S3 general purpose buckets are not supported.
+
+### Creating a system-managed materialized view
+<a name="materialized-views-system-managed-creating"></a>
+
+Create the materialized view from Spark with the MANAGED keyword, in a session that has `spark.sql.mv.managed.enabled=true`:
+
+```
+spark.sql("""
+    CREATE MANAGED MATERIALIZED VIEW s3t_catalog.analytics.customer_summary
+    AS
+    SELECT
+        customer_name,
+        COUNT(*) as order_count,
+        SUM(amount) as total_amount
+    FROM glue_catalog.sales.orders
+    GROUP BY customer_name
+""")
+```
+
+AWS Glue computes and writes the materialized view for you; your Spark session does not write it directly. The CREATE MANAGED MATERIALIZED VIEW statement waits until AWS Glue finishes creating the materialized view before it returns, so it can take longer than creating a regular materialized view.
+
+### How system-managed materialized views work
+<a name="materialized-views-system-managed-how-it-works"></a>
+
+When you create a system-managed materialized view, AWS Glue creates an empty table in Amazon S3 Tables for the materialized view, and then runs the defining query to populate it. To track creation progress, call the `GetTable` API with `IncludeStatusDetails=true` to see the status of the create job. If creation fails, the failure reason is included in the table status error message. Refreshes are tracked the same way as for other materialized views.
+
+### Write protection
+<a name="materialized-views-system-managed-write-protection"></a>
+
+Only AWS Glue writes the materialized view's data and its metadata, such as its schema and storage location. Any attempt to change these is rejected, whether it comes from another query engine, a direct AWS Glue `UpdateTable` call, or a direct write to the underlying Apache Iceberg table.
+
+You can still perform the following operations on a system-managed materialized view:
++ Refresh the materialized view. AWS Glue runs the refresh and writes the results for you.
++ Change the refresh schedule and table properties.
++ Drop the materialized view, if you have permission to drop it.
+
+Schema evolution is not supported for a system-managed materialized view. To change the materialized view's SQL definition, drop the materialized view and create it again.
+
 ## Considerations and limitations
 <a name="materialized-views-considerations-limitations"></a>
 
@@ -817,7 +862,7 @@ Consider the following when using materialized views with AWS Glue:
 + Materialized views cannot reference AWS Glue Data Catalog views, multi-dialect views, or other materialized views as source tables.
 + The view definer role must have full read access on all source tables. For customers using IAM policies, this means GetTables permission on the AWS Glue catalog and read access to underlying S3 locations. For customers using AWS Lake Formation, this means SELECT or ALL permission without row, column, or cell filters applied.
 + Materialized views are eventually consistent with source tables. During the refresh window, queries may return stale data. Execute manual refresh for immediate consistency.
-+ The minimum automatic refresh interval is one hour.
++ The minimum automatic refresh interval depends on your AWS Glue version. In AWS Glue versions earlier than 6.0, the minimum automatic refresh interval is one hour. In AWS Glue 6.0 and later, the minimum automatic refresh interval is 10 minutes. This applies to all materialized views, including system-managed materialized views.
 + Incremental refresh supports a restricted subset of SQL operations. The view definition must be a single SELECT-FROM-WHERE-GROUP BY-HAVING block and cannot contain set operations, subqueries, the DISTINCT keyword in SELECT or aggregate functions, window functions, or joins other than INNER JOIN.
 + Incremental refresh does not support user-defined functions or certain built-in functions. Only a subset of Spark SQL built-in functions are supported.
 + Query automatic rewrite only considers materialized views whose definitions belong to a restricted SQL subset similar to incremental refresh restrictions.

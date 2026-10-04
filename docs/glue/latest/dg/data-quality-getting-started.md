@@ -406,6 +406,8 @@ FROM `mydatabase.mytable`
 | Avro | Supported | Not Supported | Not Supported | Supported | Supported | 
 | JSON | Supported | Not Supported | Not Supported | Supported | Supported | 
 | Iceberg | Supported | Not Supported | Not Supported | Supported | Supported | 
+| Amazon Athena view | Supported | Not Supported | Not Supported | Supported | Supported | 
+| Protected multi-dialect Data Catalog view | Not Supported | Not Supported | Not Supported | Not Supported | Not Supported | 
 | HUDI | Not Supported | Not Supported | Not Supported | Not Supported | Supported | 
 | Delta | Not Supported | Not Supported | Not Supported | Not Supported | Supported | 
 | RMS | Supported\* | Supported\* | Supported\* | Not Supported | Not Supported | 
@@ -415,8 +417,22 @@ FROM `mydatabase.mytable`
 
  \* Amazon S3 tables and SageMaker Lakehouse support in AWS Glue Console is not supported. Currently, Amazon S3 table and SageMaker Lakehouse Data Catalog Recommendation Runs and Data Catalog Data Quality Evaluation runs are only supported via the CLI. 
 
+### Amazon Athena view support
+<a name="data-quality-athena-view-support"></a>
+
+ AWS Glue Data Quality supports rule recommendation and evaluation runs for Amazon Athena views created using `CREATE VIEW` and stored in the Data Catalog. Same-account, cross-account, and nested Amazon Athena views are supported. 
+
+ AWS Glue Data Quality evaluates an Amazon Athena view using the permissions of the IAM role that you provide for the data quality run. Grant this role access to the view and to every underlying table, partition, data location, and encryption key that the view references. For cross-account views, configure the required AWS Glue, AWS Lake Formation, Amazon S3, and AWS KMS permissions in each participating account. If you use resource links, configure them in the account that runs AWS Glue Data Quality. 
+
+Consider the following limitations:
++  Protected multi-dialect Data Catalog views are not supported. 
++  An Amazon Athena view dependency chain can be up to 100 levels deep, including the selected view. AWS Glue Data Quality resolves the nested views required to build the selected view. It then runs the recommendation or evaluation once against the data returned by the selected view, rather than separately against each underlying view. 
++  Each physical table referenced by a view must use a source type that AWS Glue Data Quality supports. 
++  The view query must use SQL syntax and functions that are compatible with the AWS Glue Spark SQL runtime. 
++  Catalog partition predicates are not supported for view sources. 
+
 ### Other known limitations
-<a name="w2aac49c43c47b7"></a>
+<a name="w2aac49c43c47b9"></a>
 +  Delta Lake Symlink Tables: Not supported for AWS Glue Data Quality recommendation runs or Data Catalog Data Quality evaluation runs. 
 +  Amazon S3 Table Asset publishing in SageMaker Unified Studio: Currently, publishing Amazon S3 Tables as Assets in SageMaker Unified Studio is unavailable; visualizing Amazon S3 Table Data Quality runs is unavailable from SageMaker Unified Studio as a result. 
 

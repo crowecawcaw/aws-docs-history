@@ -8,7 +8,7 @@ Crawlers can crawl the following file-based and table-based data stores.
 
 | Access type that crawler uses | Data stores | 
 | --- | --- | 
-| Native client |  +  Amazon Simple Storage Service (Amazon S3) <br />+  Amazon DynamoDB <br />+  Delta Lake 2.0.x <br />+  Apache Iceberg 1.5 <br />+  Apache Hudi 0.14   | 
+| Native client |  +  Amazon Simple Storage Service (Amazon S3) <br />+  Amazon DynamoDB <br />+  Delta Lake 4.0 <br />+  Apache Iceberg 1.10 <br />+  Apache Hudi 0.14   | 
 | JDBC | Amazon Redshift<br />Snowflake<br />Within Amazon Relational Database Service (Amazon RDS) or external to Amazon RDS:+  Amazon Aurora <br />+  MariaDB <br />+  Microsoft SQL Server <br />+  MySQL <br />+  Oracle <br />+  PostgreSQL  | 
 | MongoDB client |  +  MongoDB <br />+  MongoDB Atlas <br />+  Amazon DocumentDB (with MongoDB compatibility)   | 
 
@@ -50,12 +50,10 @@ For each Delta Lake data store, you specify how to create the Delta tables:
 + **Create Symlink tables**: Create a `_symlink_manifest` folder with manifest files partitioned by the partition keys, based on the specified configuration parameters.
 
 **Iceberg**  
-For each Iceberg data store, you specify an Amazon S3 path that contains the metadata for your Iceberg tables. If crawler discovers Iceberg table metadata, it registers it in the Data Catalog. You can set a schedule for the crawler to keep the tables updated.  
+For each Iceberg data store, you specify an Amazon S3 path that contains the metadata for your Iceberg tables. When the crawler discovers Iceberg table metadata, it registers it in the Data Catalog. You can set a schedule for the crawler to keep the tables updated. AWS Glue crawlers support Apache Iceberg 1.10 and can crawl both v2 and v3 tables, including the v3 data types VARIANT, UNKNOWN, Geography, and Geometry.  
 **Avoid concurrent writers with Iceberg crawlers**  
 Use an Iceberg crawler only when it is the sole writer to a Data Catalog table. Do not use it alongside concurrent writers such as table optimizers, Apache Spark, or other engines that commit directly to the same table.  
 The crawler syncs Iceberg metadata from an external catalog and must be the sole writer to the table. If another writer modifies the Data Catalog table while the crawler is running, the crawler fails to update the table.
-**Iceberg v3 data types not supported**  
-AWS Glue crawlers do not support Iceberg v3 data types, including VARIANT, UNKNOWN, Geography, and Geometry. Tables that contain columns with these data types cannot be crawled.
 You can define these parameters for the data store:  
 + **Exclusions**: Allows you to skip certain folders.
 + **Maximum Traversal Depth**: Sets the depth limit the crawler can crawl in your Amazon S3 bucket. The default maximum traversal depth is 10 and the maximum depth you can set is 20.

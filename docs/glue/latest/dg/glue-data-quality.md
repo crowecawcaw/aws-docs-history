@@ -31,7 +31,7 @@ There are two entry points for AWS Glue Data Quality: the AWS Glue Data Catalog 
 ### Data quality for the AWS Glue Data Catalog
 <a name="glue-data-quality-for-data-catalog"></a>
 
-AWS Glue Data Quality evaluates objects that are stored in the AWS Glue Data Catalog. It offers non-coders an easy way to set up data quality rules. These personas include data stewards and business analysts.
+AWS Glue Data Quality evaluates tables and supported Amazon Athena views that are stored in the AWS Glue Data Catalog. It offers non-coders an easy way to set up data quality rules. These personas include data stewards and business analysts.
 
 
 
@@ -79,7 +79,7 @@ This table provides an overview of features that each entry point for AWS Glue D
 
 | Feature | Data quality for the Data Catalog | Data quality for ETL jobs | 
 | --- | --- | --- | 
-| Data sources | Amazon S3, Amazon Redshift, JDBC sources compatible with the Data Catalog, and transactional data lake formats such as Apache Iceberg, Apache Hudi, and Delta Lake. AWS Lake Formation managed OTF formats are also supported with some limitations. Amazon Athena views that are cataloged in AWS Glue Data Catalog are not supported. Please see [Supported source types](data-quality-getting-started.md#data-quality-get-started-supported-source-types).  | All data sources supported by AWS Glue, including custom connectors and third-party connectors. | 
+| Data sources | Amazon S3, Amazon Redshift, JDBC sources compatible with the Data Catalog, transactional data lake formats such as Apache Iceberg, Apache Hudi, and Delta Lake, and Amazon Athena views created using CREATE VIEW and cataloged in the Data Catalog. AWS Lake Formation managed OTF formats are also supported with some limitations. Protected multi-dialect Data Catalog views are not supported. See [Supported source types](data-quality-getting-started.md#data-quality-get-started-supported-source-types).  | All data sources supported by AWS Glue, including custom connectors and third-party connectors. | 
 | Data Quality rule recommendations | Supported | Not supported | 
 | Author and run DQDL rules | Supported | Supported | 
 | Auto scaling | Not supported | Supported | 
@@ -210,3 +210,4 @@ The following new features are available with the general availability of AWS Gl
 ### September 18, 2026
 <a name="data-quality-release-notes-sep18-2026"></a>
 + AWS Glue Data Quality now supports `ADVANCED` rule recommendations through Amazon Bedrock. This mode uses table metadata and sampled rows to generate Data Quality Definition Language (DQDL) rules. `BASIC` remains the default mode. For more information, see [Recommendation modes](data-quality-getting-started.md#data-quality-recommendation-modes).
++ AWS Glue Data Quality now supports rule recommendation and evaluation runs for Amazon Athena views stored in the Data Catalog, including same-account, cross-account, and nested views. For more information, see [Amazon Athena view support](data-quality-getting-started.md#data-quality-athena-view-support).

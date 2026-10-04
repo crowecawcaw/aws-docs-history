@@ -28,7 +28,7 @@ If you encounter errors in AWS Glue Data Quality, use the following solutions to
 
 **Error message**: No module named 'awsgluedq'.
 
-**Resolution**: This error occurs when you run AWS Glue Data Quality in an unsupported version. AWS Glue Data Quality is supported only in Glue version 3.0 and later.
+**Resolution**: This error occurs when you run AWS Glue Data Quality in an unsupported version. AWS Glue Data Quality is supported only in Glue version 3.0 and later. This error also occurs in AWS Glue streaming jobs (`gluestreaming`). AWS Glue Data Quality and the `awsgluedq` module are supported only in AWS Glue ETL (`glueetl`) jobs, not streaming jobs.
 
 ## Error: insufficient AWS Lake Formation permissions
 <a name="data-quality-trouble-error-2"></a>

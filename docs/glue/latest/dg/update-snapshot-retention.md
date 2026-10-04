@@ -46,8 +46,8 @@ aws glue update-table-optimizer \
 
 To update a table optimizer, you can use the `UpdateTableOptimizer` API. This API allows you to update the configuration of an existing table optimizer for compaction, retention, or orphan file removal. The request parameters include:
 + catalogId (required): The ID of the catalog containing the table 
-+  databaseName (optional): The name of the database containing the table 
-+  tableName (optional): The name of the table 
++  databaseName (required): The name of the database containing the table 
++  tableName (required): The name of the table 
 +  type (required): The type of table optimizer (compaction, retention, or orphan\_file\_deletion) 
 +  retentionConfiguration (required): The updated configuration for the table optimizer, including role ARN, enabled status, retention configuration, and orphan file removal configuration. 
 
