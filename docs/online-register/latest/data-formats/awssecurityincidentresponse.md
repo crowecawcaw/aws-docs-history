@@ -12,6 +12,7 @@ AWS Security Incident Response provides the following APIs for data retrieval.
 | <a name="security-ir-BatchGetMemberAccountDetails"></a>[BatchGetMemberAccountDetails](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_BatchGetMemberAccountDetails.html) | Get member account details in batch | Read | 
 | <a name="security-ir-GetCase"></a>[GetCase](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCase.html) | Get a case | Read | 
 | <a name="security-ir-GetCaseAttachmentDownloadUrl"></a>[GetCaseAttachmentDownloadUrl](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetCaseAttachmentDownloadUrl.html) | Get a case attachment download URL | Read | 
+| <a name="security-ir-GetFindingMetrics"></a>[GetFindingMetrics](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetFindingMetrics.html) | Retrieve finding-lifecycle metrics for a membership over a date range | Read | 
 | <a name="security-ir-GetMembership"></a>[GetMembership](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_GetMembership.html) | Get a membership | Read | 
 | <a name="security-ir-ListCaseEdits"></a>[ListCaseEdits](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListCaseEdits.html) | List case edits | Read | 
 | <a name="security-ir-ListCases"></a>[ListCases](https://docs.aws.amazon.com/security-ir/latest/APIReference/API_ListCases.html) | List cases | List | 

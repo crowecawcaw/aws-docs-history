@@ -34,7 +34,7 @@ Claude Platform on AWS provides the following APIs for data retrieval.
 | <a name="aws-external-anthropic-ListSessions"></a>[ListSessions](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List managed agent sessions in a workspace | List | 
 | <a name="aws-external-anthropic-ListSkills"></a>[ListSkills](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List skills in a workspace | List | 
 | <a name="aws-external-anthropic-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List tags for a resource | Read | 
-| <a name="aws-external-anthropic-ListUserProfiles"></a>[ListUserProfiles](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List user profiles in a workspace | List | 
+| <a name="aws-external-anthropic-ListUserProfiles"></a>[ListUserProfiles](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List user profiles | List | 
 | <a name="aws-external-anthropic-ListVaults"></a>[ListVaults](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List managed agent credential vaults in a workspace | List | 
 | <a name="aws-external-anthropic-ListWebhooks"></a>[ListWebhooks](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List webhooks in a workspace | List | 
 | <a name="aws-external-anthropic-ListWorkspaces"></a>[ListWorkspaces](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List workspaces in an organization | List | 
