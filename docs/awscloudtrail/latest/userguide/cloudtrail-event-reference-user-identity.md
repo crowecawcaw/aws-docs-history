@@ -75,6 +75,23 @@ The following example shows a `userIdentity` element for a request made on behal
 
 To learn more about how you can use `userId`, `identityStoreArn`, and `credentialId`, see [Identifying the user and session in IAM Identity Center user-initiated CloudTrail events](https://docs.aws.amazon.com/singlesignon/latest/userguide/sso-cloudtrail-use-cases.html#user-session-iam-identity-center) in the *IAM Identity Center User Guide*.
 
+The following example shows a `userIdentity` element for a request made by an [AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/sign-in-aws_builder_id.html) user. AWS Builder ID is a personal profile that provides access to select tools and services including AWS Builder Center, Amazon Q Developer, and AWS Training and Certification. The `BuilderIdUser` type appears in CloudTrail events when an API request is authorized using an IAM Identity Center OAuth-issued access token (bearer authentication). This token is associated with an AWS Builder ID.
+
+```
+"userIdentity": {
+    "type": "BuilderIdUser",
+    "onBehalfOf": {
+        "userId": "544894e8-80c1-707f-60e3-3ba6510dfac1",
+        "identityStoreArn": "arn:aws:identitystore::aws:identitystore/builderid"
+    },
+    "credentialId": "ABCDefGhiJKLMn11Lmn_1AbCDEFgHijk-AaBCdEFGHIjKLmnOPqrs11abEXAMPLE"
+}
+```
+
+Unlike `IdentityCenterUser` events, `BuilderIdUser` events do not include an `accountId` field because AWS Builder ID is an AWS-managed identity that is not associated with a specific customer AWS account.
+
+For more information about AWS Builder ID, see [Sign in with AWS Builder ID](https://docs.aws.amazon.com/signin/latest/userguide/sign-in-aws_builder_id.html) in the *AWS Sign-In User Guide*.
+
 **`userIdentity` with product provider-initiated request**
 
 All actions performed by product providers using temporary delegated access are automatically logged in CloudTrail. This provides complete visibility and auditability of product provider activity in your AWS account. You can identify which actions were taken by product providers, when they occurred, and which product provider account performed them.
@@ -128,6 +145,7 @@ The type of the identity. The following values are possible:
 + `AWSAccount` – The request was made by another AWS account
 + `AWSService` – The request was made by an AWS account that belongs to an AWS service. For example, AWS Elastic Beanstalk assumes an IAM role in your account to call other AWS services on your behalf.
 + `IdentityCenterUser` – The request was made on behalf of an IAM Identity Center user.
++ `BuilderIdUser` – The request was made by an AWS Builder ID user. Unlike `IdentityCenterUser`, the `BuilderIdUser` type does not include an `accountId` field because AWS Builder ID is an AWS-managed identity not bound to a specific customer account.
 + `Unknown` – The request was made with an identity type that CloudTrail can't determine.
 **Optional:** False  
 `AWSAccount` and `AWSService` appear for `type` in your logs when there is cross-account access using an IAM role that you own.  
@@ -167,6 +185,7 @@ The friendly name of the identity that made the call. The value that appears in 
   <tr><td><code>AWSService</code></td><td>Not present</td><td></td></tr>
   <tr><td><code>AWSAccount</code></td><td>Not present</td><td></td></tr>
   <tr><td><code>IdentityCenterUser</code></td><td>Not present*</td><td>The <code>onBehalfOf</code> section contains information about the IAM Identity Center user ID and identity store ARN for which the call was made. To learn more about how you can use these two fields, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/sso-cloudtrail-use-cases.html#user-session-iam-identity-center">Identifying the user and session in IAM Identity Center user-initiated CloudTrail events</a>  in the IAM Identity Center User Guide.<br />* IAM Identity Center emits the <code>userName</code> field under the <code>additionalEventData</code> element in two sign-in CloudTrail events. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/username-sign-in-cloudtrail-events.html">Username in sign-in CloudTrail events </a> in the IAM Identity Center User Guide.</td></tr>
+  <tr><td><code>BuilderIdUser</code></td><td>Not present</td><td>The <code>onBehalfOf</code> section contains the Builder ID user's <code>userId</code> and the AWS-managed <code>identityStoreArn</code> (<code>arn:aws:identitystore::aws:identitystore/builderid</code>). Use these fields to identify the Builder ID user.</td></tr>
   <tr><td><code>Unknown</code></td><td>Can be present</td><td>For example, the value can be the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">account alias</a> or email address of the associated <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html">AWS account ID</a>.</td></tr>
 </tbody>
 </table>
@@ -188,6 +207,7 @@ The Amazon Resource Name (ARN) of the principal that made the call. The last sec
 **`accountId`**  
 The account that owns the entity that granted permissions for the request. If the request was made with temporary security credentials, this is the account that owns the IAM user or role used to obtain credentials.   
 If the request was made with an IAM Identity Center authorized access token, this is the account that owns the IAM Identity Center instance.  
+For `BuilderIdUser` type events, the `accountId` field is not present. AWS Builder ID is an AWS-managed identity that is not associated with a specific customer AWS account. The `onBehalfOf` element identifies the Builder ID user instead.
 **Optional:** True
 
 **`accessKeyId`**  
@@ -247,9 +267,9 @@ For more information and a JSON example of delegated access in CloudTrail events
 **Optional:** True
 
 **`onBehalfOf`**  
-If the request was made by an IAM Identity Center caller, `onBehalfOf` provides information about the IAM Identity Center user ID and identity store ARN for which the call was made. This element has the following attributes:  
-+ `userId` – The ID of the IAM Identity Center user who the call was made on behalf of. 
-+ `identityStoreArn` – The ARN of the IAM Identity Center identity store that the call was made on behalf of.
+If the request was made by an IAM Identity Center caller or an AWS Builder ID user, `onBehalfOf` provides information about the user on whose behalf the call was made. This element has the following attributes:  
++ `userId` – The ID of the IAM Identity Center user or AWS Builder ID user on whose behalf the call was made.
++ `identityStoreArn` – The ARN of the identity store. For IAM Identity Center users, this is the ARN of the organization's identity store. For AWS Builder ID users, the value is `arn:aws:identitystore::aws:identitystore/builderid`.
 **Optional:** True
 
 **`inScopeOf`**  

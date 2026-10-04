@@ -130,7 +130,6 @@ For information about which services log data events, see [Data events](logging-
 | Amazon Elastic Container Service (Amazon ECS) | [ Logging Amazon ECS API Calls By Using AWS CloudTrail](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/logging-using-cloudtrail.html) | 04/09/2015 | 
 | Amazon Elastic File System (Amazon EFS) | [Logging Amazon EFS API Calls with AWS CloudTrail](https://docs.aws.amazon.com/efs/latest/ug/logging-using-cloudtrail.html) | 06/28/2016 | 
 | Amazon Elastic Kubernetes Service (Amazon EKS) | [Logging Amazon EKS API Calls with AWS CloudTrail](https://docs.aws.amazon.com/eks/latest/userguide/logging-using-cloudtrail.html) | 06/05/2018 | 
-| Amazon Elastic Transcoder | [Logging Amazon Elastic Transcoder API Calls with AWS CloudTrail](https://docs.aws.amazon.com/elastictranscoder/latest/developerguide/logging-using-cloudtrail.html) | 10/27/2014 | 
 | Amazon ElastiCache | [Logging Amazon ElastiCache API Calls Using AWS CloudTrail](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/logging-using-cloudtrail.html) | 09/15/2014 | 
 | Amazon EMR | [Logging Amazon EMR API Calls using AWS CloudTrail](https://docs.aws.amazon.com/emr/latest/ManagementGuide/logging-using-cloudtrail.html) | 04/04/2014 | 
 | Amazon EMR on EKS | [Logging Amazon EMR on EKS API calls using AWS CloudTrail](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/logging-using-cloudtrail.html) | 12/09/2020 | 
@@ -157,7 +156,6 @@ For information about which services log data events, see [Data events](logging-
 | Amazon Location Service | [Logging and monitoring with AWS CloudTrail](https://docs.aws.amazon.com/location/latest/developerguide/logging-using-cloudtrail.html) | 12/15/2020 | 
 | Amazon Lookout for Equipment | [Monitoring Amazon Lookout for Equipment](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/monitoring-overview.html) | 12/01/2020 | 
 | Amazon Lookout for Metrics | [Viewing Amazon Lookout for Metrics API activity in AWS CloudTrail](https://docs.aws.amazon.com/lookoutmetrics/latest/dev/monitoring-cloudtrail.html) | 12/08/2020 | 
-| Amazon Lookout for Vision | [Logging Amazon Lookout for Vision calls with AWS CloudTrail](https://docs.aws.amazon.com/lookout-for-vision/latest/developer-guide/logging-using-cloudtrail.html) | 12/01/2020 | 
 | Amazon Machine Learning | [Logging Amazon ML API Calls By Using AWS CloudTrail](https://docs.aws.amazon.com/machine-learning/latest/dg/logging-using-cloudtrail.html) | 12/10/2015 | 
 | Amazon Macie | [Log Amazon Macie API calls using AWS CloudTrail](https://docs.aws.amazon.com/macie/latest/user/macie-cloudtrail.html) | 05/13/2020 | 
 | Amazon Managed Blockchain | [Logging Amazon Managed Blockchain API calls using AWS CloudTrail](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/logging-using-cloudtrail.html)<br />[Logging Ethereum for Managed Blockchain API calls using AWS CloudTrail](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/logging-using-cloudtrail.html) (Preview) | 04/01/2019 | 
@@ -257,7 +255,6 @@ For information about which services log data events, see [Data events](logging-
 | AWS Elemental MediaConvert | [Logging AWS Elemental MediaConvert API Calls with CloudTrail](http://docs.aws.amazon.com/mediaconvert/latest/ug/logging-using-cloudtrail.html) | 11/27/2017 | 
 | AWS Elemental MediaLive | [Logging MediaLive API Calls with AWS CloudTrail](https://docs.aws.amazon.com/medialive/latest/ug/logging-using-cloudtrail.html) | 01/19/2019 | 
 | AWS Elemental MediaPackage | [Logging AWS Elemental MediaPackage API Calls with AWS CloudTrail](https://docs.aws.amazon.com/mediapackage/latest/ug/logging-using-cloudtrail.html) | 12/21/2018 | 
-| AWS Elemental MediaStore | [Logging AWS Elemental MediaStore API Calls with CloudTrail](https://docs.aws.amazon.com/mediastore/latest/ug/monitoring-service-info-in-cloudtrail.html) | 11/27/2017 | 
 | AWS Elemental MediaTailor | [Logging AWS Elemental MediaTailor API Calls with AWS CloudTrail](https://docs.aws.amazon.com/mediatailor/latest/ug/logging-using-cloudtrail.html) | 02/11/2019 | 
 | AWS End User Messaging SMS | [ Logging AWS End User Messaging SMS API calls using AWS CloudTrail](https://docs.aws.amazon.com/sms-voice/latest/userguide/logging-using-cloudtrail.html) | 10/10/2024 | 
 | AWS End User Messaging Social | [ Logging AWS End User Messaging Social API calls using AWS CloudTrail](https://docs.aws.amazon.com/social-messaging/latest/userguide/logging-using-cloudtrail.html) | 10/10/2024 | 

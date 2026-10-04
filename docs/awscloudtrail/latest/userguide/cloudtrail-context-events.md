@@ -48,7 +48,7 @@ When configured to do so, CloudTrail captures information about resource tags an
 + Amazon ElastiCache
 + Amazon Keyspaces (for Apache Cassandra)
 + Amazon Kinesis
-+ Amazon Lex
++ Amazon Lex V2
 + Amazon MemoryDB
 + Amazon S3
 + Amazon Security Lake
@@ -97,7 +97,6 @@ The following AWS services support IAM global condition keys for enriched events
 + AWS Lambda
 + AWS License Manager
 + Amazon Lookout for Equipment
-+ Amazon Lookout for Vision
 + AWS Network Firewall
 + AWS Payment Cryptography
 + Amazon Personalize

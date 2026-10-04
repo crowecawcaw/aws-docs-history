@@ -31,6 +31,7 @@ You can log network activity events for the following services:
 + AWS BCM Pricing Calculator
 + AWS Billing
 + AWS Cloud Map
++ AWS Diode Alerting
 + AWS Glue
 + AWS IdentityStore Service
 + AWS Invoicing
@@ -137,6 +138,7 @@ The following advanced event selector fields are required to log network activit
   + `comprehend.amazonaws.com`
   + `comprehendmedical.amazonaws.com`
   + `config.amazonaws.com`
+  + `diode-alerting.amazonaws.com`
   + `ds.amazonaws.com`
   + `dsql.amazonaws.com`
   + `dynamodb.amazonaws.com`
@@ -146,6 +148,7 @@ The following advanced event selector fields are required to log network activit
   + `elasticfilesystem.amazonaws.com`
   + `elasticloadbalancing.amazonaws.com`
   + `events.amazonaws.com`
+  + `eventsv2.amazonaws.com`
   + `firehose.amazonaws.com`
   + `frauddetector.amazonaws.com`
   + `freetier.amazonaws.com`
