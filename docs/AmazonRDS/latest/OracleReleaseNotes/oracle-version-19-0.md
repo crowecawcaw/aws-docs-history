@@ -3,18 +3,21 @@
 # Amazon RDS for Oracle Database 19c (19.0.0.0)
 <a name="oracle-version-19-0"></a>
 
-Amazon RDS for Oracle Database 19c (19.0.0.0) releases new minor engine versions quarterly. A Release Update (RU) engine version incorporates bug fixes from Oracle by including the RU patches for the specified quarter. A Supplemental Patch Bundle (SPB) is an engine version that contains the RU patches plus additional database patches recommended by Oracle for specific use cases, such as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate. SPBs are supported only for Oracle Database 19c.
+Amazon RDS for Oracle Database 19c (19.0.0.0) releases a new Release Update (RU) engine version each quarter. In the months between quarterly RUs, RDS for Oracle can also release engine versions that add a Monthly Recommended Patch (MRP) to the current RU. An RU engine version incorporates bug fixes from Oracle by including the RU patches for the specified quarter. A Supplemental Patch Bundle (SPB) is an engine version that contains the RU patches plus additional database patches recommended by Oracle for specific use cases, such as Oracle Spatial, Oracle Data Pump, and Oracle GoldenGate. SPBs are supported only for Oracle Database 19c.
 
-The naming format for an RU is as follows: `{{release}}.ru-{{date}}.rur-{{date}}.r{{rnumber}}`. For example, the RDS for Oracle RU for January 2025 is named `19.0.0.0.ru-2025-01.rur-2025-01.r1`.
+The naming format for an RU is as follows: `{{release}}.ru-{{date}}.mrp-{{date}}.r{{rnumber}}` for July 2026 and later, and `{{release}}.ru-{{date}}.rur-{{date}}.r{{rnumber}}` for April 2026 and earlier. Beginning in July 2026, the second date segment of an RU name uses the `mrp` prefix instead of `rur`. The `mrp-date` identifies the most recent Monthly Recommended Patch (MRP) applied on top of the RU. An MRP includes a Critical Security Patch Update (CSPU) and other fixes that Oracle recommends. In a quarterly RU engine version, the `mrp-date` matches the `ru-date`, which means that no MRP is applied on top of the RU. For example, the RDS for Oracle RU for July 2026 is named `19.0.0.0.ru-2026-07.mrp-2026-07.r1`, whereas the RU for January 2025 is named `19.0.0.0.ru-2025-01.rur-2025-01.r1`.
+
+Oracle can also release an MRP in the months between quarterly RUs. A new MRP advances the `mrp-date` segment while the `ru-date` segment stays the same. For example, `19.0.0.0.ru-2026-07.mrp-2026-08.r1` includes the July 2026 RU plus the August 2026 MRP. Automatic minor version upgrades apply quarterly RUs but not MRPs. To upgrade to an engine version with a newer MRP, apply the upgrade manually. For more information about RUs and MRPs, see [Oracle minor version upgrades](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.Minor.html).
 
 **Note**  
-Even though the string `rur` appears in the name of an RU, it is an RU rather than a Release Update Revision (RUR). RDS doesn't support RURs as part of its minor version upgrade mechanism. 
+The second date segment of an RU name is `rur` for April 2026 and earlier, and `mrp` for July 2026 and later. In either case, the engine version is a Release Update (RU) on the minor version upgrade path. It is not a Release Update Revision (RUR). RDS doesn't support RURs as part of its minor version upgrade mechanism.
 
 The naming format for an SPB is as follows: `{{release}}.ru-{{date}}.spb-{{snumber}}.r{{rnumber}}`. For example, the RDS for Oracle SPB for January 2025 is named `19.0.0.0.ru-2025-01.spb-1.r1`. This SPB includes all patches in` 19.0.0.0.ru-2025-01.rur-2025-01.r1` plus Spatial, Data Pump, and GoldenGate patches recommended by Oracle.
 
 The naming format has the following components:
 + The `{{release}}` is the five-digit number of the release, for example, `19.0.0.0`.
 + The `{{date}}` is the four-digit year and two-digit month when the update was made available by Oracle, for example, `2025-01`.
++ The `mrp-{{date}}` is the four-digit year and two-digit month of the Monthly Recommended Patch, for example, `2026-08`. This segment replaces `rur-{{date}}` for July 2026 and later.
 + The `{{rnumber}}` is the release revision, for example, `1`. 
 + The `{{snumber}}` is the SPB revision, for example, `1`. 
 
