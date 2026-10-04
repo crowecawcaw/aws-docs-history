@@ -17,6 +17,7 @@ Amazon FSx doesn't support backing up data protection (DP) volumes, load sharing
 + [User-initiated backups](#user-initiated-backups)
 + [Copying tags to backups](#copy-tags-to-backups)
 + [Using AWS Backup with Amazon FSx](#aws-backup-and-fsx)
++ [Storing backups in a logically air-gapped vault](#storing-backups-lag-vault)
 + [Copying backups](copy-backups.md)
 + [Restoring backups to a new volume](#restoring-backups)
 + [Backup and restore performance](#backup-performance)
@@ -93,6 +94,15 @@ Backups created by AWS Backup are considered user-initiated backups, and they co
 AWS Backup can't back up volumes that are offline.
 
 You can use tags to select which of your FSx for ONTAP resources are protected in a backup plan. These tags must be applied at the volume level rather than the file system level as a whole. For more information, see [Assigning resources to a backup plan](https://docs.aws.amazon.com/aws-backup/latest/devguide/assigning-resources.html) in the AWS Backup Developer Guide. 
+
+## Storing backups in a logically air-gapped vault
+<a name="storing-backups-lag-vault"></a>
+
+You can store FSx for ONTAP volume backups created by AWS Backup in a logically air-gapped vault. A logically air-gapped vault is a specialized AWS Backup vault that provides increased security beyond a standard backup vault. Each vault is encrypted and is protected by AWS Backup Vault Lock in compliance mode, which prevents backups from being deleted or altered before the end of their retention period. This adds an additional layer of protection against inadvertent or malicious deletion of your backups.
+
+With a logically air-gapped vault, you can also share vault access with other AWS accounts. Sharing access means that you can restore your FSx for ONTAP volume backups directly from the vault into an account that has been granted access.
+
+You restore backups stored in a logically air-gapped vault the same way you restore any other AWS Backup backup, using the AWS Backup console, AWS CLI, or API. For more information about creating and sharing logically air-gapped vaults and restoring from them, see [logically air-gapped vault](https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html) in the *AWS Backup Developer Guide*.
 
 ## Restoring backups to a new volume
 <a name="restoring-backups"></a>
