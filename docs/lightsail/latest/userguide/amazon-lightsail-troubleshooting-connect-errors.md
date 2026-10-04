@@ -39,7 +39,7 @@ This guide explains the error codes you might see when connecting to a Lightsail
 + Verify your instance's firewall rules allow SSH/RDP from Lightsail Connect.
   + If a required rule is missing, add it by following these instructions: [Add firewall rules to Lightsail instances](amazon-lightsail-editing-firewall-rules.md)
   + Retry the connection after adding the required rule.
-+ Reboot the instance following these instructions, then try again: [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
++ Reboot the instance, then try again. For instructions, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
 
 ## 516 (RESOURCE\_NOT\_FOUND)
 <a name="connect-error-516"></a>
@@ -51,7 +51,7 @@ This guide explains the error codes you might see when connecting to a Lightsail
 **What to do:**
 + Confirm the instance still exists in the Lightsail console. If it was deleted, connect to a different instance.
 + Wait a moment, then try connecting again.
-+ Check your instance's state in the Lightsail console. If it is still starting, wait until it is running, then try again. If it is stopped, start it and wait until it is running before connecting. [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
++ Check your instance's state in the Lightsail console. If it is still starting, wait until it is running, then try again. If it is stopped, start it and wait until it is running before connecting. For instructions, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
 + Reboot the instance, then reconnect.
 
 ## 519 (UPSTREAM\_NOT\_FOUND)
@@ -86,7 +86,7 @@ This guide explains the error codes you might see when connecting to a Lightsail
 
 **What to do:**
 + If the instance is rebooting or stopping, wait for it to finish, then reconnect.
-+ If the instance remains unresponsive, reboot it and try again. [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
++ If the instance remains unresponsive, reboot it and try again. For instructions, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
 
 ## 524 (UPSTREAM\_NLA\_AUTHENTICATION\_FAILURE)
 <a name="connect-error-524"></a>
@@ -129,7 +129,7 @@ This guide explains the error codes you might see when connecting to a Lightsail
 
 **What to do:**
 + Refresh the browser tab and start the connection again from the instance's connect page.
-+ If the instance recently started or changed state, wait a minute or two, then try again. [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
++ If the instance recently started or changed state, wait a minute or two, then try again. For instructions, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
 
 ## 769 (CLIENT\_UNAUTHORIZED)
 <a name="connect-error-769"></a>
