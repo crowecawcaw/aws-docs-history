@@ -84,7 +84,7 @@ You can find this information in the Settings summary in the IAM Identity Center
 
 1. Grant permissions
 
-   Since the AWS CLI is built on top of the SDK for Python, permission messages may contain variations of the botocore name, such as **botocore-client-Test1**. Select **Allow access**. After authentication, you will be told that you can close the window.      
+   Since the AWS CLI is built on top of the SDK for Python (Boto), permission messages may contain variations of the botocore name, such as **botocore-client-Test1**. Select **Allow access**. After authentication, you will be told that you can close the window.      
 ![AWS prompt asking to allow "botocore-client-Test1" access to data, with options to "Deny access" or "Allow access.".](https://docs.aws.amazon.com/hands-on/latest/setup-environment/images/asking-allow-botocore-client-test-access.png)
 
 1. Review available accounts
