@@ -1374,23 +1374,25 @@ AWS DMS supports Oracle TDE when using Binary Reader, on both the column level a
 
    Here, the value to the right of `'='` is the TDE password.
 
-1. Specify the TDE encryption key name for the Oracle source endpoint by setting the `securityDbEncryptionName` extra connection attribute.
+1. Specify the TDE encryption key name and password for the Oracle source endpoint by using one of the following options:
+   + **Option 1: Use endpoint settings** – Set the `SecurityDbEncryptionName` endpoint setting to the TDE encryption key name and set the `SecurityDbEncryption` endpoint setting to the TDE password.
+   + **Option 2: Use an extra connection attribute and the Password field** – Set the `securityDbEncryptionName` extra connection attribute to the TDE encryption key name:
 
-   ```
-   securityDbEncryptionName=ORACLE.SECURITY.DB.ENCRYPTION.AWGDC9glSk8Xv+3bVveiVSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-   ```
+     ```
+     securityDbEncryptionName=ORACLE.SECURITY.DB.ENCRYPTION.AWGDC9glSk8Xv+3bVveiVSgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+     ```
 
-1. Provide the associated TDE password for this key on the console as part of the Oracle source's **Password** value. Use the following order to format the comma-separated password values, ended by the TDE password value.
+     Then provide the associated TDE password as part of the Oracle source's **Password** value. Use the following order to format the comma-separated password values, ended by the TDE password value:
 
-   ```
-   {{Oracle_db_password}},{{ASM_Password}},AEMAASAASGYs0phWHfNt9J5mEMkkegGFiD4LLfQszDojgDzbfoYDEACv0x3pJC+UGD/PdtE2jLIcBQcAeHgJChQGLA==
-   ```
+     ```
+     {{Oracle_db_password}},{{ASM_Password}},{{TDE_password}}
+     ```
 
-   Specify the password values in this order regardless of your Oracle database configuration. For example, if you're using TDE but your Oracle database isn't using ASM, specify password values in the following comma-separated order.
+     Specify the password values in this order regardless of your Oracle database configuration. For example, if you're using TDE but your database isn't using ASM, specify password values in the following comma-separated order:
 
-   ```
-   {{Oracle_db_password}},,AEMAASAASGYs0phWHfNt9J5mEMkkegGFiD4LLfQszDojgDzbfoYDEACv0x3pJC+UGD/PdtE2jLIcBQcAeHgJChQGLA==
-   ```
+     ```
+     {{Oracle_db_password}},,{{TDE_password}}
+     ```
 
 If the TDE credentials you specify are incorrect, the AWS DMS migration task does not fail. However, the task also does not read or apply ongoing replication changes to the target database. After starting the task, monitor **Table statistics** on the console migration task page to make sure changes are replicated.
 
@@ -1557,6 +1559,7 @@ The following table shows the endpoint settings that you can use with Oracle as 
 | `ReadTableSpaceName` | When set to `true`, this attribute supports tablespace replication.<br />Default value: false <br />Valid values: Boolean <br />Example: `--oracle-settings '{"ReadTableSpaceName": true}'` | 
 | ReplacePathPrefix | Set this attribute to true in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified UsePathPrefix setting to access the redo logs. For more information, see [Configuring a CDC task to use Binary Reader with an RDS for Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.CDC).Default value: false <br />Valid values: true/false<br />Example: `--oracle-settings '{"ReplacePathPrefix": true}'` | 
 | `RetryInterval` | Specifies the number of seconds that the system waits before resending a query. <br />Default value: 5 <br />Valid values: Numbers starting from 1 <br />Example: `--oracle-settings '{"RetryInterval": 6}'` | 
+| `SecurityDbEncryption` | Specifies the transparent data encryption (TDE) password for an Oracle source endpoint. AWS DMS uses this password with Binary Reader to access redo logs that TDE encrypts. You can use this setting instead of including the TDE password in the `Password` field as a comma-separated value. You can set this only through endpoint settings, not as an extra connection attribute (ECA). This setting is related to the `SecurityDbEncryptionName` setting. For more information, see [Supported encryption methods for using Oracle as a source for AWS DMS](#CHAP_Source.Oracle.Encryption).<br />Default value: "" <br />Valid values: String <br />Example: `--oracle-settings '{"SecurityDbEncryption": "EXAMPLEEncryptionValue"}'` | 
 | `SecurityDbEncryptionName` | Specifies the name of a key used for the transparent data encryption (TDE) of the columns and tablespace in the Oracle source database. For more information on setting this attribute and its associated password on the Oracle source endpoint, see [Supported encryption methods for using Oracle as a source for AWS DMS](#CHAP_Source.Oracle.Encryption).<br />Default value: "" <br />Valid values: String <br />Example: `--oracle-settings '{"SecurityDbEncryptionName": "ORACLE.SECURITY.DB.ENCRYPTION.Adg8m2dhkU/0v/m5QUaaNJEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}'` | 
 | `SpatialSdo2GeoJsonFunctionName` | For Oracle version 12.1 or earlier sources migrating to PostgreSQL targets, use this attribute to convert SDO\_GEOMETRY to GEOJSON format.<br />By default, AWS DMS calls the `SDO2GEOJSON` custom function which must be present and accessible to the AWS DMS user. Or you can create your own custom function that mimics the operation of `SDOGEOJSON` and set `SpatialSdo2GeoJsonFunctionName` to call it instead. <br />Default value: SDO2GEOJSON<br />Valid values: String <br />Example: `--oracle-settings '{"SpatialSdo2GeoJsonFunctionName": "myCustomSDO2GEOJSONFunction"}'` | 
 | `StandbyDelayTime` | Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.<br />In AWS DMS, you can create an Oracle CDC task that uses an Active Data Guard standby instance as a source for replicating ongoing changes. Doing this eliminates the need to connect to an active database that might be in production.<br />Default value:0 <br />Valid values: Number <br />Example: `--oracle-settings '{"StandbyDelayTime": 1}'`<br />**Note: **When using DMS 3.4.6, 3.4.7 and higher, use of this connection setting is optional. In the latest version of DMS 3.4.6 and version 3.4.7, `{{dms_user}}` should have `select` permission on `V_$DATAGUARD_STATS`, allowing DMS to calculate standby delay time. | 

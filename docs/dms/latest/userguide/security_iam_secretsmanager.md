@@ -61,12 +61,12 @@ After you have created and specified the required secret and secret access-role 
    				"iam:GetRole",
    				"iam:PassRole"
    			],
-   			"Resource": "{{SECRET_ACCESS_ROLE_ARN}}"
+   			"Resource": "arn:aws:iam::{{account-id}}:role/{{secret-access-role-name}}"
    		},
    		{
    			"Effect": "Allow",
    			"Action": "secretsmanager:DescribeSecret",
-   			"Resource": "{{SECRET_ARN}}"
+   			"Resource": "arn:aws:secretsmanager:{{region}}:{{account-id}}:secret:{{secret-name}}"
    		}
    	]
    }

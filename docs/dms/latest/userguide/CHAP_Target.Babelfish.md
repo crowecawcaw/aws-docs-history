@@ -106,7 +106,7 @@ The following limitations apply when using a Babelfish database as a target for 
 + Only table preparation mode “**Do Nothing**“ is supported.
 + The ROWVERSION data type requires a table mapping rule that removes the column name from the table during the migration task.
 + The sql\_variant data type isn't supported.
-+ Full LOB mode is supported. Using SQL Server as a source endpoint requires the SQL Server Endpoint Connection Attribute setting `ForceFullLob=True` to be set in order for LOBs to be migrated to the target endpoint.
++ Full LOB mode is supported. When you use SQL Server as a source endpoint, set the SQL Server endpoint connection attribute `forceLobLookup` to `True` to migrate LOBs to the target endpoint. Without this setting, the task might silently drop LOB-only UPDATE operations during CDC when large text or LOB data is stored out-of-row.
 + Replication task settings have the following limitations:
 
   ```

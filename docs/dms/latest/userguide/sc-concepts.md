@@ -11,3 +11,4 @@ This section describes how DMS Schema Conversion represents your database schema
 + [Metadata model in DMS Schema Conversion](sc-metadata-model.md)
 + [Selection rules in DMS Schema Conversion](sc-selection-rules.md)
 + [Transformation rules in DMS Schema Conversion](sc-transformation-rules.md)
++ [Default conversion rules](sc-default-conversion-rules.md)

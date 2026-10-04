@@ -121,6 +121,18 @@ AWS DMS version 3.6.1 includes the following resolved issues:
 | Out-of-scope table creation issue | Fixed an issue where CREATE TABLE operations were processed for tables outside the task's selection scope. | 
 | Transaction record memory leak issue | Fixed an issue where transaction records could cause a memory leak. | 
 | Concurrent statement handling issue | Fixed an issue where concurrent statements on an internal connection could cause statement corruption. | 
+| Amazon DocumentDB and MongoDB connection regression issue | Fixed a regression for Amazon DocumentDB and MongoDB sources where connections to multi-host or replica-set deployments failed. | 
+| Amazon Redshift wide character column truncation issue | Fixed an issue for Amazon Redshift targets where the ODBC connection did not set MaxLongVarcharSize, which truncated wide character columns. | 
+| Task log context crash issue | Fixed a use-after-free that stopped the task during data record processing when the log context option was enabled. | 
+| Amazon ElastiCache for Redis TLS 1.3 connection issue | Fixed an issue for Amazon ElastiCache for Redis targets where TLS 1.3 connections failed because Probabilistic Signature Scheme (PSS) signature algorithms were not offered. | 
+| Task log rotation defaults update | Enabled log rotation by default and capped rollover at 1000 MB, preventing task logs from growing without bound and consuming disk space. | 
+| SQL Server CDC setup crash issue | Fixed an issue for Microsoft SQL Server sources where change data capture (CDC) article setup stopped the task because of a null pointer dereference. | 
+| Amazon DocumentDB and MongoDB change stream crash issue | Fixed an issue for Amazon DocumentDB and MongoDB sources where change stream capture stopped the task. | 
+| Wide character data handling issue | Fixed an issue where wide character (WSTR) values were not built correctly into SQL literals, which wrote incorrect character data to the target. | 
+| Sorter crash during filtering issue | Fixed an issue where the sorter stopped the task when a swap file handle was evicted from cache during a filter operation. | 
+| Amazon S3 target orphaned file cleanup issue | Fixed an issue for Amazon S3 targets where orphaned change data capture (CDC) files were not removed after upload. | 
+| Amazon Redshift load timeout default update | Increased the default Amazon Redshift load timeout from 20 minutes to 24 hours, preventing the ODBC statement timeout from cancelling long-running COPY (full-load) operations. | 
+| Oracle partition query ordering update | Added deterministic ordering to the Oracle partitioning query for more reliable parallel full load. | 
 
 ## AWS Database Migration Service 3.6.0 release notes
 <a name="CHAP_ReleaseNotes.DMS360"></a>
@@ -272,6 +284,17 @@ AWS DMS version 3.5.4 includes the following resolved issues:
 | Partition warning log update | Reduced the log severity of the "Could not find any partition" message from Error to Warning. | 
 | Transaction record memory leak issue | Fixed an issue where transaction records could cause a memory leak. | 
 | Concurrent statement handling issue | Fixed an issue where concurrent statements on an internal connection could cause statement corruption. | 
+| Amazon DocumentDB and MongoDB connection regression issue | Fixed a regression for Amazon DocumentDB and MongoDB sources where connections to multi-host or replica-set deployments failed. | 
+| Amazon Redshift wide character column truncation issue | Fixed an issue for Amazon Redshift targets where the ODBC connection did not set MaxLongVarcharSize, which truncated wide character columns. | 
+| Task log context crash issue | Fixed a use-after-free that stopped the task during data record processing when the log context option was enabled. | 
+| Amazon ElastiCache for Redis TLS 1.3 connection issue | Fixed an issue for Amazon ElastiCache for Redis targets where TLS 1.3 connections failed because Probabilistic Signature Scheme (PSS) signature algorithms were not offered. | 
+| Task log rotation defaults update | Enabled log rotation by default and capped rollover at 1000 MB, preventing task logs from growing without bound and consuming disk space. | 
+| SQL Server CDC setup crash issue | Fixed an issue for Microsoft SQL Server sources where change data capture (CDC) article setup stopped the task because of a null pointer dereference. | 
+| Amazon DocumentDB and MongoDB change stream crash issue | Fixed an issue for Amazon DocumentDB and MongoDB sources where change stream capture stopped the task. | 
+| Wide character data handling issue | Fixed an issue where wide character (WSTR) values were not built correctly into SQL literals, which wrote incorrect character data to the target. | 
+| Sorter crash during filtering issue | Fixed an issue where the sorter stopped the task when a swap file handle was evicted from cache during a filter operation. | 
+| Amazon S3 target orphaned file cleanup issue | Fixed an issue for Amazon S3 targets where orphaned change data capture (CDC) files were not removed after upload. | 
+| Amazon Redshift load timeout default update | Increased the default Amazon Redshift load timeout from 20 minutes to 24 hours, preventing the ODBC statement timeout from cancelling long-running COPY (full-load) operations. | 
 
 ## AWS Database Migration Service 3.5.3 release notes
 <a name="CHAP_ReleaseNotes.DMS353"></a>

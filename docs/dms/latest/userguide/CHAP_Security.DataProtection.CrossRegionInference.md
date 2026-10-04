@@ -39,4 +39,5 @@ Amazon CloudWatch and AWS CloudTrail logs don't specify the AWS Region in which 
 | Europe (Paris) (eu-west-3) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (Paris) (eu-west-3) | 
 | US East (N. Virginia) (us-east-1) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
 | US East (Ohio) (us-east-2) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 
+| US West (N. California) (us-west-1) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (N. California) (us-west-1)<br />US West (Oregon) (us-west-2) | 
 | US West (Oregon) (us-west-2) | US East (N. Virginia) (us-east-1)<br />US East (Ohio) (us-east-2)<br />US West (Oregon) (us-west-2) | 

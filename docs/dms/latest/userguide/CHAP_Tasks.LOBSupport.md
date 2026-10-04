@@ -21,7 +21,7 @@ With Oracle, LOBs are treated as VARCHAR data types whenever possible. This appr
 + When a task is configured to use full LOB mode, AWS DMS retrieves LOBs in pieces. The **LOB chunk size (K)** option determines the size of each piece. When setting this option, pay particular attention to the maximum packet size allowed by your network configuration. If the LOB chunk size exceeds your maximum allowed packet size, you might see disconnect errors. The recommended value for `LobChunkSize` is 64 kilobytes. Increasing the value for `LobChunkSize` above 64 kilobytes can cause task failures.
 + When a task is configured to run in inline LOB mode, the `InlineLobMaxSize` setting determines which LOBs DMS transfers inline.
 **Note**  
-A primary key is mandatory for tables containing LOB columns during Change Data Capture (CDC) operations. DMS uses this key to look up LOB values in the source table. This requirement only applies to CDC tasks - full-load tasks can read and copy entire LOB columns directly from source to target without restrictions.
+A primary key or unique index is required for tables containing LOB columns during change data capture (CDC) operations. DMS uses this key to look up LOB values in the source table. For full load only tasks using limited LOB mode, a primary key or unique index is not required. However, full LOB mode or inline LOB mode requires a primary key or unique index even for full load only tasks.
 
 For information on the task settings to specify these options, see [Target metadata task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.TargetMetadata.md)
 

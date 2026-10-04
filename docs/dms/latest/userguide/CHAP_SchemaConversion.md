@@ -132,7 +132,7 @@ The following table lists the AWS Regions where you can create a DMS Schema Conv
 | South America (São Paulo) | sa-east-1 | No | 
 | US East (N. Virginia) | us-east-1 | Yes | 
 | US East (Ohio) | us-east-2 | Yes | 
-| US West (N. California) | us-west-1 | No | 
+| US West (N. California) | us-west-1 | Yes | 
 | US West (Oregon) | us-west-2 | Yes | 
 
 To convert a database that runs in a Region that isn't listed, create your migration project in a supported Region. Then set up cross-Region connectivity between the VPC in that Region and the VPC where your database runs. For more information, see [Setting up a network for DMS Schema Conversion](instance-profiles-network.md).
