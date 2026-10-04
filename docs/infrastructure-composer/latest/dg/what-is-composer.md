@@ -3,6 +3,9 @@
 # What is AWS Infrastructure Composer?
 <a name="what-is-composer"></a>
 
+**Note**  
+End of support notice: On December 7, 2026, the standalone AWS Infrastructure Composer console will no longer be available. We have replaced Infrastructure Composer with an improved visual IaC editor on the AWS console pages where it was previously embedded. The full Infrastructure Composer experience remains available via the AWS Toolkit for Visual Studio Code. For more information, see [AWS Infrastructure Composer end of support](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/infrastructure-composer-end-of-support.html).
+
  AWS Infrastructure Composer allows you to visually compose modern applications on AWS. More specifically, you can use Infrastructure Composer to visualize, build, and deploy modern applications from all AWS services that are supported by AWS CloudFormation without needing to be an expert in CloudFormation.
 
 As you compose your AWS CloudFormation infrastructure, through a delightful drag-and-drop interface, Infrastructure Composer creates your infrastructure as code (IaC) templates, all while following AWS best practices. The following image shows how easy it is to drag, drop, configure, and connect resources on Infrastructure Composer's visual canvas.

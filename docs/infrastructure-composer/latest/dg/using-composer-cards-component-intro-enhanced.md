@@ -29,7 +29,7 @@ This table displays our enhanced components with links to the AWS CloudFormation
 | AWS Step Functions State machine | [AWS::Serverless::StateMachine](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html) | 
 
 ## Example
-<a name="w2aab9c21c13"></a>
+<a name="w2aac11c23c13"></a>
 
 The following is an example of an **S3 Bucket** enhanced component:
 

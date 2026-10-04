@@ -19,7 +19,7 @@ After installing the AWS CLI, you must configure AWS credentials. To learn more
 To install the AWS SAM CLI, see [Installing the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html) in the *AWS Serverless Application Model Developer Guide*.
 
 ## Access the AWS SAM CLI
-<a name="w2aac23c13c13"></a>
+<a name="w2aac25c15c13"></a>
 
 If you use Infrastructure Composer from the AWS Management Console, you have the following options to use the AWS SAM CLI.
 
@@ -34,6 +34,6 @@ You can export your template to your local machine. Then, run the AWS SAM CLI f
 You can use Infrastructure Composer from the Toolkit for VS Code to bring Infrastructure Composer to your local machine. Then, use Infrastructure Composer and the AWS SAM CLI from VS Code.
 
 ## Next steps
-<a name="w2aac23c13c15"></a>
+<a name="w2aac25c15c15"></a>
 
 To deploy your application, refer to [Use Infrastructure Composer with AWS SAM to build and deploy](other-services-cfn-sam-examples-example1.md).

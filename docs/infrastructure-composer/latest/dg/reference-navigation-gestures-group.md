@@ -6,7 +6,7 @@
 This topic contains details on grouping enhanced component cards and standard component cards. Grouping cards helps you categorize and organize your resources without needing to think about the code or markup you need write.
 
 ## Grouping enhanced component cards
-<a name="w2aac17c21b7"></a>
+<a name="w2aac19c23b7"></a>
 
 There are two ways to group enhanced component cards together:
 + While pressing **Shift**, select cards to group. Then, choose **Group** from the resource actions menu.

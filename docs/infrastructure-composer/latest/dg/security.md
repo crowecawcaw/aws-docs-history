@@ -3,6 +3,9 @@
 # Security in AWS Infrastructure Composer
 <a name="security"></a>
 
+**Note**  
+End of support notice: On December 7, 2026, the standalone AWS Infrastructure Composer console will no longer be available. We have replaced Infrastructure Composer with an improved visual IaC editor on the AWS console pages where it was previously embedded. The full Infrastructure Composer experience remains available via the AWS Toolkit for Visual Studio Code. For more information, see [AWS Infrastructure Composer end of support](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/infrastructure-composer-end-of-support.html).
+
 Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data centers and network architectures that are built to meet the requirements of the most security-sensitive organizations.
 
 Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) describes this as security *of* the cloud and security *in* the cloud:

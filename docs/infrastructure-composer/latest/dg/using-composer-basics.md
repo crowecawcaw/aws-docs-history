@@ -3,6 +3,9 @@
 # How to compose in AWS Infrastructure Composer
 <a name="using-composer-basics"></a>
 
+**Note**  
+End of support notice: On December 7, 2026, the standalone AWS Infrastructure Composer console will no longer be available. We have replaced Infrastructure Composer with an improved visual IaC editor on the AWS console pages where it was previously embedded. The full Infrastructure Composer experience remains available via the AWS Toolkit for Visual Studio Code. For more information, see [AWS Infrastructure Composer end of support](https://docs.aws.amazon.com/infrastructure-composer/latest/dg/infrastructure-composer-end-of-support.html).
+
 This section covers the basics of using Infrastructure Composer from the [Infrastructure Composer console](using-composer-console.md), [CloudFormation console mode](using-composer-console-cfn-mode.md), and the [AWS Toolkit for Visual Studio Code](using-composer-ide.md). More specifically, the topics in this section provide key details on how to compose an application with Infrastructure Composer, and includes details on additional features and shortcuts. There are a few variations in functionality between console and VS Code experiences, and the topics in this section identifies and describes these variations where they occur. 
 
 After composing your application, you will be ready to review [Deploy your Infrastructure Composer serverless application to the AWS Cloud](other-services-cfn.md) for information on deploying your application.

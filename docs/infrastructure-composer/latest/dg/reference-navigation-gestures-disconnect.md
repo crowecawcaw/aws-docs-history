@@ -16,7 +16,7 @@ To disconnect enhanced component cards, select the line and choose **Disconnect*
 Infrastructure Composer will automatically modify your template to remove the event-driven relationship from your application.
 
 ## Standard component cards
-<a name="w2aac17c31b7"></a>
+<a name="w2aac19c33b7"></a>
 
 Standard component cards do not include ports to create connections with other resources. During [card configuration](using-composer-standard-cards.md), you specify event-driven relationships in the template of your application, Infrastructure Composer will automatically detect these connections and visualize them with a dotted line between your cards. To disconnect a standard component card, remove the event-driven relationship in the template of your application.
 
