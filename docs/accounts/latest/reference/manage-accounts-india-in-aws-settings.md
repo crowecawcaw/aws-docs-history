@@ -10,8 +10,6 @@ If you sign up for AWS and choose India for your contact and billing address, yo
 
 If your account is with AWS India, follow the procedures in this topic to manage your account. This topic explains how to sign up for an AWS India account, edit information about your AWS India account, manage customer verification, and add or edit your Permanent Account Number (PAN).
 
-As part of the credit card verification during sign up, AWS India charges your credit card 2 INR. AWS India refunds the 2 INR after verification is done. You might be redirected to your bank as part of the verification process.
-
 **Topics**
 + [Sign up for AWS (new) with AWS India](#create-india-account-in-aws-settings)
 + [Manage your customer verification information](#manage-verification-in-aws-settings)
@@ -49,8 +47,6 @@ AWS India is a local seller of AWS in India. If your contact and billing address
    If your contact or billing address is based in India, in compliance with Indian Computer Emergency Response Team (CERT-In) regulations, AWS is required to collect and validate your identity information before granting you access to AWS services.
 
    The name that you chose between your contact or billing information must exactly match the name that appears on the document you plan to use for customer verification. For example, if you plan to verify a business account using a Certificate of Incorporation, you must provide the business name that appears on the document. For a list of accepted document types, see [Accepted India documents for customer verification](#accepted-documents-in-aws-settings).
-
-1. Enter your payment information and choose **Continue**. AWS India charges your card 2 INR as part of the verification process. AWS India refunds the 2 INR after verification is done.
 
 1. Choose the primary purpose of your account registration.
 

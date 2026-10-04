@@ -35,4 +35,6 @@ To grant IAM users write access to a specific account setting in the [**Account*
 | `account:PutAccountName` | Write | Grants permission to update the name for an account. | 
 | `account:PutAlternateContact` | Write | Grants permission to modify the alternate contacts for an account. | 
 | `account:PutContactInformation` | Write | Grants permission to update the primary contact information for an account. | 
+| `account:SendPhoneNumberVerification` | Write | Grants permission to send a verification code to the primary contact phone number for an account. | 
 | `account:StartPrimaryEmailUpdate` | Write | Grants permission to initiate the primary email address update of the member account in an AWS organization. | 
+| `account:VerifyPhoneNumber` | Write | Grants permission to verify the primary contact phone number for an account by submitting a verification code. | 

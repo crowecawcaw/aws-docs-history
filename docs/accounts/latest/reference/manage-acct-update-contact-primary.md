@@ -7,6 +7,8 @@ These instructions are for how to update the primary contact for your AWS accoun
 
 You can update the primary contact information associated with your account, including your contact's full name, company name, mailing address, telephone number, and website address.
 
+You can also verify the primary contact phone number. For more information, see [Verify the primary contact phone number](#manage-acct-update-contact-primary-verify).
+
 You edit the primary account contact differently, depending on whether or not the accounts are standalone, or part of an organization:
 + **Standalone AWS accounts** – For AWS accounts not associated with an organization, you can update your own primary account contact using the AWS Management Console, or via AWS CLI & SDKs. To learn how to do this, see [Update standalone AWS account primary contact](#manage-acct-update-contact-primary-edit).
 + **AWS accounts within an organization** – For member accounts that are part of an AWS organization, a user in the management account or delegated admin account can centrally update any member account in the organization from the AWS Organizations console, or programmatically via the AWS CLI & SDKs. To learn how to do this, see [Update AWS account primary contact in your organization](#manage-acct-update-contact-primary-orgs).
@@ -15,6 +17,7 @@ You edit the primary account contact differently, depending on whether or not th
 + [Phone number and email address requirements](#manage-acct-update-contact-primary-requirements)
 + [Update the primary contact for a standalone AWS account or management account](#manage-acct-update-contact-primary-edit)
 + [Update the primary contact for any AWS member account in your organization](#manage-acct-update-contact-primary-orgs)
++ [Verify the primary contact phone number](#manage-acct-update-contact-primary-verify)
 
 ## Phone number and email address requirements
 <a name="manage-acct-update-contact-primary-requirements"></a>
@@ -120,13 +123,15 @@ To update primary contact with the AWS Organizations console, you need to do som
 
 1. From **AWS accounts**, select the account that you want to update.
 
-1. Choose **Contact info**, and locate **Primary contact**,
+1. Choose **Contact info**, and locate **Primary contact**.
 
 1. Select **Edit**.
 
 1. Change the values in any of the available fields.
 
-1. After you have made all of your changes, choose **Update**.
+1. After you have made all of your changes, choose **Save**.
+
+If you change the phone number, we send a verification code to the new number when you choose **Save**. You can verify the number immediately or later. For more information, see [Verify the phone number for a member account in your organization](#manage-acct-update-contact-primary-verify-orgs).
 
 ------
 #### [ AWS CLI & SDKs ]
@@ -175,5 +180,133 @@ $ aws account put-contact-information --account-id 123456789012 \
 "FullName": "Saanvi Sarkar", "PhoneNumber": "+15555550100", "PostalCode": "98101", "StateOrRegion": "WA", "WebsiteUrl": "https://www.examplecorp.com"}'
 ```
 This command produces no output if it's successful.
+
+------
+
+## Verify the primary contact phone number
+<a name="manage-acct-update-contact-primary-verify"></a>
+
+You can verify the phone number in the primary contact information for an AWS account. Verifying confirms that the phone number on file can receive SMS text messages from us.
+
+When you start verification, we send a 6-digit verification code by SMS text message to the phone number that's currently on file for the account. You don't enter a phone number to start verification. To finish, you enter the code before it expires.
+
+Keep the following in mind when you verify a phone number:
++ The code expires 5 minutes after we send it.
++ If you request a new code, codes that we sent earlier no longer work.
++ If the code is incorrect or has expired, request a new code and try again.
++ If the phone number changes after we send a code, you can't use that code. Request a new code for the current number.
++ The verification status always describes the phone number that's currently on file. If you change the phone number, the status describes the new number.
++ For a member account in an organization, the code goes to the member account's primary contact phone number, not to yours. Before you start, make sure that you can get the code from whoever has that phone.
+
+To check the verification status, use the [GetContactInformation](https://docs.aws.amazon.com/accounts/latest/APIReference/API_GetContactInformation.html) operation. The `VerificationStatus` field in the response has one of the following values:
++ `VERIFIED` – The phone number on file is verified.
++ `UNVERIFIED` – The phone number on file isn't verified.
++ `NOT_SUPPORTED` – Phone number verification isn't available for this account.
+
+### Verify the phone number for a standalone or management AWS account
+<a name="manage-acct-update-contact-primary-verify-standalone"></a>
+
+To verify the phone number of the account whose credentials you use, use the following AWS CLI commands or their AWS SDK equivalent operations:
++ [SendPhoneNumberVerification](https://docs.aws.amazon.com/accounts/latest/APIReference/API_SendPhoneNumberVerification.html)
++ [VerifyPhoneNumber](https://docs.aws.amazon.com/accounts/latest/APIReference/API_VerifyPhoneNumber.html)
+
+**Minimum permissions**  
+For each operation, you must have the permission that maps to that operation:  
+`account:SendPhoneNumberVerification`
+`account:VerifyPhoneNumber`
+To check the verification status, you also need `account:GetContactInformation`.
+
+**Example**  
+The following AWS CLI example sends a verification code to the primary contact phone number of the caller's account:  
+
+```
+$ aws account send-phone-number-verification
+{
+    "Status": "PENDING"
+}
+```
+
+**Example**  
+The following AWS CLI example submits the code to finish verification:  
+
+```
+$ aws account verify-phone-number --otp 123456
+{
+    "Status": "VERIFIED"
+}
+```
+
+**Example**  
+The following AWS CLI example retrieves the verification status of the caller's primary contact phone number:  
+
+```
+$ aws account get-contact-information --query VerificationStatus
+"VERIFIED"
+```
+
+### Verify the phone number for a member account in your organization
+<a name="manage-acct-update-contact-primary-verify-orgs"></a>
+
+You can verify the phone number of a member account by using the AWS Organizations console, the AWS CLI, or an AWS SDK. Before you start, complete the steps in [Additional requirements](#update-primary-contact-requirement).
+
+------
+#### [ AWS Management Console ]
+
+**To verify the primary contact phone number for a member account**
+**Minimum permissions**  
+To perform the following steps, you must have at least the following IAM permissions:  
+`account:GetContactInformation` (to see the phone number and whether it's verified)
+`account:SendPhoneNumberVerification` (to send a verification code)
+`account:VerifyPhoneNumber` (to submit the code)
+The `AWSOrganizationsFullAccess` managed policy doesn't include `account:SendPhoneNumberVerification` or `account:VerifyPhoneNumber`. If you rely on that policy, grant these permissions separately.
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2) with the organization's management account credentials.
+
+1. From **AWS accounts**, select the member account.
+
+1. Choose **Contact info**, and locate **Primary contact**.
+
+1. If the phone number isn't verified, it appears with a warning. Choose the phone number, and then choose **Verify phone number**. We send a 6-digit code to the member account's phone number.
+
+1. Enter the code in **Verification code**, and then choose **Verify**.
+
+   If the code doesn't arrive, choose **Resend code** when that option becomes available.
+
+------
+#### [ AWS CLI & SDKs ]
+
+To verify a member account's phone number, use the following AWS CLI commands or their AWS SDK equivalent operations, and specify the member account ID:
++ [SendPhoneNumberVerification](https://docs.aws.amazon.com/accounts/latest/APIReference/API_SendPhoneNumberVerification.html)
++ [VerifyPhoneNumber](https://docs.aws.amazon.com/accounts/latest/APIReference/API_VerifyPhoneNumber.html)
+
+**Notes**  
+The credentials that you use must be from either the organization's management account or the delegated admin account for AWS Account Management.
+You can't access an account in a different organization from the one you are using to call the operation.
+
+**Minimum permissions**  
+For each operation, you must have the permission that maps to that operation:  
+`account:SendPhoneNumberVerification`
+`account:VerifyPhoneNumber`
+To check the verification status, you also need `account:GetContactInformation`.
+
+**Example**  
+The following AWS CLI example sends a verification code to the primary contact phone number of the specified member account:  
+
+```
+$ aws account send-phone-number-verification --account-id 123456789012
+{
+    "Status": "PENDING"
+}
+```
+
+**Example**  
+The following AWS CLI example submits the code that we sent to the member account's phone number:  
+
+```
+$ aws account verify-phone-number --account-id 123456789012 --otp 123456
+{
+    "Status": "VERIFIED"
+}
+```
 
 ------
