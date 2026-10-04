@@ -41,18 +41,25 @@ AWS Security Agent uses AWS Key Management Service (AWS KMS) to manage encryptio
 ## Internetwork traffic privacy
 <a name="_internetwork_traffic_privacy"></a>
 
-AWS Security Agent uses the public internet to communicate with cloud-hosted source control providers (GitHub, GitLab, Bitbucket) and Confluence Cloud.
+AWS Security Agent uses the public internet to communicate with cloud-hosted source control providers (GitHub, GitLab, Azure DevOps, and Bitbucket) and Confluence Cloud.
 
-For self-hosted providers (GitLab Self-Managed, GitHub Enterprise Server), you can configure private connections using Amazon VPC Lattice to keep all traffic within the AWS network. For more information, see [Connect to privately hosted source control](connect-private-connection.md).
+For self-hosted providers (GitLab Self-Managed, GitHub Enterprise Server, and Bitbucket Data Center), you can configure private connections using Amazon VPC Lattice to keep all traffic within the AWS network. For more information, see [Connect to privately hosted source control](connect-private-connection.md).
 
 In the default configuration, AWS Security Agent uses the public internet to reach your app for penetration testing. You can optionally configure penetration tests to use a VPC to access your application. For more information, see [Connect agent to private VPC resources](connect-agent-vpc.md).
+
+## Data from CI/CD pipeline integrations
+<a name="_data_from_cicd_pipeline_integrations"></a>
+
+When you run penetration tests from a CI/CD pipeline, the pipeline integration sends AWS Security Agent metadata that identifies the change to test: the base and head commit identifiers of the deployed commit range, and the identifier of the pipeline run that triggered the test. AWS Security Agent uses this metadata only to determine the security-relevant surface to test; it computes the difference between the two commits server-side from the repository you connected.
+
+This metadata is encrypted in transit and at rest in the same way as other penetration test data. To avoid disclosing sensitive information, do not embed secrets, credentials, or personally identifiable information (PII) in commit messages or branch names. The pipeline integration authenticates to AWS with short-lived credentials obtained through OpenID Connect (OIDC) federation and does not require you to store long-lived AWS access keys in your pipeline. For more information, see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md).
 
 ## Cross-Region data processing
 <a name="cross-region-processing"></a>
 
 AWS Security Agent uses [cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to optimize available compute resources and model availability. Depending on the Region where the request originates, we might process input prompts and output results in a different Region.
-+ In US East (N. Virginia) – `us-east-1`, US West (Oregon) – `us-west-2`, Asia Pacific (Sydney) – `ap-southeast-2`, Asia Pacific (Tokyo) – `ap-northeast-1`, Europe (Frankfurt) – `eu-central-1`, and Europe (Ireland) – `eu-west-1`, AWS Security Agent uses [geographic cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html). For most features, data processing remains within the geographic boundary (such as US, EU, Australia, or Japan) where the request originated. For Code Remediation, requests from Australia and Japan are processed in the European Union. For feature-specific routing details, see the [Cross Region Inference table](security-best-practices.md).
-+ In Asia Pacific (Mumbai) – `ap-south-1`, Asia Pacific (Singapore) – `ap-southeast-1`, and South America (São Paulo) – `sa-east-1`, AWS Security Agent uses [global cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/global-cross-region-inference.html). We might process input prompts and output results in any [commercial AWS Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region).
++ In US East (N. Virginia) – `us-east-1`, US East (Ohio) – `us-east-2`, US West (Oregon) – `us-west-2`, Canada (Central) – `ca-central-1`, Asia Pacific (Sydney) – `ap-southeast-2`, Asia Pacific (Tokyo) – `ap-northeast-1`, Europe (Frankfurt) – `eu-central-1`, Europe (Ireland) – `eu-west-1`, Europe (London) – `eu-west-2`, Europe (Paris) – `eu-west-3`, and Europe (Stockholm) – `eu-north-1`, AWS Security Agent uses [geographic cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/geographic-cross-region-inference.html). For most features, data processing remains within the geographic boundary (such as US, EU, Australia, or Japan) where the request originated. Requests from Canada (Central) are processed in the United States and Canada (Central). For Code Remediation, requests from Australia, Canada, and Japan are processed in the European Union. For feature-specific routing details, see the [Cross Region Inference table](security-best-practices.md).
++ In Asia Pacific (Mumbai) – `ap-south-1`, Asia Pacific (Seoul) – `ap-northeast-2`, Asia Pacific (Singapore) – `ap-southeast-1`, and South America (São Paulo) – `sa-east-1`, AWS Security Agent uses [global cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/global-cross-region-inference.html). We might process input prompts and output results in any [commercial AWS Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region).
 
 In all cases, your data remains stored only in the Region where the request originated. All data transmitted during cross-Region operations remains on the AWS network and does not traverse the public internet. We encrypt data in transit between AWS Regions.
 

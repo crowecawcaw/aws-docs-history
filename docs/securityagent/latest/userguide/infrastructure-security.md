@@ -18,3 +18,8 @@ AWS Security Agent requires internet access to perform penetration testing on ta
 <a name="_multi_tenancy_and_resource_isolation"></a>
 
 AWS Security Agent is a multi-tenant service. Security reviews, findings, and customer data are isolated to individual AWS accounts and encrypted at rest. AWS applies standard infrastructure isolation controls to ensure that one customer’s security testing activities do not impact another customer’s performance or confidentiality.
+
+## CI/CD pipeline integrations
+<a name="_cicd_pipeline_integrations"></a>
+
+When you run penetration tests from a CI/CD pipeline, the pipeline integration runs on your own CI/CD runner, which is infrastructure that you operate and secure. The integration connects to the AWS Security Agent service endpoint over TLS and authenticates with short-lived credentials obtained through OpenID Connect (OIDC) federation. Securing the runner, restricting which pipelines can obtain the OIDC token, and protecting the temporary credentials on the runner are your responsibility. For more information, see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md) and [Security best practices for AWS Security Agent](security-best-practices.md).

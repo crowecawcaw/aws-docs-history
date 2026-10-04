@@ -11,9 +11,9 @@ This page applies to GitHub pull requests, GitLab merge requests, and Bitbucket 
 ## How code review works in pull requests
 <a name="_how_code_review_works_in_pull_requests"></a>
 
-When you submit a pull request (or merge request in GitLab) in a repository with code review enabled, AWS Security Agent automatically begins analysis.
+When you submit a pull request (or merge request in GitLab) in a repository with code review enabled, AWS Security Agent evaluates it against the configured review triggers. If the pull request matches a trigger, analysis begins.
 
-1.  **Pull request analysis trigger** - Code review is triggered when a pull request is marked as "Ready for review" in repositories where you’ve enabled the code review capability. Draft pull requests are not analyzed.
+1.  **Pull request analysis trigger** - By default, AWS Security Agent starts a code review when a pull request is ready for review. Administrators can limit reviews by target branch or label. They can also start reviews when a label is added. For more information, see [Configure pull request code review triggers](configure-code-review-triggers.md).
 
 1.  **Analysis acknowledgment** - When AWS Security Agent begins analyzing your pull request, it posts an initial comment: "AWS Security Agent is analyzing your code…​" This lets you know the analysis has started and is in progress.
 

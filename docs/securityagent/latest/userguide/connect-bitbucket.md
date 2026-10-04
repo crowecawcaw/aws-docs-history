@@ -14,7 +14,7 @@ Bitbucket integration serves multiple purposes:
 Connecting Bitbucket to AWS Security Agent requires installing the AWS Security Agent Forge app on your Atlassian site and completing the OAuth authorization flow.
 
 **Note**  
-AWS Security Agent supports Bitbucket Cloud only. Bitbucket Server and Bitbucket Data Center are not supported.
+This topic covers Bitbucket Cloud. For self-hosted Bitbucket Data Center, see [Connect AWS Security Agent to Bitbucket Data Center](connect-bitbucket-data-center.md).
 
 ## How Bitbucket integration works
 <a name="_how_bitbucket_integration_works"></a>

@@ -81,6 +81,7 @@ The following is an example of an endpoint policy for AWS Security Agent. When a
 
 ```
 {
+   "Version": "2012-10-17",
    "Statement": [
       {
          "Effect": "Allow",
@@ -89,8 +90,8 @@ The following is an example of an endpoint policy for AWS Security Agent. When a
             "securityagent:CreatePentest",
             "securityagent:ListPentests",
             "securityagent:BatchGetPentests",
-            "securityagent:StartPentestExecution",
-            "securityagent:StopPentestExecution",
+            "securityagent:StartPentestJob",
+            "securityagent:StopPentestJob",
             "securityagent:ListFindings",
             "securityagent:BatchGetFindings"
          ],

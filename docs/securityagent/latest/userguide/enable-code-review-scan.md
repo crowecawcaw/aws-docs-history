@@ -78,7 +78,8 @@ On the **Manage capabilities** step of the **Connect GitHub** wizard, choose wha
 1. Choose **Save** to apply your selections and return to the code review setup wizard.
 
 When **Code review comments** is enabled for a repository:
-+ AWS Security Agent automatically analyzes pull requests when they are marked as "Ready for review". Draft pull requests are not analyzed.
++ By default, AWS Security Agent automatically analyzes pull requests when they are marked ready for review. Draft pull requests are not analyzed.
++ You can limit reviews by target branch or label, review draft pull requests, or start a review when a label is added. For more information, see [Configure pull request code review triggers](configure-code-review-triggers.md).
 + Security findings are posted as review comments directly on the pull request with specific remediation guidance.
 + The analysis uses your configured code review settings (security vulnerabilities, custom requirements, or both).
 

@@ -8,7 +8,7 @@ If a target endpoint uses a Transport Layer Security (TLS) certificate that is n
 Trusted CA certificates apply to the entire penetration test. You can provide them in the AWS Security Agent web application or with the AWS CLI or API.
 
 **Note**  
-Skip this task if your target endpoints use certificates issued by a publicly trusted CA. For a private endpoint hosted in a VPC, provide the trust anchor in addition to the VPC configuration. For more information, see [Connect agent to private VPC resources](connect-agent-vpc.md).
+Skip this task if your target endpoints use certificates issued by a publicly trusted CA.
 
 **Important**  
 Provide the certificate only, never a private key. AWS Security Agent does not accept a certificate that is expired or not yet valid.

@@ -149,6 +149,11 @@ AWS Security Agent will do a breadth-first exploration of the target application
 
 AWS Security Agent uses deterministic validators to help validate the reported finding. In the risk types where it is not possible to use deterministic validators, AWS Security Agent will independently replay the finding steps to gain confidence in the validity of the finding. AWS Security Agent only reports the high or medium confidence findings and hides the unverified findings by default.
 
+#### How does AWS Security Agent validate findings that require an outbound request from the target?
+<a name="_how_does_aws_security_agent_validate_findings_that_require_an_outbound_request_from_the_target"></a>
+
+Some findings can only be confirmed by inducing the target application to make an outbound request. Server-Side Request Forgery (SSRF) is one example. To validate these findings, AWS Security Agent directs these requests to an AWS-operated collaborator endpoint rather than to arbitrary destinations. Each request carries a unique per-test identifier so the callback maps to that specific test, and the agent is instructed to confirm the finding against the collaborator and to stop further exploitation once it is validated. The collaborator captures DNS and HTTP callbacks using data the service generates internally; no customer data is used.
+
 #### Can AWS Security Agent adapt to custom application logic?
 <a name="_can_aws_security_agent_adapt_to_custom_application_logic"></a>
 

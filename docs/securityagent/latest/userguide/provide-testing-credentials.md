@@ -61,7 +61,36 @@ Secrets Manager secrets and Lambda functions must be in the same AWS account as 
 ### Select available IAM role for agent to assume
 <a name="_select_available_iam_role_for_agent_to_assume"></a>
 
-Use this option for applications using AWS Cognito, API Gateway with IAM authentication, or other AWS-native authentication systems. The IAM role must have a trust relationship allowing AWS Security Agent to assume it and permissions to access your application’s authentication system.
+Use this option for applications using AWS Cognito, API Gateway with IAM authentication, or other AWS-native authentication systems. AWS Security Agent assumes the role at the start of each penetration test run. It then uses the returned temporary credentials to sign requests to your application.
+
+Configure the IAM role in two steps:
+
+1.  **Register the role with your Agent Space.** In the AWS Security Agent console, open your Agent Space and choose **Edit configuration**. Under **Service access**, choose **Use an existing service role**, and then select your role from the dropdown list.
+**Note**  
+You can select only roles registered here as an actor credential in the penetration test configuration.
+
+1.  **Configure the role’s trust policy** to allow AWS Security Agent to assume it. Use the following trust policy. Replace `<region>` and `<your-account-id>` with your own values:
+
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [{
+       "Effect": "Allow",
+       "Principal": {
+         "Service": "securityagent.amazonaws.com"
+       },
+       "Action": "sts:AssumeRole",
+       "Condition": {
+         "StringEquals": { "aws:SourceAccount": "<your-account-id>" },
+         "ArnLike": {
+           "aws:SourceArn": "arn:aws:securityagent:<region>:<your-account-id>:agent-space/*"
+         }
+       }
+     }]
+   }
+   ```
+
+The role also needs permissions to access your application’s authentication system (for example, API Gateway or Cognito).
 
 ### Select static credential from connected AWS Secrets Manager
 <a name="provide-testing-credentials-secrets-manager"></a>

@@ -3,7 +3,7 @@
 # Connect to privately hosted source control
 <a name="connect-private-connection"></a>
 
-AWS Security Agent can connect to source control systems running in private networks, such as GitLab Self-Managed instances and GitHub Enterprise Server. Private connections use Amazon VPC Lattice to establish secure connectivity between AWS Security Agent and your private infrastructure without exposing your systems to the public internet.
+AWS Security Agent can connect to source control systems running in private networks, such as GitLab Self-Managed, GitHub Enterprise Server, and Bitbucket Data Center instances. Private connections use Amazon VPC Lattice to establish secure connectivity between AWS Security Agent and your private infrastructure without exposing your systems to the public internet.
 
 ## How private connections work
 <a name="_how_private_connections_work"></a>
@@ -38,7 +38,7 @@ AWS Security Agent supports two modes for private connections:
 
 Before creating a private connection, verify that you have:
 + An active Agent Space
-+ A privately reachable target service (GitLab Self-Managed or GitHub Enterprise Server) at a known private IP address or DNS name
++ A privately reachable target service (GitLab Self-Managed, GitHub Enterprise Server, or Bitbucket Data Center) at a known private IP address or DNS name
 + The target service must serve HTTPS traffic with a minimum TLS version of 1.2
 + Subnets in your VPC (1-20 subnets). We recommend selecting subnets in multiple Availability Zones for high availability.
 + (Optional) Security groups to control traffic to the ENIs (up to 5)
@@ -100,7 +100,7 @@ When you select a private connection for a provider that uses OAuth authenticati
 ## Use a private connection with an integration
 <a name="_use_a_private_connection_with_an_integration"></a>
 
-When you register a GitLab Self-Managed or GitHub Enterprise Server integration, select **Connect to endpoint using a private connection**, then choose your connection from the **Private connection** list. AWS Security Agent routes traffic to the provider through that connection. Only connections with an **Available** status appear in the list.
+When you register a GitLab Self-Managed, GitHub Enterprise Server, or Bitbucket Data Center integration, select **Connect to endpoint using a private connection**, then choose your connection from the **Private connection** list. AWS Security Agent routes traffic to the provider through that connection. Only connections with an **Available** status appear in the list.
 
 You can also choose **Create a private connection** during registration. AWS Security Agent preserves your registration draft while you create the connection, then returns you to the registration flow.
 
@@ -177,3 +177,4 @@ Follow this pattern:
 <a name="_next_steps"></a>
 +  [Connect AWS Security Agent to GitLab Self-Managed](connect-gitlab-self-managed.md) - Connect a private GitLab instance
 +  [Connect AWS Security Agent to GitHub Enterprise](connect-github-enterprise.md) - Connect a private GitHub Enterprise instance
++  [Connect AWS Security Agent to Bitbucket Data Center](connect-bitbucket-data-center.md) - Connect a private Bitbucket Data Center instance

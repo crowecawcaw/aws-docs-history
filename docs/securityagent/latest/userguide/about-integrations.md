@@ -34,7 +34,7 @@ Confluence is a documentation provider rather than a source code provider. AWS S
 <a name="_supported_providers"></a>
 
 AWS Security Agent supports the following providers:
-+  **Source code** - GitHub (cloud-hosted GitHub and cloud-hosted GitHub Enterprise), GitHub Enterprise Server (self-hosted), GitLab (cloud-hosted), GitLab Self-Managed (self-hosted), and Bitbucket Cloud.
++  **Source code** - GitHub (cloud-hosted GitHub and cloud-hosted GitHub Enterprise), GitHub Enterprise Server (self-hosted), GitLab (cloud-hosted), GitLab Self-Managed (self-hosted), Azure DevOps, Bitbucket Cloud, and Bitbucket Data Center (self-hosted).
 +  **Documentation** - Confluence Cloud.
 
 For self-hosted providers that are not reachable over the public internet, you can route the agent’s traffic through a private connection. For more information, see [Connect to privately hosted source control](connect-private-connection.md).
@@ -42,7 +42,7 @@ For self-hosted providers that are not reachable over the public internet, you c
 ## AWS Security Agent IP addresses
 <a name="agent-ip-addresses"></a>
 
-AWS Security Agent connects to your source code repositories from a fixed set of IP addresses, one set per AWS Region. The same IP addresses are used for every supported source code provider: GitHub, GitLab, and Bitbucket. This includes self-hosted GitHub Enterprise Server and GitLab Self-Managed instances that are reachable over the public internet.
+AWS Security Agent connects to your source code repositories from a fixed set of IP addresses, one set per AWS Region. The same IP addresses are used for every supported source code provider: GitHub, GitLab, Azure DevOps, and Bitbucket. This includes self-hosted GitHub Enterprise Server, GitLab Self-Managed, and Bitbucket Data Center instances that are reachable over the public internet.
 
 **Important**  
 If your repository provider or the network in front of it restricts access with an IP allow list, add the AWS Security Agent IP addresses for your Agent Space’s AWS Region to that allow list. Wait a few minutes for the change to take effect, then register the integration. Examples include a GitHub organization IP allow list, a GitLab allowed IP range, Bitbucket workspace IP allowlisting, or a firewall in front of a self-hosted instance.
@@ -52,14 +52,26 @@ The following IP addresses are used to access your connected repositories:
   +  `34.228.181.128` 
   +  `44.219.176.187` 
   +  `54.226.244.221` 
++ US East (Ohio) (us-east-2)
+  +  `16.58.244.57` 
+  +  `18.221.155.24` 
+  +  `52.15.165.125` 
 + US West (Oregon) (us-west-2)
   +  `34.212.16.133` 
   +  `52.89.67.212` 
   +  `54.187.135.61` 
++ Canada (Central) (ca-central-1)
+  +  `3.96.5.29` 
+  +  `3.99.39.12` 
+  +  `99.79.90.221` 
 + Asia Pacific (Mumbai) (ap-south-1)
   +  `13.126.209.199` 
   +  `13.234.6.24` 
   +  `35.154.102.216` 
++ Asia Pacific (Seoul) (ap-northeast-2)
+  +  `3.34.151.190` 
+  +  `43.201.166.78` 
+  +  `43.202.86.139` 
 + Asia Pacific (Singapore) (ap-southeast-1)
   +  `18.139.13.125` 
   +  `47.130.240.215` 
@@ -80,6 +92,18 @@ The following IP addresses are used to access your connected repositories:
   +  `34.251.85.24` 
   +  `52.30.157.157` 
   +  `52.51.192.222` 
++ Europe (London) (eu-west-2)
+  +  `13.42.228.66` 
+  +  `16.60.62.58` 
+  +  `35.176.240.10` 
++ Europe (Paris) (eu-west-3)
+  +  `15.224.33.200` 
+  +  `15.224.52.205` 
+  +  `35.181.29.248` 
++ Europe (Stockholm) (eu-north-1)
+  +  `13.49.123.102` 
+  +  `13.49.215.189` 
+  +  `16.170.2.94` 
 + South America (São Paulo) (sa-east-1)
   +  `54.94.247.213` 
   +  `54.207.222.14` 

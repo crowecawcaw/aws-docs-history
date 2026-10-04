@@ -206,7 +206,7 @@ On the run detail page, navigate between tabs to monitor progress:
 +  **Code review run** – View the run summary including run ID, creation time, status, duration, task hours, severity level breakdown, and risk types chart.
 +  **Preflight** – View the preflight check progress and status of each validation step.
 +  **Code review logs** – View the tasks AWS Security Agent identified and conducted during the review, with detailed task logs for each step.
-+  **Simulated validation** – When simulated validation is enabled, view the provisioning status, validation tasks for individual findings, and their results.
++  **Simulated validation** – When simulated validation is enabled, view the provisioning status, validation tasks for individual findings, and their results. The provisioning task includes a log of the simulated environment build, including each setup step and any build errors. AWS Security Agent updates the log while the environment builds. It also writes the log to the code review’s CloudWatch log group.
 +  **Findings** – View security findings after the review completes (see [Review findings from a code review](review-code-scan-findings.md)).
 
 ### Run history

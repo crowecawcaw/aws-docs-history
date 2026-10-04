@@ -68,14 +68,29 @@ Accessible URLs specify additional endpoints that the penetration testing enviro
 
  **Security implications:** AWS Security Agent is not instructed to perform security testing on accessible URLs. By specifying accessible URLs, you indicate trust in these dependencies. Penetration test data, including credentials, may be transmitted to these accessible URL endpoints during testing.
 
+## Secure your CI/CD pipeline integration
+<a name="_secure_your_cicd_pipeline_integration"></a>
+
+When you run penetration tests from a CI/CD pipeline, the pipeline assumes an IAM role in your account through OpenID Connect (OIDC) federation. Misconfiguring this role, or leaking its credentials on the runner, would let an untrusted pipeline start penetration tests billed to your account or act with the role’s permissions.
+
+ **Best practice:** Apply least privilege to the integration and protect credentials on the runner:
++ Scope the role’s trust policy to the specific repositories and branches that should run tests by matching the OIDC token’s `sub` claim. Do not use a wildcard for the `sub` claim.
++ Grant the role only the actions the pipeline needs, and scope them to your specific Agent Space or penetration test ARN where the action supports resource-level permissions.
++ Do not store long-lived AWS access keys in your pipeline; use OIDC federation.
++ Keep debug or shell tracing off for steps that handle credentials, so tokens and temporary credentials are not written to job logs.
++ Disable source control credential persistence on checkout, and do not expose the OIDC token to untrusted steps such as builds from forks.
++ Pin the integration to an immutable version (a commit SHA or an image digest).
+
+For setup details, see [Run penetration tests from your CI/CD pipeline](cicd-pentest.md).
+
 ## Cross Region Inference
 <a name="_cross_region_inference"></a>
 
 AWS Security Agent automatically selects the optimal Region to process your inference requests. This maximizes available compute resources, model availability, and delivers the best customer experience. Your data remains stored only in the Region where the request originated; however, input prompts and output results might be processed outside that Region. We transmit all data encrypted across the AWS network.
 
 AWS Security Agent uses two types of cross-region inference depending on the Region:
-+  **Geographic cross-region inference** – Keeps data processing within specific geographic boundaries (such as US, EU, Australia, or Japan) for most features. For [Code Remediation](remediate-code-scan-findings.html), requests from Australia and Japan are processed in the European Union. Used in US East (N. Virginia) – `us-east-1`, US West (Oregon) – `us-west-2`, Asia Pacific (Sydney) – `ap-southeast-2`, Asia Pacific (Tokyo) – `ap-northeast-1`, Europe (Frankfurt) – `eu-central-1`, and Europe (Ireland) – `eu-west-1`.
-+  **Global cross-region inference** – Routes inference requests to any [commercial AWS Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region), optimizing available resources and enabling higher model throughput. Used in Asia Pacific (Mumbai) – `ap-south-1`, Asia Pacific (Singapore) – `ap-southeast-1`, and South America (São Paulo) – `sa-east-1`.
++  **Geographic cross-region inference** – Keeps data processing within specific geographic boundaries (such as US, EU, Australia, or Japan) for most features. For [Code Remediation](remediate-code-scan-findings.html), requests from Australia, Canada, and Japan are processed in the European Union. Requests from Canada (Central) – `ca-central-1` are processed in the United States and Canada (Central). Used in US East (N. Virginia) – `us-east-1`, US East (Ohio) – `us-east-2`, US West (Oregon) – `us-west-2`, Canada (Central) – `ca-central-1`, Asia Pacific (Sydney) – `ap-southeast-2`, Asia Pacific (Tokyo) – `ap-northeast-1`, Europe (Frankfurt) – `eu-central-1`, Europe (Ireland) – `eu-west-1`, Europe (London) – `eu-west-2`, Europe (Paris) – `eu-west-3`, and Europe (Stockholm) – `eu-north-1`.
++  **Global cross-region inference** – Routes inference requests to any [commercial AWS Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region), optimizing available resources and enabling higher model throughput. Used in Asia Pacific (Mumbai) – `ap-south-1`, Asia Pacific (Seoul) – `ap-northeast-2`, Asia Pacific (Singapore) – `ap-southeast-1`, and South America (São Paulo) – `sa-east-1`.
 
 For Regions using global cross-region inference, input prompts and output results might be processed in any [commercial AWS Region](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#region). All data transmitted during cross-region operations remains on the AWS network and does not traverse the public internet. We encrypt data in transit between AWS Regions.
 
@@ -84,10 +99,13 @@ The following table describes where your inference requests are processed based 
 
 | Request origin | All features except Code Remediation |  [Code Remediation](remediate-code-scan-findings.html)  | 
 | --- | --- | --- | 
-| United States — US East (N. Virginia) – `us-east-1`, US West (Oregon) – `us-west-2`  | United States | United States | 
-| European Union — Europe (Ireland) – `eu-west-1`, Europe (Frankfurt) – `eu-central-1`  | European Union | European Union | 
+| United States — US East (N. Virginia) – `us-east-1`, US East (Ohio) – `us-east-2`, US West (Oregon) – `us-west-2`  | United States | United States | 
+| Canada — Canada (Central) – `ca-central-1`  | United States and Canada (Central) | European Union | 
+| European Union — Europe (Ireland) – `eu-west-1`, Europe (Frankfurt) – `eu-central-1`, Europe (Paris) – `eu-west-3`, Europe (Stockholm) – `eu-north-1`  | European Union | European Union | 
+| United Kingdom — Europe (London) – `eu-west-2`  | European Union and Europe (London) | European Union | 
 | Australia — Asia Pacific (Sydney) – `ap-southeast-2`  | Australia | European Union | 
 | Japan — Asia Pacific (Tokyo) – `ap-northeast-1`  | Japan | European Union | 
+| South Korea — Asia Pacific (Seoul) – `ap-northeast-2`  | Any commercial AWS Region | European Union | 
 | South America — South America (São Paulo) – `sa-east-1`  | Any commercial AWS Region | Any commercial AWS Region | 
 | India — Asia Pacific (Mumbai) – `ap-south-1`  | Any commercial AWS Region | Any commercial AWS Region | 
 | Southeast Asia — Asia Pacific (Singapore) – `ap-southeast-1`  | Any commercial AWS Region | Any commercial AWS Region | 
