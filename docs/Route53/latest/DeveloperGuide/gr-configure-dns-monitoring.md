@@ -19,3 +19,5 @@ Before configuring DNS logging, you must set an observability Region where logs 
 1. Select the AWS Region where you want to store monitoring data, then choose **Set region**.
 
 After setting the observability region, you can configure log delivery destinations in that Region.
+
+After you configure DNS monitoring and log delivery, you can create Amazon CloudWatch metrics and alarms from your Route 53 Global Resolver logs. For more information, see [Monitoring Route 53 Global Resolver with Amazon CloudWatch](gr-cloudwatch-monitoring.md).

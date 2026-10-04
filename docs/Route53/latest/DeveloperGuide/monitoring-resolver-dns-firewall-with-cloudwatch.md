@@ -82,3 +82,8 @@ The number of DNS firewall queries that match a firewall domain list (specified 
 Dimensions: `FirewallRuleGroupId, FirewallDomainListId`  
 Valid statistics: Sum  
 Units: Count
+
+**Topics**
++ [Metrics and dimensions for Resolver DNS Firewall](#metrics-dimensions-resolver-dns-firewall)
++ [Using Amazon CloudWatch Contributor Insights with DNS Firewall data](monitoring-resolver-dns-firewall-contributor-insights.md)
++ [Analyzing DNS Firewall logs with Amazon CloudWatch Logs Insights](monitoring-resolver-dns-firewall-logs-insights.md)
