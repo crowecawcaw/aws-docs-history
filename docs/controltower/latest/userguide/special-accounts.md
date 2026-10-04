@@ -10,7 +10,7 @@ In landing zone versions earlier than 4.0, these accounts were called *shared ac
 +  You can select customized names for the service integration accounts when you're setting up your landing zone. For information about changing an account name, see [Externally changing AWS Control Tower resource names](https://docs.aws.amazon.com/controltower/latest/userguide/external-resources.html#changing-names). 
 + You can also specify an existing AWS account as an AWS Control Tower service integration account, during the initial landing zone setup process. This option eliminates the need for AWS Control Tower to create new accounts. (This is a one-time selection.)
 
-For more information about the service integration accounts and their associated resources, see [Resources created in the shared accounts](shared-account-resources.md).
+For more information about the service integration accounts and their associated resources, see [Resources created in the service integration accounts](shared-account-resources.md).
 
 ## Management account
 <a name="mgmt-account"></a>
@@ -20,7 +20,7 @@ This AWS account launches AWS Control Tower. By default, the root user for this 
 **Note**  
 As a best practice, we recommend signing in as an IAM Identity Center user with **Administrator** privileges when performing administrative functions within the AWS Control Tower console, instead of the signing in as the root user or IAM administrator user for this account.
 
-For more information about the roles and resources available in the management account, see [Resources created in the shared accounts](shared-account-resources.md).
+For more information about the roles and resources available in the management account, see [Resources created in the service integration accounts](shared-account-resources.md).
 
 ## CloudTrail administrator account
 <a name="log-archive-account"></a>
@@ -34,7 +34,7 @@ As a best practice, restrict access to this account to teams responsible for com
 **Amazon S3 bucket policy**  
 For AWS Control Tower landing zone version 3.3 and later, accounts must meet an `aws:SourceOrgID` condition for any write permissions to your Audit bucket. This condition ensures that CloudTrail only can write logs on behalf of accounts within your organization to your S3 bucket; it prevents CloudTrail logs outside your organization from writing to your AWS Control Tower S3 bucket. For more information, see [AWS Control Tower landing zone version 3.3](2023-all.md#lz-3-3).
 
-For more information about the roles and resources available in the log archive account, see [Log archive account resources](shared-account-resources.md#log-archive-resources)
+For more information about the roles and resources available in the log archive account, see [CloudTrail administrator account resources](shared-account-resources.md#log-archive-resources)
 
 **Note**  
 These logs cannot be changed. All logs are stored for the purposes of audit and compliance investigations related to account activity.
@@ -55,7 +55,7 @@ The Config aggregator account also receives notifications through the Amazon Sim
 
 Audit notifications that are triggered within a member account also can send alerts to a local Amazon SNS topic. This functionality allows account administrators to subscribe to audit notifications that are specific to an individual member account. As a result, administrators can resolve issues that affect an individual account, while still aggregating all account notifications to your centralized Config aggregator account. For more information, see [Amazon Simple Notification Service Developer Guide](https://docs.aws.amazon.com/sns/latest/dg/).
 
-For more information about the roles and resources available in the Config aggregator account, see [Audit account resources](shared-account-resources.md#audit-account-resources).
+For more information about the roles and resources available in the Config aggregator account, see [Config aggregator account resources](shared-account-resources.md#audit-account-resources).
 
 For more information about programmatic auditing, see [Programmatic roles and trust relationships for the AWS Control Tower audit account](https://docs.aws.amazon.com/controltower/latest/userguide/roles-how.html#stacksets-and-roles).
 

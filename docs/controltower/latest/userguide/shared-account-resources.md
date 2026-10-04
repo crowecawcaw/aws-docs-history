@@ -1,9 +1,9 @@
 
 
-# Resources created in the shared accounts
+# Resources created in the service integration accounts
 <a name="shared-account-resources"></a>
 
-This section shows the resources that AWS Control Tower creates in the shared accounts, when you set up your landing zone.
+This section shows the resources that AWS Control Tower creates in the service integration accounts, when you set up your landing zone.
 
 For information about member account resources, see [Resource Considerations for Account Factory](account-factory-considerations.md).
 
@@ -15,13 +15,13 @@ When you set up your landing zone, the following AWS resources are created withi
 
 | AWS service | Resource type | Resource name | 
 | --- | --- | --- | 
-| AWS Organizations | Accounts | audit<br />log archive | 
+| AWS Organizations | Accounts | Config aggregator (audit)<br />CloudTrail administrator (log archive) | 
 | AWS Organizations | OUs | Security<br />Sandbox | 
 | AWS Organizations | Service Control Policies | aws-guardrails-\* | 
-| AWS CloudFormation | Stacks | AWSControlTowerBP-BASELINE-CLOUDTRAIL-MASTER<br />AWSControlTowerBP-BASELINE-CONFIG-MASTER (in version 2.6 and later; not deployed in 4.0 and later) | 
-| AWS CloudFormation | StackSets | AWSControlTowerBP-BASELINE-CLOUDTRAIL (Not deployed in 3.0 and later)<br />AWSControlTowerBP\_BASELINE\_SERVICE\_LINKED\_ROLE (Deployed in 3.2 and later)<br />AWSControlTowerBP-BASELINE-CLOUDWATCH<br />AWSControlTowerBP-BASELINE-CONFIG<br />AWSControlTowerBP-BASELINE-ROLES<br />AWSControlTowerBP-BASELINE-SERVICE-ROLES<br />AWSControlTowerBP-SECURITY-TOPICS<br />AWSControlTowerLoggingResources<br />AWSControlTowerSecurityResources<br />AWSControlTowerExecutionRole<br />AWSControlTowerBP-CONFIG-CENTRAL-S3-BUCKET (Deployed in 4.0 and later) | 
+| AWS CloudFormation | Stacks | AWSControlTowerBP-BASELINE-CLOUDTRAIL-MASTER<br />AWSControlTowerBP-BASELINE-CONFIG-MASTER (in landing zone version 2.6 and later; not deployed in landing zone version 4.0 and later) | 
+| AWS CloudFormation | StackSets | AWSControlTowerBP-BASELINE-CLOUDTRAIL (Not deployed in landing zone version 3.0 and later)<br />AWSControlTowerBP-BASELINE-CLOUDWATCH<br />AWSControlTowerBP-BASELINE-CONFIG<br />AWSControlTowerBP-BASELINE-ROLES<br />AWSControlTowerBP-BASELINE-SERVICE-ROLES<br />AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLE (Deployed in landing zone version 3.2 and later)<br />AWSControlTowerBP-SECURITY-TOPICS<br />AWSControlTowerLoggingResources<br />AWSControlTowerSecurityResources<br />AWSControlTowerExecutionRole<br />AWSControlTowerBP-CONFIG-CENTRAL-S3-BUCKET (Deployed in landing zone version 4.0 and later) | 
 | AWS Service Catalog | Product | AWS Control Tower Account Factory | 
-| AWS Config | Aggregator | aws-controltower-ConfigAggregatorForOrganizations (Not deployed in 4.0 and later) | 
+| AWS Config | Aggregator | aws-controltower-ConfigAggregatorForOrganizations (Not deployed in landing zone version 4.0 and later) | 
 | AWS CloudTrail | Trail | aws-controltower-BaselineCloudTrail | 
 | Amazon CloudWatch | CloudWatch Logs | aws-controltower/CloudTrailLogs | 
 | AWS Identity and Access Management | Roles | AWSControlTowerAdmin<br />AWSControlTowerStackSetRole<br />AWSControlTowerCloudTrailRolePolicy | 
@@ -33,43 +33,43 @@ When you set up your landing zone, the following AWS resources are created withi
 The CloudFormation StackSet `BP_BASELINE_CLOUDTRAIL` is not deployed in landing zone versions 3.0 or later. However, it continues to exist in earlier versions of the landing zone, until you update your landing zone.  
 As of June 2025, AWS Control Tower deploys detective controls as service-linked AWS Config rules directly in enrolled accounts, instead of through CloudFormation StackSets. The StackSets `AWSControlTowerGuardrailAWS-GR-AUDIT-BUCKET-PUBLIC-READ-PROHIBITED` and `AWSControlTowerGuardrailAWS-GR-AUDIT-BUCKET-PUBLIC-WRITE-PROHIBITED` and their associated stack instances are no longer deployed. For more information, see [Support for detective controls deployed as service-linked AWS Config rules](https://docs.aws.amazon.com/controltower/latest/userguide/2025-all.html#managed-config-controls).
 
-## Log archive account resources
+## CloudTrail administrator account resources
 <a name="log-archive-resources"></a>
 
-When you set up your landing zone, the following AWS resources are created within your log archive account.
+When you set up your landing zone, the following AWS resources are created within your CloudTrail administrator account.
 
 
 | AWS service | Resource type | Resource Name | 
 | --- | --- | --- | 
-| AWS CloudFormation | Stacks | StackSet-AWSControlTowerBP-BASELINE-CLOUDWATCH-<br />StackSet-AWSControlTowerBP-BASELINE-CONFIG-<br />StackSet-AWSControlTowerBP-BASELINE-CLOUDTRAIL-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-ROLES-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLE-(In 3.2 and later)<br />StackSet-AWSControlTowerBP-BASELINE-ROLES-<br />StackSet-AWSControlTowerLoggingResources- | 
+| AWS CloudFormation | Stacks | StackSet-AWSControlTowerBP-BASELINE-CLOUDWATCH-<br />StackSet-AWSControlTowerBP-BASELINE-CONFIG-<br />StackSet-AWSControlTowerBP-BASELINE-CLOUDTRAIL-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-ROLES-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLE-(In landing zone version 3.2 and later)<br />StackSet-AWSControlTowerBP-BASELINE-ROLES-<br />StackSet-AWSControlTowerLoggingResources- | 
 | AWS Config | AWS Config Rules | AWSControlTower\_AWS-GR\_AUDIT\_BUCKET\_PUBLIC\_READ\_PROHIBITED<br />AWSControlTower\_AWS-GR\_AUDIT\_BUCKET\_PUBLIC\_WRITE\_PROHIBITED | 
 | AWS CloudTrail | Trails | aws-controltower-BaselineCloudTrail | 
 | Amazon CloudWatch | CloudWatch Event Rules | aws-controltower-ConfigComplianceChangeEventRule | 
 | Amazon CloudWatch | CloudWatch Logs | /aws/lambda/aws-controltower-NotificationForwarder | 
-| AWS Identity and Access Management | Roles | aws-controltower-AdministratorExecutionRole<br />aws-controltower-CloudWatchLogsRole<br />aws-controltower-ConfigRecorderRole<br />aws-controltower-ForwardSnsNotificationRole<br />aws-controltower-ReadOnlyExecutionRole<br />AWSControlTowerExecution | 
+| AWS Identity and Access Management | Roles | aws-controltower-AdministratorExecutionRole<br />aws-controltower-CloudWatchLogsRole<br />aws-controltower-ConfigRecorderRole<br />aws-controltower-ForwardSnsNotificationRole<br />aws-controltower-ReadOnlyExecutionRole<br />AWSControlTowerExecution<br />AWSServiceRoleForAWSControlTower | 
 | AWS Identity and Access Management | Policies | AWSControlTowerServiceRolePolicy | 
 | Amazon Simple Notification Service | Topics | aws-controltower-SecurityNotifications | 
 | AWS Lambda | Applications | StackSet-AWSControlTowerBP-BASELINE-CLOUDWATCH-\* | 
 | AWS Lambda | Functions | aws-controltower-NotificationForwarder | 
 | Amazon Simple Storage Service | Buckets | aws-controltower-logs-\*<br />aws-controltower-s3-access-logs-\* | 
 
-## Audit account resources
+## Config aggregator account resources
 <a name="audit-account-resources"></a>
 
-When you set up your landing zone, the following AWS resources are created within your audit account.
+When you set up your landing zone, the following AWS resources are created within your Config aggregator account.
 
 
 | AWS service | Resource type | Resource name | 
 | --- | --- | --- | 
-| AWS CloudFormation | Stacks | StackSet-AWSControlTowerBP-BASELINE-CLOUDWATCH-<br />StackSet-AWSControlTowerBP-BASELINE-CONFIG-<br />StackSet-AWSControlTowerBP-BASELINE-CLOUDTRAIL-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-ROLES-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLE-(In 3.2 and later)<br />StackSet-AWSControlTowerBP-SECURITY-TOPICS-<br />StackSet-AWSControlTowerBP-BASELINE-ROLES-<br />StackSet-AWSControlTowerSecurityResources-\*<br />StackSet-AWSControlTowerBP-CONFIG-CENTRAL-S3-BUCKET- (Deployed in 4.0 and later) | 
-| AWS Config | Aggregator | aws-controltower-GuardrailsComplianceAggregator (Not deployed in 4.0 and later) | 
-| AWS Config | Aggregator | aws-controltower-ConfigAggregatorForOrganizations (Deployed in 4.0 and later) | 
+| AWS CloudFormation | Stacks | StackSet-AWSControlTowerBP-BASELINE-CLOUDWATCH-<br />StackSet-AWSControlTowerBP-BASELINE-CONFIG-<br />StackSet-AWSControlTowerBP-BASELINE-CLOUDTRAIL-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-ROLES-<br />StackSet-AWSControlTowerBP-BASELINE-SERVICE-LINKED-ROLE-(In landing zone version 3.2 and later)<br />StackSet-AWSControlTowerBP-SECURITY-TOPICS-<br />StackSet-AWSControlTowerBP-BASELINE-ROLES-<br />StackSet-AWSControlTowerSecurityResources-\*<br />StackSet-AWSControlTowerBP-CONFIG-CENTRAL-S3-BUCKET- (Deployed in landing zone version 4.0 and later) | 
+| AWS Config | Aggregator | aws-controltower-GuardrailsComplianceAggregator (Not deployed in landing zone version 4.0 and later) | 
+| AWS Config | Aggregator | aws-controltower-ConfigAggregatorForOrganizations (Deployed in landing zone version 4.0 and later) | 
 | AWS Config | AWS Config Rules | AWSControlTower\_AWS-GR\_AUDIT\_BUCKET\_PUBLIC\_READ\_PROHIBITED<br />AWSControlTower\_AWS-GR\_AUDIT\_BUCKET\_PUBLIC\_WRITE\_PROHIBITED | 
 | AWS CloudTrail | Trail | aws-controltower-BaselineCloudTrail | 
 | Amazon CloudWatch | CloudWatch Event Rules | aws-controltower-ConfigComplianceChangeEventRule | 
 | Amazon CloudWatch | CloudWatch Logs | /aws/lambda/aws-controltower-NotificationForwarder | 
-| AWS Identity and Access Management | Roles | aws-controltower-AdministratorExecutionRole<br />aws-controltower-CloudWatchLogsRole<br />aws-controltower-ConfigRecorderRole<br />aws-controltower-ForwardSnsNotificationRole<br />aws-controltower-ReadOnlyExecutionRole<br />aws-controltower-AuditAdministratorRole<br />aws-controltower-AuditReadOnlyRole<br />AWSControlTowerExecution | 
+| AWS Identity and Access Management | Roles | aws-controltower-AdministratorExecutionRole<br />aws-controltower-CloudWatchLogsRole<br />aws-controltower-ConfigRecorderRole<br />aws-controltower-ForwardSnsNotificationRole<br />aws-controltower-ReadOnlyExecutionRole<br />aws-controltower-AuditAdministratorRole<br />aws-controltower-AuditReadOnlyRole<br />AWSControlTowerExecution<br />AWSServiceRoleForAWSControlTower | 
 | AWS Identity and Access Management | Policies | AWSControlTowerServiceRolePolicy | 
 | Amazon Simple Notification Service | Topics | aws-controltower-AggregateSecurityNotifications<br />aws-controltower-AllConfigNotifications<br />aws-controltower-SecurityNotifications | 
 | AWS Lambda | Functions | aws-controltower-NotificationForwarder | 
-| Amazon Simple Storage Service | Buckets | aws-controltower-config-logs-\* (Deployed in 4.0 and later)<br />aws-controltower-config-access-logs-\* (Deployed in 4.0 and later) | 
+| Amazon Simple Storage Service | Buckets | aws-controltower-config-logs-\* (Deployed in landing zone version 4.0 and later)<br />aws-controltower-config-access-logs-\* (Deployed in landing zone version 4.0 and later) | 
