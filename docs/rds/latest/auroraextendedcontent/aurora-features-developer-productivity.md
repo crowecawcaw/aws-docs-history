@@ -4,6 +4,7 @@
 <a name="aurora-features-developer-productivity"></a>
 
 **Topics**
++ [Directly query Apache Iceberg and Parquet data in your data lake – NEW\!](#aurora-features-query-iceberg-parquet)
 + [MCP servers](#aurora-features-mcp-servers)
 + [Agentic tools](#aurora-features-agentic-tools)
 + [Agent skills](#aurora-features-agent-skills)
@@ -11,6 +12,11 @@
 + [Zero-ETL integration with Amazon SageMaker](#aurora-features-zero-etl-sagemaker)
 + [RDS Proxy](#aurora-features-rds-proxy)
 + [Data API](#aurora-features-data-api)
+
+## Directly query Apache Iceberg and Parquet data in your data lake – NEW\!
+<a name="aurora-features-query-iceberg-parquet"></a>
+
+Aurora PostgreSQL enables developers and AI agents to [directly query operational data together with data stored in open table formats](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/query-iceberg-and-parquet-data.html) on Amazon S3 and S3 Tables through the same PostgreSQL applications, tools, and endpoints you already use. You can also access data from external catalogs through the AWS Glue Data Catalog. Your historical data stays in your data lake, accessible and queryable alongside your live operational data with no data movement or duplication. By eliminating reverse ETL pipelines, you reduce operational complexity, lower infrastructure costs, and simplify application development.
 
 ## MCP servers
 <a name="aurora-features-mcp-servers"></a>

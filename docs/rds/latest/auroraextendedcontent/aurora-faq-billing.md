@@ -26,10 +26,8 @@ See the [Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing/) for 
 <a name="aurora-faq-is-there-a-free-tier-for-amazon-aurora"></a>
 
 Yes. Amazon Aurora is available with the [AWS Free Tier](https://aws.amazon.com/free/) for Aurora PostgreSQL serverless and Aurora DSQL. New customers will receive up to $100 in credits at sign-up and can earn up to an additional $100 in credits, totaling $200, to explore eligible AWS services, including Aurora, on both Free and Paid plans. In addition, the [Aurora free tier](https://aws.amazon.com/rds/free/) offers the following benefits:
-
-Aurora PostgreSQL provides 4 ACUs and 1 GiB of storage per cluster on the Free plan.
-
-Aurora DSQL provides the first 100k DPUs and 1 GiB of storage every month on the Free and Paid plans.
++ Aurora PostgreSQL provides 4 ACUs and 1 GiB of storage per cluster on the Free plan.
++ Aurora DSQL provides the first 100k DPUs and 1 GiB of storage every month on the Free and Paid plans.
 
 Check the [Aurora pricing page](https://aws.amazon.com/rds/aurora/pricing/) for current Free Tier details and eligibility.
 
