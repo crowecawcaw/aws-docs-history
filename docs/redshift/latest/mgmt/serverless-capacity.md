@@ -83,7 +83,8 @@ You can create data warehouses that use 4 RPUs in the following AWS Regions:
 ## AI-driven scaling and optimization
 <a name="serverless-auto-optimization"></a>
 
-The AI-driven scaling and optimization feature is available in all AWS Regions where Amazon Redshift Serverless is available. 
+**Note**  
+AI-driven scaling and optimization is available in all AWS Regions where Amazon Redshift Serverless is available.
 
 Amazon Redshift Serverless offers an advanced AI-driven scaling and optimization feature to meet diverse workload requirements. Data warehouses may have the following provisioning issues:
 + Data warehouses may be over-provisioned to improve performance of resource-intensive queries
@@ -91,16 +92,14 @@ Amazon Redshift Serverless offers an advanced AI-driven scaling and optimization
 
 Striking the right balance between performance and cost for data warehouse workloads is challenging, especially with ad-hoc queries and growing data volumes. When running mixed workloads, comprising both low and high resource-intensive queries, there is a need for intelligent scaling. The AI-driven scaling and optimization feature automatically scales Serverless compute or RPUs in response to data growth. This feature also helps maintain query performance within targeted price-performance objectives. The AI-driven scaling and optimization dynamically allocates compute resources as data volumes increase, ensuring queries continue to meet performance targets. AI-driven scaling and optimization allows the service to adapt seamlessly to changing workload requirements, without the need for manual intervention or complex capacity planning.
 
-Amazon Redshift Serverless provides a more comprehensive and responsive scaling solution based on factors such as query complexity and data volume. This feature allows for optimizing workload price-performance while maintaining the flexibility to handle varying workloads and growing datasets efficiently. Amazon Redshift Serverless can automatically make AI-driven optimizations to your Amazon Redshift Serverless endpoint to meet your specified price-performance targets for your Serverless workgroup. This automatic price-performance optimization is especially helpful if you don't know what base capacity to set for your workloads, or if some parts of your workload might benefit from more allocated resources.
+Amazon Redshift Serverless provides a more comprehensive and responsive scaling solution based on factors such as query complexity and data volume. This feature allows for optimizing workload price-performance while maintaining the flexibility to handle varying workloads and growing datasets efficiently. Amazon Redshift Serverless can automatically apply AI-driven scaling and optimization to your Amazon Redshift Serverless endpoint to meet your specified price-performance targets for your Serverless workgroup. This automatic price-performance optimization is especially helpful if you don't know what base capacity to set for your workloads, or if some parts of your workload might benefit from more allocated resources.
 
 **Example**
 
-If your organization typically runs workloads that only require 32 RPU but suddenly introduces a more complex query, you might not know the appropriate base capacity. Setting a higher base capacity yields better performance but also incurs higher costs, so the cost might not match your expectations. Using AI-driven scaling and resource optimization, Amazon Redshift Serverless automatically adjusts the RPUs to meet your price-performance targets while keeping costs optimized for your organization. This automatic optimization is useful regardless of workload size. The automatic optimization can help you meet your organization's price-performance targets if you have any number of complex queries. 
+If your organization typically runs workloads that only require 32 RPU but suddenly introduces a more complex query, you might not know the appropriate base capacity. Setting a higher base capacity yields better performance but also incurs higher costs, so the cost might not match your expectations. Using AI-driven scaling and optimization, Amazon Redshift Serverless automatically adjusts the RPUs to meet your price-performance targets while keeping costs optimized for your organization. This automatic optimization is useful regardless of workload size. The automatic optimization can help you meet your organization's price-performance targets if you have any number of complex queries. 
 
 **Note**  
 Price-performance targets are a workgroup-specific setting. Different workgroups can have different price-performance targets.
-
-To keep costs predictable, set a limit of maximum capacity that Amazon Redshift Serverless is allowed to allocate to your workloads.
 
 To configure price-performance targets, use the AWS console. The price-performance target is enabled by default for all new Serverless workgroups and is set to **Balanced**. You can modify the price-performance target after you create the Serverless workgroup. . 
 
@@ -117,8 +116,8 @@ To configure price-performance targets, use the AWS console. The price-performan
 1. To update the maximum amount of RPUs that Amazon Redshift Serverless can allocate to your workload, choose the **Limits** tab of the **Workgroup Configuration** section.
 
 You can use the **Price-performance target** slider to set your desired balance between cost and performance. By moving the slider, you can choose one of the following options:
-+ **Optimizes for cost** — This setting prioritizes cost savings. Amazon Redshift Serverless attempts to automatically scale up compute capacity when doing so doesn’t incur additional charges. Amazon Redshift Serverless also attempts to scale down compute resources for lower cost, possibly increasing query runtimes.
-+ **Balanced** — This setting creates a balance between performance and cost. Amazon Redshift Serverless scales for performance, and may result in a moderate cost increase or decrease. This is the recommended setting for most Amazon Redshift Serverless data warehouses.
++ **Optimizes for cost** — This setting prioritizes cost savings. Amazon Redshift Serverless attempts to scale up compute capacity automatically only when doing so is likely to reduce cost. Amazon Redshift Serverless also attempts to scale down compute resources for lower cost, possibly increasing query runtimes.
++ **Balanced** — This setting creates a balance between performance and cost. Amazon Redshift Serverless scales for performance, and might result in a moderate cost increase or decrease. This is the recommended setting for most Amazon Redshift Serverless data warehouses.
 + **Optimizes for performance** — This setting prioritizes performance. Amazon Redshift scales aggressively for high performance, potentially incurring higher costs.
 + Intermediate positions: You can also set the slider to one of two intermediate positions between **Balanced** and **Optimizes for cost** or **Optimizes for performance**. Use these settings if full optimization for cost or performance is too extreme.
 
@@ -134,7 +133,7 @@ For this example, assume a query that takes seven minutes and costs $7. The foll
 ![Graph for example query for Amazon Redshift Serverless autoscaling.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/autoscale_example_query.png)
 
 
-A given query might scale in a few different ways, as shown below. Based on the price-performance target you choose, AI-driven scaling predicts how the query trades off performance and cost, and scales it accordingly. Choosing the different slider options yields the following results: 
+A given query might scale in a few different ways, as shown below. Based on the price-performance target you choose, AI-driven scaling and optimization predicts how the query trades off performance and cost, and scales it accordingly. Choosing the different slider options yields the following results: 
 
 ![Graph for example query for Amazon Redshift Serverless autoscaling.](https://docs.aws.amazon.com/redshift/latest/mgmt/images/autoscale_example_scaling.png)
 
@@ -149,7 +148,7 @@ Note the following when setting the **Price-Performance** slider:
 ### Monitoring resource autoscaling
 <a name="serverless-auto-optimization-monitoring"></a>
 
-You can monitor the AI-driven RPU scaling in the following ways:
+You can monitor AI-driven scaling and optimization in the following ways:
 + Review the RPU capacity used graph on the Amazon Redshift console.
 + Monitor the `ComputeCapacity` metric under `AWS/Redshift-Serverless` and `Workgroup` in CloudWatch.
 + Query the [SYS\_QUERY\_HISTORY](https://docs.aws.amazon.com/redshift/latest/dg/SYS_QUERY_HISTORY.html) view. Provide the specific query ID or query text to identify the time period. Use this time period to query the [SYS\_SERVERLESS\_USAGE](https://docs.aws.amazon.com/redshift/latest/dg/SYS_SERVERLESS_USAGE.html) system view to find the `compute_capacity` value. The `compute_capacity` field shows the RPUs scaled during the query runtime.
@@ -179,11 +178,11 @@ For step-by-step instructions for using these features, see [ Configure monitori
 <a name="serverless-auto-optimization-considerations"></a>
 
 Consider the following when using AI-driven scaling and optimization:
-+ For existing workloads on Amazon Redshift Serverless requiring 8 to 512 Base RPU, we recommend using Amazon Redshift Serverless AI-driven scaling and optimization for optimal results. We do not recommend using this feature for 4 Base RPU or more than 512 Base RPU workloads. 
-+ Price-performance targets automatically optimize the workload, though results may vary. We recommend using this feature over time so the system can learn your specific patterns by running a representative workload.
-+ AI-driven scaling and optimization uses optimal times to apply optimizations to Serverless workgroups depending on the workload running on your Amazon Redshift Serverless instance.
++ For existing workloads on Amazon Redshift Serverless requiring 8 to 512 Base RPU, use AI-driven scaling and optimization for optimal results. We do not recommend using this feature for workloads below or above this RPU range.
++ Price-performance targets automatically optimize the workload, though results might vary. Use this feature over time so the system can learn your specific patterns by running a representative workload.
++ AI-driven scaling and optimization uses optimal times to apply optimizations to Serverless workgroups based on the workload running on your Amazon Redshift Serverless instance.
 
-To learn more about AI-driven optimizations and resource scaling, watch the following video.
+To learn more about AI-driven scaling and optimization, watch the following video.
 
 [![AWS Videos](https://img.youtube.com/vi/U3f2FObbvKc/0.jpg)](https://www.youtube.com/watch?v=U3f2FObbvKc)
 

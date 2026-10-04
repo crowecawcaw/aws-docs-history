@@ -13,6 +13,7 @@ As Amazon Redshift continues to evolve and improve, certain changes in behavior 
 The following describes upcoming behavior changes.
 
 **Topics**
++ [Amazon Redshift takes automated snapshots of paused data sharing producer clusters starting September 30, 2026](#paused-producer-snapshots-sep2026)
 + [SUPER data type supports larger individual strings starting with Patch 206](#super-large-strings-patch206)
 + [AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026](#kms-permission-serverless-aug2026)
 + [Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204](#user-lockout-patch204)
@@ -25,6 +26,19 @@ The following describes upcoming behavior changes.
 + [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026)
 + [Minimum Transport Layer Security (TLS) version changes effective starting October 31, 2026](#tls-changes-oct2026)
 + [Amazon Redshift won’t support the creation of new scalar Python UDFs after October 30, 2025](#python-udf-oct2025)
+
+### Amazon Redshift takes automated snapshots of paused data sharing producer clusters starting September 30, 2026
+<a name="paused-producer-snapshots-sep2026"></a>
+
+Starting September 30, 2026, Amazon Redshift takes automated snapshots of a paused data sharing producer cluster. Because consumers can write to a paused producer, these snapshots capture those data sharing writes and provide a recovery point.
+
+You may be impacted by this if you pause data sharing producer clusters.
+
+Previously, Amazon Redshift didn't take automated snapshots of these clusters while they were paused, so the most recent automated snapshot available for restore was the one taken when the cluster was paused. Automated snapshots now continue to be created throughout the paused period.
+
+These snapshots follow the cluster's existing automated snapshot schedule and retention period, and no action is required. For a paused cluster that isn't a data sharing producer, Amazon Redshift doesn't take automated snapshots while the cluster is paused.
+
+For more information, see [Automated snapshots](working-with-snapshots.md#about-automated-snapshots).
 
 ### SUPER data type supports larger individual strings starting with Patch 206
 <a name="super-large-strings-patch206"></a>

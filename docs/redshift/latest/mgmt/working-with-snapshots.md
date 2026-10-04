@@ -31,6 +31,9 @@ You can also restore a snapshot from a provisioned cluster to a serverless names
 
 When automated snapshots are enabled for a cluster, Amazon Redshift periodically takes snapshots of that cluster. By default Amazon Redshift takes a snapshot about every eight hours or following every 5 GB per node of data changes, or whichever comes first. If your data is larger than 5 GB \* the number of nodes, the shortest amount of time in between automated snapshot creation is 15 minutes. Alternatively, you can create a snapshot schedule to control when automated snapshots are taken. If you're using custom schedules, the minimum amount of time between automated snapshots is one hour. Automated snapshots are enabled by default when you create a cluster.
 
+**Note**  
+Amazon Redshift takes automated snapshots of a paused data sharing producer cluster. Because consumers can write to a paused producer, these snapshots capture those data sharing writes and provide a recovery point. Previously, Amazon Redshift didn't take automated snapshots of these clusters while they were paused. These snapshots follow the cluster's existing automated snapshot schedule and retention period, and no action is required. For a paused cluster that isn't a data sharing producer, Amazon Redshift doesn't take automated snapshots while the cluster is paused.
+
 Automated snapshots are deleted at the end of a retention period. The default retention period is one day, but you can modify it by using the Amazon Redshift console or programmatically by using the Amazon Redshift API or CLI.
 
 To disable automated snapshots, set the retention period to zero. If you disable automated snapshots, Amazon Redshift stops taking snapshots and deletes any existing automated snapshots for the cluster. You can't disable automated snapshots for RG or RA3 node types. You can set an RG or RA3 node type automated retention period from 1–35 days. 

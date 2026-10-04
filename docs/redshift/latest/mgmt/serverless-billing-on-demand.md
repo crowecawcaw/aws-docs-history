@@ -44,11 +44,11 @@ The Max capacity setting serves as the RPU ceiling that Amazon Redshift Serverle
 ### How Max capacity differs from RPU hour usage limits
 <a name="serverless-maximum-setting-difference"></a>
 
- The purpose of both maximum RPU hour limits and the Max capacity setting is to control cost. But they achieve this through different means. The following points explain the difference: 
-+ *Max capacity* – This setting establishes the highest count of RPUs that Amazon Redshift Serverless uses for scaling purposes. When automatic compute scaling is required, having a higher value for Max capacity can enhance query throughput. When the Max capacity limit is reached, the workgroup doesn't scale up resources any further. 
+Both maximum RPU hour limits and Max capacity can help you control cost, but they work in different ways. The following points explain the difference: 
++ *Max capacity* – This setting establishes the highest count of RPUs that Amazon Redshift Serverless can use for automatic scaling purposes.
 + *Maximum RPU hours usage limit* – Unlike Max capacity, this setting doesn't set a ceiling on capacity. But it does perform other actions to help you limit costs. These include adding an entry to a log, notifying you, or stopping queries from running, if you choose. 
 
-You can use Max capacity exclusively, or you can compliment it with actions from maximum RPU hour usage limits.
+You can use Max capacity exclusively, or you can complement it with actions from maximum RPU hour usage limits.
 
 ### A Max capacity use case
 <a name="serverless-maximum-setting-billing-scenario"></a>
@@ -65,7 +65,8 @@ Assume you have unexpected high use over a three-day period to generate ad-hoc s
 These notes can help you set Max capacity appropriately:
 + Each Amazon Redshift Serverless workgroup can have a different Max capacity setting.
 + If you have a period of very high resource usage and Max capacity is set to a low RPU level, it can delay workload processing and result in a user experience that isn't optimal.
-+ Configuring the Max capacity setting doesn't interfere with running queries, even during times of high RPU usage. It doesn't work like a usage limit, which can stop queries from running. It only limits compute resources available to the workgroup. You can view capacity used over a period of time on the Amazon Redshift Serverless dashboard. For more information about viewing summary data, see [Checking Amazon Redshift Serverless summary data using the dashboard](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-dashboard.html).
++ You can view capacity used over a period of time on the Amazon Redshift Serverless dashboard. For more information about viewing summary data, see [Checking Amazon Redshift Serverless summary data using the dashboard](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-dashboard.html).
++ Max capacity changes usually do not disrupt running queries. However, if you set Max capacity below your current base capacity, Amazon Redshift Serverless will immediately reduce capacity. This can affect your running workload. 
 + The top Max capacity setting is 5632 RPUs.
 
 ### How to set Max capacity
