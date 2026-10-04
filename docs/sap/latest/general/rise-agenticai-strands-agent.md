@@ -3,7 +3,7 @@
 # Strands Agent
 <a name="rise-agenticai-strands-agent"></a>
 
- [Strands Agent](https://strandsagents.com/latest/) is an open-source SDK created by AWS for building AI agents that use large language models (LLMs) to reason and act. The [Strands Agents SDK](https://github.com/strands-agents/sdk-python) simplifies the process of creating AI agents by focusing on three core components:
+ [Strands Agent](https://strandsagents.com) is an open-source SDK created by AWS for building AI agents that use large language models (LLMs) to reason and act. The [Strands Agents SDK](https://github.com/strands-agents/sdk-python) simplifies the process of creating AI agents by focusing on three core components:
 +  **A language model**: Strands supports a wide range of LLMs from providers like Anthropic, OpenAI, and Meta, giving developers flexibility.
 +  **A system prompt**: This defines the agent’s role and overall behaviour.
 +  **A set of tools**: These are the specific functions and capabilities the agent can invoke to perform tasks.
