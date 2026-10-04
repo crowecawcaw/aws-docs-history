@@ -15,7 +15,7 @@ You can enable AWS Global Accelerator (AGA) either at the WorkSpaces directory l
 ## Requirements
 <a name="configure-aga-requirements"></a>
 + WorkSpaces use a range of public IPv4 addresses for the dedicated AWS Global Accelerator (AGA) endpoints. Make sure to configure your firewall policies for devices that access WorkSpaces through AGA. If the AGA endpoints are blocked by the firewall, WorkSpaces streaming traffic won't be routed through AGA. For more information about the AGA endpoint IP ranges in each AWS region, see [DCV gateway servers](workspaces-port-requirements.md#gateway_WSP).
-+ To access WorkSpaces through AGA, users must use WorkSpaces client versions 5.23 or later.
++ To access WorkSpaces through AGA, you can use Web Access, Windows or macOS client version 5.23.0 or later, or Linux client version 2024.7 or later.
 
 ## Limitations
 <a name="configure-aga-limitations"></a>

@@ -30,6 +30,7 @@ Before you begin, verify the following:
 + Your Microsoft licensing agreement allows Windows to run in a virtual hosted environment.
 + For non-GPU-enabled bundles, a minimum of 50 WorkSpaces per Region per month is required. This minimum ensures workloads run on dedicated hardware in compliance with Microsoft licensing requirements.
   + The 50-instance minimum can be fulfilled by any combination of WorkSpaces Applications unique users streaming sessions (AlwaysOn or On-Demand) and WorkSpaces Personal instances within the same Region. The dedicated hardware is provisioned and managed by AWS — your VPC can remain on default tenancy.
+  + You have a 6-month grace period from the date you enable your account for BYOL to reach the required minimum. AWS reserves the right to bill the usage costs for the minimum number of WorkSpaces required after the 6-month grace period elapses.
   + If you plan to use GPU-enabled bundles, verify that you run a minimum of 4 AlwaysOn or 20 AutoStop GPU-enabled WorkSpaces and/or WorkSpaces Applications per region per month on dedicated hardware.
 **Note**  
 Consider the following when importing BYOL images:  

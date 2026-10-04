@@ -28,21 +28,21 @@ Create, Rebuild, and Migration operations create new WorkSpaces instances or rec
 
 During the time period when the WorkSpace is undergoing maintenance, the state of the WorkSpace is set to `MAINTENANCE`.
 
-Although you cannot modify the time zone that is used for maintaining AutoStop WorkSpaces, you can disable the maintenance window for your AutoStop WorkSpaces as follows. If you disable maintenance mode, your WorkSpaces are not rebooted and do not enter the `MAINTENANCE` state.
+Although you cannot modify the time zone that is used for maintaining AutoStop WorkSpaces, you can enable or disable the maintenance window for your AutoStop WorkSpaces as follows. Maintenance mode applies only to AutoStop WorkSpaces. If you disable maintenance mode, your WorkSpaces are not rebooted and do not enter the `MAINTENANCE` state.
 
-**To disable maintenance mode**
+**To enable or disable maintenance mode for AutoStop WorkSpaces**
 
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home).
 
 1. In the navigation pane, choose **Directories**.
 
-1. Select your directory, and choose **Actions**, **Update Details**.
+1. Choose the directory ID to open the directory details page.
 
-1. Expand **Maintenance Mode**.
+1. In the **Maintenance mode** section, choose **Edit**.
 
-1. To enable automatic updates, choose **Enabled**. If you prefer to manage updates manually, choose **Disabled**.
+1. To enable automatic updates, select the **Enable maintenance mode** check box. To disable automatic updates, clear the check box.
 
-1. Choose **Update and Exit**.
+1. Choose **Save**.
 
 ## Manual maintenance
 <a name="admin-maintenance"></a>
