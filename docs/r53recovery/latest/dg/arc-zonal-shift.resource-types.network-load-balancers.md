@@ -10,15 +10,7 @@ To use Network Load Balancers with zonal shift, you must enable ARC zonal shift 
 
 You can choose which resources to opt-in to use zonal shift and zonal autoshift, and when you would like to fail away from an impaired Availability Zone. Both internet-facing and internal Network Load Balancers are supported. 
 
-To enable zonal shift for your cross-zone enabled Network Load Balancer, all target groups attached to the load balancer must meet the following requirements.
-+ Cross-zone load balancing must be enabled, or set to `use_load_balancer_configuration`.
-  + For more information on target group cross-zone load balancing, see [Cross-zone load balancing for target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#target-group-cross-zone).
-+ Target group protocol must be TCP or TLS.
-  + For more information on Network Load Balancer target group protocols, see [Routing configuration](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#target-group-routing-configuration).
-+ Connection termination for unhealthy targets must be disabled.
-  + For more information on target group connection termination, see [Connection termination for unhealthy targets](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#unhealthy-target-connection-termination).
-+ Target group must not have any Application Load Balancers as targets.
-  + For more information on Application Load Balancers as targets, see [Use Application Load Balancers as targets of a Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/application-load-balancer-target.html).
+To enable zonal shift for your cross-zone enabled Network Load Balancer, all target groups attached to the load balancer must have cross-zone load balancing enabled, or set to `use_load_balancer_configuration`. For more information on target group cross-zone load balancing, see [Cross-zone load balancing for target groups](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#target-group-cross-zone).
 
 You can start a zonal shift for a Network Load Balancer by using the AWS CLI, the AWS Management Console, or the Elastic Load Balancing widget. When an Application Load Balancer is the target of a Network Load Balancer, you must start the zonal shift from the Network Load Balancer. If you start the zonal shift from the Application Load Balancer, the Network Load Balancer will not stop sending traffic to the Application Load Balancer and its targets.
 

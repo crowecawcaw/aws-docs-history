@@ -44,7 +44,7 @@ To view the permissions for this policy, see [AmazonRoute53RecoveryClusterReadOn
 ## AWS managed policy: AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy
 <a name="security-iam-awsmanpol-AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy"></a>
 
-You can attach `AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy` to your IAM entities. This policy grants permissions for ARC Region switch plan execution and evaluation. Attach it to IAM roles used for Region switch plan execution.
+You can attach `AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy` to your IAM entities. This policy grants permissions for ARC Region switch plan execution, plan evaluation, and service quota remediation. Attach it to IAM roles used for Region switch plan execution.
 
 **Permissions details**
 
@@ -56,6 +56,9 @@ This policy includes the following permissions:
 + `cloudwatch:DescribeAlarms` – Allows principals to retrieve information about Amazon CloudWatch alarms.
 + `cloudwatch:DescribeAlarmHistory` – Allows principals to retrieve historical state changes for Amazon CloudWatch alarms.
 + `cloudwatch:GetMetricStatistics` – Allows principals to retrieve statistical data for Amazon CloudWatch metrics.
++ `servicequotas:GetServiceQuota` – Allows principals to read the current value of a service quota to detect quotas that are out of sync between the Regions used by a Region switch plan.
++ `servicequotas:GetRequestedServiceQuotaChange` – Allows principals to read the status of a submitted service quota increase request.
++ `servicequotas:RequestServiceQuotaIncrease` – Allows principals to submit a service quota increase request. This keeps service quotas in sync across the Regions used by a Region switch plan.
 
 To view more details about the policy, including the latest version of the JSON policy document, see [AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy.html) in the *AWS Managed Policy Reference Guide*.
 

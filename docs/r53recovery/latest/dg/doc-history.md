@@ -5,12 +5,13 @@
 
 The following entries describe important changes made to the Amazon Application Recovery Controller (ARC) documentation.
 + **Version:** latest
-+ **Latest documentation update: **March 31st, 2026
++ **Latest documentation update: **September 24th, 2026
 
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Zonal shift support for additional Network Load Balancer target group configurations | You can now use zonal shift with cross-zone enabled Network Load Balancers that have target groups with connection termination for unhealthy targets enabled, UDP target groups, or Application Load Balancers as targets.<br />For more information, see [Network Load Balancers](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.resource-types.network-load-balancers.html). | September 24, 2026 | 
 | Readiness check availability change | The readiness check feature in Amazon Application Recovery Controller (ARC) is no longer open to new customers. Existing customers can continue to use the service as normal.<br />For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html). | April 30, 2026 | 
 | Readiness check availability change | The readiness check feature in Amazon Application Recovery Controller (ARC) will no longer be open to new customers starting April 30, 2026. Existing customers can continue to use the service as normal.<br />For more information, see [Amazon Application Recovery Controller (ARC) readiness check availability change](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-readiness-availability-change.html). | March 31, 2026 | 
 | New managed policy for Region switch plan execution | Amazon Application Recovery Controller (ARC) released a new managed policy, `AmazonApplicationRecoveryControllerRegionSwitchPlanExecutionPolicy`, that grants permissions for Region switch plan execution and evaluation.<br />For more information, see [Amazon Application Recovery Controller (ARC) updates to AWS managed policies](https://docs.aws.amazon.com/r53recovery/latest/dg/security-iam-awsmanpol.html#security-iam-awsmanpol-updates). | November 3rd, 2025 | 
