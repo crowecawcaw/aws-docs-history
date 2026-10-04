@@ -12,7 +12,7 @@ MediaTailor supports the following versions of VAST, VMAP, and VPAID:
 
   MediaTailor accepts response versions through VAST 4.3, but some advanced features from VAST 4.0 and up are not be supported.
 + [VMAP 1.0](https://www.iab.com/guidelines/digital-video-multiple-ad-playlist-vmap-1-0-1/)
-+ [VPAID 2.0](https://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/)
++ [VPAID 2.0](https://iabtechlab.com/standards/video-player-ad-interface-definition-vpaid/)
 
 ## VAST requirements
 <a name="vast-integration"></a>
@@ -65,7 +65,7 @@ To validate that VAST extension-based creative IDs are enabled on your account, 
 ## VPAID requirements
 <a name="vpaid"></a>
 
-VPAID allows publishers to serve highly interactive video ads and to provide viewability metrics on their monetized streams. For information about VPAID, see the [VPAID specification](https://www.iab.com/guidelines/digital-video-player-ad-interface-definition-vpaid-2-0/).
+VPAID allows publishers to serve highly interactive video ads and to provide viewability metrics on their monetized streams. For information about VPAID, see the [VPAID specification](https://iabtechlab.com/standards/video-player-ad-interface-definition-vpaid/).
 
 AWS Elemental MediaTailor supports a mix of server-side-stitched VAST MP4 linear ads and client-side-inserted VPAID interactive creatives in the same ad avail. It preserves the order in which they appear in the VAST response. MediaTailor follows VPAID redirects through a maximum of seven levels of wrappers. The client-side reporting response includes the unwrapped VPAID metadata.
 

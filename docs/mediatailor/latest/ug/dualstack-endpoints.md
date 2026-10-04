@@ -22,7 +22,7 @@ The following table lists MediaTailor feature support for dual-stack endpoints.
 | SSAI data plane (session initialization, manifest, segment) | Supported | 
 | Channel assembly data plane | Supported | 
 | AWS Management Console | Supported | 
-| AWS SDK | Coming soon | 
+| AWS SDK | Supported | 
 
 ## Dual-stack endpoint format
 <a name="dualstack-endpoint-format"></a>
@@ -64,10 +64,11 @@ Enable dual-stack in your SDK configuration.
 
 ```
 import boto3
+from botocore.config import Config
 
 client = boto3.client(
     'mediatailor',
-    endpoint_url='https://mediatailor.{{us-east-1}}.api.aws'
+    config=Config(use_dualstack_endpoint=True)
 )
 ```
 

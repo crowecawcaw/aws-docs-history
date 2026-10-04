@@ -68,7 +68,7 @@ AWS Elemental MediaTailor CDN integration support is available through multiple 
   Access: [AWS re:Post](https://repost.aws/)
 + **AWS Documentation:** Comprehensive guides for MediaTailor and CDN services
 
-  Access: [MediaTailor Documentation](https://docs.aws.amazon.com/mediatailor/) and [CloudFront Documentation](cloudfront/)
+  Access: [MediaTailor Documentation](https://docs.aws.amazon.com/mediatailor/) and [CloudFront Documentation](https://docs.aws.amazon.com/cloudfront/)
 + **AWS Training:** Courses and certifications for media services and CDN optimization
 
   Access: [AWS Training and Certification](https://aws.amazon.com/training/)

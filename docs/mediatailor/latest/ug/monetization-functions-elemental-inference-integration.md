@@ -3,7 +3,7 @@
 # Contextual ad targeting with Elemental Inference
 <a name="monetization-functions-elemental-inference-integration"></a>
 
-Elemental Inference analyzes video content and produces IAB Content Taxonomy classifications and GARM brand safety signals for each shot. By integrating MediaTailor with Elemental Inference, you can enrich ad requests with contextual metadata. Your ad decision server can then target ads based on what is happening in the content.
+Elemental Inference analyzes video content and produces Interactive Advertising Bureau (IAB) Content Taxonomy classifications and Global Alliance for Responsible Media (GARM) brand safety signals for each shot. By integrating MediaTailor with Elemental Inference, you can enrich ad requests with contextual metadata. Your ad decision server can then target ads based on what is happening in the content.
 
 With this integration, you use the `AWS_SERVICE_REQUEST` function type to call the Elemental Inference `GetMetadata` API during ad breaks. For more information about the function type, see [AWS service request](monetization-functions-types-aws-service-request.md).
 
@@ -24,6 +24,7 @@ Before you configure this integration, you need the following:
 + An Elemental Inference feed with a contextual metadata output. For instructions on creating the feed, see [Create the feed](https://docs.aws.amazon.com/elemental-inference/latest/userguide/create-feed.html) in the *Elemental Inference User Guide*.
 + A resource policy on the feed that grants MediaTailor access. See [Grant MediaTailor access to your Elemental Inference feed](#monetization-functions-elemental-inference-integration-access).
 + An AWS Elemental MediaLive channel with contextual metadata enrichment enabled. To provide accurate PTS timing values for Elemental Inference queries, enable MediaLive enrichment. For instructions on configuring contextual metadata enrichment, see [Set up contextual metadata enrichment](https://docs.aws.amazon.com/medialive/latest/ug/cm-enrichment-setup.html) in the *AWS Elemental MediaLive User Guide*.
++ (Recommended) Turn off the **Summary generation** and **Extended analysis** options on the contextual metadata output. Descriptive fields add Elemental Inference processing time and can reduce the metadata available at each ad break. See [Reduce Elemental Inference processing time](#monetization-functions-elemental-inference-integration-latency).
 
 MediaTailor and Elemental Inference do not need to be in the same AWS Region. The supported combinations depend on whether each service is in an opt-in Region. For details, see [Grant MediaTailor access to your Elemental Inference feed](#monetization-functions-elemental-inference-integration-access). For the Regions where Elemental Inference is available, see [Elemental Inference endpoints and quotas](https://docs.aws.amazon.com/elemental-inference/latest/userguide/endpoints.html).
 
@@ -129,7 +130,7 @@ Complete the steps in [Prerequisites](#monetization-functions-elemental-inferenc
 
 1. For **Output name**, choose or enter the name of the contextual metadata output configured on your Elemental Inference feed.
 **Note**  
-If you selected a feed using the feed browser, the console auto-populates available output names from your feed configuration.
+If you selected a feed using the feed browser, the console auto-populates available output names from your feed configuration. If summary generation or extended analysis is turned on for the selected output, the console shows a warning. See [Reduce Elemental Inference processing time](#monetization-functions-elemental-inference-integration-latency).
 
 1. Under **Output configuration**, select which contextual signals to extract:
    + **IAB Content Categories** — Extracts IAB taxonomy category IDs as a comma-separated string.
@@ -287,6 +288,53 @@ The Body expression builds a PTS-based time window for the `GetMetadata` request
 + For the first ad break in a session, `inference.previousBreakEndPts` is not available, so the full 30-second lookback is used.
 + The 30-second window is the maximum lookback that Elemental Inference supports. When `inference.previousBreakEndPts` is available, the expression uses the later of that value or the 30-second lookback. This ensures the query covers only content since the previous ad break.
 
+## Reduce Elemental Inference processing time
+<a name="monetization-functions-elemental-inference-integration-latency"></a>
+
+In addition to the Interactive Advertising Bureau (IAB) and Global Alliance for Responsible Media (GARM) classifications described earlier, Elemental Inference can generate descriptive fields. Two independent settings on the contextual metadata output control them, and both are turned on by default:
++ `summaryGeneration` – A natural-language summary, and the objects and actions detected in the content.
++ `extendedAnalysis` – The people, environments, brands, and on-screen text detected in the content.
+
+Generating descriptive fields adds processing time before metadata for a segment becomes available. MediaTailor queries `GetMetadata` at each ad break. It does not wait for processing that is still in progress. When processing takes longer, the response is more likely to omit the most recent content before the ad break. The function then returns fewer categories, or none, and MediaTailor sends the ad request without them.
+
+The output expressions in this guide and in the console recipe use only IAB and GARM fields. To reduce processing time, turn off both settings if you use contextual metadata only for ad targeting. Keep a setting on only if another workflow reads its fields, and accept the trade-off in metadata coverage at ad breaks.
+
+### Turn off descriptive metadata using the Elemental Inference console
+<a name="monetization-functions-elemental-inference-integration-latency-console"></a>
+
+1. Open the Elemental Inference console and choose the feed.
+
+1. Edit the contextual metadata output.
+
+1. For **Summary generation**, choose `DISABLED`.
+
+1. For **Extended analysis**, choose `DISABLED`.
+
+1. Save the feed.
+
+### Turn off descriptive metadata using the API or CLI
+<a name="monetization-functions-elemental-inference-integration-latency-api"></a>
+
+Set `summaryGeneration` and `extendedAnalysis` to `DISABLED` in the contextual metadata output configuration. When you create a feed, include them in the `CreateFeed` request:
+
+```
+aws elemental-inference create-feed \
+  --name "my-feed" \
+  --outputs '[{"name": "my-contextual-output", "status": "ENABLED", "outputConfig": {"contextualMetadata": {"summaryGeneration": "DISABLED", "extendedAnalysis": "DISABLED"}}}]'
+```
+
+The following list describes the fields in the preceding example:
++ `name` – The name of the contextual metadata output. This is the output name that you use in the function's request body.
++ `outputConfig.contextualMetadata.summaryGeneration` – Whether Elemental Inference generates the summary, objects, and actions fields. Valid values are `ENABLED` and `DISABLED`. If you omit it, the Elemental Inference default applies.
++ `outputConfig.contextualMetadata.extendedAnalysis` – Whether Elemental Inference generates the people, environments, brands, and on-screen text fields. Valid values are `ENABLED` and `DISABLED`. If you omit it, the Elemental Inference default applies.
+
+For an existing feed, call `UpdateFeed` with the same output configuration.
+
+**Important**  
+`UpdateFeed` replaces the feed's list of outputs. First, call `GetFeed` and include every existing output in the request. Change only `summaryGeneration` and `extendedAnalysis` on the contextual metadata output. If you leave an output out of the request, Elemental Inference removes it.
+
+To verify the change, call `GetFeed` and confirm that the output's `summaryGeneration` and `extendedAnalysis` values under `outputConfig.contextualMetadata` are both `DISABLED`. If a value is missing, the Elemental Inference default applies.
+
 ## Use the response in ad requests
 <a name="monetization-functions-elemental-inference-integration-output"></a>
 
@@ -339,6 +387,7 @@ The following table describes common issues and their resolutions.
 | inference.enriched is false | SCTE-35 markers do not contain Elemental Inference data | Verify that contextual metadata enrichment is enabled on your MediaLive channel. | 
 | inference.parseError is true | Malformed Elemental Inference data in SCTE-35 markers | Check the MediaLive channel configuration and encoder software version. | 
 | Empty response (no items) | No analyzed content in the query time window | Verify the Elemental Inference feed is actively processing content and that the time window covers analyzed segments. | 
+| Fewer categories than expected, or empty responses at some ad breaks | Summary generation or extended analysis enabled on the contextual metadata output, which delays processing of content just before the ad break | Turn off summary generation and extended analysis on the contextual metadata output. See [Reduce Elemental Inference processing time](#monetization-functions-elemental-inference-integration-latency). | 
 | Response truncated | Response exceeds 20,000 characters limit | Reduce the time window to return fewer analyzed shots. | 
 
 **Note**  
