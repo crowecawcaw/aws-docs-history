@@ -173,6 +173,18 @@ If your organization used the RFC system as a governance control (for example, r
 
 For customers who need hands-on help making changes, Operations on Demand provides curated change support through skilled AMS engineers in 20-hour monthly blocks. This is useful during the transition period while you build familiarity with direct access, or on an ongoing basis for complex changes where you want expert support.
 
+**How to preserve your historical RFC data**  
+After transitioning to Accelerate, you no longer have access to the change management APIs. The transition doesn't affect historical AWS CloudTrail events for change management API calls stored in the trail events bucket in your account.
+
+Before the transition, if you need to preserve historical RFC data and correspondences, you can use the following APIs:
++ `ListRfcSummaries` – Retrieve RFC summaries for a specified time range.
++ `GetRfc` – Retrieve details for a specific RFC by its `RfcId`.
++ `ListRfcCorrespondences` – Retrieve all correspondences associated with a specific RFC.
+
+For API details, see the [AMS Advanced Change Management API reference](https://docs.aws.amazon.com/managedservices/latest/ApiReference-cm/API_Operations.html).
+
+After the transition, to retrieve historical RFC data, contact your CA and CSDM to request a one-time data export. Historical RFC data remains available until June 30, 2028.
+
 ## Patch management
 <a name="transition-patching"></a>
 
