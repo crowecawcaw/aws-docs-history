@@ -6,7 +6,9 @@
 After you create your Amazon Connect Talent instance, configure it for your recruiting team. Complete the following steps to get your instance ready for use.
 
 **Important**  
-Before you can send evaluations to candidates or test internally, your Amazon Simple Email Service (Amazon SES) account must be moved out of sandbox mode. If you haven't done this yet, see [Move Amazon SES out of sandbox mode](getting-started-create.md#getting-started-ses).
+Before you can complete internal testing or send evaluations to candidates, complete both of the following:  
+Move Amazon SES out of sandbox mode. See [Move Amazon SES out of sandbox mode](getting-started-create.md#getting-started-ses).
+Set your service quotas to the values you need. Review [Service quotas and endpoints for Amazon Connect Talent](endpoints-quotas.md) and use the values in the tables to request any quota increases before you send evaluations.
 
 1. **Set up your security profile** – The default `TechAdmin` profile does not include permissions for hiring setup or candidate review. If you need full access to all Amazon Connect Talent features during setup, edit the `TechAdmin` profile to enable all permission categories, or create a new security profile with all permissions. For more information, see [Manage security profiles and roles](manage-security-profiles.md).
 

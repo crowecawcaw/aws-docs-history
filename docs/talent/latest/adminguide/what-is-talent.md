@@ -63,7 +63,7 @@ Amazon Connect Talent is available in the following AWS Regions. You create and 
 | US East (N. Virginia) | us-east-1 | 
 | US West (Oregon) | us-west-2 | 
 
-For the service endpoints and quotas that apply to Amazon Connect Talent, see [Endpoints and quotas for Amazon Connect Talent](endpoints-quotas.md).
+For the service endpoints and quotas that apply to Amazon Connect Talent, see [Service quotas and endpoints for Amazon Connect Talent](endpoints-quotas.md).
 
 ## Supported languages
 <a name="supported-languages"></a>

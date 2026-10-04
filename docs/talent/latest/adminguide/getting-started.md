@@ -8,3 +8,4 @@ To start using Amazon Connect Talent, you create a Talent instance from the AWS 
 **Topics**
 + [Create your Amazon Connect Talent instance](getting-started-create.md)
 + [Set up your instance](getting-started-setup.md)
++ [Delete your instance](getting-started-delete.md)

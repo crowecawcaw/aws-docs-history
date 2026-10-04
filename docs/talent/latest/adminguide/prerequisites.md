@@ -20,6 +20,9 @@ To create an Amazon Connect Talent instance, you need the following:
 
 Avoid using your AWS account root user for everyday tasks. Instead, create an administrative user in IAM and use it to set up and manage Amazon Connect Talent.
 
+**Important**  
+Service quotas can block instance creation. The Amazon Connect instance count quota is shared across Amazon Connect Talent and Amazon Connect, so instances of either count toward the same limit. By default, you can create 2 instances per AWS Region, and other account-level quotas limit this further. If you reach one of these quotas, instance creation fails with a generic error that does not name the quota. Before you create an instance, review [Quotas that limit how many instances you can create](endpoints-quotas.md#talent-quotas-instance-count) and request any increases you need.
+
 ## IAM permissions and managed policies
 <a name="prerequisites-iam"></a>
 
@@ -28,7 +31,7 @@ For details about how Amazon Connect Talent works with IAM, the AWS managed poli
 ### Managing your Amazon Connect Talent instance
 <a name="prerequisites-iam-managing"></a>
 
-The following sections describe the IAM permissions required to create and delete an Amazon Connect Talent instance.
+The following section describes the IAM permissions required to create an Amazon Connect Talent instance.
 
 #### Create an instance
 <a name="prerequisites-iam-create"></a>
@@ -47,41 +50,14 @@ An identity with the `AdministratorAccess` managed policy can also create instan
 
 When you create an instance, Amazon Connect Talent also provisions the IAM roles it needs to operate on your behalf.
 
-#### Delete an instance
-<a name="prerequisites-iam-delete"></a>
-
-To delete an Amazon Connect Talent instance, the identity performing the deletion needs permissions to remove resources across the same services that were provisioned during creation.
-
-The following permissions are required, grouped by service:
-+ **Connect Customer** – `connect:DeleteInstance`, `connect:DeleteIntegrationAssociation`, `connect:DisassociateBot`
-+ **Amazon Lex** – `lex:ListBots`, `lex:ListBotAliases`, `lex:DeleteBotAlias`, `lex:DeleteBot`
-+ **Connect Customer Customer Profiles** – `profile:DeleteDomain`, `profile:DeleteIntegration`, `profile:DeleteProfileObjectType`
-+ **Connect Customer Cases** – `cases:DeleteDomain`
-+ **Amazon Q in Connect** – `wisdom:DeleteAssistant`
-+ **Amazon SES** – `ses:DeleteEmailIdentity`
-
-An identity with the `AdministratorAccess` managed policy can also delete instances.
-
-##### Clean up resources after deleting an instance
-<a name="prerequisites-iam-cleanup"></a>
-
-After you delete an Amazon Connect Talent instance, some resources provisioned during instance creation might not be removed automatically. You need to manually delete these resources from your AWS account in the same AWS Region as the instance.
-
-The following resources might need manual cleanup:
-
-
-| Resource | Name pattern | How to delete | 
-| --- | --- | --- | 
-| Amazon Lex bots (up to 3) | {{instance-alias}}-hiring-interview-lex-bot, {{instance-alias}}-hiring-chat-lex-bot, {{instance-alias}}-hiring-assessment-lex-bot | First disassociate the bot from the Connect Customer instance, then delete the bot in the Amazon Lex console. | 
-| Connect Customer Customer Profiles domain | amazon-connect-hiring-{{instance-alias}} | Delete in the Connect Customer Customer Profiles console. | 
-| Connect Customer Cases domain | Uses the instance alias | Delete in the Connect Customer Cases console. | 
-| Amazon Q in Connect assistant | Hiring Interview Assistant | Delete in the Amazon Q in Connect console. | 
-
-If you're unable to identify which resources were left behind, contact [AWS Support](https://aws.amazon.com/premiumsupport/).
-
 ## Amazon SES requirements
 <a name="prerequisites-ses"></a>
 
 Amazon Connect Talent uses Amazon SES to send email to candidates, such as invitations to complete an evaluation. New Amazon SES accounts start in the Amazon SES sandbox. While your account is in the sandbox, you can send email only to verified addresses, and daily and per-second sending limits apply.
 
 To send email to candidates who are not verified addresses, request production access to move your account out of the sandbox. For instructions, see [Move Amazon SES out of sandbox mode](getting-started-create.md#getting-started-ses).
+
+**Important**  
+Before you can complete internal testing or send evaluations to candidates, complete both of the following:  
+Move Amazon SES out of sandbox mode. See [Move Amazon SES out of sandbox mode](getting-started-create.md#getting-started-ses).
+Set your service quotas to the values you need. Review [Service quotas and endpoints for Amazon Connect Talent](endpoints-quotas.md) and use the values in the tables to request any quota increases before you send evaluations.

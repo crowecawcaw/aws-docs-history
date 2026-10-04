@@ -223,6 +223,9 @@ To request production access:
 
 1. Choose **Submit request**.
 
-After you submit, you can't edit your details until the review is complete. The AWS Support team provides an initial response within 24 hours. For more information, see [Request production access (moving out of the Amazon SES sandbox)](https://docs.aws.amazon.com/ses/latest/dg/request-production-access.html) in the *Amazon Simple Email Service Developer Guide*.
+**Important**  
+AWS Support creates a case and emails you for more detail as needed. Open your [AWS Support cases](https://console.aws.amazon.com/support/home?issueType=service-limit-increase#/case/history), open the SES: Production Access case, and reply that you have created an Amazon Connect Talent instance and will use Amazon SES to send evaluation invitations to candidates. Watch the case for follow-ups. AWS Support might request more information before granting production access — reply until your request is approved.
+
+For more information, see [Request production access (moving out of the Amazon SES sandbox)](https://docs.aws.amazon.com/ses/latest/dg/request-production-access.html) in the *Amazon Simple Email Service Developer Guide*.
 
 After you create your instance, see [Set up your instance](getting-started-setup.md) to configure it for your recruiting team.
