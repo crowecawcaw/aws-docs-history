@@ -3,66 +3,44 @@
 # Supported cryptographic algorithms
 <a name="supported-algorithms"></a>
 
-## Cryptographic algorithms
-<a name="cryptographic-algorithms"></a>
+AWS KMS supports the following cryptographic algorithms for KMS keys. The algorithms you can use depend on the [key spec](create-keys.md#key-spec) and [key usage](create-keys.md#key-usage) of the KMS key. For detailed descriptions of each key spec and the algorithms it supports, see [Key spec reference](symm-asymm-choose-key-spec.md).
 
-The following tables summarize the cryptographic algorithms, ciphers, modes, and key sizes that AWS deploys across its services to protect your data. They should not be considered to be an exhaustive list of all cryptography options available in AWS. The algorithms fall into two categories:
-+ *Preferred* algorithms meet the AWS security and performance standards.
-+ *Acceptable* algorithms can be used for compatibility in some applications but are not preferred.
+For guidance on which algorithms to use and when, see [Cryptography algorithms and AWS services](https://docs.aws.amazon.com/prescriptive-guidance/latest/encryption-best-practices/aws-cryptography-services.html#algorithms).
 
-### Asymmetric cryptography
-<a name="asymmetric-cryptography"></a>
+## Symmetric key algorithms
+<a name="supported-algorithms-symmetric"></a>
 
-The following table lists supported asymmetric algorithms for encryption, key agreement, and digital signatures.
+AWS KMS supports the following algorithms for symmetric KMS keys.
 
 
-| Type | Algorithm | Status | 
+**Supported algorithms for symmetric KMS keys**  
+
+| Algorithm | Key usage | Key spec | 
 | --- | --- | --- | 
-| Encryption | RSA-OAEP (2048 or 3072-bit modulus) | Acceptable | 
-| Encryption | HPKE (P-256 or P-384, HKDF and AES-GCM) | Acceptable | 
-| Key Agreement | ML-KEM-768 or ML-KEM-1024 | Preferred (quantum-resistant) | 
-| Key Agreement | ECDH(E) with P-384 | Acceptable | 
-| Key Agreement | ECDH(E) with P-256, P-521, or X25519 | Acceptable | 
-| Key Agreement | ECDH(E) with brainpoolP256r1, brainpoolP384r1, or brainpoolP512r1 | Acceptable | 
-| Signatures | ML-DSA-65 or ML-DSA-87 | Preferred (quantum-resistant) | 
-| Signatures | SLH-DSA | Preferred (quantum-resistant software/firmware signing) | 
-| Signatures | ECDSA with P-384 | Acceptable | 
-| Signatures | ECDSA with P-256, P-521, or Ed25519 | Acceptable | 
-| Signatures | RSA-2048 or RSA-3072 | Acceptable | 
+| AES-256-GCM | Encrypt and decrypt | SYMMETRIC\_DEFAULT | 
+| SM4-128 (China Regions only) | Encrypt and decrypt | SYMMETRIC\_DEFAULT | 
+| HMAC\_SHA\_224 | Generate and verify MAC | HMAC\_224 | 
+| HMAC\_SHA\_256 | Generate and verify MAC | HMAC\_256 | 
+| HMAC\_SHA\_384 | Generate and verify MAC | HMAC\_384 | 
+| HMAC\_SHA\_512 | Generate and verify MAC | HMAC\_512 | 
 
-### Symmetric cryptography
-<a name="symmetric-cryptography"></a>
+## Asymmetric key algorithms
+<a name="supported-algorithms-asymmetric"></a>
 
-The following table lists supported symmetric algorithms for encryption, authenticated encryption, and key wrapping.
+Each asymmetric KMS key has a single [key usage](create-keys.md#key-usage) that determines which of these algorithms you can use.
 
 
-| Type | Algorithm | Status | 
+**Supported algorithms for asymmetric KMS keys**  
+
+| Algorithm | Key usage | Key spec | 
 | --- | --- | --- | 
-| Authenticated Encryption | AES-GCM-256 | Preferred | 
-| Authenticated Encryption | AES-GCM-128 | Acceptable | 
-| Authenticated Encryption | ChaCha20/Poly1305 | Acceptable | 
-| Encryption Modes | AES-XTS-256 (for block storage) | Preferred | 
-| Encryption Modes | AES-CBC / CTR (unauthenticated modes) | Acceptable | 
-| Key Wrapping | AES-GCM-256 | Preferred | 
-| Key Wrapping | AES-KW or AES-KWP with 256-bit keys | Acceptable | 
-
-### Cryptographic functions
-<a name="cryptographic-functions"></a>
-
-The following table lists supported algorithms for hashing, key derivation, message authentication, and password hashing.
-
-
-| Type | Algorithm | Status | 
-| --- | --- | --- | 
-| Hashing | SHA2-384 | Preferred | 
-| Hashing | SHA2-256 | Acceptable | 
-| Hashing | SHA3 | Acceptable | 
-| Key Derivation | HKDF\_Expand or HKDF with SHA2-256 | Preferred | 
-| Key Derivation | Counter Mode KDF with HMAC-SHA2-256 | Acceptable | 
-| Message Authentication Code | HMAC-SHA2-384 | Preferred | 
-| Message Authentication Code | HMAC-SHA2-256 | Acceptable | 
-| Message Authentication Code | KMAC | Acceptable | 
-| Password Hashing | scrypt with SHA384 | Preferred | 
-| Password Hashing | PBKDF2 | Acceptable | 
-
-For more details on cryptographic algorithms deployed in AWS, see [Cryptography algorithms and AWS services](https://docs.aws.amazon.com/prescriptive-guidance/latest/encryption-best-practices/aws-cryptography-services.html#algorithms).
+| RSAES\_OAEP\_SHA\_1, RSAES\_OAEP\_SHA\_256 | Encrypt and decrypt | RSA\_2048, RSA\_3072, RSA\_4096 | 
+| RSASSA\_PSS\_SHA\_256, RSASSA\_PSS\_SHA\_384, RSASSA\_PSS\_SHA\_512, RSASSA\_PKCS1\_V1\_5\_SHA\_256, RSASSA\_PKCS1\_V1\_5\_SHA\_384, RSASSA\_PKCS1\_V1\_5\_SHA\_512 | Sign and verify | RSA\_2048, RSA\_3072, RSA\_4096 | 
+| ECDSA\_SHA\_256 | Sign and verify | ECC\_NIST\_P256 (secp256r1) | 
+| ECDSA\_SHA\_384 | Sign and verify | ECC\_NIST\_P384 (secp384r1) | 
+| ECDSA\_SHA\_512 | Sign and verify | ECC\_NIST\_P521 (secp521r1) | 
+| ECDSA\_SHA\_256 | Sign and verify | ECC\_SECG\_P256K1 (secp256k1) | 
+| ED25519\_SHA\_512, ED25519\_PH\_SHA\_512 | Sign and verify | ECC\_NIST\_EDWARDS25519 (ed25519) | 
+| ML\_DSA\_SHAKE\_256 | Sign and verify | ML\_DSA\_44, ML\_DSA\_65, ML\_DSA\_87 | 
+| ECDH | Key agreement | ECC\_NIST\_P256, ECC\_NIST\_P384, ECC\_NIST\_P521 | 
+| SM2PKE (encryption), SM2DSA (signing), ECDH (key agreement) | Encrypt and decrypt, sign and verify, or key agreement | SM2 (China Regions only) | 
