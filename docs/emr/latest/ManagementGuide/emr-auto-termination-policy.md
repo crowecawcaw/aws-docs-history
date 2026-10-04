@@ -88,7 +88,7 @@ Before you can apply and manage auto-termination policies for Amazon EMR, you ne
         "elasticmapreduce:GetAutoTerminationPolicy",
         "elasticmapreduce:RemoveAutoTerminationPolicy"
       ],
-      "Resource": "{{<your-resources>}}"
+      "Resource": "arn:aws:elasticmapreduce:{{us-east-1}}:{{111122223333}}:cluster/*"
     }
 }
 ```

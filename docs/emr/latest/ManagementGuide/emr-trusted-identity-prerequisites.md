@@ -326,7 +326,7 @@ Create below IAM roles for EMR request access to AWS IAM Identity Center on your
                    }
                },
                "Action": "iam:PassRole",
-               "Resource": "arn:aws:iam::xxxxxxxxxxxx:role/tiptutorial-EMREC2InstanceRole-AoRUJtqGunxx",
+               "Resource": "arn:aws:iam::{{111122223333}}:role/tiptutorial-EMREC2InstanceRole-AoRUJtqGunxx",
                "Effect": "Allow"
            }
        ]

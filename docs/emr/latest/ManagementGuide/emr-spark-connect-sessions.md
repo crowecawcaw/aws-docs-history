@@ -58,7 +58,7 @@ The following is an example IAM policy for managing sessions:
                 "elasticmapreduce:StartSession",
                 "elasticmapreduce:ListSessions"
             ],
-            "Resource": "arn:aws:elasticmapreduce:{{region}}:{{account-id}}:cluster/*"
+            "Resource": "arn:aws:elasticmapreduce:{{us-east-1}}:{{111122223333}}:cluster/*"
         },
         {
             "Sid": "EMRSessionAccess",
@@ -68,13 +68,13 @@ The following is an example IAM policy for managing sessions:
                 "elasticmapreduce:GetSessionEndpoint",
                 "elasticmapreduce:TerminateSession"
             ],
-            "Resource": "arn:aws:elasticmapreduce:{{region}}:{{account-id}}:cluster/*/session/*"
+            "Resource": "arn:aws:elasticmapreduce:{{us-east-1}}:{{111122223333}}:cluster/*/session/*"
         },
         {
             "Sid": "PassExecutionRole",
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::{{account-id}}:role/{{execution-role-name}}",
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{execution-role-name}}",
             "Condition": {
                 "StringLike": {
                     "iam:PassedToService": "elasticmapreduce.amazonaws.com"

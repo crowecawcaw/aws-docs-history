@@ -98,6 +98,7 @@ Add the following inline policy to the EC2 instance profile role on the Amazon E
 
 ```
 {
+    "Version": "2012-10-17",		 	 	 
     "Statement": [
         {
             "Sid": "IdCPermissions",
@@ -116,7 +117,7 @@ Add the following inline policy to the EC2 instance profile role on the Amazon E
                 "sts:AssumeRole"
             ],
             "Resource": [
-                "{{instance-profile-role-ARN}}"
+                "arn:aws:iam::{{111122223333}}:role/{{instance-profile-role-name}}"
             ]
         }
     ]

@@ -335,12 +335,12 @@ The EC2 instance profile role for your EMR cluster in Account B must be able to 
                 "glue:GetPartitions", "glue:SearchTables"
             ],
             "Resource": [
-                "arn:aws:glue:{{REGION}}:{{ACCOUNT_B_ID}}:catalog",
-                "arn:aws:glue:{{REGION}}:{{ACCOUNT_B_ID}}:database/*",
-                "arn:aws:glue:{{REGION}}:{{ACCOUNT_B_ID}}:table/*",
-                "arn:aws:glue:{{REGION}}:{{ACCOUNT_A_ID}}:catalog",
-                "arn:aws:glue:{{REGION}}:{{ACCOUNT_A_ID}}:database/*",
-                "arn:aws:glue:{{REGION}}:{{ACCOUNT_A_ID}}:table/*"
+                "arn:aws:glue:{{us-east-1}}:{{111122223333}}:catalog",
+                "arn:aws:glue:{{us-east-1}}:{{111122223333}}:database/*",
+                "arn:aws:glue:{{us-east-1}}:{{111122223333}}:table/*",
+                "arn:aws:glue:{{us-east-1}}:{{444455556666}}:catalog",
+                "arn:aws:glue:{{us-east-1}}:{{444455556666}}:database/*",
+                "arn:aws:glue:{{us-east-1}}:{{444455556666}}:table/*"
             ]
         }
     ]
@@ -359,7 +359,7 @@ The instance profile role must be allowed to assume itself, which is how the car
             "Sid": "AllowSelfAssume",
             "Effect": "Allow",
             "Action": "sts:AssumeRole",
-            "Resource": "arn:aws:iam::{{ACCOUNT_B_ID}}:role/{{INSTANCE_PROFILE_ROLE}}"
+            "Resource": "arn:aws:iam::{{111122223333}}:role/{{INSTANCE_PROFILE_ROLE}}"
         }
     ]
 }
