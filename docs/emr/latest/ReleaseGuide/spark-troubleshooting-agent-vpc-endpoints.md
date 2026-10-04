@@ -41,7 +41,7 @@ The following is an example of an endpoint policy for Amazon SageMaker Unified S
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::ACCOUNT-ID:role/YourRoleName"
+        "AWS": "arn:aws:iam::{{111122223333}}:role/YourRoleName"
       },
       "Action": [
         "sagemaker-unified-studio-mcp:InvokeMcp",

@@ -60,6 +60,25 @@ If you are currently running an EMR version with Amazon's Store File Tracking fe
 
 Starting with EMR 7.12.0, you can switch a read-replica HBase on Amazon S3 cluster from read-only mode to active mode, enabling both read and write operations. This functionality is provided through two new HBase shell commands.
 
+**Note**  
+When using Amazon EMR version 7.12.0 or later, use the following sample configuration:  
+
+```
+{
+  "Classification": "hbase-site",
+  "Properties": {
+    "hbase.rootdir": "{{s3://{S3_LOCATION}}}"
+  }
+},
+{
+  "Classification": "hbase",
+  "Properties": {
+    "hbase.emr.storageMode": "s3",
+    "hbase.emr.readreplica.enabled.v2": "true"
+  }
+}
+```
+
 1. `readonly_state`
 
    Retrieves the current read-write operational state of the cluster.

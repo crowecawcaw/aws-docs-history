@@ -69,8 +69,27 @@ For example, given the JSON classification for the primary cluster as shown earl
 
 For Amazon EMR versions later than 7.3.0, we now use the [Store File Tracking](#emr-hbase-store-file-tracking) feature, hence there is no need to disable compactions.
 
+**Note**  
+When using Amazon EMR version 7.12.0 or later, use the following sample configuration:  
+
+```
+{
+  "Classification": "hbase-site",
+  "Properties": {
+    "hbase.rootdir": "{{s3://{S3_LOCATION}}}"
+  }
+},
+{
+  "Classification": "hbase",
+  "Properties": {
+    "hbase.emr.storageMode": "s3",
+    "hbase.emr.readreplica.enabled.v2": "true"
+  }
+}
+```
+
 ### Synchronizing the read replica when you add data
-<a name="w2aac33c37c15c14"></a>
+<a name="w2aac33c37c15c16"></a>
 
 Because the read-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read-replica is only as current as the Amazon S3 data store. The following guidance can help minimize the lag time between the primary cluster and the read-replica when you write data.
 + Bulk load data on the primary cluster whenever possible. For more information, see [Bulk loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation.
