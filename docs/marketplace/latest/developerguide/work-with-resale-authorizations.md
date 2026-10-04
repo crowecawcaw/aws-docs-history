@@ -9,22 +9,24 @@ You can use the AWS Marketplace Catalog API to automate tasks for working with R
 
 While the *product* describes what is being sold in AWS Marketplace, the *Resale Authorization* (also known as an opportunity) describes the terms and rules regarding how this product is authorized to be resold in AWS Marketplace. The *CPPO* is the target of the Resale Authorization.
 
-A Resale Authorization has a collection of terms and rules to be accepted for a reseller agreement between manufacturers and channel partners. Accepting the terms of the Resale Authorization allows the reseller to create offers for the product per the conditions expressed in the terms.
+A Resale Authorization has a collection of terms and rules to be accepted for a reseller agreement between manufacturers and resellers. Accepting the terms of the Resale Authorization allows the reseller to create offers for the product per the conditions expressed in the terms.
 
 There are two types of rules in a Resale Authorization:
 + **AvailabilityRule** – Controls the lifecycle of the Resale Authorization in AWS Marketplace.
-+ **PartnerTargetingRule ** – Specifies whether the Resale Authorization should be accessible to a specific set of channel partners.
++ **PartnerTargetingRule** – Specifies the single reseller that the Resale Authorization is accessible to, and that reseller's role.
 
 See the following resources:
 + For end-to-end labs with working code examples, see [Lab: Authorize a reseller](https://catalog.workshops.aws/mpseller/en-US/manage-offers-with-api/authorize-a-reseller) in the *AWS Marketplace seller workshop*.
-+ For code examples of API requests, see [Python](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/python/src/catalog_api/resale_authorization) and [Java](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java/resources/changeSets/channel_partner_offers) examples in *AWS Samples* on GitHub.
++ For code examples of API requests, see [Python](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/python/src/catalog_api/resale_authorization) and [Java](https://github.com/aws-samples/aws-marketplace-reference-code/tree/main/java/resources/changeSets/resaleAuthorization) examples in *AWS Samples* on GitHub.
 + For a video on creating resale authorizations, see [Create Resale Authorizations Using the AWS Marketplace Catalog API](https://www.youtube.com/watch?v=vLIbvFYI974) on YouTube.
 
 The following topics describe how to use the Catalog API to create and update Resale Authorizations:
 
 **Topics**
 + [Resale Authorization prerequisites](#prerequisites)
++ [Brazil 2P Authorizations](brazil-2p-authorizations.md)
 + [Create a new Resale Authorization](#create-resale-authorization)
++ [Update Resale Authorization details](#update-resale-auth-information)
 + [Update buyer targeting](#update-buyer-targeting)
 + [Update availability](#update-availability-resale-auth)
 + [Update the validity of a future dated agreement](#update-validity-fda)
@@ -32,24 +34,23 @@ The following topics describe how to use the Catalog API to create and update Re
 + [Update pricing](#update-existing-pricing-terms)
 + [Update payment schedule](#update-payment-schedule-details)
 + [Update net payment terms](#update-resale-net-payment-terms)
-+ [Update Resale Authorization details](#update-resale-auth-information)
 + [Restrict a Resale Authorization](#restricte-resale-auth)
-+ [Release a Resale Authorization and make it visible to a Channel Partner](#release-resale-auth)
++ [Release a Resale Authorization](#release-resale-auth)
 + [Describe an existing Resale Authorization](#describe-entity-resale-auth)
 
 ## Resale Authorization prerequisites
 <a name="prerequisites"></a>
 
-To use Resale Authorization, both independent software vendors (ISVs) and AWS Marketplace Channel Partners must create a service-linked role that provides resource-sharing permissions to AWS. If both groups don't perform this prerequisite, AWS can't share the authorization resource from the ISV to the AWS Marketplace Channel Partner. For more information, see [Using roles for Resale Authorization for AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/using-roles-for-resale-authorization.html) in the *AWS Marketplace Seller Guide*.
+To use Resale Authorization, both independent software vendors (ISVs) and AWS Marketplace resellers must create a service-linked role that provides resource-sharing permissions to AWS. If both groups don't perform this prerequisite, AWS can't share the authorization resource from the ISV to the reseller. For more information, see [Using roles for Resale Authorization for AWS Marketplace](https://docs.aws.amazon.com/marketplace/latest/userguide/using-roles-for-resale-authorization.html) in the *AWS Marketplace Seller Guide*.
 
 ## Create a new Resale Authorization
 <a name="create-resale-authorization"></a>
 
 You can use the Catalog API to create a new Resale Authorization in AWS Marketplace.
 
-If your request is processed successfully, AWS Marketplace Catalog API generates a Resale Authorization in `Draft` state for you. It's an incomplete Resale Authorization and not visible to channel partners in AWS Marketplace. 
+If your request is processed successfully, AWS Marketplace Catalog API generates a Resale Authorization in `Draft` state for you. It's an incomplete Resale Authorization and not visible to resellers in AWS Marketplace. 
 
-Use the `Update` change types to complete the Resale Authorization. After the Resale Authorization is completed, use the `ReleaseResaleAuthorization` change type to complete the Resale Authorization creation process and release the Resale Authorization, which will validate the entire Resale Authorization and make your it visible to channel partners in AWS Marketplace.
+Use the `Update` change types to complete the Resale Authorization. After the Resale Authorization is completed, use the `ReleaseResaleAuthorization` change type to complete the Resale Authorization creation process and release the Resale Authorization, which will validate the entire Resale Authorization and make it visible to resellers in AWS Marketplace.
 
 To create a Resale Authorization in `Draft` state, call the `StartChangeSet` API operation with the `CreateResaleAuthorization` change type, as shown in the following example. 
 
@@ -75,7 +76,8 @@ Content-type: application/json
         "ProductId": "prod-ad8EXAMPLE51",
         "Name": "Test ResaleAuthorization",
         "Description": "Worldwide ResaleAuthorization for Test Product",
-        "ResellerAccountId": "777788889999"
+        "ResellerAccountId": "777788889999",
+        "ResellerRole": "ChannelPartner"
       }
     }
   ]
@@ -87,9 +89,12 @@ Provide information for the input fields to add the `CreateResaleAuthorization` 
   + **Type** (string) (required) – The `Type` is always `ResaleAuthorization@1.0`. 
 + **DetailsDocument** (object) (required) – Specifics of the request.
   + **ProductId** (string) (required) – Product ID for which to create the resale authorization.
-  + **Name** (string) (required) – Name associated with the ResaleAuthorization for better readability to you and your channel partners.
+  + **Name** (string) (required) – Name associated with the ResaleAuthorization for better readability to you and your resellers.
   + **Description** (string) (optional) – A free-form text field available to add details about the ResaleAuthorization.
-  + **ResellerAccountId** (string) (required) – Add targeted channel partner's AWS account who can describe and use this `ResaleAuthorization` to create a private offer.
+  + **ResellerAccountId** (string) (required) – Add targeted reseller's AWS account who can describe and use this `ResaleAuthorization` to create a private offer.
+  + **ResellerRole** (string) (required) – The role of the targeted reseller. Valid values are `ChannelPartner` and `Distributor`. If you don't specify a value, `ChannelPartner` is used.
+
+    **The `Distributor` value is currently available only for Brazil 2P.** For more information, see [Brazil 2P Authorizations](brazil-2p-authorizations.md).
 
 **Response Syntax**
 
@@ -132,8 +137,7 @@ The following shows the response from the [DescribeChangeSet](https://docs.aws.a
         "ProductId": "prod-ad8EXAMPLE51",
         "Name": "Test ResaleAuthorization",
         "Description": "Worldwide ResaleAuthorization for Test Product",
-        "ResellerAccountId": "777788889999",
-        "BulkRequestId": "84977023-5093-4a66-8b24-ef2c5a2f8b1f"
+        "ResellerAccountId": "777788889999"
       },
       "ErrorDetailList":
       []
@@ -155,7 +159,7 @@ The schema validations are specific to `CreateResaleAuthorization` actions in th
 | Name | Required<br />Must not be null or empty<br />Length must be between 1 and 100 characters <br />No special characters allowed | 422 | 
 | Description | Optional<br />Length must be between 1 and 255 characters <br />No special characters allowed | 422 | 
 | ResellerAccountId | Required<br />Must not be empty<br />AWS account IDs must be in valid format (12-digit number) | 422 | 
-| BulkRequestId | Optional<br />Length must be between 1 and 50 characters <br />Must be in UUID format | 422 | 
+| ResellerRole | Required<br />Must be either `ChannelPartner` or `Distributor`<br />Defaults to `ChannelPartner` if omitted | 422 | 
 | An unknown property | No additional properties are allowed | 422 | 
 
 **Asynchronous Errors**
@@ -166,6 +170,101 @@ The following errors are specific to `CreateResaleAuthorization ` actions in the
 | Error code  | Error message | 
 | --- | --- | 
 | INVALID\_RESELLER\_ACCOUNT | Provide a valid reseller account. | 
+| INCOMPATIBLE\_PRODUCT | Managing ResaleAuthorizations for the product isn't currently supported in the AWS Marketplace Catalog API. | 
+
+## Update Resale Authorization details
+<a name="update-resale-auth-information"></a>
+
+You can use the Catalog API to update Resale Authorization details in AWS Marketplace.
+
+To update Resale Authorization details, call the `StartChangeSet` API operation with the `UpdateInformation` change type, as shown in the following example. 
+
+**Note**  
+The `UpdateInformation` change type only updates the sections provided in the request; all other information remains unchanged.
+
+**Request Syntax**
+
+```
+POST /StartChangeSet HTTP/1.1
+Content-type: application/json
+
+{
+  "Catalog": "AWSMarketplace",
+  "ChangeSet":
+  [
+    {
+      "ChangeType": "UpdateInformation",
+      "Entity":
+      {
+        "Type": "ResaleAuthorization@1.0",
+        "Identifier": "resaleauthz-123456789"
+      },
+      "DetailsDocument":
+      {
+        "Name": "TestResaleAuthorization",
+        "Description": "Worldwide ResaleAuthorization for Test Product",
+        "PreExistingBuyerAgreement":
+        {
+          "AcquisitionChannel": "AwsMarketplace",
+          "PricingModel": "Contract"
+        }
+      }
+    }
+  ]
+}
+```
+
+Provide information for the fields to add the `UpdateInformation` change type:
++ **Entity** (object) (required) – Your Resale Authorization. 
+  + **Type** (string) (required) – The `Type` is always `ResaleAuthorization@1.0`. 
+  + **Identifier** (string) (required) – Your Resale Authorization ID. For more information, see [Identifier](catalog-apis.md#identifier).
++ **DetailsDocument** (object) (required) – Details of the request, including the information you want to update information for the Resale Authorization.
+  + **Name** (string) (optional) – The name associated with the ResaleAuthorization for better readability to you and your resellers.
+  + **Description** (string) (optional) – The description is free-form text where you can add details about the ResaleAuthorization.
+  + **PreExistingBuyerAgreement** (object) (optional) – Determines if this offer is a renewal for an existing agreement with an existing customer for the same underlying product. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
+    + **AcquisitionChannel** (string) (required) – Indicates if the existing buyer agreement was signed outside AWS Marketplace or in AWS Marketplace.
+
+      Possible values: `External`, `AwsMarketplace`
+    + **PricingModel** (string) (required) **–** Indicates which pricing model the exiting agreement uses.
+
+      Possible values: `Contract`, `Usage`, `BYOL`, `Free`
+
+**Response Syntax**
+
+A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
+
+```
+{
+  "ChangeSetId": "example123456789012abcdef",
+  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
+}
+```
+
+The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take anywhere from a few minutes to a few hours.
+
+You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
+
+**Synchronous Validations**
+
+The following schema validations are specific to `UpdateInformation` actions in the AWS Marketplace Catalog API. These validations are performed when you call `StartChangeSet`, and the request will fail with an HTTP error if the input does not meet the following requirements.
+
+
+| Input field | Validation rule | HTTP code | 
+| --- | --- | --- | 
+| Name | Optional<br />Must not be null or empty<br />Length must be between 1 and 100 characters <br />Must not begin with a white space character<br />Must not end with a backslash | 422 | 
+| Description | Optional<br />Can be set to `null` to remove the existing description<br />Length must be between 1 and 255 characters <br />Must not begin with a white space character<br />Must not end with a backslash | 422 | 
+| PreExistingBuyerAgreement | Optional<br />Can be set to `null` to remove the existing agreement<br />When provided, both `AcquisitionChannel` and `PricingModel` are required<br />`AcquisitionChannel` allowed values: `AwsMarketplace`, `External`<br />`PricingModel` allowed values: `Byol`, `Free`, `Usage`, `Contract` | 422 | 
+| DetailsDocument | Must include at least one of `Name`, `Description`, or `PreExistingBuyerAgreement` | 422 | 
+| An unknown property | No additional properties are allowed | 422 | 
+
+**Asynchronous Errors**
+
+The following errors are specific to `UpdateInformation` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. or more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets).
+
+
+| Error code | Error message | 
+| --- | --- | 
+| INCOMPATIBLE\_BUYER\_TARGETING | At least one Buyer account must be present for ResaleAuthorization with PreExistingBuyerAgreement. | 
 
 ## Update buyer targeting
 <a name="update-buyer-targeting"></a>
@@ -217,11 +316,11 @@ Provide information for the fields to add the `UpdateBuyerTargetingTerms` change
   + **Type** (string) (required) – The `Type` is always `ResaleAuthorization@1.0`. 
   + **Identifier** (string) (required) – Your Resale Authorization ID. For more information, see [Identifier](catalog-apis.md#identifier).
 + **DetailsDocument** (object) (required) – Specifics of the request.
-  + **Terms** (array of structures) (optional) – List of buyers targeting terms that you want to update. If the intentions aren't to target the `ResaleAuthorization` to any specific buyer, then terms field can be skipped. By default, `ResaleAuthorization` is targeted to all buyers. Supported terms are:
+  + **Terms** (array of structures) (required) – List of buyers targeting terms that you want to update. If the intentions aren't to target the `ResaleAuthorization` to any specific buyer, then pass an empty list. By default, `ResaleAuthorization` is targeted to all buyers. Supported terms are:
     + **BuyerTargetingTerms** (object) (optional) – Define buyer-specific targeting to your ResaleAuthorization.
       + **Type** (string) (required) – Category of the term being updated.
       + **PositiveTargeting** (object) (required) – Defines the criteria that any buyer's profile should fulfill to be allowed access to the `ResaleAuthorization`.
-        + **BuyerAccounts** (array of strings) (optional) – List as optional. You can add the targeted buyer's AWS accounts. If the intention isn't to target `ResaleAuthorization` to specific buyers, then this field should be omitted. By default, all buyers are targeted. Targeted channel partners can choose to create a private offer and target a subset of buyers, if specified.
+        + **BuyerAccounts** (array of strings) (optional) – List as optional. You can add the targeted buyer's AWS accounts. If the intention isn't to target `ResaleAuthorization` to specific buyers, then this field should be omitted. By default, all buyers are targeted. Targeted resellers can choose to create a private offer and target a subset of buyers, if specified.
 
 **Response Syntax**
 
@@ -245,7 +344,7 @@ The schema validations are specific to `UpdateBuyerTargetingTerms` actions in th
 
 | Input field | Validation rule | 
 | --- | --- | 
-| Terms | Optional<br />Must not be null or empty<br />Only "BuyerTargetingTerm" is allowed in the list <br />List size must be 1 (there is no use case today that requires multiple buyer terms) | 
+| Terms | Required<br />Only "BuyerTargetingTerm" is allowed in the list <br />List size must be at most 1 (there is no use case today that requires multiple buyer terms)<br />Pass an empty list to remove buyer targeting | 
 | BuyerTargetingTerm.PositiveTargeting | Required<br />Must not be empty | 
 | BuyerTargetingTerm.PositiveTargeting.BuyerAccounts | Optional<br />AWS account IDs must be in valid format (12-digit number)<br />Must not contain more than 25 accounts | 
 | An unknown property | No additional properties are allowed | 
@@ -300,7 +399,7 @@ Provide information for the fields to add the `UpdateAvailability` change type:
   + **Type** (string) (required) – The `Type` is always `ResaleAuthorization@1.0`. 
   + **Identifier** (string) (required) – Your Resale Authorization ID. For more information, see [Identifier](catalog-apis.md#identifier).
 + **DetailsDocument** (object) (required) – Specifics of the request.
-  + **AvailabilityEndDate** (string) (optional) – Define the end date until Channel Partners can leverage the `ResaleAuthorization` to create an offer. Channel Partners can use this `ResaleAuthorization` multiple times until the specified end date. Dates are represented in ISO\_8601 format.
+  + **AvailabilityEndDate** (string) (optional) – Define the end date until resellers can leverage the `ResaleAuthorization` to create an offer. Resellers can use this `ResaleAuthorization` multiple times until the specified end date. Dates are represented in ISO\_8601 format.
   + **OffersMaxQuantity** (integer) (optional) – Define the maximum number of private offers that can be created using the ResaleAuthorization. This doesn't define the number of subscriptions.
 
 **Response Syntax**
@@ -326,7 +425,7 @@ The schema validations are specific to `UpdateAvailability` actions in the AWS M
 | Input field | Validation rule | 
 | --- | --- | 
 | OffersMaxQuantity | Optional<br />Must be non-negative integer<br />Allowed value only "1" (Currently no use case to support multiple quantity) | 
-| AvailabilityEndDate | Optional<br />Must be ISO\_8601 formatted <br />Must be date in the future | 
+| AvailabilityEndDate | Optional<br />Must be ISO\_8601 formatted <br />Must be date in the future<br />Must be within 10 years from the current date | 
 | Availability | Provide either OffersMaxQuantity or AvailabilityEndDate. | 
 | An unknown property | No additional properties are allowed | 
 
@@ -416,7 +515,7 @@ The schema validations are specific to `UpdateBuyerValidityTerms` actions in the
 
 | Input field | Validation rule | 
 | --- | --- | 
-|  Terms  | Required<br />Must not be null or empty<br />Only "BuyerValidityTerm" is allowed in the list<br />List size must be 1 (there's no use case today that requires multiple service availability terms) | 
+|  Terms  | Required<br />Only "BuyerValidityTerm" is allowed in the list<br />List size must be at most 1 (there's no use case today that requires multiple service availability terms)<br />Pass an empty list to remove the agreement validity term | 
 | MaximumAgreementStartDate | Required<br />Must not be null or empty<br />Must be future date and shouldn't exceed more than 3 years from now <br />Must be ISO\_8601 formatted | 
 | An unknown property | No additional properties are allowed | 
 
@@ -435,7 +534,7 @@ The following errors are specific to `UpdateBuyerValidityTerms ` actions in the 
 
 You can use the Catalog API to replace the existing legal terms completely in AWS Marketplace.
 
-The legal terms that aren't included in the latest request will be removed from the Resale Authorization. `BuyerLegalTerm` contains the EULA which will be included on the final buyer agreement and `LegalTerm` includes the Reseller Contract which will be included in the reseller agreement between the channel partner and the ISV.
+The legal terms that aren't included in the latest request will be removed from the Resale Authorization. `BuyerLegalTerm` contains the EULA which will be included on the final buyer agreement and `LegalTerm` includes the Reseller Contract which will be included in the reseller agreement between the reseller and the ISV.
 
 To update legal terms of your `ResaleAuthorization`, call the `StartChangeSet` API operation with the `UpdateLegalTerms` change type, as shown in the following example. 
 
@@ -492,8 +591,8 @@ Provide information for the fields to add the `UpdateLegalTerms` change type:
   + **Type** (string) (required) – The `Type` is always `ResaleAuthorization@1.0`. 
   + **Identifier** (string) (required) – Your Resale Authorization ID. For more information, see [Identifier](catalog-apis.md#identifier).
 + **DetailsDocument** (object) (required) – Specifics of the request.
-  + **Terms** (array of structures) (required) – List of legal terms. Supported legal terms are:
-    + **BuyerLegalTerm** (object) (required) – Defines the list of text agreements to be proposed to acceptors. For example, the end user license agreement (EULA).
+  + **Terms** (array of structures) (required) – List of legal terms. Each entry must be one of the following term types, and each term type can be present only one time. To remove all legal terms, pass an empty list. Supported legal terms are:
+    + **BuyerLegalTerm** (object) (optional) – Defines the list of text agreements to be proposed to acceptors. For example, the end user license agreement (EULA).
     + **Type** (string) (required) – Category of the term being updated.
     + **Documents** (array of structures) (required) – List of references to legal resources to be proposed to the buyers. For example, the EULA. Each reference is made up of a `Type` and a `URL`:
       + **Type** (string) (required) – Type of document. Available document types are:
@@ -501,13 +600,13 @@ Provide information for the fields to add the `UpdateLegalTerms` change type:
         + **EnterpriseEula** – Enterprise Contract for AWS Marketplace. For more information, see DSA in the AWS Marketplace Seller Guide. You don't need to provide a URL for this type because it's managed by AWS Marketplace.
         + **CustomEula** – Custom EULA provided by you as a manufacturer. A URL for the EULA stored in an accessible S3 bucket is required for this document type.
       + **Url** (string) (conditionally required) – A URL to the legal document for buyers to read. This is required when category Type is `CustomEula`.
-    + **ResaleLegalTerm** (object) (optional) – Defines the list of text agreements to propose only to channel partners. This term won't be available to buyers.
+    + **ResaleLegalTerm** (object) (optional) – Defines the list of text agreements to propose only to resellers. This term won't be available to buyers.
       + **Type** (string) (required) – Category of term being updated.
-      + **Documents** (array of structures) (required) – List of references to the reseller legal resources to be proposed to the channel partners.
+      + **Documents** (array of structures) (required) – List of references to the reseller legal resources to be proposed to the resellers.
         + **Type** (string) (required) – Category of the document. Available document types are:
-          + **StandardResellerContract** – Standard Reseller Contract for AWS Marketplace.
+          + **StandardResellerContract** – [Standard Reseller Contract for AWS Marketplace](https://s3.amazonaws.com/aws-mp-rcmp/Reseller-Contract-for-AWS-Marketplace-2021-12-01.pdf). You don't need to provide a URL for this type because it's managed by AWS Marketplace.
           + **CustomResellerContract** – A custom reseller contract by you as a manufacturer. A URL for the reseller contract is stored in an accessible S3 bucket and is required for this document type.
-        + **Url** (string) (conditionally required) – URL to the reseller contract document for channel partners to read. It's required when the Type is CustomResellerContract.
+        + **Url** (string) (conditionally required) – URL to the reseller contract document for resellers to read. It's required when the Type is CustomResellerContract.
 
 **Response Syntax**
 
@@ -531,8 +630,8 @@ The schema validations are specific to `UpdateLegalTerms` actions in the AWS Mar
 
 | Input field | Validation rule | HTTP code | 
 | --- | --- | --- | 
-| Terms | Required<br />Must not be null or empty | 422 | 
-| Terms[].BuyerLegalTerm | Required<br />Must not be null or empty | 422 | 
+| Terms | Required<br />Each entry must be either a `BuyerLegalTerm` or a `ResaleLegalTerm`<br />Each term type can be present only one time<br />Pass an empty list to remove all legal terms | 422 | 
+| Terms[].BuyerLegalTerm | Optional<br />Must not be null or empty if present | 422 | 
 | Terms[].ResaleLegalTerm | Optional<br />Must not be null or empty if present | 422 | 
 | Terms[].BuyerLegalTerm.Documents | Required<br />Must not be null or empty | 422 | 
 | Terms[].BuyerLegalTerm.Documents[].Type | Required<br />Must not be null or empty <br />Allowed values:+  StandardEula <br />+  EnterpriseEula <br />+  CustomEula  | 422 | 
@@ -551,6 +650,9 @@ The following errors are specific to `UpdateLegalTerms` actions in the AWS Marke
 | --- | --- | 
 | INVALID\_BUYER\_LEGAL\_DOCUMENTS | Provide URLs for buyer legal documents stored in accessible S3 buckets. | 
 | INVALID\_RESALE\_LEGAL\_DOCUMENTS | Provide URLs for resale legal documents stored in accessible S3 buckets. | 
+| INVALID\_BUYER\_LEGAL\_DOCUMENTS | Provide legal documents in the supported file formats. | 
+| LIMIT\_EXCEEDED\_BUYER\_LEGAL\_DOCUMENT\_SIZE | Provide legal documents within the allowed size limits. | 
+| LIMIT\_EXCEEDED\_RESALE\_LEGAL\_DOCUMENT\_SIZE | Provide legal documents within the allowed size limits. | 
 | MISSING\_MANDATORY\_TERMS | Provide a BuyerLegalTerm. | 
 
 ## Update pricing
@@ -661,7 +763,7 @@ Provide information for the fields to add the `UpdatePricingTerms` change type:
 + **DetailsDocument** (object) (required) – Specifics of the request.
   + **PricingModel** (string) (required) – Pricing model for your offer. Possible values for pricing model are:
     + **Usage** – Usage-based pricing model where buyers will be billed for their usage of your product.
-    + **Contract** – In the contract-based pricing model, buyers are either billed in advance for the use of your product or offered a flexible payment schedule. Buyers can also pay for additional usage above their contract. Channel partners can add their markup to this payment schedule and pricing for each dimension.
+    + **Contract** – In the contract-based pricing model, buyers are either billed in advance for the use of your product or offered a flexible payment schedule. Buyers can also pay for additional usage above their contract. Resellers can add their markup to this payment schedule and pricing for each dimension.
   + **Terms** (array of structures) (required) – List of pricing terms that you want to update. Supported pricing terms are:
     + **ResaleUsageBasedPricingTerm** (object) – Defines a pay-as-you-go (PAYG) pricing model where the customers are charged based on product usage.
       + **Type** (string) (required) – Category of the term.
@@ -704,23 +806,23 @@ The following schema validations are specific to `UpdatePricingTerms` actions in
 
 | Input field | Validation rule | 
 | --- | --- | 
-| Terms | Required<br />Must not be null or empty<br />Each term must present only single time Allowed terms:+  \* ResaleUsageBasedPricingTerm <br />+  \* ResaleConfigurableUpfrontPricingTerm <br />+  \* ResaleFixedupfrontPricingTerm  | 
-| Terms[].ResaleUsageBasedPricingTerm.CurrencyCode | Required <br />Allowed values: USD | 
-| Terms[].ResaleUsageBasedPricingTerm.Validity | Required<br />Must not be null or empty<br />Expected format: ISO 8601 duration | 
+| Terms | Required<br />Each term can be present only one time. Allowed terms are:+  `ResaleUsageBasedPricingTerm` <br />+  `ResaleConfigurableUpfrontPricingTerm` <br />+  `ResaleFixedUpfrontPricingTerm`  | 
+| PricingModel | Required<br />Allowed values: `Free`, `Contract`, `Usage`<br />When `PricingModel` is `Free`, `Terms` must be an empty list. Otherwise, `Terms` must contain at least one term. | 
+| Terms[].ResaleUsageBasedPricingTerm.CurrencyCode | Required <br />Allowed values: ["USD", "AUD", "CAD", "EUR", "GBP", "INR", "JPY"] | 
 | Terms[].ResaleUsageBasedPricingTerm.RateCards | Required<br />Must not be null or empty | 
-| Terms[].ResaleUsageBasedPricingTerm.RateCards[].DimensionKey | Required<br />Must not be null or empty <br />Length must be between 1 and 60 | 
-| Terms[].ResaleUsageBasedPricingTerm.RateCards[].Price | Required<br />Must not be null or empty <br />Data type is "String" <br />Must be non-negative <br />Support up to 8 Decimal<br />No special characters supported | 
-| Terms[].ResaleConfigurableUpfrontPricingTerm.CurrencyCode | Required <br />Allowed values: ["USD", "AUD", "EUR", "GBP", "JPN"] | 
+| Terms[].ResaleUsageBasedPricingTerm.RateCards[].DimensionKey | Required<br />Must not be null or empty  | 
+| Terms[].ResaleUsageBasedPricingTerm.RateCards[].Price | Required<br />Must not be null or empty <br />Data type is "String" <br />Must be non-negative <br />Support up to 8 Decimal<br />Maximum value is 100,000,000<br />No special characters supported | 
+| Terms[].ResaleConfigurableUpfrontPricingTerm.CurrencyCode | Required <br />Allowed values: ["USD", "AUD", "CAD", "EUR", "GBP", "INR", "JPY"] | 
 | Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].Selector.Type | Required<br />Must not be null or empty <br />Allowed values: Duration | 
 | Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].Selector.Value | Required<br />Must not be null or empty<br />Expected format: ISO 8601 duration | 
-| Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].RateCard.DimensionKey | Required<br />Must not be null or empty <br />Length must be between 1 and 60 | 
-| Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].RateCard.Price | Required<br />Must not be null or empty <br />Data type is "String" <br />Must be non-negative <br />Support up to 6 Decimal<br />No special characters supported | 
+| Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].RateCard.DimensionKey | Required<br />Must not be null or empty  | 
+| Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].RateCard.Price | Required<br />Must not be null or empty <br />Data type is "String" <br />Must be non-negative <br />Support up to 3 Decimal<br />No special characters supported | 
 | Terms[].ResaleConfigurableUpfrontPricingTerm.RateCards[].Constraints | Optional | 
-| Terms[].ResaleFixedUpfrontPricingTerm.CurrencyCode | Required Allowed values: ["USD", "AUD", "EUR", "GBP", "JPN"] | 
-| Terms[].ResaleFixedUpfrontPricingTerm.Price | Required<br />Must not be null or empty <br />Data type is "String" <br />Must be non-negative <br />Support up to 6 Decimal<br />No special characters supported <br />Allowed values: 0.0 | 
+| Terms[].ResaleFixedUpfrontPricingTerm.CurrencyCode | Required Allowed values: ["USD", "AUD", "CAD", "EUR", "GBP", "INR", "JPY"] | 
+| Terms[].ResaleFixedUpfrontPricingTerm.Price | Required<br />Must not be null or empty <br />Data type is "String" <br />Must be non-negative <br />Support up to 3 Decimal<br />No special characters supported <br />Maximum value is 100,000,000,000 | 
 | Terms[].ResaleFixedUpfrontPricingTerm.Duration | Required<br />Must not be null or empty<br />Expected format: ISO 8601 duration | 
-| Terms[].ResaleFixedUpfrontPricingTerm.Grants[].DimensionKey | Required<br />Must not be null or empty <br />Length must be between 1 and 60 | 
-| Terms[].ResaleFixedUpfrontPricingTerm.Grants[].MaxQuantty | Required<br />Must not be null or empty | 
+| Terms[].ResaleFixedUpfrontPricingTerm.Grants[].DimensionKey | Required<br />Must not be null or empty  | 
+| Terms[].ResaleFixedUpfrontPricingTerm.Grants[].MaxQuantity | Required<br />Must not be null or empty<br />Must be between 1 and 2,147,483,646 | 
 | An unknown property | No additional properties are allowed | 
 
 **Asynchronous Errors**
@@ -745,18 +847,17 @@ The following errors are specific to `UpdatePricingTerms` actions in the AWS Mar
 | INCOMPATIBLE\_TERMS | The following terms aren't compatible with the PricingModel: [x,y,z]. | 
 | TOO\_MANY\_RATES | Provide RateCards within the allowed limits in [x term]. | 
 | TOO\_MANY\_GRANTS | Provide up to [N] grants in [x term]. | 
-| INVALID\_SELECTOR\_DURATION\_VALUE | Provide duration between [x] and [y] months in ResaleConfigurableUpfront | 
-| TOO\_MANY\_GRANTS | Provide duration between [x] and [y] months. | 
-| INVALID\_SELECTOR\_DURATION\_VALUE | Ensure duration granularity is at the day level for metered dimensions in ResaleConfigurableUpfront | 
-| INVALID\_DURATION | Ensure duration granularity is at the day level for metered dimensions in FixedUpfront. | 
+| INVALID\_SELECTOR\_DURATION\_VALUE | Provide duration between 1 and 144 months in ResaleConfigurableUpfrontPricingTerm | 
+| INVALID\_DURATION | Provide duration between 1 and 144 months in ResaleFixedUpfrontPricingTerm | 
+| INVALID\_SELECTOR\_DURATION\_VALUE | Ensure duration granularity is at the day level for metered dimensions in ResaleConfigurableUpfrontPricingTerm. | 
+| INVALID\_DURATION | Ensure duration granularity is at the day level for metered dimensions in ResaleFixedUpfrontPricingTerm. | 
 | INVALID\_RATE\_CARD | Provide only entitled dimensions in [x]. | 
 | MISSING\_DURATION | Provide a Duration in [x]. | 
 | DUPLICATE\_DIMENSION\_KEYS | Provide Grants with a unique list of dimension keys in [x]. | 
 | INCOMPATIBLE\_PAYMENT\_SETTINGS | Update your payment settings to be compatible with the CurrencyCode. | 
-| INCOMPATIBLE\_SELLER\_VERIFICATION | Complete all required seller verification processes. | 
 | INVALID\_CURRENCY\_CODE | Provide a supported CurrencyCode. | 
 | INVALID\_CURRENCY\_CODE | Provide the same CurrencyCode across all pricing and payment terms. | 
-| INCOMPATIBLE\_CURRENCY\_CODE | CurrencyCode can't be changed after the offer is released. | 
+| INVALID\_PRICE | Price value cannot have decimal for provided CurrencyCode in [x]. | 
 
 ## Update payment schedule
 <a name="update-payment-schedule-details"></a>
@@ -843,11 +944,12 @@ The schema validations are specific to `UpdatePaymentScheduleTerms` actions in t
 
 | Input field | Validation rule | HTTP | 
 | --- | --- | --- | 
+| Terms | Required<br />List size must be at most 1<br />Pass an empty list to remove all payment schedule terms | 422 | 
 | Terms.Type | Required<br />Not supported for [x] product <br />Allowed terms: ResalePaymentScheduleTerm | 422 | 
-| Terms[].CurrencyCode | Required<br />Allowed values: USD | 422 | 
-| Terms[].ResalePaymentScheduleTerm.Schedule | Required<br />Length must be between 1 and 60 | 422 | 
-| Terms[].ResalePaymentScheduleTerm.Shedule.ChargeDate | Required<br />Must be in ISO 8601 format<br />Date must be in the future | 422 | 
-| Terms[].ResalePaymentScheduleTerm.Shedule.ChargeAmount | Required<br />Must be non-negative | 422 | 
+| Terms[].CurrencyCode | Required<br />Allowed values: ["USD", "AUD", "CAD", "EUR", "GBP", "INR", "JPY"] | 422 | 
+| Terms[].ResalePaymentScheduleTerm.Schedule | Required<br />Length must be between 1 and 86 | 422 | 
+| Terms[].ResalePaymentScheduleTerm.Schedule.ChargeDate | Required<br />Must be in ISO 8601 format<br />Date must be in the future | 422 | 
+| Terms[].ResalePaymentScheduleTerm.Schedule.ChargeAmount | Required<br />Must be greater than 0<br />Support up to 2 Decimal<br />Maximum value is 100,000,000,000 | 422 | 
 | An unknown property | No additional properties are allowed | 422 | 
 
 **Asynchronous Errors**
@@ -858,27 +960,26 @@ The following errors are specific to `UpdatePaymentScheduleTerms` actions in the
 | Error code | Error message | 
 | --- | --- | 
 | INCOMPATIBLE\_TERMS | OffersMaxQuantity and AvailabilityEndDate must be present with ResalePaymentScheduleTerm.  | 
-| TOO\_MANY\_SCHEDULED\_PAYMENTS | Provide up to 60 scheduled payments in ResalePaymentScheduleTerm. | 
+| TOO\_MANY\_SCHEDULED\_PAYMENTS | Provide up to 86 scheduled payments in ResalePaymentScheduleTerm. | 
 | DUPLICATE\_CHARGE\_DATES | Provide unique charge dates in ResalePaymentScheduleTerm. | 
 | INVALID\_CHARGE\_DATES | Provide a future ChargeDate.  | 
 | INVALID\_CHARGE\_DATES | Provide a last charge date that is before [x]. | 
 | MISSING\_MANDATORY\_TERMS | Provide a ResaleFixedUpfrontPricingTerm and ResalePaymentScheduleTerm together. | 
 | INVALID\_CURRENCY\_CODE | Provide the same CurrencyCode across all pricing and payment terms. | 
 | INCOMPATIBLE\_PAYMENT\_SETTINGS | Update your payment settings to be compatible with the CurrencyCode. | 
-| INCOMPATIBLE\_SELLER\_VERIFICATION | Complete all required seller verification processes. | 
 | INVALID\_CURRENCY\_CODE | Provide a supported CurrencyCode. | 
 | INVALID\_CURRENCY\_CODE | Provide the same CurrencyCode across all pricing and payment terms. | 
-| INCOMPATIBLE\_CURRENCY\_CODE | CurrencyCode can't be changed after the offer is released. | 
+| INVALID\_CHARGE\_AMOUNT | ChargeAmount value cannot have decimal for provided CurrencyCode in ResalePaymentScheduleTerm. | 
 
 ## Update net payment terms
 <a name="update-resale-net-payment-terms"></a>
 
 You can use the Catalog API to set the net payment terms of your Resale Authorization in AWS Marketplace. A net payment term is a term where you specify the number of days after invoice issuance by which payment is due.
 
-The net payment term that you set on a Resale Authorization is the maximum term that the channel partner can offer to a buyer in a channel partner private offer (CPPO). The channel partner can offer the same period or a shorter one, but not a longer one. For more information, see [Create a CPPO](work-with-cppos.md#create-offer-using-resale-auth).
+The net payment term that you set on a Resale Authorization is the maximum term that the reseller can offer to a buyer in the resulting private offer. The reseller can offer the same period or a shorter one, but not a longer one. For more information, see [Create a CPPO](work-with-cppos.md#create-offer-using-resale-auth).
 
 **Note**  
-Net payment terms only apply to buyers who have a pay-by-invoice payment method with AWS. If you don't set net payment terms on your Resale Authorization, the channel partner can't set net payment terms on the CPPO, and the buyer's payment terms with AWS apply.
+Net payment terms only apply to buyers who have a pay-by-invoice payment method with AWS. If you don't set net payment terms on your Resale Authorization, the reseller can't set net payment terms on their private offer, and the buyer's payment terms with AWS apply.
 
 To set the net payment term of your Resale Authorization, call the `StartChangeSet` API operation with the `UpdateNetPaymentTerms` change type, as shown in the following example.
 
@@ -916,7 +1017,7 @@ Provide information for the fields to add the `UpdateNetPaymentTerms` change typ
   + **Identifier** (string) (required) – Your Resale Authorization ID. For more information, see [Identifier](catalog-apis.md#identifier).
 + **DetailsDocument** (object) (required) – The JSON value of specifics of the request.
   + **Terms** (array of structures) (required) – List of net payment terms that you want to update. A Resale Authorization can contain at most one net payment term. To remove the net payment term, provide an empty list. Supported terms are:
-    + **ResaleNetPaymentTerm** (object) – Defines the maximum net payment term that the channel partner can offer to a buyer.
+    + **ResaleNetPaymentTerm** (object) – Defines the maximum net payment term that the reseller can offer to a buyer.
       + **Type** (string) – Type of the term being updated. This is the object value: `"ResaleNetPaymentTerm"`.
       + **PaymentDuePeriod** (string) – The number of days after the invoice issuance date that payment is due. This field supports the ISO 8601 format. Supported values are `P15D`, `P30D`, `P45D`, `P60D`, `P90D`, and `P120D`.
 
@@ -942,7 +1043,7 @@ The following schema validations are specific to `UpdateNetPaymentTerms` actions
 
 | Input field | Validation rule | HTTP code | 
 | --- | --- | --- | 
-| Terms | Required<br />Only `ResaleNetPaymentTerm` is allowed<br />List size must be less than 2 | 422 | 
+| Terms | Required<br />Only `ResaleNetPaymentTerm` is allowed<br />List size must be at most 1<br />Pass an empty list to remove all net payment terms | 422 | 
 | Terms[].Type | Required<br />Can only be `ResaleNetPaymentTerm` | 422 | 
 | Terms[].ResaleNetPaymentTerm.PaymentDuePeriod | Required<br />Expected format: ISO 8601 duration<br />Allowed values: ["P15D", "P30D", "P45D", "P60D", "P90D", "P120D"] | 422 | 
 
@@ -956,104 +1057,12 @@ The following errors are specific to `UpdateNetPaymentTerms` actions in the AWS 
 | INCOMPATIBLE\_STATUS | UpdateNetPaymentTerms request can't be performed after the resale authorization is released. | 
 | INCOMPATIBLE\_TERMS | ResaleNetPaymentTerm is not supported for the seller account [x]. | 
 
-## Update Resale Authorization details
-<a name="update-resale-auth-information"></a>
-
-You can use the Catalog API to update Resale Authorization details in AWS Marketplace.
-
-To update Resale Authorization details, call the `StartChangeSet` API operation with the `UpdateInformation` change type, as shown in the following example. 
-
-**Note**  
-The `UpdateInformation` change type only updates the sections provided in the request; all other information remains unchanged.
-
-**Request Syntax**
-
-```
-POST /StartChangeSet HTTP/1.1
-Content-type: application/json
-
-{
-  "Catalog": "AWSMarketplace",
-  "ChangeSet":
-  [
-    {
-      "ChangeType": "UpdateInformation",
-      "Entity":
-      {
-        "Type": "ResaleAuthorization@1.0",
-        "Identifier": "resaleauthz-123456789"
-      },
-      "DetailsDocument":
-      {
-        "Name": "TestResaleAuthorization",
-        "Description": "Worldwide ResaleAuthorization for Test Product",
-        "PreExistingBuyerAgreement":
-        {
-          "AcquisitionChannel": "AwsMarketplace",
-          "PricingModel": "Contract"
-        }
-      }
-    }
-  ]
-}
-```
-
-Provide information for the fields to add the `UpdateInformation` change type:
-+ **Entity** (object) (required) – Your Resale Authorization. 
-  + **Type** (string) (required) – The `Type` is always `ResaleAuthorization@1.0`. 
-  + **Identifier** (string) (required) – Your Resale Authorization ID. For more information, see [Identifier](catalog-apis.md#identifier).
-+ **DetailsDocument** (object) (required) – Details of the request, including the information you want to update information for the Resale Authorization.
-  + **Name** (string) (optional) – The name associated with the ResaleAuthorization for better readability to you and your channel partners.
-  + **Description** (string) (optional) – The description is free-form text where you can add details about the ResaleAuthorization.
-  + **PreExistingBuyerAgreement** (object) (optional) – Determines if this offer is a renewal for an existing agreement with an existing customer for the same underlying product. The existing agreement can be within or outside AWS Marketplace. AWS may audit and verify your offer is a renewal. If AWS is unable to verify your offer, then AWS may revoke the offer and entitlements from your customer.
-    + **AcquisitionChannel** (string) (required) – Indicates if the existing buyer agreement was signed outside AWS Marketplace or in AWS Marketplace.
-
-      Possible values: `External`, `AwsMarketplace`
-    + **PricingModel** (string) (required) **–** Indicates which pricing model the exiting agreement uses.
-
-      Possible values: `Contract`, `Usage`, `BYOL`, `Free`
-
-**Response Syntax**
-
-A change set is created for your request. The response to this request gives you the `ChangeSetId` and `ChangeSetArn` for the change set and looks like the following.
-
-```
-{
-  "ChangeSetId": "example123456789012abcdef",
-  "ChangeSetArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/ChangeSet/example123456789012abcdef"
-}
-```
-
-The change request is added to a queue and processed. This includes validating information to ensure that it meets the AWS Marketplace guidelines. The validation process can take anywhere from a few minutes to a few hours.
-
-You can check the status of the request through the AWS Marketplace Management Portal, or directly through Catalog API using the `[DescribeChangeSet](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_DescribeChangeSet.html)` API operation.
-
-**Synchronous Validations**
-
-The following schema validations are specific to `UpdateInformation` actions in the AWS Marketplace Catalog API. These validations are performed when you call `StartChangeSet`, and the request will fail with an HTTP error if the input does not meet the following requirements.
-
-
-| Input field | Validation rule | HTTP code | 
-| --- | --- | --- | 
-| Name | Optional<br />Must not be null or empty<br />Length must be between 1 and 100 characters <br />Pattern ^[A-Za-z0-9]\*$<br />No special character or white space allowed | 422 | 
-| Description | Optional<br />Length must be between 1 and 255 characters <br />Pattern ^[A-Za-z0-9\\\\s]\*$<br />No special characters allowed | 422 | 
-| An unknown property | No additional properties are allowed | 422 | 
-
-**Asynchronous Errors**
-
-The following errors are specific to `UpdateInformation` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. or more information about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets).
-
-
-| Error code | Error message | 
-| --- | --- | 
-| INCOMPATIBLE\_BUYER\_TARGETING | At least one Buyer account must be present for ResaleAuthorization with PreExistingBuyerAgreement. | 
-
 ## Restrict a Resale Authorization
 <a name="restricte-resale-auth"></a>
 
 You can use the Catalog API to set restrict rules to a Resale Authorization in AWS Marketplace.
 
-A restricted Resale Authorization can no longer be used by a channel partner to create a private offer. An existing private offer won't be impacted.
+A restricted Resale Authorization can no longer be used by a reseller to create a private offer. An existing private offer won't be impacted.
 
 To restrict your Resale Authorization, call the `StartChangeSet` API operation with the `RestrictResaleAuthorization` change type, as shown in the following example. 
 
@@ -1122,12 +1131,12 @@ The following errors are specific to `RestrictResaleAuthorization` actions in th
 | --- | --- | 
 | INCOMPATIBLE\_STATUS | Expired ResaleAuthorization can't be marked as restricted.  | 
 
-## Release a Resale Authorization and make it visible to a Channel Partner
+## Release a Resale Authorization
 <a name="release-resale-auth"></a>
 
 You can use the Catalog API to initiate your `ResaleAuthorization` to an `Active` state.
 
- `ReleaseResaleAuthorization` makes your Resale Authorization active so that a Channel Partner can use your Resale Authorization to create private offers.
+ `ReleaseResaleAuthorization` makes your Resale Authorization active so that a reseller can use your Resale Authorization to create private offers.
 
 To release your Resale Authorization, call the `StartChangeSet` API operation with the `ReleaseResaleAuthorization` change type, as shown in the following example.
 
@@ -1186,7 +1195,9 @@ The schema validations are specific to `ReleaseResaleAuthorization` actions in t
 
 **Asynchronous Errors**
 
-The following errors are specific to `ReleaseResaleAuthorization` actions in the AWS Marketplace Catalog API. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more details about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets).
+When you release a Resale Authorization, AWS Marketplace revalidates the entire Resale Authorization as a final check. This includes the validations for every change type you used to build it, so any error described earlier in this topic can be returned again at release time.
+
+The following errors are specific to validations that run only when the Resale Authorization is evaluated as a whole. These errors are returned when you call `DescribeChangeSet` after a change set is processing. For more details about using `DescribeChangeSet` to get the status of a change request, see [Working with change sets](catalog-apis.md#working-with-change-sets).
 
 
 | Error code | Error message | 
@@ -1194,9 +1205,15 @@ The following errors are specific to `ReleaseResaleAuthorization` actions in the
 | MISSING\_MANDATORY\_TERMS | Provide a BuyerLegalTerm. | 
 | MISSING\_MANDATORY\_TERMS | Provide a PricingTerm. | 
 | INCOMPATIBLE\_PRODUCT | Use an active product in limited or public state. | 
-| INCOMPATIBLE\_PRICING\_TERM | PaymentScheduleTerm and FixedUpfrontPricingTerm must be present together. | 
+| MISSING\_MANDATORY\_TERMS | Provide a ResaleFixedUpfrontPricingTerm and ResalePaymentScheduleTerm together. | 
 | INCOMPATIBLE\_BUYER\_TARGETING | At least one Buyer account must be present for ResaleAuthorization with PreExistingBuyerAgreement. | 
 | MISSING\_MANDATORY\_TERMS | Provide at least one of [x,y,z]. | 
+| INCOMPATIBLE\_TERMS | OffersMaxQuantity and AvailabilityEndDate must be present with ResalePaymentScheduleTerm. | 
+| DUPLICATE\_TERM\_TYPES | Provide a unique list of term types. | 
+| INCOMPATIBLE\_TERMS | [x] is not supported together with the following terms: [y]. | 
+| INVALID\_AVAILABILITY\_END\_DATE | Provide an AvailabilityEndDate that is before all the ChargeDate in ResalePaymentScheduleTerms. | 
+| INVALID\_CHARGE\_DATE | Provide a last charge date that is before [date]. | 
+| INVALID\_RESELLER\_ACCOUNT | Provide a valid reseller account. | 
 | INCOMPATIBLE\_STATUS | [x] request can't be performed after the resale authorization is released. | 
 
 ## Describe an existing Resale Authorization
@@ -1228,8 +1245,10 @@ The response to this request gives you the offer details and looks like the foll
     "Name": "TestResaleAuthorization",
     "Description": "ResaleAuthorization for Test Product",
     "ProductId": "prod-ad8EXAMPLE51",
+    "ProductArn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/prod-ad8EXAMPLE51",
     "ProductName": "TestProduct",
     "Status": "Active", /*Draft, Active, Restricted*/
+    "SourceAuthorization": "resaleauthz-987654321",
     "PreExistingBuyerAgreement": {
       "AcquisitionChannel": "Unknown",
       "PricingModel": "Unknown"
@@ -1237,6 +1256,9 @@ The response to this request gives you the offer details and looks like the foll
     "CreatedDate": "2023-07-18T16:39:31.335Z",
     "ManufacturerLegalName": "ChannelCAPI.Inc",
     "ManufacturerAccountId": "123456789012",
+    /* The manufacturer and the issuer can be the same entity */
+    "IssuerLegalName": "ChannelCAPI.Inc",
+    "IssuerAccountId": "123456789012",
     "Dimensions": [
       {
         "Name": "Protected Resources",
@@ -1386,7 +1408,8 @@ The response to this request gives you the offer details and looks like the foll
         "Type": "PartnerTargetingRule",
         "Id": "partner_targeting_rule_id_placeholder",
         "ResellerAccountId": "777777777777",
-        "ResellerLegalName": "ChannelCAPICP.Inc"
+        "ResellerLegalName": "ChannelCAPICP.Inc",
+        "ResellerRole": "ChannelPartner"
       }
     ]
   }
@@ -1399,9 +1422,13 @@ The following is information about the fields you see in the `DescribeEntity` re
 + **EntityArn** (string) – The ARN associated to the unique identifier for the change set referenced in this request.
 + **LastModifiedDate** (string) – The last modified date of the entity, in ISO 8601 format (2018-02-27T13:45:22Z).
 + **DetailsDocument** (object) (required) – This JSON string includes the details of the entity.
-  + **Name** (string) – Name associated with the ResaleAuthorization for better readability to you and your Channel Partners. It's displayed as part of the Agreement information.
+  + **Name** (string) – Name associated with the ResaleAuthorization for better readability to you and your resellers. It's displayed as part of the Agreement information.
   + **Description** (string) – Description is a free-form text which is meant to be used only by you and will never be exposed to buyers.
   + **ProductId** (string) – Description is a free-form text which is meant to be used only by you and will never be exposed to buyers.
   + **AgreementToken** (string) – Generated from content in ResaleAuthorization. It contains information about terms, rules, and proposer while creating an agreement. It's used for authorization checks and validations during procurement.
   + **Terms** (array of structures) – List of terms presented for acceptance.
   + **Rules** (array of structures) – List of rules or set of instructions.
+  + **IssuerAccountId** (string) – The AWS account of the party that issued the Resale Authorization.
+  + **IssuerLegalName** (string) – The legal name of the party that issued the Resale Authorization.
+**Note**  
+When a Resale Authorization has no separate issuer, `IssuerAccountId` and `IssuerLegalName` return the same values as `ManufacturerAccountId` and `ManufacturerLegalName`.

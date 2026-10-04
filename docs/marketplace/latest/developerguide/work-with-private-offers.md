@@ -808,7 +808,7 @@ The following schema validations are specific to `UpdatePricingTerms` actions in
 | Terms[].ByolPricingTerm.Type | RequiredCan only be "ByolPricingTerm" | 422 | 
 | Terms[].ConfigurableUpfrontPricingTerm | Required | 422 | 
 | Terms[].ConfigurableUpfrontPricingTerm.Type | RequiredCan only be "ConfigurableUpfrontPricingTerm" | 422 | 
-| Terms[].ConfigurableUpfrontPricingTerm.CurrencyCode | RequiredSupported currencies: ["USD", "AUD", "EUR", "GBP", "JPN"] | 422 | 
+| Terms[].ConfigurableUpfrontPricingTerm.CurrencyCode | RequiredSupported currencies: ["USD", "AUD", "EUR", "GBP", "JPY"] | 422 | 
 | Terms[].ConfigurableUpfrontPricingTerm.RateCards | RequiredList size must be between 1 and 5 | 422 | 
 | Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Constraints | Required | 422 | 
 | Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Contraints.MultipleDimensionSelection | RequiredAllowed values: ["Allowed", "Disallowed"] | 422 | 
@@ -821,7 +821,7 @@ The following schema validations are specific to `UpdatePricingTerms` actions in
 | Terms[].ConfigurableUpfrontPricingTerm.RateCards[].Selector.Value | RequiredExpected format per Selector type: ISO 8601 duration | 422 | 
 | Terms[].FixedUpfrontPricingTerm | Required | 422 | 
 | Terms[].FixedUpfrontPricingTerm.Type | RequiredCan only be "FixedUpfrontPricingTerm" | 422 | 
-| Terms[].FixedUpfrontPricingTerm.CurrencyCode | RequiredSupported currencies: ["USD", "AUD", "EUR", "GBP", "JPN"] | 422 | 
+| Terms[].FixedUpfrontPricingTerm.CurrencyCode | RequiredSupported currencies: ["USD", "AUD", "EUR", "GBP", "JPY"] | 422 | 
 | Terms[].FixedUpfrontPricingTerm.Duration | RequiredExpected format per Selector type: ISO 8601 duration | 422 | 
 | Terms[].FixedUpfrontPricingTerm.Grants | RequiredList size must be between 1 and 200 | 422 | 
 | Terms[].FixedUpfrontPricingTerm.Grants[].DimensionKey | RequiredLength must be between 1 and 100 | 422 | 

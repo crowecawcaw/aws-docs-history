@@ -36,7 +36,7 @@ The following are common ways to use the AWS Marketplace MCP server:
 ## Available tools
 <a name="marketplace-mcp-available-tools"></a>
 
-All 6 tools are stateless and require no conversation context or session management. All tool definitions, including full input/output schemas, are available programmatically through the standard MCP `tools/list` endpoint. The schemas returned by `tools/list` are the canonical, always-current source of truth for parameter names, types, and constraints.
+All 6 tools are stateless and require no conversation context. All tool definitions, including full input/output schemas, are available programmatically through the standard MCP `tools/list` endpoint. The schemas returned by `tools/list` are the canonical, always-current source of truth for parameter names, types, and constraints.
 
 The following table summarizes each tool and whether it is read-only.
 
@@ -109,6 +109,12 @@ The following methods are supported:
 + `POST` with `method: "tools/list"` — Discover available tools and their schemas.
 + `POST` with `method: "tools/call"` — Invoke a tool.
 
+**Session identifier:** This server uses MCP sessions, as defined by the Streamable HTTP transport in the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports), version 2025-06-18. The response to `initialize` includes an `Mcp-Session-Id` header, and MCP clients send it on every later request. If you build requests yourself, you must send it too. Requests without the header fail with HTTP 400. Requests fail with HTTP 404 if the identifier was not issued by the server, or if it has expired. If you receive a 404, call `initialize` again.
+
+```
+Mcp-Session-Id: <stable-id>
+```
+
 **Authentication:** No authentication is required. Omit auth headers in HTTP requests.
 
 #### Step 2: Obtain and register tools (tool discovery)
@@ -174,19 +180,6 @@ The following example shows a `tools/list` request.
 
 Each tool entry includes the tool `name`, a detailed `description` with usage guidance and examples, and a complete `inputSchema` with parameter types, constraints, and validation rules.
 
-#### Step 3: Configure telemetry
-<a name="marketplace-mcp-setup-telemetry"></a>
-
-AWS Marketplace MCP requires a stable identifier on every tool call for request correlation and telemetry. This is not an authentication credential — it is used only for diagnostics and analytics.
-
-Pass the identifier in the custom HTTP header:
-
-```
-Mcp-Session-Id: <stable-id>
-```
-+ **Browser clients:** Derive from an existing session cookie or a frontend-generated UUID. Use the same value across all tool calls.
-+ **Programmatic clients:** Use `POST` with `method: "initialize"` to obtain an `Mcp-Session-Id`.
-
 #### HTTP transport
 <a name="marketplace-mcp-streamable-http-transport"></a>
 
@@ -195,14 +188,15 @@ AWS Marketplace MCP uses HTTP transport, where the server operates as an indepen
 The following are key transport characteristics:
 + **HTTP POST for requests:** Every client message is sent as a new HTTP POST request.
 + **JSON responses:** All tools return JSON responses (`Content-Type: application/json`).
-+ **Session management:** Session IDs through the `Mcp-Session-Id` header for request correlation and telemetry.
-+ **Protocol version:** Specified through the `MCP-Protocol-Version: 2025-06-18` header.
++ **Session management:** The server issues an identifier in the response to `initialize`. Send it in the `Mcp-Session-Id` header on every later request.
++ **Protocol version:** The server supports [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18) version 2025-06-18.
 
 **Required HTTP headers:**
 
 ```
 Content-Type: application/json
-Mcp-Session-Id: <stable-uuid>
+Accept: application/json, text/event-stream
+Mcp-Session-Id: <stable-id>
 MCP-Protocol-Version: 2025-06-18
 ```
 
@@ -213,7 +207,8 @@ The following example shows a tool call request and response.
 ```
 POST /mcp HTTP/1.1
 Content-Type: application/json
-Mcp-Session-Id: 1868a90c-5b12-4e8a-9f3d-2a1b3c4d5e6f
+Accept: application/json, text/event-stream
+Mcp-Session-Id: 00000000-0000-0000-0000-000000000000
 MCP-Protocol-Version: 2025-06-18
 
 {
@@ -242,7 +237,10 @@ MCP-Protocol-Version: 2025-06-18
         "text": "{\"results\":[...],\"next_cursor\":null}"
       }
     ],
-    "isError": false
+    "structuredContent": {
+      "results": [...],
+      "next_cursor": null
+    }
   }
 }
 ```
@@ -299,7 +297,7 @@ The following table describes the output fields.
 ### search\_aws\_marketplace\_solutions
 <a name="marketplace-mcp-tool-search-solutions"></a>
 
-Performs a direct AWS Marketplace Catalog API search. Returns raw, unranked, unfiltered results without AI processing or relevance scoring. Supports batch queries (up to 10) and cursor-based pagination for single queries.
+Searches AWS Marketplace and returns a list of relevant solutions based on the user's queries. Supports batch queries (up to 10) and cursor-based pagination for single queries.
 
 **Input:**
 
@@ -357,7 +355,7 @@ The following table describes the output fields.
 ### get\_aws\_marketplace\_solution
 <a name="marketplace-mcp-tool-get-solution"></a>
 
-Performs a direct AWS Marketplace Catalog API call. Retrieves comprehensive solution metadata by solution ID without AI processing. Supports batch requests (up to 10 IDs).
+Retrieves comprehensive solution metadata by solution ID, including reviews, pricing options, and call-to-action links. Supports batch requests (up to 10 IDs).
 
 **Input:**
 
@@ -463,7 +461,7 @@ The following table describes the fields in each `SolutionOutput` object.
 ### get\_aws\_marketplace\_related\_solutions
 <a name="marketplace-mcp-tool-related-solutions"></a>
 
-Performs a direct AWS Marketplace Catalog API call. Returns related solutions for given solution IDs as identified by AWS Marketplace, sorted by relation score (descending), without AI analysis or relevance scoring. Supports batch requests (up to 10 IDs).
+Returns related solutions for given solution IDs as identified by AWS Marketplace, sorted by relation score (descending). Supports batch requests (up to 10 IDs).
 
 **Input:**
 
@@ -509,7 +507,9 @@ The following table describes the output fields.
 | --- | --- | --- | 
 | results | SingleRelatedSolutionsResult[] | One entry per input solution ID. | 
 | results[].solution\_id | string | The input solution ID. | 
-| results[].related\_solutions | MinimalSolutionMetadata[] | Related solutions sorted by relevance. | 
+| results[].related\_solutions | MinimalSolutionMetadata[] | Related solutions sorted by relation score (descending). | 
+
+If a solution ID has no related solutions, its `related_solutions` array is empty. Related solutions that are no longer listed are omitted.
 
 ### research\_aws\_marketplace\_solution
 <a name="marketplace-mcp-tool-research-solution"></a>
@@ -541,7 +541,7 @@ The following table describes each available research section.
 | Section | What it returns | 
 | --- | --- | 
 | features | Official documentation, capabilities, specifications | 
-| reviews | G2, Gartner, TrustRadius customer feedback | 
+| reviews | G2 and PeerSpot customer reviews | 
 | limitations | Known issues, drawbacks, criticisms | 
 | competitors | Competitive positioning, alternatives | 
 | pricing | Cost information, pricing models, tiers | 
@@ -597,7 +597,7 @@ Submits user feedback about an AWS Marketplace report. Call this tool after comp
 ```
 {
   "sentiment": "negative",
-  "categories": ["incomplete", "other"],
+  "categories": ["Incomplete", "Other"],
   "feedback_text": "Missing pricing details"
 }
 ```
@@ -608,7 +608,7 @@ The following table describes the input parameters.
 | Field | Type | Required | Description | 
 | --- | --- | --- | --- | 
 | sentiment | enum | Yes | "positive" or "negative". | 
-| categories | string[] | No | For negative feedback: "irrelevant", "incomplete", "inaccurate", "other". | 
+| categories | string[] | No | For negative feedback: "Irrelevant", "Incomplete", "Inaccurate", "Other". | 
 | feedback\_text | string | No | Free-form text (max 1000 characters). | 
 
 **Output:**
@@ -636,7 +636,7 @@ This is the primary workflow for AI-assisted product research. It uses `get_aws_
 
 1. The tool returns step-by-step workflow instructions and an output format template.
 
-1. The AI assistant follows the returned instructions, which typically involve calling catalog API and research tools to gather data.
+1. The AI assistant follows the returned instructions, which typically involve calling the search, solution-detail, and research tools to gather data.
 
 1. The assistant generates a formatted report following the output template.
 
@@ -679,7 +679,7 @@ This is the primary workflow for AI-assisted product research. It uses `get_aws_
 ### Direct catalog lookup
 <a name="marketplace-mcp-workflow-catalog-lookup"></a>
 
-For programmatic integrations or quick lookups that don't require AI analysis, you can call the catalog API tools directly without `get_aws_marketplace_report_guidelines`.
+For programmatic integrations or quick lookups that don't require AI analysis, you can call the search, solution-detail, and related-solutions tools directly without `get_aws_marketplace_report_guidelines`.
 
 **Search then detail lookup:**
 
@@ -698,7 +698,7 @@ After completing any workflow, the assistant should collect user feedback.
 
 1. If positive, call `submit_aws_marketplace_feedback` with `sentiment: "positive"`.
 
-1. If negative, ask which categories apply (`irrelevant`, `incomplete`, `inaccurate`, `other`), optionally collect free-text feedback, and submit.
+1. If negative, ask which categories apply (`Irrelevant`, `Incomplete`, `Inaccurate`, `Other`), optionally collect free-text feedback, and submit.
 
 ## End-to-end example
 <a name="marketplace-mcp-end-to-end-example"></a>
@@ -774,31 +774,66 @@ The following example demonstrates a complete recommendations workflow from init
 ## Error handling
 <a name="marketplace-mcp-error-handling"></a>
 
-Errors fall into three categories: protocol errors, tool execution errors, and validation errors.
+Errors fall into three categories: protocol errors, input validation errors, and tool execution errors.
 
 ### Protocol errors
 <a name="marketplace-mcp-protocol-errors"></a>
 
-Protocol errors are returned when the request violates the JSON-RPC or MCP specification (for example, malformed JSON, missing required fields, or unknown methods).
+Protocol errors are returned as a JSON-RPC `error` object when the request can't be processed as an MCP request. They have two kinds of cause: the `Mcp-Session-Id` header, and an unsupported method.
+
+**Session errors** are returned before any tool runs. Common causes:
++ The `Mcp-Session-Id` header is missing: HTTP 400.
++ The identifier is malformed (not a UUID v4 or JWT): HTTP 400.
++ The server did not issue the identifier: HTTP 404.
++ The identifier has expired: HTTP 404.
+
+A missing `Mcp-Session-Id` returns HTTP 400:
+
+```
+{
+  "jsonrpc": "2.0",
+  "error": {
+    "code": -32600,
+    "message": "Bad Request: mcp-session-id header is required"
+  },
+  "id": null
+}
+```
+
+An unknown or expired identifier returns HTTP 404:
+
+```
+{
+  "jsonrpc": "2.0",
+  "error": {
+    "code": -99999,
+    "message": "Bad Request: Invalid or expired session ID"
+  },
+  "id": null
+}
+```
+
+To resolve a session error, call `initialize` again and retry the request with the new `Mcp-Session-Id`.
+
+**Unsupported methods** return HTTP 200 with a JSON-RPC `error` object. The following example shows an unknown method.
 
 ```
 {
   "jsonrpc": "2.0",
   "id": 10,
   "error": {
-    "code": -32602,
-    "message": "Invalid params",
-    "data": {
-      "details": "Missing required field: queries"
-    }
+    "code": -32601,
+    "message": "Method not found"
   }
 }
 ```
 
-### Tool execution errors
-<a name="marketplace-mcp-tool-execution-errors"></a>
+### Input validation errors
+<a name="marketplace-mcp-validation-errors"></a>
 
-Tool execution errors are returned when a tool invocation fails at runtime (for example, rate limiting, invalid solution IDs, or upstream service errors). Tool errors are reported within the result object, not as MCP protocol-level errors, so the AI assistant can see and handle the error.
+Input validation errors are returned when the arguments of a tool call fail schema validation (for example, a missing required field, an invalid value, or exceeding a maximum array length). An unknown tool name is returned the same way. These are tool errors, not protocol errors: the response has `isError: true` and the text starts with `MCP error -32602: Input validation error`, followed by one entry for each failing field. Each entry includes the `path` of the field, and for enum values, the allowed `options`.
+
+The following example shows a call to `search_aws_marketplace_solutions` without the required `queries` field.
 
 ```
 {
@@ -808,7 +843,7 @@ Tool execution errors are returned when a tool invocation fails at runtime (for 
     "content": [
       {
         "type": "text",
-        "text": "Failed to search listings: Rate limit exceeded"
+        "text": "MCP error -32602: Input validation error: Invalid arguments for tool search_aws_marketplace_solutions: [ { \"code\": \"invalid_type\", \"expected\": \"array\", \"received\": \"undefined\", \"path\": [\"queries\"], \"message\": \"Required\" } ]"
       }
     ],
     "isError": true
@@ -816,7 +851,32 @@ Tool execution errors are returned when a tool invocation fails at runtime (for 
 }
 ```
 
-### Validation errors
-<a name="marketplace-mcp-validation-errors"></a>
+### Tool execution errors
+<a name="marketplace-mcp-tool-execution-errors"></a>
 
-Validation errors are returned when input fails schema validation (for example, invalid solution ID format, exceeding max array length, or missing required fields). These are surfaced as tool execution errors with `isError: true`.
+Tool execution errors are returned when a tool invocation fails at runtime (for example, rate limiting, invalid solution IDs, or upstream service errors). Tool errors are reported within the result object, not as MCP protocol-level errors, so the AI assistant can see and handle the error.
+
+The following example shows a call to `get_aws_marketplace_solution` with a solution ID that doesn't exist.
+
+```
+{
+  "jsonrpc": "2.0",
+  "id": 12,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"error\":{\"type\":\"ValidationException\",\"message\":\"Solution not found: prodview-doesnotexist\",\"code\":\"INVALID_FIELD_VALUE\"}}"
+      }
+    ],
+    "structuredContent": {
+      "error": {
+        "type": "ValidationException",
+        "message": "Solution not found: prodview-doesnotexist",
+        "code": "INVALID_FIELD_VALUE"
+      }
+    },
+    "isError": true
+  }
+}
+```

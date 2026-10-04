@@ -883,7 +883,7 @@ The following schema validations are specific to `UpdatePricingTerms` actions in
 | --- | --- | 
 | PricingModel | Required<br />Allowed pricing models: <br />Contract | 
 | Terms | Required<br />Allowed terms: <br />FixedUpfrontPricingTerm | 
-| Terms[].FixedUpfrontPricingTerm.CurrencyCode | Required<br />Allowed values: ["USD", "AUD", "EUR", "GBP", "JPN"]<br />Allowed pricing models:<br />Contract | 
+| Terms[].FixedUpfrontPricingTerm.CurrencyCode | Required<br />Allowed values: ["USD", "AUD", "EUR", "GBP", "JPY"]<br />Allowed pricing models:<br />Contract | 
 | Terms[].FixedUpfrontPricingTerm.Price | Required<br />Data type is "String" Must be non-negative <br />Support up to 6 Decimals<br />No special character supported | 
 | Terms[].FixedUpfrontPricingTerm.Duration | Required<br />Expected format: ISO 8601 duration | 
 | Terms[].FixedUpfrontPricingTerm.Grants[].DimensionKey | Required<br />Length must be between 1 and 60 | 
@@ -1060,7 +1060,7 @@ The following schema validations are specific to `UpdatePaymentScheduleTerms` ac
 | Input field | Validation rule | HTTP | 
 | --- | --- | --- | 
 | Terms | Required<br />Only "PaymentScheduleTerm" is allowed<br />List size must be less than 2 | 422 | 
-| Terms[].PaymentScheduleTerm.CurrencyCode | Required<br />Supported currencies: ["USD", "AUD", "EUR", "GBP", "JPN"] | 422 | 
+| Terms[].PaymentScheduleTerm.CurrencyCode | Required<br />Supported currencies: ["USD", "AUD", "EUR", "GBP", "JPY"] | 422 | 
 | Terms[].PaymentScheduleTerm.Schedule[] | Required<br />List size must be between 1 and 60, inclusive | 422 | 
 | Terms[].PaymentScheduleTerm.Schedule[].ChargeDate | Required<br />Format: "YYYY-MM-DD" | 422 | 
 | Terms[].PaymentScheduleTerm.Schedule[].ChargeAmount | RequiredData type is "String"<br />Non-negative decimals with up to 2 decimal places supported<br />No additional properties are allowed | 422 | 
