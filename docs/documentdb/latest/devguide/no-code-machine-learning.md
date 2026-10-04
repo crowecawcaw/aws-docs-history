@@ -6,7 +6,7 @@
 [Amazon SageMaker AI Canvas](https://docs.aws.amazon.com/sagemaker/latest/dg/canvas.html) enables you to build your own AI/ML models without having to write a single line of code. You can build ML models for common use cases such as regression and forecasting and can access and evaluate foundation models (FMs) from Amazon Bedrock. You can also access public FMs from Amazon SageMaker AI JumpStart for content generation, text extraction, and text summarization to support generative AI solutions.
 
 ## How to build no-code ML models with SageMaker AI Canvas
-<a name="w2aac23c23b9b5"></a>
+<a name="w2aac23c25b9b5"></a>
 
 Amazon DocumentDB now integrates with Amazon SageMaker AI Canvas to enable no-code machine learning (ML) with data stored in Amazon DocumentDB. You can now build ML models for regression and forecasting needs and use foundation models for content summarization and generation using data stored in Amazon DocumentDB without writing a single line of code.
 
@@ -32,7 +32,7 @@ An Amazon DocumentDB user that has `AmazonDocDBConsoleFullAccess` attached to th
 ```
 
 ## Creating database users and roles for SageMaker AI Canvas
-<a name="w2aac23c23b9c11"></a>
+<a name="w2aac23c25b9c11"></a>
 
 You can restrict access to the actions that users can perform on databases using role-based access control (RBAC) in Amazon DocumentDB. RBAC works by granting one or more roles to a user. These roles determine the operations that a user can perform on database resources. 
 

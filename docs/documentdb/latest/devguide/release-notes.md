@@ -13,6 +13,9 @@ You can determine the current Amazon DocumentDB engine patch version by running 
 db.runCommand({getEngineVersion: 1})
 ```
 
+**Note**  
+Starting with Amazon DocumentDB 5.0.2 and 8.0.2, this command returns the engine version and the engine patch version as a single string in the form `{{engine-version}}+{{engine-patch-version}}`. For example, a cluster on Amazon DocumentDB 5.0.2 returns `5.0.2+3.0.12345`, and a cluster on 8.0.2 returns `8.0.2+4.0.12345`. Clusters on earlier versions return the engine patch version on its own, such as `3.0.12345`. For more information, see [Engine version numbering](db-instance-maintain.md#engine-version-numbering).
+
 If your cluster is not on the latest version of the engine, it is likely that you have pending maintenance available that will upgrade your engine. For more information, see [Maintaining Amazon DocumentDB](db-instance-maintain.md) in the Developer Guide.
 
 **Topics**
@@ -29,6 +32,11 @@ Release notes for Amazon DocumentDB engine versions organized by major version.
 #### [ Amazon DocumentDB 8.0 ]
 
 Release notes for Amazon DocumentDB engine version 8.0 (MongoDB 8.0 compatibility).
+
+
+| Date | Release notes | 
+| --- | --- | 
+| September 28, 2026 | **Amazon DocumentDB 8.0.2 (Engine Version: 4.0.12042)**<br />**New features and improvements**1. Added support for the `$setWindowFields` aggregation stage and its window operators in Planner version 3.<br />2. Added support for the `$bucketAuto` aggregation stage in Planner version 3.<br />3. Added support for the `$facet` aggregation stage in Planner version 3.<br />4. Added support for the `$graphLookup` aggregation stage in Planner version 3.<br />5. Added support for correlated `$lookup` subqueries, including the concise correlated subquery syntax, with a subset of pipeline stages in Planner version 3.<br />6. Added support for the `$changeStreamSplitLargeEvent` aggregation stage.<br />7. Change streams now emit events for `createCollection` operations.<br />8. Change streams now emit events for `createIndex` operations.<br />9. Improved change stream write performance.<br />10. Added support for retryable writes.<br />11. Added support for the `reIndex` command on partial indexes.<br />12. Planner version 3 now supports index scans on `$expr` predicates.<br />13. Planner version 3 introduces multi-field Index Only Scans (IXONLYSCAN) for find queries. For more information, see [Index-only scans (covered queries)](performance-index-only-scans.md).<br />14. Planner version 3 introduces Index Only Scans (IXONLYSCAN) for aggregation stages such as `$group`. For more information, see [Index-only scans (covered queries)](performance-index-only-scans.md).<br />15. Performance optimization for `$count` and `countDocuments()` in Planner version 3.<br />16. Added support for incremental sort in Planner version 3. For more information, see [Incremental sort](sort.md#sort-incremental-sort).<br />17. Improved plan selection for text index queries.<br />18. The explain plan for coalesced `$lookup` and `$unwind` stages now reflects the `includeArrayIndex` parameter.<br />19. Added index filter support across all commands.<br />20. The query planner now prioritizes unique indexes for equality (`$eq`) predicates.<br />21. Increased the truncation limit for aggregate commands in `currentOp` output.<br />**Bug fixes**1. Fixed a bug in the version 1 (default) query planner.<br />2. Fixed partial index expression text round-trip handling during Major Version Upgrade (MVU).<br />3. Fixed a profiler issue for fast count queries.<br />4. Security fix for the `collStats` command. | 
 
 
 | Date | Release notes | 
@@ -57,6 +65,11 @@ Release notes for Amazon DocumentDB engine version 8.0 (MongoDB 8.0 compatibilit
 #### [ Amazon DocumentDB 5.0 ]
 
 Release notes for Amazon DocumentDB engine version 5.0 (MongoDB 5.0 compatibility).
+
+
+| Date | Release notes | 
+| --- | --- | 
+| September 28, 2026 | **Amazon DocumentDB 5.0.2 (Engine Version: 3.0.23065)**<br />**New features and improvements**1. Added hidden index support for all index types (planner version 2 and above).<br />2. Support for the `min()` and `max()` cursor methods on the find command.<br />3. Added index filter support across all commands.<br />4. The query planner now prioritizes unique indexes for equality (`$eq`) predicates.<br />5. Increased the truncation limit for aggregate commands in `currentOp` output.<br />**Bug fixes**1. Fixed a bug in the version 1 (default) query planner.<br />2. Fixed partial index expression text round-trip handling during Major Version Upgrade (MVU).<br />3. Fixed a profiler issue for fast count queries. | 
 
 
 | Date | Release notes | 

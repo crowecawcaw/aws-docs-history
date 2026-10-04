@@ -82,10 +82,71 @@ db.inventory.aggregate([
 ]
 ```
 
+## Window operator usage example (MongoDB Shell)
+<a name="firstN-window"></a>
+
+New from version 8.0.2.
+
+The `$firstN` operator can also be used as a window operator in the `$setWindowFields` stage. In this context, it returns an array of up to the first `n` values for the documents in each window. You specify the operator under the `output` field, and optionally define the window boundaries with a `window` document.
+
+**Note**  
+When used as a window operator in `$setWindowFields`, `$firstN` is limited to 100 MB of intermediate data. An operation that exceeds this limit returns an error.
+
+**Create sample documents**
+
+```
+db.stockPrices.insertMany([
+  { _id: 1, ticker: "ABC", hour: 1, price: 50 },
+  { _id: 2, ticker: "ABC", hour: 2, price: 45 },
+  { _id: 3, ticker: "ABC", hour: 3, price: 60 },
+  { _id: 4, ticker: "ABC", hour: 4, price: 40 },
+  { _id: 5, ticker: "XYZ", hour: 1, price: 30 },
+  { _id: 6, ticker: "XYZ", hour: 2, price: 35 },
+  { _id: 7, ticker: "XYZ", hour: 3, price: 25 }
+]);
+```
+
+**Query example**
+
+The following example partitions the documents by `ticker`, sorts each partition by `hour`, and returns the first two prices seen from the start of the partition through the current document.
+
+```
+db.stockPrices.aggregate([
+  {
+    $setWindowFields: {
+      partitionBy: "$ticker",
+      sortBy: { hour: 1 },
+      output: {
+        firstTwoSoFar: {
+          $firstN: { input: "$price", n: 2 },
+          window: { documents: ["unbounded", "current"] }
+        }
+      }
+    }
+  }
+]);
+```
+
+**Output**
+
+```
+[
+  { "_id": 1, "ticker": "ABC", "hour": 1, "price": 50, "firstTwoSoFar": [50] },
+  { "_id": 2, "ticker": "ABC", "hour": 2, "price": 45, "firstTwoSoFar": [50, 45] },
+  { "_id": 3, "ticker": "ABC", "hour": 3, "price": 60, "firstTwoSoFar": [50, 45] },
+  { "_id": 4, "ticker": "ABC", "hour": 4, "price": 40, "firstTwoSoFar": [50, 45] },
+  { "_id": 5, "ticker": "XYZ", "hour": 1, "price": 30, "firstTwoSoFar": [30] },
+  { "_id": 6, "ticker": "XYZ", "hour": 2, "price": 35, "firstTwoSoFar": [30, 35] },
+  { "_id": 7, "ticker": "XYZ", "hour": 3, "price": 25, "firstTwoSoFar": [30, 35] }
+]
+```
+
+Each document is augmented with `firstTwoSoFar`, the first two `price` values within its window (in `hour` order).
+
 ## Code examples
 <a name="firstN-code"></a>
 
-To view a code example for using the `$firstN` accumulator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
+To view a code example for using the `$firstN` operator, choose the tab for the language that you want to use. The following examples show accumulator usage (in `$group`), expression usage (in `$project`), and window operator usage (in `$setWindowFields`):
 
 ------
 #### [ Node.js ]
@@ -102,6 +163,14 @@ async function example() {
 
     // Accumulator usage: first N values per group
     const sales = db.collection('sales');
+    await sales.insertMany([
+      { item: "abc", quantity: 10, date: new Date("2023-01-01") },
+      { item: "abc", quantity: 5, date: new Date("2023-01-02") },
+      { item: "abc", quantity: 8, date: new Date("2023-01-03") },
+      { item: "xyz", quantity: 15, date: new Date("2023-01-01") },
+      { item: "xyz", quantity: 7, date: new Date("2023-01-02") },
+      { item: "xyz", quantity: 3, date: new Date("2023-01-03") }
+    ]);
     const accumulatorResult = await sales.aggregate([
       { $group: { _id: "$item", firstTwoQuantities: { $firstN: { input: "$quantity", n: 2 } } } }
     ]).toArray();
@@ -109,10 +178,41 @@ async function example() {
 
     // Expression usage: first N elements of an array field
     const inventory = db.collection('inventory');
+    await inventory.insertMany([
+      { _id: 1, item: "abc", tags: ["red", "green", "blue", "yellow", "purple"] },
+      { _id: 2, item: "xyz", tags: ["alpha", "beta", "gamma"] }
+    ]);
     const expressionResult = await inventory.aggregate([
       { $project: { firstThreeTags: { $firstN: { input: "$tags", n: 3 } } } }
     ]).toArray();
     console.log('Expression result:', expressionResult);
+
+    // Window operator usage: first N values over a window in each partition
+    const stockPrices = db.collection('stockPrices');
+    await stockPrices.insertMany([
+      { _id: 1, ticker: "ABC", hour: 1, price: 50 },
+      { _id: 2, ticker: "ABC", hour: 2, price: 45 },
+      { _id: 3, ticker: "ABC", hour: 3, price: 60 },
+      { _id: 4, ticker: "ABC", hour: 4, price: 40 },
+      { _id: 5, ticker: "XYZ", hour: 1, price: 30 },
+      { _id: 6, ticker: "XYZ", hour: 2, price: 35 },
+      { _id: 7, ticker: "XYZ", hour: 3, price: 25 }
+    ]);
+    const windowResult = await stockPrices.aggregate([
+      {
+        $setWindowFields: {
+          partitionBy: "$ticker",
+          sortBy: { hour: 1 },
+          output: {
+            firstTwoSoFar: {
+              $firstN: { input: "$price", n: 2 },
+              window: { documents: ["unbounded", "current"] }
+            }
+          }
+        }
+      }
+    ]).toArray();
+    console.log('Window result:', windowResult);
 
   } finally {
     await client.close();
@@ -127,6 +227,7 @@ example();
 
 ```
 from pymongo import MongoClient
+from datetime import datetime
 
 def example():
     client = MongoClient('mongodb://<username>:<password>@<cluster-endpoint>:27017/?tls=true&tlsCAFile=global-bundle.pem&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false')
@@ -136,6 +237,14 @@ def example():
 
         # Accumulator usage: first N values per group
         sales = db['sales']
+        sales.insert_many([
+            { 'item': 'abc', 'quantity': 10, 'date': datetime(2023, 1, 1) },
+            { 'item': 'abc', 'quantity': 5, 'date': datetime(2023, 1, 2) },
+            { 'item': 'abc', 'quantity': 8, 'date': datetime(2023, 1, 3) },
+            { 'item': 'xyz', 'quantity': 15, 'date': datetime(2023, 1, 1) },
+            { 'item': 'xyz', 'quantity': 7, 'date': datetime(2023, 1, 2) },
+            { 'item': 'xyz', 'quantity': 3, 'date': datetime(2023, 1, 3) }
+        ])
         accumulator_result = list(sales.aggregate([
             { '$group': { '_id': '$item', 'firstTwoQuantities': { '$firstN': { 'input': '$quantity', 'n': 2 } } } }
         ]))
@@ -143,10 +252,41 @@ def example():
 
         # Expression usage: first N elements of an array field
         inventory = db['inventory']
+        inventory.insert_many([
+            { '_id': 1, 'item': 'abc', 'tags': ['red', 'green', 'blue', 'yellow', 'purple'] },
+            { '_id': 2, 'item': 'xyz', 'tags': ['alpha', 'beta', 'gamma'] }
+        ])
         expression_result = list(inventory.aggregate([
             { '$project': { 'firstThreeTags': { '$firstN': { 'input': '$tags', 'n': 3 } } } }
         ]))
         print('Expression result:', expression_result)
+
+        # Window operator usage: first N values over a window in each partition
+        stock_prices = db['stockPrices']
+        stock_prices.insert_many([
+            { '_id': 1, 'ticker': 'ABC', 'hour': 1, 'price': 50 },
+            { '_id': 2, 'ticker': 'ABC', 'hour': 2, 'price': 45 },
+            { '_id': 3, 'ticker': 'ABC', 'hour': 3, 'price': 60 },
+            { '_id': 4, 'ticker': 'ABC', 'hour': 4, 'price': 40 },
+            { '_id': 5, 'ticker': 'XYZ', 'hour': 1, 'price': 30 },
+            { '_id': 6, 'ticker': 'XYZ', 'hour': 2, 'price': 35 },
+            { '_id': 7, 'ticker': 'XYZ', 'hour': 3, 'price': 25 }
+        ])
+        window_result = list(stock_prices.aggregate([
+            {
+                '$setWindowFields': {
+                    'partitionBy': '$ticker',
+                    'sortBy': { 'hour': 1 },
+                    'output': {
+                        'firstTwoSoFar': {
+                            '$firstN': { 'input': '$price', 'n': 2 },
+                            'window': { 'documents': ['unbounded', 'current'] }
+                        }
+                    }
+                }
+            }
+        ]))
+        print('Window result:', window_result)
 
     finally:
         client.close()

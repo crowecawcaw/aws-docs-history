@@ -41,6 +41,7 @@ The following tables compare features, capabilities, and supported instance type
 | Multi-AZ (3 AZs) | Yes | Yes | Yes | Yes | Yes (per shard) | 
 | Read replicas supported | 15 | 15 | 15 | 15 | 15 per shard | 
 | ACID transactions | No | Yes | Yes | Yes | No | 
+| Retryable writes | No | No | No | Yes (8.0.2\+) | No | 
 | Change streams | Yes | Yes | Yes | Yes | No | 
 | Vector search | No | No | Yes | Yes | No | 
 | Performance Insights | Yes | Yes | Yes | Yes | No | 

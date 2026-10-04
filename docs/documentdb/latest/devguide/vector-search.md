@@ -8,15 +8,15 @@ Vector search is a method used in machine learning to find similar data points t
 Vector search for Amazon DocumentDB combines the flexibility and rich querying capability of a JSON-based document database with the power of vector search. If you want to use your existing Amazon DocumentDB data or a flexible document data structure to build machine learning and generative AI use cases, such as semantic search experience, product recommendation, personalization, chatbots, fraud detection, and anomaly detection, then vector search for Amazon DocumentDB is an ideal choice for you. Vector search is available on Amazon DocumentDB 5.0 instance-based clusters.
 
 **Topics**
-+ [Inserting vectors](#w2aac23c23c11b9)
-+ [Creating a vector index](#w2aac23c23c11c11)
-+ [Getting an index definition](#w2aac23c23c11c13)
-+ [Querying vectors](#w2aac23c23c11c15)
++ [Inserting vectors](#w2aac23c25c11b9)
++ [Creating a vector index](#w2aac23c25c11c11)
++ [Getting an index definition](#w2aac23c25c11c13)
++ [Querying vectors](#w2aac23c25c11c15)
 + [Features and limitations](#vector-limitations)
-+ [Best practices](#w2aac23c23c11c19)
++ [Best practices](#w2aac23c25c11c19)
 
 ## Inserting vectors
-<a name="w2aac23c23c11b9"></a>
+<a name="w2aac23c25c11b9"></a>
 
 To insert vectors into your Amazon DocumentDB database, you can use existing insert methods: 
 
@@ -35,7 +35,7 @@ db.collection.insertMany([
 ```
 
 ## Creating a vector index
-<a name="w2aac23c23c11c11"></a>
+<a name="w2aac23c25c11c11"></a>
 
 Amazon DocumentDB supports both Hierarchical Navigable Small World (HNSW) indexing and Inverted File with Flat Compression (IVFFlat) indexing methods. An IVFFlat index segregates vectors into lists and subsequently searches a selected subset of those lists that are nearest to the query vector. On the other hand, an HNSW index organizes the vector data into a multi-layered graph. Although HNSW has slower build times compared to IVFFlat, it delivers better query performance and recall. Unlike IVFFlat, HNSW has no training step involved, allowing the index to be generated without any initial data load. For most use cases, use the HNSW index type for vector search.
 
@@ -145,7 +145,7 @@ db.collection.createIndex(
 ------
 
 ## Getting an index definition
-<a name="w2aac23c23c11c13"></a>
+<a name="w2aac23c25c11c13"></a>
 
 You can view the details of your indexes, including vector indexes, using the `getIndexes` command:
 
@@ -185,12 +185,12 @@ db.collection.getIndexes()
 ```
 
 ## Querying vectors
-<a name="w2aac23c23c11c15"></a>
+<a name="w2aac23c25c11c15"></a>
 
 Amazon DocumentDB supports two vector search operators for querying vectors:
 
 ### Classic vector search operator
-<a name="w2aac23c23c11c15b5"></a>
+<a name="w2aac23c25c11c15b5"></a>
 
 Use the following template to query a vector:
 
@@ -274,7 +274,7 @@ Output from this operation looks something like the following:
 ```
 
 ### `$vectorSearch` operator (available in Amazon DocumentDB 8.0 onwards)
-<a name="w2aac23c23c11c15b7"></a>
+<a name="w2aac23c25c11c15b7"></a>
 
 Use the following template to query a vector:
 
@@ -329,7 +329,7 @@ db.collection.aggregate([
 + For vector search query, it is important to fine tune the parameters such as `probes` or `efSearch` for optimum results. The higher the value of `probes` or `efSearch` parameter, the higher the recall and lower the speed. The recommended setting to start fine tuning the probes parameter is `sqrt(# of lists)`. 
 
 ## Best practices
-<a name="w2aac23c23c11c19"></a>
+<a name="w2aac23c25c11c19"></a>
 
 Learn best practices for working with vector search in Amazon DocumentDB. This section is continually updated as new best practices are identified.
 + Inverted File with Flat Compression (IVFFlat) index creation involves clustering and organizing the data points based on similarities. For an index to be more effective, load some data before creating the index.

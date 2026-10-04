@@ -43,7 +43,7 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | cloneCollectionAsCapped | No | No | No | No | No | 
 | collMod | Partial | Partial | Partial | Partial | Partial | 
 | collMod: expireAfterSeconds | Yes | Yes | Yes | Yes | Yes | 
-| collMod: hidden | No | No | No | Yes (8.0.1\+) | No | 
+| collMod: hidden | No | No | Yes (5.0.2\+) | Yes (8.0.1\+) | No | 
 | convertToCapped | No | No | No | No | No | 
 | copydb | No | No | No | No | No | 
 | create | Yes | Yes | Yes | Yes | Yes | 
@@ -104,6 +104,9 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | features | No | No | No | No | No | 
 | hostInfo | Yes | Yes | Yes | Yes | Yes | 
 | listCommands | Yes | Yes | Yes | Yes | Yes | 
+| planCacheClearFilters | No | No | Yes | Yes | No | 
+| planCacheListFilters | No | No | Yes | Yes | No | 
+| planCacheSetFilter | No | No | Yes | Yes | No | 
 | profiler | [Yes](profiling.md) | [Yes](profiling.md) | [Yes](profiling.md) | [Yes](profiling.md) | No | 
 | serverStatus | Yes | Yes | Yes | Yes | Yes | 
 | top | Yes | Yes | Yes | Yes | Yes | 
@@ -425,10 +428,10 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | cursor.itcount() | Yes | Yes | Yes | Yes | No | 
 | cursor.limit() | Yes | Yes | Yes | Yes | No | 
 | cursor.map() | Yes | Yes | Yes | Yes | No | 
-| cursor.max() | No | No | No | Yes (8.0.1\+) | No | 
+| cursor.max() | No | No | Yes (5.0.2\+) | Yes (8.0.1\+) | No | 
 | cursor.maxScan() | Yes | Yes | Yes | Yes | No | 
 | cursor.maxTimeMS() | Yes | Yes | Yes | Yes | No | 
-| cursor.min() | No | No | No | Yes (8.0.1\+) | No | 
+| cursor.min() | No | No | Yes (5.0.2\+) | Yes (8.0.1\+) | No | 
 | cursor.next() | Yes | Yes | Yes | Yes | Yes | 
 | cursor.noCursorTimeout() | No | No | No | No | No | 
 | cursor.objsLeftInBatch() | Yes | Yes | Yes | Yes | No | 
@@ -444,6 +447,8 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | cursor.toArray() | Yes | Yes | Yes | Yes | No | 
 
 \* Index `hint` is supported with index expressions. For example, `db.foo.find().hint({x:1})`.
+
+The `cursor.min()` and `cursor.max()` methods require a `hint` that names the index to use. Both methods must specify the same fields, and you can't combine them with a `$natural` sort. They're supported on the `find` command only.
 
 ## Aggregation pipeline operators
 <a name="mongo-apis-aggregation-pipeline"></a>
@@ -485,17 +490,19 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | [$bottom](bottom.md) | - | - | - | Yes (8.0.1\+) | No | 
 | [$bottomN](bottomN.md) | - | - | - | Yes (8.0.1\+) | No | 
 | [$count](count-accumulator.md) | - | - | No | Yes (8.0.1\+) | No | 
-| $covariancePop | No | No | No | No | No | 
-| $covarianceSamp | No | No | No | No | No | 
-| $denseRank | No | No | No | No | No | 
+| [$covariancePop](covariancePop.md) | No | No | No | Yes (8.0.2\+) | No | 
+| [$covarianceSamp](covarianceSamp.md) | No | No | No | Yes (8.0.2\+) | No | 
+| [$denseRank](denseRank.md) | No | No | No | Yes (8.0.2\+) | No | 
 | $derivative | No | No | No | No | No | 
-| $documentNumber | No | No | No | No | No | 
+| [$documentNumber](documentNumber.md) | No | No | No | Yes (8.0.2\+) | No | 
 | $expMovingAvg | No | No | No | No | No | 
 | [$first](first.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$firstN](firstN.md) | - | - | - | Yes (8.0.1\+) | No | 
 | $integral | No | No | No | No | No | 
 | [$last](last.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$lastN](lastN.md) | - | - | - | Yes (8.0.1\+) | No | 
+| $linearFill | No | No | No | No | No | 
+| $locf | No | No | No | No | No | 
 | [$max](max.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$maxN](maxN.md) | - | - | - | Yes (8.0.1\+) | No | 
 | [$median](median.md) | - | - | - | Yes (8.0.1\+) | No | 
@@ -503,7 +510,7 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | [$minN](minN.md) | - | - | - | Yes (8.0.1\+) | No | 
 | [$percentile](percentile.md) | - | - | - | Yes (8.0.1\+) | No | 
 | [$push](push-aggregation.md) | Yes | Yes | Yes | Yes | Yes | 
-| $rank | No | No | No | No | No | 
+| [$rank](rank.md) | No | No | No | Yes (8.0.2\+) | No | 
 | $shift | No | No | No | No | No | 
 | [$stdDevPop](stdDevPop.md) | No | No | No | Yes (8.0.1\+) | No | 
 | [$stdDevSamp](stdDevSamp.md) | No | No | No | Yes (8.0.1\+) | No | 
@@ -674,7 +681,6 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | [$setIntersection](setIntersection.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$setIsSubset](setIsSubset.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$setUnion](setUnion.md) | Yes | Yes | Yes | Yes | Yes | 
-| $setWindowFields | No | No | No | No | No | 
 
 ### Stage operators
 <a name="mongo-apis-aggregation-pipeline-stage"></a>
@@ -684,14 +690,17 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | --- | --- | --- | --- | --- | --- | 
 | [$addFields](addFields.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$bucket](bucket.md) | No | No | No | Yes | No | 
-| $bucketAuto | No | No | No | No | 
+| [$bucketAuto](bucketAuto.md) | No | No | No | Yes (8.0.2\+) | No | 
 | [$changeStream](changeStream.md) | Yes | Yes | Yes | Yes | No | 
+| [$changeStreamSplitLargeEvent](changeStreamSplitLargeEvent.md) | No | No | No | Yes (8.0.2\+) | No | 
 | [$collStats](collStats.md) | No | Yes | Yes | Yes | No | 
 | [$count](count.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$currentOp](currentOp.md) | Yes | Yes | Yes | Yes | Yes | 
-| $facet | No | No | No | No | No | 
+| $densify | No | No | No | No | No | 
+| [$facet](facet.md) | No | No | No | Yes (8.0.2\+) | No | 
+| $fill | No | No | No | No | No | 
 | [$geoNear](geoNear.md) | Yes | Yes | Yes | Yes | Yes | 
-| $graphLookup | No | No | No | No | No | 
+| [$graphLookup](graphLookup.md) | No | No | No | Yes | No | 
 | [$group](group.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$indexStats](indexStats.md) | Yes | Yes | Yes | Yes | No | 
 | [$limit](limit.md) | Yes | Yes | Yes | Yes | Yes | 
@@ -707,7 +716,7 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 | [$replaceRoot](replaceRoot.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$sample](sample.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$set](set-stage.md) | - | - | No | Yes | No | 
-| $setWindowFields | - | - | No | No | No | 
+| [$setWindowFields](setWindowFields.md) | - | - | No | Yes (8.0.2\+) | No | 
 | [$skip](skip.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$sort](sort.md) | Yes | Yes | Yes | Yes | Yes | 
 | [$sortByCount](sortByCount.md) | No | No | No | Yes (8.0.1\+) | No | 
@@ -842,7 +851,7 @@ If there is a feature that isn't supported that you'd like us to build, let us k
 
 | Command | 3.6 | 4.0 | 5.0 | 8.0 | Elastic cluster | 
 | --- | --- | --- | --- | --- | --- | 
-| $getField | - | - | No | No | No | 
+| $getField | - | - | Yes | Yes | No | 
 | [$rand](rand.md) | - | - | Yes (5.0.1\+) | Yes | No | 
 | [$sampleRate](sampleRate.md) | - | - | No | Yes (8.0.1\+) | No | 
 | [$sigmoid](sigmoid.md) | - | - | - | Yes (8.0.1\+) | No | 

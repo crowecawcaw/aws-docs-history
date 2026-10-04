@@ -266,19 +266,17 @@ When using the `$sort` aggregation stage, the sort order is not preserved unless
 ### Retryable writes
 <a name="functional-differences.retryable-writes"></a>
 
-Starting with MongoDB 4.2 compatible drivers, retryable writes are enabled by default. However, Amazon DocumentDB does not currently support retryable writes. The functional difference will manifest itself in an error message similar to the following.
+Most current MongoDB-compatible drivers enable retryable writes by default. Amazon DocumentDB supports retryable writes starting with engine version 8.0.2. On earlier engine versions, retryable writes are not supported and you must disable them to avoid errors.
+
+On engine versions earlier than 8.0.2, enabling retryable writes results in an error message similar to the following.
 
 ```
-{"ok":0,"errmsg":"Unrecognized field: 'txnNumber'","code":9,"name":"MongoError"} 
+{"ok":0,"errmsg":"Retryable writes are not supported","code":301,"name":"MongoError"} 
 ```
 
 Retryable writes can be disabled via the connection string (for example, `MongoClient("mongodb://my.mongodb.cluster/db?retryWrites=false")`) or the MongoClient constructor’s keyword argument (for example, `MongoClient("mongodb://my.mongodb.cluster/db", retryWrites=False)`).
 
-The following is a Python example that disables retryable writes in the connection string.
-
-```
-client = pymongo.MongoClient('mongodb://{{<username>}}:{{<password>}}@docdb-2019-03-17-16-49-12.cluster-ccuszbx3pn5e.us-east-1.docdb.amazonaws.com:27017/?replicaSet=rs0',w='majority',j=True,retryWrites=False) 
-```
+For more information about retryable writes on engine version 8.0.2 and later, see [Retryable writes in Amazon DocumentDB](retryable-writes.md).
 
 ### Sparse index
 <a name="functional-differences.sparse-index"></a>
@@ -334,7 +332,7 @@ coll.find({"field": {"$all": [{ "$a": 1 }]}})
 ### `$lookup`
 <a name="functional-differences.lookup"></a>
 
-Amazon DocumentDB supports the ability to do equality matches (for example, left outer join) and also supports uncorrelated subqueries, but does not support correlated subqueries.
+Amazon DocumentDB supports the ability to do equality matches (for example, left outer join) and also supports uncorrelated subqueries. Starting with version 8.0.2, Amazon DocumentDB also supports correlated subqueries, including the concise correlated subquery syntax. In a correlated subquery, only a subset of aggregation stages that evaluate expressions can reference the `let` variables. For the list of supported stages and related restrictions, see [Supported stages in correlated subqueries](lookup.md#lookup-correlated-stages). In versions earlier than 8.0.2, correlated subqueries are not supported.
 
 #### Utilizing an index with `$lookup`
 <a name="functional-differences.lookup-index"></a>

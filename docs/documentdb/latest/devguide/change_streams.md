@@ -12,11 +12,13 @@ Applications can use change streams to subscribe to data changes on individual c
 
 **Topics**
 + [Supported operations](#change_streams-supported_ops)
++ [Expanded events](#change_streams-expanded_events)
 + [Billing](#change_streams-billing)
 + [Limitations](#change_streams-limitations)
 + [Enabling change streams](#change_streams-enabling)
 + [Example: using change streams with Python](#change_streams-using_example)
 + [Full document lookup](#change_streams-lookup)
++ [Using $changeStreamSplitLargeEvent to split large events into fragments](#change_streams-split_event)
 + [Resuming a change stream](#change_streams-resuming)
 + [Resuming a change stream with `startAtOperationTime`](#change_streams-startAtOperation)
 + [Resuming a change stream with `postBatchResumeToken`](#change_streams-postBatchResumeToken)
@@ -30,9 +32,43 @@ Applications can use change streams to subscribe to data changes on individual c
 Amazon DocumentDB supports the following operations for change streams:
 + All change events supported in the MongoDB `db.collection.watch()`, `db.watch()` and `client.watch()` API.
 + Full document lookup for updates.
-+ Aggregation stages: `$match`, `$project`, `$redact`, and `$addFields`and `$replaceRoot`.
++ Aggregation stages: `$match`, `$project`, `$redact`, `$addFields`, `$replaceRoot`, and `$changeStreamSplitLargeEvent`.
 + Resuming a change stream from a resume token
 + Resuming a change stream from a timestamp using `startAtOperation` (applicable to Amazon DocumentDB 4.0\+)
++ DDL event notification for `createCollection` using the `showExpandedEvents` parameter (applicable to Amazon DocumentDB 8.0 starting with engine version 8.0.2).
++ DDL event notification for `createIndexes` using the `showExpandedEvents` parameter (applicable to Amazon DocumentDB 8.0 starting with engine version 8.0.2).
+
+## Expanded events
+<a name="change_streams-expanded_events"></a>
+
+**Note**  
+Expanded events are available in Amazon DocumentDB 8.0 starting with engine version 8.0.2.
+
+Change streams support data definition language (DDL) event notifications, `createCollection` and `createIndexes`. To include expanded events, open a change stream cursor with the `showExpandedEvents` option.
+
+For example:
+
+------
+#### [ mongosh Method ]
+
+```
+let cur = db.names.watch( [ ], {
+   showExpandedEvents: true
+} )
+cur.next()
+```
+
+------
+#### [ Aggregation Stage ]
+
+```
+let cur = db.names.aggregate( [
+   { $changeStream: { showExpandedEvents: true } }
+] )
+cur.next()
+```
+
+------
 
 ## Billing
 <a name="change_streams-billing"></a>
@@ -49,7 +85,7 @@ Change streams have the following limitations in Amazon DocumentDB:
 + A long-running write operation on a collection like `updateMany` or `deleteMany` can temporarily stall the writing of change streams events until the long running write operation is complete.
 + Amazon DocumentDB does not support the MongoDB operations log (`oplog`).
 + With Amazon DocumentDB, you must explicitly enable change streams on a given collection.
-+ If the total size of a change streams event (including the change data and full document, if requested) is greater than `16 MB`, the client will experience a read failure on the change streams.
++ If the total size of a change streams event (including the change data and full document, if requested) is greater than `16 MB`, the client will experience a read failure on the change stream. To avoid this, use the `$changeStreamSplitLargeEvent` stage to split the event into fragments.
 + The Ruby driver is currently not supported when using `db.watch()` and `client.watch()` with Amazon DocumentDB 3.6.
 + The output from the `updateDescription` command in change streams is different in Amazon DocumentDB than in MongoDB when the updated value of the field is the same as the previous one:
   + Amazon DocumentDB doesn't return a field in the `updateDescription` output if the provided field is specified in the `$set` command and its target value is already equal to the source value.
@@ -276,6 +312,20 @@ The output of the stream object will look something like this:
 'operationType': 'update',
 'updateDescription': {'removedFields': [], 'updatedFields': {'x': 3}}}
 ```
+
+## Using $changeStreamSplitLargeEvent to split large events into fragments
+<a name="change_streams-split_event"></a>
+
+**Note**  
+The $changeStreamSplitLargeEvent stage is available in Amazon DocumentDB 8.0 starting with engine version 8.0.2.
+
+When you use the `$changeStreamSplitLargeEvent` stage, change events larger than 16 MB are split into fragments that are returned sequentially through the change stream cursor. Events smaller than 16 MB are returned unsplit. The stage splits an event along its top-level field boundaries; it does not split within a single field or recurse into subdocuments. Because of this, if any single top-level field is itself larger than 16 MB, the stage can't produce a valid fragment for it and returns an error instead.
+
+As a best practice, we recommend avoiding the use of `$changeStreamSplitLargeEvent` when possible by reducing the size of the event.
+
+The `$changeStreamSplitLargeEvent` stage can only be used in a `$changeStream` pipeline, and it must be used only once as the last stage.
+
+Each fragment has its own `resumeToken` and its own `postBatchResumeToken`. Resuming from a non-final fragment token (using either a regular resume token or a postBatchResumeToken) delivers the subsequent fragment. In the case where the token corresponds to the final fragment of an event, the change stream cursor returns the subsequent event.
 
 ## Resuming a change stream
 <a name="change_streams-resuming"></a>

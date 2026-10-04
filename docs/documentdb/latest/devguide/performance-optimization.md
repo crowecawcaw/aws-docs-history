@@ -10,6 +10,8 @@ This chapter provides guidance on optimizing Amazon DocumentDB performance and t
 + [Anti-patterns](performance-anti-patterns.md)
 + [Performance improvement tips](performance-improvement-tips.md)
 + [Query plan analysis](performance-query-plan-analysis.md)
++ [Index-only scans](performance-index-only-scans.md)
++ [Plan cache filters](plan-cache-filter.md)
 + [Best practices](best_practices.md)
 + [Managing indexes](managing-indexes.md)
 + [Managing document compression](doc-compression.md)

@@ -11,6 +11,7 @@ Planner Version 3 in Amazon DocumentDB 8.0 supports 21 aggregation stages, inclu
 + [Best practices](#nqp-best-practices)
 + [Limitations](#nqp-limitations)
 + [Improvements to `aggregate` and `distinct` Operators](#operator-improvements)
++ [Plan cache filters](#v3-plan-cache-filter)
 + [Potential behavior differences between planner version 1.0, 3.0, and MongoDB](#planner-behavior-differences)
 
 ## Prerequisites
@@ -98,6 +99,18 @@ Planner version 3.0 introduces improvements across $aggregate stages, and $disti
           }
   }
   ```
+
+## Plan cache filters
+<a name="v3-plan-cache-filter"></a>
+
+Planner version 3.0 supports plan cache filters, also called index filters, which let you restrict the set of indexes that the planner considers for a specific query shape. Filters are set with a database command and applied on the server, so if you experience a query regression you can mitigate it without modifying your application code.
+
+Planner version 3.0 applies plan cache filters to more commands than planner version 2.0 does:
++ The `distinct` command requires planner version 3.0.
++ The `aggregate` command requires planner version 3.0 and Amazon DocumentDB 8.0.2. A filter applies when the pipeline reads the collection through a leading `$match` stage.
++ A filter set on the foreign collection of a `$lookup` or `$graphLookup` stage drives the index used to scan that foreign collection. This also requires planner version 3.0 and Amazon DocumentDB 8.0.2.
+
+For more information about the command reference, supported query shapes, worked examples, and how filters interact with hints, see [Plan cache filters](plan-cache-filter.md).
 
 ## Potential behavior differences between planner version 1.0, 3.0, and MongoDB
 <a name="planner-behavior-differences"></a>

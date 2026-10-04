@@ -11,7 +11,7 @@ The new query planner for Amazon DocumentDB (planner version 2.0) features advan
 + [Best practices](#v2-nqp-best-practices)
 + [Limitations](#v2-nqp-limitations)
 + [Improvements to `Find` and `Update` Operators](#v2-operator-improvements)
-+ [Plan cache filter API](#plan-cache-filter-api)
++ [Plan cache filters](#v2-plan-cache-filter)
 + [Potential behavior differences between planner version 1.0, 2.0, and MongoDB](#v2-planner-behavior-differences)
 + [Planner version 2.0 bridges behavior gap with MongoDB](#planner-v2-mongo-gap-bridge)
 
@@ -46,7 +46,7 @@ For expected results, use the following best practices when applying planner ver
 The following limitations apply to planner version 2.0:
 + Planner version 2.0 is not supported in elastic clusters, which will fall back to planner version 1.0.
 + Planner version 2.0 is not supported for aggregation and distinct commands, which will fall back to planner version 1.0.
-+ Queries that contain regex, text search, geospatial, jsonschema or `$expr` in filters are not supported with plan cache filter in planner version 2.0.
++ Some query shapes cannot have a plan cache filter set on them. For the current list, see [Supported query shapes](plan-cache-filter.md#plan-cache-filter-shapes).
 
 ## Improvements to `Find` and `Update` Operators
 <a name="v2-operator-improvements"></a>
@@ -179,80 +179,14 @@ Planner version 2.0 optimizes fundamental operations including `find`, `update`,
 
 ------
 
-## Plan cache filter API
-<a name="plan-cache-filter-api"></a>
+## Plan cache filters
+<a name="v2-plan-cache-filter"></a>
 
-**Note**  
-Text index is not supported with plan cache filter.
-+ Planner version 2.0 adds support for the index filter feature that allows you to specify a list of indexes that a specific query shape can use. This feature is accessible through the API and can be controlled from the server side. If you experience a query regression, this feature gives you a faster and more flexible option to mitigate the issue without having to modify your application code.
+Planner version 2.0 adds support for plan cache filters, also called index filters, which let you restrict the set of indexes that the planner considers for a specific query shape. Filters are set with a database command and applied on the server, so if you experience a query regression you can mitigate it without modifying your application code.
 
-  ```
-  db.runCommand({ planCacheSetFilter: <collection>, query: <query>,
-  sort: <sort>, // optional, 
-  indexes: [ <index1>, <index2>, ...],
-  comment: <any> // optional})
-  ```
+On planner version 2.0, plan cache filters apply to the `find` and `count` commands, and starting with Amazon DocumentDB 5.0.2 and 8.0.2 also to the `update`, `delete`, and `findAndModify` commands. The `distinct` and `aggregate` commands require planner version 3.0.
 
-  To list all filters on the collection, use the following command:
-
-  ```
-  db.runCommand(
-  {
-  planCacheListFilters: <collection>
-  }
-  )
-  ```
-
-  This command shows all index filters on the collection. Example output:
-
-  ```
-  {
-  "filters" : [
-  {
-  "query" : {a: "@", b: "@"},
-  "sort" : {a: 1},
-  "indexes" : [
-  <index1>,
-  ...
-  ]
-  },
-  ...
-  ],
-  "ok": 1
-  }
-  ```
-+ You can use two new fields from the `explain` command output to analyze planner version 2.0’s index filtering: `indexFilterSet` and `indexFilterApplied`. `indexFilterSet` is set to "true" if there’s an index filter set on the collection that matches the query shape. `indexFilterApplied` is set to "true" if, and only if the query applied index filter and chose a plan using an index in the filter list.
-
-  You can clear the index filter with the following command:
-
-  ```
-  db.runCommand(
-  {
-  planCacheClearFilters: <collection>>
-  query: <query pattern>, // optional
-  sort: <sort specification>, // optional
-  comment: <any>. //optional
-  }
-  )
-  ```
-
-  To clear all filters on collection "foo", use the following command:
-
-  ```
-  db.runCommand({planCacheClearFilters: "foo"})
-  ```
-
-  To clear a specific query shape with any sort, you can copy and paste the query shape from the output of `planCacheListFilters`:
-
-  ```
-  db.runCommand({planCacheClearFilters: "foo", query: {a: @}})
-  ```
-
-  To clear a specific query shape with a specified field to sort by, you can copy and paste the query shape from the output of `planCacheListFilters`:
-
-  ```
-  db.runCommand({planCacheClearFilters: "foo", query: {a: @},sort: {a: 1}})
-  ```
+For more information about the command reference, supported query shapes, worked examples, and how filters interact with hints, see [Plan cache filters](plan-cache-filter.md).
 
 ## Potential behavior differences between planner version 1.0, 2.0, and MongoDB
 <a name="v2-planner-behavior-differences"></a>

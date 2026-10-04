@@ -21,22 +21,20 @@ Once upgraded, you cannot downgrade to a previous version. You can restore your 
 ## Supported upgrade paths
 <a name="mvu-upgrade-paths"></a>
 
-The following table lists every supported in-place major version upgrade path. You can select any published minor version on the target major as the target engine version.
+The following table lists the target engine versions you can select for each source version. There is no requirement to first upgrade to the `.0` minor version and then apply a minor version upgrade.
 
 
-| Source major version | Target major version | Notes | 
-| --- | --- | --- | 
-| Amazon DocumentDB 3.6 | Amazon DocumentDB 5.0 (any published minor version) | See [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences) for post-upgrade considerations. | 
-| Amazon DocumentDB 3.6 | Amazon DocumentDB 8.0 (any published minor version) | See [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences) and [What changes after upgrading to Amazon DocumentDB 8.0](#mvu-50-to-80-differences) for post-upgrade considerations. | 
-| Amazon DocumentDB 4.0 | Amazon DocumentDB 5.0 (any published minor version) | See [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences) for post-upgrade considerations. | 
-| Amazon DocumentDB 4.0 | Amazon DocumentDB 8.0 (any published minor version) | See [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences) and [What changes after upgrading to Amazon DocumentDB 8.0](#mvu-50-to-80-differences) for post-upgrade considerations. | 
-| Amazon DocumentDB 5.0 (any published minor version) | Amazon DocumentDB 8.0 (any published minor version) | See [What changes after upgrading to Amazon DocumentDB 8.0](#mvu-50-to-80-differences) for feature changes. | 
+| Source version | Supported target versions | 
+| --- | --- | 
+| 3.6 | Any published 5.0 or 8.0 minor version | 
+| 4.0 | Any published 5.0 or 8.0 minor version | 
+| 5.0.0 | 8.0.0, 8.0.1, 8.0.2 | 
+| 5.0.1 | 8.0.0, 8.0.1, 8.0.2 | 
+| 5.0.2 | 8.0.2 | 
+
+For post-upgrade considerations, see [Post-upgrade considerations for clusters upgraded from 3.6 or 4.0](#mvu-36-to-50-differences) and [What changes after upgrading to Amazon DocumentDB 8.0](#mvu-50-to-80-differences).
 
 To view the minor versions available in your AWS Region, use the AWS CLI command `aws docdb describe-db-engine-versions`. For a list of released minor versions, see [Release notes](release-notes.md).
-
-**Note**  
-Each MVU can target any published minor version on the destination major. For example, upgrading from Amazon DocumentDB 3.6 or 4.0 can go directly to the latest published 5.0 or 8.0 minor version; there is no requirement to first upgrade to the `.0` minor version and then apply a minor version upgrade.  
-You can upgrade from Amazon DocumentDB 3.6 or 4.0 directly to 8.0 in a single MVU. Upgrading in stages through 5.0 (first to a 5.0 minor version, then to an 8.0 minor version) is also supported.
 
 **Note**  
 In-place MVU is not supported for global clusters or elastic clusters. To upgrade a global cluster, remove the secondary clusters, convert the primary to a regional cluster, perform the MVU, then recreate the global cluster by adding secondary clusters using the same names to retain your endpoints. You will incur I/O charges while the upgraded primary replicates data to the new secondaries. For detailed steps, see [Removing a cluster from an Amazon DocumentDB global cluster](global-clusters.manage.md#global-clusters.remove).

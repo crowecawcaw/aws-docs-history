@@ -587,7 +587,7 @@ If you use IAM, you must use a previous version of mongo shell. Enter one of the
 mongo --ssl --host {{cluster-end-point}}:27017 --sslCAFile global-bundle.pem --username {{sample-user}} --password {{password}}
 ```
 
-If you are using a version equal to or greater than 4.2, use the following code to connect. Retryable writes are not supported in Amazon DocumentDB. If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string. By default, retryable writes are disabled. Including `retryWrites=false` might cause a failure in normal read commands.
+If you are using a version equal to or greater than 4.2, use the following code to connect. Starting with engine version 8.0.2, Amazon DocumentDB supports retryable writes. On earlier engine versions, retryable writes are not supported. If you are using legacy mongo shell (not mongosh), do not include the `retryWrites=false` command in any code string. For more information, see [Retryable writes in Amazon DocumentDB](retryable-writes.md).
 
 ```
 mongo --tls --host {{cluster-end-point}}:27017 --tlsCAFile global-bundle.pem --username {{sample-user}} --password {{password}}

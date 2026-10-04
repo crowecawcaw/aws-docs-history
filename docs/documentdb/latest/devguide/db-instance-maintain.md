@@ -46,7 +46,7 @@ Amazon DocumentDB uses two separate version identifiers:
 + **Engine version**—a three-part number in the form `{{major}}.{{major}}.{{minor}}` (for example, `5.0.0` or `5.0.1`). The first two parts (`5.0`) are the MongoDB compatibility version; the third part is the minor version, incremented when Amazon DocumentDB publishes a minor release containing bug fixes and non-breaking improvements. This is the version you specify when creating or upgrading a cluster.
 + **Engine patch version**—a separate three-part number in the form `{{major}}.0.{{patch}}` (for example, `3.0.17983`) that identifies the patch level applied to your cluster. The middle digit is always `0`. Patch versions contain critical security and stability fixes.
 
-You can determine the engine version from the engine patch version's prefix, as shown in the following table.
+When the engine patch version appears on its own, you can determine the engine version from its prefix, as shown in the following table.
 
 
 | Engine patch version prefix | Amazon DocumentDB engine version | 
@@ -57,6 +57,10 @@ You can determine the engine version from the engine patch version's prefix, as 
 | 4.0.{{x}} | 8.0 | 
 
 To check the patch version your cluster is running, connect and run `db.runCommand({getEngineVersion: 1})`.
+
+**Note**  
+Starting with Amazon DocumentDB 5.0.2 and 8.0.2, `db.runCommand({getEngineVersion: 1})` returns the engine version and the engine patch version as a single string in the form `{{engine-version}}+{{engine-patch-version}}`. For example, a cluster on Amazon DocumentDB 5.0.2 returns `5.0.2+3.0.12345`, and a cluster on 8.0.2 returns `8.0.2+4.0.12345`. Clusters on earlier versions return the engine patch version on its own, such as `3.0.12345`.  
+If you have scripts or monitoring that parse the output of `getEngineVersion`, update them to handle the combined format.
 
 For the list of released engine patch versions and what each one contains, see [Release notes](release-notes.md).
 

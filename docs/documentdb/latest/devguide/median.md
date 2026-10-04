@@ -93,10 +93,68 @@ db.surveys.aggregate([
 ]
 ```
 
+## Window operator usage example (MongoDB Shell)
+<a name="median-window"></a>
+
+New from version 8.0.2.
+
+The `$median` operator can also be used as a window operator in the `$setWindowFields` stage. In this context, it computes the median of the numeric values for the documents in each window. You specify the operator under the `output` field, and optionally define the window boundaries with a `window` document.
+
+**Note**  
+When used as a window operator in `$setWindowFields`, `$median` is limited to 100 MB of intermediate data. An operation that exceeds this limit returns an error.
+
+**Create sample documents**
+
+```
+db.temperatures.insertMany([
+  { _id: 1, city: "A", reading: 60 },
+  { _id: 2, city: "A", reading: 65 },
+  { _id: 3, city: "A", reading: 70 },
+  { _id: 4, city: "B", reading: 80 },
+  { _id: 5, city: "B", reading: 85 },
+  { _id: 6, city: "B", reading: 90 }
+]);
+```
+
+**Query example**
+
+The following example partitions the documents by `city` and computes the median `reading` across all documents in each partition.
+
+```
+db.temperatures.aggregate([
+  {
+    $setWindowFields: {
+      partitionBy: "$city",
+      output: {
+        medianReading: {
+          $median: { input: "$reading", method: "approximate" },
+          window: { documents: ["unbounded", "unbounded"] }
+        }
+      }
+    }
+  }
+]);
+```
+
+**Output**
+
+```
+[
+  { "_id": 1, "city": "A", "reading": 60, "medianReading": 65 },
+  { "_id": 2, "city": "A", "reading": 65, "medianReading": 65 },
+  { "_id": 3, "city": "A", "reading": 70, "medianReading": 65 },
+  { "_id": 4, "city": "B", "reading": 80, "medianReading": 85 },
+  { "_id": 5, "city": "B", "reading": 85, "medianReading": 85 },
+  { "_id": 6, "city": "B", "reading": 90, "medianReading": 85 }
+]
+```
+
+Each document is augmented with `medianReading`, the approximate median of `reading` across all documents in its partition.
+
 ## Code examples
 <a name="median-code"></a>
 
-To view a code example for using the `$median` operator, choose the tab for the language that you want to use. The following examples show both accumulator usage (in `$group`) and expression usage (in `$project`):
+To view a code example for using the `$median` operator, choose the tab for the language that you want to use. The following examples show accumulator usage (in `$group`), expression usage (in `$project`), and window operator usage (in `$setWindowFields`):
 
 ------
 #### [ Node.js ]
@@ -114,6 +172,18 @@ async function example() {
 
     // Accumulator usage: median across grouped documents
     const students = db.collection('students');
+    await students.insertMany([
+      { class: "A", score: 72 },
+      { class: "A", score: 85 },
+      { class: "A", score: 90 },
+      { class: "A", score: 68 },
+      { class: "A", score: 95 },
+      { class: "B", score: 80 },
+      { class: "B", score: 75 },
+      { class: "B", score: 92 },
+      { class: "B", score: 88 },
+      { class: "B", score: 70 }
+    ]);
     const accumulatorResult = await students.aggregate([
       { $group: {
           _id: "$class",
@@ -124,12 +194,42 @@ async function example() {
 
     // Expression usage: median of an array field
     const surveys = db.collection('surveys');
+    await surveys.insertMany([
+      { _id: 1, ratings: [3, 5, 7, 9, 2] },
+      { _id: 2, ratings: [10, 20, 30, 40, 50] },
+      { _id: 3, ratings: [1, 1, 2, 3, 5] }
+    ]);
     const expressionResult = await surveys.aggregate([
       { $project: {
           medianRating: { $median: { input: "$ratings", method: "approximate" } }
         }}
     ]).toArray();
     console.log('Expression result:', expressionResult);
+
+    // Window operator usage: median across each partition
+    const temperatures = db.collection('temperatures');
+    await temperatures.insertMany([
+      { _id: 1, city: "A", reading: 60 },
+      { _id: 2, city: "A", reading: 65 },
+      { _id: 3, city: "A", reading: 70 },
+      { _id: 4, city: "B", reading: 80 },
+      { _id: 5, city: "B", reading: 85 },
+      { _id: 6, city: "B", reading: 90 }
+    ]);
+    const windowResult = await temperatures.aggregate([
+      {
+        $setWindowFields: {
+          partitionBy: "$city",
+          output: {
+            medianReading: {
+              $median: { input: "$reading", method: "approximate" },
+              window: { documents: ["unbounded", "unbounded"] }
+            }
+          }
+        }
+      }
+    ]).toArray();
+    console.log('Window result:', windowResult);
 
   } finally {
     await client.close();
@@ -153,6 +253,18 @@ def example():
 
         # Accumulator usage: median across grouped documents
         students = db['students']
+        students.insert_many([
+            { 'class': 'A', 'score': 72 },
+            { 'class': 'A', 'score': 85 },
+            { 'class': 'A', 'score': 90 },
+            { 'class': 'A', 'score': 68 },
+            { 'class': 'A', 'score': 95 },
+            { 'class': 'B', 'score': 80 },
+            { 'class': 'B', 'score': 75 },
+            { 'class': 'B', 'score': 92 },
+            { 'class': 'B', 'score': 88 },
+            { 'class': 'B', 'score': 70 }
+        ])
         accumulator_result = list(students.aggregate([
             { '$group': {
                 '_id': '$class',
@@ -163,12 +275,42 @@ def example():
 
         # Expression usage: median of an array field
         surveys = db['surveys']
+        surveys.insert_many([
+            { '_id': 1, 'ratings': [3, 5, 7, 9, 2] },
+            { '_id': 2, 'ratings': [10, 20, 30, 40, 50] },
+            { '_id': 3, 'ratings': [1, 1, 2, 3, 5] }
+        ])
         expression_result = list(surveys.aggregate([
             { '$project': {
                 'medianRating': { '$median': { 'input': '$ratings', 'method': 'approximate' } }
             }}
         ]))
         print('Expression result:', expression_result)
+
+        # Window operator usage: median across each partition
+        temperatures = db['temperatures']
+        temperatures.insert_many([
+            { '_id': 1, 'city': 'A', 'reading': 60 },
+            { '_id': 2, 'city': 'A', 'reading': 65 },
+            { '_id': 3, 'city': 'A', 'reading': 70 },
+            { '_id': 4, 'city': 'B', 'reading': 80 },
+            { '_id': 5, 'city': 'B', 'reading': 85 },
+            { '_id': 6, 'city': 'B', 'reading': 90 }
+        ])
+        window_result = list(temperatures.aggregate([
+            {
+                '$setWindowFields': {
+                    'partitionBy': '$city',
+                    'output': {
+                        'medianReading': {
+                            '$median': { 'input': '$reading', 'method': 'approximate' },
+                            'window': { 'documents': ['unbounded', 'unbounded'] }
+                        }
+                    }
+                }
+            }
+        ]))
+        print('Window result:', window_result)
 
     finally:
         client.close()

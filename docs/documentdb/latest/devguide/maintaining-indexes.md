@@ -56,7 +56,8 @@ reIndex is a command used to rebuild an index. It is typically used when an inde
 + Amazon DocumentDB supports reindex of a single index in the background, allowing for multiple workers. The old index is usable by queries when the reIndex process is running.
 + Amazon DocumentDB supports indexing progress report through currentOp. You can see index build stages similar to the Index build stages viewed during index creation. The only difference is that reIndex always has eight stages, regardless if it's unique or not. There's no "building index: sorting keys 2" stage.
 + reIndex can run concurrently with any command except index-related commands on the same collection: createIndexes, dropIndexes, collMod, and renameCollection.
-+ reIndex is currently not supported for text, geospatial, vector, and partial indexes.
++ reIndex is currently not supported for text, geospatial, and vector indexes.
++ reIndex support for partial indexes is available in engine version 8.0.2 and later.
 
 **reIndex build**
 

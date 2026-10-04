@@ -12,6 +12,7 @@ This section covers connecting to your Amazon DocumentDB cluster, querying and m
 + [Indexes](indexes.md)
 + [Using change streams](change_streams.md)
 + [Transactions](transactions.md)
++ [Retryable writes](retryable-writes.md)
 + [Using collation](collation.md)
 + [Using views](views.md)
 + [Generative AI](generative-ai.md)

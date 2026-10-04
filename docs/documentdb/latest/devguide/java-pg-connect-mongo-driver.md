@@ -94,7 +94,7 @@ Write concern determines the level of acknowledgment requested from the database
 ### RetryWrites
 <a name="connection-string-retry-writes"></a>
 
-**`retryWrites=false`** — DocumentDB does not support retryable writes and therefore this attribute should always be set to `false`.
+**`retryWrites`** — Starting with engine version 8.0.2, Amazon DocumentDB supports retryable writes. Set `retryWrites=true` to enable. On engine versions earlier than 8.0.2, set this attribute to `false`. For more information, see [Retryable writes in Amazon DocumentDB](retryable-writes.md).
 
 ### IAM authentication
 <a name="connection-string-iam-auth"></a>
