@@ -9,6 +9,7 @@ To get notified about updates to this documentation, subscribe to the RSS feed.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Support added for shared VPCs](https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html#create-agent-steps-vpc) | You can now use DataSync with shared VPC subnets via AWS Resource Access Manager. A VPC owner can share a subnet with another account, which can then create DataSync agents in that subnet. | September 15, 2026 | 
 | [Enhanced mode support for additional locations and Microsoft Hyper-V](https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html) | DataSync Enhanced mode tasks support Amazon EFS, Amazon FSx for Lustre, and HDFS locations, as well as agent-based transfers with Microsoft Azure Blob Storage and object storage locations. You can also deploy Enhanced mode agents on Microsoft Hyper-V. | July 28, 2026 | 
 | [Support added for VPC endpoint policies and FIPS enabled VPC endpoints](https://docs.aws.amazon.com/datasync/latest/userguide/choose-service-endpoint.html) | You can now use VPC endpoint policies and choose FIPS VPC endpoints in FIPS-enabled AWS Regions. | September 30, 2025 | 
 | [Support added for IPv6 addresses](https://docs.aws.amazon.com/datasync/latest/userguide/datasync-network.html#ipv6-support) | You can now use IPv4 and IPv6 addresses to connect with DataSync and for data transfers with supported data sources.  | July 16, 2025 | 

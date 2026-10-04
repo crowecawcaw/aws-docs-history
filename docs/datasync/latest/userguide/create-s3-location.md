@@ -468,11 +468,12 @@ Before you create your location, make sure that you read the following sections:
 
 1. For **S3 URI**, enter or choose the bucket and prefix that you want to use for your location.
 **Warning**  
-DataSync can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
+DataSync Basic mode tasks can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
 `{{/}}photos`
 `photos{{//}}2006/January`
 `photos{{/./}}2006/February`
 `photos{{/../}}2006/March`
+Enhanced mode tasks can transfer objects with these prefixes.
 
 1. For **S3 storage class when used as a destination**, choose a storage class that you want your objects to use when Amazon S3 is a transfer destination.
 
@@ -513,11 +514,12 @@ DataSync can't transfer objects with a prefix that begins with a slash (`/`) or 
 
 1. For `--subdirectory`, specify a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 **Warning**  
-DataSync can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
+DataSync Basic mode tasks can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
 `{{/}}photos`
 `photos{{//}}2006/January`
 `photos{{/./}}2006/February`
 `photos{{/../}}2006/March`
+Enhanced mode tasks can transfer objects with these prefixes.
 
 1. Run the `create-location-s3` command.
 
@@ -561,11 +563,12 @@ When transferring from an S3 on Outposts bucket prefix that contains a large dat
 
 1. For **Folder**, enter a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 **Warning**  
-DataSync can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
+DataSync Basic mode tasks can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
 `{{/}}photos`
 `photos{{//}}2006/January`
 `photos{{/./}}2006/February`
 `photos{{/../}}2006/March`
+Enhanced mode tasks can transfer objects with these prefixes.
 
 1. For **IAM role**, do one of the following:
    + Choose **Autogenerate** for DataSync to automatically create an IAM role with the permissions required to access the S3 bucket.
@@ -607,11 +610,12 @@ DataSync can't transfer objects with a prefix that begins with a slash (`/`) or 
 
 1. For `--subdirectory`, specify a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 **Warning**  
-DataSync can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
+DataSync Basic mode tasks can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
 `{{/}}photos`
 `photos{{//}}2006/January`
 `photos{{/./}}2006/February`
 `photos{{/../}}2006/March`
+Enhanced mode tasks can transfer objects with these prefixes.
 
 1. For `--agent-arns`, specify the ARN of the DataSync agent on your Outpost.
 
@@ -741,11 +745,12 @@ You need an object storage location for the S3 bucket that's in the Region where
 
 1. For **Folder**, enter a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 **Warning**  
-DataSync can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
+DataSync Basic mode tasks can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
 `{{/}}photos`
 `photos{{//}}2006/January`
 `photos{{/./}}2006/February`
 `photos{{/../}}2006/March`
+Enhanced mode tasks can transfer objects with these prefixes.
 
 1. Select **Requires credentials** and do the following:
    + For **Access key**, enter the access key for an [IAM user](#create-s3-location-govcloud-iam) that can access the bucket.
@@ -787,11 +792,12 @@ DataSync can't transfer objects with a prefix that begins with a slash (`/`) or 
 
 1. (Optional) For the `--subdirectory` parameter, specify a prefix in the S3 bucket that DataSync reads from or writes to (depending on whether the bucket is a source or destination location).
 **Warning**  
-DataSync can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
+DataSync Basic mode tasks can't transfer objects with a prefix that begins with a slash (`/`) or includes `//`, `/./`, or `/../` patterns. For example:  
 `{{/}}photos`
 `photos{{//}}2006/January`
 `photos{{/./}}2006/February`
 `photos{{/../}}2006/March`
+Enhanced mode tasks can transfer objects with these prefixes.
 
 1. (Optional) For the `--tags` parameter, specify key-value pairs that represent tags for the location resource.
 

@@ -44,6 +44,7 @@ If you use a VPC service endpoint, your data isn't transferred across the public
 + [How DataSync agents work with VPC service endpoints](#working-with-endpoints)
 + [DataSync limitations with VPCs](#datasync-in-vpc-limitations)
 + [Creating a VPC service endpoint for DataSync](#create-agent-steps-vpc)
++ [Using a single VPC service endpoint across multiple subnets](#vpc-endpoint-multiple-subnets)
 
 ### How DataSync agents work with VPC service endpoints
 <a name="working-with-endpoints"></a>
@@ -55,12 +56,14 @@ The VPC service endpoint (along with the [network interfaces](required-network-i
 ### DataSync limitations with VPCs
 <a name="datasync-in-vpc-limitations"></a>
 + VPCs that you use with DataSync must have default tenancy. VPCs with dedicated tenancy aren't supported.
-+ DataSync doesn't support [shared VPCs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html).
 
 ### Creating a VPC service endpoint for DataSync
 <a name="create-agent-steps-vpc"></a>
 
-You create a VPC service endpoint for DataSync in a VPC that you manage. Your service endpoint, VPC, and DataSync agent must belong to the same AWS account.
+You create a VPC service endpoint for DataSync in a VPC that you manage.
+
+**Note**  
+DataSync now supports using a VPC subnet shared through [AWS Resource Access Manager (RAM)](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html). A shared subnet can be used when creating an agent.
 
 The following diagram shows an example of DataSync using a VPC service endpoint for transferring from an on-premises storage system to an Amazon S3 bucket. The numbered callouts correspond to the steps to create a VPC service endpoint.
 
@@ -89,7 +92,9 @@ The following diagram shows an example of DataSync using a VPC service endpoint 
 
       We recommend disabling this setting in case you have agents in the same VPC that need to use a public service endpoint. An agent can't reach a [public service endpoint](datasync-network.md#using-public-endpoints) over the network when this setting is enabled.
 
-   1. For **Subnet**, choose the subnet where you want to create the VPC service endpoint. Take note of the subnet ARN (you need this when activating your agent).
+   1. For **Subnet**, choose the subnet where you want to create the VPC service endpoint.
+
+      The subnet where you create the VPC service endpoint doesn't need to be the subnet that you specify when creating an agent. For more information, see [Using a single VPC service endpoint across multiple subnets](#vpc-endpoint-multiple-subnets).
 
    1. Choose **Create endpoint**. Take note of the endpoint ID (you need this when activating your agent).
 
@@ -98,3 +103,25 @@ The following diagram shows an example of DataSync using a VPC service endpoint 
    The security group must allow your agent to connect with the private IP addresses of the VPC service endpoint and your [network interfaces](required-network-interfaces.md) (which get created when you create your task).
 
 **Next step: [Activating your AWS DataSync agent](activate-agent.md)**
+
+### Using a single VPC service endpoint across multiple subnets
+<a name="vpc-endpoint-multiple-subnets"></a>
+
+You don't need a separate DataSync VPC service endpoint for every subnet that you use with DataSync. A single VPC service endpoint can serve agents across multiple subnets.
+
+This works because the subnet that you specify when creating an agent and the subnet that contains your VPC service endpoint serve two different purposes:
++ **The subnet that you specify when creating an agent** determines where DataSync creates the [network interfaces](required-network-interfaces.md) that handle data transfer traffic for your tasks.
++ **The subnet that contains your VPC service endpoint** determines the private IP addresses that your agent uses to communicate with the DataSync service. You provide one of these IP addresses as `privateLinkEndpoint` when you [get an activation key](activate-agent.md#get-activation-key).
+
+**Note**  
+The subnet that you specify when creating an agent is where DataSync creates network interfaces when your AWS storage location is Amazon S3. For other AWS storage locations, DataSync creates the network interfaces in the same subnet as your file system. For more information, see [Network interfaces for AWS DataSync transfers](required-network-interfaces.md).
+
+Neither subnet has to be the subnet where you deployed your agent VM or Amazon EC2 instance.
+
+**Note**  
+When you create an agent, the VPC service endpoint ID that you specify is recorded for informational purposes only. Your agent communicates through the private IP address that you provide as `privateLinkEndpoint` when you [get an activation key](activate-agent.md#get-activation-key). If you use several VPC service endpoints in the same VPC, make sure that this IP address belongs to the endpoint that you intend the agent to use.
+
+When using a single VPC service endpoint across multiple subnets, keep the following in mind:
++ The VPC service endpoint can be in a different VPC from the subnet that you specify when creating an agent.
++ Your [security group](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) must allow traffic between your agent and the private IP addresses of the VPC service endpoint. It must also allow traffic between your agent and the network interfaces that DataSync creates in the subnet that you specify when creating an agent.
++ Your agent must be able to reach the private IP addresses of the VPC service endpoint. By default, a VPC service endpoint is routable from any subnet in the same VPC.
