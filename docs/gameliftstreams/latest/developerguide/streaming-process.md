@@ -171,7 +171,7 @@ In this step, you configure the application you want to stream with Amazon GameL
             "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*",
             "Condition": {
               "StringEquals": {
-                "aws:SourceAccount": "{{your 12-digit account id}}"
+                "aws:SourceAccount": "{{123456789012}}"
               }
             }
           }

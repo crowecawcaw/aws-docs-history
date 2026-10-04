@@ -158,7 +158,7 @@ Amazon GameLift Streams does not keep your application files in sync with the fi
             "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*",
             "Condition": {
               "StringEquals": {
-                "aws:SourceAccount": "{{your 12-digit account id}}"
+                "aws:SourceAccount": "{{123456789012}}"
               }
             }
           }
@@ -449,7 +449,7 @@ If you provide your own application log Amazon S3 bucket, you will need to apply
       "Resource": "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "{{your 12-digit account id}}"
+          "aws:SourceAccount": "{{123456789012}}"
         }
       }
     }

@@ -40,9 +40,6 @@ The following release notes are in reverse chronological order, with the latest 
 
  Amazon GameLift Streams now automatically adjusts the stream resolution to deliver the best visual quality the viewer's network connection can sustain. This feature is enabled by default in Web SDK version 1.3.0 or later. 
 
-**Dynamic resolution and video element sizing**  
-When dynamic resolution is active, the stream resolution may change during a session. If the HTML video element used for playback does not have explicit fixed dimensions, the element may visibly resize when the resolution adjusts. To prevent unexpected layout changes, set fixed dimensions on your video element. For details, see [Dynamic resolution in the Amazon GameLift Streams Web SDK release notes](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/web-sdk-release-notes.html).
-
 **Learn more:**
 + [Dynamic resolution](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/web-sdk-release-notes.html), *Amazon GameLift Streams Web SDK Release Notes*
 

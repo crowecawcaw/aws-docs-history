@@ -26,7 +26,7 @@ SET "PATH=%PATH%;C:\Program Files\Amazon\AWSCLIV2"
 aws sts get-caller-identity
 ```
 
-The AWS CLI and all AWS SDKs automatically discover session credentials and refresh them before they expire. You do not need to manage credential rotation in your application code.
+All AWS SDKs automatically discover session credentials and refresh them before they expire. You do not need to manage credential rotation in your application code.
 
 For more information about how the AWS SDK discovers credentials, see [Credential providers](https://docs.aws.amazon.com/sdkref/latest/guide/standardized-credentials.html) in the *AWS SDKs and Tools Reference Guide*.
 
