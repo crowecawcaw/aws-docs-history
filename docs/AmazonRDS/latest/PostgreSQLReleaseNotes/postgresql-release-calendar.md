@@ -106,12 +106,15 @@ Dates with only a month and a year are approximate, and will be updated with the
 
 | Minor engine version | Community release date | RDS release date | RDS end of Extended Support date | 
 | --- | --- | --- | --- | 
+| 13.23-rds.20260514\* | Not applicable | 29 September 2026 | 30 September 2027 | 
 | 13.23-rds.20260224\* | Not applicable | 15 May 2026 | 30 September 2027 | 
+| 12.22-rds.20260514\* | Not applicable | 29 September 2026 | 30 September 2027 | 
 | 12.22-rds.20260224\* | Not applicable | 15 May 2026 | 30 September 2027 | 
 | 12.22-rds.20251114\* | Not applicable | 13 January 2026 | 31 March 2027 | 
 | 12.22-rds.20250814\* | Not applicable | 29 September 2025 | 31 October 2026 | 
 | 12.22-rds.20250508\* | Not applicable | 4 June 2025 | 31 October 2026 | 
 | 12.22-rds.20250220\* | Not applicable | 3 April 2025 | 31 October 2026 | 
+| 11.22-rds.20260514\* | Not applicable | 29 September 2026 | 31 March 2027 | 
 | 11.22-rds.20260224\* | Not applicable | 15 May 2026 | 31 March 2027 | 
 | 11.22-rds.20251114\* | Not applicable | 13 January 2026 | 31 March 2027 | 
 | 11.22-rds.20250814\* | Not applicable | 29 September 2025 | 31 October 2026 | 

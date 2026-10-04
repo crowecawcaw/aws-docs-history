@@ -14,7 +14,26 @@ Learn about the Amazon RDS Extended Support updates below.
 <a name="postgresql-version1323ES"></a>
 
 **Topics**
++ [Amazon RDS Extended Support version 13.23-RDS.20260514](#postgresql-versions-version13.23-rds.20260514)
 + [Amazon RDS Extended Support version 13.23-RDS.20260224](#postgresql-versions-version13.23-rds.20260224)
+
+### Amazon RDS Extended Support version 13.23-RDS.20260514
+<a name="postgresql-versions-version13.23-rds.20260514"></a>
+
+RDS Extended Support version 13.23-RDS.20260514 is now available.
+
+**CVEs fixed:**
++ [CVE-2026-6473](https://nvd.nist.gov/vuln/detail/CVE-2026-6473) 
++ [CVE-2026-6474](https://nvd.nist.gov/vuln/detail/CVE-2026-6474) 
++ [CVE-2026-6475](https://nvd.nist.gov/vuln/detail/CVE-2026-6475) 
++ [CVE-2026-6477](https://nvd.nist.gov/vuln/detail/CVE-2026-6477) 
++ [CVE-2026-6478](https://nvd.nist.gov/vuln/detail/CVE-2026-6478) 
++ [CVE-2026-6479](https://nvd.nist.gov/vuln/detail/CVE-2026-6479) 
++ [CVE-2026-6637](https://nvd.nist.gov/vuln/detail/CVE-2026-6637) 
+
+**Extensions updated:**
++ The `postgis` extension was updated to version 3.4.6. 
++ The `pglogical` extension was updated to version 2.4.8. 
 
 ### Amazon RDS Extended Support version 13.23-RDS.20260224
 <a name="postgresql-versions-version13.23-rds.20260224"></a>
@@ -31,11 +50,30 @@ RDS Extended Support version 13.23-RDS.20260224 is now available.
 <a name="postgresql-version1222ES"></a>
 
 **Topics**
++ [Amazon RDS Extended Support version 12.22-RDS.20260514](#postgresql-versions-version12.22-rds.20260514)
 + [Amazon RDS Extended Support version 12.22-RDS.20260224](#postgresql-versions-version12.22-rds.20260224)
 + [Amazon RDS Extended Support version 12.22-RDS.20251114](#postgresql-versions-version12.22-rds.20251114)
 + [Amazon RDS Extended Support version 12.22-RDS.20250814](#postgresql-versions-version12.22-rds.20250814)
 + [Amazon RDS Extended Support version 12.22-RDS.20250508](#postgresql-versions-version12.22-rds.20250508)
 + [Amazon RDS Extended Support version 12.22-RDS.20250220](#postgresql-versions-version12.22-rds.20250220)
+
+### Amazon RDS Extended Support version 12.22-RDS.20260514
+<a name="postgresql-versions-version12.22-rds.20260514"></a>
+
+RDS Extended Support version 12.22-RDS.20260514 is now available.
+
+**CVEs fixed:**
++ [CVE-2026-6473](https://nvd.nist.gov/vuln/detail/CVE-2026-6473) 
++ [CVE-2026-6474](https://nvd.nist.gov/vuln/detail/CVE-2026-6474) 
++ [CVE-2026-6475](https://nvd.nist.gov/vuln/detail/CVE-2026-6475) 
++ [CVE-2026-6477](https://nvd.nist.gov/vuln/detail/CVE-2026-6477) 
++ [CVE-2026-6478](https://nvd.nist.gov/vuln/detail/CVE-2026-6478) 
++ [CVE-2026-6479](https://nvd.nist.gov/vuln/detail/CVE-2026-6479) 
++ [CVE-2026-6637](https://nvd.nist.gov/vuln/detail/CVE-2026-6637) 
+
+**Extensions updated:**
++ The `postgis` extension was updated to version 3.4.6. 
++ The `pglogical` extension was updated to version 2.4.8. 
 
 ### Amazon RDS Extended Support version 12.22-RDS.20260224
 <a name="postgresql-versions-version12.22-rds.20260224"></a>
@@ -91,6 +129,7 @@ RDS Extended Supportt version 12.22-RDS.20250220 is now available.
 <a name="postgresql-version1122ES"></a>
 
 **Topics**
++ [Amazon RDS Extended Support version 11.22-RDS.20260514](#postgresql-versions-version11.22-rds.20260514)
 + [Amazon RDS Extended Support version 11.22-RDS.20260224](#postgresql-versions-version11.22-rds.20260224)
 + [Amazon RDS Extended Support version 11.22-RDS.20251114](#postgresql-versions-version11.22-rds.20251114)
 + [Amazon RDS Extended Support version 11.22-RDS.20250814](#postgresql-versions-version11.22-rds.20250814)
@@ -100,6 +139,24 @@ RDS Extended Supportt version 12.22-RDS.20250220 is now available.
 + [Amazon RDS Extended Support version 11.22-RDS.20240808](#postgresql-versions-version11.22-rds.20240808)
 + [Amazon RDS Extended Support version 11.22-RDS.20240509](#postgresql-versions-version11.22-rds.20240509)
 + [Amazon RDS Extended Support version 11.22-RDS.20240418](#postgresql-versions-version11.22-rds.20240418)
+
+### Amazon RDS Extended Support version 11.22-RDS.20260514
+<a name="postgresql-versions-version11.22-rds.20260514"></a>
+
+RDS Extended Support version 11.22-RDS.20260514 is now available.
+
+**CVEs fixed:**
++ [CVE-2026-6473](https://nvd.nist.gov/vuln/detail/CVE-2026-6473) 
++ [CVE-2026-6474](https://nvd.nist.gov/vuln/detail/CVE-2026-6474) 
++ [CVE-2026-6475](https://nvd.nist.gov/vuln/detail/CVE-2026-6475) 
++ [CVE-2026-6477](https://nvd.nist.gov/vuln/detail/CVE-2026-6477) 
++ [CVE-2026-6478](https://nvd.nist.gov/vuln/detail/CVE-2026-6478) 
++ [CVE-2026-6479](https://nvd.nist.gov/vuln/detail/CVE-2026-6479) 
++ [CVE-2026-6637](https://nvd.nist.gov/vuln/detail/CVE-2026-6637) 
+
+**Extensions updated:**
++ The `postgis` extension was updated to version 3.3.10. 
++ The `pglogical` extension was updated to version 2.4.8. 
 
 ### Amazon RDS Extended Support version 11.22-RDS.20260224
 <a name="postgresql-versions-version11.22-rds.20260224"></a>
