@@ -21,7 +21,7 @@ For a complete list of AWS SDK developer guides and code examples, see [Using th
     + [`TranslateText`](example_translate_TranslateText_section.md)
 + [Scenarios](service_code_examples_scenarios.md)
   + [Build an Amazon Transcribe streaming app](example_cross_TranscriptionStreamingApp_section.md)
-  + [Building an Amazon Lex chatbot](example_cross_LexChatbotLanguages_section.md)
+  + [Building an Amazon Lex V2 chatbot](example_cross_LexChatbotLanguages_section.md)
   + [Building an Amazon SNS application](example_cross_SnsPublishSubscription_section.md)
   + [Create an application to analyze customer feedback](example_cross_FSA_section.md)
   + [Get started with translate jobs](example_translate_Scenario_GettingStarted_section.md)
