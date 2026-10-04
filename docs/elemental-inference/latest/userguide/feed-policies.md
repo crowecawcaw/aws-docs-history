@@ -10,7 +10,7 @@ A common use case for feed policies is integration with AWS Elemental MediaTailo
 **Topics**
 + [Prerequisites](feed-policies-prerequisites.md)
 + [Policy requirements](feed-policies-requirements.md)
-+ [Attaching a policy using the console](feed-policies-console.md)
++ [Managing a policy using the console](feed-policies-console.md)
 + [Managing policies using the CLI](feed-policies-cli.md)
 + [Example policy for MediaTailor access](feed-policies-example.md)
 + [Security considerations](feed-policies-security.md)

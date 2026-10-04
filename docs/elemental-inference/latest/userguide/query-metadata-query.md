@@ -220,7 +220,7 @@ The TTML subtitles returned by Elemental Inference can be used in the following 
 ## Querying contextual metadata
 <a name="query-metadata-contextual"></a>
 
-For contextual metadata, Elemental Inference returns content classifications that include IAB Content Taxonomy v3.1 category IDs and GARM brand safety ratings. The response contains one item for each shot and each scene that overlaps the requested time range, ordered by presentation timestamp (PTS).
+For contextual metadata, Elemental Inference returns content classifications that include IAB Content Taxonomy v3.1 category IDs, GARM brand safety ratings, and descriptive labels. The response contains one item for each shot and each scene that overlaps the requested time range, ordered by presentation timestamp (PTS). The fields that Elemental Inference returns depend on the `summaryGeneration` and `extendedAnalysis` settings of the output. For more information, see [Configuring contextual metadata](create-feed-outputs.md#create-feed-console-contextual-metadata).
 
 The following `awscurl` command shows how to query for contextual metadata. The `parameters` field is required, and must contain a `contextualMetadata` object that matches the type of the output that you name in `outputName`.
 
@@ -232,67 +232,108 @@ $ awscurl --service "elemental-inference" --region <{{region}}> \
   -d '{"outputName": "contextual-metadata", "timeSpecification": { "ptsBased": { "startPts": 0, "endPts": 5000, "timescale": 1000 }}, "parameters": { "contextualMetadata": {}}}'
 ```
 
-The response contains contextual classification results. The following example shows one shot-level item and one scene-level item, for a feed that has summary generation enabled, so the items include the `summary` field:
+The response contains contextual classification results. The following example shows one scene-level item and one shot-level item from a tennis broadcast, for a feed that has summary generation and extended analysis enabled, so the items include every contextual metadata field:
 
 ```
 {
   "items": [
     {
-      "pts": 1800,
+      "pts": 95000,
       "metadata": {
         "contextualMetadata": {
-          "type": "SHOT",
-          "startPts": 1800,
-          "domain": "Sports",
+          "type": "SCENE",
+          "startPts": 60000,
           "iabTaxonomy": {
             "version": "V3_1",
             "categories": [
-              {"uniqueId": "547", "path": ["Sports", "Basketball"]}
+              {"uniqueId": "539", "path": ["Sports", "Tennis"]}
             ]
           },
           "garm": {
             "suitability": {
               "categories": [
+                {"category": "ADULT_EXPLICIT_SEXUAL", "flagged": false},
                 {"category": "ARMS_AMMUNITION", "flagged": false},
                 {"category": "CRIME_HARMFUL_ACTS", "flagged": false},
-                {"category": "DRUGS_ALCOHOL_TOBACCO", "flagged": false},
-                {"category": "ADULT_EXPLICIT", "flagged": false}
+                {"category": "DEATH_INJURY_MILITARY_CONFLICT", "flagged": false},
+                {"category": "DEBATED_SENSITIVE_SOCIAL_ISSUES", "flagged": false},
+                {"category": "ILLEGAL_DRUGS_TOBACCO_ALCOHOL", "flagged": false},
+                {"category": "HATE_SPEECH_ACTS_OF_AGGRESSION", "flagged": false},
+                {"category": "OBSCENITY_PROFANITY", "flagged": false},
+                {"category": "ONLINE_PIRACY", "flagged": false},
+                {"category": "SPAM_HARMFUL_CONTENT", "flagged": false},
+                {"category": "TERRORISM", "flagged": false}
               ]
             }
           },
-          "objects": ["basketball", "hoop", "scoreboard"],
-          "actions": ["jumping", "rebounding"],
-          "summary": "Two players contest a rebound under the basket."
+          "objects": ["tennis racket", "tennis ball", "net", "scoreboard graphic"],
+          "actions": ["serving", "returning serve", "running", "celebrating"],
+          "people": ["athlete", "umpire", "spectator"],
+          "environments": ["stadium", "tennis court"],
+          "mood": {
+            "anger": 1.2,
+            "anticipation": 7.9,
+            "joy": 5.4,
+            "trust": 5.7,
+            "fear": 2.4,
+            "surprise": 4.6,
+            "sadness": 1.6,
+            "disgust": 1.0
+          },
+          "domains": ["Sports"],
+          "brands": ["AnyCompany", "Example Sports Network"],
+          "onScreenTexts": ["EXAMPLE OPEN", "PLAYER A 6 4 30", "PLAYER B 3 4 15", "BREAK POINT"],
+          "summary": "Player A wins a long rally to earn a break point, and the crowd applauds."
         }
       }
     },
     {
-      "pts": 1800,
+      "pts": 95000,
       "metadata": {
         "contextualMetadata": {
-          "type": "SCENE",
-          "startPts": 1710,
-          "domain": "Sports",
+          "type": "SHOT",
+          "startPts": 78000,
           "iabTaxonomy": {
             "version": "V3_1",
             "categories": [
-              {"uniqueId": "547", "path": ["Sports", "Basketball"]},
-              {"uniqueId": "640", "path": ["Entertainment", "Television"]}
+              {"uniqueId": "539", "path": ["Sports", "Tennis"]}
             ]
           },
           "garm": {
             "suitability": {
               "categories": [
+                {"category": "ADULT_EXPLICIT_SEXUAL", "flagged": false},
                 {"category": "ARMS_AMMUNITION", "flagged": false},
                 {"category": "CRIME_HARMFUL_ACTS", "flagged": false},
-                {"category": "DRUGS_ALCOHOL_TOBACCO", "flagged": true, "risk": "LOW"},
-                {"category": "ADULT_EXPLICIT", "flagged": false}
+                {"category": "DEATH_INJURY_MILITARY_CONFLICT", "flagged": false},
+                {"category": "DEBATED_SENSITIVE_SOCIAL_ISSUES", "flagged": false},
+                {"category": "ILLEGAL_DRUGS_TOBACCO_ALCOHOL", "flagged": false},
+                {"category": "HATE_SPEECH_ACTS_OF_AGGRESSION", "flagged": false},
+                {"category": "OBSCENITY_PROFANITY", "flagged": false},
+                {"category": "ONLINE_PIRACY", "flagged": false},
+                {"category": "SPAM_HARMFUL_CONTENT", "flagged": false},
+                {"category": "TERRORISM", "flagged": false}
               ]
             }
           },
-          "objects": ["basketball", "hoop", "scoreboard", "arena signage"],
-          "actions": ["jumping", "rebounding", "cheering"],
-          "summary": "A close fourth-quarter sequence, with a beer commercial visible on the arena signage."
+          "objects": ["tennis racket", "tennis ball", "net", "scoreboard graphic"],
+          "actions": ["serving", "returning serve", "running"],
+          "people": ["athlete", "umpire"],
+          "environments": ["tennis court"],
+          "mood": {
+            "anger": 1.1,
+            "anticipation": 8.2,
+            "joy": 4.3,
+            "trust": 5.6,
+            "fear": 2.3,
+            "surprise": 3.3,
+            "sadness": 1.5,
+            "disgust": 1.0
+          },
+          "domains": ["Sports"],
+          "brands": ["AnyCompany"],
+          "onScreenTexts": ["PLAYER A 6 4 30", "PLAYER B 3 4 15"],
+          "summary": "Player B serves, and Player A returns the ball down the line."
         }
       }
     }
@@ -300,35 +341,37 @@ The response contains contextual classification results. The following example s
 }
 ```
 
-**Note**  
-The preceding example shows a subset of the GARM categories. Elemental Inference returns a result for each of the GARM categories.
-
 ### Using the metadata
 <a name="query-metadata-contextual-usage"></a>
 
 Contextual metadata provides content classifications that you can use for contextual ad targeting. The response contains the following structure:
-+ `pts` – The presentation timestamp of the metadata item, in the timebase of the media.
-+ `timecode` – The timecode of the metadata item, when the source media carries timecode information.
++ **pts** – The presentation timestamp of the metadata item, in the timebase of the media.
++ **timecode** – The timecode of the metadata item, when the source media carries timecode information.
 + **contextualMetadata** – The top-level object containing classification results.
-  + `type` – The granularity of the classification. `SHOT` for a single continuous camera take, or `SCENE` for a group of related consecutive shots. Elemental Inference returns both shot-level and scene-level items for a time range, so a shot item and the scene item that contains it can both appear in the response.
-  + `startPts` – The presentation timestamp at which the shot or scene begins. For a scene, this value can be earlier than the `pts` of the item and earlier than the start of the requested time range.
-  + `domain` – The high-level content category of the video, such as `Sports`, `News`, or `Entertainment`.
+  + **type** – The granularity of the classification. `SHOT` for a single continuous camera take, or `SCENE` for a group of related consecutive shots. Elemental Inference returns both shot-level and scene-level items for a time range, so a shot item and the scene item that contains it can both appear in the response.
+  + **startPts** – The presentation timestamp at which the shot or scene begins. For a scene, this value can be earlier than the `pts` of the item and earlier than the start of the requested time range.
   + **iabTaxonomy** – IAB Content Taxonomy classifications. This field is omitted when Elemental Inference does not match any category.
-    + `version` – The taxonomy version used (currently `V3_1`).
-    + `categories` – An array of matched content categories. Each category includes:
-      + `path` – The hierarchical category path (for example, `["Sports", "Basketball"]`).
-      + `uniqueId` – The IAB taxonomy unique identifier for the category.
+    + **version** – The taxonomy version used (currently `V3_1`).
+    + **categories** – An array of matched content categories. Each category includes:
+      + **path** – The hierarchical category path (for example, `["Sports", "Basketball"]`).
+      + **uniqueId** – The IAB taxonomy unique identifier for the category.
   + **garm** – GARM (Global Alliance for Responsible Media) brand safety classifications.
-    + `suitability` – Brand suitability assessment.
-      + `categories` – An array of GARM brand safety categories. Each category includes:
-        + `category` – The GARM category name (for example, `ARMS_AMMUNITION`, `HATE_SPEECH`, `ADULT_EXPLICIT`).
-        + `flagged` – Whether the content is flagged for this category (`true` or `false`).
-        + `risk` – The risk level for the category (`FLOOR`, `HIGH`, `MEDIUM`, or `LOW`). Elemental Inference includes this field only when `flagged` is `true`.
-  + `objects` – Labels for the notable objects that Elemental Inference detects in the shot or scene, such as `basketball` or `scoreboard`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no objects.
-  + `actions` – Labels for the notable actions that Elemental Inference detects in the shot or scene, such as `jumping` or `cheering`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no actions.
-  + `summary` – A short natural-language description of what happens in the shot or scene. Elemental Inference returns this field only when the output is configured with `summaryGeneration` set to `ENABLED`. For more information, see [Configuring contextual metadata](create-feed-outputs.md#create-feed-console-contextual-metadata).
 
-The 11 GARM brand safety categories are: `ARMS_AMMUNITION`, `CRIME_HARMFUL_ACTS`, `DEATH_INJURY_MILITARY`, `ONLINE_PIRACY`, `HATE_SPEECH`, `OBSCENITY`, `DRUGS_ALCOHOL_TOBACCO`, `SPAM_MALWARE`, `TERRORISM`, `DEBATED_SENSITIVE`, and `ADULT_EXPLICIT`.
+    The 11 GARM brand safety categories are the following: `ADULT_EXPLICIT_SEXUAL`, `ARMS_AMMUNITION`, `CRIME_HARMFUL_ACTS`, `DEATH_INJURY_MILITARY_CONFLICT`, `DEBATED_SENSITIVE_SOCIAL_ISSUES`, `ILLEGAL_DRUGS_TOBACCO_ALCOHOL`, `HATE_SPEECH_ACTS_OF_AGGRESSION`, `OBSCENITY_PROFANITY`, `ONLINE_PIRACY`, `SPAM_HARMFUL_CONTENT`, and `TERRORISM`.
+    + **suitability** – Brand suitability assessment.
+      + **categories** – An array of GARM brand safety categories. Each category includes:
+        + **category** – The GARM category name (for example, `ARMS_AMMUNITION`, `HATE_SPEECH_ACTS_OF_AGGRESSION`, `ADULT_EXPLICIT_SEXUAL`).
+        + **flagged** – Whether the content is flagged for this category (`true` or `false`).
+        + **risk** – The risk level for the category (`FLOOR`, `HIGH`, `MEDIUM`, or `LOW`). Elemental Inference includes this field only when `flagged` is `true`.
+  + **objects** – Labels for the notable objects that Elemental Inference detects in the shot or scene, such as `basketball` or `scoreboard`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no objects. Elemental Inference doesn't return this field when the output is configured with `summaryGeneration` set to `DISABLED`.
+  + **actions** – Labels for the notable actions that Elemental Inference detects in the shot or scene, such as `jumping` or `cheering`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no actions. Elemental Inference doesn't return this field when the output is configured with `summaryGeneration` set to `DISABLED`.
+  + **people** – Labels for the roles of the people in the shot or scene, such as `athlete`, `anchor`, or `referee`. The labels describe roles, not the names of individuals. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it identifies no roles. Elemental Inference doesn't return this field when the output is configured with `extendedAnalysis` set to `DISABLED`.
+  + **environments** – Labels for the kinds of settings that Elemental Inference identifies in the shot or scene, such as `stadium`, `newsroom`, or `kitchen`. The labels describe the type of place, not a named venue or geographic location. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it identifies no settings. Elemental Inference doesn't return this field when the output is configured with `extendedAnalysis` set to `DISABLED`.
+  + **mood** – The emotional tone of the shot or scene, based on the eight primary emotions of Plutchik's wheel of emotions. The field contains the `anger`, `anticipation`, `joy`, `trust`, `fear`, `surprise`, `sadness`, and `disgust` fields. Each field is a number from 1 to 10 that indicates the intensity of that emotion, where 1 is the lowest intensity and 10 is the highest. Elemental Inference always returns this field.
+  + **domains** – Labels for the content genres or subject areas of the shot or scene, such as `Sports`, `News`, or `Entertainment`. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it identifies no domains.
+  + **brands** – The names of brands or logos that Elemental Inference clearly identifies in the shot or scene. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it identifies no brands. Elemental Inference doesn't return this field when the output is configured with `extendedAnalysis` set to `DISABLED`.
+  + **onScreenTexts** – The lines of legible text that appear on screen during the shot or scene, such as scoreboard or caption text, copied exactly as displayed. For a scene, the list is the union of the labels from the shots in the scene. Elemental Inference omits this field when it detects no legible text. Elemental Inference doesn't return this field when the output is configured with `extendedAnalysis` set to `DISABLED`.
+  + **summary** – A short natural-language description of what happens in the shot or scene. Elemental Inference doesn't return this field when the output is configured with `summaryGeneration` set to `DISABLED`. For more information, see [Configuring contextual metadata](create-feed-outputs.md#create-feed-console-contextual-metadata).
 
 #### Integration with AWS Elemental MediaTailor
 <a name="query-metadata-contextual-emt-integration"></a>

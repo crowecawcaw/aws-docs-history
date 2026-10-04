@@ -8,17 +8,22 @@ Following are details about how to configure each feature (output) that you incl
 ## Configuring contextual metadata
 <a name="create-feed-console-contextual-metadata"></a>
 
-Contextual metadata uses AI to classify video content at the shot level and at the scene level. It produces IAB Content Taxonomy v3.1 category tags and GARM (Global Alliance for Responsible Media) brand safety ratings. These classifications enable contextual ad targeting when used with AWS Elemental MediaLive and AWS Elemental MediaTailor ad insertion workflows.
+Contextual metadata uses AI to classify video content at the shot level and at the scene level. It produces IAB Content Taxonomy v3.1 category tags and GARM (Global Alliance for Responsible Media) brand safety ratings. It also produces descriptive labels for the content, such as domains, objects, actions, people, environments, brands, and on-screen text, and a mood profile. For more information about these fields, see [Using the metadata](query-metadata-query.md#query-metadata-contextual-usage). The classifications and labels enable contextual ad targeting when used with AWS Elemental MediaLive and AWS Elemental MediaTailor ad insertion workflows.
 
 ### Console
 <a name="create-feed-console-contextual-metadata-console"></a>
 
-On the **Create Feed** page, in the **AI features** section, select the **Contextual Metadata** check box. Configure the following settings:
-+ **Summary generation** (optional) – Controls whether Elemental Inference generates a descriptive summary alongside IAB taxonomy and GARM classifications. Supported values:
-  + `DISABLED` – No descriptive summary is generated (default). Only IAB taxonomy and GARM classifications are produced.
-  + `ENABLED` – Generates a descriptive summary along with IAB taxonomy and GARM brand safety classifications.
+On the **Create feed** page, in the **AI features** section, select the **Contextual Metadata** check box. Configure the following settings:
++ **Summary generation** (optional) – Controls whether Elemental Inference generates a descriptive summary and the `objects` and `actions` labels. Supported values:
+  + `ENABLED` – Generates a descriptive summary and the `objects` and `actions` labels (default).
+  + `DISABLED` – Doesn't generate a descriptive summary or the `objects` and `actions` labels.
 
-  If you omit `summaryGeneration`, Elemental Inference treats it as `DISABLED`. Set it to `ENABLED` if you want the `summary` field in the `GetMetadata` response.
+  If you omit `summaryGeneration`, Elemental Inference treats it as `ENABLED`. Set it to `DISABLED` if you don't want the `summary`, `objects`, and `actions` fields in the `GetMetadata` response.
++ **Extended analysis** (optional) – Controls whether Elemental Inference generates the `people`, `environments`, `brands`, and `onScreenTexts` labels. Supported values:
+  + `ENABLED` – Generates the `people`, `environments`, `brands`, and `onScreenTexts` labels (default).
+  + `DISABLED` – Doesn't generate the `people`, `environments`, `brands`, or `onScreenTexts` labels.
+
+  If you omit `extendedAnalysis`, Elemental Inference treats it as `ENABLED`. You can set `summaryGeneration` and `extendedAnalysis` independently. For example, you can disable summaries and keep the extended analysis labels.
 
 ### CLI example
 <a name="create-feed-console-contextual-metadata-cli"></a>
@@ -33,7 +38,8 @@ aws elemental-inference create-feed \
     "status": "ENABLED",
     "outputConfig": {
       "contextualMetadata": {
-        "summaryGeneration": "ENABLED"
+        "summaryGeneration": "ENABLED",
+        "extendedAnalysis": "ENABLED"
       }
     }
   }]'
@@ -233,8 +239,8 @@ Call `GetFeed` and compare the `fixtureId` against your search result.
 Smart crop has no required configuration. Optionally, you can add **graphic composition** to a smart crop output to detect known graphics, such as scoreboards and advertisements, in your source media. You provide one or more reference images, called **templates**, and Elemental Inference reports, for each analyzed frame, whether each graphic is present and where it appears as a bounding box. Elemental Inference returns graphic composition results as part of the smart crop metadata. For more information, see [Metadata for graphic composition](query-metadata-query.md#query-metadata-smart-crop-graphics).
 
 You can configure one to four template groups of reference images, where each group represents a single graphic to detect. Configuring at least one group enables graphic composition in the output. Each group has the following settings:
-+ **Name** (required) – A name for the graphic. The name can be 1–128 characters, must start and end with an alphanumeric character, and can contain letters, numbers, hyphens (-), and underscores (\_). Elemental Inference returns this same name in the metadata so that you can identify which graphic was detected.
-+ **Template URIs** (required) – Up to two Amazon S3 URIs of reference images for the graphic. Provide more than one image when the same graphic can appear in more than one variation.
++ **Group name** (required) – A name for the graphic. The name can be 1–128 characters, must start and end with an alphanumeric character, and can contain letters, numbers, hyphens (-), and underscores (\_). Elemental Inference returns this same name in the metadata so that you can identify which graphic was detected.
++ **Template image URIs** (required) – Up to two Amazon S3 URIs of reference images for the graphic. Provide more than one image when the same graphic can appear in more than one variation.
 
 **Note**  
 Store your reference images in an Amazon S3 bucket in the same account that creates the feed, and that Elemental Inference can read using the access role (`accessRoleArn`) associated with the feed.
@@ -289,11 +295,13 @@ Smart subtitles uses automatic speech recognition (ASR) to generate TTML subtitl
   + `por` – Portuguese
   + `spa` – Spanish
 + **Aspect ratio** (optional) – The width and height of the output video, specified as integer values. Elemental Inference uses the aspect ratio to determine subtitle layout and line lengths.
-+ **Dictionary** (optional) – The ID of a custom dictionary to improve transcription accuracy for domain-specific terminology. For information about creating and managing dictionaries, see [Managing dictionaries](#create-feed-console-dictionaries).
++ **Custom dictionary** (optional) – The ID of a custom dictionary to improve transcription accuracy for domain-specific terminology. For information about creating and managing dictionaries, see [Managing dictionaries](#create-feed-console-dictionaries).
 + **Profanity filter** (optional) – Controls how profanity is handled in the generated subtitles. Supported values:
   + `DISABLED` – No filtering (default). All words appear as transcribed.
   + `CENSOR` – Replace profanity with asterisks.
   + `DROP` – Remove profanity from the transcript entirely.
+
+  The profanity filter is available only for English, Spanish, and Italian.
 
 **CLI example**
 
@@ -346,3 +354,46 @@ When creating or updating a dictionary, the following validation rules apply:
   + Each entry must include a `content` field that is not blank.
   + Each entry may optionally include a `sounds_like` field. If provided, it must be an array of non-blank strings.
   + Each `sounds_like` hint must contain only characters from the dictionary language's primary script. Currently, all supported languages use Latin script (Latin alphabet, accented letters, and script-neutral punctuation are accepted; non-Latin scripts are rejected).
+
+### Managing dictionaries using the console
+<a name="create-feed-console-dictionaries-console"></a>
+
+You can create and manage dictionaries using the Elemental Inference console.
+
+#### Creating a dictionary
+<a name="create-feed-console-dictionaries-create"></a>
+
+1. In the navigation pane, choose **Dictionaries** to open the **Dictionaries** list.
+
+1. Choose **Create dictionary**.
+
+1. On the **Create dictionary** page, under **Dictionary settings**, enter a **Name** and choose a **Language**.
+
+1. Under **Entries**, add entries in one of the following ways:
+   + Choose **Add entry** to add an entry.
+   + Paste a JSON array of entries.
+   + Choose **Choose file** to upload a JSON file.
+
+   For example, the following entry defines the term `Kubernetes` and how it sounds:
+
+   ```
+   [{"content": "Kubernetes", "sounds_like": ["koo-ber-net-eez"]}]
+   ```
+
+   Entries are limited to 40,000 characters.
+
+1. Optionally, add tags. Then choose **Create dictionary**.
+
+#### Viewing dictionary details
+<a name="create-feed-console-dictionaries-view"></a>
+
+To view a dictionary, choose it from the **Dictionaries** list. The **Dictionary details** page shows the following information:
++ **General details** shows the **Dictionary ID** and the **Language**.
++ The **Entries** tab lists the entries, with a **Content** column and a **Sounds like** column.
++ The **References** tab lists the feeds that reference the dictionary, in a **Feed ID** column. You can't delete a dictionary that a feed references.
++ To delete a dictionary, choose **Delete** on the **Dictionaries** list or the dictionary details page, and then confirm.
+
+#### Editing dictionary entries
+<a name="create-feed-console-dictionaries-edit"></a>
+
+To edit the entries in a dictionary, on the **Entries** tab, choose **Edit** to open the **Edit entries** page. When you save, Elemental Inference replaces all of the dictionary's entries.
