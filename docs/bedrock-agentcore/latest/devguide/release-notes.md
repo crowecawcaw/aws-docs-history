@@ -5,6 +5,18 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
+## October 2026
+<a name="_october_2026"></a>
+
+### Gateway: Private certificate authority support for targets
+<a name="_gateway_private_certificate_authority_support_for_targets_2"></a>
+
+Amazon Bedrock AgentCore Gateway now supports TLS certificates signed by private certificate authorities (CAs) on MCP server, OpenAPI, and HTTP proxy (passthrough) targets. You can connect to a target that presents a TLS server certificate issued by your private CA, without placing an intermediate Application Load Balancer in front of the target.
+
+By default, the gateway trusts only server certificates that a public CA issues. You can now register a private CA certificate with targets that use private endpoints powered by Amazon VPC Lattice, so the gateway connects directly to those endpoints in your VPC. You reference a PEM-encoded CA certificate that you store in Amazon S3 or AWS Secrets Manager. The gateway then fetches the certificate and uses it as the trust anchor for outbound TLS connections to that target.
+
+For more information, see [Connect to targets that use a private certificate authority](gateway-vpc-egress.md#gateway-private-certificate).
+
 ## September 2026
 <a name="_september_2026"></a>
 

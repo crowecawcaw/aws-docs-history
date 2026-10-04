@@ -99,8 +99,10 @@ The following policy splits permissions into write (conditioned) and read (uncon
         "StringEquals": {
           "aws:SourceAccount": "111122223333"
         },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:dataset/*"
+        },
         "StringLike": {
-          "aws:SourceArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:dataset/*",
           "kms:EncryptionContext:aws:bedrock-agentcore:datasetArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:dataset/*"
         }
       }

@@ -105,7 +105,8 @@ Replace these placeholders:
 ```
 
 **Note**  
-\* Additional permissions may be required depending on the Amazon Bedrock AgentCore Gateway integration type (e.g., Lambda functions, API Gateway endpoints). These permissions are not included here as they vary based on the specific integration. \* For Production: Replace the placeholders with specific resource IDs (e.g., `policy-engine/my_policy_engine-a1b2c3d4e5` instead of `policy-engine/<policy-engine-id>` ) to follow least-privilege principles, or use wildcards ( \* ) to allow access to all resources of that type.
+A gateway target needs its own permissions on top of these, and they differ by target type. For the permissions each type requires, see [Permissions to access AWS resources](gateway-prerequisites-permissions.md#gateway-service-role-permissions-resources).
+In production, replace the placeholders with specific resource IDs, such as `policy-engine/my_policy_engine-a1b2c3d4e5` in place of `policy-engine/<policy-engine-id>`, to follow least-privilege principles. Use a wildcard ( \* ) only where you intend to allow every resource of that type.
 
 ### IAM permissions for temporal policies
 <a name="policy-permissions-session-temporal"></a>
@@ -138,8 +139,7 @@ For an overview of this requirement in the context of temporal policy considerat
 The Resource Management Role is used by administrators to create and manage Amazon Bedrock AgentCore Gateway and Policy in AgentCore resources. This role requires permissions to:
 
 **Important**  
-Grant the summary actions — `ListPolicyEngineSummaries`, `GetPolicyEngineSummary`, `ListPolicySummaries`, and `GetPolicySummary` — even though the corresponding list and get actions look like they cover the same ground. They are separate IAM actions, and they are the only way to enumerate policy engines and policies when a customer managed key becomes unusable: the full list and get operations verify the key and decrypt before returning, so they fail, while the summary operations return identifiers and status without touching the key.  
-Granting them in advance is what makes that recovery possible. See [Key unavailable: you cannot list or read your policies](policy-encryption.md#policy-encryption-error-key-unavailable).
+Grant the four summary actions in addition to the list and get actions: `ListPolicyEngineSummaries`, `GetPolicyEngineSummary`, `ListPolicySummaries`, and `GetPolicySummary`. These actions let you enumerate policy engines and policies while a customer managed key is unusable. Granting them in advance is what makes that recovery possible. For more information, see [Key unavailable: you cannot list or read your policies](policy-encryption.md#policy-encryption-error-key-unavailable).
 
 For the managed policy that grants full access to AgentCore, see [AWS managed policies for Amazon Bedrock AgentCore](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/security-iam-awsmanpol.html). For the AWS KMS permissions an encrypted policy engine additionally requires, see [Customize your policy engine’s encryption](policy-encryption.md).
 + Create, update, and delete Gateways and Gateway targets

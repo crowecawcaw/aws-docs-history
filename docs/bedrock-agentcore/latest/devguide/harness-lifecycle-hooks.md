@@ -23,11 +23,13 @@ The event type determines when the hook runs, the context sent to the target, an
 ### Use tool-call hooks with inline functions
 <a name="harness-hook-inline-functions"></a>
 
-Tool-call hooks also run for `inline_function` tools. The harness invokes `before_tool_call` after the model generates the tool request and before the harness hands the call off for client-side execution. Consume the complete response stream, then process the inline call only if the last `messageStop` event has `stopReason` set to `tool_use`. The model-generated request can appear in earlier stream events before the hook decision; `before_tool_call` controls execution, not visibility in the stream.
+Tool-call hooks also run for `inline_function` tools. The harness invokes `before_tool_call` after the model generates the tool request and before the harness hands the pending call off for client-side execution. Consume the complete response stream, then process the inline call only if the last `messageStop` event has `stopReason` set to `tool_use`. The model-generated request can appear in earlier stream events before the hook decision; `before_tool_call` controls execution, not visibility in the stream.
 
 Return the matching `toolResult` in a later `InvokeHarness` request that uses the same `runtimeSessionId`. The harness resumes the pending call, invokes `after_tool_call` with the client-supplied result, and continues the agent loop if the hook allows the result. For the complete callback flow, see [Inline function calls](harness-tools.md#harness-inline-functions).
 
-Tools in one model response retain sequential execution order. For harness-executed tool A, inline function B, and harness-executed tool C, the harness executes A before handing off B and waits for B’s result before executing C. Multiple inline functions are handed off one at a time. The follow-up request is a new invocation, so invocation hooks run again; `before_tool_call` for the pending inline function is not repeated, and `after_tool_call` runs once with the submitted result.
+Tools in one model response retain sequential execution order. For harness-executed tool A, inline function B, and harness-executed tool C, the harness executes A before handing off B and waits for B’s result before executing C. The follow-up request is a new invocation, so invocation hooks run again; `before_tool_call` for the pending inline function is not repeated, and `after_tool_call` runs once with the submitted result.
+
+You can submit the pending result and any immediately following inline results in one follow-up request. The harness processes their `before_tool_call` and `after_tool_call` hooks sequentially. If your client requires an `allow` decision before each external action, return one inline result per handoff. A later request can appear in the stream before its hook runs.
 
 If `before_tool_call` denies B, the harness skips B and continues with C without handing B to the client. If `after_tool_call` denies B after the client returns its result, the harness retains B’s result and stops before C.
 

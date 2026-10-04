@@ -33,8 +33,220 @@ Never embed wallet provider credentials in agent code or environment variables.
 + Store Coinbase CDP or Stripe (Privy) credentials as a `PaymentCredentialProvider` in AgentCore Identity.
 + The service retrieves them at runtime by using `ResourceRetrievalRole`.
 + Rotate credentials on the wallet provider’s recommended schedule. If a credential is compromised, revoke it immediately.
++ For a Coinbase connector created with **Quick create**, the credentials are service-managed. Rotate them with `RotatePaymentConnectorCredentials` instead of generating keys in the Coinbase Developer Platform. For more information, see the next section.
 
 For more information, see [AgentCore Identity](identity.md).
+
+### Rotate service-managed connector credentials
+<a name="payments-rotate-connector-credentials"></a>
+
+When you create a Coinbase connector with **Quick create**, AgentCore payments issues the Coinbase CDP API key and Wallet secret for you and stores them as a payment credential provider in AgentCore Identity, which holds the secret material in AWS Secrets Manager. Because the service owns these credentials, you can replace them on demand with `RotatePaymentConnectorCredentials`, without signing in to the Coinbase Developer Platform or handling key material yourself.
+
+A connector has two service-managed secrets, and you rotate each one for different reasons. Rotate the API key as routine maintenance. Rotate the Wallet secret only when it is compromised or lost. For more information, see [Choose which credentials to rotate](#payments-rotate-secrets).
+
+**Note**  
+You can rotate credentials from the console, the AWS CLI, and the AWS SDKs. The AgentCore CLI and the AgentCore SDK do not provide a rotation command, so use one of the other three.
+
+#### Check whether a connector is eligible
+<a name="payments-rotate-eligibility"></a>
+
+Rotation applies only to connectors whose credentials the service manages. The connector’s `provisionMode` field tells you which case you are in:
+
+
+|  `provisionMode`  | How to rotate | 
+| --- | --- | 
+|  `QUICK_CREATE`  | Amazon Bedrock AgentCore provisioned the credentials, so they are service-managed. Call `RotatePaymentConnectorCredentials`. | 
+|  `MANUAL`  | You provided the credentials, so you own them. Rotate them with the payment provider first, and then call `UpdatePaymentCredentialProvider` with the new values. | 
+
+ `GetPaymentConnector` and `ListPaymentConnectors` return `provisionMode` and are the authoritative source for it. `GetPaymentConnector` also returns `credentialsUpdatedAt`, the timestamp when the connector’s current service-managed credentials took effect. The service seeds this timestamp with the initial provisioning time and updates it on each rotation. Use it to track credential age. It is absent for `MANUAL` connectors.
+
+In the console, `provisionMode` appears as the **Creation type** column, which shows **Quick Create** or **Manual**. You can find it in the following places:
++ On the **Payments** page, expand a Payment Manager row to list its connectors, and then check the **Creation type** column for the connector.
++ On the Payment Manager details page, in the **Payment connectors** section, check the **Creation type** column.
++ On the connector details page, in the **Payment auth** section, check **Creation type**. This section also shows **Last credentials rotated date**, which is the console equivalent of `credentialsUpdatedAt`.
+
+#### Choose which credentials to rotate
+<a name="payments-rotate-secrets"></a>
+
+For a Coinbase CDP connector, `credentialsToRotate` takes the `coinbaseCDP` member with one or both of the following secrets. The two secrets serve different purposes and carry different risk, so rotate them separately and for different reasons.
+
+
+| Secret | When to rotate it | What it affects | 
+| --- | --- | --- | 
+|  `API_KEY`  | Rotate the Coinbase CDP API key ID and API key secret as routine maintenance, on a regular schedule, and immediately if you suspect that the key was exposed. | The API key authenticates requests to Coinbase. Amazon Bedrock AgentCore registers the replacement key before it removes the previous one, so payment processing is not interrupted. | 
+|  `WALLET_SECRET`  | Rotate the Wallet secret only if it is compromised or lost. It is not part of routine maintenance. | The Wallet secret signs wallet write operations, so rotating it affects transaction signing. Coinbase replaces the Wallet secret in place rather than adding a second one, so expect up to one minute during which `ProcessPayment` calls can fail. A Coinbase CDP project has a single Wallet secret, so rotation affects every connector that uses the same project. | 
+
+Rotation replaces the secret on the connector’s payment credential provider. Every connector that uses the same payment auth is affected, not only the connector that you named in the request.
+
+#### How rotation works
+<a name="payments-rotate-how"></a>
+
+Rotation is synchronous. The operation finishes the rotation before it returns a response, and it rotates only one set of credentials at a time for a given connector. When a secret rotates successfully, the new secret takes effect immediately and the connector stays in the `READY` state. When a secret fails to rotate, the response includes an error and the secret keeps its current value. You can retry the request.
+
+The response returns the connector’s identifiers, its `status` (which is `READY` after a successful rotation), and `lastUpdatedAt`:
+
+```
+{
+  "paymentManagerId": "<paymentManagerId>",
+  "paymentConnectorId": "<paymentConnectorId>",
+  "status": "READY",
+  "lastUpdatedAt": "2025-11-04T18:22:41.507000+00:00"
+}
+```
+
+After a rotation, call `GetPaymentConnector` and confirm that `credentialsUpdatedAt` advanced. Then replace any copy of the previous secret that you use outside Amazon Bedrock AgentCore.
+
+ `RotatePaymentConnectorCredentials` is idempotent. Supply a `clientToken` when you want to retry a request safely, for example from an automated rotation job. Retrying with the same token returns the result of the original rotation instead of issuing another secret.
+
+#### Rotate the API key
+<a name="payments-rotate-api-key"></a>
+
+Rotate the API key as routine maintenance. Amazon Bedrock AgentCore registers the replacement key with Coinbase before it removes the previous one, so payment processing continues while the rotation runs.
+
+**Example**  
+
+1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/).
+
+1. In the navigation pane, under **Build**, choose **Payments**.
+
+1. Choose the Payment Manager that owns the connector. In the **Payment connectors** section, choose the connector.
+
+1. On the connector details page, choose **Rotate credentials**, and then choose **Rotate API secrets**.
+**Note**  
+ **Rotate credentials** appears only for connectors that were created with **Quick create**. If the connector uses credentials that you provided, rotate them with Coinbase instead. For more information, see [Check whether a connector is eligible](#payments-rotate-eligibility).
+
+1. In the **Rotate API secrets** dialog box, review the warning. Rotation deletes the current API secrets and creates new ones by using the Coinbase account that you linked with this payment auth. All connectors that use this payment auth are also affected.
+
+1. Choose **Rotate**. The console displays a message that rotation can take up to one minute. When rotation finishes, a success message confirms that the API secrets were rotated.
+Confirm that the connector is eligible, and note its current `credentialsUpdatedAt` value:  
+
+```
+aws bedrock-agentcore-control get-payment-connector \
+  --payment-manager-id <paymentManagerId> \
+  --payment-connector-id <paymentConnectorId> \
+  --region us-east-1
+```
+Rotate the API key:  
+
+```
+aws bedrock-agentcore-control rotate-payment-connector-credentials \
+  --payment-manager-id <paymentManagerId> \
+  --payment-connector-id <paymentConnectorId> \
+  --credentials-to-rotate '{"coinbaseCDP": {"secrets": ["API_KEY"]}}' \
+  --region us-east-1
+```
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-east-1")
+
+connector = client.get_payment_connector(
+    paymentManagerId="<paymentManagerId>",
+    paymentConnectorId="<paymentConnectorId>"
+)
+
+# Rotation applies only to connectors with service-managed credentials.
+if connector.get("provisionMode") != "QUICK_CREATE":
+    raise RuntimeError(
+        "This connector uses credentials that you provided. Rotate them with the "
+        "payment provider, and then call update_payment_credential_provider."
+    )
+
+response = client.rotate_payment_connector_credentials(
+    paymentManagerId="<paymentManagerId>",
+    paymentConnectorId="<paymentConnectorId>",
+    credentialsToRotate={"coinbaseCDP": {"secrets": ["API_KEY"]}}
+)
+
+print(f"Status: {response['status']}")
+print(f"Rotation completed at: {response['lastUpdatedAt']}")
+```
+
+#### Rotate the Wallet secret
+<a name="payments-rotate-wallet-secret"></a>
+
+Rotate the Wallet secret only if it is compromised or lost. A Coinbase CDP project holds a single Wallet secret and Coinbase replaces it in place, so rotation affects transaction signing for every connector that uses the same Coinbase CDP project.
+
+**Important**  
+Expect up to one minute of downtime for the `ProcessPayment` API while the Wallet secret rotates. Plan the rotation for a period of low payment activity, and make sure that your agent handles failed payments gracefully.
+
+**Example**  
+
+1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/).
+
+1. In the navigation pane, under **Build**, choose **Payments**.
+
+1. Choose the Payment Manager that owns the connector. In the **Payment connectors** section, choose the connector.
+
+1. On the connector details page, choose **Rotate credentials**, and then choose **Rotate wallet secrets**.
+
+1. In the **Rotate wallet secrets** dialog box, review the warning. Rotation deletes the current Wallet secret and creates a new one by using the Coinbase account that you linked with this payment auth. All connectors that use this payment auth are also affected. Expect up to one minute of downtime for the `ProcessPayment` API.
+
+1. Choose **Rotate**. The console displays a message that rotation can take up to one minute. When rotation finishes, a success message confirms that the Wallet secret was rotated.
+
+```
+aws bedrock-agentcore-control rotate-payment-connector-credentials \
+  --payment-manager-id <paymentManagerId> \
+  --payment-connector-id <paymentConnectorId> \
+  --credentials-to-rotate '{"coinbaseCDP": {"secrets": ["WALLET_SECRET"]}}' \
+  --region us-east-1
+```
+Confirm that payments succeed after the rotation, because the Wallet secret signs every wallet write operation.
+
+```
+response = client.rotate_payment_connector_credentials(
+    paymentManagerId="<paymentManagerId>",
+    paymentConnectorId="<paymentConnectorId>",
+    credentialsToRotate={"coinbaseCDP": {"secrets": ["WALLET_SECRET"]}}
+)
+
+print(f"Status: {response['status']}")
+print(f"Rotation completed at: {response['lastUpdatedAt']}")
+```
+
+#### Rotate both secrets in one request
+<a name="payments-rotate-both"></a>
+
+You can also list both secrets in a single request. Amazon Bedrock AgentCore then rotates them one after another in the same request, starting with the API key and followed by the Wallet secret. The same downtime consideration for the Wallet secret applies.
+
+Because the two rotations run in sequence, a failure partway through can leave the API key already rotated while the Wallet secret keeps its current value. The response reports the error. Retry the request to finish the remaining secret.
+
+To keep the two rotations independent, send a separate request for each secret. This is what the console does.
+
+**Example**  
+
+```
+aws bedrock-agentcore-control rotate-payment-connector-credentials \
+  --payment-manager-id <paymentManagerId> \
+  --payment-connector-id <paymentConnectorId> \
+  --credentials-to-rotate '{"coinbaseCDP": {"secrets": ["API_KEY", "WALLET_SECRET"]}}' \
+  --region us-east-1
+```
+
+```
+response = client.rotate_payment_connector_credentials(
+    paymentManagerId="<paymentManagerId>",
+    paymentConnectorId="<paymentConnectorId>",
+    credentialsToRotate={
+        "coinbaseCDP": {"secrets": ["API_KEY", "WALLET_SECRET"]}
+    }
+)
+```
+
+#### Errors
+<a name="payments-rotate-errors"></a>
+
+
+| Error | Cause | 
+| --- | --- | 
+|  `ValidationException`  | The request is not valid for this connector. This includes selecting a secret that the connector does not use, passing an empty secret list, and calling the operation on a connector whose credentials you provided yourself. | 
+|  `ConflictException`  | A rotation is already running for this connector, or the connector is not in a state that accepts a rotation. Wait for the connector to return to `READY` and retry. | 
+|  `ResourceNotFoundException`  | The payment manager or the payment connector does not exist in this account and AWS Region. | 
+|  `AccessDeniedException`  | The caller is not authorized to call `RotatePaymentConnectorCredentials` on the payment manager. See [IAM roles for AgentCore payments](payments-iam-roles.md). | 
+|  `ThrottlingException`  | The request was throttled. Retry with exponential backoff. | 
+
+For the complete request and response schema, see [RotatePaymentConnectorCredentials](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_RotatePaymentConnectorCredentials.html) in the API Reference.
 
 ### Set the UserId header correctly
 <a name="payments-security-userid-header"></a>

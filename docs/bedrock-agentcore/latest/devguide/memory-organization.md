@@ -57,45 +57,4 @@ A namespace can have different levels of granularity:
 
 For example code, see [Enable long-term memory](long-term-enabling-long-term-memory.md).
 
-For more information about organizing long-term memories with namespaces, including custom namespace variables and IAM access control, see [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md).
-
-### Restrict access with IAM
-<a name="memory-scope-iam"></a>
-
-You can create IAM policies to restrict memory access by the scopes you define, such as actor, session, and namespace. Use the scopes as context keys in your IAM polices.
-
-The following policy restricts access to retrieving memories to a specific namespace or records under a particular namespacePath hierarchy. In this example, the policy allows access only to memories with exact namespaces such as `summaries/agent1/` OR with namespaces under the following namespacePath hierarchy with `summaries/agent1/` , such as `summaries/agent1/session1/` or `summaries/agent1/session2/`.
-
-```
-{
-"Version":"2012-10-17",		 	 	 
-  "Statement": [
-    {
-      "Sid": "SpecificNamespaceAccess",
-      "Effect": "Allow",
-      "Action": [
-        "bedrock-agentcore:RetrieveMemoryRecords"
-      ],
-      "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory_id",
-      "Condition": {
-        "StringEquals": {
-          "bedrock-agentcore:namespace": "summaries/agent1/"
-        }
-      }
-    },
-    {
-      "Sid": "SpecificNamespacePathAccess",
-      "Effect": "Allow",
-      "Action": [
-        "bedrock-agentcore:RetrieveMemoryRecords"
-      ],
-      "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:memory/memory_id",
-      "Condition": {
-        "StringLike": {
-          "bedrock-agentcore:namespacePath": "summaries/agent1/*"
-        }
-      }
-    }
-  ]
-}
-```
+For more information about organizing long-term memories with namespaces, including custom namespace variables, see [Specify long-term memory organization with namespaces](specify-long-term-memory-organization.md).

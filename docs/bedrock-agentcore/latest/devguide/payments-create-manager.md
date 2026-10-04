@@ -73,6 +73,8 @@ Payment connectors store the credentials and configuration needed to connect wit
 1. In the **Payment auth** section, if you want to reuse a payment auth (payment credential provider) previously created in [AgentCore Identity](resource-providers.md#payment-credential-provider), select an existing payment auth from the dropdown; or choose **create a new one** to create a new payment auth. If you choose to create a new one, see **Create payment auth**.
 
 1. (Optional) To add additional connectors, choose **\+ Add connector** and repeat the steps above.
+
+1. (Optional) Decide how you will rotate this connector’s credentials. If you create the payment auth with Coinbase **Quick create**, the credentials are service-managed and you can rotate them on demand from the connector details page or with the `RotatePaymentConnectorCredentials` operation. If you provide your own credentials, you rotate them with the payment provider. For more information, see [Rotate service-managed connector credentials](payments-security-best-practices.md#payments-rotate-connector-credentials).
 <a name="payments-setup-pm-console-outbound-auth"></a> **Create payment auth**   
 When you choose **create a new one** in the connector’s **Payment auth** section, the **Create payment auth** panel opens. In this panel, you configure a new payment auth — a payment credential provider that is stored in AgentCore Identity.  
 
@@ -95,6 +97,7 @@ If you select **Quick create configurations - recommended**, AgentCore payments 
 
 1. When authorization finishes, the Coinbase window displays **Coinbase connected** and closes. AgentCore payments provisions the Coinbase CDP API key and Wallet secret. The service stores them securely in AWS Secrets Manager and creates the payment auth on your behalf.
 Quick create does not support linking to an existing project with a Wallet Secret. If the Coinbase project that you authorize already has a Wallet Secret, AgentCore payments stops without rotating it. Instead, select **Use existing configurations** and provide your credentials manually.
+Because Quick create provisions the credentials for you, they are service-managed and you can replace them at any time without generating keys in Coinbase. For more information, see [Rotate service-managed connector credentials](payments-security-best-practices.md#payments-rotate-connector-credentials).  
  **Use existing configurations**   
 If you select **Use existing configurations**, complete the following fields under **Payment provider configurations**, and then choose **Create payment auth**:  
 
@@ -403,6 +406,7 @@ aws bedrock-agentcore-control create-payment-connector \
   --region us-east-1
 ```
 The response has status `PENDING_AUTHENTICATION` and an `authorizationUrl`. Open the URL, authorize through Coinbase, and then poll `get-payment-connector` until the status is `READY`. The URL is valid for about 10 minutes; if it expires, the connector transitions to `AUTHENTICATION_EXPIRED` and you re-create it.  
+The credentials that Quick create provisions are service-managed, so you can replace them on demand with `rotate-payment-connector-credentials`. For more information, see [Rotate service-managed connector credentials](payments-security-best-practices.md#payments-rotate-connector-credentials).  
  **Manual flow:** With the manual flow, you create a payment credential provider and then reference its ARN when you create the connector. This is the only flow for Stripe (Privy).  
 After the Payment Manager is ready, [create a payment credential provider](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/resource-providers.html#payment-credential-provider):  
 The following example creates a payment credential provider for Coinbase CDP:  
@@ -505,6 +509,7 @@ print(f"Status: {connector['status']}")
 print(f"Authorization URL: {connector.get('authorizationUrl')}")
 ```
 The connector returns status `PENDING_AUTHENTICATION` and an `authorizationUrl`. Open the URL, authorize through Coinbase, and then poll `get_payment_connector` until the status is `READY`. The URL is valid for about 10 minutes; if it expires, the connector transitions to `AUTHENTICATION_EXPIRED` and you re-create it.  
+The credentials that Quick create provisions are service-managed, so you can replace them on demand with `rotate_payment_connector_credentials`. For more information, see [Rotate service-managed connector credentials](payments-security-best-practices.md#payments-rotate-connector-credentials).  
  **Manual flow:** With the manual flow, you create a payment credential provider and then reference its ARN when you create the connector. This is the only flow for Stripe (Privy).  
 After the Payment Manager reaches `READY` status, create a payment credential provider:  
 The following example configures a provider for Coinbase CDP:  
@@ -723,3 +728,5 @@ After creating your Payment Manager, you can:
 1.  **Discover paid MCP tools and endpoints** — Connect to ready-to-use MCP servers with pay-per-use endpoints or bring your own merchant endpoints. See [Coinbase Bazaar via AgentCore Gateway](payments-connect-bazaar.md).
 
 1.  **Enable observability** — Configure log deliveries and tracing to monitor sessions, API invocations, transactions, and error rates. See [Observability](payments-observability.md).
+
+1.  **Plan credential rotation** — If you used Quick create, schedule rotation of the connector’s service-managed credentials. See [Rotate service-managed connector credentials](payments-security-best-practices.md#payments-rotate-connector-credentials).

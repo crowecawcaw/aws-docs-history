@@ -20,11 +20,13 @@ You can also invoke the discovery data-plane APIs through the registry’s MCP e
 ## Metadata filters
 <a name="registry-search-metadata-filters"></a>
 
-Operators: `$eq`, `$ne`, `$in`. Logical: `$and`, `$or`. Fields: `name`, `recordType`, `recordVersion`.
+Operators: `$eq`, `$ne`, `$in`. Logical: `$and`, `$or`. Fields: `name`, `recordType`, `recordVersion`, and `customMetadata.{fieldName}` for any field defined in the registry’s custom metadata schema. For more information, see [Define a custom metadata schema](registry-custom-metadata-schema.md).
 
 Example: `{"recordType": {"$eq": "MCP"}}` 
 
 Combined: `{"$and": [{"recordType": {"$eq": "MCP"}}, {"recordVersion": {"$eq": "1.0"}}]}` 
+
+Custom metadata example: `{"customMetadata.owner": {"$eq": "search-team"}}` 
 
 ## Console
 <a name="registry-search-console"></a>
@@ -39,7 +41,7 @@ Combined: `{"$and": [{"recordType": {"$eq": "MCP"}}, {"recordVersion": {"$eq": "
 
 1. In the search bar, enter your search query. This triggers `SearchDiscoverableRegistryRecords` and displays ranked results.
 
-1. (Optional) To filter results by a specific property, choose the search field to expand the **Properties** menu, and then choose a filter: **Name**, **Record type**, or **Version**.
+1. (Optional) To filter results by a specific property, choose the search field to expand the **Properties** menu, and then choose a filter: **Name**, **Record type**, or **Version**. If the registry has a custom metadata schema, its fields appear grouped under **Custom metadata**.
 
 1. Choose a record from the results to view its full descriptor content.
 
@@ -175,6 +177,7 @@ The following attributes from your registry record are used to determine search 
 +  **Description** — Used for both keyword and semantic matching. Descriptions written in natural language that explain the resource’s purpose and common use cases are more discoverable than terse technical labels.
 +  **Descriptors** — The full content of your protocol definition (MCP server definition, agent card, skill documentation, or custom JSON) is used for semantic matching. This includes tool names, tool descriptions, input parameter names, and capability summaries.
 +  **Record type and version** — Available as filterable fields. You can narrow results using metadata filters on `name`, `recordType`, and `recordVersion`.
++  **Custom metadata** — If the registry has a custom metadata schema, its fields are available as filterable fields under `customMetadata.{fieldName}`. Custom metadata values are included in the search index. The `customMetadata.{fieldName}` filter syntax provides exact-match filtering, while the values also contribute to keyword and semantic search ranking through the `searchQuery` parameter.
 
 ### How search queries are processed
 <a name="registry-search-query-processing"></a>
@@ -223,8 +226,9 @@ Avoid putting the constraint into the query text like "find all MCP servers for 
 
 You can filter on the following fields:
 +  `name` — Match records by exact name.
-+  `recordType` — Match records by semantic type (`AGENT`, `MCP`, `SKILL`, `CUSTOM`).
++  `recordType` — Match records by semantic type (`AGENT`, `MCP`, `SKILL`, `GATEWAY`, `CUSTOM`).
 +  `recordVersion` — Match records by version string.
++  `customMetadata.{fieldName}` — Match records by a value in the registry’s custom metadata schema, where `{fieldName}` is the field name you defined (for example, `customMetadata.owner`). See [Define a custom metadata schema](registry-custom-metadata-schema.md).
 
 Filters support `$eq` (equals), `$ne` (not equals), and `$in` (matches any value in a list) operators, and can be combined using `$and` and `$or` logic.
 
@@ -259,6 +263,32 @@ To match any of several versions:
   }
 }
 ```
+
+To match records by a custom metadata field:
+
+```
+{
+  "filters": {
+    "customMetadata.humanInLoop": { "$eq": true }
+  }
+}
+```
+
+To combine a custom metadata filter with a base field filter:
+
+```
+{
+  "filters": {
+    "$and": [
+      { "recordType": { "$eq": "MCP" } },
+      { "customMetadata.tier": { "$eq": "internal" } }
+    ]
+  }
+}
+```
+
+**Note**  
+Filter values for `customMetadata.{fieldName}` are strings or native booleans. For a **Boolean** field, use the string `"true"` or `"false"`, or a native JSON boolean (`true` / `false`). For an **Enum** field, use one of the schema’s allowed values. If the same field name is defined in more than one record-type schema, the filter matches that field’s value regardless of which schema resolved it for the record.
 
 ### Search returns only approved records
 <a name="registry-search-approved-only"></a>

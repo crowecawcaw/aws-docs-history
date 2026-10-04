@@ -357,7 +357,15 @@ If the customer managed key becomes unusable — deleted, disabled, pending dele
 
 The practical problem is recovery. Those are the operations you would normally use to find out what exists, so a lost key can leave you unable to enumerate the resources you need to clean up.
 
- **To resolve this issue:** use the summary operations. They return identifiers and status only — no encrypted content — so they neither verify the key nor decrypt, and they keep working when the key does not.
+ **To resolve this issue:** use the summary operations. They return identifiers and status only, with no encrypted content, so they neither verify the key nor decrypt and they keep working when the key does not.
+
+**Important**  
+The summary operations are separate IAM actions from the corresponding list and get actions. A least-privilege policy that grants only `ListPolicyEngines`, `GetPolicyEngine`, `ListPolicies`, and `GetPolicy` does not cover them. Grant all four explicitly:  
+ `bedrock-agentcore:ListPolicyEngineSummaries` 
+ `bedrock-agentcore:GetPolicyEngineSummary` 
+ `bedrock-agentcore:ListPolicySummaries` 
+ `bedrock-agentcore:GetPolicySummary` 
+Grant them before you need them. A principal that lacks them when the key becomes unusable cannot enumerate the affected resources. For more information, see [AgentCore Gateway and Policy in AgentCore IAM Permissions](policy-permissions.md).
 
 First, list the policy engines in the account, including the key each one uses. Then list the policies inside an affected engine.
 
@@ -399,9 +407,9 @@ Deleting a policy requires read and write access to the key, so `DeletePolicy` f
 ```
 Policy engine still contains 3 policies and cannot be deleted
 ```
-Those two rules together close off deletion: you cannot remove the policies without the key, and you cannot remove the engine until the policies are gone. An **empty** engine can still be deleted with the key unusable, and so can one whose policies you managed to remove while the key was still working.
+Together these mean an engine that holds policies cannot be deleted while the key is unusable: the policies cannot be removed without the key, and the engine cannot be removed until they are gone. An empty engine can still be deleted, as can one whose policies were removed while the key still worked.
 
- **Restore the key.** For any engine that holds policies this is not the preferable option, it is the only one.
+ **Restore the key.** For an engine that holds policies, this is the only way forward.
 
 1. Re-enable a disabled key, or cancel a pending deletion.
 
@@ -460,4 +468,4 @@ A AWS KMS key that has completed deletion cannot be recovered, and neither can t
 This is worth planning around rather than discovering: before scheduling a key for deletion, delete the policies in every engine that uses it, or confirm those engines are already empty.
 
 **Note**  
-The summary operations are separate API actions and need their own IAM permissions: `bedrock-agentcore:ListPolicyEngineSummaries` and `bedrock-agentcore:ListPolicySummaries`. Grant them alongside the list and get actions so this recovery path is available before you need it — see [AgentCore Gateway and Policy in AgentCore IAM Permissions](policy-permissions.md).
+The summary operations need their own IAM permissions, which a policy granting only the list and get actions does not cover. For the actions to grant and why to grant them in advance, see [Key unavailable: you cannot list or read your policies](#policy-encryption-error-key-unavailable).

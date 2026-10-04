@@ -13,14 +13,14 @@ A policy engine is a collection of policies that evaluates and authorizes agent 
 ## Prerequisites
 <a name="policy-engine-prerequisites"></a>
 
-Before creating a policy engine, ensure you have a gateway setup. For more information, see [Building a gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building.html).
+Before creating a policy engine, set up a gateway. For more information, see [Set up an Amazon Bedrock AgentCore gateway](gateway-building.md).
 
 ## Create a policy engine
 <a name="create-policy-engine-methods"></a>
 
 The following shows how to create a policy engine.
 
-A policy engine name must match `[A-Za-z][A-Za-z0-9_]*` and be at most 48 characters: it starts with a letter, and after that only letters, digits, and underscores are allowed. **Hyphens are not valid in a name** — use `my_policy_engine`, not `my-policy-engine`. The same rule applies to policy names.
+A policy engine name must match `[A-Za-z][A-Za-z0-9_]*` and be at most 48 characters. It starts with a letter, and after that only letters, digits, and underscores are allowed. Hyphens are not valid, so use `my_policy_engine` rather than `my-policy-engine`. The same rule applies to policy names.
 
 **Example**  
 

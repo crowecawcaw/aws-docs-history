@@ -338,6 +338,9 @@ The `routingDomain` field is only available for the `managedVpcResource` option.
 ## Workaround for private certificates: ALB
 <a name="lattice-vpc-egress-private-certs"></a>
 
+**Gateway now supports private certificate authorities directly**  
+AgentCore Gateway can now trust a private certificate authority directly, without an ALB. For most targets, use that approach instead. For more information, see [Connect to targets that use a private certificate authority](gateway-vpc-egress.md#gateway-private-certificate).
+
 VPC egress requires your target endpoint to have a publicly trusted TLS certificate. If your private resource uses a certificate issued by a private certificate authority (CA), the recommended workaround is to place an internal Application Load Balancer (ALB) in front of your resource.
 
 The following steps describe the traffic flow:

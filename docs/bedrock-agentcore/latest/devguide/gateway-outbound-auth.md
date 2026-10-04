@@ -96,7 +96,7 @@ The shape of the JSON object that the `oauth2ProviderConfigInput` field maps to 
            "Sid": "GetWorkloadAccessToken",
            "Effect": "Allow",
            "Action": [
-               "bedrock-agentcore:GetWorkloadAccessToken",
+               "bedrock-agentcore:GetWorkloadAccessToken"
            ],
            "Resource": [
                "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default",
@@ -107,7 +107,7 @@ The shape of the JSON object that the `oauth2ProviderConfigInput` field maps to 
            "Sid": "GetResourceOauth2Token",
            "Effect": "Allow",
            "Action": [
-               "bedrock-agentcore:GetResourceOauth2Token",
+               "bedrock-agentcore:GetResourceOauth2Token"
            ],
            "Resource": [
                "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/TokenVaultId/oauth2credentialprovider/CredentialName"
@@ -117,7 +117,7 @@ The shape of the JSON object that the `oauth2ProviderConfigInput` field maps to 
            "Sid": "GetSecretValue",
            "Effect": "Allow",
            "Action": [
-               "secretsmanager:GetSecretValue",
+               "secretsmanager:GetSecretValue"
            ],
            "Resource": [
                "arn:aws:secretsmanager:us-east-1:123456789012:secret:SecretId"
@@ -220,7 +220,7 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
            "Sid": "GetWorkloadAccessToken",
            "Effect": "Allow",
            "Action": [
-               "bedrock-agentcore:GetWorkloadAccessToken",
+               "bedrock-agentcore:GetWorkloadAccessToken"
            ],
            "Resource": [
                "arn:aws:bedrock-agentcore:us-east-1:123456789012:workload-identity-directory/default",
@@ -231,7 +231,7 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
            "Sid": "GetResourceApiKey",
            "Effect": "Allow",
            "Action": [
-               "bedrock-agentcore:GetResourceApiKey",
+               "bedrock-agentcore:GetResourceApiKey"
            ],
            "Resource": [
                "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/TokenVaultId/apikeycredentialprovider/Name"
@@ -241,7 +241,7 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
            "Sid": "GetSecretValue",
            "Effect": "Allow",
            "Action": [
-               "secretsmanager:GetSecretValue",
+               "secretsmanager:GetSecretValue"
            ],
            "Resource": [
                "arn:aws:secretsmanager:us-east-1:123456789012:secret:SecretId"

@@ -60,6 +60,7 @@ This is the default permission for the `agent-registry:Registry` resource type. 
 +  `agent-registry:SearchDiscoverableRegistryRecords`—Search approved records using hybrid search.
 +  `agent-registry:GetDiscoverableRegistryRecord`—Get full details of an approved record (data plane).
 +  `agent-registry:ListDiscoverableRegistryRecords`—List approved records (data plane).
++  `agent-registry:ListTagsForResource`—List the tags attached to the registry or a record. Read-only; it does not grant the ability to add or remove tags.
 
 ### AWSRAMPermissionAgentRegistryForConsumer
 <a name="registry-cross-account-permission-consumer"></a>
@@ -93,6 +94,7 @@ This permission grants everything the Consumer permission grants, plus control-p
 +  `agent-registry:GetDiscoverableRegistryRecord`—Get full details of an approved record.
 +  `agent-registry:ListDiscoverableRegistryRecords`—List approved records.
 +  `agent-registry:InvokeRegistryMcp`—Invoke the registry’s MCP endpoint.
++  `agent-registry:ListTagsForResource`—List the tags attached to the registry or a record. Read-only; it does not grant the ability to add or remove tags.
 
 ### AWSRAMPermissionAgentRegistryForAdmin
 <a name="registry-cross-account-permission-admin"></a>
@@ -114,6 +116,7 @@ This permission grants everything the Publisher permission grants, plus the abil
 +  `agent-registry:GetDiscoverableRegistryRecord`—Get full details of an approved record.
 +  `agent-registry:ListDiscoverableRegistryRecords`—List approved records.
 +  `agent-registry:InvokeRegistryMcp`—Invoke the registry’s MCP endpoint.
++  `agent-registry:ListTagsForResource`—List the tags attached to the registry or a record. Read-only; it does not grant the ability to add or remove tags.
 
 ### Choosing a managed permission
 <a name="registry-cross-account-choosing-permission"></a>
@@ -128,6 +131,9 @@ This permission grants everything the Publisher permission grants, plus the abil
 
 **Tip**  
 We recommend the **Consumer** permission for typical sharing scenarios where the consumer account’s agents need to discover and invoke tools.
+
+**Note**  
+If the consumer account manages records with AWS CloudFormation (`AWS::AgentRegistry::Registry` or `AWS::AgentRegistry::RegistryRecord`), use the **Publisher** or **Admin** permission. The CloudFormation handlers call `agent-registry:ListTagsForResource` on their create, read, update, and delete paths, and the **Consumer** permission does not grant that action.
 
 ### Creating a customer-managed permission
 <a name="registry-cross-account-customer-managed-permission"></a>

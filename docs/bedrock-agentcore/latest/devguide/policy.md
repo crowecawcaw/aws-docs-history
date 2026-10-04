@@ -24,7 +24,7 @@ Policy in AgentCore supports fine-grained permissions based on user identity and
 + [Writing policies in natural language](policy-natural-language.md)
 + [Validate and test policies](policy-validate-policies.md)
 + [Use policies](policy-use-policies.md)
-+ [Example policies](example-policies.md)
++ [Policy authoring guide](policy-authoring-guide.md)
 + [Advanced features and topics for Policy in AgentCore](policy-advanced.md)
 
 ## Key benefits

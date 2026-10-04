@@ -42,7 +42,7 @@ The following example creates a private MCP server target using managed Lattice:
 
 If you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer, you can specify a `routingDomain` . For more information, see [Route traffic through an intermediate domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain).
 
-If your MCP server uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs).
+If your MCP server uses a TLS certificate issued by a private certificate authority, you can configure the gateway to trust that CA directly. For more information, see [Connect to targets that use a private certificate authority](#gateway-private-certificate).
 
 For self-managed Lattice, cross-account setups, and advanced configurations, see [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md).
 
@@ -143,7 +143,7 @@ The following example creates a private OpenAPI target using managed Lattice:
 
 If you want to route traffic through an intermediate component such as a VPC endpoint or internal load balancer, you can specify a `routingDomain` . For more information, see [Route traffic through an intermediate domain](vpc-egress-private-endpoints.md#lattice-vpc-egress-routing-domain).
 
-If your endpoint uses a TLS certificate issued by a private certificate authority, you can place an internal Application Load Balancer with a public ACM certificate in front of it. For more information, see [Workaround for private certificates: ALB](vpc-egress-private-endpoints.md#lattice-vpc-egress-private-certs).
+If your endpoint uses a TLS certificate issued by a private certificate authority, you can configure the gateway to trust that CA directly. For more information, see [Connect to targets that use a private certificate authority](#gateway-private-certificate).
 
 For self-managed Lattice, cross-account setups, and advanced configurations, see [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md).
 
@@ -276,6 +276,229 @@ For more details on private endpoint configuration, see [Connect to private reso
 <a name="lambda-target"></a>
 
 AgentCore Gateway supports Lambda targets as one of it target types, allowing seamless invocation of Lambda functions that can communicate with resources within your VPC. This functionality is available out-of-the-box and requires no additional configuration from customers - the gateway can immediately invoke Lambda functions that have been configured with VPC access to reach your internal resources such as databases, APIs, or other services. To maintain security best practices, it’s strongly recommended to configure the AgentCore Gateway execution role with minimal permissions, specifically limiting it to invoke only the intended Lambda function rather than granting broad Lambda execution permissions. This principle of least privilege ensures that the gateway, or any other caller using the same role, cannot inadvertently invoke unintended Lambda functions, thereby reducing your security attack surface and maintaining strict access controls within your AWS environment.
+
+## Connect to targets that use a private certificate authority
+<a name="gateway-private-certificate"></a>
+
+AgentCore Gateway connects outbound to a gateway target over TLS. By default, the gateway trusts only server certificates that a public certificate authority (CA) issues. If your target presents a TLS server certificate that a private (custom) CA issues, you can register that private CA certificate with the target. For more information, see [Prerequisites](#gateway-private-certificate-prereqs) and [Certificate requirements](#gateway-private-certificate-requirements). The gateway then trusts the private CA when it connects to that target. This is the native approach, so you do not need to place an internal Application Load Balancer in front of your target.
+
+You attach a reference to the CA certificate—not the certificate content itself—to an individual target when you create or update the target. This means the certificate content never appears in the API request. Instead, you reference a PEM-encoded CA certificate that you store in either Amazon S3 or AWS Secrets Manager. The gateway fetches, validates, and encrypts the CA certificate when you create or update the target. It then uses the certificate as the trust anchor for outbound TLS to that target.
+
+### Prerequisites
+<a name="gateway-private-certificate-prereqs"></a>
+
+Before you register a private CA certificate on a target, ensure the following:
++ The target uses a private endpoint ( `privateEndpoint`) powered by Amazon VPC Lattice. Both managed and self-managed VPC Lattice resources qualify. For more information, see [Connect to private resources in your VPC using VPC Lattice](vpc-egress-private-endpoints.md).
++ The target is one of the following supported types:
+  + MCP server targets ( `targetConfiguration.mcp.mcpServer`)
+  + OpenAPI targets ( `targetConfiguration.mcp.openApiSchema`)
+  + HTTP proxy (passthrough) targets ( `targetConfiguration.http.passthrough`)
++ The CA certificate meets the requirements described in [Certificate requirements](#gateway-private-certificate-requirements).
+
+### Certificate requirements
+<a name="gateway-private-certificate-requirements"></a>
+
+The CA certificate that you register must meet the following requirements:
++ It must be a PEM-encoded X.509 certificate.
++ It must be a CA certificate, with the X.509 basic constraints extension set to `CA:TRUE`. The gateway rejects a leaf (end-entity) certificate.
++ It must be within its validity window. The gateway checks certificate validity during target validation on both create and update. Because this validation is asynchronous, an expired certificate causes the target to reach the `FAILED` status (create) or `UPDATE_UNSUCCESSFUL` status (update) rather than causing an immediate error. For more information, see [Validation and behavior](#gateway-private-certificate-validation).
++ The PEM file, including the full certificate chain, must be no larger than 16 KB.
++ If you store the certificate in Amazon S3, the S3 object must be in the same AWS Region as the gateway.
+
+The gateway accepts a PEM file that contains a certificate chain. The gateway records the earliest expiration ( `notAfter`) across the certificates in the file.
+
+### Provide the CA certificate
+<a name="gateway-private-certificate-provide"></a>
+
+You reference the CA certificate through the `certificateConfigurations` field on the `CreateGatewayTarget` and `UpdateGatewayTarget` operations. The `certificateConfigurations` array must contain exactly one entry. The entry must set exactly one of the following sources.
+
+ `s3`   
+References a PEM CA certificate that you store in Amazon S3.    
+ `uri` (required)  
+The S3 URI of the certificate object, in the form `s3://bucket/key.pem`.  
+ `bucketOwnerAccountId` (optional)  
+The 12-digit AWS account ID of the bucket owner. Amazon S3 verifies this value against the bucket owner using the bucket owner condition, so it must match the account that owns the bucket. For more information, see [Verifying bucket ownership with bucket owner condition](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-owner-condition.html) in the AWS Amazon Simple Storage Service User Guide.
+
+ `secretsManager`   
+References a PEM CA certificate that you store in AWS Secrets Manager.    
+ `secretArn` (required)  
+The ARN of the secret. The secret must be a string secret, not a binary secret.
+
+### IAM and KMS permissions
+<a name="gateway-private-certificate-permissions"></a>
+
+The gateway fetches the CA certificate using the gateway execution role. Grant the following on that role:
++ The execution role trust policy must allow the AgentCore Gateway service to assume the role.
++ For an Amazon S3 source, grant `s3:GetObject` on the CA certificate object.
++ For an AWS Secrets Manager source, grant `secretsmanager:GetSecretValue` on the secret.
++ If the S3 object or the secret is encrypted with a customer managed key in AWS Key Management Service (AWS KMS), also grant the execution role permission to decrypt with that source key.
+
+After the gateway fetches and validates the certificate, it encrypts the certificate with its own gateway AWS KMS key before it stores the certificate.
+
+### Example requests
+<a name="gateway-private-certificate-examples"></a>
+
+The following example creates an MCP server target and references a CA certificate that you store in Amazon S3. The optional `bucketOwnerAccountId` identifies the account that owns the bucket.
+
+```
+{
+  "name": "my-private-mcp-target",
+  "privateEndpoint": {
+    "managedVpcResource": {
+      "vpcIdentifier": "vpc-0abc123def456",
+      "subnetIds": ["subnet-0abc123", "subnet-0def456"],
+      "endpointIpAddressType": "IPV4",
+      "securityGroupIds": ["sg-0abc123def"]
+    }
+  },
+  "targetConfiguration": {
+    "mcp": {
+      "mcpServer": {
+        "endpoint": "https://my-mcp-server.internal.example.com/mcp"
+      }
+    }
+  },
+  "certificateConfigurations": [
+    {
+      "s3": {
+        "uri": "s3://my-ca-bucket/private-ca.pem",
+        "bucketOwnerAccountId": "111122223333"
+      }
+    }
+  ]
+}
+```
+
+The following example creates an OpenAPI target and references a CA certificate that you store in AWS Secrets Manager.
+
+```
+{
+  "name": "my-private-openapi-target",
+  "privateEndpoint": {
+    "managedVpcResource": {
+      "vpcIdentifier": "vpc-0abc123def456",
+      "subnetIds": ["subnet-0abc123", "subnet-0def456"],
+      "endpointIpAddressType": "IPV4",
+      "securityGroupIds": ["sg-0abc123def"]
+    }
+  },
+  "targetConfiguration": {
+    "mcp": {
+      "openApiSchema": {
+        "inlinePayload": "<your OpenAPI spec JSON with server URL pointing to your private endpoint>"
+      }
+    }
+  },
+  "certificateConfigurations": [
+    {
+      "secretsManager": {
+        "secretArn": "arn:aws:secretsmanager:us-west-2:111122223333:secret:private-ca-AbCdEf"
+      }
+    }
+  ]
+}
+```
+
+To replace the CA certificate on an existing target, call `UpdateGatewayTarget`. You specify the gateway and target identifiers as path parameters ( `PUT /gateways/{gatewayIdentifier}/targets/{targetId}`); the request body contains the target configuration. The following example replaces the certificate with one stored in AWS Secrets Manager.
+
+```
+{
+  "name": "my-private-mcp-target",
+  "privateEndpoint": {
+    "managedVpcResource": {
+      "vpcIdentifier": "vpc-0abc123def456",
+      "subnetIds": ["subnet-0abc123", "subnet-0def456"],
+      "endpointIpAddressType": "IPV4",
+      "securityGroupIds": ["sg-0abc123def"]
+    }
+  },
+  "targetConfiguration": {
+    "mcp": {
+      "mcpServer": {
+        "endpoint": "https://my-mcp-server.internal.example.com/mcp"
+      }
+    }
+  },
+  "certificateConfigurations": [
+    {
+      "secretsManager": {
+        "secretArn": "arn:aws:secretsmanager:us-west-2:111122223333:secret:private-ca-AbCdEf"
+      }
+    }
+  ]
+}
+```
+
+To remove the CA certificate and revert the target to public-CA trust, call `UpdateGatewayTarget` and omit `certificateConfigurations` from the request. You specify the gateway and target identifiers as path parameters ( `PUT /gateways/{gatewayIdentifier}/targets/{targetId}`); the request body contains the target configuration. The following example removes the certificate by omitting `certificateConfigurations`.
+
+```
+{
+  "name": "my-private-mcp-target",
+  "privateEndpoint": {
+    "managedVpcResource": {
+      "vpcIdentifier": "vpc-0abc123def456",
+      "subnetIds": ["subnet-0abc123", "subnet-0def456"],
+      "endpointIpAddressType": "IPV4",
+      "securityGroupIds": ["sg-0abc123def"]
+    }
+  },
+  "targetConfiguration": {
+    "mcp": {
+      "mcpServer": {
+        "endpoint": "https://my-mcp-server.internal.example.com/mcp"
+      }
+    }
+  }
+}
+```
+
+### Validation and behavior
+<a name="gateway-private-certificate-validation"></a>
+
+Most certificate validation is asynchronous. When you create or update a target with a certificate, the gateway accepts the request and then validates the certificate as part of the target workflow. If validation succeeds, the target reaches the `READY` status and can receive traffic. If validation fails, the target reaches the `FAILED` status (for create) or the `UPDATE_UNSUCCESSFUL` status (for update), and the `statusReasons` field describes the problem. Common reasons include the following:
++ The target does not use a private endpoint.
++ The target type is not supported.
++ The gateway cannot find the S3 object or the secret.
++ The certificate is expired, is not a CA certificate, or exceeds the size limit.
+
+Only the following checks are synchronous, and the gateway rejects the request immediately when one of them fails:
++ Each `certificateConfigurations` entry sets exactly one of `s3` or `secretsManager`.
++ The field formats (S3 URI, secret ARN, and account ID) are valid.
+
+A failed update does not replace the certificate that the target is already using. The target continues to serve requests with its existing, working certificate.
+
+### Certificate revocation
+<a name="gateway-private-certificate-revocation"></a>
+
+AgentCore Gateway does not perform certificate revocation checking. It does not check certificate revocation lists (CRLs), and it does not use the Online Certificate Status Protocol (OCSP). The gateway trusts any server certificate that chains to the configured private CA, is within its validity window, and matches the target host. The gateway continues to trust a certificate that the CA revokes until that certificate expires.
+
+To stop trusting a revoked certificate, update the target’s trust material. You can do this in one of the following ways:
++ Call `UpdateGatewayTarget` and provide a new CA certificate (PEM) in `certificateConfigurations` that does not include, or no longer chains to, the revoked certificate. For an example, see the request that replaces the certificate in [Example requests](#gateway-private-certificate-examples).
++ Call `UpdateGatewayTarget` and omit `certificateConfigurations` to remove the private CA. This reverts the target to public-CA trust. For an example, see the request that removes the certificate in [Example requests](#gateway-private-certificate-examples).
+
+Even after you update the trust material, existing open connections can keep using the previous certificate until the gateway recycles them. For more information, see [Runtime behavior and troubleshooting](#gateway-private-certificate-troubleshooting).
+
+### Monitor certificate expiry
+<a name="gateway-private-certificate-expiry-metric"></a>
+
+AgentCore Gateway emits an Amazon CloudWatch metric named `EarliestCertificateDaysToExpiry` for targets that use a private certificate authority. The gateway emits this metric only for a target that has a private certificate configured. The metric reports the whole number of days remaining until the earliest expiration ( `notAfter`) among the certificates in the configured CA. A negative value means the certificate has already expired.
+
+**Certificate expiry makes the target unreachable**  
+When the configured certificate expires, the gateway can no longer complete the outbound TLS handshake to the target. The target becomes unreachable, and tool invocations to it fail. For more information about handshake failures, see [Runtime behavior and troubleshooting](#gateway-private-certificate-troubleshooting).
+
+We recommend that you monitor the `EarliestCertificateDaysToExpiry` metric and create a CloudWatch alarm that triggers as the value approaches zero. This alarm gives you time to replace the certificate before it expires. To replace the certificate, call `UpdateGatewayTarget` with a new certificate. For an example, see the request that replaces the certificate in [Example requests](#gateway-private-certificate-examples). To stop trusting a revoked certificate, see [Certificate revocation](#gateway-private-certificate-revocation).
+
+### Runtime behavior and troubleshooting
+<a name="gateway-private-certificate-troubleshooting"></a>
+
+At invocation time, the target’s server certificate must be issued by the private CA that you configured, must be within its validity window, and its hostname must match the target host. The subject alternative name (SAN) of the target server certificate must match the target host.
+
+If the server certificate is not issued by the configured private CA, is expired, or does not match the target host, the TLS handshake fails. The gateway returns a client-side configuration error, not a service fault. To resolve the error, verify that the target server certificate is issued by the registered private CA, is current, and includes a SAN that matches the target host.
+
+AgentCore Gateway reuses established TLS connections to a target. The gateway validates certificate trust and validity during the TLS handshake. It does not revalidate the certificate on every request that it sends over an already-open connection. A connection that the gateway opens while the certificate is valid can keep serving requests for the lifetime of that connection. This lifetime is up to 900 seconds (15 minutes). The connection can keep serving requests even if the certificate expires during that window. When the gateway recycles the connection at the end of its lifetime, it performs a new TLS handshake. That handshake revalidates the target against the current certificate. For the related gateway invocation timeout, see [Service quotas](bedrock-agentcore-limits.md#gateway-quotas).
+
+**Certificate changes take effect gradually**  
+A certificate change can take up to 900 seconds (15 minutes) to fully take effect for in-flight connections. This applies after a certificate expires, or after you rotate, replace, or remove a certificate by using `UpdateGatewayTarget`. Existing open connections can keep using the previous certificate and trust material until the gateway recycles them. New connections use the current certificate immediately.
 
 ## Private identity providers
 <a name="private-idp"></a>

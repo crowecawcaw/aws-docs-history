@@ -83,13 +83,15 @@ def invoke(payload):
 ## Use snapshot-safe cryptographic libraries
 <a name="_use_snapshot_safe_cryptographic_libraries"></a>
 
-When AgentCore Runtime restores an instance from a snapshot, a cryptographic library that cached random state at startup can reuse that state across instances. Your cryptographic libraries must use a snapshot-safe (snapsafe) build that reseeds after a restore.
+When AgentCore Runtime restores instances from a snapshot, every instance created from that snapshot starts with an identical copy of the memory captured at snapshot time. This includes the internal state of random number generators inside cryptographic libraries, and any keys, tokens, or identifiers your agent created during initialization. Unless that state is refreshed after the restore, instances can produce the same "random" values.
 
-Direct code deployments  
-The service-managed base image already includes a snapshot-safe build of its cryptographic libraries, so you do not need to take any action for them.
+ **Current limitation** 
 
-Bring-your-own cryptographic libraries  
-If you bring your own cryptographic libraries, for example in a container agent, use snapshot-safe builds so that they reseed after a restore. On Amazon Linux 2023, use `openssl-snapsafe-libs`.
+On AgentCore Runtime, snapshot-safe builds of cryptographic libraries don’t currently reseed after a restore. This applies to both direct code deployments and container deployments.
+
+ **Workarounds** 
++ Generate secrets, keys, tokens, and session identifiers while handling a request, not when your agent starts. This avoids using any values created before AgentCore Runtime takes the snapshot in each instance restored from that snapshot.
++ Even while handling a request, get random values directly from the operating system, for example Python’s `secrets` or `os.urandom`, Go’s `crypto/rand`, or reading `/dev/urandom`. Don’t use random values from a cryptographic library such as OpenSSL, because they can repeat across instances.
 
 ## Networking
 <a name="_networking"></a>

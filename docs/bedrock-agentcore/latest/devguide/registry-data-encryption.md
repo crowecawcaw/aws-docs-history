@@ -26,11 +26,15 @@ For more information, see [Customer managed keys](https://docs.aws.amazon.com/km
 ## What is encrypted
 <a name="registry-encryption-what-is-encrypted"></a>
 
-When you specify a customer managed key, AWS Agent Registry encrypts **record descriptors** at rest. Record descriptors are the resource-type-specific metadata stored within each registry record — this is the detailed configuration that describes what a resource is and how to use it:
+When you specify a customer managed key, AWS Agent Registry encrypts **record descriptors** and **custom metadata** at rest. Record descriptors are the resource-type-specific metadata stored within each registry record — this is the detailed configuration that describes what a resource is and how to use it:
 +  **MCP server records** — The server definition and tool definitions (including input parameters and output formats).
 +  **Agent records** — The agent card describing capabilities, skills, and communication interface.
 +  **Skill records** — Package or repository details and markdown documentation.
 +  **Custom resource records** — The custom JSON metadata structure.
+
+If the registry has a custom metadata schema, the following are also encrypted:
++  **Custom metadata schema** — The JSON Schema definition stored on the registry.
++  **Custom metadata values** — The per-record metadata values set by record authors.
 
 The search index that powers `SearchDiscoverableRegistryRecords` is also encrypted with the same key.
 
@@ -38,9 +42,6 @@ The following data is **not** encrypted with your customer managed key (it remai
 + Registry name and description
 + Record name, description, protocol, and external version
 + Registry and record identifiers (IDs, ARNs)
-
-**Note**  
- `ListRegistryRecords` returns record summaries (name, description, protocol, external version) without making any KMS calls. This operation works even if your KMS key is unavailable.
 
 ## Considerations
 <a name="registry-encryption-considerations"></a>
@@ -72,16 +73,18 @@ You can revoke access to the grant, or remove the service’s access to the cust
 ## KMS permissions used by each API operation
 <a name="registry-encryption-per-api"></a>
 
-The following table shows which KMS operations AWS Agent Registry calls for each API. For synchronous API calls (CreateRegistryRecord, GetRegistryRecord, UpdateRegistryRecord, SearchDiscoverableRegistryRecords), your credentials are forwarded to AWS KMS through [Forward Access Sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html) (FAS).
+The following table shows which KMS operations AWS Agent Registry calls for each API. For synchronous API calls (CreateRegistryRecord, GetRegistry, GetRegistryRecord, ListRegistryRecords, UpdateRegistry, UpdateRegistryRecord, SearchDiscoverableRegistryRecords), your credentials are forwarded to AWS KMS through [Forward Access Sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html) (FAS).
 
 
 | API operation | KMS operations | Notes | 
 | --- | --- | --- | 
-|  `CreateRegistry`  |  `kms:DescribeKey`, `kms:CreateGrant`  | Validates key and creates grant | 
-|  `CreateRegistryRecord`  |  `kms:GenerateDataKey`, `kms:Decrypt`  | Encrypts record descriptors | 
+|  `CreateRegistry`  |  `kms:DescribeKey`, `kms:CreateGrant`, `kms:Decrypt`, `kms:GenerateDataKey`  | Validates key, creates grant, and encrypts custom metadata schema (when provided) | 
+|  `GetRegistry`  |  `kms:Decrypt`  | Decrypts custom metadata schema (only when the registry has a custom metadata schema) | 
+|  `UpdateRegistry`  |  `kms:Decrypt`, `kms:GenerateDataKey`  | Decrypts existing schema on every call when the registry has a schema. Also encrypts the updated schema when the schema is changed | 
+|  `CreateRegistryRecord`  |  `kms:GenerateDataKey`, `kms:Decrypt`  | Encrypts record descriptors and custom metadata | 
 |  `GetRegistryRecord`  |  `kms:Decrypt`  | Decrypts record descriptors | 
 |  `UpdateRegistryRecord`  |  `kms:Decrypt`, `kms:GenerateDataKey`  | Decrypts existing, encrypts updated descriptors | 
-|  `ListRegistryRecords`  | None | No KMS calls — uses unencrypted summary attributes | 
+|  `ListRegistryRecords`  |  `kms:Decrypt`  | Decrypts schema and per-record custom metadata for compliance computation (only when the registry has a custom metadata schema). If KMS is unavailable, the compliance status field is omitted but the operation still succeeds. | 
 |  `SearchDiscoverableRegistryRecords`  |  `kms:Decrypt`  | Decrypts record descriptors for search results | 
 |  `DeleteRegistryRecord`  | None | No KMS calls required | 
 |  `DeleteRegistry`  | None | No KMS calls required | 
@@ -106,9 +109,11 @@ You can use this encryption context in AWS CloudTrail logs to identify which reg
 
 If you disable or delete your customer managed KMS key, revoke the grant, or if the caller’s IAM policy no longer grants the required KMS permissions:
 +  **CreateRegistryRecord** — Fails. The service cannot encrypt the record descriptors.
++  **GetRegistry** — Fails if the registry has a custom metadata schema. The service cannot decrypt the schema. Registries without a custom metadata schema are unaffected.
++  **UpdateRegistry** — Fails if the registry has a custom metadata schema. The service cannot decrypt the existing schema for additive-only validation.
 +  **GetRegistryRecord** — Fails. The service cannot decrypt the record descriptors.
 +  **UpdateRegistryRecord** — Fails. The service cannot decrypt or encrypt the record descriptors.
-+  **ListRegistryRecords** — **Succeeds**. This operation does not make KMS calls.
++  **ListRegistryRecords** — **Succeeds** with degraded compliance status. When the registry has a custom metadata schema, the compliance status field is omitted from each record summary, but the summaries themselves are still returned.
 +  **SearchDiscoverableRegistryRecords** — Fails. The service cannot decrypt the record descriptors for search results.
 +  **DeleteRegistry** — **Succeeds**. Deletion does not require access to the KMS key.
 +  **DeleteRegistryRecord** — **Succeeds**. Record deletion does not require KMS access.

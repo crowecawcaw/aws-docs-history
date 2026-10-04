@@ -50,34 +50,6 @@ You can activate cost allocation tags on the AWS Billing and Cost Management das
 }
 ```
 
-### Control access based on tags
-<a name="identity-tagging-access-control"></a>
-
-You can control access by specifying tag keys and values in the conditions for IAM policies. This enables attribute-based access control (ABAC) where permissions are granted based on resource tags.
-
- **Example scenario** : Allow a user to access workload identities only if they have an `Owner` tag with a value matching the user’s team name, or restrict access to production credential providers based on `Environment=production` tags, as shown in the following sample code.
-
-```
-{
-"Version": "2012-10-17",		 	 	 
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "bedrock-agentcore:GetWorkloadIdentity",
-        "bedrock-agentcore:UpdateWorkloadIdentity"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "StringEquals": {
-          "bedrock-agentcore:ResourceTag/Owner": "${aws:PrincipalTag/Team}"
-        }
-      }
-    }
-  ]
-}
-```
-
 ## Resource architecture
 <a name="identity-resource-architecture"></a>
 

@@ -323,6 +323,7 @@ response = client.invoke_harness(
 )
 ```
 Use the same `runtimeSessionId` for both requests. The harness stores the authoritative assistant `toolUse` and pending execution in that session. The follow-up request needs only the matching user `toolResult`. If you resend the assistant `toolUse`, the harness ignores that copy and resumes the original execution from session state. If you supplied the inline tool as an `InvokeHarness` override, include it again so the pending tool remains available. A missing, duplicate, stale, or replayed result cannot resume the handoff.
+For adjacent inline function calls in one model response, return the pending result and any immediately following results in one follow-up request. The harness processes them in order. If a harness-executed tool separates two inline calls, wait for another `tool_use` handoff before returning the later result.  
 Before using an `after_tool_call` event for an inline function as an authorization or audit signal, read [Use tool-call hooks with inline functions](harness-lifecycle-hooks.md#harness-hook-inline-functions).  
 Consume `response["stream"]` to receive the streamed tool result and any subsequent agent output. If the last `messageStop` has `stopReason` set to `tool_use`, repeat the handoff flow for the next inline function.
 Add an inline function tool to a harness:  

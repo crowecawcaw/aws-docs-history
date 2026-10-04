@@ -8,3 +8,4 @@ A registry is the top-level resource in AWS Agent Registry. Before you can publi
 **Topics**
 + [Supported Inbound Authorization types](registry-supported-auth-types.md)
 + [Create and manage registries](registry-create-manage.md)
++ [Define a custom metadata schema](registry-custom-metadata-schema.md)

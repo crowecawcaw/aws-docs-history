@@ -5,7 +5,7 @@
 
 Use these operations to manage your Policy Engines and policies.
 
-The AWS CLI and the AWS SDKs act on any policy engine in your account. The AgentCore CLI is scoped to a single AgentCore project: it can delete the engines and policies that project manages, and `agentcore status` shows their deployed state, but it has no equivalent for reading or updating a resource it did not create. Use the AWS CLI or an SDK for those.
+The AWS CLI and the AWS SDKs can act on any policy engine in your account. The AgentCore CLI is scoped to a single AgentCore project: it can delete the engines and policies that project manages, and `agentcore status` shows their deployed state, but it has no equivalent for reading or updating a resource it did not create. Use the AWS CLI or an SDK for those.
 
 **Topics**
 + [List Policy Engines](#list-policy-engines)
@@ -50,7 +50,7 @@ Select one of the following methods:
 ## List summaries without decrypting
 <a name="list-summaries"></a>
 
-Alongside `ListPolicyEngines` and `ListPolicies`, the service offers summary variants that return identifiers, names, and status but omit the encrypted content — a policy engine’s summary carries no description, and a policy’s summary carries no `definition`.
+Alongside `ListPolicyEngines` and `ListPolicies`, the service offers summaries that return identifiers, names, and status but omit the encrypted content. A policy engine’s summary carries no description, and a policy’s summary carries no `definition`.
 
 ```
 aws bedrock-agentcore-control list-policy-engine-summaries
@@ -59,11 +59,7 @@ aws bedrock-agentcore-control list-policy-summaries \
   --policy-engine-id my_policy_engine-a1b2c3d4e5
 ```
 
-There are two reasons to prefer them.
-+  **They work when a customer managed key does not.** The full list and get operations verify the key and decrypt before returning, so they fail while the key is disabled, deleted, or has its grant revoked. The summary operations touch neither, so they remain the only way to enumerate what exists. See [Key unavailable: you cannot list or read your policies](policy-encryption.md#policy-encryption-error-key-unavailable).
-+  **They are cheaper for inventory.** If you only need to know which policies exist and whether they are `ACTIVE`, you do not need the statements decrypted.
-
-They are separate IAM actions — `bedrock-agentcore:ListPolicyEngineSummaries` and `bedrock-agentcore:ListPolicySummaries` — so grant them explicitly; see [AgentCore Gateway and Policy in AgentCore IAM Permissions](policy-permissions.md).
+Use them when you need an inventory rather than the statements themselves. You can also use them to enumerate what exists while a customer managed key is unusable. The full list and get operations verify the key and decrypt before returning, so they fail while the key is disabled, deleted, or has its grant revoked. The summaries do neither. For more information, see [Key unavailable: you cannot list or read your policies](policy-encryption.md#policy-encryption-error-key-unavailable).
 
 ## Get Policy Engine
 <a name="get-policy-engine"></a>
@@ -165,9 +161,9 @@ Retrieve detailed information about a specific policy:
 ## Update existing policies
 <a name="update-existing-policies"></a>
 
- `UpdatePolicy` replaces the policy’s definition outright — there is no partial update, so send the complete statement you want. Like `CreatePolicy`, it returns HTTP 202 and validates asynchronously; wait for `ACTIVE` rather than treating the response as success.
+ `UpdatePolicy` is an in-place replacement, so send the complete statement you want.
 
-A statement must constrain the resource, either to a specific gateway with `resource ==` or to the type with `resource is AgentCore::Gateway`. An unconstrained `resource` is rejected at the call with a `ValidationException`.
+Validation happens in two phases. A malformed statement is rejected on the call with a `ValidationException`. An unconstrained `resource` is one cause: constrain it either to a specific gateway with `resource ==`, or to the type with `resource is AgentCore::Gateway`. A statement that parses but does not type-check returns HTTP 202 and settles into `UPDATE_FAILED`, so wait for `ACTIVE` rather than treating the response as success.
 
 **Note**  
 If the updated policy is a temporal policy, or the update adds or removes temporal expressions, updating it invalidates the engine’s active temporal policy sessions. In-flight sessions return an HTTP 409 `ConflictException` and must be restarted. For more information, see [Session invalidation](policy-temporal.md#policy-temporal-session-invalidation).
