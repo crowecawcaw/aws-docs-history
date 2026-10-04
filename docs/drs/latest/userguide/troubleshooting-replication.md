@@ -12,6 +12,7 @@ Use this section to troubleshoot issues with data replication between your sourc
 | "Agent not seen", "Disconnected", "Failed to authenticate", or "Failed to connect" errors | [Agent communication errors](replication-connectivity-errors.md) | 
 | "Failed to launch replication server", "Failed to create staging disks", or firewall rule errors | [Replication infrastructure errors](replication-server-errors.md) | 
 | "Not converging", replication lag growing, or unknown replication errors | [Replication performance errors](replication-performance-errors.md) | 
+| Errors in the agent log on the source server (identity, driver, connection, credentials) | [Agent log messages](agent-runtime-errors.md) | 
 | Need to calculate bandwidth requirements or measure source server write speed | [Bandwidth requirements](comm-bandwidth-planning.md) | 
 
 **Topics**
@@ -19,4 +20,5 @@ Use this section to troubleshoot issues with data replication between your sourc
 + [Replication errors: agent communication](replication-connectivity-errors.md)
 + [Replication infrastructure errors](replication-server-errors.md)
 + [Replication performance errors](replication-performance-errors.md)
++ [Replication errors: agent log messages](agent-runtime-errors.md)
 + [Replication bandwidth requirements](comm-bandwidth-planning.md)
