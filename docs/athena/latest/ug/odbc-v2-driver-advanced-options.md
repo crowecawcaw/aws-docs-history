@@ -156,13 +156,37 @@ Specifies the column length for columns with complex data types like `map`, `str
 ## Trusted CA certificate
 <a name="odbc-v2-driver-advanced-options-trusted-ca-certificate"></a>
 
-Instructs the HTTP client where to find your SSL certificate trust store. This value is passed to the `ClientConfiguration.caFile` parameter. For more information, see [AWS Client configuration](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/client-config.html) in the *AWS SDK for C\+\+ Developer Guide*.
+Use the following operating-system guidance to configure certificate verification with the `TrustedCerts` parameter. For more information, see [Encryption in transit](encryption-in-transit.md).
+
+
+**TrustedCerts behavior by operating system**  
+
+| Operating system | Default behavior | Private CA configuration | 
+| --- | --- | --- | 
+| Windows | The driver uses the operating system trust store for certificate verification. The Windows WinHTTP client does not use the path in the TrustedCerts parameter. | Configure the private CA in Windows so that WinHTTP trusts it. | 
+| Linux | If you do not set this parameter, the driver checks the CURL\_CA\_BUNDLE and SSL\_CERT\_FILE environment variables. It then checks a set of well-known system paths. The driver caches the resolved CA path for the lifetime of the process. Restart the application after changing either environment variable. | Set TrustedCerts or one of the environment variables to the path of your CA bundle. The parameter takes precedence over the environment variables and system paths. | 
+| macOS | If you do not set this parameter, certificate verification uses the system curl library's default trust store. | Set TrustedCerts to the path of your trust store file. | 
 
 
 
 | **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
 | --- | --- | --- | --- | 
-| TrustedCerts | Optional | %INSTALL\_PATH%/bin | TrustedCerts=C:\\\\Program Files\\\\Amazon Athena ODBC Driver\\\\bin\\\\cacert.pem; | 
+| TrustedCerts | Optional | Not set. Certificate verification follows the platform behavior in [TrustedCerts behavior by operating system](#odbc-v2-driver-advanced-options-trusted-ca-platform-behavior). | TrustedCerts=/etc/ssl/certs/cacert.pem; | 
+
+## User-Agent privacy mode
+<a name="odbc-v2-driver-advanced-options-user-agent-privacy-mode"></a>
+
+Use this parameter to control whether the driver includes runtime environment metadata in the `User-Agent` header that it sends to identity provider requests. By default, the driver includes this metadata. Set this parameter to `1` to omit operating system, architecture, and execution environment metadata from identity provider requests. The header continues to include the driver identifier in the form `lib/AmazonAthenaODBC#<version>`. Only the literal value `1` enables privacy mode.
+
+This parameter applies to identity provider requests only. Requests to AWS services, including Athena, AWS Glue, and Amazon S3, always include the full `User-Agent` header, regardless of this setting. Windows Integrated Authentication continues to use a browser `User-Agent`.
+
+Use this parameter if a legacy identity provider policy cannot accept runtime environment metadata in the `User-Agent` header.
+
+
+
+| **Connection string name** | **Parameter type** | **Default value** | **Connection string example** | 
+| --- | --- | --- | --- | 
+| UserAgentPrivacyMode | Optional | 0 | UserAgentPrivacyMode=1; | 
 
 ## Min poll period
 <a name="odbc-v2-driver-advanced-options-min-poll-period"></a>

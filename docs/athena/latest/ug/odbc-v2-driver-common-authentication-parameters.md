@@ -9,6 +9,9 @@ The parameters in this section are common to the authentication types as noted.
 <a name="odbc-v2-driver-common-authentication-parameters-use-proxy-for-idp"></a>
 
 Enables communication between the driver and the IdP through the proxy. This option is available for the following authentication plugins:
+
+**Proxy behavior in driver version 2.4.0.0**  
+In driver version 2.4.0.0, setting this parameter to `0` does not prevent supported identity provider HTTP clients from using the proxy when `UseProxy` is set to `1`. This behavior applies to both driver-owned clients and clients that the AWS SDK creates internally. For more information about this interaction, see [Use proxy](odbc-v2-driver-proxy-options.md#odbc-v2-driver-proxy-options-use-proxy).
 + AD FS
 + Azure AD
 + Browser Azure AD
