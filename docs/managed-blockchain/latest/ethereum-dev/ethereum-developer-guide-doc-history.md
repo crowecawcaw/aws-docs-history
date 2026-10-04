@@ -1,5 +1,7 @@
 
 
+End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html).
+
 # Document history
 <a name="ethereum-developer-guide-doc-history"></a>
 
@@ -7,6 +9,7 @@ The following table describes important additions to the *Amazon Managed Blockch
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [End of support notice](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html) | End of support notice: Amazon Managed Blockchain (AMB) will stop accepting new customers on October 29, 2026. Existing customers can continue using Amazon Managed Blockchain (AMB) until September 29, 2027. After September 29, 2027 you will no longer be able to access Amazon Managed Blockchain (AMB). For more information, see [Amazon Managed Blockchain (AMB) end of support](https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/managed-blockchain-end-of-support.html). | September 29, 2026 | 
 | [Added a getting started topic](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/getting-started.html) | This topic shows you how to perform tasks using AMB Access Ethereum. Each task builds on the previous one, ending in making JSON-RPC calls to your Ethereum node. | April 17, 2024 | 
 | [Ending support for the Goerli network](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/ethereum-concepts.html#retired) | AMB Access Ethereum ended support of the Goerli testnet on April 1, 2024. The Ethereum foundation sunset Goerli on April 17, 2024. | March 27, 2024 | 
 | [No new nodes provisioned on the Rinkeby network](https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/ethereum-concepts.html#retired) | . You can't provision new nodes on Rinkeby as of August 10th, 2023. The Ethereum foundation ceased support of Rinkeby on May 31st, 2023. | August 19, 2023 | 
