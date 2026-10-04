@@ -160,7 +160,7 @@ Redundant ingest also enables continuous 24/7 streaming. IVS limits individual p
 
 ### Requirements
 <a name="redundant-ingest-requirements"></a>
-+ Streams must be genlocked and must maintain matching encoding parameters (including resolution and frame rate) to ensure uninterrupted switchover.
++ Streams must maintain matching encoding parameters (including resolution and frame rate) to ensure uninterrupted switchover.
 
 ### Recommendations
 <a name="redundant-ingest-recommendations"></a>
