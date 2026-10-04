@@ -27,7 +27,6 @@ Locate the Local Zone closest to you.
 + [Africa](#lzs-africa)
 + [Asia Pacific](#lzs-asia-pacific)
 + [Europe](#lzs-europe)
-+ [Middle East](#lzs-middle-east)
 
 ### North America
 <a name="lzs-northamerica"></a>
@@ -121,16 +120,6 @@ The following Local Zones are available in Europe:
 | Greece (Athens) | eu-central-1-ath-1a | euc1-ath1-az1 | eu-central-1-ath-1 | eu-central-1 | euc1-az2 | Greece | 
 | Poland (Warsaw) | eu-central-1-waw-1a | euc1-waw1-az1 | eu-central-1-waw-1 | eu-central-1 | euc1-az3 | Poland | 
 | Turkey (Istanbul) | eu-central-1-ist-1a | euc1-ist1-az1 | eu-central-1-ist-1 | eu-central-1 | euc1-az1 | Turkey | 
-
-### Middle East
-<a name="lzs-middle-east"></a>
-
-The following Local Zones are available in the Middle East:
-
-
-| Local Zone Group Long Name | Local Zone Name | Local Zone ID | Network Border Group | Parent Region Name | Parent Zone ID | Geography | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| Oman (Muscat) | me-south-1-mct-1a | mes1-mct1-az1 | me-south-1-mct-1 | me-south-1 | mes1-az1 | Oman | 
 
 For the complete list of supported and announced Local Zones, see [AWS Local Zones Locations](https://aws.amazon.com/about-aws/global-infrastructure/localzones/locations/).
 
