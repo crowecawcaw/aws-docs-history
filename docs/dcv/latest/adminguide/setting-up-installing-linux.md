@@ -10,4 +10,4 @@ This section describes how to install the Amazon DCV server on Linux.
 **Topics**
 + [Prerequisites](setting-up-installing-linux-prereq.md)
 + [Installing the Server](setting-up-installing-linux-server.md)
-+ [Performing post-installation checks](setting-up-installing-linux-checks.md)
++ [Post-installation checks](setting-up-installing-linux-checks.md)
