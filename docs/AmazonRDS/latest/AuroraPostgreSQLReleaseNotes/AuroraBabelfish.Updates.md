@@ -23,8 +23,45 @@ For a list of supported and unsupported functionality across different Babelfish
 <a name="aurorababelfish-versions-version6x"></a>
 
 **Topics**
++ [Babelfish for Aurora PostgreSQL 6.2](#AuroraBabelfish.Updates.62X)
 + [Babelfish for Aurora PostgreSQL 6.1](#AuroraBabelfish.Updates.61X)
 + [Babelfish for Aurora PostgreSQL 6.0](#AuroraBabelfish.Updates.60X)
+
+### Babelfish for Aurora PostgreSQL 6.2
+<a name="AuroraBabelfish.Updates.62X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.6. For more information about the improvements in Aurora PostgreSQL 18.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 6.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 6.2.0, September 29, 2026
+<a name="AuroraBabelfish.Updates.620"></a>
+
+**New Features**
++ Babelfish now supports local Temporary tables and Table Variables on Aurora replicas (see [Babelfish temporary tables on read replicas](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-temp-tables-read-replicas.html)).
++ Enabled support for MultiLinestring instances and added support for Spatial Indexes (see [Babelfish supports Geospatial data types](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-geospatial.html)).
++ Added support for `FOR XML AUTO` mode and the XML `.query()` method on XML data types.
++ Added support for correlated aggregate subquery transformation, to improve query performance. This feature is controlled by the GUC `babelfishpg_tsql.apg_enable_subquery_to_window_transform` (default: ON).
+
+**Critical enhancements**
++ Fixed connection failures when using -U or -d flags with login or database names exceeding 63 characters that were internally truncated by Babelfish.
++ Fixed the crash with sqlcmd during the INSERT-EXECUTE with IDENTITY columns.
++ Fixed an issue where re-executing a prepared stored procedure with a Table-Valued Parameter (TVP) on the same connection returned stale data from the first batch instead of the current batch's rows.
++ Fixed an issue where prepared statements with identically named parameters but different parameter lists could incorrectly reuse a cached query plan, causing queries to execute with wrong parameter bindings.
+
+**High Priority stability enhancements**
++ Fixed `FOR JSON AUTO` to recognize INSERTED and DELETED transition tables inside triggers as valid table sources.
++ Fixed the error raised when using `INSERT INTO...EXEC` with a variable assigned as the procedure name.
++ Fixed the failure in `INSERT EXEC` with `OUTPUT` when the executed procedure contains nested procedure calls.
++ Fixed `INSERT EXEC` to correctly follow transaction behavior, ensuring proper rollback and commit semantics consistent with SQL Server.
++ Fixed INSERT..EXECUTE to work correctly when the called procedure internally contains an `EXEC(SELECT)` statement.
++ Restricted all identifier lengths to match SQL Server limits of 128 characters for regular objects and 116 characters for local temporary objects.
++ Introduced persistent cache to improve cold-start performance for TSQL stored procedures and functions in new sessions (see [Procedure parse cache in Babelfish](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-procedure-parse-cache.html)).
+
+**Additional improvements and enhancements**
++ Added support for BulkCopy on Babelfish temporary tables.
++ Added support for the OUTPUT clause in `INSERT EXEC` statements.
++ Fixed incorrect function resolution issues which led to failures during dump-restore.
++ Fixed `CAST(DATE AS DATETIME2)` hangs for dates outside the valid datetime2 range (0001-01-01 to 9999-12-31).
++ Improved the performance when expanding Views, Indexes, Keys and Tables in SQL Server Management Studio.
 
 ### Babelfish for Aurora PostgreSQL 6.1
 <a name="AuroraBabelfish.Updates.61X"></a>
@@ -66,6 +103,15 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.4. For mo
 <a name="AuroraBabelfish.Updates.60X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.3. For more information about the improvements in Aurora PostgreSQL 18.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 6.0 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 6.0.1, July 20, 2026
+<a name="AuroraBabelfish.Updates.601"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
+**Additional improvements and enhancements**
++ Fixed an issue where go-sqlcmd client driver failed to return query results.
 
 #### Aurora Babelfish release 6.0.0, June 10, 2026
 <a name="AuroraBabelfish.Updates.600"></a>
@@ -115,12 +161,46 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.3. For mo
 <a name="aurorababelfish-versions-version5x"></a>
 
 **Topics**
++ [Babelfish for Aurora PostgreSQL 5.7](#AuroraBabelfish.Updates.57X)
 + [Babelfish for Aurora PostgreSQL 5.6](#AuroraBabelfish.Updates.56X)
 + [Babelfish for Aurora PostgreSQL 5.5](#AuroraBabelfish.Updates.55X)
 + [Babelfish for Aurora PostgreSQL 5.4](#AuroraBabelfish.Updates.54X)
 + [Babelfish for Aurora PostgreSQL 5.3](#AuroraBabelfish.Updates.53X)
 + [Babelfish for Aurora PostgreSQL 5.2](#AuroraBabelfish.Updates.52X)
 + [Babelfish for Aurora PostgreSQL 5.1](#AuroraBabelfish.Updates.51X)
+
+### Babelfish for Aurora PostgreSQL 5.7
+<a name="AuroraBabelfish.Updates.57X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.11. For more information about the improvements in Aurora PostgreSQL 17.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 5.7 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 5.7.0, September 29, 2026
+<a name="AuroraBabelfish.Updates.570"></a>
+
+**New Features**
++ Babelfish now supports local Temporary tables and Table Variables on Aurora replicas (see [Babelfish temporary tables on read replicas](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-temp-tables-read-replicas.html)).
++ Enabled support for MultiLinestring instances and added support for Spatial Indexes (see [Babelfish supports Geospatial data types](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-geospatial.html)).
++ Added support for `FOR XML AUTO` mode and the XML `.query()` method on XML data types.
+
+**Critical enhancements**
++ Fixed connection failures when using -U or -d flags with login or database names exceeding 63 characters that were internally truncated by Babelfish.
++ Fixed the crash with sqlcmd during the INSERT-EXECUTE with IDENTITY columns.
++ Fixed an issue where re-executing a prepared stored procedure with a Table-Valued Parameter (TVP) on the same connection returned stale data from the first batch instead of the current batch's rows.
+
+**High Priority stability enhancements**
++ Fixed `FOR JSON AUTO` to recognize INSERTED and DELETED transition tables inside triggers as valid table sources.
++ Fixed the error raised when using `INSERT INTO...EXEC` with a variable assigned as the procedure name.
++ Fixed the failure in `INSERT EXEC` with `OUTPUT` when the executed procedure contains nested procedure calls.
++ Fixed `INSERT EXEC` to correctly follow transaction behavior, ensuring proper rollback and commit semantics consistent with SQL Server.
++ Fixed INSERT..EXECUTE to work correctly when the called procedure internally contains an `EXEC(SELECT)` statement.
++ Fixed an issue where prepared statements with identically named parameters but different parameter lists could incorrectly reuse a cached query plan, causing queries to execute with wrong parameter bindings.
++ Introduced persistent cache to improve cold-start performance for TSQL stored procedures and functions in new sessions (see [Procedure parse cache in Babelfish](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish-procedure-parse-cache.html)).
+
+**Additional improvements and enhancements**
++ Added support for BulkCopy on Babelfish temporary tables.
++ Added support for the OUTPUT clause in `INSERT EXEC` statements.
++ Fixed `CAST(DATE AS DATETIME2)` hangs for dates outside the valid datetime2 range (0001-01-01 to 9999-12-31).
++ Improved the performance when expanding Views, Indexes, Keys and Tables in SQL Server Management Studio.
 
 ### Babelfish for Aurora PostgreSQL 5.6
 <a name="AuroraBabelfish.Updates.56X"></a>
@@ -162,6 +242,15 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.10. For m
 <a name="AuroraBabelfish.Updates.55X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.9. For more information about the improvements in Aurora PostgreSQL 17.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 5.5 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 5.5.1, July 20, 2026
+<a name="AuroraBabelfish.Updates.551"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
+**Additional improvements and enhancements**
++ Fixed an issue where go-sqlcmd client driver failed to return query results.
 
 #### Aurora Babelfish release 5.5.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.550"></a>
@@ -210,20 +299,21 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.9. For mo
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.7. For more information about the improvements in Aurora PostgreSQL 17.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 5.4 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
-#### Aurora Babelfish release 5.4.2, March 20, 2026
+#### Aurora Babelfish release 5.4.2, July 20, 2026
 <a name="AuroraBabelfish.Updates.542"></a>
 
 **Critical stability enhancements**
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
+**High Priority stability enhancements**
++ Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
 
 #### Aurora Babelfish release 5.4.1, January 16, 2026
 <a name="AuroraBabelfish.Updates.541"></a>
 
 **Critical stability enhancements**
 + Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
-
-**High Priority stability enhancements**
-+ Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
 
 #### Aurora Babelfish release 5.4.0, December, 18, 2025
 <a name="AuroraBabelfish.Updates.540"></a>
@@ -284,10 +374,11 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.7. For mo
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For more information about the improvements in Aurora PostgreSQL 17.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 5.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
-#### Aurora Babelfish release 5.3.2, May 07, 2026
+#### Aurora Babelfish release 5.3.2, July 20, 2026
 <a name="AuroraBabelfish.Updates.532"></a>
 
 **Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 
 #### Aurora Babelfish release 5.3.1, November 25, 2025
@@ -361,6 +452,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For mo
 <a name="AuroraBabelfish.Updates.52X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.5. For more information about the improvements in Aurora PostgreSQL 17.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 5.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 5.2.3, July 29, 2026
+<a name="AuroraBabelfish.Updates.523"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 5.2.2, January 15, 2026
 <a name="AuroraBabelfish.Updates.522"></a>
@@ -440,6 +537,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.5. For mo
 <a name="AuroraBabelfish.Updates.51X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.4. For more information about the improvements in Aurora PostgreSQL 17.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 5.1 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 5.1.4, August 5, 2026
+<a name="AuroraBabelfish.Updates.514"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 5.1.3, February 02, 2026
 <a name="AuroraBabelfish.Updates.513"></a>
@@ -533,6 +636,7 @@ For more information about relevant permission management and access control set
 <a name="aurorababelfish-versions-version4x"></a>
 
 **Topics**
++ [Babelfish for Aurora PostgreSQL 4.11](#AuroraBabelfish.Updates.411X)
 + [Babelfish for Aurora PostgreSQL 4.10](#AuroraBabelfish.Updates.410X)
 + [Babelfish for Aurora PostgreSQL 4.9](#AuroraBabelfish.Updates.49X)
 + [Babelfish for Aurora PostgreSQL 4.8](#AuroraBabelfish.Updates.48X)
@@ -544,6 +648,18 @@ For more information about relevant permission management and access control set
 + [Babelfish for Aurora PostgreSQL 4.2](#AuroraBabelfish.Updates.42X)
 + [Babelfish for Aurora PostgreSQL 4.1](#AuroraBabelfish.Updates.41X)
 + [Babelfish for Aurora PostgreSQL 4.0](#AuroraBabelfish.Updates.40X)
+
+### Babelfish for Aurora PostgreSQL 4.11
+<a name="AuroraBabelfish.Updates.411X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.15. For more information about the improvements in Aurora PostgreSQL 16.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.11 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 4.11.0, September 29, 2026
+<a name="AuroraBabelfish.Updates.4110"></a>
+
+**Additional improvements and enhancements**
++ Fixed `CAST(DATE AS DATETIME2)` hangs for dates outside the valid datetime2 range (0001-01-01 to 9999-12-31).
++ Fixed an issue where prepared statements with identically named parameters but different parameter lists could incorrectly reuse a cached query plan, causing queries to execute with wrong parameter bindings.
 
 ### Babelfish for Aurora PostgreSQL 4.10
 <a name="AuroraBabelfish.Updates.410X"></a>
@@ -577,6 +693,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.14. For m
 <a name="AuroraBabelfish.Updates.49X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.13. For more information about the improvements in Aurora PostgreSQL 16.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.9 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 4.9.1, July 20, 2026
+<a name="AuroraBabelfish.Updates.491"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 4.9.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.490"></a>
@@ -622,11 +744,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.13. For m
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.11. For more information about the improvements in Aurora PostgreSQL 16.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.8 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
-#### Aurora Babelfish release 4.8.2, March 20, 2026
+#### Aurora Babelfish release 4.8.2, July 20, 2026
 <a name="AuroraBabelfish.Updates.482"></a>
 
 **Critical stability enhancements**
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 **High Priority stability enhancements**
 + Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
@@ -694,14 +817,15 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.11. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For more information about the improvements in Aurora PostgreSQL 16.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.7 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
-+ [Aurora Babelfish release 4.7.2, May 07, 2026](#AuroraBabelfish.Updates.472)
++ [Aurora Babelfish release 4.7.2, July 20, 2026](#AuroraBabelfish.Updates.472)
 + [Aurora Babelfish release 4.7.1, November 25, 2025](#AuroraBabelfish.Updates.471)
 + [Aurora Babelfish release 4.7.0, November 25, 2025](#AuroraBabelfish.Updates.470)
 
-#### Aurora Babelfish release 4.7.2, May 07, 2026
+#### Aurora Babelfish release 4.7.2, July 20, 2026
 <a name="AuroraBabelfish.Updates.472"></a>
 
 **Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 
 #### Aurora Babelfish release 4.7.1, November 25, 2025
@@ -775,9 +899,16 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.9. For more information about the improvements in Aurora PostgreSQL 16.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.6 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 4.6.3, July 29, 2026](#AuroraBabelfish.Updates.463)
 + [Aurora Babelfish release 4.6.2, January 15, 2026](#AuroraBabelfish.Updates.462)
 + [Aurora Babelfish release 4.6.1, August 08, 2025](#AuroraBabelfish.Updates.461)
 + [Aurora Babelfish release 4.6.0, June 30, 2025](#AuroraBabelfish.Updates.46X)
+
+#### Aurora Babelfish release 4.6.3, July 29, 2026
+<a name="AuroraBabelfish.Updates.463"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 4.6.2, January 15, 2026
 <a name="AuroraBabelfish.Updates.462"></a>
@@ -859,10 +990,17 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.9. For mo
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.8. For more information about the improvements in Aurora PostgreSQL 16.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.5 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 4.5.4, August 5, 2026](#AuroraBabelfish.Updates.454)
 + [Aurora Babelfish release 4.5.3, February 02, 2026](#AuroraBabelfish.Updates.453)
 + [Aurora Babelfish release 4.5.2, October 09, 2025](#AuroraBabelfish.Updates.452)
 + [**Aurora Babelfish release 4.5.1, June 03, 2025**](#AuroraBabelfish.Updates.451)
 + [Aurora Babelfish release 4.5.0, April 08, 2025](#AuroraBabelfish.Updates.450)
+
+#### Aurora Babelfish release 4.5.4, August 5, 2026
+<a name="AuroraBabelfish.Updates.454"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 4.5.3, February 02, 2026
 <a name="AuroraBabelfish.Updates.453"></a>
@@ -1349,6 +1487,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.1. For mo
 <a name="aurorababelfish-versions-version3x"></a>
 
 **Topics**
++ [Babelfish for Aurora PostgreSQL 3.15](#AuroraBabelfish.Updates.315X)
 + [Babelfish for Aurora PostgreSQL 3.14](#AuroraBabelfish.Updates.314X)
 + [Babelfish for Aurora PostgreSQL 3.13](#AuroraBabelfish.Updates.313X)
 + [Babelfish for Aurora PostgreSQL 3.12](#AuroraBabelfish.Updates.312X)
@@ -1363,6 +1502,16 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.1. For mo
 + [Babelfish for Aurora PostgreSQL 3.3](#AuroraBabelfish.Updates.33X)
 + [Babelfish for Aurora PostgreSQL 3.2](#AuroraBabelfish.Updates.32X)
 + [Babelfish for Aurora PostgreSQL 3.1 (Deprecated)](#AuroraBabelfish.Updates.31X)
+
+### Babelfish for Aurora PostgreSQL 3.15
+<a name="AuroraBabelfish.Updates.315X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.19. For more information about the improvements in Aurora PostgreSQL 15.19, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.15 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 3.15.0, September 29, 2026
+<a name="AuroraBabelfish.Updates.3150"></a>
+
+This release provides Aurora Babelfish 3.15.0, compatible with Aurora PostgreSQL 15.19.
 
 ### Babelfish for Aurora PostgreSQL 3.14
 <a name="AuroraBabelfish.Updates.314X"></a>
@@ -1380,6 +1529,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.18. For m
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.17. For more information about the improvements in Aurora PostgreSQL 15.17, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
+#### Aurora Babelfish release 3.13.1, July 20, 2026
+<a name="AuroraBabelfish.Updates.3131"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
 #### Aurora Babelfish release 3.13.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.3130"></a>
 
@@ -1393,6 +1548,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.17. For m
 <a name="AuroraBabelfish.Updates.312X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.15. For more information about the improvements in Aurora PostgreSQL 15.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.12 adds several enhancements and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 3.12.2, July 20, 2026
+<a name="AuroraBabelfish.Updates.3122"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 3.12.1, January 16, 2026
 <a name="AuroraBabelfish.Updates.3121"></a>
@@ -1419,7 +1580,14 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.15. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.14. For more information about the improvements in Aurora PostgreSQL 15.14, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.11 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 3.11.2, July 20, 2026](#AuroraBabelfish.Updates.3112)
 + [Aurora Babelfish release 3.11.0, November 25, 2025](#AuroraBabelfish.Updates.3110)
+
+#### Aurora Babelfish release 3.11.2, July 20, 2026
+<a name="AuroraBabelfish.Updates.3112"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 3.11.0, November 25, 2025
 <a name="AuroraBabelfish.Updates.3110"></a>
@@ -1444,8 +1612,15 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.14. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.13. For more information about the improvements in Aurora PostgreSQL 15.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.10 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 3.10.3, July 29, 2026](#AuroraBabelfish.Updates.3103)
 + [Aurora Babelfish release 3.10.1, August 08, 2025](#AuroraBabelfish.Updates.3101)
 + [Aurora Babelfish release 3.10.0, June 30, 2025](#AuroraBabelfish.Updates.3100)
+
+#### Aurora Babelfish release 3.10.3, July 29, 2026
+<a name="AuroraBabelfish.Updates.3103"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 3.10.1, August 08, 2025
 <a name="AuroraBabelfish.Updates.3101"></a>
@@ -1484,9 +1659,16 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.13. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.12. For more information about the improvements in Aurora PostgreSQL 15.12, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.9 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 3.9.4, August 5, 2026](#AuroraBabelfish.Updates.394)
 + [Aurora Babelfish release 3.9.2, October 09, 2025](#AuroraBabelfish.Updates.392)
 + [Aurora Babelfish release 3.9.1, June 03, 2025](#AuroraBabelfish.Updates.391)
 + [Aurora Babelfish release 3.9.0, April 08, 2025](#AuroraBabelfish.Updates.390)
+
+#### Aurora Babelfish release 3.9.4, August 5, 2026
+<a name="AuroraBabelfish.Updates.394"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 3.9.2, October 09, 2025
 <a name="AuroraBabelfish.Updates.392"></a>
@@ -1548,10 +1730,20 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.12. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.10. For more information about the improvements in Aurora PostgreSQL 15.10, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.8 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 3.8.4, August 6, 2026](#AuroraBabelfish.Updates.384)
 + [Aurora Babelfish release 3.8.3, November 13, 2025](#AuroraBabelfish.Updates.383)
 + [Aurora Babelfish release 3.8.2, June 24, 2025](#AuroraBabelfish.Updates.382)
 + [Aurora Babelfish release 3.8.1, January 20, 2025](#AuroraBabelfish.Updates.380)
 + [Aurora Babelfish release 3.8.0, December 27, 2024](#AuroraBabelfish.Updates.380)
+
+#### Aurora Babelfish release 3.8.4, August 6, 2026
+<a name="AuroraBabelfish.Updates.384"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
+**High Priority stability enhancements**
++ Babelfish will now restrict GRANT/REVOKE on any Babelfish created role via PG port.
 
 #### Aurora Babelfish release 3.8.3, November 13, 2025
 <a name="AuroraBabelfish.Updates.383"></a>
@@ -2223,8 +2415,10 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.2. For mo
 <a name="aurorababelfish-versions-version2x"></a>
 
 **Topics**
++ [Babelfish for Aurora PostgreSQL 2.18](#AuroraBabelfish.Updates.218X)
 + [Babelfish for Aurora PostgreSQL 2.17](#AuroraBabelfish.Updates.217X)
 + [Babelfish for Aurora PostgreSQL 2.16](#AuroraBabelfish.Updates.216X)
++ [Babelfish for Aurora PostgreSQL 2.15](#AuroraBabelfish.Updates.215X)
 + [Babelfish for Aurora PostgreSQL 2.14](#AuroraBabelfish.Updates.214X)
 + [Babelfish for Aurora PostgreSQL 2.13](#AuroraBabelfish.Updates.213X)
 + [Babelfish for Aurora PostgreSQL 2.12](#AuroraBabelfish.Updates.212X)
@@ -2239,6 +2433,16 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.2. For mo
 + [Babelfish for Aurora PostgreSQL 2.3 (Deprecated)](#AuroraBabelfish.Updates.23X)
 + [Babelfish for Aurora PostgreSQL 2.2](#AuroraBabelfish.Updates.22X)
 + [Babelfish for Aurora PostgreSQL 2.1](#AuroraBabelfish.Updates.21X)
+
+### Babelfish for Aurora PostgreSQL 2.18
+<a name="AuroraBabelfish.Updates.218X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.24. For more information about the improvements in Aurora PostgreSQL 14.24, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.18 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 2.18.0, September 29, 2026
+<a name="AuroraBabelfish.Updates.2180"></a>
+
+This release provides Aurora Babelfish 2.18.0, compatible with Aurora PostgreSQL 14.24.
 
 ### Babelfish for Aurora PostgreSQL 2.17
 <a name="AuroraBabelfish.Updates.217X"></a>
@@ -2256,11 +2460,31 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.23. For m
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.22. For more information about the improvements in Aurora PostgreSQL 14.22, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
+#### Aurora Babelfish release 2.16.1, July 20, 2026
+<a name="AuroraBabelfish.Updates.2161"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
 #### Aurora Babelfish release 2.16.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.2160"></a>
 
 **Critical enhancements**
 + Fixed an issue where update with output clause may skip rows during concurrent updates.
+
+### Babelfish for Aurora PostgreSQL 2.15
+<a name="AuroraBabelfish.Updates.215X"></a>
+
+This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.20. For more information about the improvements in Aurora PostgreSQL 14.20, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
+
+#### Aurora Babelfish release 2.15.2, July 20, 2026
+<a name="AuroraBabelfish.Updates.2152"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
+
+**High Priority stability enhancements**
++ Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
 
 ### Babelfish for Aurora PostgreSQL 2.14
 <a name="AuroraBabelfish.Updates.214X"></a>
@@ -2268,7 +2492,14 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.22. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.19. For more information about the improvements in Aurora PostgreSQL 14.19, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.14 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 2.14.2, July 20, 2026](#AuroraBabelfish.Updates.2142)
 + [Aurora Babelfish release 2.14.0, November 25, 2025](#AuroraBabelfish.Updates.2140)
+
+#### Aurora Babelfish release 2.14.2, July 20, 2026
+<a name="AuroraBabelfish.Updates.2142"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 2.14.0, November 25, 2025
 <a name="AuroraBabelfish.Updates.2140"></a>
@@ -2285,7 +2516,14 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.19. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.18. For more information about the improvements in Aurora PostgreSQL 14.18, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.13 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 2.13.3, July 29, 2026](#AuroraBabelfish.Updates.2133)
 + [Aurora Babelfish release 2.13.1, August 08, 2025](#AuroraBabelfish.Updates.2131)
+
+#### Aurora Babelfish release 2.13.3, July 29, 2026
+<a name="AuroraBabelfish.Updates.2133"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 2.13.1, August 08, 2025
 <a name="AuroraBabelfish.Updates.2131"></a>
@@ -2299,9 +2537,16 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.18. For m
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.17. For more information about the improvements in Aurora PostgreSQL 14.17, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.12 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
++ [Aurora Babelfish release 2.12.4, August 5, 2026](#AuroraBabelfish.Updates.2124)
 + [Aurora Babelfish release 2.12.2, October 09, 2025](#AuroraBabelfish.Updates.2122)
 + [**Aurora Babelfish release 2.12.1, June 03, 2025**](#AuroraBabelfish.Updates.2121)
 + [Aurora Babelfish release 2.12, April 08, 2025](#AuroraBabelfish.Updates.212)
+
+#### Aurora Babelfish release 2.12.4, August 5, 2026
+<a name="AuroraBabelfish.Updates.2124"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
 
 #### Aurora Babelfish release 2.12.2, October 09, 2025
 <a name="AuroraBabelfish.Updates.2122"></a>

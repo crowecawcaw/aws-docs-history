@@ -22,8 +22,17 @@ The AWS `apg_plan_mgmt` extension provides your Aurora PostgreSQL DB cluster wit
 <a name="auroraqpm-version18"></a>
 
 **Topics**
++ [apg\_plan\_mgmt version 3.1 for Aurora PostgreSQL 18.6, September 29, 2026](#auroraqpm-version18-186)
 + [apg\_plan\_mgmt version 3.1 for Aurora PostgreSQL 18.4, August 21, 2026](#auroraqpm-version18-184)
 + [apg\_plan\_mgmt version 3.0 for Aurora PostgreSQL 18.3, June 10, 2026](#auroraqpm-version18-183)
+
+### apg\_plan\_mgmt version 3.1 for Aurora PostgreSQL 18.6, September 29, 2026
+<a name="auroraqpm-version18-186"></a>
+
+Improvements to the `apg_plan_mgmt` extension in version 3.1 for Aurora PostgreSQL 18.6 include the following:
+
+**Extension improvements**
++ Added an improvement in enforcement of plans with GatherMerge operator in Query Plan Management.
 
 ### apg\_plan\_mgmt version 3.1 for Aurora PostgreSQL 18.4, August 21, 2026
 <a name="auroraqpm-version18-184"></a>
@@ -46,11 +55,20 @@ Improvements to the `apg_plan_mgmt` extension in version 3.0 for Aurora PostgreS
 <a name="auroraqpm-version17"></a>
 
 **Topics**
++ [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 17.11, September 29, 2026](#auroraqpm-version17-1711)
 + [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 17.10, August 21, 2026](#auroraqpm-version17-1710)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 17.9, April 6, 2026](#auroraqpm-version17-179)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 17.7, December 18, 2025](#auroraqpm-version17-177)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 17.5, June 30, 2025](#auroraqpm-version17-175)
 + [apg\_plan\_mgmt version 2.8 for Aurora PostgreSQL 17.4, May 01, 2025](#auroraqpm-version17-174)
+
+### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 17.11, September 29, 2026
+<a name="auroraqpm-version17-1711"></a>
+
+Improvements to the `apg_plan_mgmt` extension in version 2.10 for Aurora PostgreSQL 17.11 include the following:
+
+**Extension improvements**
++ Added an improvement in enforcement of plans with GatherMerge operator in Query Plan Management.
 
 ### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 17.10, August 21, 2026
 <a name="auroraqpm-version17-1710"></a>
@@ -108,6 +126,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreS
 <a name="auroraqpm-version16"></a>
 
 **Topics**
++ [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 16.15, September 29, 2026](#auroraqpm-version16-1615)
 + [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 16.14, August 21, 2026](#auroraqpm-version16-1614)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 16.13, April 6, 2026](#auroraqpm-version16-1613)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 16.11, December 18, 2025](#auroraqpm-version16-1611)
@@ -117,6 +136,14 @@ Improvements to the `apg_plan_mgmt` extension in version 2.8 for Aurora PostgreS
 + [apg\_plan\_mgmt version 2.7 for Aurora PostgreSQL 16.3](#auroraqpm-version16-163)
 + [apg\_plan\_mgmt version 2.6 for Aurora PostgreSQL 16.2](#auroraqpm-version16-162)
 + [apg\_plan\_mgmt version 2.6 for Aurora PostgreSQL 16.1](#auroraqpm-version16-161)
+
+### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 16.15, September 29, 2026
+<a name="auroraqpm-version16-1615"></a>
+
+Improvements to the `apg_plan_mgmt` extension in version 2.10 for Aurora PostgreSQL 16.15 include the following:
+
+**Extension improvements**
++ Added an improvement in enforcement of plans with GatherMerge operator in Query Plan Management.
 
 ### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 16.14, August 21, 2026
 <a name="auroraqpm-version16-1614"></a>
@@ -236,6 +263,7 @@ Improvements to the `apg_plan_mgmt` extension in version 2.6 for Aurora PostgreS
 <a name="auroraqpm-version15"></a>
 
 **Topics**
++ [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 15.19, September 29, 2026](#auroraqpm-version15-1519)
 + [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 15.18, August 21, 2026](#auroraqpm-version15-1518)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 15.17, April 6, 2026](#auroraqpm-version15-1517)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 15.15, December 18, 2025](#auroraqpm-version15-1515)
@@ -248,6 +276,14 @@ Improvements to the `apg_plan_mgmt` extension in version 2.6 for Aurora PostgreS
 + [apg\_plan\_mgmt version 2.6 for Aurora PostgreSQL 15.5](#auroraqpm-version15-155)
 + [apg\_plan\_mgmt version 2.5 for Aurora PostgreSQL 15.4](#auroraqpm-version15-154)
 + [apg\_plan\_mgmt version 2.4 for Aurora PostgreSQL 15.3](#auroraqpm-version15-153)
+
+### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 15.19, September 29, 2026
+<a name="auroraqpm-version15-1519"></a>
+
+Improvements to the `apg_plan_mgmt` extension in version 2.10 for Aurora PostgreSQL 15.19 include the following:
+
+**Extension improvements**
++ Added an improvement in enforcement of plans with GatherMerge operator in Query Plan Management.
 
 ### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 15.18, August 21, 2026
 <a name="auroraqpm-version15-1518"></a>
@@ -415,6 +451,7 @@ To learn how to install, upgrade, and use the `apg_plan_mgmt` extension, see [ M
 <a name="auroraqpm-version14"></a>
 
 **Topics**
++ [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 14.24, September 29, 2026](#auroraqpm-version14-1424)
 + [apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 14.23, August 21, 2026](#auroraqpm-version14-1423)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 14.22, April 6, 2026](#auroraqpm-version14-1422)
 + [apg\_plan\_mgmt version 2.9 for Aurora PostgreSQL 14.20, December 18, 2025](#auroraqpm-version14-1420)
@@ -426,6 +463,14 @@ To learn how to install, upgrade, and use the `apg_plan_mgmt` extension, see [ M
 + [apg\_plan\_mgmt version 2.6 for Aurora PostgreSQL 14.10](#auroraqpm-version14-1410)
 + [apg\_plan\_mgmt version 2.5 for Aurora PostgreSQL 14.9](#auroraqpm-version14-149)
 + [apg\_plan\_mgmt version 2.4 for Aurora PostgreSQL 14.8](#auroraqpm-version14-148)
+
+### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 14.24, September 29, 2026
+<a name="auroraqpm-version14-1424"></a>
+
+Improvements to the `apg_plan_mgmt` extension in version 2.10 for Aurora PostgreSQL 14.24 include the following:
+
+**Extension improvements**
++ Added an improvement in enforcement of plans with GatherMerge operator in Query Plan Management.
 
 ### apg\_plan\_mgmt version 2.10 for Aurora PostgreSQL 14.23, August 21, 2026
 <a name="auroraqpm-version14-1423"></a>

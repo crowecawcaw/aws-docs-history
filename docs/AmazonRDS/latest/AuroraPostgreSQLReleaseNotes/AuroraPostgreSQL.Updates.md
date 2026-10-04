@@ -37,8 +37,84 @@ For a list of AWS Regions, see [ Aurora PostgreSQL Region availability](https://
 <a name="aurorapostgresql-versions-version18"></a>
 
 **Topics**
++ [PostgreSQL 18.6](#aurorapostgresql-versions-version186x)
 + [PostgreSQL 18.4](#aurorapostgresql-versions-version184x)
 + [PostgreSQL 18.3](#aurorapostgresql-versions-version183x)
+
+### PostgreSQL 18.6
+<a name="aurorapostgresql-versions-version186x"></a>
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 18.6. For more information about the improvements in PostgreSQL 18.6, see [PostgreSQL release 18.6](https://www.postgresql.org/docs/18/release-18-6.html).
+
+**Topics**
++ [Aurora PostgreSQL 18.6, September 29, 2026](#aurorapostgresql-versions-version186x-186)
+
+#### Aurora PostgreSQL 18.6, September 29, 2026
+<a name="aurorapostgresql-versions-version186x-186"></a>
+
+**New features**
++ Reduced minor version and patch upgrade downtime by decreasing session serialization time for backends with temporary schemas.
++ Aurora PostgreSQL now parallelizes index maintenance during bulk inserts with `COPY FROM`, reducing load time for tables with many indexes.
++ Aurora PostgreSQL now automatically detects and removes invalid databases left behind by interrupted `DROP DATABASE` operations, preventing false alerts and upgrade failures.
++ Added support for hybrid key exchange (KEX) algorithms, such as `X25519MLKEM768` and `SecP256r1MLKEM768`, for SSL.
++ Added support for correlated aggregate subquery transformation, which rewrites correlated aggregate subqueries into window function equivalents to improve query performance. This feature is controlled by the `apg_enable_subquery_to_window_transform` parameter (default: `OFF`).
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that could prevent a database from starting when it reached the maximum volume size.
++ HypoPG now considers only the hypothetical indexes created by the current role during `EXPLAIN`.
+
+**High priority enhancements**
++ Fixed an issue where an idle system incorrectly reported slightly higher IOPS.
++ Fixed an issue that could cause prolonged switchover times for global clusters when `aurora.enhanced_logical_replication` is enabled.
++ Fixed an issue where minor and patch upgrades could result in longer downtime due to a failure to process certain database parameters.
++ Fixed an issue in Aurora commit log initialization that caused inbound replication to fail in certain cases.
++ Fixed an issue in the `pg_columnmask` extension that could cause database unavailability when a table with both row-level security and masking policies was joined in a multi-table query.
++ Back-ported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14676](https://www.postgresql.org/support/security/CVE-2026-14676)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16238](https://www.postgresql.org/support/security/CVE-2026-16238)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
+
+**General enhancements**
++ Improved Aurora PostgreSQL resource usage by fixing several minor memory leaks.
++ Improved Aurora Serverless v2 scale-down to better retain frequently accessed data in the buffer cache.
++ Reduced downtime during major version upgrades by reducing Aurora I/O operations for user files.
++ Fixed an issue in minor and patch upgrades to support buffering of extended queries.
++ Fixed multiple issues to improve the reliability of client connections during database minor and patch upgrades that use Zero-Downtime Patching (ZDP).
++ Fixed an issue where inbound replicas could experience longer recovery times after a restart.
++ Improved CPU usage reporting in the `aurora_stat_resource_usage()` virtual function.
++ Added a new column, `worker_threads_cpu_usage_percent`, to the `aurora_stat_resource_usage()` function. This column reports the CPU usage percentage of a backend process's worker threads. For backend processes that don't use worker threads, the value is 0.
++ Fixed an issue that could cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
++ Fixed small memory leaks during database startup and replication.
++ Added the `aurora_volume_size_info()` function to report current volume usage, remaining space, and the soft limit (in bytes).
++ Fixed an issue where `EXPLAIN` output in JSON, XML, or YAML format could be malformed for query plans that include an Adaptive Join.
++ Fixed an issue where new databases created on the source RDS PostgreSQL cluster during inbound replication were inaccessible on the Aurora PostgreSQL replica.
++ Updated the following extensions:
+  + pglogical to version 2.4.8.
 
 ### PostgreSQL 18.4
 <a name="aurorapostgresql-versions-version184x"></a>
@@ -120,7 +196,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.4. For more i
 + The pg\_repack extension is now compatible with tables that are part of a zero-ETL integration.
 + Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
 + Fixed an issue with the multitransaction system that could cause database unavailability.
-+ Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
++ Fixed an issue that can cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
 + Updated the following extensions:
   + PostGIS to version 3.6.3.
   + pg\_partman to version 5.4.3.
@@ -229,6 +305,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.3. For more i
 <a name="aurorapostgresql-versions-version17"></a>
 
 **Topics**
++ [PostgreSQL 17.11](#aurorapostgresql-versions-version1711x)
 + [PostgreSQL 17.10](#aurorapostgresql-versions-version1710x)
 + [PostgreSQL 17.9](#aurorapostgresql-versions-version179x)
 + [PostgreSQL 17.7](#aurorapostgresql-versions-version177x)
@@ -236,6 +313,77 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.3. For more i
 + [PostgreSQL 17.5](#aurorapostgresql-versions-version175x)
 + [PostgreSQL 17.4](#aurorapostgresql-versions-version174x)
 + [PostgreSQL 17.0](#AuroraPostgreSQL.Updates.170X)
+
+### PostgreSQL 17.11
+<a name="aurorapostgresql-versions-version1711x"></a>
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 17.11. For more information about the improvements in PostgreSQL 17.11, see [PostgreSQL release 17.11](https://www.postgresql.org/docs/17/release-17-11.html).
+
+**Topics**
++ [Aurora PostgreSQL 17.11, September 29, 2026](#aurorapostgresql-versions-version1711x-1711)
+
+#### Aurora PostgreSQL 17.11, September 29, 2026
+<a name="aurorapostgresql-versions-version1711x-1711"></a>
+
+**New features**
++ Reduced minor version and patch upgrade downtime by decreasing session serialization time for backends with temporary schemas.
++ Aurora PostgreSQL now parallelizes index maintenance during bulk inserts with `COPY FROM`, reducing load time for tables with many indexes.
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that could prevent a database from starting when it reached the maximum volume size.
++ HypoPG now considers only the hypothetical indexes created by the current role during `EXPLAIN`.
+
+**High priority enhancements**
++ Fixed an issue where an idle system incorrectly reported slightly higher IOPS.
++ Fixed an issue that could cause prolonged switchover times for global clusters when `aurora.enhanced_logical_replication` is enabled.
++ Fixed an issue where minor and patch upgrades could result in longer downtime due to a failure to process certain database parameters.
++ Fixed an issue in Aurora commit log initialization that caused inbound replication to fail in certain cases.
++ Fixed an issue in the `pg_columnmask` extension that could cause database unavailability when a table with both row-level security and masking policies was joined in a multi-table query.
++ Back-ported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14676](https://www.postgresql.org/support/security/CVE-2026-14676)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16238](https://www.postgresql.org/support/security/CVE-2026-16238)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
+
+**General enhancements**
++ Improved Aurora PostgreSQL resource usage by fixing several minor memory leaks.
++ Reduced downtime during major version upgrades by reducing Aurora I/O operations for user files.
++ Fixed an issue in minor and patch upgrades to support buffering of extended queries.
++ Fixed multiple issues to improve the reliability of client connections during database minor and patch upgrades that use Zero-Downtime Patching (ZDP).
++ Fixed an issue where inbound replicas could experience longer recovery times after a restart.
++ Improved CPU usage reporting in the `aurora_stat_resource_usage()` virtual function.
++ Added a new column, `worker_threads_cpu_usage_percent`, to the `aurora_stat_resource_usage()` function. This column reports the CPU usage percentage of a backend process's worker threads. For backend processes that don't use worker threads, the value is 0.
++ Fixed an issue that could cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
++ Fixed small memory leaks during database startup and replication.
++ Added the `aurora_volume_size_info()` function to report current volume usage, remaining space, and the soft limit (in bytes).
++ Fixed an issue where `EXPLAIN` output in JSON, XML, or YAML format could be malformed for query plans that include an Adaptive Join.
++ Fixed an issue where new databases created on the source RDS PostgreSQL cluster during inbound replication were inaccessible on the Aurora PostgreSQL replica.
++ Updated the following extensions:
+  + pglogical to version 2.4.8.
 
 ### PostgreSQL 17.10
 <a name="aurorapostgresql-versions-version1710x"></a>
@@ -311,7 +459,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.10. For more 
 + The pg\_repack extension is now compatible with tables that are part of a zero-ETL integration.
 + Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
 + Fixed an issue with the multitransaction system that could cause database unavailability.
-+ Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
++ Fixed an issue that can cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
 + Updated the following extensions:
   + PostGIS to version 3.5.6.
   + pg\_partman to version 5.4.3.
@@ -857,7 +1005,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.5. For more i
 This release of Aurora PostgreSQL is compatible with PostgreSQL 17.4. For more information about the improvements in PostgreSQL 17.4, see [PostgreSQL release 17.4](https://www.postgresql.org/docs/17/release-17-4.html).
 
 **Topics**
-+ [Aurora PostgreSQL 17.4.8, August 05, 2026](#aurorapostgresql-versions-version174x-1748)
++ [Aurora PostgreSQL 17.4.8, August 5, 2026](#aurorapostgresql-versions-version174x-1748)
 + [Aurora PostgreSQL 17.4.7, June 26, 2026](#aurorapostgresql-versions-version174x-1747)
 + [Aurora PostgreSQL 17.4.6, May 07, 2026](#aurorapostgresql-versions-version174x-1746)
 + [Aurora PostgreSQL 17.4.5, February 02, 2026](#aurorapostgresql-versions-version1745x-1745)
@@ -866,7 +1014,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.4. For more i
 + [Aurora PostgreSQL 17.4.2, May 01, 2025](#aurorapostgresql-versions-version1742x-1742)
 + [Aurora PostgreSQL 17.4, May 01, 2025](#aurorapostgresql-versions-version174x-174)
 
-#### Aurora PostgreSQL 17.4.8, August 05, 2026
+#### Aurora PostgreSQL 17.4.8, August 5, 2026
 <a name="aurorapostgresql-versions-version174x-1748"></a>
 
 **Critical stability enhancements**
@@ -1114,6 +1262,7 @@ The following backend types and I/O contexts are not applicable to Aurora read r
 In addition, Aurora PostgreSQL doesn't support writebacks and sync operations since data is persisted to Aurora storage.
 
 **Topics**
++ [PostgreSQL 16.15](#aurorapostgresql-versions-version1615x)
 + [PostgreSQL 16.14](#aurorapostgresql-versions-version1614x)
 + [PostgreSQL 16.13](#aurorapostgresql-versions-version1613x)
 + [PostgreSQL 16.11](#aurorapostgresql-versions-version1611x)
@@ -1125,6 +1274,75 @@ In addition, Aurora PostgreSQL doesn't support writebacks and sync operations si
 + [PostgreSQL 16.3 (Deprecated)](#aurorapostgresql-versions-version163x)
 + [PostgreSQL 16.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.162X)
 + [PostgreSQL 16.1 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.161X)
+
+### PostgreSQL 16.15
+<a name="aurorapostgresql-versions-version1615x"></a>
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 16.15. For more information about the improvements in PostgreSQL 16.15, see [PostgreSQL release 16.15](https://www.postgresql.org/docs/16/release-16-15.html).
+
+**Topics**
++ [Aurora PostgreSQL 16.15, September 29, 2026](#aurorapostgresql-versions-version1615x-1615)
+
+#### Aurora PostgreSQL 16.15, September 29, 2026
+<a name="aurorapostgresql-versions-version1615x-1615"></a>
+
+**New features**
++ Reduced minor version and patch upgrade downtime by decreasing session serialization time for backends with temporary schemas.
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that could prevent a database from starting when it reached the maximum volume size.
++ HypoPG now considers only the hypothetical indexes created by the current role during `EXPLAIN`.
+
+**High priority enhancements**
++ Fixed an issue where an idle system incorrectly reported slightly higher IOPS.
++ Fixed an issue that could cause prolonged switchover times for global clusters when `aurora.enhanced_logical_replication` is enabled.
++ Fixed an issue where minor and patch upgrades could result in longer downtime due to a failure to process certain database parameters.
++ Fixed an issue in Aurora commit log initialization that caused inbound replication to fail in certain cases.
++ Fixed an issue in the `pg_columnmask` extension that could cause database unavailability when a table with both row-level security and masking policies was joined in a multi-table query.
++ Back-ported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14676](https://www.postgresql.org/support/security/CVE-2026-14676)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16238](https://www.postgresql.org/support/security/CVE-2026-16238)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
+
+**General enhancements**
++ Improved Aurora PostgreSQL resource usage by fixing several minor memory leaks.
++ Back-ported PostgreSQL community improvements that reduce the latency of role membership operations in databases with many roles.
++ Fixed an issue in minor and patch upgrades to support buffering of extended queries.
++ Fixed multiple issues to improve the reliability of client connections during database minor and patch upgrades that use Zero-Downtime Patching (ZDP).
++ Fixed an issue where inbound replicas could experience longer recovery times after a restart.
++ Improved CPU usage reporting in the `aurora_stat_resource_usage()` virtual function.
++ Added a new column, `worker_threads_cpu_usage_percent`, to the `aurora_stat_resource_usage()` function. This column reports the CPU usage percentage of a backend process's worker threads. For backend processes that don't use worker threads, the value is 0.
++ Fixed an issue that could cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
++ Fixed small memory leaks during database startup and replication.
++ Added the `aurora_volume_size_info()` function to report current volume usage, remaining space, and the soft limit (in bytes).
++ Fixed an issue where new databases created on the source RDS PostgreSQL cluster during inbound replication were inaccessible on the Aurora PostgreSQL replica.
++ Updated the following extensions:
+  + pglogical to version 2.4.8.
 
 ### PostgreSQL 16.14
 <a name="aurorapostgresql-versions-version1614x"></a>
@@ -1197,7 +1415,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.14. For more 
 + The pg\_repack extension is now compatible with tables that are part of a zero-ETL integration.
 + Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
 + Fixed an issue with the multitransaction system that could cause database unavailability.
-+ Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
++ Fixed an issue that can cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
 + Updated the following extensions:
   + PostGIS to version 3.5.6.
   + pg\_partman to version 5.4.3.
@@ -1742,7 +1960,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.9. For more i
 This release of Aurora PostgreSQL is compatible with PostgreSQL 16.8. For more information about the improvements in PostgreSQL 16.8, see [PostgreSQL release 16.8](https://www.postgresql.org/docs/16/release-16-8.html).
 
 **Topics**
-+ [Aurora PostgreSQL 16.8.8, August 05, 2026](#aurorapostgresql-versions-version168x-1688)
++ [Aurora PostgreSQL 16.8.8, August 5, 2026](#aurorapostgresql-versions-version168x-1688)
 + [Aurora PostgreSQL 16.8.7, June 26, 2026](#aurorapostgresql-versions-version168x-1687)
 + [Aurora PostgreSQL 16.8.6, May 07, 2026](#aurorapostgresql-versions-version168x-1686)
 + [Aurora PostgreSQL 16.8.5, February 03, 2026](#aurorapostgresql-versions-version1685x-1685)
@@ -1751,7 +1969,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.8. For more i
 + [Aurora PostgreSQL 16.8.2, May 01, 2025](#aurorapostgresql-versions-version1682x-1682)
 + [Aurora PostgreSQL 16.8, April 07, 2025](#aurorapostgresql-versions-version168x-168)
 
-#### Aurora PostgreSQL 16.8.8, August 05, 2026
+#### Aurora PostgreSQL 16.8.8, August 5, 2026
 <a name="aurorapostgresql-versions-version168x-1688"></a>
 
 **Critical stability enhancements**
@@ -2630,6 +2848,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 <a name="aurorapostgresql-versions-version15"></a>
 
 **Topics**
++ [PostgreSQL 15.19](#aurorapostgresql-versions-version1519x)
 + [PostgreSQL 15.18](#aurorapostgresql-versions-version1518x)
 + [PostgreSQL 15.17](#aurorapostgresql-versions-version1517x)
 + [PostgreSQL 15.15](#aurorapostgresql-versions-version1515x)
@@ -2644,6 +2863,72 @@ For information about extensions and modules, see [Extensions supported for Auro
 + [PostgreSQL 15.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.154X)
 + [PostgreSQL 15.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.153X)
 + [PostgreSQL 15.2 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.152X)
+
+### PostgreSQL 15.19
+<a name="aurorapostgresql-versions-version1519x"></a>
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 15.19. For more information about the improvements in PostgreSQL 15.19, see [PostgreSQL release 15.19](https://www.postgresql.org/docs/15/release-15-19.html).
+
+**Topics**
++ [Aurora PostgreSQL 15.19, September 29, 2026](#aurorapostgresql-versions-version1519x-1519)
+
+#### Aurora PostgreSQL 15.19, September 29, 2026
+<a name="aurorapostgresql-versions-version1519x-1519"></a>
+
+**New features**
++ Reduced minor version and patch upgrade downtime by decreasing session serialization time for backends with temporary schemas.
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that could prevent a database from starting when it reached the maximum volume size.
++ HypoPG now considers only the hypothetical indexes created by the current role during `EXPLAIN`.
+
+**High priority enhancements**
++ Fixed an issue where an idle system incorrectly reported slightly higher IOPS.
++ Fixed an issue where minor and patch upgrades could result in longer downtime due to a failure to process certain database parameters.
++ Fixed an issue in Aurora commit log initialization that caused inbound replication to fail in certain cases.
++ Back-ported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14676](https://www.postgresql.org/support/security/CVE-2026-14676)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16238](https://www.postgresql.org/support/security/CVE-2026-16238)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
+
+**General enhancements**
++ Improved Aurora PostgreSQL resource usage by fixing several minor memory leaks.
++ Back-ported PostgreSQL community improvements that reduce the latency of role membership operations in databases with many roles.
++ Fixed an issue in minor and patch upgrades to support buffering of extended queries.
++ Fixed multiple issues to improve the reliability of client connections during database minor and patch upgrades that use Zero-Downtime Patching (ZDP).
++ Fixed an issue where inbound replicas could experience longer recovery times after a restart.
++ Improved CPU usage reporting in the `aurora_stat_resource_usage()` virtual function.
++ Added a new column, `worker_threads_cpu_usage_percent`, to the `aurora_stat_resource_usage()` function. This column reports the CPU usage percentage of a backend process's worker threads. For backend processes that don't use worker threads, the value is 0.
++ Fixed an issue that could cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
++ Fixed small memory leaks during database startup and replication.
++ Added the `aurora_volume_size_info()` function to report current volume usage, remaining space, and the soft limit (in bytes).
++ Updated the following extensions:
+  + pglogical to version 2.4.8.
 
 ### PostgreSQL 15.18
 <a name="aurorapostgresql-versions-version1518x"></a>
@@ -2713,7 +2998,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.18. For more 
 + Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
 + Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
 + Fixed an issue with the multitransaction system that could cause database unavailability.
-+ Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
++ Fixed an issue that can cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
 + Updated the following extensions:
   + PostGIS to version 3.5.6.
   + pg\_partman to version 5.4.3.
@@ -3239,7 +3524,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.13. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 15.12. For more information about the improvements in PostgreSQL 15.12, see [PostgreSQL release 15.12](https://www.postgresql.org/docs/15/release-15-12.html).
 
 **Topics**
-+ [Aurora PostgreSQL 15.12.8, August 05, 2026](#aurorapostgresql-versions-version1512x-15128)
++ [Aurora PostgreSQL 15.12.8, August 5, 2026](#aurorapostgresql-versions-version1512x-15128)
 + [Aurora PostgreSQL 15.12.7, June 26, 2026](#aurorapostgresql-versions-version1512x-15127)
 + [Aurora PostgreSQL 15.12.6, May 07, 2026](#aurorapostgresql-versions-version1512x-15126)
 + [Aurora PostgreSQL 15.12.5, February 19, 2026](#aurorapostgresql-versions-version15125x-15125)
@@ -3248,7 +3533,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.12. For more 
 + [Aurora PostgreSQL 15.12.2, May 01, 2025](#aurorapostgresql-versions-version15122x-15122)
 + [Aurora PostgreSQL 15.12, April 07, 2025](#aurorapostgresql-versions-version1512x-1512)
 
-#### Aurora PostgreSQL 15.12.8, August 05, 2026
+#### Aurora PostgreSQL 15.12.8, August 5, 2026
 <a name="aurorapostgresql-versions-version1512x-15128"></a>
 
 **Critical stability enhancements**
@@ -3424,7 +3709,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.12. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 15.10. For more information about the improvements in PostgreSQL 15.10, see [PostgreSQL release 15.10](https://www.postgresql.org/docs/15/release-15-10.html).
 
 **Topics**
-+ [Aurora PostgreSQL 15.10.8, August 06, 2026](#aurorapostgresql-versions-version15108x-15108)
++ [Aurora PostgreSQL 15.10.8, August 6, 2026](#aurorapostgresql-versions-version15108x-15108)
 + [Aurora PostgreSQL 15.10.7, January 28, 2026](#aurorapostgresql-versions-version15107x-15107)
 + [Aurora PostgreSQL 15.10.6, November 13, 2025](#aurorapostgresql-versions-version15106x-15106)
 + [Aurora PostgreSQL 15.10.5, June 24, 2025](#aurorapostgresql-versions-version15105x-15105)
@@ -3434,7 +3719,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.10. For more 
 + [Aurora PostgreSQL 15.10.1, December 27, 2024](#aurorapostgresql-versions-version15101x-15101)
 + [Aurora PostgreSQL 15.10, December 27, 2024](#aurorapostgresql-versions-version1510x-1510)
 
-#### Aurora PostgreSQL 15.10.8, August 06, 2026
+#### Aurora PostgreSQL 15.10.8, August 6, 2026
 <a name="aurorapostgresql-versions-version15108x-15108"></a>
 
 **Critical stability enhancements**
@@ -4702,6 +4987,7 @@ Due to Aurora's unique distributed storage system, Amazon Aurora PostgreSQL vers
 <a name="aurorapostgresql-versions-version14"></a>
 
 **Topics**
++ [PostgreSQL 14.24](#aurorapostgresql-versions-version1424x)
 + [PostgreSQL 14.23](#aurorapostgresql-versions-version1423x)
 + [PostgreSQL 14.22](#aurorapostgresql-versions-version1422x)
 + [PostgreSQL 14.20](#aurorapostgresql-versions-version1420x)
@@ -4720,6 +5006,71 @@ Due to Aurora's unique distributed storage system, Amazon Aurora PostgreSQL vers
 + [PostgreSQL 14.5 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.145X)
 + [PostgreSQL 14.4 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.144X)
 + [PostgreSQL 14.3 (Deprecated)](#AuroraPostgreSQL.Updates.20180305.143X)
+
+### PostgreSQL 14.24
+<a name="aurorapostgresql-versions-version1424x"></a>
+
+This release of Aurora PostgreSQL is compatible with PostgreSQL 14.24. For more information about the improvements in PostgreSQL 14.24, see [PostgreSQL release 14.24](https://www.postgresql.org/docs/14/release-14-24.html).
+
+**Topics**
++ [Aurora PostgreSQL 14.24, September 29, 2026](#aurorapostgresql-versions-version1424x-1424)
+
+#### Aurora PostgreSQL 14.24, September 29, 2026
+<a name="aurorapostgresql-versions-version1424x-1424"></a>
+
+**New features**
++ Reduced minor version and patch upgrade downtime by decreasing session serialization time for backends with temporary schemas.
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that could prevent a database from starting when it reached the maximum volume size.
++ HypoPG now considers only the hypothetical indexes created by the current role during `EXPLAIN`.
+
+**High priority enhancements**
++ Fixed an issue where an idle system incorrectly reported slightly higher IOPS.
++ Fixed an issue where minor and patch upgrades could result in longer downtime due to a failure to process certain database parameters.
++ Fixed an issue in Aurora commit log initialization that caused inbound replication to fail in certain cases.
++ Back-ported fixes for the following PostgreSQL community security issues:
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14676](https://www.postgresql.org/support/security/CVE-2026-14676)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16238](https://www.postgresql.org/support/security/CVE-2026-16238)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
+
+**General enhancements**
++ Improved Aurora PostgreSQL resource usage by fixing several minor memory leaks.
++ Back-ported PostgreSQL community improvements that reduce the latency of role membership operations in databases with many roles.
++ Fixed an issue in minor and patch upgrades to support buffering of extended queries.
++ Fixed multiple issues to improve the reliability of client connections during database minor and patch upgrades that use Zero-Downtime Patching (ZDP).
++ Improved CPU usage reporting in the `aurora_stat_resource_usage()` virtual function.
++ Added a new column, `worker_threads_cpu_usage_percent`, to the `aurora_stat_resource_usage()` function. This column reports the CPU usage percentage of a backend process's worker threads. For backend processes that don't use worker threads, the value is 0.
++ Fixed an issue that could cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
++ Fixed small memory leaks during database startup and replication.
++ Added the `aurora_volume_size_info()` function to report current volume usage, remaining space, and the soft limit (in bytes).
++ Updated the following extensions:
+  + pglogical to version 2.4.8.
 
 ### PostgreSQL 14.23
 <a name="aurorapostgresql-versions-version1423x"></a>
@@ -4787,7 +5138,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.23. For more 
 + Fixed a race condition in encryption key initialization that could cause a brief period of unavailability.
 + Fixed an issue where Zero-Downtime Patching (ZDP) could fall back to regular patching on inbound replicas, resulting in slightly higher downtime during maintenance operations.
 + Fixed an issue with the multitransaction system that could cause database unavailability.
-+ Fixed an issue that can cause a database instance to restart due to a memory management issue in storage node connection handling.
++ Fixed an issue that can cause a database instance to restart due to a memory management issue in Aurora Storage connection handling.
 + Updated the following extensions:
   + PostGIS to version 3.5.6.
   + pg\_partman to version 5.4.3.
@@ -5312,7 +5663,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.18. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 14.17. For more information about the improvements in PostgreSQL 14.17, see [PostgreSQL release 14.17](https://www.postgresql.org/docs/14/release-14-17.html).
 
 **Topics**
-+ [Aurora PostgreSQL 14.17.8, August 05, 2026](#aurorapostgresql-versions-version1417x-14178)
++ [Aurora PostgreSQL 14.17.8, August 5, 2026](#aurorapostgresql-versions-version1417x-14178)
 + [Aurora PostgreSQL 14.17.7, June 26, 2026](#aurorapostgresql-versions-version1417x-14177)
 + [Aurora PostgreSQL 14.17.6, May 07, 2026](#aurorapostgresql-versions-version1417x-14176)
 + [Aurora PostgreSQL 14.17.5, February 10, 2026](#aurorapostgresql-versions-version1417x-1417)
@@ -5321,7 +5672,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.17. For more 
 + [Aurora PostgreSQL 14.17.2, May 01, 2025](#aurorapostgresql-versions-version14172x-14172)
 + [Aurora PostgreSQL 14.17, April 07, 2025](#aurorapostgresql-versions-version1417x-1417)
 
-#### Aurora PostgreSQL 14.17.8, August 05, 2026
+#### Aurora PostgreSQL 14.17.8, August 5, 2026
 <a name="aurorapostgresql-versions-version1417x-14178"></a>
 
 **Critical stability enhancements**
@@ -6723,7 +7074,7 @@ For information about extensions and modules, see [Extensions supported for Auro
 This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more information about the improvements in PostgreSQL 14.6, see [PostgreSQL release 14.6](https://www.postgresql.org/docs/14/release-14-6.html).
 
 **Topics**
-+ [Aurora PostgreSQL 14.6.16, August 07, 2026](#aurorapostgresql-versions-version146x-14616)
++ [Aurora PostgreSQL 14.6.16, August 7, 2026](#aurorapostgresql-versions-version146x-14616)
 + [Aurora PostgreSQL 14.6.13, June 18, 2025](#aurorapostgresql-versions-version14613x-14613)
 + [Aurora PostgreSQL 14.6.12, April 29, 2025](#aurorapostgresql-versions-version14612x-14612)
 + [Aurora PostgreSQL 14.6.10, November 18, 2024](#aurorapostgresql-versions-version146x-14610)
@@ -6737,7 +7088,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.6. For more i
 + [Aurora PostgreSQL 14.6.1, February 17, 2023](#AuroraPostgreSQL.Updates.20180305.1461)
 + [Aurora PostgreSQL 14.6.0, January 20, 2023](#AuroraPostgreSQL.Updates.20180305.1460)
 
-#### Aurora PostgreSQL 14.6.16, August 07, 2026
+#### Aurora PostgreSQL 14.6.16, August 7, 2026
 <a name="aurorapostgresql-versions-version146x-14616"></a>
 
 **Critical stability enhancements**
@@ -8968,7 +9319,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.10. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more information about the improvements in PostgreSQL 13.9, see [PostgreSQL release 13.9](https://www.postgresql.org/docs/13/release-13-9.html).
 
 **Topics**
-+ [Aurora PostgreSQL 13.9.16, August 07, 2026](#aurorapostgresql-versions-version139x-13916)
++ [Aurora PostgreSQL 13.9.16, August 7, 2026](#aurorapostgresql-versions-version139x-13916)
 + [Aurora PostgreSQL 13.9.13, June 18, 2025](#aurorapostgresql-versions-version13913x-13913)
 + [Aurora PostgreSQL 13.9.12, April 29, 2025](#aurorapostgresql-versions-version13912x-13912)
 + [Aurora PostgreSQL 13.9.10, November 18, 2024](#aurorapostgresql-versions-version139x-13910)
@@ -8981,7 +9332,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.9. For more i
 + [Aurora PostgreSQL 13.9.2, March 3, 2023](#AuroraPostgreSQL.Updates.20180305.1392)
 + [Aurora PostgreSQL 13.9.0, January 20, 2023](#AuroraPostgreSQL.Updates.20180305.1390)
 
-#### Aurora PostgreSQL 13.9.16, August 07, 2026
+#### Aurora PostgreSQL 13.9.16, August 7, 2026
 <a name="aurorapostgresql-versions-version139x-13916"></a>
 
 **Critical stability enhancements**
@@ -9862,7 +10213,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 13.3. For more i
 This release of Aurora PostgreSQL is compatible with PostgreSQL 12.22. For more information about the improvements in PostgreSQL 12.22, see [PostgreSQL release 12.22](https://www.postgresql.org/docs/12/release-12-22.html).
 
 **Topics**
-+ [Aurora PostgreSQL 12.22.8, August 06, 2026](#aurorapostgresql-versions-version1222x-12228)
++ [Aurora PostgreSQL 12.22.8, August 6, 2026](#aurorapostgresql-versions-version1222x-12228)
 + [Aurora PostgreSQL 12.22.7, January 28, 2026](#aurorapostgresql-versions-version12227x-12227)
 + [Aurora PostgreSQL 12.22.6, November 13, 2025](#aurorapostgresql-versions-version12226x-12226)
 + [Aurora PostgreSQL 12.22.5, June 24, 2025](#aurorapostgresql-versions-version12225x-12225)
@@ -9872,7 +10223,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 12.22. For more 
 + [Aurora PostgreSQL 12.22.1, December 27, 2024](#aurorapostgresql-versions-version12221x-12221)
 + [Aurora PostgreSQL 12.22, December 27, 2024](#aurorapostgresql-versions-version1222x-1222)
 
-#### Aurora PostgreSQL 12.22.8, August 06, 2026
+#### Aurora PostgreSQL 12.22.8, August 6, 2026
 <a name="aurorapostgresql-versions-version1222x-12228"></a>
 
 **Critical stability enhancements**
