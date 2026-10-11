@@ -5,7 +5,7 @@
 
 The following table lists all CVEs that don't impact EMR Serverless applications that run on recommended configurations of Amazon EMR 7.12.0. Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 
-This table was updated on August 21, 2026.
+This table was updated on October 9, 2026.
 
 
 | CVE ID | Severity | CVE details URL | 
@@ -26,7 +26,6 @@ This table was updated on August 21, 2026.
 | CVE-2025-15468 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-15468](https://nvd.nist.gov/vuln/detail/CVE-2025-15468) | 
 | CVE-2025-24970 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-24970](https://nvd.nist.gov/vuln/detail/CVE-2025-24970) | 
 | CVE-2025-46762 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-46762](https://nvd.nist.gov/vuln/detail/CVE-2025-46762) | 
-| CVE-2025-52999 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-52999](https://nvd.nist.gov/vuln/detail/CVE-2025-52999) | 
 | CVE-2025-54920 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-54920](https://nvd.nist.gov/vuln/detail/CVE-2025-54920) | 
 | CVE-2025-55163 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-55163](https://nvd.nist.gov/vuln/detail/CVE-2025-55163) | 
 | CVE-2025-59419 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2025-59419](https://nvd.nist.gov/vuln/detail/CVE-2025-59419) | 
@@ -46,6 +45,7 @@ This table was updated on August 21, 2026.
 | CVE-2026-23441 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-23441](https://nvd.nist.gov/vuln/detail/CVE-2026-23441) | 
 | CVE-2026-23458 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-23458](https://nvd.nist.gov/vuln/detail/CVE-2026-23458) | 
 | CVE-2026-24882 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-24882](https://nvd.nist.gov/vuln/detail/CVE-2026-24882) | 
+| CVE-2026-25087 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-25087](https://nvd.nist.gov/vuln/detail/CVE-2026-25087) | 
 | CVE-2026-27784 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-27784](https://nvd.nist.gov/vuln/detail/CVE-2026-27784) | 
 | CVE-2026-28387 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-28387](https://nvd.nist.gov/vuln/detail/CVE-2026-28387) | 
 | CVE-2026-31401 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-31401](https://nvd.nist.gov/vuln/detail/CVE-2026-31401) | 
