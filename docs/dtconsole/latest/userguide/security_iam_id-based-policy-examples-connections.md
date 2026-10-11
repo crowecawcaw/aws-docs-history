@@ -97,7 +97,7 @@ For resources created using the console, policy statement actions must include `
 ## Example: An administrator-level policy for managing AWS CodeConnections
 <a name="security_iam_id-based-policy-examples-connections-fullaccess"></a>
 
-In this example, you want to grant an IAM user in your AWS account full access to CodeConnections so that the user can add, update, and delete connections. This is a full access policy, equivalent to the **AWSCodePipeline\_FullAccess** managed policy. Like that managed policy, you should only attach this kind of policy statement to IAM users, groups, or roles that require full administrative access to connections across your AWS account.
+In this example, you want to grant an IAM user in your AWS account full access to AWS CodeConnections so that the user can add, update, and delete connections. This is a full access policy, equivalent to the **AWSCodePipeline\_FullAccess** managed policy. Like that managed policy, you should only attach this kind of policy statement to IAM users, groups, or roles that require full administrative access to connections across your AWS account.
 
 ------
 #### [ JSON ]
@@ -137,7 +137,7 @@ In this example, you want to grant an IAM user in your AWS account full access t
 ## Example: A contributor-level policy for using AWS CodeConnections
 <a name="security_iam_id-based-policy-examples-connections-contributor"></a>
 
-In this example, you want to grant access to the day-to-day usage of CodeConnections, such as creating and viewing details of connections, but not to more destructive actions, such as deleting connections.
+In this example, you want to grant access to the day-to-day usage of AWS CodeConnections, such as creating and viewing details of connections, but not to more destructive actions, such as deleting connections.
 
 ------
 #### [ JSON ]
