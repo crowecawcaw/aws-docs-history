@@ -3,12 +3,12 @@
 # AWS CodeConnections events
 <a name="events-ref-codestar-connections"></a>
 
-CodeConnections sends service events to EventBridge via AWS CloudTrail.
+AWS CodeConnections sends service events to EventBridge via AWS CloudTrail.
 
-## CodeConnections events delivered via AWS CloudTrail
+## AWS CodeConnections events delivered via AWS CloudTrail
 <a name="event-ref-codestar-connections-events-via-CT"></a>
 
-AWS CloudTrail sends events originating from CodeConnections to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md) basis. For more information, see [AWS service events delivered via AWS CloudTrail](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html) in the *Amazon EventBridge User Guide*.
+AWS CloudTrail sends events originating from AWS CodeConnections to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md) basis. For more information, see [AWS service events delivered via AWS CloudTrail](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html) in the *Amazon EventBridge User Guide*.
 
 To match events from this service delivered by AWS CloudTrail, create an event pattern that matches against the following event attributes:
 + `source`: aws.codestar-connections

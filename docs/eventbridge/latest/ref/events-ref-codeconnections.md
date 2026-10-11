@@ -3,12 +3,12 @@
 # AWS CodeConnections events
 <a name="events-ref-codeconnections"></a>
 
-CodeConnections sends service events directly to EventBridge, as well as via AWS CloudTrail.
+AWS CodeConnections sends service events directly to EventBridge, as well as via AWS CloudTrail.
 
-## CodeConnections service events
+## AWS CodeConnections service events
 <a name="events-ref-codeconnections-events"></a>
 
-CodeConnections sends the following events directly to EventBridge: 
+AWS CodeConnections sends the following events directly to EventBridge: 
 + GitSync Repository Sync Status Change
 + GitSync Resource Sync Status Change
 
@@ -34,10 +34,10 @@ To match against specific events, include a `detail-type` attribute specifying a
 
 For more information, see [Creating event patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html#eb-create-pattern) in the *Amazon EventBridge User Guide*.
 
-## CodeConnections events delivered via AWS CloudTrail
+## AWS CodeConnections events delivered via AWS CloudTrail
 <a name="event-ref-codeconnections-events-via-CT"></a>
 
-AWS CloudTrail sends events originating from CodeConnections to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md) basis. For more information, see [AWS service events delivered via AWS CloudTrail](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html) in the *Amazon EventBridge User Guide*.
+AWS CloudTrail sends events originating from AWS CodeConnections to EventBridge. AWS services deliver events to CloudTrail on a [best effort](event-delivery-level.md) basis. For more information, see [AWS service events delivered via AWS CloudTrail](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html) in the *Amazon EventBridge User Guide*.
 
 To match events from this service delivered by AWS CloudTrail, create an event pattern that matches against the following event attributes:
 + `source`: aws.codeconnections
