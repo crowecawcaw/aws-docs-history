@@ -282,7 +282,7 @@ Specifies the file to use for a single script. The file path can start with `htt
 List of arguments to pass to the single script.  
 [Update policy: If this setting is changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3)  
 `OnNodeUpdated` (**Optional**)  
-Specifies a single script or a sequence of scripts to run after the head node update is completed and the scheduler and shared storage are aligned with the latest cluster configuration changes. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md).    
+Specifies a single script or a sequence of scripts to run after the head node update is completed and the scheduler and shared storage are aligned with the latest cluster configuration changes. These actions aren't run on cluster rollback. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md).    
 `Sequence` (**Optional**)  
 List of scripts to run. AWS ParallelCluster runs the scripts in the same order as they are listed in the configuration file, starting with the first.    
 `Script` (**Required** `String`)  

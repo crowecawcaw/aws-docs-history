@@ -359,7 +359,7 @@ List of arguments to pass to the single script.
 [Update policy: If this setting is changed, the update is not allowed.](using-pcluster-update-cluster-v3.md#update-policy-fail-v3)
 
 `OnNodeUpdated` (**Optional**)  
-Specifies a single script or a sequence of scripts to run on the head node after node update actions are complete. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md).    
+Specifies a single script or a sequence of scripts to run on the head node after node update actions are complete. These actions aren't run on cluster rollback. For more information, see [Custom bootstrap actions](custom-bootstrap-actions-v3.md).    
  `Sequence` (**Optional**)  
 Specifies the list of scripts to run.    
  `Script` (**Required**, `String`)  

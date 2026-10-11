@@ -3,7 +3,7 @@
 # Deploy PCUI
 <a name="tutorials_08_custom_domain-v3-deploy-pcui"></a>
 
-Complete the following steps to create, or update, your AWS ParallelCluster UI (PCUI) deployment so that it will use your custom domain.
+Complete the following steps to create a AWS ParallelCluster UI (PCUI) deployment that uses your custom domain, or to add a custom domain to an existing deployment by updating its stack parameters. When you update an existing stack, keep the current template so that the PCUI version doesn't change.
 
 In this example we assume that you want to deploy PCUI with a custom domain `xyz.example.com` and the Amazon Cognito interface with a custom domain `auth-xyz.example.com`.
 

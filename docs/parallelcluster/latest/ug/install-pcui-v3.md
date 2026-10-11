@@ -27,6 +27,9 @@ To install an instance of the AWS ParallelCluster UI (PCUI), choose an CloudForm
 **Note**  
 You can only create and edit clusters or build images with the same AWS ParallelCluster version that you use to install the PCUI.
 
+**Important**  
+You can't update an existing PCUI stack in place with a newer PCUI template. Such an update can complete successfully in CloudFormation and still leave the PCUI broken. To move to a newer PCUI version, you must deploy a new PCUI stack. Your existing clusters aren't affected. To keep the same PCUI URL, use a custom domain. For more information, see [Configure a custom domain](tutorials_08_custom_domain-v3.md).
+
 **Use an AWS CloudFormation quick-create link to deploy a PCUI stack with nested Amazon Cognito, API Gateway, and Amazon EC2 Systems Manager stacks.**
 
 1. Sign in to the AWS Management Console.
