@@ -36,7 +36,7 @@ Use the information in this topic to help you identify, diagnose, and address is
 + [Build failed to start](#troubleshooting-build-failed-to-start)
 + [Accessing GitHub metadata in locally cached builds](#troubleshooting-github-metadata)
 + [AccessDenied: The bucket owner for the report group does not match the owner of the S3 bucket...](#troubleshooting-bucket-owner)
-+ [Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with CodeConnections](#troubleshooting-permission-bitbucket)
++ [Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with AWS CodeConnections](#troubleshooting-permission-bitbucket)
 + [Error: "Sorry, no terminal at all requested - can't get input" when building with the Ubuntu install command](#troubleshooting-nvidia-container-toolkit)
 + [Bitbucket builds fail with authentication errors after using Secrets Manager OAuth](#troubleshooting-bitbucket-oauth-sm-rotation)
 
@@ -579,16 +579,16 @@ git rev-parse --git-dir
 + Change the report group bucket owner to match the owner of the Amazon S3 bucket.
 + Modify the service role to allow write access to the Amazon S3 bucket.
 
-## Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with CodeConnections
+## Error: "Your credentials lack one or more required privilege scopes" when creating a CodeBuild project with AWS CodeConnections
 <a name="troubleshooting-permission-bitbucket"></a>
 
-**Issue:** When creating a CodeBuild project with CodeConnections, you don't have permission to install a Bitbucket webhook.
+**Issue:** When creating a CodeBuild project with AWS CodeConnections, you don't have permission to install a Bitbucket webhook.
 
 **Possible causes:** 
 + The new permission scope may not have been accepted in your Bitbucket account.
 
 **Recommended solutions:** 
-+ To accept the new permission, you should have received an email with a subject titled **Action required - Scopes for AWS CodeStar have changed** sent by Bitbucket, `notifications-noreply@bitbucket.org`. The email contains a link to grant the webhook permissions to your existing CodeConnections Bitbucket app installation.
++ To accept the new permission, you should have received an email with a subject titled **Action required - Scopes for AWS CodeStar have changed** sent by Bitbucket, `notifications-noreply@bitbucket.org`. The email contains a link to grant the webhook permissions to your existing AWS CodeConnections Bitbucket app installation.
 + If you cannot locate the email, you can grant the permission by navigating to `https://bitbucket.org/site/addons/reauthorize?account={{<workspace-name>}}&addon_key=aws-codestar`, or `https://bitbucket.org/site/addons/reauthorize?addon_key=aws-codestar` and selecting the workspace you'd like to grant the webhook permission to.  
 ![Grant the webhook permission to your workspace.](https://docs.aws.amazon.com/codebuild/latest/userguide/images/bitbucket-csc.png)
 

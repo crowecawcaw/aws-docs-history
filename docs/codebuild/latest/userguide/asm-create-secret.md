@@ -17,7 +17,7 @@ If you choose to store your access token using Secrets Manager, you can use eith
 
      1. If you aren't connected to your source provider, choose **Manage default source credential**.
 
-     1. For **Credential type**, choose a credential type other than **CodeConnections**.
+     1. For **Credential type**, choose a credential type other than **AWS CodeConnections**.
 
      1. For **Service**, choose **Secrets Manager** and for **Secrets** choose **New secret**.
 
@@ -28,7 +28,7 @@ If you choose to store your access token using Secrets Manager, you can use eith
      1. Depending on the source provider you chose, enter your token or username and app password, and choose **Save**. For a Bitbucket API token, enter your Atlassian account email address and API token instead.
    + Choose **Custom source credential** to use a custom source credential to override your account's default settings.
 
-     1. For **Credential type**, choose a credential type other than **CodeConnections**.
+     1. For **Credential type**, choose a credential type other than **AWS CodeConnections**.
 
      1. In **Connection**, choose **Create a secret**.
 

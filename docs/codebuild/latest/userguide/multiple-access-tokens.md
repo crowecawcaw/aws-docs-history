@@ -9,20 +9,20 @@ You can set your source credentials at three different levels:
 
 1. **Account level credentials for all projects:** These are default credentials for all projects in an AWS account. They will be used on a project when no project or source level credentials are specified.
 
-1. **Source level credentials for a specific repository:** This is when a Secrets Manager secret or CodeConnections connection is defined on a project source. These credentials will only be used for operations on the specified source repository. This allows you to set up multiple access tokens with different permission scopes in the same project, and not use the default account level credentials.
+1. **Source level credentials for a specific repository:** This is when a Secrets Manager secret or AWS CodeConnections connection is defined on a project source. These credentials will only be used for operations on the specified source repository. This allows you to set up multiple access tokens with different permission scopes in the same project, and not use the default account level credentials.
 
 1. **Project level fallback credentials:** You can set a project level fallback credential by using `NO_SOURCE` as primary source type and define a secret or connection on it. Use this when you have multiple sources on a project but want to use the same credentials for them, or when you don't want to use the default account level credentials for your project.
 
 **Topics**
-+ [Step 1: Create a Secrets Manager secret or a CodeConnections connection](#create-secret-connection)
++ [Step 1: Create a Secrets Manager secret or a AWS CodeConnections connection](#create-secret-connection)
 + [Step 2: Grant CodeBuild project IAM role access to Secrets Manager secrets](#asm-role-access)
-+ [Step 3: Configure Secrets Manager or CodeConnections tokens](#asm-account-credential)
++ [Step 3: Configure Secrets Manager or AWS CodeConnections tokens](#asm-account-credential)
 + [Additional setup options](#asm-credential-cfn)
 
-## Step 1: Create a Secrets Manager secret or a CodeConnections connection
+## Step 1: Create a Secrets Manager secret or a AWS CodeConnections connection
 <a name="create-secret-connection"></a>
 
-Use the following instructions to create a Secrets Manager secret or a CodeConnections connection:
+Use the following instructions to create a Secrets Manager secret or a AWS CodeConnections connection:
 + [Create and store a token in a Secrets Manager secret](asm-create-secret.md).
 + [Create a connection to GitHub](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html)
 + [Create a connection to GitHub Enterprise Server](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-gheserver.html)
@@ -32,9 +32,9 @@ Use the following instructions to create a Secrets Manager secret or a CodeConne
 <a name="asm-role-access"></a>
 
 **Note**  
-Before you continue, you must have access to the token created in Secrets Manager or CodeConnections.
+Before you continue, you must have access to the token created in Secrets Manager or AWS CodeConnections.
 
-To grant CodeBuild project IAM role access to Secrets Manager or CodeConnections, you must add the following IAM policy.
+To grant CodeBuild project IAM role access to Secrets Manager or AWS CodeConnections, you must add the following IAM policy.
 
 **To grant CodeBuild project IAM role access**
 
@@ -122,15 +122,15 @@ To grant CodeBuild project IAM role access to Secrets Manager or CodeConnections
 
 ------
 
-## Step 3: Configure Secrets Manager or CodeConnections tokens
+## Step 3: Configure Secrets Manager or AWS CodeConnections tokens
 <a name="asm-account-credential"></a>
 
-You can set your source credentials at three different levels with either Secrets Manager or CodeConnections tokens.
+You can set your source credentials at three different levels with either Secrets Manager or AWS CodeConnections tokens.
 
-### Configure Secrets Manager or CodeConnections tokens as account level credentials
+### Configure Secrets Manager or AWS CodeConnections tokens as account level credentials
 <a name="asm-account-credential"></a>
 
-You can configure a Secrets Manager secret or CodeConnections connection as an account level credential and use it in a project.
+You can configure a Secrets Manager secret or AWS CodeConnections connection as an account level credential and use it in a project.
 
 ------
 #### [ AWS Management Console ]
@@ -146,7 +146,7 @@ You can configure a Secrets Manager secret or CodeConnections connection as an a
 
      1. For **Credential type**, choose a credential type.
 
-     1. If you chose **CodeConnections**, choose to use an existing connection or create a new connection.
+     1. If you chose **AWS CodeConnections**, choose to use an existing connection or create a new connection.
 
         If you chose a different credential type, for **Service** choose which service you'd like to use to store your token and do the following:
         + If you chose to use **Secrets Manager**, you can choose to use an existing secret connection or create a new secret and choose **Save**. For more information how to create a new secret, see [Create and store a token in a Secrets Manager secret](asm-create-secret.md).
@@ -173,7 +173,7 @@ You can configure a Secrets Manager secret or CodeConnections connection as an a
       --region {{<aws-region>}}
   ```
 
-  Use the following command to configure a CodeConnections connection:
+  Use the following command to configure a AWS CodeConnections connection:
 
   ```
   aws codebuild import-source-credentials \
@@ -192,7 +192,7 @@ You can now use the token in your build project and run it. For more information
 ### Configure multiple tokens as source level credentials
 <a name="asm-source-credential"></a>
 
-To use Secrets Manager secrets or CodeConnections connections as source level credentials, directly reference the token in CodeBuild project, and start a build.
+To use Secrets Manager secrets or AWS CodeConnections connections as source level credentials, directly reference the token in CodeBuild project, and start a build.
 
 ------
 #### [ AWS Management Console ]

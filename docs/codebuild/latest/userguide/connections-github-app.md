@@ -8,7 +8,7 @@ You can use GitHub App to connect with CodeBuild. GitHub App connections are sup
 The source provider access enables you to trigger a build by subscribing to [GitHub webhook events](github-webhook.md) using [ CreateWebhook](https://docs.aws.amazon.com/codebuild/latest/APIReference/API_CreateWebhook.html), or to use [Tutorial: Configure a CodeBuild-hosted GitHub Actions runner](action-runner.md) in CodeBuild.
 
 **Note**  
-CodeConnections is available in fewer regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections created in opt-in Regions cannot be used in other Regions. For more information, see [AWS CodeConnections endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/codestar_connections.html).
+AWS CodeConnections is available in fewer regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections created in opt-in Regions cannot be used in other Regions. For more information, see [AWS CodeConnections endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/codestar_connections.html).
 
 **Topics**
 + [Step 1: Create a connection to GitHub App (console)](#connections-github-console)
@@ -124,7 +124,7 @@ The following information can help you troubleshoot common issues with the GitHu
 
 **Recommended solution:** You can create a new connection with the installation ID in the desired region.
 
-1. Open the CodeConnections console at [https://console.aws.amazon.com/codesuite/settings/connections](https://console.aws.amazon.com/codesuite/settings/connections) and navigate to the desired region using the region selector in the AWS console navigation bar.
+1. Open the AWS CodeConnections console at [https://console.aws.amazon.com/codesuite/settings/connections](https://console.aws.amazon.com/codesuite/settings/connections) and navigate to the desired region using the region selector in the AWS console navigation bar.
 
 1. Follow the instructions in the *Developer Tools User Guide* for [Create a connection to GitHub](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-github.html).
 **Note**  
@@ -156,4 +156,4 @@ Since you've already installed the AWS Connector for GitHub app, you can choose 
 + `Access denied to connection {{<connection-arn>}}`
 + `Failed to get access token from {{<connection-arn>}}`
 
-**Recommended solution:** Typically you use a connection with an AWS service, such as CodePipeline or CodeBuild. When you give the AWS service an IAM role, the AWS service can use the role's permission to act on your behalf. Make sure the IAM role has necessary permission. For more information about the necessary IAM permission, see [Grant CodeBuild project IAM role access to use the connection](#connections-github-role-access) and [Identity and access management for AWS CodeStar Notifications and CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html) in the *Developer Tools console User Guide*.
+**Recommended solution:** Typically you use a connection with an AWS service, such as CodePipeline or CodeBuild. When you give the AWS service an IAM role, the AWS service can use the role's permission to act on your behalf. Make sure the IAM role has necessary permission. For more information about the necessary IAM permission, see [Grant CodeBuild project IAM role access to use the connection](#connections-github-role-access) and [Identity and access management for AWS CodeStar Notifications and AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/security-iam.html) in the *Developer Tools console User Guide*.

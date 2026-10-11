@@ -6,11 +6,11 @@
 This tutorial shows you how to configure your CodeBuild projects to run GitLab CI/CD pipeline jobs. For more information about using GitLab or GitLab Self Managed with CodeBuild, see [Self-managed GitLab runners in AWS CodeBuild](gitlab-runner.md).<a name="sample-gitlab-runners-prerequisites"></a>
 
 To complete this tutorial, you must first:
-+ Connect with an OAuth app by using CodeConnections. Note that when connecting with an OAuth app, you must use the CodeBuild console to do so. For more instructions, see [GitLab access in CodeBuild](access-tokens-gitlab-overview.md).
++ Connect with an OAuth app by using AWS CodeConnections. Note that when connecting with an OAuth app, you must use the CodeBuild console to do so. For more instructions, see [GitLab access in CodeBuild](access-tokens-gitlab-overview.md).
 + Connect CodeBuild to your GitLab account. To do so, you can add GitLab as a source provider in the console. For instructions, see [GitLab access in CodeBuild](access-tokens-gitlab-overview.md).
 **Note**  
 This only needs to be done if you haven't connected to GitLab for your account.  
-With this feature, CodeBuild needs additional permissions, such as `create_runner` and `manage_runner` from the GitLab OAuth app. If there are existing CodeConnections for a particular GitLab account, then it doesn't automatically request for permission updates. To do so, you can go to the CodeConnections console and create a dummy connection to the same GitLab account to trigger the reauthorization to get the additional permissions. After completing this step, all existing connections can use the runner feature. Once complete, you can delete the dummy connection.
+With this feature, CodeBuild needs additional permissions, such as `create_runner` and `manage_runner` from the GitLab OAuth app. If there are existing AWS CodeConnections for a particular GitLab account, then it doesn't automatically request for permission updates. To do so, you can go to the AWS CodeConnections console and create a dummy connection to the same GitLab account to trigger the reauthorization to get the additional permissions. After completing this step, all existing connections can use the runner feature. Once complete, you can delete the dummy connection.
 
 ## Step 1: Create a CodeBuild project with a webhook
 <a name="sample-gitlab-runners-create-project"></a>

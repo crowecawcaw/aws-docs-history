@@ -6,7 +6,7 @@
 You can use Bitbucket to connect with CodeBuild. Bitbucket App connections are supported through [AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html).
 
 **Note**  
-CodeConnections is available in fewer regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections created in opt-in Regions cannot be used in other Regions. For more information, see [AWS CodeConnections endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/codestar_connections.html).
+AWS CodeConnections is available in fewer regions than CodeBuild. You can use cross-region connections in CodeBuild. Connections created in opt-in Regions cannot be used in other Regions. For more information, see [AWS CodeConnections endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/codestar_connections.html).
 
 **Topics**
 + [Step 1: Create a connection to Bitbucket (console)](#connections-bitbucket-console)
@@ -78,12 +78,12 @@ You can configure a connection as an account level credential and use it in a pr
 
      1. If you aren't connected to Bitbucket, choose **Manage default source credential**.
 
-     1. For **Credential type**, choose **CodeConnections**.
+     1. For **Credential type**, choose **AWS CodeConnections**.
 
      1. In **Connection**, choose to use an existing connection or create a new connection.
    + Choose **Custom source credential** to use a custom source credential to override your account's default settings.
 
-     1. For **Credential type**, choose **CodeConnections**.
+     1. For **Credential type**, choose **AWS CodeConnections**.
 
      1. In **Connection**, choose to use an existing connection or create a new connection.
 

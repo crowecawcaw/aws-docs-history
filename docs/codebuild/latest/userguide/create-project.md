@@ -103,7 +103,7 @@ Select **Use Git submodules** if you want to include Git submodules in your repo
 Choose **Default source credential** or **Custom source credential** and follow the instructions to manage the default source credential or customize the source credential.
 
  **Connection type**   
-Choose **CodeConnections**, **OAuth**, **App password**, or **Personal access token** to connect to CodeBuild.
+Choose **AWS CodeConnections**, **OAuth**, **App password**, or **Personal access token** to connect to CodeBuild.
 
  **Connection**   
 Select a Bitbucket connection or a Secrets Manager secret to connect through your specified connection type.
@@ -173,7 +173,7 @@ In **Primary source webhook events**, select **Rebuild every time a code change 
 Choose **Default source credential** or **Custom source credential** and follow the instructions to manage the default source credential or customize the source credential.
 
  **Connection type**   
-Choose **CodeConnections** or **Personal access token** to connect to CodeBuild.
+Choose **AWS CodeConnections** or **Personal access token** to connect to CodeBuild.
 
  **Connection**   
 Select a GitHub Enterprise connection or a Secrets Manager secret to connect through your specified connection type.
@@ -211,10 +211,10 @@ In **Primary source webhook events**, select **Rebuild every time a code change 
 Choose **Default source credential** or **Custom source credential** and follow the instructions to manage the default source credential or customize the source credential.
 
  **Connection type**   
-**CodeConnections** is used to connect GitLab to CodeBuild.
+**AWS CodeConnections** is used to connect GitLab to CodeBuild.
 
  **Connection**   
-Select a GitLab connection to connect through CodeConnections.
+Select a GitLab connection to connect through AWS CodeConnections.
 
  **Repository**   
 Choose the repository you want to use.
@@ -237,10 +237,10 @@ To be able to report the build status to the source provider, the user associate
 Choose **Default source credential** or **Custom source credential** and follow the instructions to manage the default source credential or customize the source credential.
 
  **Connection type**   
-**CodeConnections** is used to connect GitLab Self Managed to CodeBuild.
+**AWS CodeConnections** is used to connect GitLab Self Managed to CodeBuild.
 
  **Connection**   
-Select a GitLab Self Managed connection to connect through CodeConnections.
+Select a GitLab Self Managed connection to connect through AWS CodeConnections.
 
  **Repository**   
 Choose the repository you want to use.
@@ -696,7 +696,7 @@ Required. The authorization type to use. Valid values are:
 + `SECRETS_MANAGER`
 
 source/auth/**resource**  <a name="cli.source.auth.resource"></a>
-Optional. The resource value that applies to the specified authorization type. This can be the Secrets Manager ARN or the CodeConnections ARN.
+Optional. The resource value that applies to the specified authorization type. This can be the Secrets Manager ARN or the AWS CodeConnections ARN.
 
 source/**reportBuildStatus**  <a name="cli.source.reportbuildstatus"></a>
 Specifies whether to send your source provider the status of a build's start and completion. If you set this with a source provider other than GitHub, GitHub Enterprise Server, or Bitbucket, an `invalidInputException` is thrown.   
