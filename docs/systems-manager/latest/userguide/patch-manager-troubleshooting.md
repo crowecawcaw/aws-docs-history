@@ -537,6 +537,73 @@ When Patch Manager applies locks for rejected patches during `Install` operation
 + Make sure patch operations complete successfully and aren't interrupted by system reboots or other factors.
 + Monitor patch operations to completion and avoid interrupting them with system reboots or other actions that could prevent proper cleanup of temporary locks.
 
+### Issue: Session Manager sessions fail when patching replaces the AWS-vended SSM Agent package with the SUSE-vended SSM Agent on SLES managed nodes
+<a name="patch-manager-troubleshooting-linux-sles-agent-swap"></a>
+
+**Problem**: You run `AWS-RunPatchBaseline` with the `Install` operation and `RebootOption` set to `NoReboot` on SUSE Linux Enterprise Server instances. The command reports success, but afterward you can't start Session Manager sessions on the instance. You might see entries similar to the following in `/var/log/amazon/ssm/amazon-ssm-agent.log`:
+
+```
+fork/exec /usr/bin/ssm-session-worker: no such file or directory
+```
+
+```
+Plugin with name Standard_Stream not found
+```
+
+**Cause**: SLES can get the `amazon-ssm-agent` package from two places:
++ The package AWS provides, which installs the agent to `/usr/bin`.
++ The package in the SLE Public Cloud module repository, which installs it to `/usr/sbin`. (This is a separate SLE-built package. It may share source code with the AWS package, but it's a different package.)
+
+If an instance is running the AWS package and it's upgraded to the SLE Public Cloud vended version, the original agent files are removed, but the agent process is not restarted.
+
+The existing agent process keeps running in memory from the deleted files, but the agent can no longer start the separate worker process it needs for a session, because that file is gone. This is why Session Manager fails.
+
+**To verify**: First check which binary the running agent is using:
+
+```
+systemctl status amazon-ssm-agent
+```
+
+In the output, search for the `CGroup` section. The process line shows the path the agent is actually running from, for example:
+
+```
+CGroup: /system.slice/amazon-ssm-agent.service
+        └─1234 /usr/bin/amazon-ssm-agent
+```
+
+Then run `ls` on that path to check whether the binary still exists on disk:
+
+```
+ls -l /usr/bin/amazon-ssm-agent
+```
+
+The verification would look like the following on an affected instance:
+
+```
+$ systemctl status amazon-ssm-agent
+● amazon-ssm-agent.service - amazon-ssm-agent
+     Loaded: loaded (/usr/lib/systemd/system/amazon-ssm-agent.service; enabled; preset: disabled)
+     Active: active (running) since Tue 2026-09-22 03:10:41 UTC; 6 days ago
+   Main PID: 1123 (amazon-ssm-agen)
+     CGroup: /system.slice/amazon-ssm-agent.service
+             ├─1123 /usr/bin/amazon-ssm-agent
+             └─1187 /usr/bin/ssm-agent-worker
+
+$ ls -l /usr/bin/amazon-ssm-agent
+ls: cannot access '/usr/bin/amazon-ssm-agent': No such file or directory
+```
+
+**To recover an affected instance**: Connect to the instance using SSH or Amazon EC2 Instance Connect and restart the agent so it runs from the current on-disk package:
+
+```
+sudo systemctl enable amazon-ssm-agent
+sudo systemctl restart amazon-ssm-agent
+```
+
+After the restart, the agent runs from the repository package in `/usr/sbin`, so subsequent patch runs succeed. Patching continues to manage that single package through Zypper and no longer leaves the agent running from removed files. Rebooting the instance resolves it the same way, which is why `NoReboot` is the trigger: a reboot would restart the agent onto the new files.
+
+**To prevent recurrence**: Recovery restores connectivity, but to stop future patch cycles from re-triggering the issue, add `amazon-ssm-agent` to the **Rejected patches** list in your patch baseline, and keep the agent up to date with `AWS-UpdateSSMAgent` or SSM Agent auto-update. This stops patching from swapping in the repository package.
+
 ### Issue: Cannot acquire lock. Another patching operation is in progress.
 <a name="patch-manager-troubleshooting-linux-concurrent-lock"></a>
 
