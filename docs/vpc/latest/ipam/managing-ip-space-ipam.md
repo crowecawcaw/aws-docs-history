@@ -27,7 +27,6 @@ Follow the steps in this section to manage your IP address space in IPAM.
 + [Modify IPAM operating Regions](mod-ipam-region.md)
 + [Provision CIDRs to a pool](prov-cidr-ipam.md)
 + [Move VPC CIDRs between scopes](move-resource-ipam.md)
-+ [Define public IPv4 allocation strategy with IPAM policies](define-public-ipv4-allocation-strategy-with-ipam-policies.md)
 + [View IPAM pool allocations](view-alloc-ipam.md)
 + [Modify an IPAM pool allocation](modify-alloc-ipam.md)
 + [Release an allocation](release-alloc-ipam.md)

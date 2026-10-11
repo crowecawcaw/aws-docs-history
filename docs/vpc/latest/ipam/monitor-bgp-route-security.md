@@ -3,7 +3,7 @@
 # Monitor BGP route protection
 <a name="monitor-bgp-route-security"></a>
 
-IPAM BGP route protection monitors Resource Public Key Infrastructure (RPKI) validity for all Bring Your Own IP (BYOIP) prefixes across accounts and Regions from a single dashboard, detects route overlaps that may indicate hijacking, and, with delegated RPKI, eliminates manual Route Origin Authorization (ROA) management at ARIN, RIPE, APNIC, and LACNIC. You go from logging into Regional Internet Registry (RIR) portals per-prefix to zero manual ROA operations.
+IPAM BGP route protection monitors Resource Public Key Infrastructure (RPKI) validity for all Bring Your Own IP (BYOIP) prefixes across accounts and Regions from a single dashboard, detects route overlaps that may indicate hijacking, and, with delegated RPKI, eliminates manual Route Origin Authorization (ROA) management at ARIN, RIPE, APNIC, LACNIC, and NIC.br. You go from logging into Internet Registry (RIR/NIR) portals per-prefix to zero manual ROA operations.
 
 ## The problem this solves
 <a name="monitor-bgp-route-security-problem"></a>
@@ -56,7 +56,7 @@ You can start with monitoring, evaluate your posture, and add delegated RPKI lat
 
 For pricing details, see the IPAM tab on the [Amazon VPC pricing page](https://aws.amazon.com/vpc/pricing/).
 
-## Supported Regional Internet Registries
+## Supported Internet Registries
 <a name="monitor-bgp-route-security-rirs"></a>
 
 
@@ -66,6 +66,7 @@ For pricing details, see the IPAM tab on the [Amazon VPC pricing page](https://a
 | RIPE NCC | Europe, Middle East, Central Asia |  | 
 | APNIC | Asia Pacific |  | 
 | LACNIC | Latin America, Caribbean | Delegated RPKI supported. Automatic CIDR discovery and ROA pre-creation are not available during initial setup. | 
+| NIC.br | Brazil | National Internet Registry operating under LACNIC. Automatic CIDR discovery and ROA pre-creation are not available during initial setup. | 
 | AFRINIC | Africa | Route discovery and findings only. Delegated RPKI not supported. | 
 
 ## Key concepts

@@ -8,6 +8,7 @@ This section lists the quotas related to IPAM. The Service Quotas console also p
 
 | Name | Default | Adjustable | 
 | --- | --- | --- | 
+| Allocations per pool | 550,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2-ipam/quotas/L-BE3D23C2) | 
 | Amazon-provided contiguous public IPv4 CIDR blocks | 2 | Yes. Contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
 | Amazon-provided contiguous public IPv4 CIDR block netmask length | /28 | Acceptable size is between /28 and /30. To request an increase, contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 
 | Amazon-provided IPv6 CIDR block netmask length | /52 | Yes. Contact the AWS Support Center as described in [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) in the AWS General Reference.  | 

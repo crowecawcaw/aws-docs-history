@@ -9,7 +9,7 @@ This tutorial walks through all BGP route protection capabilities end to end. Yo
 <a name="tutorials-byoip-bgp-security-prereqs"></a>
 + An IPAM created in the Advanced Tier.
 + One or more BYOIP prefixes provisioned to IPAM pools.
-+ Access to your Regional Internet Registry account (ARIN, RIPE, APNIC, or LACNIC).
++ Access to your Internet Registry account (ARIN, RIPE, APNIC, LACNIC, or NIC.br).
 
 ## Step 1: View your BGP routes
 <a name="tutorials-byoip-bgp-security-step1"></a>
