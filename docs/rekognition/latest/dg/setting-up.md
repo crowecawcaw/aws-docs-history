@@ -19,13 +19,13 @@ This section of the developer guide explains why and how you'll create an AWS ac
 
 **AWS Accounts**
 
-When you sign up for Amazon Web Services (AWS), your AWS account is automatically signed up for all services in AWS, including Amazon Rekognition. You're charged only for the services that you use.
+When you sign up for AWS, your AWS account is automatically signed up for all services in AWS, including Amazon Rekognition. You're charged only for the services that you use.
 
 With Amazon Rekognition, you pay only for the resources that you use. 
 
 If you're a new AWS customer, you can get started with Amazon Rekognition for free. For more information, see [AWS Free Usage Tier](https://aws.amazon.com/free/).
 
-Refer to the upcoming [Sign up for an AWS account](#sign-up-for-aws) section for account creation instructions.
+Refer to [Sign up for an AWS account](#sign-up-for-aws) for account creation instructions.
 
 If you already have an AWS account, skip account setup and create an administrative user.
 
@@ -37,7 +37,7 @@ You can create access keys for your AWS account to access the AWS CLI or APIs wh
 
 You can then access AWS by using a special URL and that administrative user's credentials.
 
-If you signed up for AWS, but you haven't yet created a user for yourself, you can create one by using the IAM console. Refer to the upcoming  section for instructions about how to create an administrative user.
+If you signed up for AWS, but you haven't yet created a user for yourself, you can create one by using the IAM console.
 
 
 

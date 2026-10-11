@@ -27,6 +27,7 @@ The following policy allows Rekognition to access an Amazon S3 bucket during aut
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -37,14 +38,17 @@ The following policy allows Rekognition to access an Amazon S3 bucket during aut
             "Action": [
                 "s3:ListBucket",
                 "s3:GetObject",
-                "s3:PutObject",
-                "s3:HeadObject",
-                "s3:HeadBucket"
+                "s3:PutObject"
             ],
             "Resource": [
                 "arn:aws:s3:::{{amzn-s3-demo-bucket}}",
                 "arn:aws:s3:::{{amzn-s3-demo-bucket}}/*"
-            ]
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:SourceAccount": "{{111122223333}}"
+                }
+            }
         }
     ]
 }
