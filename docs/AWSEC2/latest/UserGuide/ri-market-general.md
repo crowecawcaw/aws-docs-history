@@ -90,7 +90,7 @@ After registration, the bank account provided is set as the default, pending ver
 
 Your sale of Reserved Instances might be subject to a transaction-based tax, such as sales tax or value-added tax. You should check with your business's tax, legal, finance, or accounting department to determine if transaction-based taxes are applicable. You are responsible for collecting and sending the transaction-based taxes to the appropriate tax authority.
 
-As part of the seller registration process, you must complete a tax interview in the [Seller Registration Portal](https://portal.aws.amazon.com/ec2/ri/seller_registration?action=taxInterview). The interview collects your tax information and populates an IRS form W-9, W-8BEN, or W-8BEN-E, which is used to determine any necessary tax reporting obligations. 
+As part of the seller registration process, you must complete a tax interview in the [Seller Registration Portal](https://us-east-1.console.aws.amazon.com/rimarketplace/home?region=us-east-1). The interview collects your tax information and populates an IRS form W-9, W-8BEN, or W-8BEN-E, which is used to determine any necessary tax reporting obligations. 
 
 The tax information you enter as part of the tax interview might differ depending on whether you operate as an individual or business, and whether you or your business are a US or non-US person or entity. As you fill out the tax interview, keep in mind the following:
 + Information provided by AWS, including the information in this topic, does not constitute tax, legal, or other professional advice. To find out how the IRS reporting requirements might affect your business, or if you have other questions, contact your tax, legal, or other professional advisor.

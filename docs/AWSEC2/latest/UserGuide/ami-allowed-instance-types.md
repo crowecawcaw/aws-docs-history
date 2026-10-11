@@ -187,4 +187,4 @@ Keep the following information in mind when you use allowed instance types.
 + Amazon EC2 enforces the instance type specification as a hard block. If the instance type is not allowed, the launch fails with an `InvalidParameterCombination` error.
 + The specification does not affect existing instances. It applies only to new launches.
 + Launch templates and Auto Scaling groups that reference an AMI with an instance type specification can fail if the configured instance type is not allowed. We recommend verifying compatibility before setting a specification on shared AMIs.
-+ The `ReplaceImageInstanceTypeSpecification` action replaces the entire specification. To add or remove individual instance types, you must include the complete updated specification in the request.
++ The `ReplaceImageInstanceTypeSpecification` operation replaces the entire specification. To add or remove individual instance types, you must include the complete updated specification in the request.

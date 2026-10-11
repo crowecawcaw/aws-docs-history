@@ -121,7 +121,9 @@ Use the AWS CLI to create an application status check.
 
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
-1. In the navigation pane, under **Instances**, choose **Application status checks**.
+1. In the navigation pane, choose **Instances**.
+
+1. Choose **Actions**, **Monitor and troubleshoot**, **Application status checks**.
 
 1. Choose **Create application status check**.
 

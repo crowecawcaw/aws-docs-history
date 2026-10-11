@@ -10,17 +10,18 @@ You can get suggestions and guidance for EC2 instance types using the EC2 instan
 If you already have running EC2 instances, you can use AWS Compute Optimizer to get recommendations about the instance types that you should use to improve performance, save money, or both. For more information, see [Get EC2 instance recommendations from Compute Optimizer](ec2-instance-recommendations.md).
 
 **Topics**
-+ [Find an instance type using the console](#instance-discovery-console)
++ [Filter instance types](#filter-instance-types)
 + [Describe an instance type using the AWS CLI](#describe-instance-type-example)
-+ [Find an instance type using the AWS CLI](#instance-discovery-cli)
-+ [Find an instance type using the Tools for PowerShell](#instance-discovery-ps)
 
-## Find an instance type using the console
-<a name="instance-discovery-console"></a>
+## Filter instance types
+<a name="filter-instance-types"></a>
 
-You can find an instance type that meets your needs using the Amazon EC2 console.
+You can find an instance type that meets your requirements by filtering on whether the instance type is available in a specified Availability Zone, or by filtering on instance attributes or support for specific features. Choose the tab for the method you want to use.
 
-**To find an instance type using the console**
+------
+#### [ Console ]
+
+**To filter instance types**
 
 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
 
@@ -41,7 +42,170 @@ You can find an instance type that meets your needs using the Amazon EC2 console
 
 1. (Optional) To save the list of instance types to a comma-separated values (.csv) file for further review, choose **Actions**, **Download list CSV**. The file includes all instance types that match the filters you set.
 
-1. (Optional) To launch instances using an instance type that meet your needs, select the checkbox for the instance type and choose **Actions**, **Launch instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md).
+1. (Optional) To launch instances using an instance type that meets your needs, select the checkbox for the instance type and choose **Actions**, **Launch instance**. For more information, see [Launch an EC2 instance using the launch instance wizard in the console](ec2-launch-instance-wizard.md).
+
+------
+#### [ CLI ]
+
+You can use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) and [describe-instance-type-offerings](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-type-offerings.html) AWS Command Line Interface commands to find the instance types that meet your needs.
+
+The following examples show how to filter instance types by Availability Zone, available memory size, available instance storage, or hibernation support.
+
+**To filter instance types by Availability Zone**  
+The following example displays only the instance types offered in the specified Availability Zone.
+
+```
+aws ec2 describe-instance-type-offerings \
+    --location-type "availability-zone" \
+    --filters "Name=location,Values={{us-east-2a}}" \
+    --region {{us-east-2}} \
+    --query "InstanceTypeOfferings[*].[InstanceType]" --output text | sort
+```
+
+The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
+
+```
+a1.2xlarge
+a1.4xlarge
+a1.large
+a1.medium
+a1.metal
+   ...
+```
+
+**To filter instance types by available memory size**  
+The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
+
+```
+aws ec2 describe-instance-types \
+    --filters "Name=current-generation,Values=true" "Name=memory-info.size-in-mib,Values={{65536}}" \
+    --region {{us-east-2}} \
+    --query "InstanceTypes[*].[InstanceType]" --output text | sort
+```
+
+The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
+
+```
+c5a.8xlarge
+c5ad.8xlarge
+c6a.8xlarge
+c6g.8xlarge
+c6gd.8xlarge
+   ...
+```
+
+**To filter instance types by available instance storage**  
+The following example displays the total size of instance storage for all R7 instances with instance store volumes.
+
+```
+aws ec2 describe-instance-types \
+    --filters "Name=instance-type,Values=r7*" "Name=instance-storage-supported,Values=true" \
+    --region {{us-east-2}} \
+    --query "InstanceTypes[].[InstanceType, InstanceStorageInfo.TotalSizeInGB]" \
+    --output table
+```
+
+The following is example output.
+
+```
+---------------------------
+|  DescribeInstanceTypes  |
++----------------+--------+
+|  r7gd.xlarge   |  237   |
+|  r7gd.8xlarge  |  1900  |
+|  r7gd.16xlarge |  3800  |
+|  r7gd.medium   |  59    |
+|  r7gd.4xlarge  |  950   |
+|  r7gd.2xlarge  |  474   |
+|  r7gd.metal    |  3800  |
+|  r7gd.large    |  118   |
+|  r7gd.12xlarge |  2850  |
++----------------+--------+
+```
+
+**To filter instance types by hibernation support**  
+The following example displays the instance types that support hibernation.
+
+```
+aws ec2 describe-instance-types \
+    --filters "Name=hibernation-supported,Values=true" \
+    --region {{us-east-2}} \
+    --query "InstanceTypes[*].[InstanceType]" \
+    --output text | sort
+```
+
+The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
+
+```
+c4.2xlarge
+c4.4xlarge
+c4.8xlarge
+c4.large
+c4.xlarge
+...
+```
+
+------
+#### [ PowerShell ]
+
+You can use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) and [Get-EC2InstanceTypeOffering](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceTypeOffering.html) Tools for PowerShell cmdlets to find the instance types that meet your needs.
+
+The following examples show how to filter instance types by Availability Zone, available memory size, available instance storage, or hibernation support.
+
+**To filter instance types by Availability Zone**  
+The following example displays only the instance types offered in the specified Availability Zone.
+
+```
+(Get-EC2InstanceTypeOffering `
+    -LocationType "availability-zone" `
+    -Region {{us-east-2}} `
+    -Filter @{Name="location"; Values="{{us-east-2a}}"}).InstanceType | Sort-Object
+```
+
+**To filter instance types by available memory size**  
+The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
+
+```
+(Get-EC2InstanceType `
+    -Filter @{Name="current-generation"; Values="true"}, 
+            @{Name="memory-info.size-in-mib"; Values="65536"}).InstanceType | Sort-Object
+```
+
+**To filter instance types by available instance storage**  
+The following example displays the total size of instance storage for all R7 instances with instance store volumes.
+
+```
+Get-EC2InstanceType `
+    -Filter @{Name="instance-type"; Values="r7*"}, 
+            @{Name="instance-storage-supported"; Values="true"} | `
+     Select InstanceType, @{Name="TotalSizeInGB"; Expression={($_.InstanceStorageInfo.TotalSizeInGB)}}
+```
+
+The following is example output.
+
+```
+InstanceType  TotalSizeInGB
+------------  -------------
+r7gd.8xlarge           1900
+r7gd.16xlarge          3800
+r7gd.xlarge             237
+r7gd.4xlarge            950
+r7gd.medium              59
+r7gd.2xlarge            474
+r7gd.large              118
+r7gd.metal             3800
+r7gd.12xlarge          2850
+```
+
+**To filter instance types by hibernation support**  
+The following example displays the instance types that support hibernation.
+
+```
+(Get-EC2InstanceType `
+    -Filter @{Name="hibernation-supported"; Values="true"}).InstanceType | Sort-Object
+```
+
+------
 
 ## Describe an instance type using the AWS CLI
 <a name="describe-instance-type-example"></a>
@@ -57,7 +221,7 @@ aws ec2 describe-instance-types \
     --region {{us-east-2}}
 ```
 
-**The describe an instance type and filter the output**  
+**To describe an instance type and filter the output**  
 The following command displays the networking details for the specified instance type.
 
 ```
@@ -113,200 +277,4 @@ The following is example output.
         "SizeInMiB": 1024
     }
 ]
-```
-
-## Find an instance type using the AWS CLI
-<a name="instance-discovery-cli"></a>
-
-You can use the [describe-instance-types](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-types.html) and [describe-instance-type-offerings](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instance-type-offerings.html) commands to find the instance types that meet your needs.
-
-**Topics**
-+ [Find an instance type by Availability Zone](#find-instance-type-example-1)
-+ [Find an instance type by available memory size](#find-instance-type-example-2)
-+ [Find an instance type by available instance storage](#find-instance-type-example-3)
-+ [Find an instance type that supports hibernation](#find-instance-type-example-4)
-
-### Example 1: Find an instance type by Availability Zone
-<a name="find-instance-type-example-1"></a>
-
-The following example displays only the instance types offered in the specified Availability Zone.
-
-```
-aws ec2 describe-instance-type-offerings \
-    --location-type "availability-zone" \
-    --filters "Name=location,Values={{us-east-2a}}" \
-    --region {{us-east-2}} \
-    --query "InstanceTypeOfferings[*].[InstanceType]" --output text | sort
-```
-
-The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
-
-```
-a1.2xlarge
-a1.4xlarge
-a1.large
-a1.medium
-a1.metal
-a1.xlarge
-c4.2xlarge
-   ...
-```
-
-### Example 2: Find an instance type by available memory size
-<a name="find-instance-type-example-2"></a>
-
-The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
-
-```
-aws ec2 describe-instance-types \
-    --filters "Name=current-generation,Values=true" "Name=memory-info.size-in-mib,Values={{65536}}" \
-    --region {{us-east-2}} \
-    --query "InstanceTypes[*].[InstanceType]" --output text | sort
-```
-
-The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
-
-```
-c5a.8xlarge
-c5ad.8xlarge
-c6a.8xlarge
-c6g.8xlarge
-c6gd.8xlarge
-c6gn.8xlarge
-c6i.8xlarge
-c6id.8xlarge
-c6in.8xlarge
-   ...
-```
-
-### Example 3: Find an instance type by available instance storage
-<a name="find-instance-type-example-3"></a>
-
-The following example displays the total size of instance storage for all R7 instances with instance store volumes.
-
-```
-aws ec2 describe-instance-types \
-    --filters "Name=instance-type,Values=r7*" "Name=instance-storage-supported,Values=true" \
-    --region {{us-east-2}} \
-    --query "InstanceTypes[].[InstanceType, InstanceStorageInfo.TotalSizeInGB]" \
-    --output table
-```
-
-The following is example output.
-
-```
----------------------------
-|  DescribeInstanceTypes  |
-+----------------+--------+
-|  r7gd.xlarge   |  237   |
-|  r7gd.8xlarge  |  1900  |
-|  r7gd.16xlarge |  3800  |
-|  r7gd.medium   |  59    |
-|  r7gd.4xlarge  |  950   |
-|  r7gd.2xlarge  |  474   |
-|  r7gd.metal    |  3800  |
-|  r7gd.large    |  118   |
-|  r7gd.12xlarge |  2850  |
-+----------------+--------+
-```
-
-### Example 4: Find an instance type that supports hibernation
-<a name="find-instance-type-example-4"></a>
-
-The following example displays the instance types that support hibernation.
-
-```
-aws ec2 describe-instance-types \
-    --filters "Name=hibernation-supported,Values=true" \
-    --region {{us-east-2}} \
-    --query "InstanceTypes[*].[InstanceType]" \
-    --output text | sort
-```
-
-The output is a list of instance types, sorted alphabetically. The following is the start of the output only.
-
-```
-c4.2xlarge
-c4.4xlarge
-c4.8xlarge
-c4.large
-c4.xlarge
-c5.12xlarge
-c5.18xlarge
-c5.2xlarge
-c5.4xlarge
-c5.9xlarge
-...
-```
-
-## Find an instance type using the Tools for PowerShell
-<a name="instance-discovery-ps"></a>
-
-You can use the [Get-EC2InstanceType](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceType.html) and [Get-EC2InstanceTypeOffering](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2InstanceTypeOffering.html) cmdlets to find the instance types that meet your needs.
-
-**Topics**
-+ [Find an instance type by Availability Zone](#find-instance-type-by-az-ps)
-+ [Find an instance type by available memory size](#find-instance-type-by-memory-ps)
-+ [Find an instance type by available instance storage](#find-instance-type-by-storage-ps)
-+ [Find an instance type that supports hibernation](#find-instance-type-hibernation-ps)
-
-### Find an instance type by Availability Zone
-<a name="find-instance-type-by-az-ps"></a>
-
-The following example displays only the instance types offered in the specified Availability Zone.
-
-```
-(Get-EC2InstanceTypeOffering `
-    -LocationType "availability-zone" `
-    -Region {{us-east-2}} `
-    -Filter @{Name="location"; Values="{{us-east-2a}}"}).InstanceType | Sort-Object `
-```
-
-### Find an instance type by available memory size
-<a name="find-instance-type-by-memory-ps"></a>
-
-The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
-
-```
-(Get-EC2InstanceType `
-    -Filter @{Name="current-generation"; Values="true"}, 
-            @{Name="memory-info.size-in-mib"; Values="65536"}).InstanceType | Sort-Object
-```
-
-### Find an instance type by available instance storage
-<a name="find-instance-type-by-storage-ps"></a>
-
-The following example displays the total size of instance storage for all R7 instances with instance store volumes.
-
-```
-Get-EC2InstanceType `
-    -Filter @{Name="instance-type"; Values="r7*"}, 
-            @{Name="instance-storage-supported"; Values="true"} | `
-     Select InstanceType, @{Name="TotalSizeInGB"; Expression={($_.InstanceStorageInfo.TotalSizeInGB)}}
-```
-
-The following is example output.
-
-```
-InstanceType  TotalSizeInGB
-------------  -------------
-r7gd.8xlarge           1900
-r7gd.16xlarge          3800
-r7gd.xlarge             237
-r7gd.4xlarge            950
-r7gd.medium              59
-r7gd.2xlarge            474
-r7gd.large              118
-r7gd.metal             3800
-r7gd.12xlarge          2850
-```
-
-### Find an instance type that supports hibernation
-<a name="find-instance-type-hibernation-ps"></a>
-
-The following example displays the instance types that support hibernation.
-
-```
-(Get-EC2InstanceType `
-    -Filter @{Name="hibernation-supported"; Values="true"}).InstanceType | Sort-Object
 ```
