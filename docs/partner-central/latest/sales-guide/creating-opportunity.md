@@ -136,7 +136,7 @@ Once the opportunity is accepted by AWS, partners can collaborate with assigned 
 
 Partners can utilize the natural-language search and filter capabilities to easily sort and find specific opportunities in both the **Opportunities** and **Opportunity invitations** tabs.
 
-Once the opportunity is submitted, an Opportunity Quality score and a co-sell motion are automatically assigned. For details, see [Co-sell engagement](co-sell-engagement.md).
+Once the opportunity is submitted, an Opportunity Quality score and a co-sell motion are automatically assigned. For details, see [Agentic Co-sell engagement](co-sell-engagement.md).
 
 **Note**  
 See IAM guide for help with Access.
