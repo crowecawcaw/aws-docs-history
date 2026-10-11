@@ -173,7 +173,7 @@ Ensure the DLQ itself has the correct permissions. If it's encrypted, make sure 
                    "kms:Decrypt",
                    "kms:GenerateDataKey"
                ],
-               "Resource": "arn:aws:kms:region:account-id:key/key-id"
+               "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{key-id}}"
            }
        ]
    }
