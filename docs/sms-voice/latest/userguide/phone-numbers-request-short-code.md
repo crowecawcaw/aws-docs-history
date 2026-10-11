@@ -9,6 +9,16 @@ You can request a short code for the below countries through the End User Messag
 
 For information about short code pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
 
+## Carrier provisioning freezes
+<a name="short-code-carrier-provisioning-freezes"></a>
+
+Some countries observe annual carrier provisioning freezes, during which mobile carriers pause new short code provisioning. If your request falls within a freeze window, carrier review and provisioning resume after the freeze ends.
+
+
+| Country | Carriers | Freeze type | Freeze window | Submission guidance | 
+| --- | --- | --- | --- | --- | 
+| Canada | All | Short code provisioning freeze | October through December 2026 | Submit your Canada short code request and complete the required short code registration by Monday, October 19, 2026. If your application is not approved for carrier provisioning by October 22, 2026, carrier review will not begin until January 2027. | 
+
 ## Important considerations
 <a name="phone-numbers-request-short-code-considerations"></a>
 
