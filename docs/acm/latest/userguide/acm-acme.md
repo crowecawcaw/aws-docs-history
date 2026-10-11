@@ -17,6 +17,7 @@ AWS Certificate Manager (ACM) supports the Automated Certificate Management Envi
 + [ACME domain validation](acm-acme-domain-validation.md)
 + [External account bindings](acm-acme-eab.md)
 + [Issuing certificates through ACME](acm-acme-issuance.md)
++ [Issuing ACME certificates over AWS PrivateLink](acm-acme-privatelink.md)
 
 ## What is ACME?
 <a name="acm-acme-what-is"></a>
