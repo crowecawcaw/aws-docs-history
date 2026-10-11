@@ -13,82 +13,61 @@ Not every AWS service is available for Sign up for AWS (new). If a service is no
 ## AWS services included in the Free Tier of our new AWS experience
 <a name="supported-services-free-tier"></a>
 
-The following AWS services are included in the Free Tier of Sign up for AWS (new):
+The following AWS services are included in the Free Tier of Sign up for AWS (new). Multi-Region or cross-Region features are not supported for any services. For more information, see [AWS Regions for your projects](project-regions.md).
 + Amazon API Gateway
 + Amazon Athena
 + Amazon AppFlow
-  + Not supported in Europe (Stockholm).
 + AWS App2Container
 + Amazon Augmented AI
-  + Not supported in Europe (Stockholm).
 + Amazon Bedrock
-  + Global cross-Region inference and Geographic cross-Region inference are not supported.
 + Amazon Bedrock Agent Core
 + Amazon CloudFront
   + Lambda@Edge is not supported.
 + Amazon CloudWatch
-  + Cross-account observability and cross-Region dashboards are not supported.
 + Amazon CloudWatch Logs
 + Amazon CodeGuru Profiler
 + Amazon Cognito
 + Amazon Cognito Sync
 + Amazon DynamoDB
-  + Global Tables (multi-Region replication) are not supported.
 + Amazon DataZone
 + Amazon Elastic Container Registry (ECR)
-  + Cross-Region replication is not supported.
 + EC2 Image Builder
 + Amazon EKS Anywhere
 + Amazon Elastic Block Store (EBS)
 + Amazon Elastic Compute Cloud (EC2)
-  + Cross-Region AMI copy and cross-Region snapshot copy are not supported.
   + Purchase Capacity Block and Purchase Capacity Block Extension are not supported.
 + Amazon Elastic Container Registry Public
 + Amazon Elastic Container Service
 + Amazon Elastic Kubernetes Service
 + Amazon Elastic File System
-  + Cross-Region replication is not supported.
 + Amazon ElastiCache
-  + Global Datastores (cross-Region replication) are not supported.
 + Amazon EventBridge
 + Amazon Lex
-  + Global Resiliency (bot replication across Regions) is not supported.
 + Amazon Lightsail
 + Amazon Location Service
 + Amazon Managed Service for Prometheus
-  + Cross-Region projects are not supported.
 + Amazon Managed Workflows for Apache Airflow
 + Amazon MQ
-  + Cross-Region data replication (CRDR) is not supported.
 + Amazon OpenSearch Service
-  + Cross-cluster replication across Regions is not supported.
 + Amazon Polly
 + Amazon Quick
   + Only Amazon Quick Free or Quick Plus are supported. For more information, see [Amazon Quick pricing](https://aws.amazon.com/quick/pricing/).
 + Amazon Rekognition
-  + Not supported in Europe (Stockholm).
 + Amazon Relational Database Service
-  + Cross-Region read replicas and Aurora Global Databases are not supported.
 + Amazon Route 53
-  + Cross-Region routing policies (geolocation, latency-based, failover) are not supported.
 + Amazon SageMaker
-  + Cross-region deployment and cross-region inference are not supported.
 + Amazon SageMaker AI
 + Amazon SageMaker Unified Studio
 + Amazon Simple Email Service
-  + Global endpoints (multi-region sending with failover) are not supported.
 + Amazon Simple Notification Service
 + Amazon Simple Queue Service
 + Amazon Simple Storage Service
-  + Cross-Region Replication (CRR) and Multi-Region Access Points are not supported.
   + Amazon S3 Access Grants is not supported.
 + Amazon Simple Workflow Service
 + Amazon Verified Permissions
 + Amazon Virtual Private Cloud
-  + Cross-Region VPC peering and Transit Gateway inter-Region peering are not supported.
 + Amazon Aurora
 + Amazon Aurora DSQL
-  + Multi-Region active-active clusters are not supported.
 + AWS Amplify
 + AWS AppConfig
 + AWS AppSync
@@ -99,11 +78,9 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + AWS B2B Data Interchange
 + AWS Backint agent
 + AWS Backup
-  + Cross-Region backup copies are not supported.
 + AWS Batch
 + AWS Billing and Cost Management
-
-  Use AWS Settings to set up your billing, create spend limits to control your costs, and retrieve and pay invoices. You use Billing and Cost Management to create budgets, analyze, and optimize your costs. For more information, see [Using Billing and Cost Management console with our new AWS experience](https://docs.aws.amazon.com/cost-management/latest/userguide/bcm-lite-cost-management.html).
+  + Use AWS Settings to set up your billing, create spend limits to control your costs, and retrieve and pay invoices. You use Billing and Cost Management to create budgets, analyze, and optimize your costs. For more information, see [Using Billing and Cost Management console with our new AWS experience](https://docs.aws.amazon.com/cost-management/latest/userguide/bcm-lite-cost-management.html).
 + AWS Budgets
 + AWS Certificate Manager
   + [AWS Certificate Manager exportable public certificates](https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html) are not supported.
@@ -111,29 +88,23 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + AWS Cloud Map
 + AWS Cloud9
 + AWS CloudFormation
-  + StackSets (multi-account, multi-Region deployments) are not supported.
 + AWS CloudShell
 + AWS CloudTrail
-  + Multi-Region trails and organization trails are not supported.
 + AWS CodeArtifact
 + AWS CodeCommit
 + AWS CodeDeploy
 + AWS CodePipeline
-  + Cross-Region actions are not supported.
 + AWS Compute Optimizer
 + AWS Config
-  + Multi-Account Multi-Region Data Aggregation is not supported.
 + AWS Console Mobile Application
 + AWS Cost Explorer
 + AWS Data Pipeline
 + AWS Data Transfer
 + AWS DataSync
-  + Cross-Region transfers are not supported.
 + AWS Directory Service
 + AWS Elastic Beanstalk
 + AWS End User Messaging Social
 + AWS Entity Resolution
-  + Cross-Region namespaces are not supported.
 + AWS Glue
 + AWS Health
 + AWS Identity and Access Management
@@ -142,10 +113,8 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + AWS IoT Device Defender
 + AWS IoT Device Management
 + AWS IoT SiteWise
-  + Not supported in Europe (Stockholm).
 + AWS IoT TwinMaker
 + AWS Key Management Service
-  + Multi-Region keys are not supported.
 + AWS Lake Formation
 + AWS Lambda
   + Lambda@Edge is not supported.
@@ -155,17 +124,14 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + AWS Marketplace
   + Bedrock and Free only.
 + AWS Network Manager
-  + Global network management across Regions is not supported.
 + AWS Payment Cryptography
 + AWS PrivateLink
 + AWS Resource Access Manager (RAM)
 + AWS Resource Explorer
-  + Cross-Region search via aggregator index is not supported.
 + AWS Resource Groups
 + Route 53 Amazon Application Recovery Controller (ARC) 
 + AWS SDKs & Tools
 + AWS Secrets Manager
-  + Cross-Region secret replication is not supported.
 + AWS Security Token Service
 + AWS Serverless Application Repository
 + Service Quotas
@@ -173,7 +139,6 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + AWS Step Functions
 + AWS Support
 + AWS Systems Manager
-  + Multi-account multi-Region resource data syncs are not supported.
 + AWS Systems Manager for SAP
 + AWS User Notifications
   + User-configured notifications and Managed notifications configuration operations are not supported. For more information, see [What is AWS User Notifications?](https://docs.aws.amazon.com/notifications/latest/userguide/what-is-service.html)
@@ -185,7 +150,6 @@ The following AWS services are included in the Free Tier of Sign up for AWS (new
 + Elastic Load Balancing
 + AWS SQL Workbench
 + Amazon OpenSearch Service Serverless
-  + Cross-Region data access is not supported.
 + Amazon Timestream
 
 To see the policy that controls access to the Free Tier services, see [Service control policies for the Free Tier for projects](scps-and-rcps-for-projects.md#scps-free-tier-for-projects).
@@ -193,33 +157,24 @@ To see the policy that controls access to the Free Tier services, see [Service c
 ## AWS services included in the Paid Plan of our new AWS experience
 <a name="supported-services-paid-plan"></a>
 
-The following services are available for Sign up for AWS (new) if you have a Paid Plan. For more information, see [Upgrade your account in AWS Settings](upgrade-account.md).
+The following services are available for Sign up for AWS (new) if you have a Paid Plan. For more information, see [Upgrade your account in AWS Settings](upgrade-account.md). Multi-Region or cross-Region features are not supported for any services. For more information, see [AWS Regions for your projects](project-regions.md).
 + Amazon DevOps Guru
 + Amazon DocumentDB (with MongoDB compatibility)
-  + Global clusters (cross-Region) are not supported.
 + Amazon EMR
-  + Cross-region processing for Spark Upgrade Agent is not supported.
 + Amazon Forecast
 + Amazon Glacier
 + Amazon Kinesis
-  + Cross-Region stream sharing is not supported.
 + Amazon Kinesis Data Streams
 + Amazon Data Firehose
 + Amazon Kinesis Video Streams
-  + Not supported in Europe (Stockholm).
 + Amazon Managed Blockchain
-  + Not supported in Europe (Stockholm) / US East (Ohio) / Asia Pacific (Sydney).
 + Amazon Managed Streaming for Apache Kafka
-  + Cross-Region replication (MSK Replicator) is not supported.
 + Amazon MemoryDB
-  + Multi-Region replication is not supported.
 + Amazon Neptune
 + Amazon Personalize
-  + Not supported in Europe (Stockholm).
 + Amazon Redshift
 + S3 Glacier Deep Archive
 + Amazon Textract
-  + Not supported in Europe (Stockholm).
 + Amazon Transcribe
 + Amazon Translate
 + AWS AppFabric
@@ -340,7 +295,6 @@ The following AWS services are not supported for our new AWS experience, unless 
 + AWS OpsWorks
 + AWS Organizations
 + AWS Outposts
-+ AWS Panorama
 + AWS Parallel Computing Service
 + AWS Partner Network
 + AWS Pricing Calculator

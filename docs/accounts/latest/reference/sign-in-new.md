@@ -26,13 +26,11 @@ Sign up for AWS (new) supports using Google, GitHub, Apple, or Amazon for your a
 
 **To sign up for AWS using Sign up for AWS (new)**
 
-1. Go to [aws.amazon.com](https://aws.amazon.com) and choose **Create account**.
+1. Open the [Sign up for AWS](https://signin.aws.amazon.com/signup?request_type=builderId) page.
 
-1. On the banner explaining the differences between Sign up for AWS (new) and Sign up for AWS (advanced), choose **Sign up for AWS**.
+1. Enter your email or choose a login such as Google, Apple, GitHub, or Amazon.
 
-1. Choose a login such as Google, Apple, GitHub, or Amazon.
-
-1. You'll be directed to the login for your provider. After you log in, you'll be redirected to AWS sign up.
+1. If you use a login you already own, you'll be directed to the login for your provider. After you log in, you'll be redirected to AWS sign up.
 
 1. Enter your name and choose **Continue**.
 

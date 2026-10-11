@@ -5,7 +5,7 @@
 
 These instructions are for how to close your AWS account if you signed up for AWS using Sign up for AWS (advanced) or if you activated advanced features for your account. To compare sign-up options, see [Compare sign-up options](sign-up-for-aws.md).
 
-If you no longer need your AWS account, you can close it at any time by following the instructions in this section. After you've closed it, you can reopen it within 90 days from the day you closed the account. The timespan between the day you closed the account and when AWS permanently closes the account is referred to as the [post-closure period](#post-closure-period).
+If you no longer need your AWS account, you can close it at any time by following the instructions in this section. After you've closed it, you can reopen it within 90 days from the day you closed the account. The period between the day you closed the account and when AWS permanently closes the account is referred to as the [post-closure period](#post-closure-period).
 
 ## What you need to know before closing your account
 <a name="close-account-considerations"></a>
@@ -147,7 +147,7 @@ The post-closure period refers to the length of time between the day you closed 
 ### Reopening your AWS account
 <a name="reopening"></a>
 
-Your account will permanently close in 90 days, after which you will not be able to reopen your account and AWS will delete the content remaining in your account. To reopen your account before it is permanently closed, (1) you must contact [AWS Support](https://console.aws.amazon.com/support/home) as soon as possible, and (2) we must receive full payment of any outstanding balance, including providing required information as specified on the invoice, within 30 days from the date of account closure.
+Your account will permanently close in 90 days, after which you will not be able to reopen your account and AWS will delete the content remaining in your account. To reopen your account before it is permanently closed, see [Reopen an AWS account](manage-acct-reopening.md).
 
 **Note**  
 Charges for the services that remained in your account will restart if you reopen it.

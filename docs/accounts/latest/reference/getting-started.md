@@ -114,3 +114,4 @@ After you complete the sign-up process, see the following topics:
 + [Troubleshoot your AWS account](troubleshooting.md)
 + [Manage accounts in India](managing-accounts-india.md)
 + [Close an AWS account](manage-acct-closing.md)
++ [Reopen an AWS account](manage-acct-reopening.md)

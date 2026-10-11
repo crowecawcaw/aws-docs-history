@@ -12,6 +12,8 @@ You can register a built-in authenticator and also register a security key that 
 
 ## Key points
 <a name="mfa-key-points"></a>
+
+Keep the following key points in mind when you register and manage MFA devices:
 + We recommend that you register multiple MFA devices. If you lose access to all registered MFA devices, you will be unable to recover your account.
 + We recommend that you periodically review your registered MFA devices to ensure they are up to date and functional. Additionally, you should store those devices in a place that is physically secure when not in use.
 + If you created your account using **Continue with Google**, you can enable multi-factor authentication through your Google account. For details, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839).
