@@ -3,7 +3,7 @@
 # SaaS product integration checklist
 <a name="aws-marketplace-integration-checklist"></a>
 
-Before your software as a service (SaaS) product goes live, you must verify that you have completed the required configuration. You can use the following SaaS integration checklist to verify that you have completed the required configurations.
+Before your software as a service (SaaS) product becomes available to buyers in AWS Marketplace, you must verify that you have completed the required configuration. You can use the following SaaS integration checklist to verify that you have completed the required configurations.
 
 
 |  **Category**  |  **Requirements**  | 

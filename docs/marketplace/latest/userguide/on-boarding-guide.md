@@ -15,7 +15,7 @@ With the AWS Marketplace Commerce Analytics Service, you can programmatically ac
 ## Step 1: Set up your AWS account with permissions
 <a name="permissions-for-commerce-analytics"></a>
 
-AWS Marketplace **strongly** recommends using AWS Identity and Access Management (IAM) roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials. See [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md) for specific IAM permissions for AWS Marketplace Commerce Analytics Service permissions. By creating individual users for people accessing your account, you can give each user a unique set of security credentials. You can also grant different permissions to each user. If necessary, you can change or revoke an user's permissions any time.
+AWS Marketplace **strongly** recommends using AWS Identity and Access Management (IAM) roles to sign in to AWS Partner Central rather than using your root account credentials. See [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md) for specific IAM permissions for AWS Marketplace Commerce Analytics Service permissions. By creating individual users for people accessing your account, you can give each user a unique set of security credentials. You can also grant different permissions to each user. If necessary, you can change or revoke an user's permissions any time.
 
 ## Step 2: Create a destination Amazon S3 bucket
 <a name="create-a-destination-amazon-s3-bucket"></a>
@@ -40,7 +40,7 @@ The Commerce Analytics Service accesses the Amazon S3 bucket and Amazon SNS topi
 
 **To enable access**
 
-1. Log in to the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home) with the AWS account you use to manage your AWS Marketplace products. 
+1. Log in to [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) with the AWS account you use to manage your AWS Marketplace products. 
 
 1. Ensure you have the [ necessary IAM permissions](https://docs.aws.amazon.com/marketplace/latest/userguide/commerce-analytics-service.html#technical-implementation-guide) to enroll in the AWS Marketplace Commerce Analytics Service.
 
@@ -50,7 +50,7 @@ The Commerce Analytics Service accesses the Amazon S3 bucket and Amazon SNS topi
 
 1. On the permissions page, choose **Allow**.
 
-1. On the AWS Marketplace Management Portal, record the **Role Name ARN** in the success message. You need the ARN to call the service. 
+1. In AWS Partner Central, record the **Role Name ARN** in the success message. You need the ARN to call the service. 
 
 **Note**  
 Onboarding to the Commerce Analytics Service creates an IAM role in your AWS account. The IAM role allows AWS Marketplace to write to the Amazon S3 bucket and publish notifications to the Amazon SNS topic. AWS Marketplace uses the account 452565589796 to perform these associated actions with this IAM role.

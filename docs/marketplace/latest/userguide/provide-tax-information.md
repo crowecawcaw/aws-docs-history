@@ -73,7 +73,7 @@ For help with India-specific tax requirements, see [Tax help > India](https://aw
 
 Follow these steps to provide your tax information in AWS Marketplace:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home).
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home).
 
 1. Navigate to the **Settings** tab.
 
@@ -81,7 +81,7 @@ Follow these steps to provide your tax information in AWS Marketplace:
 
 1. Complete the U.S. tax interview. Follow the on-screen instructions to complete the appropriate tax form based on your location (W-9 form for US-based sellers or W-8 form for non-US sellers).
 **Note**  
-If you see the error message "Tax interview location does not match the business location," ensure that the banking and tax information provided in Billing and Cost Management matches what is entered into the AWS Marketplace Management Portal. Your tax interview location must match the business location.
+If you see the error message "Tax interview location does not match the business location," ensure that the banking and tax information provided in Billing and Cost Management matches what is entered into AWS Partner Central. Your tax interview location must match the business location.
 
 1. Review all information for accuracy before submitting.
 
@@ -99,7 +99,7 @@ Consider these best practices when providing your tax information:
 + Ensure all information matches your official tax records to avoid processing delays.
 + Have your tax identification documents ready before starting the process.
 + If you're unsure about any tax requirements, consult with a tax professional before submitting your information.
-+ Keep your tax information up to date. If your tax status changes, update your information promptly in the AWS Marketplace Management Portal.
++ Keep your tax information up to date. If your tax status changes, update your information promptly in AWS Partner Central.
 + For VAT/GST registration, ensure you understand the tax collection and remittance requirements in your jurisdiction.
 
 ## Next steps

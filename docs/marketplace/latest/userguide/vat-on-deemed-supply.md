@@ -20,7 +20,7 @@ You can submit invoices for transactions of AWS Marketplace sales of Digital Ser
 ## Getting Started — How to view and submit your invoices for VAT on deemed supply
 <a name="vat-deemed-supply-getting-started"></a>
 
-### Step 1: Log in to AWS Marketplace Management Portal (AMMP) or AWS Partner Central
+### Step 1: Log in to AWS Partner Central
 <a name="vat-deemed-supply-step1"></a>
 
 1. Go to the AWS Console and search for AWS Partner Central

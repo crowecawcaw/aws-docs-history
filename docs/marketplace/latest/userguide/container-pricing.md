@@ -19,8 +19,8 @@ As an AWS Marketplace seller, you can manage and update container product pricin
 You can add a pricing dimension to the pricing model that you use for your product billing. For more information about pricing models, see [Container pricing models](pricing-container-products.md#pricing-models-for-server-products).
 
 **Note**  
-Adding a pricing dimension for a contract with consumption pricing (for example, pay-as-you-go pricing for additional usage) isn't available on the AWS Marketplace Management Portal.  
-You can't change your pricing model between contract, usage, and contract with consumption pricing. Contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team for assistance.
+Container products don't support contract with consumption pricing. For the pricing models that container products support, see [Container pricing models](pricing-container-products.md#pricing-models-for-server-products).  
+You can't change your pricing model between contract and usage pricing. Contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team for assistance.
 
 1. Open the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and sign in to your seller account.
 

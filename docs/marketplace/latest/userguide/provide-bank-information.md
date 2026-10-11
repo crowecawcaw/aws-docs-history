@@ -25,7 +25,7 @@ For all sellers, the bank account must be associated with the legal entity you p
 
 Follow these steps to provide your bank account information in AWS Marketplace:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
 
 1. Choose **Complete banking information** in the **Payment information** section.
 
@@ -44,7 +44,7 @@ Consider these best practices when providing your bank account information:
 + Ensure your bank account can accept USD payments.
 + Verify that your bank account is in good standing and can receive international wire transfers (for non-US accounts).
 + If you're unsure about any banking details, contact your bank for assistance before submitting your information.
-+ Keep your bank account information up to date. If you change banks or account details, update your information promptly in the AWS Marketplace Management Portal.
++ Keep your bank account information up to date. If you change banks or account details, update your information promptly in AWS Partner Central.
 
 ## Next steps
 <a name="next-steps-after-bank"></a>

@@ -232,7 +232,7 @@ Without these permissions, the Deemed VAT section does not appear in the portal.
 ## How do I submit a VAT invoice for VAT payment?
 <a name="faq-how-to-submit"></a>
 
-You can submit a VAT invoice through the AMMP Portal. Navigate to the Tax Information tab in AWS Partner Central. Then:
+You can submit a VAT invoice in AWS Partner Central. Navigate to the Tax Information tab. Then:
 
 1. Select Deemed Supply-eligible line items to upload a VAT invoice.
 
@@ -319,7 +319,7 @@ This language may be included in the Invoice Description field or as a separate 
 
 In jurisdictions where e-invoicing is mandatory (e.g., Italy via the Sistema di Intercambio), you must submit your e-invoice in the required electronic format. XMLs must be submitted for Italy, Belgium, Poland and Romania transactions. Please note that XMLs will be rejected if used for VAT payment requests in any other jurisdiction.
 
-Where e-invoices are represented by a PDF, you can submit e-invoices through the AMMP portal. AWS Marketplace will validate your e-invoice against the applicable government system requirements. If validation fails, you will receive an error response detailing the issue, and you will be asked to re-submit a corrected e-invoice.
+Where e-invoices are represented by a PDF, you can submit e-invoices through AWS Partner Central. AWS Marketplace will validate your e-invoice against the applicable government system requirements. If validation fails, you will receive an error response detailing the issue, and you will be asked to re-submit a corrected e-invoice.
 
 For jurisdictions where e-invoicing is not currently mandatory, you must submit your invoice in PDF format. As more EU Member States adopt mandatory e-invoicing requirements, additional e-invoicing formats may be required. AWS will communicate any changes to supported formats in advance.
 
@@ -334,7 +334,7 @@ AWS will only disburse the VAT amount stated on the invoice. The net amount of t
 ## How can I track the status of my VAT payment?
 <a name="faq-track-status"></a>
 
-You can track the status of all your VAT invoices in the Tax Information tab of the AMMP portal. Each invoice will display one of the following statuses:
+You can track the status of all your VAT invoices in the Tax Information tab of AWS Partner Central. Each invoice will display one of the following statuses:
 + **PENDING:** Invoice was received.
 + **ACCEPTED:** Invoice received and validated, awaiting payment from the Buyer.
 + **REJECTED:** Invoice failed validation. Check the rejection reason and re-upload a corrected invoice.
@@ -344,7 +344,7 @@ You can track the status of all your VAT invoices in the Tax Information tab of 
 
 If a Buyer is issued a refund for a transaction on which you have already received a VAT disbursement, you will be required to return the VAT amount to AWS. You must issue a credit note to the corresponding AWS EMEA branch. The credit note must reference the original invoice number and follow the same format as the original VAT invoice, with the Type of Document field set to "Credit Note".
 
-To submit a Credit Note, please Contact Us through the AMMP portal.
+To submit a Credit Note, please Contact Us through AWS Partner Central.
 
 ## Can AWS generate a VAT invoice for Deemed Supplies on my behalf?
 <a name="faq-self-billing"></a>
@@ -354,7 +354,7 @@ No. At the moment AWS Marketplace does not offer a Self-Billing option where AWS
 ## How do I identify which transactions I can submit VAT invoices for?
 <a name="faq-identify-transactions"></a>
 
-The Tax Dashboard in the AMMP portal has been enhanced to include data columns to help you identify deemed sale transactions and self-serve the generation of your VAT invoice, including:
+The Tax Dashboard in AWS Partner Central has been enhanced to include data columns to help you identify deemed sale transactions and self-serve the generation of your VAT invoice, including:
 + Legal VAT amount (in local currency and USD)
 + Legal currency
 + Seller's local VAT ID
@@ -400,7 +400,7 @@ If your invoice fails validation, you will receive an error response identifying
 + VAT amount on invoice does not match the calculated VAT for the transaction(s).
 + Incorrect AWS EMEA branch name or VAT number.
 
-You can correct the issue and re-upload the invoice through the AMMP portal.
+You can correct the issue and re-upload the invoice through AWS Partner Central.
 
 ## Can I submit more than one invoice for the same transaction?
 <a name="faq-duplicate-invoice"></a>
@@ -428,6 +428,6 @@ The following table summarizes the key differences:
 ## Where can I get additional help with VAT on Deemed Supplies?
 <a name="faq-additional-help"></a>
 
-For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, please Contact Us through the AMMP portal.
+For questions about the VAT on Deemed Supplies invoicing process, invoice submission, or disbursement status, please Contact Us through AWS Partner Central.
 
 For tax-specific questions regarding the Deemed Supply treatment, applicable VAT rates, or legal references, please consult your tax advisor. AWS is unable to provide tax advice on the VAT treatment of your individual transactions.

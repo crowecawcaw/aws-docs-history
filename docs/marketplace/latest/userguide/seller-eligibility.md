@@ -12,7 +12,7 @@ All sellers must meet these basic requirements:
 + Have an AWS account in good standing
 + Meet the requirements in the terms and conditions for AWS Marketplace sellers
 + Provide a valid email address accessible by appropriate contacts within your organization (aliases cannot be substituted)
-+ Use AWS Identity and Access Management (IAM) roles to sign in to the AWS Marketplace Management Portal rather than using root account credentials (strongly recommended)
++ Use AWS Identity and Access Management (IAM) roles to sign in to AWS Partner Central rather than using root account credentials (strongly recommended)
 
 ## Requirements for offering free products
 <a name="free-product-requirements"></a>

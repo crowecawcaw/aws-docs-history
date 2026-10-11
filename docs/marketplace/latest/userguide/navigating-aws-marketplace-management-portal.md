@@ -6,7 +6,7 @@
 **Note**  
 AWS Marketplace Management Portal is now part of AWS Partner Central. Your existing links and bookmarks continue to work—they redirect to the corresponding pages in AWS Partner Central.
 
-AWS unifies AWS Partner Central and AWS Marketplace Management Portal into a single navigation experience in the AWS Management Console. When you access AWS Marketplace Management Portal at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/), you are redirected to [https://us-east-1.console.aws.amazon.com/partnercentral/](https://us-east-1.console.aws.amazon.com/partnercentral/).
+AWS Partner Central provides a single navigation experience in the AWS Management Console. When you go to the previous portal URL at [https://aws.amazon.com/marketplace/management/](https://aws.amazon.com/marketplace/management/), you are redirected to [https://us-east-1.console.aws.amazon.com/partnercentral/](https://us-east-1.console.aws.amazon.com/partnercentral/).
 
 The consolidated navigation menu on the left displays all Partner Central and AWS Marketplace functionalities. All users see this unified menu, which includes options for both AWS Marketplace seller features (such as SaaS products, private offers, and agreements) and Partner Central features (such as Opportunities and Leads).
 

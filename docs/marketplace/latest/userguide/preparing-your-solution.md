@@ -111,7 +111,7 @@ Focus on customer outcomes rather than product features. Use clear, simple langu
 1. Enter the Product ID. The system validates this is a public product listing on AWS Marketplace.
 
 **Note**  
-This must be the Product ID from AWS Marketplace Management Portal, AWS Partner Central, or AWS Marketplace catalog API. Do not use the Listing ID from the website that starts with prodview-. Products not owned by this account must be public or targeted to this account, if limited.
+This must be the Product ID from AWS Partner Central or the AWS Marketplace catalog API. Do not use the Listing ID from the website that starts with prodview-. Products not owned by this account must be public or targeted to this account, if limited.
 
 #### Non-AWS Marketplace products
 <a name="option-3-non-aws-marketplace-products"></a>

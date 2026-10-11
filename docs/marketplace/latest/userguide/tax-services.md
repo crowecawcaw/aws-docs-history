@@ -146,7 +146,7 @@ Buyers who are GST-registered may use the AWS-generated tax invoice to support i
 ### Access to Tax Invoices
 <a name="tax-services-singapore-access"></a>
 
-Eligible Sellers can access copies of AWS-generated tax invoices through the Tax and Compliance Portal on the AWS Marketplace Management Portal. Eligible Sellers are responsible for using these invoices to prepare and support their GST return filings. AWS will retain tax invoices and related documentation for a minimum period of 10 years from the date of issue. Eligible Sellers remain responsible for their own record-keeping obligations under Singapore GST law.
+Eligible Sellers can access copies of AWS-generated tax invoices through the Tax and Compliance Portal in AWS Partner Central. Eligible Sellers are responsible for using these invoices to prepare and support their GST return filings. AWS will retain tax invoices and related documentation for a minimum period of 10 years from the date of issue. Eligible Sellers remain responsible for their own record-keeping obligations under Singapore GST law.
 
 Buyers will receive their tax invoices electronically through the usual AWS billing and notification channels.
 

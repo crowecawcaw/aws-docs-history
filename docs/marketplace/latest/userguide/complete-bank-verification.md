@@ -3,7 +3,7 @@
 # Step 6: Complete bank account verification
 <a name="complete-bank-verification"></a>
 
-To receive disbursements from the AWS EMEA and Korea invoicing entity, you must provide additional information to verify your disbursement bank account that is listed in the **Payment Information** tab in the AWS Marketplace Management Portal.
+To receive disbursements from the AWS EMEA and Korea invoicing entity, you must provide additional information to verify your disbursement bank account that is listed in the **Payment Information** tab in AWS Partner Central.
 
 **Sellers in India**  
 This process doesn't apply to sellers in India as they can only sell to buyers in India. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md).
@@ -22,7 +22,7 @@ Bank account verification requires you to upload a bank statement or similar doc
 
 Follow these steps to complete the bank account verification process:
 
-1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
 
 1. Select **Update banking information** in the **Payment Information** section.
 
@@ -69,7 +69,7 @@ Congratulations\! After successfully completing the bank account verification, y
 
 Here's what you can do next:
 + Create your first product listing
-+ Explore the AWS Marketplace Management Portal to familiarize yourself with its features and capabilities
++ Explore AWS Partner Central to familiarize yourself with its features and capabilities
 + Review the seller documentation to learn about best practices for selling on AWS Marketplace
 + Set up additional users and permissions for your team members
 

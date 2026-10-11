@@ -35,7 +35,7 @@ If you're planning to use an AWS account that's part of an AWS Organizations org
 When the management account in an AWS Organizations organization enables tax inheritance, member accounts inherit the management account's billing address and legal entity information. This can create conflicts if your seller account needs to represent a different business entity than the management account.
 
 Tax inheritance affects AWS Marketplace sellers because:
-+ The billing address determines your seller business location and must match the information you provide in the AWS Marketplace Management Portal.
++ The billing address determines your seller business location and must match the information you provide in AWS Partner Central.
 + Member accounts inherit the management account's legal entity when tax inheritance is enabled.
 + This inheritance can prevent you from accurately representing your business entity in different regions or countries.
 
@@ -54,9 +54,9 @@ For more information about tax inheritance in AWS Organizations, see [Managing t
 ## Setting up secure access
 <a name="account-access-and-security"></a>
 
-For security best practices, we recommend using AWS Identity and Access Management (IAM) roles to sign in to the AWS Marketplace Management Portal rather than using your root account credentials. For comprehensive security guidance, see [AWS Marketplace security](security.md). 
+For security best practices, we recommend using AWS Identity and Access Management (IAM) roles to sign in to AWS Partner Central rather than using your root account credentials. For comprehensive security guidance, see [AWS Marketplace security](security.md). 
 
-You can also configure your account to allow multiple users with different permissions to access the AWS Marketplace Management Portal. For more information about setting up user access, see [Controlling access to AWS Partner Central](marketplace-management-portal-user-access.md). 
+You can also configure your account to allow multiple users with different permissions to access AWS Partner Central. For more information about setting up user access, see [Controlling access to AWS Partner Central](marketplace-management-portal-user-access.md). 
 
 ## Setting up communications
 <a name="communication-setup"></a>

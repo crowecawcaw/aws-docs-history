@@ -13,7 +13,7 @@ To sell your software in AWS Marketplace, follow these steps:
 **Notes**  
 Registering as an AWS Marketplace seller is a prerequisite to listing data products on AWS Data Exchange and making them available on AWS Marketplace. For more information about these requirements, see [Providing Data Products on AWS Data Exchange](https://docs.aws.amazon.com/data-exchange/latest/userguide/providing-data-sets.html) in the *AWS Data Exchange User Guide*.
 For information about the permissions that AWS Marketplace sellers need, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md).
-For more information about product listing fees, registered sellers can view the [AWS Marketplace Seller Terms](https://aws.amazon.com/marketplace/management/seller-settings/terms) in the AWS Marketplace Management Portal.
+For more information about product listing fees, registered sellers can view the [AWS Marketplace Seller Terms](https://aws.amazon.com/marketplace/management/seller-settings/terms) in AWS Partner Central.
 For answers to frequently asked questions, refer to the [AWS Marketplace Sellers FAQ](https://d1.awsstatic.com/awsmp/solutions/aws-seller-faq.pdf).
 
 ## Seller requirements for publishing free software products
@@ -92,10 +92,10 @@ For more information about VAT, invoicing, and your tax obligations as a seller,
 
 If a business entity is not incorporated in one of the countries or SARs listed above, see [Resource for companies outside of AWS Marketplace jurisdictions](https://s3.us-west-2.amazonaws.com/external-mp-channel-partners/Resources_page.pdf).
 
-## AWS Marketplace Management Portal
+## AWS Partner Central
 <a name="aws-marketplace-management-portal"></a>
 
-You can use the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home) to manage the products that you sell in AWS Marketplace. All registered sellers can access the AWS Marketplace Management Portal using their AWS credentials for the account that they used to create their products. The account that you use is defined as the seller of record when a customer subscribes to your product. If you need help determining the specific account that is the seller of record for your products, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
+You can use the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home) to manage the products that you sell in AWS Marketplace. All registered sellers can access AWS Partner Central using their AWS credentials for the account that they used to create their products. The account that you use is defined as the seller of record when a customer subscribes to your product. If you need help determining the specific account that is the seller of record for your products, contact the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/) team. 
 
 You can complete the following tasks on the portal:
 + Register as an AWS Marketplace seller. 
@@ -108,4 +108,4 @@ You can complete the following tasks on the portal:
 + Initiate an automatic Amazon Machine Image (AMI) scan to detect vulnerabilities. 
 
 **Note**  
-Data products are published and managed from the AWS Data Exchange console. AWS Data Exchange providers can use the AWS Marketplace Management Portal to register as a seller, request AWS Data Exchange on-boarding, access seller reports, and submit refund requests.
+Data products are published and managed from the AWS Data Exchange console. AWS Data Exchange providers can use AWS Partner Central to register as a seller, request AWS Data Exchange on-boarding, access seller reports, and submit refund requests.

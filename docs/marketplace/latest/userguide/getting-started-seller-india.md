@@ -15,7 +15,7 @@ AWS Marketplace allows sellers in India to sell paid offers to buyers in India (
 <a name="india-seller-considerations"></a>
 + If you are a seller based outside India, your sales to buyers in India remain in USD via AWS Inc.
 + If you are selling using an account that is part of AWS Organizations, you must use a separate (standalone) account to sell in India to avoid taxation errors.
-+ Private offers for Container products with contract with consumption pricing and usage-based pricing remain in USD.
++ Private offers for container products with usage-based pricing remain in USD.
 
 ## Registration process for sellers in India
 <a name="india-seller-registration-process"></a>

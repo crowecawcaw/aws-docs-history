@@ -49,9 +49,7 @@ You can use AI-assisted product listing in AWS Partner Assistant to generate pro
 ## Step 2: Configure AI Agent Container pricing
 <a name="container-step-2-pricing"></a>
 
-1. Choose pricing model.
-**AgentCore pricing limitations**  
-If the container image uses AgentCore, the **Hourly** and **Usage with long-term contract** pricing models are not supported. To learn more about contract pricing, see [Contract pricing for container products with AWS License Manager](container-license-manager-integration.md). To learn more about custom metering for usage-based pricing, see [Configuring custom metering for container products with AWS Marketplace Metering Service](container-metering-meterusage.md).
+1. Choose a pricing model. If the container image uses AgentCore, choose usage or contract pricing. **Hourly** pricing isn't compatible with Amazon Bedrock AgentCore Runtime. To learn more about contract pricing, see [Contract pricing for container products with AWS License Manager](container-license-manager-integration.md). To learn more about custom metering for usage-based pricing, see [Configuring custom metering for container products with AWS Marketplace Metering Service](container-metering-meterusage.md).
 
 1. Select **Next**.
 
@@ -62,28 +60,21 @@ If the container image uses AgentCore, the **Hourly** and **Usage with long-term
 ## Step 3: Specify refund policy
 <a name="container-step-3-refund"></a>
 
-1. Enter a refund policy.
+1. Enter a refund policy. If you chose the free pricing model, skip this step.
 
 1. Select **Next**.
-
-**Note**  
-If you chose the free product pricing model, you do not have to enter a refund policy.
 
 ## Step 4: Configure EULA
 <a name="container-step-4-eula"></a>
 
-1. Choose **Standard Contract for AWS Marketplace** or **Custom EULA**.
-**Note**  
-If you choose Custom EULA, enter a URL for the end-user license agreement.
+1. Choose **Standard Contract for AWS Marketplace** or **Custom EULA**. If you choose **Custom EULA**, enter a URL for the end-user license agreement.
 
 1. Select **Next**.
 
 ## Step 5: Add repositories
 <a name="container-step-5-repositories"></a>
 
-1. Add an initial repository for your container product.
-**Note**  
-Repository names must be unique across all products in your seller account. You can create up to 50 repositories per product.
+1. Add an initial repository for your container product. Repository names must be unique across all products in your seller account. A product can have up to 70 repositories.
 
 1. Select **Next**.
 
@@ -103,8 +94,7 @@ Repository names must be unique across all products in your seller account. You 
 ## Step 7: Upload Container images and artifacts to repository
 <a name="container-step-7-upload"></a>
 
-**Note**  
-See [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md) on how to integrate AgentCore with your Container Image.
+For information about integrating AgentCore with your container image, see [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md).
 
 1. Locate the URL for the ECR repository:
    + Open the Server products page in AWS Partner Central.
@@ -112,30 +102,17 @@ See [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-run
    + Select the Repositories tab to copy the URL of the repository.
 
 1. Select **View push commands** to open a list of instructions, including commands you can use to push Docker container images and Helm charts to that repository. For general information about how to push container images and other artifacts to repositories, see [Pushing an image](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) in the Amazon Elastic Container Registry User Guide.
-**Note**  
-You can use the following Amazon Elastic Container Registry (Amazon ECR) API operations when calling docker pull or docker push:  
-DescribeImages - Use this to review the metadata about the images in a repository.
-GetAuthorizationToken - Use to authenticate before uploading artifacts to the repository, then use docker pull or docker push commands.
-ListImages - Use to view a list of images you pushed.
 
-1. Use the commands listed to push any needed artifacts from your local repository to the AWS Marketplace repository for your product.
-**Note**  
-The tag that you provide in the push commands is used to differentiate the version of the artifact that you are uploading to the repository. Use a tag that makes sense for the version the artifacts are a part of.
+1. Use the commands listed to push any needed artifacts from your local repository to the AWS Marketplace repository for your product. The tag that you provide in the push command identifies the version of the artifact. Use a tag that matches the product version that the artifact belongs to.
 
-1. Repeat for each container image or artifact you need in your version.
-**Note**  
-Your version can include up to 50 container images or artifacts in each delivery option. Refer to the following procedure for more information about delivery options.
+1. Repeat for each container image or artifact that your version needs. A delivery option that supports Amazon Bedrock AgentCore can include one container image. Other delivery options can include up to 50 container images or artifacts. For all limits, see [Limits for container product versions](container-add-version.md#container-version-limits).
 
-1. After you upload your artifacts, you're ready to create the version of your product.
-**Note**  
-Your container images are scanned automatically to see if they meet the [Container-based product requirements for AWS Marketplace](container-product-policies.md). For more information, see [Container product scans for security issues](container-product-getting-started.md#container-security).
+1. After you upload your artifacts, you're ready to create the version of your product. AWS Marketplace scans your container images automatically to check that they meet the [Container-based product requirements for AWS Marketplace](container-product-policies.md). For more information, see [Container product scans for security issues](container-product-getting-started.md#container-security).
 
 ## Step 8: Add New Product Version with Assets
 <a name="container-step-8-version"></a>
 
-1. Open the **AI Agents and Tools** products page in AWS Partner Central.
-**Note**  
-Only container products with versions that support Amazon Bedrock AgentCore Runtime are visible in the **AI Agents and Tools** products page. Before adding the first version, you will only find your product within the **Server** products page in AWS Partner Central. Once you've created the version for Amazon Bedrock AgentCore Runtime, you will find your container product within the **AI Agents and Tools** products page.
+1. Open the **AI Agents and Tools** products page in AWS Partner Central. This page shows only container products that have a version that supports Amazon Bedrock AgentCore Runtime. Until you add that first version, open your product from the **Server** products page instead.
 
 1. Select your container product and choose the **Request changes** dropdown menu, select **Update versions**, and select **Add new version**.
 
@@ -146,7 +123,7 @@ Only container products with versions that support Amazon Bedrock AgentCore Runt
 1. Select **Add delivery option**.
 
 1. For **Delivery method**, select **Container image** and fill in:
-   + **Supported services**: select the environment that buyers can launch the software in.
+   + **Supported services**: select the environment that buyers can launch the software in. A delivery option that supports Amazon Bedrock AgentCore can't include other services.
    + For **Bedrock AgentCore** service, select **AI Agent, MCP Server, or A2A Server** in the **Type** field.
    + **Container image**: *Repository URL* and *version tag* you specified previously.
    + **Delivery option title** and **Deployment option description**: Enter a title and description for this delivery option.
@@ -188,8 +165,7 @@ When listing a containerized agent, provide clear deployment instructions, resou
 ### Technical requirements for Bedrock AgentCore Runtime Containers
 <a name="bedrock-agentcore-runtime-requirements"></a>
 
-**Note**  
-See [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md) for more details.
+For more information, see [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md).
 
 When creating container-based AI agent products for AWS Marketplace, follow these requirements:
 
