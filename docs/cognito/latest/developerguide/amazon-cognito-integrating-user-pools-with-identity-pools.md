@@ -26,7 +26,7 @@ For more information about using identity pools together with user pool groups t
 ## Setting up a user pool with the AWS Management Console
 <a name="amazon-cognito-integrating-user-pools-with-identity-pools-setting-up"></a>
 
-Create an Amazon Cognito user pool and make a note of the **User Pool ID** and **App Client ID** for each of your client apps. For more information about creating user pools, see [Getting started with user pools](getting-started-user-pools.md).
+Create an Amazon Cognito user pool and make a note of the **User Pool ID** and **App Client ID** for each of your client apps. For more information about creating user pools, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 
 ## Setting up an identity pool with the AWS Management Console
 <a name="amazon-cognito-integrating-user-pools-with-identity-pools-configuring"></a>

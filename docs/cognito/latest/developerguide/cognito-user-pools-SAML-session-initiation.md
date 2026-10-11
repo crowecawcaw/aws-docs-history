@@ -116,7 +116,7 @@ Location: {{https://www.example.com}}?code={{[Authorization code]}}
 
 **To configure an IdP for IdP-initiated SAML**
 
-1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-as-user-directory.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html), and SAML identity provider.
+1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-guided-setup.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html), and SAML identity provider.
 
 1. Disassociate all social and OIDC identity providers from your app client, if any are associated.
 

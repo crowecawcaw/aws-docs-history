@@ -52,4 +52,3 @@ At a high level, the process of assigning branding to a domain consists of the f
 **Topics**
 + [Choose a branding experience and assign styles](#managed-login-branding-choose)
 + [The branding editor and customizing managed login](managed-login-brandingeditor.md)
-+ [Customizing hosted UI (classic) branding](hosted-ui-classic-branding.md)

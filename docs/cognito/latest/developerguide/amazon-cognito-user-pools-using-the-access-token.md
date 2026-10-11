@@ -18,6 +18,8 @@ The access token is a [JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7
 **Important**  
 For access and ID tokens, don't specify a minimum less than an hour if you use managed login. Managed login sets browsers cookies that are valid for one hour. If you configure an access token duration of less than an hour, this has no effect on the validity of the managed login cookie and users' ability to reauthenticate without additional credentials for one hour after initial sign-in.
 
+The access token carries claims additively, the same way the ID token does, and the same parsing rules apply. For more information about parsing tokens safely, see [Parse user pool tokens safely](user-pool-parse-tokens-safely.md).
+
 ## Access token header
 <a name="user-pool-access-token-header"></a>
 

@@ -66,16 +66,16 @@ You can create an identity pool through the Amazon Cognito console, or you can u
 <a name="install-the-mobile-or-javascript-sdk"></a>
 
 To use Amazon Cognito identity pools, set up AWS Amplify, the AWS SDK for Java, or the SDK for .NET. For more information, see the following topics.
-+ [Setting up the SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up.html) in the *AWS SDK for JavaScript Developer Guide*
++ [Setting up the SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/setting-up.html) in the *AWS SDK for JavaScript Developer Guide*
 + [Amplify Documentation](https://docs.amplify.aws/) in the *Amplify Dev Center*
-+ [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-creds-provider.html) in the *SDK for .NET Developer Guide*
++ [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/cognito-creds-provider.html) in the *SDK for .NET Developer Guide*
 
 ## Integrate the identity providers
 <a name="integrate-the-identity-providers"></a>
 
 Amazon Cognito identity pools (federated identities) support user authentication through Amazon Cognito user pools, federated identity providers—including Amazon, Facebook, Google, Apple, and SAML identity providers—and unauthenticated identities. This feature also supports [Developer-authenticated identities](developer-authenticated-identities.md), which lets you register and authenticate users via your own backend authentication process.
 
-To learn more about using an Amazon Cognito user pool to create your own user directory, see [Amazon Cognito user pools](cognito-user-pools.md) and [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md).
+To learn more about using an Amazon Cognito user pool to create your own user directory, see [Authenticating users with Amazon Cognito user pools](cognito-user-pools.md) and [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md).
 
 To learn more about using external identity providers, see [Identity pools third-party identity providers](external-identity-providers.md).
 

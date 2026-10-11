@@ -29,7 +29,7 @@ Your SAML provider might send a `LogoutResponse` with more than one `AuthnStatem
 
 **To configure SAML sign-out**
 
-1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-as-user-directory.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html), and SAML IdP.
+1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-guided-setup.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html), and SAML IdP.
 
 1. When you create or edit your SAML identity provider, under **Identity provider information**, check the box with the title **Add sign-out flow**.
 

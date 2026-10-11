@@ -1,11 +1,11 @@
 
 
-# Amazon Cognito user pools
+# Authenticating users with Amazon Cognito user pools
 <a name="cognito-user-pools"></a>
 
 An Amazon Cognito user pool is a user directory for web and mobile app authentication and authorization. From the perspective of your app, an Amazon Cognito user pool is an OpenID Connect (OIDC) identity provider (IdP). A user pool adds layers of additional features for security, identity federation, app integration, and customization of the user experience.
 
-You can, for example, verify that your users’ sessions are from trusted sources. You can combine the Amazon Cognito directory with an external identity provider. With your preferred AWS SDK, you can choose the API authorization model that works best for your app. And you can add AWS Lambda functions that modify or overhaul the default behavior of Amazon Cognito.
+This chapter covers how your users authenticate: signing up, signing in, and the authentication flows a user pool supports, including sign-in through external identity providers. Related tasks are covered in their own chapters—managing the users in your directory, customizing behavior with AWS Lambda triggers, and protecting the pool with threat protection.
 
 ![A diagram with a high-level overview of how user pools work. Clients can sign in with applications build using an AWS SDK or with the OIDC IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup.png)
 
@@ -14,16 +14,7 @@ You can, for example, verify that your users’ sessions are from trusted source
 + [Features](#cognito-user-pools-features)
 + [User pool feature plans](cognito-sign-in-feature-plans.md)
 + [Authentication with Amazon Cognito user pools](authentication.md)
-+ [User pool managed login](cognito-user-pools-managed-login.md)
-+ [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md)
-+ [Managing users in your user pool](managing-users.md)
-+ [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md)
 + [Accessing resources after successful sign-in](accessing-resources.md)
-+ [Messaging and analytics](user-pools-configure-features.md)
-+ [Using Amazon Cognito user pools security features](managing-security.md)
-+ [Multi-Region replication for user pools](user-pool-multi-region.md)
-+ [Updating user pool and app client configuration](cognito-user-pool-updating.md)
-+ [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md)
 
 ## Features
 <a name="cognito-user-pools-features"></a>
@@ -37,13 +28,16 @@ Amazon Cognito user pools have user-driven, administrator-driven, and programmat
 
 **Important**  
 If you activate user sign-up in your user pool, anyone on the internet can sign up for an account and sign into your apps. Don't enable self-registration in your user pool unless you want to open your app to public sign-up. To change this setting, update **Self-service sign-up** in the **Sign-up** menu under **Authentication** in the user pool console, or update the value of [ AllowAdminCreateUserOnly](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUserConfigType.html#CognitoUserPools-Type-AdminCreateUserConfigType-AllowAdminCreateUserOnly) in a [ CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [ UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) API request.  
-For information about security features that you can set up in your user pools, see [Using Amazon Cognito user pools security features](managing-security.md).
+For information about security features that you can set up in your user pools, see [Protecting user pools with threat protection](managing-security.md).
 
 1. Your users can enter their information in your app and create a user profile that’s native to your user pool. You can call API sign-up operations to register users in your user pool. You can open these sign-up operations to anyone, or you can authorize them with a client secret or AWS credentials.
 
 1. You can redirect users to a third-party IdP that they can authorize to pass their information to Amazon Cognito. Amazon Cognito processes OIDC id tokens, OAuth 2.0 `userInfo` data, and SAML 2.0 assertions into user profiles in your user pool. You control the attributes that you want Amazon Cognito to receive based on attribute-mapping rules.
 
-1. You can skip public or federated sign-up, and create users based on your own data source and schema. Add users directly in the Amazon Cognito console or API. Import users from a CSV file. Run a just-in-time AWS Lambda function that looks up your new user in an existing directory, and populates their user profile from existing data.
+1. You can skip public or federated sign-up and create users yourself, based on your own data source and schema, in any of these ways:
+   + Add users directly in the Amazon Cognito console or with the API.
+   + Import users in bulk from a CSV file.
+   + Run a just-in-time AWS Lambda function that looks up each new user in an existing directory and populates their profile from that data.
 
 After your users sign up, you can add them to groups that Amazon Cognito lists in the access and ID tokens. You can also link user pool groups to IAM roles when you pass the ID token to an identity pool.
 
@@ -97,7 +91,7 @@ The classic hosted UI is available in all feature plans, including Lite. Managed
 
 To set up managed login, complete these prerequisites in order:
 
-1. Create a user pool. See [Getting started with user pools](getting-started-user-pools.md).
+1. Create a user pool. See [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 
 1. Add a user pool domain (a prefix domain or a custom domain). See [Configuring a user pool domain](cognito-user-pools-assign-domain.md).
 
@@ -107,46 +101,20 @@ To set up managed login, complete these prerequisites in order:
 + [User pool managed login](cognito-user-pools-managed-login.md)
 + [Configuring a user pool domain](cognito-user-pools-assign-domain.md)
 
-### Security
+### Threat protection
 <a name="cognito-user-pools-security"></a>
 
-Your local users can provide an additional authentication factor with a code from an SMS or email message, or an app that generates multi-factor authentication (MFA) codes. You can build mechanisms to set up and process MFA in your application, or you can let managed login manage it. Amazon Cognito user pools can bypass MFA when your users sign in from trusted devices.
-
-If you don’t want to initially require MFA from your users, you can require it conditionally. With adaptive authentication, Amazon Cognito can detect potential malicious activity and require your user to set up MFA, or block sign-in.
-
-If network traffic to your user pool might be malicious, you can monitor it and take action with AWS WAF web ACLs.
-
-**Related topics**
-+ [Adding MFA to a user pool](user-pool-settings-mfa.md)
-+ [Advanced security with threat protection](cognito-user-pool-settings-threat-protection.md)
-+ [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md)
+Protect your users against password guessing, account takeover, and malicious traffic with multi-factor authentication (MFA), adaptive authentication, and AWS WAF web ACLs. These protections are covered in [Protecting user pools with threat protection](managing-security.md).
 
 ### Custom user experience
 <a name="cognito-user-pools-custom-user-experience"></a>
 
-At most stages of a user’s sign-up, sign-in, or profile update, you can customize how Amazon Cognito handles the request. With Lambda triggers, you can modify an ID token or reject a sign-up request based on custom conditions. You can create your own custom authentication flow.
-
-You can upload custom CSS and logos to give managed login a familiar look and feel to your users.
-
-**Related topics**
-+ [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md)
-+ [Custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md)
-+ [Apply branding to managed login pages](managed-login-branding.md)
+At most stages of sign-up, sign-in, or profile update, you can customize how Amazon Cognito handles the request with Lambda triggers and custom authentication flows, and give managed login a familiar look and feel. See [Customizing user pool workflows with Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md).
 
 ### Monitoring and analytics
 <a name="cognito-user-pools-monitoring-and-analytics"></a>
 
-Amazon Cognito user pools log API requests, including requests to managed login, to AWS CloudTrail. You can review performance metrics in Amazon CloudWatch Logs, push custom logs to CloudWatch with Lambda triggers, monitor email and SMS message delivery, and monitor API request volume in the Service Quotas console.
-
-With the Plus [feature plan](cognito-sign-in-feature-plans.md), you can monitor user authentication attempts for indicators of compromise with automated-learning technology and immediately remediate risks. These advanced security features also log user activity to your user pool and optionally, to Amazon S3, CloudWatch Logs, or Amazon Data Firehose.
-
-You can also log device and session data from your API requests to an Amazon Pinpoint campaign. With Amazon Pinpoint, you can send push notifications from your app based on your analysis of user activity.
-
-**Related topics**
-+ [Amazon Cognito logging in AWS CloudTrail](logging-using-cloudtrail.md)
-+ [Tracking quotas and usage in CloudWatch and Service Quotas](tracking-quotas-and-usage-in-cloud-watch-and-service-quotas.md)
-+ [Exporting logs from Amazon Cognito user pools](exporting-quotas-and-usage.md)
-+ [Using Amazon Pinpoint for user pool analytics](cognito-user-pools-pinpoint-integration.md)
+Amazon Cognito user pools log API requests to AWS CloudTrail, publish performance metrics to Amazon CloudWatch Logs, and monitor message delivery and request volume. See [Amazon Cognito logging in AWS CloudTrail](logging-using-cloudtrail.md).
 
 ### Amazon Cognito identity pools integration
 <a name="cognito-user-pools-identity-pools-integration"></a>

@@ -18,7 +18,7 @@ To learn more about how to populate web identity credentials in your SDK, refer 
 + [Identity Pool Federation](https://docs.amplify.aws/lib/auth/advanced/q/platform/ios/#identity-pool-federation) (iOS) in the Amplify Dev Center
 + [Using Amazon Cognito Identity to authenticate users](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/loading-browser-credentials-cognito.html) in the AWS SDK for JavaScript Developer Guide
 + [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-creds-provider.html) in the AWS SDK for .NET Developer Guide
-+ [Specify Credentials Programmatically](https://aws.github.io/aws-sdk-go-v2/docs/configuring-sdk/#specify-credentials-programmatically) in the AWS SDK for Go Developer Guide
++ [Specify Credentials Programmatically](https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/configure-gosdk.html#specify-credentials-programmatically) in the AWS SDK for Go Developer Guide
 + [Supply temporary credentials in code](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-explicit.html) in the AWS SDK for Java 2.x Developer Guide
 + [assumeRoleWithWebIdentityCredentialProvider](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/guide_credentials_provider.html#assume-role-with-web-identity-provider) provider in the AWS SDK for PHP Developer Guide
 + [Assume Role With Web Identity Provider](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#assume-role-with-web-identity-provider) in the AWS SDK for Python (Boto3) documentation

@@ -128,7 +128,7 @@ You can augment this flow with additional challenges—for example, your own cus
 
 **Related resources**
 + [Amazon Cognito user pools API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/Welcome.html)
-+ [Getting started with user pools](getting-started-user-pools.md)
++ [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md)
 + [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md)
 + [Understanding API, OIDC, and managed login pages authentication](authentication-flows-public-server-side.md#user-pools-API-operations)
 

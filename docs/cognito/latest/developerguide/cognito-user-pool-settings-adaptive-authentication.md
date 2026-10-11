@@ -80,7 +80,7 @@ Update your app client as follows in the Amazon Cognito console to add support f
 
 1. Choose the **App clients** menu.
 
-1. Choose or create an app client. For more information, see [ Configuring a user pool app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-idp-settings.html).
+1. Choose or create an app client. For more information, see [ Configuring a user pool app client](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html).
 
 1. Choose **Edit** from the **App client information** container.
 
@@ -94,7 +94,7 @@ To configure your app client to accept user context data in the Amazon Cognito A
 var EncodedData = AmazonCognitoAdvancedSecurityData.getData({{username}}, {{userPoolId}}, {{clientId}});
 ```
 
-When you design your app to use adaptive authentication, we recommend that you incorporate the latest Amazon Cognito SDK into your app.. The latest version of the SDK collects device fingerprinting information like device ID, model, and time zone. For more information about Amazon Cognito SDKs, see [Install a user pool SDK](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sdk-links.html). Amazon Cognito threat protection only saves and assigns a risk score to events that your app submits in the correct format. If Amazon Cognito returns an error response, check that your request includes a valid secret hash and that the `IPaddress` parameter is a valid IPv4 or IPv6 address.
+When you design your app to use adaptive authentication, we recommend that you incorporate the latest Amazon Cognito SDK into your app.. The latest version of the SDK collects device fingerprinting information like device ID, model, and time zone. For more information about Amazon Cognito SDKs, see [Install a user pool SDK](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-integrate-apps.html). Amazon Cognito threat protection only saves and assigns a risk score to events that your app submits in the correct format. If Amazon Cognito returns an error response, check that your request includes a valid secret hash and that the `IPaddress` parameter is a valid IPv4 or IPv6 address.
 
 **`ContextData` and `UserContextData` resources**
 + AWS Amplify SDK for Android: [GetUserContextData](https://github.com/aws-amplify/aws-sdk-android/blob/main/aws-android-sdk-cognitoidentityprovider/src/main/java/com/amazonaws/mobileconnectors/cognitoidentityprovider/CognitoUserPool.java#L626)

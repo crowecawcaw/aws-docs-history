@@ -1,14 +1,14 @@
 
 
-# Multi-tenant application best practices
+# Building B2B multi-tenant applications
 <a name="multi-tenant-application-best-practices"></a>
+
+This section describes methods that you can implement to separate tenants between Amazon Cognito resources within the same Region and AWS account. You can also split your tenants across more than one AWS account or Region, and give each of them their own quota. Other advantages of multi-Region multi-tenancy include the highest possible level of isolation, shortest network-transit time for globally distributed users, and adherence to existing distribution models in your organization.
 
 Amazon Cognito user pools operate with multi-tenant applications that generate a volume of requests that must remain within Amazon Cognito quotas. To scale up this capacity when your customer base grows, you can [purchase additional quota capacity](quotas.md#managing-request-rate-quotas.title).
 
 **Note**  
-Amazon Cognito [quotas](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html) are applied per AWS account and AWS Region. These quotas are shared across all tenants in your application. Review the Amazon Cognito service quotas, and make sure that the quota meets the expected volume and the expected number of tenants in your application.
-
-This section describes methods that you can implement to separate tenants between Amazon Cognito resources within the same Region and AWS account. You can also split your tenants across more than one AWS account or Region, and give each of them their own quota. Other advantages of multi-Region multi-tenancy include the highest possible level of isolation, shortest network-transit time for globally distributed users, and adherence to existing distribution models in your organization.
+Amazon Cognito [quotas](https://docs.aws.amazon.com/cognito/latest/developerguide/quotas.html) are applied per AWS account and AWS Region. These quotas are shared across all tenants in your application. Review the Amazon Cognito service quotas, and make sure that the quota meets the expected volume and the expected number of tenants in your application.
 
 Single-Region multi-tenancy can also have advantages for your customers and administrators. 
 

@@ -52,7 +52,7 @@ You have the following choice-based options in your authentication flow. All req
 
 1. Sign users in first, then request their choice-based authentication options. A [GetUserAuthFactors](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUserAuthFactors.html) request with the access token of a signed-in user returns their available choice-based authentication factors and their MFA settings. With this option, a user can sign in with username and password first, then activate a different form of authentication. You can also use this operation to check additional options for a user who has signed in with a preferred challenge.
 
-To [configure your app client](authentication.md#authentication-implement) for choice-based authentication, add `ALLOW_USER_AUTH` to the allowed authentication flows. You must also choose the choice-based factors that you want to permit in your user pool configuration. The following process illustrates how to choose choice-based authentication factors.
+To [configure your app client](authentication-implement.md) for choice-based authentication, add `ALLOW_USER_AUTH` to the allowed authentication flows. You must also choose the choice-based factors that you want to permit in your user pool configuration. The following process illustrates how to choose choice-based authentication factors.
 
 ------
 #### [ Amazon Cognito console ]
@@ -122,7 +122,7 @@ Client-based authentication supports the following authentication flows. Declare
 
 With client-based authentication, Amazon Cognito assumes that you have determined how your user wants to authenticate before they begin authentication flows. The logic of determining the sign-in factor that a user wants to provide must be determined with default settings or custom prompts, then declared in the first request to your user pool. The `InitiateAuth` request declares a sign-in `AuthFlow` that directly corresponds to one of the listed options, for example `USER_SRP_AUTH`. With this declaration, the request also includes the parameters to begin authentication, for example `USERNAME`, `SECRET_HASH`, and `SRP_A`. Amazon Cognito might follow up this request with additional challenges like `PASSWORD_VERIFIER` for SRP or `SOFTWARE_TOKEN_MFA` for password sign-in with TOTP MFA.
 
-To [configure your app client](authentication.md#authentication-implement) for client-based authentication, add any authentication flows other than `ALLOW_USER_AUTH` to the allowed authentication flows. Examples are `ALLOW_USER_PASSWORD_AUTH`, `ALLOW_CUSTOM_AUTH`, `ALLOW_REFRESH_TOKEN_AUTH`. To permit client-based authentication flows, no additional user pool configuration is required.
+To [configure your app client](authentication-implement.md) for client-based authentication, add any authentication flows other than `ALLOW_USER_AUTH` to the allowed authentication flows. Examples are `ALLOW_USER_PASSWORD_AUTH`, `ALLOW_CUSTOM_AUTH`, `ALLOW_REFRESH_TOKEN_AUTH`. To permit client-based authentication flows, no additional user pool configuration is required.
 
 ## Step-up authentication with the USER\_AUTH flow
 <a name="cognito-user-pools-step-up-user-auth"></a>

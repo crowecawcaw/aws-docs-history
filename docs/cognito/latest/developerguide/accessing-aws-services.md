@@ -9,7 +9,7 @@ After you configure your Amazon Cognito credentials provider and retrieve AWS cr
 
 **AWS SDK resources for creating a client**
 + [AWS Client configuration](https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/client-config.html) in the AWS SDK for C\+\+ Developer Guide
-+ [Using the AWS SDK for Go V2 with AWS services](https://aws.github.io/aws-sdk-go-v2/docs/making-requests/) in the AWS SDK for Go Developer Guide
++ [Using the AWS SDK for Go V2 with AWS services](https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/making-requests.html) in the AWS SDK for Go Developer Guide
 + [Configuring HTTP clients](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/http-configuration.html) in the AWS SDK for Java 2.x Developer Guide
 + [Creating and calling service objects](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/creating-and-calling-service-objects.html) in the AWS SDK for JavaScript Developer Guide
 + [Creating clients](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/clients.html#creating-clients) in the AWS SDK for Python (Boto3) documentation

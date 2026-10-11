@@ -39,7 +39,7 @@ Any external SAML IdP in your user pool can support response encryption, and eac
 
 **To configure SAML response encryption**
 
-1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-as-user-directory.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html), and SAML IdP.
+1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-guided-setup.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html), and SAML IdP.
 
 1. When you create or edit your SAML identity provider, under **Sign requests and encrypt responses**, check the box with the title **Require encrypted SAML assertions from this provider**.
 
@@ -78,7 +78,7 @@ The ability to prove the integrity of SAML 2.0 requests to your IdP is a securit
 
 **To configure SAML request signing**
 
-1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-as-user-directory.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-configuring-app-integration.html), and SAML IdP.
+1. Create a [user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-guided-setup.html), [app client](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html), and SAML IdP.
 
 1. When you create or edit your SAML identity provider, under **Sign requests and encrypt responses**, check the box with the title **Sign SAML requests to this provider**.
 

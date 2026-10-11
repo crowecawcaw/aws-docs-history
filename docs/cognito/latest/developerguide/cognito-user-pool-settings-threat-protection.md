@@ -55,7 +55,7 @@ Threat protection logs granular details of users' authentication requests to you
 Amazon Cognito supports both adaptive authentication and compromised-credentials detection with the authentication flows `USER_PASSWORD_AUTH` and `ADMIN_USER_PASSWORD_AUTH`. You can enable only adaptive authentication for `USER_SRP_AUTH`. You can't use threat protection with federated sign-in.
 
 **Always-block IPs contribute to request quotas**  
-Blocked requests from IP addresses on an **Always block** exception list in your user pool contribute to the [request rate quotas](https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html#category_operations) for your user pools.
+Blocked requests from IP addresses on an **Always block** exception list in your user pool contribute to the [request rate quotas](https://docs.aws.amazon.com/cognito/latest/developerguide/quotas.html#category_operations) for your user pools.
 
 **Threat protection doesn't apply rate limits**  
 Some malicious traffic has the characteristic of a high volume of requests, like distributed denial of service (DDoS) attacks. The risk ratings that Amazon Cognito applies to incoming traffic are per-request and don't take request volume into account. Individual requests in a high-volume event might receive a risk score and an automated response for application-layer reasons that aren't related to their role in a volumetric attack. To implement defenses against volumetric attacks in your user pools, add AWS WAF web ACLs. For more information, see [Associate an AWS WAF web ACL with a user pool](user-pool-waf.md).
@@ -130,7 +130,7 @@ You can set the **Enforcement mode** for custom authentication to **Audit only**
 <a name="cognito-user-pool-threat-protection-prerequisites"></a>
 
 Before you begin, you need the following:
-+ A user pool with an app client. For more information, see [Getting started with user pools](getting-started-user-pools.md).
++ A user pool with an app client. For more information, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 + Set multi-factor authentication (MFA) to **Optional** in the Amazon Cognito console to use the risk-based adaptive authentication feature. For more information, see [Adding MFA to a user pool](user-pool-settings-mfa.md).
 + If you're using email notifications, go to the [Amazon SES console](https://console.aws.amazon.com/ses/home) to configure and verify an email address or domain to use with your email notifications. For more information about Amazon SES, see [Verifying Identities in Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/verify-addresses-and-domains.html).
 

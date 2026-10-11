@@ -1,7 +1,7 @@
 
 
 # Authorizing access to client or server resources with Amazon Verified Permissions
-<a name="scenario-backend"></a>
+<a name="scenario-avp-authorize-resources"></a>
 
 Your app can pass the tokens from a signed-in user to [Amazon Verified Permissions](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/what-is-avp.html). Verified Permissions is a scalable, fine-grained permissions management and authorization service for applications that you've built. An Amazon Cognito user pool can be an identity source to a Verified Permissions policy store. Verified Permissions makes authorization decisions for requested actions and resources, like `GetPhoto` for `premium_badge.png`, from the principal and their attributes in user pool tokens.
 

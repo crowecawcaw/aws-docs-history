@@ -168,7 +168,7 @@ For more information about setting up Sign in with Apple, see [Configuring Your 
 
    1. Under **Description**, enter a description.
 
-   1. Under **App ID Prefix**, enter a **Bundle ID**. Make a note of the value under **App ID Prefix**. You will use this value after you choose Apple as your identity provider in [Configure your user pool with a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2).
+   1. Under **App ID Prefix**, enter a **Bundle ID**. Make a note of the value under **App ID Prefix**. You will use this value after you choose Apple as your identity provider in [Using social identity providers with a user pool](cognito-user-pools-social-idp.md).
 
    1. Under **Capabilities**, choose **Sign In with Apple**, and then choose **Edit**.
 
@@ -186,7 +186,7 @@ For more information about setting up Sign in with Apple, see [Configuring Your 
 
    1. Under **Description**, enter a description.
 
-   1. Under **Identifier**, enter an identifier. Make a note of this Services ID because you'll need this value after you choose Apple as your identity provider in [Configure your user pool with a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2).
+   1. Under **Identifier**, enter an identifier. Make a note of this Services ID because you'll need this value after you choose Apple as your identity provider in [Using social identity providers with a user pool](cognito-user-pools-social-idp.md).
 
    1. Choose **Continue** and then choose **Register**.
 
@@ -228,7 +228,7 @@ For more information about setting up Sign in with Apple, see [Configuring Your 
 
    1. Choose **Continue**, and then choose **Register**.
 
-1. On the **Download Your Key** page, choose **Download** to download the private key, note the **Key ID** shown, and then choose **Done**. You will need this private key and the **Key ID** value shown on this page after you choose Apple as your identity provider in [Configure your user pool with a social IdP](cognito-user-pools-social-idp.md#cognito-user-pools-social-idp-step-2).
+1. On the **Download Your Key** page, choose **Download** to download the private key, note the **Key ID** shown, and then choose **Done**. You will need this private key and the **Key ID** value shown on this page after you choose Apple as your identity provider in [Using social identity providers with a user pool](cognito-user-pools-social-idp.md).
 
 ## Add a social IdP to your user pool
 <a name="cognito-user-pools-social-step-2"></a>

@@ -259,11 +259,11 @@ We recommend the following approach:
 
 1. Use these templates with deployment tools like the AWS SDKs, CDK, REST API, or CloudFormation to create your production resources.
 
-For more information, see [Getting started with user pools](getting-started-user-pools.md).
+For more information, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 
 ## Additional troubleshooting resources
 <a name="troubleshoot_additional_resources"></a>
 
 For additional troubleshooting guidance and community-contributed solutions, you can also explore the following external resources:
 + [AWS re:Post Amazon Cognito community](https://repost.aws/tags/TAkhAE7QaGSoKZwd6utGhGDA/amazon-cognito) - Browse community questions and solutions
-+ [AWS Knowledge Center Amazon Cognito articles](https://aws.amazon.com/premiumsupport/knowledge-center/cognito/) - Curated troubleshooting articles
++ [AWS Knowledge Center Amazon Cognito articles](https://repost.aws/tags/knowledge-center/TA4IvCeWI1TE66q4jEj4Z-7A/amazon-cognito) - Curated troubleshooting articles

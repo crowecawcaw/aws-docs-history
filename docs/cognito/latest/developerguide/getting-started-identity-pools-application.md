@@ -44,7 +44,7 @@ After you set up the application on your development webserver and access it in 
 
 Before you begin, you'll need the following resources configured.
 + An AWS account with access to Amazon Cognito. If you do not have an AWS account, follow the instructions in [Getting started with AWS](cognito-getting-started-account-iam.md).
-+ Python 3.8 or later installed on your development machine.
++ Python 3.11 or later installed on your development machine.
 + GitHub access.
 + AWS credentials configured with permissions to make authenticated requests to Amazon Cognito APIs. These credentials are required for [developer authentication](authentication-flow.md#authentication-flow-developer).
 

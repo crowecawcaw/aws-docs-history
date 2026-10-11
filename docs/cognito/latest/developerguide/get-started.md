@@ -1,7 +1,12 @@
 
 
-# Getting started with user pools
-<a name="getting-started-user-pools"></a>
+# Getting started with Amazon Cognito
+<a name="get-started"></a>
+
+This chapter gets you started with user pool authentication—creating your first user pool and signing in your first user. Amazon Cognito also offers identity pools, which exchange a user's identity for temporary AWS credentials; if that is what you need, see [Other capabilities](other-capabilities.md). If you are not sure which component you need, see [Which parts of Amazon Cognito do you need?](what-is-amazon-cognito.md#what-is-amazon-cognito-choosing).
+
+**Note**  
+You need an AWS account to complete the walkthrough and quickstarts in this chapter. If you don't have one, see [Getting started with AWS](cognito-getting-started-account-iam.md).
 
 You have an application that requires authentication and access control. You can work within the OpenID Connect (OIDC) framework for single sign-on (SSO). Amazon Cognito has tools for handling the logic of authentication in the application back end with an AWS SDK, and for invoking a browser in your client to access a managed authorization server.
 
@@ -12,8 +17,3 @@ As you work to expand your feature set and incorporate more components of Amazon
 The examples in this chapter and in the Amazon Cognito console demonstrate a basic integration of application resources with Amazon Cognito user pools. Later, you can adjust your user pool to use more of the options that are available to you. Then you can update your application to adopt new features and interact with IdPs.
 
 If you don't want to use the [managed login pages](cognito-terms.md#terms-managedlogin), you can create an application with custom-built authentication interfaces using an AWS SDK or AWS Amplify. Applications that you build in this way interact with the [user pools API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/Welcome.html) and are suitable only for authenticating [local users](cognito-terms.md#terms-localuser). Continue learning about this authentication model at [Other application options](getting-started-user-pools-application-other-options.md).
-
-**Topics**
-+ [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md)
-+ [Other application options](getting-started-user-pools-application-other-options.md)
-+ [Add more features and security options to your user pool](user-pool-next-steps.md)

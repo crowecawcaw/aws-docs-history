@@ -29,6 +29,7 @@ Additional costs apply to access token customization with version 2 events. For 
 **Topics**
 + [Understanding the identity (ID) token](amazon-cognito-user-pools-using-the-id-token.md)
 + [Understanding the access token](amazon-cognito-user-pools-using-the-access-token.md)
++ [Parse user pool tokens safely](user-pool-parse-tokens-safely.md)
 + [Refresh tokens](amazon-cognito-user-pools-using-the-refresh-token.md)
 + [Ending user sessions with token revocation](token-revocation.md)
 + [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md)

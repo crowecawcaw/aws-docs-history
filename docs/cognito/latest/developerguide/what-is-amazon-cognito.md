@@ -7,6 +7,7 @@ Amazon Cognito is an identity platform for web and mobile apps. It’s a user di
 
 **Topics**
 + [Which parts of Amazon Cognito do you need?](#what-is-amazon-cognito-choosing)
++ [What you can build with Amazon Cognito](#what-is-amazon-cognito-common-scenarios)
 + [User pools](#what-is-amazon-cognito-user-pools)
 + [Identity pools](#what-is-amazon-cognito-identity-pools)
 + [Features of Amazon Cognito](#what-is-amazon-cognito-features)
@@ -34,6 +35,28 @@ Do you need both?
 Use them together when your app signs users in *and* needs to grant them direct AWS resource access: authenticate with a user pool, then exchange the user pool token with an identity pool for AWS credentials.
 
 Neither component requires the other. A user pool can issue tokens to your own back end with no identity pool. An identity pool can broker credentials for a provider that you already have, even without a user pool. For more information about the differences between the two components, see [Amazon Cognito user pools and identity pools comparison](#what-is-amazon-cognito-features-comparison). To start building, see [Getting started with Amazon Cognito](#getting-started-overview).
+
+## What you can build with Amazon Cognito
+<a name="what-is-amazon-cognito-common-scenarios"></a>
+
+Most Amazon Cognito applications fall into a few common shapes. Use this list to find the one closest to what you're building, then follow the link for the full walkthrough.
+
+Sign users in to your app  
+A user pool authenticates your users and issues JSON web tokens (JWTs) that your app or API verifies. This is the starting point for most apps that need sign-up and sign-in. See [Authenticate with a user pool](cognito-scenarios.md#scenario-basic-user-pool).
+
+Protect your own API or back-end resources  
+Use the access token from a user pool to authorize requests to your server-side resources, or let Amazon API Gateway validate the token and gate access to a Lambda function or your own API. See [Access back-end resources with user pool tokens](cognito-scenarios.md#scenario-backend) and [Access resources with API Gateway and Lambda with a user pool](cognito-scenarios.md#scenario-api-gateway).
+
+Give users temporary access to AWS services  
+Exchange a user pool token with an identity pool for temporary, limited-privilege AWS credentials so your app can call services like Amazon S3 and Amazon DynamoDB on the user's behalf. See [Access AWS services with a user pool and an identity pool](cognito-scenarios.md#scenario-aws-and-user-pool).
+
+Let users sign in with Google, Apple, or an enterprise directory  
+Federate through a social or SAML/OIDC provider. A user pool brokers the sign-in and issues your app a standard set of tokens, or an identity pool exchanges the external token directly for AWS credentials. See [Authenticate with a third party and access AWS services with an identity pool](cognito-scenarios.md#scenario-identity-pool).
+
+Authorize an application or device with no human user  
+Machine-to-machine (M2M) authorization issues an access token to an app, service, or device that authenticates as itself with the `client_credentials` grant, with no human user in the loop. See [Authorize machine-to-machine (M2M) applications](cognito-scenarios.md#scenario-machine-to-machine).
+
+For the full set of scenarios with architecture diagrams, see [Common Amazon Cognito scenarios](cognito-scenarios.md).
 
 ## User pools
 <a name="what-is-amazon-cognito-user-pools"></a>
@@ -118,7 +141,7 @@ With the OAuth 2.0 and OpenID Connect (OIDC) tokens that an Amazon Cognito user 
 
 ² Feature is unavailable to federated and managed login users.
 
-For more information about user pools, see [Getting started with user pools](getting-started-user-pools.md) and the [Amazon Cognito user pools API reference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/).
+For more information about user pools, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md) and the [Amazon Cognito user pools API reference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/).
 
 ### Identity pools
 <a name="what-is-amazon-cognito-features-identity-pools"></a>
@@ -191,7 +214,7 @@ For more information about identity pools, see [Getting started with Amazon Cogn
 ## Getting started with Amazon Cognito
 <a name="getting-started-overview"></a>
 
-For example user pool applications, see [Getting started with user pools](getting-started-user-pools.md).
+For example user pool applications, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 
 For an introduction to identity pools, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md).
 

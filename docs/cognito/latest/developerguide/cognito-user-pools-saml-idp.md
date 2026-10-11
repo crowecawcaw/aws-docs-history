@@ -3,7 +3,7 @@
 # Using SAML identity providers with a user pool
 <a name="cognito-user-pools-saml-idp"></a>
 
-You can choose to have your web and mobile app users sign in through a SAML identity provider (IdP) like [Microsoft Active Directory Federation Services (ADFS)](https://msdn.microsoft.com/en-us/library/bb897402.aspx), or [Shibboleth](http://www.shibboleth.net/). You must choose a SAML IdP which supports the [SAML 2.0 standard](http://saml.xml.org/saml-specifications).
+You can choose to have your web and mobile app users sign in through a SAML identity provider (IdP) like [Microsoft Active Directory Federation Services (ADFS)](https://msdn.microsoft.com/en-us/library/bb897402.aspx), or [Shibboleth](http://www.shibboleth.net/). You must choose a SAML IdP which supports the [SAML 2.0 standard](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html).
 
 With managed login, Amazon Cognito authenticates local and third-party IdP users and issues JSON web tokens (JWTs). With the tokens that Amazon Cognito issues, you can consolidate multiple identity sources into a universal OpenID Connect (OIDC) standard across all of your apps. Amazon Cognito can process SAML assertions from your third-party providers into that SSO standard. You can create and manage a SAML IdP in the AWS Management Console, through the AWS CLI, or with the Amazon Cognito user pools API. To create your first SAML IdP in the AWS Management Console, see [Adding and managing SAML identity providers in a user pool](cognito-user-pools-managing-saml-idp.md).
 

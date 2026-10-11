@@ -1,12 +1,9 @@
 
 
-# The token issuer endpoint
+# The token endpoint
 <a name="token-endpoint"></a>
 
 The OAuth 2.0 [token endpoint](https://www.rfc-editor.org/rfc/rfc6749#section-3.2) at `/oauth2/token` issues JSON web tokens (JWTs) to applications that want to complete authorization-code and client-credentials grant flows. These tokens are the end result of authentication with a user pool. They contain information about the user (ID token), the user's level of access (access token), and the user's entitlement to persist their signed-in session (refresh token). OpenID Connect (OIDC) relying-party libraries handle requests to and response payloads from this endpoint. Tokens provide verifiable proof of authentication, profile information, and a mechanism for access to back-end systems.
-
-**Note**  
-Amazon Cognito doesn't implement the OpenID Connect `offline_access` scope model for controlling refresh-token issuance. Instead, the token endpoint returns a refresh token whenever the `grant_type` is `authorization_code`, and you control refresh-token lifetime through the app client's refresh-token validity setting rather than by requesting `offline_access`. Requesting the `offline_access` scope has no effect, and omitting it does not suppress the refresh token.
 
 The token endpoint returns an `Access-Control-Allow-Origin: *` response header. You can call the token endpoint cross-origin from a browser-based application. For example, you can complete an authorization code grant with Proof Key for Code Exchange (PKCE) from a public client. Amazon Cognito does not support custom cross-origin resource sharing (CORS) origin policies on this endpoint. For more information, see the CORS policies section of [User pool managed login](cognito-user-pools-managed-login.md).
 
@@ -25,6 +22,11 @@ The token endpoint becomes publicly available when you add a domain to your user
 You can learn more about the user pool app clients and their grant types, client secrets, allowed scopes, and client IDs at [Application-specific settings with app clients](user-pool-settings-client-apps.md). You can learn more about M2M authorization, client credentials grants, and authorization with access token scopes at [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md).
 
 To retrieve information about a user from their access token, pass it to your [userInfo endpoint](userinfo-endpoint.md) or to a [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) API request. The access token must contain the appropriate scopes for these requests,
+
+## How Amazon Cognito differs from the OIDC specification
+<a name="token-endpoint-oidc-differences"></a>
+
+Amazon Cognito doesn't implement the OpenID Connect `offline_access` scope model for controlling refresh-token issuance. Instead, the token endpoint returns a refresh token whenever the `grant_type` is `authorization_code`, and you control refresh-token lifetime through the app client's refresh-token validity setting rather than by requesting `offline_access`. Requesting the `offline_access` scope has no effect, and omitting it does not suppress the refresh token.
 
 ## Format a POST request to the token endpoint
 <a name="post-token"></a>

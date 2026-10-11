@@ -7,9 +7,6 @@ With multi-Region replication (MRR), you can create a replica user pool in an ad
 
 When you configure MRR, Amazon Cognito creates separate user pools with a shared user pool ID. Each replica user pool hosts authentication services for a shared user directory. The primary user pool serves as the authoritative source for administrative configuration and write operations such as password resets and user sign-up. Secondary user pools can't create users. They inherit most settings from the primary user pool and, in a failover state, can handle authentication operations such as user sign-in and token generation.
 
-**Important**  
-Multi-Region replication is not available for all user pools at this time. Multi-Region replication requires the modern Amazon Cognito infrastructure with enhanced capabilities and scalability. Some user pools are still on a previous infrastructure and will be upgraded by AWS to the new infrastructure, which will unlock this feature. In the Amazon Cognito console, eligible user pools display multi-Region replication configuration options, and ineligible pools display exception messages. For more information, see [Amazon Cognito unlocks advanced capabilities with next-generation infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-advanced-capabilities-with-next-generation-infrastructure/) in the AWS Security Blog.
-
 ## Things to know about multi-Region replication
 <a name="user-pool-multi-region-things-to-know"></a>
 + Multi-Region replication has separate add-on costs and requires your user pool to be on the Essentials or Plus [feature plan](cognito-sign-in-feature-plans.md). You can't enable MRR on user pools with the Lite feature plan.
@@ -48,7 +45,7 @@ Before you can enable multi-Region replication, ensure your user pool meets the 
 
 1. Choose **User pools**.
 
-1. Choose an existing user pool from the list, or [create a new user pool](getting-started-user-pools.md).
+1. Choose an existing user pool from the list, or [create a new user pool](getting-started-user-pools-application.md).
 
 1. Choose the **Settings** tab.
 

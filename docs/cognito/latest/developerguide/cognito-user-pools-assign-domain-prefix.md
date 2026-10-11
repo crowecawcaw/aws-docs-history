@@ -34,7 +34,7 @@ To add an app client and a user pool domain with the AWS Management Console, see
 <a name="cognito-user-pools-assign-domain-prefix-prereq"></a>
 
 Before you begin, you need:
-+ A user pool with an app client. For more information, see [Getting started with user pools](getting-started-user-pools.md).
++ A user pool with an app client. For more information, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 
 ## Configure an Amazon Cognito domain prefix
 <a name="cognito-user-pools-assign-domain-prefix-step-1"></a>

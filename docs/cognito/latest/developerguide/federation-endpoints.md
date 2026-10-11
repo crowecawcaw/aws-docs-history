@@ -52,10 +52,26 @@ Recommended for all user pools, including for multi-Region replication. Updated 
 Updated issuers take the format `https://issuer-cognito-idp.{{us-east-1}}.amazonaws.com/{{us-east-1_EXAMPLE}}`, where {{Region}} is the primary AWS Region of your user pool.  
 The updated issuer type is not currently compatible with Application Load Balancer authentication with Amazon Cognito ([Authenticate users using an Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html)) or Amazon API Gateway Amazon Cognito authorizers ([Control access to REST APIs using Amazon Cognito user pools as authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)).
 
+### Prepare for changes to the discovery document
+<a name="user-pool-oidc-discovery-parse-safely"></a>
+
+The `openid-configuration` document is a standard OpenID Connect discovery document. Amazon Cognito can add metadata entries to it over time to keep it compliant with the OpenID Connect and OAuth 2.0 specifications and to improve compatibility with OIDC client libraries. These additions are backward compatible: Amazon Cognito adds new members, but it does not rename, change the type of, or remove the members that your application already reads. Write your client so that it keeps working as the document grows.
+
+Ignore members that you don't recognize  
+As the OpenID Connect Discovery specification requires, treat metadata members that you don't understand as optional. Don't reject, fail, or throw an error when the document contains a member that your application doesn't use.
+
+Don't hard-code the set or order of members  
+Parse the document as a general JSON object rather than a fixed structure. The members can appear in any order, and the set of members can change between requests and over time. Address each member by name, and read each one as the type that the specification defines for it.
+
+Test strict clients against the current document  
+If your client validates the discovery document strictly, fetch the current document from your user pool's `/.well-known/openid-configuration` endpoint and confirm that your client accepts it before you depend on a specific set of members.
+
+Amazon Cognito tokens follow the same additive, forward-compatible approach. For more information about parsing the claims in an ID or access token, see [Parse user pool tokens safely](user-pool-parse-tokens-safely.md).
+
 **Topics**
 + [Amazon Cognito user pools as an OIDC issuer](#user-pool-oidc-issuer)
 + [The redirect and authorization endpoint](authorization-endpoint.md)
-+ [The token issuer endpoint](token-endpoint.md)
++ [The token endpoint](token-endpoint.md)
 + [The user attributes endpoint](userinfo-endpoint.md)
 + [The token revocation endpoint](revocation-endpoint.md)
 + [The IdP SAML assertion endpoint](saml2-idpresponse-endpoint.md)

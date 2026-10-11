@@ -103,7 +103,7 @@ The following user activity verifies user attributes. You're not required to set
 When you verify your users' email addresses and phone numbers, you ensure that you can contact your users. Complete the following steps in the AWS Management Console to configure your user pool to require that your users confirm their email addresses or phone numbers.
 
 **Note**  
-If you don't yet have a user pool in your account, see [Getting started with user pools](getting-started-user-pools.md).
+If you don't yet have a user pool in your account, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 
 **To configure your user pool**
 

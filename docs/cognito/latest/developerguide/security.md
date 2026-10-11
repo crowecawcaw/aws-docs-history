@@ -11,6 +11,8 @@ Security is a shared responsibility between AWS and you. The [shared responsibil
 
 This documentation helps you understand how to apply the shared responsibility model when using Amazon Cognito. It shows you how to configure Amazon Cognito to meet your security and compliance objectives. You also learn how to use other AWS services that help you to monitor and secure your Amazon Cognito resources.
 
+For user pool–specific protections against malicious sign-up, sign-in, and account takeover—MFA, adaptive authentication, and threat protection—see [Protecting user pools with threat protection](managing-security.md).
+
 **Topics**
 + [Data protection in Amazon Cognito](data-protection.md)
 + [Identity and access management for Amazon Cognito](security-iam.md)

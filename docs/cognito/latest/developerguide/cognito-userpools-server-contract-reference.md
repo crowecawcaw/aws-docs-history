@@ -17,6 +17,8 @@ In addition to managed login, Amazon Cognito integrates with SDKs for Android, i
 Don't pin the end-entity or intermediate Transport Layer Security (TLS) certificates for Amazon Cognito domains. AWS manages all certificates for all of your user pool endpoints and prefix domains. The certificate authorities (CAs) in the chain of trust that supports Amazon Cognito certificates dynamically rotate and renew. When you pin your app to an intermediate or leaf certificate, your app can fail without notice when AWS rotates certificates.  
 Instead, pin your application to all available [Amazon root certificates](https://www.amazontrust.com/repository/). For more information, see best practices and recommendations at [Certificate pinning](https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-pinning) in the *AWS Certificate Manager User Guide*.
 
+For a list of service endpoints for the user pools API by AWS Region, see [Service endpoints](https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html#cognito_identity_your_user_pools_region) in the *AWS General Reference*.
+
 **Topics**
 + [User-interactive managed login and classic hosted UI endpoints](managed-login-endpoints.md)
 + [Identity provider and relying party endpoints](federation-endpoints.md)

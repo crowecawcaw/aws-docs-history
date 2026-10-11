@@ -29,7 +29,7 @@ To add a custom domain to your user pool, you specify the domain name in the Ama
 <a name="cognito-user-pools-add-custom-domain-prereq"></a>
 
 Before you begin, you need:
-+ A user pool with an app client. For more information, see [Getting started with user pools](getting-started-user-pools.md).
++ A user pool with an app client. For more information, see [Create a new application in the Amazon Cognito console](getting-started-user-pools-application.md).
 + A web domain that you own. Its *parent domain* must have a valid DNS **A record**. You can assign any value to this record. The parent may be the root of the domain, or a child domain that is one step up in the domain hierarchy. For example, if your custom domain is *auth.xyz.example.com*, Amazon Cognito must be able to resolve *xyz.example.com* to an IP address. To prevent accidental impact on customer infrastructure, Amazon Cognito doesn't support the use of top-level domains (TLDs) for custom domains. For more information see [Domain Names](https://tools.ietf.org/html/rfc1035).
 + The ability to create a subdomain for your custom domain. We recommend **auth** for your subdomain name. For example: {{auth.example.com}}.
 **Note**  
