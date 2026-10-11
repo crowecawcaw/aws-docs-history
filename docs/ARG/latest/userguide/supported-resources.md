@@ -23,15 +23,6 @@ For a list of resource types that are deprecated and no longer supported by Reso
 **Note**  
 Resource Groups and Tag Editor support the resource types in the following table, but some resource types may not be available in your AWS Region. 
 
-## AWS DeepComposer
-<a name="services-deepcomposer"></a>
-
-
-| **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
-| --- | --- | --- | --- | 
-| `AWS::DeepComposer::Composition` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::DeepComposer::Model` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-
 ## Amazon API Gateway
 <a name="services-apigateway"></a>
 
@@ -507,17 +498,6 @@ Resource Groups and Tag Editor support the resource types in the following table
 | **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
 | --- | --- | --- | --- | 
 | `AWS::ApplicationSignals::ServiceLevelObjective` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-
-## CloudWatch Evidently
-<a name="services-evidently"></a>
-
-
-| **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
-| --- | --- | --- | --- | 
-| `AWS::Evidently::Feature` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Evidently::Launch` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Evidently::Project` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Evidently::Segment` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## Amazon CloudWatch Logs
 <a name="services-logs"></a>
@@ -1257,14 +1237,6 @@ Resource Groups and Tag Editor support the resource types in the following table
 | `AWS::MediaPackageV2::Channel` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 | `AWS::MediaPackageV2::ChannelGroup` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 | `AWS::MediaPackageV2::OriginEndpoint` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-
-## AWS Elemental MediaStore
-<a name="services-mediastore"></a>
-
-
-| **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
-| --- | --- | --- | --- | 
-| `AWS::MediaStore::Container` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## MediaTailor
 <a name="services-mediatailor"></a>
@@ -2260,16 +2232,6 @@ Rules in custom event buses aren't supported in Tag Editor.
 | --- | --- | --- | --- | 
 | `AWS::Outposts::Outpost` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 | `AWS::Outposts::Site` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-
-## AWS Panorama
-<a name="services-panorama"></a>
-
-
-| **Resources** | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** | 
-| --- | --- | --- | --- | 
-| `AWS::Panorama::ApplicationInstance` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Panorama::Device` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
-| `AWS::Panorama::Package` |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-yes.png) Yes |  ![](https://docs.aws.amazon.com/ARG/latest/userguide/images/icon-no.png) No | 
 
 ## AWS Parallel Computing Service
 <a name="services-pcs"></a>
