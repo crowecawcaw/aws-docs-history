@@ -8,6 +8,7 @@ The following table describes important changes in each release of the *AWS Elem
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
 | [Added DRM query param info](drm-query-param.md) | Added topic about query parameters to remove `EXT-X-SESSION-KEY` tags from manifest responses. | January 10, 2025 | 
 | [Added accessibility support information](what-is-features.md) | Added *Accessibility support* to the list of MediaPackage features, descriing requirements for audio and subtitles accessibility signaling.  | December 17, 2024 | 
 | [Workflow monitor](monitor-with-workflow-monitor.md) | Analyze AWS media services and create signal maps, visualizations of the media workflow, between those services. Use the signal maps to generate monitoring alarms and notifications using CloudWatch, EventBridge, and CloudFormation. | April 11, 2024 | 
