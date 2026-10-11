@@ -28,7 +28,7 @@ However, when accessing Amazon SimpleDB using a REST request, you must provide t
 ## Authentication Process
 <a name="AuthProcess"></a>
 
-Following is the series of tasks required to authenticate requests to AWS using an HMAC-SHA request signature. It is assumed you have already created an AWS account and received an Access Key ID and Secret Access Key. For more information about those, see .
+Following is the series of tasks required to authenticate requests to AWS using an HMAC-SHA request signature. It is assumed you have already created an AWS account and received an Access Key ID and Secret Access Key.
 
 You perform the first three tasks.
 
