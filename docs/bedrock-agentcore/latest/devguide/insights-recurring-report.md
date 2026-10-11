@@ -3,6 +3,10 @@
 # Recurring insights report
 <a name="insights-recurring-report"></a>
 
+**Insights job creation ends October 16, 2026**  
+Beginning October 16, 2026, Amazon Bedrock AgentCore insights no longer supports creating new batch or recurring insights. Existing recurring insight jobs continue to process sessions and generate reports through October 30, 2026. Beginning October 31, existing recurring insights will also stop generating reports. Historical batch results and recurring insights reports remain available.  
+This change is part of a redesign of Insights. A new Insights experience will be available soon.
+
 Create an online evaluation configuration with insights and a clustering schedule. The service automatically runs insights analysis on the configured cadence without manual intervention.
 
 **Topics**

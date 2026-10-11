@@ -104,3 +104,10 @@ Every restored instance starts from the same snapshot and reports the same hostn
 
 Avoid binding to a fixed source port  
 After a restore, the connection held at snapshot time is re-established, and a fixed source port can collide with that replacement within the instance. Restored instances are separate microVMs with their own network namespaces, so the conflict is within an instance, not across them.
+
+## Cross-account metrics and quotas
+<a name="_cross_account_metrics_and_quotas"></a>
+
+For a cross-account invocation, where a principal in one account invokes an agent runtime owned by another account through a resource-based policy, the CloudWatch metrics and the rate-limit quota usage for the invocation are attributed to the resource owner’s account. The resource owner is the account that owns the agent runtime.
+
+You can also view the metrics that count toward your quota in the [Service Quotas](https://console.aws.amazon.com/servicequotas/home/services/bedrock-agentcore/quotas) console.

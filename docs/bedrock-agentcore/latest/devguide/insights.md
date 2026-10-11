@@ -3,11 +3,15 @@
 # AgentCore insights: Triage agent failures with pattern analysis
 <a name="insights"></a>
 
+**Insights job creation ends October 16, 2026**  
+Beginning October 16, 2026, Amazon Bedrock AgentCore insights no longer supports creating new batch or recurring insights. Existing recurring insight jobs continue to process sessions and generate reports through October 30, 2026. Beginning October 31, existing recurring insights will also stop generating reports. Historical batch results and recurring insights reports remain available.  
+This change is part of a redesign of Insights. A new Insights experience will be available soon.
+
 **Note**  
 AgentCore insights is in public preview. Features and APIs may change before general availability.
 
 **Note**  
-When using AgentCore insights in ap-south-1, the service uses Bedrock APAC cross-region inference profiles. When using AgentCore insights in ap-northeast-2, the service uses Bedrock global cross-region inference profiles. In both cases, your request may be routed to any of the destination Regions in the profile. This routing can occur even if you have not opted in to those Regions or have Service Control Policies explicitly denying inference in them. Input prompts and output results may be stored in these destination Regions for abuse detection purposes.
+When using AgentCore insights in Asia Pacific (Seoul) (ap-northeast-2), Asia Pacific (Mumbai) (ap-south-1), or Asia Pacific (Singapore) (ap-southeast-1), the service uses Bedrock global cross-region inference profiles. Your request may be routed to any of the destination AWS Regions in the profile. This routing can occur even if you have not opted in to those Regions or have Service Control Policies explicitly denying inference in them. Input prompts and output results may be stored in these destination Regions for abuse detection purposes.
 
 Amazon Bedrock AgentCore insights analyzes your agent sessions to identify failure patterns, extract user intents, and summarize execution behavior. Insights extends [AgentCore Evaluations](evaluations.md) by providing triage analysis that goes beyond scoring — it tells you *why* your agent fails and *what* your users are trying to accomplish.
 

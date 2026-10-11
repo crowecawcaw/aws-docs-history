@@ -68,3 +68,5 @@ Treat this table as a high-level overview. For more information about detailed a
 + Cannot access context fields other than `context.input` (`context.output` can only be used with guardrails)
 + Cannot use custom attributes on OAuthUser (use tags instead)
 + Cannot define new entity types in policies
++ Cannot use floating-point numbers. Cedar has no float type, so express fractional values as `decimal("…​")`, which supports no more than 4 decimal places
++ Cannot use regular expressions. Pattern matching is limited to the `like` operator with `*` wildcards. For more information, see [Where wildcards work](example-policies-action-resource.md#example-policies-action-resource-wildcards) 

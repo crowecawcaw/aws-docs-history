@@ -18,6 +18,7 @@ This troubleshooting topic helps you identify and resolve common issues when wor
 + [How do I access the runtimeSessionId in my agent code for tagging or grouping resources?](#troubleshoot-runtime-session-id)
 + [I have RuntimeClientError (403) issues](#runtime-client-error)
 + [I have missing or empty CloudWatch Logs](#missing-cloudwatch-logs)
++ [I stopped seeing CloudWatch metrics for my agent after moving to platform version V2](#troubleshoot-runtime-cross-account-metrics)
 + [I have payload format issues](#payload-format-issues)
 + [I need help understanding HTTP error codes](#common-error-codes)
 + [I need recommendations for testing my agent](#testing-recommendations)
@@ -259,6 +260,17 @@ Try these approaches to diagnose the issue:
 1.  **Run Locally for Diagnostics** : If there are no CloudWatch Logs, try running the agent container locally using the exact same payload you used for invocation in AgentCore Runtime. This can help identify issues that might not be visible in the logs.
 
 1.  **Enable Verbose Logging** : Update your agent code to include more detailed logging, especially around the entry points and any error handling logic.
+
+## I stopped seeing CloudWatch metrics for my agent after moving to platform version V2
+<a name="troubleshoot-runtime-cross-account-metrics"></a>
+
+ **Problem** 
+
+You invoke an agent runtime across accounts: a principal in your account invokes a runtime owned by another account through a resource-based policy. After the runtime moves to platform version V2, you no longer see the per-invocation CloudWatch metrics in your account.
+
+ **Solution** 
+
+This is expected behavior, not missing data. On platform version V2, a cross-account invocation publishes the runtime metrics to the resource owner’s account, not to the calling account. The resource owner is the account that owns the agent runtime. Look for the metrics in the resource owner’s account. For more information, see [AgentCore generated runtime observability data](observability-runtime-metrics.md).
 
 ## I have payload format issues
 <a name="payload-format-issues"></a>

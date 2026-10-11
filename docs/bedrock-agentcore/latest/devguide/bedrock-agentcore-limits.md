@@ -97,6 +97,9 @@ The following table describes the rate limits for AgentCore Runtime after which 
 | Control plane Get API rate | 150 TPS | No | Transactions per second per account. This quota is shared across all control plane Get APIs and is not enforced for each API individually. It applies to `GetAgentRuntime` and `GetAgentRuntimeEndpoint`. | 
 | Control plane List API rate | 25 TPS | No | Transactions per second per account. This quota is shared across all control plane List APIs and is not enforced for each API individually. It applies to `ListAgentRuntimes`, `ListAgentRuntimeEndpoints`, and `ListAgentRuntimeVersions`. | 
 
+**Note**  
+For a cross-account invocation, requests count against the resource owner’s per-account rate quotas. The resource owner is the account that owns the agent runtime.
+
 For more information about service quotas and how to request increases, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
 
 ### Lifetime session lifecycle parameters
@@ -578,6 +581,9 @@ When working with AgentCore Policy, you need to be aware of the service limits t
 | Maximum policy size | 10 KB | No | Per individual policy | 
 | Maximum total policy size per resource | 200 KB | No | Combined size of all policies per resource within a policy engine | 
 | Cedar schema size | 400 KB | No | Per policy engine schema. This limit applies to the combined Cedar schema generated from all tools across all gateways associated with the policy engine. The schema size grows with the number of tools and the complexity of their input parameters, not just the tool count. If the schema exceeds this limit, consider using separate policy engines for different gateways or removing unused tools. | 
+| Temporal policies per policy engine | 20 | No | Temporal policies count toward the 1,000 policies per policy engine quota. Of those 1,000 policies, no more than 20 can be temporal. | 
+| Temporal operators per policy | 3 | No | A single policy can combine at most three temporal operators, such as `formerly within` or `since within`, each of which looks for past events within a given time window. For more information, see [The past operators and their windows](https://dogwood-policy.github.io/dogwood/guide/04-temporal-expressions.html#the-past-operators-and-their-windows) in the Dogwood language guide on the Dogwood Policy website. | 
+| Maximum time window per temporal condition | 24 hours | No | The time window a temporal condition looks back over, such as the `1h` in `formerly within 1h`, can’t exceed 24 hours. | 
 
 ### Throttling limits
 <a name="policy-throttling-limits"></a>

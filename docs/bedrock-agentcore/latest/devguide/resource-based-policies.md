@@ -338,34 +338,28 @@ The wildcard principal ( "Principal": "\*" ) is **required** for OAuth authentic
 Select one of the following methods:
 
 **Example**  
+ **Create or update a resource policy**   
+Use the `put-resource-policy` command:  
 
-1. ====== Create or update a resource policy
+```
+aws bedrock-agentcore-control put-resource-policy \
+    --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID \
+    --policy file://policy.json
+```
+ **Get a resource policy**   
+Use the `get-resource-policy` command:  
 
-   Use the `put-resource-policy` command:
+```
+aws bedrock-agentcore-control get-resource-policy \
+    --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
+```
+ **Delete a resource policy**   
+Use the `delete-resource-policy` command:  
 
-   ```
-   aws bedrock-agentcore-control put-resource-policy \
-       --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID \
-       --policy file://policy.json
-   ```
-
-    **Get a resource policy** 
-
-   Use the `get-resource-policy` command:
-
-   ```
-   aws bedrock-agentcore-control get-resource-policy \
-       --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
-   ```
-
-    **Delete a resource policy** 
-
-   Use the `delete-resource-policy` command:
-
-   ```
-   aws bedrock-agentcore-control delete-resource-policy \
-       --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
-   ```
+```
+aws bedrock-agentcore-control delete-resource-policy \
+    --resource-arn arn:aws:bedrock-agentcore:us-west-2:111122223333:runtime/AGENTID
+```
 
 1. The following examples show how to manage resource policies using the AWS Python SDK (Boto3):
 

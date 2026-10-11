@@ -63,7 +63,7 @@ An AgentCore Runtime can support either IAM SigV4 or JWT Bearer Token based inbo
 + [JWT inbound authorization and OAuth outbound access sample](#oauth-sample-overview)
 + [Prerequisites](#oauth-prerequisites)
 + [Step 1: Create your agent project](#prepare-agent)
-+ [Step 2: Set up AWS Cognito user pool and add a user](#setup-cognito)
++ [Step 2: Set up Amazon Cognito user pool and add a user](#setup-cognito)
 + [Step 3 (Optional): Front your runtime with an AgentCore Gateway](#runtime-front-with-gateway)
 + [Step 4: Deploy your agent](#deploy-agent)
 + [Step 5: Use bearer token to invoke your agent](#oauth-invoke-agent)
@@ -115,7 +115,7 @@ Restricting the runtime to the gateway’s execution role is only as strong as t
 ## JWT inbound authorization and OAuth outbound access sample
 <a name="oauth-sample-overview"></a>
 
-This guide walks you through the process of setting up your agent runtime to be invoked with an OAuth compliant access token using JWT format. The sample agent will be authorized using AWS Cognito access tokens. Later, you’ll also learn how the agent code can fetch Google tokens on behalf of the user to check Google Drive and fetch contents.
+This guide walks you through the process of setting up your agent runtime to be invoked with an OAuth compliant access token using JWT format. The sample agent will be authorized using Amazon Cognito access tokens. Later, you’ll also learn how the agent code can fetch Google tokens on behalf of the user to check Google Drive and fetch contents.
 
  **What you’ll learn** 
 
@@ -153,7 +153,7 @@ This generates:
 **Note**  
 Keep this terminal in `OAuthAgentProject` for the remaining AgentCore CLI commands.
 
-## Step 2: Set up AWS Cognito user pool and add a user
+## Step 2: Set up Amazon Cognito user pool and add a user
 <a name="setup-cognito"></a>
 
 To set up a Cognito user pool and create a user, you’ll use a shell script that automates the process.
@@ -646,7 +646,7 @@ When this code runs, the following process occurs:
 1. AgentCore Identity service securely receives and caches the Google access token until it expires, enabling subsequent requests from the user to use this token without needing the user to provide consent for every request.
 
 **Note**  
-AgentCore Identity Service stores the Google access token in the AgentCore Token Vault using the agent workload identity and user ID (from the inbound JWT token, such as AWS Cognito token) as the binding key, eliminating repeated consent requests until the Google token expires.
+AgentCore Identity Service stores the Google access token in the AgentCore Token Vault using the agent workload identity and user ID (from the inbound JWT token, such as Amazon Cognito token) as the binding key, eliminating repeated consent requests until the Google token expires.
 
 ## Step 7: (Optional) Propagate a JWT token to AgentCore Runtime
 <a name="oauth-propagate-jwt-token"></a>

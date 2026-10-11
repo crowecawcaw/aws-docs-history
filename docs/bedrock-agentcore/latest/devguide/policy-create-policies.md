@@ -14,14 +14,10 @@ Cedar is a formal policy language that provides precise, verifiable access contr
 You don’t need to memorize Cedar syntax. Focus on understanding policy structure and writing precise natural language requirements.
 
 **Topics**
-+ [Understanding Cedar policies](policy-understanding-cedar.md)
 + [Policy scope](policy-scope.md)
 + [Policy conditions](policy-conditions.md)
 + [Authorization flow](policy-authorization-flow.md)
-+ [Time-based policy support](policy-time-based.md)
 + [Schema constraints](policy-schema-constraints.md)
-+ [Limitations](policy-limitations-section.md)
-+ [Common policy patterns](policy-common-patterns.md)
 + [Getting started with guardrails in the AgentCore CLI](policy-guardrails-getting-started.md)
 + [Guardrails in policies](policy-guardrails-in-policies.md)
 + [Temporal policies](policy-temporal.md)

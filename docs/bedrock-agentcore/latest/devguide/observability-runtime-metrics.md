@@ -15,7 +15,7 @@ The runtime metrics provided by AgentCore give you visibility into your agent ex
 ## Observability runtime metrics
 <a name="observability-runtime-metrics-one"></a>
 
-The following list describes the runtime metrics provided by AgentCore. Runtime metrics are batched at one minute intervals. To learn more about viewing runtime metrics, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md).
+The following list describes the runtime metrics provided by AgentCore. Runtime metrics are batched at one minute intervals. On AgentCore Runtime platform version V2, a cross-account invocation publishes the runtime metrics described in this section to the resource owner’s account. To learn more about viewing runtime metrics, see [View observability data for your Amazon Bedrock AgentCore agents](observability-view.md).
 
 Invocations  
 Shows the total number of requests made to the Data Plane API. Each API call counts as one invocation, regardless of the request payload size or response status.
@@ -131,14 +131,13 @@ To enhance observability, AgentCore provides structured spans that provide visib
 ## Application log data
 <a name="observability-runtime-application-log-data"></a>
 
-AgentCore provides structured Application logs that help you gain visibility into your agent runtime invocations and session-level resource consumption. This log data is provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md) for steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under your agent’s application logs or under your own custom log group.
+AgentCore provides structured Application logs that help you gain visibility into your agent runtime invocations and session-level resource consumption. This log data is provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md) for steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under your agent’s application logs or under your own custom log group. Runtime application log records include the request payload, but AgentCore Runtime does not capture the agent response, so the records do not include a `response_payload` field.
 
 
 | Log type | Log fields | Description | 
 | --- | --- | --- | 
-| APPLICATION\_LOGS | timestamp, resource\_arn, event\_timestamp, account\_id, request\_id, session\_id, trace\_id, span\_id, service\_name, operation, request\_payload, response\_payload | Application logs for InvokeRuntimeOperation with tracing fields, request, and response payloads | 
+| APPLICATION\_LOGS | timestamp, resource\_arn, event\_timestamp, account\_id, request\_id, session\_id, trace\_id, span\_id, service\_name, operation, request\_payload | Application logs for InvokeRuntimeOperation with tracing fields and the request payload | 
 + request\_payload - the request payload of the agent invocation
-+ response\_payload - the response from the agent invocation
 
 ## Error types
 <a name="observability-runtime-metrics-errors"></a>
