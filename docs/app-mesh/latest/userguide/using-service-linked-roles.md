@@ -62,6 +62,10 @@ This policy includes the following permissions:
 
 ------
 
+App Mesh uses this service-linked role, not the credentials of the calling principal, to call other AWS services on your behalf. Because of this, if you grant a principal permission to manage App Mesh resources, you also give that principal indirect access to any resource that the service-linked role can reach. IAM doesn't evaluate that principal's deny policies for those services when App Mesh makes the calls.
+
+To control what a principal can reach through App Mesh, scope the principal's `appmesh` permissions. To learn how to scope these permissions, see [Scope App Mesh permissions to segment workloads](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-scope-permissions).
+
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*.
 
 ## Creating a service-linked role for App Mesh

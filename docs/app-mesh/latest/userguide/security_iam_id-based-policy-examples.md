@@ -12,6 +12,7 @@ To learn how to create an IAM identity-based policy using these example JSON pol
 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
++ [Scope App Mesh permissions to segment workloads](#security_iam_id-based-policy-examples-scope-permissions)
 + [Using the App Mesh console](#security_iam_id-based-policy-examples-console)
 + [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions)
 + [Create a mesh](#policy_example1)
@@ -29,6 +30,20 @@ Identity-based policies determine whether someone can create, access, or delete 
 + **Require multi-factor authentication (MFA)** – If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security. To require MFA when API operations are called, add MFA conditions to your policies. For more information, see [ Secure API access with MFA](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html) in the *IAM User Guide*.
 
 For more information about best practices in IAM, see [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html) in the *IAM User Guide*.
+
+## Scope App Mesh permissions to segment workloads
+<a name="security_iam_id-based-policy-examples-scope-permissions"></a>
+
+This topic explains how App Mesh uses a service-linked role to access other AWS services on your behalf, and describes practices you can use to scope permissions and segment workloads that share an account or a mesh.
+
+App Mesh acts on your behalf when it resolves the resources that your mesh refers to. It uses its service-linked role, `AWSServiceRoleForAppMesh`, to call other AWS services. It doesn't use the credentials of the principal that created the mesh resource. For example, when a virtual node uses AWS Cloud Map service discovery, App Mesh discovers the instances in the namespace with the service-linked role.
+
+Because of this, if you grant a principal permission to call App Mesh APIs, you also give that principal indirect access to any resource that the service-linked role can reach. IAM doesn't evaluate policies that deny the principal access to the downstream service, such as `servicediscovery`, for these calls. For more information about this behavior, see [Indirect permissions with service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create-service-linked-role.html#create-service-linked-role-permissions-transfer) in the *IAM User Guide*.
+
+To segment workloads that share an account or a mesh, control access at the App Mesh layer with the following practices.
++ **Scope resource management permissions to the resources a principal owns** – Don't grant `appmesh:*` to deployment roles, developer roles, or the service account of the App Mesh controller for Kubernetes. Instead, scope actions such as `appmesh:CreateVirtualNode` and `appmesh:UpdateVirtualNode` to the resource ARNs that the principal owns. For example, allow a team to manage only virtual nodes whose names start with that team's prefix. This prevents a principal from creating a virtual node that refers to another team's namespace or service. For more information about resource ARNs, see [Resources](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies-resources).
++ **Scope Envoy proxy authorization to each proxy's own virtual node** – Enable proxy authorization for all virtual nodes and virtual gateways. Grant `appmesh:StreamAggregatedResources` to each workload's IAM role only for the ARN of the virtual node or virtual gateway that the workload runs. An Envoy proxy can then read only its own configuration, including the endpoints that App Mesh discovered for it. For more information about proxy authorization, see [Envoy Proxy authorization](proxy-authorization.md).
++ **Don't rely on denying downstream service permissions** – Even if you deny a principal `servicediscovery` or other downstream actions, you can't restrict what App Mesh resolves for that principal. App Mesh makes those calls with its service-linked role. Use the App Mesh permissions described in the previous practices instead.
 
 ## Using the App Mesh console
 <a name="security_iam_id-based-policy-examples-console"></a>
