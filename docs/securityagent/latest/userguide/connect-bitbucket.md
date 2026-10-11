@@ -46,7 +46,18 @@ One Atlassian site can only be associated with one AWS account per region. If yo
 Atlassian Forge app pricing applies to this integration. For more information, see [Forge platform pricing](https://developer.atlassian.com/platform/forge/forge-platform-pricing/) in the Atlassian documentation.
 
 ## Register a Bitbucket connection
-<a name="_register_a_bitbucket_connection"></a>
+<a name="connect-bitbucket-permissions"></a>
+
+The following table describes each permission the AWS Security Agent Forge app requests and why it is needed.
+
+
+| Permission | Purpose | 
+| --- | --- | 
+|  `read:repository:bitbucket`  | Read repository source code. | 
+|  `write:repository:bitbucket`  | Create a branch and commit remediation fixes to it. A Bitbucket Cloud pull request always merges a source branch into a destination branch, so the fix must be committed to a branch before AWS Security Agent can open a pull request. | 
+|  `read:pullrequest:bitbucket`  | Read pull request details and diffs to run automated code reviews. | 
+|  `write:pullrequest:bitbucket`  | Post review comments with findings and open remediation pull requests. Bitbucket Cloud bundles approving and merging pull requests into this same permission, but AWS Security Agent does not approve or merge pull requests. | 
+|  `read:app-system-token`  | Obtain the app token that AWS Security Agent uses to call the Bitbucket Cloud API. | 
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 

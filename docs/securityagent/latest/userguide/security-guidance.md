@@ -84,6 +84,8 @@ Yes. AWS Security Agent integrates with AWS IAM Identity Center, allowing admins
 <a name="_what_types_of_vulnerabilities_can_aws_security_agent_detect"></a>
 
 AWS Security Agent detects vulnerabilities in the OWASP Top 10 for web applications. AWS Security Agent provides specific risk types that you can include or exclude in testing outlined below. Findings could arise within these risk categories or from novel findings discovered by following leads from a combination of these risk categories.
+
+For a **Gen AI application** test scope, AWS Security Agent also tests for large language model (LLM) prompt injection, where crafted input makes the model ignore its instructions and perform unintended actions. For more information, see [Choose a test scope](perform-penetration-test.md#choose-a-test-scope).
 +  [Arbitrary File Upload](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) 
   + Arbitrary File Upload confirms that the application should be able to fend off bogus and malicious files in a way to keep the application and the users safe
 +  [Code Injection](https://owasp.org/www-community/attacks/Code_Injection) 

@@ -5,7 +5,7 @@
 
 AWS Security Agent has quotas that limit the number of resources you can create and the rate at which you can perform operations. Quotas marked as adjustable can be increased by submitting a request through AWS Support. For more information, see [Creating support cases and case management.](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html) 
 
-Quotas limit capacity but don’t limit spending. The monthly quotas on this page cap how many reviews you can run, and reaching one blocks additional reviews until the next month. They don’t cap what you spend, and a quota increase doesn’t change your rate. For more information, see [Pricing and billing](pricing.md).
+Quotas limit capacity but don’t limit spending. The monthly quotas on this page cap how many reviews and penetration tests you can run. Reaching a quota blocks additional reviews or penetration tests until the next month. They don’t cap what you spend, and a quota increase doesn’t change your rate. For more information, see [Pricing and billing](pricing.md).
 
 ## Operations Quotas
 <a name="_operations_quotas"></a>
@@ -17,6 +17,7 @@ Operations quotas limit the monthly usage of security testing and review feature
 | --- | --- | --- | --- | 
 | Design reviews | Per month per account per region | 200 | Yes | 
 | PR code reviews | Per month per account per region | 1,000 | Yes | 
+| Continuous pentest runs | Per month per account per region | 500 | Yes | 
 
 ## Configuration Quotas
 <a name="_configuration_quotas"></a>

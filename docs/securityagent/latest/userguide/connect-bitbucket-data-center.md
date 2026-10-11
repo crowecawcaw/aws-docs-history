@@ -34,7 +34,15 @@ If your Bitbucket Data Center instance is reachable over the public internet and
 If your Bitbucket Data Center instance uses TLS certificates issued by a private certificate authority, you can provide the PEM-encoded public key of the certificate when creating a private connection. This allows AWS Security Agent to trust the TLS connection to your instance.
 
 ## Register a Bitbucket Data Center connection
-<a name="_register_a_bitbucket_data_center_connection"></a>
+<a name="connect-bitbucket-data-center-permissions"></a>
+
+The following table describes each permission the OAuth application link requires and why it is needed.
+
+
+| Permission | Purpose | 
+| --- | --- | 
+| Repository Read (`REPO_READ`) | Read repository source code and pull request diffs. | 
+| Repository Write (`REPO_WRITE`) | Post review comments with findings, and push a branch with remediation fixes to open a pull request. | 
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 

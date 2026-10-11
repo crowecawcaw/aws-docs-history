@@ -44,7 +44,15 @@ Before you begin, ensure you have:
 If your Azure DevOps organization or its network restricts access with an IP allow list, add the AWS Security Agent IP addresses for your AWS Region. Do this before you register the integration. For the IP addresses, see [AWS Security Agent IP addresses](about-integrations.md#agent-ip-addresses).
 
 ## Register an Azure DevOps connection
-<a name="_register_an_azure_devops_connection"></a>
+<a name="connect-azure-devops-permissions"></a>
+
+The following table describes each permission the AWS Continuum for Azure DevOps application requests and why it is needed.
+
+
+| Permission | Purpose | 
+| --- | --- | 
+| Code (read and write) (`vso.code_write`) | Read repository source code and pull request diffs, post review comments with findings, and push a branch with remediation fixes to open a pull request. | 
+| Project and team (read) (`vso.project`) | Read the projects and repositories in your organization so that you can select which repositories to connect. | 
 
 1. In the AWS Security Agent Management Console, navigate to **Integrations**.
 

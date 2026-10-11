@@ -34,7 +34,7 @@ Only verified domains can be included in penetration tests. Ask your admin to ve
 
 When you complete the **Credentials** and **Network configuration** steps, AWS Security Agent tests more of your application and stays away from anything you do not want reached. The wizard has five steps:
 
-1.  **Penetration test details** – Name the test, set the target URLs, and choose the service role and log group.
+1.  **Penetration test details** – Name the test, choose the test scope, set the target URLs, and choose the service role and log group.
 
 1. (Optional) **VPC Resources** – Configure network access for a target that is not publicly reachable.
 
@@ -57,6 +57,17 @@ Provide a descriptive name that helps identify the purpose and scope of this pen
 **Example**  
 
    The name should clearly identify the application, environment, or component being tested. Maximum 100 characters.
+
+## Choose a test scope
+<a name="choose-a-test-scope"></a>
+
+Choose the kind of application this penetration test targets. The test scope determines which risks AWS Security Agent tests for.
+
+Choose one of the following in the **Test scope** field:
++  **Web application (default)** – A full application penetration test covering web and API risks. AI features are in scope but are not the focus.
++  **Gen AI application** – A focused test of large language model (LLM) risks in chatbots, agents, and other generative AI features. AWS Security Agent discovers the application’s LLM-backed surfaces and tests them for prompt injection. Prompt injection is crafted input that makes the model ignore its instructions and perform unintended actions.
+
+For how the test scope affects risk exclusion, see [Exclude risk types (optional)](#exclude-risk-types-optional).
 
 ## Configure penetration test scope
 <a name="_configure_penetration_test_scope"></a>
@@ -387,9 +398,12 @@ For larger applications, or to get the most complete results, set a higher limit
 When a test reaches its maximum task hours, AWS Security Agent stops working on the test and keeps the findings already discovered. The run finishes with a status of **Completed**. You can review these findings or create and run a new test.
 
 ## Exclude risk types (optional)
-<a name="_exclude_risk_types_optional"></a>
+<a name="exclude-risk-types-optional"></a>
 
 Choose specific risk categories to exclude from testing if they’re not applicable to your application.
+
+**Note**  
+ **Exclude risk types** applies only to a **Web application** test scope. See [Choose a test scope](#choose-a-test-scope).
 
 1. On the **Additional configuration** step, locate the **Exclude risk types** field.
 

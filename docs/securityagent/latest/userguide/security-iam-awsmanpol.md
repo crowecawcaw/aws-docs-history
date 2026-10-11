@@ -43,6 +43,10 @@ This policy grants permissions to interact with the Security Testing Control ser
 + Test Execution: Start and stop penetration test jobs with real-time monitoring capabilities
 + Code Remediation: Start automated code remediation for security findings
 
+This policy also grants permissions in other AWS services so that you can run penetration tests on a recurring schedule. Each of these permissions is restricted to resources in your own account.
++  `scheduler` – Create the [Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html) schedule group for an Agent Space, and create, view, update, and delete the penetration test schedules in that group
++  `iam` – View the EventBridge Scheduler execution role for an Agent Space and pass that role to EventBridge Scheduler so that your scheduled penetration tests can start. You can pass the role only to the `scheduler.amazonaws.com` service
+
 To view the latest version of the JSON policy document, see [AWSSecurityAgentWebAppPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSSecurityAgentWebAppPolicy.html) in the AWS Managed Policy Reference Guide.
 
 ## AWS Security Agents updates to AWS managed policies
@@ -55,6 +59,7 @@ To receive notifications of all source file changes to this specific documentati
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Added permissions to [AWSSecurityAgentWebAppPolicy](#security-iam-awsmanpol-AWSSecurityAgentWebAppPolicy). | Added Amazon EventBridge Scheduler and IAM permissions so that you can run penetration tests on a recurring schedule. | October 6, 2026 | 
 | Added permissions to [AWSSecurityAgentWebAppPolicy](#security-iam-awsmanpol-AWSSecurityAgentWebAppPolicy). | Added `TargetDomain` and `DesignReviewFeedback` resource permissions for the new resource types. | March 31, 2026 | 
 | Added a new managed policy [AWSSecurityAgentWebAppPolicy](#security-iam-awsmanpol-AWSSecurityAgentWebAppPolicy). | Added managed policy `AWSSecurityAgentWebAppPolicy` for the new AgentSpace resource type and IAM action name changes. | February 9, 2026 | 
 | Added permissions to [SecurityAgentWebAppAPIPolicy](#security-iam-awsmanpol-SecurityAgentWebAppAPIPolicy). | Added `securityagent:StartCodeRemediation` to allow users to start automated code remediation for security findings. | January 20, 2026 | 
