@@ -44,6 +44,7 @@ AWS Deadline Cloud provides the following APIs for data retrieval.
 | <a name="deadline-ListJobs"></a>[ListJobs](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListJobs.html) | List all jobs in a queue | List | 
 | <a name="deadline-ListLicenseEndpoints"></a>[ListLicenseEndpoints](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListLicenseEndpoints.html) | List all license endpoints | List | 
 | <a name="deadline-ListLimits"></a>[ListLimits](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListLimits.html) | List all limits in a farm | List | 
+| <a name="deadline-ListMemberships"></a>[ListMemberships](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMemberships.html) | List Deadline Cloud resource memberships associated with an IAM Identity Center principal | List | 
 | <a name="deadline-ListMeteredProducts"></a>[ListMeteredProducts](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMeteredProducts.html) | List all metered products in a license endpoint | List | 
 | <a name="deadline-ListMonitors"></a>[ListMonitors](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMonitors.html) | List all monitors | List | 
 | <a name="deadline-ListQueueEnvironments"></a>[ListQueueEnvironments](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListQueueEnvironments.html) | List all queue environments to which a queue is associated | List | 

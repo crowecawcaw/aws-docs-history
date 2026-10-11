@@ -317,6 +317,7 @@ To browse this Online Register by service, see the following topics.
 + [Data retrieval APIs for AWS Elemental MediaTailor](awselementalmediatailor.md)
 + [Data retrieval APIs for AWS Elemental Support Cases](awselementalsupportcases.md)
 + [Data retrieval APIs for AWS Elemental Support Content](awselementalsupportcontent.md)
++ [Data retrieval APIs for AWS End User Messaging](awsendusermessaging.md)
 + [Data retrieval APIs for AWS End User Messaging SMS and Voice V2](awsendusermessagingsmsandvoicev2.md)
 + [Data retrieval APIs for AWS End User Messaging Social](awsendusermessagingsocial.md)
 + [Data retrieval APIs for AWS Entity Resolution](awsentityresolution.md)
