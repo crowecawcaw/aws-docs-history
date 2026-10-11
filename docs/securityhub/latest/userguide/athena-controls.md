@@ -5,35 +5,6 @@
 
 These AWS Security Hub CSPM controls evaluate the Amazon Athena service and resources. The controls might not be available in all AWS Regions. For more information, see [Availability of controls by Region](securityhub-regions.md#securityhub-regions-control-support).
 
-## [Athena.1] Athena workgroups should be encrypted at rest
-<a name="athena-1"></a>
-
-**Important**  
-Security Hub CSPM retired this control in April 2024. For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md).
-
-**Category:** Protect > Data protection > Encryption of data at rest
-
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
-
-**Severity:** Medium
-
-**Resource type:** `AWS::Athena::WorkGroup`
-
-**AWS Config rule:** [athena-workgroup-encrypted-at-rest](https://docs.aws.amazon.com/config/latest/developerguide/athena-workgroup-encrypted-at-rest.html)
-
-**Schedule type:** Change triggered
-
-**Parameters:** None
-
-This control checks if an Athena workgroup is encrypted at rest. The control fails if an Athena workgroup isn’t encrypted at rest.
-
-In Athena, you can create workgroups for running queries for teams, applications, or different workloads. Each workgroup has a setting to enable encryption on all queries. You have the option to use server-side encryption with Amazon Simple Storage Service (Amazon S3) managed keys, server-side encryption with AWS Key Management Service (AWS KMS) keys, or client-side encryption with customer managed KMS keys. Data at rest refers to any data that's stored in persistent, non-volatile storage for any duration. Encryption helps you protect the confidentiality of such data, reducing the risk that an unauthorized user can access it.
-
-### Remediation
-<a name="athena-1-remediation"></a>
-
-To enable encryption at rest for Athena workgroups, see [Edit a workgroup](https://docs.aws.amazon.com/athena/latest/ug/workgroups-create-update-delete.html#editing-workgroups) in the *Amazon Athena User Guide*. In the **Query Result Configuration** section, select **Encrypt query results**.
-
 ## [Athena.2] Athena data catalogs should be tagged
 <a name="athena-2"></a>
 

@@ -31,38 +31,6 @@ Encrypting data at rest reduces the risk of data stored on disk being accessed b
 
 To enable SSE for an SNS topic, see [Enabling server-side encryption (SSE) for an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-enable-encryption-for-topic.html) in the *Amazon Simple Notification Service Developer Guide*. Before you can use SSE, you must also configure AWS KMS key policies to allow encryption of topics and encryption and decryption of messages. For more information, see [Configuring AWS KMS permissions](https://docs.aws.amazon.com/sns/latest/dg/sns-key-management.html#sns-what-permissions-for-sse) in the *Amazon Simple Notification Service Developer Guide*.
 
-## [SNS.2] Logging of delivery status should be enabled for notification messages sent to a topic
-<a name="sns-2"></a>
-
-**Important**  
-Security Hub CSPM retired this control in April 2024. For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md).
-
-**Related requirements:** NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2
-
-**Category:** Identify > Logging
-
-**Severity:** Medium
-
-**Resource type:** `AWS::SNS::Topic`
-
-**AWS Config rule:** [`sns-topic-message-delivery-notification-enabled`](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-message-delivery-notification-enabled.html)
-
-**Schedule type:** Change triggered
-
-**Parameters:** None
-
-This control checks whether logging is enabled for the delivery status of notification messages sent to an Amazon SNS topic for the endpoints. This control fails if the delivery status notification for messages is not enabled.
-
-Logging is an important part of maintaining the reliability, availability, and performance of services. Logging message delivery status helps provide operational insights, such as the following:
-+ Knowing whether a message was delivered to the Amazon SNS endpoint.
-+ Identifying the response sent from the Amazon SNS endpoint to Amazon SNS.
-+ Determining the message dwell time (the time between the publish timestamp and the hand off to an Amazon SNS endpoint).
-
-### Remediation
-<a name="sns-2-remediation"></a>
-
-To configure delivery status logging for a topic, see [Amazon SNS message delivery status](https://docs.aws.amazon.com/sns/latest/dg/sns-topic-attributes.html) in the *Amazon Simple Notification Service Developer Guide*.
-
 ## [SNS.3] SNS topics should be tagged
 <a name="sns-3"></a>
 

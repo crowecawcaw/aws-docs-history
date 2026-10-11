@@ -55,8 +55,8 @@ For Security Hub CSPM to generate findings for change triggered controls that ar
   - **Resource types:** AWS::AppRunner::VpcConnector  / **Related controls:** AppRunner.2
 
 - **AWS AppSync**
-  - **Resource types:** AWS::AppSync::GraphQLApi  / **Related controls:** AppSync.2<br />AppSync.4<br />AppSync.5
-  - **Resource types:** AWS::AppSync::ApiCache  / **Related controls:** AppSync.1<br />AppSync.6
+  - **Resource types:** AWS::AppSync::GraphQLApi 
+  - **Related controls:** AppSync.2<br />AppSync.4<br />AppSync.5
 
 - **AWS Backup**
   - **Resource types:** AWS::Backup::BackupPlan  / **Related controls:** Backup.5
@@ -271,11 +271,6 @@ For Security Hub CSPM to generate findings for change triggered controls that ar
   - **Resource types:** AWS::IoT::Policy / **Related controls:** IoT.6
   - **Resource types:** AWS::IoT::RoleAlias / **Related controls:** IoT.5
   - **Resource types:** AWS::IoT::SecurityProfile / **Related controls:** IoT.1
-
-- **AWS IoT Events**
-  - **Resource types:** AWS::IoTEvents::AlarmModel / **Related controls:** IoTEvents.3
-  - **Resource types:** AWS::IoTEvents::DetectorModel / **Related controls:** IoTEvents.2
-  - **Resource types:** AWS::IoTEvents::Input / **Related controls:** IoTEvents.1
 
 - **AWS IoT SiteWise**
   - **Resource types:** AWS::IoTSiteWise::AssetModel / **Related controls:** IoTSiteWise.1

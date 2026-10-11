@@ -11,6 +11,9 @@ When you disable a security standard in AWS Security Hub CSPM, the following occ
 
 Deletion of the appropriate AWS Config rules typically occurs within a few minutes of disabling a standard. However, it might take longer. If the first request fails to delete the rules, Security Hub CSPM tries again every 12 hours. However, if you disabled Security Hub CSPM or don't have any other standards enabled, Security Hub CSPM can't try again, which means that it can't delete the rules. If this occurs and you need to delete the rules, contact AWS Support.
 
+**Note**  
+ Disabling a standard can increase AWS Config costs related to disabling the associated rules. Before you disable any standards, we recommend that you review the [Considerations for deleting AWS Config rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_delete-rules.html#evaluate-config_delete-rules-considerations) documentation. Also review how to exclude Resource Compliance configuration items from being recorded when rules tied to an Security Hub CSPM standard are disabled. 
+
 **Topics**
 + [Disabling a standard in multiple accounts and AWS Regions](#disable-standards-central-configuration)
 + [Disabling a standard in a single account and AWS Region](#securityhub-standard-disable-console)

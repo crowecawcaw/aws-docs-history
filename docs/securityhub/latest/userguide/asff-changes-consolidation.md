@@ -422,7 +422,6 @@ The following table lists changes to generator ID values for controls when you e
 | service-managed-aws-control-tower/v/1.0.0/CodeBuild.1 | security-control/CodeBuild.1 | 
 | service-managed-aws-control-tower/v/1.0.0/CodeBuild.2 | security-control/CodeBuild.2 | 
 | service-managed-aws-control-tower/v/1.0.0/CodeBuild.4 | security-control/CodeBuild.4 | 
-| service-managed-aws-control-tower/v/1.0.0/CodeBuild.5 | security-control/CodeBuild.5 | 
 | service-managed-aws-control-tower/v/1.0.0/DMS.1 | security-control/DMS.1 | 
 | service-managed-aws-control-tower/v/1.0.0/DynamoDB.1 | security-control/DynamoDB.1 | 
 | service-managed-aws-control-tower/v/1.0.0/DynamoDB.2 | security-control/DynamoDB.2 | 

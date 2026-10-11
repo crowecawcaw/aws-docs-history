@@ -136,35 +136,6 @@ From a security perspective, logging is an important feature to enable for futur
 
 For more information on how to configure CodeBuild project log settings, see [Create a build project (console)](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-console.html#create-project-console-logs) in the CodeBuild User Guide.
 
-## [CodeBuild.5] CodeBuild project environments should not have privileged mode enabled
-<a name="codebuild-5"></a>
-
-**Important**  
-Security Hub CSPM retired this control in April 2024. For more information, see [Change log for Security Hub CSPM controls](controls-change-log.md).
-
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2)
-
-**Category:** Protect > Secure Access Management
-
-**Severity:** High
-
-**Resource type:** `AWS::CodeBuild::Project`
-
-**AWS Config rule:** [`codebuild-project-environment-privileged-check`](https://docs.aws.amazon.com/config/latest/developerguide/codebuild-project-environment-privileged-check.html)
-
-**Schedule type:** Change triggered
-
-**Parameters:** None
-
-This control checks whether an AWS CodeBuild project environment has privileged mode enabled or disabled. The control fails if an CodeBuild project environment has privileged mode enabled.
-
-By default, Docker containers do not allow access to any devices. Privileged mode grants a build project's Docker container access to all devices. Setting `privilegedMode` with value `true` permits the Docker daemon to run inside a Docker container. The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. This parameter should only be set to true if the build project is used to build Docker images. Otherwise, this setting should be disabled to prevent unintended access to Docker APIs as well as the container's underlying hardware. Setting `privilegedMode` to `false` helps protect critical resources from tampering and deletion.
-
-### Remediation
-<a name="codebuild-5-remediation"></a>
-
-To configure CodeBuild project environment settings, see [ Create a build project (console)](https://docs.aws.amazon.com/codebuild/latest/userguide/create-project-console.html#create-project-console-environment) in the *CodeBuild User Guide*. In the **Environment** section, don't select the **Privileged** setting.
-
 ## [CodeBuild.7] CodeBuild report group exports should be encrypted at rest
 <a name="codebuild-7"></a>
 

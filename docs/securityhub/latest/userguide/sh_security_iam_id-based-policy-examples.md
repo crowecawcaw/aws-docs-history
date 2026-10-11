@@ -112,7 +112,7 @@ This example shows how you might create an IAM policy that allows a user to view
 
 ```
 {
-    "Version":"2012-10-17", 	 	 	 
+    "Version":"2012-10-17", 		 	 	  	 	 
     "Statement": [
         {
             "Sid": "ReviewFindings",
@@ -133,7 +133,7 @@ This example shows how you might create an IAM policy that allows a user to crea
 
 ```
 {
-    "Version":"2012-10-17", 	 	 	 
+    "Version":"2012-10-17", 		 	 	 	 	 	 
     "Statement": [
         {
             "Sid": "CreateAndUpdateAutomationRules",

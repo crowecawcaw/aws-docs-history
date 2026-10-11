@@ -36,13 +36,9 @@ The following list specifies which AWS Security Hub CSPM controls apply to the A
 
  [[APIGateway.11] API Gateway domain names should use recommended security policies](apigateway-controls.md#apigateway-11) 
 
- [[AppSync.1] AWS AppSync API caches should be encrypted at rest](appsync-controls.md#appsync-1) 
-
  [[AppSync.2] AWS AppSync should have field-level logging enabled](appsync-controls.md#appsync-2) 
 
  [[AppSync.5] AWS AppSync GraphQL APIs should not be authenticated with API keys](appsync-controls.md#appsync-5) 
-
- [[AppSync.6] AWS AppSync API caches should be encrypted in transit](appsync-controls.md#appsync-6) 
 
  [[Athena.4] Athena workgroups should have logging enabled](athena-controls.md#athena-4) 
 
@@ -289,8 +285,6 @@ The following list specifies which AWS Security Hub CSPM controls apply to the A
  [[EKS.1] EKS cluster endpoints should not be publicly accessible](eks-controls.md#eks-1) 
 
  [[EKS.2] EKS clusters should run on a supported Kubernetes version](eks-controls.md#eks-2) 
-
- [[EKS.3] EKS clusters should use encrypted Kubernetes secrets](eks-controls.md#eks-3) 
 
  [[EKS.8] EKS clusters should have audit logging enabled](eks-controls.md#eks-8) 
 

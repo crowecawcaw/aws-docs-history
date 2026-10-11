@@ -23,7 +23,7 @@
 
  Each remediation plan includes the following details. 
 + **Priority** – How urgently you should act on the plan. The value is **Critical**, **High**, **Medium**, or **Low**.
-+ **Status** – The current state of the plan. The value is **New**, **Updated**, or **Resolved**.
++ **Status** – The current state of the plan. The value is **New**, **Updated**, or **Resolved**. For what each status means, see [Remediation plan status](#securityhub-v2-remediation-plans-status).
 + **Impact** – How the plan changes your exposures. A plan can fully resolve some exposures, reduce the severity of others, and address others without changing their severity. The value names the count in each case.
 + **Rollout** – Whether the fix applies immediately or requires a deployment. The value is **Immediate** or **Requires deployment**.
 + **Action** – The change that the plan recommends.
@@ -32,6 +32,22 @@
 + **Account** and **Region** – The AWS account that owns the target resource, and its AWS Region.
 
  A plan also shows an affected scope, a risk level, reversibility, automation level, and whether human review is required, when its guidance provides them. 
+
+## Remediation plan status
+<a name="securityhub-v2-remediation-plans-status"></a>
+
+ Security Hub sets each plan's status. You can't change it directly. 
+
+****New****  
+Security Hub created the plan, and the plan hasn't changed since.
+
+****Updated****  
+The plan changed after Security Hub created it. For example, its priority, impact, affected exposures, or guidance changed. The plan keeps this status until it's resolved.
+
+****Resolved****  
+The plan no longer needs to be applied. Security Hub resolves a plan when it no longer generates the plan from your current exposures. This happens when the plan's exposures are resolved, suppressed, or archived, when their severity changes to **Informational**, or when they no longer have the trait that the plan addresses.  
+A resolved plan doesn't always mean that its exposure findings are resolved. For example, an exposure whose severity changes to **Informational** still exists.  
+A resolved plan stays in the list for about 14 days, then Security Hub removes it. If the plan needs to be applied again, its status changes to **New**.
 
 ## Remediation guidance
 <a name="securityhub-v2-remediation-plans-guidance"></a>
@@ -76,6 +92,7 @@
 These filters have the following limits:
 + Each filter matches values by equality only. You can't use partial matches or ranges.
 + You can apply up to two filters at a time. Security Hub combines them with `AND`, so a plan must match both filters to appear.
++ Values are case sensitive. For **Resource type**, enter the full type as it appears in the list, such as `AWS::EC2::Instance`.
 
 ## Viewing the exposures a plan affects
 <a name="securityhub-v2-remediation-plans-affected-exposures"></a>

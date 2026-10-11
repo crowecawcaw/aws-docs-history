@@ -58,35 +58,6 @@ If your application doesn't require a specific version of Kubernetes, we recomme
 
 To update an EKS cluster, see [Update an existing cluster to a new Kubernetes version](https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html) in the **Amazon EKS User Guide**. 
 
-## [EKS.3] EKS clusters should use encrypted Kubernetes secrets
-<a name="eks-3"></a>
-
-**Related requirements:** NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, PCI DSS v4.0.1/8.3.2
-
-**Category:** Protect > Data Protection > Encryption of data-at-rest
-
-**Severity:** Medium
-
-**Resource type:** `AWS::EKS::Cluster`
-
-**AWS Config rule:** [eks-cluster-secrets-encrypted](https://docs.aws.amazon.com/config/latest/developerguide/eks-cluster-secrets-encrypted.html)
-
-**Schedule type:** Periodic
-
-**Parameters:** None
-
-This control checks whether an Amazon EKS cluster uses encrypted Kubernetes secrets. The control fails if the cluster's Kubernetes secrets aren't encrypted.
-
-When you encrypt secrets, you can use AWS Key Management Service (AWS KMS) keys to provide envelope encryption of Kubernetes secrets stored in etcd for your cluster. This encryption is in addition to the EBS volume encryption that is enabled by default for all data (including secrets) that is stored in etcd as part of an EKS cluster. Using secrets encryption for your EKS cluster allows you to deploy a defense in depth strategy for Kubernetes applications by encrypting Kubernetes secrets with a KMS key that you define and manage.
-
-**Note**  
-This control will be retired after August 10, 2026 and removed from all applicable Security Hub CSPM standards. Starting with Kubernetes version 1.28, Amazon EKS clusters have Kubernetes secrets protected with envelope encryption by default.
-
-### Remediation
-<a name="eks-3-remediation"></a>
-
-To enable secrets encryption on an EKS cluster, see [Enabling secret encryption on an existing cluster](https://docs.aws.amazon.com/eks/latest/userguide/enable-kms.html) in the **Amazon EKS User Guide**. 
-
 ## [EKS.6] EKS clusters should be tagged
 <a name="eks-6"></a>
 
@@ -199,7 +170,7 @@ To enable audit logs for your EKS cluster, see [Enabling and disabling control p
 
 This control checks whether an Amazon EKS node group runs on a standard support Kubernetes version. The control fails if the Amazon EKS node group runs on an unsupported or extended support version.
 
-Running EKS node groups on unsupported Kubernetes versions means those nodes no longer receive security patches, bug fixes, or compatibility updates from AWS. Unsupported versions may contain known vulnerabilities that have been addressed in newer releases, and they may experience compatibility issues with updated AWS services, container images, and third-party tools in the Kubernetes ecosystem. If your application doesn't require a specific version of Kubernetes, we recommend that you use the latest available Kubernetes version that's supported by Amazon EKS for your node groups. For more information, see [Amazon EKS Kubernetes release calendar](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar) and [Understand each phase of node updates](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-update-behavior.html) in the **Amazon EKS User Guide**.
+Only Kubernetes versions in standard support receive the full set of security patches, bug fixes, and security features. Versions in extended support receive patches for critical and important vulnerabilities, but they don't receive patches for lower-severity vulnerabilities, non-security bug fixes, or security features that are introduced in newer Kubernetes versions. Amazon EKS doesn't automatically upgrade node groups, so node-level patches apply only after you update your node groups to use the latest Amazon EKS optimized AMIs. Versions that are past the end of extended support no longer receive security patches, bug fixes, or compatibility updates from AWS. Unsupported versions may contain known vulnerabilities that have been addressed in newer releases, and they may experience compatibility issues with updated AWS services, container images, and third-party tools in the Kubernetes ecosystem. If your application doesn't require a specific version of Kubernetes, we recommend that you use the latest available Kubernetes version that's supported by Amazon EKS for your node groups. For more information, see [Amazon EKS Kubernetes release calendar](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar) and [Understand each phase of node updates](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-update-behavior.html) in the **Amazon EKS User Guide**.
 
 ### Remediation
 <a name="eks-9-remediation"></a>

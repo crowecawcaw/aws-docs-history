@@ -184,7 +184,6 @@ The following list specifies the controls that support NIST SP 800-53 Revision 5
 +  [[EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch](efs-controls.md#efs-6) 
 +  [[EKS.1] EKS cluster endpoints should not be publicly accessible](eks-controls.md#eks-1) 
 +  [[EKS.2] EKS clusters should run on a supported Kubernetes version](eks-controls.md#eks-2) 
-+  [[EKS.3] EKS clusters should use encrypted Kubernetes secrets](eks-controls.md#eks-3) 
 +  [[EKS.8] EKS clusters should have audit logging enabled](eks-controls.md#eks-8) 
 +  [[ElastiCache.1] ElastiCache (Redis OSS) clusters should have automatic backups enabled](elasticache-controls.md#elasticache-1) 
 +  [[ElastiCache.2] ElastiCache clusters should have automatic minor version upgrades enabled](elasticache-controls.md#elasticache-2) 
