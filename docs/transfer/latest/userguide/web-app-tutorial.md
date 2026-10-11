@@ -65,8 +65,8 @@ You can edit the web app name directly from the **Web apps** list page after you
 
    You can optionally provide a title for your web app. You can also upload image files for your logo and favicon.
    + For the page title, customize the title for the browser tab that your users see when they connect to the web app. If you don't enter anything for the page title, it defaults to **Transfer Web App**.
-   + For the logo, upload an image file. The maximum file size for your logo image is 50 KB.
-   + For the favicon, upload an image file. The maximum file size for your favicon is 20 KB.
+   + For the logo, upload an image file. The maximum upload size for your logo image is 2 MB.
+   + For the favicon, upload an image file. The maximum upload size for your favicon is 2 MB.
 
 1. Choose **Next**, then choose **Create web app**.
 
