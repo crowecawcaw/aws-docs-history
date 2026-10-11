@@ -39,13 +39,15 @@
 <a name="w2aac15c13b9"></a>
 
  You can run CIS scans on Amazon EC2 instances over an Amazon network. However, if you want to run CIS scans on private Amazon EC2 instances, you must [create Amazon VPC endpoints](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html). The following endpoints are required when you create Amazon VPC endpoints for Systems Manager: 
-+  `com.amazonaws.{{region}}.ec2messages` 
 +  `com.amazonaws.{{region}}.inspector2` 
 +  `com.amazonaws.{{region}}.s3` 
 +  `com.amazonaws.{{region}}.ssm` 
 +  `com.amazonaws.{{region}}.ssmmessages` 
 
  For more information, see [Creating Amazon VPC endpoints for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html#sysman-setting-up-vpc-create) in the *AWS Systems Manager User Guide*. 
+
+**Note**  
+ Beginning with SSM Agent version 3.3.40.0, SSM Agent uses the `ssmmessages` endpoint instead of the `ec2messages` endpoint whenever it's available. Earlier versions of SSM Agent use the `ec2messages` endpoint. This endpoint is supported only in AWS Regions launched before 2024. For more information, see [Reference: ec2messages, ssmmessages, and other API operations](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html) in the *AWS Systems Manager User Guide*. 
 
 **Note**  
  Currently, some AWS Regions don't support the `amazonaws.com.{{region}}.inspector2` endpoint. 

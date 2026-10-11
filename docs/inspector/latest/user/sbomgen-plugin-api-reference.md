@@ -58,6 +58,7 @@
 | get\_scanner\_description() | 0 | No | "Lua discovery plugin: {ecosystem}" | Returns a human-readable description. | 
 | get\_scanner\_groups() | 0 | No | Derived from the category directory (see the developer guide) | Returns a table of scanner group strings. Use sbomgen.groups.\* constants. | 
 | get\_localhost\_scan\_paths() | 0 | No | — | Returns a table of file/directory paths to include when scanning a localhost artifact. Only consulted for localhost scans. | 
+| get\_fileless\_events() | 0 | No | — | Returns a table of event names to publish even when discover() found no files for them. See [Collecting without a discovered file](#sbomgen-plugin-api-reference-package-provenance-collecting-without-a-discovered-file). | 
 
 ### Collection plugins
 <a name="sbomgen-plugin-api-reference-collection-plugins"></a>
@@ -69,6 +70,7 @@
 | subscribe\_to\_event() | 0 | No | "lua:{platform}/{category}/{ecosystem}" | Returns the event name this collector subscribes to. Should match the corresponding discovery plugin's get\_event\_name(). | 
 | get\_collector\_name() | 0 | No | ecosystem directory name | Returns the collector's display name. Must be unique across all collection plugins. | 
 | get\_collector\_description() | 0 | No | "" (empty) | Returns a human-readable description. | 
+| finalize() | 0 | No | — | Called once after the last file of an event has been through collect(). Use it to emit findings grouped across several files. See [Grouping findings across files](#sbomgen-plugin-api-reference-package-provenance-grouping-findings-across-files). | 
 
 ## File I/O
 <a name="sbomgen-plugin-api-reference-file-i-o"></a>
@@ -450,15 +452,19 @@ end
 
 | **Field** | **Type** | **Required** | **Description** | 
 | --- | --- | --- | --- | 
-| name | string | Yes | Package name | 
+| name | string | Yes | Package name, used as the component name in the SBOM | 
+| purl\_name | string | No | PURL name component; defaults to name. Set it when the display name is not a good package identifier, e.g. name = "Visual Studio Code" with purl\_name = "visualstudiocode" | 
 | version | string | No | Resolved version string | 
 | namespace | string | No | PURL namespace (e.g., "curl", "wordpress/plugin") | 
-| purl\_type | string | Yes | PURL type (e.g., "pypi", "npm", "cargo", "deb", "generic") | 
+| purl\_type | string | Yes | PURL type (e.g., "pypi", "npm", "cargo", "deb", "generic"), or sbomgen.purl\_types.NONE for components that carry no package URL (see [PURL Type Constants](#sbomgen-plugin-api-reference-purl-type-constants)) | 
 | component\_type | string | Yes | CycloneDX component type; use sbomgen.component\_types.\* constants (e.g., sbomgen.component\_types.LIBRARY) | 
 | qualifiers | table | No | PURL qualifiers as key-value pairs (appear in the package URL) | 
 | properties | table | No | CycloneDX component properties as key-value pairs (see [CycloneDX Properties](#sbomgen-plugin-api-reference-cyclonedx-properties)) | 
 | hashes | table | No | Component hashes keyed by algorithm name; see [Component Hashes](#sbomgen-plugin-api-reference-component-hashes) | 
+| licenses | table | No | List of license texts, normalized to an SPDX expression; see [Component Licenses](#sbomgen-plugin-api-reference-component-licenses) | 
 | children | table | No | Nested child packages, each with the same shape as pkg (required fields are validated recursively) | 
+| source\_paths | table | No | List of provenance paths recorded as source\_path properties. Defaults to the file collect() was invoked with. Set it to point at a directory, at several paths, or to give a child its own path | 
+| provenance | string | No | Where the package was read from; use sbomgen.provenance.\* constants. Defaults to sbomgen.provenance.FILE. See [Package Provenance](#sbomgen-plugin-api-reference-package-provenance) | 
 
 ```
 sbomgen.push_package({
@@ -476,6 +482,85 @@ sbomgen.push_package({
     },
 })
 ```
+
+## Package Provenance
+<a name="sbomgen-plugin-api-reference-package-provenance"></a>
+
+ Most packages are found by reading a file, and the SBOM records that file as the component's provenance. Some are not: a Windows application may only be described by a registry key, with nothing on disk naming its version. 
+
+ The `provenance` field states which case applies. 
+
+
+| **Value** | **Provenance recorded** | 
+| --- | --- | 
+| sbomgen.provenance.FILE (default) | source\_file\_scanner plus a source\_path per entry in source\_paths, defaulting to the file collect() received | 
+| sbomgen.provenance.REGISTRY | source\_registry\_scanner, and no source\_path, because no file describes the package | 
+
+ An unrecognized `provenance` drops the package with a warning rather than silently falling back to file provenance. 
+
+```
+sbomgen.push_package({
+    name = "Example App",
+    purl_name = "exampleapp",
+    version = "1.2.3",
+    namespace = "vendor",
+    purl_type = "generic",
+    component_type = sbomgen.component_types.APPLICATION,
+    provenance = sbomgen.provenance.REGISTRY,
+    properties = {
+        [sbomgen.properties.WINDOWS_REGISTRY_KEY] = registry_key,
+    },
+})
+```
+
+### Collecting without a discovered file
+<a name="sbomgen-plugin-api-reference-package-provenance-collecting-without-a-discovered-file"></a>
+
+ A collector normally runs once per discovered file, so an event with no files never reaches it. A discovery plugin can list events that should fire anyway, for collectors that read the registry or another non-file source: 
+
+```
+function get_fileless_events()
+    return { "FoundExampleApp" }
+end
+```
+
+ `collect()` then runs exactly once for that event with an empty `file_path`. Events not listed stay silent when discovery finds nothing, so returning an empty table from `discover()` keeps its usual meaning. 
+
+### Grouping findings across files
+<a name="sbomgen-plugin-api-reference-package-provenance-grouping-findings-across-files"></a>
+
+ `collect()` sees one file at a time, so a plugin that pushes a package per call emits a separate component per file. When several files describe one installation of the same thing, that is usually wrong: four copies of a browser executable at the same version are one component with four source paths, not four components. 
+
+ Accumulate across calls and emit from `finalize()`, which runs once after the last file of the event: 
+
+```
+local pending = {}
+
+function collect(file_path)
+    local version = sbomgen.parse_product_version(file_path)
+    if not version then
+        return
+    end
+    pending[version] = pending[version] or {}
+    table.insert(pending[version], dir_name(file_path))
+end
+
+function finalize()
+    local batch = pending
+    pending = {}
+    for version, paths in pairs(batch) do
+        sbomgen.push_package({
+            name = "Example App",
+            version = version,
+            purl_type = "generic",
+            component_type = sbomgen.component_types.APPLICATION,
+            source_paths = paths,
+        })
+    end
+end
+```
+
+ Clear the accumulator before emitting, as above, not after. A plugin's Lua state persists for the whole scan, so anything left behind leaks into the next event, and clearing first means an error partway through emitting cannot strand entries. 
 
 ## Component Hashes
 <a name="sbomgen-plugin-api-reference-component-hashes"></a>
@@ -525,6 +610,80 @@ end
 ```
 
  When the digest is the only thing you need from the file, prefer `sbomgen.hash_file(path, algo)` over reading the file twice — it routes the read through the artifact I/O layer in a single pass. 
+
+## Component Licenses
+<a name="sbomgen-plugin-api-reference-component-licenses"></a>
+
+ The optional `licenses` field on `sbomgen.push_package()` records the licenses a package declares. Pass the license texts as you read them; sbomgen normalizes them into a single SPDX license expression and serializes it into the CycloneDX `components[].licenses` array. 
+
+```
+sbomgen.push_package({
+    name = "docker",
+    version = "29.7.1",
+    purl_type = "brew",
+    component_type = sbomgen.component_types.APPLICATION,
+    licenses = {"Apache-2.0"},
+})
+```
+
+ Produces: 
+
+```
+{
+  "type": "application",
+  "name": "docker",
+  "version": "29.7.1",
+  "purl": "pkg:brew/docker@29.7.1",
+  "licenses": [ { "expression": "Apache-2.0" } ]
+}
+```
+
+### Normalization
+<a name="sbomgen-plugin-api-reference-component-licenses-normalization"></a>
+
+ Values do not have to be valid SPDX identifiers. sbomgen normalizes them, so a plugin can pass through whatever a package manifest declares: 
+
+
+| **Input** | **Resulting expression** | 
+| --- | --- | 
+| {"Apache-2.0"} | Apache-2.0 | 
+| {"GPL3\+"} | GPL-3.0-or-later | 
+| {"MIT", "Apache-2.0"} | Apache-2.0 AND MIT | 
+| {"Apache-2.0", "Apache-2.0"} | Apache-2.0 (deduplicated) | 
+| {"Custom Vendor License"} | LicenseRef-Custom-Vendor-License | 
+
+ Multiple entries are combined with `AND`. Text that is not a recognized SPDX identifier becomes a `LicenseRef-` expression rather than being dropped. Empty strings are ignored. 
+
+### Licenses are only emitted when the user asks for them
+<a name="sbomgen-plugin-api-reference-component-licenses-emitted-when-requested"></a>
+
+ Licenses appear in the SBOM only when the scan was run with `--collect-licenses`. Without that flag the field is omitted, exactly as it is for sbomgen's built-in collectors. 
+
+ Reading license data can be expensive, for example when it means opening a separate license file per package. Check `sbomgen.should_collect_licenses()` and skip that work when it is not needed: 
+
+```
+function collect(file_path)
+    local licenses = nil
+    if sbomgen.should_collect_licenses() then
+        licenses = read_license_file(file_path)
+    end
+
+    sbomgen.push_package({
+        name = "example",
+        version = "1.0.0",
+        purl_type = "generic",
+        component_type = sbomgen.component_types.APPLICATION,
+        licenses = licenses,
+    })
+end
+```
+
+ Passing `licenses` unconditionally is also fine. The field is simply ignored when license collection is disabled. 
+
+### Child packages
+<a name="sbomgen-plugin-api-reference-component-licenses-child-packages"></a>
+
+ A package in `children` carries its own `licenses`. Licenses are not inherited from the parent, because a nested package may be licensed differently than the component it ships under. 
 
 ## CycloneDX Properties
 <a name="sbomgen-plugin-api-reference-cyclonedx-properties"></a>
@@ -676,26 +835,25 @@ sbomgen.push_package({
 })
 ```
 
-## Hash Algorithm Constants
-<a name="sbomgen-plugin-api-reference-hash-algorithm-constants"></a>
+## PURL Type Constants
+<a name="sbomgen-plugin-api-reference-purl-type-constants"></a>
 
- Constants for the algorithm parameter of `sbomgen.hash()`, `sbomgen.hash_file()`, and the `hashes` field of `sbomgen.push_package()`. The string values match the CycloneDX hash algorithm names so the same constant flows through the entire hashing path without translation. 
+ `purl_type` is normally a free-form type string from the [PURL specification](https://github.com/package-url/purl-spec). The one enumerated value is available via `sbomgen.purl_types`: 
 
 
-| **Constant** | **Value** | 
-| --- | --- | 
-| sbomgen.hash\_algorithms.SHA1 | "SHA-1" | 
-| sbomgen.hash\_algorithms.SHA256 | "SHA-256" | 
+| **Constant** | **Value** | **Description** | 
+| --- | --- | --- | 
+| sbomgen.purl\_types.NONE | "none" | Emit the component without a package URL | 
 
- Example: 
+ Use `NONE` when no PURL type meaningfully identifies the component, such as a machine learning model file discovered on disk. The resulting SBOM component has no `purl` field. 
+
+ `purl_type` remains required. Omitting it, or misspelling the field name, drops the package with a warning rather than silently producing a component without a package URL. 
 
 ```
-local digest = sbomgen.hash_file(path, sbomgen.hash_algorithms.SHA256)
 sbomgen.push_package({
-    name = "example",
-    purl_type = "generic",
-    component_type = sbomgen.component_types.LIBRARY,
-    hashes = { [sbomgen.hash_algorithms.SHA256] = digest },
+    name = "model.gguf",
+    purl_type = sbomgen.purl_types.NONE,
+    component_type = sbomgen.component_types.MACHINE_LEARNING_MODEL,
 })
 ```
 
@@ -717,6 +875,29 @@ sbomgen.push_package({
 if sbomgen.get_platform() == sbomgen.platform.WINDOWS then
     -- Windows-specific logic
 end
+```
+
+## Hash Algorithm Constants
+<a name="sbomgen-plugin-api-reference-hash-algorithm-constants"></a>
+
+ Constants for the algorithm parameter of `sbomgen.hash()`, `sbomgen.hash_file()`, and the `hashes` field of `sbomgen.push_package()`. The string values match the CycloneDX hash algorithm names so the same constant flows through the entire hashing path without translation. 
+
+
+| **Constant** | **Value** | 
+| --- | --- | 
+| sbomgen.hash\_algorithms.SHA1 | "SHA-1" | 
+| sbomgen.hash\_algorithms.SHA256 | "SHA-256" | 
+
+ Example: 
+
+```
+local digest = sbomgen.hash_file(path, sbomgen.hash_algorithms.SHA256)
+sbomgen.push_package({
+    name = "example",
+    purl_type = "generic",
+    component_type = sbomgen.component_types.LIBRARY,
+    hashes = { [sbomgen.hash_algorithms.SHA256] = digest },
+})
 ```
 
 ## Artifact Info

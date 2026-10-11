@@ -257,6 +257,7 @@ end
 | get\_scanner\_groups() | Derived from category directory | You need non-standard groups | 
 | get\_event\_name() | Derived from directory path | You need custom event routing | 
 | get\_localhost\_scan\_paths() | None | Your plugin needs specific paths scanned during localhost scans | 
+| get\_fileless\_events() | None | A collector reads a source other than the file system, so its event must fire even when discover() matched nothing | 
 
 ### Localhost scan paths
 <a name="sbomgen-plugin-developer-guide-localhost-scan-paths"></a>
@@ -435,6 +436,7 @@ properties = {
 | get\_collector\_name() | {ecosystem} (e.g., python-pip) | You want a custom collector name | 
 | get\_collector\_description() | empty string | You want a description | 
 | subscribe\_to\_event() | Derived from directory path | You need custom event routing | 
+| finalize() | None | You group findings across an event's files instead of emitting one per file | 
 
 ## Running Your Plugins
 <a name="sbomgen-plugin-developer-guide-running-your-plugins"></a>

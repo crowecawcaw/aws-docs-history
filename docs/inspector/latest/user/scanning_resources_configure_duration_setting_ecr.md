@@ -16,7 +16,7 @@
  For multi-architecture images, the last-in-use date tracking is not supported. When using multi-architecture images, we recommend that you configure scanning based on image pull or push events instead of the last-in-use date to ensure proper re-scanning behavior. 
 
 **Note**  
- All re-scan duration settings configured prior to May 16, 2025, will remain unchanged. You can continue using any default settings previously configured. 
+ All re-scan duration settings configured prior to May 16, 2024, will remain unchanged. You can continue using any default settings previously configured. 
 
 **Image re-scan duration**  
  The image re-scan duration determines how long Amazon Inspector will monitor images. The image re-scan duration includes two modes: **Last in use date** (default) or **Last pull date**. Choose **Last in use date** (default) if you want to use the last in use date from your Amazon ECS/Amazon EKS cluster activity. Choose **Last pull date** if you want to use the last pull date from your Amazon ECR images to re-scan images. The following options are available as re-scan durations: 

@@ -24,7 +24,7 @@
 +  TypeScript (all versions) 
 
 **Supported languages for software composition analysis**
-+  Go (Go 1.18 only) 
++  Go 
 +  Java (Java 25 or earlier) 
 +  JavaScript (EMCMAScript 2021 or earlier) 
 +  PHP (PHP 8.2 or earlier) 

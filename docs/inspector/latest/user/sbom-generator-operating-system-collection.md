@@ -373,3 +373,42 @@ pkg:rpm/hummingbird/<name>@<version>
 
 **Note**  
  Red Hat Hardened Images detection applies to container, localhost, and volume scans. 
+
+## CleanStart hardened images package collection
+<a name="w2aac39c23c27"></a>
+
+ CleanStart images are minimal, security-hardened container images built on an Alpine base. The Amazon Inspector SBOM Generator detects these images and namespaces their packages under `clnstrt` so that vulnerabilities are matched against the hardened distribution. 
+
+### Detection
+<a name="w2aac39c23c27b5"></a>
+
+ CleanStart images report `ID=clnstrt` in the `/etc/os-release` file. The Amazon Inspector SBOM Generator detects these images directly from this `ID` value. 
+
+**Example `/etc/os-release` file**  
+ The following is an example of an `/etc/os-release` file for a CleanStart image. 
+
+```
+ID=clnstrt
+ID_LIKE=alpine
+```
+
+### Package namespace
+<a name="w2aac39c23c27b7"></a>
+
+ Every package in a CleanStart image is namespaced under `clnstrt`, yielding a Package URL of the form `pkg:apk/clnstrt/<name>@<version>`. 
+
+**Example PURL**  
+ The following is an example package URL for a package in a CleanStart image. 
+
+```
+pkg:apk/clnstrt/<name>@<version>
+```
+
+### Hardened-image markers
+<a name="w2aac39c23c27b9"></a>
+
+ When the Amazon Inspector SBOM Generator detects `ID=clnstrt`, it annotates the image with hardened-image markers: 
++  The container or operating-system component carries the `amazon:inspector:sbom_generator:hardened_image:vendor` property with a value of `CleanStart`. 
+
+**Note**  
+ CleanStart detection applies to container, localhost, and volume scans. 

@@ -14,6 +14,7 @@
 +  Alpine APK 
 +  Debian/Ubuntu DPKG 
 +  Red Hat RPM 
++  Homebrew 
 +  C\# 
 +  Go 
 +  Java 
@@ -27,6 +28,8 @@
 <a name="sbomgen-supported-configuration"></a>
 
  Sbomgen can scan standalone Dockerfiles and build history from exisiting images for security issues. For more information, see [Amazon Inspector Dockerfile checks](https://docs.aws.amazon.com/inspector/latest/user/dockerfile-checks.html). 
+
+ Sbomgen can also evaluate supported CIS Docker Benchmark checks on a container image with the `--enable-cis-docker` argument, and record indicators that describe a system's FIPS-related cryptographic configuration on Linux container and localhost scans with the `--enable-fips-checks` argument. Both arguments are experimental and disabled by default. For more information, see [Evaluate CIS Docker Benchmark checks](#sbomgen-using-cis-docker) and [Record FIPS configuration indicators](#sbomgen-using-fips-checks). 
 
 ## Installing Sbomgen
 <a name="install-sbomgen"></a>
@@ -295,6 +298,16 @@ AWS_DEFAULT_REGION=$your_region \
 **Note**  
  Both arguments apply to container scans only and are independent of each other. Each one defaults to `0`, which disables the limit. 
 
+ By default, a layer whose compressed size exceeds `--layer-max-pull-size` causes Sbomgen to reject the whole image. To skip the oversized layer and continue inventorying the rest of the image instead, add the `--continue-on-layer-size-exceeded` argument. It has no effect unless `--layer-max-pull-size` is set, and `--image-max-pull-size` still rejects an oversized image. 
+
+ Each skipped layer is reported as a `data` sub-component of the image metadata component, named by its diff ID, with the following properties: 
++  `amazon:inspector:sbom_generator:layer:skip_reason` – Why the layer was skipped (`layer_size_exceeded`). 
++  `amazon:inspector:sbom_generator:layer:size_bytes` – The size of the skipped layer. 
++  `amazon:inspector:sbom_generator:layer:size_limit_bytes` – The limit that the layer exceeded. 
+
+**Note**  
+ A skipped layer's whiteouts are not applied, so a path that the layer deletes or replaces is reported as the layer beneath it left it. 
+
 **Example**  
  The following example rejects the image if the compressed sizes of its layers total more than 50 GiB (`53687091200` bytes), or if any single layer's compressed size exceeds 10 GiB (`10737418240` bytes). 
 
@@ -304,6 +317,17 @@ AWS_DEFAULT_REGION=$your_region \
 --outfile /tmp/sbom.json \
 --image-max-pull-size 53687091200 \
 --layer-max-pull-size 10737418240
+```
+
+**Example**  
+ The following example skips any layer larger than 10 GiB (`10737418240` bytes) and inventories the remaining layers instead of rejecting the image. 
+
+```
+# Skip oversized layers instead of rejecting the image
+./inspector-sbomgen container --image image:tag \
+--outfile /tmp/sbom.json \
+--layer-max-pull-size 10737418240 \
+--continue-on-layer-size-exceeded
 ```
 
 ### Detect scratch images with filesystem heuristics
@@ -355,8 +379,57 @@ AWS_DEFAULT_REGION=$your_region \
 --collect-processes
 ```
 
+### Evaluate CIS Docker Benchmark checks
+<a name="sbomgen-using-cis-docker"></a>
+
+ When you scan a container image, you can use the `--enable-cis-docker` argument to evaluate supported CIS Docker Benchmark checks and record the result of each check as a property on the container component. 
+
+**Note**  
+ This argument is experimental, applies to container scans only, and is disabled by default. 
+
+ Sbomgen records the following properties on the container component, where {{check}} is the identifier of an individual check: 
++  `amazon:inspector:sbom_generator:image:cis:docker:{{check}}` – The `pass` or `fail` result of an individual check, one per supported check (currently 4.1, 4.6, 4.7, 4.9, and 4.10). 
++  `amazon:inspector:sbom_generator:image:cis:docker:checks_passed` – The number of evaluated checks that passed. 
+
+**Example**  
+ The following example shows how to use the `--enable-cis-docker` argument. 
+
+```
+# Evaluate CIS Docker Benchmark checks
+./inspector-sbomgen container --image image:tag \
+--outfile /tmp/sbom.json \
+--enable-cis-docker
+```
+
+### Record FIPS configuration indicators
+<a name="sbomgen-using-fips-checks"></a>
+
+ When you scan a Linux container image or localhost, you can use the `--enable-fips-checks` argument to record indicators that describe the system's FIPS-related cryptographic configuration. 
+
+**Note**  
+ This argument is experimental, applies to Linux container and localhost scans only, and is disabled by default. 
+
+ Sbomgen records the following properties, each valued `pass`, `fail`, or `unknown`: 
++ `amazon:inspector:sbom_generator:fips:aide_fips_hashes`
++ `amazon:inspector:sbom_generator:fips:boot_fips_arg`
++ `amazon:inspector:sbom_generator:fips:crypto_policy_fips`
++ `amazon:inspector:sbom_generator:fips:dracut_fips_module`
++ `amazon:inspector:sbom_generator:fips:kernel_fips_enabled`
++ `amazon:inspector:sbom_generator:fips:os_fips_certified`
++ `amazon:inspector:sbom_generator:fips:stig_crypto_subpolicy`
+
+**Example**  
+ The following example shows how to use the `--enable-fips-checks` argument on a localhost scan. 
+
+```
+# Record FIPS configuration indicators
+./inspector-sbomgen localhost \
+--outfile /tmp/sbom.json \
+--enable-fips-checks
+```
+
 ### Disable progress indicator
-<a name="w2aac39c13c27"></a>
+<a name="w2aac39c13c31"></a>
 
  Sbomgen displays a spinning progress indicator that can result in excessive slash characters in CI/CD environments. 
 

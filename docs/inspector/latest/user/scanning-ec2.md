@@ -46,7 +46,6 @@ The following process explains how Amazon Inspector uses SSM to collect inventor
 <a name="agent-based-vpce"></a>
 
  You can run Enhanced EC2 Scanning on Amazon EC2 instances over an Amazon network. However, if you want to run Enhanced EC2 Scanning on private Amazon EC2 instances, you must create Amazon VPC endpoints. The following endpoints are required: 
-+ `com.amazonaws.{{region}}.ec2messages`
 + `com.amazonaws.{{region}}.inspector2-telemetry`
 + `com.amazonaws.{{region}}.s3`
 + `com.amazonaws.{{region}}.ssm`
@@ -55,6 +54,9 @@ The following process explains how Amazon Inspector uses SSM to collect inventor
  Where {{region}} is the Region code for the applicable AWS Region. 
 
  For more information, see [Improve the security of Amazon EC2 instances by using Amazon VPC endpoints for Systems Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html) in the *AWS Systems Manager User Guide*. 
+
+**Note**  
+ Beginning with SSM Agent version 3.3.40.0, SSM Agent uses the `ssmmessages` endpoint instead of the `ec2messages` endpoint whenever it's available. Earlier versions of SSM Agent use the `ec2messages` endpoint. This endpoint is supported only in AWS Regions launched before 2024. For more information, see [Reference: ec2messages, ssmmessages, and other API operations](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up-messageAPIs.html) in the *AWS Systems Manager User Guide*. 
 
 **Note**  
  Currently, some AWS Regions don't support the `com.amazonaws.{{region}}.inspector2-telemetry` endpoint. 

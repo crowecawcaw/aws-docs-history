@@ -841,8 +841,37 @@ Sample PURL: pkg:generic/google/puppeteer@23.9.0
 pkg:generic/google/puppeteer@22.15.0?distro=linux&skip_chromium_download=true
 ```
 
-## HuggingFace ecosystem collection
+## Homebrew ecosystem collection
 <a name="w2aac39c27c37"></a>
+
+**Supported applications**
++  Homebrew package manager 
+
+**Key features**
++  Detects Homebrew-managed packages by reading each formula's `INSTALL_RECEIPT.json` under the Homebrew `Cellar` directory 
++  Scans the default `Cellar` locations (`/usr/local/Cellar`, `/opt/homebrew/Cellar`, and `/home/linuxbrew/.linuxbrew/Cellar`), as well as the location named by the `HOMEBREW_CELLAR` environment variable 
++  Generates Homebrew Package URLs with the `brew` type 
+
+**Supported platforms**
++  macOS 
++  Linux 
+
+**Example path**  
+ The following is an example of a Homebrew package install receipt path. 
+
+```
+/opt/homebrew/Cellar/<name>/<version>/INSTALL_RECEIPT.json
+```
+
+**Example PURL**  
+ The following is an example package URL for a Homebrew-managed package. 
+
+```
+pkg:brew/<name>@<version>
+```
+
+## HuggingFace ecosystem collection
+<a name="w2aac39c27c39"></a>
 
 **Supported applications**
 +  HuggingFace `hf` CLI 
@@ -867,7 +896,7 @@ pkg:huggingface/MiniMaxAI/MiniMax-M2.5@<hash>
 ```
 
 ## Java ecosystem collection
-<a name="w2aac39c27c39"></a>
+<a name="w2aac39c27c41"></a>
 
 **Supported applications**
 +  Oracle JDK 
@@ -926,7 +955,7 @@ pkg:generic/oracle/jre@20
 ```
 
 ## Jenkins ecosystem collection
-<a name="w2aac39c27c41"></a>
+<a name="w2aac39c27c43"></a>
 
 **Supported applications**
 +  Jenkins Core 
@@ -981,7 +1010,7 @@ Regular: pkg:generic/jenkins/jenkins-core@2.414
 ```
 
 ## Kiro CLI ecosystem collection
-<a name="w2aac39c27c43"></a>
+<a name="w2aac39c27c45"></a>
 
 **Supported applications**
 +  Kiro CLI (Amazon AI coding assistant) 
@@ -1010,10 +1039,10 @@ Sample PURL: pkg:generic/amazon/kiro@1.29.5?distro=linux
 ```
 
 ## MariaDB and MySQL ecosystem collection
-<a name="w2aac39c27c45"></a>
+<a name="w2aac39c27c47"></a>
 
 ### MariaDB
-<a name="w2aac39c27c45b3"></a>
+<a name="w2aac39c27c47b3"></a>
 
 **Supported applications**
 +  MariaDB Server (10.6\+, 11.x, 12.x) 
@@ -1048,7 +1077,7 @@ pkg:generic/mysql/mariadb-server@10.11.8
 ```
 
 ### MySQL ecosystem collection
-<a name="w2aac39c27c45b5"></a>
+<a name="w2aac39c27c47b5"></a>
 
 **Supported applications**
 +  Oracle MySQL Server Server (8.0, 8.4, 9.4\+) 
@@ -1251,7 +1280,7 @@ Sample PURL: pkg:generic/microsoft/outlook@16.0.19127.20264
 ```
 
 ## Microsoft SQL Server ecosystem collection
-<a name="w2aac39c27c49"></a>
+<a name="w2aac39c27c51"></a>
 
 **Supported applications**
 +  Microsoft SQL Server 
@@ -1279,7 +1308,7 @@ pkg:generic/microsoft/sqlserver@16.0.1000.6
 ```
 
 ## MongoDB ecosystem collection
-<a name="w2aac39c27c51"></a>
+<a name="w2aac39c27c53"></a>
 
 **Supported applications**
 +  MongoDB Server (7.0\+, 8.0\+) 
@@ -1311,7 +1340,7 @@ pkg:generic/mongodb/mongodb-server@8.2.4?platform=linux
 ```
 
 ## Mozilla ecosystem collection
-<a name="w2aac39c27c53"></a>
+<a name="w2aac39c27c55"></a>
 
 **Supported applications**
 +  Firefox 
@@ -1380,7 +1409,7 @@ pkg:generic/mozilla/thunderbird@153.0.3?distro=darwin
 ```
 
 ## Nginx ecosystem collection
-<a name="w2aac39c27c55"></a>
+<a name="w2aac39c27c57"></a>
 
 **Supported applications**
 +  Nginx 
@@ -1423,7 +1452,7 @@ Sample PURL: pkg:generic/nginx/nginx@1.27.5
 ```
 
 ## Node.JS runtime collection
-<a name="w2aac39c27c57"></a>
+<a name="w2aac39c27c59"></a>
 
 **Supported applications**
 +  node runtime binary for Node.JS 
@@ -1469,7 +1498,7 @@ Sample PURL: pkg:generic/nodejs/node@24.11.1
 ```
 
 ## Ollama ecosystem collection
-<a name="w2aac39c27c59"></a>
+<a name="w2aac39c27c61"></a>
 
 **Supported applications**
 +  Ollama (local LLM runtime) 
@@ -1512,7 +1541,7 @@ Sample PURL: pkg:generic/ollama/ollama@0.21.0?distro=linux
 ```
 
 ## Ollama Model Collector ecosystem collection
-<a name="w2aac39c27c61"></a>
+<a name="w2aac39c27c63"></a>
 
 **Supported applications**
 +  Ollama CLI 
@@ -1536,7 +1565,7 @@ pkg:ollama/gemma4@<hash>
 ```
 
 ## OpenSSH ecosystem collection
-<a name="w2aac39c27c63"></a>
+<a name="w2aac39c27c65"></a>
 
 **Supported applications**
 +  OpenSSH (Version 9) 
@@ -1573,7 +1602,7 @@ Sample PURL: pkg:generic/openssh/openssh@9.9p2
 ```
 
 ## OpenSSL ecosystem Collection
-<a name="w2aac39c27c65"></a>
+<a name="w2aac39c27c67"></a>
 
 **Supported applications**  
  Support for OpenSSL libraries and development packages is limited to software built with official OpenSSL for 3.0.0 releases and above. The software also must follow semantic versioning. Custom or forked OpenSSL variants and versions lower than 3.0.0 are not supported. 
@@ -1613,7 +1642,7 @@ Sample PURL: pkg:generic/openssl/openssl@3.4.0
 ```
 
 ## Oracle Database Server collection
-<a name="w2aac39c27c67"></a>
+<a name="w2aac39c27c69"></a>
 
 **Supported applications**
 +  Oracle Database 
@@ -1647,7 +1676,7 @@ Sample PURL: pkg:generic/oracle/database@23.7.0.25.01
 ```
 
 ## PHP ecosystem collection
-<a name="w2aac39c27c69"></a>
+<a name="w2aac39c27c71"></a>
 
 **Supported applications**
 +  PHP (version 8.1 and higher) 
@@ -1691,7 +1720,7 @@ pkg:generic/php/php@8.4.12
 ```
 
 ## Redis ecosystem collection
-<a name="w2aac39c27c71"></a>
+<a name="w2aac39c27c73"></a>
 
 **Supported applications**
 +  Redis (version 7.2 and higher) 
@@ -1727,7 +1756,7 @@ pkg:generic/redis/redis@7.2.6
 ```
 
 ## Standalone AI applications ecosystem collection
-<a name="w2aac39c27c73"></a>
+<a name="w2aac39c27c75"></a>
 
  The Amazon Inspector SBOM Generator detects standalone AI desktop and local LLM applications that are installed outside a package manager. Detected applications are reported as CycloneDX components with the `application` type and a `generic` Package URL type. The version-extraction method differs per application, as described in the following table. 
 
@@ -1747,7 +1776,7 @@ pkg:generic/redis/redis@7.2.6
  Installations in non-default install prefixes require the `--path` argument. A build that lacks the expected version anchor yields no component. 
 
 ## Windsurf ecosystem collection
-<a name="w2aac39c27c75"></a>
+<a name="w2aac39c27c77"></a>
 
 **Supported applications**
 +  Windsurf (by Codeium) 
@@ -1774,7 +1803,7 @@ Sample PURL: pkg:generic/codeium/windsurf@1.10.5?distro=linux
 ```
 
 ## WordPress ecosystem collection
-<a name="w2aac39c27c77"></a>
+<a name="w2aac39c27c79"></a>
 
 **Supported components**
 +  WordPress core 
@@ -1864,7 +1893,7 @@ Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 ```
 
 ## Zed ecosystem collection
-<a name="w2aac39c27c79"></a>
+<a name="w2aac39c27c81"></a>
 
 **Supported applications**
 +  Zed (by Zed Industries) 
