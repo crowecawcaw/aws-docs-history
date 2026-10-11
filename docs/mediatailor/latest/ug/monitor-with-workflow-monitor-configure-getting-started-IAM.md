@@ -70,6 +70,14 @@ The following example policy is for an administrator-level workflow monitor IAM 
     {
       "Effect": "Allow",
       "Action": [
+        "elemental-inference:List*",
+        "elemental-inference:Get*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
         "events:List*",
         "events:Describe*",
         "events:CreateEventBus",
@@ -237,6 +245,14 @@ The following example policy is for an operator-level workflow monitor IAM polic
       "Effect": "Allow",
       "Action": [
         "ec2:DescribeNetworkInterfaces"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "elemental-inference:List*",
+        "elemental-inference:Get*"
       ],
       "Resource": "*"
     },

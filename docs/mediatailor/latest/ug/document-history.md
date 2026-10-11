@@ -7,6 +7,7 @@ The following table describes important changes to this documentation.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
 | [New avail progression metrics](monitoring-cloudwatch-metrics.md) | Added the `Avail.Start`, `Avail.FirstQuartile`, `Avail.Midpoint`, and `Avail.ThirdQuartile` metrics, with `ConfigurationName` and account-level (no dimensions) emissions. | September 17, 2026 | 
 | [New session stream metrics](monitoring-cloudwatch-metrics.md) | Added the `Session.ConcurrentStreams`, `Session.StreamDuration`, and `Session.StreamStarts` metrics, and the `StreamingMode` dimension. | September 11, 2026 | 
 | [New analytics dashboard page](analytics-dashboard.md) | Added documentation for the MediaTailor analytics dashboard, a MediaTailor console page that visualizes monetization performance and beacon firing performance across the AWS regions where you run playback configurations. | August 29, 2026 | 
