@@ -8,9 +8,6 @@ Atlassian Confluence is a collaborative work-management tool for sharing, storin
 **Note**  
 To connect to a hosted Confluence Cloud (SaaS) instance instead, see [Confluence](kb-managed-ds-confluence.md).
 
-**Important**  
-Confluence Data Center data sources don't support document-level access control lists (ACLs). All authenticated users who can query the knowledge base can see all crawled content from Confluence Data Center.
-
 ## Supported features
 <a name="kb-managed-supported-features-confluence-onprem"></a>
 

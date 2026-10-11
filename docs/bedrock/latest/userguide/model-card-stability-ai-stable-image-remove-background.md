@@ -3,7 +3,7 @@
 # Stable Image Remove Background
 <a name="model-card-stability-ai-stable-image-remove-background"></a>
 
-## ![Icon showing a purple letter S with a red dot in the lower right corner.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Remove Background
+## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Remove Background
 <a name="model-card-stability-ai-stable-image-remove-background-header"></a>
 
 ## Model Details

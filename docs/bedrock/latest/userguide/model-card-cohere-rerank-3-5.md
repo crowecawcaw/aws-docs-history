@@ -3,7 +3,7 @@
 # Rerank 3.5
 <a name="model-card-cohere-rerank-3-5"></a>
 
-## ![Three overlapping circles in dark green, coral, and purple colors forming a logo or icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Rerank 3.5
+## ![Cohere logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Rerank 3.5
 <a name="model-card-cohere-rerank-3-5-header"></a>
 
 ## Model Details

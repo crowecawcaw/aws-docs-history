@@ -87,6 +87,10 @@ curl -X GET "https://bedrock.us-east-1.amazonaws.com/foundation-model/anthropic.
 
 **List models on `bedrock-mantle`**
 
+**Note**  
+The Anthropic SDK's `AnthropicBedrockMantle` client doesn't provide a model-listing resource. To list models on `bedrock-mantle`, use the OpenAI SDK or curl to call the OpenAI-compatible `/v1/models` endpoint.  
+Model discovery is always on `/v1/models`, including for models whose inference APIs use a different base path. Some models, such as the proprietary OpenAI GPT models and the Google Gemma models, are served for inference under `/openai/v1` rather than `/v1`, but they are still listed by `/v1/models`. A request to `/openai/v1/models` returns `404`.
+
 ------
 #### [ OpenAI SDK (Python) ]
 
@@ -103,22 +107,6 @@ models = client.models.list()
 for model in models.data:
     print(model.id)
 ```
-
-------
-#### [ Anthropic SDK (Python) ]
-
-```
-from anthropic import AnthropicBedrockMantle
-
-client = AnthropicBedrockMantle(aws_region="us-east-1")
-models = client.models.list()
-
-for model in models.data:
-    print(model.id)
-```
-
-**Note**  
-The `bedrock-mantle` `/v1/models` endpoint returns OpenAI-shaped model entries. Only `model.id` is reliable when using the Anthropic SDK; other fields on `ModelInfo` may be empty.
 
 ------
 #### [ curl ]

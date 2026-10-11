@@ -40,7 +40,7 @@ Content-type: application/json
 ```
 
 **Fields**
-+ **prompt** – (string) The content needed in the output video (1 <= length <= 5000 characters).
++ **prompt** – (string) The content needed in the output video. The request field accepts 1–5,000 characters. The model input is also limited to 300 tokens, so the prompt must satisfy both limits.
 + **aspect\_ratio** – (enum) The aspect ratio of the output video ("1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21").
 + **loop** – (boolean) Whether to loop the output video.
 + **duration** – (enum) - The duration of the output video ("5s", "9s").
@@ -191,7 +191,7 @@ Common issues and solutions when working with Luma AI models:
 + **Image URL Access Errors** - Ensure image URLs are publicly accessible and use HTTPS. Images must be in supported formats (JPEG, PNG).
 + **Invalid Parameter Errors** - Verify aspect ratio values match supported options ("1:1", "16:9", "9:16", "4:3", "3:4", "21:9", "9:21") and duration is either "5s" or "9s".
 + **Timeout Issues** - Use `GetAsyncInvoke` to check job status rather than waiting synchronously. Video generation can take several minutes.
-+ **Prompt Length Errors** - Keep prompts between 1-5000 characters. Longer prompts will be rejected.
++ **Prompt Length Errors** - Keep prompts between 1 and 5,000 characters and within the 300-token model input limit. Prompts that exceed either limit will be rejected.
 
 ## Performance Notes
 <a name="luma-performance"></a>

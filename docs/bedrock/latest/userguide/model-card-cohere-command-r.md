@@ -3,7 +3,7 @@
 # Command R
 <a name="model-card-cohere-command-r"></a>
 
-## ![Three overlapping circles in dark green, coral, and purple colors forming a logo or icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Command R
+## ![Cohere logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Command R
 <a name="model-card-cohere-command-r-header"></a>
 
 ## Model Details

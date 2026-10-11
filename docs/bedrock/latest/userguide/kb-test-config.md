@@ -466,12 +466,10 @@ To learn how to modify the inference parameters, choose the tab for your preferr
 
 **To modify inference parameters when querying a knowledge base** – Follow the console steps at [Query a knowledge base and retrieve data](kb-test-retrieve.md) or [Query a knowledge base and generate responses based off the retrieved data](kb-test-retrieve-generate.md). When you open the **Configurations** pane, you'll see an **Inference parameters** section. Modify the parameters as necessary.
 
-**To modify inference parameters when chatting with your document** – Follow the steps at [Chat with your document without a knowledge base configured](knowledge-base-chatdoc.md). In the **Configurations** pane, expand the **Inference parameters** section and modify the parameters as necessary.
-
 ------
 #### [ API ]
 
-You provide the model parameters in the call to the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API. You can customize the model by providing inference parameters in the `inferenceConfig` field of either the `knowledgeBaseConfiguration` (if you query a knowledge base) or the `externalSourcesConfiguration` (if you [chat with your document](knowledge-base-chatdoc.md)).
+You provide the model parameters in the call to the [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) API. You can customize the model by providing inference parameters in the `inferenceConfig` field of either the `knowledgeBaseConfiguration` (if you query a knowledge base) or the `externalSourcesConfiguration` (if you [query a document without creating a knowledge base](knowledge-base-chatdoc.md)).
 
 Within the `inferenceConfig` field is a `textInferenceConfig` field that contains the following parameters that you can:
 + temperature

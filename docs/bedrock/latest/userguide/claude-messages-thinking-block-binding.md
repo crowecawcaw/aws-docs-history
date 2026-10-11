@@ -15,9 +15,9 @@ If your harness sends conversation history back exactly as it received it, nothi
 
 | **Check** | **Description** | 
 | --- | --- | 
-| Model | The model reading the block is allowed to read the producer's thinking. A model cannot read another model's thinking unless the two are explicitly compatible. This check applies on any thinking-capable model. | 
-| Conversation prefix | The top-level system prompt, tools, and all message content before the block are unchanged from the request that produced it. Claude Fable 5.1 runs this check. Claude Mythos 5.1 records the same signature but doesn't run it. | 
-| Organization | The thinking block was produced by the same AWS account, or an account in the same customer group. A block replayed from a different account — or one minted in a Claude app (claude.ai or Claude Code) — is removed before the model runs; the request still succeeds. Applies on Claude Sonnet 5.5. | 
+| Model | The model reading the block is allowed to read the producer's thinking. A model cannot read another model's thinking unless the two are explicitly compatible. This check applies on any thinking-capable model. Claude Haiku 5.5 is an exception: its thinking blocks are not locked to the model that produced them and replay unchanged on other models. The reverse still applies: a block produced by a different model and replayed on Claude Haiku 5.5 is dropped as model\_binding\_mismatch. | 
+| Conversation prefix | The top-level system prompt, tools, and all message content before the block are unchanged from the request that produced it. Claude Fable 5.1 runs this check. Claude Mythos 5.1 records the same signature but doesn't run it. On Claude Haiku 5.5, this check applies only to accounts created after the Claude Fable 5.1 launch. | 
+| Organization | The thinking block was produced by the same AWS account, or an account in the same customer group. A block replayed from a different account — or one minted in a Claude app (claude.ai or Claude Code) — is removed before the model runs; the request still succeeds. Applies on Claude Sonnet 5.5 and Claude Haiku 5.5. | 
 
 **Note**  
 A thinking block whose signature has been altered or cannot be decrypted always returns a 400, regardless of these checks or the beta value.
@@ -76,7 +76,7 @@ This is a top-level array (a sibling of `usage`), present only with the beta val
 ## Organization-locked thinking
 <a name="claude-messages-thinking-block-binding-organization-locked"></a>
 
-On Claude Sonnet 5.5, each thinking block is also bound to the AWS account (or customer group) that produced it, in addition to the model and conversation-prefix checks. A block replayed from a different account, or one minted in a Claude app (claude.ai or Claude Code), is dropped before the model runs; the request still succeeds and the model does not see that earlier reasoning.
+On Claude Sonnet 5.5 and Claude Haiku 5.5, each thinking block is also bound to the AWS account (or customer group) that produced it, in addition to the model and conversation-prefix checks. A block replayed from a different account, or one minted in a Claude app (claude.ai or Claude Code), is dropped before the model runs; the request still succeeds and the model does not see that earlier reasoning.
 
 By default the drop is silent. With the `thinking-binding-controls-2026-08-01` beta, each dropped block is listed in the top-level `input_transformations` array:
 
@@ -90,7 +90,7 @@ By default the drop is silent. With the `thinking-binding-controls-2026-08-01` b
 
 Replaying thinking blocks within the same AWS account (or customer group) is unaffected. Without the `thinking-binding-controls-2026-08-01` beta, the response does not include an `input_transformations` field. In the same-account case with the beta, the field is present as an empty array (`[]`).
 
-This binding applies on Claude Sonnet 5.5; earlier models are unaffected.
+This binding applies on Claude Sonnet 5.5 and Claude Haiku 5.5; earlier models are unaffected.
 
 ## Error responses
 <a name="claude-messages-thinking-block-binding-error-responses"></a>

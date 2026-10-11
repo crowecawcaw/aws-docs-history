@@ -79,21 +79,17 @@ Customer-supplied `metadata` on `CreateInference` calls is logged verbatim in Cl
 ## Configuring data event capture
 <a name="mantle-cloudtrail-configuring"></a>
 
-The following example configures a trail to capture all `bedrock-mantle` inference and file data events:
+The following example configures a trail to capture `bedrock-mantle` data events associated with a project:
 
 ```
 aws cloudtrail put-event-selectors \
     --trail-name <trailName> \
     --advanced-event-selectors '[
       {
-        "Name": "Log Bedrock Mantle inference and file events",
+        "Name": "Log Bedrock Mantle project data events",
         "FieldSelectors": [
           { "Field": "eventCategory", "Equals": ["Data"] },
-          { "Field": "resources.type", "Equals": [
-            "AWS::BedrockMantle::Project",
-            "AWS::BedrockMantle::CustomizedModel",
-            "AWS::BedrockMantle::Reservation"
-          ]}
+          { "Field": "resources.type", "Equals": ["AWS::BedrockMantle::Project"] }
         ]
       }
     ]'
@@ -104,16 +100,15 @@ You can additionally filter by `eventName` and `resources.ARN`. For details on a
 ## Resource types
 <a name="mantle-cloudtrail-resource-types"></a>
 
-`bedrock-mantle` CloudTrail events reference the following resource types:
+Use `AWS::BedrockMantle::Project` as the `resources.type` field selector when you configure CloudTrail data event capture for `bedrock-mantle`.
+
+The `resources` array in a delivered event references the following resource type, which is also the only value that the `resources.type` field selector supports for `bedrock-mantle`:
 + `AWS::BedrockMantle::Project`
-+ `AWS::BedrockMantle::Reservation`
-+ `AWS::BedrockMantle::CustomizedModel`
-+ `AWS::BedrockMantle::Environment`
-+ `AWS::BedrockMantle::Runtime`
-+ `AWS::BedrockMantle::Skill`
 
 ## Example log entry
 <a name="mantle-cloudtrail-example"></a>
+
+The following example is a `CreateInference` data event. The `eventType` value `AwsApiCall` indicates that the event records an API call; it doesn't classify the event as a management event. The `eventCategory` value `Data` and the `managementEvent` value `false` identify it as a data event.
 
 ```
 {

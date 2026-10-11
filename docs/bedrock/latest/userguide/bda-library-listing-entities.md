@@ -3,7 +3,7 @@
 # Listing Library Entities
 <a name="bda-library-listing-entities"></a>
 
-Use the [ListDataAutomationLibraryEntities](bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.html) API to retrieve the list of entities.
+Use the [ListDataAutomationLibraryEntities](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_ListDataAutomationLibraryEntities.html) API to retrieve the list of entities.
 
 ## AWS CLI Example:
 <a name="bda-library-listing-entities-cli"></a>

@@ -3,7 +3,7 @@
 # Creating Library
 <a name="bda-library-creating"></a>
 
-Use the [CreateDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.html) API to create a new library container.
+Use the [CreateDataAutomationLibrary](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_CreateDataAutomationLibrary.html) API to create a new library container.
 
 ## AWS CLI Example:
 <a name="bda-library-creating-cli"></a>

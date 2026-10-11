@@ -18,7 +18,7 @@ The TwelveLabs Marengo Embed 3.0 model supports the Amazon Bedrock Runtime opera
 + For more information about use cases for different API methods, see [Making inference requests](inference.md).
 + For more information about model types, see [Making inference requests](inference.md).
   + For a list of model IDs and to see the models and AWS Regions that TwelveLabs Marengo Embed 3.0 is supported in, search for the model in the table at [Supported foundation models in Amazon Bedrock](models-supported.md).
-  + For a full list of inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md). The inference profile ID is based on the AWS Region.
+  + To find inference profile IDs for TwelveLabs Marengo Embed 3.0, open [models at a glance](model-cards.md), choose the model, and review its *Regional availability* section. The available inference profile IDs depend on the AWS Region.
 
 
 

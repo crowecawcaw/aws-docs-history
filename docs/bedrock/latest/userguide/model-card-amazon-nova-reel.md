@@ -3,7 +3,7 @@
 # Nova Reel
 <a name="model-card-amazon-nova-reel"></a>
 
-## ![Amazon logo with curved arrow from A to Z forming a smile.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova Reel
+## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova Reel
 <a name="model-card-amazon-nova-reel-header"></a>
 
 ## Model Details

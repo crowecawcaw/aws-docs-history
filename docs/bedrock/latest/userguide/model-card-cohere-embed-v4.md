@@ -3,7 +3,7 @@
 # Embed v4
 <a name="model-card-cohere-embed-v4"></a>
 
-## ![Three overlapping circles in dark green, coral, and purple colors forming a logo or icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Embed v4
+## ![Cohere logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/cohere.png) Cohere — Embed v4
 <a name="model-card-cohere-embed-v4-header"></a>
 
 ## Model Details

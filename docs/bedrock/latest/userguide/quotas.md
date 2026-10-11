@@ -11,7 +11,9 @@ Model inference in Amazon Bedrock is controlled by quotas on token usage. Some m
 
 Amazon Bedrock offers two inference endpoints – `bedrock-runtime` and `bedrock-mantle` – each with its own per-model quota allocations. Traffic to the two endpoints is tracked against separate quotas, even when calling the same underlying model. For details, see [Quotas for the bedrock-runtime endpoint](quotas-runtime.md) and [Quotas for the bedrock-mantle endpoint](quotas-mantle.md).
 
-To maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock, the default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a [quota increase request](quotas-increase.md).
+To maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock, the default quotas assigned to an account might be updated depending on regional factors, account age, usage history, payment history, fraudulent usage, and/or approval of a [quota increase request](quotas-increase.md). As a result, the quotas that apply to your account might be lower than the default values listed in the [Amazon Bedrock service quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#limits_bedrock). To check the values that apply to your account, use Service Quotas as described earlier in this topic.
+
+Quota increases aren't granted automatically. For the request process and the conditions that apply to a request, see [Request an increase for Amazon Bedrock quotas](quotas-increase.md).
 
 **Topics**
 + [How tokens are counted in Amazon Bedrock](quotas-token-burndown.md)

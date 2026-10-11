@@ -133,7 +133,7 @@ The PII model performs more effectively when it is provided with sufficient cont
 
 **Note**  
 PII masking applies only to content that is sent to the inference model (input prompts) and content that is returned from the inference model (model responses). It does not apply to the following:  
-**Model invocation logs** — If you enabled [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md), the `input` field in Amazon CloudWatch Logs always contains the original, unmodified request regardless of guardrail intervention. To protect sensitive information in your logs, use [Amazon CloudWatch log data protection](AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
+**Model invocation logs** — If you enabled [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md), the `input` field in Amazon CloudWatch Logs always contains the original, unmodified request regardless of guardrail intervention. To protect sensitive information in your logs, use [Amazon CloudWatch log data protection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 **Guardrails trace output** — The `match` field in [GuardrailPiiEntityFilter](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_GuardrailPiiEntityFilter.html) that is returned in API responses (such as the `trace` object of the Converse API) contains the original PII value, not the masked output. This behavior is by design so that your application can use the detection result for its own logic.
 
 **Note**  

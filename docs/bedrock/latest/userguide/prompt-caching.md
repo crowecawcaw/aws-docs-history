@@ -30,7 +30,7 @@ Implicit Prompt Caching is best effort. Repeating an identical prompt doesn't gu
 
 Explicit Prompt Caching lets you identify reusable prompt prefixes using model-specific cache controls or *cache checkpoints*. Cache checkpoints are markers that define the contiguous subsection of your prompt that you want to cache. Prompt prefixes should remain static between requests. Changes to a prompt prefix in subsequent requests result in cache misses.
 
-Cache checkpoints have a minimum and maximum number of tokens, depending on the model. You can only create a cache checkpoint if your total prompt prefix meets the minimum number of tokens. For example, Claude Opus 5 requires at least 512 tokens per cache checkpoint, Claude Sonnet 5 requires at least 1,024 tokens per cache checkpoint, and Claude Haiku 4.5 requires at least 4,096 tokens per cache checkpoint. The minimum applies cumulatively to the entire prompt prefix before each checkpoint, including, where applicable, content in the `tools`, `system`, and `messages` fields. There is no minimum number of tokens required between cache checkpoints. For a model with a 1,024-token minimum, you can define additional checkpoints fewer than 1,024 tokens apart as long as the total prompt prefix before each checkpoint contains at least 1,024 tokens. If you add a cache checkpoint before the total prompt prefix meets the minimum number of tokens, your inference still succeeds, but your prefix isn't cached.
+Cache checkpoints have a minimum and maximum number of tokens, depending on the model. You can only create a cache checkpoint if your total prompt prefix meets the minimum number of tokens. Minimums currently range from 512 to 4,096 tokens per cache checkpoint. For the minimum that applies to your model, see [Supported models, Regions, and explicit caching limits](#prompt-caching-models) or the model's model card. The minimum applies cumulatively to the entire prompt prefix before each checkpoint, including, where applicable, content in the `tools`, `system`, and `messages` fields. There is no minimum number of tokens required between cache checkpoints. For a model with a 1,024-token minimum, you can define additional checkpoints fewer than 1,024 tokens apart as long as the total prompt prefix before each checkpoint contains at least 1,024 tokens. If you add a cache checkpoint before the total prompt prefix meets the minimum number of tokens, your inference still succeeds, but your prefix isn't cached.
 
 The cache has a Time To Live (TTL), which resets with each successful cache hit. During this period, the context in the cache is preserved. If no cache hits occur within the TTL window, your cache expires. Many models support a 5-minute TTL. Check the model card for your model to see the exact TTL conditions.
 
@@ -73,8 +73,9 @@ The following table lists models that support Explicit Prompt Caching, along wit
 To see which prompt caching types a model supports, refer to [Models at a glance](model-cards.md), and then choose the model that you're interested in.
 
 
-| Model name | Model ID | Release Type | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints per request | Supported TTL | Fields that accept prompt cache checkpoints | 
+| Model name | Model ID | Release Type | Minimum number of tokens per cache checkpoint | Maximum number of cache checkpoints or writes per request | Supported TTL | Fields that accept prompt cache checkpoints | 
 | --- | --- | --- | --- | --- | --- | --- | 
+| Claude Haiku 5.5 | anthropic.claude-haiku-5-5 | Generally Available | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Sonnet 5.5 | anthropic.claude-sonnet-5-5 | Generally Available | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Opus 5.5 | anthropic.claude-opus-5-5 | Generally Available | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | Claude Fable 5.1 | anthropic.claude-fable-5-1 | Generally Available | 512 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
@@ -92,13 +93,20 @@ To see which prompt caching types a model supports, refer to [Models at a glance
 | Claude 3.7 Sonnet | anthropic.claude-3-7-sonnet-20250219-v1:0 | Generally Available | 1,024 | 4 | 5 minutes | `system`, `messages`, and `tools` | 
 | Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview | 1,024 | 4 | 5 minutes | `system`, `messages`, and `tools` | 
 | Claude Haiku 4.5 | anthropic.claude-haiku-4-5-20251001-v1:0 | Generally Available | 4,096 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
-| GPT-5.6 Sol | openai.gpt-5.6-sol | Generally Available | 1,024 | 4 | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
-| GPT-5.6 Terra | openai.gpt-5.6-terra | Generally Available | 1,024 | 4 | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
-| GPT-5.6 Luna | openai.gpt-5.6-luna | Generally Available | 1,024 | 4 | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
+| GPT-6.1 Sol | openai.gpt-6.1-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
+| GPT-5.6 Sol | openai.gpt-5.6-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
+| GPT-5.6 Terra | openai.gpt-5.6-terra | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
+| GPT-5.6 Luna | openai.gpt-5.6-luna | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
+| Nova 2 Lite | amazon.nova-2-lite-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
+| Amazon Nova Pro | amazon.nova-pro-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
+| Amazon Nova Lite | amazon.nova-lite-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
+| Amazon Nova Micro | amazon.nova-micro-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
 
-To use the 1-hour TTL option with supported models (Claude Fable 5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Opus 4.5, Claude Sonnet 5, Claude Sonnet 4.6, Claude Sonnet 4.5, and Claude Haiku 4.5), specify the `ttl` field in your cache checkpoint. In the Converse API, add `"ttl": "1h"` to your `cachePoint` object. In the InvokeModel API for Claude models, add `"ttl": "1h"` to your `cache_control` object. If no `ttl` value is provided, the default 5-minute caching behavior applies. The 1-hour TTL is useful for longer-running sessions or batch processing scenarios where you want to maintain the cache across extended periods.
+*\* Amazon Nova models support a maximum of 20K tokens for prompt caching. Prompt caching is primarily for text prompts.*
 
-Amazon Nova offers Implicit Prompt Caching for all text prompts, including `User` and `System` messages. This mechanism can provide latency benefits when prompts begin with repetitive parts, without explicit configuration. Amazon Nova models shown as supporting Explicit Prompt Caching in their model cards also let you specify cache checkpoints for more control over cache eligibility.
+To use the 1-hour TTL option, confirm in the preceding table that the model supports it. Check the model's model card for the latest model-specific TTL conditions. For supported models, specify the `ttl` field in your cache checkpoint. In the Converse API, add `"ttl": "1h"` to your `cachePoint` object. In the InvokeModel API for Claude models, add `"ttl": "1h"` to your `cache_control` object. For models that support only the 5-minute TTL, omit the `ttl` field. Including the field for these models can result in a `ValidationException`. If no `ttl` value is provided, the default 5-minute caching behavior applies. The 1-hour TTL is useful for longer-running sessions or batch processing scenarios where you want to maintain the cache across extended periods.
+
+Amazon Nova offers Implicit Prompt Caching for all text prompts, including `User` and `System` messages. This mechanism can provide latency benefits when prompts begin with repetitive parts, without explicit configuration. Amazon Nova models that support Explicit Prompt Caching, listed in the preceding table, also let you specify cache checkpoints for more control over cache eligibility.
 
 ## Prompt caching for models from Anthropic
 <a name="prompt-caching-simplified"></a>
@@ -129,21 +137,22 @@ You can use both 1-hour and 5-minute cache controls in the same request, but wit
 ## Prompt caching for models from OpenAI
 <a name="prompt-caching-openai"></a>
 
-OpenAI models on Amazon Bedrock support Implicit Prompt Caching through the Responses API. GPT-5.6 models also support Explicit Prompt Caching. The Responses API is available on both the `bedrock-runtime` and `bedrock-mantle` endpoints.
+OpenAI models on Amazon Bedrock support Implicit Prompt Caching through supported APIs. GPT-5.6 and later models also support Explicit Prompt Caching. API availability varies by model and endpoint. Check the model's model card and the preceding table.
 
-### GPT-5.6 models
+### GPT-5.6 and later models
 <a name="prompt-caching-openai-56"></a>
 
-GPT-5.6 Sol (`openai.gpt-5.6-sol`), Terra (`openai.gpt-5.6-terra`), and Luna (`openai.gpt-5.6-luna`) support both Implicit Prompt Caching and Explicit Prompt Caching. Explicit prompt cache breakpoints give you precise control over which portions of your prompt are eligible for caching. This is especially valuable for agentic workflows where system instructions, tool definitions, and reference files repeat across many calls while only the latest input changes.
+GPT-5.6 Sol (`openai.gpt-5.6-sol`), Terra (`openai.gpt-5.6-terra`), Luna (`openai.gpt-5.6-luna`), and later models such as GPT-6.1 Sol (`openai.gpt-6.1-sol`) support both Implicit Prompt Caching and Explicit Prompt Caching. Explicit prompt cache breakpoints give you precise control over which portions of your prompt are eligible for caching. This is especially valuable for agentic workflows where system instructions, tool definitions, and reference files repeat across many calls while only the latest input changes.
 
 Key characteristics:
 + **Explicit cache breakpoints** — Mark the exact end of a reusable prompt prefix by adding `"prompt_cache_breakpoint": {"mode": "explicit"}` to a supported content block.
++ **Multiple breakpoints** — You can include multiple explicit breakpoints. Each request can create up to four cache writes.
 + **Cache modes** — Set `prompt_cache_options.mode` to control breakpoint behavior:
   + `implicit` (default) — Places an automatic breakpoint on the latest message and also uses any explicit breakpoints you provide.
   + `explicit` — Disables the automatic breakpoint. Only explicit breakpoints are used for cache reads and writes. If no explicit breakpoints exist, the request does not use prompt caching or incur cache-write charges.
 + **Minimum prefix length** — 1,024 tokens per breakpoint.
 + **30-minute minimum TTL** — Cached prefixes remain available for reuse for at least 30 minutes, long enough to cover the burst of calls a single agent run generates. The TTL is set via `prompt_cache_options.ttl` and defaults to `30m`.
-+ **Cache write billing** — Tokens written to cache are billed at 1.25× the uncached input token rate. Cache reads are billed at a 90% discount compared to uncached input tokens.
++ **Cache write billing** — Tokens written to cache are billed at 1.25× the uncached input token rate. Cache reads are billed at the model-specific cache-read rate.
 + **Cached tokens do not count toward rate limits** — Cached input tokens read through prompt caching do not count against the input-tokens-per-minute quota.
 
 #### Understanding the response
@@ -155,7 +164,7 @@ The usage object in the response includes two cache-specific fields:
 
 When `cached_tokens` is greater than zero and `cache_write_tokens` is zero, your request fully matched an existing cache entry — no new writes occurred, and you received the maximum cost savings.
 
-#### Best practices for using cache management in GPT 5.6 models
+#### Best practices for using cache management in GPT-5.6 and later models
 <a name="prompt-caching-openai-56-best-practices"></a>
 + **Place breakpoints after stable content** — System instructions, tool definitions, and reference documents that don't change between calls should appear before the breakpoint. Content after the breakpoint can change freely without invalidating the cached prefix.
 + **Use `explicit` mode for agentic loops** — When you want full control over what gets cached and want to avoid automatic breakpoints consuming write slots.
@@ -195,12 +204,12 @@ The following examples show a cache checkpoint set in the `messages`, `system`, 
 **Important**  
 Cache checkpoints are processed in this order: `tools` → `system` → `messages`. The minimum cache size is evaluated against the cumulative tokens across all three sections combined, not each section individually. Because the sections are chained, changing content in an earlier section invalidates the cache for later sections (for example, modifying `tools` invalidates the `system` and `messages` caches). For best cache hit rates, place stable content (`tools`, `system`) before variable content (`messages`), and place cache checkpoints after the stable content.
 
-Specify the desired ttl value as below, when ttl value not specified the default behavior of 5 minutes caching applies.
+For models that support the 1-hour TTL, specify it as follows. For models that support only the 5-minute TTL, omit the `ttl` field. Including the field for these models can result in a `ValidationException`. If you omit the field, the default 5-minute caching behavior applies.
 
 ```
 "cachePoint" : {
     "type": "default",
-    "ttl" : "5m | 1h"
+    "ttl" : "1h"
 }
 ```
 
@@ -311,12 +320,12 @@ Prompt caching is enabled by default when you call the [InvokeModel](https://doc
 
 The following example shows how to structure the body of your InvokeModel request for the Anthropic Claude 3.5 Sonnet v2 model. Note that the exact format and fields of the body for InvokeModel requests may vary depending on the model you choose. To see the format and content of the request and response bodies for different models, see [Inference request parameters and response fields for foundation models](model-parameters.md).
 
-Specify the desired ttl value as below, when ttl value not specified the default behavior of 5 minutes caching applies.
+For models that support the 1-hour TTL, specify it as follows. For models that support only the 5-minute TTL, omit the `ttl` field. Including the field for these models can result in a `ValidationException`. If you omit the field, the default 5-minute caching behavior applies.
 
 ```
 "cache_control" : {
     "type": "ephemeral",
-    "ttl" : "5m | 1h"
+    "ttl" : "1h"
 }
 ```
 
@@ -390,7 +399,7 @@ For more information about sending an InvokeModel request, see [Submit a single 
 ### Responses API
 <a name="prompt-caching-responses"></a>
 
-For OpenAI models, you use the Responses API — available on both the `bedrock-runtime` and `bedrock-mantle` endpoints — with prompt caching parameters specific to the model generation. For GPT-5.6 models, you control caching with explicit breakpoints. For GPT-5.5 and earlier, caching is automatic.
+For OpenAI models, you use the Responses API — available on both the `bedrock-runtime` and `bedrock-mantle` endpoints — with prompt caching parameters specific to the model generation. For GPT-5.6 and later models, you control caching with explicit breakpoints. For GPT-5.5 and earlier, caching is automatic.
 
 **GPT-5.6 example with explicit cache breakpoints**
 

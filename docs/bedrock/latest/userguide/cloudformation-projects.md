@@ -23,9 +23,6 @@ To declare this entity in your CloudFormation template, use the following syntax
   "Properties": {
     "Name": String,
     "Tags": [
-      { "Key": String, "Value": String },
-      { "Key": String, "Value": String },
-      { "Key": String, "Value": String },
       { "Key": String, "Value": String }
     ]
   }
@@ -37,7 +34,8 @@ Type: AWS::BedrockMantle::Project
 Properties:
   Name: String
   Tags:
-    Key: Value
+    - Key: String
+      Value: String
 ```
 
 ### Properties
@@ -47,13 +45,14 @@ Name
 Required. The name of the project. Must be unique within your AWS account.  
 Type: String  
 Minimum: 1  
-Maximum: 64  
-Pattern: `^([0-9a-zA-Z][ _-]?)+$`  
-Update requires: Replacement
+Maximum: 128  
+Update requires: No interruption
 
 Tags  
-A map of key-value pairs to associate with the project for cost allocation and access control.  
-Type: Map of String  
+A list of unique key-value pairs to associate with the project for cost allocation and access control.  
+Type: Array of Tag  
+Minimum: 0  
+Maximum: 200  
 Update requires: No interruption
 
 **Note on Tag Updates**  
@@ -65,25 +64,19 @@ CloudFormation tag updates on `AWS::BedrockMantle::Project` use separate add and
 #### Ref
 <a name="cloudformation-projects-ref"></a>
 
-When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the project ID (e.g., `proj_abc123`).
+When you pass the logical ID of this resource to the intrinsic `Ref` function, `Ref` returns the project ARN (for example, `arn:aws:bedrock-mantle:us-east-1:123456789012:project/proj_abc123`). To retrieve the project ID, use `Fn::GetAtt` with the `Id` attribute.
 
 #### Fn::GetAtt
 <a name="cloudformation-projects-getatt"></a>
 
-ProjectId  
-The unique identifier of the project (e.g., `proj_abc123`).
-
-ProjectArn  
-The Amazon Resource Name (ARN) of the project (e.g., `arn:aws:bedrock-mantle:us-east-1:123456789012:project/proj_abc123`).
-
-Status  
-The status of the project. `ACTIVE` means the project is ready to use. `ARCHIVED` means the project has been archived and cannot accept new inference requests.
+Arn  
+The Amazon Resource Name (ARN) of the project (for example, `arn:aws:bedrock-mantle:us-east-1:123456789012:project/proj_abc123`).
 
 CreatedAt  
 The timestamp at which the project was created.
 
-UpdatedAt  
-The timestamp at which the project was last updated.
+Id  
+The unique identifier of the project (for example, `proj_abc123`).
 
 ## Examples
 <a name="cloudformation-projects-examples"></a>
@@ -117,11 +110,11 @@ Resources:
 Outputs:
   ProjectId:
     Description: The ID of the created project
-    Value: !Ref CustomerChatbotProject
+    Value: !GetAtt CustomerChatbotProject.Id
 
   ProjectArn:
     Description: The ARN of the created project
-    Value: !GetAtt CustomerChatbotProject.ProjectArn
+    Value: !Ref CustomerChatbotProject
 ```
 
 ```
@@ -144,11 +137,11 @@ Outputs:
   "Outputs": {
     "ProjectId": {
       "Description": "The ID of the created project",
-      "Value": { "Ref": "CustomerChatbotProject" }
+      "Value": { "Fn::GetAtt": ["CustomerChatbotProject", "Id"] }
     },
     "ProjectArn": {
       "Description": "The ARN of the created project",
-      "Value": { "Fn::GetAtt": ["CustomerChatbotProject", "ProjectArn"] }
+      "Value": { "Ref": "CustomerChatbotProject" }
     }
   }
 }
@@ -212,17 +205,17 @@ Resources:
 
 Outputs:
   DevelopmentProjectArn:
-    Value: !GetAtt DevelopmentProject.ProjectArn
+    Value: !GetAtt DevelopmentProject.Arn
     Export:
       Name: !Sub "${ApplicationName}-Dev-ProjectArn"
 
   StagingProjectArn:
-    Value: !GetAtt StagingProject.ProjectArn
+    Value: !GetAtt StagingProject.Arn
     Export:
       Name: !Sub "${ApplicationName}-Staging-ProjectArn"
 
   ProductionProjectArn:
-    Value: !GetAtt ProductionProject.ProjectArn
+    Value: !GetAtt ProductionProject.Arn
     Export:
       Name: !Sub "${ApplicationName}-Prod-ProjectArn"
 ```
@@ -267,11 +260,11 @@ Resources:
                 Action:
                   - bedrock-mantle:CreateInference
                   - bedrock-mantle:GetProject
-                Resource: !GetAtt ProductionProject.ProjectArn
+                Resource: !GetAtt ProductionProject.Arn
 
 Outputs:
   ProjectArn:
-    Value: !GetAtt ProductionProject.ProjectArn
+    Value: !GetAtt ProductionProject.Arn
 
   RoleArn:
     Value: !GetAtt ProductionAppRole.Arn

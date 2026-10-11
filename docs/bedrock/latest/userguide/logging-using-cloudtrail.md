@@ -224,3 +224,61 @@ The following example shows the fields relevant to an `ApplyGuardrail` data even
 When an invocation is evaluated by more than one guardrail, the `assessments` list contains one entry for each guardrail that evaluated the content. **The order of entries isn't guaranteed, and the CloudTrail event doesn't identify which guardrail produced each assessment.** Don't use an assessment's position to attribute it to a specific guardrail or to an entry in the `resources` list. The event has no per-assessment guardrail identifier or other attribution field.  
 The `action` field reports the combined result across the applicable guardrails. The `resources` list identifies the guardrail resources that were in scope, and each `accountId` identifies the owner of that resource. When available, use the guardrail trace for guardrail-specific assessment details. For more information, see [Test your guardrail](guardrails-test.md).  
 When no guardrail is supplied in the invocation request and one or more enforced guardrails apply, the `guardrailIdentifier` and `guardrailVersion` request parameters in the data event are `ENFORCED`. This value is a marker and isn't a guardrail identifier or version. If one enforced guardrail applies, the single `assessments` entry belongs to that guardrail. If multiple enforced guardrails apply, the same ordering and attribution limitations apply.
+
+## Stream-completion events for streaming invocations
+<a name="cloudtrail-stream-completion-events"></a>
+
+When you call `InvokeModelWithResponseStream` or `ConverseStream`, Amazon Bedrock records an additional CloudTrail event after the response stream finishes. This stream-completion event has an `eventType` of `AwsServiceEvent`. It carries the token counts for the invocation, which aren't known until the stream is fully consumed and so can't be included in the event for the API call itself.
+
+**Important**  
+A stream-completion event isn't an API call. It isn't authorized, and it isn't evaluated by IAM policies or service control policies (SCPs). When you count model invocations, or when you analyze whether a policy blocked a request, restrict your CloudTrail query to events where `eventType` is `AwsApiCall`.  
+A stream-completion event has the same `eventName`, `eventSource`, `userIdentity`, `sourceIPAddress`, and `userAgent` as the API call that produced it, so `eventType` is the only field that distinguishes the two. Counting both as invocations overstates your call volume, and treating a stream-completion event as a request that a policy failed to block is incorrect.
+
+The number of CloudTrail events that one streaming invocation produces depends on which event types your trail captures. A trail that records only management events receives two events: one `AwsApiCall` and one `AwsServiceEvent`. A trail that also records Amazon Bedrock data events receives a data event copy of each.
+
+The `serviceEventDetails.parentRequestId` field contains the `requestID` of the API call that produced the stream-completion event. Use it to join a stream-completion event back to that API call. The following example shows a stream-completion event for a `ConverseStream` call.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AROAICFHPEXAMPLE",
+        "arn": "arn:aws:iam::111122223333:user/userxyz",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "userName": "userxyz"
+    },
+    "eventTime": "2026-05-30T14:32:14Z",
+    "eventSource": "bedrock.amazonaws.com",
+    "eventName": "ConverseStream",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "192.0.2.0",
+    "userAgent": "Boto3/1.34.0 Python/3.11.0",
+    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE55555",
+    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE66666",
+    "readOnly": true,
+    "eventType": "AwsServiceEvent",
+    "recipientAccountId": "111122223333",
+    "serviceEventDetails": {
+        "parentRequestId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "AdditionalEventData": {
+            "additionalEntries": {
+                "inferenceRegion": "us-east-1",
+                "inputTokens": 18694,
+                "outputTokens": 356
+            }
+        }
+    },
+    "resources": [
+        {
+            "type": "AWS::Bedrock::Model",
+            "ARN": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-opus-4-7"
+        }
+    ]
+}
+```
+
+**Note**  
+The `AdditionalEventData` key inside `serviceEventDetails` is capitalized, unlike the camel-case keys around it.  
+A stream-completion event carries no `requestParameters`. The model that was invoked is identified by the `AWS::Bedrock::Model` entry in the `resources` list. The `inferenceRegion` entry reports the Region where inference ran, which can differ from `awsRegion`, the Region that recorded the event, when the request used a cross-Region inference profile.

@@ -3,15 +3,15 @@
 # Gemma 4 31B
 <a name="model-card-google-gemma-4-31b"></a>
 
-## ![Google logo with multicolored G letter icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/google.png) Google — Gemma 4 31B
+## ![Google logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/google.png) Google — Gemma 4 31B
 <a name="model-card-google-gemma-4-31b-header"></a>
 
 ## Model Details
 <a name="model-card-google-gemma-4-31b-details"></a>
 
-Gemma 4 31B is Google's 30.7-billion parameter dense model with built-in reasoning, native function calling, and multimodal input across text and image, supporting a 256K token context window. For more information about model development and performance, see the [model/service card](https://huggingface.co/google/gemma-4-31B-it).
-+ **Model launch date:** Mar 31, 2026
-+ **EOL no sooner than:** Mar 31, 2027
+Gemma 4 31B is Google's 30.7-billion parameter dense model with instruction tuning, built-in reasoning, native function calling, and multimodal input across text and image, supporting a 256K token context window. For more information about model development and performance, see the [model/service card](https://huggingface.co/google/gemma-4-31B-it).
++ **Model launch date:** March 31, 2026
++ **EOL no sooner than:** March 31, 2027
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
 + **Model EOL date:** N/A
@@ -29,9 +29,8 @@ Gemma 4 31B is Google's 30.7-billion parameter dense model with built-in reasoni
 | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Messages |  | 
 
 **Note**  
-Gemma 4 models are available only on the `bedrock-mantle` endpoint.
-
-*On `bedrock-mantle`, this model is served at `/openai/v1/responses`, not the default `/v1/responses`.*
+Gemma 4 models are available only on the `bedrock-mantle` endpoint.  
+On `bedrock-mantle`, Gemma 4 models are served under the `/openai/v1` path prefix, not the `/v1` prefix that most other models on this endpoint use. Use `/openai/v1/chat/completions` and `/openai/v1/responses`, and set your client's base URL to `https://bedrock-mantle.{region}.api.aws/openai/v1`. A request to `/v1/chat/completions` or `/v1/responses` is rejected with `model `google.gemma-4-31b` isn't supported on this route`.
 
 ## Capabilities and Features
 <a name="model-card-google-gemma-4-31b-capabilities"></a>
@@ -43,7 +42,7 @@ Gemma 4 models are available only on the `bedrock-mantle` endpoint.
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning](reasoning.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)  | — | 
+|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning](reasoning.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit)  | — | 
 
 ## Pricing
 <a name="model-card-google-gemma-4-31b-pricing"></a>
@@ -85,6 +84,7 @@ Amazon Bedrock offers three inference options: **In-Region** keeps requests with
 | us-east-1 (N. Virginia) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | us-east-2 (Ohio) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | us-west-2 (Oregon) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| us-gov-west-1 (GovCloud West) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | eu-central-1 (Frankfurt) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 ## Quotas and Limits

@@ -34,7 +34,7 @@ Adding a fallback blueprint enables actual match confidence scoring in all confi
 
 You configure a fallback blueprint in the `customOutputConfiguration` when creating or updating a project. The fallback blueprint is specified under the `document` field and accepts a single blueprint.
 
-The following example creates a project with two regular blueprints and one fallback blueprint. For more information about the fallback blueprint configuration, see [DocumentCustomOutputConfiguration](bedrock/latest/APIReference/API_data-automation_DocumentCustomOutputConfiguration.html) in the API Reference.
+The following example creates a project with two regular blueprints and one fallback blueprint. For more information about the fallback blueprint configuration, see [DocumentCustomOutputConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_DocumentCustomOutputConfiguration.html) in the API Reference.
 
 **Python SDK**
 
@@ -106,7 +106,7 @@ The `customOutputStatus` field in the output indicates how the document was proc
 | `NO_MATCH` | No blueprint matched and no fallback blueprint was configured. | 
 | `FALLBACK` | No regular blueprint matched, but the fallback blueprint was used to generate custom output. | 
 
-The following is an example output snippet from the [InvokeDataAutomationAsync](bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.html) API when a fallback blueprint is used:
+The following is an example output snippet from the [InvokeDataAutomationAsync](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.html) API when a fallback blueprint is used:
 
 ```
 {

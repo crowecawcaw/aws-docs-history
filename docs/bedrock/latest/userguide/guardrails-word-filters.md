@@ -3,9 +3,11 @@
 # Remove a specific list of words and phrases from conversations with word filters
 <a name="guardrails-word-filters"></a>
 
-Amazon Bedrock Guardrails has word filters that you can use to block words and phrases (exact match) in input prompts and model responses. You can use following word filters to block profanity, offensive, or inappropriate content, or content with competitor or product names.
+Amazon Bedrock Guardrails has word filters that you can use to block words and phrases in input prompts and model responses. You can use the following word filters to block profanity, offensive, or inappropriate content, or content with competitor or product names.
 + **Profanity filter** – Turn on to block profane words. The list of profanities is based on conventional definitions of profanity and it's continually updated.
-+ **Custom word filter **– Add custom words and phrases using the AWS Management Console of up to three words to a list. You can add up to 10,000 items to the custom word filter.
++ **Custom word filter **– Add custom words and phrases of up to three words to a list. You can add up to 10,000 items to the custom word filter.
+
+  Custom word filters use case-insensitive whole-word and whole-phrase matching. During evaluation, consecutive whitespace characters are treated as a single space. For example, `this or that` matches `This or THAT`, while `competitor` does not match `competitors`.
 
   You have the following options for adding words and phrases using the Amazon Bedrock AWS Management Console:
   + Add manually in the text editor.

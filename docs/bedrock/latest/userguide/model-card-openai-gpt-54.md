@@ -3,7 +3,7 @@
 # GPT-5.4
 <a name="model-card-openai-gpt-54"></a>
 
-## ![Icon showing a circular pattern with interwoven curved segments forming a pinwheel design.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-5.4
+## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-5.4
 <a name="model-card-openai-gpt-54-header"></a>
 
 ## Model Details
@@ -72,7 +72,7 @@ For Chat Completions, use `/openai/v1/chat/completions`.
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Server-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)  | — | 
+|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Server-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  | — | 
 
 ## Pricing
 <a name="model-card-openai-gpt-54-pricing"></a>

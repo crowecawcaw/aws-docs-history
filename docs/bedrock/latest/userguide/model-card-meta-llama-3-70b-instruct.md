@@ -3,7 +3,7 @@
 # Llama 3 70B Instruct
 <a name="model-card-meta-llama-3-70b-instruct"></a>
 
-## ![Blue infinity symbol or figure-eight icon on white background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/meta.png) Meta — Llama 3 70B Instruct
+## ![Meta logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/meta.png) Meta — Llama 3 70B Instruct
 <a name="model-card-meta-llama-3-70b-instruct-header"></a>
 
 ## Model Details
@@ -14,9 +14,9 @@ Llama 3 70B Instruct is Meta's 70-billion parameter instruction-tuned model with
 + **EOL no sooner than:** Apr 18, 2025
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** No sooner than 4/23/2025
++ **Model EOL date:** March 30, 2027
 + **End User License Agreements and Terms of Use:** [View](https://www.llama.com/llama3/license/)
-+ **Model lifecycle:** Active
++ **Model lifecycle:** Legacy
 + **Context window:** 8K tokens
 + **Max output tokens:** 8K
 + **Knowledge cutoff:** Dec 2023

@@ -267,6 +267,7 @@ You can enforce a data retention policy across your organization using IAM polic
         "bedrock-mantle:CreateProject",
         "bedrock-mantle:UpdateProject"
     ],
+    "Resource": "*",
     "Condition": {
         "StringNotEquals": {
             "bedrock-mantle:DataRetentionMode": "none"
@@ -283,6 +284,7 @@ You can enforce a data retention policy across your organization using IAM polic
     "Action": [
         "bedrock:PutAccountDataRetention"
     ],
+    "Resource": "*",
     "Condition": {
         "StringNotEquals": {
             "bedrock:DataRetentionMode": "none"
@@ -303,6 +305,7 @@ This prevents anyone in the organization from setting data retention to anything
         "bedrock-mantle:CreateProject",
         "bedrock-mantle:UpdateProject"
     ],
+    "Resource": "*",
     "Condition": {
         "ForAnyValue:StringEquals": {
             "bedrock-mantle:DataRetentionMode": [

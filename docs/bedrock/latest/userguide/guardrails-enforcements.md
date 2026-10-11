@@ -30,6 +30,10 @@ The steps below provide details on implementing guardrails enforcements for acco
 
 This section details setting up guardrail enforcement across your AWS organization. Once set up, you'll have a guardrail that automatically applies to all Amazon Bedrock model invocations across specified accounts or OUs.
 
+**How multiple attachments are combined**  
+Amazon Bedrock policies are a *declarative* policy type, so they do not behave like service control policies (SCPs). You can attach a Amazon Bedrock policy at the organization root, at an OU, and at an individual account, but AWS Organizations does not enforce each attachment separately. Instead, it applies declarative policy inheritance rules to the attachments an account inherits and resolves them into a single *effective policy* for that account. Where a parent and a child policy both set the same value, such as the guardrail `identifier`, the inheritance operators in the policy documents determine which value survives — it is not a union of every attachment in the tree. For the rules, see [Understanding management policy inheritance](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_inheritance_mgmt.html) and [Amazon Bedrock policy syntax and examples](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock_syntax.html) in the *AWS Organizations User Guide*.  
+Because of this, do not assume that a guardrail attached higher in the organization is enforced in addition to one attached closer to the account. To confirm which guardrail configuration is in effect for a specific account, call [DescribeEffectivePolicy](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeEffectivePolicy.html) with that account ID as the target, as described in the verification step that follows.
+
 **Prerequisites**  
 AWS Organization administrators (with management account access) with permissions to create guardrails and manage AWS Organizations policies.
 
@@ -384,7 +388,8 @@ Consumption will be calculated per guardrail ARN associated with each request an
 Member account calls using the Amazon Bedrock Policy will count towards the Service Quotas for the member account. Review the Service Quotas Console or [Service Quotas documentation](https://docs.aws.amazon.com/general/latest/gr/bedrock.html) and be sure that your Guardrails runtime limits are sufficient for your call volume.
 
 **What happens if I have both organization-level and account-level enforced guardrails as well as a guardrail in my request?**  
-All 3 guardrails will be enforced at runtime. The net effect is a union of all guardrails, with the most restrictive control taking precedence.
+All 3 guardrails will be enforced at runtime. The net effect is a union of all guardrails, with the most restrictive control taking precedence.  
+This applies to guardrails enforced at *different levels* — organization, account, and request. It does not describe multiple Amazon Bedrock policies attached at different points in your organization hierarchy. Those are resolved by AWS Organizations into a single effective policy before enforcement, rather than combined. See the note in [Organization-level enforcement](#organization-level-enforcement).
 
 **When should I use selective or comprehensive guarding control?**  
 Use **Selective** when you trust callers to tag the right content and want to reduce unnecessary guardrail processing. This is useful when callers handle a mix of pre-validated and user-generated content, and only need guardrails applied to specific portions. Use **Comprehensive** when you want to enforce guardrails on everything, regardless of what the caller tags. This is the safer default when you don't want to rely on callers to correctly identify sensitive content.

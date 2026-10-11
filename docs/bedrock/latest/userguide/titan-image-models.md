@@ -133,4 +133,4 @@ You can upload your image to detect if a watermark from Titan Image Generator G1
 
 For more information on Amazon Titan Image Generator prompt engineering, see [Amazon Titan Image Generator G1 models Prompt Engineering Best Practices](https://d2eo22ngex1n9g.cloudfront.net/Documentation/User+Guides/Titan/Amazon+Titan+Image+Generator+Prompt+Engineering+Guidelines.pdf). 
 
-For general prompt engineering guidelines, see [Prompt Engineering Guidelines](bedrock/latest/userguide/prompt-engineering-guidelines.html).
+For general prompt engineering guidelines, see [Prompt Engineering Guidelines](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-engineering-guidelines.html).

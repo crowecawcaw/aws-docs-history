@@ -3,7 +3,7 @@
 # Amazon Nova Multimodal Embeddings
 <a name="model-card-amazon-amazon-nova-multimodal-embeddings"></a>
 
-## ![Amazon logo with curved arrow from A to Z forming a smile.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Amazon Nova Multimodal Embeddings
+## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Amazon Nova Multimodal Embeddings
 <a name="model-card-amazon-amazon-nova-multimodal-embeddings-header"></a>
 
 ## Model Details

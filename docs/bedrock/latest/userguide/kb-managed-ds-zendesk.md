@@ -5,9 +5,6 @@
 
 Zendesk is a cloud-based customer service platform that helps businesses manage support tickets, customer communication, and help center content in one place. You can connect your Zendesk instance as a data source for your managed knowledge base to crawl help center articles, including their attachments, and community posts.
 
-**Important**  
-Zendesk data sources don't support document-level access control lists (ACLs). All authenticated users who can query the knowledge base can see all crawled content.
-
 ## Supported features
 <a name="kb-managed-supported-features-zendesk"></a>
 
@@ -15,6 +12,7 @@ With a Zendesk data source, you can use the following features:
 + Help center article crawling, including article attachments, and community post crawling
 + OAuth 2.0 Client Credentials (2LO) authentication
 + Scoping the crawl with article filters (category or section ID), community post filters (topic ID), and label filters
++ Document-level access control (ACLs)
 
 ## Authentication method
 <a name="kb-managed-zendesk-auth-methods"></a>
@@ -41,3 +39,5 @@ Setting up a Zendesk data source involves the following steps:
 1. **Set up authentication.** Register and configure the OAuth client in Zendesk, and store the credentials in AWS. See [Set up OAuth 2.0 Client Credentials authentication for Zendesk](kb-managed-zendesk-oauth2-setup.md).
 
 1. **Connect the data source.** Create the Zendesk data source in the knowledge base using the AWS Management Console or the API. See [Connect a Zendesk data source](kb-managed-ds-zendesk-connect.md).
+
+1. **(Optional) Enable document-level access control.** Filter query results by each user's Zendesk permissions. See [Document-level access controls](kb-managed-ds-zendesk-acl.md).

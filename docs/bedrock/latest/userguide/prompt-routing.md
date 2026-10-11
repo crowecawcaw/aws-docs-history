@@ -28,14 +28,8 @@ The following table shows models supported for intelligent prompt routing:
 | --- | --- | --- | --- | --- | 
 | Amazon | Nova Lite | amazon.nova-lite-v1:0 | us-east-1<br />us-gov-west-1 | ap-northeast-1<br />ap-northeast-2<br />ap-south-1<br />ap-southeast-2<br />eu-central-1<br />eu-west-1<br />eu-west-3<br />us-east-1<br />us-east-2<br />us-west-2 | 
 | Amazon | Nova Pro | amazon.nova-pro-v1:0 | us-east-1<br />us-gov-west-1 | ap-northeast-1<br />ap-northeast-2<br />ap-south-1<br />ap-southeast-2<br />eu-central-1<br />eu-west-1<br />eu-west-3<br />us-east-1<br />us-east-2<br />us-west-2 | 
-| Anthropic | Claude 3 Haiku | anthropic.claude-3-haiku-20240307-v1:0 | ap-northeast-1<br />ap-northeast-2<br />ap-south-1<br />ap-southeast-2<br />eu-central-1<br />eu-west-1<br />eu-west-3<br />us-east-1<br />us-gov-west-1<br />us-west-2 | ap-northeast-1<br />ap-northeast-2<br />ap-south-1<br />ap-southeast-2<br />eu-central-1<br />eu-west-1<br />eu-west-3<br />us-east-1<br />us-east-2<br />us-gov-east-1<br />us-west-2 | 
-| Anthropic | Claude 3.5 Haiku | anthropic.claude-3-5-haiku-20241022-v1:0 | us-west-2 | us-east-1<br />us-east-2<br />us-west-2 | 
-| Anthropic | Claude 3.5 Sonnet | anthropic.claude-3-5-sonnet-20240620-v1:0 | ap-northeast-1<br />ap-northeast-2<br />eu-central-1<br />us-east-1<br />us-gov-west-1<br />us-west-2 | ap-northeast-1<br />ap-northeast-2<br />ap-south-1<br />ap-southeast-2<br />eu-central-1<br />eu-west-1<br />eu-west-3<br />us-east-1<br />us-east-2<br />us-gov-east-1<br />us-west-2 | 
-| Anthropic | Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | ap-southeast-2<br />us-west-2 | ap-northeast-1<br />ap-south-1<br />ap-southeast-2<br />eu-west-3<br />us-east-1<br />us-east-2<br />us-west-2 | 
 | Meta | Llama 3.1 70B Instruct | meta.llama3-1-70b-instruct-v1:0 | us-west-2 | us-east-1<br />us-east-2<br />us-west-2 | 
 | Meta | Llama 3.1 8B Instruct | meta.llama3-1-8b-instruct-v1:0 | us-west-2 | us-east-1<br />us-east-2<br />us-west-2 | 
-| Meta | Llama 3.2 11B Instruct | meta.llama3-2-11b-instruct-v1:0 | N/A | us-east-1<br />us-east-2<br />us-west-2 | 
-| Meta | Llama 3.2 90B Instruct | meta.llama3-2-90b-instruct-v1:0 | N/A | us-east-1<br />us-east-2<br />us-west-2 | 
 | Meta | Llama 3.3 70B Instruct | meta.llama3-3-70b-instruct-v1:0 | us-east-2 | us-east-1<br />us-east-2<br />us-west-2 | 
 
 ## Benefits
@@ -49,7 +43,7 @@ The following table shows models supported for intelligent prompt routing:
 
 When using intelligent prompt routing, you can either use the default prompt routers provided by Amazon Bedrock, or configure your own prompt routers.
 
-Default prompt routers are pre-configured routing systems provided by Amazon Bedrock. These routers come with predefined settings and are designed to work out-of-the-box with specific foundational models. They provide a straightforward, ready-to-use solution without needing to configure any routing settings. When starting with intelligent prompt routing, we recommend that you experiment using the default routers provided by Amazon Bedrock. During preview, you can choose to use select models in the Anthropic and Meta families.
+Default prompt routers are pre-configured routing systems provided by Amazon Bedrock. These routers come with predefined settings and are designed to work out-of-the-box with specific foundational models. They provide a straightforward, ready-to-use solution without needing to configure any routing settings. When starting with intelligent prompt routing, we recommend that you experiment using the default routers provided by Amazon Bedrock. Default routers use select models in the Amazon Nova and Meta Llama families. The default routers that are available depend on the Region.
 
 Configured prompt routers enable you to define your own routing configurations tailored to specific needs and preferences. They are more suitable when you require more control over how to route your requests and which models to use. Configured routers enable optimization based on response quality metrics and use cases. After you've experimented with default routers, you can configure your own routers that are suitable to your applications, evaluate the response quality in the playground, and use for production applications if it meets the requirements.
 
@@ -85,7 +79,7 @@ For example, a response quality difference of 10% means that, say the response q
 
 **Model selection and router configuration**
 
-   Choose the family of models you want to use for your application. If you're using default prompt routers, you can choose from models in the Anthropic or Meta families. If you're using configured prompt routers, you can choose from additional models and configure the routing criteria. For more information, see [How to use intelligent prompt routing](#prompt-routing-use).
+   Choose the family of models you want to use for your application. If you're using default prompt routers, you can choose from models in the Amazon Nova or Meta Llama families, depending on the Region. If you're using configured prompt routers, you can choose from additional models and configure the routing criteria. For more information, see [How to use intelligent prompt routing](#prompt-routing-use).
 
 1. 
 
@@ -128,7 +122,7 @@ To use intelligent prompt routing from the AWS Management Console:
 
 1. Go to the [Prompt Routers](https://console.aws.amazon.com/bedrock/home?region=us-east-1#/prompt-routers) hub in the Amazon Bedrock console. Use your AWS credentials to log in to the console.
 
-1. Choose the model family that you want to use. If you're using the feature for the first time, you can experiment with the default prompt routers. During the preview, you can choose from models in the Anthropic or Meta families. You can then open the playground and experiment with your prompts.
+1. Choose the model family that you want to use. If you're using the feature for the first time, you can experiment with the default prompt routers, which use select models in the Amazon Nova and Meta Llama families, depending on the Region. You can then open the playground and experiment with your prompts.
 **Note**  
 You must choose exactly two models within the same family.
 

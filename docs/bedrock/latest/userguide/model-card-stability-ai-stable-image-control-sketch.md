@@ -3,7 +3,7 @@
 # Stable Image Control Sketch
 <a name="model-card-stability-ai-stable-image-control-sketch"></a>
 
-## ![Icon showing a purple letter S with a red dot in the lower right corner.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Control Sketch
+## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Control Sketch
 <a name="model-card-stability-ai-stable-image-control-sketch-header"></a>
 
 ## Model Details

@@ -108,6 +108,8 @@ Choose the tab for your preferred method, and then follow the steps:
 
 1. Choose **Generate**.
 
+A long-term key works only in the Region you generated it in. To generate a key for a different Region, switch Regions in the console first. A request that uses a key from another Region fails with `Credential should be scoped to a valid region`, even when the model ID and endpoint URL are correct.
+
 ------
 #### [ CLI ]
 

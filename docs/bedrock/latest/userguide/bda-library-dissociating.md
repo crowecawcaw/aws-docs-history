@@ -3,7 +3,7 @@
 # Dissociation of Library from a Project
 <a name="bda-library-dissociating"></a>
 
-You can dissociate a library from a project using the [UpdateDataAutomationProject](bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.html) API.
+You can dissociate a library from a project using the [UpdateDataAutomationProject](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationProject.html) API.
 
 ## AWS CLI Example:
 <a name="bda-library-dissociating-cli"></a>

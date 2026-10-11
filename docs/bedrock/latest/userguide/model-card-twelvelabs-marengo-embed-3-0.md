@@ -3,7 +3,7 @@
 # Marengo Embed 3.0
 <a name="model-card-twelvelabs-marengo-embed-3-0"></a>
 
-## ![Icon showing branching arrows representing a merge or split workflow pattern.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Marengo Embed 3.0
+## ![TwelveLabs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Marengo Embed 3.0
 <a name="model-card-twelvelabs-marengo-embed-3-0-header"></a>
 
 ## Model Details

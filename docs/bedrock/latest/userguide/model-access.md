@@ -3,19 +3,22 @@
 # Request access to models
 <a name="model-access"></a>
 
-Access to all Amazon Bedrock foundation models is enabled by default with the correct AWS Marketplace permissions. To get started, simply select a model from the model catalog in the Amazon Bedrock console and open it in the playground or invoke the model using the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API operations. For information about the different models supported in Amazon Bedrock, see [Amazon Bedrock foundation model information](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models-reference.html). For information about model pricing, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/).
+Access to many Amazon Bedrock foundation models is enabled by default with the correct AWS Marketplace permissions. To get started, simply select a model from the model catalog in the Amazon Bedrock console and open it in the playground or invoke the model using the [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [Converse](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Converse.html) API operations. For information about the different models supported in Amazon Bedrock, see [Amazon Bedrock foundation model information](https://docs.aws.amazon.com/bedrock/latest/userguide/foundation-models-reference.html). For information about model pricing, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/).
 
-Access to all Amazon Bedrock foundation models is enabled by default with the correct AWS Marketplace permissions in all commercial AWS Regions. For programmatic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify). 
+Default model access applies in all commercial AWS Regions where the model is supported. For programmatic access to third-party models, see [Manage model access using SDK and CLI](#model-access-modify). 
+
+**Additional account-level access**  
+Some models require additional account-level access. Completing model activation requirements, such as AWS Marketplace subscription and provider prerequisites, doesn't grant this additional access. Access is determined separately for each AWS account, so accounts in the same AWS Organization can have different access. If you complete the activation requirements and verify that the model is supported in the AWS Region but still receive an `AccessDeniedException`, contact [AWS Sales](https://aws.amazon.com/contact-us/sales-support/) for additional access options.
 
 **Understanding automatic model access**  
-When you invoke a third-party model for the first time in your account, Amazon Bedrock automatically initiates the subscription process in the background. During this setup period (up to 15 minutes), your API calls may succeed temporarily while the subscription is being finalized. If any prerequisites are missing, the subscription attempt fails and subsequent API calls will return `AccessDeniedException`. After granting the necessary permissions, it may take up to 2 minutes for the subscription to complete. During this time, API calls may continue to return `AccessDeniedException`. Once the subscription is complete, all subsequent invocations will succeed. To avoid this entirely, verify all prerequisites before invoking models in production.  
+When you invoke a third-party model for the first time in your account, Amazon Bedrock automatically initiates the subscription process in the background. During this setup period (up to 15 minutes), your API calls may succeed temporarily while the subscription is being finalized. If any prerequisites are missing, the subscription attempt fails and subsequent API calls will return `AccessDeniedException`. After granting the necessary permissions, it may take up to 2 minutes for the subscription to complete. During this time, API calls may continue to return `AccessDeniedException`. Once the subscription is complete, subsequent invocations can proceed if your account has access to the model. To avoid subscription failures, verify all prerequisites before invoking models in production.  
 **Prerequisites for successful model access:**  
 **AWS Marketplace permissions**: Your IAM role must have `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and `aws-marketplace:ViewSubscriptions` permissions. See [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions) for details.
 **Anthropic models**: For Anthropic models, you must complete the First Time Use (FTU) form before invoking the model. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint.
 **Valid payment method**: Your AWS account must have a valid payment method configured for AWS Marketplace purchases.
 
 **Note**  
-Anthropic requires first-time customers to submit use case details before invoking a model once per account or once at the organization's management account. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint. You can submit use case details by selecting an Anthropic model from the model catalog in the Amazon Bedrock console or calling the `PutUseCaseForModelAccess` API command. Access to the model is granted immediately after use case details are successfully submitted. The form submission at the root account will be inherited by other accounts in the same AWS Organization.  
+Anthropic requires first-time customers to submit use case details before invoking a model once per account or once at the organization's management account. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint. You can submit use case details by selecting an Anthropic model from the model catalog in the Amazon Bedrock console or calling the `PutUseCaseForModelAccess` API command. In most cases, access to the model is granted as soon as use case details are successfully submitted. Submission doesn't always complete immediately, however. The model agreement can enter a pending state, during which invoking the model continues to return `AccessDeniedException` even though your submission succeeded. AWS sends you an email when the agreement finishes being set up. To check the state of your submission rather than waiting, call `GetFoundationModelAvailability` and read the `agreementAvailability` status, as described in [Step 4: Get foundation model availability](#model-access-sdk-step4). The form submission at the root account will be inherited by other accounts in the same AWS Organization.  
 The use case form requires a description of your intended use and a website URL. If you are an individual developer or student without a company website, you can provide a personal portfolio, GitHub profile, or project URL that describes your use case.
 
 **Note**  
@@ -66,9 +69,18 @@ For the `aws-marketplace:Subscribe` action only, you can use the `aws-marketplac
 Models from the following providers aren't sold through AWS Marketplace and don't have product keys, so you can't scope the `aws-marketplace` actions to them:  
 Amazon
 DeepSeek
-Mistral AI
+Google
 Meta
+MiniMax
+Mistral AI
+Moonshot AI
+NVIDIA
 Qwen
+xAI
+Z.AI
+Some providers sell only part of their model catalog through AWS Marketplace. The following models don't have product keys even though other models from the same provider do:  
+OpenAI open-weight models: gpt-oss-120b, gpt-oss-20b, gpt-oss-safeguard-120b, and gpt-oss-safeguard-20b. These models are available to all Amazon Bedrock users and don't require a AWS Marketplace subscription.
+Writer Palmyra Vision 7B.
 You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](#model-access-prevent-usage).
 
 Select a section to see IAM policy examples for a specific use case:
@@ -170,11 +182,11 @@ Follow these steps to manage model access programmatically:
 
 ### Prerequisites
 <a name="model-access-sdk-prerequisites"></a>
-+ Attach the [AmazonBedrockFullAccess](aws-managed-policy/latest/reference/AmazonBedrockFullAccess.html) policy to the IAM user/role used for the SDK/CLI.
-+ Bedrock SDK Setup: [Set up the AWS SDK for Amazon Bedrock](bedrock/latest/userguide/sdk-general-information-section.html)
++ Attach the [AmazonBedrockFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonBedrockFullAccess.html) policy to the IAM user/role used for the SDK/CLI.
++ Bedrock SDK Setup: [Set up the AWS SDK for Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/sdk-general-information-section.html)
 
   Note: Below instructions use python3 for the examples
-+ If you are using the AWS CLI, these commands require AWS CLI version 2.27.42 or later. Run `aws --version` to check your version and [update if needed](cli/latest/userguide/getting-started-install.html).
++ If you are using the AWS CLI, these commands require AWS CLI version 2.27.42 or later. Run `aws --version` to check your version and [update if needed](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 + Note the modelId of the model for which the access needs to be managed.
 
 ### Step 1: List foundation model agreement offers
@@ -183,8 +195,8 @@ Follow these steps to manage model access programmatically:
 Use this API to get the agreement offers for a particular model. This will provide the offerToken used to create model access in next steps.
 
 Documentation
-+ API: [ListFoundationModelAgreementOffers](bedrock/latest/APIReference/API_ListFoundationModelAgreementOffers.html)
-+ CLI Documentation: [list-foundation-model-agreement-offers](cli/latest/reference/bedrock/list-foundation-model-agreement-offers.html)
++ API: [ListFoundationModelAgreementOffers](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModelAgreementOffers.html)
++ CLI Documentation: [list-foundation-model-agreement-offers](https://docs.aws.amazon.com/cli/latest/reference/bedrock/list-foundation-model-agreement-offers.html)
 
 ------
 #### [ AWS CLI ]
@@ -217,8 +229,8 @@ except ClientError as e:
 Used to put the first-time user use-case form required only for Anthropic models. This is a pre-requisite for gaining access to Anthropic models in the account. This API is only required one time per account or per AWS organization across all commercial regions, with the exception of opt-in regions where this form needs to be filled again. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint.
 
 Documentation
-+ API: [PutUseCaseForModelAccess](bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html)
-+ CLI Documentation: [put-use-case-for-model-access](cli/latest/reference/bedrock/put-use-case-for-model-access.html)
++ API: [PutUseCaseForModelAccess](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_PutUseCaseForModelAccess.html)
++ CLI Documentation: [put-use-case-for-model-access](https://docs.aws.amazon.com/cli/latest/reference/bedrock/put-use-case-for-model-access.html)
 
 ------
 #### [ AWS CLI ]
@@ -278,8 +290,8 @@ For CLI, the form data is base64 encoded json of the form below.
 Used to create agreement (access) for the foundation model. Use the offer token and modelId from above.
 
 Documentation
-+ API: [CreateFoundationModelAgreement](bedrock/latest/APIReference/API_CreateFoundationModelAgreement.html)
-+ CLI Documentation: [create-foundation-model-agreement](cli/latest/reference/bedrock/create-foundation-model-agreement.html)
++ API: [CreateFoundationModelAgreement](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateFoundationModelAgreement.html)
++ CLI Documentation: [create-foundation-model-agreement](https://docs.aws.amazon.com/cli/latest/reference/bedrock/create-foundation-model-agreement.html)
 
 ------
 #### [ AWS CLI ]
@@ -318,8 +330,8 @@ foundation_model_agreement_reponse = bedrock_client.create_foundation_model_agre
 Used to check if the foundation model currently has access or not. Use the modelId from above.
 
 Documentation
-+ API: [GetFoundationModelAvailability](bedrock/latest/APIReference/API_GetFoundationModelAvailability.html)
-+ CLI Documentation: [get-foundation-model-availability](cli/latest/reference/bedrock/get-foundation-model-availability.html)
++ API: [GetFoundationModelAvailability](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModelAvailability.html)
++ CLI Documentation: [get-foundation-model-availability](https://docs.aws.amazon.com/cli/latest/reference/bedrock/get-foundation-model-availability.html)
 
 ------
 #### [ AWS CLI ]
@@ -339,7 +351,7 @@ model_availability_response = bedrock_client.get_foundation_model_availability(m
 ------
 
 **Expected response**  
-`agreementAvailability` - `AVAILABLE` if access exists, `NOT_AVAILABLE` is access does not exist.
+`agreementAvailability` returns a `status` of `AVAILABLE` if access exists, `PENDING` if the agreement is still being set up, `NOT_AVAILABLE` if access doesn't exist, or `ERROR` if the agreement couldn't be completed. When the status is `ERROR`, the `errorMessage` field describes the problem. A status of `PENDING` can occur after you submit Anthropic use case details; invoking the model returns `AccessDeniedException` until the status becomes `AVAILABLE`.
 
 ```
 {
@@ -362,8 +374,8 @@ Used to delete foundation model agreement (access). Use the modelId from above.
 Deleting model access is not enough for blocking access in the future since invoking the model will create the access again. To make sure access is not created again, apply restrictive deny IAM policies for the model.
 
 Documentation
-+ API: [DeleteFoundationModelAgreement](bedrock/latest/APIReference/API_DeleteFoundationModelAgreement.html)
-+ CLI Documentation: [delete-foundation-model-agreement](cli/latest/reference/bedrock/delete-foundation-model-agreement.html)
++ API: [DeleteFoundationModelAgreement](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_DeleteFoundationModelAgreement.html)
++ CLI Documentation: [delete-foundation-model-agreement](https://docs.aws.amazon.com/cli/latest/reference/bedrock/delete-foundation-model-agreement.html)
 
 ------
 #### [ AWS CLI ]
@@ -385,7 +397,7 @@ delete_foundation_model_agreement_reponse = bedrock_client.delete_foundation_mod
 ## Access Amazon Bedrock foundation models in AWS GovCloud (US)
 <a name="model-access-govcloud"></a>
 
-AWS GovCloud (US) accounts are linked on a one-to-one basis with standard AWS commercial accounts. This linked commercial account is used for billing, service access, support purposes, and access to Amazon Bedrock Model Marketplace. For more information about the relationship between GovCloud and commercial accounts, see [Standard account linking in AWS GovCloud (US)](govcloud-us/latest/UserGuide/getting-started-standard-account-linking.html).
+AWS GovCloud (US) accounts are linked on a one-to-one basis with standard AWS commercial accounts. This linked commercial account is used for billing, service access, support purposes, and access to Amazon Bedrock Model Marketplace. For more information about the relationship between GovCloud and commercial accounts, see [Standard account linking in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/getting-started-standard-account-linking.html).
 
 For third-party models, model access needs to be enabled in both the linked AWS commercial account in addition the AWS GovCloud account. For models provided by Amazon Bedrock, model access only needs to be enabled in the GovCloud account. This is a manual process.
 
@@ -406,7 +418,7 @@ After you enable access in the linked AWS commercial account, it can take a few 
 
 In AWS GovCloud (US), you use the **Model access** page in the Amazon Bedrock console in the `us-gov-west-1` region to enable foundation models as described below:
 
-1. Make sure you have [permissions to request model access](bedrock/latest/userguide/model-access.html#model-access-permissions) to request access, or modify access, to Amazon Bedrock foundation models. It is recommended to attach the [AmazonBedrockFullAccess](aws-managed-policy/latest/reference/AmazonBedrockFullAccess.html) policy to the user/role being used.
+1. Make sure you have [permissions to request model access](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html#model-access-permissions) to request access, or modify access, to Amazon Bedrock foundation models. It is recommended to attach the [AmazonBedrockFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonBedrockFullAccess.html) policy to the user/role being used.
 
 1. Sign into the Amazon Bedrock console in the `us-gov-west-1` region at [https://console.aws.amazon.com/bedrock/](https://console.aws.amazon.com/bedrock/).
 

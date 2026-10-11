@@ -3,7 +3,7 @@
 # DeepSeek-R1
 <a name="model-card-deepseek-deepseek-r1"></a>
 
-## ![Blue icon showing a stylized whale with containers, representing Docker or container services.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/deepseek.png) DeepSeek — DeepSeek-R1
+## ![DeepSeek logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/deepseek.png) DeepSeek — DeepSeek-R1
 <a name="model-card-deepseek-deepseek-r1-header"></a>
 
 ## Model Details
@@ -14,9 +14,9 @@ DeepSeek-R1 is DeepSeek's reasoning model that uses chain-of-thought to solve co
 + **EOL no sooner than:** Jan 20, 2026
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** No sooner than 3/10/2026
++ **Model EOL date:** March 30, 2027
 + **End User License Agreements and Terms of Use:** [View](https://huggingface.co/deepseek-ai/DeepSeek-R1/blob/main/LICENSE)
-+ **Model lifecycle:** Active
++ **Model lifecycle:** Legacy
 + **Context window:** 128K tokens
 + **Max output tokens:** 8K
 + **Reasoning:** Supported
@@ -135,7 +135,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.invoke_model(
-    modelId='deepseek.r1-v1:0',
+    modelId='us.deepseek.r1-v1:0',
     body=json.dumps({
             'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
             'max_tokens': 1024
@@ -152,7 +152,7 @@ import boto3
 
 client = boto3.client('bedrock-runtime', region_name='us-east-1')
 response = client.converse(
-    modelId='deepseek.r1-v1:0',
+    modelId='us.deepseek.r1-v1:0',
     messages=[
         {
             'role': 'user',

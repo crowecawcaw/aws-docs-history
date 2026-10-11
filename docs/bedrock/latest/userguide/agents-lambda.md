@@ -24,7 +24,7 @@ To learn how to define a function while creating the action group, see [Add an a
 ## Lambda input event from Amazon Bedrock
 <a name="agents-lambda-input"></a>
 
-When an action group using a Lambda function is invoked, Amazon Bedrock sends a Lambda input event of the following general format. You can define your Lambda function to use any of the input event fields to manipulate the business logic within the function to successfully perform the action. For more information about Lambda functions, see [Event-driven invocation](lambda/latest/dg/lambda-services.html#event-driven-invocation) in the AWS Lambda Developer Guide.
+When an action group using a Lambda function is invoked, Amazon Bedrock sends a Lambda input event of the following general format. You can define your Lambda function to use any of the input event fields to manipulate the business logic within the function to successfully perform the action. For more information about Lambda functions, see [Event-driven invocation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html#event-driven-invocation) in the AWS Lambda Developer Guide.
 
 The input event format depends on whether you defined the action group with an API schema or with function details:
 + If you defined the action group with an API schema, the input event format is as follows:

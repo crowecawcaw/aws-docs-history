@@ -11,6 +11,9 @@ The OpenAI Chat Completions API generates conversational responses using Amazon 
 | bedrock-runtime (recommended) | https://bedrock-runtime.{region}.amazonaws.com/openai/v1/chat/completions | AWS credentials (SigV4) or Amazon Bedrock API key | 
 | bedrock-mantle (compatibility) | https://bedrock-mantle.{region}.api.aws/v1/chat/completions | Amazon Bedrock API key or AWS credentials | 
 
+**Note**  
+On `bedrock-mantle`, the path prefix varies by model. Most models are served under `/v1`, as shown in the preceding table, but some are served under `/openai/v1` instead. A request that uses the wrong prefix for a model is rejected with `model `<model-id>` isn't supported on this route`. To confirm the base URL for a specific model, see the **Programmatic Access** table on its card in [Models at a glance](model-cards.md).
+
 Each endpoint has its own per-model token quotas. For details on the quotas applied to traffic on each endpoint, see [Quotas for the bedrock-runtime endpoint](quotas-runtime.md) and [Quotas for the bedrock-mantle endpoint](quotas-mantle.md).
 
 ## Chat Completions with the bedrock-runtime endpoint
@@ -86,6 +89,16 @@ curl -X POST "https://bedrock-runtime.us-east-1.amazonaws.com/openai/v1/chat/com
 <a name="inference-chat-completions-mantle-endpoint"></a>
 
 Use `bedrock-mantle` as a compatibility option when a model or feature that you require isn't available on `bedrock-runtime`. The endpoint supports Amazon Bedrock API key authentication, AWS credentials, and the OpenAI SDK.
+
+The examples in this section read the `OPENAI_BASE_URL` and `OPENAI_API_KEY` environment variables. Set them to the `bedrock-mantle` base URL and your Amazon Bedrock API key:
+
+```
+OPENAI_BASE_URL="https://bedrock-mantle.<your-region>.api.aws/v1"
+OPENAI_API_KEY="<provide your Bedrock API key>"
+```
+
+**Important**  
+Point `OPENAI_BASE_URL` at `bedrock-mantle` for these examples. Model cards set it to the `bedrock-runtime` base URL (`https://bedrock-runtime.{region}.amazonaws.com/openai/v1`), and `bedrock-runtime` doesn't implement the Models API, so listing models against that base URL returns `404 UnknownOperationException`.
 
 ### List available models
 <a name="inference-chat-completions-mantle-list-models"></a>

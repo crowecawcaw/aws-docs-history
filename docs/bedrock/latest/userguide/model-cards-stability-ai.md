@@ -8,6 +8,9 @@ The following Stability AI models are available in Amazon Bedrock:
 
 | **Model** | **Description** | 
 | --- | --- | 
+| [Stable Image Ultra 1.0](model-card-stability-ai-stable-image-ultra-1-0.md) | Stable Image Ultra is Stability AI's highest-fidelity text-to-image model, producing photorealistic, large-scale output for professional and high-end creative work. | 
+| [Stable Image Core 1.0](model-card-stability-ai-stable-image-core-1-0.md) | Stable Image Core is Stability AI's fast, affordable text-to-image model for rapid, high-volume content generation. | 
+| [Stable Diffusion 3.5 Large](model-card-stability-ai-stable-diffusion-3-5-large.md) | Stable Diffusion 3.5 Large is Stability AI's 8-billion-parameter model that supports 1 megapixel resolution output for text-to-image and image-to-image generation. | 
 | [Stable Image Remove Background](model-card-stability-ai-stable-image-remove-background.md) | Stable Image Remove Background is Stability AI's model that accurately removes backgrounds from images, isolating the foreground subject. | 
 | [Stable Image Search and Replace](model-card-stability-ai-stable-image-search-and-replace.md) | Stable Image Search and Replace is Stability AI's model that finds objects in images and replaces them with new content based on text prompts. | 
 | [Stable Image Style Guide](model-card-stability-ai-stable-image-style-guide.md) | Stable Image Style Guide is Stability AI's model that generates images matching a reference style while following text prompt instructions. | 

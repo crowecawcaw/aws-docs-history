@@ -10,6 +10,7 @@ The supported models are as follows:
 
 | Model | Model ID | 
 | --- | --- | 
+| Claude Haiku 5.5 | `anthropic.claude-haiku-5-5` | 
 | Claude Sonnet 5.5 | `anthropic.claude-sonnet-5-5` | 
 | Claude Opus 5.5 | `anthropic.claude-opus-5-5` | 
 | Claude Fable 5.1 | `anthropic.claude-fable-5-1` | 
@@ -150,8 +151,8 @@ You can combine adaptive thinking with the effort parameter to guide how much th
 
 | Effort level | Thinking behavior | 
 | --- | --- | 
-| max | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6, Claude Sonnet 4.6, and Claude Opus 5 support max. Requests using max on unsupported models return an error. | 
-| xhigh | Claude always thinks with extended depth. Claude Opus 5 and Claude Opus 4.6 only. | 
+| max | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6, Claude Sonnet 4.6, Claude Opus 5, and Claude Haiku 5.5 support max. Requests using max on unsupported models return an error. | 
+| xhigh | Claude always thinks with extended depth. Claude Opus 5, Claude Opus 4.6, and Claude Haiku 5.5 only. | 
 | high (default) | Claude always thinks. Provides deep reasoning on complex tasks. | 
 | medium | Claude uses moderate thinking. May skip thinking for very simple queries. | 
 | low | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most. | 
@@ -161,6 +162,9 @@ The `effort` parameter must be placed inside a separate `output_config` object i
 
 **Important**  
 **Effort cap when thinking is disabled (Claude Opus 5):** Claude Opus 5 supports `"thinking": {"type": "disabled"}`, but when thinking is disabled, `output_config.effort` is capped at `high`. Requests with `xhigh` or `max` effort combined with disabled thinking will return an `invalid_request_error`. This cap also applies to per-turn effort set through a mid-conversation system message. To use `xhigh` or `max` effort, enable adaptive thinking (the default) or omit the `thinking` parameter entirely.
+
+**Important**  
+**Claude Haiku 5.5 effort levels and cap:** On Claude Haiku 5.5, `output_config.effort` accepts `low`, `medium`, `high`, `xhigh`, and `max`, with no beta header required, and the default effort level is `medium`. Claude Haiku 5.5 uses adaptive thinking by default and also supports disabled thinking (`"thinking": {"type": "disabled"}`). When thinking is disabled, `output_config.effort` is capped at `high`; requests that combine `xhigh` or `max` effort with disabled thinking return a `400 invalid_request_error`. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not available on Claude Haiku 5.5.
 
 The following example shows how to set the effort level when using the InvokeModel API:
 

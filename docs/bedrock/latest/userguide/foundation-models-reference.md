@@ -22,7 +22,7 @@ To use a foundation model with the Amazon Bedrock API, you need to determine the
 | Use case | How to find the model ID | 
 | --- | --- | 
 | Use a base model | Look up the ID in the [base model IDs chart](models-supported.md) | 
-| Use a cross-Region inference profile | Look up the ID in the [supported inference profiles](inference-profiles-support.md) page | 
+| Use a cross-Region inference profile | Choose the model on the [models at a glance](model-cards.md) page and find the ID in its Regional availability section | 
 | Purchase Provisioned Throughput for a base model | Look up the ID in the model IDs for Provisioned Throughput chart and use it as the modelId in the [CreateProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html) request. | 
 | Purchase Provisioned Throughput for a custom model | Use the name of the custom model or its ARN as the modelId in the [CreateProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateProvisionedModelThroughput.html) request. | 
 | Use a provisioned model | After you create a Provisioned Throughput, it returns a provisionedModelArn. This ARN is the model ID. | 

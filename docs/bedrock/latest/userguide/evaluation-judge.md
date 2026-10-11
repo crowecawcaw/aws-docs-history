@@ -43,7 +43,7 @@ To create an evaluation job that uses an LLM as a judge with Amazon Bedrock's bu
 + Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`
 + Mistral Large – `mistral.mistral-large-2402-v1:0`
 
-[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
+[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Find supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
 
 ### Supported evaluator models (custom metrics)
 <a name="evaluation-judge-supported-evaluator-custom"></a>
@@ -74,7 +74,7 @@ To create an evaluation job that uses an LLM as a judge with custom metrics, you
 + Anthropic Claude Sonnet 4.0 – `anthropic.claude-sonnet-4-20250514-v1:0`
 + Anthropic Claude Sonnet 4.5 – `anthropic.claude-sonnet-4-5-20250929-v1:0`
 
-[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
+[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Find supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
 
 ### Supported generator models
 <a name="evaluation-judge-supported-generator"></a>

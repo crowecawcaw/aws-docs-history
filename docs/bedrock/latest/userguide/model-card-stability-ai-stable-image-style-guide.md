@@ -3,7 +3,7 @@
 # Stable Image Style Guide
 <a name="model-card-stability-ai-stable-image-style-guide"></a>
 
-## ![Icon showing a purple letter S with a red dot in the lower right corner.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Style Guide
+## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Style Guide
 <a name="model-card-stability-ai-stable-image-style-guide-header"></a>
 
 ## Model Details

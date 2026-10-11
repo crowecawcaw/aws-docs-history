@@ -939,6 +939,9 @@ Both block types support `cache_control` for prompt caching.
 
 Instead of a `tool_reference`, a `tool_addition` block in a `role: "system"` message can carry the tool itself as `{"type": "tool_definition", "definition": {…}}` — the same object a `tools[]` entry holds. The tool is available from that position onward, exactly as if it had been declared in `tools[]`, and the model's `tool_use` is parsed against the definition's `input_schema`. Later turns carry only the definition in history, so adding a tool never invalidates the cached prefix or earlier thinking.
 
+**Note**  
+Claude Haiku 5.5 supports inline tool definitions (`inline-tools-2026-09-15`), but does not support by-reference mid-conversation tool changes.
+
 The following request declares one tool (`get_time`) in `tools[]`, then adds a second tool (`convert_length`) by value through a `tool_addition` block on a `role: "system"` message, and asks the model to use it:
 
 ```

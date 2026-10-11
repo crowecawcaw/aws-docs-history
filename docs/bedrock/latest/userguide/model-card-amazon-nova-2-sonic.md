@@ -3,7 +3,7 @@
 # Nova 2 Sonic
 <a name="model-card-amazon-nova-2-sonic"></a>
 
-## ![Amazon logo with curved arrow from A to Z forming a smile.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova 2 Sonic
+## ![Amazon logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/nova2pro.png) Amazon — Nova 2 Sonic
 <a name="model-card-amazon-nova-2-sonic-header"></a>
 
 ## Model Details

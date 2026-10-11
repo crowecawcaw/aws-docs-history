@@ -39,7 +39,7 @@ To learn more about gaining access to models and Region availability, see [Reque
 + Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`
 + Mistral Large – `mistral.mistral-large-2402-v1:0`
 
-[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
+[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Find supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
 
 ### Supported evaluator models (custom metrics)
 <a name="evaluation-kb-supported-evaluator-custom"></a>
@@ -66,7 +66,7 @@ To learn more about gaining access to models and Region availability, see [Reque
 + Anthropic Claude Opus 4.8 – `anthropic.claude-opus-4-8`
 + Anthropic Claude Sonnet 4.0 – `anthropic.claude-sonnet-4-20250514-v1:0`
 
-[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
+[Cross Region inference](cross-region-inference.md) profiles are supported for the listed models. To learn more, see [Find supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
 
 ### Supported response generator models
 <a name="evaluation-kb-supported-generator"></a>

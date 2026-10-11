@@ -56,7 +56,7 @@ In the account that owns the Amazon S3 bucket, add the following statement to th
 }
 ```
 
-For more general guidance, see [Configure access to Amazon S3 buckets](bedrock/latest/userguide/s3-bucket-access.html).
+For more general guidance, see [Configure access to Amazon S3 buckets](https://docs.aws.amazon.com/bedrock/latest/userguide/s3-bucket-access.html).
 
 ### KMS key policy for encrypted buckets
 <a name="kb-managed-s3-kms-policy"></a>

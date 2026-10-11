@@ -61,6 +61,9 @@ Both principal tags and session tags appear in CUR 2.0 with the `iamPrincipal/` 
 
 To make your IAM principal tags appear in AWS Cost Explorer and CUR 2.0, you must activate them as cost allocation tags:
 
+**Important**  
+You activate cost allocation tags from the management account (also called the payer account) of your organization, or from a standalone account that isn't a member of an organization. Member accounts don't have access to the cost allocation tags manager, and an attempt from a member account returns `Cost allocation tags are managed at the payer account level`. Activation applies to the organization's billing data as a whole and can't be scoped to an individual member account. For more information, see [User-defined cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/custom-tags.html) and [Activating user-defined cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html).
+
 1. Open the AWS Billing and Cost Management console.
 
 1. In the navigation pane, choose **Cost allocation tags**.

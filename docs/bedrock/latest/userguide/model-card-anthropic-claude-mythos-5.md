@@ -3,7 +3,7 @@
 # Claude Mythos 5
 <a name="model-card-anthropic-claude-mythos-5"></a>
 
-## ![](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Mythos 5
+## ![Anthropic logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/claude.png) Anthropic — Claude Mythos 5
 <a name="model-card-anthropic-claude-mythos-5-header"></a>
 
 ## Model Details

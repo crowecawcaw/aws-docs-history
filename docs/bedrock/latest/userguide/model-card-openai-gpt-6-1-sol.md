@@ -3,7 +3,7 @@
 # GPT-6.1 Sol
 <a name="model-card-openai-gpt-6-1-sol"></a>
 
-## ![OpenAI logo](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-6.1 Sol
+## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-6.1 Sol
 <a name="model-card-openai-gpt-6-1-sol-header"></a>
 
 ## Model Details
@@ -65,23 +65,45 @@ For Chat Completions, use `/openai/v1/chat/completions`.
 
 ***Bedrock Features***
 
+**Features supported using `bedrock-runtime`**
+
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-| + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs (bedrock-runtime JSON Schema; see API configuration)](#model-card-openai-gpt-6-1-sol-structured-output) | + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side system tools](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Explicit prompt caching](prompt-caching.html#prompt-caching-explicit) | 
+|  + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) (Chat Completions, InvokeModel, and Converse APIs; not supported with Responses)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) (InvokeModel and Converse APIs only; not supported with Responses or Chat Completions)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-1-sol-structured-output) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side system tools](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Prompt optimization](prompt-management-optimize.html)  | 
 
-### JSON Schema output on bedrock-runtime
+**Features supported using `bedrock-mantle`**
+
+
+| **Supported** | **Not Supported** | 
+| --- | --- | 
+|  + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](inference-responses-api.md#bedrock-mantle-responses-streaming)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses and Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses and Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-1-sol-structured-output) (Responses and Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Guardrails](guardrails.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Invocation logs](model-invocation-logging.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side system tools](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Prompt optimization](prompt-management-optimize.html)  | 
+
+### Prompt caching
+<a name="model-card-openai-gpt-6-1-sol-prompt-caching"></a>
+
+GPT-6.1 Sol supports both [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) and [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit). API support differs by endpoint:
++ Responses and Chat Completions support both caching types on the `bedrock-runtime` and `bedrock-mantle` endpoints.
++ InvokeModel supports both caching types on the `bedrock-runtime` endpoint.
++ Converse supports implicit caching on the `bedrock-runtime` endpoint. The native `cachePoint` field isn't supported for explicit caching with this model.
+
+For explicit caching, set `prompt_cache_options.mode` to `explicit`. Set `prompt_cache_options.ttl` to `30m`, the only supported TTL and the default. In Responses requests, add `"prompt_cache_breakpoint": {"mode": "explicit"}` to an `input_text` content block. In Chat Completions and InvokeModel requests, add it to a `text` content part.
+
+A cacheable prompt prefix must contain at least 1,024 tokens. You can include multiple explicit breakpoints, and each request can create up to four cache writes. Check the cache usage fields in the response to determine whether tokens were written to or read from the cache.
+
+### JSON Schema output
 <a name="model-card-openai-gpt-6-1-sol-structured-output"></a>
 
-Use JSON Schema to set the format of the model response. These settings apply to non-streaming calls on the `bedrock-runtime` endpoint. Choose a profile ID from [Programmatic access](#model-card-openai-gpt-6-1-sol-programmatic-access).
+Use JSON Schema to set the format of the model response for streaming and non-streaming requests. Chat Completions and Responses support JSON Schema output on both the `bedrock-runtime` and `bedrock-mantle` endpoints. InvokeModel, InvokeModelWithResponseStream, Converse, and ConverseStream support JSON Schema output on the `bedrock-runtime` endpoint. Choose a model ID or inference profile ID from [Programmatic access](#model-card-openai-gpt-6-1-sol-programmatic-access).
 + For Chat Completions, set `response_format.type` to `json_schema`. Put `name`, `schema`, and `strict: true` in `response_format.json_schema`.
 + For Responses, set `text.format.type` to `json_schema`. Put `name`, `schema`, and `strict: true` in `text.format`.
-+ For Converse, set `outputConfig.textFormat.type` to `json_schema`. In `outputConfig.textFormat.structure.jsonSchema`, set `name` and `schema`. Encode the schema as a JSON string. Then set `additionalModelRequestFields.text.format.strict` to `true`.
++ For InvokeModel and InvokeModelWithResponseStream, use the same `response_format` fields as Chat Completions.
++ For Converse and ConverseStream, set `outputConfig.textFormat.type` to `json_schema`. In `outputConfig.textFormat.structure.jsonSchema`, set `name` and `schema`. Encode the schema as a JSON string. Then set `additionalModelRequestFields.text.format.strict` to `true`.
 
 Use an object schema. Put all fields in `required`. Set `additionalProperties` to `false`. Validate your schema before you send it. Check for refusals or incomplete responses before you parse the output.
 
 **Important**  
-For JSON Schema output with the Converse API, you must set `additionalModelRequestFields.text.format.strict` to `true`, in addition to specifying the schema in `outputConfig`. Include the following field in your request.  
+For JSON Schema output with Converse and ConverseStream, you must set `additionalModelRequestFields.text.format.strict` to `true`, in addition to specifying the schema in `outputConfig`. Include the following field in your request.  
 
 ```
 {
@@ -96,35 +118,57 @@ For JSON Schema output with the Converse API, you must set `additionalModelReque
 ## Pricing
 <a name="model-card-openai-gpt-6-1-sol-pricing"></a>
 
-All prices are in USD per 1 million tokens for the Standard tier. Global CRIS rates match [OpenAI first-party Standard pricing](https://developers.openai.com/api/docs/pricing).
+All prices are in USD per 1 million tokens. The following tables list Standard and Ultrafast prices. Global CRIS rates match [OpenAI first-party pricing](https://developers.openai.com/api/docs/pricing) for the same service tier.
 
-Commercial In-Region and US geographic cross-Region inference (US CRIS) prices include a 10% premium over the global base rates. You do not need to add this premium.
+In-Region access on `bedrock-mantle` costs 10% more than Global CRIS. US geographic cross-Region inference (US CRIS) on `bedrock-runtime` has the same premium. This applies to both service tiers. The tables include this premium.
 
-Explicit prompt caching is not supported for this Bedrock model; the cache pricing dimensions do not change that feature support.
+GPT-6.1 Sol supports both implicit and explicit prompt caching. Cache-write tokens are billed at 1.25× the uncached input-token rate, and cache-read tokens are billed at 0.05× the uncached input-token rate. For configuration and API support, see [Prompt caching](#model-card-openai-gpt-6-1-sol-prompt-caching).
 
 Long-context rates apply to the full request when input exceeds 272,000 tokens.
 
 *Priority and Flex tiers are not supported for this model.*
 
-### Commercial Regions — short context (272K input tokens or fewer)
+### Standard — Commercial Regions, short context (272K input tokens or fewer)
 <a name="model-card-openai-gpt-6-1-sol-pricing-short"></a>
 
 
 | **Inference option** | **Input** | **Input — cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
-| Regional (Mantle in IAD) | $2.20 | $2.75 | $0.11 | $11.00 | 
+| Regional (bedrock-mantle in US East (N. Virginia)) | $2.20 | $2.75 | $0.11 | $11.00 | 
 | US CRIS (bedrock-runtime) | $2.20 | $2.75 | $0.11 | $11.00 | 
 | Global CRIS (bedrock-runtime) | $2.00 | $2.50 | $0.10 | $10.00 | 
 
-### Commercial Regions — long context (more than 272K input tokens)
+### Standard — Commercial Regions, long context (more than 272K input tokens)
 <a name="model-card-openai-gpt-6-1-sol-pricing-long"></a>
 
 
 | **Inference option** | **Input** | **Input — cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
-| Regional (Mantle in IAD) | $4.40 | $5.50 | $0.22 | $16.50 | 
+| Regional (bedrock-mantle in US East (N. Virginia)) | $4.40 | $5.50 | $0.22 | $16.50 | 
 | US CRIS (bedrock-runtime) | $4.40 | $5.50 | $0.22 | $16.50 | 
 | Global CRIS (bedrock-runtime) | $4.00 | $5.00 | $0.20 | $15.00 | 
+
+Ultrafast costs six times as much as Standard. Global CRIS rates match [OpenAI first-party Ultrafast pricing](https://developers.openai.com/api/docs/pricing?latest-pricing=ultrafast). On `bedrock-runtime`, use Ultrafast through US CRIS or Global CRIS. On `bedrock-mantle`, use Ultrafast in `us-east-1`. Short-context prices apply to requests with up to 272,000 input tokens. Above that limit, long-context prices apply to the full request.
+
+### Ultrafast — Commercial Regions, short context (272K input tokens or fewer)
+<a name="model-card-openai-gpt-6-1-sol-pricing-ultrafast-short"></a>
+
+
+| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| --- | --- | --- | --- | --- | 
+| In-Region (bedrock-mantle in us-east-1) | $13.20 | $16.50 | $0.66 | $66.00 | 
+| US CRIS (bedrock-runtime) | $13.20 | $16.50 | $0.66 | $66.00 | 
+| Global CRIS (bedrock-runtime) | $12.00 | $15.00 | $0.60 | $60.00 | 
+
+### Ultrafast — Commercial Regions, long context (more than 272K input tokens)
+<a name="model-card-openai-gpt-6-1-sol-pricing-ultrafast-long"></a>
+
+
+| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| --- | --- | --- | --- | --- | 
+| In-Region (bedrock-mantle in us-east-1) | $26.40 | $33.00 | $1.32 | $99.00 | 
+| US CRIS (bedrock-runtime) | $26.40 | $33.00 | $1.32 | $99.00 | 
+| Global CRIS (bedrock-runtime) | $24.00 | $30.00 | $1.20 | $90.00 | 
 
 ## Programmatic Access
 <a name="model-card-openai-gpt-6-1-sol-programmatic-access"></a>
@@ -137,24 +181,30 @@ To call this model from code, use the following model IDs and endpoint URLs. For
 | bedrock-mantle | openai.gpt-6.1-sol | https://bedrock-mantle.us-east-1.api.aws/openai/v1 | Not supported | Not supported | 
 | bedrock-runtime | openai.gpt-6.1-sol | Not supported | us.openai.gpt-6.1-sol | global.openai.gpt-6.1-sol | 
 
-*For in-Region access, use `bedrock-mantle` in `us-east-1` (N. Virginia, IAD). On `bedrock-runtime`, use `us.openai.gpt-6.1-sol` for US geographic cross-Region inference or `global.openai.gpt-6.1-sol` for global cross-Region inference. Direct in-Region invocation is not supported on `bedrock-runtime`. Use a source Region enabled for the profile you choose; see [Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md).*
+*For in-Region access, use `bedrock-mantle` in `us-east-1` (N. Virginia). On `bedrock-runtime`, the OpenAI-compatible base URL is `https://bedrock-runtime.{region}.amazonaws.com/openai/v1`. Use `us.openai.gpt-6.1-sol` for US geographic cross-Region inference or `global.openai.gpt-6.1-sol` for global cross-Region inference. Direct in-Region invocation is not supported on `bedrock-runtime`. Use a source Region enabled for the profile you choose; see [Route model inference requests across AWS Regions with cross-Region inference](cross-region-inference.md).*
 
 ## Service Tiers
 <a name="model-card-openai-gpt-6-1-sol-tiers"></a>
 
 Amazon Bedrock offers several service tiers for different workloads. **Standard** gives you pay-per-token access with no commitment. To use it, set `"service_tier": "default"` or omit the field. For more information, see [service tiers](service-tiers-inference.html).
 
+**Ultrafast** is a premium speed tier for GPT-6.1 Sol. Use it for workloads where response speed matters most. To request it with the Responses API, set `"service_tier": "ultrafast"`.
 
-| **Standard** | **Priority** | **Flex** | **Reserved** | 
-| --- | --- | --- | --- | 
-| ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+
+| **Standard** | **Ultrafast** | **Priority** | **Flex** | **Reserved** | 
+| --- | --- | --- | --- | --- | 
+| ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+
+Use one of these routes for Ultrafast:
++ `bedrock-mantle` in `us-east-1`, with model ID `openai.gpt-6.1-sol`.
++ `bedrock-runtime`, with `us.openai.gpt-6.1-sol` for US CRIS or `global.openai.gpt-6.1-sol` for Global CRIS.
 
 ## Regional Availability
 <a name="model-card-openai-gpt-6-1-sol-regional-availability"></a>
 
 ***Regional availability at a glance***
 
-Mantle access is available in US East (N. Virginia), `us-east-1` (IAD). Runtime access supports both US geographic and global inference profiles. For more information, see [Regional availability by models](models-region-compatibility.md).
+Standard and Ultrafast are available on `bedrock-mantle` in `us-east-1` (N. Virginia). Both tiers support US geographic and global inference profiles on `bedrock-runtime`. For more information, see [Regional availability by models](models-region-compatibility.md).
 
 **Availability using the `bedrock-mantle` endpoint**
 
@@ -169,6 +219,24 @@ Mantle access is available in US East (N. Virginia), `us-east-1` (IAD). Runtime 
 | **Scope** | **In-Region** | **Geo** | **Global** | 
 | --- | --- | --- | --- | 
 | US geographic and global inference | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+
+***Geo inference details***
+
+The destination Regions available to a geographic inference profile depend on the source Region. To retrieve the current routing configuration, call [GetInferenceProfile](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html) from the source Region.
+
+**Geo: US**
+
+Geo inference ID: `us.openai.gpt-6.1-sol`
+
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| us-east-1 (N. Virginia) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-east-2 (Ohio) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-west-1 (N. California) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-1 (N. California), us-west-2 (Oregon) | 
+| us-west-2 (Oregon) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| ca-central-1 (Canada) | ca-central-1 (Canada), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| ca-west-1 (Calgary) | ca-west-1 (Calgary), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
 
 ## Quotas and Limits
 <a name="model-card-openai-gpt-6-1-sol-quotas"></a>
@@ -281,3 +349,28 @@ print(response.output_text)
 ```
 
 ------
+
+## Ultrafast example
+<a name="model-card-openai-gpt-6-1-sol-ultrafast-example"></a>
+
+Set `OPENAI_API_KEY` to your Amazon Bedrock API key. This example uses the `bedrock-mantle` endpoint in `us-east-1`.
+
+```
+export OPENAI_API_KEY="<your Amazon Bedrock API key>"
+```
+
+```
+from openai import OpenAI
+
+client = OpenAI(
+    base_url="https://bedrock-mantle.us-east-1.api.aws/openai/v1",
+)
+response = client.responses.create(
+    model="openai.gpt-6.1-sol",
+    service_tier="ultrafast",
+    input="Explain how Amazon Bedrock cross-Region inference works.",
+)
+print(response.output_text)
+```
+
+For `bedrock-runtime`, use the OpenAI-compatible base URL from [Programmatic Access](#model-card-openai-gpt-6-1-sol-programmatic-access). Set the model to `us.openai.gpt-6.1-sol` for US CRIS or `global.openai.gpt-6.1-sol` for Global CRIS, and keep `service_tier="ultrafast"`.

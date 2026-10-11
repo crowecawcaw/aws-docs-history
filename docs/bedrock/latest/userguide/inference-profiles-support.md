@@ -9,10 +9,10 @@ For a list of Region codes and endpoints supported in Amazon Bedrock, see [Amazo
 Looking for inference profile IDs for a specific model? Each model's inference profile IDs and Regional availability are now documented on the model's detail page. Visit [models at a glance](model-cards.md) and choose the model you are interested in.
 
 **Topics**
-+ [Supported cross-Region inference profiles](#inference-profiles-support-system)
++ [Find supported cross-Region inference profiles](#inference-profiles-support-system)
 + [Supported Regions and models for application inference profiles](#inference-profiles-support-user)
 
-## Supported cross-Region inference profiles
+## Find supported cross-Region inference profiles
 <a name="inference-profiles-support-system"></a>
 
 You can carry out [cross-Region inference](cross-region-inference.md) with cross-Region (system-defined) inference profiles. With cross-Region inference, you can distribute traffic across multiple AWS Regions by using compute in each of those Regions.
@@ -32,16 +32,38 @@ Service Control Policies (SCPs) and AWS Identity and Access Management (IAM) pol
 Some inference profiles route to different destination Regions depending on the source Region from which you call it. For example, if you call `us.anthropic.claude-3-haiku-20240307-v1:0` from US East (Ohio), it can route requests to `us-east-1`, `us-east-2`, or `us-west-2`, but if you call it from US West (Oregon), it can route requests to only `us-east-1` and `us-west-2`.
 
 To check the source and destination Regions for an inference profile, you can do one of the following:
-+ Expand the corresponding section in the [list of supported cross-Region inference profiles](#inference-profiles-support).
++ Open [models at a glance](model-cards.md), choose the model, and review its *Regional availability* section for inference profile IDs, source Regions, and destination Regions.
 + Send a [GetInferenceProfile](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html) request with an [Amazon Bedrock control plane endpoint](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#br-cp) from a source Region and specify the Amazon Resource Name (ARN) or ID of the inference profile in the `inferenceProfileIdentifier` field. The `models` field in the response maps to a list of model ARNs, in which you can identify each destination Region.
 
 **Note**  
 Global cross-Region inference profile for a specific model can change over time as AWS adds more commercial Regions where your requests can be processed. However, if an inference profile is tied to a geography (such as US, EU, or APAC), its destination Region list will never change. AWS might create new inference profiles that incorporate new Regions. You can update your systems to use these inference profiles by changing the IDs in your setup to the new ones.  
 The Global cross-Region inference profile is currently only supported on Anthropic Claude Sonnet 4 model for the following source Regions: US West (Oregon), US East (N. Virginia), US East (Ohio), Europe (Ireland), and Asia Pacific (Tokyo). The destination Regions for Global inference profile include all commercial AWS Regions.
 
+You can find supported cross-Region inference profiles in either of the following ways:
++ **Browse by model:** Visit [models at a glance](model-cards.md) and choose a model. On the model's detail page, the *Regional availability* table shows which Regions support In-Region, geography-based, and Global inference profiles. The *Inference profile IDs* section lists the profile IDs, supported source Regions, and destination Regions.
++ **Query a source Region:** Send a [ListInferenceProfiles](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListInferenceProfiles.html) request to an Amazon Bedrock control plane endpoint in the Region that you plan to use. The response includes the system-defined inference profiles that are currently available from that source Region.
+
+For example, the following AWS CLI command lists the active AU inference profiles that you can use from the Asia Pacific (Sydney) Region:
+
+```
+aws bedrock list-inference-profiles \
+    --region ap-southeast-2 \
+    --type-equals SYSTEM_DEFINED \
+    --query "inferenceProfileSummaries[?status=='ACTIVE' && starts_with(inferenceProfileId, 'au.')].[inferenceProfileId,inferenceProfileName]" \
+    --output table
+```
+
+For each inference profile that you want to use, send a [GetInferenceProfile](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html) request from the same source Region. The Region in each model ARN in the `models` field is a destination Region to which the inference profile can route requests. For example:
+
+```
+aws bedrock get-inference-profile \
+    --region ap-southeast-2 \
+    --inference-profile-identifier {{inference-profile-id}} \
+    --query 'models[].modelArn'
+```
+
 **Important**  
-Each model's cross-Region inference profile IDs, supported source Regions, destination Regions, and Geo scope (Global, US, or EU) are documented on the model's detail page. To find this information, visit [models at a glance](model-cards.md) and choose the model you are interested in. On the model page, look for the *Regional availability* table — it shows which Regions support In-Region, Geo, and Global inference profiles, and the *Inference profile IDs* section lists the exact IDs to use in API calls.  
-If you need to compare data residency options across multiple models for compliance planning, review the Regional availability table on each model's page to confirm that your chosen model's inference profile routes requests only to Regions that meet your requirements.
+If you have data residency requirements, call [GetInferenceProfile](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html) from every source Region that you plan to use and verify all destination Regions in the response. Available inference profiles and destination Regions can differ depending on the source Region. Don't rely on the geographic prefix in an inference profile ID alone to determine where requests can be routed.
 
 ## Supported Regions and models for application inference profiles
 <a name="inference-profiles-support-user"></a>

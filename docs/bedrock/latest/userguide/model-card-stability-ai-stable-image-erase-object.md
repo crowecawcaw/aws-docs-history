@@ -3,7 +3,7 @@
 # Stable Image Erase Object
 <a name="model-card-stability-ai-stable-image-erase-object"></a>
 
-## ![Icon showing a purple letter S with a red dot in the lower right corner.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Erase Object
+## ![Stability AI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/stability.png) Stability AI — Stable Image Erase Object
 <a name="model-card-stability-ai-stable-image-erase-object-header"></a>
 
 ## Model Details

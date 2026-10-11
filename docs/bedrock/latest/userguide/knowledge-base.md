@@ -24,7 +24,7 @@ With Amazon Bedrock Knowledge Bases, you can:
 **Topics**
 + [How knowledge bases work](kb-how-it-works.md)
 + [Supported models and Regions](knowledge-base-supported.md)
-+ [Chat with your document with zero setup](knowledge-base-chatdoc.md)
++ [Query a document without a knowledge base](knowledge-base-chatdoc.md)
 + [Set up permissions to create and manage knowledge bases](knowledge-base-prereq-permissions-general.md)
 + [Build a managed knowledge base](kb-build-managed.md)
 + [Build a knowledge base with vector stores](knowledge-base-build.md)

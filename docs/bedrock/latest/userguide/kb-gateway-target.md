@@ -16,12 +16,12 @@ Knowledge base gateway targets are supported only for managed knowledge bases, a
 + A managed knowledge base, and its knowledge base ID.
 + An AgentCore Gateway and a gateway service role with permission to retrieve from the knowledge base (`bedrock:Retrieve` on the knowledge base ARN).
 
-For complete instructions — including creating the gateway target with the AWS SDK or AWS CLI, configuring the gateway service role and trust policy, controlling which retrieval parameters the agent can set, invoking the tools, and the full input and response schemas — see [Amazon Bedrock Managed Knowledge Bases as Connector Target](bedrock-agentcore/latest/devguide/gateway-target-connector-managed-kb.html) in the *Amazon Bedrock AgentCore Developer Guide*.
+For complete instructions — including creating the gateway target with the AWS SDK or AWS CLI, configuring the gateway service role and trust policy, controlling which retrieval parameters the agent can set, invoking the tools, and the full input and response schemas — see [Amazon Bedrock Managed Knowledge Bases as Connector Target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-managed-kb.html) in the *Amazon Bedrock AgentCore Developer Guide*.
 
 ## Invoke with Strands Agents
 <a name="kb-gateway-target-invoke-strands"></a>
 
-If you have an existing agent built with the [Strands Agents SDK](https://strandsagents.com/latest/) and the [AgentCore starter toolkit](bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.html), you can connect it to your knowledge base gateway target by switching the MCP client to use SigV4 authentication against the gateway endpoint.
+If you have an existing agent built with the [Strands Agents SDK](https://strandsagents.com/docs/) and the [AgentCore starter toolkit](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-get-started-toolkit.html), you can connect it to your knowledge base gateway target by switching the MCP client to use SigV4 authentication against the gateway endpoint.
 
 Install the `mcp-proxy-for-aws` package:
 

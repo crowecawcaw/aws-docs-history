@@ -6,7 +6,7 @@
 The following list provides links to general information about Regional and model support in Amazon Bedrock:
 + For a list of Region codes and endpoints supported in Amazon Bedrock, see [Amazon Bedrock endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#bedrock_region).
 + For a list of Amazon Bedrock model IDs to use when calling Amazon Bedrock API operations, see [Supported foundation models in Amazon Bedrock](models-supported.md).
-+ For a list of Amazon Bedrock inference profile IDs to use when calling Amazon Bedrock API operations, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
++ For a list of Amazon Bedrock inference profile IDs to use when calling Amazon Bedrock API operations, see [Find supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system).
 
 Batch inference can be used with different types of models. The following list describes support for different types of Amazon Bedrock models:
 + **Single-region model support** – Lists regions that support sending inference requests to a foundation model in one AWS Region. For a full table of models available across Amazon Bedrock, see [Supported foundation models in Amazon Bedrock](models-supported.md).

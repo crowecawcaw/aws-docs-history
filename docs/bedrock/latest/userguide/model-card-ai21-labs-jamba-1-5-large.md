@@ -3,7 +3,7 @@
 # Jamba 1.5 Large
 <a name="model-card-ai21-labs-jamba-1-5-large"></a>
 
-## ![AI21 Labs logo with pink and black text.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/ai21.png) AI21 Labs — Jamba 1.5 Large
+## ![AI21 Labs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/ai21.png) AI21 Labs — Jamba 1.5 Large
 <a name="model-card-ai21-labs-jamba-1-5-large-header"></a>
 
 ## Model Details
@@ -71,7 +71,7 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Structured outputs](structured-outputs.html)  | 
+|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Structured outputs](structured-output.md)  | 
 
 ## Pricing
 <a name="model-card-ai21-labs-jamba-1-5-large-pricing"></a>

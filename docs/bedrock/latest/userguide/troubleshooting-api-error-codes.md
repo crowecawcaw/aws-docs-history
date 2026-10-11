@@ -137,7 +137,7 @@ This section provides detailed information about the common errors you might enc
 + We suggest employing AWS recommended approach of using [retries with exponential backoff](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.html) and random [jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) for improved reliability.
 + Consider switching to a different AWS Region if the issue persists in your current Region. Different Regions may have varying levels of load and availability.
 + [Use Cross-Region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) to route your requests by using compute across different AWS Regions.
-+ If you have high throughput requirements, we suggest exploring [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for your use case.
++ If you have predictable, sustained throughput requirements, consider [Reserved Tier](service-tiers-inference.md) or [Provisioned Throughput](prov-throughput.md), depending on what your model supports. Availability varies by model and AWS Region. Check the [model's detail page](model-cards.md) for Reserved Tier support and the [Provisioned Throughput support table](prov-thru-supported.md) for availability. To access Reserved Tier, contact your AWS account team.
 
 **Best practices**
 + Make sure your application can handle 503 status codes appropriately in your error handling and retry logic.
@@ -168,7 +168,7 @@ If you experience frequent 503 errors or if they significantly impact your opera
 **Solution:**
 + Check the Amazon Bedrock service quotas in the [Amazon Bedrock service quotas](https://docs.aws.amazon.com/general/latest/gr/bedrock.html#limits_bedrock) console to learn about the limits allotted to your account.
 + We suggest employing AWS recommended approach of using [retries with exponential backoff.](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.html) and random [jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/) for improved reliability.
-+ If you have high throughput requirements, we suggest exploring [Provisioned Throughput](https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html) for your use case.
++ If you have predictable, sustained throughput requirements, consider [Reserved Tier](service-tiers-inference.md) or [Provisioned Throughput](prov-throughput.md), depending on what your model supports. Availability varies by model and AWS Region. Check the [model's detail page](model-cards.md) for Reserved Tier support and the [Provisioned Throughput support table](prov-thru-supported.md) for availability. To access Reserved Tier, contact your AWS account team.
 + Request for quota increase by contacting your account manager or [AWS Support](https://aws.amazon.com/support) if your workload traffic exceeds your account quotas.
 
 ## ValidationError

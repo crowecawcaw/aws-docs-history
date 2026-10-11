@@ -3,7 +3,7 @@
 # Gemma 3 4B IT
 <a name="model-card-google-gemma-3-4b-it"></a>
 
-## ![Google logo with multicolored G letter icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/google.png) Google — Gemma 3 4B IT
+## ![Google logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/google.png) Google — Gemma 3 4B IT
 <a name="model-card-google-gemma-3-4b-it-header"></a>
 
 ## Model Details
@@ -14,9 +14,9 @@ Gemma 3 4B IT is Google's compact 4-billion parameter open model with instructio
 + **EOL no sooner than:** Mar 12, 2026
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** N/A
++ **Model EOL date:** March 30, 2027
 + **End User License Agreements and Terms of Use:** [View](https://ai.google.dev/gemma/terms)
-+ **Model lifecycle:** Active
++ **Model lifecycle:** Legacy
 + **Context window:** 128K tokens
 + **Max output tokens:** 8K
 
@@ -101,6 +101,8 @@ Amazon Bedrock offers three inference options: **In-Region** keeps requests with
 | sa-east-1 (São Paulo) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | ap-southeast-3 (Jakarta) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | ap-southeast-4 (Melbourne) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| ap-northeast-2 (Seoul) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| ap-southeast-1 (Singapore) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | eu-central-1 (Frankfurt) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | eu-north-1 (Stockholm) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 

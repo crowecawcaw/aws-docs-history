@@ -3,7 +3,7 @@
 # Palmyra X5
 <a name="model-card-writer-palmyra-x5"></a>
 
-## ![WordPress logo icon with white W on black circular background.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/writer.png) Writer — Palmyra X5
+## ![Writer logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/writer.png) Writer — Palmyra X5
 <a name="model-card-writer-palmyra-x5-header"></a>
 
 ## Model Details

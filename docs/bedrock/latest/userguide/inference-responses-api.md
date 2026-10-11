@@ -11,6 +11,9 @@ Amazon Bedrock provides the OpenAI Responses API on both the `bedrock-runtime` a
 | bedrock-runtime (recommended) | https://bedrock-runtime.{region}.amazonaws.com/openai/v1 | New applications and migrations when the required model and Responses API features are supported. | 
 | bedrock-mantle (compatibility) | https://bedrock-mantle.{region}.api.aws/v1 | Existing applications and workloads that require Mantle-only support, such as Responses API access to GPT OSS models, background inference, or server-side tools. | 
 
+**Note**  
+On `bedrock-mantle`, the path prefix varies by model. Most models are served under `/v1`, as shown in the preceding table, but some are served under `/openai/v1` instead. A request that uses the wrong prefix for a model is rejected with `model `<model-id>` isn't supported on this route`. To confirm the base URL for a specific model, see the **Programmatic Access** table on its card in [Models at a glance](model-cards.md).
+
 The two endpoints don't have identical feature support. Requests on `bedrock-runtime` are always synchronous, server-side tools aren't available, and only the default project is supported. For the full comparison, see [Endpoints supported by Amazon Bedrock](endpoints.md), and for the details of each difference, see [Using the Responses API on the bedrock-runtime endpoint](#bedrock-mantle-responses-runtime).
 
 **Important**  
@@ -41,25 +44,7 @@ Each endpoint is governed by its own set of quotas. For Responses traffic on `be
 
 On the `bedrock-runtime` endpoint, the Responses API is available in every AWS Region where that endpoint is available, including the AWS GovCloud (US) Regions. For the list, see [Regional availability by endpoints](endpoints-region-availability.md). Which models support the API on each endpoint is listed in [Endpoint availability](models-endpoint-availability.md).
 
-The `bedrock-mantle` endpoint is available in the following AWS Regions:
-
-
-| Region Name | Region | Endpoint | 
-| --- | --- | --- | 
-| US East (Ohio) | us-east-2 | bedrock-mantle.us-east-2.api.aws | 
-| US East (N. Virginia) | us-east-1 | bedrock-mantle.us-east-1.api.aws | 
-| US West (Oregon) | us-west-2 | bedrock-mantle.us-west-2.api.aws | 
-| Asia Pacific (Jakarta) | ap-southeast-3 | bedrock-mantle.ap-southeast-3.api.aws | 
-| Asia Pacific (Mumbai) | ap-south-1 | bedrock-mantle.ap-south-1.api.aws | 
-| Asia Pacific (Sydney) | ap-southeast-2 | bedrock-mantle.ap-southeast-2.api.aws | 
-| Asia Pacific (Tokyo) | ap-northeast-1 | bedrock-mantle.ap-northeast-1.api.aws | 
-| Europe (Frankfurt) | eu-central-1 | bedrock-mantle.eu-central-1.api.aws | 
-| Europe (Ireland) | eu-west-1 | bedrock-mantle.eu-west-1.api.aws | 
-| Europe (London) | eu-west-2 | bedrock-mantle.eu-west-2.api.aws | 
-| Europe (Milan) | eu-south-1 | bedrock-mantle.eu-south-1.api.aws | 
-| Europe (Stockholm) | eu-north-1 | bedrock-mantle.eu-north-1.api.aws | 
-| South America (São Paulo) | sa-east-1 | bedrock-mantle.sa-east-1.api.aws | 
-| AWS GovCloud (US-West) | us-gov-west-1 | bedrock-mantle.us-gov-west-1.api.aws | 
+The `bedrock-mantle` endpoint is available in a subset of those AWS Regions. For the Regions that support each endpoint, see [Regional availability by endpoints](endpoints-region-availability.md). For the base URL to use with a Region, see [Endpoints supported by Amazon Bedrock](endpoints.md).
 
 ## Prerequisites
 <a name="bedrock-mantle-prereq"></a>
@@ -346,7 +331,7 @@ Two condition keys let a policy on either resource constrain the other. The infe
 + **Server-side tool use and pre-configured tools aren't available**, including [web search](web-search.md). Client-side tool use works on both endpoints.
 + **Only the default project is supported.** The `OpenAI-Project` header is accepted only as `default` or as your own default project ARN; any other value is rejected. See [Projects (OpenAI-compatible)](projects.md).
 + **Application inference profiles aren't supported.** A request that names one as its inference target is rejected with a 400 error. System, geographic, and global inference profiles work normally.
-+ **[Guardrails](guardrails.md) don't apply to the Responses API.** To apply a guardrail to a GPT model on this endpoint, call the [Converse API](conversation-inference.md) instead.
++ **[Guardrails](guardrails.md) are supported.** Set the `X-Amzn-Bedrock-GuardrailIdentifier` and `X-Amzn-Bedrock-GuardrailVersion` request headers. With the OpenAI SDK, pass these values through `extra_headers`. For more information, see [Test your guardrail](guardrails-test.md).
 + **A stored response belongs to the AWS Region that served it.** Retrieving, canceling, or deleting it, and continuing the conversation with `previous_response_id`, are all handled by that Region. A response ID that can't be found — because it never existed, belongs to another account, or was never stored — returns the same 404 error in every case.
 
 **Monitoring and cost**

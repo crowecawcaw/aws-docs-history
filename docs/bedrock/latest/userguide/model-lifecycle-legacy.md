@@ -29,25 +29,27 @@ You can't create a new [Provisioned Throughput](prov-throughput.md) for models i
 
 **EOL** — After the EOL date, a model will be marked EOL in the console and in the following table. On, or soon after the EOL date, the model is no longer available for use in all AWS Regions and requests made to this version will fail, unless there is a private arrangement between you and the provider for continued access. You will need to migrate to the latest model by updating your application code before the EOL date. Migration will not happen automatically.
 
-The following table shows models that are currently in the Legacy state or are pending end-of-life (EOL) on Amazon Bedrock. This table does not include Active models or models that have already passed their EOL date.
+Model lifecycle state can differ by AWS Region. The **Regions** column in the following tables lists only the Regions covered by a model's announced EOL date. A model can remain Active in other Regions, and the absence of a Region from a row doesn't mean the model will stay available there indefinitely. To check the current state for the Region you use, call [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) or [GetFoundationModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetFoundationModel.html) in that Region and read the `modelLifecycle` field.
+
+**Models with a scheduled EOL date**
+
+The following models are in the Legacy state with an announced EOL date. Migrate to an Active model before the EOL date.
 
 
+| Model provider | Model name | Model ID | Regions | Legacy date | EOL date | Public extended access start date | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| AI21 Labs | Jamba 1.5 Large | ai21.jamba-1-5-large-v1:0 | us-east-1 | May 26, 2026 | November 26, 2026 | August 26, 2026 | 
+| AI21 Labs | Jamba 1.5 Mini | ai21.jamba-1-5-mini-v1:0 | us-east-1 | May 26, 2026 | November 26, 2026 | August 26, 2026 | 
+| Anthropic | Claude Sonnet 4.5 | anthropic.claude-sonnet-4-5-20250929-v1:0 | af-south-1, ap-east-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-6, ap-southeast-7, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3, il-central-1, mx-central-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2 | October 8, 2026 | April 8, 2027 | January 8, 2027 | 
+| Anthropic | Claude Opus 4.1 | anthropic.claude-opus-4-1-20250805-v1:0 | us-east-1, us-east-2, us-west-2 | July 8, 2026 | January 8, 2027 | October 8, 2026 | 
+| Anthropic | Claude Sonnet 4 | anthropic.claude-sonnet-4-20250514-v1:0 | ap-northeast-1, eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3, us-east-1, us-east-2, us-west-1, us-west-2, ap-east-2, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-7, il-central-1 | April 14, 2026 | October 14, 2026 | July 14, 2026 | 
+| TwelveLabs | Marengo Embed v2.7 | twelvelabs.marengo-embed-2-7-v1:0 | ap-northeast-2, eu-west-1, us-east-1 | May 29, 2026 | November 30, 2026 | August 29, 2026 | 
 
-- **AI21 Labs**
-  - **Model name:** Jamba 1.5 Large
-  - **Model ID:** ai21.jamba-1-5-large-v1:0
-  - **Regions:** us-east-1
-  - **Legacy date:** May 26, 2026
-  - **EOL date:** November 26, 2026
-  - **Public extended access start date:** August 26, 2026
+**Models that have reached EOL**
 
-- **AI21 Labs**
-  - **Model name:** Jamba 1.5 Mini
-  - **Model ID:** ai21.jamba-1-5-mini-v1:0
-  - **Regions:** us-east-1
-  - **Legacy date:** May 26, 2026
-  - **EOL date:** November 26, 2026
-  - **Public extended access start date:** August 26, 2026
+The following models have passed their EOL date. They have been removed from the Regions listed, and requests to them fail. These entries are retained for reference, so that you can identify a model ID that no longer works and see when it reached EOL.
+
+
 
 - **Amazon**
   - **Model name:** Nova Canvas
@@ -74,14 +76,6 @@ The following table shows models that are currently in the Legacy state or are p
   - **Public extended access start date:** —
 
 - **Amazon**
-  - **Model name:** Nova Premier
-  - **Model ID:** amazon.nova-premier-v1:0
-  - **Regions:** us-east-1, us-east-2, us-west-2
-  - **Legacy date:** March 13, 2026
-  - **EOL date:** September 14, 2026
-  - **Public extended access start date:** —
-
-- **Amazon**
   - **Model name:** Nova Sonic
   - **Model ID:** amazon.nova-sonic-v1:0
   - **Regions:** ap-northeast-1, eu-north-1, us-east-1
@@ -90,33 +84,18 @@ The following table shows models that are currently in the Legacy state or are p
   - **Public extended access start date:** —
 
 - **Anthropic**
-  - **Model name:** Claude Opus 4.1
-  - **Model ID:** anthropic.claude-opus-4-1-20250805-v1:0
-  - **Regions:** us-east-1, us-east-2, us-west-2
-  - **Legacy date:** July 8, 2026
-  - **EOL date:** January 8, 2027
-  - **Public extended access start date:** October 8, 2026
-
-- **Anthropic**
-  - **Model name:** Claude Sonnet 4
-  - **Model ID:** anthropic.claude-sonnet-4-20250514-v1:0
-  - **Regions:** ap-northeast-1, eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3, us-east-1, us-east-2, us-west-1, us-west-2, ap-east-2, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-7, il-central-1
-  - **Legacy date:** April 14, 2026
-  - **EOL date:** October 14, 2026
-  - **Public extended access start date:** July 14, 2026
-
-- **Anthropic**
   - **Model name:** Claude 3 Haiku
   - **Model ID:** anthropic.claude-3-haiku-20240307-v1:0
   - **Regions:** ap-northeast-1, ap-southeast-2, eu-central-1, eu-west-1, eu-west-2, eu-west-3, us-east-1, us-east-2, us-west-2 / **Legacy date:** March 10, 2026 / **EOL date:** September 10, 2026 / **Public extended access start date:** June 10, 2026
   - **Regions:** us-gov-east-1, us-gov-west-1 / **Legacy date:** March 10, 2026 / **EOL date:** September 10, 2026 / **Public extended access start date:** June 10, 2026
 
-- **Command R**
-  - **Model name:** cohere.command-r-v1:0
-  - **Model ID:** us-east-1, us-west-2
-  - **Regions:** February 19, 2026
-  - **Legacy date:** August 19, 2026
-  - **EOL date:** May 19, 2026
+- **Cohere**
+  - **Model name:** Command R
+  - **Model ID:** cohere.command-r-v1:0
+  - **Regions:** us-east-1, us-west-2
+  - **Legacy date:** February 19, 2026
+  - **EOL date:** August 19, 2026
+  - **Public extended access start date:** May 19, 2026
 
 - **Cohere**
   - **Model name:** Command R\+
@@ -125,14 +104,6 @@ The following table shows models that are currently in the Legacy state or are p
   - **Legacy date:** February 19, 2026
   - **EOL date:** August 19, 2026
   - **Public extended access start date:** May 19, 2026
-
-- **TwelveLabs**
-  - **Model name:** Marengo Embed v2.7
-  - **Model ID:** twelvelabs.marengo-embed-2-7-v1:0
-  - **Regions:** ap-northeast-2, eu-west-1, us-east-1
-  - **Legacy date:** May 29, 2026
-  - **EOL date:** November 30, 2026
-  - **Public extended access start date:** August 29, 2026
 
 
 

@@ -3,7 +3,7 @@
 # Pegasus v1.2
 <a name="model-card-twelvelabs-pegasus-v1-2"></a>
 
-## ![Icon showing branching arrows representing a merge or split workflow pattern.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Pegasus v1.2
+## ![TwelveLabs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Pegasus v1.2
 <a name="model-card-twelvelabs-pegasus-v1-2-header"></a>
 
 ## Model Details
@@ -56,7 +56,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
 | --- | --- | --- | --- | --- | 
-| bedrock-runtime | twelvelabs.pegasus-1-2-v1:0 | https://bedrock-runtime.{region}.amazonaws.com | `us.twelvelabs.pegasus-1-2-v1:0`<br />`eu.twelvelabs.pegasus-1-2-v1:0` | global.twelvelabs.pegasus-1-2-v1:0 | 
+| bedrock-runtime | twelvelabs.pegasus-1-2-v1:0 | https://bedrock-runtime.{region}.amazonaws.com | `us.twelvelabs.pegasus-1-2-v1:0`<br />`eu.twelvelabs.pegasus-1-2-v1:0`<br />`apac.twelvelabs.pegasus-1-2-v1:0` | global.twelvelabs.pegasus-1-2-v1:0 | 
 
 *For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1".*
 
@@ -96,7 +96,7 @@ Amazon Bedrock offers three inference options: **In-Region** keeps requests with
 | eu-west-3 (Paris) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | ap-east-2 (Taipei) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | ap-northeast-1 (Tokyo) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
-| ap-northeast-2 (Seoul) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| ap-northeast-2 (Seoul) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | ap-northeast-3 (Osaka) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | ap-south-1 (Mumbai) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | ap-south-2 (Hyderabad) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
@@ -142,6 +142,15 @@ Geo Inference ID: `eu.twelvelabs.pegasus-1-2-v1:0`
 | eu-west-1 (Ireland) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
 | eu-west-2 (London) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-2 (London), eu-west-3 (Paris) | 
 | eu-west-3 (Paris) | eu-central-1 (Frankfurt), eu-north-1 (Stockholm), eu-south-1 (Milan), eu-south-2 (Spain), eu-west-1 (Ireland), eu-west-3 (Paris) | 
+
+**Geo: APAC**
+
+Geo Inference ID: `apac.twelvelabs.pegasus-1-2-v1:0`
+
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| ap-northeast-2 (Seoul) | ap-northeast-1 (Tokyo), ap-northeast-2 (Seoul), ap-northeast-3 (Osaka), ap-south-1 (Mumbai), ap-south-2 (Hyderabad), ap-southeast-1 (Singapore), ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
 
 ***Global inference details***
 

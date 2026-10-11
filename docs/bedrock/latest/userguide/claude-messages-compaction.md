@@ -400,7 +400,9 @@ A request that sends the top-level `compaction` parameter is a compaction reques
 
 This mechanism requires the beta flag `compact-2026-09-04` in `anthropic_beta`, both on the compaction request and on every later request that carries the returned block. It is supported on `bedrock-runtime` through InvokeModel, InvokeModelWithResponseStream, and CountTokens. It is not supported by the Converse API.
 
-Compaction with the `compaction` parameter is a beta capability available on models whose policy supports the `compact_20260904` strategy (for example, Claude Opus 5.5). To check whether a specific model supports it, see the **Capabilities and Features** table in that model's model card (see [Models at a glance](model-cards.md)).
+Model support for this mechanism differs from the `compact-2026-01-12` beta, and the table earlier on this page applies only to that older beta. To find out whether a model supports compaction and which beta value it takes, see the **Compaction** section of that model's card in [Models at a glance](model-cards.md). Sending the `compaction` parameter to a model that doesn't support this beta returns `400` with the message `compaction: Extra inputs are not permitted`.
+
+Compaction with the `compaction` parameter is a beta capability available on models whose policy supports the `compact_20260904` strategy (for example, Claude Opus 5.5 and Claude Haiku 5.5). To check whether a specific model supports it, see the **Capabilities and Features** table in that model's model card (see [Models at a glance](model-cards.md)).
 
 ### Request shape
 <a name="claude-messages-compaction-summarize-2026-09-04-request"></a>

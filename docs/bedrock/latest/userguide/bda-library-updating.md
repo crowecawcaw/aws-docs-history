@@ -3,7 +3,7 @@
 # Updating Library Metadata
 <a name="bda-library-updating"></a>
 
-Use the [UpdateDataAutomationLibrary](bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationLibrary.html) API to update the library metadata
+Use the [UpdateDataAutomationLibrary](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_UpdateDataAutomationLibrary.html) API to update the library metadata
 
 ```
 aws bedrock-data-automation update-data-automation-library \

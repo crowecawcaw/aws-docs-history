@@ -90,7 +90,7 @@ aws bedrock create-custom-model-deployment \
 
 To deploy a custom model for on-demand inference, use the [CreateCustomModelDeployment](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_CreateCustomModelDeployment.html) API operation with your custom model's Amazon Resource Name (ARN). The response includes the deployment's ARN. When the deployment is active, you use this ARN as the `modelId` when making inference requests. For information about using the deployment for inference, see [Use a deployment for on-demand inference](#use-custom-model-on-demand).
 
-The following code shows how to use the SDK for Python (Boto3) to deploy a custom model.
+The following code shows how to use the AWS SDK for Python (Boto3) to deploy a custom model.
 
 ```
 def create_custom_model_deployment(bedrock_client):

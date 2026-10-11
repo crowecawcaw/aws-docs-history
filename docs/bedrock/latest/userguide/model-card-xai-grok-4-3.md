@@ -3,7 +3,7 @@
 # Grok 4.3
 <a name="model-card-xai-grok-4-3"></a>
 
-## ![Icon showing the xAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/xai.png) xAI — Grok 4.3
+## ![xAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/xai.png) xAI — Grok 4.3
 <a name="model-card-xai-grok-4-3-header"></a>
 
 ## Model Details

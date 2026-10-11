@@ -3,7 +3,7 @@
 # GPT-6 Luna
 <a name="model-card-openai-gpt-6-luna"></a>
 
-## ![OpenAI logo](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-6 Luna
+## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-6 Luna
 <a name="model-card-openai-gpt-6-luna-header"></a>
 
 ## Model details
@@ -19,6 +19,7 @@ GPT-6 Luna is designed for repeatable work at scale. It can summarize documents,
 + **Model lifecycle:** Active
 + **Context window:** 1,050,000 tokens
 + **Max output tokens:** 128,000
++ **Knowledge cutoff:** May 18, 2026
 + **Marketplace product ID:** `prod-fiwlckcpwkwli`
 
 
@@ -48,7 +49,7 @@ These tables show the endpoints and APIs that GPT-6 Luna supports. See [APIs sup
 
 | **Messages** | **Responses** | **Chat Completions** | **Converse** | **Invoke** | 
 | --- | --- | --- | --- | --- | 
-| ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 
 **APIs supported on the `bedrock-mantle` endpoint**
 
@@ -75,25 +76,38 @@ For new applications, use the `bedrock-runtime` endpoint when possible. See [End
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) ([Converse API](conversation-inference.html) only)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) ([Converse API](conversation-inference.html) only; not supported with Responses or Chat Completions APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) (Responses API only)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses API only)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs (JSON Schema; see API configuration)](#model-card-openai-gpt-6-luna-structured-output)  |  + ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)  | 
+|  + ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) (InvokeModel and [Converse](conversation-inference.html) APIs only; not supported with Responses or Chat Completions)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-luna-prompt-caching) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-luna-prompt-caching) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-luna-structured-output) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)  | 
 
 **Features supported on the `bedrock-mantle` endpoint**
 
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Server-side tool calling](tool-use.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) (Responses API only)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses API only)  |  + ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html)  | 
+|  + ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Server-side tool calling](tool-use.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](inference-responses-api.md#bedrock-mantle-responses-streaming)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-luna-prompt-caching) (Responses and Chat Completions APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-luna-prompt-caching) (Responses and Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-luna-structured-output) (Responses and Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Guardrails](guardrails.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Prompt optimization](prompt-management-optimize.html)  | 
+
+### Prompt caching
+<a name="model-card-openai-gpt-6-luna-prompt-caching"></a>
+
+GPT-6 Luna supports both [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) and [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit). API support differs by endpoint:
++ Responses and Chat Completions support both caching types on the `bedrock-runtime` and `bedrock-mantle` endpoints.
++ InvokeModel supports both caching types on the `bedrock-runtime` endpoint.
++ Converse supports implicit caching on the `bedrock-runtime` endpoint. The native `cachePoint` field isn't supported for explicit caching with this model.
+
+For explicit caching, set `prompt_cache_options.mode` to `explicit`. Set `prompt_cache_options.ttl` to `30m`, the only supported TTL and the default. In Responses requests, add `"prompt_cache_breakpoint": {"mode": "explicit"}` to an `input_text` content block. In Chat Completions and InvokeModel requests, add it to a `text` content part.
+
+A cacheable prompt prefix must contain at least 1,024 tokens. You can include multiple explicit breakpoints, and each request can create up to four cache writes. Check `cached_tokens` and `cache_write_tokens` in the response to determine whether tokens were read from or written to the cache.
 
 **Reasoning effort**
 
 Set reasoning effort to `none`, `low`, `medium`, `high`, `xhigh`, or `max`. The default is `medium`.
 
-### JSON Schema output on bedrock-runtime
+### JSON Schema output
 <a name="model-card-openai-gpt-6-luna-structured-output"></a>
 
-Use JSON Schema to set the format of the model response. These settings apply to non-streaming calls on the `bedrock-runtime` endpoint. Choose a profile ID from [Programmatic access](#model-card-openai-gpt-6-luna-programmatic-access).
+Use JSON Schema to set the format of the model response for non-streaming requests. Chat Completions and Responses support JSON Schema output on the `bedrock-runtime` and `bedrock-mantle` endpoints. InvokeModel and Converse support JSON Schema output on the `bedrock-runtime` endpoint. Choose a model ID or inference profile ID from [Programmatic access](#model-card-openai-gpt-6-luna-programmatic-access).
 + For Chat Completions, set `response_format.type` to `json_schema`. Put `name`, `schema`, and `strict: true` in `response_format.json_schema`.
 + For Responses, set `text.format.type` to `json_schema`. Put `name`, `schema`, and `strict: true` in `text.format`.
++ For InvokeModel, use the same `response_format` fields as Chat Completions.
 + For Converse, set `outputConfig.textFormat.type` to `json_schema`. In `outputConfig.textFormat.structure.jsonSchema`, set `name` and `schema`. Encode the schema as a JSON string. Then set `additionalModelRequestFields.text.format.strict` to `true`.
 
 Use an object schema. Put all fields in `required`. Set `additionalProperties` to `false`. Validate your schema before you send it. Check for refusals or incomplete responses before you parse the output.
@@ -222,6 +236,24 @@ Each endpoint supports a different set of Regions. See [Regional availability by
 | af-south-1 | Not supported | Not supported | Supported | 
 | sa-east-1 | Not supported | Not supported | Supported | 
 | mx-central-1 | Not supported | Not supported | Supported | 
+
+***Geo inference details***
+
+The destination Regions available to a geographic inference profile depend on the source Region. To retrieve the current routing configuration, call [GetInferenceProfile](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetInferenceProfile.html) from the source Region.
+
+**Geo: US**
+
+Geo inference ID: `us.openai.gpt-6-luna`
+
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| us-east-1 (N. Virginia) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-east-2 (Ohio) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| us-west-1 (N. California) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-1 (N. California), us-west-2 (Oregon) | 
+| us-west-2 (Oregon) | us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| ca-central-1 (Canada) | ca-central-1 (Canada), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
+| ca-west-1 (Calgary) | ca-west-1 (Calgary), us-east-1 (N. Virginia), us-east-2 (Ohio), us-west-2 (Oregon) | 
 
 ## Quotas and limits
 <a name="model-card-openai-gpt-6-luna-quotas"></a>

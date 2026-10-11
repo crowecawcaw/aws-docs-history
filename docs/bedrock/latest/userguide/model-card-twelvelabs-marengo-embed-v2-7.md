@@ -3,7 +3,7 @@
 # Marengo Embed v2.7
 <a name="model-card-twelvelabs-marengo-embed-v2-7"></a>
 
-## ![Icon showing branching arrows representing a merge or split workflow pattern.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Marengo Embed v2.7
+## ![TwelveLabs logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/twelvelabs.png) TwelveLabs — Marengo Embed v2.7
 <a name="model-card-twelvelabs-marengo-embed-v2-7-header"></a>
 
 ## Model Details
@@ -47,6 +47,9 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 | bedrock-runtime | twelvelabs.marengo-embed-2-7-v1:0 | https://bedrock-runtime.{region}.amazonaws.com | `us.twelvelabs.marengo-embed-2-7-v1:0`<br />`eu.twelvelabs.marengo-embed-2-7-v1:0` | Not supported | 
 
 *For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/v1".*
+
+**Note**  
+The model ID to use depends on the API. `StartAsyncInvoke` takes the base model ID, `twelvelabs.marengo-embed-2-7-v1:0`, as shown in the Sample Code section; passing a Geo inference ID to `StartAsyncInvoke` returns a validation error. The Geo inference IDs apply to synchronous `InvokeModel` requests, which don't accept the base model ID for this model. The **In-Region** and **Geo** columns in the Regional Availability section describe synchronous on-demand inference.
 
 ## Service Tiers
 <a name="model-card-twelvelabs-marengo-embed-v2-7-tiers"></a>

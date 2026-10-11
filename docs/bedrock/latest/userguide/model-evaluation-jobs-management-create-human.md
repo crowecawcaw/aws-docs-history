@@ -193,9 +193,9 @@ aws bedrock create-evaluation-job --cli-input-json file://my_eval_job.json
 ```
 
 ------
-#### [ SDK for Python (Boto) ]
+#### [ SDK for Python (Boto3) ]
 
-The following code example shows you how to create a model evaluation job that uses human workers through the SDK for SDK for Python (Boto).
+The following code example shows you how to create a model evaluation job that uses human workers through the AWS SDK for Python (Boto3).
 
 ```
 import boto3

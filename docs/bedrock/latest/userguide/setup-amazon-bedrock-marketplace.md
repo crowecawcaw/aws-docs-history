@@ -79,7 +79,6 @@ The following is a recommended custom policy for Amazon Bedrock Marketplace. For
                 "sagemaker:DescribeEndpoint",
                 "sagemaker:DescribeEndpointConfig",
                 "sagemaker:DescribeModel",
-                "sagemaker:DescribeInferenceComponent",
                 "sagemaker:ListEndpoints",
                 "sagemaker:ListTags"
             ],

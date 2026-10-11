@@ -8,10 +8,10 @@ Amazon Bedrock supports two endpoints: bedrock-runtime and bedrock-mantle. For n
 
 | **Endpoint** | **Supported APIs** | **Description** | 
 | --- | --- | --- | 
-| bedrock-runtime.{region}.amazonaws.com (recommended) | [InvokeModel](inference-invoke.md) / [Converse](conversation-inference.md) / [Chat Completions](inference-chat-completions.md) / [Responses API](inference-responses-api.md#bedrock-mantle-responses) / [Messages API](model-parameters-anthropic-claude-messages.md) | Region-specific endpoints for making inference requests for models hosted in Amazon Bedrock using the InvokeModel/Converse/Chat Completions/Responses/Messages APIs. For more information, see [Amazon Bedrock Runtime API operations](bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html). | 
+| bedrock-runtime.{region}.amazonaws.com (recommended) | [InvokeModel](inference-invoke.md) / [Converse](conversation-inference.md) / [Chat Completions](inference-chat-completions.md) / [Responses API](inference-responses-api.md#bedrock-mantle-responses) / [Messages API](model-parameters-anthropic-claude-messages.md) | Region-specific endpoints for making inference requests for models hosted in Amazon Bedrock using the InvokeModel/Converse/Chat Completions/Responses/Messages APIs. For more information, see [Amazon Bedrock Runtime API operations](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_Operations_Amazon_Bedrock_Runtime.html). | 
 | bedrock-mantle.{region}.api.aws | [Responses API](inference-responses-api.md) / [Chat Completions API](inference-chat-completions.md) / [Messages API](model-parameters-anthropic-claude-messages.md) | Region-specific endpoints for making inference requests for models hosted in Amazon Bedrock using the OpenAI-compatible endpoints and the Anthropic Messages API. | 
 
-The following tables show which Amazon Bedrock endpoints support each model, organized by provider.
+The following tables show which Amazon Bedrock endpoints support each model, organized by provider. Endpoint support does not mean that a model is available through that endpoint in every AWS Region where the endpoint is available. For model availability by Region, see [Regional availability by models](models-region-compatibility.md).
 
 ## AI21 Labs
 <a name="model-endpoints-ai21-labs"></a>
@@ -34,12 +34,9 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | [Nova Canvas](model-card-amazon-nova-canvas.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Nova Lite](model-card-amazon-nova-lite.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Nova Micro](model-card-amazon-nova-micro.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
-| [Nova Premier](model-card-amazon-nova-premier.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Nova Pro](model-card-amazon-nova-pro.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Nova Reel](model-card-amazon-nova-reel.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
-| [Nova Sonic](model-card-amazon-nova-sonic.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Titan Embeddings G1 - Text](model-card-amazon-titan-embeddings-g1---text.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
-| [Titan Image Generator G1 v2](model-card-amazon-titan-image-generator-g1-v2.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Titan Multimodal Embeddings G1](model-card-amazon-titan-multimodal-embeddings-g1.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Titan Text Embeddings V2](model-card-amazon-titan-text-embeddings-v2.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Titan Embeddings G1 - Text v2](model-card-amazon-titan-text-embeddings-v2-2.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
@@ -50,6 +47,7 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
+| [Claude Haiku 5.5](model-card-anthropic-claude-haiku-5-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Sonnet 5.5](model-card-anthropic-claude-sonnet-5-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Opus 5.5](model-card-anthropic-claude-opus-5-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Fable 5.1](model-card-anthropic-claude-fable-5-1.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
@@ -59,7 +57,6 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | [Claude Mythos 5](model-card-anthropic-claude-mythos-5.md) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Fable 5](model-card-anthropic-claude-fable-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude 3 Haiku](model-card-anthropic-claude-3-haiku.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
-| [Claude 3.5 Haiku](model-card-anthropic-claude-3-5-haiku.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Claude Haiku 4.5](model-card-anthropic-claude-haiku-4-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Claude Opus 4.1](model-card-anthropic-claude-opus-4-1.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Claude Opus 4.5](model-card-anthropic-claude-opus-4-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
@@ -105,6 +102,14 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | [Gemma 3 12B IT](model-card-google-gemma-3-12b-it.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Gemma 3 27B PT](model-card-google-gemma-3-27b-pt.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Gemma 3 4B IT](model-card-google-gemma-3-4b-it.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+
+## Luma AI
+<a name="model-endpoints-luma"></a>
+
+
+| Model name | `bedrock-runtime` | `bedrock-mantle` | 
+| --- | --- | --- | 
+| [Ray2](model-card-luma-ai-ray2.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 ## Meta
 <a name="model-endpoints-meta"></a>
@@ -186,6 +191,8 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | --- | --- | --- | 
 | [GPT-6.1 Sol](model-card-openai-gpt-6-1-sol.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [GPT-6 Astra](model-card-openai-gpt-6-astra.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| [GPT-6 Sol](model-card-openai-gpt-6-sol.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| [GPT-6 Luna](model-card-openai-gpt-6-luna.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [GPT-5.6 Sol](model-card-openai-gpt-56-sol.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Daybreak Red: GPT-5.6 Cyber](model-card-openai-gpt-56-cyber.md) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Daybreak Blue: GPT-5.6 Sol](model-card-openai-gpt-daybreak-blue-56-sol.md) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
@@ -218,6 +225,9 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
+| [Stable Image Ultra 1.0](model-card-stability-ai-stable-image-ultra-1-0.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| [Stable Image Core 1.0](model-card-stability-ai-stable-image-core-1-0.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
+| [Stable Diffusion 3.5 Large](model-card-stability-ai-stable-diffusion-3-5-large.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Stable Image Conservative Upscale](model-card-stability-ai-stable-image-conservative-upscale.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Stable Image Control Sketch](model-card-stability-ai-stable-image-control-sketch.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 | [Stable Image Control Structure](model-card-stability-ai-stable-image-control-structure.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
@@ -271,3 +281,4 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 | [GLM 4.7](model-card-zai-glm-4-7.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [GLM 4.7 Flash](model-card-zai-glm-4-7-flash.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [GLM 5](model-card-zai-glm-5.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| [GLM 5.3](model-card-zai-glm-5-3.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 

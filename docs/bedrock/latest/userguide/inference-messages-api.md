@@ -33,6 +33,9 @@ Before using the Messages API, make sure you have the following:
 
 To send a basic message to a Claude model, choose the tab for your preferred method, and then follow the steps:
 
+**Note**  
+The AWS CLI doesn't provide a native command for the `bedrock-mantle` Messages API. Use the Anthropic SDK or an HTTP client such as curl.
+
 ------
 #### [ bedrock-runtime (Python, Anthropic SDK) ]
 
@@ -145,6 +148,30 @@ curl -X POST https://bedrock-runtime.us-east-1.amazonaws.com/anthropic/v1/messag
 ```
 
 ------
+#### [ bedrock-mantle (Python, Anthropic SDK) ]
+
+Install the Anthropic SDK and set `BEDROCK_API_KEY` to your Amazon Bedrock API key.
+
+```
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    base_url="https://bedrock-mantle.us-east-1.api.aws/anthropic",
+    api_key=os.environ["BEDROCK_API_KEY"],
+)
+
+response = client.messages.create(
+    model="anthropic.claude-sonnet-5",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": "Explain quantum computing in one sentence."}
+    ],
+)
+print(response.content[0].text)
+```
+
+------
 #### [ bedrock-mantle (curl) ]
 
 ```
@@ -235,6 +262,29 @@ curl -X POST https://bedrock-runtime.us-east-1.amazonaws.com/anthropic/v1/messag
         {"role": "user", "content": "Write a short poem about cloud computing."}
     ]
   }'
+```
+
+------
+#### [ bedrock-mantle (Python, Anthropic SDK) ]
+
+```
+import os
+from anthropic import Anthropic
+
+client = Anthropic(
+    base_url="https://bedrock-mantle.us-east-1.api.aws/anthropic",
+    api_key=os.environ["BEDROCK_API_KEY"],
+)
+
+with client.messages.stream(
+    model="anthropic.claude-sonnet-5",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": "Write a short poem about cloud computing."}
+    ],
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="", flush=True)
 ```
 
 ------

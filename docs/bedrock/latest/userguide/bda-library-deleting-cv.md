@@ -3,7 +3,7 @@
 # Deleting Vocabulary List
 <a name="bda-library-deleting-cv"></a>
 
-Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) with "DELETE" operation type to remove specific entities from your library.
+Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) with "DELETE" operation type to remove specific entities from your library.
 
 ## AWS CLI Example:
 <a name="bda-library-deleting-cv-cli"></a>
@@ -32,7 +32,7 @@ aws s3 cp vocabulary-manifest.json s3://my-bucket/manifests/
 #### Step 3: Start the ingestion job
 <a name="bda-library-deleting-cv-option1-step3"></a>
 
-Use the [InvokeDataAutomationLibraryIngestionJob](bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) to start a vocabulary ingestion job with an operation type DELETE
+Use the [InvokeDataAutomationLibraryIngestionJob](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_data-automation_InvokeDataAutomationLibraryIngestionJob.html) to start a vocabulary ingestion job with an operation type DELETE
 
 **Request**
 

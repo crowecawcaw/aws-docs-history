@@ -89,7 +89,7 @@ After the vector index is created, you can proceed to [create your knowledge bas
 | Metadata management (first mapping field) | Text field | textField | The name of the field in which to store the raw text from your data sources. | 
 | Metadata management (second mapping field) | Bedrock-managed metadata field | metadataField | The name of the field in which to store metadata that Amazon Bedrock manages.  | 
 
-For more detailed documentation on setting up a vector store in Amazon OpenSearch Serverless, see [Working with vector search collections](opensearch-service/latest/developerguide/serverless-vector-search.html) in the Amazon OpenSearch Service Developer Guide.
+For more detailed documentation on setting up a vector store in Amazon OpenSearch Serverless, see [Working with vector search collections](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html) in the Amazon OpenSearch Service Developer Guide.
 
 ------
 #### [ Amazon OpenSearch Service Managed Clusters ]
@@ -460,7 +460,7 @@ To access your Pinecone index, you must provide your Pinecone API key to Amazon 
 
 **To set up a secret for your Pinecone configuration**
 
-1. Follow the steps at [Create an AWS Secrets Manager secret](secretsmanager/latest/userguide/create_secret.html), setting the key as `apiKey` and the value as the API key to access your Pinecone index.
+1. Follow the steps at [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html), setting the key as `apiKey` and the value as the API key to access your Pinecone index.
 
 1. To find your API key, open your [Pinecone console](https://app.pinecone.io/) and select **API Keys**.
 
@@ -506,7 +506,7 @@ To access your Redis Enterprise Cloud cluster, you must provide your Redis Enter
 
 1. Enable TLS to use your database with Amazon Bedrock by following the steps at [Transport Layer Security (TLS)](https://docs.redis.com/latest/rc/security/database-security/tls-ssl/).
 
-1. Follow the steps at [Create an AWS Secrets Manager secret](secretsmanager/latest/userguide/create_secret.html). Set up the following keys with the appropriate values from your Redis Enterprise Cloud configuration in the secret:
+1. Follow the steps at [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html). Set up the following keys with the appropriate values from your Redis Enterprise Cloud configuration in the secret:
    + `username` – The username to access your Redis Enterprise Cloud database. To find your username, look under the **Security** section of your database in the [Redis Console](http://app.redislabs.com/).
    + `password` – The password to access your Redis Enterprise Cloud database. To find your password, look under the **Security** section of your database in the [Redis Console](http://app.redislabs.com/).
    + `serverCertificate` – The content of the certificate from the Redis Cloud Certificate authority. Download the server certificate from the Redis Admin Console by following the steps at [Download certificates](https://docs.redis.com/latest/rc/security/database-security/tls-ssl/#download-certificates).

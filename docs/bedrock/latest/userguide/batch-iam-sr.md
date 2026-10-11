@@ -54,6 +54,7 @@ The following topics describe and provide examples of permissions policies that 
 
 **Topics**
 + [(Required) Permissions to access input and output data in Amazon S3](#batch-iam-sr-s3)
++ [(Optional) Permissions to use a customer managed key](#batch-iam-sr-kms)
 + [(Optional) Permissions to run batch inference with inference profiles](#batch-iam-sr-ip)
 
 ### (Required) Permissions to access input and output data in Amazon S3
@@ -97,6 +98,43 @@ To allow a service role to access the Amazon S3 bucket containing your input dat
 ```
 
 ------
+
+### (Optional) Permissions to use a customer managed key
+<a name="batch-iam-sr-kms"></a>
+
+If you encrypt your batch inference data with a customer managed AWS KMS key instead of an AWS managed key, the service role also needs permissions on that key. Two separate cases apply, and you only need the permissions for the cases that match your setup:
++ `kms:Decrypt` – required when your input data is in an Amazon S3 bucket encrypted with a customer managed key, so that the service role can read your input files.
++ `kms:GenerateDataKey` – required when you choose a customer managed key for your output data, either by setting `s3EncryptionKeyId` in the API or by choosing **Customize encryption settings (advanced)** in the AWS Management Console, so that the service role can write your output files.
+
+To grant both, attach the following policy to the service role. Replace {{region}}, {{account-id}}, and {{key-id}} with your own values. If you use a different key for input and output, add a statement for each key.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BatchInferenceCustomerManagedKey",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt",
+                "kms:GenerateDataKey"
+            ],
+            "Resource": "arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}}",
+            "Condition": {
+                "StringEquals": {
+                    "kms:ViaService": "s3.{{region}}.amazonaws.com"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Note**  
+The `kms:ViaService` condition specifies Amazon S3, not Amazon Bedrock, because the service role's calls to AWS KMS are made through Amazon S3 when it reads your input files and writes your output files. This condition is optional; omit it if you don't want to restrict the key to Amazon S3.
+
+**Important**  
+If these key permissions are missing, the job is still accepted when you submit it and then fails a few minutes later. The failure message reports that Amazon Bedrock could not validate `GetObject` or `PutObject` permissions for your Amazon S3 bucket, and does not mention AWS KMS. If you see that message and the Amazon S3 permissions in the preceding section are already correct, check the key permissions described here.
 
 ### (Optional) Permissions to run batch inference with inference profiles
 <a name="batch-iam-sr-ip"></a>

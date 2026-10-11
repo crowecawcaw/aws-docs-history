@@ -3,7 +3,7 @@
 # GPT-5.5
 <a name="model-card-openai-gpt-55"></a>
 
-## ![Icon showing a circular pattern with interwoven curved segments forming a pinwheel design.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-5.5
+## ![OpenAI logo.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/models/openai.png) OpenAI — GPT-5.5
 <a name="model-card-openai-gpt-55-header"></a>
 
 ## Model Details
@@ -58,9 +58,10 @@ The following tables show which endpoints and APIs are supported for GPT-5.5. Fo
 | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 **Note**  
-On `bedrock-mantle`, both APIs use the `/openai/v1` base path, not `/v1`. Use either API with this model:  
+On `bedrock-mantle`, both inference APIs use the `/openai/v1` base path, not `/v1`. Use either API with this model:  
 For Responses, use `/openai/v1/responses`.
 For Chat Completions, use `/openai/v1/chat/completions`.
+This applies to inference only. Model discovery stays on `/v1/models`, as it does for every model on `bedrock-mantle`. A request to `/openai/v1/models` returns `404`. For more information, see [Get list of models](models-get-info.md).
 
 ## Capabilities and Features
 <a name="model-card-openai-gpt-55-capabilities"></a>
@@ -72,7 +73,7 @@ For Chat Completions, use `/openai/v1/chat/completions`.
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Server-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)  | — | 
+|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Server-side tool calling](tool-use.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Client-side tool calling](tool-use.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  | — | 
 
 ## Pricing
 <a name="model-card-openai-gpt-55-pricing"></a>

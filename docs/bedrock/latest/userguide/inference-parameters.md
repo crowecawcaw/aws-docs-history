@@ -23,13 +23,13 @@ For any given sequence, a model determines a probability distribution of options
 
   In technical terms, the temperature modulates the probability mass function for the next token. A lower temperature steepens the function and leads to more deterministic responses, and a higher temperature flattens the function and leads to more random responses.
 + **Top K** – The number of most-likely candidates that the model considers for the next token.
-  + Choose a lower value to decrease the size of the pool and limit the options to more likely outputs.
-  + Choose a higher value to increase the size of the pool and allow the model to consider less likely outputs.
+  + Choose a lower value to consider fewer candidate tokens, regardless of how the probability is distributed across them.
+  + Choose a higher value to consider more candidate tokens, which allows less likely outputs.
 
   For example, if you choose a value of 50 for Top K, the model selects from 50 of the most probable tokens that could be next in the sequence.
 + **Top P** – The percentage of most-likely candidates that the model considers for the next token.
-  + Choose a lower value to decrease the size of the pool and limit the options to more likely outputs.
-  + Choose a higher value to increase the size of the pool and allow the model to consider less likely outputs.
+  + Choose a lower value to consider a smaller share of the cumulative probability distribution. The number of candidate tokens that share covers varies from one token to the next.
+  + Choose a higher value to consider a larger share of the distribution, which allows less likely outputs.
 
   In technical terms, the model computes the cumulative probability distribution for the set of responses and considers only the top P% of the distribution.
 
@@ -42,8 +42,8 @@ The following table summarizes the effects of these parameters.
 | Parameter | Effect of lower value | Effect of higher value | 
 | --- | --- | --- | 
 | Temperature | Increase likelihood of higher-probability tokens Decrease likelihood of lower-probability tokens | Increase likelihood of lower-probability tokensDecrease likelihood of higher-probability tokens | 
-| Top K | Remove lower-probability tokens | Allow lower-probability tokens | 
-| Top P | Remove lower-probability tokens | Allow lower-probability tokens | 
+| Top K | Consider fewer candidate tokens, cutting the least likely ones from a fixed-size pool | Consider more candidate tokens, allowing lower-probability tokens | 
+| Top P | Consider a smaller share of the cumulative probability distribution, so the pool size varies per token | Consider a larger share of the distribution, allowing lower-probability tokens | 
 
 As an example to understand these parameters, consider the example prompt **I hear the hoof beats of "**. Let's say that the model determines the following three words to be candidates for the next token. The model also assigns a probability for each word.
 

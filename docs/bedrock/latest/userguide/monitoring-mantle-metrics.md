@@ -18,7 +18,7 @@ If your application calls inference through `bedrock-runtime.{{region}}.amazonaw
 | Metric name | Unit | Description | 
 | --- | --- | --- | 
 | Inferences | Count | Total number of completed inference requests across the Responses, Chat Completions, and Messages APIs. Published at Account, Project, Model, and Project\+Model levels. | 
-| InferenceClientErrors | Count | Number of inference requests that failed with a client-side (4xx) error. Published at Account, Project, Model, and Project\+Model levels. | 
+| InferenceClientErrors | Count | Number of inference requests that were accepted for processing and later failed with a client-side error. This metric doesn't include requests rejected before processing, including quota-related HTTP 429 responses. To monitor throttling, track HTTP 429 responses in your application. Published at Account, Project, Model, and Project\+Model levels. | 
 
 ## Token metrics
 <a name="mantle-token-metrics"></a>
