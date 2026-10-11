@@ -91,9 +91,9 @@ Set the `UserControlMode` attribute in the `AgentAccessConfig` to one of the fol
 ## Streaming URLs
 <a name="agent-access-streaming-url"></a>
 
-Agents connect to WorkSpaces Applications through a streaming URL. You generate a streaming URL by using the `CreateStreamingURL` API. No agent-specific parameters are required. The agent-specific behavior is determined by the stack's agent access configuration. The streaming URL is passed to the MCP service as a header on each request.
+With the MCP connection model, you don't need to generate a streaming URL. When your agent connects, it provides the stack and user ID, and the MCP service establishes the streaming session. The agent-specific behavior is determined by the stack's agent access configuration.
 
-For more information about the `CreateStreamingURL` API, see [CreateStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html) in the *Amazon AppStream 2.0 API Reference*.
+You can still connect using a streaming URL. Generate one by using the `CreateStreamingURL` API and pass it to the MCP service as a header on each request. For more information about the `CreateStreamingURL` API, see [CreateStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html) in the *Amazon AppStream 2.0 API Reference*.
 
 ## MCP proxy for AWS
 <a name="agent-access-mcp-proxy"></a>

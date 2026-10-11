@@ -68,6 +68,8 @@ Before you begin, make sure you have the following:
   + `agentaccess-mcp:LeftMouseUp` — Release left mouse button
   + `agentaccess-mcp:CheckConnectionStatus` — Check connection status of a streaming session
   + `agentaccess-mcp:CallForwardedTool` — Invoke a forwarded tool on a remote instance
+  + `agentaccess-mcp:LaunchApplication` — Launch a cataloged application in the current session
+  + `agentaccess-mcp:ToggleAppSwitcher` — Open or close the app-switcher overlay
 + An MCP-compatible agent framework. The agent must be able to make SigV4-signed Streamable HTTP requests to the MCP endpoint. The [Strands Agents SDK](https://strandsagents.com/docs/user-guide/concepts/tools/mcp-tools/) provides native MCP client support, or you can use any framework with the mcp-proxy-for-aws transport.
 + Python 3.10 or later. No specific operating system is required.
 
@@ -197,6 +199,8 @@ Your agent connects to the managed MCP service at the following fixed endpoint:
 
 `https://agentaccess-mcp.{{region}}.api.aws/mcp`
 
+Replace {{region}} with your Region code. For the supported Regions and their endpoints, see [WorkSpaces Applications MCP endpoints](allowed-domains.md#allowed-domains-mcp-endpoints).
+
 The connection uses SigV4 signing with the service name `agentaccess-mcp`. Your agent signs each request using the AWS credentials configured in the prerequisites with the `agentaccess-mcp:*` permissions. You pass the streaming URL from Step 2 as a header on every MCP request.
 
 The following example shows how to establish the connection using mcp-proxy-for-aws:
@@ -207,7 +211,7 @@ aws_iam_streamablehttp_client(
     aws_service="agentaccess-mcp",
     aws_region="{{region}}",
     headers={
-        "X-Amzn-AgentAccess-Streaming-Session-Url": streaming_url,
+        "x-amzn-agentaccess-streaming-session-url": streaming_url,
     },
 )
 ```

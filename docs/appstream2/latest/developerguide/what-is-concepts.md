@@ -50,4 +50,4 @@ An *agent session* is a WorkSpaces streaming session initiated by an AI agent. Y
 *Computer vision* is a capability that allows agents to see the desktop by taking screenshots during a WorkSpaces streaming session.
 
 **Model Context Protocol (MCP) service**  
-The managed *MCP service* (`agentaccess-mcp`) provides AI agents with tools to click buttons, enter text, scroll, and take screenshots of the desktop during a streaming session. Agents connect to the MCP service at a fixed endpoint using AWS IAM credentials with SigV4 signing. The MCP service is available when agent access is enabled on a stack.
+The managed *MCP service* (`agentaccess-mcp`) provides AI agents with tools to click buttons, enter text, scroll, take screenshots of the desktop, and launch and switch between cataloged applications. Agents use these tools during a streaming session. Agents connect to the MCP service at a fixed endpoint using AWS IAM credentials with SigV4 signing. The MCP service is available when agent access is enabled on a stack.

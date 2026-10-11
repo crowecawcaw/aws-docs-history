@@ -10,9 +10,7 @@ The WorkSpaces Applications MCP server is a fully managed service that provides 
 
 When you enable agent access on a stack, agents can connect to the managed MCP server to interact with desktop applications. The MCP server handles the communication between your agent and the streaming session. Your agent sends MCP tool requests, and the server executes them on the desktop.
 
-The MCP server is hosted in the AWS cloud. You don't need to install or maintain any server components. The server uses Streamable HTTP as its transport protocol.
-
-Agent access supports both non-domain-joined and domain-joined fleets. The connection method differs by fleet type. Non-domain-joined fleets authenticate the session with a streaming URL, while domain-joined fleets authenticate through SAML federation. For the path that matches your fleet, see [Connecting to the MCP server](#agent-access-mcp-server-endpoint).
+Agent access supports both non-domain-joined and domain-joined fleets. The connection method differs by fleet type. For non-domain-joined fleets, you can connect in either of two ways. In the first, you provide the stack and user ID as two headers: `x-amzn-agentaccess-workspaces-applications-stack` and `x-amzn-agentaccess-workspaces-applications-user-id`. The MCP server then creates the streaming session for you. In the second, you generate a streaming URL yourself and pass it as a header. For domain-joined fleets, authenticate through SAML federation. For the path that matches your fleet, see [Connecting to the MCP server](#agent-access-mcp-server-endpoint).
 
 ## Connecting to the MCP server
 <a name="agent-access-mcp-server-endpoint"></a>
@@ -23,9 +21,24 @@ Agents connect to the MCP server at the following endpoint:
 https://agentaccess-mcp.{{region}}.api.aws/mcp
 ```
 
+Replace {{region}} with your Region code. For the supported Regions and their endpoints, see [WorkSpaces Applications MCP endpoints](allowed-domains.md#allowed-domains-mcp-endpoints).
+
 The MCP server is hosted in the AWS cloud and uses Streamable HTTP as its transport protocol. You don't need to install or maintain any server components.
 
-Every request must be SigV4-signed using IAM credentials with the service name `agentaccess-mcp`. The following Python example shows the general connection pattern using `mcp-proxy-for-aws`:
+**Note**  
+Before an agent can connect, the fleet associated with your stack must be running and have available capacity.
+
+To connect an agent, you make two choices: how the agent authorizes its requests, and how it identifies the streaming session.
+
+### Request authorization
+<a name="agent-access-mcp-server-authorization"></a>
+
+You can authorize requests in one of two ways: SigV4 signing or OAuth 2.1 authorization through AWS Sign-In.
+
+#### SigV4 signing
+<a name="agent-access-mcp-server-authorization-sigv4"></a>
+
+To use SigV4, sign each request using IAM credentials with the service name `agentaccess-mcp`. The following Python example shows the general connection pattern using `mcp-proxy-for-aws`:
 
 ```
 from mcp_proxy_for_aws import aws_iam_streamablehttp_client
@@ -47,17 +60,54 @@ async with aws_iam_streamablehttp_client(
 
 For other languages, write your own SigV4 signing logic for outgoing MCP requests or use a library that supports SigV4 signing. For more information about `mcp-proxy-for-aws`, see [mcp-proxy-for-aws](https://github.com/aws/mcp-proxy-for-aws) on GitHub.
 
-How you authenticate the streaming session depends on your fleet type:
-+ **Non-domain-joined fleets** — Pass a streaming URL as a header. See [Connecting with non-domain-joined fleets](#agent-access-mcp-server-connect-ndj).
-+ **Domain-joined fleets** — Pass a signed SAML assertion as metadata. See [Connecting with domain-joined fleets](#agent-access-mcp-server-connect-dj).
+#### OAuth 2.1 authorization
+<a name="agent-access-mcp-server-connect-oauth"></a>
+
+As an alternative to signing requests with IAM credentials, the MCP server supports OAuth 2.1 authorization through AWS Sign-In, the same way as the AWS MCP Server. AWS Sign-In acts as the authorization server. It issues short-lived, scoped access tokens. The MCP server accepts these tokens as bearer tokens. OAuth uses your existing IAM identities, permissions, and organizational controls. When you authorize an agent, it can access the MCP server on your behalf. It does not get extra permissions. AWS still checks every request against your IAM policies.
+
+OAuth-compatible MCP clients — such as Kiro, Claude Code, Cursor, Codex, and Gemini — can connect directly to the MCP server endpoint without local proxy software. AWS Sign-In supports two authorization models:
++ **Interactive authorization** — For agents that can open a browser. The client registers through dynamic client registration, redirects you to an AWS Sign-In page to authenticate and approve access, and AWS Sign-In then issues and refreshes the access tokens.
++ **Non-interactive authorization** — For agents that already have AWS credentials and run without a browser (sometimes called headless authorization). The agent uses the OAuth client credentials grant to exchange SigV4-signed credentials for a short-lived access token.
+
+OAuth authorization for the MCP server works the same way as it does for the AWS MCP Server, using the MCP server endpoint (`https://agentaccess-mcp.{{region}}.api.aws/mcp`). For setup, required IAM permissions, and governance and monitoring options, see [OAuth 2.1 authentication for AWS MCP Server](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/oauth-authentication.html) in the *Agent Toolkit for AWS User Guide* and [Sign-In with OAuth 2.0](https://docs.aws.amazon.com/signin/latest/userguide/oauth-sign-in-overview.html) in the *AWS Sign-In User Guide*.
+
+### Session identification
+<a name="agent-access-mcp-server-session-id"></a>
+
+How you identify the streaming session depends on your fleet type.
 
 **Note**  
 At any given time, only one agent can connect to a unique session. Named users, specified through the `UserId` parameter, can have only one active session per fleet at a time. To run multiple agents concurrently, each agent must connect to its own unique session.
 
-### Connecting with non-domain-joined fleets
+#### Connecting with non-domain-joined fleets
 <a name="agent-access-mcp-server-connect-ndj"></a>
 
-For non-domain-joined fleets, generate a streaming URL using the `CreateStreamingURL` API and pass it as the `X-Amzn-AgentAccess-Streaming-Session-Url` header on every request. No agent-specific parameters are required. The agent behavior is determined by the stack's agent access configuration.
+For non-domain-joined fleets, you can connect in either of two ways. Provide the stack and user ID as headers, and the MCP server creates the streaming session for you. This suits MCP clients that you configure statically, because such a client can hold a fixed pair of headers but cannot generate a streaming URL or replace one when it expires. Alternatively, generate a streaming URL yourself and pass it as a header. Use this approach when you need control over session creation, such as setting the validity period.
+
+To connect with the stack and user ID, pass the following headers on every request:
++ `x-amzn-agentaccess-workspaces-applications-stack` — the stack name or ARN.
++ `x-amzn-agentaccess-workspaces-applications-user-id` — the user ID for the session.
+
+**Note**  
+The `x-amzn-agentaccess-workspaces-applications-user-id` header is optional. If you omit it, the MCP server derives the user identity from the authenticated session. It uses the AWS `SourceIdentity` when one is present, and the caller's IAM principal otherwise. `SourceIdentity` preserves a user's original corporate identity when they assume an IAM role. This holds even when roles are chained through an external identity provider (IdP).
+
+```
+from mcp_proxy_for_aws import aws_iam_streamablehttp_client
+
+# Connect to the MCP server with the stack and user ID
+async with aws_iam_streamablehttp_client(
+    endpoint="https://agentaccess-mcp.{{region}}.api.aws/mcp",
+    aws_service="agentaccess-mcp",
+    aws_region="{{region}}",
+    headers={
+        "x-amzn-agentaccess-workspaces-applications-stack": "{{stack-name-or-arn}}",
+        "x-amzn-agentaccess-workspaces-applications-user-id": "{{user-id}}",
+    },
+) as (read, write, _):
+    ...
+```
+
+To connect with a streaming URL instead, generate one using the `CreateStreamingURL` API and pass it as the `x-amzn-agentaccess-streaming-session-url` header on every request. No agent-specific parameters are required. The agent behavior is determined by the stack's agent access configuration.
 
 ```
 import boto3
@@ -78,7 +128,7 @@ async with aws_iam_streamablehttp_client(
     aws_service="agentaccess-mcp",
     aws_region="{{region}}",
     headers={
-        "X-Amzn-AgentAccess-Streaming-Session-Url": streaming_url,
+        "x-amzn-agentaccess-streaming-session-url": streaming_url,
     },
 ) as (read, write, _):
     ...
@@ -86,7 +136,7 @@ async with aws_iam_streamablehttp_client(
 
 For more information about the `CreateStreamingURL` API, see [CreateStreamingURL](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_CreateStreamingURL.html) in the *Amazon WorkSpaces Applications 2.0 API Reference*.
 
-### Connecting with domain-joined fleets
+#### Connecting with domain-joined fleets
 <a name="agent-access-mcp-server-connect-dj"></a>
 
 When agents access domain-joined streaming instances, the connection must be federated through a SAML provider. This requirement applies to both traditional and agent sessions. For agent sessions, [Certificate-Based Authentication](certificate-based-authentication.md) is required.
@@ -119,10 +169,10 @@ For more information about setting up SAML federation with WorkSpaces Applicatio
 ## Connection modes
 <a name="agent-access-mcp-server-connect-mode"></a>
 
-You can control how your agent waits for the desktop session to become available by setting the `X-Amzn-AgentAccess-Connect-Mode` header on your MCP requests.
+You can control how your agent waits for the desktop session to become available by setting the `x-amzn-agentaccess-connect-mode` header on your MCP requests.
 
 **Note**  
-Connection modes apply to both non-domain-joined and domain-joined fleets. Set the `X-Amzn-AgentAccess-Connect-Mode` header alongside whichever authentication mechanism your fleet type uses (the streaming-URL header for non-domain-joined fleets, or the SAML assertion metadata for domain-joined fleets).
+Connection modes apply to both non-domain-joined and domain-joined fleets. Set the `x-amzn-agentaccess-connect-mode` header alongside whichever authentication mechanism your fleet type uses. For non-domain-joined fleets, that is either the stack and user ID headers or a streaming-URL header. For domain-joined fleets, it is the SAML assertion metadata.
 
 The following modes are available:
 + **BLOCKING** (default) — The MCP server waits until the desktop connection is fully established before responding. When `tools/list` returns, all tools are immediately available.
@@ -135,8 +185,8 @@ The following example shows how to use POLLING mode:
 ```
 # Pass the header when creating the MCP connection
 headers = {
-    "X-Amzn-AgentAccess-Streaming-Session-Url": streaming_url,  # non-domain-joined fleets
-    "X-Amzn-AgentAccess-Connect-Mode": "POLLING",
+    "x-amzn-agentaccess-streaming-session-url": streaming_url,  # non-domain-joined fleets
+    "x-amzn-agentaccess-connect-mode": "POLLING",
 }
 
 # After initialize, tools/list returns immediately with connection_status
@@ -158,7 +208,7 @@ tools = await session.list_tools()
 ## Session cleanup
 <a name="agent-access-mcp-server-session-cleanup"></a>
 
-You can control whether the streaming session is expired when your agent ends its connection by setting the `X-Amzn-AgentAccess-Expire-Streaming-Session-On-Delete` header on your MCP requests. The following values are available:
+You can control whether the streaming session is expired when your agent ends its connection by setting the `x-amzn-agentaccess-expire-streaming-session-on-delete` header on your MCP requests. The following values are available:
 + **true** — When your agent sends an explicit HTTP `DELETE` request, the MCP server expires the WorkSpaces Applications streaming session as part of cleanup. Expiring the session terminates the underlying streaming instance and triggers the fleet's configured autoscaling policy. For more information, see [Fleet Auto Scaling for Amazon WorkSpaces Applications](autoscaling.md).
 + **false** (default) — The streaming session continues running until the disconnect timeout is reached. For more information about the disconnect timeout, see [Create a Fleet in Amazon WorkSpaces Applications](set-up-stacks-fleets-create.md).
 
@@ -168,7 +218,7 @@ By default, an `mcp-proxy-for-aws` MCP client automatically handles the `DELETE`
 ## Available tools
 <a name="agent-access-mcp-server-tools"></a>
 
-The MCP server provides the following tools for agents to interact with the desktop during a streaming session. All tool names use the `agentaccess___` prefix.
+The MCP server provides the following tools. Agents use them to interact with the desktop during a streaming session. All tool names use the `agentaccess___` prefix.
 
 ### Mouse tools
 <a name="agent-access-mcp-tools-mouse"></a>
@@ -234,6 +284,38 @@ Parameters: `keys` (required), `duration` (required — 1 to 30 seconds).
 `screenshot`  
 Capture a screenshot of the desktop. The returned image dimensions define the coordinate space for all mouse tools.  
 Parameters: `include_cursor` (optional — defaults to `false`).
+
+### Application tools
+<a name="agent-access-mcp-tools-application"></a>
+
+**Note**  
+These application tools appear in the agent's tool list only when applications are registered in the fleet image's catalog. If the image has no registered applications, these tools are not available.
+
+`launch_application`  
+Launch an application from the ones available in the fleet image's catalog.  
+Parameters: `id` (required) — the application identifier.  
+The tool's own description lists the identifiers of the available applications. The MCP server populates this description from the fleet image's catalog (for example, `firefox`, `notepad++`, or `eclipse`). Use one of the listed identifiers. An `id` that is not in the catalog returns `isError: true` with `SERVER_ERROR: Invalid input`. IDs are set when the image is built. You cannot work out an ID from the application name.  
+Launching an application does not replace what is already running. The previously launched application stays open. That is why the app switcher exists.
+
+`toggle_app_switcher`  
+Open or close the app-switcher overlay.  
+Parameters: none.  
+This tool only toggles the overlay. To bring a particular application to the foreground, follow up with a `left_click` on its thumbnail, using coordinates read from a screenshot. No tool reports which application is currently in the foreground, so an agent that needs to know must capture a screenshot and look.  
+The app switcher is available only when the fleet's **Stream view** is set to **Application**, which displays only the windows of applications that users open. It is not available when **Stream view** is set to **Desktop**, because WorkSpaces Applications then provides the standard desktop and taskbar for the operating system.
+
+### Session tools
+<a name="agent-access-mcp-tools-session"></a>
+
+**Note**  
+To watch an agent while it works, code the agent to open a streaming URL in a browser. Keep the URL out of the model's context, because it grants session access. You can create the URL in one of two ways:  
+Call the `CreateStreamingURL` API with the `stack`, `fleet`, and `userId` values from `get_session_info`, then open the returned URL in a browser.
+Read the `streaming_url` value from the `_meta` field of the `get_session_info` response, then open it in a browser.
+In both cases, the agent's own code handles the URL, so it never exposes the session credentials to the model.
+
+`get_session_info`  
+Return information about the current session.  
+Parameters: none.  
+Returns the following identifier fields as the tool result: `mcpSessionId`, `stack`, `userId`, `workSpacesSessionId`, and `fleet`.
 
 ## MCP tool forwarding
 <a name="agent-access-mcp-tool-forwarding-details"></a>
