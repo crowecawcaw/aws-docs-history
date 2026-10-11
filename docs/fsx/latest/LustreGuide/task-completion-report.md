@@ -7,6 +7,12 @@ A *task completion report* provides details about the results of an export, impo
 
 Amazon FSx delivers the report to the file system's linked data repository in Amazon S3, using the path that you specify when you enable the report for a task. The report's file name is `report.csv` for import tasks and `failures.csv` for export or release tasks.
 
+**Note**  
+The report path must be within the Amazon S3 location that your file system is linked to. That location depends on how your file system is configured:  
+The `DataRepositoryPath` of one of the associations, if your file system has data repository associations
+The `ExportPath`, if your file system was created with an `ImportPath` and an `ExportPath`
+For example, if an association links to `s3://amzn-s3-demo-bucket/myPrefix`, then `s3://amzn-s3-demo-bucket/myPrefix/reports` is valid. The path `s3://amzn-s3-demo-bucket/reports` is not.
+
 The report format is a comma-separated value (CSV) file that has three fields: `FilePath`, `FileStatus`, and `ErrorCode`.
 
 Reports are encoded using RFC-4180-format encoding as follows:
