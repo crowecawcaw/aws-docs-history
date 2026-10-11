@@ -172,7 +172,7 @@ The complete contents of the AWSObservabilityAdminServiceRolePolicy policy are a
 The `AWSObservabilityAdminTelemetryEnablementServiceRolePolicy` grants permissions necessary to enable and manage telemetry configurations for AWS resources based on telemetry rules.
 
 This policy grants permissions for:
-+ Basic telemetry operations including describing VPCs, flow logs, log groups. It also includes permissions to enable logging configuration for EKS cluster logging, WAF put logging configuration, enabling NLB logs, Route53 Resolver query logging, Amazon EC2 detailed monitoring, AWS Security Hub, Amazon Bedrock Agentcore Gateway, Amazon Bedrock Agentcore Memory, Amazon CloudFront distribution, S3 bucket server access logs, MSK Cluster, OpenTelemetry Enrichment, and Amazon Bedrock Agentcore Workload Identity. 
++ Basic telemetry operations including describing VPCs, flow logs, log groups. It also includes permissions to enable logging configuration for EKS cluster logging, WAF put logging configuration, enabling NLB logs, Route53 Resolver query logging, Amazon EC2 detailed monitoring, AWS Security Hub, Amazon Bedrock Agentcore Gateway, Amazon Bedrock Agentcore Memory, Amazon CloudFront distribution, S3 bucket server access logs, MSK Cluster, OpenTelemetry Enrichment, Amazon Bedrock Agentcore Workload Identity, and Amazon Bedrock AgentCore Payment Manager. 
 + Resource tagging operations with the `CloudWatchTelemetryRuleManaged` tag for tracking managed resources
 + Log delivery configuration for services like AWS Bedrock and VPC Flow Logs
 + Configuration recorder management for telemetry enablement tracking

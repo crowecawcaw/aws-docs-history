@@ -352,3 +352,17 @@ Next, use the `append-config` option while specifying the OpenTelemetry collecto
 ```
 
 The agent merges the two configuration files on start up and logs the resolved configuration.
+
+The following OpenTelemetry components are available for you to configure in your appended YAML configuration. Use the component type name shown here as the key in your YAML.
+
+
+| Component type | Available components | 
+| --- | --- | 
+| Receivers | `otlp`, `prometheus`, `statsd`, `collectd`, `jmx`, `hostmetrics`, `filelog`, `tcplog`, `udplog`, `jaeger`, `zipkin`, `kafka`, `kubeletstats` | 
+| Processors | `batch`, `memory_limiter`, `filter`, `attributes`, `resource`, `resourcedetection`, `metricstransform`, `transform`, `cumulativetodelta`, `deltatocumulative`, `deltatorate`, `groupbyattrs`, `groupbytrace`, `k8sattributes`, `metricsgeneration`, `metricstarttime`, `probabilistic_sampler`, `span`, `tail_sampling` | 
+| Exporters | `otlphttp`, `awsemf`, `awscloudwatchlogs`, `awsxray`, `prometheusremotewrite`, `debug` | 
+| Extensions | `sigv4auth`, `headers_setter`, `file_storage`, `health_check`, `pprof`, `zpages` | 
+
+The CloudWatch agent only supports writing telemetry to AWS destinations.
+
+For YAML examples that send each signal to the CloudWatch OpenTelemetry Protocol (OTLP) endpoints, see [Configuration examples](CloudWatch-OTLPCloudWatchAgent.md#CloudWatch-OTLPCloudWatchAgent-Examples).

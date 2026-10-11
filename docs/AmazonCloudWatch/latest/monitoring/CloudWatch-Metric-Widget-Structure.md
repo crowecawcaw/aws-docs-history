@@ -449,12 +449,12 @@ Required: No
 Defines the minimum and maximum values for the Y-axis of the graph. Set this within the `MetricWidget` object to affect all metrics in the widget. To override the widget settings for a particular metric, set it in the options object for that metric in the `metrics` array.
 
 **left**  
-Optional `min` and `max` settings for the left Y-axis.  
+Optional `min`, `max`, `label`, and `showUnits` settings for the left Y-axis.  
 Type: YAxis object  
 Required: No
 
 **right**  
-Optional `min` and `max` settings for the right Y-axis.  
+Optional `min`, `max`, `label`, and `showUnits` settings for the right Y-axis.  
 Type: YAxis object  
 Required: No
 
@@ -470,16 +470,29 @@ The maximum value for this Y-axis.
 Type: Float  
 Required: No
 
+**label**  
+The label for this Y-axis.  
+Type: String  
+Required: No
+
+**showUnits**  
+Specifies whether to display the unit of the metrics on this Y-axis. The default is `true`.  
+Type: Boolean  
+Required: No
+
 *Example*
 
 ```
 {
   left: {
     min: 0,
-    max: 100
+    max: 100,
+    label: "Duration (ms)",
+    showUnits: false
   },
   right: {
-    min: 0
+    min: 0,
+    label: "Invocations"
   }
 }
 ```

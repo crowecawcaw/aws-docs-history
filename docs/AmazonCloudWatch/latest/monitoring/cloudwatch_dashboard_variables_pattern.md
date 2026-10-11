@@ -23,9 +23,9 @@ For many use cases, you can create a dashboard that switches between Regions by 
 
 1. Choose **Pattern variable**.
 
-1. For **Property that the variable changes**, enter the name of the current dashboard Region, such as **us-east-2**.
+1. For **What pattern do you want your variable to change?**, enter a Regular Expression (regex) pattern that matches the text you want the variable to replace in your dashboard JSON definition.
 
-   You have the correct Region entered if the label below that box displays the widgets that will be impacted by the variable.
+   You have the correct pattern entered if the label below the box displays the widgets that will be impacted by the variable.
 
 1. For **Input type**, for this use case, select **Radio button**. 
 

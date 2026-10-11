@@ -18,7 +18,9 @@ The CloudWatch agent does not support collecting logs from FIFO pipes.
 
   Using the CloudWatch agent allows you to collect traces without needing to run a separate trace collection daemon, helping to reduce the number of agents that you run and manage.
 
-Metrics sent to CloudWatch can be viewed in CloudWatch just as any other CloudWatch metrics. The default CloudWatch namespace for metrics collected by the CloudWatch agent is `CWAgent`, although you can specify a different namespace when you configure the agent.
+Metrics that the CloudWatch agent publishes as CloudWatch metrics can be viewed in CloudWatch just as any other CloudWatch metrics. The default CloudWatch namespace for these metrics is `CWAgent`, although you can specify a different namespace when you configure the agent.
+
+Metrics that the CloudWatch agent forwards to the CloudWatch OTLP endpoints are stored as OpenTelemetry metrics. These metrics don't use a CloudWatch namespace. Instead, you identify them by metric name and labels, and you query them with PromQL. For more information about OpenTelemetry metrics, see [OpenTelemetry Metrics (Recommended)](metrics-otel-recommended.md). For information about querying these metrics, see [Query metrics with PromQL](CloudWatch-PromQL.md).
 
 The logs collected by the CloudWatch agent are processed and stored in Amazon CloudWatch Logs, just like logs collected by the older CloudWatch Logs agent. For information about CloudWatch Logs pricing, see [Amazon CloudWatch Pricing](http://aws.amazon.com/cloudwatch/pricing).
 
@@ -26,7 +28,7 @@ Metrics collected by the CloudWatch agent are billed as custom metrics. For more
 
 The CloudWatch agent is open-source under the MIT license, and is [ hosted on GitHub](https://github.com/aws/amazon-cloudwatch-agent/). If you would like to build, customize or contribute to the CloudWatch agent, see the GitHub repository for the latest instructions. If you think you've found a potential security issue, do not post it on GitHub or any public forum. Instead, follow the instructions at [ Vulnerability Reporting](https://aws.amazon.com/security/vulnerability-reporting/) or [ email AWS security directly](mailto:aws-security@amazon.com).
 
-To forward application metrics, traces, and logs through the CloudWatch agent using the OpenTelemetry Protocol (OTLP), without running a separate collector, see [Example: send application metrics through the agent without a separate collector](CloudWatch-OTLPCloudWatchAgent.md#CloudWatch-OTLPCloudWatchAgent-Example).
+For information about forwarding application metrics, traces, and logs through the CloudWatch agent using the OpenTelemetry Protocol (OTLP), see [Example: send application metrics through the CloudWatch agent](CloudWatch-OTLPCloudWatchAgent.md#CloudWatch-OTLPCloudWatchAgent-Example).
 
 You can download and install the CloudWatch agent manually using the command line, or you can integrate it with AWS Systems Manager. The general flow of installing the CloudWatch agent is as follows:
 

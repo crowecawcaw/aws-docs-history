@@ -78,7 +78,9 @@ The next example displays three Lambda per-function metrics, and uses a dashboar
             "properties": {
                 "view": "timeSeries",
                 "stacked": false,
-                "metrics": ["AWS/Lambda", "Invocations", "FunctionName", "my-function-name"],
+                "metrics": [
+                    [ "AWS/Lambda", "Invocations", "FunctionName", "my-function-name" ]
+                ],
 
                 "region": "us-east-1",
                 "liveData": true
@@ -93,7 +95,9 @@ The next example displays three Lambda per-function metrics, and uses a dashboar
             "properties": {
                 "view": "timeSeries",
                 "stacked": false,
-                "metrics": ["AWS/Lambda", "Errors", "FunctionName", "my-function-name"],
+                "metrics": [
+                    [ "AWS/Lambda", "Errors", "FunctionName", "my-function-name" ]
+                ],
 
                 "region": "us-east-1",
                 "liveData": true
@@ -109,7 +113,9 @@ The next example displays three Lambda per-function metrics, and uses a dashboar
             "properties": {
                 "view": "timeSeries",
                 "stacked": false,
-                "metrics": ["AWS/Lambda", "Duration", "FunctionName", "my-function-name"],
+                "metrics": [
+                    [ "AWS/Lambda", "Duration", "FunctionName", "my-function-name" ]
+                ],
 
                 "region": "us-east-1",
                 "liveData": true
@@ -313,7 +319,7 @@ Required: No
 Specify this field to populate your `select` or `radio` input field by using a metric search expression. For the value for this field, specify a namespace, dimension name, and a metric name. The dimension that you specify must be valid for that metric. CloudWatch finds all resources that publish that metric and dimension, and populates the list with them.  
 For example, specify `"search": "{AWS/EC2,InstanceId} MetricName=\"CPUUtilization\""` to search for Amazon EC2 instances in the account, or specify `"search": "{AWS/Lambda,FunctionName} MetricName=\"Duration\"",` to return the Lambda functions in the account  
 The `search` string that you specify can be as many as 2048 characters.  
-If you're using a search expression and you also want to specify a default value, the default that you specify in `defaultValue` is used as long as that default is one or the resources that was retrieved by the search. When using a search expression to populate your input field, you can also specify the special value `__FIRST` for `defaultValue`, to have the default value be the first value returned from the search. (The special value includes two underscores and then FIRST) Values returned by the search are always sorted alphabetically.
+If you're using a search expression and you also want to specify a default value, the default that you specify in `defaultValue` is used as long as that default is one of the resources that was retrieved by the search. When using a search expression to populate your input field, you can also specify the special value `__FIRST` for `defaultValue`, to have the default value be the first value returned from the search. (The special value includes two underscores and then FIRST) Values returned by the search are always sorted alphabetically.
 Type: String  
 Required: Yes if `inputType` is `select` or `radio` and you are not specifying `values`.
 
@@ -452,7 +458,7 @@ The following sample displays how to specify multiple variables in a dashboard, 
 ### Properties of a Text Widget Object
 <a name="CloudWatch-Dashboard-Properties-Text-Widget-Object"></a>
 
-A widget of type `text` can have one or two parameters in the `properties` section. The `markdown` field is required, and the `transparent` field is optional.
+A widget of type `text` can have one or two parameters in the `properties` section. The `markdown` field is required, and the `background` field is optional.
 
 For more information about the style of markdown supported in CloudWatch text widgets, see [Using Markdown in the Console](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html).
 
@@ -700,11 +706,12 @@ Required: No
             }
          ]
       }
-   },
+   }
+},
 {
-   "type": metric, 
+   "type": "metric", 
    "x": 18,
-   "y"; 60,
+   "y": 60,
    "width": 6, 
    "height": 6,
    "properties": {
@@ -727,16 +734,18 @@ Required: No
          ]
          ],
       "view": "gauge", 
-      "title": "Disk Inodes Used"
+      "title": "Disk Inodes Used",
       "region": "us-east-1",
       "yAxis": {
          "left": {
             "min": 0, 
-            "max": 100,
+            "max": 100
          }        
        }
      }
    }
+   ]
+}
 ```
 
 ## Metric Widget: Format for Each Metric in the Array
@@ -1115,12 +1124,12 @@ Defines the settings for the Y-axis of the graph. The settings include the maxim
 
 ```
 {
-  left: {
-    min: 0,
-    max: 100
+  "left": {
+    "min": 0,
+    "max": 100
   },
-  right: {
-    min: 0
+  "right": {
+    "min": 0
   }
 }
 ```
@@ -1160,7 +1169,7 @@ Required: No
 ### Dashboard Widget Object: Table Properties
 <a name="CloudWatch-Dashboard-Properties-Table"></a>
 
-If you specify `table` for a metric widget, you can include visualisations related to the visibility of summary columns, datapoint columns, and the table layout. These properties take affect only when the widget view type is `table` and don't alter other view types if included. The `table` property is not required to use a table widget.
+If you specify `table` for a metric widget, you can include visualisations related to the visibility of summary columns, datapoint columns, and the table layout. These properties take effect only when the widget view type is `table` and don't alter other view types if included. The `table` property is not required to use a table widget.
 
 **layout**  
 Use this field to transform the table such that the data points extend vertically or horizontally. The default is `horizontal`.  
@@ -1196,7 +1205,7 @@ For example, the following JSON creates a table displaying the minimum and maxim
     "summaryColumns": ["MIN", "MAX"],
     "layout": "vertical",
     "stickySummary": true,
-    "showTimeSeriesData": false,
+    "showTimeSeriesData": false
     },
 ```
 
@@ -1444,7 +1453,7 @@ Required: No
 
 **states**  
 Use this field to filter the list of alarms displayed in the widget to only those alarms currently in the specified states. You can specify one or more alarm states in the value for this field. The alarm states that you can specify are `ALARM`, `INSUFFICIENT_DATA`, and `OK`.  
-If you omit this field or specify an empty array, all the alarms specifed in `alarms` are displayed.  
+If you omit this field or specify an empty array, all the alarms specified in `alarms` are displayed.  
 Type: Array of strings  
 Required: No
 
@@ -1612,6 +1621,8 @@ The following table summarizes which fields each `view` supports.
 | `scatter` | ScatterStyle | Yes | Yes (vertical and horizontal) | 
 | `histogram` | BarStyle \+ HistogramStyle | Yes | No | 
 | `heatmap` | HeatmapStyle | Yes | No | 
+
+In the preceding table, the **style sub-object** column uses shorthand shape names (for example, `LineStyle`, `BarStyle`, and `PieStyle`). You set these styles in the `plotOptions` object using the corresponding fields documented in the following sections (for example, `lineOptions`, `barOptions`, and `pieOptions`).
 
 #### Common plotOptions fields
 <a name="CloudWatch-Dashboard-Properties-Chart-Widget-PlotOptions-Common"></a>

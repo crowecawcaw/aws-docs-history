@@ -61,7 +61,7 @@ The `_aws` member can be used to represent metadata about the payload that infor
     }
   }
   ```
-+ **Timestamp**— A number representing the time stamp used for metrics extracted from the event. Values MUST be expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
++ **Timestamp**— A number representing the time stamp used for metrics extracted from the event. Values MUST be expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. The time stamp MUST be no more than 14 days in the past and no more than 2 hours in the future. CloudWatch does not publish metrics that have a time stamp outside this range.
 
   ```
   {
@@ -75,9 +75,9 @@ The `_aws` member can be used to represent metadata about the payload that infor
 <a name="CloudWatch_Embedded_Metric_Format_Specification_structure_metricdirective"></a>
 
 The MetricDirective object instructs downstream services that the LogEvent contains metrics that will be extracted and published to CloudWatch. MetricDirectives MUST contain the following members:
-+ **Namespace**— A string representing the CloudWatch namespace for the metric.
++ **Namespace**— A string representing the CloudWatch namespace for the metric. The namespace MUST contain 1 to 255 printable ASCII characters (0x20 through 0x7E) and MUST NOT contain only whitespace. If the namespace is not valid, CloudWatch does not publish any metrics in that namespace.
 + **Dimensions**— A [DimensionSet array](#CloudWatch_Embedded_Metric_Format_Specification_structure_dimensionset).
-+ **Metrics**— An array of [MetricDefinition object](#CloudWatch_Embedded_Metric_Format_Specification_structure_metricdefinition) objects. This array MUST NOT contain more than 100 MetricDefinition objects.
++ **Metrics**— An array of [MetricDefinition object](#CloudWatch_Embedded_Metric_Format_Specification_structure_metricdefinition) objects. A log event MUST NOT contain more than 100 MetricDefinition objects in total, counted across all of its MetricDirectives. If a log event exceeds this limit, CloudWatch does not extract any metrics from it.
 
 ### DimensionSet array
 <a name="CloudWatch_Embedded_Metric_Format_Specification_structure_dimensionset"></a>
@@ -86,7 +86,14 @@ A DimensionSet is an array of strings containing the dimension keys that will be
 
 A DimensionSet MUST NOT contain more than 30 dimension keys. A DimensionSet MAY be empty.
 
-The target member MUST have a string value. This value MUST NOT contain more than 1024 characters. The target member defines a dimension that will be published as part of the metric identity. Every DimensionSet used creates a new metric in CloudWatch. For more information about dimensions, see [Dimension](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Dimension.html) and [Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension).
+Each dimension key has the following constraints:
++ It MUST contain 1 to 250 printable ASCII characters.
++ It MUST NOT contain only whitespace.
++ It MUST NOT start with a colon (`:`).
+
+The target member MUST have a string value. This value MUST contain 1 to 1024 printable ASCII characters and MUST NOT contain only whitespace. The target member defines a dimension that will be published as part of the metric identity. Every DimensionSet used creates a new metric in CloudWatch. For more information about dimensions, see [Dimension](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Dimension.html) and [Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension).
+
+If a DimensionSet or a dimension it references doesn't meet these requirements, CloudWatch doesn't publish the metrics for that DimensionSet. The other DimensionSets in the MetricDirective are not affected.
 
 ```
 {
@@ -109,11 +116,11 @@ Be careful when configuring your metric extraction as it impacts your custom met
 <a name="CloudWatch_Embedded_Metric_Format_Specification_structure_metricdefinition"></a>
 
 A MetricDefinition is an object that MUST contain the following member:
-+ **Name**— A string [Reference values](#CloudWatch_Embedded_Metric_Format_Specification_structure_referencevalues) to a metric [Target members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target). Metric targets MUST be either a numeric value or an array of numeric values.
++ **Name**— A string [Reference values](#CloudWatch_Embedded_Metric_Format_Specification_structure_referencevalues) to a metric [Target members](#CloudWatch_Embedded_Metric_Format_Specification_structure_target). Metric targets MUST be either a numeric value or an array of numeric values. The name MUST contain 1 to 255 printable ASCII characters and MUST NOT contain only whitespace. If the name is not valid, CloudWatch does not publish that metric.
 
 A MetricDefinition object MAY contain the following members:
 + **Unit**— An OPTIONAL string value representing the unit of measure for the corresponding metric. Values SHOULD be valid CloudWatch metric units. For information about valid units, see [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html). If a value is not provided, then a default value of NONE is assumed.
-+ **StorageResolution**— An OPTIONAL integer value representing the storage resolution for the corresponding metric. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as standard-resolution, which CloudWatch stores at 1-minute resolution. Values SHOULD be valid CloudWatch supported resolutions, 1 or 60. If a value is not provided, then a default value of 60 is assumed.
++ **StorageResolution**— An OPTIONAL integer value representing the storage resolution for the corresponding metric. Setting this to 1 specifies this metric as a high-resolution metric, so that CloudWatch stores the metric with sub-minute resolution down to one second. Setting this to 60 specifies this metric as standard-resolution, which CloudWatch stores at 1-minute resolution. Values SHOULD be valid CloudWatch supported resolutions, 1 or 60. If a value is not provided, then a default value of 60 is assumed. CloudWatch stores the metric at high resolution only when the value is 1. For example, CloudWatch treats `1.0` as 60.
 
   For more information about high-resolution metrics, see [High-resolution metrics](publishingMetrics.md#high-resolution-metrics).
 
@@ -160,7 +167,7 @@ It MUST NOT match the nested member:
 { "A": { "a" } }
 ```
 
-Valid values of target members depend on what is referencing them. A metric target MUST be a numeric value or an array of numeric values. Numeric array metric targets MUST NOT have more than 100 members. A dimension target MUST have a string value.
+Valid values of target members depend on what is referencing them. A metric target MUST be a numeric value or an array of numeric values. Numeric values MUST be in the range -2360 to 2360. If a value is outside this range, CloudWatch does not publish that metric. Numeric array metric targets MUST NOT have more than 100 members. If a numeric array exceeds this limit, CloudWatch does not extract any metrics from the log event. A dimension target MUST have a string value.
 
 ### Embedded metric format example and JSON schema
 <a name="CloudWatch_Embedded_Metric_Format_Specification_structure_example"></a>
@@ -191,7 +198,7 @@ The following is a valid example of embedded metric format.
 }
 ```
 
-You can use the following schema to validate embedded metric format documents.
+You can use the following schema to validate embedded metric format documents. The schema checks the MetricDefinition limit for each MetricDirective only. It does not check the total across all MetricDirectives in a log event.
 
 ```
 {
@@ -239,9 +246,9 @@ You can use the following schema to validate embedded metric format documents.
                                 "examples": [
                                     "MyApp"
                                 ],
-                                "pattern": "^(.*)$",
+                                "pattern": "^[ -~]*[!-~][ -~]*$",
                                 "minLength": 1,
-                                "maxLength": 1024
+                                "maxLength": 255
                             },
                             "Dimensions": {
                                 "$id": "#/properties/_aws/properties/CloudWatchMetrics/items/properties/Dimensions",
@@ -261,7 +268,7 @@ You can use the following schema to validate embedded metric format documents.
                                         "examples": [
                                             "Operation"
                                         ],
-                                        "pattern": "^(.*)$",
+                                        "pattern": "^(?:[!-9;-~]| +[!-~])[ -~]*$",
                                         "minLength": 1,
                                         "maxLength": 250
 }
@@ -271,6 +278,7 @@ You can use the following schema to validate embedded metric format documents.
                                 "$id": "#/properties/_aws/properties/CloudWatchMetrics/items/properties/Metrics",
                                 "type": "array",
                                 "title": "MetricDefinitions",
+                                "maxItems": 100,
                                 "items": {
                                     "$id": "#/properties/_aws/properties/CloudWatchMetrics/items/properties/Metrics/items",
                                     "type": "object",
@@ -286,9 +294,9 @@ You can use the following schema to validate embedded metric format documents.
                                             "examples": [
                                                 "ProcessingLatency"
                                             ],
-                                            "pattern": "^(.*)$",
+                                            "pattern": "^[ -~]*[!-~][ -~]*$",
                                             "minLength": 1,
-                                            "maxLength": 1024
+                                            "maxLength": 255
                                         },
                                         "Unit": {
                                             "$id": "#/properties/_aws/properties/CloudWatchMetrics/items/properties/Metrics/items/properties/Unit",

@@ -35,7 +35,7 @@ Metrics pipelines supported ingestion path: OTLP only
 Each pipeline consists of the following components:
 + **Source** – Defines where data originates from (Amazon S3 buckets, CloudWatch Logs, CloudWatch Metrics (OTel), third-party integration). Each pipeline must have exactly one source. Metrics pipelines process OTel metrics on the OTLP ingestion path.
 + **Processors** (optional) – Transform, parse, and enrich telemetry data as it flows through the pipeline. Processors are applied sequentially in the order they are defined. Metrics pipelines support a distinct set of processors optimized for OTel metric attributes.
-+ **Sink** – Defines the destination where processed data is sent. Supported sink types include `cloudwatch_logs` and `cloudwatch_metrics`. Each pipeline must have exactly one sink.
++ **Sink** – Defines the destination where processed data is sent. Supported sink types include `cloudwatch_logs` and `cloudwatch_metrics`. A logs pipeline can use up to 10 ordered `cloudwatch_logs` sinks for conditional routing. A metrics pipeline must have exactly one sink.
 + **Extensions** (optional) – Provide additional functionality such as AWS Secrets Manager integration for credential management.
 
 Throughout the entire pipeline, your data remains protected with transport layer encryption so that your data meets security and compliance requirements.

@@ -37,11 +37,11 @@ If the aggregation period is set to **Auto** when you change the time range of a
 
 1.  In the navigation pane, choose **Dashboards**, and then choose a dashboard.
 
-1. In the upper area of the dashboard, choose **Custom**.
+1. In the upper-right corner of the dashboard, choose the time zone dropdown, which shows the current setting, such as **UTC** or **Local time**.
 
-1. In the upper-right corner of the box that appears, select **UTC** or **Local time** from the dropdown. 
+1. Select **UTC** or **Local time** from the dropdown. 
 
-1.  Choose **Apply**. 
+1.  Choose **Apply**, if prompted. 
 
 ------
 #### [ Old console ]

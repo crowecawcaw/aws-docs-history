@@ -249,6 +249,40 @@ The `AWS/Athena` namespace includes enriched metrics for the following resource 
 | ServiceProcessingTime | + `QueryState`, `QueryType`, `WorkGroup` | 
 | TotalExecutionTime | + `QueryState`, `QueryType`, `WorkGroup` | 
 
+## AWS/Backup
+<a name="supported-metrics-ns-aws-backup"></a>
+
+The `AWS/Backup` namespace includes enriched metrics for the following resource types.
++ [AWS::Backup::BackupVault](#supported-metrics-aws-backup-aws-backup-backupvault)
+
+### AWS::Backup::BackupVault
+<a name="supported-metrics-aws-backup-aws-backup-backupvault"></a>
+
+
+| Metric | Dimensions | 
+| --- | --- | 
+| NumberOfBackupJobsCompleted | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfBackupJobsCreated | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfBackupJobsExpired | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfBackupJobsFailed | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfBackupJobsPartial | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfBackupJobsPending | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfBackupJobsRunning | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfCopyJobsCompleted | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfCopyJobsCreated | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfCopyJobsFailed | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfCopyJobsRunning | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRecoveryPointsCold | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRecoveryPointsCompleted | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRecoveryPointsCreating | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRecoveryPointsDeleting | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRecoveryPointsExpired | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRecoveryPointsPartial | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRestoreJobsCompleted | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRestoreJobsFailed | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRestoreJobsPending | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+| NumberOfRestoreJobsRunning | + `BackupVaultName`<br />+ `BackupVaultName`, `ResourceType` | 
+
 ## AWS/ClientVPN
 <a name="supported-metrics-ns-aws-clientvpn"></a>
 
@@ -290,10 +324,15 @@ The `AWS/CloudFront` namespace includes enriched metrics for the following resou
 
 | Metric | Dimensions | 
 | --- | --- | 
+| 401ErrorRate | + `DistributionId`, `Region` | 
+| 403ErrorRate | + `DistributionId`, `Region` | 
+| 404ErrorRate | + `DistributionId`, `Region` | 
 | 4xxErrorRate | + `DistributionId`, `Region` | 
 | 5xxErrorRate | + `DistributionId`, `Region` | 
 | BytesDownloaded | + `DistributionId`, `Region` | 
 | BytesUploaded | + `DistributionId`, `Region` | 
+| CacheHitRate | + `DistributionId`, `Region` | 
+| OriginLatency | + `DistributionId`, `Region` | 
 | Requests | + `DistributionId`, `Region` | 
 | TotalErrorRate | + `DistributionId`, `Region` | 
 
@@ -737,6 +776,9 @@ The `AWS/ELB` namespace includes enriched metrics for the following resource typ
 | --- | --- | 
 | BackendConnectionErrors | + `AvailabilityZone`, `LoadBalancerName`<br />+ `LoadBalancerName` | 
 | DesyncMitigationMode\_NonCompliant\_Request\_Count | + `AvailabilityZone`, `LoadBalancerName`<br />+ `LoadBalancerName` | 
+| EstimatedALBActiveConnectionCount | + `LoadBalancerName` | 
+| EstimatedALBNewConnectionCount | + `LoadBalancerName` | 
+| EstimatedProcessedBytes | + `LoadBalancerName` | 
 | HTTPCode\_Backend\_2XX | + `AvailabilityZone`, `LoadBalancerName`<br />+ `LoadBalancerName` | 
 | HTTPCode\_Backend\_3XX | + `AvailabilityZone`, `LoadBalancerName`<br />+ `LoadBalancerName` | 
 | HTTPCode\_Backend\_4XX | + `AvailabilityZone`, `LoadBalancerName`<br />+ `LoadBalancerName` | 
@@ -2145,6 +2187,40 @@ The `AWS/Lambda` namespace includes enriched metrics for the following resource 
 | UrlRequestCount | + `ExecutedVersion`, `FunctionName`, `Resource`<br />+ `FunctionName`<br />+ `FunctionName`, `Resource` | 
 | UrlRequestLatency | + `ExecutedVersion`, `FunctionName`, `Resource`<br />+ `FunctionName`<br />+ `FunctionName`, `Resource` | 
 
+## AWS/MWAA
+<a name="supported-metrics-ns-aws-mwaa"></a>
+
+The `AWS/MWAA` namespace includes enriched metrics for the following resource types.
++ [AWS::MWAA::Environment](#supported-metrics-aws-mwaa-aws-mwaa-environment)
+
+### AWS::MWAA::Environment
+<a name="supported-metrics-aws-mwaa-aws-mwaa-environment"></a>
+
+
+| Metric | Dimensions | 
+| --- | --- | 
+| ActiveConnectionCount | + `Environment` | 
+| ApproximateAgeOfOldestTask | + `Environment` | 
+| CPUUtilization | + `Cluster`, `Environment`<br />+ `DatabaseRole`, `Environment` | 
+| DatabaseConnections | + `DatabaseRole`, `Environment` | 
+| DiskQueueDepth | + `DatabaseRole`, `Environment` | 
+| EphemeralStorageReserved | + `Cluster`, `Environment` | 
+| EphemeralStorageUtilized | + `Cluster`, `Environment` | 
+| FreeableMemory | + `DatabaseRole`, `Environment` | 
+| MemoryUtilization | + `Cluster`, `Environment` | 
+| NetworkReceiveThroughput | + `DatabaseRole`, `Environment` | 
+| NetworkRxBytes | + `Cluster`, `Environment` | 
+| NetworkTransmitThroughput | + `DatabaseRole`, `Environment` | 
+| NetworkTxBytes | + `Cluster`, `Environment` | 
+| QueuedTasks | + `Environment` | 
+| ReadIOPS | + `DatabaseRole`, `Environment` | 
+| ReadLatency | + `DatabaseRole`, `Environment` | 
+| ReadThroughput | + `DatabaseRole`, `Environment` | 
+| RunningTasks | + `Environment` | 
+| WriteIOPS | + `DatabaseRole`, `Environment` | 
+| WriteLatency | + `DatabaseRole`, `Environment` | 
+| WriteThroughput | + `DatabaseRole`, `Environment` | 
+
 ## AWS/MediaTailor
 <a name="supported-metrics-ns-aws-mediatailor"></a>
 
@@ -2500,13 +2576,26 @@ The `AWS/RDS` namespace includes enriched metrics for the following resource typ
 
 | Metric | Dimensions | 
 | --- | --- | 
+| ACUUtilization | + `DBInstanceIdentifier` | 
+| AuroraEstimatedSharedMemoryBytes | + `DBInstanceIdentifier` | 
+| AuroraReplicaLag | + `DBInstanceIdentifier` | 
+| BurstBalance | + `DBInstanceIdentifier` | 
 | CPUUtilization | + `DBInstanceIdentifier` | 
+| DBLoad | + `DBInstanceIdentifier` | 
+| DBLoadCPU | + `DBInstanceIdentifier` | 
+| DBLoadNonCPU | + `DBInstanceIdentifier` | 
+| DBLoadRelativeToNumVCPUs | + `DBInstanceIdentifier` | 
 | DatabaseConnections | + `DBInstanceIdentifier` | 
 | FreeStorageSpace | + `DBInstanceIdentifier` | 
 | FreeableMemory | + `DBInstanceIdentifier` | 
+| MaximumUsedTransactionIDs | + `DBInstanceIdentifier` | 
+| OldestReplicationSlotLag | + `DBInstanceIdentifier` | 
 | ReadIOPS | + `DBInstanceIdentifier` | 
 | ReadLatency | + `DBInstanceIdentifier` | 
 | ReadThroughput | + `DBInstanceIdentifier` | 
+| ReplicaLag | + `DBInstanceIdentifier` | 
+| TransactionLogsDiskUsage | + `DBInstanceIdentifier` | 
+| TransactionLogsGeneration | + `DBInstanceIdentifier` | 
 | WriteIOPS | + `DBInstanceIdentifier` | 
 | WriteLatency | + `DBInstanceIdentifier` | 
 | WriteThroughput | + `DBInstanceIdentifier` | 
@@ -2664,6 +2753,7 @@ The `AWS/S3` namespace includes enriched metrics for the following resource type
 | AllRequests | + `BucketName`, `FilterId` | 
 | BucketSizeBytes | + `BucketName`, `StorageType` | 
 | BytesDownloaded | + `BucketName`, `FilterId` | 
+| BytesPendingReplication | + `DestinationBucket`, `RuleId`, `SourceBucket` | 
 | BytesUploaded | + `BucketName`, `FilterId` | 
 | DeleteRequests | + `BucketName`, `FilterId` | 
 | FirstByteLatency | + `BucketName`, `FilterId` | 
@@ -2671,8 +2761,11 @@ The `AWS/S3` namespace includes enriched metrics for the following resource type
 | HeadRequests | + `BucketName`, `FilterId` | 
 | ListRequests | + `BucketName`, `FilterId` | 
 | NumberOfObjects | + `BucketName`, `StorageType` | 
+| OperationsFailedReplication | + `DestinationBucket`, `RuleId`, `SourceBucket` | 
+| OperationsPendingReplication | + `DestinationBucket`, `RuleId`, `SourceBucket` | 
 | PostRequests | + `BucketName`, `FilterId` | 
 | PutRequests | + `BucketName`, `FilterId` | 
+| ReplicationLatency | + `DestinationBucket`, `RuleId`, `SourceBucket` | 
 | TotalRequestLatency | + `BucketName`, `FilterId` | 
 
 ## AWS/SNS

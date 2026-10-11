@@ -25,6 +25,7 @@ For the specific metrics that CloudWatch enriches for each resource type, see [S
 | AWS::AppFlow::Flow | Yes | No | 
 | AWS::AppSync::GraphQLApi | Yes | Yes | 
 | AWS::Athena::WorkGroup | Yes | No | 
+| AWS::Backup::BackupVault | Yes | No | 
 | AWS::CloudFront::Distribution | Yes | Yes | 
 | AWS::CloudFront::Function | Yes | Yes | 
 | AWS::CloudWatch::MetricStream | Yes | No | 
@@ -74,6 +75,7 @@ For the specific metrics that CloudWatch enriches for each resource type, see [S
 | AWS::KinesisFirehose::DeliveryStream | Yes | No | 
 | AWS::Lambda::EventSourceMapping | Yes | No | 
 | AWS::Lambda::Function | Yes | Yes | 
+| AWS::MWAA::Environment | Yes | No | 
 | AWS::MediaTailor::Channel | Yes | No | 
 | AWS::MemoryDB::Cluster | Yes | No | 
 | AWS::NetworkFirewall::Firewall | Yes | Yes | 

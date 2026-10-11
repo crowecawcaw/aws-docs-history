@@ -6,7 +6,8 @@
 When you ingest OpenTelemetry metrics into CloudWatch through the [Metrics endpoint](CloudWatch-OTLPEndpoint.md#CloudWatch-MetricsEndpoint), the hierarchical OTLP data model is flattened into PromQL-compatible labels. This section describes the label structure, the PromQL syntax for querying these labels, and the UTF-8 support in PromQL.
 
 **Note**  
-PromQL in Prometheus 3 supports full UTF-8 characters in metric names and label names. This is particularly important for OTLP metrics, because OpenTelemetry semantic conventions use dots in attribute names such as `service.name`. Previously, these dots were replaced with underscores during translation, causing discrepancies between what was defined in OTel conventions and what was queryable in Prometheus.
+PromQL in Prometheus 3 supports full UTF-8 characters in metric names and label names. This is particularly important for OTLP metrics, because OpenTelemetry semantic conventions use dots in attribute names such as `service.name`. Previously, these dots were replaced with underscores during translation, causing discrepancies between what was defined in OTel conventions and what was queryable in Prometheus.  
+A metric name that contains dots must be quoted, either inside the curly braces, as in `{"http.server.active_requests"}`, or as the value of the `__name__` label, as in `{__name__="http.server.active_requests"}`. A bare, unquoted name such as `http.server.active_requests` isn't valid PromQL.
 
 When using PromQL in CloudWatch, the `@` prefix convention distinguishes OTLP-scoped labels from standard Prometheus labels. Fields within each scope use a double-`@` prefix (for example, `@resource.@schema_url`), while attributes use a single-`@` scope prefix, for example, `@resource.service.name`. Datapoint attributes also support bare (un-prefixed) access for backward compatibility with standard PromQL queries, for example, `{"http.server.active_requests"}` and `{"@datapoint.@name"="http.server.active_requests"}` are equivalent.
 
@@ -96,6 +97,104 @@ The following example selects all time series for the EC2 `CPUUtilization` metri
 ```
 histogram_avg({CPUUtilization, "@instrumentation.@name"="cloudwatch.aws/ec2"})
 ```
+
+## Querying histogram metrics
+<a name="CloudWatch-PromQL-Querying-Histograms"></a>
+
+OpenTelemetry histogram metrics, such as request durations and latencies, are stored as histogram samples rather than float samples. Some AWS vended metrics are also stored as histograms. That's why the previous example uses `histogram_avg`. Histogram samples behave differently from float samples in PromQL, so a query pattern that works for one type can return an empty or incorrect result for the other.
+
+To check whether a metric is a histogram, select its raw time series and inspect the `__type__` label on the results:
+
+```
+{"http.server.request.duration"}
+```
+
+### Delta and cumulative histograms
+<a name="CloudWatch-PromQL-Querying-Histograms-Temporality"></a>
+
+OpenTelemetry histograms use one of two aggregation temporalities:
+
+Cumulative  
+Each datapoint is a running total since the start of the series.
+
+Delta  
+Each datapoint is a complete total for its own export period.
+
+The temporality determines which query pattern returns a correct result. CloudWatch reports a histogram's temporality in the `__temporality__` label, whose value is either `cumulative` or `delta`. To check the temporality of a metric, select its raw time series and inspect the `__temporality__` label on the results:
+
+```
+{"http.server.request.duration"}
+```
+
+The `rate`, `increase`, `irate`, and `resets` functions assume cumulative data. They measure growth between datapoints. CloudWatch applies this assumption to every histogram, including delta histograms. On a delta histogram, these functions return an incorrect result without a warning. For example, the common Prometheus pattern `histogram_count(rate({{histogram}}[5m]))` returns the correct observation rate for a cumulative histogram. It doesn't return a correct rate for a delta histogram.
+
+For a cumulative histogram, use `rate`. The following example returns the observation rate, in observations per second:
+
+```
+sum(histogram_count(rate({"http.server.request.duration"}[5m])))
+```
+
+For a delta histogram, add up the per-period totals with `sum_over_time` and divide by the length of the range. This example also returns the observation rate:
+
+```
+sum(histogram_count(sum_over_time({"http.server.request.duration"}[5m]))) / 5m
+```
+
+You can adapt the delta pattern as follows:
++ To return the total number of observations in the range instead of a rate, remove `/ 5m`.
++ To return the mean observed value in the range, use `histogram_avg` instead of `histogram_count`.
+
+**Note**  
+Don't use a subquery such as `rate(histogram_count({{histogram}})[5m:1m])` to calculate a rate from a delta histogram. It returns the correct result only when the export interval equals the subquery step. If the export interval changes, it returns an incorrect result without a warning.
+
+### Getting statistics from a histogram
+<a name="CloudWatch-PromQL-Querying-Histograms-Statistics"></a>
+
+The `min` and `max` aggregation operators operate only on float samples. They skip histogram samples, so applying them to a histogram metric returns an empty result rather than an error. The response includes an informational annotation that contains the text `ignored histogram`.
+
+To read a statistic from a histogram metric, use a histogram function:
+
+`histogram_quantile({{q}}, {{histogram}})`  
+Returns the value at the {{q}} quantile — the value below which a fraction {{q}} of observations fall. {{q}} is a value between 0 and 1. For example, use `0.99` for p99, not `99`.
+
+`histogram_avg({{histogram}})`  
+Returns the mean of the observed values.
+
+`histogram_count({{histogram}})` and `histogram_sum({{histogram}})`  
+Return the number of observations and the sum of the observed values.
+
+PromQL doesn't provide an exact maximum for a histogram. The closest equivalent is a high quantile such as `histogram_quantile(1, {{histogram}})`. Because a quantile is estimated from bucket boundaries, the result can be slightly higher than the largest observed value.
+
+For a delta histogram, apply the function directly to the metric. The following example returns the p99 duration for each export period:
+
+```
+histogram_quantile(0.99, {"http.server.request.duration"})
+```
+
+The preceding form returns the p99 for a single export period. To calculate the p99 over a longer window, first combine the per-period histograms with `sum_over_time`. You don't divide by the range, because a quantile is unaffected by scaling the bucket counts. The following example returns the p99 duration over the last five minutes:
+
+```
+histogram_quantile(0.99, sum_over_time({"http.server.request.duration"}[5m]))
+```
+
+For a cumulative histogram, applying the function directly returns a statistic over the whole life of the series. To get a statistic for a recent window, apply the function to `rate`. The following example returns the p99 duration over the last five minutes:
+
+```
+histogram_quantile(0.99, rate({"http.server.request.duration"}[5m]))
+```
+
+### Keeping labels in the result
+<a name="CloudWatch-PromQL-Querying-Histograms-Labels"></a>
+
+An aggregation operator such as `avg` or `sum` combines all matching time series into one. It removes every label that you don't group by. To keep one result per label value, add a `by` clause. The following example returns the observation rate of a delta histogram for each service:
+
+```
+sum by ("@resource.service.name")(
+    histogram_count(sum_over_time({"http.server.request.duration"}[5m]))
+) / 5m
+```
+
+Histogram functions such as `histogram_quantile` and `histogram_avg` are functions rather than aggregations, so they keep all labels and return one result for each time series.
 
 ## Querying with MCP tools
 <a name="CloudWatch-PromQL-Querying-MCP"></a>

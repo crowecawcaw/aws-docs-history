@@ -130,8 +130,8 @@ The following list explains how the memory metrics that the CloudWatch agent col
 
 **Topics**
 + [Linux: Metrics collected and calculations used](#CloudWatch-agent-metrics-definitions-calculations)
-+ [macOS: Metrics collected and calculations used](#CloudWatch-agent-metrics-definitions-calculations)
-+ [Windows: Metrics collected](#CloudWatch-agent-metrics-definitions-calculations)
++ [macOS: Metrics collected and calculations used](#CloudWatch-agent-metrics-definitions-calculations-macos)
++ [Windows: Metrics collected](#CloudWatch-agent-metrics-definitions-calculations-windows)
 + [Example: Calculating memory metrics on Linux](#CloudWatch-agent-metrics-definitions-LinuxExample)
 
 ### Linux: Metrics collected and calculations used
@@ -154,7 +154,7 @@ Metrics collected and units:
 **Total memory** = Used Memory \+ Free Memory \+ Cached memory \+ Buffer memory
 
 ### macOS: Metrics collected and calculations used
-<a name="CloudWatch-agent-metrics-definitions-calculations"></a>
+<a name="CloudWatch-agent-metrics-definitions-calculations-macos"></a>
 
 Metrics collected and units:
 + Active (Bytes)
@@ -173,7 +173,7 @@ Metrics collected and units:
 **Total memory** = Available Memory \+ Used Memory
 
 ### Windows: Metrics collected
-<a name="CloudWatch-agent-metrics-definitions-calculations"></a>
+<a name="CloudWatch-agent-metrics-definitions-calculations-windows"></a>
 
 The metrics collected on Windows hosts are listed below. All of these metrics have `None` for `Unit`.
 + Available bytes

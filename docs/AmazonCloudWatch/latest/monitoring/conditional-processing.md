@@ -3,7 +3,7 @@
 # Expression syntax for conditional processing
 <a name="conditional-processing"></a>
 
-CloudWatch pipelines processors that support conditional processing accept a `when` parameter containing an expression. When the expression evaluates to true, the processor or entry executes. Expressions use dot notation (`.`) for nested field access. For example, `user.role` accesses the `role` field inside the `user` object. For more details on processors that support conditional processing and their specific parameters, see [CloudWatch pipelines processors](pipeline-processors.md). For configuration examples, see [Common processor use cases](processor-examples.md).
+CloudWatch pipelines processors and CloudWatch Logs sink routes that support conditional processing accept a `when` parameter containing an expression. When the expression evaluates to true, the processor or entry executes, or the event is sent to that sink route. Expressions use dot notation (`.`) for nested field access. For example, `user.role` accesses the `role` field inside the `user` object. For details about conditional sink routes, see [Route logs to multiple log groups](pipeline-sinks.md#cloudwatch-logs-sink-routing). For details about processors that support conditional processing, see [CloudWatch pipelines processors](pipeline-processors.md). For processor configuration examples, see [Common processor use cases](processor-examples.md).
 
 **Note**  
 Conditional processing applies to log pipelines only. Metrics pipelines do not support the `when` parameter.

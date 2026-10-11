@@ -382,7 +382,7 @@ The following is an example of a `metrics` section for a Linux server. In this e
 
 In the `metrics_collected` section for Windows Server, you can have subsections for each Windows performance object, such as `Memory`, `Processor`, and `LogicalDisk`. For information about what objects and counters are available, see [Performance Counters](https://learn.microsoft.com/en-us/windows/win32/perfctrs/performance-counters-portal) in the Microsoft Windows documentation.
 
-Within the subsection for each object, you specify a `measurement` array of the counters to collect. The `measurement` array is required for each object that you specify in the configuration file. You can also specify a `resources` field to name the instances to collect metrics from. You can also specify `*` for `resources` to collect separate metrics for every instance. If you omit `resources` for counters that have instances, the data for all instances is aggregated into one set. If you omit `resources` for counters that don't have instances, the counters are not collected by the CloudWatch agent. To determine whether counters have instances, you can use one of the following commands.
+Within the subsection for each object, you specify a `measurement` array of the counters to collect. The `measurement` array is required for each object that you specify in the configuration file. You can also specify a `resources` field to name the instances to collect metrics from. You can also specify `*` for `resources` to collect separate metrics for every instance, excluding the `_Total` instance. To collect a single value aggregated across all instances, specify `_Total` for `resources`. If you omit `resources` for counters that have instances, such as `Processor`, the counters are not collected by the CloudWatch agent. If you omit `resources` for counters that don't have instances, such as `Memory`, the counters are collected. To determine whether counters have instances, you can use one of the following commands.
 
 Powershell:
 
@@ -1016,6 +1016,11 @@ The `traces` section can include the following fields:
 
 ## CloudWatch agent configuration file: OpenTelemetry section
 <a name="CloudWatch-Agent-Configuration-File-OpenTelemetrysection"></a>
+
+The `opentelemetry` section depends on the agent's OTLP receiver, which was introduced in CloudWatch agent version 1.300070.0. Earlier versions do not support it. To check the installed version, read `/opt/aws/amazon-cloudwatch-agent/bin/CWAGENT_VERSION`.
+
+**Note**  
+On Amazon Linux 2023, the `yum install amazon-cloudwatch-agent` and `dnf install amazon-cloudwatch-agent` commands install a version that meets this minimum. If your package repository offers a version earlier than 1.300070.0, install the agent from the CloudWatch agent download instead. For more information, see [Collect metrics, logs, and traces using the CloudWatch agent](Install-CloudWatch-Agent.md).
 
 The `opentelemetry` section can include the following fields:
 + `cluster_name` – Optional. Specifies the name of the Kubernetes cluster. The agent applies this value to all telemetry collected under the `opentelemetry` section.

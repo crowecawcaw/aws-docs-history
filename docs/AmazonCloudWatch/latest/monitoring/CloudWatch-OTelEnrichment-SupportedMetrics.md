@@ -80,6 +80,7 @@ The following tables list, per namespace, the supported resources and their enri
 + [AWS/S3](#otel-enrichment-ns-aws-s3)
 + [AWS/SNS](#otel-enrichment-ns-aws-sns)
 + [AWS/SQS](#otel-enrichment-ns-aws-sqs)
++ [AWS/SWF](#otel-enrichment-ns-aws-swf)
 + [AWS/SageMaker](#otel-enrichment-ns-aws-sagemaker)
 + [AWS/Scheduler](#otel-enrichment-ns-aws-scheduler)
 + [AWS/Transfer](#otel-enrichment-ns-aws-transfer)
@@ -429,8 +430,8 @@ The `AWS/AutoScaling` namespace is published under the OpenTelemetry instrumenta
 
 ### AWS::AutoScaling::AutoScalingGroup
 <a name="otel-enrichment-aws-autoscaling-aws-autoscaling-autoscalinggroup"></a>
-+ `cloud.resource_id` enrichment: Not supported
-+ `tag.*` enrichment: Not supported
++ `cloud.resource_id` enrichment: Supported
++ `tag.*` enrichment: Supported
 
 
 | Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
@@ -448,12 +449,19 @@ The `AWS/AutoScaling` namespace is published under the OpenTelemetry instrumenta
 | GroupStandbyInstances | GroupStandbyInstances | Histogram | AutoScalingGroupName | 
 | GroupTerminatingCapacity | GroupTerminatingCapacity | Histogram | AutoScalingGroupName | 
 | GroupTerminatingInstances | GroupTerminatingInstances | Histogram | AutoScalingGroupName | 
+| GroupTerminatingRetainedCapacity | GroupTerminatingRetainedCapacity | Histogram | AutoScalingGroupName | 
+| GroupTerminatingRetainedInstances | GroupTerminatingRetainedInstances | Histogram | AutoScalingGroupName | 
 | GroupTotalCapacity | GroupTotalCapacity | Histogram | AutoScalingGroupName | 
 | GroupTotalInstances | GroupTotalInstances | Histogram | AutoScalingGroupName | 
+| PredictiveScalingCapacityForecast | PredictiveScalingCapacityForecast | Histogram | AutoScalingGroupName, PolicyName | 
+| PredictiveScalingLoadForecast | PredictiveScalingLoadForecast | Histogram | AutoScalingGroupName, PairIndex, PolicyName | 
+| PredictiveScalingMetricPairCorrelation | PredictiveScalingMetricPairCorrelation | Histogram | AutoScalingGroupName, PairIndex, PolicyName | 
 | WarmPoolDesiredCapacity | WarmPoolDesiredCapacity | Histogram | AutoScalingGroupName | 
 | WarmPoolMinSize | WarmPoolMinSize | Histogram | AutoScalingGroupName | 
 | WarmPoolPendingCapacity | WarmPoolPendingCapacity | Histogram | AutoScalingGroupName | 
+| WarmPoolPendingRetainedCapacity | WarmPoolPendingRetainedCapacity | Histogram | AutoScalingGroupName | 
 | WarmPoolTerminatingCapacity | WarmPoolTerminatingCapacity | Histogram | AutoScalingGroupName | 
+| WarmPoolTerminatingRetainedCapacity | WarmPoolTerminatingRetainedCapacity | Histogram | AutoScalingGroupName | 
 | WarmPoolTotalCapacity | WarmPoolTotalCapacity | Histogram | AutoScalingGroupName | 
 | WarmPoolWarmedCapacity | WarmPoolWarmedCapacity | Histogram | AutoScalingGroupName | 
 
@@ -466,7 +474,7 @@ The `AWS/Backup` namespace is published under the OpenTelemetry instrumentation 
 ### AWS::Backup::BackupVault
 <a name="otel-enrichment-aws-backup-aws-backup-backupvault"></a>
 + `cloud.resource_id` enrichment: Supported
-+ `tag.*` enrichment: Not supported
++ `tag.*` enrichment: Supported
 
 
 | Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
@@ -576,7 +584,28 @@ The `AWS/ClientVPN` namespace is published under the OpenTelemetry instrumentati
 <a name="otel-enrichment-ns-aws-cloudfront"></a>
 
 The `AWS/CloudFront` namespace is published under the OpenTelemetry instrumentation scope `cloudwatch.aws/cloudfront`. All enriched instruments use Delta temporality.
++ [AWS::CloudFront::Distribution](#otel-enrichment-aws-cloudfront-aws-cloudfront-distribution)
 + [AWS::CloudFront::Function](#otel-enrichment-aws-cloudfront-aws-cloudfront-function)
+
+### AWS::CloudFront::Distribution
+<a name="otel-enrichment-aws-cloudfront-aws-cloudfront-distribution"></a>
++ `cloud.resource_id` enrichment: Supported
++ `tag.*` enrichment: Supported
+
+
+| Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
+| --- | --- | --- | --- | 
+| 401ErrorRate | 401ErrorRate | Histogram | DistributionId, Region | 
+| 403ErrorRate | 403ErrorRate | Histogram | DistributionId, Region | 
+| 404ErrorRate | 404ErrorRate | Histogram | DistributionId, Region | 
+| 4xxErrorRate | 4xxErrorRate | Histogram | DistributionId, Region | 
+| 5xxErrorRate | 5xxErrorRate | Histogram | DistributionId, Region | 
+| BytesDownloaded | BytesDownloaded | Sum | DistributionId, Region | 
+| BytesUploaded | BytesUploaded | Sum | DistributionId, Region | 
+| CacheHitRate | CacheHitRate | Histogram | DistributionId, Region | 
+| OriginLatency | OriginLatency | Histogram | DistributionId, Region | 
+| Requests | Requests | Sum | DistributionId, Region | 
+| TotalErrorRate | TotalErrorRate | Histogram | DistributionId, Region | 
 
 ### AWS::CloudFront::Function
 <a name="otel-enrichment-aws-cloudfront-aws-cloudfront-function"></a>
@@ -1141,10 +1170,21 @@ The `AWS/DocDB-Elastic` namespace is published under the OpenTelemetry instrumen
 <a name="otel-enrichment-ns-aws-dynamodb"></a>
 
 The `AWS/DynamoDB` namespace is published under the OpenTelemetry instrumentation scope `cloudwatch.aws/dynamodb`. All enriched instruments use Delta temporality.
++ [`AWS::DynamoDB (service-level)`](#otel-enrichment-aws-dynamodb-aws-dynamodb-service-level)
 + [AWS::DynamoDB::GlobalTable](#otel-enrichment-aws-dynamodb-aws-dynamodb-globaltable)
 + [AWS::DynamoDB::Table](#otel-enrichment-aws-dynamodb-aws-dynamodb-table)
 + [`index`](#otel-enrichment-aws-dynamodb-index)
 + [`stream`](#otel-enrichment-aws-dynamodb-stream)
+
+### `AWS::DynamoDB (service-level)`
+<a name="otel-enrichment-aws-dynamodb-aws-dynamodb-service-level"></a>
++ `cloud.resource_id` enrichment: Not supported
++ `tag.*` enrichment: Not supported
+
+
+| Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
+| --- | --- | --- | --- | 
+| UserErrors | UserErrors | Sum |  | 
 
 ### AWS::DynamoDB::GlobalTable
 <a name="otel-enrichment-aws-dynamodb-aws-dynamodb-globaltable"></a>
@@ -1450,6 +1490,9 @@ The `AWS/ELB` namespace is published under the OpenTelemetry instrumentation sco
 | --- | --- | --- | --- | 
 | BackendConnectionErrors | BackendConnectionErrors | Sum | AvailabilityZone, LoadBalancerName | 
 | DesyncMitigationMode\_NonCompliant\_Request\_Count | DesyncMitigationMode\_NonCompliant\_Request\_Count | Sum | AvailabilityZone, LoadBalancerName | 
+| EstimatedALBActiveConnectionCount | EstimatedALBActiveConnectionCount | Histogram | LoadBalancerName | 
+| EstimatedALBNewConnectionCount | EstimatedALBNewConnectionCount | Sum | LoadBalancerName | 
+| EstimatedProcessedBytes | EstimatedProcessedBytes | Sum | LoadBalancerName | 
 | HTTPCode\_Backend\_2XX | HTTPCode\_Backend\_2XX | Sum | AvailabilityZone, LoadBalancerName | 
 | HTTPCode\_Backend\_3XX | HTTPCode\_Backend\_3XX | Sum | AvailabilityZone, LoadBalancerName | 
 | HTTPCode\_Backend\_4XX | HTTPCode\_Backend\_4XX | Sum | AvailabilityZone, LoadBalancerName | 
@@ -3289,13 +3332,12 @@ The `AWS/M2` namespace is published under the OpenTelemetry instrumentation scop
 <a name="otel-enrichment-ns-aws-mwaa"></a>
 
 The `AWS/MWAA` namespace is published under the OpenTelemetry instrumentation scope `cloudwatch.aws/airflow`. All enriched instruments use Delta temporality.
-+ [`environment`](#otel-enrichment-aws-mwaa-environment)
-+ [`rbac-role`](#otel-enrichment-aws-mwaa-rbac-role)
++ [AWS::MWAA::Environment](#otel-enrichment-aws-mwaa-aws-mwaa-environment)
 
-### `environment`
-<a name="otel-enrichment-aws-mwaa-environment"></a>
+### AWS::MWAA::Environment
+<a name="otel-enrichment-aws-mwaa-aws-mwaa-environment"></a>
 + `cloud.resource_id` enrichment: Supported
-+ `tag.*` enrichment: Not supported
++ `tag.*` enrichment: Supported
 
 
 | Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
@@ -3303,26 +3345,22 @@ The `AWS/MWAA` namespace is published under the OpenTelemetry instrumentation sc
 | ActiveConnectionCount | ActiveConnectionCount | Histogram | Environment | 
 | ApproximateAgeOfOldestTask | ApproximateAgeOfOldestTask | Histogram | Environment | 
 | CPUUtilization | CPUUtilization | Histogram | Cluster, Environment | 
-| MemoryUtilization | MemoryUtilization | Histogram | Cluster, Environment | 
-| QueuedTasks | QueuedTasks | Histogram | Environment | 
-| RunningTasks | RunningTasks | Histogram | Environment | 
-
-### `rbac-role`
-<a name="otel-enrichment-aws-mwaa-rbac-role"></a>
-+ `cloud.resource_id` enrichment: Supported
-+ `tag.*` enrichment: Not supported
-
-
-| Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
-| --- | --- | --- | --- | 
+| CPUUtilization | CPUUtilizationPerDatabaseRole | Histogram | DatabaseRole, Environment | 
 | DatabaseConnections | DatabaseConnections | Histogram | DatabaseRole, Environment | 
 | DiskQueueDepth | DiskQueueDepth | Histogram | DatabaseRole, Environment | 
+| EphemeralStorageReserved | EphemeralStorageReserved | Histogram | Cluster, Environment | 
+| EphemeralStorageUtilized | EphemeralStorageUtilized | Histogram | Cluster, Environment | 
 | FreeableMemory | FreeableMemory | Histogram | DatabaseRole, Environment | 
+| MemoryUtilization | MemoryUtilization | Histogram | Cluster, Environment | 
 | NetworkReceiveThroughput | NetworkReceiveThroughput | Histogram | DatabaseRole, Environment | 
+| NetworkRxBytes | NetworkRxBytes | Sum | Cluster, Environment | 
 | NetworkTransmitThroughput | NetworkTransmitThroughput | Histogram | DatabaseRole, Environment | 
+| NetworkTxBytes | NetworkTxBytes | Sum | Cluster, Environment | 
+| QueuedTasks | QueuedTasks | Histogram | Environment | 
 | ReadIOPS | ReadIOPS | Histogram | DatabaseRole, Environment | 
 | ReadLatency | ReadLatency | Histogram | DatabaseRole, Environment | 
 | ReadThroughput | ReadThroughput | Histogram | DatabaseRole, Environment | 
+| RunningTasks | RunningTasks | Histogram | Environment | 
 | WriteIOPS | WriteIOPS | Histogram | DatabaseRole, Environment | 
 | WriteLatency | WriteLatency | Histogram | DatabaseRole, Environment | 
 | WriteThroughput | WriteThroughput | Histogram | DatabaseRole, Environment | 
@@ -3750,13 +3788,26 @@ The `AWS/RDS` namespace is published under the OpenTelemetry instrumentation sco
 
 | Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
 | --- | --- | --- | --- | 
+| ACUUtilization | ACUUtilization | Histogram | DBInstanceIdentifier | 
+| AuroraEstimatedSharedMemoryBytes | AuroraEstimatedSharedMemoryBytes | Histogram | DBInstanceIdentifier | 
+| AuroraReplicaLag | AuroraReplicaLag | Histogram | DBInstanceIdentifier | 
+| BurstBalance | BurstBalance | Histogram | DBInstanceIdentifier | 
 | CPUUtilization | CPUUtilization | Histogram | DBInstanceIdentifier | 
+| DBLoad | DBLoad | Histogram | DBInstanceIdentifier | 
+| DBLoadCPU | DBLoadCPU | Histogram | DBInstanceIdentifier | 
+| DBLoadNonCPU | DBLoadNonCPU | Histogram | DBInstanceIdentifier | 
+| DBLoadRelativeToNumVCPUs | DBLoadRelativeToNumVCPUs | Histogram | DBInstanceIdentifier | 
 | DatabaseConnections | DatabaseConnections | Histogram | DBInstanceIdentifier | 
 | FreeStorageSpace | FreeStorageSpace | Histogram | DBInstanceIdentifier | 
 | FreeableMemory | FreeableMemory | Histogram | DBInstanceIdentifier | 
+| MaximumUsedTransactionIDs | MaximumUsedTransactionIDs | Histogram | DBInstanceIdentifier | 
+| OldestReplicationSlotLag | OldestReplicationSlotLag | Histogram | DBInstanceIdentifier | 
 | ReadIOPS | ReadIOPS | Histogram | DBInstanceIdentifier | 
 | ReadLatency | ReadLatency | Histogram | DBInstanceIdentifier | 
 | ReadThroughput | ReadThroughput | Histogram | DBInstanceIdentifier | 
+| ReplicaLag | ReplicaLag | Histogram | DBInstanceIdentifier | 
+| TransactionLogsDiskUsage | TransactionLogsDiskUsage | Histogram | DBInstanceIdentifier | 
+| TransactionLogsGeneration | TransactionLogsGeneration | Histogram | DBInstanceIdentifier | 
 | WriteIOPS | WriteIOPS | Histogram | DBInstanceIdentifier | 
 | WriteLatency | WriteLatency | Histogram | DBInstanceIdentifier | 
 | WriteThroughput | WriteThroughput | Histogram | DBInstanceIdentifier | 
@@ -3965,6 +4016,7 @@ The `AWS/S3` namespace is published under the OpenTelemetry instrumentation scop
 | AllRequests | AllRequests | Sum | BucketName, FilterId | 
 | BucketSizeBytes | BucketSizeBytes | Histogram | BucketName, StorageType | 
 | BytesDownloaded | BytesDownloaded | Sum | BucketName, FilterId | 
+| BytesPendingReplication | BytesPendingReplication | Histogram | DestinationBucket, RuleId, SourceBucket | 
 | BytesUploaded | BytesUploaded | Sum | BucketName, FilterId | 
 | DeleteRequests | DeleteRequests | Sum | BucketName, FilterId | 
 | FirstByteLatency | FirstByteLatency | Histogram | BucketName, FilterId | 
@@ -3972,8 +4024,11 @@ The `AWS/S3` namespace is published under the OpenTelemetry instrumentation scop
 | HeadRequests | HeadRequests | Sum | BucketName, FilterId | 
 | ListRequests | ListRequests | Sum | BucketName, FilterId | 
 | NumberOfObjects | NumberOfObjects | Histogram | BucketName, StorageType | 
+| OperationsFailedReplication | OperationsFailedReplication | Sum | DestinationBucket, RuleId, SourceBucket | 
+| OperationsPendingReplication | OperationsPendingReplication | Histogram | DestinationBucket, RuleId, SourceBucket | 
 | PostRequests | PostRequests | Sum | BucketName, FilterId | 
 | PutRequests | PutRequests | Sum | BucketName, FilterId | 
+| ReplicationLatency | ReplicationLatency | Histogram | DestinationBucket, RuleId, SourceBucket | 
 | TotalRequestLatency | TotalRequestLatency | Histogram | BucketName, FilterId | 
 
 ## AWS/SNS
@@ -4025,6 +4080,43 @@ The `AWS/SQS` namespace is published under the OpenTelemetry instrumentation sco
 | NumberOfMessagesReceived | NumberOfMessagesReceived | Sum | QueueName | 
 | NumberOfMessagesSent | NumberOfMessagesSent | Sum | QueueName | 
 | SentMessageSize | SentMessageSize | Histogram | QueueName | 
+
+## AWS/SWF
+<a name="otel-enrichment-ns-aws-swf"></a>
+
+The `AWS/SWF` namespace is published under the OpenTelemetry instrumentation scope `cloudwatch.aws/swf`. All enriched instruments use Delta temporality.
++ [`domain`](#otel-enrichment-aws-swf-domain)
+
+### `domain`
+<a name="otel-enrichment-aws-swf-domain"></a>
++ `cloud.resource_id` enrichment: Supported
++ `tag.*` enrichment: Not supported
+
+
+| Metric | OpenTelemetry metric | Instrument type | Data point attributes | 
+| --- | --- | --- | --- | 
+| ActivityTaskScheduleToCloseTime | ActivityTaskScheduleToCloseTime | Histogram | ActivityTypeName, ActivityTypeVersion, Domain | 
+| ActivityTaskScheduleToStartTime | ActivityTaskScheduleToStartTime | Histogram | ActivityTypeName, ActivityTypeVersion, Domain | 
+| ActivityTaskStartToCloseTime | ActivityTaskStartToCloseTime | Histogram | ActivityTypeName, ActivityTypeVersion, Domain | 
+| ActivityTasksCanceled | ActivityTasksCanceled | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| ActivityTasksCompleted | ActivityTasksCompleted | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| ActivityTasksFailed | ActivityTasksFailed | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| DecisionTaskScheduleToStartTime | DecisionTaskScheduleToStartTime | Histogram | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| DecisionTaskStartToCloseTime | DecisionTaskStartToCloseTime | Histogram | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| DecisionTasksCompleted | DecisionTasksCompleted | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| PendingTasks | PendingTasks | Sum | Domain, TaskListName | 
+| ScheduledActivityTasksTimedOutOnClose | ScheduledActivityTasksTimedOutOnClose | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| ScheduledActivityTasksTimedOutOnStart | ScheduledActivityTasksTimedOutOnStart | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| StartedActivityTasksTimedOutOnClose | StartedActivityTasksTimedOutOnClose | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| StartedActivityTasksTimedOutOnHeartbeat | StartedActivityTasksTimedOutOnHeartbeat | Sum | ActivityTypeName, ActivityTypeVersion, Domain | 
+| StartedDecisionTasksTimedOutOnClose | StartedDecisionTasksTimedOutOnClose | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowStartToCloseTime | WorkflowStartToCloseTime | Histogram | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowsCanceled | WorkflowsCanceled | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowsCompleted | WorkflowsCompleted | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowsContinuedAsNew | WorkflowsContinuedAsNew | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowsFailed | WorkflowsFailed | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowsTerminated | WorkflowsTerminated | Sum | Cause, Domain, WorkflowTypeName, WorkflowTypeVersion | 
+| WorkflowsTimedOut | WorkflowsTimedOut | Sum | Domain, WorkflowTypeName, WorkflowTypeVersion | 
 
 ## AWS/SageMaker
 <a name="otel-enrichment-ns-aws-sagemaker"></a>

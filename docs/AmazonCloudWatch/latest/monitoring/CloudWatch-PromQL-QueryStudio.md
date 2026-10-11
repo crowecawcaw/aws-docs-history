@@ -18,7 +18,16 @@ You can run PromQL queries programmatically using the CloudWatch API, or interac
 
 1. In the query editor tool, select **PromQL** from the drop-down menu.
 
-1. Use the **Builder** mode to browse and select metric names, labels, and aggregation functions.
+1. To build the query in **Builder** mode, do the following:
+
+   1. Select a metric name.
+
+   1. (Optional) Select one or more labels and values to filter the time series that the query returns.
+
+   1. (Optional) To aggregate the selected time series, choose the **More options** icon (three dots), and then choose **Add aggregation function**. Then choose a function such as `sum`, `avg`, `min`, or `max`.
+**Note**  
+An aggregation function applies to all of the time series that match your metric and label selection, and combines them into a single time series. Labels that you don't group by are removed from the result. To return one result per label value, such as one per host, group by that label.  
+The `min` and `max` functions operate only on float samples. They skip histogram samples, which are common for durations and latencies, so the query returns an empty result. To get a statistic from a histogram metric, use a histogram function such as `histogram_quantile` or `histogram_avg`. For more information, see [Querying histogram metrics](CloudWatch-PromQL-Querying.md#CloudWatch-PromQL-Querying-Histograms).
 
 1. Or enter your PromQL query through the **Editor** mode, for example `{"http.server.active_requests"}`.
 

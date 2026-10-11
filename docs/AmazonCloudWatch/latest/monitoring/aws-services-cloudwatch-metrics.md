@@ -133,7 +133,6 @@
 | AWS Network Manager | `AWS/NetworkManager` | [ CloudWatch metrics for on-premises resources](https://docs.aws.amazon.com/vpc/latest/tgwnm/cw-metrics-on-premises.html) | 
 | AWS HealthOmics | `AWS/Omics` | [ Monitoring AWS HealthOmics with Amazon CloudWatch](https://docs.aws.amazon.com/omics/latest/dev/monitoring-cloudwatch.html) | 
 | AWS Outposts | `AWS/Outposts` | [ CloudWatch metrics for AWS Outposts](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-cloudwatch-metrics.html) | 
-| AWS Panorama | `AWS/PanoramaDeviceMetrics` | [ Monitoring appliances and applications with Amazon CloudWatch](https://docs.aws.amazon.com/panorama/latest/dev/monitoring-metrics.html) | 
 | Amazon Personalize | `AWS/Personalize ` | [ CloudWatch metrics for Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/cloudwatch-metrics.html) | 
 | Amazon Pinpoint | `AWS/Pinpoint` | [ View Amazon Pinpoint metrics in CloudWatch](https://docs.aws.amazon.com/pinpoint/latest/userguide/monitoring-view-metrics.html) | 
 | Amazon Polly | `AWS/Polly` | [Integrating CloudWatch with Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/cloud-watch.html) | 

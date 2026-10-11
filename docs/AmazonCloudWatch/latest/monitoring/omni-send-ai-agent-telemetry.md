@@ -3,7 +3,7 @@
 # Send AI agent telemetry
 <a name="omni-send-ai-agent-telemetry"></a>
 
-Add OpenTelemetry tracing to an AI agent written in Python or Node.js with LangGraph, LangChain, Strands Agents, CrewAI, OpenAI Agents, LlamaIndex, or the Vercel AI SDK, then run it on Amazon Bedrock AgentCore, AWS Lambda, or on your own compute (Amazon EC2, Amazon ECS, or Amazon EKS) so that its traces reach CloudWatch. CloudWatch Omni reads the model calls, tool calls, and orchestration steps from those traces to analyze and evaluate the agent. On AgentCore, the runtime exports the traces for you; on other compute, the agent exports them directly, as shown in Step 2.
+Add OpenTelemetry tracing to an AI agent written in Python or Node.js with LangGraph, LangChain, Strands Agents, CrewAI, OpenAI Agents, or the Vercel AI SDK, then run it on Amazon Bedrock AgentCore, AWS Lambda, or on your own compute (Amazon EC2, Amazon ECS, or Amazon EKS) so that its traces reach CloudWatch. CloudWatch Omni reads the model calls, tool calls, and orchestration steps from those traces to analyze and evaluate the agent. On AgentCore, the runtime exports the traces for you; on other compute, the agent exports them directly, as shown in Step 2.
 
 If you are monitoring an application or service instead, see [Send application telemetry](omni-send-application-telemetry.md). For the endpoints and authentication that every path uses, see "Choose an endpoint" in [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 
@@ -164,26 +164,6 @@ pip install "aws-opentelemetry-distro>=0.20.0" openinference-instrumentation-cre
 + Set `CREWAI_DISABLE_TELEMETRY=true` where the agent runs.
 + `crewai` earlier than 1.10.1 emits no spans.
 
-## LlamaIndex
-<a name="omni-send-ai-agent-telemetry-llamaindex"></a>
-
-The LlamaIndex OpenInference instrumentor is Python only.
-
-```
-pip install "aws-opentelemetry-distro>=0.20.0" openinference-instrumentation-llama-index
-```
-
-**tracing.py**
-
-```
-from openinference.instrumentation.llama_index import LlamaIndexInstrumentor
-
-LlamaIndexInstrumentor().instrument()
-```
-+ The distribution does not discover this instrumentor at startup, so the dependency alone produces no framework spans. Call `LlamaIndexInstrumentor().instrument()` in startup code, before the agent is built. With no argument it attaches to the distribution's global tracer provider; do not create another provider or exporter.
-+ Requires `llama-index-core` 0.10.5 or later; the `FunctionAgent` and `AgentWorkflow` APIs require 0.12 or later.
-+ The `FunctionAgent` and `AgentWorkflow` workflow spans carry the `CHAIN` span kind, not `AGENT`; the model spans use `llm.*` attributes.
-
 ## OpenAI Agents
 <a name="omni-send-ai-agent-telemetry-openai-agents"></a>
 
@@ -307,9 +287,9 @@ Sampling determines which traces are recorded and exported.
 
 For the complete list of supported sampler configurations, see [https://opentelemetry.io/docs/languages/sdk-configuration/general/\#otel\_traces\_sampler](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler).
 
-We recommend leaving `OTEL_TRACES_SAMPLER` unset. When your agent is the **instrumented root service** — it has no instrumented upstream caller — 100 percent of incoming traffic is captured as traces, so span-derived metrics such as token usage are recorded accurately.
+We recommend leaving `OTEL_TRACES_SAMPLER` unset. By default, the distribution traces every request that starts at your agent. When a request comes from another traced service, your agent follows that service's decision. Tracing every request keeps metrics that are calculated from spans, such as token usage, accurate.
 
-You can record fewer traces to match your traffic and telemetry requirements, at the cost of incomplete or inaccurate agent metrics. Sampling is configured on the **instrumented root service**. For example, if your hosted agent is the root service, you can configure ratio-based sampling:
+You can record fewer traces to match your traffic and telemetry requirements, at the cost of incomplete or inaccurate agent metrics. Set the sampler on the service where requests start. For example, if requests start at your hosted agent, you can configure ratio-based sampling:
 
 ```
 export OTEL_TRACES_SAMPLER=parentbased_traceidratio

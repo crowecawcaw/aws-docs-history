@@ -92,7 +92,7 @@ Use the following procedure to create a centralization rule that centralizes met
       + **Editor**: A free-form text box to provide the source selection criteria
 
       Supported syntax for source selection criteria:
-      + **Supported Keys:**`OrganizationId` \| `OrganizationUnitId` \| `AccountId` \| `*`
+      + **Supported Keys:**`OrganizationId` \| `OrganizationalUnitId` \| `AccountId` \| `*`
       + **Supported Operators:**`=` \| `IN` \| `OR`
 
    1. **Source regions**: Select a list of Regions to look for the metric data to centralize.

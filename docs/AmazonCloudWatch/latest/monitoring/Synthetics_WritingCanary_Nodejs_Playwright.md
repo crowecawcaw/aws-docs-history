@@ -145,7 +145,7 @@ exports.handler = async (event) => {
 ## CloudWatch Synthetics configurations
 <a name="Synthetics_canary_configure_Playwright_script"></a>
 
-You can configure the behavior of the Synthetics Playwright runtime by providing an optional JSON configuration file named `synthetics.json`. This file should be packaged in the same location as the handler file. Though a configuration file is optional, f you don't provide a configuration file, or a configuration key is missing, CloudWatch assumes defaults.
+You can configure the behavior of the Synthetics Playwright runtime by providing an optional JSON configuration file named `synthetics.json`. This file should be packaged in the same location as the handler file. Though a configuration file is optional, if you don't provide a configuration file, or a configuration key is missing, CloudWatch assumes defaults.
 
  **Packaging your configuration file** 
 

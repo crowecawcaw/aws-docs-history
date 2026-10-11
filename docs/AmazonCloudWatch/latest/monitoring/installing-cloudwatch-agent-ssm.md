@@ -12,7 +12,7 @@
 + [Download the CloudWatch agent package to your first instance](#install-CloudWatch-Agent-EC2-first)
 + [Create and modify the agent configuration file](#CW-Agent-Instance-Create-Configuration-File-first)
 + [Install and start the CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet)
-+ [Install the CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet)
++ [Install the CloudWatch agent on additional EC2 instances using your agent configuration](#install-CloudWatch-Agent-on-EC2-Instance-fleet-ssm)
 + [(Optional) Modify the common configuration and named profile for CloudWatch agent](#CloudWatch-Agent-profile-instance-fleet)
 
 ## Install or update the SSM Agent
@@ -108,7 +108,7 @@ Following is an example of using the `aws configure` command to create a named p
   ```
 
 ## Install the CloudWatch agent on additional EC2 instances using your agent configuration
-<a name="install-CloudWatch-Agent-on-EC2-Instance-fleet"></a>
+<a name="install-CloudWatch-Agent-on-EC2-Instance-fleet-ssm"></a>
 
 After you have a CloudWatch agent configuration saved in Parameter Store, you can use it when you install the agent on other servers.
 

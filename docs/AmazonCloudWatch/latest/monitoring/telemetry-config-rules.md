@@ -347,3 +347,10 @@ When enabling Bedrock Knowledge Base telemetry:
 + Supports the TRACES telemetry type.
 + For LOGS, supports only CloudWatch Logs as the destination type.
 + CloudWatch does not enable log deliveries for Bedrock Knowledge Bases that already are ingesting the specified log types to CloudWatch Logs
+
+**Amazon Bedrock AgentCore Payment Manager**  
+When enabling Bedrock AgentCore Payment Manager telemetry:  
++ Supports the LOGS telemetry type with log type `APPLICATION_LOGS`. Payment Manager does not support `USAGE_LOGS`.
++ Supports the TRACES telemetry type.
++ For LOGS, supports only CloudWatch Logs as the destination type.
++ CloudWatch does not enable log deliveries for payment managers that already are ingesting the specified log types to CloudWatch Logs
