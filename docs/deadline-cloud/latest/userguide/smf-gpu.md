@@ -24,8 +24,5 @@ The available GPU accelerators are:
 You can choose from the following runtime drivers:
 + `Latest` - Use the latest runtime available for the chip. If you specify `latest` and a new version of the runtime is released, the new version of the runtime is used.
 + `grid:r580` - [NVIDIA vGPU software 19](https://docs.nvidia.com/vgpu/19.0/index.html) on the NVIDIA website (Long-Term Support).
-+ `grid:r570` - [NVIDIA vGPU software 18](https://docs.nvidia.com/vgpu/18.0/index.html) on the NVIDIA website. Scheduled for removal on July 12, 2026.
-+ `grid:r535` - [NVIDIA vGPU software 16](https://docs.nvidia.com/vgpu/16.0/index.html) on the NVIDIA website (Long-Term Support). Scheduled for removal on August 5, 2026.
-+ `grid:r550` (deprecated) - [NVIDIA vGPU software 17](https://docs.nvidia.com/vgpu/17.0/index.html) on the NVIDIA website.
 
 Deadline Cloud uses `latest` as the default runtime driver for all accelerators. If you specify a runtime driver for some accelerators, you must specify one for all of them. Mixing explicit values with blank values returns an error.
