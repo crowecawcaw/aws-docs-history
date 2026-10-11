@@ -62,3 +62,13 @@ For more information about how the CloudWatch service handles alarms and details
 An example of a completed alarm template could have the following parameters: A MediaConnect flow **Target Resource Type** is monitored for the Disconnections **Metric Name**. The **Statistic** value is set to Sum with a **Comparison Operator** of "greater than or equal to" and a **Threshold** of 10. The **Period** is set to 60 seconds, and only requires 1 out of 1 **Datapoints**. **Treat Missing Data** is set to "ignore." 
 
 The result of these settings is: workflow monitor will monitor for disconnections on the flow. If 10 or more disconnections occur within 60 seconds, the alarm will be triggered. 10 or more disconnections in 60 seconds only needs to happen one time for the alarm to be triggered. 
+
+**Note**  
+For alarm templates that target an AWS Elemental Inference (Elemental Inference) feed, set **Treat Missing Data** to `notBreaching`. This setting applies to the following metrics:  
+`GetMetadataRequestCount`
+`ProcessingFaultCount`
+`PutMediaRequestCount`
+These alarms monitor error data, which Elemental Inference publishes only when a failure occurs. A healthy feed has no data points for these alarms.  
+For each request count template, you get two alarms:  
+A 4xx alarm, which indicates a configuration problem, such as a feed with no enabled outputs.
+A 5xx alarm, which indicates an Elemental Inference service fault.

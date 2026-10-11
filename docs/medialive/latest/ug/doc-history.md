@@ -8,6 +8,7 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
 | [Manual style-control option for TTML and WebVTT captions](support-for-font-styles-in-output-captions.md) | TTML and WebVTT output captions now support a Manual style-control option. With this option, you can manually configure the output captions. Currently, only the vertical position (Y position) is supported; all other settings use default values. | September 9, 2026 | 
 | [Dynamic Multiview](dynamic-multiview.md) | The guide now includes a section for Dynamic Multiview. The section describes how to configure MediaLive outputs so that AWS Elemental MediaPackage can dynamically combine several live feeds into one video stream, including the encoding constraints that apply and how MediaLive adds borders to the participating encodes. | September 9, 2026 | 
 | [A/B forensic video watermarking](feature-ab-watermark.md) | The guide now includes information about configuring A/B forensic video watermarking for CMAF Ingest and MediaPackage v2 output groups. | July 27, 2026 | 
