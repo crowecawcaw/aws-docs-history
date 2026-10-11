@@ -11,8 +11,8 @@ This guide provides security configuration requirements and implementation examp
 
 |  |  | 
 | --- |--- |
-| Version | 1.0.0 | 
-| Last Updated | 2026-09-02 | 
+| Version | 1.0.1 | 
+| Last Updated | 2026-10-07 | 
 | Documentation URL | https://docs.aws.amazon.com/directoryservice/ | 
 
 ## Overview
@@ -496,6 +496,15 @@ aws ds create-log-subscription \
 ```
 
  **Control Mapping:** AU-2 (Audit Events)
+
+## Machine-Readable Guidance (OSCAL)
+<a name="aws_directory_service_machine_readable_guidance_oscal"></a>
+
+This guidance is also available in the Open Security Controls Assessment Language (OSCAL), the NIST standard machine-readable format. You can ingest OSCAL into your compliance tooling and compare it against your current settings. The component definition describes how the service implements security controls, and the system security plan (SSP) documents the overall security posture.
++  [Download the AWS Directory Service OSCAL Component Definition (JSON)](samples/aws-directory-service_oscal_component-definition.json) 
++  [Download the AWS Directory Service OSCAL System Security Plan (JSON)](samples/aws-directory-service_oscal_ssp.json) 
+
+The complete bundle of all service and administrative guidance is available on the [guidance overview](introduction.html) and [administrative guidance](admin-guidance-introduction.html) pages.
 
 ## Additional Resources
 <a name="aws_directory_service_additional_resources"></a>

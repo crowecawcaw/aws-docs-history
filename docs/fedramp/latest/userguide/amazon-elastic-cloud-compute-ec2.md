@@ -11,8 +11,8 @@ This guide provides security configuration requirements and implementation examp
 
 |  |  | 
 | --- |--- |
-| Version | 1.0.2 | 
-| Last Updated | 2026-03-26 | 
+| Version | 1.0.3 | 
+| Last Updated | 2026-10-07 | 
 | Documentation URL | https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2\_GetStarted.html | 
 
 ## Overview
@@ -438,11 +438,11 @@ Choose the appropriate policy based on your role:
  **Testing this policy:** 
 
 ```
-# Verify access works
-aws elastic-cloud-compute-ec2 describe-* / list-*
+# Verify read access works
+aws ec2 describe-instances
 
-# Verify restricted access is denied (should fail)
-aws elastic-cloud-compute-ec2 create-* / delete-*
+# Verify write access is denied (should fail)
+aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 ```
 
  **Policy JSON:** 
@@ -471,22 +471,22 @@ aws elastic-cloud-compute-ec2 create-* / delete-*
 
  **Grants access to:** 
 + All read-only permissions
-+ Create and modify resources
-+ Perform operational tasks
++ Start, stop, and reboot instances
++ Perform routine operational tasks
 
  **Does NOT grant:** 
-+ Delete critical resources
++ Terminate instances or create/delete resources
 + Change security configurations
 + Manage access policies
 
  **Testing this policy:** 
 
 ```
-# Verify access works
-aws elastic-cloud-compute-ec2 create-* / update-*
+# Verify operator access works (requires MFA)
+aws ec2 stop-instances --instance-ids i-0123456789abcdef0
 
-# Verify restricted access is denied (should fail)
-aws elastic-cloud-compute-ec2 delete-* / put-*-policy
+# Verify admin access is denied (should fail)
+aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 ```
 
  **Policy JSON:** 
@@ -533,8 +533,9 @@ aws elastic-cloud-compute-ec2 delete-* / put-*-policy
  **Testing this policy:** 
 
 ```
-# Verify access works
-aws elastic-cloud-compute-ec2 * (all operations)
+# Verify full admin access works (requires MFA)
+aws ec2 run-instances --image-id ami-0123456789abcdef0 --instance-type t3.micro
+aws ec2 terminate-instances --instance-ids i-0123456789abcdef0
 ```
 
  **Policy JSON:** 
@@ -782,6 +783,15 @@ aws ec2 run-instances --image-id <AMI-id> --instance-type <type> --key-name <key
 + Implement just-in-time access for administrative operations
 + Monitor policy usage with CloudTrail and Access Analyzer
 + Document business justification for each permission
+
+## Machine-Readable Guidance (OSCAL)
+<a name="amazon_elastic_compute_cloud_ec2_machine_readable_guidance_oscal"></a>
+
+This guidance is also available in the Open Security Controls Assessment Language (OSCAL), the NIST standard machine-readable format. You can ingest OSCAL into your compliance tooling and compare it against your current settings. The component definition describes how the service implements security controls, and the system security plan (SSP) documents the overall security posture.
++  [Download the Amazon EC2 OSCAL Component Definition (JSON)](samples/amazon-elastic-cloud-compute-ec2_oscal_component-definition.json) 
++  [Download the Amazon EC2 OSCAL System Security Plan (JSON)](samples/amazon-elastic-cloud-compute-ec2_oscal_ssp.json) 
+
+The complete bundle of all service and administrative guidance is available on the [guidance overview](introduction.html) and [administrative guidance](admin-guidance-introduction.html) pages.
 
 ## Additional Resources
 <a name="amazon_elastic_compute_cloud_ec2_additional_resources"></a>

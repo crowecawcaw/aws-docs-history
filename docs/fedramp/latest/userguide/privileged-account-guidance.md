@@ -304,8 +304,8 @@ aws organizations create-policy \
         "Condition": {
           "StringNotEquals": {
             "aws:PrincipalArn": [
-              "arn:aws:iam:*:role/SecurityAdministratorRole",
-              "arn:aws:iam:*:role/EmergencyAccessRole"
+              "arn:aws:iam::*:role/SecurityAdministratorRole",
+              "arn:aws:iam::*:role/EmergencyAccessRole"
             ]
           }
         }
@@ -346,7 +346,7 @@ aws iam create-role \
       {
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:TRUSTED-ACCOUNT-ID:root"
+          "AWS": "arn:aws:iam::TRUSTED-ACCOUNT-ID:root"
         },
         "Action": "sts:AssumeRole",
         "Condition": {
@@ -399,7 +399,7 @@ aws kms create-key \
         "Sid": "KeyAdministration",
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:ACCOUNT-ID:role/KMSAdministratorRole"
+          "AWS": "arn:aws:iam::ACCOUNT-ID:role/KMSAdministratorRole"
         },
         "Action": [
           "kms:Create*",
@@ -496,8 +496,8 @@ aws s3api put-bucket-policy \
         "Principal": "*",
         "Action": "s3:*",
         "Resource": [
-          "arn:aws:s3::secure-data-bucket",
-          "arn:aws:s3::secure-data-bucket/*"
+          "arn:aws:s3:::secure-data-bucket",
+          "arn:aws:s3:::secure-data-bucket/*"
         ],
         "Condition": {
           "Bool": {
@@ -509,12 +509,12 @@ aws s3api put-bucket-policy \
         "Sid": "AllowPrivilegedAccess",
         "Effect": "Allow",
         "Principal": {
-          "AWS": "arn:aws:iam:ACCOUNT-ID:role/S3AdministratorRole"
+          "AWS": "arn:aws:iam::ACCOUNT-ID:role/S3AdministratorRole"
         },
         "Action": "s3:*",
         "Resource": [
-          "arn:aws:s3::secure-data-bucket",
-          "arn:aws:s3::secure-data-bucket/*"
+          "arn:aws:s3:::secure-data-bucket",
+          "arn:aws:s3:::secure-data-bucket/*"
         ]
       }
     ]
@@ -547,7 +547,7 @@ This subsection covers emergency access procedures for critical incidents requir
 
 ```
 aws sts assume-role \
-  --role-arn "arn:aws:iam:ACCOUNT-ID:role/EmergencyAccessRole" \
+  --role-arn "arn:aws:iam::ACCOUNT-ID:role/EmergencyAccessRole" \
   --role-session-name "emergency-$(date +%Y%m%d-%H%M%S)" \
   --duration-seconds 7200
 ```

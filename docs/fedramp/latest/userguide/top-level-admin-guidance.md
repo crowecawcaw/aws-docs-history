@@ -622,7 +622,7 @@ This section details how to activate emergency access to administrative accounts
 ```
 # Assume emergency access role (pre-configured)
 aws sts assume-role \
-    --role-arn "arn:aws:iam:ACCOUNT-ID:role/EmergencyAccessRole" \
+    --role-arn "arn:aws:iam::ACCOUNT-ID:role/EmergencyAccessRole" \
     --role-session-name "emergency-$(date +%Y%m%d-%H%M%S)"
 ```
 

@@ -9,3 +9,10 @@ This page provides guidance for AWS top-level administrative accounts aligned wi
 <a name="admin_introductionabout_fedramp_rev5_scg_administrative_guidance_from_aws"></a>
 
 For the most up-to-date account features and security configurations, always review the AWS Documentation page for the AWS service. These guidances are updated on a routine basis but the AWS services documentation pages are the source of truth for the most up-to-date information on standard service features.
+
+### Export & Automate
+<a name="admin_introductionexport_automate"></a>
+
+Each page has a corresponding OSCAL document to provide guidance in machine-readable format. Download the AWS Secure Configuration Guide (SCG) OSCAL files bundle to integrate with your compliance automation tools. This single file contains all administrative and service guidance documents.
+
+ [Download the OSCAL files bundle (ZIP)](samples/FRR-RSC.zip) 

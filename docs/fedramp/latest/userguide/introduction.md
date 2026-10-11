@@ -48,7 +48,7 @@ FedRAMP Revision 5 introduces Secure Configuration Guide requirements that cloud
 | SCG-ENH-CMP | Comparison Capability Providers SHOULD offer the capability to compare all current settings for top-level administrative accounts and privileged accounts to the recommended secure defaults. | Leverage AWS Config | 
 | SCG-ENH-EXP | Export Capability Providers SHOULD offer the capability to export all security settings in a machine-readable format. | OSCAL Formats will be available in the future | 
 | SCG-ENH-API | API Capability Providers SHOULD offer the capability to view and adjust security settings via an API or similar capability. | AWS provides API access to AWS services | 
-| SCG-ENH-MRG | Machine-Readable Guidance Providers SHOULD also provide the Secure Configuration Guide in a machine-readable format that can be used by customers or third-party tools to compare against current settings. | AWS Will provide OSCAL formatted guides | 
+| SCG-ENH-MRG | Machine-Readable Guidance Providers SHOULD also provide the Secure Configuration Guide in a machine-readable format that can be used by customers or third-party tools to compare against current settings. | AWS provides OSCAL-formatted guides, available for download on each service page and as a complete bundle | 
 | SCG-ENH-VRH | Versioning and Release History Providers SHOULD provide versioning and a release history for recommended secure default settings for top-level administrative accounts and privileged accounts as they are adjusted over time | Each guide includes versioning details | 
 
 ## Get Started
@@ -57,4 +57,11 @@ FedRAMP Revision 5 introduces Secure Configuration Guide requirements that cloud
 ### Review & Implement Guidance
 <a name="_review_implement_guidance"></a>
 
-Explore security configuration guidance for administrative accounts and all avaialble AWS services. Use the examples provided to help implement security configurations of your AWS accounts and AWS services.
+Explore security configuration guidance for administrative accounts and all available AWS services. Use the examples provided to help implement security configurations of your AWS accounts and AWS services.
+
+### Export & Automate
+<a name="_export_automate"></a>
+
+Download OSCAL files to integrate with your compliance automation tools for continued usage
+
+ [Download the OSCAL files bundle (ZIP)](samples/FRR-RSC.zip) 

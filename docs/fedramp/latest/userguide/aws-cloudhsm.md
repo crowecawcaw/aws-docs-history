@@ -11,8 +11,8 @@ This guide provides security configuration requirements and implementation examp
 
 |  |  | 
 | --- |--- |
-| Version | 1.0.0 | 
-| Last Updated | 2026-09-02 | 
+| Version | 1.0.1 | 
+| Last Updated | 2026-10-07 | 
 | Documentation URL | https://docs.aws.amazon.com/cloudhsm/latest/userguide/ | 
 
 ## Overview
@@ -484,6 +484,15 @@ aws cloudhsmv2 copy-backup-to-region \
 ```
 
  **Control Mapping:** CP-9 (Information System Backup)
+
+## Machine-Readable Guidance (OSCAL)
+<a name="aws_cloudhsm_machine_readable_guidance_oscal"></a>
+
+This guidance is also available in the Open Security Controls Assessment Language (OSCAL), the NIST standard machine-readable format. You can ingest OSCAL into your compliance tooling and compare it against your current settings. The component definition describes how the service implements security controls, and the system security plan (SSP) documents the overall security posture.
++  [Download the AWS CloudHSM OSCAL Component Definition (JSON)](samples/aws-cloudhsm_oscal_component-definition.json) 
++  [Download the AWS CloudHSM OSCAL System Security Plan (JSON)](samples/aws-cloudhsm_oscal_ssp.json) 
+
+The complete bundle of all service and administrative guidance is available on the [guidance overview](introduction.html) and [administrative guidance](admin-guidance-introduction.html) pages.
 
 ## Additional Resources
 <a name="aws_cloudhsm_additional_resources"></a>

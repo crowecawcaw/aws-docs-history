@@ -1,9 +1,9 @@
 
 
-# Amazon Documentdb With Mongodb Compatibility
+# Amazon DocumentDB (with MongoDB compatibility)
 <a name="amazon-documentdb-with-mongodb-compatibility"></a>
 
-This guide provides security configuration requirements and implementation examples for Amazon Documentdb With Mongodb Compatibility in accordance with FedRAMP requirements.
+This guide provides security configuration requirements and implementation examples for Amazon DocumentDB (with MongoDB compatibility) in accordance with FedRAMP requirements.
 
 ## Document Information
 <a name="amazon_documentdb_with_mongodb_compatibility_document_information"></a>
@@ -11,9 +11,9 @@ This guide provides security configuration requirements and implementation examp
 
 |  |  | 
 | --- |--- |
-| Version | 1.0.2 | 
-| Last Updated | 2026-03-26 | 
-| Documentation URL | https://docs.aws.amazon.com/ | 
+| Version | 1.0.3 | 
+| Last Updated | 2026-10-07 | 
+| Documentation URL | https://docs.aws.amazon.com/documentdb/latest/developerguide/ | 
 
 ## Overview
 <a name="amazon_documentdb_with_mongodb_compatibility_overview"></a>
@@ -105,9 +105,9 @@ Amazon DocumentDB administrative access is managed through the master user accou
          {
            "Effect": "Allow",
            "Action": [
-             "docdb:CreateDBCluster",
-             "docdb:ModifyDBCluster",
-             "docdb:DescribeDBClusters"
+             "rds:CreateDBCluster",
+             "rds:ModifyDBCluster",
+             "rds:DescribeDBClusters"
            ],
            "Resource": "*",
            "Condition": {
@@ -404,11 +404,11 @@ Choose the appropriate policy based on your role:
  **Testing this policy:** 
 
 ```
-# Verify access works
-aws documentdb-with-mongodb-compatibility describe-* / list-*
+# Verify read access works
+aws docdb describe-db-clusters
 
-# Verify restricted access is denied (should fail)
-aws documentdb-with-mongodb-compatibility create-* / delete-*
+# Verify write access is denied (should fail)
+aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster
 ```
 
  **Policy JSON:** 
@@ -420,8 +420,8 @@ aws documentdb-with-mongodb-compatibility create-* / delete-*
     {
       "Effect": "Allow",
       "Action": [
-        "docdb:Describe*",
-        "docdb:List*"
+        "rds:Describe*",
+        "rds:List*"
       ],
       "Resource": "*"
     }
@@ -436,22 +436,22 @@ aws documentdb-with-mongodb-compatibility create-* / delete-*
 
  **Grants access to:** 
 + All read-only permissions
-+ Create and modify resources
-+ Perform operational tasks
++ Modify DB clusters and instances; reboot instances
++ Create and delete manual cluster snapshots
 
  **Does NOT grant:** 
-+ Delete critical resources
++ Create or delete DB clusters/instances
 + Change security configurations
 + Manage access policies
 
  **Testing this policy:** 
 
 ```
-# Verify access works
-aws documentdb-with-mongodb-compatibility create-* / update-*
+# Verify operator access works (requires MFA)
+aws docdb modify-db-cluster --db-cluster-identifier my-docdb-cluster --apply-immediately
 
-# Verify restricted access is denied (should fail)
-aws documentdb-with-mongodb-compatibility delete-* / put-*-policy
+# Verify admin access is denied (should fail)
+aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster
 ```
 
  **Policy JSON:** 
@@ -463,13 +463,13 @@ aws documentdb-with-mongodb-compatibility delete-* / put-*-policy
     {
       "Effect": "Allow",
       "Action": [
-        "docdb:Describe*",
-        "docdb:List*",
-        "docdb:ModifyDBCluster",
-        "docdb:ModifyDBInstance",
-        "docdb:RebootDBInstance",
-        "docdb:CreateDBClusterSnapshot",
-        "docdb:DeleteDBClusterSnapshot"
+        "rds:Describe*",
+        "rds:List*",
+        "rds:ModifyDBCluster",
+        "rds:ModifyDBInstance",
+        "rds:RebootDBInstance",
+        "rds:CreateDBClusterSnapshot",
+        "rds:DeleteDBClusterSnapshot"
       ],
       "Resource": "*",
       "Condition": {
@@ -499,8 +499,9 @@ aws documentdb-with-mongodb-compatibility delete-* / put-*-policy
  **Testing this policy:** 
 
 ```
-# Verify access works
-aws documentdb-with-mongodb-compatibility * (all operations)
+# Verify full admin access works (requires MFA)
+aws docdb create-db-cluster --db-cluster-identifier my-docdb-cluster --engine docdb
+aws docdb delete-db-cluster --db-cluster-identifier my-docdb-cluster --skip-final-snapshot
 ```
 
  **Policy JSON:** 
@@ -511,7 +512,18 @@ aws documentdb-with-mongodb-compatibility * (all operations)
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": "docdb:*",
+      "Action": [
+        "rds:Describe*",
+        "rds:List*",
+        "rds:CreateDBCluster",
+        "rds:DeleteDBCluster",
+        "rds:ModifyDBCluster",
+        "rds:CreateDBInstance",
+        "rds:ModifyDBInstance",
+        "rds:RebootDBInstance",
+        "rds:CreateDBClusterSnapshot",
+        "rds:DeleteDBClusterSnapshot"
+      ],
       "Resource": "*",
       "Condition": {
         "Bool": {
@@ -661,14 +673,14 @@ Amazon DocumentDB requires implementation of privileged account security control
        {
          "Effect": "Allow",
          "Action": [
-           "docdb:CreateDBCluster",
-           "docdb:ModifyDBCluster",
-           "docdb:DescribeDBClusters",
-           "docdb:CreateDBInstance",
-           "docdb:ModifyDBInstance",
-           "docdb:DescribeDBInstances",
-           "docdb:CreateDBClusterSnapshot",
-           "docdb:DescribeDBClusterSnapshots"
+           "rds:CreateDBCluster",
+           "rds:ModifyDBCluster",
+           "rds:DescribeDBClusters",
+           "rds:CreateDBInstance",
+           "rds:ModifyDBInstance",
+           "rds:DescribeDBInstances",
+           "rds:CreateDBClusterSnapshot",
+           "rds:DescribeDBClusterSnapshots"
          ],
          "Resource": "*",
          "Condition": {
@@ -703,7 +715,7 @@ Amazon DocumentDB requires implementation of privileged account security control
    # Verify MFA enforcement for privileged operations
    aws iam simulate-principal-policy \
      --policy-source-arn arn:aws:iam::account:role/DocumentDBAdminRole \
-     --action-names docdb:CreateDBCluster \
+     --action-names rds:CreateDBCluster \
      --context-entries ContextKeyName=aws:MultiFactorAuthPresent,ContextKeyValues=false,ContextKeyType=boolean
    ```
 
@@ -798,6 +810,15 @@ Configure via IAM policies for Amazon Documentdb With Mongodb Compatibility
 + Use time-based conditions to limit session duration
 + Implement resource-based restrictions where possible
 + Regular review and rotation of access permissions
+
+## Machine-Readable Guidance (OSCAL)
+<a name="amazon_documentdb_with_mongodb_compatibility_machine_readable_guidance_oscal"></a>
+
+This guidance is also available in the Open Security Controls Assessment Language (OSCAL), the NIST standard machine-readable format. You can ingest OSCAL into your compliance tooling and compare it against your current settings. The component definition describes how the service implements security controls, and the system security plan (SSP) documents the overall security posture.
++  [Download the Amazon DocumentDB OSCAL Component Definition (JSON)](samples/amazon-documentdb-with-mongodb-compatibility_oscal_component-definition.json) 
++  [Download the Amazon DocumentDB OSCAL System Security Plan (JSON)](samples/amazon-documentdb-with-mongodb-compatibility_oscal_ssp.json) 
+
+The complete bundle of all service and administrative guidance is available on the [guidance overview](introduction.html) and [administrative guidance](admin-guidance-introduction.html) pages.
 
 ## Additional Resources
 <a name="amazon_documentdb_with_mongodb_compatibility_additional_resources"></a>

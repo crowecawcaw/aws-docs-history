@@ -11,8 +11,8 @@ This guide provides security configuration requirements and implementation examp
 
 |  |  | 
 | --- |--- |
-| Version | 1.0.2 | 
-| Last Updated | 2026-03-26 | 
+| Version | 1.0.3 | 
+| Last Updated | 2026-10-07 | 
 | Documentation URL | https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP\_GettingStarted.html | 
 
 ## Overview
@@ -957,6 +957,15 @@ aws rds modify-db-instance \
 + Monitor policy usage with CloudTrail and Access Analyzer
 + Document business justification for each permission granted
 + Implement automated policy compliance checking and drift detection
+
+## Machine-Readable Guidance (OSCAL)
+<a name="amazon_rds_machine_readable_guidance_oscal"></a>
+
+This guidance is also available in the Open Security Controls Assessment Language (OSCAL), the NIST standard machine-readable format. You can ingest OSCAL into your compliance tooling and compare it against your current settings. The component definition describes how the service implements security controls, and the system security plan (SSP) documents the overall security posture.
++  [Download the Amazon RDS OSCAL Component Definition (JSON)](samples/amazon-rds_oscal_component-definition.json) 
++  [Download the Amazon RDS OSCAL System Security Plan (JSON)](samples/amazon-rds_oscal_ssp.json) 
+
+The complete bundle of all service and administrative guidance is available on the [guidance overview](introduction.html) and [administrative guidance](admin-guidance-introduction.html) pages.
 
 ## Additional Resources
 <a name="amazon_rds_additional_resources"></a>

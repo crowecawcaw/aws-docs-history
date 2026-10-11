@@ -397,8 +397,8 @@ aws s3api get-bucket-versioning --bucket BUCKET-NAME
       "Principal": "*",
       "Action": "s3:*",
       "Resource": [
-        "arn:aws:s3::bucket-name",
-        "arn:aws:s3::bucket-name/*"
+        "arn:aws:s3:::bucket-name",
+        "arn:aws:s3:::bucket-name/*"
       ]
     }
   ]
@@ -420,17 +420,17 @@ aws iam create-role \
   "Version": "2012-10-17",		 	 	 
   "Statement": [{
     "Effect": "Allow",
-    "Principal": {"AWS": "arn:aws:iam:MANAGEMENT-ACCOUNT-ID:user/USERNAME"},
+    "Principal": {"AWS": "arn:aws:iam::MANAGEMENT-ACCOUNT-ID:user/USERNAME"},
     "Action": "sts:AssumeRole"
   }]
 }'
 
 aws iam attach-role-policy \
 --role-name S3BucketPolicyRemovalRole \
---policy-arn arn:aws:iam:aws:policy/AmazonS3FullAccess
+--policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
 
 aws sts assume-role \
---role-arn arn:aws:iam:TARGET-ACCOUNT-ID:role/S3BucketPolicyRemovalRole \
+--role-arn arn:aws:iam::TARGET-ACCOUNT-ID:role/S3BucketPolicyRemovalRole \
 --role-session-name s3-policy-removal-session
 ```
 

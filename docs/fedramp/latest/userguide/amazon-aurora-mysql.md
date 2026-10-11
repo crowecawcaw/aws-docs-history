@@ -11,8 +11,8 @@ This guide provides security configuration requirements and implementation examp
 
 |  |  | 
 | --- |--- |
-| Version | 1.0.2 | 
-| Last Updated | 2026-03-26 | 
+| Version | 1.0.3 | 
+| Last Updated | 2026-10-07 | 
 | Documentation URL | https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.html | 
 
 ## Overview
@@ -610,6 +610,15 @@ Configure via AWS RDS APIs for Aurora MySQL cluster management
 + Use time-based conditions to limit session duration
 + Implement resource-based restrictions where possible
 + Regular review and rotation of access permissions
+
+## Machine-Readable Guidance (OSCAL)
+<a name="amazon_aurora_mysql_machine_readable_guidance_oscal"></a>
+
+This guidance is also available in the Open Security Controls Assessment Language (OSCAL), the NIST standard machine-readable format. You can ingest OSCAL into your compliance tooling and compare it against your current settings. The component definition describes how the service implements security controls, and the system security plan (SSP) documents the overall security posture.
++  [Download the Amazon Aurora MySQL OSCAL Component Definition (JSON)](samples/amazon-aurora-mysql_oscal_component-definition.json) 
++  [Download the Amazon Aurora MySQL OSCAL System Security Plan (JSON)](samples/amazon-aurora-mysql_oscal_ssp.json) 
+
+The complete bundle of all service and administrative guidance is available on the [guidance overview](introduction.html) and [administrative guidance](admin-guidance-introduction.html) pages.
 
 ## Additional Resources
 <a name="amazon_aurora_mysql_additional_resources"></a>
