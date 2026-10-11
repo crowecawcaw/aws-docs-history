@@ -6,9 +6,9 @@
 ElastiCache and CloudWatch are integrated so you can gather a variety of metrics. You can monitor these metrics using CloudWatch. 
 
 **Note**  
-The following examples require the CloudWatch command line tools. For more information about CloudWatch and to download the developer tools, see the [ CloudWatch product page](https://aws.amazon.com/cloudwatch). 
+The following command line examples use the AWS Command Line Interface (AWS CLI). For more information, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html).
 
-The following procedures show you how to use CloudWatch to gather storage space statistics for an cluster for the past hour. 
+The following procedures show you how to use CloudWatch to gather CPU utilization statistics for a cluster. 
 
 **Note**  
 The `StartTime` and `EndTime` values supplied in the examples below are for illustrative purposes. You must substitute appropriate start and end time values for your cache nodes.
@@ -18,29 +18,31 @@ For information on ElastiCache limits, see [AWS Service Limits](https://docs.aws
 ## Monitoring CloudWatch Cluster and Node Metrics (Console)
 <a name="CloudWatchMetrics.CON"></a>
 
- **To gather CPU utilization statistics for a cache cluster** 
+ **To view metrics for the nodes in a cluster** 
 
 1. Sign in to the AWS Management Console and open the ElastiCache console at [ https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/).
 
-1. Select the cache nodes you want to view metrics for. 
+1. From the navigation pane, choose **Valkey caches**, **Redis OSS caches**, or **Memcached caches**, depending on the engine of your cluster.
+
+1. Choose your cluster.
+
+1. Choose the **Metrics** tab.
+
+   The charts show the metrics for the nodes in the cluster. For a Valkey cluster with more than 16 nodes, the charts show the first 16 nodes by default.
 **Note**  
-Selecting more than 20 nodes disables viewing metrics on the console.
+The **Metrics** tab charts up to 16 nodes at a time.
 
-   1. On the **Cache Clusters** page of the AWS Management Console, click the name of one or more clusters.
+1. (Valkey only, optional) To choose which nodes to chart, use the **Node ID** or **Shard ID** filter.
 
-      The detail page for the cluster appears. 
+   If the filter matches more than 16 nodes, the console shows **Cannot select more than 16 nodes**. To see other nodes, change the filter, for example, to `Shard ID = 0003`.
 
-   1. Click the **Nodes** tab at the top of the window.
+1. (Redis OSS and Memcached only) To choose which nodes to chart, choose **Compare nodes**, and then select the nodes.
 
-   1. On the **Nodes** tab of the detail window, select the cache nodes that you want to view metrics for.
+   For a cluster with more than 16 nodes, the charts show no metrics until you choose the nodes to chart.
 
-      A list of available CloudWatch Metrics appears at the bottom of the console window. 
+(Valkey only) The **Metrics** tab has two views. The **Classic** view, which is the default, shows CloudWatch metrics. The **Detailed** view shows OpenTelemetry metrics, and appears only in Regions where detailed monitoring is available. For more information about the **Detailed** view, see [Monitoring ElastiCache with OpenTelemetry metrics](otel-metrics.md).
 
-   1. Click on the **CPU Utilization** metric. 
-
-      The CloudWatch console will open, displaying your selected metrics. You can use the **Statistic** and **Period** drop-down list boxes and **Time Range** tab to change the metrics being displayed. 
-
-## Monitoring CloudWatch Cluster and Node Metrics using the CloudWatch CLI
+## Monitoring CloudWatch Cluster and Node Metrics using the AWS CLI
 <a name="CloudWatchMetrics.CLI"></a>
 
  **To gather CPU utilization statistics for a cache cluster** 
@@ -50,7 +52,7 @@ Selecting more than 20 nodes disables viewing metrics on the console.
   aws cloudwatch get-metric-statistics \
       --namespace AWS/ElastiCache \
       --metric-name CPUUtilization \
-      --dimensions={{'[{"Name":"CacheClusterId","Value":"test"},{"Name":"CacheNodeId","Value":"0001"}]'}} \					
+      --dimensions={{'[{"Name":"CacheClusterId","Value":"test"},{"Name":"CacheNodeId","Value":"0001"}]'}} \
       --statistics={{Average}} \
       --start-time {{2018-07-05T00:00:00}} \
       --end-time {{2018-07-06T00:00:00}} \
@@ -63,7 +65,7 @@ Selecting more than 20 nodes disables viewing metrics on the console.
   aws cloudwatch get-metric-statistics ^
       --namespace AWS/ElastiCache ^
       --metric-name CPUUtilization ^
-      --dimensions={{'[{"Name":"CacheClusterId","Value":"test"},{"Name":"CacheNodeId","Value":"0001"}]'}} ^
+      --dimensions {{Name=CacheClusterId,Value=test Name=CacheNodeId,Value=0001}} ^
       --statistics={{Average}} ^
       --start-time {{2018-07-05T00:00:00}} ^
       --end-time {{2018-07-06T00:00:00}} ^
@@ -77,27 +79,32 @@ Selecting more than 20 nodes disables viewing metrics on the console.
 + Call the CloudWatch API `GetMetricStatistics` with the following parameters (note that the start and end times are shown as examples only; you will need to substitute your own appropriate start and end times):
   + `Statistics.member.1``=Average`
   + `Namespace``=AWS/ElastiCache`
-  + `StartTime``=2013-07-05T00:00:00`
-  + `EndTime``=2013-07-06T00:00:00`
-  + `Period``=60`
-  + `MeasureName``=CPUUtilization`
-  + `Dimensions``=CacheClusterId=mycachecluster,CacheNodeId=0002`  
+  + `StartTime``=2018-07-05T00:00:00`
+  + `EndTime``=2018-07-06T23:59:00`
+  + `Period``=3600`
+  + `MetricName``=CPUUtilization`
+  + `Dimensions.member.1.Name``=CacheClusterId`
+  + `Dimensions.member.1.Value``=mycachecluster`
+  + `Dimensions.member.2.Name``=CacheNodeId`
+  + `Dimensions.member.2.Value``=0002`  
 **Example**  
 
   ```
-   1. http://monitoring.amazonaws.com/
+   1. https://monitoring.amazonaws.com/
    2.     ?Action=GetMetricStatistics
    3.     &SignatureVersion=4
-   4.     &Version=2014-12-01
+   4.     &Version=2010-08-01
    5.     &StartTime=2018-07-05T00:00:00
    6.     &EndTime=2018-07-06T23:59:00
    7.     &Period=3600
    8.     &Statistics.member.1=Average
-   9.     &Dimensions.member.1="CacheClusterId=mycachecluster"
-  10.     &Dimensions.member.2="CacheNodeId=0002"
-  11.     &Namespace=&AWS;/ElastiCache
-  12.     &MeasureName=CPUUtilization						
-  13.     &Timestamp=2018-07-07T17%3A48%3A21.746Z
-  14.     &AWS;AccessKeyId=<&AWS; Access Key ID>
-  15.     &Signature=<Signature>
+   9.     &Dimensions.member.1.Name=CacheClusterId
+  10.     &Dimensions.member.1.Value=mycachecluster
+  11.     &Dimensions.member.2.Name=CacheNodeId
+  12.     &Dimensions.member.2.Value=0002
+  13.     &Namespace=AWS/ElastiCache
+  14.     &MetricName=CPUUtilization
+  15.     &Timestamp=2018-07-07T17%3A48%3A21.746Z
+  16.     &SignatureMethod=HmacSHA256
+  17.     &X-Amz-Credential=<credential>
   ```
