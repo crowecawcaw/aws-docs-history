@@ -124,7 +124,7 @@ The following table shows when support was added for other AWS services.
 | AWS CodeBuild batch builds action support added. See [Service role permissions: CodeCommit action](action-reference-CodeCommit.md#edit-role-codecommit). | July 30, 2020 | 
 | AWS AppConfig action support added. See [Service role permissions: `AppConfig` action](action-reference-AppConfig.md#edit-role-appconfig). | June 22, 2020 | 
 | AWS Step Functions action support added. See [Service role permissions: `StepFunctions` action](action-reference-StepFunctions.md#edit-role-stepfunctions). | May 27, 2020 | 
-| AWS CodeStar Connections action support added. See [Service role permissions: CodeConnections action](action-reference-CodestarConnectionSource.md#edit-role-connections). | December 18, 2019 | 
+| AWS CodeStar Connections action support added. See [Service role permissions: AWS CodeConnections action](action-reference-CodestarConnectionSource.md#edit-role-connections). | December 18, 2019 | 
 | S3 deploy action support added. See [Service role permissions: S3 deploy action](action-reference-S3Deploy.md#edit-role-s3deploy). | January 16, 2019 | 
 | The CodeDeployToECS action action support added. See [Service role permissions: `CodeDeployToECS` action](action-reference-ECSbluegreen.md#edit-role-codedeploy-ecs). | November 27, 2018 | 
 | Amazon ECR action support added. See [Service role permissions: Amazon ECR action](action-reference-ECR.md#edit-role-ecr). | November 27, 2018 | 

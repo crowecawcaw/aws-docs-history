@@ -216,7 +216,7 @@ Variables at the pipeline level are defined when the pipeline is created and res
 ## `triggers`
 <a name="pipeline.triggers"></a>
 
-Triggers allow you to configure your pipeline to start on a particular event type or filtered event type, such as when a change on a particular branch or pull request is detected. Triggers are configurable for source actions with connections that use the `CodeStarSourceConnection` action in CodePipeline, such as GitHub, Bitbucket, and GitLab. For more information about source actions that use connections, see [Add third-party source providers to pipelines using CodeConnections](pipelines-connections.md).
+Triggers allow you to configure your pipeline to start on a particular event type or filtered event type, such as when a change on a particular branch or pull request is detected. Triggers are configurable for source actions with connections that use the `CodeStarSourceConnection` action in CodePipeline, such as GitHub, Bitbucket, and GitLab. For more information about source actions that use connections, see [Add third-party source providers to pipelines using AWS CodeConnections](pipelines-connections.md).
 
 For more information and more detailed examples, see [Automate starting pipelines using triggers and filtering](pipelines-triggers.md).
 

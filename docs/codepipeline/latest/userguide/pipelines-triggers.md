@@ -3,7 +3,7 @@
 # Automate starting pipelines using triggers and filtering
 <a name="pipelines-triggers"></a>
 
-Triggers allow you to configure your pipeline to start on a particular event type or filtered event type, such as when a change on a particular branch or pull request is detected. Triggers are configurable for source actions with connections that use the `CodeStarSourceConnection` action in CodePipeline, such as GitHub, Bitbucket, and GitLab. For more information about source actions that use connections, see [Add third-party source providers to pipelines using CodeConnections](pipelines-connections.md).
+Triggers allow you to configure your pipeline to start on a particular event type or filtered event type, such as when a change on a particular branch or pull request is detected. Triggers are configurable for source actions with connections that use the `CodeStarSourceConnection` action in CodePipeline, such as GitHub, Bitbucket, and GitLab. For more information about source actions that use connections, see [Add third-party source providers to pipelines using AWS CodeConnections](pipelines-connections.md).
 
 Source actions, such as CodeCommit and S3, use automated change detection to start pipelines when a change is made. For more information, see [CodeCommit source actions and EventBridge](triggering.md).
 

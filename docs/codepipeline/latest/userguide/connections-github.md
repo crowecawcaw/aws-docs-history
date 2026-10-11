@@ -72,7 +72,7 @@ After you choose to create the connection, the **Connect to GitHub** page appear
 
    You install one app for all of your connections to a particular provider. If you have already installed the AWS Connector for GitHub app, choose it and skip this step.
 **Note**  
-If you want to create a [ user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app), make sure that you've already installed the AWS Connector for GitHub app and then leave the App installation field empty. CodeConnections will use the user access token for the connection.
+If you want to create a [ user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app), make sure that you've already installed the AWS Connector for GitHub app and then leave the App installation field empty. AWS CodeConnections will use the user access token for the connection.
 
 1. On the **Install AWS Connector for GitHub** page, choose the account where you want to install the app.
 **Note**  
@@ -91,7 +91,7 @@ Use these steps on the **Edit action** page to save your source action with your
 
 1. In **Repository name**, choose the name of your third-party repository. 
 
-1. Under **Pipeline triggers** you can add triggers if your action is a CodeConnections action. To configure the pipeline trigger configuration and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
+1. Under **Pipeline triggers** you can add triggers if your action is a AWS CodeConnections action. To configure the pipeline trigger configuration and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
 
 1. In **Output artifact format**, you must choose the format for your artifacts. 
    + To store output artifacts from the GitHub action using the default method, choose **CodePipeline default**. The action accesses the files from the GitHub repository and stores the artifacts in a ZIP file in the pipeline artifact store.

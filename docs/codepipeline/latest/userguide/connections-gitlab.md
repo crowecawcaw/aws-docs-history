@@ -77,7 +77,7 @@ After a GitLab.com connection is successfully created, a success banner will be 
 **Note**  
 For groups in GitLab, you must manually specify the project path with the namespace. For example, for a repository named `myrepo` in a group `mygroup`, enter the following: `mygroup/myrepo`. You can find the project path with the namespace in the URL in GitLab.
 
-1. Under **Pipeline triggers** you can add triggers if your action is a CodeConnections action. To configure the pipeline trigger configuration and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
+1. Under **Pipeline triggers** you can add triggers if your action is a AWS CodeConnections action. To configure the pipeline trigger configuration and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
 
 1. In **Branch name**, choose the branch where you want your pipeline to detect source changes.
 **Note**  

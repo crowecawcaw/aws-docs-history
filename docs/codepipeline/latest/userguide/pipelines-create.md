@@ -478,7 +478,7 @@ Be sure to include `file://` before the file name. It is required in this comman
 ## Create a pipeline from static templates
 <a name="pipelines-create-templates"></a>
 
-You can create a pipeline in the console that uses a template to configure a pipeline with source code and properties that you specify. You must provide the source file location and information about the source providers you will use for your actions. You can specify a source action for Amazon ECR or any third-party repository supported by CodeConnections, such as GitHub.
+You can create a pipeline in the console that uses a template to configure a pipeline with source code and properties that you specify. You must provide the source file location and information about the source providers you will use for your actions. You can specify a source action for Amazon ECR or any third-party repository supported by AWS CodeConnections, such as GitHub.
 
 The template will create a stack in CloudFormation for your pipeline that includes the following resources: 
 + A pipeline is created with the V2 pipeline type. In **Pipeline type**, choose one of the following options. Pipeline types differ in characteristics and price. For more information, see [Pipeline types](pipeline-types.md).

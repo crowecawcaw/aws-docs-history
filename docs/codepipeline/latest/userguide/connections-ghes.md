@@ -113,7 +113,7 @@ Use these steps on the wizard or **Edit action** page to save your source action
 
 1. In **Repository name**, choose the name of your third-party repository.
 
-1. Under **Pipeline triggers** you can add triggers if your action is a CodeConnections action. To configure the pipeline trigger configuration and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
+1. Under **Pipeline triggers** you can add triggers if your action is a AWS CodeConnections action. To configure the pipeline trigger configuration and to optionally filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
 
 1. In **Output artifact format**, you must choose the format for your artifacts. 
    + To store output artifacts from the GitHub Enterprise Server action using the default method, choose **CodePipeline default**. The action accesses the files from the GitHub Enterprise Server repository and stores the artifacts in a ZIP file in the pipeline artifact store.

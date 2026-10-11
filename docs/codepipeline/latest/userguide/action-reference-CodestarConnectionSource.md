@@ -3,7 +3,7 @@
 # CodeStarSourceConnection for Bitbucket Cloud, GitHub, GitHub Enterprise Server, GitLab.com, and GitLab self-managed actions
 <a name="action-reference-CodestarConnectionSource"></a>
 
-Source actions for connections are supported by AWS CodeConnections. CodeConnections allows you to create and manage connections between AWS resources and third-party repositories such as GitHub. Starts a pipeline when a new commit is made on a third-party source code repository. The source action retrieves code changes when a pipeline is manually run or when a webhook event is sent from the source provider. 
+Source actions for connections are supported by AWS CodeConnections. AWS CodeConnections allows you to create and manage connections between AWS resources and third-party repositories such as GitHub. Starts a pipeline when a new commit is made on a third-party source code repository. The source action retrieves code changes when a pipeline is manually run or when a webhook event is sent from the source provider. 
 
 You can configure actions in your pipeline to use a Git configuration that allows you to start your pipeline with triggers. To configure the pipeline trigger configuration to filter with triggers, see more details in [Add trigger with code push or pull request event types](pipelines-filter.md).
 
@@ -56,7 +56,7 @@ Even if the Region is not enabled, third-party providers can still share your da
 + [Input artifacts](#action-reference-CodestarConnectionSource-input)
 + [Output artifacts](#action-reference-CodestarConnectionSource-output)
 + [Output variables](#action-reference-CodestarConnectionSource-variables)
-+ [Service role permissions: CodeConnections action](#edit-role-connections)
++ [Service role permissions: AWS CodeConnections action](#edit-role-connections)
 + [Action declaration](#action-reference-CodestarConnectionSource-example)
 + [Installing the installation app and creating a connection](#action-reference-CodestarConnectionSource-auth)
 + [See also](#action-reference-CodestarConnectionSource-links)
@@ -137,10 +137,10 @@ The connection ARN that is configured and authenticated for the source provider.
 FullRepositoryName  
 The name of the repository where the commit that triggered the pipeline was made.
 
-## Service role permissions: CodeConnections action
+## Service role permissions: AWS CodeConnections action
 <a name="edit-role-connections"></a>
 
-For CodeConnections, the following permission is required to create pipelines with a source that uses a connection, such as Bitbucket Cloud.
+For AWS CodeConnections, the following permission is required to create pipelines with a source that uses a connection, such as Bitbucket Cloud.
 
 ```
 {

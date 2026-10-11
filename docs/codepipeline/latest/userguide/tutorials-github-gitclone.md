@@ -6,7 +6,7 @@
 You can choose the full clone option for your GitHub source action in CodePipeline. Use this option to run CodeBuild commands for Git metadata in your pipeline build action.
 
 **Note**  
-The full clone option described here refers to specifying whether CodePipeline should clone repository metadata, which can only be used by CodeBuild commands. To use a GitHub [ user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) for use with CodeBuild projects, follow the steps here to install the AWS Connector for GitHub app and then leave the App installation field empty. CodeConnections will use the user access token for the connection.
+The full clone option described here refers to specifying whether CodePipeline should clone repository metadata, which can only be used by CodeBuild commands. To use a GitHub [ user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) for use with CodeBuild projects, follow the steps here to install the AWS Connector for GitHub app and then leave the App installation field empty. AWS CodeConnections will use the user access token for the connection.
 
 
 
@@ -86,7 +86,7 @@ This is not the source bucket for your source code. This is the artifact store f
 
       You install one app for all of your connections to a particular provider. If you have already installed the AWS Connector for GitHub app, choose it and skip this step.
 **Note**  
-If you want to create a [ user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app), make sure that you've already installed the AWS Connector for GitHub app and then leave the App installation field empty. CodeConnections will use the user access token for the connection. For more information, see [Access your source provider in CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html).
+If you want to create a [ user access token](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app), make sure that you've already installed the AWS Connector for GitHub app and then leave the App installation field empty. AWS CodeConnections will use the user access token for the connection. For more information, see [Access your source provider in CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html).
 
    1. In **Repository name**, choose the name of your GitHub repository.
 
