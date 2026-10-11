@@ -273,11 +273,6 @@ Confirm that:
 ### If you have enabled containment
 <a name="config-validation-step5-enabled"></a>
 
- **Check containment status in the console.** Verify whether containment actions are shown as **Authorized**. Supported containment actions include runbooks for: 
-+ Affected Amazon S3 buckets
-+ Affected Amazon EC2 instances
-+ Affected IAM principals
-
  **Verify the CloudFormation StackSet is deployed.** Containment requires IAM roles (`AWSSecurityIncidentResponseContainment` and `AWSSecurityIncidentResponseContainmentExecution`) in your covered accounts. For instructions on deploying these roles, see [Deploy containment and EC2 Triage roles](working-with-stacksets.md). To verify the StackSet is deployed: 
 
 1. Open AWS CloudFormation in your management account.
@@ -287,13 +282,6 @@ Confirm that:
 1. Confirm the Security Incident Response containment StackSet shows `SUCCEEDED` in all target accounts.
 
  If the StackSet isn't deployed, containment authorization in the console doesn't result in actual containment actions being taken. 
-
- **Confirm your containment preference.** Security Incident Response supports three containment levels: 
-+ **Approval Required** (default): no containment action without your explicit case-by-case authorization.
-+ **Contain Confirmed**: proactive containment of resources confirmed as affected.
-+ **Contain Suspected**: proactive containment of resources with high likelihood of being affected.
-
- To submit or update your preference, create an AWS Support case with case type **Technical: Security Incident Response Service / Other**. 
 
  **If you want EC2 Triage:** Deploy the **Containment with EC2 Triage** CloudFormation template. This allows Security Incident Response engineers to collect investigative data from Amazon EC2 instances using AWS Systems Manager. 
 
