@@ -7,6 +7,8 @@ Monitor Aurora DSQL using CloudWatch, which collects raw data and processes it i
 
 For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/). 
 
+For a deeper understanding of the performance and cost of your clusters, see [Monitoring Aurora DSQL clusters with Aurora DSQL Database Insights](dsql-db-insights.md).
+
 ## Observability and performance
 <a name="observability-performance"></a>
 
