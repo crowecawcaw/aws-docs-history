@@ -24,17 +24,8 @@ To avoid unnecessary evaluations, you should only deploy periodic rules that rep
 
 **Parameters:**
 
-RequireUppercaseCharacters (Optional)Type: booleanDefault: true  
-Require at least one uppercase character in password.
-
-RequireLowercaseCharacters (Optional)Type: booleanDefault: true  
-Require at least one lowercase character in password.
-
-RequireSymbols (Optional)Type: booleanDefault: true  
-Require at least one symbol in password.
-
-RequireNumbers (Optional)Type: booleanDefault: true  
-Require at least one number in password.
+MaxPasswordAge (Optional)Type: intDefault: 90  
+Number of days before password expiration.
 
 MinimumPasswordLength (Optional)Type: intDefault: 14  
 Password minimum length.
@@ -42,10 +33,19 @@ Password minimum length.
 PasswordReusePrevention (Optional)Type: intDefault: 24  
 Number of passwords before allowing reuse.
 
-MaxPasswordAge (Optional)Type: intDefault: 90  
-Number of days before password expiration.
+RequireLowercaseCharacters (Optional)Type: booleanDefault: true  
+Require at least one lowercase character in password.
+
+RequireNumbers (Optional)Type: booleanDefault: true  
+Require at least one number in password.
+
+RequireSymbols (Optional)Type: booleanDefault: true  
+Require at least one symbol in password.
+
+RequireUppercaseCharacters (Optional)Type: booleanDefault: true  
+Require at least one uppercase character in password.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d933c19"></a>
+<a name="w2aac20c16c17b7d947c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

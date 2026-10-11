@@ -1969,20 +1969,6 @@ AWS Config includes inline policies with the configuration details that it recor
 | --- | --- | --- | --- | --- | 
 | AWS HealthOmics | AWS::Omics::ReferenceStore | NA | NA |  | 
 
-## AWS Panorama
-<a name="awspanorama"></a>
-
-
-
-
-- **AWS Panorama**
-  - **Resource Type Value:** AWS::Panorama::Package
-  - **Relationship:** NA
-  - **Related Resource:** NA
-  - **Notes:** 
-
-
-
 ## AWS Private Certificate Authority
 <a name="awsprivateca"></a>
 

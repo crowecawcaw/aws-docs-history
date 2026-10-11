@@ -20,22 +20,22 @@ Checks whether CloudWatch alarms with the given metric name have the specified s
 metricNameType: String  
 The name for the metric associated with the alarm.
 
+comparisonOperator (Optional)Type: String  
+The operation for comparing the specified statistic and threshold (for example, 'GreaterThanThreshold').
+
+evaluationPeriods (Optional)Type: int  
+The number of periods over which data is compared to the specified threshold.
+
 period (Optional)Type: intDefault: 300  
 The period, in seconds, during which the specified statistic is applied.
 
 statistic (Optional)Type: String  
 The statistic for the metric associated with the alarm (for example, 'Average' or 'Sum').
 
-comparisonOperator (Optional)Type: String  
-The operation for comparing the specified statistic and threshold (for example, 'GreaterThanThreshold').
-
 threshold (Optional)Type: int  
 The value against which the specified statistic is compared.
 
-evaluationPeriods (Optional)Type: int  
-The number of periods over which data is compared to the specified threshold.
-
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d359c19"></a>
+<a name="w2aac20c16c17b7d367c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

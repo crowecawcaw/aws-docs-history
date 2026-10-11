@@ -17,14 +17,14 @@ Checks if a backup plan has a backup rule that satisfies the required frequency 
 
 **Parameters:**
 
+requiredFrequencyUnit (Optional)Type: StringDefault: days  
+Unit of time for required backup frequency. Accepted values: 'hours', 'days'.
+
 requiredFrequencyValue (Optional)Type: intDefault: 1  
 Numerical value for required backup frequency. Maximum of 24 for hours, 31 for days.
 
 requiredRetentionDays (Optional)Type: intDefault: 35  
 Required retention period in days.
-
-requiredFrequencyUnit (Optional)Type: StringDefault: days  
-Unit of time for required backup frequency. Accepted values: 'hours', 'days'.
 
 ## AWS CloudFormation template
 <a name="w2aac20c16c17b7d251c19"></a>

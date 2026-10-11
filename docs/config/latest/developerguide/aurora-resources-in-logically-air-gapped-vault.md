@@ -17,17 +17,17 @@ Checks if Amazon Aurora DB clusters are in a logically air-gapped vault. The rul
 
 **Parameters:**
 
-resourceTags (Optional)Type: String  
-Tags of Aurora DB clusters for the rule to check, in JSON format.
-
-resourceId (Optional)Type: String  
-ID of Aurora DB cluster for the rule to check.
+recoveryPointAgeUnit (Optional)Type: StringDefault: days  
+Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
 
 recoveryPointAgeValue (Optional)Type: intDefault: 1  
 Numerical value for maximum allowed age. No more than 2184 for hours, 91 for days.
 
-recoveryPointAgeUnit (Optional)Type: StringDefault: days  
-Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
+resourceId (Optional)Type: String  
+ID of Aurora DB cluster for the rule to check.
+
+resourceTags (Optional)Type: String  
+Tags of Aurora DB clusters for the rule to check, in JSON format.
 
 ## AWS CloudFormation template
 <a name="w2aac20c16c17b7d231c19"></a>

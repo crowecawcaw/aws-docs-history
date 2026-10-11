@@ -20,13 +20,13 @@ Re-evaluating this rule within 4 hours of the first evaluation will have no effe
 
 **Parameters:**
 
-maximumAllowedRotationFrequencyInHours (Optional)Type: int  
-Maximum allowed rotation frequency of the secret in hours.
-
 maximumAllowedRotationFrequency (Optional)Type: int  
 Maximum allowed rotation frequency of the secret in days.
 
+maximumAllowedRotationFrequencyInHours (Optional)Type: int  
+Maximum allowed rotation frequency of the secret in hours.
+
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1511c21"></a>
+<a name="w2aac20c16c17b7e1537c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

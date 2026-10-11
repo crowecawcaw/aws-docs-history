@@ -118,6 +118,7 @@ It is recommended that you review the rules available in the region where you de
 + [Security and Governance Best Practices for Amazon Bedrock](security-and-governance-best-practices-for-amazon-bedrock.md)
 + [Security and Governance Best Practices for Amazon SageMaker AI](security-and-governance-best-practices-for-amazon-sagemaker-ai.md)
 + [Security and Governance Best Practices for Self-Hosted AI/ML](security-and-governance-best-practices-for-self-hosted-AI-ML.md)
++ [Threat-Informed Security Best Practices (Fundamental)](threat-informed-security-best-practices-fundamental.md)
 + [Example Templates with Remediation Action](templateswithremediation.md)
 
 For more information about template structure, see [Template Anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.

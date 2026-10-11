@@ -17,22 +17,22 @@ Checks if Amazon EMR clusters have Kerberos enabled. The rule is NON\_COMPLIANT 
 
 **Parameters:**
 
-TicketLifetimeInHours (Optional)Type: int  
-Period for which Kerberos ticket issued by cluster's KDC is valid.
-
-Realm (Optional)Type: String  
-Kereberos realm name of the other realm in the trust relationship.
+AdminServer (Optional)Type: String  
+Fully qualified domain of the admin server in the other realm of the trust relationship.
 
 Domain (Optional)Type: String  
 Domain name of the other realm in the trust relationship.
 
-AdminServer (Optional)Type: String  
-Fully qualified domain of the admin server in the other realm of the trust relationship.
-
 KdcServer (Optional)Type: String  
 Fully qualified domain of the KDC server in the other realm of the trust relationship.
 
+Realm (Optional)Type: String  
+Kereberos realm name of the other realm in the trust relationship.
+
+TicketLifetimeInHours (Optional)Type: int  
+Period for which Kerberos ticket issued by cluster's KDC is valid.
+
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d811c19"></a>
+<a name="w2aac20c16c17b7d825c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

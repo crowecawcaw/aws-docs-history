@@ -20,13 +20,13 @@ Checks if the restore time of Amazon DynamoDB Tables meets the specified duratio
 maxRestoreTimeType: int  
 Numerical value for the maximum allowed restore runtime.
 
-resourceTags (Optional)Type: String  
-Tags of the DynamoDB Tables for the rule to check, in JSON format.
-
 resourceId (Optional)Type: String  
 Name of DynamoDB Table for the rule to check.
 
+resourceTags (Optional)Type: String  
+Tags of the DynamoDB Tables for the rule to check, in JSON format.
+
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d501c19"></a>
+<a name="w2aac20c16c17b7d515c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

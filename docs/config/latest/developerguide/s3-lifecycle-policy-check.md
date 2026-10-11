@@ -17,22 +17,22 @@ Checks if a lifecycle rule is configured for an Amazon Simple Storage Service (A
 
 **Parameters:**
 
-targetTransitionDays (Optional)Type: int  
-Number of days after object creation when objects are transitioned to a specified storage class (for example, 30 days).
+bucketNames (Optional)Type: CSV  
+Comma-separated list of Amazon S3 bucket names that have lifecycle policy enabled.
 
 targetExpirationDays (Optional)Type: int  
 Number of days after object creation when objects are deleted (for example, 395 days).
 
-targetTransitionStorageClass (Optional)Type: String  
-Destination storage class type. For example, Amazon S3 Standard-Infrequent Access (S3 Standard-IA). For more information, see [Understanding and managing Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html).
-
 targetPrefix (Optional)Type: String  
 Amazon S3 Object prefix to identify one or more objects.
 
-bucketNames (Optional)Type: CSV  
-Comma-separated list of Amazon S3 bucket names that have lifecycle policy enabled.
+targetTransitionDays (Optional)Type: int  
+Number of days after object creation when objects are transitioned to a specified storage class (for example, 30 days).
+
+targetTransitionStorageClass (Optional)Type: String  
+Destination storage class type. For example, Amazon S3 Standard-Infrequent Access (S3 Standard-IA). For more information, see [Understanding and managing Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html).
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1431c19"></a>
+<a name="w2aac20c16c17b7e1457c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

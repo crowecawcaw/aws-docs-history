@@ -18,12 +18,6 @@ Checks if there is at least one multi-region AWS CloudTrail. The rule is NON\_CO
 
 **Parameters:**
 
-s3BucketName (Optional)Type: String  
-Name of Amazon S3 bucket for AWS CloudTrail to deliver log files to.
-
-snsTopicArn (Optional)Type: String  
-Amazon SNS topic ARN for AWS CloudTrail to use for notifications.
-
 cloudWatchLogsLogGroupArn (Optional)Type: String  
 Amazon CloudWatch log group ARN for AWS CloudTrail to send data to.
 
@@ -33,7 +27,13 @@ Event selector to include management events for the AWS CloudTrail.
 readWriteType (Optional)Type: String  
 Type of events to record. Valid values are ReadOnly, WriteOnly and ALL.
 
+s3BucketName (Optional)Type: String  
+Name of Amazon S3 bucket for AWS CloudTrail to deliver log files to.
+
+snsTopicArn (Optional)Type: String  
+Amazon SNS topic ARN for AWS CloudTrail to use for notifications.
+
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1143c19"></a>
+<a name="w2aac20c16c17b7e1157c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

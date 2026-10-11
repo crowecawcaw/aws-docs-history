@@ -11,7 +11,7 @@ Checks if there are public routes in the route table to an Internet gateway (IGW
 
 **Resource Types:** AWS::EC2::RouteTable
 
-**Trigger type:** Configuration changes and Periodic
+**Trigger type:** Configuration changes
 
 **AWS Region:** All supported AWS regions
 
@@ -21,6 +21,6 @@ routeTableIds (Optional)Type: CSV
 Comma-separated list of route table IDs that can have routes to an Internet Gateway with a destination CIDR block of '0.0.0.0/0' or '::/0'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1193c19"></a>
+<a name="w2aac20c16c17b7e1207c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

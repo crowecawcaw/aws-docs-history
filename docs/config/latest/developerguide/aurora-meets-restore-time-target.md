@@ -20,11 +20,11 @@ Checks if the restore time of Amazon Aurora DB clusters meets the specified dura
 maxRestoreTimeType: int  
 Numerical value for the maximum allowed restore runtime.
 
-resourceTags (Optional)Type: String  
-Tags of Aurora DB clusters for the rule to check, in JSON format.
-
 resourceId (Optional)Type: String  
 ID of Aurora DB cluster for the rule to check.
+
+resourceTags (Optional)Type: String  
+Tags of Aurora DB clusters for the rule to check, in JSON format.
 
 ## AWS CloudFormation template
 <a name="w2aac20c16c17b7d225c19"></a>

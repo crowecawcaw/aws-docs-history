@@ -17,19 +17,19 @@ Checks if a recovery point was created for AWS Backup-Gateway VirtualMachines. T
 
 **Parameters:**
 
-resourceTags (Optional)Type: String  
-Tags of AWS Backup-Gateway VirtualMachines for the rule to check, in JSON format `{"tagkey" : "tagValue"}`.
-
-resourceId (Optional)Type: String  
-ID of AWS Backup-Gateway VirtualMachine for the rule to check.
+recoveryPointAgeUnit (Optional)Type: StringDefault: days  
+Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
 
 recoveryPointAgeValue (Optional)Type: intDefault: 1  
 Numerical value for maximum allowed age. No more than 744 for hours, 31 for days.
 
-recoveryPointAgeUnit (Optional)Type: StringDefault: days  
-Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
+resourceId (Optional)Type: String  
+ID of AWS Backup-Gateway VirtualMachine for the rule to check.
+
+resourceTags (Optional)Type: String  
+Tags of AWS Backup-Gateway VirtualMachines for the rule to check, in JSON format `{"tagkey" : "tagValue"}`.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1599c19"></a>
+<a name="w2aac20c16c17b7e1625c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

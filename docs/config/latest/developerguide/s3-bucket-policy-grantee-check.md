@@ -24,22 +24,22 @@ If a bucket policy contains more than one statement, each statement in the bucke
 
 **Parameters:**
 
-servicePrincipals (Optional)Type: CSV  
-Comma-separated list of service principals, for example 'cloudtrail.amazonaws.com, lambda.amazonaws.com'.
+awsPrincipals (Optional)Type: CSV  
+Comma-separated list of principals such as IAM User ARNs, IAM Role ARNs, and AWS accounts. You must provide the full ARN or use partial matching. For example, "arn:aws:iam::{{AccountID}}:role/{{role\_name}}" or "arn:aws:iam::{{AccountID}}:role/\*". If the provided value is not an exact match with the principal ARN specified in the bucket policy, the rule is NON\_COMPLIANT.
 
 federatedUsers (Optional)Type: CSV  
 Comma-separated list of identity providers for web identity federation such as Amazon Cognito and SAML identity providers. For example 'cognito-identity.amazonaws.com, arn:aws:iam::111122223333:saml-provider/my-provider'.
 
-awsPrincipals (Optional)Type: CSV  
-Comma-separated list of principals such as IAM User ARNs, IAM Role ARNs, and AWS accounts. You must provide the full ARN or use partial matching. For example, "arn:aws:iam::{{AccountID}}:role/{{role\_name}}" or "arn:aws:iam::{{AccountID}}:role/\*". If the provided value is not an exact match with the principal ARN specified in the bucket policy, the rule is NON\_COMPLIANT.
-
 ipAddresses (Optional)Type: CSV  
 Comma-separated list of CIDR formatted IP addresses, for example '10.0.0.1, 192.168.1.0/24, 2001:db8::/32'.
+
+servicePrincipals (Optional)Type: CSV  
+Comma-separated list of service principals, for example 'cloudtrail.amazonaws.com, lambda.amazonaws.com'.
 
 vpcIds (Optional)Type: CSV  
 Comma-separated list of Amazon Virtual Private Clouds (Amazon VPC) IDs, for example 'vpc-1234abc0, vpc-ab1234c0'.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1405c25"></a>
+<a name="w2aac20c16c17b7e1431c25"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

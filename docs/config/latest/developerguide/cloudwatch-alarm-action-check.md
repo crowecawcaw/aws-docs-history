@@ -17,14 +17,14 @@ Checks if CloudWatch alarms have an action configured for the ALARM, INSUFFICIEN
 
 **Parameters:**
 
-okActionRequiredType: StringDefault: false  
-Alarms have at least one action when the alarm transitions to an OK state from any other state.
+alarmActionRequiredType: StringDefault: true  
+Alarms have at least one action.
 
 insufficientDataActionRequiredType: StringDefault: true  
 Alarms have at least one action when the alarm transitions to the INSUFFICIENT\_DATA state from any other state.
 
-alarmActionRequiredType: StringDefault: true  
-Alarms have at least one action.
+okActionRequiredType: StringDefault: false  
+Alarms have at least one action when the alarm transitions to an OK state from any other state.
 
 action1 (Optional)Type: String  
 The action to execute, specified as an ARN.
@@ -42,6 +42,6 @@ action5 (Optional)Type: String
 The action to execute, specified as an ARN.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d351c19"></a>
+<a name="w2aac20c16c17b7d359c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

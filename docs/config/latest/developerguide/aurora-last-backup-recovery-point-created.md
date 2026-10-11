@@ -17,17 +17,17 @@ Checks if a recovery point was created for Amazon Aurora DB clusters. The rule i
 
 **Parameters:**
 
-resourceTags (Optional)Type: String  
-Tags of Aurora DB clusters for the rule to check, in JSON format `{"tagkey" : "tagValue"}`.
-
-resourceId (Optional)Type: String  
-ID of Aurora DB cluster for the rule to check.
+recoveryPointAgeUnit (Optional)Type: StringDefault: days  
+Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
 
 recoveryPointAgeValue (Optional)Type: intDefault: 1  
 Numerical value for maximum allowed age. No more than 744 for hours, 31 for days.
 
-recoveryPointAgeUnit (Optional)Type: StringDefault: days  
-Unit of time for maximum allowed age. Accepted values: 'hours', 'days'.
+resourceId (Optional)Type: String  
+ID of Aurora DB cluster for the rule to check.
+
+resourceTags (Optional)Type: String  
+Tags of Aurora DB clusters for the rule to check, in JSON format `{"tagkey" : "tagValue"}`.
 
 ## AWS CloudFormation template
 <a name="w2aac20c16c17b7d223c19"></a>

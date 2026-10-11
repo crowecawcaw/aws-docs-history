@@ -17,13 +17,13 @@ Checks if a resource type has a CloudWatch alarm for the named metric. For resou
 
 **Parameters:**
 
-resourceTypeType: String  
-AWS resource type. The value can be one of the following: AWS::EC2::Volume, AWS::EC2::Instance, AWS::RDS::DBCluster, or AWS::S3::Bucket.
-
 metricNameType: String  
 The name for the metric associated with the alarm (for example, 'CPUUtilization' for EC2 instances).
 
+resourceTypeType: String  
+AWS resource type. The value can be one of the following: AWS::EC2::Volume, AWS::EC2::Instance, AWS::RDS::DBCluster, or AWS::S3::Bucket.
+
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d357c19"></a>
+<a name="w2aac20c16c17b7d365c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

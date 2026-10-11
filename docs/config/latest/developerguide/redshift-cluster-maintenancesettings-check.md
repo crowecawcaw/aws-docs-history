@@ -20,14 +20,14 @@ Checks if Amazon Redshift clusters have the specified maintenance settings. The 
 allowVersionUpgradeType: booleanDefault: true  
 Allow version upgrade is enabled.
 
-preferredMaintenanceWindow (Optional)Type: String  
-Scheduled maintenance window for clusters (for example, Mon:09:30-Mon:10:00).
-
 automatedSnapshotRetentionPeriod (Optional)Type: intDefault: 1  
 Number of days to retain automated snapshots.
 
+preferredMaintenanceWindow (Optional)Type: String  
+Scheduled maintenance window for clusters (for example, Mon:09:30-Mon:10:00).
+
 ## Proactive Evaluation
-<a name="w2aac20c16c17b7e1315c19"></a>
+<a name="w2aac20c16c17b7e1331c19"></a>
 
  For steps on how to run this rule in proactive mode, see [Evaluating Your Resources with AWS Config Rules](./evaluating-your-resources.html#evaluating-your-resources-proactive). For this rule to return COMPLIANT in proactive mode, the resource configuration schema for the [StartResourceEvaluation](https://docs.aws.amazon.com/config/latest/APIReference/API_StartResourceEvaluation.html) API needs to include the following inputs, encoded as a string: 
 
@@ -47,6 +47,6 @@ Number of days to retain automated snapshots.
  For more information on proactive evaluation, see [Evaluation Mode](./evaluate-config-rules.html). 
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1315c21"></a>
+<a name="w2aac20c16c17b7e1331c21"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

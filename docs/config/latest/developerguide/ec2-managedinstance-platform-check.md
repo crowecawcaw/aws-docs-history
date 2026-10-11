@@ -20,16 +20,16 @@ Checks whether EC2 managed instances have the desired configurations.
 platformTypeType: String  
 Platform type (for example, 'Linux').
 
-platformVersion (Optional)Type: String  
-Platform version (for example, '2016.09').
-
 agentVersion (Optional)Type: String  
 Agent version (for example, '2.0.433.0').
 
 platformName (Optional)Type: String  
 The name of the platform (for example, 'Amazon Linux')
 
+platformVersion (Optional)Type: String  
+Platform version (for example, '2016.09').
+
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d589c19"></a>
+<a name="w2aac20c16c17b7d603c19"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).
