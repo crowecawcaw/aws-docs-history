@@ -22,7 +22,7 @@ The initial release of Aurora MySQL version 3 includes all CVEs fixed up to comm
 
 **CVEs and minimum fixed Aurora MySQL versions**
 + [CVE-2026-60163](https://www.cve.org/CVERecord?id=CVE-2026-60163): [8.4.8](AuroraMySQL.Updates.848.md)
-+ [CVE-2026-61094](https://www.cve.org/CVERecord?id=CVE-2026-61094): [8.4.8](AuroraMySQL.Updates.848.md)
++ [CVE-2026-61094](https://www.cve.org/CVERecord?id=CVE-2026-61094): [8.4.8](AuroraMySQL.Updates.848.md), [3.10.6](AuroraMySQL.Updates.3106.md)
 + [CVE-2026-60585](https://www.cve.org/CVERecord?id=CVE-2026-60585): [8.4.8](AuroraMySQL.Updates.848.md)
 + [CVE-2026-60332](https://www.cve.org/CVERecord?id=CVE-2026-60332): [8.4.8](AuroraMySQL.Updates.848.md)
 + [CVE-2026-60331](https://www.cve.org/CVERecord?id=CVE-2026-60331): [8.4.8](AuroraMySQL.Updates.848.md)
