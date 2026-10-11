@@ -10,6 +10,7 @@ View details about updates to AWS managed policies for Amazon DataZone since thi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| AmazonDataZoneRedshiftGlueProvisioningPolicy policy updates | This update adds the `cloudformation:UntagResource` permission. Amazon DataZone uses this permission to remove tags from the AWS CloudFormation stacks it manages during environment provisioning. | September 10, 2026 | 
 | AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary policy updates | Policy updates to the **AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary**. This update adds a Deny statement for the `sagemaker:DeleteNotebookInstanceLifecycleConfig` action. | July 15, 2026 | 
 | AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary - policy updates | Policy updates to the **AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary**. Added a Deny statement for the `sagemaker:CreateNotebookInstanceLifecycleConfig` action. | June 26, 2026 | 
 | AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary - policy updates | Policy updates to the **AmazonDataZoneSageMakerEnvironmentRolePermissionsBoundary**. Added a Deny statement for the `sagemaker:UpdateNotebookInstanceLifecycleConfig` action to restrict this high-privilege operation. | March 11th, 2026 | 

@@ -67,7 +67,7 @@ The following are policy statement examples you can add for Amazon DataZone:
         "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "kms:DescribeKey",
-      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}"
+      "Resource": "arn:aws:kms:{{us-east-1}}:111122223333:key/{{key_ID}}"
     },
     {
       "Sid": "Allow access to principals authorized to manage Amazon DataZone",
@@ -79,7 +79,7 @@ The following are policy statement examples you can add for Amazon DataZone:
         "kms:Decrypt",
         "kms:GenerateDataKey"
       ],
-      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}",
+      "Resource": "arn:aws:kms:{{us-east-1}}:111122223333:key/{{key_ID}}",
       "Condition": {
         "ForAnyValue:StringEquals": {
           "kms:EncryptionContextKeys": "aws:datazone:domainId"
@@ -93,11 +93,11 @@ The following are policy statement examples you can add for Amazon DataZone:
         "AWS": "arn:aws:iam::111122223333:root"
       },
       "Action": "kms:CreateGrant",
-      "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key_ID}}",
+      "Resource": "arn:aws:kms:{{us-east-1}}:111122223333:key/{{key_ID}}",
       "Condition": {
         "StringLike": {
           "kms:CallerAccount": "111122223333",
-          "kms:ViaService": "datazone.{{region}}.amazonaws.com"
+          "kms:ViaService": "datazone.{{us-east-1}}.amazonaws.com"
         },
         "Bool": {
           "kms:GrantIsForAWSResource": "true"
