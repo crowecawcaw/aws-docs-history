@@ -22,7 +22,7 @@ GitHub Enterprise Cloud repositories have a different procedure and different pr
 To create a GitHub Enterprise Server repository association, you must have a GitHub Enterprise Server connection in AWS CodeConnections. The connection must be in the same AWS account and Region in which you want your code reviews. For more information, see [Create a connection](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create.html) and [Create a connection to GitHub Enterprise Server](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-gheserver.html) in the *Developer Tools User Guide*. 
 
 **Important**  
-CodeConnections does not support GitHub Enterprise Server version 2.22.0 due to a known issue in the release. To create a connection, use version 2.22.1 or later. 
+AWS CodeConnections does not support GitHub Enterprise Server version 2.22.0 due to a known issue in the release. To create a connection, use version 2.22.1 or later. 
 
 Your GitHub Enterprise Server connection requires a *host*. The host represents your GitHub Enterprise Server instance and is to what your GitHub Enterprise Server connection connects. A host can be an on-premises server or a Virtual Private Cloud (VPC). For more information, see [Amazon VPC configuration for your host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-gheserver-console.html#connections-create-gheserver-prereq) and [Create a host](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-host-create.html) in the *AWS Developer Tools User Guide*. 
 

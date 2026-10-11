@@ -34,10 +34,10 @@ For more information about best practices in IAM, see [Security best practices i
 A user who uses the CodeGuru Reviewer console must have a minimum set of permissions that allows the user to describe other AWS resources for the AWS account. You must have permissions from the following services:
 + CodeGuru Reviewer
 + AWS CodeCommit (if your source code is in a CodeCommit repository)
-+ CodeConnections (if your source code is in a repository managed by CodeConnections, such as Bitbucket)
++ AWS CodeConnections (if your source code is in a repository managed by AWS CodeConnections, such as Bitbucket)
 + AWS Identity and Access Management (IAM)
 
-If your source code is in a GitHub repository, you must have an OAuth token to connect to it. Associated GitHub repositories are not managed by CodeConnections. For more information, see [Git automation with OAuth tokens](https://help.github.com/en/github/extending-github/git-automation-with-oauth-tokens#step-1-get-an-oauth-token) on the GitHub website. 
+If your source code is in a GitHub repository, you must have an OAuth token to connect to it. Associated GitHub repositories are not managed by AWS CodeConnections. For more information, see [Git automation with OAuth tokens](https://help.github.com/en/github/extending-github/git-automation-with-oauth-tokens#step-1-get-an-oauth-token) on the GitHub website. 
 
 If you create an IAM policy that is more restrictive than the minimum required permissions, the console won't function as intended.
 
@@ -62,7 +62,7 @@ The following AWS managed policies, which you can attach to users in your accoun
 ### AmazonCodeGuruReviewerFullAccess
 <a name="managed-full-access"></a>
 
-`AmazonCodeGuruReviewerFullAccess` – Provides full access to CodeGuru Reviewer, including permissions to tag repository associations and to create, update, and delete code reviews and repository associations. It also grants permission to related resources in other services that integrate with CodeGuru Reviewer, such as Amazon CloudWatch, CodeConnections, and CodeCommit. Apply this only to administrative-level users to who you want to grant full control over CodeGuru Reviewer repository associations, code reviews, and related resources in your AWS account, including the ability to delete code reviews and repository associations. 
+`AmazonCodeGuruReviewerFullAccess` – Provides full access to CodeGuru Reviewer, including permissions to tag repository associations and to create, update, and delete code reviews and repository associations. It also grants permission to related resources in other services that integrate with CodeGuru Reviewer, such as Amazon CloudWatch, AWS CodeConnections, and CodeCommit. Apply this only to administrative-level users to who you want to grant full control over CodeGuru Reviewer repository associations, code reviews, and related resources in your AWS account, including the ability to delete code reviews and repository associations. 
 
 The `AmazonCodeGuruReviewerFullAccess` policy contains the following statement.
 
@@ -76,11 +76,11 @@ The `AmazonCodeGuruReviewerReadOnlyAccess` policy contains the following stateme
 ### AmazonCodeGuruReviewerServiceRolePolicy
 <a name="managed-policy-for-codecommit-and-codestar-connections"></a>
 
-`AmazonCodeGuruReviewerServiceRolePolicy` – Grants permission to related resources in CodeCommit, CodeConnections, Amazon S3, and CloudWatch that are required to create repository associations. 
+`AmazonCodeGuruReviewerServiceRolePolicy` – Grants permission to related resources in CodeCommit, AWS CodeConnections, Amazon S3, and CloudWatch that are required to create repository associations. 
 
-For CodeCommit repository associations, the CodeCommit and CloudWatch permissions in this policy are required. For associations with repositories that are managed by an AWS CodeStar connection, such as Bitbucket, the CodeConnections permissions are required. For code reviews with security analysis, the Amazon S3 permissions are required.
+For CodeCommit repository associations, the CodeCommit and CloudWatch permissions in this policy are required. For associations with repositories that are managed by an AWS CodeStar connection, such as Bitbucket, the AWS CodeConnections permissions are required. For code reviews with security analysis, the Amazon S3 permissions are required.
 
-When you create your first association with a CodeCommit, Amazon S3, or CodeConnections managed repository, CodeGuru Reviewer adds the `AmazonCodeGuruReviewerServiceRolePolicy` policy to your AWS account. This policy grants CodeGuru Reviewer access to CodeCommit repositories, CodeConnections resources in your account that have an `aws:ResourceTag/codeguru-reviewer` tag. It also grants access to Amazon S3 buckets that have a prefix that begins with `codeguru-reviewer-`. When you associate a CodeCommit repository, CodeGuru Reviewer adds this tag to the repository. When you associate an CodeConnections managed repository, CodeGuru Reviewer adds this tag to the CodeConnections resource, if it doesn't already exist. 
+When you create your first association with a CodeCommit, Amazon S3, or AWS CodeConnections managed repository, CodeGuru Reviewer adds the `AmazonCodeGuruReviewerServiceRolePolicy` policy to your AWS account. This policy grants CodeGuru Reviewer access to CodeCommit repositories, AWS CodeConnections resources in your account that have an `aws:ResourceTag/codeguru-reviewer` tag. It also grants access to Amazon S3 buckets that have a prefix that begins with `codeguru-reviewer-`. When you associate a CodeCommit repository, CodeGuru Reviewer adds this tag to the repository. When you associate an AWS CodeConnections managed repository, CodeGuru Reviewer adds this tag to the AWS CodeConnections resource, if it doesn't already exist. 
 
 The `AmazonCodeGuruReviewerServiceRolePolicy` policy contains the following statement.
 

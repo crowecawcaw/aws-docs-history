@@ -41,7 +41,7 @@ You can also use the AWS CLI or the AWS SDK. If you have the code review Amazon 
 ## Where can I check the status of a third-party source provider connection?
 <a name="troubleshooting-status-connection"></a>
 
-If you are using a source provider that uses CodeConnections, you can check the status of a connection using the AWS CLI or AWS SDK. To do this, call `ListConnections` and filter by the type of source provider, such as `Bitbucket`. 
+If you are using a source provider that uses AWS CodeConnections, you can check the status of a connection using the AWS CLI or AWS SDK. To do this, call `ListConnections` and filter by the type of source provider, such as `Bitbucket`. 
 
 If you can see your connection displayed there with a status of **Available**, you should be able to return to the CodeGuru console and find your connection. Try refreshing the display in the console if you haven't already. Your connection only displays on the CodeGuru console if it has a status of **Available**. The console does not display connections with a status of **Pending** or **Error**. 
 
@@ -114,7 +114,7 @@ Each connection is associated with one third-party repository source provider ac
 ## I'm trying to connect to my third-party repositories. What is the difference between an app installation and a connection? Which one can be used to adjust permissions?
 <a name="troubleshooting-connections-and-apps"></a>
 
-An *app installation* is a feature that allows CodeConnections to create connections to a single repository source provider account. A *connection* is a feature that uses an app installation through CodeConnections to connect a CodeGuru Reviewer account to a repository source provider account. Multiple connections can be used for the same app installation if different users need to have different levels of permissions. 
+An *app installation* is a feature that allows AWS CodeConnections to create connections to a single repository source provider account. A *connection* is a feature that uses an app installation through AWS CodeConnections to connect a CodeGuru Reviewer account to a repository source provider account. Multiple connections can be used for the same app installation if different users need to have different levels of permissions. 
 
 ## How do I know if CodeGuru Reviewer used my aws-codeguru-reviewer.yml file in a code review?
 <a name="troubleshooting-config-file-used"></a>

@@ -25,7 +25,7 @@ You can create a Bitbucket repository association using the Amazon CodeGuru Revi
 
 1. Choose **Bitbucket**. 
 
-1. From **Connect to Bitbucket (with CodeConnections)**, choose the connection you want to use. If you don't have a connection, choose **Create a Bitbucket connection** to create one in the Developer Tools console. For more information, see [Create a connection](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create.html) in the *Developer Tools User Guide*. 
+1. From **Connect to Bitbucket (with AWS CodeConnections)**, choose the connection you want to use. If you don't have a connection, choose **Create a Bitbucket connection** to create one in the Developer Tools console. For more information, see [Create a connection](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create.html) in the *Developer Tools User Guide*. 
 
 1. From **Repository location**, choose the name of your Bitbucket repository that contains the source code you want CodeGuru Reviewer to analyze. 
 

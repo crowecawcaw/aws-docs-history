@@ -5,7 +5,7 @@ As of November 7, 2025, you can't create new repository associations in Amazon C
 # Create a repository for your source code
 <a name="get-set-up-setup-repository"></a>
 
-Before you use Amazon CodeGuru Reviewer to create code reviews, the source code that you want to analyze must be set up in a supported repository type. CodeGuru Reviewer supports AWS CodeCommit, Bitbucket, GitHub, and GitHub Enterprise Server. If you use Bitbucket or GitHub Enterprise Server, you must also create a connection to your repository using CodeConnections. For more information, see [What are connections?](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) in the *AWS Developer Tools User Guide*. 
+Before you use Amazon CodeGuru Reviewer to create code reviews, the source code that you want to analyze must be set up in a supported repository type. CodeGuru Reviewer supports AWS CodeCommit, Bitbucket, GitHub, and GitHub Enterprise Server. If you use Bitbucket or GitHub Enterprise Server, you must also create a connection to your repository using AWS CodeConnections. For more information, see [What are connections?](https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html) in the *AWS Developer Tools User Guide*. 
 
 If you want to suppress recommendations from CodeGuru Reviewer, you can create and add to the root directory of your repository an `aws-codeguru-reviewer.yml` file that lists files and directories to exclude from analysis. For more information, see [Suppress recommendations](recommendation-suppression.md). 
 
