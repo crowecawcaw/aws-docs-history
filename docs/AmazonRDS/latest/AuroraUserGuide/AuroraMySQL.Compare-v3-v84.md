@@ -96,6 +96,18 @@ This sets the default to 3% of allocated storage, capped at a maximum of 4 GiB. 
 
 For the parameter reference entry, see [Aurora MySQL configuration parameters](AuroraMySQL.Reference.ParameterGroups.md).
 
+### max\_connections
+<a name="AuroraMySQL.Compare-v3-v84.max-connections"></a>
+
+**Aurora MySQL version 3** supports a maximum `max_connections` value of 16,000.
+
+**Aurora MySQL version 8.4** supports a maximum `max_connections` value of 50,000, starting with version 8.4.10.
+
+**Note**  
+The increased maximum applies only to Aurora MySQL version 8.4.10 and higher. For earlier 8.4 versions, the maximum value is 16,000.
+
+The default value of `max_connections` is unchanged. For recommendations on configuring more than 16,000 connections, see [Maximum connections to an Aurora MySQL DB instance](AuroraMySQL.Managing.Performance.md#AuroraMySQL.Managing.MaxConnections).
+
 ## Privileges and Roles
 <a name="AuroraMySQL.Compare-v3-v84.privileges"></a>
 

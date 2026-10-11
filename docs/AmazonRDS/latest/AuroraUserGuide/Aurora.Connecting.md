@@ -25,12 +25,14 @@ For more information, see [Troubleshooting Aurora connection failures](#Aurora.C
   + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverMySQL)
   + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) ODBC Driver for MySQL](#Aurora.Connecting.ODBCDriverMySQL)
   + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper](#Aurora.Connecting.NodeJSDriverMySQL)
+  + [Connecting to Aurora MySQL with the AWS Advanced Ruby Driver Wrapper](#Aurora.Connecting.RubyDriverMySQL)
   + [Connecting to Aurora MySQL using SSL](#Aurora.Connecting.SSL)
 + [Connecting to an Amazon Aurora PostgreSQL DB cluster](#Aurora.Connecting.AuroraPostgreSQL)
   + [Connection utilities for Aurora PostgreSQL](#Aurora.Connecting.AuroraPostgreSQL.Utilities)
   + [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](#Aurora.Connecting.JDBCDriverPostgreSQL)
   + [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverPostgreSQL)
   + [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper](#Aurora.Connecting.NodeJSDriverPostgreSQL)
+  + [Connecting to Aurora PostgreSQL with the AWS Advanced Ruby Driver Wrapper](#Aurora.Connecting.RubyDriverPostgreSQL)
 + [Troubleshooting Aurora connection failures](#Aurora.Connecting.Troubleshooting)
 
 ## Connecting to Aurora DB clusters with the AWS drivers
@@ -41,19 +43,25 @@ The AWS suite of drivers has been designed to provide support for faster switcho
 The following table lists the features supported for each of the drivers. As new service features are introduced, the goal of the AWS suite of drivers is to have built-in support for these service features.
 
 
-| Feature | [AWS JDBC Driver](https://github.com/awslabs/aws-advanced-jdbc-wrapper) | [AWS Python Driver](https://github.com/awslabs/aws-advanced-python-wrapper) | [AWS ODBC Driver for MySQL](https://github.com/aws/aws-mysql-odbc) | [AWS Advanced NodeJS Wrapper](https://github.com/aws/aws-advanced-nodejs-wrapper) | 
-| --- | --- | --- | --- | --- | 
-| Failover support | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheFailoverPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheFailoverPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/UsingTheAwsDriver.md#failover-process) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheFailoverPlugin.md) | 
-| Enhanced failover monitoring | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheHostMonitoringPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheHostMonitoringPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/HostMonitoring.md#enhanced-failure-monitoring) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheHostMonitoringPlugin.md) | 
-| Read/write splitting | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheReadWriteSplittingPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheReadWriteSplittingPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheReadWriteSplittingPlugin.md) | 
-| Aurora connection tracker | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheAuroraConnectionTrackerPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheAuroraConnectionTrackerPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheAuroraConnectionTrackerPlugin.md) | 
-| Driver metadata connection | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheDriverMetadataConnectionPlugin.md) | N/A | N/A | N/A | 
-| Telemetry | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/Telemetry.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/Telemetry.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/Telemetry.md) | 
-| Secrets Manager | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheAwsSecretsManagerPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheAwsSecretsManagerPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/UsingTheAwsDriver.md#secrets-manager-authentication) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheAwsSecretsManagerPlugin.md) | 
-| IAM authentication | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheIamAuthenticationPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/UsingTheAwsDriver.md#iam-authentication) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheIamAuthenticationPlugin.md) | 
-| Federated Identity (AD FS) | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheFederatedAuthPlugin.md) | [Yes](https://github.com/awslabs/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheFederatedAuthenticationPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheFederatedAuthPlugin.md) | 
-| Federated Identity (Okta) | [Yes](https://github.com/awslabs/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheFederatedAuthPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-driver/using-plugins/UsingTheOktaAuthenticationPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/OktaAuthentication.md) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheOktaAuthPlugin.md) | 
-| Aurora PostgreSQL Limitless Database | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheLimitlessConnectionPlugin.md) (Aurora PostgreSQL only) | No | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheLimitlessConnectionPlugin.md) (Aurora PostgreSQL only) | 
+| Feature | [AWS JDBC Driver](https://github.com/aws/aws-advanced-jdbc-wrapper) | [AWS Python Driver](https://github.com/aws/aws-advanced-python-wrapper) | [AWS ODBC Driver for MySQL](https://github.com/aws/aws-mysql-odbc) | [AWS Advanced NodeJS Wrapper](https://github.com/aws/aws-advanced-nodejs-wrapper) | [AWS Advanced Ruby Driver Wrapper](https://github.com/aws/aws-advanced-ruby-driver-wrapper) | 
+| --- | --- | --- | --- | --- | --- | 
+| Failover support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheFailoverPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheFailoverPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/UsingTheAwsDriver.md#failover-process) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheFailoverPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/enhanced-failover) | 
+| Enhanced failover monitoring | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheHostMonitoringPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheHostMonitoringPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/HostMonitoring.md#enhanced-failure-monitoring) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheHostMonitoringPlugin.md) | No | 
+| Read/write splitting support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheReadWriteSplittingPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheReadWriteSplittingPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheReadWriteSplittingPlugin.md) | No | 
+| Aurora connection tracker | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheAuroraConnectionTrackerPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheAuroraConnectionTrackerPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheAuroraConnectionTrackerPlugin.md) | No | 
+| Driver metadata connection | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheDriverMetadataConnectionPlugin.md) | N/A | N/A | N/A | N/A | 
+| Telemetry | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/Telemetry.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/Telemetry.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/Telemetry.md) | No | 
+| Secrets Manager | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheAwsSecretsManagerPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheAwsSecretsManagerPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/UsingTheAwsDriver.md#secrets-manager-authentication) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheAwsSecretsManagerPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/aws-secrets-manager) | 
+| IAM authentication | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheIamAuthenticationPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheIamAuthenticationPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/UsingTheAwsDriver.md#iam-authentication) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheIamAuthenticationPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/iam-authentication) | 
+| Federated Identity (AD FS) | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheFederatedAuthPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheFederatedAuthenticationPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheFederatedAuthPlugin.md) | No | 
+| Federated Identity (Okta) | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheFederatedAuthPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheOktaAuthenticationPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/OktaAuthentication.md) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheOktaAuthPlugin.md) | No | 
+| Aurora PostgreSQL Limitless Database | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheLimitlessConnectionPlugin.md) (Aurora PostgreSQL only) | No | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheLimitlessConnectionPlugin.md) (Aurora PostgreSQL only) | No | 
+| Custom endpoint support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheCustomEndpointPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheCustomEndpointPlugin.md) | [Yes](https://github.com/aws/aws-mysql-odbc/blob/main/docs/using-the-aws-driver/CustomEndpoint.md) | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheCustomEndpointPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/custom-endpoint) | 
+| Aurora initial connection strategy | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheAuroraInitialConnectionStrategyPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheAuroraInitialConnectionStrategyPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheAuroraInitialConnectionStrategyPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/initial-connection-strategy) | 
+| Blue/Green Deployment support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheBlueGreenPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheBlueGreenPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheBlueGreenPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/blue-green) | 
+| Global Database (GDB) failover support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheGdbFailoverPlugin.md) | [Yes](https://github.com/aws/aws-advanced-python-wrapper/blob/main/docs/using-the-python-wrapper/using-plugins/UsingTheGdbFailoverPlugin.md) | No | [Yes](https://github.com/aws/aws-advanced-nodejs-wrapper/blob/main/docs/using-the-nodejs-wrapper/using-plugins/UsingTheGlobalDbFailoverPlugin.md) | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/gdb-failover) | 
+| KMS Encryption support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheKmsEncryptionPlugin.md) | No | No | No | [Yes](https://aws.github.io/aws-advanced-wrapper-docs/ruby/using-plugins/kms-encryption) | 
+| Remote query cache support | [Yes](https://github.com/aws/aws-advanced-jdbc-wrapper/blob/main/docs/using-the-jdbc-driver/using-plugins/UsingTheRemoteQueryCachePlugin.md) | No | No | No | No | 
 
 For more information on the AWS drivers, see the corresponding language driver for your [Aurora MySQL](#Aurora.Connecting.JDBCDriverMySQL) or [Aurora PostgreSQL](#Aurora.Connecting.AuroraPostgreSQL.Utilities) DB cluster.
 
@@ -87,6 +95,7 @@ To view the cluster endpoint (writer endpoint), choose **Databases** on the Amaz
 + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverMySQL)
 + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) ODBC Driver for MySQL](#Aurora.Connecting.ODBCDriverMySQL)
 + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper](#Aurora.Connecting.NodeJSDriverMySQL)
++ [Connecting to Aurora MySQL with the AWS Advanced Ruby Driver Wrapper](#Aurora.Connecting.RubyDriverMySQL)
 + [Connecting to Aurora MySQL using SSL](#Aurora.Connecting.SSL)
 
 ### Connection utilities for Aurora MySQL
@@ -100,6 +109,7 @@ Some connection utilities you can use are the following:
   + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverMySQL)
   + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) ODBC Driver for MySQL](#Aurora.Connecting.ODBCDriverMySQL)
   + [Connecting to Aurora MySQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper](#Aurora.Connecting.NodeJSDriverMySQL)
+  + [Connecting to Aurora MySQL with the AWS Advanced Ruby Driver Wrapper](#Aurora.Connecting.RubyDriverMySQL)
 
 ### Connecting to Aurora MySQL with the MySQL utility
 <a name="Aurora.Connecting.mysql"></a>
@@ -167,7 +177,7 @@ To install the AWS JDBC Driver, append the AWS JDBC Driver .jar file (located in
 + `jdbc:mysql://` to `jdbc:aws-wrapper:mysql://`
 + `jdbc:mariadb://` to `jdbc:aws-wrapper:mariadb://`
 
-For more information about the AWS JDBC Driver and complete instructions for using it, see the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/awslabs/aws-advanced-jdbc-wrapper).
+For more information about the AWS JDBC Driver and complete instructions for using it, see the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/aws/aws-advanced-jdbc-wrapper).
 
 **Note**  
 Version 3.0.3 of the MariaDB Connector/J utility drops support for Aurora DB clusters, so we highly recommend moving to the AWS JDBC Driver.
@@ -177,7 +187,7 @@ Version 3.0.3 of the MariaDB Connector/J utility drops support for Aurora DB clu
 
 The Amazon Web Services (AWS) Python Driver is designed as an advanced Python wrapper. This wrapper is complementary to and extends the functionality of the open-source Psycopg driver. The AWS Python Driver supports Python versions 3.8 and higher. You can install the `aws-advanced-python-wrapper` package using the `pip` command, along with the `psycopg` open-source packages.
 
-For more information about the AWS Python Driver and complete instructions for using it, see the [Amazon Web Services (AWS) Python Driver GitHub repository](https://github.com/awslabs/aws-advanced-python-wrapper).
+For more information about the AWS Python Driver and complete instructions for using it, see the [Amazon Web Services (AWS) Python Driver GitHub repository](https://github.com/aws/aws-advanced-python-wrapper).
 
 ### Connecting to Aurora MySQL with the Amazon Web Services (AWS) ODBC Driver for MySQL
 <a name="Aurora.Connecting.ODBCDriverMySQL"></a>
@@ -192,6 +202,13 @@ For more information about the AWS ODBC Driver for MySQL and complete instructio
 The AWS Advanced NodeJS Wrapper is complementary to and extends the functionality of an existing NodeJS driver. It helps applications take advantage of the features of clustered databases such as Aurora MySQL.
 
 For more information about the AWS Advanced NodeJS Wrapper and complete instructions for using it, see the [Amazon Web Services (AWS) Advanced NodeJS Wrapper GitHub repository](https://github.com/aws/aws-advanced-nodejs-wrapper).
+
+### Connecting to Aurora MySQL with the AWS Advanced Ruby Driver Wrapper
+<a name="Aurora.Connecting.RubyDriverMySQL"></a>
+
+The AWS Advanced Ruby Driver Wrapper builds on top of the community mysql2 driver to help applications take advantage of the features of clustered databases such as Aurora MySQL. It integrates with ActiveRecord through the drop-in `aws_mysql2` adapter. You can install the wrapper by adding the `aws-advanced-ruby-driver-wrapper` gem to your Gemfile, along with the `mysql2` gem, and running `bundle install`.
+
+For more information about the AWS Advanced Ruby Driver Wrapper and complete instructions for using it, see the [AWS Advanced Ruby Driver Wrapper GitHub repository](https://github.com/aws/aws-advanced-ruby-driver-wrapper).
 
 ### Connecting to Aurora MySQL using SSL
 <a name="Aurora.Connecting.SSL"></a>
@@ -255,6 +272,7 @@ Some connection utilities you can use are the following:
   + [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) JDBC Driver](#Aurora.Connecting.JDBCDriverPostgreSQL)
   + [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Python Driver](#Aurora.Connecting.PythonDriverPostgreSQL)
   + [Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper](#Aurora.Connecting.NodeJSDriverPostgreSQL)
+  + [Connecting to Aurora PostgreSQL with the AWS Advanced Ruby Driver Wrapper](#Aurora.Connecting.RubyDriverPostgreSQL)
 
 ### Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) JDBC Driver
 <a name="Aurora.Connecting.JDBCDriverPostgreSQL"></a>
@@ -263,14 +281,14 @@ The Amazon Web Services (AWS) JDBC Driver is designed as an advanced JDBC wrappe
 
 To install the AWS JDBC Driver, append the AWS JDBC Driver .jar file (located in the application `CLASSPATH`), and keep references to the pgJDBC community driver. Update the connection URL prefix from `jdbc:postgresql://` to `jdbc:aws-wrapper:postgresql://`.
 
-For more information about the AWS JDBC Driver and complete instructions for using it, see the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/awslabs/aws-advanced-jdbc-wrapper).
+For more information about the AWS JDBC Driver and complete instructions for using it, see the [Amazon Web Services (AWS) JDBC Driver GitHub repository](https://github.com/aws/aws-advanced-jdbc-wrapper).
 
 ### Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Python Driver
 <a name="Aurora.Connecting.PythonDriverPostgreSQL"></a>
 
 The Amazon Web Services (AWS) Python Driver is designed as an advanced Python wrapper. This wrapper is complementary to and extends the functionality of the open-source Psycopg driver. The AWS Python Driver supports Python versions 3.8 and higher. You can install the `aws-advanced-python-wrapper` package using the `pip` command, along with the `psycopg` open-source packages.
 
-For more information about the AWS Python Driver and complete instructions for using it, see the [Amazon Web Services (AWS) Python Driver GitHub repository](https://github.com/awslabs/aws-advanced-python-wrapper).
+For more information about the AWS Python Driver and complete instructions for using it, see the [Amazon Web Services (AWS) Python Driver GitHub repository](https://github.com/aws/aws-advanced-python-wrapper).
 
 ### Connecting to Aurora PostgreSQL with the Amazon Web Services (AWS) Advanced NodeJS Wrapper
 <a name="Aurora.Connecting.NodeJSDriverPostgreSQL"></a>
@@ -278,6 +296,13 @@ For more information about the AWS Python Driver and complete instructions for u
 The AWS Advanced NodeJS Wrapper is complementary to and extends the functionality of an existing NodeJS driver. It helps applications take advantage of the features of clustered databases such as Aurora PostgreSQL.
 
 For more information about the AWS Advanced NodeJS Wrapper and complete instructions for using it, see the [Amazon Web Services (AWS) Advanced NodeJS Wrapper GitHub repository](https://github.com/aws/aws-advanced-nodejs-wrapper).
+
+### Connecting to Aurora PostgreSQL with the AWS Advanced Ruby Driver Wrapper
+<a name="Aurora.Connecting.RubyDriverPostgreSQL"></a>
+
+The AWS Advanced Ruby Driver Wrapper builds on top of the community pg driver to help applications take advantage of the features of clustered databases such as Aurora PostgreSQL. It integrates with ActiveRecord through the drop-in `aws_postgresql` adapter. You can install the wrapper by adding the `aws-advanced-ruby-driver-wrapper` gem to your Gemfile, along with the `pg` gem, and running `bundle install`.
+
+For more information about the AWS Advanced Ruby Driver Wrapper and complete instructions for using it, see the [AWS Advanced Ruby Driver Wrapper GitHub repository](https://github.com/aws/aws-advanced-ruby-driver-wrapper).
 
 ## Troubleshooting Aurora connection failures
 <a name="Aurora.Connecting.Troubleshooting"></a>

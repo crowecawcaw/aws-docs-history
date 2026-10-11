@@ -5,8 +5,9 @@
 
 The following section provides security best practices for implementing `pg_columnmask` in your Aurora PostgreSQL environment. Follow these recommendations to:
 + Establish a secure role-based access control architecture
-+ Develop masking functions that prevent security vulnerabilities
++ Develop masking functions that prevent unintended data disclosure
 + Understand and control trigger behavior with masked data
++ Understand cursor behavior and the masking resolution window
 
 ## Role-based security architecture
 <a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.architecture"></a>
@@ -15,7 +16,7 @@ Define a role hierarchy to implement access controls in your database. Aurora Po
 
 Create dedicated roles that align with organizational functions rather than granting permissions to individual users. This approach provides better auditability and simplifies permission management as your organizational structure evolves.
 
-**Example of creating an organzational role heirarchy**  
+**Example of creating an organizational role hierarchy**  
 The following example creates an organizational role hierarchy with dedicated roles for different functions, then assigns individual users to the appropriate roles. In this example, organizational roles (analyst\_role, support\_role) are created first, then individual users are granted membership in these roles. This structure allows you to manage permissions at the role level rather than for each individual user.  
 
 ```
@@ -38,7 +39,7 @@ GRANT security_admin_role TO security_manager;
 GRANT analyst_role TO data_analyst1, data_analyst2;
 GRANT support_role TO support_agent1, support_agent2;
 ```
-Implement the principle of least privilege by granting only the minimum permissions necessary for each role. Avoid granting broad permissions that could be exploited if credentials are compromised.  
+Implement the principle of least privilege by granting only the minimum permissions necessary for each role. Avoid granting broad permissions that an unauthorized user could leverage to perform inappropriate actions if they gain access to credentials.  
 
 ```
 -- Grant specific table permissions rather than schema-wide access
@@ -53,60 +54,73 @@ Assign the policy admin role to specific individuals rather than groups. This ta
 ## Secure masking function development
 <a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.MaskingDevelopment"></a>
 
-Develop masking functions using early binding semantics to ensure proper dependency tracking and prevent late binding vulnerabilities such as search path modification during runtime. It is recommended to use `BEGIN ATOMIC` syntax for SQL functions to enable compile-time validation (that is, early binding) and dependency management.
+Follow these three practices when developing masking functions:
++ **Early binding** – Use `BEGIN ATOMIC` syntax to enable compile-time validation and dependency tracking. This prevents late binding issues such as search path modification at runtime.
++ **Schema qualification** – Schema-qualify all object references to make functions immune to search path changes.
++ **Input validation** – Use `STRICT` to return NULL for NULL input, and validate input formats to handle edge cases.
+
+The following example demonstrates all three practices:
 
 ```
--- Example - Secure masking function with early binding
-CREATE OR REPLACE FUNCTION secure_mask_ssn(input_ssn TEXT)
+-- Secure masking function combining early binding, schema qualification,
+-- and input validation
+CREATE OR REPLACE FUNCTION data_masking.secure_mask_phone(phone_number TEXT)
     RETURNS TEXT
     LANGUAGE SQL
     IMMUTABLE PARALLEL SAFE STRICT
     BEGIN ATOMIC
+        -- STRICT returns NULL automatically for NULL input
         SELECT CASE
-            WHEN input_ssn IS NULL THEN NULL
-            WHEN length(input_ssn) < 4 THEN repeat('X', length(input_ssn))
-            ELSE repeat('X', length(input_ssn) - 4) || right(input_ssn, 4)
+            -- Input validation: fully mask values with fewer than 10 digits
+            WHEN pg_catalog.length(pg_catalog.regexp_replace(phone_number, '[^0-9]', '', 'g')) < 10
+                THEN 'XXX-XXX-XXXX'
+            -- Show only the last four digits; schema-qualified calls are not affected by search path changes
+            ELSE pg_catalog.concat('XXX-XXX-',
+                pg_catalog.right(pg_catalog.regexp_replace(phone_number, '[^0-9]', '', 'g'), 4))
         END;
     END;
 ```
 
-Alternatively, create functions that are immune to search path changes by explicitly schema qualifying all object references, ensuring consistent behavior across different user sessions.
+## Cursor behavior with pg\_columnmask
+<a name="AuroraPostgreSQL.Security.DynamicMasking.BestPractices.CursorBehavior"></a>
+
+`pg_columnmask` resolves masking at `DECLARE CURSOR` time, not on each `FETCH`. This is consistent with PostgreSQL semantics, where privileges and row-level security are evaluated once at `DECLARE`.
++ **Role changes after declaration** – A cursor's masking behavior is fixed at declaration time. Changes to role membership after declaration, whether granting a restrictive role or revoking an exempt role, do not affect data returned by that cursor.
++ **WITH HOLD cursors** – `WITH HOLD` cursors survive `COMMIT` and retain the masking context from declaration until the cursor is closed or the session ends.
+
+Open cursors retain the masking context from declaration. Only newly declared cursors reflect current role membership.
+
+**Example of cursor retaining cleartext after concurrent role revocation**  
 
 ```
--- Function immune to search path changes
-CREATE OR REPLACE FUNCTION data_masking.secure_phone_mask(phone_number TEXT)
-    RETURNS TEXT
-    LANGUAGE SQL
-    IMMUTABLE PARALLEL SAFE STRICT
-    AS $$
-    SELECT CASE
-        WHEN phone_number IS NULL THEN NULL
-        WHEN public.length(public.regexp_replace(phone_number, '[^0-9]', '', 'g')) < 10 THEN 'XXX-XXX-XXXX'
-        ELSE public.regexp_replace(
-            phone_number,
-            '([0-9]{3})[0-9]{3}([0-9]{4})',
-            public.concat('\1-XXX-\2')
-        )
-    END;
-    $$;
-```
+-- Session 1 (data_analyst1):
+BEGIN;
+DECLARE customer_cursor CURSOR FOR SELECT id, name, email FROM customers;
 
-Implement input validation within masking functions to handle edge cases and prevent unexpected behavior. Always include NULL handling and validate input formats to ensure consistent masking behavior. 
+-- Cursor returns cleartext because data_analyst1 holds the cleartext_reader role
+FETCH 1 FROM customer_cursor;
+ id |   name   |      email
+----+----------+------------------
+  1 | John Doe | john@example.com
 
-```
--- Robust masking function with comprehensive input validation
-CREATE OR REPLACE FUNCTION secure_mask_phone(phone_number TEXT)
-    RETURNS TEXT
-    LANGUAGE SQL
-    IMMUTABLE PARALLEL SAFE STRICT
-    BEGIN ATOMIC
-        SELECT CASE
-            WHEN phone_number IS NULL THEN NULL
-            WHEN length(trim(phone_number)) = 0 THEN phone_number
-            WHEN length(regexp_replace(phone_number, '[^0-9]', '', 'g')) < 10 THEN 'XXX-XXX-XXXX'
-            ELSE regexp_replace(phone_number, '([0-9]{3})[0-9]{3}([0-9]{4})', '\1-XXX-\2')
-        END;
-    END;
+-- Session 2 (security_admin):
+REVOKE cleartext_reader FROM data_analyst1;
+
+-- Session 1 (data_analyst1):
+-- Cursor still returns cleartext because masking was resolved at DECLARE time
+FETCH 1 FROM customer_cursor;
+ id |    name    |      email
+----+------------+------------------
+  2 | Jane Smith | jane@example.com
+
+-- Only a newly declared cursor reflects the updated role membership
+COMMIT;
+BEGIN;
+DECLARE customer_cursor CURSOR FOR SELECT id, name, email FROM customers;
+FETCH 1 FROM customer_cursor;
+ id |   name   |      email
+----+----------+------------------
+  1 | XXXXXXXX | XXXX@XXXXXXX.com
 ```
 
 ## DML Triggers behavior with pg\_columnmask
@@ -198,11 +212,11 @@ DELETE FROM public.credit_card_table RETURNING *;
 
 COMMIT;
 ```
-Trigger creator leaks unmasked data to user if they are not careful about the statements they use in their trigger body. For example using a `RAISE NOTICE ‘%’, masked_column;` prints the column to current user.  
+A trigger can unintentionally disclose unmasked data to the current user if the trigger creator is not careful about the statements they use in the trigger body. For example using a `RAISE NOTICE ‘%’, masked_column;` prints the column to current user.  
 
 ```
--- Example showing table trigger leaking column value to current user
-CREATE OR REPLACE FUNCTION leaky_trigger_func()
+-- Example showing table trigger disclosing column value to current user
+CREATE OR REPLACE FUNCTION notice_trigger_func()
     RETURNS TRIGGER AS
     $$
     BEGIN
@@ -212,10 +226,10 @@ CREATE OR REPLACE FUNCTION leaky_trigger_func()
     END;
     $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER leaky_trigger
+CREATE TRIGGER notice_trigger
     AFTER UPDATE ON public.credit_card_table
     FOR EACH ROW
-    EXECUTE FUNCTION leaky_trigger_func();
+    EXECUTE FUNCTION notice_trigger_func();
 
 -- Grant update on column is_fraud to auditor role
 -- auditor will NOT HAVE PERMISSION TO READ DATA
@@ -233,18 +247,20 @@ CALL pgcolumnmask.alter_masking_policy(
 
 -- Log in as auditor
 -- [auditor]
--- Update will fail if trying to read data from the table
+-- Update fails because the WHERE clause references a masked column
 UPDATE public.credit_card_table
     SET is_fraud = true
     WHERE credit_card_no = '4532015112830366';
-ERROR:  permission denied for table cc_table
+ERROR:  predicates on masked columns are not allowed
+HINT:  Add the column to the predicate allow list using pgcolumnmask.alter_masking_policy.
 
 -- [auditor]
--- But leaky update trigger will still print the entire row even though
+-- But notice_trigger will still print the unmasked values even though
 -- current user does not have permission to select from public.credit_card_table
 UPDATE public.credit_card_table SET is_fraud = true;
-NOTICE:  Old credit_card_no was: 4532015112830366
-NOTICE:  New credit_card_no is 4532015112830366
+NOTICE:  Old credit card number was: 4532015112830366
+NOTICE:  New credit card number is 4532015112830366
+UPDATE 1
 ```
 
 Triggers on views with pg\_columnmask (Instead of triggers)  

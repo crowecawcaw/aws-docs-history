@@ -105,7 +105,7 @@ The following PostgreSQL data types are supported with limitations.
 
 | PostgreSQL type | Limitation | 
 | --- | --- | 
-| VARCHAR, BPCHAR | — | 
+| VARCHAR, BPCHAR | Length constraints are not supported (for example, VARCHAR(n) or CHAR(n)). | 
 | NUMERIC, DECIMAL | Precision (P) and Scale (S) must be explicitly defined. P must be between 1 and 38. S must be between 0 and P. | 
 | TIME, TIMETZ | Only maximum precision (6) is supported. | 
 | TIMESTAMP, TIMESTAMPTZ | Only maximum precision (6) is supported. | 

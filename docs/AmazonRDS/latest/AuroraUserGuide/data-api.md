@@ -17,6 +17,7 @@ After you enable Data API, you can also use the query editor to run ad hoc queri
 + [Region and version availability for the Amazon RDS Data API](data-api.regions.md)
 + [Using IPv6 with Amazon RDS Data API](data-api.ipv6.md)
 + [Limitations for the Amazon RDS Data API](data-api.limitations.md)
++ [Session management with Amazon RDS Data API](data-api.session-management.md)
 + [Authorizing access to the Amazon RDS Data API](data-api.access.md)
 + [Enabling the Amazon RDS Data API](data-api.enabling.md)
 + [Creating an Amazon VPC endpoint for the Amazon RDS Data API (AWS PrivateLink)](data-api.vpc-endpoint.md)

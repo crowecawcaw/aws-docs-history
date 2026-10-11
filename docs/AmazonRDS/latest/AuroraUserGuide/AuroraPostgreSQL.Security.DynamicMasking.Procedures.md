@@ -145,7 +145,7 @@ drop_masking_policy(
 
 | Parameter | Datatype | Description | 
 | --- | --- | --- | 
-| policy\_name | NAME | Existing name of the masking policy. | 
+| policy\_name | NAME | The name of the masking policy. | 
 | table\_name | REGCLASS | The qualified/unqualified name oid of the table containing the masking policy. | 
 
 **Return type**
@@ -156,10 +156,10 @@ None
 
 ```
 -- Drop a masking policy
-    CALL pgcolumnmask.drop_masking_policy(
-        'customer_mask',
-        'public.customers',
-    );
+CALL pgcolumnmask.drop_masking_policy(
+    'customer_mask',
+    'public.customers'
+);
 ```
 
 ## RENAME\_MASKING\_POLICY

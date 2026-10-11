@@ -30,7 +30,7 @@ The following general limitations apply to blue/green deployments:
 + During switchover, the blue and green environments can't have zero-ETL integrations with Amazon Redshift. You must delete the integration first and switch over, then recreate the integration.
 + The Event Scheduler (`event_scheduler` parameter) must be disabled on the green environment when you create a blue/green deployment. This prevents events from being generated in the green environment and causing inconsistencies.
 + Auto Scaling policies configured on the blue DB cluster are not copied to the green environment. You must reconfigured them after switchover, regardless of whether they were initially set up on the blue or green environment.
-+ You can't change an unencrypted DB cluster into an encrypted DB cluster. In addition, you can't change an encrypted DB cluster into an unencrypted DB cluster.
++ You can't change an encrypted DB cluster into an unencrypted DB cluster.
 + You can't change a blue DB cluster to a higher engine version than its corresponding green DB cluster.
 + The resources in the blue environment and green environment must be in the same AWS account.
 + If you use Amazon RDS Proxy, you must register your blue cluster with the proxy before creating a blue/green deployment. If a blue/green deployment already exists for a given blue cluster, registering that blue cluster to Amazon RDS Proxy will be blocked.
@@ -134,3 +134,8 @@ After you switch over a blue/green deployment, consider updating the resource ID
   + If the DB instance in the blue environment with the same name exists, it won't be switched over to the DB instance in the green environment. This DB instance won't be renamed by appending `-old{{n}}` to the DB instance name.
   + Any application that points to the DB instance in the blue environment continues to use the same DB instance after switchover.
 + If you use resource tags for access control or operational management, you need to understand that tag changes aren't synchronized between blue and green environments until switchover. When you create a blue/green deployment, tags from the blue environment are copied to the green environment. After creation, any tag modifications that you make to either environment aren't automatically synchronized. During switchover, blue environment tags replace all tags in the green environment. Apply all necessary tags to the blue environment before you create the blue/green deployment, or reapply required tags to the new production environment after switchover. For more information about tags, see [Tagging Amazon Aurora andAmazon RDS resources](USER_Tagging.md).
++ **Encrypting the green environment**
+
+  You can create a green environment whose storage is encrypted with a different AWS KMS key than the blue environment. Use this to encrypt an unencrypted DB cluster or one that uses an AWS owned key, or to change the KMS key of an encrypted DB cluster. To do so, specify `TargetKmsKeyId` in [TargetResourceConfigurations](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateBlueGreenDeployment.html) when you create the blue/green deployment. Set the `SourceArn` to the ARN of the source DB cluster. Aurora applies the key at the DB cluster level, so you don't specify it for individual DB instances.
+  + The KMS key must exist and be enabled, and you must have permission to use it.
+  + `TargetResourceConfigurations` isn't supported for Aurora Global Databases, so you can't change the encryption of the green environment for a Global Database.

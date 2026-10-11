@@ -49,5 +49,5 @@ You can modify all parameters without restarting.
 <a name="apg-shared-plan-cache-limitations"></a>
 + Only works with prepared statements and doesn't cache PL/pgSQL statements
 + Doesn't cache a query that contains temporary tables or catalog tables
-+ Doesn't cache a query that depends on RLS (Row-Level Security)
++ Doesn't cache a query that depends on RLS (Row-Level Security) or `pg_columnmask` masking
 + Each replica maintains its own cache (no cross-replica sharing)

@@ -23,21 +23,21 @@ The following Regions and engine versions are available for Data API with Aurora
 | <a name="data-api-asv2-apg-us-west-2"></a>US West (Oregon) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-af-south-1"></a>Africa (Cape Town) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-east-1"></a>Asia Pacific (Hong Kong) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| <a name="data-api-asv2-apg-ap-south-2"></a>Asia Pacific (Hyderabad) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-ap-south-2"></a>Asia Pacific (Hyderabad) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-southeast-3"></a>Asia Pacific (Jakarta) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| Asia Pacific (Malaysia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| <a name="data-api-asv2-apg-ap-southeast-4"></a>Asia Pacific (Melbourne) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-ap-southeast-5"></a>Asia Pacific (Malaysia) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
+| <a name="data-api-asv2-apg-ap-southeast-4"></a>Asia Pacific (Melbourne) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-south-1"></a>Asia Pacific (Mumbai) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| Asia Pacific (New Zealand) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-ap-southeast-6"></a>Asia Pacific (New Zealand) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-northeast-3"></a>Asia Pacific (Osaka) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-northeast-2"></a>Asia Pacific (Seoul) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-southeast-1"></a>Asia Pacific (Singapore) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-southeast-2"></a>Asia Pacific (Sydney) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| Asia Pacific (Taipei) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-ap-east-2"></a>Asia Pacific (Taipei) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-southeast-7"></a>Asia Pacific (Thailand) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ap-northeast-1"></a>Asia Pacific (Tokyo) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-ca-central-1"></a>Canada (Central) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| <a name="data-api-asv2-apg-ca-west-1"></a>Canada West (Calgary) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-ca-west-1"></a>Canada West (Calgary) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-cn-north-1"></a>China (Beijing) | Not available | Not available | Not available | Not available | Not available | 
 | <a name="data-api-asv2-apg-cn-northwest-1"></a>China (Ningxia) | Not available | Not available | Not available | Not available | Not available | 
 | <a name="data-api-asv2-apg-eu-central-1"></a>Europe (Frankfurt) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
@@ -47,10 +47,10 @@ The following Regions and engine versions are available for Data API with Aurora
 | <a name="data-api-asv2-apg-eu-west-3"></a>Europe (Paris) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-eu-south-2"></a>Europe (Spain) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-eu-north-1"></a>Europe (Stockholm) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| <a name="data-api-asv2-apg-eu-central-2"></a>Europe (Zurich) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-eu-central-2"></a>Europe (Zurich) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-il-central-1"></a>Israel (Tel Aviv) | Not available | Not available | Not available | Not available | Not available | 
 | <a name="data-api-asv2-apg-me-south-1"></a>Middle East (Bahrain) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
-| Mexico (Central) | Not available | Not available | Not available | Not available | Not available | 
+| <a name="data-api-asv2-apg-mx-central-1"></a>Mexico (Central) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-me-central-1"></a>Middle East (UAE) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-sa-east-1"></a>South America (São Paulo) | Version 17.4 and higher | Version 16.1 and higher | Version 15.3 and higher | Version 14.8 and higher | Version 13.11 and higher | 
 | <a name="data-api-asv2-apg-gov-us-east-1"></a>AWS GovCloud (US-East) | Not available | Not available | Not available | Not available | Not available | 
@@ -64,41 +64,41 @@ The following Regions and engine versions are available for Data API with Aurora
 
 | Region | Aurora MySQL version 3 | Aurora MySQL version 8.4 | 
 | --- | --- | --- | 
-| <a name="data-api-asv2-ams-us-east-2"></a>US East (Ohio) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-us-east-1"></a>US East (N. Virginia) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-us-west-1"></a>US West (N. California) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-us-west-2"></a>US West (Oregon) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-af-south-1"></a>Africa (Cape Town) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-east-1"></a>Asia Pacific (Hong Kong) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-south-2"></a>Asia Pacific (Hyderabad) | Not available | 
-| <a name="data-api-asv2-ams-ap-southeast-3"></a>Asia Pacific (Jakarta) | Version 3.07 and higher | 
-| Asia Pacific (Malaysia) | Version 3.07 and higher | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-southeast-4"></a>Asia Pacific (Melbourne) | Not available | 
-| <a name="data-api-asv2-ams-ap-south-1"></a>Asia Pacific (Mumbai) | Version 3.07 and higher | 
-| Asia Pacific (New Zealand) | Not available | Not available | 
-| <a name="data-api-asv2-ams-ap-northeast-3"></a>Asia Pacific (Osaka) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-northeast-2"></a>Asia Pacific (Seoul) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-southeast-1"></a>Asia Pacific (Singapore) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-southeast-2"></a>Asia Pacific (Sydney) | Version 3.07 and higher | 
-| Asia Pacific (Taipei) | Not available | Not available | 
-| <a name="data-api-asv2-ams-ap-southeast-7"></a>Asia Pacific (Thailand) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ap-northeast-1"></a>Asia Pacific (Tokyo) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ca-central-1"></a>Canada (Central) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-ca-west-1"></a>Canada West (Calgary) | Not available | 
-| <a name="data-api-asv2-ams-cn-north-1"></a>China (Beijing) | Not available | 
-| <a name="data-api-asv2-ams-cn-northwest-1"></a>China (Ningxia) | Not available | 
-| <a name="data-api-asv2-ams-eu-central-1"></a>Europe (Frankfurt) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-west-1"></a>Europe (Ireland) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-west-2"></a>Europe (London) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-south-1"></a>Europe (Milan) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-west-3"></a>Europe (Paris) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-south-2"></a>Europe (Spain) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-north-1"></a>Europe (Stockholm) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-eu-central-2"></a>Europe (Zurich) | Not available | 
-| <a name="data-api-asv2-ams-il-central-1"></a>Israel (Tel Aviv) | Not available | 
-| Mexico (Central) | Not available | Not available | 
-| <a name="data-api-asv2-ams-me-south-1"></a>Middle East (Bahrain) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-me-central-1"></a>Middle East (UAE) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-sa-east-1"></a>South America (São Paulo) | Version 3.07 and higher | 
-| <a name="data-api-asv2-ams-gov-us-east-1"></a>AWS GovCloud (US-East) | Not available | 
-| <a name="data-api-asv2-ams-gov-us-west-1"></a>AWS GovCloud (US-West) | Not available | 
+| <a name="data-api-asv2-ams-us-east-2"></a>US East (Ohio) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-us-east-1"></a>US East (N. Virginia) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-us-west-1"></a>US West (N. California) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-us-west-2"></a>US West (Oregon) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-af-south-1"></a>Africa (Cape Town) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-east-1"></a>Asia Pacific (Hong Kong) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-south-2"></a>Asia Pacific (Hyderabad) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-3"></a>Asia Pacific (Jakarta) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-5"></a>Asia Pacific (Malaysia) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-4"></a>Asia Pacific (Melbourne) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-south-1"></a>Asia Pacific (Mumbai) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-6"></a>Asia Pacific (New Zealand) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-northeast-3"></a>Asia Pacific (Osaka) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-northeast-2"></a>Asia Pacific (Seoul) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-1"></a>Asia Pacific (Singapore) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-2"></a>Asia Pacific (Sydney) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-east-2"></a>Asia Pacific (Taipei) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-southeast-7"></a>Asia Pacific (Thailand) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ap-northeast-1"></a>Asia Pacific (Tokyo) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ca-central-1"></a>Canada (Central) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-ca-west-1"></a>Canada West (Calgary) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-cn-north-1"></a>China (Beijing) | Not available | Not available | 
+| <a name="data-api-asv2-ams-cn-northwest-1"></a>China (Ningxia) | Not available | Not available | 
+| <a name="data-api-asv2-ams-eu-central-1"></a>Europe (Frankfurt) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-west-1"></a>Europe (Ireland) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-west-2"></a>Europe (London) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-south-1"></a>Europe (Milan) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-west-3"></a>Europe (Paris) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-south-2"></a>Europe (Spain) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-north-1"></a>Europe (Stockholm) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-eu-central-2"></a>Europe (Zurich) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-il-central-1"></a>Israel (Tel Aviv) | Not available | Not available | 
+| <a name="data-api-asv2-ams-mx-central-1"></a>Mexico (Central) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-me-south-1"></a>Middle East (Bahrain) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-me-central-1"></a>Middle East (UAE) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-sa-east-1"></a>South America (São Paulo) | Version 3.07 and higher | Version 8.4.7 and higher | 
+| <a name="data-api-asv2-ams-gov-us-east-1"></a>AWS GovCloud (US-East) | Not available | Not available | 
+| <a name="data-api-asv2-ams-gov-us-west-1"></a>AWS GovCloud (US-West) | Not available | Not available | 

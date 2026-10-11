@@ -21,5 +21,6 @@ Following, you can find information about setting up and using some of the exten
 + [Scheduling maintenance with the PostgreSQL pg\_cron extension](PostgreSQL_pg_cron.md)
 + [Using pgAudit to log database activity](Appendix.PostgreSQL.CommonDBATasks.pgaudit.md)
 + [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.pglogical.md)
++ [rds\_tools functions reference](PostgreSQL_rds_tools-functions-reference.md)
 + [Working with Oracle databases by using the oracle\_fdw extension](postgresql-oracle-fdw.md)
 + [Working with SQL Server databases by using the tds\_fdw extension](postgresql-tds-fdw.md)

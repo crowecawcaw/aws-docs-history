@@ -75,7 +75,9 @@ Required. The Amazon S3 URI, AWS Glue ARN, or Amazon S3 Tables ARN pointing to y
 + AWS Glue ARN (Amazon S3 Tables): `arn:aws:glue:region:account:table/s3tablescatalog/bucket/namespace/table`.
 + AWS Glue ARN (federated catalog): `arn:aws:glue:region:account:table/catalog/database/table`.  
 `format`  
-Optional. The data format: `'parquet'` or `'iceberg'`. Auto-detected for AWS Glue and Amazon S3 Tables ARNs. Required only for raw Amazon S3 URI locations when the format cannot be inferred.  
+The data format: `'parquet'` or `'iceberg'`.  
++ For an Amazon S3 URI, this option is required. Aurora PostgreSQL doesn't infer the format from the file extension or from the files at the location.
++ For an AWS Glue ARN or an Amazon S3 Tables ARN, this option is optional. Aurora PostgreSQL reads the format from the catalog. If you specify a format, it must match the format of the table in the catalog.  
 `region`  
 Optional. The AWS Region where your data source is located. Auto-inferred from ARNs, and resolved from the bucket for Amazon S3 URIs.  
 `snapshot`  
