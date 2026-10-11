@@ -118,7 +118,7 @@ Amazon EVS uses the vCenter connector to monitor VM lifecycle events for entitle
 After you have created an entitlement, and powered on a VM, Amazon EVS starts monitoring the corresponding VM’s Windows Server license usage. If the VM is shutdown or the configured vCPU are scaled up or down based on demand, you only pay for the licensing for the total vCPU hours used.
 
 **Warning**  
-Supported guest operating systems are Windows Server 2016 and later.
+Supported guest operating systems are Windows Server 2016 or later.
 
 For instructions, see [Windows Server entitlements](entitlements.md).
 
