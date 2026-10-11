@@ -147,6 +147,30 @@ The following example shows a Step Functions input that re-invokes customization
 **Note**  
  If your version of AWS Control Tower Account Factory for Terraform (AFT) is 1.6.5 or later, you can target nested OUs with the syntax `OU Name (ou-id-1234`). For more information, see the following topic on [GitHub](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/issues/280). 
 
+To preview the changes that AFT would make to an account without applying them, use a plan-only run. To start one, include a `plan_only` parameter set to `true` in the Step Functions input. When you set `"plan_only": true`, AFT runs `terraform plan` for your global and account customizations instead of `terraform apply`. You can then review the changes that an account would receive before you apply them. Plan-only runs work across all supported Terraform distributions, including Community Edition, HCP Terraform (Terraform Cloud), and Terraform Enterprise.
+
+The following example shows a Step Functions input that performs a plan-only run for a specific account by setting `plan_only` to `true` and specifying the account ID in the `include` block.
+
+```
+{
+  "include": [
+    {
+      "type": "accounts",
+      "target_value": ["123456789012"]
+    }
+  ],
+  "plan_only": true
+}
+```
+
+In the preceding example, replace the following value with your own information:
++ `123456789012` – Replace this value with the AWS account ID that you want to target for the plan-only run.
+
+After you review the plan output, re-run the customizations pipeline without the `plan_only` parameter (a normal run) to apply the changes to your accounts.
+
+**Note**  
+On the Community Edition (open source) distribution, AFT exports each plan's JSON output to the encrypted plan-output Amazon S3 bucket in the AFT management account. This export happens on every plan-only run. On the HCP Terraform (Terraform Cloud) and Terraform Enterprise distributions, you can view the plan results in the HCP Terraform run UI. You can also optionally export each plan's JSON output to the bucket. For more information, see [Export Terraform plan output to Amazon S3](aft-feature-options.md#plan-output-export-option).
+
  After you fill out the event parameters, Step Functions runs and invokes the corresponding customizations. AFT can invoke a maximum of 5 customizations at a time. Step Functions waits and loops until all accounts matching the event criteria are complete. 
 
 **Step 3: Monitor the AWS Step Function output and watch AWS CodePipeline running**

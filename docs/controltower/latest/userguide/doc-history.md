@@ -8,6 +8,7 @@ The following table describes important changes to the *AWS Control Tower User G
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Account Factory for Terraform (AFT) supports plan-only customization runs](#doc-history) | AFT now supports plan-only (read-only) customization runs through the `plan_only` input to the `aft-invoke-customizations` state machine. AFT exports the plan output to an encrypted Amazon S3 bucket by default on the Community Edition (open source) distribution. Export is opt-in on Terraform Cloud and Terraform Enterprise. | September 16, 2026 | 
 | [Update to managed policy](#doc-history) | Updated [AWSControlTowerServiceRolePolicy](https://docs.aws.amazon.com/controltower/latest/userguide/managed-policies-table.html). | May 19, 2026 | 
 | [Update to managed policy](#doc-history) | Updated [AWSControlTowerAccountServiceRolePolicy](https://docs.aws.amazon.com/controltower/latest/userguide/managed-policies-table.html). | May 19, 2026 | 
 | [Update to managed policy](#doc-history) | Updated [AWSControlTowerAccountServiceRolePolicy](https://docs.aws.amazon.com/controltower/latest/userguide/managed-policies-table.html). | December 30, 2025 | 

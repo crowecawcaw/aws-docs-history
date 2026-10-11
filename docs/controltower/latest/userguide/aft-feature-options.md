@@ -11,6 +11,7 @@ These features are not enabled by default. You must explicitly enable each one i
 + [AWS CloudTrail data events](#cloudtrail-data-event-option)
 + [AWS Enterprise Support plan](#enterprise-support-option)
 + [Delete the AWS default VPC](#delete-default-vpc-option)
++ [Export Terraform plan output to Amazon S3](#plan-output-export-option)
 
 ## AWS CloudTrail data events
 <a name="cloudtrail-data-event-option"></a>
@@ -106,3 +107,31 @@ Refer to [Default VPC and default subnets](https://docs.aws.amazon.com/vpc/lates
 
 **Note**  
 Default VPC deletion is best-effort per AWS Region. If a Region's endpoint is temporarily unreachable, AFT skips that Region and continues deleting default VPCs in the remaining Regions. Skipped Regions are retried on the next customization pipeline run. To check whether any Regions were skipped, search the `aft-delete-default-vpc` Lambda function logs for the message `Skipping default VPC deletion in region`.
+
+## Export Terraform plan output to Amazon S3
+<a name="plan-output-export-option"></a>
+
+When you deploy AFT, AFT creates a dedicated, encrypted plan-output Amazon S3 bucket in the AFT management account. AFT creates this bucket on every AFT deployment, regardless of your Terraform distribution. The bucket stores the JSON output of plan-only customization runs. For more information about plan-only runs, see [Re-invoke customizations](aft-account-customization-options.md#aft-re-invoke-customizations).
+
+The plan-output bucket has the following properties:
++ Encrypted with the AFT AWS KMS key
++ Versioning enabled
++ Public access blocked
++ Write access limited to the AFT customizations build role
+
+Whether AFT exports the plan JSON to this bucket depends on your Terraform distribution:
++ Community Edition (open source): AFT exports the plan JSON to the bucket by default on every plan-only run.
++ HCP Terraform (Terraform Cloud) and Terraform Enterprise: You can view the plan results in the HCP Terraform run UI. To also export the plan JSON to the bucket, set the following variable to `true` in your AFT deployment input configuration.
+
+```
+aft_plan_output_export_enabled = true
+```
+
+AFT retains exported plans for 30 days by default. To change the retention duration, set the `aft_plan_output_retention_days` variable in your AFT deployment input configuration.
+
+```
+aft_plan_output_retention_days = 30
+```
+
+**Note**  
+The `aft_plan_output_export_enabled` variable affects only the HCP Terraform (Terraform Cloud) and Terraform Enterprise distributions. On the Community Edition (open source) distribution, AFT exports the plan JSON by default, and this variable has no effect.

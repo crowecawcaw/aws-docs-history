@@ -29,6 +29,7 @@ AFT does not create any AWS Backup resources in the management account.
 | CodeBuild | Build Projects | aft-\*<br />ct-aft-\*<br />python-layer-builder-aft-common-\* | 
 | Code Pipeline | Pipelines | *{{YourAccountId}}*-customizations-pipeline | 
 | Amazon S3 | Buckets | aft-\* | 
+| Amazon S3 | Buckets | aft-plan-output-\* | 
 | Lambda | Functions | aft-\* | 
 | Lambda | Layers | aft-common-\* | 
 | DynamoDB | Tables | aft-request<br />aft-request-audit<br />aft-request-metadata<br />aft-controltower-events | 

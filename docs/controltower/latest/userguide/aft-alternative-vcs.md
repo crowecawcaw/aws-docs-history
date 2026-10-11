@@ -3,7 +3,7 @@
 # Alternatives for version control of source code in AFT
 <a name="aft-alternative-vcs"></a>
 
-AFT uses AWS CodeCommit for a source code version control system (VCS), and it allows other [CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/supported-versions-connections.html) that meet your business requirements or existing architecture.
+AFT uses AWS CodeCommit for a source code version control system (VCS), and it allows other [AWS CodeConnections](https://docs.aws.amazon.com/dtconsole/latest/userguide/supported-versions-connections.html) that meet your business requirements or existing architecture.
 
 If you're deploying AFT for the first time and you don't have an existing CodeCommit repository, you must specify an external VCS provider, as part of the AFT deployment prerequisites.
 
