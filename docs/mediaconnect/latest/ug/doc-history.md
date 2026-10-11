@@ -7,6 +7,7 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
 | [RTMP Push protocol for router outputs](using-mediaconnect-router.md) | Router outputs can now send content using the RTMP Push protocol, including RTMPS (RTMP over TLS). | September 25, 2026 | 
 | [Added a getting started tutorial for the router](getting-started.md) | Added a new tutorial for creating router network interfaces, inputs, outputs, and routes. | September 11, 2026 | 
 | [Router input and output EventBridge events](monitoring-with-cloudwatch-events.md) | Added new EventBridge events for router inputs and router outputs, including state, route state, health, failover, and message events. | September 8, 2026 | 

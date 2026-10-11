@@ -44,6 +44,7 @@ Workflow monitor supports automatic discovery and signal mapping of resources as
 + AWS Elemental MediaTailor
 + Amazon S3
 + Amazon CloudFront
++ AWS Elemental Inference
 
 **Topics**
 + [Components of workflow monitor](#monitor-with-workflow-monitor-components)
