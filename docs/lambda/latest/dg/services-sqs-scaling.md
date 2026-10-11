@@ -31,7 +31,7 @@ Importantly, maximum concurrency and reserved concurrency are two independent se
 
 When your account's concurrency quota is set to the default value of 1,000, an Amazon SQS event source mapping can scale to invoke function instances up to this value, unless you specify a maximum concurrency.
 
-If you receive an increase to your account's default concurrency quota, Lambda might not be able to invoke concurrent functions instances up to your new quota. By default, Lambda can scale to invoke up to 1,250 concurrent function instances for an Amazon SQS event source mapping. If this is insufficient for your use case, contact AWS support to discuss an increase to your account's Amazon SQS event source mapping concurrency.
+If you receive an increase to your account's default concurrency quota, Lambda might not be able to invoke concurrent functions instances up to your new quota. By default, Lambda can scale to invoke up to 1,250 concurrent function instances for an Amazon SQS event source mapping. If you need higher concurrency, enable provisioned mode, which scales up to 100,000 concurrent function invocations. For more information, see [Using provisioned mode with Amazon SQS event source mappings](with-sqs.md#sqs-provisioned-mode).
 
 **Note**  
 For FIFO queues, concurrent invocations are capped either by the number of [message group IDs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.html) (`messageGroupId`) or the maximum concurrency setting—whichever is lower. For example, if you have six message group IDs and maximum concurrency is set to 10, your function can have a maximum of six concurrent invocations.

@@ -13,6 +13,15 @@ When you configure a Kafka topic as an on-failure destination, Lambda acts as a 
 + **Actual record content** – Kafka destinations receive the actual failed records along with failure metadata.
 + **Recursion prevention** – Lambda prevents infinite loops by blocking configurations where the source and destination topics are the same.
 
+## Authentication for a Kafka destination
+<a name="kafka-ofd-auth"></a>
+
+A Kafka on-failure destination has no authentication settings of its own. The destination topic is in the same cluster as your source topics, so Lambda writes failed records with the authentication that you already configured in the `SourceAccessConfigurations` parameter of the event source mapping.
+
+This applies to every authentication method that Lambda supports for Kafka, including OAuth 2.0 (`OAUTHBEARER_AUTH`), IAM (`IAM_AUTH`), and IAM with SASL/OAUTHBEARER (`IAM_OAUTHBEARER_AUTH`). If you authenticate with OAuth 2.0, Lambda uses the same identity provider and the same secret to get a token for producing to the destination topic. Configure the authentication once, in the source access configuration. For more information, see [Configuring cluster authentication methods in Lambda](kafka-cluster-auth.md) for self-managed Kafka and [Configuring Amazon MSK cluster authentication methods in Lambda](msk-cluster-auth.md) for Amazon MSK.
+
+Make sure that the identity you authenticate with can write to the destination topic, not only read from your source topics. For IAM authentication, that means `kafka-cluster:WriteData` on the destination topic. For other methods, that means the equivalent write permission in your cluster's authorization rules.
+
 ## Configuring a Kafka on-failure destination
 <a name="kafka-ofd-configure"></a>
 

@@ -62,5 +62,6 @@ Here, the **Error count** metric drops to zero and the **Success rate** metric r
 If an event producer consistently generates messages for an SQS queue faster than a Lambda function can process them, backpressure occurs. In this case, SQS monitoring should show the age of the oldest message growing linearly, along with the approximate number of messages visible. You can detect backpressure in queues using CloudWatch alarms.
 
 The steps to resolve backpressure depend on your workload. If the primary goal is to increase processing capability and throughput by the Lambda function, you have a few options:
-+ Request a concurrency increase in the specific Region from AWS Support.
++ If your function is reaching your account's concurrency quota, request an increase through the [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) console.
++ Enable provisioned mode to scale the event source mapping to higher concurrency. For more information, see [Using provisioned mode with Amazon SQS event source mappings](with-sqs.md#sqs-provisioned-mode).
 + Increase the batch size of the function, so more messages are processed by each invocation.

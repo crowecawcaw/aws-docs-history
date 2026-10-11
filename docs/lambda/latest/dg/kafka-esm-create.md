@@ -55,8 +55,11 @@ Follow these steps to add your self-managed Apache Kafka cluster and a Kafka top
          + If your Kafka broker uses SASL/PLAIN authentication, choose **BASIC\_AUTH**.
          + If your broker uses SASL/SCRAM authentication, choose one of the **SASL\_SCRAM** protocols.
          + If you're configuring mTLS authentication, choose the **CLIENT\_CERTIFICATE\_TLS\_AUTH** protocol.
+         + If your broker uses OAuth 2.0, choose **OAUTHBEARER\_AUTH**.
+         + If your broker uses IAM access control, choose **IAM\_AUTH**.
+         + If your broker accepts AWS web identity tokens over OAuth 2.0, choose **IAM\_OAUTHBEARER\_AUTH**.
 
-      1. For SASL/SCRAM or mTLS authentication, choose the Secrets Manager secret key that contains the credentials for your Kafka cluster.
+      1. For SASL/SCRAM, mTLS, or OAuth 2.0 authentication, choose the Secrets Manager secret key that contains the credentials for your Kafka cluster. IAM and IAM with SASL/OAUTHBEARER authentication don't use a secret.
 
    1. (Optional) For **Encryption**, choose the Secrets Manager secret containing the root CA certificate that your Kafka brokers use for TLS encryption, if your Kafka brokers use certificates signed by a private CA.
 

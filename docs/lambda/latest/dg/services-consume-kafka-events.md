@@ -887,9 +887,10 @@ Example of the required IAM policy:
 **Note**  
  For AWS Glue schema registries, if you provide `AccessConfigs` for a AWS Glue registry, Lambda returns a validation exception. 
 
-If you're working with a Confluent schema registry, you can choose one of three supported authentication methods for the `Type` parameter of your [KafkaSchemaRegistryAccessConfig](https://docs.aws.amazon.com/lambda/latest/api/API_KafkaSchemaRegistryAccessConfig) object:
+If you're working with a Confluent schema registry, you can choose one of four supported authentication methods for the `Type` parameter of your [KafkaSchemaRegistryAccessConfig](https://docs.aws.amazon.com/lambda/latest/api/API_KafkaSchemaRegistryAccessConfig) object:
 + **BASIC\_AUTH** — Lambda uses username and password or API Key and API Secret authentication to access your registry. If you choose this option, provide the Secrets Manager ARN containing your credentials in the URI field.
 + **CLIENT\_CERTIFICATE\_TLS\_AUTH** — Lambda uses mutual TLS authentication with client certificates. To use this option, Lambda needs access to both the certificate and the private key. Provide the Secrets Manager ARN containing these credentials in the URI field.
++ **OAUTHBEARER\_AUTH** — Lambda requests an access token from your OAuth 2.0 identity provider and sends it to your registry as a bearer token. Lambda refreshes the token before it expires. If you choose this option, provide the Secrets Manager ARN containing your OAuth secret in the URI field. The secret uses the same fields as the secret for broker authentication, and supports the same two grant types. For the contents of the secret, see [Configuring the OAuth secret](kafka-cluster-auth.md#smaa-auth-oauth-secret).
 + **NO\_AUTH** — The public CA certificate must be signed by a certificate authority (CA) that's in the Lambda trust store. For a private CA/self-signed certificate, you configure the server root CA certificate. To use this option, omit the `AccessConfigs` parameter.
 
  Additionally, if Lambda needs access to a private CA certificate to verify your schema registry's TLS certificate, choose `SERVER_ROOT_CA_CERT` as the `Type` and provide the Secrets Manager ARN to the certificate in the URI field. 

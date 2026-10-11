@@ -28,6 +28,49 @@ The Kafka cluster sends a server certificate to Lambda to authenticate the Kafka
 
 For more information about mTLS, see [ Introducing mutual TLS authentication for Amazon MSK as an event source](https://aws.amazon.com/blogs/compute/introducing-mutual-tls-authentication-for-amazon-msk-as-an-event-source).
 
+## OAuth 2.0 authentication
+<a name="smaa-auth-oauth"></a>
+
+Lambda supports SASL/OAUTHBEARER authentication with TLS encryption (`SASL_SSL`). Lambda requests an access token from your OAuth 2.0 identity provider and presents that token to your Kafka brokers. Lambda refreshes the token before it expires. Configure your brokers to validate tokens from the same identity provider.
+
+To use this method, choose `OAUTHBEARER_AUTH` as the `Type` of a [SourceAccessConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html) and provide the Secrets Manager ARN of your OAuth secret in the `URI` field. For the contents of the secret, see [Configuring the OAuth secret](#smaa-auth-oauth-secret).
+
+Lambda supports two grant types. The fields that you store in the secret determine which one Lambda uses.
++ **Client credentials** – Lambda sends a client ID and client secret to the token endpoint. Use this grant type when your identity provider issues a client secret.
++ **JWT bearer** – Lambda signs a JSON Web Token (JWT) assertion with a private key and sends the assertion to the token endpoint. Use this grant type when your identity provider expects a signed assertion instead of a client secret.
+
+If your identity provider or your brokers require additional values, provide each one as its own source access configuration entry. Put the literal value in the `URI` field rather than a secret ARN.
++ `OAUTHBEARER_SCOPE` – The scope that Lambda requests when it asks for a token.
++ `OAUTHBEARER_AUDIENCE` – The audience that Lambda requests when it asks for a token.
++ `OAUTHBEARER_LOGICAL_CLUSTER` – The logical cluster ID that Lambda sends to your brokers as a SASL extension.
++ `OAUTHBEARER_IDENTITY_POOL` – The identity pool ID that Lambda sends to your brokers as a SASL extension.
+
+**Note**  
+These four types require an OAuth 2.0 authentication type. Provide them with `OAUTHBEARER_AUTH`, or provide only `OAUTHBEARER_AUDIENCE` with `IAM_OAUTHBEARER_AUTH`. If you provide any of them without one of these authentication types, Lambda returns a validation error.
+
+If your brokers present a certificate signed by a private CA, also provide `SERVER_ROOT_CA_CERTIFICATE` so that Lambda can verify them. For more information, see [Configuring the server root CA certificate secret](#smaa-auth-ca-cert).
+
+## IAM authentication
+<a name="smaa-auth-iam"></a>
+
+If your cluster is an Amazon MSK cluster that you reach through your own networking setup, you can register it as a self-managed Kafka event source and authenticate with IAM. Custom networking setups include a custom domain name in front of your brokers or a connection from another account. Lambda signs each connection with the credentials of your function's execution role, so you don't store any credentials in Secrets Manager.
+
+To use this method, turn on IAM access control on your cluster. Then choose `IAM_AUTH` as the `Type` of a source access configuration and omit the `URI` field. Your function's execution role needs the cluster permissions described in [Configuring Lambda execution role permissions](with-kafka-permissions.md).
+
+If your brokers present a certificate signed by a private CA, also provide `SERVER_ROOT_CA_CERTIFICATE` so that Lambda can verify them. A custom domain name in front of your brokers usually needs this.
+
+## IAM authentication with SASL/OAUTHBEARER
+<a name="smaa-auth-iam-oauth"></a>
+
+If your brokers accept OAuth 2.0 tokens, you can use AWS as the identity provider. Lambda presents an AWS web identity token to your brokers over SASL/OAUTHBEARER. Lambda requests a short-lived token for your function's execution role with the `sts:GetWebIdentityToken` action, so you don't store any credentials in Secrets Manager. Lambda requests a new token before the current one expires.
+
+To use this method, choose `IAM_OAUTHBEARER_AUTH` as the `Type` of a source access configuration and omit the `URI` field. You must also provide `OAUTHBEARER_AUDIENCE` with the audience that your brokers expect. Your function's execution role needs permission to call `sts:GetWebIdentityToken`.
+
+Configure your brokers to trust AWS as an OpenID Connect (OIDC) identity provider before you create the event source mapping. If your brokers don't trust the AWS issuer, they reject the token and Lambda can't read from your topics.
+
+**Note**  
+`IAM_OAUTHBEARER_AUTH` supports only `OAUTHBEARER_AUDIENCE`. If you also provide `OAUTHBEARER_SCOPE`, `OAUTHBEARER_LOGICAL_CLUSTER`, or `OAUTHBEARER_IDENTITY_POOL`, Lambda returns a validation error.
+
 ## Configuring the client certificate secret
 <a name="smaa-auth-secret"></a>
 
@@ -103,3 +146,43 @@ ZCBTZXJ2aWNlcyBSb290IENlcnRpZmljYXRlIEF1dG...
 -----END CERTIFICATE-----"
 }
 ```
+
+## Configuring the OAuth secret
+<a name="smaa-auth-oauth-secret"></a>
+
+You create this secret when you use `OAUTHBEARER_AUTH`. The secret is a JSON document. Every OAuth secret needs `oauthTokenEndpointUrl` and `oauthClientId`. Add the fields for only one grant type. If you provide fields from both grant types, Lambda returns a validation error.
+
+
+| Field | Required | Description | 
+| --- | --- | --- | 
+| `oauthTokenEndpointUrl` | Y | The token endpoint of your identity provider. This must be an HTTPS URL. | 
+| `oauthClientId` | Y | The client ID that your identity provider issued. | 
+| `oauthClientSecret` | Client credentials only | The client secret that your identity provider issued. | 
+| `oauthClientEmail` | JWT bearer only | The service account identity that Lambda puts in the JWT assertion. | 
+| `oauthPrivateKey` | JWT bearer only | The private key that Lambda uses to sign the JWT assertion, in PEM format. | 
+| `oauthTokenExpirationSeconds` | N | The lifetime of the JWT assertion that Lambda signs. Applies to the JWT bearer grant type only. | 
+| `oauthIdpCaCertificate` | N | The root CA certificate of your identity provider, in PEM format. Provide this if your identity provider presents a certificate signed by a private CA. | 
+
+The following example shows a secret for the client credentials grant type.
+
+```
+{"oauthTokenEndpointUrl":"https://idp.example.com/oauth2/token",
+"oauthClientId":"my-client-id",
+"oauthClientSecret":"my-client-secret"}
+```
+
+The following example shows a secret for the JWT bearer grant type.
+
+```
+{"oauthTokenEndpointUrl":"https://idp.example.com/oauth2/token",
+"oauthClientId":"my-client-id",
+"oauthClientEmail":"my-service-account@example.com",
+"oauthPrivateKey":"-----BEGIN PRIVATE KEY-----
+<private key contents>
+-----END PRIVATE KEY-----"}
+```
+
+**Important**  
+Store the secret in the same AWS Region as your Lambda function. Lambda reads the secret with your function's execution role, so that role needs `secretsmanager:GetSecretValue` permission on the secret.
+
+You can rotate the credentials in the secret without recreating the event source mapping. Lambda picks up the new values and requests a new token.

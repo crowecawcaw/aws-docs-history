@@ -69,6 +69,8 @@ To use self-managed S3 code storage, grant the Lambda service principal (`lambda
 }
 ```
 
+This S3 bucket policy is separate from your function's execution role. The bucket policy is a resource-based policy that grants the Lambda service principal (`lambda.amazonaws.com`) permission to retrieve a specific code object so that Lambda can optimize your function. It does not grant permissions to any other principal, and it does not grant permission to invoke your function. Your function's [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) is a separate IAM identity that Lambda assumes when it runs your function; you grant invoke and other runtime permissions through IAM policies attached to that role. Granting the Lambda service principal access to objects in your bucket does not allow other identities to access those objects or to invoke your functions.
+
 ## Creating a function with self-managed S3 storage
 <a name="self-managed-storage-create-function"></a>
 
