@@ -43,7 +43,7 @@ Identifies the service that generated the event. For Git sync events, this value
 A JSON object that contains information about the event. The service generating the event determines the content of this field.  
 For Repository sync status events, this data includes:    
 `connectionArn`  <a name="respository-sync-status-change-connection-arn"></a>
-The Amazon Resource Name (ARN) associated with CodeConnections.  
+The Amazon Resource Name (ARN) associated with AWS CodeConnections.  
 `providerType`  <a name="respository-sync-status-change-provider-type"></a>
 The Git provider connected to CloudFormation.  
 *Valid values*: `GitHub` \| `GitHub Enterprise` \| `GitLab` \| `BitBucket`  
@@ -69,7 +69,7 @@ The sync status previous to the current status.
 *Valid values*: `FAILED` \| `INITIATED` \| `IN_PROGRESS` \| `SUCCEEDED`
 
 **Example: Repository Sync Status Change event**  <a name="event-detail-respository-sync-status-change.example"></a>
-The following is an example Repository Sync Status Change event. The event details that CodeConnections has successfully synchronized the repository.  
+The following is an example Repository Sync Status Change event. The event details that AWS CodeConnections has successfully synchronized the repository.  
 
 ```
 {

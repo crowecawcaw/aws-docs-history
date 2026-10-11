@@ -57,7 +57,7 @@ The sync status previous to the current status.
 *Valid values*: `FAILED` \| `INITIATED` \| `IN_PROGRESS` \| `SUCCEEDED`
 
 **Example: Resource Sync Status Change event**  <a name="event-detail-resource-sync-status-change.example"></a>
-The following is an example resource sync status change event. The event details that CodeConnections has successfully synchronized the resource.  
+The following is an example resource sync status change event. The event details that AWS CodeConnections has successfully synchronized the resource.  
 
 ```
 {

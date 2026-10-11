@@ -136,7 +136,7 @@ You must provide the following trust policy when you create the role to define t
 
 ------
 
-We recommend that you use the `aws:SourceArn` and `aws:SourceAccount` condition keys to protect yourself against the confused deputy problem. The source account is your account ID and the source ARN is the ARN of the connection in the [CodeConnections](https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html) service that allows CloudFormation to connect to your Git repository.
+We recommend that you use the `aws:SourceArn` and `aws:SourceAccount` condition keys to protect yourself against the confused deputy problem. The source account is your account ID and the source ARN is the ARN of the connection in the [AWS CodeConnections](https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html) service that allows CloudFormation to connect to your Git repository.
 
 ------
 #### [ JSON ]

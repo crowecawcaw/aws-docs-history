@@ -15,7 +15,7 @@ This topic describes how Git sync works and introduces the key concepts required
 ## How Git sync works
 <a name="git-sync-concepts-terms-how"></a>
 
-To use Git sync, you first must connect a Git provider to CloudFormation using the [CodeConnections](https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html) service. In the procedures in this guide, the connection is created through the CodeConnections console. Alternatively, you can create the connection with the AWS CLI. You can use any of the following Git providers:
+To use Git sync, you first must connect a Git provider to CloudFormation using the [AWS CodeConnections](https://docs.aws.amazon.com/codeconnections/latest/APIReference/Welcome.html) service. In the procedures in this guide, the connection is created through the AWS CodeConnections console. Alternatively, you can create the connection with the AWS CLI. You can use any of the following Git providers:
 + [GitHub](https://github.com/)
 + [GitHub Enterprise](https://github.com/enterprise/)
 + [GitLab](https://about.gitlab.com/)
@@ -39,7 +39,7 @@ You can monitor the status of your Git sync configuration for the stack and see 
 ## Comments on pull requests
 <a name="git-sync-comments-on-pull-requests"></a>
 
-You can choose to have CloudFormation create a summary of the code changes in pull requests through the CodeConnections service by turning on the **Enable comment on pull request** option in the console. Providing a summary of the changes in pull requests means that team members can easily review and understand the impact of the proposed modifications before merging the pull request. For more information, see [Enable CloudFormation to post a summary of stack changes in pull requests](gitsync-enable-comments-on-pull-requests.md).
+You can choose to have CloudFormation create a summary of the code changes in pull requests through the AWS CodeConnections service by turning on the **Enable comment on pull request** option in the console. Providing a summary of the changes in pull requests means that team members can easily review and understand the impact of the proposed modifications before merging the pull request. For more information, see [Enable CloudFormation to post a summary of stack changes in pull requests](gitsync-enable-comments-on-pull-requests.md).
 
 ## Stack deployment file
 <a name="git-sync-concepts-terms-depoyment-file"></a>
