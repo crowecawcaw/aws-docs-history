@@ -4,7 +4,7 @@
 <a name="mes-partner-DatadogApiKey"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c11c21b3"></a>
+<a name="w2aac27c13c21b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -22,7 +22,7 @@ apiKeyId
 The unique identifier (UUID) for the API key. Found via the Datadog API or Organization Settings.
 
 ## Secret Metadata Fields
-<a name="w2aac27c11c21b5"></a>
+<a name="w2aac27c13c21b5"></a>
 
 The following are the metadata fields for Datadog API Key:
 
@@ -36,7 +36,7 @@ adminSecretArn
 The Amazon Resource Name (ARN) for a secret of type DatadogAdminKey that contains the administrative Datadog credentials (API key and Application key) used to rotate this secret. The Application key must have scopes: `api_keys_write`, `api_keys_delete`.
 
 ## Usage Flow
-<a name="w2aac27c11c21b7"></a>
+<a name="w2aac27c13c21b7"></a>
 
 This rotation uses a two-secret architecture. An admin secret of type DatadogAdminKey provides the API key and Application key needed to authenticate Datadog Key Management API calls.
 

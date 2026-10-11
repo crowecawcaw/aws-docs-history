@@ -4,7 +4,7 @@
 <a name="mes-partner-CiscoSecurityPlatformApiKey"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c11c15b3"></a>
+<a name="w2aac27c13c15b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -34,12 +34,12 @@ Rotation also writes an `expiresDate` field into the secret value. This field re
 Secrets Manager does not store the access token. An access token lives about 18 hours, so a stored copy would be invalid most of the time. Your application mints an access token from the refresh token when it needs one.
 
 ## Secret Metadata Fields
-<a name="w2aac27c11c15b5"></a>
+<a name="w2aac27c13c15b5"></a>
 
 This secret type requires no rotation metadata fields. Secrets Manager reads the routing values from the secret itself, and this secret type uses no admin secret.
 
 ## Usage Flow
-<a name="w2aac27c11c15b7"></a>
+<a name="w2aac27c13c15b7"></a>
 
 This rotation uses a single-secret architecture. No admin secret is required. The stored refresh token authenticates its own rotation call.
 

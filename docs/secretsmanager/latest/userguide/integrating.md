@@ -44,7 +44,6 @@
 + [Amazon Managed Workflows for Apache Airflow](integrating_how-services-use-secrets_mwaa.md)
 + [AWS Marketplace](integrating_how-services-use-secrets_marketplace-deployment.md)
 + [AWS Migration Hub](integrating_how-services-use-secrets_migration-hub.md)
-+ [AWS Panorama](integrating_how-services-use-secrets_PAN.md)
 + [AWS Parallel Computing Service](integrating_how-services-use-secrets_pcs.md)
 + [AWS ParallelCluster](integrating_how-services-use-secrets_parallelcluster.md)
 + [Amazon Q](integrating-amazonq.md)

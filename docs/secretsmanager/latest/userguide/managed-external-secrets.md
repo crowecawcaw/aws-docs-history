@@ -9,6 +9,8 @@ When you build applications on AWS, your workloads often need to interact with t
 
 Managed external secrets provides a standardized approach for storing third-party credentials in a predefined format prescribed by each partner. The feature includes automatic rotation that is enabled (by default on the console) during secret creation, complete transparency and user controls for secret management workflows, and the full feature set offered by Secrets Manager including fine-grained permissions management, observability, governance, compliance, disaster recovery, and monitoring controls.
 
+To learn how to configure automated rotation for a managed external secret, using either the console or the AWS CLI, see [Rotate Secrets Manager managed external secrets](rotate-secrets_external.md). For a step-by-step example that creates a managed external secret and turns on rotation, see [Create a Salesforce client secret](tutorials_salesforce-client-secret.md).
+
 ## Key features
 <a name="mes-key-features"></a>
 

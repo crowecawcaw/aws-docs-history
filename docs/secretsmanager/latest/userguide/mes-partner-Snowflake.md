@@ -4,7 +4,7 @@
 <a name="mes-partner-Snowflake"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c11c39b3"></a>
+<a name="w2aac27c13c39b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -34,7 +34,7 @@ passphrase
 (Optional) This field refers to the passphrase used to decrypt the encrypted private key.
 
 ## Secret Metadata Fields
-<a name="w2aac27c11c39b5"></a>
+<a name="w2aac27c13c39b5"></a>
 
 The following are the metadata fields for Snowflake:
 
@@ -52,6 +52,6 @@ encryptPrivateKey
 (Optional) This field can be used to choose if you want to encrypt your private key. It is false by default. The passphrase for encryption is randomly generated.
 
 ## Usage Flow
-<a name="w2aac27c11c39b7"></a>
+<a name="w2aac27c13c39b7"></a>
 
 You can create your secret using the [CreateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_CreateSecret.html) call with the secret value containing the fields mentioned above and secret type as SnowflakeKeyPairAuthentication. The rotation configurations can be set using a [RotateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html) call. You can optionally provide the secret metadata field(s) based on your requirement. You must also provide a role ARN in the [RotateSecret](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_RotateSecret.html) call which grants the service the required permissions to rotate the secret. For example of a permissions policy see [Security and Permissions](mes-security.md). Note that the rotation metadata field can be left empty for this partner.

@@ -60,7 +60,7 @@ Next, the Lambda rotation function tests the `AWSPENDING` version of the secret 
 ### **finishSecret**: Finish the rotation
 <a name="w2aac23c11c29c11c11"></a>
 
-Finally, the Lambda rotation function moves the label `AWSCURRENT` from the previous secret version to this version, which also removes the `AWSPENDING` label in the same API call. Secrets Manager adds the `AWSPREVIOUS` staging label to the previous version, so that you retain the last known good version of the secret. 
+Finally, the Lambda rotation function moves the label `AWSCURRENT` from the previous secret version to this version. Secrets Manager adds the `AWSPREVIOUS` staging label to the previous version, so that you retain the last known good version of the secret. 
 
 The method **finish\_secret** uses [`update_secret_version_stage`](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/secretsmanager.html#SecretsManager.Client.update_secret_version_stage) to move the staging label `AWSCURRENT` from the previous secret version to the new secret version. Secrets Manager automatically adds the `AWSPREVIOUS` staging label to the previous version, so that you retain the last known good version of the secret. 
 

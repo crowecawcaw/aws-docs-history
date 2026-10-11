@@ -4,7 +4,7 @@
 <a name="mes-partner-ConfluentCloudApiKey"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c11c17b3"></a>
+<a name="w2aac27c13c17b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -34,7 +34,7 @@ environmentId
 (Optional) The Confluent Cloud Environment ID, for example `env-abcde`. Used when creating cluster-scoped keys.
 
 ## Secret Metadata Fields
-<a name="w2aac27c11c17b5"></a>
+<a name="w2aac27c13c17b5"></a>
 
 The following are the metadata fields for Confluent Cloud API Key:
 
@@ -48,7 +48,7 @@ adminSecretArn
 (Optional) The Amazon Resource Name (ARN) for the secret that contains the administrative Confluent Cloud API Key credentials used to rotate this secret. The admin API key must have CloudClusterAdmin or OrganizationAdmin role to create and delete API keys for Service Accounts. If omitted, the user secret's own credentials are used for self-rotation.
 
 ## Usage Flow
-<a name="w2aac27c11c17b7"></a>
+<a name="w2aac27c13c17b7"></a>
 
 The rotation supports two modes. In self-rotation mode (default), the user secret's own `apiKey`/`apiSecret` are used to authenticate Confluent API calls for key creation and deletion. The user secret's API key must have sufficient permissions to manage its own Service Account's keys. In admin-secret mode, a separate admin secret containing `apiKey`/`apiSecret` with admin permissions is used instead.
 

@@ -4,7 +4,7 @@
 <a name="mes-partner-SnowflakePat"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c11c41b3"></a>
+<a name="w2aac27c13c41b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -38,7 +38,7 @@ patTokenValue
 The programmatic access token secret value. This is the field that gets rotated.
 
 ## Secret Metadata Fields
-<a name="w2aac27c11c41b5"></a>
+<a name="w2aac27c13c41b5"></a>
 
 The following are the metadata fields for Snowflake Programmatic Access Token:
 
@@ -56,7 +56,7 @@ expireOldTokenAfterHours
 (Optional) Hours before the previous token expires after rotation (0–720). Default: 24. Set to 0 for immediate expiry of the old token.
 
 ## Usage Flow
-<a name="w2aac27c11c41b7"></a>
+<a name="w2aac27c13c41b7"></a>
 
 This rotation uses a single-secret architecture. The secret contains both the key-pair credentials (for authenticating the rotation command) and the PAT value (the rotated credential).
 

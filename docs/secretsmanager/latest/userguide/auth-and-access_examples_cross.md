@@ -63,7 +63,7 @@ The following example policies assume you have a secret and encryption key in *A
 ------
 
 **Step 2: Add a statement to the key policy for the KMS key in *Account1***
-+ The following key policy statement allows {{ApplicationRole}} in {{Account2}} to use the KMS key in {{Account1}} to decrypt the secret in {{Account1}}. To use this statement, add it to the key policy for your KMS key. For more information, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html).
++ The following key policy statement allows {{ApplicationRole}} in {{Account2}} to use the KMS key in {{Account1}} to decrypt the secret in {{Account1}}. To use this statement, add it to the key policy for your KMS key. For more information, see [Changing a key policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying.html). The KMS key permissions the principal needs depend on the operations it performs on the secret. To read the secret value, the principal needs `kms:Decrypt`. If the principal also creates or changes the secret value (for example, with `PutSecretValue`, `UpdateSecret`, or `CreateSecret`), also grant `kms:GenerateDataKey`. For the KMS key permissions required by each operation, see [Permissions for the KMS key](security-encryption.md#security-encryption-authz).
 
   ```
   {

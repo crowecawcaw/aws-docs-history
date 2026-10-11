@@ -16,11 +16,12 @@ For issues related to rotation, see [Troubleshoot AWS Secrets Manager rotation](
 + [An AWS CLI or AWS SDK operation can't find my secret from a partial ARN](#ARN_secretnamehyphen)
 + [This secret is managed by an AWS service, and you must use that service to update it.](#troubleshoot-service-linked-secrets)
 + [Python module import fails when using `Transform: AWS::SecretsManager-2024-09-16`](#troubleshoot-python-import)
++ [My managed external secret is not rotating](#troubleshoot-mes-not-rotating)
 
 ## "Access denied" messages
 <a name="troubleshoot_general_access-denied-service"></a>
 
-When you make an API call such as GetSecretValue or CreateSecret to Secrets Manager, you must have IAM permissions to make that call. When you use the console, the console makes the same API calls on your behalf, so you must also have IAM permissions. An administrator can grant permissions by attaching an IAM policy to your IAM user, or to a group that you're a member of. If the policy statements that grant those permissions include any conditions, such as time-of-day or IP address restrictions, you also must meet those requirements when you send the request. For information about viewing or modifying policies for an IAM user, group, or role, see [Working with Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html) in the *IAM User Guide*. For information about permissions required for Secrets Manager, see [Authentication and access control for AWS Secrets Manager](auth-and-access.md).
+When you make an API call such as GetSecretValue or CreateSecret to Secrets Manager, you must have IAM permissions to make that call. You should also ensure you're making these API calls in the AWS account and AWS Region where the secret is located. When you use the console, the console makes the same API calls on your behalf, so you must also have IAM permissions. An administrator can grant permissions by attaching an IAM policy to your IAM user, or to a group that you're a member of. If the policy statements that grant those permissions include any conditions, such as time-of-day or IP address restrictions, you also must meet those requirements when you send the request. For information about viewing or modifying policies for an IAM user, group, or role, see [Working with Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage.html) in the *IAM User Guide*. For information about permissions required for Secrets Manager, see [Authentication and access control for AWS Secrets Manager](auth-and-access.md).
 
 If you're signing API requests manually, without using the [AWS SDKs](http://aws.amazon.com/tools/), verify you correctly [signed the request](https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html).
 
@@ -103,3 +104,16 @@ To determine who manages a secret, you can review the secret name. Secrets manag
 <a name="troubleshoot-python-import"></a>
 
 If you're using the Transform: `AWS::SecretsManager-2024-09-16` and encounter Python module import failures when your rotation Lambda function runs, the issue is likely caused by an incompatible `Runtime` value. With this transform version, AWS CloudFormation manages the runtime version, code, and shared object files for you. You don't need to manage these yourself. 
+
+## My managed external secret is not rotating
+<a name="troubleshoot-mes-not-rotating"></a>
+
+If a [Secrets managed by third party applications](managed-external-secrets.md) does not rotate as expected, Secrets Manager records the details in a `RotationFailed` event in AWS CloudTrail. This event includes specific information about why the rotation failed. Review the most recent `RotationFailed` event for the secret to identify the cause. For more information about viewing Secrets Manager events in CloudTrail, see [Log AWS Secrets Manager events with AWS CloudTrail](monitoring-cloudtrail.md).
+
+The following are common causes of rotation failures for managed external secrets:
++ **Invalid credentials.** The credentials stored in the secret, or in the admin secret if you use one, are no longer valid or don't have permission to rotate the secret in the partner application. Verify that the secret value contains the correct fields in the format the integration partner requires, and that the credentials are still active in the partner application. For the required fields for each partner, see [Integration Partners](mes-partners.md).
++ **Blocked network access to the external resource.** The partner application blocks the Secrets Manager managed external secrets rotation traffic. If your external resource restricts inbound access by IP address, you must allowlist the IP ranges that rotation calls originate from. Add the AWS-managed prefix list `com.amazonaws.{{region}}.secretsmanager-managed-external-secrets`, where {{region}} is the AWS Region where your secret exists, to your ingress rules. Using the managed prefix list ensures your ingress rules automatically stay current as the underlying IP ranges change. For more information, see [AWS-managed prefix lists](https://docs.aws.amazon.com/vpc/latest/userguide/working-with-aws-managed-prefix-lists.html) in the *Amazon VPC User Guide*.
+
+  If you prefer to reference the prefix list programmatically, you can use the [GetManagedPrefixListEntries](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetManagedPrefixListEntries.html) API to list the IPs that need to be allowlisted. You should periodically refresh your ingress rules with this prefix list to keep them current.
+
+For more information about managed external secrets rotation, see [Rotate Secrets Manager managed external secrets](rotate-secrets_external.md). For security and permissions details, including the managed prefix list, see [Security and permissions](mes-security.md).
