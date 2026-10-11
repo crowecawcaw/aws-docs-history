@@ -49,7 +49,7 @@ aws drs get-replication-configuration \
 
 Additionally:
 + Calculate required bandwidth. For more information, see [bandwidth requirements](comm-bandwidth-planning.md#Calculating-Bandwidth).
-+ Run a bandwidth test. For more information, see [network bandwidth test](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test).
++ Run a bandwidth test. For more information, see [network bandwidth test](network-bandwidth-test.md).
 
 **Note**  
 Changing the staging disk type might affect replication costs. Review Amazon EBS pricing before making changes.
@@ -118,7 +118,7 @@ Changing the staging disk type might affect replication costs. Review Amazon EBS
 **Cause:** The Failback Client cannot communicate with the recovery instance.
 
 **Resolution:**
-+ If you use a public network (no VPN or ), ensure the recovery instance has a public IP address. By default, Elastic Disaster Recovery launch templates disable public IP assignment.
++ If you use a public network (no VPN or Direct Connect), ensure the recovery instance has a public IP address. By default, Elastic Disaster Recovery launch templates disable public IP assignment.
 + If you use a private network, verify routing between the Failback Client and the recovery instance.
 + Check that the security group on the recovery instance allows inbound traffic on the required ports.
 

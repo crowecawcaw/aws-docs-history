@@ -5,10 +5,12 @@
 
 AWS Elastic Disaster Recovery replicates data changes from your source servers to AWS over TCP port 1500. The required network bandwidth must exceed the combined write throughput of all source servers that replicate through the same network path. If your available bandwidth is lower than the total write rate, replication can't keep up and data won't converge.
 
+If replication is not converging, verify that your actual network throughput matches or exceeds the calculated requirement. To measure actual throughput, see [Running a network bandwidth test to an EC2 endpoint](network-bandwidth-test.md).
+
 **Topics**
 + [Calculating required bandwidth](#Calculating-Bandwidth)
 + [Measuring source server write speed](#comm-bandwidth-measure)
-+ [Testing available bandwidth](#comm-bandwidth-test)
++ [Running a network bandwidth test to an EC2 endpoint](network-bandwidth-test.md)
 
 ## Calculating required bandwidth
 <a name="Calculating-Bandwidth"></a>
@@ -82,8 +84,3 @@ Get-Counter '\PhysicalDisk(*)\Disk Write Bytes/sec' -SampleInterval 3 -MaxSample
 ```
 
 ------
-
-## Testing available bandwidth
-<a name="comm-bandwidth-test"></a>
-
-If replication is not converging, verify that your actual network throughput matches or exceeds the calculated requirement. For instructions on running a bandwidth test between your source network and AWS, see the [network bandwidth test](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test).

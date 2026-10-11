@@ -220,7 +220,7 @@ During failback, verify that TCP port 1500 is open for inbound traffic on the re
 
 1. Verify that network connectivity between the source server and replication server is stable.
 
-1. Run the [network bandwidth test](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test) to identify bandwidth or latency issues.
+1. Run the [network bandwidth test](network-bandwidth-test.md) to identify bandwidth or latency issues.
 
 ## Error: Failback client not seen (replication)
 <a name="common-failback-not-seen"></a>

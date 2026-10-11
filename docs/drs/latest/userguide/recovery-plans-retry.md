@@ -5,6 +5,8 @@
 
 Retrying a step recovers only the servers in that step that failed or timed out. Servers in the step that already recovered stay as they are, and AWS Elastic Disaster Recovery does not recover them a second time. After the retried step completes, the execution continues automatically with the steps that follow it.
 
+To retry a failed step with the AWS CLI, use the `retry-recovery-plan-execution-step` command and pass the ARN of the execution step that you want to retry:
+
 ```
 aws drs retry-recovery-plan-execution-step \
     --recovery-plan-execution-step-arn {{EXECUTION_STEP_ARN}}

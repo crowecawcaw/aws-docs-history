@@ -10,6 +10,7 @@
 
 | Client Version | Details | Release date | 
 | --- | --- | --- | 
+| 6.42.25 |  +  Removed support for specifying a custom S3 endpoint. The Failback Client now resolves Amazon S3 using the DNS configuration of the server that you are failing back to.   | 5 October 2026 | 
 | 6.21.0 |  +  Miscellaneous security enhancements.   | 15 July 2024 | 
 | 5.21.0 |  +  Fixed issue preventing custom DRS Endpoints from being used during failback.   | 13 January 2024 | 
 | 5.20.0 |  +  Fixed an issue preventing failback from starting when using static IP configurations and specifying an S3 Endpoint. <br />+  Fixed an issue where the failback client may return `ERROR: Manifest download timed out.` during initial configuration.   | 8 January 2024 | 

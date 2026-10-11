@@ -98,53 +98,7 @@ AWS Elastic Disaster Recovery automatically recycles replication servers every 1
 
 Yes, AWS Elastic Disaster Recovery's replication is crash consistent.
 
-## How can I perform an SSL connectivity and bandwidth test?
+## How can I run a network bandwidth test to an Amazon EC2 endpoint?
 <a name="perform-connectivity-bandwidth-test"></a>
 
-**Note**  
-This tool is designed for AWS only. 
-
-You can use our SSL bandwidth tool to check for replication bandwidth availability.
-
-1. In your target region, launch a c5.large test server using the public AMI named CE-ssl-speedtest.
-
-1. Select the same subnet as the subnet used in the replication settings of your source machine.
-
-1. Make sure that the security group allows TCP Port 1500 inbound access. 
-
-1. On the source machine, browse to: https://{test\_server\_ip}:1500/speedtest 
-
-1. Click **Start**. 
-
-**Note**  
-Browse to the web page using the test server **public** or **private** IP according to what you defined in your replication settings. 
-The following are the AMI details per region.  
-ami-00b38c08ab3506ea7 – US East (N. Virginia)
-ami-0bd8423a4d80563fc – US East (Ohio)
-ami-00b7159e9c985a8da – US West (N. California)
-ami-033a4924b13126a7b – US West (Oregon)
-ami-0bf60b09675c8d9b6 – Africa (Cape Town)
-ami-0f01375b50763621b – Asia Pacific (Hong Kong)
-ami-0b1aeb50834102c18 – Asia Pacific (Mumbai)
-ami-0b1aeb50834102c18 – Asia Pacific (Hyderabad)
-ami-044fa8034a31d7578 – Asia Pacific (Tokyo)
-ami-08b042df0d4c458ea – Asia Pacific (Seoul)
-ami-0971e46306691cd68 – Asia Pacific (Osaka)
-ami-0afd42552b236f9dd – Asia Pacific (Singapore)
-ami-04e7cc6b5d9e8ffa1 – Asia Pacific (Sydney)
-ami-02f31943dfd88549d – Asia Pacific (Jakarta)
-ami-033db317ada5abd55 – Asia Pacific (Melbourne)
-ami-01c24408802db503d – Canada (Central)
-ami-0b8643189a66159c9 – Europe (Stockholm)
-ami-0dd5a09d2ae8f46b3 – Europe (Ireland)
-ami-097fb47f3a1c2bf7e – Europe (London)
-ami-0a3f9008725d0b4d1 – Europe (Paris)
-ami-0c65965703bb0e541 – Europe (Milan)
-ami-01b6fcc2337f6420d – Europe (Spain)
-ami-07b7defb87a46bb48 – Europe (Frankfurt)
-ami-01b3e93b3ac0e1340 – Europe (Zurich)
-ami-016edc078b48f370b – Israel (Tel Aviv)
-ami-0c90e298af7a2e563 – Middle East (Bahrain)
-ami-0f7c14e62ef760768 – Middle East (UAE)
-ami-0edd5ecfc56804583 – South America (São Paulo)
-Ensure that the security groups are configured to permit connectivity on inbound port 1500. 
+You can measure the bandwidth available for replication by running a test over TCP port 1500 with TLS, using a disposable Amazon EC2 endpoint that you launch and then terminate. For the full procedure, see [Running a network bandwidth test to an EC2 endpoint](network-bandwidth-test.md).

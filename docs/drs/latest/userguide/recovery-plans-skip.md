@@ -5,6 +5,8 @@
 
 Skip a step to move past it without recovering its servers.
 
+To skip a step with the AWS CLI, use the `update-recovery-plan-execution-step` command with `--status SKIPPED` and pass the ARN of the execution step that you want to skip:
+
 ```
 aws drs update-recovery-plan-execution-step \
     --recovery-plan-execution-step-arn {{EXECUTION_STEP_ARN}} \

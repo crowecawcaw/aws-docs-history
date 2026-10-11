@@ -124,7 +124,7 @@ This feature is activated automatically for newly added servers. [Learn how to d
 
 **Linux**
 +  CentOS 6–8 
-+  Oracle 6–8 
++  Oracle 6–10 
 +  RHEL 6–10 
 +  Rocky 8 and 9 
 +  SLES 12 and 15 

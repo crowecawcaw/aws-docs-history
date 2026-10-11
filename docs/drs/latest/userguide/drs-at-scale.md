@@ -28,7 +28,7 @@ A single AWS account supports up to 300 concurrently replicating source servers.
 
 Network bandwidth is a critical factor for replication performance at scale. Before deploying agents, benchmark your network to ensure it can sustain the required throughput.
 
-1. **Benchmark network bandwidth:** Test the bandwidth between your source environment and the staging area subnet using the SSL connectivity and bandwidth test AMI. This test uses encryption, accurately simulating the replication agent's behavior. Instructions are available for [performing the bandwidth test](https://docs.aws.amazon.com/drs/latest/userguide/Replication-Related-FAQ.html#perform-connectivity-bandwidth-test).
+1. **Benchmark network bandwidth:** Test the bandwidth between your source environment and the staging area subnet over TLS on TCP port 1500. For instructions on running this test, see [Running a network bandwidth test to an EC2 endpoint](network-bandwidth-test.md).
 
 1. **Plan for aggregate bandwidth:** Calculate the total write throughput across all source servers (see [calculating required bandwidth](comm-bandwidth-planning.md#Calculating-Bandwidth)). Ensure your network connection (Direct Connect, VPN, or internet) can sustain this aggregate throughput with headroom for spikes.
 

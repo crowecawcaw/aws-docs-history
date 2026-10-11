@@ -31,6 +31,8 @@ Prior to performing a failback, ensure that you meet all [replication network re
 + The Failback Client must be able to communicate with the Recovery instance on TCP 1500, this can be done either via a private route (VPN/DX) or a public route (public IP assigned to the recovery instance) 
 + TCP Port 1500 inbound and TCP Port 443 outbound must be open on the recovery instance for the pairing to succeed. 
 + You must allow traffic to S3 from the server you are failing back to.
+
+  If the server cannot reach public Amazon S3, use an Amazon S3 interface endpoint with private DNS, so that `s3.{REGION}.amazonaws.com` resolves to the endpoint. See [Private DNS](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html#private-dns) in the Amazon S3 User Guide.
 + The server on which the Failback Client is run must have at least 4 GB of dedicated RAM. 
 + The recovery instance used as a source for failback must have permissions to access the DRS service via API calls. This is done using instance profile for the underlying EC2 instance. The instance profile must include the AWSElasticDisasterRecoveryRecoveryInstancePolicy in addition to any other policy you require the EC2 instance to have. By default, the launch settings that DRS creates for source servers already have an instance profile defined that includes that policy and that instance profile will be used when launching a Recovery Instance. 
 + Be sure to deactivate secure boot on the server on which the Failback Client is run.
