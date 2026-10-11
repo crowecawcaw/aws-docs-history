@@ -14,7 +14,7 @@ Use the following information to help you integrate AWS CloudTrail with AWS Orga
 ## Service-linked roles created when you enable integration
 <a name="integrate-enable-slr-cloudtrail"></a>
 
-The following [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's member accounts when you enable trusted access. In the management account, CloudTrail creates this role when you use CloudTrail to create organization trails or organization event data stores, or add delegated administrators. This role allows CloudTrail to perform supported operations within your organization's accounts.
+In AWS commercial Regions, the following [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) is automatically created in your organization's member accounts when you enable trusted access. In the management account, CloudTrail creates this role when you use CloudTrail to create organization trails or organization event data stores, or add delegated administrators. In the AWS GovCloud (US) Regions, this role is automatically created in your organization's management account when you enable trusted access. This role allows CloudTrail to perform supported operations within your organization's accounts.
 
 You can delete or modify this role only if you disable trusted access between CloudTrail and Organizations, or if you remove the member account from the organization.
 + `AWSServiceRoleForCloudTrail`

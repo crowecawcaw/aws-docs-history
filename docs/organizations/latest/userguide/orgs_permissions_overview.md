@@ -70,6 +70,13 @@ This global condition also applies to the management account of an organization.
   + `TAG_POLICY`
   + `CHATBOT_POLICY`
   + `AISERVICES_OPT_OUT_POLICY`
+  + `BEDROCK_POLICY`
+  + `GUARDDUTY_POLICY`
+  + `INSPECTOR_POLICY`
+  + `NETWORK_SECURITY_DIRECTOR_POLICY`
+  + `S3_POLICY`
+  + `SECURITYHUB_POLICY`
+  + `UPGRADE_ROLLOUT_POLICY`
 
   For example, the following example policy allows the user to perform any Organizations operation. However, if the user performs an operation that takes a policy argument, the operation is allowed only if the specified policy is a tagging policy. The operation fails if the user specifies any other type of policy.
 
