@@ -119,7 +119,7 @@ When migrating from EMR 7.x (which uses Spark 3.5.x) to emr-spark-8.0.0 (Spark 4
 
 | Application | Java / Amazon Corretto version (default is bold) | 
 | --- | --- | 
-| Spark | 17, 21 | 
+| Spark | 17 | 
 | Livy | 17, 11, 8 | 
 | Hadoop | 17, 11, 8 | 
 
