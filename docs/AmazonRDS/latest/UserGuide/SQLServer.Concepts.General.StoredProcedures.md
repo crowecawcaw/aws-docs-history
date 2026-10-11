@@ -8,6 +8,7 @@ Following, you can find a list of the Amazon RDS functions and stored procedures
 
 
 - **Administrative tasks**
+  - **Procedure or function:** `rds_create_custom_message` / **Where it's used:** [Creating custom error messages for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.CustomMessage.md)
   - **Procedure or function:** `rds_drop_database` / **Where it's used:** [Dropping a database in an Amazon RDS for Microsoft SQL Server DB instance](Appendix.SQLServer.CommonDBATasks.DropMirrorDB.md)
   - **Procedure or function:** `rds_failover_time` / **Where it's used:** [Determining the last failover time for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.LastFailover.md)
   - **Procedure or function:** rds\_manage\_view\_db\_permission / **Where it's used:** [Deny or allow viewing database names for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ManageView.md)
@@ -17,6 +18,7 @@ Following, you can find a list of the Amazon RDS functions and stored procedures
   - **Procedure or function:** `rds_set_database_online` / **Where it's used:** [Transitioning a Amazon RDS for SQL Server database from OFFLINE to ONLINE](Appendix.SQLServer.CommonDBATasks.TransitionOnline.md)
   - **Procedure or function:** `rds_set_system_database_sync_objects`<br />`rds_fn_get_system_database_sync_objects`<br />`rds_fn_server_object_last_sync_time` / **Where it's used:** [Turning on SQL Server Agent job replication](Appendix.SQLServer.CommonDBATasks.Agent.md#SQLServerAgent.Replicate)
   - **Procedure or function:** `rds_show_configuration` / **Where it's used:** To see the values that are set using `rds_set_configuration`, see these topics:+  [Change data capture for Multi-AZ instances](Appendix.SQLServer.CommonDBATasks.CDC.md#Appendix.SQLServer.CommonDBATasks.CDC.Multi-AZ) <br />+  [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.TraceFiles.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles) 
+  - **Procedure or function:** `rds_shrink_msdb_log_file` / **Where it's used:** [Shrinking the msdb transaction log file for Amazon RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.ShrinkMsdbLog.md)
   - **Procedure or function:** `rds_shrink_tempdbfile` / **Where it's used:** [Shrinking the tempdb database](SQLServer.TempDB.Shrinking.md)
 
 - **Change data capture (CDC)**
@@ -60,6 +62,7 @@ Following, you can find a list of the Amazon RDS functions and stored procedures
   - **Procedure or function:** `rds_fn_task_status` / **Where it's used:** This operation shows the status of MSBI tasks:+  SSAS: [Monitoring the status of a deployment task](SSAS.Monitor.md) <br />+  SSIS: [Monitoring the status of a deployment task](SSIS.Monitor.md) <br />+  SSRS: [Monitoring the status of a task](SSRS.Monitor.md) 
 
 - **SSIS**
+  - **Procedure or function:** `rds_dbcc_checkdb` / **Where it's used:** [Checking the integrity of the SSISDB database](SSIS.CheckDB.md)
   - **Procedure or function:** `rds_drop_ssis_database` / **Where it's used:** [Dropping the SSISDB database](SSIS.DisableDrop.md#SSIS.Drop)
   - **Procedure or function:** `rds_sqlagent_proxy` / **Where it's used:** [Creating an SSIS proxy](SSIS.Use.md#SSIS.Use.Proxy)
 

@@ -28,7 +28,7 @@ The following general limitations apply to blue/green deployments:
 + If dedicated log volume (DLV) is enabled on the blue database, it must be enabled on *all* DB instances, including read replicas.
 + During switchover, the blue and green environments can't have zero-ETL integrations with Amazon Redshift. You must delete the integration first and switch over, then recreate the integration.
 + The Event Scheduler (`event_scheduler` parameter) must be disabled on the green environment when you create a blue/green deployment. This prevents events from being generated in the green environment and causing inconsistencies.
-+ You can't change an unencrypted DB instance into an encrypted DB instance. In addition, you can't change an encrypted DB instance into an unencrypted DB instance.
++ You can't change an encrypted DB instance into an unencrypted DB instance.
 + You can't change a blue DB instance to a higher engine version than its corresponding green DB instance.
 + The resources in the blue environment and green environment must be in the same AWS account.
 + If you use Amazon RDS Proxy, you must register your blue cluster with the proxy before creating a blue/green deployment. If a blue/green deployment already exists for a given blue cluster, registering that blue cluster to Amazon RDS Proxy will be blocked.
@@ -142,3 +142,8 @@ After you switch over a blue/green deployment, consider updating the resource ID
 
   The same behavior applies to DB instances and read replicas.
 + If you use resource tags for access control or operational management, you need to understand that tag changes aren't synchronized between blue and green environments until switchover. When you create a blue/green deployment, tags from the blue environment are copied to the green environment. After creation, any tag modifications that you make to either environment aren't automatically synchronized. During switchover, blue environment tags replace all tags in the green environment. Apply all necessary tags to the blue environment before you create the blue/green deployment, or reapply required tags to the new production environment after switchover. For more information about tags, see [Tagging Amazon RDS resources](USER_Tagging.md).
++ **Encrypting the green environment**
+
+  You can create a green environment whose storage is encrypted with a different AWS KMS key than the blue environment. Use this to encrypt an unencrypted DB instance or one that uses an AWS owned key, or to change the KMS key of an encrypted DB instance. To do so, specify `TargetKmsKeyId` for each source DB instance in [TargetResourceConfigurations](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateBlueGreenDeployment.html) when you create the blue/green deployment.
+  + The KMS key must exist and be enabled, and you must have permission to use it.
+  + If the blue primary DB instance is unencrypted or uses an AWS owned key, you must also specify a `TargetKmsKeyId` for each of its unencrypted read replicas. Green read replicas are created from the green primary and otherwise inherit its key.

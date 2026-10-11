@@ -18,7 +18,7 @@ You create your initial tenant database (PDB) when you create your CDB instance.
 ## Multi-tenant configuration of the CDB architecture
 <a name="multi-tenant-configuration"></a>
 
-RDS for Oracle supports the multi-tenant configuration of the Oracle multitenant architecture, also called the *CDB architecture*. In this configuration, your RDS for Oracle CDB instance can contain 1–30 tenant databases, depending on the database edition and any required option licenses. In Oracle database, a tenant database is a PDB. Your DB instance must use Oracle database release 19.0.0.0.ru-2022-01.rur-2022.r1 or higher.
+RDS for Oracle supports the multi-tenant configuration of the Oracle multitenant architecture, also called the *CDB architecture*. In this configuration, your RDS for Oracle CDB instance can contain up to 30 tenant databases (PDBs). You are responsible for ensuring that the number of tenant databases (PDBs) you use complies with your license with Oracle. In Oracle database, a tenant database is a PDB. Your DB instance must use Oracle database release 19.0.0.0.ru-2022-01.rur-2022.r1 or higher.
 
 **Note**  
 The Amazon RDS configuration is called "multi-tenant" rather than "multitenant" because it is a capability of Amazon RDS, not just the Oracle DB engine. Similarly, the RDS term "tenant" refers to any tenant in an RDS configuration, not just Oracle PDBs. In the RDS documentation, the unhyphenated term "Oracle multitenant" refers exclusively to the Oracle database CDB architecture, which is compatible with both on-premises and RDS deployments.

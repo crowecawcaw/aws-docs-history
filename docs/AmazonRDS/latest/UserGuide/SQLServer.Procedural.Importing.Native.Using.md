@@ -512,7 +512,7 @@ exec msdb.dbo.rds_restore_log
 **Example of log restore with KEEP\_CDC**  
 
 ```
-exec msdb.dbo.rds_restore_database
+exec msdb.dbo.rds_restore_log
 @restore_db_name='mydatabase',
 @s3_arn_to_restore_from='arn:aws:s3:::mybucket/backup1.bak',
 @keep_cdc=1;

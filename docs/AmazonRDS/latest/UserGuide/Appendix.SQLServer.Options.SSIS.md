@@ -36,6 +36,7 @@ Amazon RDS doesn't support SSIS for SQL Server 2025. Support is planned for a fu
   + [Creating an SSIS proxy](SSIS.Use.md#SSIS.Use.Proxy)
   + [Scheduling an SSIS package using SQL Server Agent](SSIS.Use.md#SSIS.Use.Schedule)
   + [Revoking SSIS access from the proxy](SSIS.Use.md#SSIS.Use.Revoke)
++ [Checking the integrity of the SSISDB database](SSIS.CheckDB.md)
 + [Disable and drop SSIS database](SSIS.DisableDrop.md)
   + [Disabling SSIS](SSIS.DisableDrop.md#SSIS.Disable)
   + [Dropping the SSISDB database](SSIS.DisableDrop.md#SSIS.Drop)

@@ -30,6 +30,7 @@ For information about delegated extension support in RDS for PostgreSQL, see [Us
 + [Scheduling maintenance with the PostgreSQL pg\_cron extension](PostgreSQL_pg_cron.md)
 + [Using pglogical to synchronize data across instances](Appendix.PostgreSQL.CommonDBATasks.pglogical.md)
 + [Using pgactive to support active-active replication](Appendix.PostgreSQL.CommonDBATasks.pgactive.md)
++ [rds\_tools functions reference](PostgreSQL_rds_tools-functions-reference.md)
 + [Reducing bloat in tables and indexes with the pg\_repack extension](Appendix.PostgreSQL.CommonDBATasks.pg_repack.md)
 + [Upgrading and using the PLV8 extension](PostgreSQL.Concepts.General.UpgradingPLv8.md)
 + [Using PL/Rust to write PostgreSQL functions in the Rust language](PostgreSQL.Concepts.General.Using.PL_Rust.md)
