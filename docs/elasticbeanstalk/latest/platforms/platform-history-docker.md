@@ -9,10 +9,22 @@ For Docker platform versions that were current earlier than September 25, 2017, 
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## September 24, 2026 – present
+## October 8, 2026 – present
+<a name="platform-history-2026-10-08"></a>
+
+The following Elastic Beanstalk platform versions for Single Container Docker have been current since October 8, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  ECS Agent  |  Docker  |  Docker Compose  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Docker AL2023 version 4.13.10** <br /> * 64bit Amazon Linux 2023 v4.13.10 running Docker *  | 2023.12.20260930 |  | 25.0.16 | 5.6.0 | nginx 1.30.5 | 
+|  ** ECS AL2023 version 4.7.10** <br /> * 64bit Amazon Linux 2023 v4.7.10 running ECS *  | 2023.12.20260930 | 1.107.0 | 25.0.16 |  |  | 
+
+## September 24, 2026 – October 7, 2026
 <a name="platform-history-2026-09-24"></a>
 
-The following Elastic Beanstalk platform versions for Single Container Docker have been current since September 24, 2026:
+The following Elastic Beanstalk platform versions for Single Container Docker were current between September 24, 2026 and October 7, 2026:
 
 
 
