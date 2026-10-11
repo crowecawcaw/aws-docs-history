@@ -18,7 +18,7 @@
 
 1. EventDrivenTelemetryProcessor reads `cms-telemetry-preprocessed`, writes real-time vehicle state to ElastiCache (Redis), and routes events to domain topics (`cms-telemetry-trips`, `cms-telemetry-safety`, `cms-telemetry-maintenance`)
 
-1. Fleet Manager UI queries data via API Gateway
+1. Fleet Intelligence portal queries data via API Gateway
 
  **Latency:** 
 + Vehicle to IoT Core: <100ms
@@ -59,15 +59,15 @@
 
 1. Writes alert to DynamoDB
 
-1. Fleet Manager UI displays alert
+1. Fleet Intelligence portal displays alert
 
 **Note**  
-This guidance does not send alert notifications to fleet operators via SNS or any other out-of-band channel by default — alerts are written to DynamoDB and surfaced when the Fleet Manager UI queries them. Amazon SNS is used elsewhere in this guidance for CloudWatch alarm actions on Flink application health and simulation monitoring, not for fleet-facing alert delivery.
+This guidance does not send alert notifications to fleet operators via SNS or any other out-of-band channel by default — alerts are written to DynamoDB and surfaced when the Fleet Intelligence portal queries them. Amazon SNS is used elsewhere in this guidance for CloudWatch alarm actions on Flink application health and simulation monitoring, not for fleet-facing alert delivery.
 
 ## UI query flow
 <a name="ui-query-flow"></a>
 
-1. User opens Fleet Manager UI
+1. User opens Fleet Intelligence portal
 
 1. CloudFront serves React application
 
@@ -120,7 +120,7 @@ This guidance does not send alert notifications to fleet operators via SNS or an
 ## Remote command flow
 <a name="remote-command-flow"></a>
 
-1. Fleet Manager UI sends POST request to `/api/commands/{vehicleId}` with command name and value
+1. Fleet Intelligence portal sends POST request to `/api/commands/{vehicleId}` with command name and value
 
 1. Commands Lambda validates the request and generates a unique command ID
 
@@ -134,7 +134,7 @@ This guidance does not send alert notifications to fleet operators via SNS or an
 
 1. Response Handler updates command status in DynamoDB and calculates round-trip latency
 
-1. Fleet Manager UI polls command history to display updated status
+1. Fleet Intelligence portal polls command history to display updated status
 
  **Latency:** 
 + API to IoT Core publish: <100ms
@@ -147,7 +147,7 @@ This guidance does not send alert notifications to fleet operators via SNS or an
 ## Geofence evaluation flow
 <a name="geofence-evaluation-flow"></a>
 
-1. Fleet Manager UI creates a geofence via POST `/api/geofences` 
+1. Fleet Intelligence portal creates a geofence via POST `/api/geofences` 
 
 1. Geofence stored in DynamoDB `cms-{stage}-storage-geofences` table
 
@@ -163,4 +163,4 @@ This guidance does not send alert notifications to fleet operators via SNS or an
 
 1. Deduplication prevents repeated alerts while vehicle remains inside or outside the geofence
 
-1. Fleet Manager UI displays geofence violations in the safety events view
+1. Fleet Intelligence portal displays geofence violations in the safety events view

@@ -8,13 +8,13 @@ The solution provides two simulation modes: a local service for development and 
 ## Local simulation
 <a name="local-simulation"></a>
 
-The local simulation service is a Python Flask application (`services/simulation/simulation_api.py`) that runs on the developer’s machine and exposes a REST API on port 5001. The Fleet Manager UI connects to this service to start, stop, and monitor simulations.
+The local simulation service is a Python Flask application (`services/simulation/simulation_api.py`) that runs on the developer’s machine and exposes a REST API on port 5001. The Fleet Intelligence portal connects to this service to start, stop, and monitor simulations.
 
  **How it works:** 
 
 1. The developer starts the service with `./manage_simulation.sh start`.
 
-1. The Fleet Manager UI (or a direct API call) sends a POST to `/api/simulation/start` with configuration: number of vehicles, trips per vehicle, city, safety event rate, telemetry mode (MQTT Direct or FWE), and driver selection.
+1. The Fleet Intelligence portal (or a direct API call) sends a POST to `/api/simulation/start` with configuration: number of vehicles, trips per vehicle, city, safety event rate, telemetry mode (MQTT Direct or FWE), and driver selection.
 
 1. The service spawns a background thread running `realtime_telemetry_simulator.py`.
 
@@ -63,7 +63,7 @@ The cloud simulation service runs on AWS infrastructure, eliminating the need fo
 
  **How it works:** 
 
-1. The Fleet Manager UI sends a POST to `/api/simulation/start` (routed to the Lambda via API Gateway).
+1. The Fleet Intelligence portal sends a POST to `/api/simulation/start` (routed to the Lambda via API Gateway).
 
 1. The Lambda builds the simulator command-line arguments from the request configuration.
 

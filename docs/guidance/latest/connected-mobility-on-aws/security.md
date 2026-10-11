@@ -31,7 +31,7 @@ Security is built into every layer of the Connected Mobility guidance:
 ### Amazon Cognito user pools
 <a name="cognito-user-pools"></a>
 
-The Fleet Manager UI and all REST API routes authenticate users through an Amazon Cognito user pool. After a user authenticates, Cognito issues a JWT that clients include in every request. The API Gateway REST authorizer validates the token signature against the user pool JWKS before admitting the request to any Lambda handler.
+The Fleet Intelligence portal and all REST API routes authenticate users through an Amazon Cognito user pool. After a user authenticates, Cognito issues a JWT that clients include in every request. The API Gateway REST authorizer validates the token signature against the user pool JWKS before admitting the request to any Lambda handler.
 
 Three Cognito groups govern what an authenticated user can do:
 
@@ -121,7 +121,7 @@ All persistent data stores use server-side encryption:
 All data movement between services uses transport-layer encryption:
 +  **MQTT over TLS** - Vehicles connect to AWS IoT Core over MQTT with TLS 1.2 or later. Mutual authentication uses X.509 certificates; the broker rejects connections that do not present a valid client certificate.
 +  **MSK TLS and SASL/SCRAM** - Flink applications and the OEM cloud connector communicate with MSK brokers over TLS. SASL/SCRAM-512 credentials for MSK are stored in AWS Secrets Manager and are not embedded in application configuration.
-+  **HTTPS and WSS** - The Fleet Manager UI, REST API, and WebSocket API are served exclusively over HTTPS and WSS (TLS 1.2\+). Unencrypted HTTP connections are not accepted.
++  **HTTPS and WSS** - The Fleet Intelligence portal, REST API, and WebSocket API are served exclusively over HTTPS and WSS (TLS 1.2\+). Unencrypted HTTP connections are not accepted.
 +  **Internal service-to-service calls** - Lambda-to-DynamoDB, Lambda-to-ElastiCache, and Flink-to-MSK traffic stays within the VPC and transits over encrypted channels.
 
 ## Data retention and deletion
@@ -165,4 +165,4 @@ Security groups implement a least-privilege inbound allow model between componen
 ### Optional access restriction for the frontend distribution
 <a name="optional-access-restriction"></a>
 
-The Fleet Manager UI is served through Amazon CloudFront. Deployments that require restricting access to a specific set of users can optionally configure a [CloudFront trusted key group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) to issue signed cookies or signed URLs. This is a standard CloudFront capability and is not configured by default. When deployed without a trusted key group, the CloudFront distribution is publicly reachable and access control is enforced entirely by the Cognito user pool at the API and WebSocket layers.
+The Fleet Intelligence portal is served through Amazon CloudFront. Deployments that require restricting access to a specific set of users can optionally configure a [CloudFront trusted key group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) to issue signed cookies or signed URLs. This is a standard CloudFront capability and is not configured by default. When deployed without a trusted key group, the CloudFront distribution is publicly reachable and access control is enforced entirely by the Cognito user pool at the API and WebSocket layers.

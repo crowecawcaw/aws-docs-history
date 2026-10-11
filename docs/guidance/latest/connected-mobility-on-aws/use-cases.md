@@ -5,7 +5,7 @@
 
  **Fleet Management and Optimization** 
 
-Fleet operators use the guidance to monitor vehicle locations, track trips, and optimize routes in real-time. The Fleet Manager provides visibility into fleet utilization, driver behavior, and operational efficiency. Location Services enable route optimization and geofencing for improved logistics.
+Fleet operators use the guidance to monitor vehicle locations, track trips, and optimize routes in real-time. The Fleet Intelligence portal provides visibility into fleet utilization, driver behavior, and operational efficiency. Location Services enable route optimization and geofencing for improved logistics.
 
  **Predictive Maintenance** 
 
@@ -29,7 +29,7 @@ The solution monitors EV-specific metrics including battery state of charge, cha
 
  **In-UI Conversational Fleet Operations** 
 
-Fleet drivers and service advisors interact with a conversational assistant embedded in the Fleet Manager application. The assistant routes questions through the AgentCore text runtime to a Bedrock supervisor agent, which can retrieve grounded answers from an automotive knowledge base. Persona context — fleet driver or service advisor — is inferred automatically from Amazon Cognito user claims, so each user receives role-appropriate responses without manual configuration.
+Fleet drivers and service advisors interact with a conversational assistant embedded in the Fleet Intelligence portal. The assistant routes questions through the AgentCore text runtime to a Bedrock supervisor agent, which can retrieve grounded answers from an automotive knowledge base. Persona context — fleet driver or service advisor — is inferred automatically from Amazon Cognito user claims, so each user receives role-appropriate responses without manual configuration.
 
  **OEM Cloud-to-Cloud Telemetry Ingestion** 
 

@@ -11,9 +11,9 @@ The solution includes an integrated vehicle simulator that generates realistic f
 ## Simulation launch flow
 <a name="simulation-launch-flow"></a>
 
-The Fleet Manager UI triggers simulations through a multi-step orchestration:
+The Fleet Intelligence portal triggers simulations through a multi-step orchestration:
 
-1.  **Fleet Manager UI** — The operator selects vehicles, configures trip parameters (route, duration, driving behavior), and chooses the simulation mode (MQTT Direct or FleetWise Edge).
+1.  **Fleet Intelligence portal** — The operator selects vehicles, configures trip parameters (route, duration, driving behavior), and chooses the simulation mode (MQTT Direct or FleetWise Edge).
 
 1.  **API Gateway → Simulation Lambda** — The request hits the Simulation API Lambda, which acts as a thin orchestrator. It validates the configuration, generates a simulation ID, and launches ECS tasks.
 

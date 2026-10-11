@@ -10,7 +10,7 @@ The guidance deploys several Amazon ECS services across dedicated clusters. Clou
 +  `cms-<stage>-simulation` — simulation service and FleetWise Edge agent tasks
 +  `cms-<stage>-commands` — vehicle command dispatcher
 +  `cms-<stage>-ws-fanout` — WebSocket fanout consumer
-+  `cms-<stage>-oem1-connector` — OEM1 gRPC streaming connector (if deployed)
++  `ConnectorStack` — OEM cloud connector (if deployed with `make deploy-connector`)
 
 If any ECS tasks remain in a `STOPPING` or `DEPROVISIONING` state after the stack delete completes, wait up to 10 minutes for ECS to drain them. Amazon VPC and ECS resources can remain queryable for a short period after deletion — this is expected behavior.
 

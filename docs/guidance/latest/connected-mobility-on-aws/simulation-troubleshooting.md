@@ -45,7 +45,7 @@ The simulation UI shows no vehicles when "Real Vehicles" is selected.
 ### Resolution
 <a name="resolution-15"></a>
 
-1. Vehicles must have IoT certificates to be used in simulations. Create vehicles in the Fleet Manager UI with "Create IoT Core certificate" enabled.
+1. Vehicles must have IoT certificates to be used in simulations. Create vehicles in the Fleet Intelligence portal with "Create IoT Core certificate" enabled.
 
 1. Verify vehicles have certificates in DynamoDB:
 

@@ -54,4 +54,4 @@ The v1 pilot covers six routines chosen to exercise five distinct rendering patt
 |  `pack_isolation_test`  |  `kv_grid`  | HV traction-battery isolation resistance vs manufacturer minimum. | 
 |  `cell_balance_check`  |  `table`  | Per-cell voltage array plus derived maximum inter-cell delta. | 
 
-Additional routines register their own schema entries as they ship. A routine without a registered schema falls back to a raw-JSON renderer with no verdict banner, so unimplemented routines degrade legibly rather than crash the operator surface.
+Each routine registers its own schema entry. A routine without a registered schema falls back to a raw-JSON renderer with no verdict banner, so it degrades legibly rather than crashing the operator surface.

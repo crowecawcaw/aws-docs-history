@@ -101,6 +101,6 @@ For each message, the processor looks up `vehicleId → fleetId` from the fleet 
 
  **Amazon DynamoDB** — Trip records, safety events, maintenance alerts, and vehicle metadata are written by the domain-specific Flink processors (TripProcessor, SafetyProcessor, MaintenanceProcessor). DynamoDB is accessed via VPC Gateway Endpoint — no NAT gateway traffic.
 
- **Amazon ElastiCache (Redis)** — Latest vehicle state for sub-millisecond REST API lookups. The Fleet Manager API Lambda reads from Redis using `HGETALL` (signals, timestamps, meta), `GEOSEARCH` (vehicle locations for map view), and `XRANGE` (sparkline history). Redis runs as a multi-AZ replication group (primary \+ replica across 2 AZs) with automatic failover.
+ **Amazon ElastiCache (Redis)** — Latest vehicle state for sub-millisecond REST API lookups. The Fleet Intelligence portal API Lambda reads from Redis using `HGETALL` (signals, timestamps, meta), `GEOSEARCH` (vehicle locations for map view), and `XRANGE` (sparkline history). Redis runs as a multi-AZ replication group (primary \+ replica across 2 AZs) with automatic failover.
 
  **Amazon S3** — Iceberg sink for historical analytics, partitioned by `fleetId` and day. Queryable via Amazon Athena with Lake Formation row-level security.

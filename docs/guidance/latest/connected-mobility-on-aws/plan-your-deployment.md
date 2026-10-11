@@ -122,7 +122,7 @@ All estimates use AWS us-east-1 list pricing as of March 2026 as a representativ
 
 The cost model separates two categories of expense:
 +  **Telemetry processing costs** (Table A) — services that scale with vehicle count and message volume: Amazon MSK, Amazon Managed Service for Apache Flink, AWS IoT Core, telemetry S3 storage, VPC/NAT Gateway networking, and Amazon ElastiCache. These dominate total cost and scale predictably with fleet size.
-+  **Other component costs** (Table B) — platform services and optional components: the Fleet Manager web application, API layer, Amazon Cognito authentication, Amazon Location Service, Amazon DynamoDB, AWS Lambda, Amazon CloudFront, and Amazon ECS Fargate workers (OEM connector, simulation, WebSocket fan-out). These include a fixed baseline plus variable usage costs.
++  **Other component costs** (Table B) — platform services and optional components: the Fleet Intelligence portal, API layer, Amazon Cognito authentication, Amazon Location Service, Amazon DynamoDB, AWS Lambda, Amazon CloudFront, and Amazon ECS Fargate workers (OEM connector, simulation, WebSocket fan-out). These include a fixed baseline plus variable usage costs.
 
 The $400 per month baseline figure used in the overview applies to 1,000 vehicles at moderate usage: Table A (\~$364) \+ Table B fixed baseline (\~$44) is approximately $408, which rounds to the approximately $400 per month figure cited in the overview. All figures are estimates. ECS Fargate worker uptime is a variable addition on top of this baseline and is flagged as an estimate below.
 
@@ -147,23 +147,23 @@ These costs scale with vehicle count and message volume. They represent the core
 ### Table B: Other component costs
 <a name="cost-other-components"></a>
 
-These costs cover the Fleet Manager application layer, optional ECS Fargate workers, and optional Bedrock agent components. The fixed baseline is approximately $44 per month at 1,000 vehicles. Variable additions depend on whether optional components are deployed and how heavily they are used.
+These costs cover the Fleet Intelligence portal layer, optional ECS Fargate workers, and optional Bedrock agent components. The fixed baseline is approximately $44 per month at 1,000 vehicles. Variable additions depend on whether optional components are deployed and how heavily they are used.
 
 
 | AWS Service | What it does | 1,000 vehicles/month | Notes | 
 | --- | --- | --- | --- | 
-| Amazon CloudFront | Fleet Manager UI global content distribution | $8.50 | Fixed; scales slowly with user count | 
-| Amazon API Gateway | REST API for Fleet Manager and remote commands | $3.50 | Per million API calls | 
+| Amazon CloudFront | Fleet Intelligence portal global content distribution | $8.50 | Fixed; scales slowly with user count | 
+| Amazon API Gateway | REST API for Fleet Intelligence portal and remote commands | $3.50 | Per million API calls | 
 | AWS Lambda | API handlers, response processing, admin operations, orchestration | $20.00 | Per invocation; free-tier eligible for low usage | 
-| Amazon Cognito | User authentication for Fleet Manager (platform-admin, fleet-operator, fleet-viewer groups) | $0.00 | Free tier covers up to 50,000 monthly active users | 
+| Amazon Cognito | User authentication for Fleet Intelligence portal (platform-admin, fleet-operator, fleet-viewer groups) | $0.00 | Free tier covers up to 50,000 monthly active users | 
 | Amazon DynamoDB | Vehicle, trip, alert, driver, campaign, command, and geofence storage (on-demand billing) | $3.50 | On-demand; scales with read/write request volume | 
 | Amazon Location Service | Fleet map tiles, geocoding, and route calculation | $8.00 | Per map tile request and geocode call | 
 | Amazon S3 (application) | UI assets, signal catalogs, decoder manifests, transform manifests | Included in Table A S3 row | Negligible incremental cost | 
 |  **Other components fixed subtotal**  |  |  **\~$44**  |  | 
-| Amazon ECS Fargate — OEM connector | Cloud-to-cloud OEM telemetry ingestion worker (gRPC streaming, lands on `cms-telemetry-oem` topic) | Variable (\~$5–$15 estimate) | Scales with connector uptime; $0 when not running | 
+| Amazon ECS Fargate — OEM connector | Cloud-to-cloud OEM telemetry ingestion worker (REST polling, gRPC streaming, or inbound WebSocket; lands on the `cms-telemetry-oem` topic) | Variable (\~$5–$15 estimate) | Scales with connector uptime; $0 when not running | 
 | Amazon ECS Fargate — simulation | Cloud vehicle simulation in MQTT Direct mode (on-demand; stops when simulation ends) | Variable (\~$2–$10 estimate) | On-demand only; $0 when idle | 
 | Amazon ECS — FleetWise simulation | FleetWise Edge simulation on EC2 (t4g.small ARM64) with virtual CAN isolation | Variable (\~$5–$20 estimate) | Per active simulation session | 
-| Amazon ECS Fargate — WebSocket fan-out | Kafka-to-WebSocket bridge for real-time telemetry in the Fleet Manager UI | Variable (\~$3–$10 estimate) | Scales with connected UI sessions | 
+| Amazon ECS Fargate — WebSocket fan-out | Kafka-to-WebSocket bridge for real-time telemetry in the Fleet Intelligence portal | Variable (\~$3–$10 estimate) | Scales with connected UI sessions | 
 |  **Variable additions subtotal**  |  |  **\~$15–$55 estimate**  | Flagged as estimates; actual cost depends on deployment choices and usage patterns | 
 
 **Note**  
@@ -286,7 +286,7 @@ These costs scale with usage but remain a small percentage of total cost.
 
  **IoT Core message cost detail:** At 1,000 vehicles × 3,600 messages/day = 3.6M messages/day = 108M messages/month. IoT Core charges $1.00 per million messages (first 1B), so 108M × $1.00/M = $108. However, messages are metered in 5 KB increments, and compressed telemetry is \~2 KB, so each message counts as 1 unit. For 100 vehicles, this drops to $10.80/month.
 
- **DynamoDB cost detail:** On-demand pricing is $1.25 per million write request units and $0.25 per million read request units. The stateful TripProcessor design reduces writes by 80% compared to a stateless approach (see [Trip lifecycle](trip-lifecycle.md)).
+ **DynamoDB cost detail:** On-demand pricing is $1.25 per million write request units and $0.25 per million read request units. The stateful TripProcessor design reduces writes by 80% compared to a stateless approach (see [Trip lifecycle](fip-how-it-works.md#trip-lifecycle)).
 
 ### Cost breakpoints and optimization
 <a name="cost-breakpoints"></a>
@@ -347,13 +347,13 @@ The cost curve has three distinct regions:
 <a name="identity-and-access-management"></a>
 
  **Authentication:** 
-+ Amazon Cognito manages user authentication for Fleet Manager UI
++ Amazon Cognito manages user authentication for Fleet Intelligence portal
 + AWS IoT Core uses X.509 certificates for vehicle authentication
 + IAM roles control service-to-service communication
 
  **Authorization:** 
 
-Fleet Manager implements role-based access control through three Amazon Cognito user groups:
+Fleet Intelligence portal implements role-based access control through three Amazon Cognito user groups:
 +  `platform-admin` — full cross-fleet access; required for bulk fleet lifecycle operations (enroll, unenroll, status sync) and OEM connector management
 +  `fleet-operator` — per-fleet access scoped by the `custom:fleetIds` Cognito claim; can manage vehicles within their assigned fleets
 +  `fleet-viewer` — read-only access to fleet and vehicle data
@@ -386,7 +386,7 @@ cdk deploy --context cms.allow_self_signup=true <stack-name>
 
  **WebSocket API security:** 
 
-The Fleet Manager real-time telemetry feed uses an API Gateway WebSocket API. The `$connect` route is protected by a Cognito JWT Lambda REQUEST authorizer. Clients must include a valid JWT as the `token` query parameter on the WebSocket upgrade URL (`wss://<endpoint>?token=<jwt>`). Unauthenticated upgrade attempts return HTTP 401. Fleet-operator connections receive only the telemetry topics for their assigned fleets; platform-admin connections receive all-fleet fan-out.
+The Fleet Intelligence portal real-time telemetry feed uses an API Gateway WebSocket API. The `$connect` route is protected by a Cognito JWT Lambda REQUEST authorizer. Clients must include a valid JWT as the `token` query parameter on the WebSocket upgrade URL (`wss://<endpoint>?token=<jwt>`). Unauthenticated upgrade attempts return HTTP 401. Fleet-operator connections receive only the telemetry topics for their assigned fleets; platform-admin connections receive all-fleet fan-out.
 
  **API security:** 
 + API Gateway endpoints require Cognito authentication

@@ -51,30 +51,32 @@ The same architecture pattern — normalize to signal catalog, then process — 
 ## Feature summary
 <a name="feature-summary"></a>
 
-Provided features allow you to:
-+ Ingest telemetry from multiple sources (MQTT Direct, FleetWise Edge Agent, cloud-to-cloud OEM APIs) through a unified processing pipeline
-+ Dynamically control vehicle data collection through FleetWise campaigns, signal catalogs, and decoder manifests — without deploying software to vehicles
-+ Communicate between vehicles and the AWS Cloud using AWS IoT Core and MQTT protocol
-+ Send remote commands to vehicles (door locks, lights, climate, horn, engine start/stop) and track command execution status with latency measurement
-+ Define and manage geofences with real-time boundary crossing detection
-+ Process telemetry data in real-time using Amazon MSK and Apache Flink
-+ Transform third-party OEM telemetry using configurable transform manifests with field mapping and unit conversion
-+ Store and query vehicle data, trips, and alerts in Amazon DynamoDB
-+ Track vehicles in real-time with Amazon Location Service and interactive maps
-+ Manage fleets through a modern React-based web application built with Cloudscape Design System
-+ Generate maintenance alerts and safety event notifications automatically
-+ Simulate connected vehicle data using MQTT Direct or FleetWise Edge Agent mode, locally or in the cloud
-+ Manage fleet-level campaigns that automatically fan out to all vehicles in a fleet, with vehicle-level campaign locking
-+ Assign drivers to vehicles with automatic trip attribution for safety event tracking
-+ Track warranty claims, eligible failures, and OEM recovery through the Warranty management page
-+ Switch between light and dark mode themes with persistent preference
-+ Deploy infrastructure using AWS CDK with a streamlined phase-based approach
-+ Securely authenticate and authorize users through Amazon Cognito
-+ Engage with a conversational in-UI fleet assistant powered by Amazon Bedrock AgentCore (deployed from the companion Agentic Vehicle Experience (AVX) accelerator) and an automotive data knowledge base — fleet-driver and service-advisor personas are inferred from Amazon Cognito user claims
-+ Consume ADP curated products (maintenance cost, charging sessions, energy usage) through cross-region Athena to power CMS Fleet Intelligence surfaces without duplicating source-of-truth data
-+ Deliver telemetry and other data products to third-party subscribers over the Connected Services subscription plane — subscribers hold their own Amazon Cognito identity, enroll vehicles into their subscription scope, and pull records over REST from the same platform vehicles ingest into (partial: `DataProductsView’s "Create data product" flow is a UI-shape stub without persistence)
-+ Manage fleet bulk lifecycle operations — bulk enroll and unenroll vehicles, and synchronize enrollment status — with role-based access control that differentiates platform-administrator (cross-fleet) operations from fleet-operator (per-fleet) operations
-+ Enable drivers to claim their own assigned vehicle through the Fleet Manager web application or companion iOS application
+The guidance is organized around three client applications and the platform features they share.
+
+ ** [Fleet Intelligence portal](fleet-intelligence-portal.md) ** — the fleet operator’s web application:
++ Track vehicles on a live map, and manage fleets, vehicles, drivers, and bulk enrollment with role-based access for platform administrators and fleet operators
++ Detect trips, safety events, and maintenance alerts in real time, and score drivers
++ Send remote commands and define geofences with real-time boundary detection
++ Manage fleet-level data collection campaigns and simulate vehicles in MQTT Direct or FleetWise Edge Agent mode
++ Analyze total cost of ownership, cost per mile, maintenance compliance, and sell timing with fleet cost intelligence
++ Keep vehicles where demand is with dynamic fleet rebalancing
++ Match recalls to the fleet, track completion, and recover warranty costs with recall and warranty management
++ Ask the in-portal assistant about the fleet, vehicles, and diagnostic trouble codes
+
+ ** [Connected Services portal](connected-services-portal-chapter.md) ** — the vehicle maker’s connected-services application:
++ Manage connectivity, the vehicle data model, signal catalogs, decoder manifests, and data collection campaigns without deploying software to vehicles
++ Sell vehicle data to subscribers, who hold their own Amazon Cognito identity, enroll vehicles into their subscription, and pull records over REST
+
+ ** [Companion application](companion-app.md) ** — the driver’s iOS app:
++ Claim a vehicle, see its live state, control it remotely, receive alerts, book service, and talk to a voice assistant
+
+ **Shared platform features**:
++ Ingest telemetry from MQTT Direct, the FleetWise Edge Agent, and cloud-to-cloud OEM APIs through one pipeline on AWS IoT Core, Amazon MSK, and Apache Flink, with configurable transform manifests for third-party formats
++ Store vehicles, trips, and alerts in Amazon DynamoDB and the latest vehicle state in Amazon ElastiCache
++ Define and deliver [data products](data-products.md), and deliver data to [third parties](third-party-data-delivery.md) 
++ Read fault codes, run diagnostic routines, and hand sessions to a dealer with [remote vehicle diagnostics](remote-diagnostics.md) 
++ Read Automotive Data Platform (ADP) curated products through cross-region Amazon Athena without duplicating source data
++ Authenticate users through Amazon Cognito, and deploy with AWS CDK in phases
 
 The guidance provides an integrated architecture that eliminates months of development time for core connected mobility infrastructure. Original equipment manufacturers (OEMs), tier one suppliers, and fleet operators can deploy the complete solution or customize components for their specific requirements.
 

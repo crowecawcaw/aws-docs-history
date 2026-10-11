@@ -23,7 +23,7 @@ It is not a URL-rewrite proxy. A rewrite that mapped `GET /vehicles/{vin}/compon
 
  **Authentication translation.** The vehicle certificate identifies the vehicle to the MQTT broker. The gateway maps the client’s authenticated identity to the fleet-scoped authorisation model — the same authorisation model the internal operator API uses.
 
- **Content-negotiation compatibility.** SOVD REST supports content negotiation. The gateway serves JSON by default, honours the standard’s `Accept` header for SOVD-defined content types, and returns appropriate 406 responses when negotiation fails.
+ **Content-negotiation compatibility.** SOVD REST supports content negotiation. The gateway serves JSON by default, honors the standard’s `Accept` header for SOVD-defined content types, and returns appropriate 406 responses when negotiation fails.
 
 ## What the gateway costs
 <a name="rd-gateway-cost"></a>

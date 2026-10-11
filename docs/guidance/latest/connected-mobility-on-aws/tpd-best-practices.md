@@ -7,7 +7,7 @@
 
  **Keep source-specific logic in a declarative manifest, not in code.** The guidance’s OEM telemetry pipeline reduces its connector to an OEM-agnostic passthrough and moves all signal extraction, field splitting, and unit conversion into a versioned manifest in Amazon S3, so onboarding a new producer or consumer becomes a manifest change rather than a code change — the single most effective step for reusability. See [OEM telemetry processor](flink-stack.md#oem-telemetry-processor) in the architecture-details chapter for the reference implementation.
 
- **Give every consumer its own identity and least-privilege authorization**, scoped to the topics and signals it is entitled to, so consent and entitlement are enforced at the subscription rather than by trust.
+ **Give every consumer its own identity and least-privilege authorization**, scoped to the topics it is entitled to. Kafka authorizes whole topics, so entitlement to particular signals or vehicles is enforced by what is written to each topic, not by the read grant.
 
  **Isolate by consumer group and quota** so tenancy is structural rather than a matter of good behavior.
 

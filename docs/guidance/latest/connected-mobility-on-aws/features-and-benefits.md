@@ -17,13 +17,13 @@ The solution implements a high-performance telemetry pipeline using Amazon MSK f
 
 The guidance integrates the [AWS IoT FleetWise Edge Agent](https://github.com/aws/aws-iot-fleetwise-edge) as a first-class telemetry source. A catalog-driven campaign system controls which signals the edge agent collects from the vehicle CAN bus. The CampaignSyncProcessor Flink application listens for agent checkins and pushes decoder manifests and collection schemes to the agent through IoT Core MQTT. The FWTelemetryProcessor decodes the protobuf telemetry uploaded by the agent, maps CAN signals to the standard format using the decoder manifest, and feeds the data into the existing processing pipeline. This enables the same downstream processors (trip detection, safety events, maintenance alerts) to work with both MQTT Direct and FleetWise Edge telemetry. For more information about the edge agent, see the [FleetWise Edge Agent repository on GitHub](https://github.com/aws/aws-iot-fleetwise-edge).
 
- **Fleet Manager Web Application** 
+ **Fleet Intelligence portal** 
 
 A modern React-based web application provides comprehensive fleet management capabilities including real-time vehicle tracking on interactive maps, trip history and analytics, maintenance alert management, and driver behavior monitoring. The application uses Amazon Location Service for mapping, geocoding, and routing capabilities.
 
  **Real-Time Vehicle State Management** 
 
-Amazon ElastiCache for Redis implements the Last Known State (LKS) pattern, a core design pattern in connected vehicle platforms. Rather than querying the telemetry database for the latest record on every API call, the Flink telemetry processor writes every signal value to Redis hashes as telemetry arrives. This provides sub-millisecond lookups for the Fleet Manager UI. Redis geospatial indexing enables map-based vehicle proximity queries, and Redis streams provide capped time-series data for sparkline charts. Vehicle state expires automatically when a vehicle goes offline, and the geo index is updated in real-time as vehicles move.
+Amazon ElastiCache for Redis implements the Last Known State (LKS) pattern, a core design pattern in connected vehicle platforms. Rather than querying the telemetry database for the latest record on every API call, the Flink telemetry processor writes every signal value to Redis hashes as telemetry arrives. This provides sub-millisecond lookups for the Fleet Intelligence portal. Redis geospatial indexing enables map-based vehicle proximity queries, and Redis streams provide capped time-series data for sparkline charts. Vehicle state expires automatically when a vehicle goes offline, and the geo index is updated in real-time as vehicles move.
 
  **Secure Vehicle Connectivity** 
 
@@ -35,11 +35,11 @@ Amazon DynamoDB tables store vehicle data, trip history, maintenance alerts, and
 
  **Location Services Integration** 
 
-Amazon Location Service provides real-time vehicle tracking on interactive maps, route calculation and optimization, geocoding and reverse geocoding, and geofencing capabilities. The Fleet Manager displays vehicle positions, historical routes, and enables location-based alerts.
+Amazon Location Service provides real-time vehicle tracking on interactive maps, route calculation and optimization, geocoding and reverse geocoding, and geofencing capabilities. The Fleet Intelligence portal displays vehicle positions, historical routes, and enables location-based alerts.
 
  **Authentication and Authorization** 
 
-Amazon Cognito manages user authentication and authorization for the Fleet Manager application. The solution supports user pools for direct sign-up/sign-in, multi-factor authentication, and identity pools for AWS resource access with fine-grained permissions.
+Amazon Cognito manages user authentication and authorization for the Fleet Intelligence portal. The solution supports user pools for direct sign-up/sign-in, multi-factor authentication, and identity pools for AWS resource access with fine-grained permissions.
 
  **Network Security** 
 

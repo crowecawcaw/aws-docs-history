@@ -21,11 +21,11 @@ SELECT * FROM 'cms/telemetry/+'
  **FleetWise telemetry rule:** 
 
 ```
-SELECT encode(*, 'base64') AS data, topic(4) AS thingName, timestamp() AS ts
+SELECT encode(*, 'base64') AS data, topic(4) AS vehicleId, timestamp() AS ts
 FROM 'cms/fleetwise/vehicles/+/signals'
 ```
 
- **Action:** Send to MSK topic `fw-telemetry-raw` and S3 backup bucket
+ **Action:** Send to MSK topic `fw-telemetry-raw`, keyed by the VIN (`${topic(4)}`) so each vehicle’s records stay on one partition in order, and to the S3 backup bucket
 
  **FleetWise checkin rule:** 
 

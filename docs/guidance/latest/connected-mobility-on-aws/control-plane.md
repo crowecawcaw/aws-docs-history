@@ -17,7 +17,7 @@ Every component in the platform references the signal catalog:
 +  **Flink preprocessors** — Map source-specific signal names to canonical `json_field` values
 +  **Decoder manifests** — Map integer CAN signal IDs to VSS paths, which the signal catalog then maps to `json_field` names
 +  **Transform manifests** — Map OEM-specific field names to `json_field` values
-+  **Fleet Manager UI** — Displays signal names, units, and values from the catalog
++  **Fleet Intelligence portal** — Displays signal names, units, and values from the catalog
 +  **Commands Lambda** — Derives the actuatable command catalog from signals with an `actuator` attribute
 
 The catalog is loaded into Redis by the `SignalCatalogLoader` (shared across all Flink processors) and hot-reloads when the catalog version changes — no Flink restart required.
@@ -29,7 +29,7 @@ Campaigns control what data the FWE agent collects from the vehicle CAN bus. A c
 
 The campaign lifecycle:
 
-1.  **Create campaign** — Platform admin creates a campaign in the Fleet Manager UI, selecting target vehicles (by VIN or fleet), signals from the signal catalog, collection frequency, and optional trigger conditions.
+1.  **Create campaign** — Platform admin creates a campaign in the Fleet Intelligence portal, selecting target vehicles (by VIN or fleet), signals from the signal catalog, collection frequency, and optional trigger conditions.
 
 1.  **Store campaign** — The campaign is written to the `cms-{stage}-campaigns` DynamoDB table with status `RUNNING`.
 
@@ -48,7 +48,7 @@ A decoder manifest defines how to decode raw CAN bus frames into named signals. 
 
 Decoder manifests are stored in the `cms-{stage}-decoder-manifest` DynamoDB table and can be created through:
 +  **DBC file upload** — The Data Processing API parses standard DBC (CAN database) files and generates decoder manifest entries
-+  **Fleet Manager UI** — The Decoder Manifest Wizard provides a visual interface for creating and editing manifests
++  **Fleet Intelligence portal** — The Decoder Manifest Wizard provides a visual interface for creating and editing manifests
 +  **API** — Direct creation via the Data Processing REST API
 
 ## Remote commands
@@ -58,7 +58,7 @@ The remote commands system enables bidirectional communication with vehicles. Co
 
  **Command send flow:** 
 
-1. Fleet Manager UI → API Gateway → Commands Lambda
+1. Fleet Intelligence portal → API Gateway → Commands Lambda
 
 1. Lambda validates the command against the signal catalog (only signals with `actuator` attribute)
 
@@ -80,10 +80,10 @@ The remote commands system enables bidirectional communication with vehicles. Co
 
 The command catalog is dynamically derived from the signal catalog — 48 actuatable commands across categories including doors, lights, climate, windows, trunk, horn, and engine.
 
-## Fleet Manager UI
-<a name="fleet-manager-ui"></a>
+## Fleet Intelligence portal web application
+<a name="fleet-intelligence-portal-web-application"></a>
 
-The Fleet Manager is a React web application built with [Cloudscape Design System](https://cloudscape.design/), served via Amazon CloudFront and Amazon S3. It connects to two API Gateway endpoints:
+The Fleet Intelligence portal is a React web application built with [Cloudscape Design System](https://cloudscape.design/), served via Amazon CloudFront and Amazon S3. It connects to two API Gateway endpoints:
 +  **Fleet Management API** — CRUD operations for fleets, vehicles, drivers, trips, safety alerts, maintenance alerts, subscriptions, and user management. Backed by a Lambda function that reads live vehicle state from Redis and persistent data from DynamoDB.
 +  **Commands API** — Remote vehicle commands and geofence management. Backed by a separate Lambda function with IoT Core publish permissions.
 
@@ -93,6 +93,6 @@ Authentication is handled by Amazon Cognito with three user groups (`platform-ad
 <a name="location-services"></a>
 
 Amazon Location Service provides three capabilities:
-+  **Maps** — Interactive vehicle tracking maps in the Fleet Manager UI showing real-time vehicle positions from the Redis geo index
++  **Maps** — Interactive vehicle tracking maps in the Fleet Intelligence portal showing real-time vehicle positions from the Redis geo index
 +  **Place index** — Geocoding and reverse geocoding for trip start/end locations
 +  **Route calculator** — Route calculation for the vehicle simulator to generate realistic GPS trajectories following actual road networks

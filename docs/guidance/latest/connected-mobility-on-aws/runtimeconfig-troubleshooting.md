@@ -3,10 +3,10 @@
 # UI configuration troubleshooting
 <a name="runtimeconfig-troubleshooting"></a>
 
-## Problem: Fleet Manager UI shows missing endpoints after fresh deploy
+## Problem: Fleet Intelligence portal shows missing endpoints after fresh deploy
 <a name="problem-runtimeconfig-endpoint-race"></a>
 
-After a fresh deployment, the Fleet Manager UI fails to reach one or more backend services (commands, data processing, simulation, or the conversational assistant). The browser console shows fetch errors against an empty or placeholder URL. The issue occurs because the UI stack is deployed before all sibling stacks are fully provisioned, so the `runtimeConfig.json` file is shipped with empty endpoint fields.
+After a fresh deployment, the Fleet Intelligence portal fails to reach one or more backend services (commands, data processing, simulation, or the conversational assistant). The browser console shows fetch errors against an empty or placeholder URL. The issue occurs because the UI stack is deployed before all sibling stacks are fully provisioned, so the `runtimeConfig.json` file is shipped with empty endpoint fields.
 
 ### Diagnosis
 <a name="diagnosis-4"></a>

@@ -3,10 +3,10 @@
 # Client surfaces
 <a name="client-surfaces"></a>
 
-One platform, three front ends. They differ in audience, in what they are permitted to see, and in which APIs they call — not merely in styling. Deploying all three is optional; the Fleet Manager console is the only one deployed unconditionally.
+One platform, three front ends. They differ in audience, in what they are permitted to see, and in which APIs they call — not merely in styling. Deploying all three is optional; the Fleet Intelligence portal is the only one deployed unconditionally.
 
 
-|  | Fleet Manager console | Connected Services portal | Driver companion app | 
+|  | Fleet Intelligence portal | Connected Services portal | Driver companion app | 
 | --- | --- | --- | --- | 
 | Audience | Fleet operators and administrators managing their own fleets | Subscribers and internal product teams working with the vehicle data model and data products | The individual driver of a single vehicle | 
 | Platform | React SPA (Cloudscape), served by CloudFront | React SPA (Cloudscape), served by its own CloudFront distribution and subdomain | Native iOS application (SwiftUI) | 

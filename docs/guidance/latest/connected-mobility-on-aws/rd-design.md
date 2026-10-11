@@ -3,6 +3,13 @@
 # Design
 <a name="rd-design"></a>
 
+The following reference architecture shows remote diagnostics in five stages: the clients and operations an operator drives, the cloud command plane, the secure MQTT channel, execution on the vehicle, and the typed results that hand off to service.
+
+![SOVD remote diagnostics reference architecture in five stages. 1](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/remote-diagnostics-reference-architecture.png)
+
+
+The reference architecture is the design you’ve just read: five stages, cross-cutting controls, and the places where the platform diverges from a standards-compliant REST wire format. The next section works through each stage in depth.
+
 ## Substrate: MQTT over AWS IoT Core
 <a name="rd-substrate"></a>
 
@@ -10,7 +17,7 @@ The vehicle establishes a persistent outbound TLS connection to AWS IoT Core, au
 +  **Reachability** — no inbound path is required. NAT, carrier CGNAT, and corporate firewalls are non-issues.
 +  **Identity** — the client certificate identifies the device to the broker. Every publish and subscribe carries that identity.
 +  **Authorisation** — AWS IoT policies attached to the certificate constrain which topics the device may publish and subscribe to. A compromised device cannot publish on another vehicle’s response topic; the topic-level authorisation is enforced by the broker.
-+  **Session semantics** — MQTT sessions carry keep-alive, last-will, and clean-session behaviour. QoS 1 delivers at-least-once, which is the correct guarantee for a diagnostic command that must not silently disappear.
++  **Session semantics** — MQTT sessions carry keep-alive, last-will, and clean-session behavior. QoS 1 delivers at-least-once, which is the correct guarantee for a diagnostic command that must not silently disappear.
 +  **Namespacing** — the topic tree is a hierarchical namespace with wildcards, so a single certificate policy can grant access to a scoped subtree without enumerating individual topics.
 
 For any vehicle running the AWS IoT-based telemetry stack in this guidance, this connection already exists. Adding a diagnostic surface does not add a connection; it adds a subscription.
@@ -43,15 +50,15 @@ The diagnostic-operation topics are:
 
 ```
 Request  (cloud → vehicle):
-  {prefix}/things/{ThingName}/executions/{execId}/diag/request
+  {prefix}/things/{ThingName}/executions/{execId}/sovd/request
 
 Response (vehicle → cloud):
-  {prefix}/things/{ThingName}/executions/{execId}/diag/response
+  {prefix}/things/{ThingName}/executions/{execId}/sovd/response
 ```
 
-The `diag/` sub-path sits in the same topic tree as FWE’s `/protobuf` — same prefix, same `things/{ThingName}/executions/{execId}/` structure — but the terminal segment differs. Three properties follow.
+The `sovd/` sub-path sits in the same topic tree as FWE’s `/protobuf` — same prefix, same `things/{ThingName}/executions/{execId}/` structure — but the terminal segment differs. Three properties follow.
 
- **FWE does not consume diagnostic traffic, by construction.** FWE’s subscription filter ends in the literal `/protobuf` segment, so a publish ending in `diag/request` is not matched. This is a topic-level guarantee that survives FWE upgrades — no runtime discriminator can be misconfigured; the MQTT broker enforces the separation.
+ **FWE does not consume diagnostic traffic, by construction.** FWE’s subscription filter ends in the literal `/protobuf` segment, so a publish ending in `sovd/request` is not matched. This is a topic-level guarantee that survives FWE upgrades — no runtime discriminator can be misconfigured; the MQTT broker enforces the separation.
 
  **The existing IoT policy covers the new sub-path.** The policy that grants FWE access to `{prefix}/things//executions/ ` covers the peer sub-path without a policy version bump and without certificate rotation across the fleet.
 
@@ -83,18 +90,18 @@ When the vehicle carries both the actuator-command subscription (FWE side) and t
 ## Cloud-side dispatch
 <a name="rd-cloud-dispatch"></a>
 
-A small cloud handler — an AWS Lambda function in this guidance — receives a diagnostic request from the operator UI or partner API, authorises it, and publishes to the vehicle. The command record in DynamoDB serves three purposes — audit trail, response correlation, and the API surface for later "was this executed and what happened?" queries — carrying `execId`, `ThingName`, `vehicleId`, `command_type`, `caller`, `submittedAt`, `status`, and after response `respondedAt`, `latency_ms`, `resultRef`.
+A small cloud handler — an AWS Lambda function in this guidance — receives a diagnostic request from the operator UI or partner API, authorizes it, and publishes to the vehicle. The command record in DynamoDB serves three purposes — audit trail, response correlation, and the API surface for later "was this executed and what happened?" queries — carrying `execId`, `ThingName`, `vehicleId`, `command_type`, `caller`, `submittedAt`, `status`, and after response `respondedAt`, `latency_ms`, `resultRef`.
 
 ```
 Client → HTTPS POST /vehicles/{vehicleId}/diagnostics
          Authorization: Bearer <token>
          Body: SOVD-shaped JSON
 
-         ↓ handler validates + authorises
+         ↓ handler validates + authorizes
 
 Handler → DynamoDB write   (command record, status=PENDING)
 Handler → MQTT publish
-          Topic:   {prefix}/things/{ThingName}/executions/{execId}/diag/request
+          Topic:   {prefix}/things/{ThingName}/executions/{execId}/sovd/request
           Payload: SOVD-shaped JSON
           QoS:     1
 ```
@@ -103,10 +110,10 @@ The response arrives on the vehicle → cloud direction and is caught by an IoT 
 
 ```
 Vehicle → MQTT publish
-          Topic:   {prefix}/things/{ThingName}/executions/{execId}/diag/response
+          Topic:   {prefix}/things/{ThingName}/executions/{execId}/sovd/response
           Payload: SOVD-shaped result JSON, correlation_id=execId
 
-          ↓ IoT Rule matches ".../executions/+/diag/response"
+          ↓ IoT Rule matches ".../executions/+/sovd/response"
 
 Rule    → invoke response handler Lambda
 Handler → update command record (status, latency, resultRef)
@@ -118,7 +125,7 @@ Note what is not required: no bespoke session broker, no per-vehicle IP lookup, 
 ## Edge-side dispatch: the sidecar
 <a name="rd-edge-dispatch"></a>
 
-On the vehicle, the diagnostic sidecar is a small process that establishes an MQTT connection to AWS IoT Core using the device certificate, subscribes to `{prefix}/things/{ThingName}/executions/+/diag/request` inside the `on_connect` callback, and dispatches incoming messages to a worker thread. The MQTT event loop must not be blocked by a synchronous multi-second UDS transaction — doing so times out MQTT keep-alive and produces spurious disconnects.
+On the vehicle, the diagnostic sidecar is a small process that establishes an MQTT connection to AWS IoT Core using the device certificate, subscribes to `{prefix}/things/{ThingName}/executions/+/sovd/request` inside the `on_connect` callback, and dispatches incoming messages to a worker thread. The MQTT event loop must not be blocked by a synchronous multi-second UDS transaction — doing so times out MQTT keep-alive and produces spurious disconnects.
 
 The worker performs the diagnostic operation against the vehicle bus. Where the vehicle speaks UDS over CAN, the worker uses an ISO 14229 implementation on top of an ISO 15765-2 (ISO-TP) transport, typically a library such as `python-can` combined with `python-udsoncan` or an equivalent C\+\+ stack.
 

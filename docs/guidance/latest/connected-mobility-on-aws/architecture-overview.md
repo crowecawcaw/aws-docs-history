@@ -12,9 +12,6 @@ The solution provides a modern, scalable telemetry architecture designed to hand
 
 Deploying this solution with the default parameters creates the following architecture in your AWS account.
 
-**Note**  
-The architecture diagrams in this guide are currently being updated to reflect the current stack topology. The narrative text on this page describes the current deployed architecture; the diagrams may not yet show all components described in the narrative.
-
 ![The solution deploys six integrated stacks as described in the following sections.](https://docs.aws.amazon.com/guidance/latest/connected-mobility-on-aws/images/architecture-overview.png)
 
 
@@ -35,7 +32,7 @@ The solution architecture consists of the following integrated CDK stacks deploy
 
 1.  **FlinkStack** – Deploys Amazon Kinesis Data Analytics for Apache Flink applications that process streaming telemetry data in real-time. Ten applications handle telemetry preprocessing, trip detection, safety events, maintenance alerts, FleetWise protobuf decoding, campaign synchronization, geofence evaluation, and OEM telemetry transformation. CloudWatch alarms monitor processor health and idle processing.
 
-1.  **UIStack** – Provides the Fleet Manager web application through Amazon CloudFront and Amazon S3, with backend APIs via Amazon API Gateway and AWS Lambda. Includes Amazon Cognito for user authentication and Amazon Location Service for real-time vehicle tracking and mapping capabilities.
+1.  **UIStack** – Provides the Fleet Intelligence portal through Amazon CloudFront and Amazon S3, with backend APIs via Amazon API Gateway and AWS Lambda. Includes Amazon Cognito for user authentication and Amazon Location Service for real-time vehicle tracking and mapping capabilities.
 
 1.  **CommandsStack** – Enables bidirectional communication with vehicles through remote commands sent via IoT Core MQTT. Includes command catalog derived from the signal catalog, command status tracking with latency measurement, and geofence management APIs.
 
@@ -45,7 +42,7 @@ The solution architecture consists of the following integrated CDK stacks deploy
 
 1.  **ConnectorStack** (optional, `CONNECTOR_NAME=<name>`) – Deploys an Amazon ECS Fargate worker for cloud-to-cloud OEM telemetry ingestion. The gRPC-streaming connector receives telemetry from an OEM vehicle data cloud and lands it on the `cms-telemetry-oem` Kafka topic, where the OEMTelemetryProcessor applies transform manifest normalization before routing through the standard pipeline.
 
-1.  **WsFanoutStack** – Deploys a Kafka-to-WebSocket bridge that fans out per-fleet telemetry topics (`cms-fleet-{fleetId}-telemetry`) to connected Fleet Manager UI clients in real time. The WebSocket API `$connect` route uses a Cognito JWT Lambda REQUEST authorizer, requiring a valid bearer token on upgrade.
+1.  **WsFanoutStack** – Deploys a Kafka-to-WebSocket bridge that fans out per-fleet telemetry topics (`cms-fleet-{fleetId}-telemetry`) to connected Fleet Intelligence portal clients in real time. The WebSocket API `$connect` route uses a Cognito JWT Lambda REQUEST authorizer, requiring a valid bearer token on upgrade.
 
 1.  **FleetIntelligenceAnalyticsStack** – Deploys the Athena workgroup and results bucket (in `us-east-1`) that the Fleet Intelligence services use to read curated maintenance-cost products cross-region from the companion Automotive Data Platform (ADP) accelerator.
 
@@ -53,7 +50,7 @@ The solution architecture consists of the following integrated CDK stacks deploy
 
 1.  **ConnectedServicesUiStack** (optional, `DEPLOY_CONNECTED_SERVICES_UI=true`) – Deploys the Connected Services portal — a standalone React SPA on its own CloudFront distribution and subdomain that surfaces the CMS data model (signal catalog, vehicle models, ECUs, decoder manifests, campaigns, simulation) to producers and external systems.
 
-1.  **ConnectedServicesConsumerStack** (optional, `DEPLOY_CONNECTED_SERVICES_CONSUMER=true`) – Deploys the CMS-side feed-cache DynamoDB table that supports the CMS Fleet Manager portal’s own consumption of the Connected Services subscription plane.
+1.  **ConnectedServicesConsumerStack** (optional, `DEPLOY_CONNECTED_SERVICES_CONSUMER=true`) – Deploys the CMS-side feed-cache DynamoDB table that supports the CMS Fleet Intelligence portal’s own consumption of the Connected Services subscription plane.
 
 1.  **DmsServiceEventsStack** (optional, `DEPLOY_DMS_SERVICE_EVENTS=true`) – Publishes vehicle-lifecycle events to an EventBridge bus consumed by the companion Dealer Management System (DMS) accelerator.
 

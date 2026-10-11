@@ -35,7 +35,7 @@ Amazon ElastiCache for Redis serves as the Last Known State (LKS) store for the 
 ### Why Redis for Last Known State
 <a name="why-redis-for-lks"></a>
 
-Connected vehicle platforms face a fundamental read/write asymmetry: telemetry arrives at high frequency (every 1-5 seconds per vehicle), but the Fleet Manager UI and APIs only need the *current* value of each signal. Querying DynamoDB for the latest telemetry record on every page load would be expensive and slow at scale.
+Connected vehicle platforms face a fundamental read/write asymmetry: telemetry arrives at high frequency (every 1-5 seconds per vehicle), but the Fleet Intelligence portal and APIs only need the *current* value of each signal. Querying DynamoDB for the latest telemetry record on every page load would be expensive and slow at scale.
 
 Redis solves this by maintaining a single, continuously updated snapshot of each vehicle’s state:
 +  **Sub-millisecond reads** — Hash lookups return in <1ms, enabling real-time dashboards
@@ -125,11 +125,11 @@ The `SignalCatalogLoader` loads the signal catalog from DynamoDB on Flink startu
 ### Read path — API to Redis
 <a name="lks-read-path"></a>
 
-The Fleet Manager API Lambda reads LKS data through two mechanisms:
+The Fleet Intelligence portal API Lambda reads LKS data through two mechanisms:
 
  **Vehicle detail view:** When the UI requests a vehicle’s details, the Lambda calls `_build_live_vehicle_state()` which reads three hashes (`signals`, `timestamps`, `meta`) via HGETALL and overlays the live state onto the DynamoDB vehicle record. Signal IDs are resolved to human-readable names using the `signal_catalog:reverse` hash. This provides the UI with current speed, location, engine state, and all other signals without querying the telemetry table.
 
- **Map view:** The Fleet Manager map uses `GEOSEARCH vehicle:locations FROMLONLAT {lng} {lat} BYRADIUS {km} km` to find all vehicles within a geographic area. This returns vehicle IDs with coordinates, which the UI plots on the map. No DynamoDB scan is needed.
+ **Map view:** The Fleet Intelligence portal map uses `GEOSEARCH vehicle:locations FROMLONLAT {lng} {lat} BYRADIUS {km} km` to find all vehicles within a geographic area. This returns vehicle IDs with coordinates, which the UI plots on the map. No DynamoDB scan is needed.
 
  **Redis client:** The Lambda uses a minimal raw-socket RESP client (`_RedisClient`) that requires no external dependencies. It supports HGETALL, XRANGE, and GEOSEARCH commands. The client caches Redis availability for 60 seconds to avoid repeated connection timeouts if Redis is unreachable, and falls back gracefully to DynamoDB-only responses.
 

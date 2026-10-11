@@ -326,7 +326,7 @@ Phases must be deployed in order due to dependencies. `phase-streaming` depends 
  **Stacks deployed:** 
 +  `cms-{stage}-storage` — DynamoDB tables and S3 buckets
 +  `cms-{stage}-iot` — IoT Core configuration and fleet management
-+  `cms-{stage}-ui` — Fleet Manager web application
++  `cms-{stage}-ui` — Fleet Intelligence portal
 
  **Resources created:** 
 + DynamoDB tables: vehicles, trips, alerts, drivers, safety events, maintenance alerts, telemetry, signal catalog, commands, geofences, simulations
@@ -493,7 +493,7 @@ aws cloudformation describe-stacks \
 
 All stacks should show `CREATE_COMPLETE` or `UPDATE_COMPLETE` status.
 
-### Access Fleet Manager UI
+### Access the Fleet Intelligence portal
 <a name="access-fleet-manager-ui"></a>
 
 1. Get the CloudFront URL from stack outputs:
@@ -509,7 +509,7 @@ All stacks should show `CREATE_COMPLETE` or `UPDATE_COMPLETE` status.
 
 1. Sign in as the seeded operator account. See [First sign-in](#first-sign-in) below for the account name and how to retrieve its password.
 
-1. Verify you can access the Fleet Manager console
+1. Verify you can access the Fleet Intelligence portal
 
 ### First sign-in
 <a name="first-sign-in"></a>
@@ -573,7 +573,7 @@ After successful deployment, the following outputs are available:
 
 | Output | Description | Stack | 
 | --- | --- | --- | 
-| CloudFrontURL | Fleet Manager web application URL | cms-{stage}-ui | 
+| CloudFrontURL | Fleet Intelligence portal URL | cms-{stage}-ui | 
 | UserPoolId | Cognito user pool ID | cms-{stage}-ui | 
 | IdentityPoolId | Cognito identity pool ID | cms-{stage}-ui | 
 | ApiGatewayUrl | REST API endpoint | cms-{stage}-ui | 
@@ -689,12 +689,12 @@ Deployments that inadvertently downgrade to `cms-sim-service:v0.3.2` will find S
 
 The in-UI conversational assistant is **not** deployed by this repository. It is served by the companion Agentic Vehicle Experience (AVX) accelerator’s Amazon Bedrock AgentCore text runtime.
 
-To wire CMS to a deployed AVX assistant, populate the `vsaApiEndpoint` field in `runtimeConfig.json` at UI deploy time — typically by pointing to the AVX API Gateway stage URL. The `ChatAgent` component then routes `/assistant/chat` requests to that endpoint. When `vsaApiEndpoint` is unset, the chat panel reports the assistant as not configured and the remainder of the Fleet Manager application continues to function.
+To wire CMS to a deployed AVX assistant, populate the `vsaApiEndpoint` field in `runtimeConfig.json` at UI deploy time — typically by pointing to the AVX API Gateway stage URL. The `ChatAgent` component then routes `/assistant/chat` requests to that endpoint. When `vsaApiEndpoint` is unset, the chat panel reports the assistant as not configured and the remainder of the Fleet Intelligence portal continues to function.
 
 The historical `make deploy-bedrock-agents` target now exits as a no-op stub for backward compatibility. The v0.4.0 release retired the CMS-side `cms-{stage}-bedrock-agents` stack that previously held the Virtual Fleet Operator supervisor and specialist agents; the Tier 1 replacement that fills the fleet-view landing surface is `services/fleet_intelligence/`.
 
 **Note**  
-See [Conversational fleet assistant](bedrock-agents-stack.md) in the architecture-details chapter for the CMS-side integration surface, and the AVX accelerator’s own documentation for the AgentCore runtime and supervisor-agent architecture.
+See [Conversational fleet assistant](fip-architecture-details.md#bedrock-agents-stack) in the architecture-details chapter for the CMS-side integration surface, and the AVX accelerator’s own documentation for the AgentCore runtime and supervisor-agent architecture.
 
 ## Troubleshooting deployment
 <a name="troubleshooting-deployment"></a>
@@ -809,7 +809,7 @@ After successful deployment:
 
 1.  [Run the vehicle simulator](simulation-platform.md) to generate test data
 
-1. Access the Fleet Manager UI to view vehicles and trips
+1. Access the Fleet Intelligence portal to view vehicles and trips
 
 1. Configure alert subscriptions for maintenance notifications
 

@@ -1,16 +1,93 @@
 
 
-# Dynamic data collection
+# How it works
+<a name="csp-how-it-works"></a>
+
+The portal’s data model and campaign screens control what each vehicle collects. The subsections below describe the edge agent integration and the three-layer collection model those screens edit.
+
+## FleetWise Edge integration
+<a name="fleetwise-edge-integration"></a>
+
+How the AWS IoT FleetWise Edge Agent connects, receives campaigns, collects CAN bus signals, and feeds telemetry into the processing pipeline.
+
+The solution supports two telemetry ingestion modes. In **MQTT Direct** mode, the simulator (or a real vehicle application) publishes JSON telemetry directly to IoT Core. In **FleetWise Edge (FWE)** mode, the AWS IoT FleetWise Edge Agent runs on the vehicle (or in a Docker container for simulation), collects raw CAN bus signals based on campaign instructions, encodes them as protobuf, and uploads them to the cloud. Both modes converge on the same `cms-telemetry-preprocessed` Kafka topic, so all downstream processors work identically regardless of the telemetry source.
+
+**Important**  
+AWS IoT FleetWise is no longer open to new customers. The [Reference Implementation for AWS IoT FleetWise](https://github.com/aws/aws-iot-fleetwise-edge) (FWE) remains available for developing your own Edge Agent. The Connected Mobility on AWS guidance supports both paths: new customers can develop and deploy their own Edge Agent based on FWE and use MQTT Direct mode without depending on AWS IoT FleetWise APIs, while existing AWS IoT FleetWise customers can continue using the service for full cloud integration — the solution’s Flink applications support FleetWise campaign management and telemetry processing as described on this page. Regardless of which path you choose, the core telemetry pipeline — normalization, routing, storage, and real-time distribution — operates independently of the FleetWise cloud service.
+
+### Agent lifecycle
+<a name="fwe-agent-lifecycle"></a>
+
+The FWE agent follows a checkin-based lifecycle:
+
+1.  **Startup** — The agent starts, loads its static configuration (IoT endpoint, certificate, CAN bus interface), and connects to IoT Core using X.509 certificate authentication.
+
+1.  **Checkin** — The agent publishes a protobuf checkin message to `cms/fleetwise/vehicles/{vin}/checkins`. The checkin includes the agent’s current `document_sync_ids` — a list of collection scheme IDs the agent has already received and is actively running.
+
+1.  **IoT Rule routing** — The IoT Rule `fw_{stage}_checkin_rule` encodes the binary protobuf as base64 and routes it to the `fw-checkin` Kafka topic, including the vehicle VIN extracted from the MQTT topic path using `topic(4)`.
+
+1.  **Campaign resolution** — The CampaignSyncProcessor Flink application consumes the checkin, extracts the VIN, and queries the `cms-{stage}-campaigns` DynamoDB table for all campaigns with status `RUNNING` that target this vehicle.
+
+1.  **Scheme generation** — For each active campaign, the processor generates a protobuf `CollectionScheme` message specifying which CAN signal IDs to collect and at what interval. It also generates a `DecoderManifest` protobuf that maps CAN signal IDs to human-readable VSS signal names (for example, signal ID 1 → `Vehicle.Speed`).
+
+1.  **Scheme delivery** — The processor publishes the combined decoder manifest and collection schemes to `cms/fleetwise/vehicles/{vin}/collection_schemes_and_decoder_manifests` via IoT Core MQTT.
+
+1.  **Signal collection** — The agent receives the schemes, configures its CAN bus listeners, and begins collecting the specified signals at the configured intervals.
+
+1.  **Telemetry upload** — The agent batches collected signals into a `VehicleData` protobuf message and publishes it to `cms/fleetwise/vehicles/{vin}/signals`.
+
+1.  **Decode and mapping** — The IoT Rule `fw_{stage}_iot_msk_rule` routes the protobuf to the `fw-telemetry-raw` Kafka topic. The FWTelemetryProcessor Flink application decodes the protobuf, maps each CAN signal ID to its standard JSON field name using the decoder manifest cached from DynamoDB, and outputs standard CMS-format JSON to `cms-telemetry-preprocessed`.
+
+1.  **Standard pipeline** — From this point, the telemetry flows through the same processors as MQTT Direct data: EventDrivenTelemetryProcessor (Redis LKS), TripProcessor, SafetyProcessor, MaintenanceProcessor, and GeofenceProcessor.
+
+### Campaign states
+<a name="fwe-campaign-states"></a>
+
+Campaigns stored in DynamoDB have the following lifecycle:
++  **RUNNING** — Active campaign. The CampaignSyncProcessor includes this campaign’s collection scheme when responding to agent checkins.
++  **SUSPENDED** — Paused campaign. When all campaigns for a vehicle are suspended, the processor pushes an empty `CollectionSchemes` protobuf, which clears the agent’s active collection and stops signal upload.
++  **COMPLETED** — Finished campaign. Ignored by the processor.
+
+Campaign sync status is tracked per vehicle:
++  **PENDING** — Campaign scheme has been pushed to the agent but the agent has not confirmed receipt in its checkin `document_sync_ids`.
++  **HEALTHY** — Agent confirmed receipt of the collection scheme.
+
+### Protobuf decode process
+<a name="fwe-protobuf-decode"></a>
+
+The FWTelemetryProcessor performs the following steps for each message on the `fw-telemetry-raw` topic:
+
+1. Extract the base64-encoded protobuf payload and the vehicle VIN from the IoT Rule metadata.
+
+1. Base64-decode and parse the `VehicleData` protobuf message.
+
+1. Iterate over each `CapturedSignal` in the protobuf. Each signal has a numeric signal ID and a value.
+
+1. Look up the signal ID in the decoder manifest (cached from DynamoDB) to get the VSS signal name (for example, `Vehicle.Speed`).
+
+1. Map the VSS signal name to the standard JSON field name using the signal catalog (for example, `Vehicle.Speed` → `speed`). The mapping is cached in a `ConcurrentHashMap` and falls back to a built-in defaults map for core signals.
+
+1. Resolve the vehicle’s active trip ID from a local cache (refreshed every 60 seconds from Redis) so the telemetry record can be tagged with the correct `tripId`.
+
+1. Build a standard standard JSON object with all mapped fields, the VIN, timestamp, trip ID, and `source: "fleetwise"`.
+
+1. Output the JSON string to the `cms-telemetry-preprocessed` Kafka topic.
+
+Failed decodes are dropped (not passed through as poison messages) and counted in a `RECORDS_FAILED` metric.
+
+## Dynamic data collection
 <a name="dynamic-data-collection"></a>
+
+How the signal catalog, decoder manifest, and campaigns work together to control what data is collected from vehicles.
 
 The solution uses a three-layer data collection model that decouples *what signals exist* from *how they are encoded on the wire* from *which signals to collect right now*. This separation allows fleet operators to change collection behavior without modifying vehicle software or redeploying infrastructure.
 
-## Signal catalog
+### Signal catalog
 <a name="signal-catalog-overview"></a>
 
 The signal catalog is the single source of truth for every telemetry signal the platform understands. It is stored in the `cms-{stage}-signal-catalog` DynamoDB table and seeded during deployment with a comprehensive catalog of 260 CAN bus signals across 55 CAN messages, plus 2 GPS signals and 6 metadata fields. The catalog covers a realistic 2026 model-year vehicle with ICE, EV, and hybrid support. It includes 48 actuatable commands for remote vehicle control. The default catalog is a starting point — it is fully customizable to any vehicle platform, OEM signal set, or industry standard.
 
-### Customizing the signal catalog
+#### Customizing the signal catalog
 <a name="customizing-the-signal-catalog"></a>
 
 The signal catalog is not hardcoded. Customers replace or extend it to match their vehicle fleet:
@@ -19,9 +96,9 @@ The signal catalog is not hardcoded. Customers replace or extend it to match the
 +  **Different units** — Change from imperial (mph, °F, PSI) to metric (km/h, °C, kPa) by updating the unit and conversion factor.
 +  **New signal groups** — Add entirely new groups (for example, autonomous driving signals, trailer telemetry, cargo monitoring).
 
-When the signal catalog is updated, the SignalCatalogLoader detects the version change in Redis and hot-reloads across all Flink processors without restart. Downstream consumers (Fleet Manager UI, Commands Lambda, FWTelemetryProcessor) automatically pick up the new signals.
+When the signal catalog is updated, the SignalCatalogLoader detects the version change in Redis and hot-reloads across all Flink processors without restart. Downstream consumers (Fleet Intelligence portal, Commands Lambda, FWTelemetryProcessor) automatically pick up the new signals.
 
-### Signal entry structure
+#### Signal entry structure
 <a name="signal-entry-structure"></a>
 
 Each signal in the catalog contains:
@@ -36,9 +113,9 @@ Each signal in the catalog contains:
 | data\_type | float, int, boolean, or string | 
 | unit | Physical unit (mph, PSI, °F, rpm, etc.) | 
 | min / max | Valid range for the signal | 
-| actuator | If present, this signal can be commanded remotely (see [Remote commands](remote-commands-flow.md)) | 
+| actuator | If present, this signal can be commanded remotely (see [Remote commands](fip-how-it-works.md#remote-commands-flow)) | 
 
-### Default signal catalog
+#### Default signal catalog
 <a name="default-signal-catalog"></a>
 
 The solution ships with a comprehensive fleet telemetry catalog covering ICE, EV, and hybrid vehicles. The 260 signals are organized into two tiers:
@@ -105,7 +182,7 @@ All IDs are unique and aligned across the signal catalog, decoder manifest, prot
 | Charging | 4 | Charge limit, charge schedule, start/stop charging, charge door | 
 | Engine | 1 | Remote start/stop | 
 
-### VSS path convention
+#### VSS path convention
 <a name="vss-path-convention"></a>
 
 The signal catalog follows the [COVESA Vehicle Signal Specification (VSS)](https://covesa.github.io/vehicle_signal_specification/) naming convention. VSS provides a standardized, tree-structured taxonomy for vehicle signals used across the automotive industry. The fully qualified path uses dot notation from the vehicle root:
@@ -124,16 +201,16 @@ Vehicle.Chassis.Axle.Row1.Wheel.Left.Tire.Pressure
 
 This hierarchical naming enables:
 + Consistent signal identification across OEMs and platforms
-+ Automatic grouping in the Fleet Manager UI
++ Automatic grouping in the Fleet Intelligence portal
 + Compatibility with FleetWise signal catalogs and decoder manifests
 + Industry-standard data exchange with partners and third-party systems
 
-## DBC file format
+### DBC file format
 <a name="dbc-format-overview"></a>
 
 The solution includes a DBC file (`services/simulation/can/cms-fleet.dbc`) that defines the CAN bus message layout. DBC (Database CAN) is the industry-standard format for describing CAN bus communication, used by every major automotive OEM and tool vendor.
 
-### How a DBC file works
+#### How a DBC file works
 <a name="how-a-dbc-file-works"></a>
 
 A DBC file defines **messages** (CAN frames) and **signals** (data fields within frames):
@@ -153,7 +230,7 @@ Reading this:
 +  `[0|655]` — Valid range 0 to 655 mph
 +  `"mph"` — Unit
 
-### CAN message layout
+#### CAN message layout
 <a name="can-message-layout"></a>
 
 The default DBC defines 55 CAN messages with different cycle times based on how frequently the data changes:
@@ -206,7 +283,7 @@ The default DBC defines 55 CAN messages with different cycle times based on how 
 
 Safety-critical signals (speed, braking, acceleration) use 100ms cycle times for rapid detection. Slow-changing signals (tire tread, maintenance indicators) use 5000ms cycles to reduce bus load.
 
-### Customizing the DBC
+#### Customizing the DBC
 <a name="customizing-the-dbc"></a>
 
 To adapt the guidance for a different vehicle platform:
@@ -219,9 +296,9 @@ To adapt the guidance for a different vehicle platform:
 
 1. Create campaigns that reference the new signal IDs.
 
-The Flink processors, Fleet Manager UI, and Redis LKS layer automatically adapt to the new signals through the signal catalog — no code changes required.
+The Flink processors, Fleet Intelligence portal, and Redis LKS layer automatically adapt to the new signals through the signal catalog — no code changes required.
 
-## Decoder manifest
+### Decoder manifest
 <a name="decoder-manifest-overview"></a>
 
 The decoder manifest bridges the gap between raw CAN bus data and human-readable signal names. It tells the FleetWise Edge Agent how to interpret the binary CAN frames coming off the vehicle bus. The default decoder manifest covers all 260 CAN signals plus 2 GPS custom decoding signals.
@@ -246,9 +323,9 @@ CAN bus frame 0x100, bytes [0x02, 0x8F, ...]
   → standard JSON field: "speed": 65.5
 ```
 
-The decoder manifest covers 15 CAN messages with cycle times ranging from 100ms (engine, safety) to 5000ms (tire tread, maintenance indicators). See [Signal catalog reference](signal-catalog-reference.md) for the complete mapping.
+The decoder manifest covers 15 CAN messages with cycle times ranging from 100ms (engine, safety) to 5000ms (tire tread, maintenance indicators). See [Signal catalog reference](csp-architecture-details.md#signal-catalog-reference) for the complete mapping.
 
-## Campaigns
+### Campaigns
 <a name="campaigns-overview"></a>
 
 A campaign defines *what to collect* and *from which vehicles*. Campaigns are the control plane for FleetWise Edge data collection — they determine which signals the agent actively monitors and uploads.
@@ -263,7 +340,7 @@ Each campaign record in the `cms-{stage}-campaigns` DynamoDB table contains:
 +  **Collection interval** — How frequently the agent samples signals (for example, every 1000ms)
 +  **Condition** — Optional trigger condition (for example, collect only when speed > 0)
 
-### Campaign lifecycle
+#### Campaign lifecycle
 <a name="campaign-lifecycle-detail"></a>
 
 1.  **Create** — A campaign is created in DynamoDB with status `RUNNING` and a list of target vehicles and signals.
@@ -280,7 +357,7 @@ Each campaign record in the `cms-{stage}-campaigns` DynamoDB table contains:
 
 1.  **Complete** — Setting the status to `COMPLETED` permanently ends the campaign.
 
-### Example campaigns
+#### Example campaigns
 <a name="campaign-examples"></a>
 
  **Full fleet telemetry** — Collect all 66 signals from every vehicle at 1-second intervals. This is the default campaign created by the simulation service.
@@ -291,7 +368,7 @@ Each campaign record in the `cms-{stage}-campaigns` DynamoDB table contains:
 
  **EV battery diagnostics** — Collect state of charge, HV battery voltage, regenerative braking power, and motor temperature from EV vehicles only. Uses a condition to collect only when the vehicle is driving (speed > 0).
 
-## How the layers connect
+### How the layers connect
 <a name="how-layers-connect"></a>
 
 ```

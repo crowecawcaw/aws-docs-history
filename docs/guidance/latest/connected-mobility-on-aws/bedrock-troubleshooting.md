@@ -5,12 +5,12 @@
 
 The in-UI conversational assistant is served by the companion Agentic Vehicle Experience (AVX) accelerator’s Amazon Bedrock AgentCore text runtime. Bedrock invocation errors (for example, `AccessDeniedException` when the AgentCore runtime calls a foundation model or a cross-account knowledge base) are diagnosed and remediated on the AVX side — see the AVX repository’s troubleshooting guide for the cross-region inference-profile IAM patterns and the ADP Knowledge Base cross-account resource-based policy.
 
-CMS-side symptoms are limited to the wire path between the Fleet Manager UI and the AVX API.
+CMS-side symptoms are limited to the wire path between the Fleet Intelligence portal and the AVX API.
 
 ## Problem: Assistant panel reports "not configured"
 <a name="problem-assistant-not-configured"></a>
 
-The Fleet Manager UI chat panel opens but reports the assistant as unavailable. The browser network tab shows no requests to `/assistant/chat`.
+The Fleet Intelligence portal chat panel opens but reports the assistant as unavailable. The browser network tab shows no requests to `/assistant/chat`.
 
 ### Diagnosis
 <a name="diagnosis-6"></a>

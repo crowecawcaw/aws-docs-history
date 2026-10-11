@@ -208,7 +208,7 @@ s3://cms-telemetry-archive/
 ### UI assets bucket
 <a name="ui-assets-bucket"></a>
 
-Hosts the Fleet Manager React application.
+Hosts the Fleet Intelligence portal React application.
 
  **Configuration:** 
 + Versioning: Enabled

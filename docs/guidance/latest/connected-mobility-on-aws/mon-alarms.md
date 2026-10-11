@@ -31,7 +31,7 @@ Seven alarm families cover the ten Managed Service for Apache Flink applications
 |  `-unmatched-topic`  | 1 | Telemetry arrived on a Kafka topic the OEM-path processor has no mapping for, so those records are being dropped rather than transformed. | 
 
 **Note**  
-The `-unmatched-topic` alarm does not self-clear in this release. It evaluates a rate over a cumulative Flink counter that never decrements, so once it fires it stays in `ALARM` even after the condition is resolved — which means it cannot signal a second occurrence. Treat its first firing as the signal, investigate, and set the alarm state manually once resolved. Tracked as a known limitation.
+The `-unmatched-topic` alarm does not self-clear. It evaluates a rate over a cumulative Flink counter that never decrements, so once it fires it stays in `ALARM` even after the condition is resolved — which means it cannot signal a second occurrence. Treat its first firing as the signal, investigate, and set the alarm state manually once resolved.
 
 The distinction between `-down` and `-idle` is the one most worth internalizing. A processor that is down is visibly broken. A processor that is **idle** looks entirely healthy in the console — the application state is `RUNNING`, there are no errors in the log — and produces nothing. See [Troubleshooting](troubleshooting.md) for the diagnosis path.
 
@@ -48,11 +48,11 @@ The third alarm is the one to wire first. It is the alarm that tells you the oth
 ## Telemetry decoder manifest
 <a name="mon-fleetwise-alarms"></a>
 
-One alarm fires when the campaign-sync processor cannot fetch the decoder manifest. Without a manifest the processor cannot map CAN signal identifiers to signal names, so protobuf telemetry arrives and cannot be decoded. See [Decoder manifest](dynamic-data-collection.md#decoder-manifest-overview).
+One alarm fires when the campaign-sync processor cannot fetch the decoder manifest. Without a manifest the processor cannot map CAN signal identifiers to signal names, so protobuf telemetry arrives and cannot be decoded. See [Decoder manifest](csp-how-it-works.md#decoder-manifest-overview).
 
 ## Account provisioning (conditional)
 <a name="mon-provisioning-alarms"></a>
 
-The Fleet Manager stack defines alarms on its Amazon Cognito trigger functions and on sign-up denials, gated behind the account-provisioning feature. With that feature disabled — the default — the stack synthesizes zero alarms. If you enable it, subscribe the security operators topic before doing so, since these alarms cover authentication paths.
+The Fleet Intelligence portal stack defines alarms on its Amazon Cognito trigger functions and on sign-up denials, gated behind the account-provisioning feature. With that feature disabled — the default — the stack synthesizes zero alarms. If you enable it, subscribe the security operators topic before doing so, since these alarms cover authentication paths.
 
 These alarms also set an OK action as well as an alarm action, so the topic receives recovery notifications and not only failures.

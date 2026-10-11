@@ -1,7 +1,43 @@
 
 
-# Signal catalog reference
+# Architecture details
+<a name="csp-architecture-details"></a>
+
+The portal runs on the shared platform described in [Shared platform architecture](architecture-details.md). The resources below are specific to the portal.
+
+## Connected Services portal and subscription plane
+<a name="connected-services-portal"></a>
+
+A subscriber-facing portal, a subscription plane, and a CMS-side consumer of the same plane.
+
+The Connected Services portal exposes CMS’s existing data model — signal catalog, vehicle models, ECUs, decoder manifests, data-collection campaigns, and simulation — as a subscriber-facing surface, alongside a subscription plane that streams data products to authorized third-party consumers. The three stacks below are all opt-in.
+
+### ConnectedServicesUiStack (`DEPLOY_CONNECTED_SERVICES_UI=true`)
+<a name="connected-services-ui-stack"></a>
+
+Deploys a standalone React SPA on its own CloudFront distribution and subdomain (`cms-{stage}-connected-services-ui`). The portal reads six surfaces directly from CMS’s deployed `data_processing_api.py` — signal catalog, vehicle models, ECUs, decoder manifests, data-collection campaigns, and simulation. It owns no data-model storage; every surface is read directly from the source-of-truth API, so nothing is duplicated between CMS and the portal.
+
+### SubscriptionsStack (`DEPLOY_SUBSCRIPTIONS=true`)
+<a name="subscriptions-stack"></a>
+
+Deploys the subscription plane in `services/connectors/subscriptions/`. The plane manages subscriber identities and enrollment lifecycle, tracks vehicle-scoped access permissions (subscription scope), streams records from data products to authorized subscribers, and enforces subscriber-scoped quotas. A dedicated `subscriber` Cognito group grants access to the subscriber-facing REST routes; admin routes (`POST /admin/subscribers`, `POST /admin/subscriptions/vehicles/{vin}/available`) require the `connected-services` group.
+
+The bundled `products.json` catalog seeds the four data products: `telemetry-hifi-v1`, `meridian-telemetry-v1`, `diagnostics-v1`, and `charging-sessions-v1`. Subscriptions live in the `cms-{stage}-storage-subscriptions-{region}-{account}` DynamoDB table with a GSI on `consumer_id` for "my subscriptions" ordering by creation time; vehicle availability lives in `cms-{stage}-storage-vehicle-availability-{region}-{account}`.
+
+### Subscription ownership authorization
+<a name="cs-subscription-authorization"></a>
+
+Subscription ownership is derived from the row’s `consumer_id` field, which is written from the caller’s Cognito `sub` claim at create time and is immutable thereafter. Every subsequent read or write on a subscription re-reads the row and compares `row.consumer_id == claims["sub"]`; a mismatch returns HTTP 403. A JWT `custom:subscriptionIds` claim was previously considered as an ownership signal but was found to have no writer path; it is retired and does not participate in authorization.
+
+### ConnectedServicesConsumerStack (`DEPLOY_CONNECTED_SERVICES_CONSUMER=true`)
+<a name="connected-services-consumer-stack"></a>
+
+Deploys a CMS-side feed-cache DynamoDB table (`cms-{stage}-storage-cs-feed-cache-{region}-{account}`) that supports the Fleet Intelligence portal’s own consumption of the subscription plane. CMS runs a single machine subscriber account in the producer’s Cognito pool with one subscription to `telemetry-hifi-v1`; the enrollment path an operator triggers from Vehicle Detail is the same `POST /subscriptions/{id}/scope` call an external subscriber makes, so the demo exercises the real contract rather than a CMS-privileged shortcut. See [Third-party data delivery](third-party-data-delivery.md) for the delivery-pattern framing and the Connected Services subscription plane’s role within it.
+
+## Signal catalog reference
 <a name="signal-catalog-reference"></a>
+
+Complete signal catalog with CAN bus mapping, JSON field names, and FleetWise VSS paths.
 
 The signal catalog defines the standard telemetry format used throughout the guidance. All data sources (MQTT Direct simulator, FleetWise Edge Agent, OEM APIs) transform their data to match this catalog before entering the processing pipeline.
 
@@ -10,7 +46,7 @@ The catalog is stored in the `cms-{stage}-signal-catalog` DynamoDB table and loa
 +  **JSON Field** — The field name used in standard telemetry JSON messages
 +  **VSS Path** — The COVESA Vehicle Signal Specification path used by FleetWise
 
-## SignalCatalogLoader
+### SignalCatalogLoader
 <a name="signal-catalog-loader"></a>
 
 The SignalCatalogLoader is a utility class used by the EventDrivenTelemetryProcessor on startup. It reads the signal catalog from DynamoDB and writes two Redis hashes:
@@ -19,7 +55,7 @@ The SignalCatalogLoader is a utility class used by the EventDrivenTelemetryProce
 
 The loader checks a version key in Redis and only refreshes the catalog when the version changes, enabling hot-reload without restarting the Flink application.
 
-## Engine signals
+### Engine signals
 <a name="engine-signals"></a>
 
  **ECM\_Engine\_1 (CAN ID 0x100, 100ms cycle):** 
@@ -54,7 +90,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | Odometer | odometer | Vehicle.Odometer | miles | 0–16M | 
 | FuelRate | fuel\_rate | Vehicle.Powertrain.FuelSystem.FuelRate | L/h | 0–51 | 
 
-## Transmission signals
+### Transmission signals
 <a name="transmission-signals"></a>
 
  **TCM\_Transmission (CAN ID 0x110, 200ms cycle):** 
@@ -67,7 +103,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | CruiseControl | cruise\_control | Vehicle.ADAS.CruiseControl.Active | bool | 0/1 | 
 | ParkingBrake | parking\_brake | Vehicle.Chassis.ParkingBrake.Active | bool | 0/1 | 
 
-## Body control signals
+### Body control signals
 <a name="body-control-signals"></a>
 
  **BCM\_Body\_1 (CAN ID 0x120, 500ms cycle):** 
@@ -88,7 +124,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | BluetoothDevices | bluetooth\_devices | Vehicle.Connectivity.Bluetooth.DeviceCount | count | 0–7 | 
 | NavigationActive | navigation\_active | Vehicle.Cabin.Infotainment.Navigation.Active | bool | 0/1 | 
 
-## Tire signals
+### Tire signals
 <a name="tire-signals"></a>
 
  **TPMS\_Pressure (CAN ID 0x130, 1000ms cycle):** 
@@ -112,7 +148,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | TireTreadRL | tire\_tread\_rl | Vehicle.Chassis.Axle.Row2.Wheel.Left.Tire.TreadDepth | mm | 0–25.5 | 
 | TireTreadRR | tire\_tread\_rr | Vehicle.Chassis.Axle.Row2.Wheel.Right.Tire.TreadDepth | mm | 0–25.5 | 
 
-## Safety signals
+### Safety signals
 <a name="safety-signals"></a>
 
  **ADAS\_Safety\_1 (CAN ID 0x140, 100ms cycle):** 
@@ -141,7 +177,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | LateralG | lateralG | Vehicle.Acceleration.Lateral | g | -5–5.2 | 
 | FollowingDistance | followingDistance | Vehicle.ADAS.FollowingDistance | m | 0–102 | 
 
-## Battery and fuel signals
+### Battery and fuel signals
 <a name="battery-signals"></a>
 
  **BMS\_Battery (CAN ID 0x150, 1000ms cycle):** 
@@ -163,7 +199,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | HVBatteryVoltage | volt | Vehicle.Powertrain.Battery.HVVoltage | V | 0–410 | 
 | RegenPower | regen\_pwr | Vehicle.Powertrain.Battery.RegenPower | kW | -50–155 | 
 
-## Instrument and climate signals
+### Instrument and climate signals
 <a name="instrument-signals"></a>
 
  **ICM\_Instrument (CAN ID 0x160, 200ms cycle):** 
@@ -184,7 +220,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | CabinTemp | cabin\_temp | Vehicle.Cabin.HVAC.CabinTemperature | °F | 40–168 | 
 | SeatHeatDriver | seat\_heat\_driver | Vehicle.Cabin.Seat.Driver.HeatingLevel | level | 0–3 | 
 
-## Maintenance signals
+### Maintenance signals
 <a name="maintenance-signals"></a>
 
  **MAINT\_Indicators (CAN ID 0x180, 5000ms cycle):** 
@@ -199,7 +235,7 @@ The loader checks a version key in Redis and only refreshes the catalog when the
 | AirPressure | air\_pressure | Vehicle.Chassis.Brake.AirPressure | PSI | 0–128 | 
 | HydraulicPressure | hydraulic\_pressure | Vehicle.Chassis.Brake.HydraulicPressure | PSI | 0–4095 | 
 
-## GPS signals (separate interface)
+### GPS signals (separate interface)
 <a name="gps-signals"></a>
 
 GPS coordinates are not transmitted on the CAN bus. In MQTT Direct mode, the simulator includes them in the JSON payload. In FleetWise Edge mode, the simulator injects GPS coordinates into the FWE agent through a Unix domain socket.
@@ -210,7 +246,7 @@ GPS coordinates are not transmitted on the CAN bus. In MQTT Direct mode, the sim
 | Latitude | lat | Vehicle.CurrentLocation.Latitude | deg | -90–90 | 
 | Longitude | lng | Vehicle.CurrentLocation.Longitude | deg | -180–180 | 
 
-## Safety event detection thresholds
+### Safety event detection thresholds
 <a name="safety-event-thresholds"></a>
 
 The SafetyProcessor evaluates every telemetry message against the event catalog rules stored in the `cms-{stage}-event-catalog` DynamoDB table. Detection uses real CAN bus signals — not synthetic derived values — so the same rules work for both simulated and production vehicles.
@@ -234,7 +270,7 @@ Cloud detection evaluates rules in the SafetyProcessor Flink application against
 
 The event catalog is seeded by `make seed-event-catalog` and can be modified at runtime — the SafetyProcessor reloads the catalog every 5 minutes without requiring a restart.
 
-## Maintenance alert detection thresholds
+### Maintenance alert detection thresholds
 <a name="maintenance-alert-thresholds"></a>
 
 The MaintenanceProcessor uses the following thresholds to generate maintenance alerts:
@@ -253,7 +289,7 @@ The MaintenanceProcessor uses the following thresholds to generate maintenance a
 | FILTER\_REPLACEMENT | FilterLife | < 15% | P0102 | 
 | TIRE\_TREAD\_LOW | TireTreadXX | < 3mm | C1235 | 
 
-## Decoder manifest
+### Decoder manifest
 <a name="decoder-manifest-reference"></a>
 
 The decoder manifest maps CAN signal IDs to human-readable signal names and is pushed to the FleetWise Edge Agent alongside collection schemes. The FWTelemetryProcessor also uses the decoder manifest to decode protobuf telemetry uploaded by the agent.

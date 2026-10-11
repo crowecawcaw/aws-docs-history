@@ -12,7 +12,7 @@ The InfrastructureStack provides the foundational networking and caching infrast
 
  **Amazon Virtual Private Cloud (Amazon VPC)** – A logically isolated virtual network with public and private subnets across multiple Availability Zones. The VPC includes a NAT Gateway for secure outbound internet access from private subnets. For more details, see [Amazon VPC](https://aws.amazon.com/vpc).
 
- **Amazon ElastiCache for Redis** – A managed in-memory caching service that implements the Last Known State (LKS) pattern for connected vehicles. The Flink telemetry processor writes every signal value, timestamp, and vehicle metadata to Redis hashes on each telemetry message, maintaining a continuously updated snapshot of each vehicle’s state. The Fleet Manager API reads this snapshot for sub-millisecond vehicle detail lookups and uses Redis geospatial indexing (GEOADD/GEOSEARCH) for map-based vehicle proximity queries. Redis streams provide capped time-series data for UI sparkline charts. All keys expire automatically when a vehicle stops sending telemetry. For more details, see [Amazon ElastiCache](https://aws.amazon.com/elasticache).
+ **Amazon ElastiCache for Redis** – A managed in-memory caching service that implements the Last Known State (LKS) pattern for connected vehicles. The Flink telemetry processor writes every signal value, timestamp, and vehicle metadata to Redis hashes on each telemetry message, maintaining a continuously updated snapshot of each vehicle’s state. The Fleet Intelligence portal API reads this snapshot for sub-millisecond vehicle detail lookups and uses Redis geospatial indexing (GEOADD/GEOSEARCH) for map-based vehicle proximity queries. Redis streams provide capped time-series data for UI sparkline charts. All keys expire automatically when a vehicle stops sending telemetry. For more details, see [Amazon ElastiCache](https://aws.amazon.com/elasticache).
 
 ## Data storage
 <a name="data-storage-overview"></a>
@@ -21,7 +21,7 @@ The StorageStack deploys all data storage resources for the guidance.
 
  **Amazon DynamoDB** – Four tables store vehicle data, trip history, maintenance alerts, and driver information. All tables use on-demand billing for automatic scaling and have point-in-time recovery enabled for data protection. For more details, see [Amazon DynamoDB](https://aws.amazon.com/dynamodb/).
 
- **Amazon S3** – Buckets store archived telemetry data for long-term analysis and host the Fleet Manager web application assets. All buckets have versioning and encryption enabled. For more details, see [Amazon S3](https://aws.amazon.com/s3/).
+ **Amazon S3** – Buckets store archived telemetry data for long-term analysis and host the Fleet Intelligence portal assets. All buckets have versioning and encryption enabled. For more details, see [Amazon S3](https://aws.amazon.com/s3/).
 
 ## Message streaming
 <a name="message-streaming"></a>
@@ -74,17 +74,17 @@ The FleetWiseStack (implemented as `FweTelemetryStack` in `deployment/stacks/fwe
 
  **Signal catalogs, decoder manifests, and campaigns** – This stack seeds and manages the CMS-native equivalents of these FleetWise concepts in Amazon DynamoDB. The stack creates IoT rules for FWE protobuf telemetry and checkin messages, VPC endpoints for the IoT Data Plane, and the `CampaignSyncProcessor` Flink application that resolves active campaigns from DynamoDB and pushes decoder manifests \+ collection schemes to FWE agents over IoT Core MQTT. The open-source FWE agent binary itself is [built from source](https://github.com/aws/aws-iot-fleetwise-edge) and packaged as a container image; its lifecycle is independent of the managed-service availability status.
 
-## Fleet Manager application
+## Fleet Intelligence portal (UIStack)
 <a name="fleet-manager-app"></a>
 
-The UIStack provides the Fleet Manager web application and backend APIs.
+The UIStack provides the Fleet Intelligence portal and backend APIs.
 
- **Amazon CloudFront** – Distributes the React-based Fleet Manager web application globally with low latency. The application provides real-time fleet monitoring, vehicle tracking, trip analytics, and alert management. For more details, see [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
+ **Amazon CloudFront** – Distributes the React-based Fleet Intelligence portal globally with low latency. The application provides real-time fleet monitoring, vehicle tracking, trip analytics, and alert management. For more details, see [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
 
  **Amazon API Gateway** – Exposes RESTful APIs for the web application to interact with backend services. APIs handle vehicle management, trip queries, alert subscriptions, and location services. For more details, see [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
 
  **AWS Lambda** – Serverless functions process API requests, query DynamoDB and ElastiCache, and integrate with other AWS services. Functions are written in Python and use the AWS SDK (boto3). For more details, see [AWS Lambda](https://aws.amazon.com/lambda/).
 
- **Amazon Cognito** – Manages user authentication and authorization for the Fleet Manager application. Supports user pools for direct sign-up/sign-in and identity pools for AWS resource access. For more details, see [Amazon Cognito](https://aws.amazon.com/cognito/).
+ **Amazon Cognito** – Manages user authentication and authorization for the Fleet Intelligence portal. Supports user pools for direct sign-up/sign-in and identity pools for AWS resource access. For more details, see [Amazon Cognito](https://aws.amazon.com/cognito/).
 
- **Amazon Location Service** – Provides mapping, geocoding, and routing capabilities for real-time vehicle tracking. The Fleet Manager displays vehicle positions on interactive maps, calculates routes, and supports geofencing. For more details, see [Amazon Location Service](https://aws.amazon.com/location/).
+ **Amazon Location Service** – Provides mapping, geocoding, and routing capabilities for real-time vehicle tracking. The Fleet Intelligence portal displays vehicle positions on interactive maps, calculates routes, and supports geofencing. For more details, see [Amazon Location Service](https://aws.amazon.com/location/).

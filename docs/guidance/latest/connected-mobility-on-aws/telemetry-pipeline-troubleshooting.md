@@ -77,7 +77,7 @@ done
 ## Problem: Redis not showing vehicle state (map view empty)
 <a name="problem-redis-not-showing-vehicle-state"></a>
 
-The Fleet Manager map view shows no vehicles, or vehicle detail pages show no live signal data.
+The Fleet Intelligence portal map view shows no vehicles, or vehicle detail pages show no live signal data.
 
 ### Resolution
 <a name="resolution-10"></a>

@@ -6,7 +6,7 @@
 ## Problem: WebSocket connection returns HTTP 401
 <a name="problem-websocket-401"></a>
 
-The Fleet Manager UI cannot establish a WebSocket connection for real-time telemetry. The browser developer tools show the WebSocket upgrade request returning HTTP 401. This occurs because the `$connect` route on the WebSocket API requires a valid Cognito JWT, passed as the `token` query parameter on the upgrade URL.
+The Fleet Intelligence portal cannot establish a WebSocket connection for real-time telemetry. The browser developer tools show the WebSocket upgrade request returning HTTP 401. This occurs because the `$connect` route on the WebSocket API requires a valid Cognito JWT, passed as the `token` query parameter on the upgrade URL.
 
 ### Diagnosis
 <a name="diagnosis-8"></a>
@@ -42,7 +42,7 @@ The Fleet Manager UI cannot establish a WebSocket connection for real-time telem
 
  **If the upgrade request lacks the token parameter:** 
 
-The WebSocket client must append `?token=<cognito-id-token>` to the upgrade URL. In the Fleet Manager UI, the `runtimeConfig.wsEndpoint` field supplies the base URL; the UI code appends the token automatically when the user is authenticated. If the UI is not appending the token, verify that the `wsEndpoint` field in `runtimeConfig.json` is populated (see [Problem: Fleet Manager UI shows missing endpoints after fresh deploy](runtimeconfig-troubleshooting.md#problem-runtimeconfig-endpoint-race)).
+The WebSocket client must append `?token=<cognito-id-token>` to the upgrade URL. In the Fleet Intelligence portal, the `runtimeConfig.wsEndpoint` field supplies the base URL; the UI code appends the token automatically when the user is authenticated. If the UI is not appending the token, verify that the `wsEndpoint` field in `runtimeConfig.json` is populated (see [Problem: Fleet Intelligence portal shows missing endpoints after fresh deploy](runtimeconfig-troubleshooting.md#problem-runtimeconfig-endpoint-race)).
 
  **If the token is present but expired:** 
 
