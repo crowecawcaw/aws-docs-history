@@ -68,7 +68,21 @@ When you register a job definition, you can use parameter substitution placehold
     "{{Ref::outputfile}}"
 ]
 ```
-In the above example, there are `{{Ref::inputfile}}`, `{{Ref::codec}}`, and `{{Ref::outputfile}}` parameter substitution placeholders in the command. You can use the `parameters` object in the job definition to set default values for these placeholders. For example, to set a default for the `{{Ref::codec}}` placeholder, you specify the following in the job definition:  
+AWS Batch examines each element in the `command` array. If an element starts with `Ref::`, AWS Batch removes the prefix and uses the remaining text as the parameter name. Therefore, each parameter substitution placeholder must be a separate `command` array element. AWS Batch doesn't search for or replace placeholders that are embedded in another string. For example, `s3://Ref::s3Bucket/Ref::objectKey` is passed to the container unchanged.  
+To construct this S3 URI with `bash -c`, pass each placeholder as a separate command array element and reference the substituted values as positional parameters in the command string. For example:  
+
+```
+"command": [
+    "/bin/bash",
+    "-c",
+    "aws s3 cp \"s3://$1/$2\" ./input-file",
+    "_",
+    "{{Ref::s3Bucket}}",
+    "{{Ref::objectKey}}"
+]
+```
+AWS Batch replaces `{{Ref::s3Bucket}}` and `{{Ref::objectKey}}` before the container starts. The `_` value supplies `$0`, so Bash receives the substituted bucket and object key as `$1` and `$2`.  
+In the `ffmpeg` example, there are `{{Ref::inputfile}}`, `{{Ref::codec}}`, and `{{Ref::outputfile}}` parameter substitution placeholders in the command. You can use the `parameters` object in the job definition to set default values for these placeholders. For example, to set a default for the `{{Ref::codec}}` placeholder, you specify the following in the job definition:  
 
 ```
 "parameters" : {"codec" : "mp4"}

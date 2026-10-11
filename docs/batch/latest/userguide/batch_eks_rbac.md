@@ -60,4 +60,4 @@ PolicyRule:
   roles.rbac.authorization.k8s.io         []                 []              [get list]
 ```
 
-To resolve this issue, re-apply the RBAC permissions and `rolebinding` commands. For more information, see [Step 2: Prepare your Amazon EKS cluster for AWS Batch](getting-started-eks.md#getting-started-eks-step-1).
+To resolve this issue, re-apply the RBAC permissions and `rolebinding` commands. For more information, see [Step 2: Prepare your Amazon EKS cluster for AWS Batch](getting-started-eks-configmap.md#getting-started-eks-configmap-step-1).

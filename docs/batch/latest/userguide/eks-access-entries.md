@@ -209,7 +209,7 @@ AWS Batch needs Kubernetes permissions to create and manage pods in the namespac
   Replace {{my-aws-batch-namespace}} with the value you specified in `eksConfiguration.kubernetesNamespace`.
 **Important**  
 Without the namespace-scoped policy association, jobs will remain stuck in `RUNNABLE` status. The cluster-level policy alone does not grant pod management permissions.
-+ **Kubernetes roles and role bindings (when access entry `status=INACTIVE`)** — If the AWS Batch-managed access entry is not active, create the Kubernetes roles and role bindings that grant those permissions, as described in [Step 2: Prepare your Amazon EKS cluster for AWS Batch](getting-started-eks.md#getting-started-eks-step-1). You do this once for each cluster.
++ **Kubernetes roles and role bindings (when access entry `status=INACTIVE`)** — If the AWS Batch-managed access entry is not active, create the Kubernetes roles and role bindings that grant those permissions, as described in [Step 2: Prepare your Amazon EKS cluster for AWS Batch](getting-started-eks-configmap.md#getting-started-eks-configmap-step-1). You do this once for each cluster.
 **Note**  
 When an AWS Batch-managed access entry is active (`status=ACTIVE`), the Kubernetes RBAC roles are bypassed. You must use the access policy association method instead.
 AWS Batch doesn't create these resources for you, and an AWS Batch-managed access entry doesn't substitute for them. If they're missing, the compute environment can still become `VALID` while your jobs fail to start.
@@ -227,14 +227,6 @@ $ aws eks create-access-entry \
     --cluster-name {{my-cluster}} \
     --principal-arn {{arn:aws:iam::123456789012:role/my-node-instance-role}} \
     --type EC2_LINUX
-```
-
-```
-$ aws eks associate-access-policy \
-    --cluster-name {{my-cluster}} \
-    --principal-arn {{arn:aws:iam::123456789012:role/my-node-instance-role}} \
-    --policy-arn arn:aws:eks::aws:cluster-access-policy/AmazonEKSWorkerNodePolicy \
-    --access-scope type=cluster
 ```
 For more information, see [Creating access entries](https://docs.aws.amazon.com/eks/latest/userguide/creating-access-entries.html) in the **Amazon EKS User Guide**.  
 Without proper cluster access for the node instance role, EC2 instances cannot join the cluster. Jobs will remain in the `RUNNABLE` state because no capacity registers with the cluster.
