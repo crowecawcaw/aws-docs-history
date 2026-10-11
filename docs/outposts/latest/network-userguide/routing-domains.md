@@ -64,11 +64,20 @@ To create a routing domain:
 
    This route enables traffic to flow from your Outpost through the local gateway to your on-premises network via the VIF group. Without this route, the routing domain will not forward traffic even though the VIF group and route table are associated.
 
+   For example, to send all traffic that is not destined for your VPC to your on-premises network, add a default route (0.0.0.0/0) in the LGW route table with the VIF group as the target. You can also add more specific routes for individual on-premises prefixes.
+
+1. **Add a route to your VPC subnet route table**
+
+   In the route table associated with your Outpost subnet, add a route that uses the local gateway (for example, {{lgw-1234567890abcdef0}}) as the target. For the destination, use your on-premises CIDR block, or 0.0.0.0/0 if you want to send all traffic that is not destined for your VPC to your on-premises network. Without this route, traffic from instances on the Outpost does not reach the local gateway.
+
 1. **Update your Customer Networking Devices (CNDs)**
 
    Update your Customer Networking Devices (CNDs) to allow the VIF VLANs to send traffic across the physical uplinks that correspond to each LAG.
 
    **Note:** This step requires configuration on your on-premises CNDs. Each VLAN must be configured as a trunk port on the physical interface(s) that connect to the Outpost Networking Devices (ONDs) to complete BGP peering setup. Consult your network equipment documentation for VLAN trunking configuration specific to your hardware.
+
+**Note**  
+If your instances run Microsoft Windows, verify that Windows Firewall on the instance allows inbound traffic from your on-premises network. The default firewall profile can block this traffic even when your routing domain is configured correctly.
 
 ## Monitoring routing domains
 <a name="monitoring-routing-domains"></a>
