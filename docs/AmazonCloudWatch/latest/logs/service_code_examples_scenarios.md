@@ -10,5 +10,6 @@ Scenarios target an intermediate level of experience to help you understand serv
 **Topics**
 + [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md)
 + [Creating your first serverless function](example_lambda_GettingStarted_019_section.md)
++ [Learn syslog ingestion basics](example_cloudwatch-logs_Scenario_SyslogIngestion_section.md)
 + [Run a large query](example_cloudwatch-logs_Scenario_BigQuery_section.md)
 + [Use scheduled events to invoke a Lambda function](example_cross_LambdaScheduledEvents_section.md)

@@ -6,6 +6,7 @@
 The following code examples show how to use the basics of Amazon CloudWatch Logs with AWS SDKs. 
 
 **Contents**
++ [Hello CloudWatch Logs](example_cloudwatch-logs_Hello_section.md)
 + [Actions](service_code_examples_actions.md)
   + [`AssociateKmsKey`](example_cloudwatch-logs_AssociateKmsKey_section.md)
   + [`CancelExportTask`](example_cloudwatch-logs_CancelExportTask_section.md)
@@ -14,12 +15,16 @@ The following code examples show how to use the basics of Amazon CloudWatch Logs
   + [`CreateLogStream`](example_cloudwatch-logs_CreateLogStream_section.md)
   + [`DeleteLogGroup`](example_cloudwatch-logs_DeleteLogGroup_section.md)
   + [`DeleteSubscriptionFilter`](example_cloudwatch-logs_DeleteSubscriptionFilter_section.md)
+  + [`DeleteSyslogConfiguration`](example_cloudwatch-logs_DeleteSyslogConfiguration_section.md)
   + [`DescribeExportTasks`](example_cloudwatch-logs_DescribeExportTasks_section.md)
   + [`DescribeLogGroups`](example_cloudwatch-logs_DescribeLogGroups_section.md)
   + [`DescribeLogStreams`](example_cloudwatch-logs_DescribeLogStreams_section.md)
   + [`DescribeSubscriptionFilters`](example_cloudwatch-logs_DescribeSubscriptionFilters_section.md)
   + [`GetLogEvents`](example_cloudwatch-logs_GetLogEvents_section.md)
   + [`GetQueryResults`](example_cloudwatch-logs_GetQueryResults_section.md)
+  + [`ListSyslogConfigurations`](example_cloudwatch-logs_ListSyslogConfigurations_section.md)
+  + [`PutResourcePolicy`](example_cloudwatch-logs_PutResourcePolicy_section.md)
   + [`PutSubscriptionFilter`](example_cloudwatch-logs_PutSubscriptionFilter_section.md)
+  + [`PutSyslogConfiguration`](example_cloudwatch-logs_PutSyslogConfiguration_section.md)
   + [`StartLiveTail`](example_cloudwatch-logs_StartLiveTail_section.md)
   + [`StartQuery`](example_cloudwatch-logs_StartQuery_section.md)

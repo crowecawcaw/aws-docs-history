@@ -8,6 +8,7 @@ The following code examples show how to use `DeleteLogGroup`.
 Action examples are code excerpts from larger programs and must be run in context. You can see this action in context in the following code examples: 
 +  [Configure container service connectivity](example_ecs_ServiceConnect_085_section.md) 
 +  [Creating your first serverless function](example_lambda_GettingStarted_019_section.md) 
++  [Learn syslog ingestion basics](example_cloudwatch-logs_Scenario_SyslogIngestion_section.md) 
 
 ------
 #### [ .NET ]

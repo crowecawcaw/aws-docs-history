@@ -1,6 +1,6 @@
 
 
-# Use `StartLiveTail` with an AWS SDK
+# Use `StartLiveTail` with an AWS SDK or CLI
 <a name="example_cloudwatch-logs_StartLiveTail_section"></a>
 
 The following code examples show how to use `StartLiveTail`.
@@ -105,6 +105,23 @@ You can handle the events from the Live Tail session in two ways:
             }
 ```
 +  For API details, see [StartLiveTail](https://docs.aws.amazon.com/goto/DotNetSDKV3/logs-2014-03-28/StartLiveTail) in *AWS SDK for .NET API Reference*. 
+
+------
+#### [ CLI ]
+
+**AWS CLI**  
+The following command starts a Live Tail session on a log group named `my-logs`:  
+
+```
+aws logs start-live-tail --log-group-identifiers {{arn:aws:logs:us-east-1:111111222222:log-group:my-logs}}
+```
+The following command starts a Live Tail session on a log group named `my-logs` in interactive mode:  
+
+```
+aws logs start-live-tail --log-group-identifiers {{arn:aws:logs:us-east-1:111111222222:log-group:my-logs}} --mode {{interactive}}
+```
+In interactive mode you can highlight as many as five terms in the tailed logs. The severity codes are highlighted by default. Press `h` to enter the highlight mode and then type in the terms to be highlighted, one at a time, and press enter. Press `c` to clear the highlighted term(s). Press `t` to toggle formatting between JSON/Plain text. Press `Esc` to exit the Live Tail session. Press `up` / `down` keys to scroll up or down between log events, use `Ctrl + u` / `Ctrl + d` to scroll faster. Press `q` to scroll to latest log events.  
++  For API details, see [StartLiveTail](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/start-live-tail.html) in *AWS CLI Command Reference*. 
 
 ------
 #### [ Go ]
