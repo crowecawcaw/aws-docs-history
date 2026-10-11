@@ -16,7 +16,7 @@ The setup process uses two AWS services:
 
 This page describes the console-based setup. To set up AWS WA Agent using the AWS CLI instead, see [API quickstart](agent-api-quickstart.md).
 
- Once a profile is created and properly configured, AWS WA Agent begins generating scheduled recommendations within 48 hours. For more information on scheduled recommendations and recommendation types, see [Recommendations](agent-rec-management.md). 
+ Once a profile is created and properly configured, AWS WA Agent begins generating scheduled recommendations within 24 hours. For more information on scheduled recommendations and recommendation types, see [Recommendations](agent-rec-management.md). 
 
 ## Prerequisites
 <a name="agent-prerequisites"></a>
