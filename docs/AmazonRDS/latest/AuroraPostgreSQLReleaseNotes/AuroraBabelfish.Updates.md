@@ -46,6 +46,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.6. For mo
 + Fixed the crash with sqlcmd during the INSERT-EXECUTE with IDENTITY columns.
 + Fixed an issue where re-executing a prepared stored procedure with a Table-Valued Parameter (TVP) on the same connection returned stale data from the first batch instead of the current batch's rows.
 + Fixed an issue where prepared statements with identically named parameters but different parameter lists could incorrectly reuse a cached query plan, causing queries to execute with wrong parameter bindings.
++ Fixed an issue where statement-level AFTER triggers with transition tables fired once per row instead of once per statement during foreign key ON DELETE/UPDATE CASCADE operations, causing duplicate rows to be written to downstream tables.
 
 **High Priority stability enhancements**
 + Fixed `FOR JSON AUTO` to recognize INSERTED and DELETED transition tables inside triggers as valid table sources.
@@ -186,6 +187,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.11. For m
 + Fixed connection failures when using -U or -d flags with login or database names exceeding 63 characters that were internally truncated by Babelfish.
 + Fixed the crash with sqlcmd during the INSERT-EXECUTE with IDENTITY columns.
 + Fixed an issue where re-executing a prepared stored procedure with a Table-Valued Parameter (TVP) on the same connection returned stale data from the first batch instead of the current batch's rows.
++ Fixed an issue where statement-level AFTER triggers with transition tables fired once per row instead of once per statement during foreign key ON DELETE/UPDATE CASCADE operations, causing duplicate rows to be written to downstream tables.
 
 **High Priority stability enhancements**
 + Fixed `FOR JSON AUTO` to recognize INSERTED and DELETED transition tables inside triggers as valid table sources.
@@ -656,6 +658,9 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.15. For m
 
 #### Aurora Babelfish release 4.11.0, September 29, 2026
 <a name="AuroraBabelfish.Updates.4110"></a>
+
+**Critical enhancements**
++ Fixed an issue where statement-level AFTER triggers with transition tables fired once per row instead of once per statement during foreign key ON DELETE/UPDATE CASCADE operations, causing duplicate rows to be written to downstream tables.
 
 **Additional improvements and enhancements**
 + Fixed `CAST(DATE AS DATETIME2)` hangs for dates outside the valid datetime2 range (0001-01-01 to 9999-12-31).
