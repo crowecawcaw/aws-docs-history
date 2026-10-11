@@ -97,6 +97,8 @@ Newer versions of the AWS SDK connect to Amazon DynamoDB using the AWS-account-b
 | Israel (Tel Aviv) | il-central-1 |  dax.il-central-1.amazonaws.com <br /> dax.il-central-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | Mexico (Central) | mx-central-1 |  dax.mx-central-1.amazonaws.com <br /> dax.mx-central-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
 | South America (São Paulo) | sa-east-1 |  dax.sa-east-1.amazonaws.com <br /> dax.sa-east-1.api.aws  | HTTP and HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-East) | us-gov-east-1 |  dax.us-gov-east-1.amazonaws.com  | HTTP and HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  dax.us-gov-west-1.amazonaws.com  | HTTP and HTTPS | 
 
 ### Amazon DynamoDB Streams
 <a name="ddb_streams"></a>

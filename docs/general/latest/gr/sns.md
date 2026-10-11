@@ -77,7 +77,7 @@ To request an increase, submit an [SNS quota increase request](https://console.a
 | Maximum number of messages in PublishBatchRequest | 10 [PublishBatchRequestEntries](https://docs.aws.amazon.com/sns/latest/api/API_PublishBatch.html) | 
 | Subscription filter policies |  +  200 filter policies per topic <br />+  10,000 filter policies per AWS account   | 
 | Message header |  The maximum header size is 16,384 bytes (16 KiB). | 
-| Message size |  The maximum message size is 262,144 bytes (256 KiB). To publish messages larger than 256 KiB, you can check the [Amazon SNS Extended Client Libraries](https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html). The maximum payload size is 2 GB.  | 
+| Message size |  The default maximum message size is 262,144 bytes (256 KiB). You can increase the maximum message size up to 1,048,576 bytes (1 MiB) by setting the topic's MaximumMessageSize attribute. For more information, see [Publishing large messages with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/large-message-payloads.html). To publish messages larger than 1 MiB, you can use the Amazon SNS Extended Client Libraries. The maximum payload size is 2 GB.  | 
 
 ### Amazon SNS API throttling
 <a name="limits_sns_api_throttles"></a>

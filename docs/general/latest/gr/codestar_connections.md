@@ -33,6 +33,7 @@ The following are the service endpoints and service quotas for this service.
 | Europe (Stockholm) | eu-north-1 |  codestar-connections.eu-north-1.amazonaws.com  | HTTPS | 
 | South America (São Paulo) | sa-east-1 |  codestar-connections.sa-east-1.amazonaws.com  | HTTPS | 
 |  AWS GovCloud (US-East) | us-gov-east-1 |  codestar-connections.us-gov-east-1.amazonaws.com <br /> codestar-connections-fips.us-gov-east-1.amazonaws.com  | HTTPS<br />HTTPS | 
+|  AWS GovCloud (US-West) | us-gov-west-1 |  codestar-connections.us-gov-west-1.amazonaws.com <br /> codestar-connections-fips.us-gov-west-1.amazonaws.com  | HTTPS<br />HTTPS | 
 
 ## Service quotas
 <a name="codestar_connections_quotas"></a>
