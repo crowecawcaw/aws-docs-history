@@ -95,7 +95,7 @@ This policy grants permissions that allow limited access to AWS Proton actions a
 
 The policy includes the following key action namespaces:
 + `proton` – Allows AWS Proton sync limited access to AWS Proton APIs.
-+ `codeconnections` – Allows AWS Proton sync limited access to CodeConnections APIs.
++ `codeconnections` – Allows AWS Proton sync limited access to AWS CodeConnections APIs.
 
 For more information, see [AWSProtonSyncServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSProtonSyncServiceRolePolicy.html).
 

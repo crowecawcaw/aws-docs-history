@@ -23,7 +23,7 @@ The **AWSServiceRoleForProtonSync** service-linked role trusts the following ser
 
 The role permissions policy named `AWSProtonSyncServiceRolePolicy` allows AWS Proton to complete the following actions on the specified resources:
 + Action: *create, manage, and read* on *AWS Proton templates and template versions*
-+ Action: *use connection* on *CodeConnections*
++ Action: *use connection* on *AWS CodeConnections*
 
 For more information about this policy, see [AWS managed policy: AWSProtonSyncServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSProtonSyncServiceRolePolicy).
 

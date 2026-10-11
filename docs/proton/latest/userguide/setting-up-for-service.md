@@ -34,7 +34,7 @@ To connect AWS Proton to a repository, you create an AWS CodeStar connection tha
 + Make a pull request on an infrastructure as code repository.
 + Create a new template minor or major version whenever a commit is pushed to a template repository that changes one of your templates, if the version doesn’t already exist.
 
-You can connect to Bitbucket, GitHub, GitHub Enterprise and GitHub Enterprise Server repositories with CodeConnections. For more information, see [CodeConnections](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html) in the *AWS CodePipeline User Guide*.
+You can connect to Bitbucket, GitHub, GitHub Enterprise and GitHub Enterprise Server repositories with AWS CodeConnections. For more information, see [AWS CodeConnections](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html) in the *AWS CodePipeline User Guide*.
 
 **To set up a CodeStar connection.**
 

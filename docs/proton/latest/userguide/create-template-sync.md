@@ -12,7 +12,7 @@ Learn how to create a template sync configuration with AWS Proton.
 + A [template bundle](ag-template-authoring.md#ag-template-bundles) is located in your repository.
 
 **The repository link consists of the following:**
-+ An CodeConnections connection that gives AWS Proton permission to access your repository and subscribe to its notifications.
++ An AWS CodeConnections connection that gives AWS Proton permission to access your repository and subscribe to its notifications.
 + A [service linked role](using-service-linked-roles.md). When you link your repository, the service linked role is created for you.
 
 Before you create your first template sync configuration, push a template bundle to your repository as shown in the following directory layout.
