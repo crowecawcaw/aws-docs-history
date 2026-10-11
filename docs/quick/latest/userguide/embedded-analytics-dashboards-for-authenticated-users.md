@@ -142,7 +142,7 @@ import com.amazonaws.auth.AWSCredentials;
                 final String accountId, // AWS Account ID
                 final String dashboardId, // Dashboard ID to embed
                 final List<String> allowedDomains, // Runtime allowed domain for embedding
-                final String userArn // Registered user arn to use for embedding. Refer to Get Embed Url section in developer portal to find out how to get user arn for a QuickSight user.
+                final String userArn // Registered user arn to use for embedding. Call the DescribeUser API operation to get the user ARN for a QuickSight user.
         ) throws Exception {
             final RegisteredUserEmbeddingExperienceConfiguration experienceConfiguration = new RegisteredUserEmbeddingExperienceConfiguration()
                     .withDashboard(new RegisteredUserDashboardEmbeddingConfiguration().withInitialDashboardId(dashboardId));

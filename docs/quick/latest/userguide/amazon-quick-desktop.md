@@ -22,6 +22,7 @@ For the plans that include Amazon Quick on desktop and pricing details, see [Ama
 + [Skills](skills-desktop.md)
 + [Connectors](connections-desktop.md)
 + [Knowledge](knowledge-desktop.md)
++ [Brand assets](brand-assets-desktop.md)
 + [Mission Control](mission-control-desktop.md)
 + [My context](desktop-settings-my-context.md)
 + [Memories](memories-desktop.md)

@@ -24,6 +24,7 @@ Amazon Quick supports integrations with various third-party applications and ser
 | Cisco Webex Video Messaging | ✓ | — | 
 | Dropbox | ✓ | — | 
 | Dun & Bradstreet | ✓ | — | 
+| Figma | ✓ | — | 
 | GitHub | ✓ | — | 
 | Gong | ✓ | — | 
 | Gmail | ✓ | — | 

@@ -193,6 +193,8 @@ Your conversation history appears in the Recents section of the sidebar, organiz
 
 Quick generates documents directly from chat, including presentations (`.pptx`), Word documents (`.docx`), spreadsheets (`.xlsx`), PDF files, Markdown, and HTML, along with interactive data visualizations. Describe what you need. For example, "Create a presentation about our quarterly results." Generated items appear as artifacts that you can save locally or to your Library. For detailed information about supported formats, editing, visualizations, and best practices, see [Document and visual creation with Amazon Quick](document-and-visual-creation.md).
 
+For information about using your organization's published templates for Word documents and PowerPoint presentations, see [Brand assets](brand-assets-desktop.md).
+
 Quick can also generate and edit images from a text description. Generated images appear as artifacts you can save locally or add to a space.
 
 ## Session tabs

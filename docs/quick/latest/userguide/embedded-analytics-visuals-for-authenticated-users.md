@@ -144,7 +144,7 @@ public class GenerateEmbedUrlForRegisteredUserTest {
             final String sheetId, // Sheet ID of the sheet to embed
             final String visualId, // Visual ID of the visual to embed
             final List<String> allowedDomains, // Runtime allowed domains for embedding
-            final String userArn // Registered user arn of the user that you want to provide embedded visual. Refer to Get Embed Url section in developer portal to find out how to get user arn for a QuickSight user.
+            final String userArn // Registered user arn of the user that you want to provide embedded visual. Call the DescribeUser API operation to get the user ARN for a QuickSight user.
     ) throws Exception {
         final DashboardVisualId dashboardVisual = new DashboardVisualId()
             .withDashboardId(dashboardId)

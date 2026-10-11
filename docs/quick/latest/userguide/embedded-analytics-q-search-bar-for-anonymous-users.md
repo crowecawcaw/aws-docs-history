@@ -615,7 +615,7 @@ The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick S
 The following optional functionalities are available for the embedded Q search bar using the embedding SDK. 
 
 ### Invoke Q search bar actions
-<a name="w2aac34c31c21c43c31c17c21b7"></a>
+<a name="w2aac34c31c19c43c31c17c21b7"></a>
 
 The following options are only supported for Q search bar embedding. 
 + Set a Q search bar question — This feature sends a question to the Q search bar and immediately queries the question. It also automatically opens the Q popover.

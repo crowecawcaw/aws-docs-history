@@ -148,7 +148,7 @@ public class RegisteredUserGenerativeQnAEmbeddingSample {
             final String accountId, // AWS Account ID
             final String topicId, // Topic ID to embed
             final List<String> allowedDomains, // Runtime allowed domain for embedding
-            final String userArn // Registered user arn to use for embedding. Refer to Get Embed Url section in developer portal to find how to get user arn for a QuickSight user.
+            final String userArn // Registered user arn to use for embedding. Call the DescribeUser API operation to get the user ARN for a QuickSight user.
             ) throws Exception {
 
         final RegisteredUserEmbeddingExperienceConfiguration experienceConfiguration = new RegisteredUserEmbeddingExperienceConfiguration()
@@ -566,7 +566,7 @@ For this example to work, make sure to use the Amazon Quick Sight Embedding SDK 
 The following optional functionalities are available for the embedded Generative Q&A experience with the embedding SDK. 
 
 #### Invoke Generative Q&A search bar actions
-<a name="w2aac34c31c21c43c29b9c21b5"></a>
+<a name="w2aac34c31c19c43c29b9c21b5"></a>
 + Set a question — This feature sends a question to the Generative Q&A experience and immediately queries the question.
 
   ```
@@ -1096,7 +1096,7 @@ For this example to work, make sure to use the Amazon Quick Sight Embedding SDK 
 The following optional functionalities are available for the embedded Generative Q&A experience with the embedding SDK. 
 
 #### Invoke Generative Q&A search bar actions
-<a name="w2aac34c31c21c43c29c13c25b5"></a>
+<a name="w2aac34c31c19c43c29c13c25b5"></a>
 + Set a question — This feature sends a question to the Generative Q&A experience and immediately queries the question.
 
   ```

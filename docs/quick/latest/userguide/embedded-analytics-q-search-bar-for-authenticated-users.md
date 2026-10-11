@@ -153,7 +153,7 @@ public class RegisteredUserQSearchBarEmbeddingConfiguration {
             final String accountId, // AWS Account ID
             final String topicId, // Topic ID to embed
             final List<String> allowedDomains, // Runtime allowed domain for embedding
-            final String userArn // Registered user arn to use for embedding. Refer to Get Embed Url section in developer portal to find how to get user arn for a QuickSight user.
+            final String userArn // Registered user arn to use for embedding. Call the DescribeUser API operation to get the user ARN for a QuickSight user.
             ) throws Exception {
         final RegisteredUserEmbeddingExperienceConfiguration experienceConfiguration = new RegisteredUserEmbeddingExperienceConfiguration()
                 .withQSearchBar(new RegisteredUserQSearchBarEmbeddingConfiguration().withInitialTopicId(topicId));
@@ -670,7 +670,7 @@ The embedded Amazon Quick Sight Q search bar provides the classic Amazon Quick S
 The following optional functionalities are available for the embedded Q search bar using the embedding SDK. 
 
 ### Invoke Q search bar actions
-<a name="w2aac34c31c21c43c31c15c21b7"></a>
+<a name="w2aac34c31c19c43c31c15c21b7"></a>
 
 The following options are only supported for Q search bar embedding. 
 + Set a Q search bar question — This feature sends a question to the Q search bar and immediately queries the question. It also automatically opens the Q popover.

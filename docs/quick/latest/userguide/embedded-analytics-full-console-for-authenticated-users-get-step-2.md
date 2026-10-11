@@ -55,7 +55,7 @@ public class GetSessionEmbedUrlQSAuth {
 
     public String getQuicksightEmbedUrl(
             final String accountId, // YOUR AWS ACCOUNT ID
-            final String userArn // REGISTERED USER ARN TO USE FOR EMBEDDING. REFER TO GETEMBEDURL SECTION IN DEV PORTAL TO FIND OUT HOW TO GET USER ARN FOR A QUICKSIGHT USER
+            final String userArn // REGISTERED USER ARN TO USE FOR EMBEDDING. CALL THE DESCRIBEUSER API OPERATION TO GET THE USER ARN FOR A QUICKSIGHT USER
     ) throws Exception {
         GetSessionEmbedUrlRequest getSessionEmbedUrlRequest = new GetSessionEmbedUrlRequest()
                 .withAwsAccountId(accountId)
@@ -78,7 +78,7 @@ const AWS = require('aws-sdk');
 
 function getSessionEmbedURL(
     accountId, // YOUR AWS ACCOUNT ID
-    userArn, // REGISTERED USER ARN TO USE FOR EMBEDDING. REFER TO GETEMBEDURL SECTION IN DEV PORTAL TO FIND OUT HOW TO GET USER ARN FOR A QUICKSIGHT USER
+    userArn, // REGISTERED USER ARN TO USE FOR EMBEDDING. CALL THE DESCRIBEUSER API OPERATION TO GET THE USER ARN FOR A QUICKSIGHT USER
     getEmbedUrlCallback, // GETEMBEDURL SUCCESS CALLBACK METHOD
     errorCallback // GETEMBEDURL ERROR CALLBACK METHOD
     ) {
@@ -128,7 +128,7 @@ sts = boto3.client('sts')
 
 # Function to generate embedded URL
 # accountId: YOUR AWS ACCOUNT ID
-# userArn: REGISTERED USER ARN TO USE FOR EMBEDDING. REFER TO GETEMBEDURL SECTION IN DEV PORTAL TO FIND OUT HOW TO GET USER ARN FOR A QUICKSIGHT USER
+# userArn: REGISTERED USER ARN TO USE FOR EMBEDDING. CALL THE DESCRIBEUSER API OPERATION TO GET THE USER ARN FOR A QUICKSIGHT USER
 def getSessionEmbedURL(accountId, userArn):
     try:
         response = qs.get_session_embed_url(

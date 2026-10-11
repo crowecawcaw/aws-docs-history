@@ -74,12 +74,15 @@ Configure file size limits to optimize processing performance and manage storage
 **Standard text documents**  
 Applies to documents like PDFs, Word files, and text files. File size limit is 500 MB.
 
+**Tabular files**  
+Applies to tabular files like CSV and XLS files. File size limit is 50 MB.
+
 **Video files**  
 Available when video processing is enabled. Supported formats include `.mp4`, `.mov`, `.m4v`. File size limit is 10 GB (10240 MB). Quick Index supports up to **10 video files per GB of storage**. If your use case requires higher video volumes, please open a ticket with AWS support to extend this limit.
 
 **Audio files**  
 Available when audio processing is enabled. Supported formats include `.mp3`,` .wav`,` .m4a`, `.flac`, and` .ogg`. Limit is 2 GB (2048 MB) for audio files.  
-Files with extracted text that exceeds the 30 MB system limit are not indexed, regardless of the original file size. The maximum amount of text that can be extracted from a single document is 30 MB.
+The maximum amount of text that can be extracted from a single document is 30 MB.
 
 **Images**  
 Quick Index applies the following limits for images:  
