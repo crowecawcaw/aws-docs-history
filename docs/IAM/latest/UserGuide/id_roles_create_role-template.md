@@ -33,6 +33,8 @@ The following table lists the role template for each service that role manager s
 | --- | --- | --- | --- | 
 | AWS Backup | AWSBackupDefaultServiceRoleTemplate | arn:aws:iam::aws:role-template/backup.amazonaws.com/AWSBackupDefaultServiceRoleTemplate:1 | accountId, RoleName | 
 | AWS CloudFormation | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
+| Amazon EKS | AmazonEKSAutoClusterRoleTemplate | arn:aws:iam::aws:role-template/eks.amazonaws.com/AmazonEKSAutoClusterRoleTemplate:1 | RoleName | 
+| Amazon EKS | AmazonEKSAutoNodeRoleTemplate | arn:aws:iam::aws:role-template/ec2.amazonaws.com/AmazonEKSAutoNodeRoleTemplate:1 | RoleName | 
 | AWS Elastic Beanstalk | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
 | Amazon EventBridge | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
 | AWS Lambda | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 

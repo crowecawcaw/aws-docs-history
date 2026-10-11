@@ -43,7 +43,8 @@ To simplify managing privileged root user credentials across member accounts in 
 + [Change your AWS account settings.](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-root-user.html) Standalone AWS accounts that are not part of AWS Organizations require root credentials to update the email address, root user password, and root user access keys. Other account settings, such as account name, contact information, alternate contacts, payment currency preference, and AWS Regions, don't require root user credentials.
 **Note**  
 AWS Organizations, with all features enabled, can be used to manage member account settings centrally from the management account and delegated admin accounts. Authorized IAM users or IAM roles in both the management account and delegated admin accounts can close member accounts and update the root email addresses, account names, contact information, alternate contacts, and AWS Regions of member accounts. 
-+ [Close your AWS account.](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/close-account.html) Standalone AWS accounts that are not part of AWS Organizations require root credentials to close the account. With AWS Organizations, you can close the member accounts centrally from the management account and delegated admin accounts.
++ [Close your AWS account.](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html) Standalone AWS accounts that are not part of AWS Organizations require root credentials to close the account. With AWS Organizations, you can close the member accounts centrally from the management account and delegated admin accounts.
++ [Reopen your AWS account.](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-reopening.html) If you closed a standalone account yourself and it has no outstanding balance, you can reopen it during the [post-closure period](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-closing.html#post-closure-period). You must sign in as the root user to do so.
 + [Restore IAM user permissions.](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) If the only IAM administrator accidentally revokes their own permissions, you can sign in as the root user to edit policies and restore those permissions.
 
 **Billing Tasks**
@@ -60,9 +61,6 @@ AWS Organizations, with all features enabled, can be used to manage member accou
 
 **AWS KMS Task**
 + In the event that an AWS Key Management Service key becomes unmanageable, an administrator can recover it by contacting Support; however, Support responds to your root user's primary phone number for authorization by confirming the ticket OTP.
-
-**Amazon Mechanical Turk Task**
-+  [Link Your AWS account to your MTurk Requester account](https://docs.aws.amazon.com/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/SetUp.html#accountlinking).
 
 **Amazon Simple Storage Service Tasks**
 + [Configure an Amazon S3 bucket to enable MFA (multi-factor authentication)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html).
