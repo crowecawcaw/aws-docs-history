@@ -3,7 +3,7 @@
 # ScalingConfig
 <a name="sam-property-capacityprovider-scalingconfig"></a>
 
-Configures how the capacity provider scales EC2 instances based on demand, including maximum instance limits and scaling policies.
+Specifies how the capacity provider scales Amazon Elastic Compute Cloud (Amazon EC2) instances based on demand. You set the maximum number of vCPUs that the capacity provider can provision, and the target average CPU utilization that triggers scaling.
 
 ## Syntax
 <a name="sam-property-capacityprovider-scalingconfig-syntax"></a>

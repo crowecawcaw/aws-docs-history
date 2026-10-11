@@ -139,11 +139,16 @@ This feature requires `ProvisionedPollerConfig` to be configured.
 *CloudFormation compatibility:* This property is passed directly to the `[SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
  `SourceAccessConfigurations`   <a name="sam-function-selfmanagedkafka-sourceaccessconfigurations"></a>
-An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.  
-*Valid values*: `BASIC_AUTH | CLIENT_CERTIFICATE_TLS_AUTH | SASL_SCRAM_256_AUTH | SASL_SCRAM_512_AUTH | SERVER_ROOT_CA_CERTIFICATE`  
-*Type*: List of [SourceAccessConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration)  
+An array of the authentication protocol, VPC components, and OAuth 2.0 metadata that secure and define your event source. Each entry is an object with a `Type` field and, for most types, a `URI` field. For the full list of types and the value that `URI` takes for each one, see [SourceAccessConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html) in the *AWS CloudFormation User Guide*.  
+AWS SAM applies the following validation before it passes this property through to Lambda:  
++ You must specify no more than one authentication type. AWS SAM returns an error if you specify more than one.
++ You must specify `VPC_SUBNET` and `VPC_SECURITY_GROUP` together. AWS SAM returns an error if you specify one without the other.
++ You must specify a `URI` value for every type except `IAM_AUTH` and `IAM_OAUTHBEARER_AUTH`, which take no `URI`. AWS SAM checks only that the value is present and passes it through without interpreting it. Lambda validates the value and the combination of types when you deploy.
+AWS SAM adds `secretsmanager:GetSecretValue` permission for each secret ARN that you specify, including the `SERVER_ROOT_CA_CERTIFICATE` secret, and the Amazon EC2 network interface permissions that Lambda needs when you specify VPC entries. For `IAM_AUTH` and `IAM_OAUTHBEARER_AUTH`, AWS SAM adds no cluster or token permissions. Grant those permissions to your function's execution role yourself. When none of these apply, such as `IAM_AUTH` without VPC entries, AWS SAM adds no inline policy to the execution role. For the required permissions, see [Configuring cluster authentication methods in Lambda](https://docs.aws.amazon.com/lambda/latest/dg/kafka-cluster-auth.html) in the *AWS Lambda Developer Guide*.  
+*Valid values*: `BASIC_AUTH | CLIENT_CERTIFICATE_TLS_AUTH | IAM_AUTH | IAM_OAUTHBEARER_AUTH | OAUTHBEARER_AUDIENCE | OAUTHBEARER_AUTH | OAUTHBEARER_IDENTITY_POOL | OAUTHBEARER_LOGICAL_CLUSTER | OAUTHBEARER_SCOPE | SASL_SCRAM_256_AUTH | SASL_SCRAM_512_AUTH | SERVER_ROOT_CA_CERTIFICATE | VPC_SECURITY_GROUP | VPC_SUBNET`  
+*Type*: List of [SourceAccessConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html)  
 *Required*: Yes  
-*CloudFormation compatibility:* This property is part of the `[SelfManagedKafkaEventSourceConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig)` property of an `AWS::Lambda::EventSourceMapping` resource.
+*CloudFormation compatibility*: This property is passed directly to the `[SourceAccessConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-sourceaccessconfigurations)` property of an `AWS::Lambda::EventSourceMapping` resource.
 
  `StartingPosition`   <a name="sam-function-selfmanagedkafka-startingposition"></a>
 The position in a stream from which to start reading.  
@@ -294,6 +299,87 @@ Events:
            URI: arn:aws:secretsmanager:us-west-2:123456789012:secret:my-path/my-secret-name-1a2b3c
       Topics:
         - MyKafkaTopic
+```
+
+### Self-managed Kafka event source with OAuth 2.0 authentication
+<a name="sam-property-function-selfmanagedkafka-example-oauth"></a>
+
+The following example authenticates with SASL/OAUTHBEARER. The `OAUTHBEARER_AUTH` entry points to the secret that holds the OAuth 2.0 credentials, and each metadata entry carries a literal value that Lambda passes to your identity provider or brokers.
+
+```
+Events:
+  SelfManagedKafkaEvent:
+    Type: SelfManagedKafka
+    Properties:
+      KafkaBootstrapServers:
+        - abc.xyz.com:9092
+      Topics:
+        - MyKafkaTopic
+      StartingPosition: LATEST
+      ConsumerGroupId: consumergroup1
+      SourceAccessConfigurations:
+        - Type: OAUTHBEARER_AUTH
+          URI: arn:aws:secretsmanager:us-west-2:123456789012:secret:my-path/my-oauth-secret-1a2b3c
+        - Type: OAUTHBEARER_SCOPE
+          URI: read write
+        - Type: OAUTHBEARER_AUDIENCE
+          URI: https://api.example.com
+        - Type: SERVER_ROOT_CA_CERTIFICATE
+          URI: arn:aws:secretsmanager:us-west-2:123456789012:secret:my-path/my-server-root-ca-cert-7p8q9r
+        - Type: VPC_SUBNET
+          URI: subnet:subnet-12345678
+        - Type: VPC_SECURITY_GROUP
+          URI: security_group:sg-12345678
+```
+
+### Self-managed Kafka event source with IAM authentication
+<a name="sam-property-function-selfmanagedkafka-example-iamauth"></a>
+
+The following example authenticates with IAM. The `IAM_AUTH` entry takes no `URI` field because Lambda signs each connection with the credentials of your function's execution role. Grant your execution role the cluster permissions that Lambda requires, because AWS SAM doesn't add them.
+
+```
+Events:
+  SelfManagedKafkaEvent:
+    Type: SelfManagedKafka
+    Properties:
+      KafkaBootstrapServers:
+        - abc.xyz.com:9092
+      Topics:
+        - MyKafkaTopic
+      StartingPosition: LATEST
+      ConsumerGroupId: consumergroup1
+      SourceAccessConfigurations:
+        - Type: IAM_AUTH
+        - Type: VPC_SUBNET
+          URI: subnet:subnet-12345678
+        - Type: VPC_SECURITY_GROUP
+          URI: security_group:sg-12345678
+```
+
+### Self-managed Kafka event source with IAM and OAuth 2.0 authentication
+<a name="sam-property-function-selfmanagedkafka-example-iamoauth"></a>
+
+The following example authenticates with `IAM_OAUTHBEARER_AUTH`. This entry takes no `URI` field, but you must pair it with an `OAUTHBEARER_AUDIENCE` entry whose `URI` is the audience that your brokers expect. Lambda requests a short-lived web identity token for the execution role, which needs the `sts:GetWebIdentityToken` permission, and your brokers must trust the AWS issuer and accept the audience value.
+
+```
+Events:
+  SelfManagedKafkaEvent:
+    Type: SelfManagedKafka
+    Properties:
+      KafkaBootstrapServers:
+        - abc.xyz.com:9092
+      Topics:
+        - MyKafkaTopic
+      StartingPosition: LATEST
+      ConsumerGroupId: consumergroup1
+      SourceAccessConfigurations:
+        - Type: IAM_OAUTHBEARER_AUTH
+        - Type: OAUTHBEARER_AUDIENCE
+          URI: kafka-cluster
+        - Type: VPC_SUBNET
+          URI: subnet:subnet-12345678
+        - Type: VPC_SECURITY_GROUP
+          URI: security_group:sg-12345678
 ```
 
 ### Self-managed Kafka Event Source with AWS Glue Schema Registry

@@ -164,9 +164,8 @@ AdvancedCapacityProvider:
       ExcludedTypes:
         - t2.micro
     ScalingConfig:
-      MaxInstanceCount: 10
-      ManualScalingPolicies:
-        AverageCPUUtilization: 70.0
+      MaxVCpuCount: 10
+      AverageCPUUtilization: 70.0
     KmsKeyArn: arn:aws:kms:{{us-east-1}}:{{123456789012}}:key/{{12345678-1234-1234-1234-123456789012}}
     LoggingConfig:
       LogGroup: /aws/lambda/capacity-provider/{{advanced-capacity-provider}}
