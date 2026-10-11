@@ -15,7 +15,7 @@ After you choose a Amazon DCV client, you can use it to interact with a Amazon D
 + [Printing from a session](using-print.md)
 + [Copying and pasting](using-copy-paste.md)
 + [Saving a screenshot](saving-a-screenshot.md)
-+ [Collaborating on a Amazon DCV session](managing-sessions-session-collaboration.md)
++ [Collaborating on an Amazon DCV session](managing-sessions-session-collaboration.md)
 
 **Managing the display**
 + [Using multiple monitors](using-multiple-screens.md)

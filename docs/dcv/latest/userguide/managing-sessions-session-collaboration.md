@@ -1,6 +1,6 @@
 
 
-# Collaborating on a Amazon DCV session
+# Collaborating on an Amazon DCV session
 <a name="managing-sessions-session-collaboration"></a>
 
 Amazon DCV users can collaborate on the same session, enabling screen and mouse sharing. Users can join authorized sessions while session owners can disconnect users from any session collaboration. To take advantage of this feature, users must join the same session identified by the same session ID.
