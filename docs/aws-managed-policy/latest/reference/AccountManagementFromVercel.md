@@ -16,13 +16,13 @@ You can attach `AccountManagementFromVercel` to your users, groups, and roles.
 <a name="AccountManagementFromVercel-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: December 11, 2025, 16:34 UTC 
-+ **Edited time:** May 07, 2026, 18:57 UTC
++ **Edited time:** October 08, 2026, 13:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AccountManagementFromVercel`
 
 ## Policy version
 <a name="AccountManagementFromVercel-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -82,12 +82,37 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
+      "Sid" : "ManageServiceRole20261005",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:GetRole",
+        "iam:CreateRole",
+        "iam:AttachRolePolicy",
+        "iam:DetachRolePolicy",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:DeleteRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/Vercel/Service_2026_10_05",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/VercelInstallId" : "${aws:PrincipalTag/VercelInstallId}",
+          "iam:PermissionsBoundary" : [
+            "arn:aws:iam::partner:policy/permissions-boundary/vercel.com/VercelMarketplaceServiceRoleBoundary_2026_10_05"
+          ]
+        }
+      }
+    },
+    {
       "Sid" : "TagManageServiceRole",
       "Effect" : "Allow",
       "Action" : [
         "iam:TagRole"
       ],
-      "Resource" : "arn:aws:iam::*:role/Vercel/Service_2026_04_16",
+      "Resource" : [
+        "arn:aws:iam::*:role/Vercel/Service_2026_04_16",
+        "arn:aws:iam::*:role/Vercel/Service_2026_10_05"
+      ],
       "Condition" : {
         "StringEquals" : {
           "aws:RequestTag/VercelInstallId" : "${aws:PrincipalTag/VercelInstallId}"

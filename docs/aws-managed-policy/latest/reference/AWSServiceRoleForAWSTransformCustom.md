@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSServiceRoleForAWSTransformCustom-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: March 25, 2026, 02:57 UTC 
-+ **Edited time:** May 05, 2026, 19:42 UTC
++ **Edited time:** October 06, 2026, 18:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAWSTransformCustom`
 
 ## Policy version
 <a name="AWSServiceRoleForAWSTransformCustom-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -41,7 +41,10 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
-          "cloudwatch:namespace" : "AWS/TransformCustom"
+          "cloudwatch:namespace" : [
+            "AWS/TransformCustom",
+            "AWS/TransformContinuousModernization"
+          ]
         }
       }
     },

@@ -16,13 +16,13 @@ You can attach `SageMakerStudioAdminIAMPermissiveExecutionPolicy` to your users,
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** July 14, 2026, 18:57 UTC
++ **Edited time:** October 08, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v21 (default)
+**Policy version:** v22 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -243,7 +243,8 @@ The policy's default version is the version that defines the permissions for the
             "emr-serverless.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
             "airflow-serverless.amazonaws.com",
-            "pods.eks.amazonaws.com"
+            "pods.eks.amazonaws.com",
+            "access-grants.s3.amazonaws.com"
           ]
         }
       }
@@ -719,7 +720,11 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "SSOApplicationPermissions",
       "Effect" : "Allow",
       "Action" : [
+        "identitystore:DescribeUser",
+        "identitystore:DescribeGroup",
         "sso:CreateApplication",
+        "sso:DescribeInstance",
+        "sso:DescribeApplication",
         "sso:PutApplicationGrant",
         "sso:PutApplicationAssignmentConfiguration",
         "sso:PutApplicationAuthenticationMethod",

@@ -16,13 +16,13 @@ You can attach `SageMakerStudioUserIAMPermissiveExecutionPolicy` to your users, 
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** August 13, 2026, 18:37 UTC
++ **Edited time:** October 08, 2026, 17:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -277,7 +277,8 @@ The policy's default version is the version that defines the permissions for the
             "emr-serverless.amazonaws.com",
             "elasticmapreduce.amazonaws.com",
             "airflow-serverless.amazonaws.com",
-            "pods.eks.amazonaws.com"
+            "pods.eks.amazonaws.com",
+            "access-grants.s3.amazonaws.com"
           ]
         }
       }
@@ -658,6 +659,41 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:ec2:*:*:network-interface/*"
       ]
+    },
+    {
+      "Sid" : "SSOInstanceReadOnlyPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sso:DescribeInstance",
+        "sso:DescribeApplication"
+      ],
+      "Resource" : [
+        "arn:aws:sso:::instance/*",
+        "arn:aws:sso::*:application/*/*"
+      ],
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "IdentityStoreReadOnlyPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "identitystore:DescribeUser",
+        "identitystore:DescribeGroup"
+      ],
+      "Resource" : [
+        "arn:aws:identitystore::*:identitystore/*",
+        "arn:aws:identitystore:::user/*",
+        "arn:aws:identitystore:::group/*"
+      ],
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
     }
   ]
 }

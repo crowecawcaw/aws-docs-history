@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 01, 2025, 18:04 UTC 
-+ **Edited time:** September 23, 2026, 22:27 UTC
++ **Edited time:** October 05, 2026, 22:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSObservabilityAdminTelemetryEnablementServiceRolePolicy`
 
 ## Policy version
 <a name="AWSObservabilityAdminTelemetryEnablementServiceRolePolicy-version"></a>
 
-**Policy version:** v15 (default)
+**Policy version:** v16 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -770,6 +770,62 @@ The policy's default version is the version that defines the permissions for the
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
+    },
+    {
+      "Sid" : "TransactionSearchXRayPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "xray:GetTraceSegmentDestination",
+        "xray:UpdateTraceSegmentDestination"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "TransactionSearchLogGroupPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/application-signals/data:*",
+        "arn:aws:logs:*:*:log-group:aws/spans:*"
+      ]
+    },
+    {
+      "Sid" : "TransactionSearchApplicationSignalsPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "application-signals:StartDiscovery"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsCreateServiceLinkedRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/application-signals.cloudwatch.amazonaws.com/AWSServiceRoleForCloudWatchApplicationSignals",
+      "Condition" : {
+        "StringLike" : {
+          "aws:CalledViaLast" : "application-signals.cloudwatch.amazonaws.com",
+          "iam:AWSServiceName" : "application-signals.cloudwatch.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsGetRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:GetRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/application-signals.cloudwatch.amazonaws.com/AWSServiceRoleForCloudWatchApplicationSignals"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsCloudTrailPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudtrail:CreateServiceLinkedChannel"
+      ],
+      "Resource" : "arn:aws:cloudtrail:*:*:channel/aws-service-channel/application-signals/*"
     }
   ]
 }

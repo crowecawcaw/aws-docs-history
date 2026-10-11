@@ -16,13 +16,13 @@ You can attach `AWSDeadlineCloud-UserAccessFleets` to your users, groups, and ro
 <a name="AWSDeadlineCloud-UserAccessFleets-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 01, 2024, 17:01 UTC 
-+ **Edited time:** May 29, 2026, 21:27 UTC
++ **Edited time:** October 09, 2026, 16:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSDeadlineCloud-UserAccessFleets`
 
 ## Policy version
 <a name="AWSDeadlineCloud-UserAccessFleets-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -172,7 +172,8 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "ListBasedOnMembership",
       "Effect" : "Allow",
       "Action" : [
-        "deadline:ListFleets"
+        "deadline:ListFleets",
+        "deadline:ListMemberships"
       ],
       "Resource" : [
         "*"

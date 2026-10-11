@@ -16,13 +16,13 @@ You can attach `ElasticLoadBalancingFullAccess` to your users, groups, and roles
 <a name="ElasticLoadBalancingFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 20, 2018, 20:42 UTC 
-+ **Edited time:** February 23, 2026, 18:57 UTC
++ **Edited time:** October 09, 2026, 19:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess`
 
 ## Policy version
 <a name="ElasticLoadBalancingFullAccess-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -45,6 +45,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeAddresses",
         "ec2:DescribeInternetGateways",
         "ec2:DescribeSecurityGroups",
+        "ec2:ValidateSecurityGroupQuotasForInterface",
         "ec2:DescribeSubnets",
         "ec2:DescribeVpcs",
         "ec2:DescribeVpcClassicLink",

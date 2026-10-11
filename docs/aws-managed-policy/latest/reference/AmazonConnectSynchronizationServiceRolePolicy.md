@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AmazonConnectSynchronizationServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: October 27, 2023, 22:38 UTC 
-+ **Edited time:** November 21, 2025, 20:19 UTC
++ **Edited time:** October 06, 2026, 17:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectSynchronizationServiceRolePolicy`
 
 ## Policy version
 <a name="AmazonConnectSynchronizationServiceRolePolicy-version"></a>
 
-**Policy version:** v5 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -73,7 +73,11 @@ The policy's default version is the version that defines the permissions for the
         "connect:*MetricData*",
         "connect:*UserData*",
         "connect:*ContactEvaluation",
-        "connect:*AttachedFile*",
+        "connect:GetAttachedFile",
+        "connect:BatchGetAttachedFileMetadata",
+        "connect:DeleteAttachedFile",
+        "connect:CompleteAttachedFileUpload",
+        "connect:CreateAttachedFile",
         "connect:UpdateContactSchedule",
         "connect:UpdateContactRoutingData",
         "connect:ListContactReferences",

@@ -1206,6 +1206,7 @@
 + [AWSSavingsPlansReadOnlyAccess](AWSSavingsPlansReadOnlyAccess.md)
 + [AWSSDMPServiceRolePolicy](AWSSDMPServiceRolePolicy.md)
 + [AWSSecretsManagerClientReadOnlyAccess](AWSSecretsManagerClientReadOnlyAccess.md)
++ [AWSSecurityAgentContinuousPentestPolicy](AWSSecurityAgentContinuousPentestPolicy.md)
 + [AWSSecurityAgentServiceRolePolicy](AWSSecurityAgentServiceRolePolicy.md)
 + [AWSSecurityAgentWebAppPolicy](AWSSecurityAgentWebAppPolicy.md)
 + [AWSSecurityHubFullAccess](AWSSecurityHubFullAccess.md)

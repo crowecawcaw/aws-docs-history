@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSWellArchitectedAgentResourceScanningServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: August 04, 2026, 17:27 UTC 
-+ **Edited time:** September 24, 2026, 18:57 UTC
++ **Edited time:** October 08, 2026, 19:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSWellArchitectedAgentResourceScanningServiceRolePolicy`
 
 ## Policy version
 <a name="AWSWellArchitectedAgentResourceScanningServiceRolePolicy-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -452,6 +452,7 @@ The policy's default version is the version that defines the permissions for the
         "cloudformation:GetStackPolicy",
         "cloudformation:GetTemplate",
         "cloudformation:ListResources",
+        "cloudformation:ListStackResources",
         "cloudformation:ListStackInstances",
         "cloudformation:ListStackSets",
         "cloudformation:ListStacks",
@@ -1918,6 +1919,7 @@ The policy's default version is the version that defines the permissions for the
         "resource-groups:ListGroupResources",
         "resource-groups:ListGroups",
         "resource-groups:ListTagSyncTasks",
+        "resource-groups:SearchResources",
         "robomaker:DescribeFleet",
         "robomaker:DescribeRobot",
         "robomaker:DescribeRobotApplication",

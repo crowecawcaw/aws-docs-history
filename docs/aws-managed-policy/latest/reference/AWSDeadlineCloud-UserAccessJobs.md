@@ -16,13 +16,13 @@ You can attach `AWSDeadlineCloud-UserAccessJobs` to your users, groups, and role
 <a name="AWSDeadlineCloud-UserAccessJobs-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: April 01, 2024, 17:05 UTC 
-+ **Edited time:** October 07, 2024, 18:24 UTC
++ **Edited time:** October 09, 2026, 17:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSDeadlineCloud-UserAccessJobs`
 
 ## Policy version
 <a name="AWSDeadlineCloud-UserAccessJobs-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -181,7 +181,8 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "ListBasedOnMembership",
       "Effect" : "Allow",
       "Action" : [
-        "deadline:ListJobs"
+        "deadline:ListJobs",
+        "deadline:ListMemberships"
       ],
       "Resource" : [
         "*"

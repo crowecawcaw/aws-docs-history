@@ -16,13 +16,13 @@ You can attach `SageMakerStudioAdminIAMDefaultExecutionPolicy` to your users, gr
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** July 14, 2026, 18:57 UTC
++ **Edited time:** October 08, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-version"></a>
 
-**Policy version:** v24 (default)
+**Policy version:** v25 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -171,7 +171,8 @@ The policy's default version is the version that defines the permissions for the
             "redshift.amazonaws.com",
             "airflow-serverless.amazonaws.com",
             "events.amazonaws.com",
-            "pods.eks.amazonaws.com"
+            "pods.eks.amazonaws.com",
+            "access-grants.s3.amazonaws.com"
           ]
         }
       }
@@ -272,6 +273,9 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : [
         "s3:GetBucketAcl",
+        "s3:GetAccessGrantsInstance",
+        "s3:GetAccessGrantsInstanceForPrefix",
+        "s3:GetDataAccess",
         "s3:List*"
       ],
       "Resource" : "*"
@@ -974,7 +978,11 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "SSOApplicationPermissions",
       "Effect" : "Allow",
       "Action" : [
+        "identitystore:DescribeUser",
+        "identitystore:DescribeGroup",
         "sso:CreateApplication",
+        "sso:DescribeInstance",
+        "sso:DescribeApplication",
         "sso:PutApplicationGrant",
         "sso:PutApplicationAssignmentConfiguration",
         "sso:PutApplicationAuthenticationMethod",
@@ -1117,6 +1125,81 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:redshift:*:*:dbuser:*/sagemaker_access*",
         "arn:aws:redshift:*:*:dbname:*"
       ]
+    },
+    {
+      "Sid" : "S3AGObjectPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:AbortMultipartUpload",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:GetObjectAcl",
+        "s3:GetObjectVersionAcl",
+        "s3:PutObject",
+        "s3:PutObjectAcl",
+        "s3:PutObjectVersionAcl"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnEquals" : {
+          "s3:AccessGrantsInstanceArn" : [
+            "arn:aws:s3:*:*:access-grants/default"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "S3AGLocationPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:CreateAccessGrantsLocation",
+        "s3:DeleteAccessGrantsLocation",
+        "s3:GetAccessGrantsLocation"
+      ],
+      "Resource" : "arn:aws:s3:*:*:access-grants/default/location/*",
+      "Condition" : {
+        "Null" : {
+          "aws:PrincipalTag/AmazonDataZoneProjectBucket" : "false"
+        },
+        "StringEquals" : {
+          "s3:accessGrantsLocationScope" : "s3://${aws:PrincipalTag/AmazonDataZoneProjectBucket}"
+        }
+      }
+    },
+    {
+      "Sid" : "S3AGPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:CreateAccessGrant",
+        "s3:DeleteAccessGrant"
+      ],
+      "Resource" : "arn:aws:s3:*:*:access-grants/default/grant/*",
+      "Condition" : {
+        "Null" : {
+          "aws:PrincipalTag/AmazonDataZoneProjectBucket" : "false"
+        },
+        "StringLike" : {
+          "s3:accessGrantScope" : "s3://${aws:PrincipalTag/AmazonDataZoneProjectBucket}/*"
+        }
+      }
+    },
+    {
+      "Sid" : "S3AGTaggingPermission",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:TagResource"
+      ],
+      "Resource" : [
+        "arn:aws:s3:*:*:access-grants/default/location/*",
+        "arn:aws:s3:*:*:access-grants/default/grant/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
     }
   ]
 }

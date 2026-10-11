@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="CloudwatchApplicationInsightsServiceLinkedRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: December 01, 2018, 16:22 UTC 
-+ **Edited time:** July 25, 2024, 16:24 UTC
++ **Edited time:** October 09, 2026, 16:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/CloudwatchApplicationInsightsServiceLinkedRolePolicy`
 
 ## Policy version
 <a name="CloudwatchApplicationInsightsServiceLinkedRolePolicy-version"></a>
 
-**Policy version:** v25 (default)
+**Policy version:** v26 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -87,6 +87,33 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "arn:aws:cloudformation:*:*:stack/ApplicationInsights-*"
       ]
+    },
+    {
+      "Sid" : "CloudFormationTagOnCreate",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:TagResource"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/ApplicationInsights-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "cloudformation:CreateAction" : [
+            "CreateStack",
+            "UpdateStack"
+          ],
+          "aws:RequestTag/ApplicationInsightsManaged" : "TRUE"
+        },
+        "ForAllValues:StringEquals" : {
+          "aws:TagKeys" : [
+            "ApplicationInsightsManaged"
+          ]
+        },
+        "Null" : {
+          "aws:TagKeys" : "false"
+        }
+      }
     },
     {
       "Sid" : "CloudFormationStacks",

@@ -16,13 +16,13 @@ You can attach `AWSTransformLandingZoneAgentPolicy` to your users, groups, and r
 <a name="AWSTransformLandingZoneAgentPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 06, 2026, 15:12 UTC 
-+ **Edited time:** September 01, 2026, 10:27 UTC
++ **Edited time:** October 06, 2026, 07:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformLandingZoneAgentPolicy`
 
 ## Policy version
 <a name="AWSTransformLandingZoneAgentPolicy-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -232,7 +232,7 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}"
         }
       }
     },
@@ -268,7 +268,7 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}"
         }
       }
     },
@@ -305,7 +305,7 @@ The policy's default version is the version that defines the permissions for the
       ],
       "Condition" : {
         "StringEquals" : {
-          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}"
         }
       }
     },

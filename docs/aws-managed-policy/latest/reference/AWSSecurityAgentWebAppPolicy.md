@@ -16,13 +16,13 @@ You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 <a name="AWSSecurityAgentWebAppPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: February 05, 2026, 23:19 UTC 
-+ **Edited time:** September 24, 2026, 23:37 UTC
++ **Edited time:** October 06, 2026, 17:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSSecurityAgentWebAppPolicy`
 
 ## Policy version
 <a name="AWSSecurityAgentWebAppPolicy-version"></a>
 
-**Policy version:** v8 (default)
+**Policy version:** v9 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -45,6 +45,56 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : "*",
       "Condition" : {
         "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateAgentSpaceScheduleGroups",
+      "Effect" : "Allow",
+      "Action" : "scheduler:CreateScheduleGroup",
+      "Resource" : "arn:aws:scheduler:*:*:schedule-group/as-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "ManageAgentSpacePentestSchedules",
+      "Effect" : "Allow",
+      "Action" : [
+        "scheduler:GetSchedule",
+        "scheduler:CreateSchedule",
+        "scheduler:UpdateSchedule",
+        "scheduler:DeleteSchedule"
+      ],
+      "Resource" : "arn:aws:scheduler:*:*:schedule/as-*/aws-continuum-pt-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "ReadSchedulerExecutionRoles",
+      "Effect" : "Allow",
+      "Action" : "iam:GetRole",
+      "Resource" : "arn:aws:iam::*:role/service-role/continuum-schedule-as-*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "PassSchedulerExecutionRoles",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/service-role/continuum-schedule-as-*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "scheduler.amazonaws.com",
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }

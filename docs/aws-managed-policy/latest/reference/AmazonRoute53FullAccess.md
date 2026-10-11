@@ -16,13 +16,13 @@ You can attach `AmazonRoute53FullAccess` to your users, groups, and roles.
 <a name="AmazonRoute53FullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: February 06, 2015, 18:40 UTC 
-+ **Edited time:** February 12, 2026, 18:00 UTC
++ **Edited time:** October 08, 2026, 20:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonRoute53FullAccess`
 
 ## Policy version
 <a name="AmazonRoute53FullAccess-version"></a>
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -65,6 +65,18 @@ The policy's default version is the version that defines the permissions for the
       "Effect" : "Allow",
       "Action" : "apigateway:GET",
       "Resource" : "arn:aws:apigateway:*::/domainnames"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:CreateServiceLinkedRole"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:AWSServiceName" : "route53healthchecks.amazonaws.com"
+        }
+      }
     }
   ]
 }
