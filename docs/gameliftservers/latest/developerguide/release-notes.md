@@ -104,6 +104,16 @@ Amazon GameLift Servers SDKs and plugins are open source. See [Get Amazon GameLi
 
 The following release notes are in chronological order, with the latest updates listed first. Amazon GameLift Servers was first released in 2016. For release notes dated earlier than those listed here, see the release date links in [SDK versions](#release-notes-history).
 
+### October 8, 2026: Amazon GameLift Servers container fleets support CPU bursting
+<a name="release-notes-10082026"></a>
+
+Amazon GameLift Servers container fleets now support CPU bursting for game server container groups. The `TotalVcpuLimit` property of a game server container group definition is now optional. When you omit it, the group has no CPU cap and its containers can burst into unused CPU on the instance.
+
+****Learn more:****
++ [CreateContainerGroupDefinition](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_CreateContainerGroupDefinition.html), *Amazon GameLift Servers API Reference*
++ [UpdateContainerGroupDefinition](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateContainerGroupDefinition.html), *Amazon GameLift Servers API Reference*
++ [Set resource limits](containers-design-fleet.md#containers-design-fleet-limits), *Amazon GameLift Servers Developer Guide*
+
 ### September 24, 2026: Amazon GameLift Servers adds location support in 13 new AWS Regions and Local Zones
 <a name="release-notes-09242026"></a>
 

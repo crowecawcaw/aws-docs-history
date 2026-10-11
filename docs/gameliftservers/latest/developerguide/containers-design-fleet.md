@@ -26,7 +26,7 @@ You can set a maximum limit on memory and computing power for a container group.
 Setting container-specific resource limits allows you to exert greater control over how individual containers can use the group’s resources. If you don’t set container-specific limits, all containers in the group share the group resources. Sharing offers greater flexibility to use resources where they're needed. It also increases the potential for processes to compete with each other and result in container failure.  
 Set any of the following `ContainerDefinition` properties for any container.  
 + `MemoryHardLimitMebibytes` – Set a maximum memory limit for the container. If the container exceeds this limit, it results in a restart.
-+ `Vcpu` limit – Reserve a minimum amount of vCPU resources for the container's exclusive use. The container always has the reserved amount available to it. It can exceed this minimum at any time, if additional resources are available. (1024 CPU units is the equivalent of 1 vCPU.)
++ `Vcpu` – The number of vCPUs that Amazon GameLift Servers reserves for the container. This reservation means that the container is guaranteed a minimum of its `Vcpu` value when needed. When containers compete for CPU, they share the available CPU in approximately the same ratio as their `Vcpu` values. If the other containers aren't using the available CPU, a container can float to higher CPU usage, up to the full available CPU. This available CPU comes from one of two sources. If the container group has a `TotalVcpuLimit`, containers in the group share the CPU within that limit. Otherwise, they share the instance's CPU with the other containers on the instance. (1024 CPU units is the equivalent of 1 vCPU.)
 
 **Set total resource limits for a container group**  
 If you set limits for individual containers, you might need to modify how much memory and vCPU resources the container group needs. The goal is to allocate enough resources to optimize game server performance. Amazon GameLift Servers uses these limits to calculate how to pack game server container groups on a fleet instance. You’ll also use them when choosing an instance type for a container fleet.  
@@ -35,16 +35,30 @@ Calculate the total memory and vCPU needed for a container group. Consider the f
 + How many concurrent game server processes do you plan to run in each container group? You determine this in your game server container image. 
 Based on your estimate of container group requirements, set the following `ContainerGroupDefinition` properties:   
 + `TotalMemoryLimitMebibytes` – Set a maximum memory limit for the container group. All containers in the group share allocated memory. If you set individual container limits, the total memory limit must be equal to or greater than the highest container-specific memory limit.
-+ `TotalVcpuLimit` – Set a maximum vCPU limit for the container group. All containers in the group share allocated CPU resources. If you set individual container limits, the total CPU limit must be equal to or greater than the sum of all container-specific CPU limits. As a best practice, consider setting this value to double the sum of the container CPU limits.
++ `TotalVcpuLimit` – Set a maximum vCPU limit for the container group. All containers in the group share allocated CPU resources. If you set `Vcpu` values for individual containers, the total vCPU limit must be equal to or greater than the sum of those `Vcpu` values. As a best practice, consider setting this value to double the sum of the container `Vcpu` values. This property is optional for game server container groups and required for per-instance container groups. For more information, see [Allow CPU bursting for a game server container group (optional)](#containers-design-fleet-limits-burst).
+
+**Allow CPU bursting for a game server container group (optional)**  <a name="containers-design-fleet-limits-burst"></a>
+For a game server container group, `TotalVcpuLimit` is optional. If you omit it, the container group has no CPU cap. Its containers can burst into unused CPU on the instance.  
+CPU bursting has the following requirements:  
++ CPU bursting applies only to game server container groups. Per-instance container groups always require `TotalVcpuLimit`.
++ CPU bursting requires explicitly configuring a `Vcpu` value on the game server container.
++ CPU bursting for an existing game server container group requires calling the [UpdateContainerGroupDefinition](https://docs.aws.amazon.com/gameliftservers/latest/apireference/API_UpdateContainerGroupDefinition.html) API with the `RemoveAttributes` parameter set to `TOTAL_VCPU_LIMIT`.
+Consider the following when deciding whether to allow CPU bursting:  
++ Keep `TotalVcpuLimit` when you want predictable, isolated performance for each group.
++ Omit `TotalVcpuLimit` when your game servers have variable or unpredictable CPU demand and can tolerate sharing CPU with other groups.
++ With CPU bursting, CPU above each container's `Vcpu` minimum depends on the CPU usage of other container groups on the instance. Choose a sustainable `GameServerContainerGroupsPerInstance` value and test under realistic load.
 
 **Example scenario**  
-Let’s say we’re defining a game server container group with the following three containers:   
-+ Container A is our game server container. We estimate the resource requirements for one game server at 512 MiB and 1024 CPU. We plan to have the container run 1 server process. Because this container runs our most critical software, we set no memory limit or vCPU reserve limit.
-+ Container B is a support container with resource requirements estimated at 1024 MiB and 1536 CPU. We set a memory limit of 2048 MiB, and a CPU reserve limit of 1024 CPU.
-+ Container C is another support container. We set a hard memory limit of 512 MiB and a CPU reserve limit of 512 CPU.
-Using this information, we set the following total limits for the container group:  
-+ Total memory limit: 7680 MiB. This value exceeds the highest memory limit (1024 MiB).
-+ Total CPU limit: 13312 CPU. This value exceeds the sum of the CPU limit (1024\+512 CPU).
+Suppose that you're defining a game server container group with the following three containers:   
++ Container A is the game server container. Assume the resource requirements for one game server are 512 MiB and 4 vCPUs, and that the container runs 1 server process. Because this container runs the most critical software, set no memory limit. Set a `Vcpu` value of 4.
++ Container B is a support container with resource requirements estimated at 1024 MiB and 3 vCPUs. Set a memory limit of 2048 MiB, and a `Vcpu` value of 3.
++ Container C is another support container. Set a hard memory limit of 512 MiB and a `Vcpu` value of 1.
+Using this information, set the following total limits for the container group:  
++ Total memory limit: 7680 MiB. This value exceeds the highest memory limit (2048 MiB).
++ Total vCPU limit: 16. As a best practice, set this value to two times the sum of the `Vcpu` values (4 \+ 3 \+ 1 vCPUs).
+Suppose also that the fleet uses the c5.9xlarge instance type, which has 36 vCPUs and 72 GiB of memory. With a total vCPU limit of 16, two of these container groups fit on each instance (2 x 16 = 32 of 36 vCPUs). The two groups also fit by memory (2 x 7680 MiB = 15,360 MiB).  
+With these settings, CPU sharing works as follows. When Containers B and C are idle, Container A can use up to the container group's total vCPU limit of 16 vCPUs at any given time. When all three containers need CPU, Container A is guaranteed a minimum of 4 vCPUs, Container B 3 vCPUs, and Container C 1 vCPU. If all three containers compete for CPU, they share the 16 vCPUs in approximately a 4:3:1 ratio.  
+To allow CPU bursting for this container group, don't set a total vCPU limit for the container group. The two container groups on the instance are no longer capped at 16 vCPUs each. When the other group's containers are idle, Container A can burst into unused CPU on the instance, up to the instance's 36 vCPUs.
 
 ## Understand container fleet memory allocation
 <a name="containers-design-fleet-memory-allocation"></a>

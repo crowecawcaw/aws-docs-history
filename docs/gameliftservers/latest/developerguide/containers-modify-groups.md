@@ -66,7 +66,7 @@ aws gamelift update-container-group-definition \
     --container-group-type GAME_SERVER \
     --total-memory-limit-mebibytes 4096 \
     --total-vcpu-limit 1 \
-    --container-definitions file://SimpleServer.json
+    --game-server-container-definition file://SimpleServer.json
 ```
 
 ------
