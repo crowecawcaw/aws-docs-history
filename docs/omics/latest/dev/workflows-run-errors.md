@@ -10,6 +10,7 @@ Review the failure reason to help you troubleshoot why the run failed. The follo
 
 | Failure reason | Error description | 
 | --- | --- | 
+| ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED | There isn't enough instance capacity for any of the accelerators you specified in the `omicsResourceFallbackOrder` directive. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order. To learn more about resource fallback, see [Advanced resource configuration](advanced-resource-configuration.md). | 
 | ASSUME\_ROLE\_FAILED | HealthOmics doesn't have permission to assume the role. Specify the HealthOmics principal in the trust relationship for the role. | 
 | CANNOT\_START\_CONTAINER\_ERROR | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image is valid and try again. | 
 | CANNOT\_START\_CONTAINER\_SIZE\_ERROR | Unable to start workflow task: {{name}}, id: {{ID}} container using image: {{image name}}. Make sure that the image size is less than 45 GiB (95 GiB for a GPU instance) and try again. | 
@@ -68,6 +69,8 @@ The following additional best practices can further improve your success rate wh
    + **GPU to CPU fallback** — add a final CPU-only profile so the task completes even when no GPU capacity is available.
 **Note**  
 The `omicsResourceFallbackOrder` directive is currently supported for WDL workflows only. Nextflow support is planned.
+
+   If none of the profiles in your fallback order has capacity within its wait time, the run fails with ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED. For WDL workflows, HealthOmics doesn't retry the task for this error. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order.
 
    To learn more, see [Advanced resource configuration](advanced-resource-configuration.md).
 

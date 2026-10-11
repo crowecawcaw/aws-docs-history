@@ -9,6 +9,7 @@
 + **(Optional) Parameter template file:** A parameter template file written in JSON. Create the file to define the run parameters, or HealthOmics generates the parameter template for you. For more information, see [Parameter template files for HealthOmics workflows](parameter-templates.md).
 + **Amazon ECR container images:** Create a private Amazon ECR repository for the workflow. Create container images in the private repository, or synchronize the contents of a supported upstream registry with your Amazon ECR private repository.
 + **(Optional) Sentieon licenses:** Request a Sentieon license to use the Sentieon software in private workflows.
++ **(Optional) Illumina DRAGEN:** Run Illumina DRAGEN software mode as a task in a private workflow. For more information, see [Illumina DRAGEN on HealthOmics private workflows](workflows-illumina-dragen.md).
 
 In addition to built-in linters, you can optionally run a linter locally on your workflow definition before you create the workflow. For more information on built-in and optional external linters, see [Workflow linters in HealthOmics](workflows-linter.md).
 
@@ -19,6 +20,7 @@ In addition to built-in linters, you can optionally run a linter locally on your
 + [Container images for private workflows](workflows-ecr.md)
 + [HealthOmics Workflow README files](workflows-readme.md)
 + [Requesting Sentieon licenses for private workflows](private-workflows-subscribe.md)
++ [Illumina DRAGEN on HealthOmics private workflows](workflows-illumina-dragen.md)
 + [Supported workflow languages for HealthOmics](workflows-supported-languages.md)
 + [Workflow linters in HealthOmics](workflows-linter.md)
 + [HealthOmics workflow operations](creating-private-workflows.md)

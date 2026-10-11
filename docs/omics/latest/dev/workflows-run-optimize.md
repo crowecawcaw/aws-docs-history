@@ -115,6 +115,9 @@ If you specify threads in your task definition, set the number of threads to the
 If you don't specify memory or compute resources in your task, HealthOmics assigns the smallest instance type (`omics.c.large`) as the default . Explicitly declare your memory and compute requirements if you want HealthOmics to assign a larger instance type.  
 HealthOmics allocates the number of vCPUs, memory, and GPU resources that you request. For instance, if you ask for 15vCPUs and 33GiB, HealthOmics allocates an omics.m.4xl instance (16vCPUs, 64GB) for your task, but your task can use only 15 vCPUs and 33GiB. Therefore, we recommend that you request vCPUs and memory resources that match an omics instance.
 
+**Improve GPU instance availability**  
+If your GPU workflow runs fail with INSTANCE\_RESERVATION\_FAILED or ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED, you can apply several best practices to improve GPU acquisition success. For more information about accelerator bundles, regional flexibility, and resource fallback order, see [Mitigating INSTANCE\_RESERVATION\_FAILED errors](workflows-run-errors.md#workflows-mitigate-instance-reservation-failed).
+
 **Batch multiple samples into one run**  
 Because file system provisioning takes time at the start of the run, you can save on provisioning time by batching multiple samples into the same run. Consider the following factors before deciding on this approach:  
 + A single bad sample can cause a workflow to fail, so batching samples could increase the number of failed workflows. If you aren't confident that your workflow will succeed most of the time, one run per sample could be a better approach.
