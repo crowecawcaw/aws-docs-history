@@ -25,14 +25,30 @@ Choose your preferred access method to configure RDS Protection for a standalone
 ------
 #### [ API/CLI ]
 
-Run the [updateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateDetector.html) API operation using your own regional detector ID and passing the `features` object `name` as `RDS_LOGIN_EVENTS` and `status` as `ENABLED`.
+Run the [updateDetector](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_UpdateDetector.html) API operation using your own regional detector ID and passing the `features` object `name` as `RDS_LOGIN_EVENTS` and `status` as `ENABLED`. To also enable RDS data activity monitoring, pass `RDS_DATA_RISK` as the `name` under `AdditionalConfiguration` with `status` set to `ENABLED`.
 
-Alternatively, you can use AWS CLI to enable RDS Protection. Run the following command, and replace {{12abc34d567e8fa901bc2d34e56789f0}} with your account's detector ID and {{us-east-1}} with the Region where you want to enable RDS Protection. 
+Alternatively, you can use AWS CLI to enable RDS Protection. Run the following command, and replace {{12abc34d567e8fa901bc2d34e56789f0}} with your account's detector ID and {{us-east-1}} with the Region where you want to enable RDS Protection.
 
 To find the `detectorId` for your account and current Region, see the **Settings** page in the [https://console.aws.amazon.com/guardduty/](https://console.aws.amazon.com/guardduty/) console, or run the [ListDetectors](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_ListDetectors.html) API.
 
+The following example enables both `RDS_LOGIN_EVENTS` and `RDS_DATA_RISK`:
+
 ```
-aws guardduty update-detector --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} --region {{us-east-1}} --features '[{"Name" : "RDS_LOGIN_EVENTS", "Status" : "ENABLED"}]'
+aws guardduty update-detector \
+    --detector-id {{12abc34d567e8fa901bc2d34e56789f0}} \
+    --region {{us-east-1}} \
+    --features '[
+        {
+            "Name": "RDS_LOGIN_EVENTS",
+            "Status": "ENABLED",
+            "AdditionalConfiguration": [
+                {
+                    "Name": "RDS_DATA_RISK",
+                    "Status": "ENABLED"
+                }
+            ]
+        }
+    ]'
 ```
 
 ------

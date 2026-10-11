@@ -642,3 +642,13 @@ This section details the count of login attempts performed by the unusual actor 
 + **successfulLoginCount** – This counter represents the sum of successful connections (correct combination of login attributes) made to the database instance by the unusual actor. Login attributes include user name, password, and database name. 
 + **failedLoginCount** – This counter represents the sum of failed (unsuccessful) login attempts made to establish a connection to the database instance. This indicates that one or more attributes of the login combination, such as user name, password, or database name were incorrect.
 + **incompleteConnectionCount** – This counter represents the number of connection attempts that can't be classified as successful or failed. These connections are closed before the database provides a response. For example, port scanning where the database port is connected but no piece of information is sent to the database, or the connection was aborted before the login completed in a successful or failed attempt.
+
+### RDS data activity-based anomalies
+<a name="rds-pro-data-activity-anomaly"></a>
+
+This section describes anomalous data activity, such as an actor reading significantly more rows, or deleting or dropping more data than is normal for that database and user. The [RDS Protection finding types](findings-rds-protection.md) identify anomalous behavior by monitoring database activity for unusual patterns in the number of rows read or deleted and in drop statements.
++ `selectedRows` and `selectStatement` – These counters represent the number of rows returned by `SELECT` statements and the number of `SELECT` statements observed in the activity associated with the finding.
++ `deletedRows` and `deleteStatement` – These counters represent the number of rows deleted by `DELETE` statements and the number of `DELETE` statements observed in the activity associated with the finding.
++ `dropStatement` – This counter represents the number of destructive operations, such as `DROP` or `TRUNCATE`, that can remove database objects or data in the activity associated with the finding.
+
+GuardDuty might collect additional data activity telemetry, such as new counters, in the future to improve the efficacy of data activity findings and introduce new RDS Protection threat detections.

@@ -13,6 +13,8 @@ Follow these recommended steps to remediate a potentially compromised Amazon Aur
 **Topics**
 + [Remediating potentially compromised database with successful login events](#gd-compromised-db-successful-attempt)
 + [Remediating potentially compromised database with failed login events](#gd-compromised-db-failed-attempt)
++ [Remediating potentially compromised database with anomalous exfiltration activity](#gd-compromised-db-exfiltration-activity)
++ [Remediating potentially compromised database with anomalous destructive activity](#gd-compromised-db-destructive-activity)
 + [Remediating potentially compromised credentials](#gd-rds-database-compromised-credentials)
 + [Restrict network access](#gd-rds-database-restrict-network-access)
 
@@ -72,6 +74,82 @@ The following recommended steps can help you remediate a potentially compromised
    1. **Perform root-cause analysis and determine the steps that potentially led to this activity.**
 
       Set up an alert to get notified when an activity modifies a networking policy and creates an insecure state. For more information, see [ Firewall policies in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html) in the *AWS Network Firewall Developer Guide*.
+
+## Remediating potentially compromised database with anomalous exfiltration activity
+<a name="gd-compromised-db-exfiltration-activity"></a>
+
+The following recommended steps can help you remediate a potentially compromised Aurora database that exhibits unusual behavior related to data exfiltration events.
+
+1. **Identify the affected database and user.**
+
+   The generated GuardDuty finding provides the name of the affected database and the corresponding user details. For more information, see [Finding details](guardduty_findings-summary.md).
+
+1. **Identify the scope of data accessed.**
+
+   Review available RDS data activity logs to determine which tables and rows were accessed by the anomalous user during the time window indicated by the finding. Assess the sensitivity of the data that was potentially exfiltrated.
+
+1. **Confirm that this behavior is unexpected.**
+
+   Examine whether this activity represents legitimate operational behavior as follows:
+   + If the source is internal, examine whether a scheduled ETL job, reporting tool, or backup process may account for the elevated query volume.
+   + If this is an external actor or previously unseen database attribute, examine whether the corresponding database credentials may have been exposed or shared externally.
+   + Review whether the combination of volume and unseen attributes (IP address, ASN, application name) aligns with any known operational change.
+
+1. **Begin this step if the behavior is unexpected.**
+
+   **Revoke access and rotate credentials.**
+
+   Immediately change the password of the affected database user and revoke active sessions. If the user has elevated privileges, temporarily restrict their permissions to read-only or remove access entirely until investigation is complete.
+
+1. **Assess the business impact.**
+
+   Identify the data that was accessible to the affected user, determine if any sensitive or regulated data (PII, financial, healthcare) was potentially exfiltrated, and follow your organization's data breach notification procedures if applicable.
+
+1. **Restrict network access.**
+
+   Restrict database access for the suspected accounts and the source of this activity. Place the database in a private VPC if not already configured, and limit the security group rules to allow traffic only from the necessary sources. For more information, see [Restrict network access](#gd-rds-database-restrict-network-access).
+
+1. **Perform root-cause analysis and determine the steps that potentially led to this activity.**
+
+   Set up an alert to get notified when an activity modifies a networking policy and creates an insecure state. For more information, see [Firewall policies in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html) in the *AWS Network Firewall Developer Guide*.
+
+## Remediating potentially compromised database with anomalous destructive activity
+<a name="gd-compromised-db-destructive-activity"></a>
+
+The following recommended steps can help you remediate a potentially compromised Aurora database that exhibits unusual behavior related to destructive `DELETE` or `DROP` events.
+
+1. **Identify the affected database and user.**
+
+   The generated GuardDuty finding provides the name of the affected database and the corresponding user details. For more information, see [Finding details](guardduty_findings-summary.md).
+
+1. **Identify the scope of destructive operations.**
+
+   Review available RDS data activity logs to determine which tables, rows, or database objects were deleted or dropped by the anomalous user during the time window indicated by the finding. Determine whether the data loss is recoverable from existing backups or snapshots.
+
+1. **Confirm that this behavior is unexpected.**
+
+   Examine whether this activity represents legitimate operational behavior as follows:
+   + If the source is internal, examine whether a scheduled maintenance job, cleanup script, or migration process may account for the `DELETE` or `DROP` operations.
+   + If this is an external actor or previously unseen database attribute, examine whether the corresponding database credentials may have been exposed or compromised.
+   + Review whether the combination of destructive operations and unseen attributes (IP address, ASN, application name) aligns with any known operational change.
+
+1. **Begin this step if the behavior is unexpected.**
+
+   **Revoke access and rotate credentials.**
+
+   Immediately change the password of the affected database user and revoke active sessions. Remove the user's `DROP` and `DELETE` privileges until investigation is complete to prevent further data destruction.
+
+1. **Initiate data recovery.**
+
+   If data loss is confirmed, initiate point-in-time recovery from automated backups or restore from the most recent snapshot. For Amazon Aurora, you can use backtrack to rewind the database to a time before the destructive activity occurred. For Amazon RDS, use point-in-time recovery to restore to a point before the event.
+
+1. **Restrict network access and harden permissions.**
+
+   Restrict database access for the suspected accounts and the source of this activity. Place the database in a private VPC if not already configured, and limit the security group rules to allow traffic only from the necessary sources. Review IAM policies and database user privileges to enforce least-privilege access, and enable deletion protection on the RDS instance if not already enabled. For more information, see [Restrict network access](#gd-rds-database-restrict-network-access).
+
+1. **Perform root-cause analysis and determine the steps that potentially led to this activity.**
+
+   Set up an alert to get notified when an activity modifies a networking policy and creates an insecure state. For more information, see [Firewall policies in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies.html) in the *AWS Network Firewall Developer Guide*.
 
 ## Remediating potentially compromised credentials
 <a name="gd-rds-database-compromised-credentials"></a>

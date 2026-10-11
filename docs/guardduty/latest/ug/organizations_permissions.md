@@ -22,7 +22,8 @@ To grant these permissions, include the following statement in an AWS Identity a
         "organizations:DescribeOrganizationalUnit",
         "organizations:DescribeAccount",
         "organizations:DescribeOrganization",
-        "organizations:ListAccounts"
+        "organizations:ListAccounts",
+        "organizations:ListRoots"
     ],
     "Resource": "*"
 }
