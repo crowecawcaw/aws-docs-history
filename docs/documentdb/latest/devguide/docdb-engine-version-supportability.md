@@ -86,7 +86,7 @@ The following tables compare features, capabilities, and supported instance type
 | --- | --- | --- | --- | --- | --- | 
 | AWS Backup | Yes | Yes | Yes | Yes | No | 
 | AWS Secrets Manager | Yes | Yes | Yes | Yes | No | 
-| AWS Lambda (native ESM) | No | Yes | Yes | No | No | 
+| AWS Lambda (native ESM) | No | Yes | Yes | Yes | No | 
 | Amazon OpenSearch Service Ingestion (Zero-ETL) | No | Yes | Yes | Yes | No | 
 | AWS DMS migration support | Yes | Yes | Yes | Yes (from 5.0 via AWS DMS) | Yes | 
 | AWS Identity and Access Management authentication | No | No | Yes (5.0 instance-based) | Yes | No | 

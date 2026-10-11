@@ -15,6 +15,6 @@ As performance best practices, the Lambda function needs to be short lived. To a
 <a name="lambda-limitations"></a>
 
 The following are limitations to consider when working with Amazon DocumentDB and AWS Lambda:
-+ AWS Lambda is currently supported only on Amazon DocumentDB 4.0 and 5.0.
-+ AWS Lambda is not currently supported on elastic clusters or global clusters.
++ AWS Lambda event source mapping is not supported on Amazon DocumentDB 3.6.
++ AWS Lambda event source mapping is not supported on elastic clusters.
 + AWS Lambda payload sizes cannot exceed 6MB. For more information about Lambda batch sizes, see “Batching behavior” in [Lambda event source mappings](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-batching) section in the *AWS Lambda Developer Guide*.
