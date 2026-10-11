@@ -33,6 +33,8 @@ The following table lists the default API throttling quotas for Amazon Connect H
 |  `GetMedicalScribeListeningSession`  | 10 | Yes | The maximum number of `GetMedicalScribeListeningSession` requests per second. | 
 |  `StartPatientInsightsJob`  | 5 | Yes | The maximum number of `StartPatientInsightsJob` requests per second. | 
 |  `GetPatientInsightsJob`  | 10 | Yes | The maximum number of `GetPatientInsightsJob` requests per second. | 
+|  `StartMedicalCodingJob`  | 5 | Yes | The maximum number of `StartMedicalCodingJob` requests per second. Medical coding is in gated preview. To request an increase, contact your AWS account team. | 
+|  `GetMedicalCodingJob`  | 10 | Yes | The maximum number of `GetMedicalCodingJob` requests per second. To request an increase, contact your AWS account team. | 
 |  `ListDomain`  | 5 | Yes | The maximum number of `ListDomain` requests per second. | 
 |  `GetDomain`  | 5 | Yes | The maximum number of `GetDomain` requests per second. | 
 |  `CreateDomain`  | 1 | Yes | The maximum number of `CreateDomain` requests per second. | 

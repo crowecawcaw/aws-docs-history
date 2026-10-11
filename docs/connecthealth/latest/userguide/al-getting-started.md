@@ -18,7 +18,7 @@ This tutorial walks you through the minimum steps to run your first ambient docu
 <a name="al-getting-started-prerequisites"></a>
 
 Before you start, make sure you have:
-+ An AWS account with access to Amazon Connect Health in a supported Region. See [Supported Regions](what-is-service.md#supported-regions).
++ An AWS account with access to Amazon Connect Health in a supported Region. See [Supported regions](what-is-service.md#supported-regions).
 + IAM permissions for the `health-agent:StartMedicalScribeListeningSession` action.
 + An Amazon S3 bucket to receive session outputs.
 + A consent process for your patients. See [Consent and patient notification](ambient-documentation.md#al-consent).

@@ -53,7 +53,7 @@ Amazon Connect Health supports the following IAM features:
 +  **Identity-based policies**: Yes
 +  **Resource-based policies**: No
 +  **Policy actions**: Yes (`health-agent:*`)
-+  **Policy resources**: Yes (domain, agent, integration ARNs)
++  **Policy resources**: Yes (domain, agent, integration, and medical coding job ARNs)
 +  **Policy condition keys**: Yes (`aws:RequestTag`, `aws:ResourceTag`, `aws:TagKeys`)
 +  **ABAC (attribute-based access control)**: Yes
 
@@ -368,6 +368,30 @@ This example shows how you might create a policy that allows IAM users to view t
         "iam:ListUsers"
       ],
       "Resource": "*"
+    }
+  ]
+}
+```
+
+### Example 7: Allow users to start and view medical coding jobs in a domain
+<a name="iam-example-medical-coding"></a>
+
+The following policy allows users to start and retrieve medical coding jobs in a specific domain. Medical coding is in gated preview. The caller also needs permission to write to the S3 output location and, if the domain uses a customer managed AWS KMS key, to use that key. For details, see [Example IAM policy](mc-getting-started.md#mc-gs-permissions).
+
+```
+{
+  "Version": "2012-10-17" ,
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "health-agent:StartMedicalCodingJob",
+        "health-agent:GetMedicalCodingJob"
+      ],
+      "Resource": [
+        "arn:aws:health-agent:<region>:<account-id>:domain/<domain-id>",
+        "arn:aws:health-agent:<region>:<account-id>:domain/<domain-id>/medical-coding-job/*"
+      ]
     }
   ]
 }
