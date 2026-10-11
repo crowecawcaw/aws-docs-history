@@ -193,7 +193,8 @@ The default authorization strategy for this caller (`ALLOW` or `DENY`).
 The token issuer.
 
 ** `sourceIp` **  
-The source IP address of the caller that AWS AppSync receives. If the request doesn't include the `x-forwarded-for` header, the source IP value contains only a single IP address from the TCP connection. If the request includes a `x-forwarded-for` header, the source IP is a list of IP addresses from the `x-forwarded-for` header, in addition to the IP address from the TCP connection.
+A list of the source IP addresses for the request that AWS AppSync receives. If the request doesn't include an `x-forwarded-for` header, the list contains only the address of the connection to AWS AppSync. If the request includes an `x-forwarded-for` header, the list contains the addresses from that header in order, followed by the address of the connection to AWS AppSync. For example, if the header is `{{ip-1}}, {{ip-2}}` and the connection comes from `{{ip-3}}`, `sourceIp` is `[{{ip-1}}, {{ip-2}}, {{ip-3}}]`.  
+Clients and intermediate proxies can set the `x-forwarded-for` header to any value, and AWS AppSync doesn't verify it. Use only the last element of `sourceIp` for authorization decisions, and sanitize the other entries before you use them.
 
 ** `sub` **  
 The UUID of the authenticated user.
