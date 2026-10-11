@@ -8,6 +8,7 @@ The following table lists the AWS SDK service integrations added to Step Functio
 
 | Date | Services added | 
 | --- | --- | 
+| September 25, 2026 | AWS Agent Registry, AWS Agent Registry Control, AWS IAM Account Access Manager, AWS IAM Toolbox, AWS Pricing Plan Manager | 
 | August 18, 2026 | AWS Lambda Core, AWS Lambda MicroVMs, AWS Partner Central Revenue Measurement, AWS Resilience Hub V2, AWS Support Authorization, Amazon SageMaker Job Runtime | 
 | June 3, 2026 | AWS DevOps Agent Service, AWS Interconnect, AWS Marketplace Discovery, AWS Security Agent, AWS Sustainability, AWS User Experience Customization, Amazon S3 Files, Amazon SimpleDB v2 | 
 | March 12, 2026 | Amazon AI Operations, Amazon Bedrock AgentCore, Amazon Bedrock AgentCore Control Plane, Amazon Connect Health, Amazon Keyspaces CDC Streams, Amazon MWAA Serverless, Amazon Nova Act, Amazon Route 53 ARC Region Switch, Amazon Route 53 Global Resolver, Amazon S3 Vectors, Amazon SageMaker Runtime HTTP2, Amazon WorkSpaces Instances, AWS Billing and Cost Management Dashboards, AWS Billing and Cost Management Recommended Actions, AWS Compute Optimizer Automation, AWS Elemental Inference, AWS IoT Managed Integrations, AWS Multi-party Approval, AWS Partner Central Account, AWS Partner Central Benefits, AWS Partner Central Channel, AWS RTB Fabric, AWS Sign-In Service, AWS Signer Data Plane, AWS Systems Manager GUI Connect, AWS Wickr, Oracle Database@AWS | 
@@ -25,6 +26,7 @@ The following AWS SDK service integrations are now deprecated:
 
 | Date | Services deprecated | 
 | --- | --- | 
+| September 25, 2026 | AWS IoT Events, AWS IoT Events Data | 
 | August 18, 2026 | AWS IoT Fleet Hub, Amazon Honeycode, Amazon Inspector V1 | 
 | June 3, 2026 | Amazon Lex Model Building V1, Amazon Lex Runtime V1 | 
 | March 12, 2026 | Amazon CloudWatch Evidently, Amazon Elastic Transcoder, Amazon Lookout for Metrics, Amazon QLDB, Amazon QLDB Session, AWS Mainframe Modernization Application Testing, AWS OpsWorks, AWS RoboMaker, Amazon WorkLink | 
