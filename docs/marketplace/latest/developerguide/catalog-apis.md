@@ -542,3 +542,12 @@ The following shows the response to `DescribeEntity`.
 
 **Note**  
 The `DetailsDocument` attribute contains the entity details as a JSON object. The legacy `Details` attribute contains the same JSON object as a string.
+
+## Integration partner best practices
+<a name="integration-partner-best-practices"></a>
+
+If you are a third-party integration partner that calls the AWS Marketplace Catalog API on behalf of multiple seller accounts, the following best practices apply.
++ **Understand your aggregate limits.** Integration partners are subject to per-integration-partner rate limits that apply across all seller accounts you access. These limits are in addition to the per-account quotas. For information about both per-account and per-integration-partner rate limits, see [Service quotas for AWS Marketplace Catalog API](catalog-service-quotas.md).
++ **Spread requests over time.** Avoid bursting large numbers of requests simultaneously across multiple seller accounts. Per-account quotas do not multiply with the number of accounts you access. Your total request rate is limited by the per-integration-partner rate limits.
++ **Implement exponential backoff.** When you receive throttling errors (`ThrottlingException`), wait before retrying and increase the wait time after each failed attempt (exponential backoff). Add a small random delay (jitter) to avoid multiple clients retrying at the same instant.
++ **Use filters to reduce API calls.** When calling `ListEntities` or `ListChangeSets`, use filters to narrow your results instead of retrieving all entities and filtering client-side. This reduces the number of API calls needed and helps you stay within your rate limits.

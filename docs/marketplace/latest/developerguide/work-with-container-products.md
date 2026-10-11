@@ -384,7 +384,7 @@ The following errors are specific to `AddDeliveryOptions` actions in the AWS Mar
 | INVALID\_USAGE\_INSTRUCTIONS | Provide usage instructions.  | 
 | MISSING\_CONTAINER\_IMAGES | Provide at least 1 container image.  | 
 | NO\_LICENSE\_SECRET\_KEYS | For Amazon EKS Anywhere products, provide 1 override parameter for license secret. Needs DefaultValue of "${AWSMP\_LICENSE\_SECRET}", see example in section.  | 
-| TOO\_MANY\_CONTAINER\_IMAGES | Provide fewer than 50 container images.  | 
+| TOO\_MANY\_CONTAINER\_IMAGES | Provide 50 or fewer container images.<br />For a delivery option that supports Amazon Bedrock AgentCore: Provide only one container image for the selected service: [service\_name]. | 
 | DUPLICATE\_CONTAINER\_IMAGES | The container image list contains duplicate images: [duplicate\_images]. Provide a list with unique images.  | 
 | INVALID\_CONTAINER\_IMAGES | Provide a valid URI for the container image.  | 
 | INVALID\_CONTAINER\_IMAGE\_URI | The image [invalid\_image\_uri] doesn't have access to this product. Upload the image to its corresponding product repository. For information about uploading, see [Getting started with container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-getting-started.html). | 
@@ -853,7 +853,7 @@ The following errors are specific to `UpdateDeliveryOptions` actions in the AWS 
 | INVALID\_USAGE\_INSTRUCTIONS | Provide usage instructions with fewer than (x) characters.  | 
 | INVALID\_USAGE\_INSTRUCTIONS | Provide usage instructions.  | 
 | MISSING\_CONTAINER\_IMAGES | Provide at least 1 container image.  | 
-| TOO\_MANY\_CONTAINER\_IMAGES | Provide fewer than 50 container images.  | 
+| TOO\_MANY\_CONTAINER\_IMAGES | Provide 50 or fewer container images.<br />For a delivery option that supports Amazon Bedrock AgentCore: Provide only one container image for the selected service: [service\_name]. | 
 | DUPLICATE\_CONTAINER\_IMAGES | The container image list contains duplicate images: [duplicate\_images]. Provide a list with unique images.  | 
 | INVALID\_CONTAINER\_IMAGES | Provide a valid URI for the container image.  | 
 | INVALID\_CONTAINER\_IMAGE\_URI | The image [invalid\_image\_uri] doesn't have access to this product. Upload the image to its corresponding product repository. For information about uploading, see [Getting started with container products](https://docs.aws.amazon.com/marketplace/latest/userguide/container-product-getting-started.html). | 

@@ -25,6 +25,20 @@ The AWS Marketplace Catalog API has the following quotas.
 | GetResourcePolicy | 5 per second | 
 | DeleteResourcePolicy | 5 per second | 
 
+If you are a third-party integration partner that calls the AWS Marketplace Catalog API on behalf of multiple seller accounts, your requests are also subject to the following per-integration-partner rate limits. These limits apply across all seller accounts you access. For best practices on working within these limits, see [Integration partner best practices](catalog-apis.md#integration-partner-best-practices).
+
+
+**Integration partner rate limits**  
+
+| **API operation** | **Request rate (per integration partner)** | 
+| --- | --- | 
+| ListEntities | 50 per second | 
+| DescribeEntity | 100 per second | 
+| StartChangeSet | 25 per second | 
+| ListChangeSets | 25 per second | 
+| DescribeChangeSet | 50 per second | 
+| CancelChangeSet | 25 per second | 
+
 
 **Product pricing dimension quotas**  
 
