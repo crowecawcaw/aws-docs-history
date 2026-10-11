@@ -586,9 +586,6 @@ Choose the link in the **AWS service** column to see the documentation for servi
 - ** [Amazon Lookout for Equipment](https://docs.aws.amazon.com/lookout-for-equipment/latest/ug/vpc-interface-endpoints.html) **
   - com.amazonaws.{{region}}.lookoutequipment
 
-- ** [Amazon Lookout for Vision](https://docs.aws.amazon.com/lookout-for-vision/latest/developer-guide/vpc-interface-endpoints.html) **
-  - com.amazonaws.{{region}}.lookoutvision
-
 - **[Amazon Macie](https://docs.aws.amazon.com/macie/latest/user/vpc-interface-endpoints-macie.html)**
   - com.amazonaws.{{region}}.macie2
   - com.amazonaws.{{region}}.macie2-fips
@@ -678,9 +675,6 @@ Choose the link in the **AWS service** column to see the documentation for servi
 
 - **AWS Outposts**
   - com.amazonaws.{{region}}.outposts
-
-- **[AWS Panorama](https://docs.aws.amazon.com/panorama/latest/dev/api-endpoints.html)**
-  - com.amazonaws.{{region}}.panorama
 
 - **AWS Payment Cryptography**
   - com.amazonaws.{{region}}.payment-cryptography.controlplane
