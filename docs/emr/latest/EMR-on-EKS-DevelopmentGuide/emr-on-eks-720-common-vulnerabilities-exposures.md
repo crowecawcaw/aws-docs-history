@@ -5,7 +5,7 @@
 
 The following table lists all CVEs that don't impact EMR on EKS job runs that run on recommended configurations of emr-7.2.0. Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 
-This table was updated on August 21, 2026.
+This table was updated on October 9, 2026.
 
 
 | CVE ID | Severity | CVE details URL | 
@@ -51,4 +51,7 @@ This table was updated on August 21, 2026.
 | CVE-2024-29025 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29025](https://nvd.nist.gov/vuln/detail/CVE-2024-29025) | 
 | CVE-2024-29131 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29131](https://nvd.nist.gov/vuln/detail/CVE-2024-29131) | 
 | CVE-2024-29133 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2024-29133](https://nvd.nist.gov/vuln/detail/CVE-2024-29133) | 
+| CVE-2026-40468 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-40468](https://nvd.nist.gov/vuln/detail/CVE-2026-40468) | 
 | CVE-2020-8908 | LOW | [https://nvd.nist.gov/vuln/detail/CVE-2020-8908](https://nvd.nist.gov/vuln/detail/CVE-2020-8908) | 
+| CVE-2026-1502 | LOW | [https://nvd.nist.gov/vuln/detail/CVE-2026-1502](https://nvd.nist.gov/vuln/detail/CVE-2026-1502) | 
+| CVE-2026-47059 | LOW | [https://nvd.nist.gov/vuln/detail/CVE-2026-47059](https://nvd.nist.gov/vuln/detail/CVE-2026-47059) | 

@@ -5,9 +5,11 @@
 
 The following table lists all CVEs that don't impact EMR on EKS job runs that run on recommended configurations of emr-7.1.0. Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 
-This table was updated on August 21, 2026.
+This table was updated on October 9, 2026.
 
 
 | CVE ID | Severity | CVE details URL | 
 | --- | --- | --- | 
 | CVE-2021-41186 | CRITICAL | [https://nvd.nist.gov/vuln/detail/CVE-2021-41186](https://nvd.nist.gov/vuln/detail/CVE-2021-41186) | 
+| CVE-2026-40467 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-40467](https://nvd.nist.gov/vuln/detail/CVE-2026-40467) | 
+| CVE-2026-40468 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-40468](https://nvd.nist.gov/vuln/detail/CVE-2026-40468) | 

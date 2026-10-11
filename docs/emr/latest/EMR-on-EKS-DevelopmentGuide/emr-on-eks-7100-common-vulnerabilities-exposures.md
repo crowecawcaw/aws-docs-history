@@ -5,12 +5,13 @@
 
 The following table lists all CVEs that don't impact EMR on EKS job runs that run on recommended configurations of emr-7.10.0. Amazon EMR is dependent on upstream open-source for availability of fixes and will provide the latest stable version as part of the Core Engine components within 90 days of Amazon EMR verifying the fixes.
 
-This table was updated on August 21, 2026.
+This table was updated on October 9, 2026.
 
 
 | CVE ID | Severity | CVE details URL | 
 | --- | --- | --- | 
 | CVE-2026-25547 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-25547](https://nvd.nist.gov/vuln/detail/CVE-2026-25547) | 
+| CVE-2026-40467 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-40467](https://nvd.nist.gov/vuln/detail/CVE-2026-40467) | 
 | CVE-2026-5450 | HIGH | [https://nvd.nist.gov/vuln/detail/CVE-2026-5450](https://nvd.nist.gov/vuln/detail/CVE-2026-5450) | 
 | CVE-2007-3641 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2007-3641](https://nvd.nist.gov/vuln/detail/CVE-2007-3641) | 
 | CVE-2019-10172 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2019-10172](https://nvd.nist.gov/vuln/detail/CVE-2019-10172) | 
@@ -59,5 +60,7 @@ This table was updated on August 21, 2026.
 | CVE-2026-30922 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-30922](https://nvd.nist.gov/vuln/detail/CVE-2026-30922) | 
 | CVE-2026-32597 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-32597](https://nvd.nist.gov/vuln/detail/CVE-2026-32597) | 
 | CVE-2026-33870 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-33870](https://nvd.nist.gov/vuln/detail/CVE-2026-33870) | 
+| CVE-2026-40468 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-40468](https://nvd.nist.gov/vuln/detail/CVE-2026-40468) | 
 | CVE-2026-4176 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-4176](https://nvd.nist.gov/vuln/detail/CVE-2026-4176) | 
 | CVE-2026-5928 | MEDIUM | [https://nvd.nist.gov/vuln/detail/CVE-2026-5928](https://nvd.nist.gov/vuln/detail/CVE-2026-5928) | 
+| CVE-2026-47059 | LOW | [https://nvd.nist.gov/vuln/detail/CVE-2026-47059](https://nvd.nist.gov/vuln/detail/CVE-2026-47059) | 
