@@ -7,19 +7,47 @@ The ranking metric computed by `.pageRank.mutate` can indicate the importance of
 
 The mutate variant of the PageRank algorithm performs the PageRank calculation over the entire graph unless the configuration parameters establish a filter, and each traversed node's calculated PageRank value is stored on that node as a property.
 
+## `.pageRank.mutate` syntax
+<a name="page-rank-mutate-syntax"></a>
+
+```
+CALL neptune.algo.pageRank.mutate(
+  {
+    writeProperty: {{A name for the new node property where the pagerank values will be written}},
+    numOfIterations: {{a small positive integer like 20 (optional)}},
+    dampingFactor: {{a positive float less than or equal to 1.0, like 0.85 (optional)}}
+    edgeLabels: [{{a list of edge labels for filtering (optional)}}],
+    vertexLabels: [{{a list of vertex labels for filtering (optional)}}], 
+    vertexLabel: {{a vertex label for filtering (optional) [deprecated]}},
+    concurrency: {{number of threads to use (optional)}},
+    traversalDirection: {{the direction of edge to follow (optional)}},
+    tolerance: {{a floating point number between 0.0 and 1.0 (inclusive)(optional)}},
+    edgeWeightProperty: {{the weight property to consider for weighted pageRank computation (optional)}},
+    edgeWeightType: {{The type of values associated with the edgeWeightProperty argument (optional)}},
+    sourceNodes: [{{A list of node IDs to personalize on (optional)}}],
+    sourceWeights: [{{A list of non-negative weights for the sourceNodes (optional)}}]
+  }
+)
+YIELD success
+RETURN success
+```
+
 ## `pageRank.mutate`  inputs
 <a name="page-rank-mutate-inputs"></a>
 
 Inputs for the `pageRank.mutate` algorithm are passed in a configuration object parameter that contains:
-+ **edgeLabels**   *(optional)*   –   *type:* a list of edge label strings;   *example:* `["route", {{...}}]`;   *default:* no edge filtering.
-
-  To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
 + **writeProperty** *(required)*   –   *type:* `string`;   *default: none*.
 
   A name for the new vertex property that will contain the computed PageRank values. If a property of that name already exists, it is overwritten.
++ **edgeLabels**   *(optional)*   –   *type:* a list of edge label strings;   *example:* `["route", {{...}}]`;   *default:* no edge filtering.
+
+  To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
++ **vertexLabels**   *(optional)*   –   *type:* a list of vertex label strings;   *example:* `["airport", {{...}}]`;   *default:* no vertex filtering.
+
+  To filter on one more vertex labels, provide a list of the ones to filter on. If no `vertexLabels` field is provided then all vertex labels are processed during traversal.
 + **vertexLabel** *(optional)*   –   *type:* `string`;   *default: none*.
 
-  A vertex label for vertex filtering. If a vertex label is provided, vertices matching the label are the only vertices that are included, including vertices in the input list.
+  [deprecated] A node label for node filtering. Note that it is deprecated. If vertexLabels is provided, vertexLabel is ignored.
 + **traversalDirection** *(optional)*   –   *type:* `string`;   *default:*` "outbound"`.
 
   The direction of edge to follow. Must be one of: `"outbound"` or `"inbound"`.
@@ -101,7 +129,7 @@ RETURN count(m)
 CALL neptune.algo.pageRank.mutate(
   {
     writeProperty:"PRS_RANK",
-    sourceNodes:[”101”, “103”, “105”],
+    sourceNodes:["101", "103", "105"],
     sourceWeights:[5, 3, 2],
     dampingFactor: 0.85,
     numOfIterations: 1,

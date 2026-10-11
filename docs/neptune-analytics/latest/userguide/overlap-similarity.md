@@ -78,7 +78,7 @@ CALL neptune.algo.overlapSimilarity(
   }
 )
 YIELD score
-RETURN n, m, score'
+RETURN n, m, score
 ```
 
 **Warning**  

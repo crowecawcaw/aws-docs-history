@@ -65,14 +65,14 @@ The example below is a standalone example, where the source vertex list is expli
 This query writes the degree values of all nodes in the graph to a new vertex property called `DEGREE`:
 
 ```
-CALL neptune.algo.degree.mutate({writeProperty: "DEGREE", edgeLabels: ["route]})
+CALL neptune.algo.degree.mutate({writeProperty: "DEGREE", edgeLabels: ["route"]})
 ```
 
 After using the mutate algorithm, the newly written properties can then be accessed in subsequent queries. For example, after the mutate algorithm call above, you could use the following query to retrieve the `.degree` property of specific nodes:
 
 ```
 MATCH (n) WHERE id(n) IN ["101", "102", "103"]
-RETURN n.DEGREE'
+RETURN n.DEGREE
 ```
 
 ## Sample output from `.degree.mutate`

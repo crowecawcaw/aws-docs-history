@@ -133,7 +133,7 @@ CALL neptune.algo.closenessCentrality(
 YIELD score
 RETURN n, score
 ORDER BY score DESC
-LIMIT 10"
+LIMIT 10
 ```
 
 ## Sample   `.closenessCentrality`   output

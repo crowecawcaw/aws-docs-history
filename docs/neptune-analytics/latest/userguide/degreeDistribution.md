@@ -75,7 +75,7 @@ This is a standalone example, where the in-degree distribution is computed for t
 CALL neptune.algo.degreeDistribution({
    vertexLabels: ['airport', 'country'],
    edgeLabels: ['route'],
-   traversalDirection: 'inbound',
+   traversalDirection: 'inbound'
 })
 YIELD output
 WITH output.statistics.mean as meanDegree

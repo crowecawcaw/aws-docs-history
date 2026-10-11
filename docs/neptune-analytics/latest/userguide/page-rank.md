@@ -67,7 +67,7 @@ The space complexity is O(\|V\|), where \|V\| is the number of vertices in the g
 **Note**  
  Neptune Analytics allows up to 8192 vertices in the personalization vector, sourceNodes. 
 
-## `.pageRank`  syntax
+## `.pageRank` syntax
 <a name="page-rank-syntax"></a>
 
 ```
@@ -77,7 +77,8 @@ CALL neptune.algo.pageRank(
     numOfIterations: {{a small positive integer like 20 (optional)}},
     dampingFactor: {{a positive float less than or equal to 1.0, like 0.85 (optional)}}
     edgeLabels: [{{a list of edge labels for filtering (optional)}}],
-    vertexLabel: {{a node label for filtering (optional)}},
+    vertexLabels: [{{a list of vertex labels for filtering (optional)}}], 
+    vertexLabel: {{a node label for filtering (optional) [deprecated]}},
     concurrency: {{number of threads to use (optional)}},
     traversalDirection: {{the direction of edge to follow (optional)}},
     tolerance: {{a floating point number between 0.0 and 1.0 (inclusive)(optional)}},
@@ -91,7 +92,7 @@ YIELD node, rank
 RETURN node, rank
 ```
 
-## `.pageRank`  inputs
+## `.pageRank` inputs
 <a name="page-rank-inputs"></a>
 + **a node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
@@ -110,9 +111,12 @@ RETURN node, rank
   + **edgeLabels**   *(optional)*   –   *type:* a list of edge label strings;   *example:* `["route", {{...}}]`;   *default:* no edge filtering.
 
     To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
+  + **vertexLabels**   *(optional)*   –   *type:* a list of vertex label strings;   *example:* `["airport", {{...}}]`;   *default:* no vertex filtering.
+
+    To filter on one more vertex labels, provide a list of the ones to filter on. If no `vertexLabels` field is provided then all vertex labels are processed during traversal.
   + **vertexLabel** *(optional)*   –   *type:* `string`;   *default: none*.
 
-    A vertex label for vertex filtering. If a vertex label is provided, vertices matching the label are the only vertices that are included, including vertices in the input list.
+    [deprecated] A node label for node filtering. Note that it is deprecated. If vertexLabels is provided, vertexLabel is ignored.
   + **concurrency**   *(optional)*   –   *type:* 0 or 1;   *default:* 0.
 
     Controls the number of concurrent threads used to run the algorithm.
@@ -136,7 +140,7 @@ RETURN node, rank
 
     A personalization vertex list ["101", ...]
     +  Can include 1 to 8192 vertices. 
-    +  If a `vertexLabel` is provided, nodes that do not have the given `vertexLabel` are ignored. 
+    +  If `vertexLabel` or `vertexLabels` is provided, nodes that do not have the given label are ignored. 
   + **sourceWeights** *(optional)*   –   *type:* `list`;   *default: none*.
 
     A personalization weight list. The weight distribution among the personalized vertices.
@@ -214,7 +218,7 @@ RETURN n, rank ORDER BY rank
 MATCH (n)
 CALL neptune.algo.pageRank( n, {
     tolerance: 0.001,
-    edgeLabels:["route”],
+    edgeLabels:["route"],
     sourceNodes:["101", "102"],
     sourceWeights:[1, 1.5]
 } )
@@ -228,8 +232,8 @@ RETURN node, rank
 MATCH (n)
 CALL neptune.algo.pageRank( n, {
     tolerance: 0.001,
-    edgeLabels:["route”],
-    sourceNodes:["101", "102"],
+    edgeLabels:["route"],
+    sourceNodes:["101", "102"]
 } )
 YIELD node, rank
 RETURN node, rank
@@ -241,7 +245,7 @@ RETURN node, rank
 MATCH(n)
 CALL neptune.algo.pageRank( n, {
     tolerance: 0.001,
-    edgeLabels:["route”],
+    edgeLabels:["route"],
     sourceNodes:["101", "102"],
     sourceWeights:[2, 3]
 } )
@@ -249,7 +253,7 @@ YIELD node, rank
 RETURN node, rank
 ```
 
-## Sample   `.pageRank`   output
+## Sample `.pageRank` output
 <a name="page-rank-sample-output"></a>
 
 Here is an example of the output returned by .pageRank when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:

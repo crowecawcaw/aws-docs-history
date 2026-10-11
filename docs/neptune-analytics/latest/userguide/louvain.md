@@ -24,10 +24,10 @@
 +  Can detect hierarchical community structures 
 
 **Note**  
- There can only be one Louvain algorithm call running at a time. 
- Louvain is expected to run a long time, hence please set the query timeout to be a large number to avoid query timeout. See [ query-timeout-milliseconds](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/query-APIs-execute-query.html#query-APIs-execute-query-input) for more information on setting upper bounds on query run time. 
+ There can only be one Louvain or Leiden algorithm call running at a time. 
+ Louvain is expected to run a long time. Set the query timeout to a large number to avoid query timeout. See [ query-timeout-milliseconds](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/query-APIs-execute-query.html#query-APIs-execute-query-input) for more information on setting upper bounds on query run time. 
 
-## `.louvain`  syntax
+## `.louvain` syntax
 <a name="louvain-syntax"></a>
 
 ```
@@ -49,11 +49,11 @@ YIELD node, community
 RETURN node, community
 ```
 
-## `.louvain`  inputs
+## `.louvain` inputs
 <a name="louvain-inputs"></a>
 + **a node list**   *(required)*   –   *type:* `Node[]` or `NodeId[]`;   *default: none*.
 
-   The node or nodes for which the algorithm will return the computed community ids. If the algorithm is called following a MATCH clause (query algo integration), the node query list is the result returned by the MATCH clause. 
+   The node or nodes for which the algorithm will return the computed community ids. If the algorithm is called following a MATCH clause, the MATCH clause returns the node query list. 
 + 
 
 **a configuration object that contains:**
@@ -65,7 +65,7 @@ RETURN node, community
     To filter on one more edge labels, provide a list of the ones to filter on. If no `edgeLabels` field is provided then all edge labels are processed during traversal.
   + **edgeWeightProperty**   *(optional)*   –   *type:* `string`;   *default: none*.
 
-     A string indicating the name of the edge weight property used as weight in Louvain. When the edgeWeightProperty is not specified, each edge is treated equally, i.e., the default value of the edge weight is 1. 
+     A string indicating the name of the edge weight property used as weight in Louvain. When the edgeWeightProperty is not specified, each edge is treated equally (that is, the default value of the edge weight is 1). 
 
      Note that if multiple properties exist on the edge with the specified name, one of these values will be sampled at random. 
   + **edgeWeightType**   *(required if edgeWeightProperty is present)*   –   *type:* `string; valid values: "int", "long", "float", "double"`;   *default: none*.
@@ -89,7 +89,7 @@ RETURN node, community
 
      If set to `0`, uses all available threads to complete execution of the individual algorithm invocation. If set to `1`, uses a single thread. This can be useful when requiring the invocation of many algorithms concurrently.
 
-## `.louvain`  outputs
+## `.louvain` outputs
 <a name="louvain-outputs"></a>
 
 For each source node:
@@ -98,7 +98,7 @@ For each source node:
 
 If the input node list is empty, the output is also empty.
 
-## `.louvain`  query examples
+## `.louvain` query examples
 <a name="louvain-examples"></a>
 
  Unweighted example: 
@@ -157,10 +157,10 @@ RETURN n, community
 ```
 
 **Warning**  
- The Louvain algorithm requires exclusive processing. Neptune will process only one Louvain algorithm execution at a time. Any subsequent algorithm requests submitted before the completion of an active process will result in an error response. 
+ The Louvain algorithm requires exclusive processing. Neptune will process only one Louvain or Leiden algorithm execution at a time. Any subsequent algorithm requests submitted before the completion of an active process will result in an error response. 
 
 ## Sample `.louvain` output
-<a name="louvain-mutate-sample-output"></a>
+<a name="louvain-sample-output"></a>
 
 Here is an example of the output returned by .louvain when run against the [ sample air-routes dataset [nodes]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-nodes.csv), and [ sample air-routes dataset [edges]](https://github.com/krlawrence/graph/blob/main/sample-data/air-routes-latest-edges.csv), when using the following query:
 
@@ -189,7 +189,6 @@ cat /tmp/out.txt
      "lon": -77.455802919999996,
      "runways": 4,
      "longest": 11500,
-     "communityId": 2357352929951971,
      "city": "Washington D.C.",
      "region": "US-VA",
      "desc": "Washington Dulles International Airport",
@@ -212,7 +211,6 @@ cat /tmp/out.txt
      "lon": -73.778900149999998,
      "runways": 4,
      "longest": 14511,
-     "communityId": 2357352929951971,
      "city": "New York",
      "region": "US-NY",
      "desc": "New York John F. Kennedy International Airport",
@@ -223,4 +221,5 @@ cat /tmp/out.txt
  },
  "community": 2357352929951971
  }]
+}
 ```
