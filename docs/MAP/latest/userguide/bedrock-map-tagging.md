@@ -5,12 +5,9 @@
 
  This guide explains how to tag Amazon Bedrock and Amazon Bedrock AgentCore workloads to report MAP spend and generate any appropriate incentives using the AWS CLI. 
 
-![MAP tagging flowchart: Projects for bedrock-mantle; IAM principal or resource tagging for bedrock-runtime/AgentCore.](https://docs.aws.amazon.com/MAP/latest/userguide/images/bedrock-tagging-flowchart.png)
+ For more information about Amazon Bedrock cost management and tagging methods, see [Track usage and costs in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/cost-management.html) in the *Amazon Bedrock User Guide*. 
 
-
- The flowchart shows how to choose a tagging method. If you use the bedrock-mantle endpoint (Responses API, Chat Completions API, or Messages API), use Projects tagging. If you use bedrock-runtime or AgentCore (InvokeModel, Converse, AgentCore APIs), choose either IAM principal tagging (recommended) or resource tagging with application inference profiles. 
-
- There are three methods to tag your Amazon Bedrock workloads for MAP: 
+ Use the following guidance to choose a tagging method. There are three methods to tag your Amazon Bedrock workloads for MAP: 
 + **IAM principal tagging (recommended)** — Tag the IAM role used to invoke Bedrock APIs with `map-migrated`. This is the simplest approach and requires no changes to your application code or additional Bedrock resources. This method is only available effective June 8, 2026.
 + **Resource tagging (application inference profiles)** — Create an application inference profile, tag it with `map-migrated`, and invoke models through the profile. This method provides per-model and per-region cost granularity but requires creating and managing additional Bedrock resources.
 + **Projects tagging (bedrock-mantle endpoint)** — Create an Amazon Bedrock project, tag it with `map-migrated`, and pass the project ID in your API calls to the bedrock-mantle endpoint. This method is available for the Responses API, Chat Completions API, and Messages API.
