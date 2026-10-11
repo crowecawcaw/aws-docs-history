@@ -19,11 +19,11 @@ WorkSpaces supports several different operating systems (OS), streaming protocol
 | Operating System | Licenses | Streaming protocols | Supported bundles | Lifecycle policy / retirement date | 
 | --- | --- | --- | --- | --- | 
 | Windows Server 2016 | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [January 12, 2027](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016) | 
-| Windows Server 2019 | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019) | 
-| Windows Server 2022 | Included | DCV, PCoIP | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022) | 
-| Windows Server 2025 | Included | DCV | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [November 14, 2034](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025) | 
-| Windows 10 | Bring Your Own License (BYOL) | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [In support](https://learn.microsoft.com/en-us/windows/release-health/release-information) | 
-| Windows 11 | Bring Your Own License (BYOL) | DCV | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [In support](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information) | 
+| Windows Server 2019 | Included | DCV, PCoIP, BYOP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [January 9, 2029](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2019) | 
+| Windows Server 2022 | Included | DCV, PCoIP, BYOP | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022) | 
+| Windows Server 2025 | Included | DCV, BYOP | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [November 14, 2034](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2025) | 
+| Windows 10 | Bring Your Own License (BYOL) | DCV, PCoIP, BYOP | Value, Standard, Performance, Power, PowerPro, GraphicsPro, Graphics G4dn | [In support](https://learn.microsoft.com/en-us/windows/release-health/release-information) | 
+| Windows 11 | Bring Your Own License (BYOL) | DCV, BYOP | Standard, Performance, Power, PowerPro, GeneralPurpose, Graphics G4dn, Graphics G6, Graphics G7 | [In support](https://learn.microsoft.com/en-us/windows/release-health/windows11-release-information) | 
 | Amazon Linux 2 (deprecated) | Included | DCV, PCoIP | Value, Standard, Performance, Power, PowerPro | [June 30, 2026 (end-of-life)](https://docs.aws.amazon.com/workspaces/latest/adminguide/manage_linux_workspace.html) | 
 | Ubuntu 22.04 LTS | Included | DCV | Value, Standard, Performance, Power, PowerPro, Graphics G4dn | [June, 2032](https://ubuntu.com/about/release-cycle) | 
 | Ubuntu 24.04 LTS | Included | DCV | Standard, Performance, Power, PowerPro | [June, 2034](https://ubuntu.com/about/release-cycle) | 
@@ -33,7 +33,7 @@ WorkSpaces supports several different operating systems (OS), streaming protocol
 | Red Hat Enterprise Linux 9 | Included | DCV | Standard, Performance, Power, PowerPro | [May 31, 2032](https://access.redhat.com/support/policy/updates/errata) | 
 
 **Note**  
-Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS support.
+Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS Support.
 Nested virtualization is not supported on Windows Server 2016-based WorkSpaces. If you require nested virtualization for running Docker Desktop, WSL2, or other hypervisor-dependent tools, migrate your WorkSpace to a newer operating system version (Windows Server 2019 or later). For more information about migration, see [Migrate a WorkSpace in WorkSpaces Personal](migrate-workspaces.md). For more information about nested virtualization, see [Nested virtualization for WorkSpaces Personal](https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html).
 
 **Topics**

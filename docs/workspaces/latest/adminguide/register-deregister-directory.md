@@ -5,7 +5,7 @@
 
 To allow WorkSpaces to use an existing Directory Service directory, you must register it with WorkSpaces. After you register a directory, you can launch WorkSpaces in the directory.
 
-**Requirements:** To register a directory for use with WorkSpaces, it must meet the following requirement:
+**Requirements:** To register a directory for use with WorkSpaces, it must meet the following requirements:
 + If you're using AWS Managed Microsoft AD or Simple AD, your directory can be in a dedicated private subnet, as long as the directory has access to the VPC where the WorkSpaces are located.
 + For more information about directory and VPC design, see the [*Best Practices for Deploying Amazon WorkSpaces*](https://d1.awsstatic.com/whitepapers/Best-Practices-for-Deploying-Amazon-WorkSpaces.pdf) whitepaper.
 
@@ -34,6 +34,9 @@ If you do not know which subnets to choose, select **No Preference**.
 1. Choose **Register**. Initially the value of **Registered** is `REGISTERING`. After registration is complete, the value is `Yes`.
 
 After you've registered the Directory Service directory, you can create a personal WorkSpace. For more information, see [Create a WorkSpace in WorkSpaces Personal](create-workspaces-personal.md).
+
+**Note**  
+If your organization requires FedRAMP authorization or DoD SRG compliance, decide whether to use FIPS 140-2 Validated Mode endpoint encryption. Make this decision before you create WorkSpaces in this directory. You can enable it later only if the directory is new or all existing WorkSpaces already use it. For more information, see [Configure FedRAMP authorization or DoD SRG compliance for WorkSpaces Personal](fips-encryption.md).
 
 When you are finished using the directory with WorkSpaces, you can deregister it. Note that you must deregister a directory before you can delete it. If you want to deregister and delete a directory, you must first find and remove all the applications and services that are registered to the directory. For more information, see [Delete Your Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_delete.html) in the *AWS Directory Service Administration Guide*. 
 

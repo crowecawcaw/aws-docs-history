@@ -25,6 +25,7 @@ Before you set up VPC endpoints for WorkSpaces, be aware of the following prereq
   + WS Broker
   + WorkSpaces Endpoints for SAML Single Sign-On (SSO)
 + The network that your users' devices are connected must be able to route traffic to the VPC endpoint.
++ Your users might connect from a network outside the VPC, such as an on-premises network or a different VPC. In that case, the outside network must also be able to resolve the endpoint's private DNS name. The Amazon Route 53 Resolver for the endpoint's VPC cannot be used from outside that VPC. For more information, see [Access AWS services through AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html).
 + You must have an IAM permissions policy for the IAM user or IAM role in your AWS account to perform the `ec2:DescribeVpcEndpoints` API action.
 + WorkSpaces streaming VPC endpoints currently do not support FIPS encryption. If you already enabled FIPS encryption for a directory, you need to disable FIPS encryption before configuring a VPC endpoint.
 + AWS Global Accelerator (AGA) integration is not available when streaming through a VPC endpoint.

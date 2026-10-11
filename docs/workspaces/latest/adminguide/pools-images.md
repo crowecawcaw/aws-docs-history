@@ -25,7 +25,7 @@ WorkSpaces Pools supports several different operating systems (OS), streaming pr
 | Windows Server 2022 | Included | DCV | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn | [October 14, 2031](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2022) | 
 
 **Note**  
-Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support.
+Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS Support.
 
 **Topics**
 + [Bundle options for WorkSpaces Pools](pools-custom-images-bundles.md)

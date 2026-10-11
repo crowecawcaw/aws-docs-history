@@ -14,4 +14,4 @@ The following table provides information about the licensing, streaming protocol
 | Windows Server 2022 | Included | DCV | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn | 
 
 **Note**  
-Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support.
+Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS Support.

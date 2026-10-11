@@ -12,7 +12,7 @@ The primary difference between custom bundles that you can use for WorkSpaces Pe
 | Operating System | Licenses | Streaming protocols | Supported bundles | 
 | --- | --- | --- | --- | 
 | Windows Server 2019 | Included | DCV | Value, Standard, Performance, Power, PowerPro | 
-| Windows Server 2022 | Included | DCV | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn |     Operating system versions that are no longer supported by the vender are not guaranteed to work and are not supported by AWS support.    ](instance-types.md#instance-types.title).
+| Windows Server 2022 | Included | DCV | Standard, Performance, Power, PowerPro, Graphics.G4dn, GraphicsPro.G4dn |     Operating system versions that are no longer supported by the vendor are not guaranteed to work and are not supported by AWS Support.    ](instance-types.md#instance-types.title).
 + [Update a custom bundle for WorkSpaces Personal](update-custom-bundle.md).
 + [Copy a custom image in WorkSpaces Personal](copy-custom-image.md).
 + [Share or unshare a custom image in WorkSpaces Personal](share-custom-image.md).
