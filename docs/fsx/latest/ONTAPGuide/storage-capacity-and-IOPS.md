@@ -102,6 +102,7 @@ Here are a few important items to consider when decreasing a file system's SSD s
 **Note**  
 For more information about the maximum number of SSD IOPS that you can provision for your FSx for ONTAP file system, see [Impact of throughput capacity on performance](performance.md#impact-throughput-cap-performance).
   +  **User-provisioned** mode – You must provide an IOPS value that is equal to or higher than your currently provisioned IOPS. When decreasing SSD capacity, you can retain additional user-provisioned SSD IOPS as long as they don't exceed the maximum SSD IOPS supported by the smaller aggregate (50 IOPS per GB of requested SSD capacity). If your provisioned IOPS are higher than the maximum supported by the smaller aggregate, reduce IOPS before decreasing SSD capacity. 
++  **Volume limit per HA pair** – Amazon FSx doesn't support decreasing SSD storage capacity if any HA pair on your file system has reached the limit of 500 volumes. 
 +  **Unsupported volume types** – Amazon FSx does not support decreasing storage capacity on file systems with SnapLock volumes, FlexClones, offline volumes, or data protection (DP) volumes that do not contain any snapshots. 
 +  **Unsupported Operations During Shrink ** – You cannot offline volumes, move volumes, create FlexClones, create SnapLock volumes, or modify storage efficiency settings of volumes during the decrease operation. 
 

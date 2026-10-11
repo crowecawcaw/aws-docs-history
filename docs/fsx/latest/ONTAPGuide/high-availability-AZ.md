@@ -123,8 +123,11 @@ The following table summarizes the subnet, elastic network interface, and IP add
 | --- | --- | --- | --- | 
 | Number of subnets | 1 | 1 | 2 | 
 | Number of elastic network interfaces | 2 | 2 per HA pair | 2 | 
-| Number of IP addresses per ENI | 1 \+ the number of SVMs in the file system | HA pair count \+ HA pair count multiplied by the number of SVMs in the file system | 1 \+ the number of SVMs in the file system | 
+| Number of IP addresses per file system | 3 \+ (3 x the number of SVMs in the file system) | 1 \+ (2 x HA pair count) \+ (3 x HA pair count x the number of SVMs in the file system) | 2 x (1 \+ the number of SVMs in the file system) | 
 | Number of VPC route table routes | N/A | N/A | 1 \+ the number of SVMs in the file system | 
+
+**Note**  
+The IP address counts in the preceding table are for IPv4 addresses. A file system that uses the dual-stack network type also requires the same number of IPv6 addresses, which are assigned from the IPv6 CIDR blocks of the subnets that you associate with your file system. For more information, see [Managing network type](manage-network-type.md).
 
 Once a file system or SVM is created, its IP addresses doesn't change until the file system is deleted.
 
