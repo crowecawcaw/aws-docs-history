@@ -6,7 +6,10 @@
 This page explains how to delete an AWS DevOps Agent agent space and remove the IAM resources that were created in your AWS account when you enabled AWS DevOps Agent. AWS DevOps Agent does not provide an automatic disable or uninstall action. You remove resources by following the procedures on this page.
 
 **Important**  
-** Deleting the agent space permanently removes all investigation data, chat history, agent journals, recommendations, and the application topology graph. Deleting IAM roles removes the agent's access to your AWS account and users' access to the operator web app. These actions cannot be undone.
+** Deleting the agent space permanently removes all investigation data, chat history, agent journals, recommendations, and the application topology graph. You lose access to the data as soon as you delete the agent space. AWS DevOps Agent then permanently deletes it from all its systems within 30 days. For more information about the deletion timeline, see [How AWS DevOps Agent deletes your data](#how-aws-devops-agent-deletes-your-data).
+
+**Important**  
+** Deleting the IAM roles removes the agent's access to your AWS account and users' access to the operator web app. You can't undo these actions.
 
 ## Prerequisites
 <a name="prerequisites"></a>
@@ -40,6 +43,15 @@ The exact role and policy names depend on your onboarding path. Use the AWS CLI 
 <a name="delete-the-agent-space"></a>
 
 Deleting the agent space removes its service association, its operator app configuration, and all investigation data, chat history, agent journals, recommendations, and the application topology graph.
+
+### How AWS DevOps Agent deletes your data
+<a name="how-aws-devops-agent-deletes-your-data"></a>
+
+Deletion is permanent, and the timeline matters if you need to preserve any data before you delete it. When you delete an agent space, AWS DevOps Agent deletes its data in two stages:
++ **Immediately:** The data is marked for deletion and is no longer accessible through the service. You can no longer reach it through the console, the operator web app, the AWS CLI, or the API.
++ **Within 30 days:** AWS DevOps Agent permanently deletes the data from all its systems.
+
+You can't restore an agent space or its data after you delete it, including during the 30-day period. If you need to keep any investigation findings, chat history, or other information, save a copy before you delete the agent space.
 
 ### Using the AWS DevOps Agent console
 <a name="using-the-aws-devops-agent-console"></a>

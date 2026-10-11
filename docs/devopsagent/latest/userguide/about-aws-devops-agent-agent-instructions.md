@@ -59,6 +59,7 @@ The managed agents available for agent-specific instructions are:
 + **Incident mitigation** - Short-term remediation and long-term fix recommendations.
 + **Incident UI** – Generation of an investigation's outputs, including those posted to other platforms.
 + **Evaluation** - Agent performance scoring and policy compliance checks.
++ **Grader** – Quality assessment of a completed investigation. This is the agent behind a Review. For more information, see [Reviewing investigations](working-with-devops-agent-reviewing-investigations.md).
 + **Release testing** – Automated UI and API testing against deployed web applications and REST APIs.
 
 ## Content size guidance
@@ -116,7 +117,7 @@ Each agent has exactly one set of instructions. When you save new content, it ov
 
 1. Choose the **Instructions** tab.
 
-1. Choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, **Incident UI**, **Evaluation**, or **Release testing**.
+1. Choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, **Incident UI**, **Evaluation**, **Grader**, or **Release testing**.
 
 1. Enter your markdown instructions in the editor.
 

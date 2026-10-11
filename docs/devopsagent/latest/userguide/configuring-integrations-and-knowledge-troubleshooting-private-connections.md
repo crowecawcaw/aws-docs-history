@@ -63,6 +63,8 @@ Verify the following, in order:
 
 1. **No IAM policy or SCP is blocking the service-linked role.** The service-managed resource gateway is created through a [service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). If your organization has [service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that restrict Amazon VPC Lattice or Amazon EC2 API actions, ensure they permit the service-linked role to create these resources.
 
+1. **Your account owns the virtual private cloud (VPC).** In service-managed mode, the resource gateway must be in a VPC that your account owns. Creation fails if another account shares the VPC with you through AWS Resource Access Manager (AWS RAM). In this case, the `failureMessage` field shows the message `The subnet with ID subnet-1234567890abcdef0 cannot be found` with your subnet ID. For more information about how to use a shared VPC, see [Creating a private connection for a shared VPC](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
+
 If the connection continues to fail after you verify all of these items, contact AWS Support.
 
 ## The connection is Active, but capability registration fails with a reachability error

@@ -104,6 +104,8 @@ Private connections are account-level resources. After you create a private conn
 + Give the gateway's VPC a route to the target through VPC peering, AWS Transit Gateway, or a virtual private network (VPN) connection. The gateway stays in this account, and traffic reaches the target over that connection. The route has to exist in the gateway's VPC, not only in the account where the target runs.
 + Use self-managed mode. Create the resource gateway and resource configuration in the account where the target runs, share the resource configuration with this account through AWS Resource Access Manager (AWS RAM), accept the share, then create the private connection with that resource configuration's ARN. See [Advanced setup using existing VPC Lattice resources](#advanced-setup-using-existing-vpc-lattice-resources).
 
+In service-managed mode, the console lists only the virtual private clouds (VPCs) that your account owns. Service-managed mode can't use a VPC that another account shares through AWS Resource Access Manager (AWS RAM). For more information about shared VPCs, see [Creating a private connection for a shared VPC](#creating-a-private-connection-for-a-shared-vpc).
+
 ### Create a private connection using the console
 <a name="create-a-private-connection-using-the-console"></a>
 
@@ -373,6 +375,67 @@ aws devops-agent create-private-connection \
 ```
 
 For more details on setting up VPC Lattice resource gateways and resource configurations, see the [Amazon VPC Lattice User Guide](https://docs.aws.amazon.com/vpc-lattice/latest/ug/).
+
+### Creating a private connection for a shared VPC
+<a name="creating-a-private-connection-for-a-shared-vpc"></a>
+
+In a hub-and-spoke network, a network account shares its virtual private cloud (VPC) subnets through AWS Resource Access Manager (AWS RAM). Only the account that owns a VPC can create a resource gateway in its shared subnets. For this reason, the network account creates the Amazon VPC Lattice (VPC Lattice) resources for the connection. After that, the workload account creates a self-managed private connection that uses these resources. For more information about resource gateways in shared subnets, see [Considerations](https://docs.aws.amazon.com/vpc-lattice/latest/ug/resource-gateway.html#resource-gateway-considerations) in the *Amazon VPC Lattice User Guide*.
+
+Before you create the connection, confirm that you meet the following prerequisites:
++ You can create VPC Lattice resources and AWS RAM resource shares in the network account.
++ You can create private connections in the workload account that contains your Agent Space.
++ You use the same AWS Region for the shared VPC and your Agent Space.
++ You can reach your target service from subnets in the shared VPC.
+
+To share a resource configuration (console):
+
+1. In the network account, open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+1. Create a resource gateway in the shared VPC subnets.
+
+1. On this resource gateway, create a resource configuration of type `SINGLE` for your target service address and port.
+
+1. Share the resource configuration with the workload account through AWS RAM.
+
+1. If the workload account receives a resource share invitation, accept it in the AWS RAM console.
+
+If your organization turned on resource sharing in AWS Organizations, AWS RAM accepts the share automatically. For more information about resource configurations, see [Resource configurations for VPC resources](https://docs.aws.amazon.com/vpc-lattice/latest/ug/resource-configuration.html) in the *Amazon VPC Lattice User Guide*. For more information about sharing, see [Share your VPC Lattice entities](https://docs.aws.amazon.com/vpc-lattice/latest/ug/sharing.html) in the same guide.
+
+To create the private connection (console):
+
+1. In the workload account, open the AWS DevOps Agent console at https://console.aws.amazon.com/devops-agent/.
+
+1. In the navigation pane, choose **Capability Providers**.
+
+1. On the **Private connections** tab, choose **Create a new connection**.
+
+1. For **Name**, enter a name for the connection.
+
+1. Select the **Use existing resource configuration** check box.
+
+1. For **Resource configuration**, select the shared resource configuration.
+
+1. Choose **Create connection**.
+
+To create the private connection (AWS CLI):
+
+1. Open a terminal with the AWS Command Line Interface (AWS CLI) and credentials for the workload account.
+
+1. Run the following AWS CLI command with your resource configuration Amazon Resource Name (ARN) in place of the example ARN:
+
+```
+aws devops-agent create-private-connection \
+    --name my-shared-vpc-connection \
+    --mode '{
+        "selfManaged": {
+            "resourceConfigurationId": "arn:aws:vpc-lattice:us-east-1:111122223333:resourceconfiguration/rcfg-0123456789EXAMPLE"
+        }
+    }'
+```
+
+The command needs the full ARN of the shared resource configuration. A resource configuration ID without the ARN refers to a resource configuration in your own account. The response shows the connection status as `CREATE_IN_PROGRESS`.
+
+Traffic to your target service comes from the elastic network interfaces (ENIs) of the resource gateway. The network account manages the security groups of these ENIs. For more information about firewall rules, see [Configuring firewall rules for private connections](#configuring-firewall-rules-for-private-connections). For more information about how to use the connection, see [Use a private connection with a capability provider](#use-a-private-connection-with-a-capability-provider).
 
 ### Cross-region connectivity
 <a name="cross-region-connectivity"></a>

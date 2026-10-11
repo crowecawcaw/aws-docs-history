@@ -98,6 +98,29 @@ This is useful when an investigation stops short of an answer, or when new infor
 
 You can also steer an investigation by talking to your DevOps Agent in Chat. For more information, see [On Demand DevOps Tasks](working-with-devops-agent-on-demand-devops-tasks.md).
 
+## Fork an investigation
+<a name="fork-an-investigation"></a>
+
+A fork is a new investigation that starts from a message in an existing investigation's timeline. A fork inherits the history up to that message, then follows a new direction. The original investigation is not affected. Use a fork to test an alternative hypothesis without losing the original analysis.
+
+### Creating a fork
+<a name="creating-a-fork"></a>
+
+To create a fork:
+
+1. In an investigation's **Timeline** tab, choose **Fork from here** (the branch icon) beside an agent or user message.
+
+1. For **Fork starting point**, describe what the fork should investigate differently.
+
+1. Choose **Create fork**.
+
+The fork opens with the original's priority and a **Forked from** link back to its parent. Choose **Show parent steps** to view the inherited history.
+
+### Viewing forks from a message
+<a name="viewing-forks-from-a-message"></a>
+
+A forked message shows an **N forks from this message** control. Expand it to see each fork's name and status, and choose a fork to open it.
+
 ## Incident triage
 <a name="incident-triage"></a>
 

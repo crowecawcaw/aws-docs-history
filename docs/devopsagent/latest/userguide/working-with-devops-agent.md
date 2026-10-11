@@ -22,6 +22,11 @@ Production operations capabilities help you detect, respond to, and prevent inci
 
 Custom agents let you define your own AI agents tailored to your infrastructure and workflows. You configure a system prompt, select which MCP tools the agent can use, and assign skills that provide domain knowledge. Custom agents run on demand or on a schedule to automate recurring operational work such as generating reports, auditing configurations, and analyzing trends. For more information, see [Custom Agents](working-with-devops-agent-custom-agents-index.md).
 
+## Reviewing investigations
+<a name="reviewing-investigations"></a>
+
+After an investigation completes, you can launch a Review to get an on-demand quality assessment of that investigation. For more information about launching and interpreting Reviews, see [Reviewing investigations](working-with-devops-agent-reviewing-investigations.md).
+
 ## Accessing DevOps Agent
 <a name="accessing-devops-agent"></a>
 

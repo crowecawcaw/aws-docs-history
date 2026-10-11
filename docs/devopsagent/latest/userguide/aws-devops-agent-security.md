@@ -53,6 +53,7 @@ For Agent Spaces in a European Region, AWS DevOps Agent uses the EU cross-Region
 <a name="global-cross-region-inference-for-specific-regions"></a>
 
 For the following Regions, the geography-based routing described previously does not apply. Instead, AWS DevOps Agent will automatically select the optimal region globally to process your inference requests.
++ Asia Pacific (Seoul) – `ap-northeast-2`
 + Asia Pacific (Singapore) – `ap-southeast-1`
 + Asia Pacific (Mumbai) – `ap-south-1`
 + South America (São Paulo) – `sa-east-1`
@@ -91,6 +92,8 @@ AWS DevOps Agent encrypts all customer data:
 <a name="data-storage-and-retention"></a>
 
 Data is stored in the region where your Agent Space is created, while inference processing may occur within your geography as described in the preceding Amazon Bedrock usage section.
+
+When you delete an Agent Space, you lose access to its data immediately. AWS DevOps Agent then permanently deletes the data from all its systems within 30 days. For more information about the deletion timeline, see [How AWS DevOps Agent deletes your data](deleting-an-agent-space.md).
 
 ### Personal identifiable information (PII)
 <a name="personal-identifiable-information-pii"></a>
@@ -156,7 +159,7 @@ AWS DevOps Agent supports several integration types, each with its own security 
 + **Native bidirectional integrations** – Built-in integrations that can send data to the agent and receive updates from the agent. This uses the vendor’s authentication methods
 + **MCP servers** – Remote Model Context Protocol servers that use OAuth 2.0 authentication flows and API keys to securely communicate with external systems.
 + **Webhook triggers** – Investigation triggers from remote services such as tickets or observability systems. Webhooks use either Hash-based Message Authentication Code (HMAC) signatures or an API key (bearer token) for security.
-+ **Outbound communication** – Integrations like Slack and ticketing systems receive updates from the agent but do not yet support bidirectional communication.
++ **Outbound communication** – Integrations like Slack and ticketing systems receive updates from the agent. Slack also supports bidirectional communication in private channels, where you can mention the app to start and continue conversations with the agent. For more information about connecting Slack, see [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.html).
 
 ### Registration providers
 <a name="registration-providers"></a>
@@ -199,6 +202,13 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     + `13.114.228.89`
     + `54.150.140.28`
     + `46.51.224.121`
+  + Asia Pacific (Seoul) (ap-northeast-2)
+    + `3.34.151.190`
+    + `43.201.166.78`
+    + `43.202.86.139`
+    + `3.34.18.33`
+    + `54.180.200.45`
+    + `54.116.192.122`
   + Europe (Frankfurt) (eu-central-1)
     + `18.158.110.140`
     + `52.57.96.160`
@@ -220,6 +230,13 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     + `100.56.22.59`
     + `3.234.39.4`
     + `44.215.92.10`
+  + US East (Ohio) (us-east-2)
+    + `16.58.244.57`
+    + `18.221.155.24`
+    + `52.15.165.125`
+    + `3.140.232.11`
+    + `3.18.40.86`
+    + `3.136.175.223`
   + US West (Oregon) (us-west-2)
     + `34.212.16.133`
     + `52.89.67.212`
@@ -262,6 +279,20 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     + `16.60.67.127`
     + `3.9.91.248`
     + `35.179.253.69`
+  + Europe (Paris) (eu-west-3)
+    + `15.224.33.200`
+    + `15.224.52.205`
+    + `35.181.29.248`
+    + `15.236.156.168`
+    + `35.181.249.41`
+    + `15.188.203.217`
+  + Europe (Stockholm) (eu-north-1)
+    + `13.49.123.102`
+    + `13.49.215.189`
+    + `16.170.2.94`
+    + `51.21.185.240`
+    + `13.51.143.119`
+    + `13.62.195.255`
 
 ### Outbound traffic from your VPC to AWS DevOps Agent
 <a name="outbound-traffic-from-your-vpc-to-aws-devops-agent"></a>

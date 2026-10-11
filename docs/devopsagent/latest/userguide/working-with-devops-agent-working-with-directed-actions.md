@@ -233,8 +233,8 @@ Any agent consumer can drive this flow the same way, whether an AI assistant suc
 + **Role validation status** – Monitor `agentElevatedRoleArnStatus` on your AWS associations (through `GetAssociation` or `ListAssociations`) to confirm elevated roles remain in the `valid` state.
 + **AWS CloudTrail** – Directed actions performed in your AWS accounts appear in CloudTrail. The assumed-role session carries a source identity that attributes the action to the approving operator. You can trace every directed action back to the human who approved it.
 
-## Troubleshooting
-<a name="troubleshooting"></a>
+## Troubleshooting elevated role registration for AWS DevOps Agent directed actions
+<a name="troubleshooting-elevated-role-registration-for-aws-devops-agent-directed-actions"></a>
 
 **A registered role stays in `pending-confirmation`.** This applies to source (secondary) accounts, where validation is asynchronous. Validation normally completes within a few minutes. If the status does not transition, verify the role exists, and re-register the role ARN to trigger validation again.
 
