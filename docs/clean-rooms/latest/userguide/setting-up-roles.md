@@ -238,8 +238,8 @@ The following example policy supports the permissions needed to read AWS Glue me
                    "athena:GetQueryResults"
                ],
                "Resource": [
-                   "arn:aws:athena:{{region}}:{{accountId}}:workgroup/{{workgroup}}",
-                   "arn:aws:athena:{{region}}:{{accountId}}:datacatalog/{{federatedCatalogName}}"
+                   "arn:aws:athena:{{us-east-1}}:{{111122223333}}:workgroup/{{workgroup}}",
+                   "arn:aws:athena:{{us-east-1}}:{{111122223333}}:datacatalog/{{federatedCatalogName}}"
                ]
            },
            {
@@ -250,10 +250,10 @@ The following example policy supports the permissions needed to read AWS Glue me
                    "glue:GetCatalog"
                ],
                "Resource": [
-                   "arn:aws:glue:{{region}}:{{accountId}}:catalog",
-                   "arn:aws:glue:{{region}}:{{accountId}}:catalog/{{federatedCatalogName}}",
-                   "arn:aws:glue:{{region}}:{{accountId}}:database/{{federatedCatalogName}}/{{databaseName}}",
-                   "arn:aws:glue:{{region}}:{{accountId}}:table/{{federatedCatalogName}}/{{databaseName}}/{{tableName}}"
+                   "arn:aws:glue:{{us-east-1}}:{{111122223333}}:catalog",
+                   "arn:aws:glue:{{us-east-1}}:{{111122223333}}:catalog/{{federatedCatalogName}}",
+                   "arn:aws:glue:{{us-east-1}}:{{111122223333}}:database/{{federatedCatalogName}}/{{databaseName}}",
+                   "arn:aws:glue:{{us-east-1}}:{{111122223333}}:table/{{federatedCatalogName}}/{{databaseName}}/{{tableName}}"
                ]
            },
            {
@@ -272,7 +272,7 @@ The following example policy supports the permissions needed to read AWS Glue me
                ],
                "Condition": {
                    "StringEquals": {
-                       "aws:ResourceAccount": "{{accountId}}"
+                       "aws:ResourceAccount": "{{111122223333}}"
                    }
                }
            },

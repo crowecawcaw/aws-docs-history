@@ -245,7 +245,7 @@ To create a collaboration and run a custom analysis, the companies do the follow
 
 1. Company A creates an `impressions` configured table.
 
-1. Company A adds a custom analysis rule to the `impressions` configured table with a minimum aggregation threshold so that every returned row represents at least 100 distinct users. Company A sets `user_id` as the identity column and overrides the threshold to 5 for the lower-sensitivity `campaign_id` output column. Company A also allows literal comparison on `campaign_id` and `event_date` so that Company B can scope a query to one campaign and a date range. Every column that appears in a literal comparison must be in the allowlist. Finally, Company A adds Company B's account to the allowed analysis providers control so Company B can run queries without per-template review.
+1. Company A adds a custom analysis rule to the `impressions` configured table with a minimum aggregation threshold so that every returned row represents at least 100 distinct users. Company A sets `user_id` as the identity column and overrides the threshold to 5 for the lower-sensitivity `campaign_id` output column. Company A also allows literal comparison on `campaign_id` and `event_date` so that Company B can scope a query to one campaign and a date range. Every column that appears in a literal comparison must be in the allowlist, except for comparisons against always-allowed values. For more information, see [Literal values that are always allowed](custom-comparison-controls.md#custom-literal-comparison-always-allowed). Finally, Company A adds Company B's account to the allowed analysis providers control so Company B can run queries without per-template review.
 
    ```
    {

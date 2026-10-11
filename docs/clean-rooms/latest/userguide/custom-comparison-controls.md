@@ -8,22 +8,22 @@ In SQL, literal comparison matches a column from your dataset against a literal 
 ## Default behavior
 <a name="custom-comparison-defaults"></a>
 
-Comparison controls are an allowlist. Once you set `allowedLiteralComparisonColumns`, only the columns you list can be compared to a literal value, and every column you do not list is blocked. The same applies to `allowedColumnComparisonColumns` for column-to-column comparisons. Adding a column to one allowlist does not add it to the other.
+Comparison controls are an allowlist. Once you set `allowedLiteralComparisonColumns`, only the columns you list can be compared to a literal value, and every column you do not list is blocked, except for comparisons against always-allowed values. For more information, see [Literal values that are always allowed](#custom-literal-comparison-always-allowed). The same allowlist behavior applies to `allowedColumnComparisonColumns` for column-to-column comparisons. Adding a column to one allowlist does not add it to the other.
 
 If you do not configure `comparisonControls`, AWS Clean Rooms applies no comparison restrictions — a query can compare any column to a literal value or to another column.
 
-If you do not configure `comparisonControls` but you do set a minimum aggregation threshold, comparisons remain otherwise unrestricted. However, AWS Clean Rooms never allows a literal comparison on a column listed in `identityColumns`. That restriction comes from the threshold itself, so it applies whether or not you configure comparison controls. For more information, see [Minimum aggregation thresholds](custom-min-agg-thresholds.md).
+If you do not configure `comparisonControls` but you do set a minimum aggregation threshold, comparisons remain otherwise unrestricted. However, AWS Clean Rooms does not allow a literal comparison on a column listed in `identityColumns`. The only exception is comparisons against always-allowed values. That restriction comes from the threshold itself, so it applies whether or not you configure comparison controls. For more information, see [Minimum aggregation thresholds](custom-min-agg-thresholds.md) and [Literal values that are always allowed](#custom-literal-comparison-always-allowed).
 
 If you configure `comparisonControls` together with disallowed output columns, the two controls are independent and both apply. Comparison controls govern which columns a query can compare; disallowed output columns govern which columns can appear in the query result. A column can be allowed in a comparison and still be barred from the result. For more information, see [Disallowed output columns](disallowed-output-columns.md).
 
 ## Literal comparison
 <a name="custom-literal-comparison"></a>
 
-A literal comparison evaluates a column against a single hardcoded constant (a string, number, or date). The right side of the operator never changes during the query execution. Syntax examples include:
+A literal comparison evaluates a column against a single hardcoded constant (for example, a string, number, date, Boolean value, or `NULL`). The right side of the operator never changes during the query execution. Syntax examples include:
 + WHERE status = 'Active'
 + WHERE price > 49.99
 
-When you use [Minimum aggregation thresholds](custom-min-agg-thresholds.md), AWS Clean Rooms does not allow literal comparison on the `identityColumns` value. This prevents the query runner from submitting a query filtered down to an individual or specific set of users. Avoid allowing literal comparison on low cardinality columns that can single out small groups or individual data subjects.
+When you use [Minimum aggregation thresholds](custom-min-agg-thresholds.md), AWS Clean Rooms does not allow literal comparison on the `identityColumns` value, except against always-allowed values (see [Literal values that are always allowed](#custom-literal-comparison-always-allowed)). This helps prevent the query runner from submitting a query filtered down to an individual or specific set of users. Avoid allowing literal comparison on low cardinality columns that can single out small groups or individual data subjects.
 
 ```
 {
@@ -39,12 +39,45 @@ When you use [Minimum aggregation thresholds](custom-min-agg-thresholds.md), AWS
 **Choosing columns for literal comparison**  
 Allow literal comparison only on columns that don't identify individuals or small groups. Avoid allowing it on low-cardinality columns (for example, age\_band, coarse region code). Even though these columns are not the configured `identityColumns` value, comparing them to literals can narrow results to a small, identifiable population. High-cardinality, non-identifying dimensions such as `campaign_id` or `product_sku` are safer choices.
 
+### Literal values that are always allowed
+<a name="custom-literal-comparison-always-allowed"></a>
+
+AWS Clean Rooms always allows a query to compare a column to the following literal values, called *always-allowed values*, even if the column isn't listed in `allowedLiteralComparisonColumns` or is listed in `identityColumns`:
++ `NULL`, including `IS NULL` and `IS NOT NULL` conditions
++ The empty string (`''`)
++ The Boolean values `true` and `false`
++ The number zero in any numeric form, such as `0`, `0.0`, or `-0`. The string `'0'` isn't a number, so it follows the comparison controls.
+
+Because these values are fixed, a query runner can't change them to target a specific value in your data.
+
+This applies when the column is compared directly, or inside an expression such as CASE, IF, COALESCE, or UPPER. If the column is wrapped in another function or in arithmetic (for example, `ABS(revenue) = 0` or `revenue - 50 = 0`), the comparison follows the comparison controls.
+
+Comparisons against any other literal value, including other numbers such as `1`, follow the comparison controls and, for identity columns, the minimum aggregation threshold restriction. If you configure minimum aggregation thresholds, they still apply to every row in the query result.
+
+For example, each of the following conditions is allowed even when the column isn't listed in `allowedLiteralComparisonColumns`:
+
+```
+-- Allowed: comparisons against always-allowed values
+WHERE user_id IS NOT NULL
+WHERE revenue > 0
+WHERE is_active = true
+```
+
+Each of the following conditions is blocked when the column isn't listed in `allowedLiteralComparisonColumns`:
+
+```
+-- Blocked: other literal values, or a column wrapped in a function
+WHERE revenue > 1
+WHERE status_code = '0'
+WHERE ABS(revenue) = 0
+```
+
 ### Example: Allowing literal comparison on a campaign column
 <a name="custom-literal-comparison-example"></a>
 
 A publisher configures a custom analysis rule with a minimum aggregation threshold so that every output row represents at least 100 distinct users (`user_id`). An advertiser runs queries against this table but needs to scope their analysis to a specific advertising campaign — for example, to measure reach for one campaign at a time.
 
-Because `user_id` is the identity column, it can't be compared to a literal, preventing the advertiser from filtering results down to a single user. But `campaign_id` and `event_date` are high-cardinality, non-identifying dimensions, so the publisher adds them to `allowedLiteralComparisonColumns`, which lets the advertiser filter by campaign and scope the analysis to a date range:
+Because `user_id` is the identity column, it can't be compared to a literal such as a specific user ID. This helps prevent the advertiser from filtering results down to a single user. But `campaign_id` and `event_date` are high-cardinality, non-identifying dimensions, so the publisher adds them to `allowedLiteralComparisonColumns`, which lets the advertiser filter by campaign and scope the analysis to a date range:
 
 ```
 {
@@ -74,7 +107,7 @@ GROUP BY campaign_id;
 Given the same configuration, this query is blocked:
 
 ```
--- Blocked: user_id is the identity column and can never be compared to a literal
+-- Blocked: user_id is the identity column and can't be compared to a specific user ID
 SELECT campaign_id, COUNT(DISTINCT user_id) AS reach
 FROM impressions
 WHERE user_id = 'U-88231'
@@ -107,7 +140,7 @@ When using [Minimum aggregation thresholds](custom-min-agg-thresholds.md), a dat
 
 A publisher and an advertiser want to measure their audience overlap — how many users appear in both of their datasets — without either party learning who any individual user is. This requires joining the two tables on `user_id`, which is a column-to-column comparison. The publisher allows the advertiser to run an audience overlap analysis scoped to specific campaign IDs.
 
-Because `user_id` is the identity column, the publisher has already blocked literal comparisons on it (so no one can filter to a specific person). To enable the join across tables, the publisher adds `user_id` to `allowedColumnComparisonColumns`. To enable campaign filtering, the publisher adds `campaign_id` to `allowedLiteralComparisonColumns`.
+Because `user_id` is the identity column, AWS Clean Rooms already blocks comparing it to a specific value, such as a user ID. This helps prevent filtering directly to one person. To enable the join across tables, the publisher adds `user_id` to `allowedColumnComparisonColumns`. To enable campaign filtering, the publisher adds `campaign_id` to `allowedLiteralComparisonColumns`.
 
 ```
 {
@@ -149,7 +182,7 @@ The join succeeds because a column-to-column comparison evaluates dynamically pe
 ## Comparison controls and expressions
 <a name="custom-comparison-expressions"></a>
 
-Comparison controls follow indirect literal comparisons, not only a direct WHERE `column = 'literal'` predicate. If you allow `ANY_EXPRESSION` inside aggregate functions through `allowedAggregateExpressionType`, comparison controls still block a literal comparison on a column that is not in `allowedLiteralComparisonColumns`. This applies even when the literal is nested inside an expression.
+Comparison controls follow indirect literal comparisons, not only a direct WHERE `column = 'literal'` predicate. If you allow `ANY_EXPRESSION` inside aggregate functions through `allowedAggregateExpressionType`, comparison controls still block a literal comparison on a column that is not in `allowedLiteralComparisonColumns`. This applies even when the literal is nested inside an expression. AWS Clean Rooms still allows comparisons against always-allowed values inside expressions such as CASE, IF, COALESCE, and UPPER. For example, `SUM(CASE WHEN bonus = 0 THEN salary ELSE 0 END)` is allowed. For more information, see [Literal values that are always allowed](#custom-literal-comparison-always-allowed).
 
 The following example shows a query that remains blocked because `zip_code` is not in the allowlist, even though the literal is inside a CASE expression rather than written as a direct predicate:
 

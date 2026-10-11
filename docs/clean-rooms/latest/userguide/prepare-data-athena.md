@@ -8,7 +8,7 @@ You can query data tables that have been created as AWS Glue Data Catalog (GDC) 
 A GDC View is a virtual table, created from one or more underlying AWS Glue tables. It must be created using Athena SQL in the Athena `AwsGlueCatalog` catalog.
 
 **Note**  
-Complex (nested) data types—ARRAY, MAP, and STRUCT—are not supported for Amazon Athena data sources in AWS Clean Rooms. If an underlying AWS Glue table or GDC View contains a column of a complex data type, queries fail during table setup. This occurs even when the query doesn't reference that column. To work around this limitation, create a GDC View that excludes the complex-typed columns, or cast them to a supported type such as STRING.
+For Apache Iceberg tables queried through Amazon Athena, `timestamp` values that use microsecond precision (`timestamp(6)`) are converted to millisecond precision when queried in AWS Clean Rooms. Any sub-millisecond portion of the value is truncated. If your analysis depends on microsecond-level precision, account for this reduced precision.
 
 Preparing your data tables in Amazon Athena involves the following steps:
 
