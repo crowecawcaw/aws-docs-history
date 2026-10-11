@@ -81,6 +81,8 @@ To register a cluster to Amazon EKS Connector, you can use one of these tools:
    +  **Name** – A unique name for your cluster.
    +  **Provider** – Choose to display the dropdown list of Kubernetes cluster providers. If you don’t know the specific provider, select **Other**.
    +  **EKS Connector role** – Select the role to use for connecting the cluster.
+**Note**  
+If role manager is enabled in your account, Amazon EKS attaches the role for you, and the role selections described here (for example **EKS Connector role**) and the **Create recommended role** buttons are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
 1. Select **Register cluster**.
 

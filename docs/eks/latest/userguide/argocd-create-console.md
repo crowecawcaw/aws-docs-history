@@ -21,7 +21,7 @@ Create an Argo CD capability on your Amazon EKS cluster using the AWS Management
 
 1. Select your cluster name to open the cluster detail page.
 
-1. Choose the **Capabilities** tab.
+1. In the left navigation pane, choose **Capabilities**.
 
 1. In the left navigation, choose **Argo CD**.
 
@@ -30,6 +30,8 @@ Create an Argo CD capability on your Amazon EKS cluster using the AWS Management
 1. For **IAM Capability Role**:
    + If you already have an IAM Capability Role, select it from the dropdown
    + If you need to create a role, choose **Create Argo CD role** 
+**Note**  
+If role manager is enabled in your account, Amazon EKS attaches the role for you, and the role selections described here (for example **IAM Capability Role**) and the **Create recommended role** buttons are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
      This opens the IAM console in a new tab with pre-populated trust policy and full read access to Secrets Manager. No other permissions are added by default, but you can add them if needed. If you plan to use CodeCommit repositories or other AWS services, add the appropriate permissions before creating the role.
 
@@ -60,6 +62,16 @@ If you plan to use the optional integrations with AWS Secrets Manager or AWS Cod
 **Note**  
 When private endpoint is enabled, the Argo CD UI and API are only accessible through the VPC endpoint. Users must be connected to the VPC (or a peered network) to access the Argo CD interface.
 
+1.  **(Optional) Specify an endpoint prefix**:
+
+   By default, Amazon EKS generates the Argo CD endpoint hostname for you. To choose how the hostname starts, specify an endpoint prefix.
+
+   1. Expand **Additional configuration and defaults**.
+
+   1. For **Argo CD endpoint prefix - *optional* **, enter a prefix. The prefix must be 1 to 50 characters and must start and end with a letter or a number. Valid characters are lowercase letters, numbers, and hyphens (`-`). The prefix must be unique within your AWS account and AWS Region.
+**Note**  
+You can’t change the endpoint prefix after you create the capability. For more information, see [Use a custom endpoint prefix](working-with-argocd.md#argocd-endpoint-prefix).
+
 1. Choose **Create**.
 
 The capability creation process begins.
@@ -67,7 +79,7 @@ The capability creation process begins.
 ## Verify the capability is active
 <a name="_verify_the_capability_is_active"></a>
 
-1. On the **Capabilities** tab, view the Argo CD capability status.
+1. On the **Capabilities** page, view the Argo CD capability status.
 
 1. Wait for the status to change from `CREATING` to `ACTIVE`.
 

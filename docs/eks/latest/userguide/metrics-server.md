@@ -27,7 +27,7 @@ The metrics are meant for point-in-time analysis and aren’t an accurate source
 
 1. Open your EKS cluster in the AWS console
 
-1. From the "Add-ons" tab, select **Get More Add-ons**.
+1. In the left navigation pane, choose **Add-ons**, then select **Get More Add-ons**.
 
 1. From the "Community add-ons" section, select **Metrics Server** and then **Next** 
 

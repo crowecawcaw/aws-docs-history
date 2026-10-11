@@ -44,7 +44,7 @@ For more options, see [Deleting and draining nodegroups](https://eksctl.io/usage
 
 1. On the **Clusters** page, choose the cluster that contains the node group to delete.
 
-1. On the selected cluster page, choose the **Compute** tab.
+1. On the selected cluster page, in the left navigation pane choose **Compute**, then choose the **Node groups** tab.
 
 1. In the **Node groups** section, choose the node group to delete. Then choose **Delete**.
 

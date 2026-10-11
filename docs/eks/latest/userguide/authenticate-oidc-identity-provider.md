@@ -79,7 +79,7 @@ Don’t specify `system:`, or any portion of that string, for `groupsPrefix` or 
 
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
 
-1. Select your cluster, and then select the **Access** tab.
+1. Select your cluster, then choose **Access** in the left navigation pane, and choose the **OIDC** tab.
 
 1. In the **OIDC Identity Providers** section, select **Associate Identity Provider**.
 

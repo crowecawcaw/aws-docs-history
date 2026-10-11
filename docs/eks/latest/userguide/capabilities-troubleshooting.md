@@ -102,9 +102,7 @@ All EKS Capabilities provide health information through the EKS console and the 
 
 1. Select your cluster name.
 
-1. Choose the **Observability** tab.
-
-1. Choose **Monitor cluster**.
+1. In the left navigation pane, choose **Cluster monitoring**.
 
 1. Choose the **Capabilities** tab to view health and status for all capabilities.
 
@@ -267,7 +265,7 @@ For detailed troubleshooting guidance specific to each capability type:
 
 If a capability remains in `CREATING` state for longer than expected:
 
-1. Check the capability health for specific issues in the console (**Observability** > **Monitor cluster** > **Capabilities** tab) or using the AWS CLI:
+1. Check the capability health for specific issues in the console (**Cluster monitoring** > **Capabilities** tab) or using the AWS CLI:
 
    ```
    aws eks describe-capability \

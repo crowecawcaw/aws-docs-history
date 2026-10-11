@@ -28,7 +28,7 @@ The [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.ht
 
 1. In the **Clusters** list, choose the cluster that contains the identities that you want to view.
 
-1. Choose the **Resources** tab.
+1. In the left navigation pane, choose **Resources**.
 
 1. Under **Resource types**, choose **Authorization**.
 

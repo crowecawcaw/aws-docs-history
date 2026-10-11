@@ -24,7 +24,7 @@ In the previous example message, the user does not have permissions to call the 
 
 For more general information about IAM, see [Controlling access using policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html) in the *IAM User Guide*.
 
-## Can’t see **Nodes** on the **Compute** tab or anything on the **Resources** tab and you receive an error in the AWS Management Console
+## Can’t see **Nodes** on the **Compute** page or anything on the **Resources** page and you receive an error in the AWS Management Console
 <a name="security-iam-troubleshoot-cannot-view-nodes-or-workloads"></a>
 
 You may see a console error message that says `Your current user or role does not have access to Kubernetes objects on this EKS cluster`. Make sure that the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) user that you’re using the AWS Management Console with has the necessary permissions. For more information, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions).

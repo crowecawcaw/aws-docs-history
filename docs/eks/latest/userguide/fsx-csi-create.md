@@ -82,13 +82,13 @@ Alternatively, if you want a self-managed installation of the Amazon FSx CSI dri
 
 This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver](https://github.com/kubernetes-sigs/aws-fsx-csi-driver) GitHub repository to consume a dynamically-provisioned FSx for Lustre volume.
 
-1. Note the security group for your cluster. You can see it in the AWS Management Console under the **Networking** section or by using the following AWS CLI command. Replace `my-cluster` with the name of the cluster you want to use.
+1. Note the security group for your cluster. You can see it in the AWS Management Console in the **Networking** section of the **Configuration** tab or by using the following AWS CLI command. Replace `my-cluster` with the name of the cluster you want to use.
 
    ```
    aws eks describe-cluster --name my-cluster --query cluster.resourcesVpcConfig.clusterSecurityGroupId
    ```
 
-1. Create a security group for your Amazon FSx file system according to the criteria shown in [Amazon VPC Security Groups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html#fsx-vpc-security-groups) in the Amazon FSx for Lustre User Guide. For the **VPC**, select the VPC of your cluster as shown under the **Networking** section. For "the security groups associated with your Lustre clients", use your cluster security group. You can leave the outbound rules alone to allow **All traffic**.
+1. Create a security group for your Amazon FSx file system according to the criteria shown in [Amazon VPC Security Groups](https://docs.aws.amazon.com/fsx/latest/LustreGuide/limit-access-security-groups.html#fsx-vpc-security-groups) in the Amazon FSx for Lustre User Guide. For the **VPC**, select the VPC of your cluster as shown in the **Networking** section of the **Configuration** tab. For "the security groups associated with your Lustre clients", use your cluster security group. You can leave the outbound rules alone to allow **All traffic**.
 
 1. Download the storage class manifest with the following command.
 
@@ -112,7 +112,7 @@ This procedure uses the [FSx for Lustre Container Storage Interface (CSI) driver
      fileSystemTypeVersion: "2.12"
    ```
    +  ** `subnetId` ** – The subnet ID that the Amazon FSx for Lustre file system should be created in. Amazon FSx for Lustre isn’t supported in all Availability Zones. Open the Amazon FSx for Lustre console at https://console.aws.amazon.com/fsx/ to confirm that the subnet that you want to use is in a supported Availability Zone. The subnet can include your nodes, or can be a different subnet or VPC:
-     + You can check for the node subnets in the AWS Management Console by selecting the node group under the **Compute** section.
+     + You can check for the node subnets in the AWS Management Console by selecting the node group on the **Node groups** tab of the **Compute** page.
      + If the subnet that you specify isn’t the same subnet that you have nodes in, then your VPCs must be [connected](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/amazon-vpc-to-amazon-vpc-connectivity-options.html), and you must ensure that you have the necessary ports open in your security groups.
    +  ** `securityGroupIds` ** – The ID of the security group you created for the file system.
    +  ** `deploymentType` (optional)** – The file system deployment type. Valid values are `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`, and `PERSISTENT_2`. For more information about deployment types, see [Create your Amazon FSx for Lustre file system](https://docs.aws.amazon.com/fsx/latest/LustreGuide/getting-started-step1.html).

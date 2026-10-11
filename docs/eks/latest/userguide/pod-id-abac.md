@@ -67,7 +67,7 @@ Session tags are automatically enabled with EKS Pod Identity—​no action is r
 
 1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to modify.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Pod Identity** tab.
 
 1. In the **Pod Identity associations**, choose the association ID you would like to modify in **Association ID**, then choose **Edit**.
 

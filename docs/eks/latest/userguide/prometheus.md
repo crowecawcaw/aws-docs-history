@@ -26,7 +26,7 @@ Prometheus discovers and collects metrics from your cluster through a pull-based
 
 If you haven’t created the cluster yet, you can turn on the option to send metrics to Prometheus when first creating the cluster. In the Amazon EKS console, this option is in the **Configure observability** step of creating a new cluster. For more information, see [Create an Amazon EKS cluster](create-cluster.md).
 
-If you already have an existing cluster, you can create your own Prometheus scraper. To do this in the Amazon EKS console, navigate to your cluster’s **Observability** tab and choose the **Add scraper** button. If you would rather do so with the AWS API or AWS CLI, see [Create a scraper](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-create) in the *Amazon Managed Service for Prometheus User Guide*.
+If you already have an existing cluster, you can create your own Prometheus scraper. To do this in the Amazon EKS console, choose **Cluster monitoring** in the left navigation pane for your cluster and choose the **Add scraper** button. If you would rather do so with the AWS API or AWS CLI, see [Create a scraper](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-create) in the *Amazon Managed Service for Prometheus User Guide*.
 
 The following options are available when creating the scraper with the Amazon EKS console.
 
@@ -62,6 +62,6 @@ For more information about how to use the Prometheus metrics after you turn them
 ## Step 3: Manage Prometheus scrapers
 <a name="viewing-prometheus-scraper-details"></a>
 
-To manage scrapers, choose the **Observability** tab in the Amazon EKS console. A table shows a list of scrapers for the cluster, including information such as the scraper ID, alias, status, and creation date. You can add more scrapers, edit scrapers, delete scrapers, or view more information about the current scrapers.
+To manage scrapers, choose **Cluster monitoring** in the left navigation pane of the Amazon EKS console. A table shows a list of scrapers for the cluster, including information such as the scraper ID, alias, status, and creation date. You can add more scrapers, edit scrapers, delete scrapers, or view more information about the current scrapers.
 
 To see more details about a scraper, choose the scraper ID link. For example, you can view the ARN, environment, workspace ID, IAM role, configuration, and networking information. You can use the scraper ID as input to Amazon Managed Service for Prometheus API operations like [`DescribeScraper`](https://docs.aws.amazon.com/prometheus/latest/APIReference/API_DescribeScraper.html), [`UpdateScraper`](https://docs.aws.amazon.com/prometheus/latest/APIReference/API_UpdateScraper.html), and [`DeleteScraper`](https://docs.aws.amazon.com/prometheus/latest/APIReference/API_DeleteScraper.html). For more information on using the Prometheus API, see the [Amazon Managed Service for Prometheus API Reference](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html).

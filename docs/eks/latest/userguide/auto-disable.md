@@ -17,9 +17,9 @@ EKS Auto Mode is designed to fully manage the resources that it creates. Manual 
 ## Disable EKS Auto Mode (AWS Console)
 <a name="disable_eks_auto_mode_shared_aws_console"></a>
 
-1. Open your cluster overview page in the AWS Management Console.
+1. Open your cluster page in the AWS Management Console.
 
-1. Under **EKS Auto Mode** select **Manage** 
+1. Choose the **Configuration** tab, then in the **Cluster configuration** section choose the **Manage** dropdown and choose **Manage EKS Auto Mode**.
 
 1. Toggle **EKS Auto Mode** to `off`.
 

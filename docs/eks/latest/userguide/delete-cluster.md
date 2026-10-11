@@ -90,13 +90,13 @@ For instructions on how to install or upgrade `eksctl`, see [Installation](https
 
    1. In the left navigation pane, choose Amazon EKS **Clusters**, and then in the tabbed list of clusters, choose the name of the cluster that you want to delete.
 
-   1. Choose the **Compute** tab and choose a node group to delete. Choose **Delete**, enter the name of the node group, and then choose **Delete**. Delete all node groups in the cluster.
+   1. In the left navigation pane, choose **Compute**, then choose the **Node groups** tab and choose a node group to delete. Choose **Delete**, enter the name of the node group, and then choose **Delete**. Delete all node groups in the cluster.
 **Note**  
 The node groups listed are [managed node groups](managed-node-groups.md) only.
 
-   1. Choose a **Fargate Profile** to delete, select **Delete**, enter the name of the profile, and then choose **Delete**. Delete all Fargate profiles in the cluster.
+   1. Choose the **Fargate profiles** tab and choose a Fargate profile to delete, select **Delete**, enter the name of the profile, and then choose **Delete**. Delete all Fargate profiles in the cluster.
 
-   1. Choose the **Capabilities** tab and choose a capability to delete. Choose **Delete capability**, enter the name of the capability, and then choose **Delete**. Delete all capabilities in the cluster. For more information, see [Delete a capability](working-with-capabilities.md#capabilities-delete).
+   1. In the left navigation pane, choose **Capabilities** and choose a capability to delete. Choose **Delete capability**, enter the name of the capability, and then choose **Delete**. Delete all capabilities in the cluster. For more information, see [Delete a capability](working-with-capabilities.md#capabilities-delete).
 
 1. Delete all [self-managed node AWS CloudFormation stacks](https://docs.aws.amazon.com/eks/latest/userguide/worker).
 

@@ -227,7 +227,7 @@ In the above sections, the `-e guestinfo.userdata.encoding="base64"` option spec
 ## Step 3: Verify the hybrid node connection
 <a name="_step_3_verify_the_hybrid_node_connection"></a>
 
-After the Bottlerocket instance starts, it will attempt to join your Amazon EKS cluster. You can verify the connection in the Amazon EKS console by navigating to the Compute tab for your cluster or by running the following command:
+After the Bottlerocket instance starts, it attempts to join your Amazon EKS cluster. You can verify the connection in the Amazon EKS console by navigating to the **Compute** page for your cluster (in the left navigation pane) or by running the following command:
 
 ```
 kubectl get nodes

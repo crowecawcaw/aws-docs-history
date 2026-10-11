@@ -64,7 +64,7 @@ Alternatively, you can run the command outside the VPC (for example, in AWS Clou
 
 1. In the left pane, select **Clusters**, and then select the name of your cluster on the **Clusters** page.
 
-1. In the **Details** section on the **Overview** tab, note the value of the **OpenID Connect provider URL**.
+1. In the **Cluster info** panel, note the value of the **OpenID Connect provider URL**.
 
 1. Open the IAM console at https://console.aws.amazon.com/iam/.
 

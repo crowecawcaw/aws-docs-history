@@ -29,7 +29,7 @@ Before you create an add-on, use the AWS CLI to determine:
    ```
    aws eks describe-addon-versions \
    --addon-name aws-ebs-csi-driver \
-   --kubernetes-version 1.30
+   --kubernetes-version 1.33
    ```
 
    Review the following sample output. Note that `requiresIamPermissions` is `true`, and the default add-on version. You need to specify the add-on version when retrieving the recommended IAM policy.
@@ -42,14 +42,14 @@ Before you create an add-on, use the AWS CLI to determine:
                "type": "storage",
                "addonVersions": [
                    {
-                       "addonVersion": "v1.31.0-eksbuild.1",
+                       "addonVersion": "v1.66.0-eksbuild.1",
                        "architecture": [
                            "amd64",
                            "arm64"
                        ],
                        "compatibilities": [
                            {
-                               "clusterVersion": "1.30",
+                               "clusterVersion": "1.33",
                                "platformVersions": [
                                    "*"
                                ],
@@ -77,7 +77,7 @@ Before you create an add-on, use the AWS CLI to determine:
    aws eks describe-addon-configuration \
    --query podIdentityConfiguration \
    --addon-name aws-ebs-csi-driver \
-   --addon-version v1.31.0-eksbuild.1
+   --addon-version v1.66.0-eksbuild.1
    ```
 
    Review the following output. Note the `recommendedManagedPolicies`.
@@ -87,7 +87,7 @@ Before you create an add-on, use the AWS CLI to determine:
        {
            "serviceAccount": "ebs-csi-controller-sa",
            "recommendedManagedPolicies": [
-               "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicyV2"
+               "arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2"
            ]
        }
    ]

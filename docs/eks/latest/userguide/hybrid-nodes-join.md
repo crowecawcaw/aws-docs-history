@@ -145,7 +145,7 @@ The hybrid nodes CLI (`nodeadm`) must be run with a user that has sudo/root acce
    nodeadm init -c file://nodeConfig.yaml
    ```
 
-If the above command completes successfully, your hybrid node has joined your Amazon EKS cluster. You can verify this in the Amazon EKS console by navigating to the Compute tab for your cluster ([ensure IAM principal has permissions to view](view-kubernetes-resources.md#view-kubernetes-resources-permissions)) or with `kubectl get nodes`.
+If the previous command completes successfully, your hybrid node has joined your Amazon EKS cluster. You can verify this in the Amazon EKS console by navigating to the **Compute** page for your cluster in the left navigation pane ([ensure IAM principal has permissions to view](view-kubernetes-resources.md#view-kubernetes-resources-permissions)), or with `kubectl get nodes`.
 
 **Important**  
 Your nodes will have status `Not Ready`, which is expected and is due to the lack of a CNI running on your hybrid nodes. If your nodes did not join the cluster, see [Troubleshooting hybrid nodes](hybrid-nodes-troubleshooting.md).

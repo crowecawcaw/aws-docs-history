@@ -49,7 +49,7 @@ You can enable or disable control plane logs with either the [AWS Management Con
 
 1. Choose the name of the cluster to display your cluster information.
 
-1. Choose the **Observability** tab.
+1. In the left navigation pane, choose **Cluster monitoring**.
 
 1. In the **Control plane logging** section, choose **Manage logging**.
 

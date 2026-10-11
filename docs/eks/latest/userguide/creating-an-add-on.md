@@ -113,7 +113,7 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Choose the name of the cluster that you want to create the add-on for.
 
-1. Choose the **Add-ons** tab.
+1. In the left navigation pane, choose **Add-ons**.
 
 1. Choose **Get more add-ons**.
 
@@ -160,7 +160,7 @@ You can create an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
    1. Read through the **Terms and Conditions**. If you agree to them, choose **Accept Terms**. It may take several minutes to process the subscription. While the subscription is processing, the **Return to Amazon EKS Console** button is grayed out.
 
-   1. Once the subscription has finished processing, the **Return to Amazon EKS Console** button is no longer grayed out. Choose the button to go back to the Amazon EKS console **Add-ons** tab for your cluster.
+   1. Once the subscription has finished processing, the **Return to Amazon EKS Console** button is no longer grayed out. Choose the button to go back to the Amazon EKS console **Add-ons** page for your cluster.
 
    1. For the add-on that you subscribed to, choose **Remove and reinstall** and then choose **Reinstall add-on**. Installation of the add-on can take several minutes. When Installation is complete, you can configure the add-on.
 

@@ -10,13 +10,13 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 You can view the Kubernetes resources deployed to your cluster with the AWS Management Console. You can’t view Kubernetes resources with the AWS CLI or [eksctl](https://eksctl.io/). To view Kubernetes resources using a command-line tool, use [kubectl](install-kubectl.md).
 
 **Note**  
-To view the **Resources** tab and **Nodes** section on the **Compute** tab in the AWS Management Console, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that you’re using must have specific IAM and Kubernetes permissions. For more information, see [Required permissions](#view-kubernetes-resources-permissions).
+To view the **Resources** page and **Nodes** tab on the **Compute** page in the AWS Management Console, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that you’re using must have specific IAM and Kubernetes permissions. For more information, see [Required permissions](#view-kubernetes-resources-permissions).
 
 1. Open the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters).
 
 1. In the **Clusters** list, select the cluster that contains the Kubernetes resources that you want to view.
 
-1. Select the **Resources** tab.
+1. In the left navigation pane, choose **Resources**. You can also open the **Resources** page from the **Cluster resources** panel on the cluster page, which shows at-a-glance counts that link to the standalone pages for your cluster.
 
 1. Select a **Resource type** group that you want to view resources for, such as **Workloads**. You see a list of resource types in that group.
 
@@ -24,12 +24,12 @@ To view the **Resources** tab and **Nodes** section on the **Compute** tab in th
 
 1. Select a resource to view more information about it. Try the following examples:
    + Select the **Workloads** group, select the **Deployments** resource type, and then select the **coredns** resource. When you select a resource, you are in **Structured view**, by default. For some resource types, you see a **Pods** section in **Structured view**. This section lists the Pods managed by the workload. You can select any Pod listed to view information about the Pod. Not all resource types display information in **Structured View**. If you select **Raw view** in the top right corner of the page for the resource, you see the complete JSON response from the Kubernetes API for the resource.
-   + Select the **Cluster** group and then select the **Nodes** resource type. You see a list of all nodes in your cluster. The nodes can be any [Amazon EKS node type](eks-compute.md). This is the same list that you see in the **Nodes** section when you select the **Compute** tab for your cluster. Select a node resource from the list. In **Structured view**, you also see a **Pods** section. This section shows you all Pods running on the node.
+   + Select the **Cluster** group and then select the **Nodes** resource type. You see a list of all nodes in your cluster. The nodes can be any [Amazon EKS node type](eks-compute.md). This is the same list that you see in the **Nodes** tab of the **Compute** page for your cluster. Select a node resource from the list. In **Structured view**, you also see a **Pods** section. This section shows you all Pods running on the node.
 
 ## Required permissions
 <a name="view-kubernetes-resources-permissions"></a>
 
-To view the **Resources** tab and **Nodes** section on the **Compute** tab in the AWS Management Console, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that you’re using must have specific minimum IAM and Kubernetes permissions. You must have both IAM and Kubernetes RBAC permissions configured correctly. Complete the following steps to assign the required permissions to your IAM principals.
+To view the **Resources** page and **Nodes** tab on the **Compute** page in the AWS Management Console, the [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-principal) that you’re using must have specific minimum IAM and Kubernetes permissions. You must have both IAM and Kubernetes RBAC permissions configured correctly. Complete the following steps to assign the required permissions to your IAM principals.
 
 1. Make sure that the `eks:AccessKubernetesApi`, and other necessary IAM permissions to view Kubernetes resources, are assigned to the IAM principal that you’re using. For more information about how to edit permissions for an IAM principal, see [Controlling access for principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_controlling.html#access_controlling-principals) in the IAM User Guide. For more information about how to edit permissions for a role, see [Modifying a role permissions policy (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-modify_permissions-policy) in the IAM User Guide.
 

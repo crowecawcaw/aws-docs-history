@@ -25,7 +25,7 @@ To create an EKS Pod Identity association, there is only a single step; you crea
 
 1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the EKS Pod Identity Agent add-on for.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Pod Identity** tab.
 
 1. In the **Pod Identity associations**, choose **Create**.
 

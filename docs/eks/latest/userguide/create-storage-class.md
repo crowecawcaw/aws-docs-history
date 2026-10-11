@@ -60,7 +60,7 @@ To use a self-managed KMS key to encrypt EBS volumes automated by EKS Auto Mode,
    + Use the sample IAM policy below to create the policy. Insert the ARN of the new self-managed KMS key. For more information, see [Creating roles and attaching policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_job-functions_create-policies.html) in the AWS IAM User Guide.
 
 1. Attach the policy to the EKS Cluster Role.
-   + Use the AWS console to find the ARN of the EKS Cluster Role. The role information is visible in the **Overview** section. For more information, see [Amazon EKS cluster IAM role](cluster-iam-role.md).
+   + Use the AWS console to find the ARN of the EKS Cluster Role. The role information is visible in the **Cluster info** panel. For more information, see [Amazon EKS cluster IAM role](cluster-iam-role.md).
 
 1. Update the `StorageClass` to reference the KMS Key ID at the `parameters.kmsKeyId` field.
 
@@ -277,7 +277,7 @@ For more information, see:
 
 1. Open your EKS cluster in the AWS console
 
-1. From the **Add-ons** tab, select **Get more add-ons** 
+1. In the left navigation pane, choose **Add-ons**, then select **Get more add-ons** 
 
 1. Select the **CSI Snapshot Controller** and then **Next** 
 

@@ -50,6 +50,7 @@ Amazon EKS doesn’t confirm that any Kubernetes RBAC objects that exist on your
 
   Instead of, or in addition to, Kubernetes authorizing the IAM principal access to Kubernetes objects on your cluster, you can associate Amazon EKS *access policies* to an access entry. Amazon EKS authorizes IAM principals to access Kubernetes objects on your cluster with the permissions in the access policy. You can scope an access policy’s permissions to Kubernetes namespaces that you specify. Use of access policies doesn’t require you to manage Kubernetes RBAC objects. For more information, see [Associate access policies with access entries](access-policies.md).
 + If you create an access entry with type `EC2_LINUX` or `EC2_WINDOWS`, the IAM principal creating the access entry must have the `iam:PassRole` permission. For more information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*.
++ Access entries with type `HYBRID_LINUX` or `HYPERPOD_LINUX` associate the IAM role with the `system:nodes` Kubernetes group, but don’t require the `iam:PassRole` permission because Amazon EKS doesn’t assume the role. To restrict which IAM principals can create these access entries, use the `eks:accessEntryType` condition key. For more information, see [Conditions defined by Amazon Elastic Kubernetes Service](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonelastickubernetesservice.html#amazonelastickubernetesservice-policy-keys) in the *Service Authorization Reference*.
 + Similar to standard [IAM behavior](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency), access entry creation and updates are eventually consistent, and may take several seconds to be effective after the initial API call returns successfully. You must design your applications to account for these potential delays. We recommend that you don’t include access entry creates or updates in the critical, high- availability code paths of your application. Instead, make changes in a separate initialization or setup routine that you run less frequently. Also, be sure to verify that the changes have been propagated before production workflows depend on them.
 + Access entries do not support [service linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). You cannot create access entries where the principal ARN is a service linked role. You can identify service linked roles by their ARN, which is in the format ` arn:aws:iam::*:role/aws-service-role/*`.
 
@@ -62,7 +63,7 @@ You can create an access entry using the AWS Management Console or the AWS CLI.
 
 1. Choose the name of the cluster that you want to create an access entry in.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Access entries** tab.
 
 1. Choose **Create access entry**.
 

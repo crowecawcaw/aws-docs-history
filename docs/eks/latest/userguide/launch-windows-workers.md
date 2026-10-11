@@ -114,7 +114,7 @@ This name must exactly match the name that you used in [Step 1: Create your Amaz
 
      1. Choose the name of the cluster.
 
-     1. Choose the **Networking** tab.
+     1. Choose the **Configuration** tab, then locate the **Networking** section.
 
      1. Use the **Additional security groups** value as a reference when selecting from the **ClusterControlPlaneSecurityGroup** dropdown list.
    +  **NodeGroupName**: Enter a name for your node group. This name can be used later to identify the Auto Scaling node group that’s created for your nodes. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.

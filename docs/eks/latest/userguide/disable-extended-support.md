@@ -18,9 +18,9 @@ You cannot disable extended support once your cluster has entered it. You can on
 ## Disable EKS extended support (AWS Console)
 <a name="disable-support-policy-console"></a>
 
-1. Navigate to your EKS cluster in the AWS Console. Select the **Overview** tab on the **Cluster Info** page.
+1. Navigate to your EKS cluster in the AWS Console. On the cluster page, choose the **Configuration** tab.
 
-1. In the **Kubernetes version settings** section, select **Manage**.
+1. In the **Cluster configuration** section, choose the **Manage** dropdown, then choose **Kubernetes version settings**.
 
 1. Select **Standard support** and then **Save changes**.
 

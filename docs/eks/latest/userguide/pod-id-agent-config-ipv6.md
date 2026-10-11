@@ -16,7 +16,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
    1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the add-on for.
 
-   1. Choose the **Add-ons** tab.
+   1. In the left navigation pane, choose **Add-ons**.
 
    1. Select the box in the top right of the EKS Pod Identity Agent add-on box and then choose **Edit**.
 

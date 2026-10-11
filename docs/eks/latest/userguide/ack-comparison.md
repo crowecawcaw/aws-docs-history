@@ -25,17 +25,91 @@ The EKS Capability for ACK is based on upstream ACK controllers but differs in I
 For complete ACK documentation and service-specific guides, see the [ACK documentation](https://aws-controllers-k8s.github.io/docs/) on the ACK website.
 
 ## Migration path
-<a name="_migration_path"></a>
+<a name="ack-migration-path"></a>
 
-You can migrate from self-managed ACK to the managed capability with minimal disruption to your AWS resources. The migration relies on Kubernetes leader election: the self-managed controller and the capability contend for the same lease, so only one of them reconciles a given resource at any time. For this to work, both must share a lease in the same namespace. The capability does not forcibly take the lease from a running self-managed controller, so you control when the handover happens by scaling the self-managed controller down.
+You can migrate from self-managed ACK to the managed capability with minimal disruption to your AWS resources. There are two approaches:
++  [Coexist with self-managed controllers (recommended)](#ack-migration-coexist) - Create the capability with the services that you self-manage turned off, then migrate one service at a time. This is the recommended approach.
++  [Lease-based handover](#ack-migration-lease) - Create the capability with all services enabled, and use Kubernetes leader election to control when each handover happens.
 
 **Important**  
-Before you begin, grant the IAM Capability Role permissions that are equivalent to the permissions your self-managed controllers use today. The capability authenticates with a dedicated Capability Role through the `capabilities.eks.amazonaws.com` service principal, rather than through the mechanism your self-managed controllers use today, such as IRSA or EKS Pod Identity (see [Configure ACK permissions](ack-permissions.md)). If the Capability Role is missing permissions, the capability adopts your resources. It then fails to reconcile them and logs `AccessDenied` errors.
+Before you enable a service in the capability, grant the IAM Capability Role permissions that are equivalent to the permissions that your self-managed controller for that service uses today. The capability authenticates with a dedicated Capability Role through the `capabilities.eks.amazonaws.com` service principal, rather than through the mechanism your self-managed controllers use today, such as IRSA or EKS Pod Identity (see [Configure ACK permissions](ack-permissions.md)). If the Capability Role is missing permissions, the capability adopts your resources. It then fails to reconcile them and logs `AccessDenied` errors.  
+With the recommended approach, you can grant these permissions one service at a time, because the capability doesn’t adopt resources of a service that is turned off. With the lease-based approach, grant them for every service before you create the capability.
+
+When the capability adopts a resource, it applies its own default resource tags (`eks:` prefixed) in place of the `services.k8s.aws/` tags used by self-managed ACK (see [ACK considerations for EKS](ack-considerations.md)). Expect a one-time set of tagging API calls against your adopted resources, and update any cost-allocation or policy tooling that keys on the `services.k8s.aws/` tag prefix. This applies to both approaches.
+
+### Coexist with self-managed controllers (recommended)
+<a name="ack-migration-coexist"></a>
+
+In this approach, you create the capability with `disabledServices` listing every ACK service that you currently run yourself. The capability doesn’t install custom resource definitions (CRDs) for those services and doesn’t run controllers for them, so it can’t contend with your self-managed controllers or adopt their resources. You then migrate one service at a time, on your own schedule, and you don’t need to change the leader election configuration of your self-managed controllers at all.
+
+The steps use the S3 controller (`ack-s3-controller`) as an example.
+
+1. Determine which ACK services you currently run self-managed.
+
+1. Create the ACK capability with those services turned off (see [Create an ACK capability](create-ack-capability.md)). For example, if you self-manage S3, EC2, and IAM:
+
+   ```
+   aws eks create-capability \
+     --region {{region-code}} \
+     --cluster-name {{my-cluster}} \
+     --capability-name my-ack \
+     --type ACK \
+     --role-arn {{arn:aws:iam::111122223333:role/ACKCapabilityRole}} \
+     --delete-propagation-policy RETAIN \
+     --configuration '{"ack": {"disabledServices": ["s3", "ec2", "iam"]}}'
+   ```
+
+   Your self-managed controllers keep reconciling your resources, unaffected.
+
+1. For the service that you want to migrate, scale its self-managed controller down to zero replicas **before** you turn the service on in the capability:
+
+   ```
+   kubectl scale deployment ack-s3-controller \
+     --namespace ack-system --replicas=0
+   ```
+
+1. Turn the service on in the capability by removing it from `disabledServices`. Specify the complete list of services that you want to remain turned off. If this service was the only one turned off, specify an empty list:
+
+   ```
+   aws eks update-capability \
+     --region {{region-code}} \
+     --cluster-name {{my-cluster}} \
+     --capability-name my-ack \
+     --configuration '{"ack": {"disabledServices": ["ec2", "iam"]}}'
+   ```
+
+   The capability installs the service’s CRDs, starts its controller, and adopts your existing resources.
+
+1. Verify that the capability has taken over reconciliation for that service. Confirm that resources report a `Synced` condition of `True` and that the capability is not reporting `AccessDenied` errors.
+
+1. Remove the self-managed controller for that service:
+
+   ```
+   helm uninstall ack-s3-controller --namespace ack-system
+   ```
+
+1. Repeat the previous steps for each remaining service.
+
+**Important**  
+Scale the self-managed controller down before you turn the service on in the capability. If both run at the same time, both reconcile the same resources, because by default a self-managed controller’s lease and the capability’s lease aren’t in the same namespace. If you would rather not scale down first, configure leader election as described in [Lease-based handover](#ack-migration-lease) so that the two coordinate instead.
+
+**Note**  
+To roll a service back, add it to `disabledServices` again and scale your self-managed controller back up.
+
+**Note**  
+When the capability turns a service on, it reconciles that service’s CRDs to the versions that the capability ships. If you installed a newer or modified CRD for that service, the capability updates it, which can overwrite changes that you made. If the difference can’t be applied safely, the capability reports an error for that service and doesn’t reconcile it until the CRD is compatible. If you need to keep a specific CRD version for a service, leave that service in `disabledServices` and continue to manage it yourself.
+
+### Lease-based handover
+<a name="ack-migration-lease"></a>
+
+In this approach, you create the capability with all services enabled and rely on Kubernetes leader election to control the handover: the self-managed controller and the capability contend for the same lease, so only one of them reconciles a given resource at any time. For this to work, both must share a lease in the same namespace. The capability does not forcibly take the lease from a running self-managed controller, so you control when the handover happens by scaling the self-managed controller down.
+
+Use this approach if you need the capability’s controller to be running and waiting before you scale your own controller down, rather than accepting a brief period in which neither reconciles.
 
 Complete the following steps to migrate. The steps use the S3 controller (`ack-s3-controller`) as an example. Repeat them for each self-managed ACK controller that you want to migrate to the capability, substituting the corresponding controller name and Helm chart.
 
 **Note**  
-Running a controller self-managed alongside the capability is intended as a temporary state during migration, not as a long-term configuration. While both run, an interruption on either side (such as a capability deployment or an upgrade of the self-managed controller) can release the lease and let the other side acquire it, causing reconciliation to switch unexpectedly between them. Complete the migration for each controller rather than running it self-managed alongside the capability indefinitely.
+With this approach, running a controller self-managed alongside the capability is intended as a temporary state during migration, not as a long-term configuration. While both run, an interruption on either side (such as a capability deployment or an upgrade of the self-managed controller) can release the lease and let the other side acquire it, causing reconciliation to switch unexpectedly between them. Complete the migration for each controller rather than running it self-managed alongside the capability indefinitely. To keep a service self-managed for the long term, turn it off in the capability instead, as described in [Coexist with self-managed controllers (recommended)](#ack-migration-coexist).
 
 1. Enable leader election on your self-managed ACK controller and move its lease to `kube-system`:
 
@@ -61,8 +135,6 @@ Running a controller self-managed alongside the capability is intended as a temp
    ```
 
    After you scale the self-managed controller down, the capability acquires the lease and begins reconciliation, usually within a short time. Scaling the self-managed controller back up does not return the lease to it, because the capability continues to hold and renew the lease. To return reconciliation to the self-managed controller, scale it back up to at least one replica and then delete the ACK capability. After you delete the capability, the self-managed controller reacquires the lease and resumes reconciliation.
-
-   On adoption, the capability applies its own default resource tags (`eks:` prefixed) in place of the `services.k8s.aws/` tags used by self-managed ACK (see [ACK considerations for EKS](ack-considerations.md)). Expect a one-time set of tagging API calls against your adopted resources, and update any cost-allocation or policy tooling that keys on the `services.k8s.aws/` tag prefix.
 
 1. Verify that the capability is healthy and has taken over reconciliation of your resources. Confirm that resources report a `Synced` condition of `True` and that the capability is not logging `AccessDenied` errors.
 

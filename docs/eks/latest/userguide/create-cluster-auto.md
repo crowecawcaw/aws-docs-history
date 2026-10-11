@@ -53,6 +53,8 @@ This topic covers advanced configuration. If you are looking to get started with
 1. In the **Auto Mode Compute** section of the configure cluster page, enter the following fields:
    +  **Node pools** — Determine if you want to use the built-in node pools. For more information, see [Enable or Disable Built-in NodePools](set-builtin-node-pools.md).
    +  **Node IAM role** — If you enable any of the built-in node pools, you need to select a Node IAM Role. EKS Auto Mode will assign this role to new nodes. You cannot change this value after the cluster is created. If you haven’t previously created a Node IAM role for EKS Auto Mode, select the Create recommended role button to create the role with the required permissions. For more information about this role, see [Learn about identity and access in EKS Auto Mode](auto-learn-iam.md).
+**Note**  
+If role manager is enabled in your account, Amazon EKS attaches the role for you, and the role selections described here (for example **Cluster IAM role** and **Node IAM role**) and the **Create recommended role** buttons are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
 1. In the **Cluster access** section of the configure cluster page, enter the following fields:
    +  **Bootstrap cluster administrator access** — The cluster creator is automatically a Kubernetes administrator. If you want to disable this, select **Disallow cluster administrator access**.

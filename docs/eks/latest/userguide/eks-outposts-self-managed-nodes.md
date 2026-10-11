@@ -28,7 +28,7 @@ You can create a self-managed node group for a local cluster with the following 
 +  [AWS Management Console](#console_create_nodes_outpost) 
 
 **Important**  
-Self-managed node group includes Amazon EC2 instances in your account. These instances aren’t automatically upgraded when you or Amazon EKS update the control plane version on your behalf. A self-managed node group doesn’t have any indication in the console that it needs updating. You can view the `kubelet` version installed on a node by selecting the node in the **Nodes** list on the **Overview** tab of your cluster to determine which nodes need updating. You must manually update the nodes. For more information, see [Update self-managed nodes for your cluster](update-workers.md).
+Self-managed node group includes Amazon EC2 instances in your account. These instances aren’t automatically upgraded when you or Amazon EKS update the control plane version on your behalf. A self-managed node group doesn’t have any indication in the console that it needs updating. You can view the `kubelet` version installed on a node by selecting the node in the **Nodes** tab of the **Compute** page of your cluster to determine which nodes need updating. You must manually update the nodes. For more information, see [Update self-managed nodes for your cluster](update-workers.md).
 The certificates used by kubelet on your self-managed nodes are issued with one year expiration. By default certificate rotation is **not** enabled (see: https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/\#kubelet-config-k8s-io-v1beta1-KubeletConfiguration), this means if you have a self-managed node running for more than one year, it will no longer be able to authenticate to the Kubernetes API.
 As a best practice we recommend customers to regularly update their self-managed node groups to receive CVEs and security patches from latest Amazon EKS optimized AMI. Updating AMI used in self-managed node groups also triggers re-creation of nodes and make sure they do not run into issue due to expired kubelet certificates.
 Alternatively you can also enable client certificate rotation (see: https://kubernetes.io/docs/tasks/tls/certificate-rotation/) when creating the self-managed node groups to make sure kubelet certificates are renewed as the current certificate approaches expiration.
@@ -103,7 +103,7 @@ Alternatively you can also enable client certificate rotation (see: https://kube
 
      1. Choose the name of the cluster.
 
-     1. Choose the **Networking** tab.
+     1. Choose the **Configuration** tab, then locate the **Networking** section.
 
      1. Use the **Additional security groups** value as a reference when selecting from the **ClusterControlPlaneSecurityGroup** dropdown list.
    +  **NodeGroupName**: Enter a name for your node group. This name can be used later to identify the Auto Scaling node group that’s created for your nodes.
@@ -124,7 +124,7 @@ The Amazon EKS node AMIs are based on Amazon Linux. You can track security or pr
 If you don’t provide a key pair here, the AWS CloudFormation stack creation fails.
    +  **DisableIMDSv1**: By default, each node supports the Instance Metadata Service Version 1 (IMDSv1) and IMDSv2. You can disable IMDSv1. To prevent future nodes and Pods in the node group from using IMDSv1, set **DisableIMDSv1** to **true**. For more information about IMDS, see [Configuring the instance metadata service](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html). For more information about restricting access to it on your nodes, see [Restrict access to the instance profile assigned to the worker node](https://aws.github.io/aws-eks-best-practices/security/docs/iam/#restrict-access-to-the-instance-profile-assigned-to-the-worker-node).
    +  **VpcId**: Enter the ID for the [VPC](creating-a-vpc.md) that you created. Before choosing a VPC, review [VPC requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-vpc-requirements).
-   +  **Subnets**: If your cluster is on an Outpost, then choose at least one private subnet in your VPC. Before choosing subnets, review [Subnet requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-subnet-requirements). You can see which subnets are private by opening each subnet link from the **Networking** tab of your cluster.
+   +  **Subnets**: If your cluster is on an Outpost, then choose at least one private subnet in your VPC. Before choosing subnets, review [Subnet requirements and considerations](eks-outposts-vpc-subnet-requirements.md#outposts-subnet-requirements). You can see which subnets are private by opening each subnet link from the **Networking** section of the **Configuration** tab of your cluster.
 
 1. Select your desired choices on the **Configure stack options** page, and then choose **Next**.
 

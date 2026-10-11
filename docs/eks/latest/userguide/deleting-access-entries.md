@@ -18,7 +18,7 @@ You can delete an access entry using the AWS Management Console or the AWS CLI.
 
 1. Choose the name of the cluster that you want to delete an access entry from.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Access entries** tab.
 
 1. In the **Access entries** list, choose the access entry that you want to delete.
 

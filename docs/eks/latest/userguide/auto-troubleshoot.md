@@ -137,7 +137,7 @@ You can use the AWS console to view the status of resources associated with your
   After enabling visibility, you can view EKS Auto Mode instances by searching for the tag key `eks:eks-cluster-name`.
 
   Alternatively, you can view Auto Mode nodes through:
-  + The Amazon EKS console, under your cluster’s **Compute** tab.
+  + The Amazon EKS console, on your cluster’s **Compute** page (**Nodes** tab).
   +  `kubectl get nodes` from a configured Kubernetes client.
   + Direct EC2 API queries by instance ID or with the `include-managed-resources` parameter.
 

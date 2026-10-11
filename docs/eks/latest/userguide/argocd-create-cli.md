@@ -138,6 +138,8 @@ aws eks create-capability \
   }'
 ```
 
+(Optional) To specify a custom prefix for the endpoint hostname, add `endpointPrefix` to the `argoCd` object. For more information, see [Use a custom endpoint prefix](working-with-argocd.md#argocd-endpoint-prefix).
+
 If you configured a VPC endpoint for private access, include the `network-configuration` parameter to create the capability with a private endpoint. Replace {{vpce-xxxxxxxx}} with your VPC endpoint ID:
 
 ```

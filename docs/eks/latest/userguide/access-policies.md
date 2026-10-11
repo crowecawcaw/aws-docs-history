@@ -28,7 +28,7 @@ You can associate an access policy to an access entry using the AWS Management C
 
 1. Choose the name of the cluster that has an access entry that you want to associate an access policy to.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Access entries** tab.
 
 1. If the type of the access entry is **Standard**, you can associate or disassociate Amazon EKS **access policies**. If the type of your access entry is anything other than **Standard**, then this option isn’t available.
 

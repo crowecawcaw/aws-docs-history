@@ -58,7 +58,7 @@ The nodes where the EKS Pod Identity Agent runs must be able to access the EKS A
 
 1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the EKS Pod Identity Agent add-on for.
 
-1. Choose the **Add-ons** tab.
+1. In the left navigation pane, choose **Add-ons**.
 
 1. Choose **Get more add-ons**.
 

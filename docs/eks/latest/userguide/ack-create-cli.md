@@ -73,13 +73,36 @@ aws eks create-capability \
   --delete-propagation-policy RETAIN
 ```
 
-The command returns immediately, but the capability takes some time to become active as EKS creates the required capability infrastructure and components. EKS will install the Kubernetes Custom Resource Definitions related to this capability in your cluster as it is being created.
+The command returns immediately, but the capability takes some time to become active as EKS creates the required capability infrastructure and components. EKS installs the Kubernetes Custom Resource Definitions related to this capability in your cluster as it creates the capability.
 
 **Note**  
 If you receive an error that the cluster doesn’t exist or you don’t have permissions, verify:  
 The cluster name is correct
 Your AWS CLI is configured for the correct region
 You have the required IAM permissions
+
+### Set ACK configuration options (optional)
+<a name="_set_ack_configuration_options_optional"></a>
+
+To enable cross-namespace references or turn off specific ACK service controllers at creation, pass the `--configuration` parameter with an `ack` object. Run the following command **instead of** the command in the previous step, not in addition to it. It turns on cross-namespace reference resolution and disables the `s3` and `ec2` service controllers. For information about each field and its constraints, see [ACK capability configuration options](create-ack-capability.md#ack-configuration-options).
+
+If you already created the capability, don’t run `create-capability` again. Change the configuration with `update-capability` instead, as described in [Update ACK capability configuration](working-with-capabilities.md#ack-update-configuration).
+
+```
+aws eks create-capability \
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name my-ack \
+  --type ACK \
+  --role-arn arn:aws:iam::$(aws sts get-caller-identity --query Account --output text):role/ACKCapabilityRole \
+  --delete-propagation-policy RETAIN \
+  --configuration '{
+    "ack": {
+      "enableCrossNamespace": true,
+      "disabledServices": ["s3", "ec2"]
+    }
+  }'
+```
 
 ## Step 3: Verify the capability is active
 <a name="_step_3_verify_the_capability_is_active"></a>

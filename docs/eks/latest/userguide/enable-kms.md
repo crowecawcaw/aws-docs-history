@@ -76,7 +76,7 @@ You can enable encryption in two ways:
 
   1. Choose the cluster that you want to add KMS encryption to.
 
-  1. Choose the **Overview** tab (this is selected by default).
+  1. Choose the **Configuration** tab (this is selected by default).
 
   1. Scroll down to the **Secrets encryption** section and choose **Enable**.
 

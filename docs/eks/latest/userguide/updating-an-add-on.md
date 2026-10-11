@@ -87,7 +87,7 @@ You can update an Amazon EKS add-on using `eksctl`, the AWS Management Console, 
 
 1. Choose the name of the cluster that you want to update the add-on for.
 
-1. Choose the **Add-ons** tab.
+1. In the left navigation pane, choose **Add-ons**.
 
 1. Choose the add-on that you want to update.
 

@@ -25,9 +25,9 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 ### Update Cluster IAM role
 <a name="_update_cluster_iam_role"></a>
 
-1. Open your cluster overview page in the AWS Management Console.
+1. Open your cluster page in the AWS Management Console.
 
-1. Under **Cluster IAM role ARN**, select **View in IAM**.
+1. In the **Cluster info** panel, under **Cluster IAM role ARN**, select **View in IAM**.
 
 1. From the **Add Permissions** dropdown, select **Attach Policies**.
 
@@ -65,9 +65,9 @@ The Cluster IAM role of an EKS Cluster cannot be changed after the cluster is cr
 ### Enable EKS Auto Mode
 <a name="_enable_eks_auto_mode"></a>
 
-1. Open your cluster overview page in the AWS Management Console.
+1. Open your cluster page in the AWS Management Console.
 
-1. Under **EKS Auto Mode** select **Manage** 
+1. Choose the **Configuration** tab, then in the **Cluster configuration** section choose the **Manage** dropdown and choose **Manage EKS Auto Mode**.
 
 1. Toggle **EKS Auto Mode** to on.
 

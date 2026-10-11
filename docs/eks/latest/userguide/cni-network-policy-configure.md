@@ -86,7 +86,7 @@ Use the following procedure to enable the network policy parameter for the add-o
 
 1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the Amazon VPC CNI add-on for.
 
-1. Choose the **Add-ons** tab.
+1. In the left navigation pane, choose **Add-ons**.
 
 1. Select the box in the top right of the add-on box and then choose **Edit**.
 
@@ -160,7 +160,7 @@ To configure this using the AWS Management Console, follow the below steps:
 
 1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the Amazon VPC CNI add-on for.
 
-1. Choose the **Add-ons** tab.
+1. In the left navigation pane, choose **Add-ons**.
 
 1. Select the box in the top right of the add-on box and then choose **Edit**.
 

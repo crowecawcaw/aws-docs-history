@@ -25,9 +25,7 @@ You can view capability health and status issues in the EKS console or using the
 
 1. Select your cluster name.
 
-1. Choose the **Observability** tab.
-
-1. Choose **Monitor cluster**.
+1. In the left navigation pane, choose **Cluster monitoring**.
 
 1. Choose the **Capabilities** tab to view health and status for all capabilities.
 
@@ -160,6 +158,51 @@ The Capability Role needs `sts:AssumeRole` and `sts:TagSession` permissions for 
 ```
 
 For detailed cross-account configuration, see [Configure ACK permissions](ack-permissions.md).
+
+## Resource stuck in Terminating after a service was turned off
+<a name="ack-stuck-deletion-disabled-service"></a>
+
+If you delete a Kubernetes resource whose ACK service is listed in the capability’s `disabledServices`, the resource stays in the `Terminating` state and its AWS resource is never deleted. ACK adds a finalizer to every resource that it manages, named for the resource’s group and kind, such as `finalizers.s3.services.k8s.aws/Bucket`. The finalizer is removed only after a running controller deletes or releases the AWS resource. Because the controller for a turned-off service doesn’t run, nothing removes the finalizer, and the `services.k8s.aws/deletion-policy` annotation isn’t applied.
+
+To confirm, check for a deletion timestamp and a remaining ACK finalizer:
+
+```
+kubectl get bucket {{my-bucket}} -n {{my-namespace}} \
+  -o jsonpath='{.metadata.deletionTimestamp}{"\n"}{.metadata.finalizers}{"\n"}'
+```
+
+Then confirm that the service is turned off for the capability:
+
+```
+aws eks describe-capability \
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name {{my-ack}} \
+  --query 'capability.configuration.ack.disabledServices'
+```
+
+To resolve this, re-enable the service so that its controller runs and completes the deletion. Remove the service from `disabledServices`, passing the complete list of services that you want to remain turned off. If this service was the only one turned off, specify an empty list. The following example re-enables `s3` while leaving `ec2` and `iam` turned off:
+
+```
+aws eks update-capability \
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name {{my-ack}} \
+  --configuration '{"ack": {"disabledServices": ["ec2", "iam"]}}'
+```
+
+After the capability returns to `ACTIVE`, the controller processes the pending deletion and removes the finalizer.
+
+**Warning**  
+Removing the finalizer by hand deletes the Kubernetes resource but leaves the AWS resource in place, with no record of it in your cluster. Only do this if you intend to keep the AWS resource and manage it outside of ACK, or if you have already deleted it another way.  
+
+```
+kubectl patch bucket {{my-bucket}} -n {{my-namespace}} \
+  --type merge -p '{"metadata":{"finalizers":[]}}'
+```
+This clears every finalizer on the resource. Confirm which finalizers are present before you run it, and be aware that clearing them also skips any cleanup that another controller’s finalizer would have performed.
+
+To avoid this, re-enable a service before you delete its resources, or delete the resources before you turn the service off. For more information, see [ACK capability configuration options](create-ack-capability.md#ack-configuration-options).
 
 ## Next steps
 <a name="_next_steps"></a>

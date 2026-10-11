@@ -134,7 +134,7 @@ In this step, you will update the permission policy of the [EKS Pod Identity rol
 
 1. In the left navigation pane, select **Clusters**, and then select the name of your EKS cluster.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Pod Identity** tab.
 
 1. Under **Pod Identity associations**, select your [EKS Pod Identity role](https://docs.aws.amazon.com/eks/latest/userguide/pod-id-role.html).
 
@@ -169,7 +169,7 @@ In this step, you will create an association between the Target IAM role and the
 
 1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to add the association to.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Pod Identity** tab.
 
 1. In the **Pod Identity associations**, choose **Create**.
 

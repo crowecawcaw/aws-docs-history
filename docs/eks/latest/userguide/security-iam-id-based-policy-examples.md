@@ -45,7 +45,7 @@ To access the Amazon EKS console, an [IAM principal](https://docs.aws.amazon.com
 To ensure that your IAM principals can still use the Amazon EKS console, create a policy with your own unique name, such as `AmazonEKSAdminPolicy`. Attach the policy to the principals. For more information, see [Adding and removing IAM identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html) in the *IAM User Guide*.
 
 **Important**  
-The following example policy allows a principal to view information on the **Configuration** tab in the console. To view information on the **Overview** and **Resources** tabs in the AWS Management Console, the principal also needs Kubernetes permissions. For more information, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions).
+The following example policy allows a principal to view information on the **Configuration** tab in the console. To view information on the **Resources** page in the AWS Management Console, the principal also needs Kubernetes permissions. For more information, see [Required permissions](view-kubernetes-resources.md#view-kubernetes-resources-permissions).
 
 ```
 {

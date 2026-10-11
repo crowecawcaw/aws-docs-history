@@ -16,7 +16,7 @@ Create a kro capability on your Amazon EKS cluster using the AWS Management Cons
 
 1. Select your cluster name to open the cluster detail page.
 
-1. Choose the **Capabilities** tab.
+1. In the left navigation pane, choose **Capabilities**.
 
 1. In the left navigation, choose **kro (Kube Resource Orchestrator)**.
 
@@ -39,7 +39,7 @@ The capability creation process begins.
 ## Verify the capability is active
 <a name="_verify_the_capability_is_active"></a>
 
-1. On the **Capabilities** tab, view the kro capability status.
+1. On the **Capabilities** page, view the kro capability status.
 
 1. Wait for the status to change from `CREATING` to `ACTIVE`.
 
@@ -56,7 +56,7 @@ This intentional design follows the principle of least privilege—different Res
 
 For getting started quickly, testing, or development environments, use `AmazonEKSClusterAdminPolicy`:
 
-1. In the EKS console, navigate to your cluster’s **Access** tab.
+1. In the EKS console, navigate to your cluster’s **Access** page (in the left navigation pane), then choose the **Access entries** tab.
 
 1. Under **Access entries**, find the entry for your kro capability role (it will have the role ARN you created earlier).
 
@@ -82,7 +82,7 @@ After the capability is active, verify that kro custom resources are available i
 
 1. Navigate to your cluster in the Amazon EKS console
 
-1. Choose the **Resources** tab
+1. In the left navigation pane, choose **Resources** 
 
 1. Choose **Extensions** 
 

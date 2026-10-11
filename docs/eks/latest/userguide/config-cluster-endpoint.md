@@ -16,7 +16,7 @@ You can modify your cluster API server endpoint access using the AWS Management 
 
 1. Choose the name of the cluster to display your cluster information.
 
-1. Choose the **Networking** tab and choose **Manage endpoint access**.
+1. Choose the **Configuration** tab, then in the **Networking** section choose **Manage endpoint access**.
 
 1. For **Private access**, choose whether to enable or disable private access for your cluster’s Kubernetes API server endpoint. If you enable private access, Kubernetes API requests that originate from within your cluster’s VPC use the private VPC endpoint. You must enable private access to disable public access.
 

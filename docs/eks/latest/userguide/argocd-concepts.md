@@ -88,7 +88,7 @@ View the application status:
 kubectl get application guestbook -n argocd
 ```
 
-You can also view the application using the Argo CD CLI or the Argo CD UI (accessible from the EKS console under your cluster’s Capabilities tab).
+You can also view the application using the Argo CD CLI or the Argo CD UI (accessible from the EKS console under your cluster’s Capabilities page).
 
 **Note**  
 When using the Argo CD CLI with the managed capability, specify applications with the namespace prefix: `argocd app get argocd/guestbook`.

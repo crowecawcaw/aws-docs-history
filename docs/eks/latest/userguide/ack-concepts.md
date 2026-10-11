@@ -277,7 +277,23 @@ spec:
 
 Resources created in the mapped namespace automatically use the specified role.
 
-To learn more about IAM Role Selectors, see [ACK Cross-Account Resource Management](https://aws-controllers-k8s.github.io/docs/guides/cross-account). For cross-account configuration details, see [Configure ACK permissions](ack-permissions.md).
+For more information about IAM Role Selectors, see [Granular IAM Roles](https://aws-controllers-k8s.github.io/docs/guides/cross-account) on the ACK website. For cross-account configuration details, see [Configure ACK permissions](ack-permissions.md).
+
+## Cross-namespace resource references
+<a name="ack-cross-namespace-references"></a>
+
+Some ACK resources reference other ACK resources instead of hard-coding a value such as an ARN or ID. With these reference fields (typically named with a `Ref` suffix, for example `*Ref`), you can point one resource to another. ACK resolves the reference and fills in the underlying value during reconciliation. Until the reference resolves, ACK reports the `ACK.ReferencesResolved` status condition as `False` on the referencing resource.
+
+A reference can include a `namespace`, which lets a resource in one namespace point to a resource in a different namespace. The `enableCrossNamespace` field of the `ack` capability configuration controls whether these cross-namespace references resolve. Cross-namespace references are disabled by default. If you create a capability without setting this field, `enableCrossNamespace` is `false`. Set the field to `true` if you want references to resolve across namespaces. When `enableCrossNamespace` is `false`, a resource can resolve references only to resources in its own namespace. A reference that names a different namespace is not resolved, and ACK reports the reference as unresolved (the `ACK.ReferencesResolved` condition stays `False`).
+
+If you have a capability that was resolving cross-namespace references before `enableCrossNamespace` became available, AWS set the field to `true` on that capability, so its behavior doesn’t change. Capabilities that you create now have cross-namespace references disabled unless you set the field to `true`.
+
+Setting `enableCrossNamespace` to `false` restricts how ACK resolves references between resources. It doesn’t isolate tenants on its own. Nothing prevents a principal that has permissions in another namespace from creating resources there directly. Treat it as one control alongside the namespace and RBAC practices described in [Security considerations for EKS Capabilities](capabilities-security.md).
+
+**Note**  
+When a reference is blocked, the message that ACK reports asks you to set the `--enable-cross-namespace` controller flag. On a managed ACK capability you don’t set controller flags directly. Set the `enableCrossNamespace` field of the capability configuration instead, and AWS applies the corresponding flag to the controllers.
+
+You set `enableCrossNamespace` when you create the capability, or you can change it later. For information about the field definition and the behavior of each value, see [ACK capability configuration options](create-ack-capability.md#ack-configuration-options). For instructions on changing the value after creation, see [Update ACK capability configuration](working-with-capabilities.md#ack-update-configuration).
 
 ## Error handling and retry behavior
 <a name="_error_handling_and_retry_behavior"></a>

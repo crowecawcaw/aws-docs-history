@@ -230,7 +230,7 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
 
    1. On the ** {{my-cluster}} ** page, do the following:
 
-   1. Choose the **Compute** tab.
+   1. In the left navigation pane, choose **Compute**, then choose the **Node groups** tab.
 
    1. Choose **Add Node Group**.
 
@@ -256,12 +256,14 @@ To learn more about different ways to configure nodes in EKS, see [Manage comput
 You can view your nodes and Kubernetes workloads.
 
 1. In the left navigation pane, choose **Clusters**. In the list of **Clusters**, choose the name of the cluster that you created, such as {{my-cluster}}.
+**Note**  
+The cluster page includes a **Cluster resources** panel that shows at-a-glance counts for your cluster. Each count links to the corresponding page in the left navigation pane. For example, **Nodes**, **Node groups**, and **Fargate profiles** open the **Compute** page. Access entries, Pod Identities, and OIDC providers open the **Access** page. **Add-ons**, **Capabilities**, and **Resources** open their own pages.
 
-1. On the ** {{my-cluster}} ** page, choose the following:
+1. In the left navigation pane, choose the following:
 
-   1.  **Compute** tab – You see the list of **Nodes** that were deployed for the cluster. You can choose the name of a node to see more information about it.
+   1.  **Compute** – On the **Nodes** tab, you see the list of **Nodes** that were deployed for the cluster. You can choose the name of a node to see more information about it.
 
-   1.  **Resources** tab – You see all of the Kubernetes resources that are deployed by default to an Amazon EKS cluster. Select any resource type in the console to learn more about it.
+   1.  **Resources** – You see all of the Kubernetes resources that are deployed by default to an Amazon EKS cluster. Select any resource type in the console to learn more about it.
 
 ## Step 5: Delete resources
 <a name="gs-console-clean-up"></a>
@@ -274,7 +276,7 @@ After you’ve finished with the cluster and nodes that you created for this tut
 
    1. In the left navigation pane, choose **Clusters**. In the list of clusters, choose {{my-cluster}}.
 
-   1. Choose the **Compute** tab.
+   1. In the left navigation pane, choose **Compute**, then choose the **Node groups** tab.
 
    1. If you created a node group, choose the {{my-nodegroup}} node group and then choose **Delete**. Enter {{my-nodegroup}}, and then choose **Delete**.
 

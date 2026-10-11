@@ -33,9 +33,9 @@ Capability resources have a status that indicates their current state. You can v
 
 1. Select your cluster name.
 
-1. Choose the **Capabilities** tab to view status for all capabilities.
+1. In the left navigation pane, choose **Capabilities** to view status for all capabilities.
 
-1. For detailed health information, choose the **Observability** tab, then **Monitor cluster**, then the **Capabilities** tab.
+1. For detailed health information, choose **Cluster monitoring** in the left navigation pane, then the **Capabilities** tab.
 
  ** AWS CLI**:
 
@@ -94,7 +94,7 @@ You can list all capability resources on a cluster.
 
 1. Select your cluster name to open the cluster detail page.
 
-1. Choose the **Capabilities** tab.
+1. In the left navigation pane, choose **Capabilities**.
 
 1. View capability resources under **Managed capabilities**.
 
@@ -154,7 +154,7 @@ Get detailed information about a specific capability, including its configuratio
 
 1. Select your cluster name to open the cluster detail page.
 
-1. Choose the **Capabilities** tab.
+1. In the left navigation pane, choose **Capabilities**.
 
 1. Choose the capability you want to view from **Managed capabilities**.
 
@@ -219,6 +219,31 @@ aws eks update-capability \
 **Note**  
 Not all capability properties can be updated after creation. Refer to the capability-specific documentation for details on what can be modified.
 
+### Update ACK capability configuration
+<a name="ack-update-configuration"></a>
+
+For an ACK capability, you can change the type-specific settings in the `ack` object of the `configuration` after creation. For a description of each field and its constraints, see [ACK capability configuration options](create-ack-capability.md#ack-configuration-options).
+
+The following example turns cross-namespace reference resolution on and replaces the set of disabled services with a single service (`iam`). Replace {{region-code}} with the AWS Region that your cluster is in, replace {{my-cluster}} with the name of your cluster, and replace {{my-ack}} with the name of your ACK capability.
+
+```
+aws eks update-capability \
+  --region {{region-code}} \
+  --cluster-name {{my-cluster}} \
+  --capability-name {{my-ack}} \
+  --configuration '{
+    "ack": {
+      "enableCrossNamespace": true,
+      "disabledServices": ["iam"]
+    }
+  }'
+```
+
+**Note**  
+Omitting a field leaves its current value unchanged. When you do specify `disabledServices`, the list replaces the previous list instead of merging with it, so include every service that you want turned off. To turn all services back on, specify an empty list. To turn a single service back on, specify the list of services that you want to remain turned off, without that service. For details, see [ACK capability configuration options](create-ack-capability.md#ack-configuration-options).
+
+The capability status changes to `UPDATING` while EKS applies the change, and returns to `ACTIVE` when the update is complete.
+
 ## Delete a capability
 <a name="capabilities-delete"></a>
 
@@ -241,7 +266,7 @@ You may optionally choose to retain AWS resources associated with ACK Kubernetes
 
 1. Select your cluster name to open the cluster detail page.
 
-1. Choose the **Capabilities** tab.
+1. In the left navigation pane, choose **Capabilities**.
 
 1. Select the capability you want to delete from the list of **Managed capabilities**.
 

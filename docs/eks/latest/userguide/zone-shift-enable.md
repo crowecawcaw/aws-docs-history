@@ -67,9 +67,9 @@ When the shift expires or is cancelled, the networking configurations and comput
 
 1. Navigate to the [EKS console](https://console.aws.amazon.com/eks) in that region, and select your cluster.
 
-1. On the **Cluster info** page, select the **Overview** tab.
+1. On the cluster page, choose the **Configuration** tab.
 
-1. Under the **Zonal shift** heading, select the **Manage** button.
+1. In the **Cluster configuration** section, choose the **Manage** dropdown, then choose **Zonal shift**.
 
 1. Select **enable** or **disable** for *EKS zonal shift*.
 

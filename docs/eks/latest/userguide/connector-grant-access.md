@@ -58,4 +58,4 @@ For an IAM principal to view Kubernetes resources in Amazon EKS console, the pri
    kubectl apply -f eks-connector-console-dashboard-full-access-group.yaml
    ```
 
-To view Kubernetes resources in your connected cluster, see [View Kubernetes resources in the AWS Management Console](view-kubernetes-resources.md). Data for some resource types on the **Resources** tab isn’t available for connected clusters.
+To view Kubernetes resources in your connected cluster, see [View Kubernetes resources in the AWS Management Console](view-kubernetes-resources.md). Data for some resource types on the **Resources** page isn’t available for connected clusters.

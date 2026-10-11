@@ -36,7 +36,7 @@ eksctl delete fargateprofile  --name my-profile --cluster my-cluster
 
 1. In the left navigation pane, choose **Clusters**. In the list of clusters, choose the cluster that you want to delete the Fargate profile from.
 
-1. Choose the **Compute** tab.
+1. In the left navigation pane, choose **Compute**, then choose the **Fargate profiles** tab.
 
 1. Choose the Fargate profile to delete, and then choose **Delete**.
 

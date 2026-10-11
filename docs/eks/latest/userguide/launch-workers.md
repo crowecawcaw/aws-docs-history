@@ -113,13 +113,13 @@ You must create the node group with a config file that specifies the subnets and
 
      1. Choose the name of the cluster.
 
-     1. Choose the **Networking** tab.
+     1. Choose the **Configuration** tab, then locate the **Networking** section.
 
      1. Use the **Additional security groups** value as a reference when selecting from the **ClusterControlPlaneSecurityGroup** dropdown list.
-   +  **ApiServerEndpoint**: Enter the API Server Endpoint for your EKS Cluster. This can be found in the Details section of the EKS Cluster Console
-   +  **CertificateAuthorityData**: Enter the base64 encoded Certificate Authority data which can also be found in the EKS Cluster Console’s Details section.
-   +  **ServiceCidr**: Enter the CIDR range used for allocating IP addresses to Kubernetes services within the cluster. This is found within the networking tab of the EKS Cluster Console.
-   +  **AuthenticationMode**: Select the Authentication Mode in use in the EKS Cluster by reviewing the access tab within the EKS Cluster Console.
+   +  **ApiServerEndpoint**: Enter the API Server Endpoint for your EKS Cluster. This can be found in the **Cluster info** panel of the EKS Cluster Console
+   +  **CertificateAuthorityData**: Enter the base64 encoded Certificate Authority data which can also be found in the EKS Cluster Console’s **Cluster info** panel.
+   +  **ServiceCidr**: Enter the CIDR range used for allocating IP addresses to Kubernetes services within the cluster. This is found in the **Networking** section of the **Configuration** tab of the EKS Cluster Console.
+   +  **AuthenticationMode**: Select the Authentication Mode in use in the EKS Cluster by reviewing the **Access** page (in the left navigation pane) within the EKS Cluster Console.
    +  **NodeGroupName**: Enter a name for your node group. This name can be used later to identify the Auto Scaling node group that’s created for your nodes. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
    +  **NodeAutoScalingGroupMinSize**: Enter the minimum number of nodes that your node Auto Scaling group can scale in to.
    +  **NodeAutoScalingGroupDesiredCapacity**: Enter the desired number of nodes to scale to when your stack is created.
@@ -135,7 +135,7 @@ The Amazon EKS node AMIs are based on Amazon Linux. You can track security or pr
    +  **NodeVolumeType**: Specify a root volume type for your nodes.
    +  **KeyName**: Enter the name of an Amazon EC2 SSH key pair that you can use to connect using SSH into your nodes with after they launch. If you don’t already have an Amazon EC2 key pair, you can create one in the AWS Management Console. For more information, see [Amazon EC2 key pairs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon EC2 User Guide*.
    +  **VpcId**: Enter the ID for the [VPC](creating-a-vpc.md) that you created.
-   +  **Subnets**: Choose the subnets that you created for your VPC. If you created your VPC using the steps that are described in [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md), specify only the private subnets within the VPC for your nodes to launch into. You can see which subnets are private by opening each subnet link from the **Networking** tab of your cluster.
+   +  **Subnets**: Choose the subnets that you created for your VPC. If you created your VPC using the steps that are described in [Create an Amazon VPC for your Amazon EKS cluster](creating-a-vpc.md), specify only the private subnets within the VPC for your nodes to launch into. You can see which subnets are private by opening each subnet link from the **Networking** section of the **Configuration** tab of your cluster.
 **Important**  
 If any of the subnets are public subnets, then they must have the automatic public IP address assignment setting enabled. If the setting isn’t enabled for the public subnet, then any nodes that you deploy to that public subnet won’t be assigned a public IP address and won’t be able to communicate with the cluster or other AWS services. If the subnet was deployed before March 26, 2020 using either of the [Amazon EKS AWS CloudFormation VPC templates](creating-a-vpc.md), or by using `eksctl`, then automatic public IP address assignment is disabled for public subnets. For information about how to enable public IP address assignment for a subnet, see [Modifying the public IPv4 addressing attribute for your subnet](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-ip-addressing.html#subnet-public-ip). If the node is deployed to a private subnet, then it’s able to communicate with the cluster and other AWS services through a NAT gateway.
 If the subnets don’t have internet access, make sure that you’re aware of the considerations and extra steps in [Deploy private clusters with limited internet access](private-clusters.md).

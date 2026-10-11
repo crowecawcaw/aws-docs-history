@@ -36,7 +36,7 @@ There is an Amazon EKS access entry type for hybrid nodes named HYBRID\_LINUX th
 
 1. Choose the name of your hybrid nodes-enabled cluster.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Access entries** tab.
 
 1. Choose **Create access entry**.
 

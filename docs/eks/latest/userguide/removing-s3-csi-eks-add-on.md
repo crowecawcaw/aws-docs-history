@@ -38,7 +38,7 @@ eksctl delete addon --cluster my-cluster --name aws-mountpoint-s3-csi-driver --p
 
 1. Choose the name of the cluster that you want to remove the Mountpoint for Amazon S3 CSI add-on for.
 
-1. Choose the **Add-ons** tab.
+1. In the left navigation pane, choose **Add-ons**.
 
 1. Choose **Mountpoint for Amazon S3 CSI Driver**.
 

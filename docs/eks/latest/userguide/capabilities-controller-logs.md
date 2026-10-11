@@ -45,7 +45,7 @@ To configure capability controller log delivery, use the AWS Management Console 
 
 1. Select your cluster name.
 
-1. Choose the **Capabilities** tab, then select your capability.
+1. In the left navigation pane, choose **Capabilities**, then select your capability.
 
 1. In the **Log delivery** section, choose **Add**.
 

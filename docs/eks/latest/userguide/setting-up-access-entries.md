@@ -16,7 +16,7 @@ To begin using access entries, you must change the authentication mode of the cl
 
 1. Choose the name of the cluster that you want to create an access entry in.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Access entries** tab.
 
 1. The **Authentication mode** shows the current authentication mode of the cluster. If the mode says EKS API, you can already add access entries and you can skip the remaining steps.
 

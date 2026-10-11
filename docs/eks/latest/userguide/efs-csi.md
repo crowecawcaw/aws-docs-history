@@ -114,7 +114,7 @@ Run the following to create an IAM role with AWS Management Console.
 
       1. In the **Trusted entity type** section, choose **Web identity**.
 
-      1. For **Identity provider**, choose the **OpenID Connect provider URL** for your cluster (as shown under **Overview** in Amazon EKS).
+      1. For **Identity provider**, choose the **OpenID Connect provider URL** for your cluster (as shown in the **Cluster info** panel in Amazon EKS).
 
       1. For **Audience**, choose `sts.amazonaws.com`.
 
@@ -144,7 +144,7 @@ Run the following to create an IAM role with AWS Management Console.
 
       1. In the left navigation pane, select **Clusters**, and then select the name of the cluster that you want to configure the EKS Pod Identity association for.
 
-      1. Choose the **Access** tab.
+      1. In the left navigation pane, choose **Access**, then choose the **Pod Identity** tab.
 
       1. In **Pod Identity associations**, choose **Create**.
 

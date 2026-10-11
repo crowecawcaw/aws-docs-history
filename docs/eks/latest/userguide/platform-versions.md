@@ -289,9 +289,7 @@ The following admission controllers are enabled for all `1.31` platform versions
 
 1. In the list of clusters, choose the **Cluster Name** to check the platform version of.
 
-1. Choose the **Overview** tab.
-
-1. The **Platform Version** is available in the **Details** section.
+1. The **Platform Version** is available in the **Cluster info** panel.
 
 ### Get current platform version (AWS CLI)
 <a name="get-platform-version-cli"></a>

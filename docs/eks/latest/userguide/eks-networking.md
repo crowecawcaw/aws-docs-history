@@ -21,7 +21,7 @@ Your Amazon EKS cluster is created in a VPC. Pod networking is provided by the A
 
 1. Navigate to your cluster in the management console
 
-1. From the **Networking** tab select **Manage VPC Resources** 
+1. Choose the **Configuration** tab, then in the **Networking** section select **Manage VPC Resources** 
 
 1. From the **Subnets** dropdown, select additional subnets from the VPC of your cluster.
 

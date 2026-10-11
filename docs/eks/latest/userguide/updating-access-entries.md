@@ -16,7 +16,7 @@ You can update an access entry using the AWS Management Console or the AWS CLI.
 
 1. Choose the name of the cluster that you want to create an access entry in.
 
-1. Choose the **Access** tab.
+1. In the left navigation pane, choose **Access**, then choose the **Access entries** tab.
 
 1. Choose the access entry that you want to update.
 

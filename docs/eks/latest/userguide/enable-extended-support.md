@@ -23,9 +23,9 @@ If you do not enable extended support, your cluster will be automatically upgrad
 ## Enable EKS extended support (AWS Console)
 <a name="enable-support-policy-console"></a>
 
-1. Navigate to your EKS cluster in the AWS Console. Select the **Overview** tab on the **Cluster Info** page.
+1. Navigate to your EKS cluster in the AWS Console. On the cluster page, choose the **Configuration** tab.
 
-1. In the **Kubernetes version settings** section, select **Manage**.
+1. In the **Cluster configuration** section, choose the **Manage** dropdown, then choose **Kubernetes version settings**.
 
 1. Select **Extended support** and then **Save changes**.
 

@@ -65,9 +65,9 @@ If the Amazon EKS service is using the role when you try to delete the resources
 
 1. In the left navigation pane, choose **Clusters**.
 
-1. Select the **Compute** tab.
+1. In the left navigation pane, choose **Compute**, then choose the **Node groups** tab.
 
-1. In the **Node groups** section, choose the node group to delete.
+1. Choose the node group to delete.
 
 1. Type the name of the node group in the deletion confirmation window, and then choose **Delete**.
 

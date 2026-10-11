@@ -94,7 +94,7 @@ You can use certain wildcards for `my-kubernetes-namespace` and `key=value` labe
 
 1. Choose the cluster to create a Fargate profile for.
 
-1. Choose the **Compute** tab.
+1. In the left navigation pane, choose **Compute**, then choose the **Fargate profiles** tab.
 
 1. Under **Fargate profiles**, choose **Add Fargate profile**.
 
@@ -103,6 +103,8 @@ You can use certain wildcards for `my-kubernetes-namespace` and `key=value` labe
    1. For **Name**, enter a unique name for your Fargate profile, such as `my-profile`.
 
    1. For **Pod execution role**, choose the Pod execution role to use with your Fargate profile. Only the IAM roles with the `eks-fargate-pods.amazonaws.com` service principal are shown. If you don’t see any roles listed, you must create one. For more information, see [Amazon EKS Pod execution IAM role](pod-execution-role.md).
+**Note**  
+If role manager is enabled in your account, Amazon EKS attaches the role for you, and the role selections described here (for example **Pod execution role**) and the **Create recommended role** buttons are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 
    1. Modify the selected **Subnets** as needed.
 **Note**  

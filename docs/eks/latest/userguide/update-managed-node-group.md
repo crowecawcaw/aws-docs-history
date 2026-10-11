@@ -73,7 +73,7 @@ eksctl upgrade nodegroup \
 
 1. Choose the cluster that contains the node group to update.
 
-1. If at least one node group has an available update, a box appears at the top of the page notifying you of the available update. If you select the **Compute** tab, you’ll see **Update now** in the **AMI release version** column in the **Node groups** table for the node group that has an available update. To update the node group, choose **Update now**.
+1. If at least one node group has an available update, a box appears at the top of the page notifying you of the available update. If you choose **Compute** in the left navigation pane and open the **Node groups** tab, you’ll see **Update now** in the **AMI release version** column in the **Node groups** table for the node group that has an available update. To update the node group, choose **Update now**.
 
    You won’t see a notification for node groups that were deployed with a custom AMI. If your nodes are deployed with a custom AMI, complete the following steps to deploy a new updated custom AMI.
 
@@ -102,7 +102,7 @@ You can modify some of the configurations of a managed node group.
 
 1. Choose the cluster that contains the node group to edit.
 
-1. Select the **Compute** tab.
+1. In the left navigation pane, choose **Compute**, then choose the **Node groups** tab.
 
 1. Select the node group to edit, and then choose **Edit**.
 

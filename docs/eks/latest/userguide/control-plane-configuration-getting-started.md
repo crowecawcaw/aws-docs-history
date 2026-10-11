@@ -381,6 +381,6 @@ To configure advanced Kubernetes control plane parameters on an existing cluster
 
 1. Choose the cluster you want to update.
 
-1. Choose the **Overview** tab, then scroll down to **Control plane configuration**.
+1. Choose the **Configuration** tab, then scroll down to **Control plane configuration**.
 
 1. Choose **Manage**, and then select **Enable control plane configuration** to set the parameters you want to change. Then choose **Save changes**.

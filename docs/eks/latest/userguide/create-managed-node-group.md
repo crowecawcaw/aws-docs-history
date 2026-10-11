@@ -137,13 +137,15 @@ If you want to block Pod access to IMDS, then specify the necessary settings in 
 
 1. Choose the name of the cluster that you want to create a managed node group in.
 
-1. Select the **Compute** tab.
+1. In the left navigation pane, choose **Compute**, then choose the **Node groups** tab.
 
 1. Choose **Add node group**.
 
 1. On the **Configure node group** page, fill out the parameters accordingly, and then choose **Next**.
    +  **Name** – Enter a unique name for your managed node group. The node group name can’t be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
    +  **Node IAM role** – Choose the node instance role to use with your node group. For more information, see [Amazon EKS node IAM role](create-node-role.md).
+**Note**  
+If role manager is enabled in your account, Amazon EKS attaches the role for you, and the role selections described here (for example **Node IAM role**) and the **Create recommended role** buttons are replaced by a **Customize** option. To use a different role, choose **Customize**. For more information, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html) in the *IAM User Guide*.
 **Important**  
 You can’t use the same role that is used to create any clusters.
 We recommend using a role that’s not currently in use by any self-managed node group, unless you plan to use it with a new self-managed node group. For more information, see [Delete a managed node group from your cluster](delete-managed-node-group.md).
