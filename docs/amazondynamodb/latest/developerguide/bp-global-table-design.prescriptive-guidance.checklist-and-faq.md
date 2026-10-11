@@ -38,19 +38,15 @@ With failover procedures, it's best practice to rely only on data plane operatio
 ## Frequently Asked Questions (FAQ) for deploying global tables
 <a name="bp-global-table-design.prescriptive-guidance.faq"></a>
 
-**What is the pricing for global tables?**
-+ A write operation in a traditional DynamoDB table is priced in write capacity units (WCUs, for provisioned tables) or write request units (WRUs) for on-demand tables. If you write a 5 KB item, it incurs a charge of 5 units. A write to a global table is priced in replicated write capacity units (rWCUs, for provisioned tables) or replicated write request units (rWRUs, for on-demand tables). rWCUs and rWRUs are priced the same as WGUs and WRUs.
-+ rWCU and rWRU changes are incurred in every Region where the item is written directly or written through replication. DynamoDB does not charge cross-Region data transfer fees for this replication.
-+ Writing to a global secondary index (GSI) is considered a local write operation and uses regular write units.
-+ There is no reserved capacity available for rWCUs or rWRUs at this time. Purchasing reserved capacity for WCUs can be beneficial for tables where GSIs consume write units.
-+ When you add a new Region to a global table, DynamoDB bootstraps the new Region automatically and charges you as if it were a table restore, based on the GB size of the table.
+**How does pricing for global tables work?**
+
+Global tables are priced based on the resources each replica consumes in its own Region, including replicated write units, storage, and reads. For a full breakdown of global tables pricing, see [Pricing for global tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/global-tables-billing.html).
 
 **Which Regions does global tables support?**
 
-[Global Tables version 2019.11.21 (Current)](GlobalTables.md) supports all AWS Regions for MREC tables and the following Region sets for MRSC tables:
-+ US Region set: US East (N.Virginia), US East (Ohio), US West (Oregon)
-+ EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfort)
-+ AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), and Asia Pacific (Osaka)
+[Global Tables version 2019.11.21 (Current)](GlobalTables.md) supports all AWS Regions for MREC tables.
+
+MRSC global tables are available in the following AWS Regions: US East (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe (Ireland), Europe (London), Europe (Paris), Europe (Frankfurt), Europe (Stockholm), Europe (Spain), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Mumbai), and Asia Pacific (Singapore). An MRSC global table can include replicas from any combination of three of these Regions, including Regions on different continents.
 
 **How are GSIs handled with global tables?**
 
