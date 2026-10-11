@@ -47,7 +47,7 @@ If a resource type does not have a checkmark in the Cross-Region backup or Cross
 | FSx for Lustre | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  | 
 | FSx for Windows File Server | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓8 | ✓ |  |  |  |  | 
 | FSx for ONTAP | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  | 
-| FSx for OpenZFS | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  |  |  | 
+| FSx for OpenZFS | ✓ | ✓ | ✓ | ✓ |  |  |  |  | ✓ | ✓ |  |  |  |  | 
 | AWS Storage Gateway | ✓ | ✓ | ✓ | ✓ |  |  |  |  |  | ✓ |  |  |  |  | 
 | Amazon DocumentDB | ✓ 3 | ✓ 3 |  |  |  |  |  |  | ✓ | ✓ |  |  |  |  | 
 | Amazon Neptune | ✓ 3 | ✓ 3 |  |  |  |  |  |  | ✓ | ✓ 9 |  |  |  |  | 
@@ -97,10 +97,9 @@ AWS Backup is available in all the following AWS Regions. AWS Backup features ar
 Some Regions require account opt-in, as noted in the following table. Some feature availability is determined by whether opt-in is required or not required. For more information, see [AWS Regions your account can use](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html) in the *AWS Account Management Reference Guide*.
 
 **Considerations for opt-in Regions:**
-+ **Cross-Region** copy of Neptune backups is currently **supported** in Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Jakarta), Israel (Tel Aviv), Middle East (Bahrain), and Middle East (UAE) Regions.
 + **Cross-Region** copy of FSx for ONTAP, FSx for Lustre, FSx for Windows File Server, and FSx for OpenZFS is **not supported** in Middle East (Bahrain) and Middle East (UAE).
 + **Cross-Region** and **Cross-account** copy of FSx for ONTAP is **not supported** in Asia Pacific (New Zealand), China (Beijing), and China (Ningxia).
-+ **Cross-account** copy is **not supported** for CloudFormation, Neptune, and Timestream in Regions where opt-in is required.
++ **Cross-account** copy is **not supported** for CloudFormation and Timestream in Regions where opt-in is required.
 
  **Considerations and limitations for cross-account management in opt-in Regions:** 
 + Cross-account management in AWS Regions where opt-in is required includes cross-account monitoring and access to backup policies; delegated administrator accounts can launch policies but do not have access to the monitoring functions.

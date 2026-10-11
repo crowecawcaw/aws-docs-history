@@ -171,16 +171,18 @@ Note quotas do not apply to on-demand restore jobs, but to restore jobs created 
 ## Logically air-gapped vault quotas
 <a name="lag-vault-quotas-table"></a>
 
+The following quotas apply per source account and per copy destination Region. They are currently not adjustable.
 
-| Resource type | Maximum number of concurrent copies | 
-| --- | --- | 
-| EC2 | The EBS concurrent copy limit applies to any snapshots being copied as part of an AMI copy. | 
-| EBS | 20 | 
-| Aurora | 20 | 
-| DocumentDB | 20 | 
-| Neptune | 20 | 
-| Storage Gateway | 5 | 
-| FSx | 5 | 
+
+| Resource type | Maximum number of concurrent copies | Adjustable | 
+| --- | --- | --- | 
+| EC2 | The EBS concurrent copy limit applies to any snapshots being copied as part of an AMI copy. | No | 
+| EBS | 20 | No | 
+| Aurora | 20 | No | 
+| DocumentDB | 20 | No | 
+| Neptune | 20 | No | 
+| Storage Gateway | 20 | No | 
+| FSx | 5 | No | 
 
 ## Related quotas
 <a name="backup-related-quotas"></a>

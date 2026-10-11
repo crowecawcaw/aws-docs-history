@@ -156,6 +156,8 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
     + `vpcId` - The VPC associated with your cluster
     + `subnetIds [Required]` - The subnets associated with your cluster
     + `securityGroupIds [Required]` - The additional security groups associated with your cluster
+  + `computeConfig` - The compute configuration for clusters created with Amazon EKS Auto Mode. This field has the following nested field:
+    + `nodeRoleArn` - The IAM role ARN that Amazon EKS Auto Mode attaches to the nodes. If omitted, the restore uses the node role from the source cluster. When performing a cross-account restore, you must provide a node role in the destination account. Otherwise, the restore fails.
   + `nodeGroups` - The Managed Node Groups to be created on the EKS Cluster. The NodeGroups for restore must have all of the same node groups from backup time and have matching nodeGroupId.
     + `nodeGroupId [Required]` - The ID of the node group
     + `subnetIds [Required]` - The subnets that were specified for the Auto Scaling group that is associated with your node group
@@ -218,7 +220,7 @@ aws backup start-restore-job \
 aws backup start-restore-job \
     --recovery-point-arn "arn:aws:backup:us-west-2:123456789012:recovery-point:composite:eks/my-cluster-20240115" \
     --iam-role-arn "arn:aws:iam::123456789012:role/AWSBackupDefaultServiceRole" \
-    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","controlPlaneScalingTier":"tier-2xl","encryptionConfigProviderKeyArn":"arn:aws:kms:us-west-2:123456789012:key/ecb2b326-784d-4ec0-8d07-20ab826b5a13","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"],\"launchTemplateId\":\"lt-0b13949aae3f2b867\",\"launchTemplateVersion\":\"1\"}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]"}' \
+    --metadata '{"clusterName":"new-cluster","newCluster":"true","clusterRole":"arn:aws:iam::123456789012:role/EKSClusterRole","eksClusterVersion":"1.33","controlPlaneScalingTier":"tier-2xl","encryptionConfigProviderKeyArn":"arn:aws:kms:us-west-2:123456789012:key/ecb2b326-784d-4ec0-8d07-20ab826b5a13","clusterVpcConfig":"{\"vpcId\":\"vpc-1234\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"securityGroupIds\":[\"sg-123\"]}","nodeGroups":"[{\"nodeGroupId\":\"nodegroup-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"nodeRole\":\"arn:aws:iam::123456789012:role/EKSNodeGroupRole\",\"instanceTypes\":[\"t3.small\"],\"launchTemplateId\":\"lt-0b13949aae3f2b867\",\"launchTemplateVersion\":\"1\"}]","fargateProfiles":"[{\"name\":\"fargate-profile-1\",\"subnetIds\":[\"subnet-1\",\"subnet-2\",\"subnet-3\"],\"podExecutionRoleArn\":\"arn:aws:iam::123456789012:role/EKSFargateProfileRole\"}]","computeConfig":"{\"nodeRoleArn\":\"arn:aws:iam::123456789012:role/EKSAutoModeNodeRole\"}"}' \
     --resource-type "EKS"
 ```
 
