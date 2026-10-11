@@ -21,3 +21,4 @@ AWS provides various services and tools for monitoring DataSync. You can configu
 + [Logging AWS DataSync API calls with AWS CloudTrail](logging-using-cloudtrail.md)
 + [Monitoring events by using Amazon EventBridge](events.md)
 + [Monitoring AWS DataSync with manual tools](monitoring-task-manually.md)
++ [Monitoring with the AWS DataSync console dashboard](management-console-dashboard.md)
