@@ -354,7 +354,7 @@ FROM {{111122223333}}.dkr.ecr.{{us-east-1}}.amazonaws.com/{{base-images/python}}
 After redeploying your workloads, verify that all image pulls now come from Amazon ECR.
 + Check CloudWatch metrics for your repositories. The `RepositoryPullCount` metric confirms that pulls are occurring. For more information, see [Amazon ECR repository metrics](ecr-repository-metrics.md).
 + Review CloudTrail for `BatchGetImage` and `GetDownloadUrlForLayer` events to confirm that your workloads pull from the expected repositories.
-+ (Optional) Set up lifecycle policies to automate cleanup of old image versions. For more information, see .
++ (Optional) Set up lifecycle policies to automate cleanup of old image versions. For more information, see [Automate the cleanup of images by using lifecycle policies in Amazon ECR](LifecyclePolicies.md).
 
 ## Considerations
 <a name="migrate-considerations"></a>
