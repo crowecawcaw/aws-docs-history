@@ -30,13 +30,13 @@ The recipient confirmed the address, or the address was already verified for the
 **Pending**  
 AWS Budgets sent a verification email and is waiting for the recipient to confirm.
 
-**Expiring**  
-The address was added to a budget notification before AWS Budgets introduced verification. The address continues to receive notifications during a grace period. Choose **Send Notification** to move it to Pending and preserve delivery after the grace period ends.
+**Active (legacy)**  
+The address was added to a budget notification before AWS Budgets introduced verification, and continues to receive notifications without change. No action is required.
 
 **Inactive**  
 The address is not yet registered to receive notifications. Choose **Send Notification** to register the address and send a verification email. The status moves to Pending until the recipient confirms.
 
-Each recipient row with a Pending status includes a **Resend verification** button that sends a fresh verification email. Rows with an Expiring or Inactive status include a **Send Notification** button that registers the address to receive notifications and sends a verification email.
+Each recipient row with a Pending status includes a **Resend verification** button that sends a fresh verification email. Rows with an Inactive status include a **Send Notification** button that registers the address to receive notifications and sends a verification email.
 
 ## Adding an email recipient to a budget notification
 <a name="budgets-email-recipients-add"></a>

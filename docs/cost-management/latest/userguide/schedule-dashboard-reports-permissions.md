@@ -72,7 +72,7 @@ The execution role must trust the `bcm-dashboards.amazonaws.com` service princip
         "StringEquals": {
           "aws:SourceAccount": "<account-id>"
         },
-        "StringLike": {
+        "ArnLike": {
           "aws:SourceArn": "arn:aws:bcm-dashboards::<account-id>:*"
         }
       }

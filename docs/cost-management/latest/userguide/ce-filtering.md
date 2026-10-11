@@ -13,6 +13,7 @@ With Cost Explorer, you can filter how you view your AWS costs by one or more of
 + **Legal entity**
 + **Linked account**
 + **Platform**
++ **Product attribute**
 + **Purchase option**
 + **Region**
 + **Resources**
@@ -112,6 +113,15 @@ The member accounts in an organization. For more information, see [Consolidated 
 
 **Platform**  
 The operating system that your RI runs on. **Platform** is either **Linux** or **Windows**.
+
+**Product attribute**  
+Standardized attributes that describe your Amazon Bedrock usage. You can filter and group your Amazon Bedrock costs by the following attributes:  
++ **Provider** (`provider`) is the company that offers the model, such as Anthropic, Cohere, or OpenAI.
++ **Model** (`model`) is the model name, such as Claude Sonnet 5 or Claude Haiku 4.5.
++ **Inference type** (`inferenceType`) is the type of usage, such as input tokens, output tokens, or prompt cache read input tokens.
++ **Feature** (`feature`) is how the model was used, such as on-demand inference.
+Costs that don't have a value for the selected attribute are grouped together.  
+Product attribute data is available starting September 1, 2026.
 
 **Purchase option**  
 The method you choose to pay for your Amazon EC2 instances. This includes Reserved Instances, Spot Instances, Scheduled Reserved Instances, and On-Demand Instances.

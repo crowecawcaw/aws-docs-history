@@ -7,6 +7,7 @@ The following table describes the documentation for this release of the AWS Cost
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Launching Amazon Bedrock product attributes](https://docs.aws.amazon.com/cost-management/latest/userguide/ce-filtering.html#filtergrouptypes) | You can now filter and group your Amazon Bedrock costs by product attributes (provider, model, inference type, and feature) in Cost Explorer and Dashboards, and filter budgets by these attributes in AWS Budgets. | October 8, 2026 | 
 | [Updated AWS managed policies](#doc-history) | Updated the following managed policies.+  [AWSBudgetsActions\_RolePolicyForResourceAdministrationWithSSM](https://docs.aws.amazon.com/cost-management/latest/userguide/billing-permissions-ref.html#budget-managedIAM-SSM)  | April 7, 2026 | 
 | [Launching user attributes for cost allocation](/awsaccountbilling/latest/aboutv2/user-attributes-cost-allocation.html) | User attributes for cost allocation enables you to allocate costs based on user attributes from AWS IAM Identity Center. Introduced the following managed policy: AWSUserAttributeCostAllocationPolicy. | December 15, 2025 | 
 | [Launching Cost efficiency metric in Cost Optimization Hub](https://docs.aws.amazon.com/cur/latest/userguide/coh-cost-efficiency.html) | Cost efficiency is a metric that measures how effectively a customer is optimizing their AWS cloud resources. | November 19, 2025 | 

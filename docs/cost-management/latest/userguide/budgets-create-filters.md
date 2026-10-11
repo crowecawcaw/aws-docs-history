@@ -60,6 +60,14 @@ Do not use this filter within a member account. If the current account is a memb
 **Platform**  
 Choose the operating system that your RI runs on. **Platform** is either **Linux** or **Windows**.
 
+**Product attribute**  
+Choose an attribute and one or more values to track your Amazon Bedrock costs. You can choose from the following attributes:  
++ **Provider** (`provider`) is the company that offers the model, such as Anthropic, Cohere, or OpenAI.
++ **Model** (`model`) is the model name, such as Claude Sonnet 5 or Claude Haiku 4.5.
++ **Inference type** (`inferenceType`) is the type of usage, such as input tokens, output tokens, or prompt cache read input tokens.
++ **Feature** (`feature`) is how the model was used, such as on-demand inference.
+Budgets that use a product attribute filter support actual cost alerts only. Forecasted alerts aren't supported for these budgets.
+
 **Purchase option**  
 Choose `On Demand Instances`, `Standard Reserved Instances`, or `Savings Plans`.
 
