@@ -3,7 +3,7 @@
 # Data protection in Amazon MWAA Serverless
 <a name="data-protection"></a>
 
- The [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon MWAA Serverless for Apache Airflow Serverless. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. ou are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq). For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the AWS Security Blog. 
+ The [AWS shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) applies to data protection in Amazon MWAA Serverless for Apache Airflow Serverless. As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. You are also responsible for the security configuration and management tasks for the AWS services that you use. For more information about data privacy, see the [Data Privacy FAQ](https://aws.amazon.com/compliance/data-privacy-faq). For information about data protection in Europe, see the [AWS Shared Responsibility Model and GDPR](https://aws.amazon.com/blogs/security/the-aws-shared-responsibility-model-and-gdpr/) blog post on the AWS Security Blog. 
 
  For data protection purposes, we recommend that you protect AWS account credentials and set up individual users with AWS Identity and Access Management (IAM). That way, each user is given only the permissions necessary to fulfill their job duties. We also recommend that you secure your data in the following ways: 
 +  Use multi-factor authentication (MFA) with each account. 
@@ -223,8 +223,6 @@ Data in transit is data that may be intercepted as it travels the network.
             "Condition": {
                 "ArnEquals": {
                     "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:us-east-1:{{111122223333}}:log-group:{{log-group-name}}"
-                },
-                {
                 }
             }
         }
@@ -316,7 +314,7 @@ Data in transit is data that may be intercepted as it travels the network.
             "Effect": "Allow",
             "Action": "airflow-serverless:CreateWorkflow",
             "Resource": "*"
-        }
+        },
         {
             "Effect": "Allow",
             "Action": [

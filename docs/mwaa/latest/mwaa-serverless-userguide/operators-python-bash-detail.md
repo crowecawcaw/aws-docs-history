@@ -189,8 +189,8 @@ To create a workflow with this definition and a code package, run the following 
 ```
 aws mwaa-serverless create-workflow \
     --name {{my-workflow}} \
-    --definition-s3-location '{"Bucket": "DOC-EXAMPLE-BUCKET", "ObjectKey": "{{dags/my_dag.yaml}}", "VersionId": "{{definition-version-id}}"}' \
-    --code '{"S3Location": {"Bucket": "DOC-EXAMPLE-BUCKET", "ObjectKey": "{{code/my_package.zip}}", "VersionId": "{{code-version-id}}"}}' \
+    --definition-s3-location '{"Bucket": "amzn-s3-demo-bucket", "ObjectKey": "{{dags/my_dag.yaml}}", "VersionId": "{{definition-version-id}}"}' \
+    --code '{"S3Location": {"Bucket": "amzn-s3-demo-bucket", "ObjectKey": "{{code/my_package.zip}}", "VersionId": "{{code-version-id}}"}}' \
     --role-arn {{arn:aws:iam::111122223333:role/MyMWAAServerlessRole}} \
     --region {{us-east-1}}
 ```
@@ -203,8 +203,8 @@ To update the code for an existing workflow, use the `update-workflow` command w
 ```
 aws mwaa-serverless update-workflow \
     --workflow-arn {{arn:aws:airflow-serverless:us-east-1:111122223333:workflow/my-workflow-a1b2c3d4e5}} \
-    --definition-s3-location '{"Bucket": "DOC-EXAMPLE-BUCKET", "ObjectKey": "{{dags/my_dag.yaml}}", "VersionId": "{{definition-version-id}}"}' \
-    --code '{"S3Location": {"Bucket": "DOC-EXAMPLE-BUCKET", "ObjectKey": "{{code/my_package.zip}}", "VersionId": "{{code-version-id}}"}}' \
+    --definition-s3-location '{"Bucket": "amzn-s3-demo-bucket", "ObjectKey": "{{dags/my_dag.yaml}}", "VersionId": "{{definition-version-id}}"}' \
+    --code '{"S3Location": {"Bucket": "amzn-s3-demo-bucket", "ObjectKey": "{{code/my_package.zip}}", "VersionId": "{{code-version-id}}"}}' \
     --role-arn {{arn:aws:iam::111122223333:role/MyMWAAServerlessRole}} \
     --region {{us-east-1}}
 ```
@@ -234,7 +234,7 @@ Amazon MWAA Serverless snapshots your code when you create or update a workflow.
 **Note**  
 We recommend that you enable Amazon S3 versioning for production workflows to ensure reproducible deployments and deterministic outcomes of your workflows.
 
-## Troubleshooting
+## Troubleshooting Python and Bash operators
 <a name="operators-python-bash-troubleshooting"></a>
 
 ### Viewing task logs
