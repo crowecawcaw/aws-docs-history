@@ -56,6 +56,7 @@ This policy includes the following permissions.
 + `sns:ListTopics`, `sns:ListSubscriptionsByTopic`, `cloudwatch:DescribeAlarms` – Let you create, delete, and view CloudWatch alarms.
 + `tag:GetResources` – Lets you display the tags in your resources. For example, names of your health checks.
 + `apigateway:GET` – Lets you create and update alias records for which the value of **Alias Target** is an Amazon API Gateway API.
++ `iam:CreateServiceLinkedRole` – Allows principals to create the service-linked role for health checking. This permission is needed when the service-linked role doesn't exist in the account yet.
 
  For more information about the permissions, see [Amazon Route 53 API permissions: Actions, resources, and conditions reference](r53-api-permissions-ref.md).
 
@@ -100,6 +101,18 @@ This policy includes the following permissions.
 			"Effect": "Allow",
 			"Action": "apigateway:GET",
 			"Resource": "arn:aws:apigateway:*::/domainnames"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+			"iam:CreateServiceLinkedRole"
+			],
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"iam:AWSServiceName": "route53healthchecks.amazonaws.com"
+				}
+			}
 		}
 	]
 }
@@ -459,6 +472,7 @@ View details about updates to AWS managed policies for Route 53 since this serv
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AmazonRoute53FullAccess](#security-iam-awsmanpol-AmazonRoute53FullAccess) – Updated policy | Adds permission for `iam:CreateServiceLinkedRole`, limited to the `route53healthchecks.amazonaws.com` service. With this permission, principals can create the service-linked role for health checking when the role doesn't exist in the account yet. | October 08, 2026 | 
 | [AmazonRoute53FullAccess](#security-iam-awsmanpol-AmazonRoute53FullAccess) – Updated policy | Adds permissions for `cloudwatch:GetMetricData` ,`tag:GetResources`, `es:ListDomainNames`, `es:DescribeDomains`, `cloudfront:GetDistributionTenantByDomain`, `cloudfront:GetConnectionGroup` and `lightsail:GetContainerServices`. With these permissions, you can fetch up to 500 CloudWatch health check metrics, up to 100 names of health checks, get the domain configuration for the specified Amazon OpenSearch Service domains, and list the names of all Amazon OpenSearch Service domains owned by the current user in the active Region, fetch the CloudFront multi-tenant distributions and get the Lightsail container services. | June 01, 2025 | 
 | [AmazonRoute53ProfilesFullAccess](#security-iam-awsmanpol-AmazonRoute53ProfilesFullAccess) – Updated policy | Adds permissions for `GetProfilePolicy` and `PutProfilePolicy`. These are permission-only IAM actions. If an IAM principal doesn't have these permissions granted, an error occurs when attempting to share the Profile using the AWS RAM service. | August 27, 2024 | 
 | [AmazonRoute53ProfilesReadOnlyAccess](#security-iam-awsmanpol-AmazonRoute53ProfilesReadOnlyAccess) – Updated policy | Adds permissions for `GetProfilePolicy`. This is a permission-only IAM action. If an IAM principal doesn't have this permission granted, an error occurs when attempting to access the Profile's policy using the AWS RAM service. | August 27, 2024 | 

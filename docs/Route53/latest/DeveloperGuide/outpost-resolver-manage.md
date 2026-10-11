@@ -12,6 +12,7 @@ How you manage Resolver on Outpost depends on your AWS Outposts generation:
 **Topics**
 + [Editing Resolver on Outpost (first-generation AWS Outposts only)](#outpost-edit-resolver)
 + [Viewing Resolver on Outpost status](#outpost-view-resolver-status)
++ [Confirming that Resolver on Outpost is working](#outpost-confirm-resolver-working)
 + [Deleting Resolver on Outpost (first-generation AWS Outposts only)](#outpost-delete-resolver)
 
 ## Editing Resolver on Outpost (first-generation AWS Outposts only)
@@ -39,9 +40,11 @@ To edit a Resolver on Outpost, perform the following procedure.<a name="resolver
 ## Viewing Resolver on Outpost status
 <a name="outpost-view-resolver-status"></a>
 
+For second-generation AWS Outposts, viewing the resolver status is the primary way to confirm that Resolver on Outpost is present and healthy. You can't edit or delete it. AWS monitors Resolver on Outpost on second-generation AWS Outposts and contacts you if it fails.
+
 To view the status for Resolver on Outpost, perform the following procedure.<a name="resolver-outpost-viewing-status-procedure"></a>
 
-**To view the status for an inbound endpoint**
+**To view the status of your Resolver on Outpost**
 
 1. Sign in to the AWS Management Console and open the Route 53 console at [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/).
 
@@ -55,17 +58,33 @@ To view the status for Resolver on Outpost, perform the following procedure.<a n
 **Creating**  
 The Resolver on Outpost is in the process of being created.  
 **Operational**  
-The Resolver on Outpost is correctly configured.  
+The Resolver on Outpost is running and can answer DNS queries for workloads in the Outpost's associated VPCs. This is the healthy, working state.  
 **Updating**  
 The Resolver on Outpost is updating instance types.  
 **Action needed**  
-This VPC Resolver is unhealthy and can't be automatically recovered. To resolve the problem, we recommend that you make sure the instance AWS Outposts can support Resolver on Outpost.  
+This VPC Resolver is unhealthy and can't be automatically recovered. To resolve the problem, we recommend that you make sure the instance AWS Outposts can support Resolver on Outpost. In this state, the resolver isn't serving DNS queries until you resolve the problem.  
 **Deleting**  
 The Resolver on Outpost is in the process of being deleted.  
 **Failed creation**  
 The creation of Resolver on Outpost failed.  
 **Failed deletion**  
 The deletion of Resolver on Outpost failed. To fix this issue, try again in a few minutes.
+
+## Confirming that Resolver on Outpost is working
+<a name="outpost-confirm-resolver-working"></a>
+
+Resolver on Outpost works transparently for your workloads. Instances in your AWS Outposts subnets continue to send DNS queries to the same VPC\+2 address for your VPC. This is the same Route 53 Resolver address that they used before. You don't need to change any client configuration.
+
+You can confirm that Resolver on Outpost is running and healthy in the following ways:
++ **Console** — Confirm that the resolver **Status** is **Operational**. For more information, see [Viewing Resolver on Outpost status](#outpost-view-resolver-status).
++ **AWS CLI** — List the resolvers on your AWS Outposts and confirm that the status is `OPERATIONAL`.
+
+  ```
+  aws route53resolver list-outpost-resolvers --outpost-arn {{outpost-arn}}
+  ```
+
+  To view a specific resolver, use the `get-outpost-resolver` command with the resolver ID.
++ **Resolution performance** — Because Resolver on Outpost caches responses locally on your AWS Outposts, you can also observe that it's working from resolution times. While Resolver on Outpost is enabled, queries for names that are already cached on the AWS Outposts resolve nearly immediately (typically 0–10 ms). The first query for a name that isn't cached takes the usual amount of time. This query traverses the AWS Outposts service link to the VPC Resolver instances in the parent AWS Availability Zone. The AWS Outposts cache then serves subsequent queries for the same name, which resolve nearly immediately.
 
 ## Deleting Resolver on Outpost (first-generation AWS Outposts only)
 <a name="outpost-delete-resolver"></a>
