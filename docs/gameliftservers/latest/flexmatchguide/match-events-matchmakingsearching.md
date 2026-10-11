@@ -7,10 +7,10 @@ Ticket has been entered into matchmaking. This includes new requests and request
 
 **Resource: **ConfigurationArn
 
-**Detail: **type, tickets, estimatedWaitMillis, gameSessionInfo
+**Detail: **type, tickets, estimatedWaitTimeSeconds, gameSessionInfo
 
 **Note**  
-The `estimatedWaitMillis` value is reported in *seconds*, not milliseconds. When available, the value is an integer representing seconds; otherwise it is the string `"NOT_AVAILABLE"`. This value matches the `EstimatedWaitTime` field returned by the [DescribeMatchmaking](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeMatchmaking.html) API, which is also in seconds. If your application already interprets this value as seconds, no change is needed.
+The `estimatedWaitTimeSeconds` value is an integer number of seconds. It matches the `EstimatedWaitTime` field returned by the [StartMatchmaking](https://docs.aws.amazon.com/gamelift/latest/apireference/API_StartMatchmaking.html) API. When no estimate is available, such as when a matchmaking configuration has not yet completed enough recent matches to calculate one, the `estimatedWaitTimeSeconds` field is omitted from the event.
 
 ## Example
 <a name="match-events-matchmakingsearching-example"></a>
@@ -39,7 +39,7 @@ The `estimatedWaitMillis` value is reported in *seconds*, not milliseconds. When
         ]
       }
     ],
-    "estimatedWaitMillis": "NOT_AVAILABLE",
+    "estimatedWaitTimeSeconds": 15,
     "type": "MatchmakingSearching",
     "gameSessionInfo": {
       "players": [
