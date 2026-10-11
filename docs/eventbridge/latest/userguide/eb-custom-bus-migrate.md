@@ -3,7 +3,7 @@
 # Migrating from Custom Event Bus - Classic to the Custom Event Bus
 <a name="eb-custom-bus-migrate"></a>
 
-Custom Event Bus - Classic remains available, and you can run both products side by side. Because the Custom Event Bus keeps the `events:` IAM namespace and the `events.amazonaws.com` service principal, your identity policies and delivery roles carry over. What changes is the routing model.
+Custom Event Bus - Classic remains available, and you can run both products side by side. Your identity policies and delivery roles carry over, because the Custom Event Bus keeps the `events:` IAM namespace and the `events.amazonaws.com` service principal. The routing model changes.
 
 
 | Custom Event Bus - Classic | Custom Event Bus | 
@@ -18,7 +18,13 @@ Custom Event Bus - Classic remains available, and you can run both products side
 | Rules written by the bus owner for each consumer | Subscribers created by the consumers themselves | 
 | events:PutEvents | events:PutEvents, plus events:PutRawEvents for non-JSON payloads | 
 
-Four capabilities have no Custom Event Bus - Classic equivalent, so a migrated design can use them without a workaround: retention on the bus itself, a subscriber starting position, pause and resume with a backlog, and a second publish API for non-JSON payloads. You do not have to move everything: the two buses run side by side, a Custom Event Bus - Classic rule can target a Custom Event Bus, and a subscriber can target a Custom Event Bus - Classic, so you can move one consumer or one producer at a time. See [Event bus target: bus to bus](eb-custom-bus-target-bus.md).
+Four capabilities have no Custom Event Bus - Classic equivalent, so you can use them without a workaround:
++ Retention on the bus itself
++ A subscriber starting position
++ Pause and resume with a backlog
++ A second publish API for non-JSON payloads
+
+You do not have to move everything. The two buses run side by side, so a Custom Event Bus - Classic rule can target a Custom Event Bus, and a subscriber can target a Custom Event Bus - Classic. You can move one consumer or one producer at a time. See [Event bus target: bus to bus](eb-custom-bus-target-bus.md).
 
 ## What does not change
 <a name="eb-custom-bus-migrate-unchanged"></a>
@@ -39,14 +45,16 @@ The following stay the same, so the corresponding parts of your deployment carry
 <a name="eb-custom-bus-migrate-defaults"></a>
 
 **Important**  
-A subscriber retries a failed delivery for 300 seconds and 5 attempts by default. A Custom Event Bus - Classic target retries for 24 hours and 185 attempts. If your consumers rely on a day of retries during an outage, set `RetryPolicy.MaxEventAgeInSeconds` to 86,400 and `MaxRetryAttempts` to 185 on each subscriber, and attach a dead-letter queue; otherwise events that fail for more than 5 minutes are dead-lettered rather than delivered late. See [Retry policies and dead-letter queues](eb-custom-bus-retry.md).
+A subscriber retries a failed delivery for 300 seconds and 5 attempts by default. A Custom Event Bus - Classic target retries for 24 hours and 185 attempts. If your consumers rely on a day of retries during an outage, set `RetryPolicy.MaxEventAgeInSeconds` to 86,400 and `MaxRetryAttempts` to 185 on each subscriber, and attach a dead-letter queue. Otherwise, events that fail for more than 5 minutes are dead-lettered rather than delivered late. See [Retry policies and dead-letter queues](eb-custom-bus-retry.md).
 
-Two more defaults differ. A subscriber delivers a batch to a function or a state machine as a JSON array, where a rule delivered one event per invocation; set `BatchConfiguration.MaxBatchSize` to 1 to keep one event per call. And a bus retains events, so a subscriber created after an incident can read what it missed, where a rule created late saw nothing.
+Two more defaults differ. A subscriber delivers a batch to a function or a state machine as a JSON array. In contrast, a rule delivered one event per invocation. To keep one event per call, set `BatchConfiguration.MaxBatchSize` to 1.
+
+A bus also retains events, so a subscriber created after an incident can read what it missed. A rule created late, by contrast, saw nothing.
 
 ## Classic targets without a bespoke equivalent
 <a name="eb-custom-bus-migrate-targets"></a>
 
-Every Custom Event Bus - Classic target type that has no bespoke target on the Custom Event Bus is reached through a universal target that calls the service's API action. Set `TargetArn` to `arn:aws:events:::aws-sdk:{{service}}:{{apiAction}}` and build the request in `Input`; see [Universal targets for a Custom Event Bus](eb-custom-bus-universal-targets.md).
+For every Custom Event Bus - Classic target type that has no bespoke target on the Custom Event Bus, use a universal target that calls the service's API action. Set `TargetArn` to `arn:aws:events:::aws-sdk:{{service}}:{{apiAction}}` and build the request in `Input`. See [Universal targets for a Custom Event Bus](eb-custom-bus-universal-targets.md).
 
 
 | Custom Event Bus - Classic target | Universal target action | 
@@ -64,7 +72,7 @@ Every Custom Event Bus - Classic target type that has no bespoke target on the C
 | Amazon EC2 actions (stop, reboot, terminate, create snapshot) | arn:aws:events:::aws-sdk:ec2:stopInstances, rebootInstances, terminateInstances, createSnapshot | 
 | Inspector assessment | arn:aws:events:::aws-sdk:inspector:startAssessmentRun | 
 
-The service and action names follow the universal-target naming rules; `CreateSubscriber` rejects a name it does not recognize, so confirm each one when you create the subscriber.
+The service and action names follow the universal-target naming rules. `CreateSubscriber` rejects a name it does not recognize, so confirm each one when you create the subscriber.
 
 ## Migration sequence
 <a name="eb-custom-bus-migrate-steps"></a>

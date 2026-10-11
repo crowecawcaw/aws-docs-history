@@ -30,6 +30,10 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 All Amazon EventBridge API operations except [PutEvents](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) and [PutPartnerEvents](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPartnerEvents.html) are control plane operations. For a complete list, see [Actions](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_Operations.html) in the *Amazon EventBridge API Reference*. For example management events, see [EventBridge management event examples](#cloudtrail-event-examples).
 
+CloudTrail records Custom Event Bus API calls with the event source `eventsv2.amazonaws.com`. `PutEvents` and `PutRawEvents` publish events to a bus. Every other Custom Event Bus API operation is a management event.
+
+For a complete list of Custom Event Bus API operations, see [Actions](https://docs.aws.amazon.com/eventbridgev2/latest/APIReference/API_Operations.html) in the *Custom Event Bus API Reference*.
+
 ## EventBridge data events in CloudTrail
 <a name="cloudtrail-data-events"></a>
 
@@ -149,6 +153,69 @@ The following example shows a CloudTrail event that demonstrates the `PutRule` o
   "eventType":"AwsApiCall",
   "apiVersion":"2015-10-07",
   "recipientAccountId":"123456789012"
+}
+```
+
+In a successful Custom Event Bus `PutResourcePolicy` call, the `requestParameters` field holds the policy document as the caller submitted it. The following example shows a CloudTrail event for such a call:
+
+```
+{
+  "eventVersion": "1.11",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROA3XFRBF23EXAMPLE:johndoe-session",
+    "arn": "arn:aws:sts::111122223333:assumed-role/MyRole/johndoe-session",
+    "accountId": "111122223333",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROA3XFRBF23EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:role/MyRole",
+        "accountId": "111122223333",
+        "userName": "MyRole"
+      },
+      "attributes": {
+        "creationDate": "2026-09-28T16:13:38Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2026-09-28T16:13:43Z",
+  "eventSource": "eventsv2.amazonaws.com",
+  "eventName": "PutResourcePolicy",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.1",
+  "userAgent": "aws-cli/2.37.3",
+  "requestParameters": {
+    "resourceArn": "arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef",
+    "policyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowPartnerAccountToSubscribe\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::444455556666:root\"},\"Action\":[\"events:CreateSubscriber\",\"events:DescribeEventBus\"],\"Resource\":\"arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef\"}]}",
+    "policyName": "default"
+  },
+  "responseElements": {
+    "resourceArn": "arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef",
+    "policyName": "default",
+    "revisionId": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa"
+  },
+  "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+  "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEccccc",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "111122223333",
+      "type": "AWS::EventsV2::EventBus",
+      "ARN": "arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Management",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.3",
+    "cipherSuite": "TLS_AES_128_GCM_SHA256",
+    "clientProvidedHostHeader": "111122223333.eventsv2.us-east-1.amazonaws.com"
+  }
 }
 ```
 

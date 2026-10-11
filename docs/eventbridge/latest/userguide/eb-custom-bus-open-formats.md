@@ -3,7 +3,7 @@
 # Supported content types: JSON, Avro, Protobuf, and raw bytes
 <a name="eb-custom-bus-open-formats"></a>
 
-`PutRawEvents` accepts any bytes. Each entry's `SystemMetadata.ContentType` tells EventBridge what the bytes are, and that value decides whether EventBridge deserializes the payload before it filters and delivers the event. For Avro and Protobuf, EventBridge deserializes the payload against a schema registry that you name on the request, so subscribers filter, transform, and receive the event as JSON. For opaque bytes, EventBridge delivers the payload untouched.
+`PutRawEvents` accepts any bytes. Each entry's `SystemMetadata.ContentType` tells EventBridge what the bytes are. That value decides whether EventBridge deserializes the payload before it filters and delivers the event. For Avro and Protobuf, EventBridge deserializes the payload against a schema registry that you name on the request. Subscribers then filter, transform, and receive the event as JSON. For opaque bytes, EventBridge delivers the payload untouched.
 
 
 | `ContentType` | What EventBridge does with the payload | Schema registry | 
@@ -20,7 +20,7 @@ When an entry's `ContentType` is `application/avro` or `application/protobuf`, E
 
 1. EventBridge reads the schema identifier that the registry's serializer wrote into the payload bytes.
 
-1. EventBridge fetches the matching schema from the registry you name in `SchemaRegistryConfiguration.RegistryUri`, and deserializes the payload to JSON. If the schema cannot be found or read, or the payload cannot be deserialized against it, the entry fails with a per-entry error and the other entries in the request are unaffected.
+1. EventBridge fetches the matching schema from the registry you name in `SchemaRegistryConfiguration.RegistryUri`, and deserializes the payload to JSON. If EventBridge cannot find or read the schema, or cannot deserialize the payload against it, the entry fails with a per-entry error. The other entries in the request are unaffected.
 
 1. If a subscriber defines filters, EventBridge evaluates them against the deserialized JSON.
 
@@ -28,7 +28,7 @@ When an entry's `ContentType` is `application/avro` or `application/protobuf`, E
 
 You name the registry on each `PutRawEvents` request, in `SchemaRegistryConfiguration.RegistryUri`. The setting belongs to the request, not to the bus, and EventBridge ignores it for JSON entries in the same request. EventBridge reads the registry with the caller's credentials, so the identity that publishes needs read access to the registry.
 
-After deserializing, the event behaves like any JSON event published with `PutRawEvents`. A filter with a scope of `DATA` matches fields of the deserialized record by their schema names, a JSONata transformer addresses them under `$events.Data`, and a target receives JSON. EventBridge also sets three keys in the delivered `SystemMetadata`.
+After deserializing, the event behaves like any JSON event published with `PutRawEvents`. A filter with a scope of `DATA` matches fields of the deserialized record by their schema names. A JSONata transformer addresses them under `$events.Data`, and a target receives JSON. EventBridge also sets three keys in the delivered `SystemMetadata`.
 + `aws:SchemaId`: the identifier of the schema EventBridge deserialized with; a UUID for AWS Glue, an integer for Confluent.
 + `aws:RegistryType`: the registry that decoded the event, `Glue` or `Confluent`. Events published with `PutEvents` never carry it.
 + `ContentType`: the content type of the published entry, for example `application/avro`.
@@ -43,7 +43,7 @@ After deserializing, the event behaves like any JSON event published with `PutRa
 ## Deserializing with the AWS Glue Schema Registry
 <a name="eb-custom-bus-open-formats-glue"></a>
 
-Set `RegistryUri` to the registry ARN, of the form `arn:aws:glue:{{region}}:{{account-id}}:registry/{{name}}`. Encode the payload with the AWS Glue Schema Registry serializer for your language before publishing; the serializer embeds the schema reference that EventBridge uses to resolve and deserialize the event.
+Set `RegistryUri` to the registry ARN, of the form `arn:aws:glue:{{region}}:{{account-id}}:registry/{{name}}`. Before publishing, encode the payload with the AWS Glue Schema Registry serializer for your language. The serializer embeds the schema reference that EventBridge uses to resolve and deserialize the event.
 
 EventBridge reads the schema as the publishing caller, so grant the publishing identity read access to the registry and its schemas. The following policy grants the minimum permission, scoped to one registry.
 
@@ -86,7 +86,7 @@ A subscriber then filters on the deserialized record. If the Avro schema has a f
 ## Deserializing with a Confluent Schema Registry
 <a name="eb-custom-bus-open-formats-confluent"></a>
 
-Set `RegistryUri` to the registry's HTTPS URL. An HTTPS registry also requires `SchemaRegistryConfiguration.ConfluentPublicRegistryConfiguration.ConnectionArn`, the ARN of an EventBridge connection that holds the registry's API key or OAuth credentials. The connection must belong to the calling account; a cross-account connection is rejected. Create the connection before the first publish. Encode the payload with the Confluent serializer for your language before publishing; the serializer embeds the schema reference that EventBridge uses to resolve and deserialize the event.
+Set `RegistryUri` to the registry's HTTPS URL. An HTTPS registry also requires `SchemaRegistryConfiguration.ConfluentPublicRegistryConfiguration.ConnectionArn`, the ARN of an EventBridge connection that holds the registry's API key or OAuth credentials. The connection must belong to the calling account; a cross-account connection is rejected. Create the connection before the first publish. Before publishing, encode the payload with the Confluent serializer for your language. The serializer embeds the schema reference that EventBridge uses to resolve and deserialize the event.
 
 EventBridge reads the registry credentials through the connection you name. Grant the publishing identity permission to read that connection's credentials.
 
@@ -177,7 +177,9 @@ EventBridge stores either credential in a managed Secrets Manager secret (`event
 ## Delivering bytes without deserializing
 <a name="eb-custom-bus-open-formats-passthrough"></a>
 
-To have EventBridge deliver a payload exactly as sent, set the entry's `SystemMetadata.ContentType` to `application/octet-stream`. This is a field in each entry, not an HTTP header. EventBridge does not deserialize or inspect the bytes, and no schema registry is involved, so any format works, including Avro or Protobuf that you deserialize yourself at the target. Because the content is opaque, a `DATA` filter cannot match it. Route such events with filters on `METADATA`, using keys you set in the entry's `Metadata` map, or on `SYSTEM_METADATA`. Content-based deduplication still works and hashes the bytes exactly as you sent them. In a transformer, the payload appears as a Base64 string; see [Transforming events with JSONata](eb-custom-bus-transform.md).
+To have EventBridge deliver a payload exactly as sent, set the entry's `SystemMetadata.ContentType` to `application/octet-stream`. This is a field in each entry, not an HTTP header. EventBridge does not deserialize or inspect the bytes, and no schema registry is involved. Any format works, including Avro or Protobuf that you deserialize yourself at the target.
+
+Because the content is opaque, a `DATA` filter cannot match it. Route such events with filters on `METADATA`, using keys you set in the entry's `Metadata` map, or on `SYSTEM_METADATA`. Content-based deduplication still works and hashes the bytes exactly as you sent them. In a transformer, the payload appears as a Base64 string; see [Transforming events with JSONata](eb-custom-bus-transform.md).
 
 ## Filtering and transforming deserialized events
 <a name="eb-custom-bus-open-formats-filtering"></a>
@@ -189,7 +191,7 @@ Once EventBridge deserializes an event to JSON, the payload flows through the no
 ## Deduplicating events across formats
 <a name="eb-custom-bus-open-formats-dedup"></a>
 
-EventBridge supports two deduplication modes: ID-based, where you supply a `DeduplicationId` on the entry, and content-based, where EventBridge computes a SHA-256 hash of the event content. For deserialized events, content-based deduplication hashes the original Avro or Protobuf wire bytes, not the deserialized JSON. Two events are duplicates only when their original payloads are byte-identical. The same logical event published in different formats is therefore not deduplicated: Avro bytes, Protobuf bytes, and raw JSON differ on the wire even when they deserialize to the same data. See [Ordering and deduplicating events on a Custom Event Bus](eb-custom-bus-ordering.md).
+EventBridge supports two deduplication modes: ID-based, where you supply a `DeduplicationId` on the entry, and content-based, where EventBridge computes a SHA-256 hash of the event content. For deserialized events, content-based deduplication hashes the original Avro or Protobuf wire bytes, not the deserialized JSON. Two events are duplicates only when their original payloads are byte-identical. EventBridge therefore does not deduplicate the same logical event published in different formats. Avro bytes, Protobuf bytes, and raw JSON differ on the wire even when they deserialize to the same data. See [Ordering and deduplicating events on a Custom Event Bus](eb-custom-bus-ordering.md).
 
 ## Errors
 <a name="eb-custom-bus-open-formats-errors"></a>

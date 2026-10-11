@@ -8,6 +8,7 @@ The following table describes important changes in each release of the *Amazon E
 
 | Change | Description | Release Date | 
 | --- | --- | --- | 
+| Updated the AmazonEventBridgeReadOnlyAccess policy | You can now view Custom Event Bus subscribers and event bus resource policies, and list the tags on EventBridge resources.+  [Amazon EventBridge updates to AWS managed policies](eb-use-identity-based.md#eb-use-identity-based-awsmanpol-updates) | September 24, 2026 | 
 | Updated AmazonEventBridgeApiDestinationsServiceRolePolicy managed policy | Policy now restricts the scope of permissions for Secrets Manager operations to the same account.+  [Amazon EventBridge updates to AWS managed policies](eb-use-identity-based.md#eb-use-identity-based-awsmanpol-updates) | May 29, 2025 | 
 | Updated AmazonEventBridgeApiDestinationsServiceRolePolicy managed policy | Policy now grants EventBridge AWS KMS encrypt and decrypt permissions via Secrets Manager. This enables EventBridge to update connection secret resources with new OAuth token value when access token refresh is required.+  [Amazon EventBridge updates to AWS managed policies](eb-use-identity-based.md#eb-use-identity-based-awsmanpol-updates) | March 28, 2025 | 
 | Document structure update | Used page view data and depth analysis to restructure documentation sections to increase visibility of important topics. Updated guide navigation to reduce overall depth. Consolidated related topics as appropriate. | August 4, 2024 | 

@@ -128,9 +128,9 @@ The following table list AWS services and the management events they generate th
 | Amazon CodeGuru Profiler | SubmitFeedback | API call | 
 | AWS CodePipeline | PollForJobs | API call | 
 | AWS CodePipeline | PollForThirdPartyJobs | API call | 
-| CodeConnections | StartAppRegistrationHandshake | API call | 
-| CodeConnections | StartOAuthHandshake | API call | 
-| CodeConnections | ValidateHostWebhook | API call | 
+| AWS CodeConnections | StartAppRegistrationHandshake | API call | 
+| AWS CodeConnections | StartOAuthHandshake | API call | 
+| AWS CodeConnections | ValidateHostWebhook | API call | 
 | Amazon CodeWhisperer | CreateCodeScan | API call | 
 | Amazon CodeWhisperer | CreateProfile | API call | 
 | Amazon CodeWhisperer | CreateUploadUrl | API call | 

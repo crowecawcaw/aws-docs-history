@@ -29,6 +29,10 @@ To view the permissions for this policy, see [ AmazonEventBridgeFullAccess](http
 
 The AmazonEventBridgeReadOnlyAccess policy grants permissions to use all read EventBridge actions.
 
+You can attach this policy to your users, groups, and roles. Use it when you need to view your EventBridge resources and their configuration without changing them. For example, use it to audit access or troubleshoot event delivery. You also get read access to EventBridge Pipes, EventBridge Schemas, and EventBridge Scheduler resources.
+
+For the Custom Event Bus, you can use this policy to describe and list event buses, subscribers, and event sources. You can also read and list the resource policies attached to an event bus, and list the tags on EventBridge resources.
+
 To view the permissions for this policy, see [ AmazonEventBridgeReadOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AmazonEventBridgeReadOnlyAccess.html) in the *AWS Managed Policy Reference*.
 
 ## AWS managed policy: AmazonEventBridgeApiDestinationsServiceRolePolicy
@@ -95,6 +99,7 @@ View details about updates to AWS managed policies for EventBridge since this se
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AmazonEventBridgeReadOnlyAccess](#eb-read-only-access-policy) – Update to an existing policy | EventBridge added permissions to view Custom Event Bus subscribers and event bus resource policies, and to list the tags on EventBridge resources. The policy already granted permission to list tags on EventBridge Pipes, EventBridge Schemas, and EventBridge Scheduler resources.<br />The following actions were added:+ `events:DescribeSubscriber`<br />+ `events:ListSubscribers`<br />+ `events:GetResourcePolicy`<br />+ `events:ListResourcePolicies`<br />+ `events:ListTagsForResource` | September 24, 2026 | 
 | [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy) – Updated policy | EventBridge updated policy to restrict the scope of permissions for Secrets Manager operations to the same account. | May 29, 2025 | 
 | [AmazonEventBridgeApiDestinationsServiceRolePolicy](#api-destination-slr-policy) – Updated policy | EventBridge updated policy to grant AWS KMS encrypt and decrypt permissions via Secrets Manager. This enables EventBridge to update connection secret resources with new OAuth token value when access token refresh is required. | March 28, 2025 | 
 | [AmazonEventBridgeFullAccess](#eb-full-access-policy) – Updated policy | AWS GovCloud (US) Regions only<br />The following permission is not included, as it is not used:+ `iam:CreateServiceLinkedRole` permission for EventBridge Schema Registry | May 9, 2024 | 

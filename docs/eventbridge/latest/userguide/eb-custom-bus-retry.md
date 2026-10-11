@@ -46,7 +46,7 @@ Every failure that reaches the queue was retried first: there is no delivery fai
 | `errorCode` | What failed | `errorMessage` | 
 | --- | --- | --- | 
 | CUSTOMER\_VALIDATION | The target API rejected the request (a 4xx response): a bad value, a missing field, a malformed body | The target API's own message | 
-| ACCESS\_DENIED | EventBridge could not assume the delivery role, the role is not allowed to call the target, or the target's AWS KMS key denied access | EventBridge could not assume {{role}}. Check that the role exists and that its trust policy allows the EventBridge service principal to assume it. or EventBridge could not access {{resource}}. Check that it exists and that its policy allows the EventBridge service principal access. | 
+| ACCESS\_DENIED | EventBridge could not assume the delivery role, the role is not allowed to call the target, or the target's AWS KMS key denied access | EventBridge could not assume {{role}}. Check that the role exists and that its trust policy allows the EventBridge service principal to assume it. or EventBridge could not access {{resource}}. Check that it exists and that the subscriber's delivery role is allowed to access it. | 
 | RESOURCE\_NOT\_FOUND | The target, or its AWS KMS key, does not exist | The could not access message above, or the generic message | 
 | INPUT\_TRANSFORMATION\_FAILURE | The Transformer or universal-target Input expression threw or produced no value | The expression error | 
 | THROTTLING | The target throttled the call | The generic message | 

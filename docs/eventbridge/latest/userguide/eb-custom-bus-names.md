@@ -32,7 +32,7 @@ EventBridge keeps the `events:` namespace and the `events.amazonaws.com` princip
 **Important**  
 Write every IAM action with the `events:` prefix, for example `events:PutRawEvents` and `events:CreateSubscriber`. The `eventsv2` name is for the CLI command, the SDK client, and the endpoint only. IAM accepts a policy that names `eventsv2:PutEvents`, but no such action exists, so the policy grants nothing and the caller receives `AccessDeniedException`. When a call to `aws eventsv2` is denied, check the action prefix in the policy first.
 
-The following identity-based policy allows a producer to publish to one bus with either publish API. For the full action list, condition keys, and cross-account grants, see [Access control for the Custom Event Bus](eb-custom-bus-access.md); the authoritative list of actions, resources, and condition keys is in the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazoneventbridge.html).
+The following identity-based policy allows a producer to publish to one bus with either publish API. For the full action list, condition keys, and cross-account grants, see [Access control for the Custom Event Bus](eb-custom-bus-access.md); the authoritative list of actions, resources, and condition keys is in the [Service Authorization Reference](https://docs.aws.amazon.com/service-authorization/latest/reference/list_eventbridge.html).
 
 ```
 {

@@ -16,11 +16,13 @@ To let another account publish to your bus, attach subscribers to it, or attach 
 
 We recommend AWS RAM over a resource policy that you write yourself. AWS RAM gives you one place to see and to revoke what you have shared, it works with AWS Organizations, and it writes the bus's `AWS_RAM` resource policy for you. Create a resource share that names the bus ARN, the consumer accounts or organizational units, and one of the four AWS managed permissions for the bus resource type, each at `arn:aws:ram::aws:permission/{{name}}`.
 
+The following table lists what the consumer account can do with each managed permission.
+
 
 | Managed permission | What the consumer account can do | 
 | --- | --- | 
-| AWSRAMEventBridgeEventBusV2PublishOnly | Publish to the bus | 
-| AWSRAMEventBridgeEventBusV2SubscribeOnly | Attach subscribers to the bus | 
+| AWSRAMEventBridgeEventBusV2PublishOnly | Publish to the bus, and describe the bus | 
+| AWSRAMEventBridgeEventBusV2SubscribeOnly | Attach subscribers to the bus, update their filters, and describe the bus | 
 | AWSRAMEventBridgeEventBusV2EventSourceAccess | Attach and update event sources, and describe the bus | 
 | AWSRAMEventBridgeEventBusV2FullAccess | Publish with either API, describe the bus, and create, update, and delete its own subscribers and event sources | 
 
@@ -74,7 +76,7 @@ The following `default` policy on the `orders` bus lets account `444455556666` a
 }
 ```
 
-Manage the policies with `PutResourcePolicy`, `GetResourcePolicy`, `DeleteResourcePolicy`, and `ListResourcePolicies`. Each takes the bus ARN in `--resource-arn`, and each acts on `default` when you omit `--policy-name`. You cannot write or delete `AWS_RAM`: naming it fails with `AccessDeniedException`. `GetResourcePolicy` fails with `ResourceNotFoundException` when the named policy does not exist, rather than returning an empty document, so treat that as no policy. A bus that you shared only through AWS RAM has no `default` policy, so `get-resource-policy` without `--policy-name` returns that error; pass `--policy-name AWS_RAM` to read the policy AWS RAM wrote. `ListResourcePolicies` returns policy names and revision IDs only, never documents. To make a write or delete conditional, pass the policy's current revision in `--expected-revision-id`; on a mismatch the operation fails with `ConflictException`. A `default` policy document can be up to 20 KB; a larger policy fails with `PolicyLengthExceededException`. This quota is adjustable in Service Quotas.
+Manage the policies with `PutResourcePolicy`, `GetResourcePolicy`, `DeleteResourcePolicy`, and `ListResourcePolicies`. Each takes the bus ARN in `--resource-arn`. The first three act on `default` when you omit `--policy-name`. You cannot write or delete `AWS_RAM`: naming it fails with `AccessDeniedException`. `GetResourcePolicy` fails with `ResourceNotFoundException` when the named policy does not exist, rather than returning an empty document, so treat that as no policy. A bus that you shared only through AWS RAM has no `default` policy, so `get-resource-policy` without `--policy-name` returns that error; pass `--policy-name AWS_RAM` to read the policy AWS RAM wrote. `ListResourcePolicies` returns policy names and revision IDs only, never documents. To make a write or delete conditional, pass the policy's current revision in `--expected-revision-id`; on a mismatch the operation fails with `ConflictException`. A `default` policy document can be up to 20 KB; a larger policy fails with `PolicyLengthExceededException`. This quota is adjustable in Service Quotas.
 
 EventBridge rejects a `default` policy that would grant public access, with `PublicPolicyException`, and does not attach it. This check is always on. A statement grants public access when its principal is a wildcard and no condition limits the callers to specific accounts or principals. A condition on event content, such as `events:source`, does not identify the caller. A condition such as `aws:PrincipalOrgID` does. A policy you write is invisible to AWS RAM, so you own tracking it.
 
