@@ -18,6 +18,29 @@ Subscribe to the RSS feed to get notified about new releases automatically: [clo
 
 The highlights below cover notable releases from the past year, most recent first.
 
+## cid-cmd v4.4.18: sharing on update, plugin parameters, and CloudFormation fixes (October 9, 2026)
+<a name="whats-new-cid-cmd-4418"></a>
++  **More reliable CloudFormation deployments** — dashboards deployed one after another no longer inherit each other’s parameters (such as the row-level security dataset), which could make a dashboard fail to create.
++  **Sharing on update** — `share-with-account yes|no` is now applied when updating a dashboard, so you can grant or revoke access for everyone in the account without recreating the dashboard.
++  **Plugin parameters** — the `cid-plugin.yml` template accepts any `cid-cmd` parameter as JSON (for example a row-level security dataset or resource tags), and unattended deployments use parameter defaults instead of failing.
++  **Fixes** — FOCUS `resource-tags` now produce valid views, dashboard updates skip filters on fields that are not yet in the datasets, and `--on-drift override` replaces views as documented.
+
+To update, run `pip3 install --upgrade cid-cmd`. If you deploy with CloudFormation, update the `cid-cfn` stack to the latest template.
+
+See [Share dashboards](share-dashboards.md).
+
+View the [release notes](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/releases/tag/4.4.18).
+
+## Graviton Savings Dashboard v3.0.5: Graviton5 support (October 2, 2026)
+<a name="whats-new-graviton-savings-305"></a>
++  **Graviton5 support** (since v3.0.4) — Graviton5 is now a selectable generation (EC2 M9g/M9gd, C9g/C9gd, R9g/R9gd) across modernization mapping, pricing, and savings, with a new **Potential Graviton5 Base Savings** KPI and Graviton5 columns in the EC2 and Graviton Instance Mapping tables.
++  **More accurate GPU savings** (since v3.0.3) — NVIDIA and AMD GPU families without a Graviton equivalent are no longer mapped to g5g, so they no longer inflate On-Demand eligible savings.
++  **Realized savings in the view** — the EC2 realized Graviton savings figure is now calculated in the Athena view, like potential savings. Displayed numbers are unchanged.
+
+See the [Graviton Savings Dashboard](graviton-savings-dashboard.md).
+
+View the [changelog entry](https://github.com/aws-solutions-library-samples/cloud-intelligence-dashboards-framework/blob/main/changes/CHANGELOG-graviton-savings.md).
+
 ## Kiro User Activity Dashboard v1.1.1: tier and idle-licence reporting fixes (September 25, 2026)
 <a name="whats-new-kiro-user-activity-111"></a>
 
