@@ -59,7 +59,7 @@ When you create a labeling job in the console, you can specify this time limit w
 ## Workforces
 <a name="sms-point-cloud-workforces"></a>
 
-When you create a 3D point cloud labeling job, you need to specify a work team that will complete your point cloud annotation tasks. You can choose a work team from a private workforce of your own workers, or from a vendor workforce that you select in the AWS Marketplace. You cannot use the Amazon Mechanical Turk workforce for 3D point cloud labeling jobs. 
+When you create a 3D point cloud labeling job, you need to specify a work team that will complete your point cloud annotation tasks. You can choose a work team from a private workforce of your own workers, or from a vendor workforce that you select in the AWS Marketplace. 
 
 To learn more about vendor workforce, see [Subscribe to vendor workforces](sms-workforce-management-vendor.md).
 

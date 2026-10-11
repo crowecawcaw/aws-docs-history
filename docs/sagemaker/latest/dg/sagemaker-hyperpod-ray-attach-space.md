@@ -1,6 +1,6 @@
 
 
-# Attaching Ray cluster to Space
+# Attaching a Ray cluster to a space
 <a name="sagemaker-hyperpod-ray-attach-space"></a>
 
 Attaching a Ray cluster to a space points your IDE or notebook session at that cluster, so `ray.init()` connects to it. Inside the space, the cluster is reachable on port 8265 for interactive development, the same port a local Ray cluster uses. You get the experience of running Ray on a laptop, with cloud-scale compute behind it.
@@ -9,8 +9,10 @@ You manage the connection from the **Ray cluster** tab inside the space.
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-attach-space-prereqs"></a>
+
+Before you attach a space to a Ray cluster, make sure you have the following:
 + (Optional) Amazon SageMaker Studio configured for your cluster. For more information, see [Setting up Studio for Ray](sagemaker-hyperpod-ray-studio-setup.md).
-+ The SageMaker Spaces add-on is **Active**. For more information, see [Setting up the Spaces add-on](sagemaker-hyperpod-ray-spaces-addon-setup.md).
++ The SageMaker Spaces add-on is **Active**. For more information, see [Setting up the SageMaker Spaces add-on for Ray](sagemaker-hyperpod-ray-spaces-addon-setup.md).
 + A JupyterLab or Code Editor space, created from the **IDE and Notebooks** tab in Amazon SageMaker Studio.
 + A running Ray cluster in the same namespace as the space pods.
 

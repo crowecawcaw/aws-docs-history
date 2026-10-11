@@ -16,7 +16,7 @@ Staying fully aligned with open source Ray, HyperPod adds capabilities around it
 + Ray metrics and Grafana dashboards provisioned by the HyperPod Observability add-on.
 + Resilient training with automatic node recovery, hung job detection, and tiered checkpointing at the infrastructure layer.
 
-You can adopt all of this, or install only the capabilities you are missing. For more information about the two approaches, see [Getting started](sagemaker-hyperpod-ray-getting-started.md).
+You can adopt all of this, or install only the capabilities you are missing. For more information about the two approaches, see [Getting started with Ray on HyperPod](sagemaker-hyperpod-ray-getting-started.md).
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-prerequisites"></a>
@@ -32,7 +32,7 @@ Ray on HyperPod is available in all AWS Regions where SageMaker HyperPod support
 + [Prerequisites](#sagemaker-hyperpod-ray-prerequisites)
 + [Regions](#sagemaker-hyperpod-ray-regions)
 + [What is Ray](sagemaker-hyperpod-ray-what-is-ray.md)
-+ [Getting started](sagemaker-hyperpod-ray-getting-started.md)
++ [Getting started with Ray on HyperPod](sagemaker-hyperpod-ray-getting-started.md)
 + [Installing KubeRay on HyperPod Amazon EKS](sagemaker-hyperpod-ray-install-kuberay.md)
 + [Amazon SageMaker Studio (web-based development)](sagemaker-hyperpod-ray-studio.md)
 + [Managing Ray workloads](sagemaker-hyperpod-ray-manage-workloads.md)
@@ -40,6 +40,6 @@ Ray on HyperPod is available in all AWS Regions where SageMaker HyperPod support
 + [Ray Dashboard access and remote job submission](sagemaker-hyperpod-ray-dashboard.md)
 + [Resilient training](sagemaker-hyperpod-ray-resilient-training.md)
 + [Queueing with task governance](sagemaker-hyperpod-ray-task-governance.md)
-+ [Accelerated inference](sagemaker-hyperpod-ray-accelerated-inference.md)
++ [Accelerated inference with Ray Serve](sagemaker-hyperpod-ray-accelerated-inference.md)
 + [Observability](sagemaker-hyperpod-ray-observability.md)
-+ [Reference](sagemaker-hyperpod-ray-reference.md)
++ [Ray on HyperPod reference](sagemaker-hyperpod-ray-reference.md)

@@ -12,4 +12,4 @@ HyperPod exposes the dashboard through an authenticated browser link scoped to a
 + [Security best practices for the HyperPod Ray Endpoint Operator](sagemaker-hyperpod-ray-endpoint-operator-security.md)
 + [Access strategies and security best practices](sagemaker-hyperpod-ray-dashboard-access-strategies.md)
 + [Generating a dashboard connection URL](sagemaker-hyperpod-ray-dashboard-connection-url.md)
-+ [Submitting jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md)
++ [Submitting Ray jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md)

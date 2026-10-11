@@ -15,6 +15,8 @@ Ray has three layers:
 
 ## Ray AI libraries
 <a name="sagemaker-hyperpod-ray-what-is-ray-libraries"></a>
+
+Ray includes the following AI libraries:
 + **Ray Data** for distributed data preprocessing and batch inference.
 + **Ray Train** for distributed training, data-parallel and model-parallel.
 + **Ray Tune** for parallel hyperparameter tuning.
@@ -40,4 +42,4 @@ Ray manages the distributed systems work that would otherwise be yours:
 ## Ray on HyperPod
 <a name="sagemaker-hyperpod-ray-what-is-ray-unchanged"></a>
 
-HyperPod runs open source Ray through the KubeRay operator, unchanged. It does not fork Ray, modify the Ray runtime, or introduce a proprietary scheduler. `RayCluster`, `RayJob`, `RayCronJob`, and `RayService` behave as they do upstream, and manifests you already run continue to work. For what to set up, see [Getting started](sagemaker-hyperpod-ray-getting-started.md).
+HyperPod runs open source Ray through the KubeRay operator, unchanged. It does not fork Ray, modify the Ray runtime, or introduce a proprietary scheduler. `RayCluster`, `RayJob`, `RayCronJob`, and `RayService` behave as they do upstream, and manifests you already run continue to work. For what to set up, see [Getting started with Ray on HyperPod](sagemaker-hyperpod-ray-getting-started.md).

@@ -7,7 +7,7 @@ Distributed Ray Train jobs can stall without producing an error. A single worker
 
 HyperPod hung job detection continuously monitors GPU utilization patterns and training worker activity across your cluster to identify jobs that have stopped making forward progress. When a stall is detected, the system surfaces it within minutes rather than hours, so you can recover the job or free the capacity for other work.
 
-## How it works
+## How hung job detection works
 <a name="sagemaker-hyperpod-ray-hung-job-detection-default"></a>
 
 By default, all Ray Train workers on HyperPod are monitored using platform defaults with no code changes required. The platform correlates GPU utilization patterns with training worker output activity to distinguish between a job that is idle because it is stalled and one that is idle because it is performing I/O or checkpointing. When a stall is detected, a notification is delivered to your HyperPod Observability Grafana dashboard and CloudWatch. For more information, see [Viewing detection events](#sagemaker-hyperpod-ray-hung-job-detection-monitoring).
@@ -143,7 +143,7 @@ This environment variable is only required for custom detection rules. Default d
 | fault\_on\_match | bool | No | If true, declares a hang immediately when the pattern matches. Use for error patterns like OOM. When true, timeout\_minutes is not required. | 
 | metric\_evaluation\_data\_points | int | No | Number of consecutive evaluation cycles that must confirm the condition before declaring a hang. Defaults to 1. | 
 
-### Actions
+### Detection actions
 <a name="sagemaker-hyperpod-ray-hung-job-detection-actions"></a>
 
 

@@ -7,6 +7,8 @@ You can deploy JumpStart models into Ray Serve on HyperPod without manually down
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-deploy-jumpstart-model-prereq"></a>
+
+Before you begin, make sure that you have the following:
 + A running Ray cluster or a `RayService` you deploy in the following steps. For more information, see [Deploying a model with Ray Serve](sagemaker-hyperpod-ray-deploy-model.md).
 + The KubeRay operator installed. For more information, see [Installing KubeRay on HyperPod Amazon EKS](sagemaker-hyperpod-ray-install-kuberay.md).
 + The Amazon EKS Pod Identity Agent add-on installed on your cluster. For more information, see [Set up the EKS Pod Identity Agent](https://docs.aws.amazon.com/eks/latest/userguide/pod-id-agent-setup.html) in the *Amazon EKS User Guide*.

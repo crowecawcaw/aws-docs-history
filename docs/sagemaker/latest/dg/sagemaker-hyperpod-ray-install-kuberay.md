@@ -7,6 +7,8 @@ The KubeRay operator manages the lifecycle of `RayCluster`, `RayJob`, `RayCronJo
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-install-kuberay-prerequisites"></a>
+
+To install the KubeRay operator, you need the following:
 + A HyperPod cluster orchestrated by Amazon EKS. For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](sagemaker-hyperpod-eks-operate-console-ui-create-cluster.md).
 + `kubectl` and `helm` installed, with `kubectl` configured for your cluster:
 

@@ -7,7 +7,7 @@
 Amazon SageMaker Ground Truth is no longer open to new customers. Existing customers can continue to use the service as normal. AWS continues to invest in security and availability improvements for Ground Truth, but we do not plan to introduce new features.
 
 You can create a 3D-2D point cloud labeling job using the SageMaker API operation, [`CreateLabelingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html). To create a labeling job for this task type you need the following: 
-+ A work team from a private or vendor workforce. You cannot use Amazon Mechanical Turk for 3D point cloud labeling jobs. To learn how to create workforces and work teams, see [Workforces](sms-workforce-management.md).
++ A work team from a private or vendor workforce. To learn how to create workforces and work teams, see [Workforces](sms-workforce-management.md).
 + Add a CORS policy to an S3 bucket that contains input data in the Amazon S3 console. To set the required CORS headers on the S3 bucket that contains your input images in the S3 console, follow the directions detailed in [CORS Permission Requirement](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-cors-update.html).
 + Additionally, make sure that you have reviewed and satisfied the [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md). 
 

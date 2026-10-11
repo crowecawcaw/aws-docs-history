@@ -8,7 +8,7 @@ Amazon SageMaker Ground Truth is no longer open to new customers. Existing custo
 
 You can create a 3D point cloud labeling job using the SageMaker AI console or API operation, [`CreateLabelingJob`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html). To create a labeling job for this task type you need the following: 
 + A sequence input manifest file. To learn how to create this type of manifest file, see [Create a Point Cloud Sequence Input Manifest](sms-point-cloud-multi-frame-input-data.md). If you are a new user of Ground Truth 3D point cloud labeling modalities, we recommend that you review [Accepted Raw 3D Data Formats](sms-point-cloud-raw-data-types.md). 
-+ A work team from a private or vendor workforce. You cannot use Amazon Mechanical Turk for 3D point cloud labeling jobs. To learn how to create workforces and work teams, see [Workforces](sms-workforce-management.md).
++ A work team from a private or vendor workforce. To learn how to create workforces and work teams, see [Workforces](sms-workforce-management.md).
 
 Additionally, make sure that you have reviewed and satisfied the [Assign IAM Permissions to Use Ground Truth](sms-security-permission.md). 
 

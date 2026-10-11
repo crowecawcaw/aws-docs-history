@@ -5,7 +5,7 @@
 
 HyperPod detects hardware and GPU faults on a node and recovers that node without operator action. This runs at the infrastructure layer. Ray needs no configuration for it, and your training code does not change.
 
-## Setup
+## Set up automatic node recovery on the cluster
 <a name="sagemaker-hyperpod-ray-node-recovery-setup"></a>
 
 Set `NodeRecovery` to `Automatic` on the HyperPod cluster. You apply this when you create or update the cluster, not from Ray. For more information, see [NodeRecovery](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCluster.html#sagemaker-CreateCluster-request-NodeRecovery) in the *SageMaker AI API Reference*.

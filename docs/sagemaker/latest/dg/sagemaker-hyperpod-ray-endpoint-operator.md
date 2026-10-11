@@ -10,7 +10,9 @@ Before you install, review [Security best practices for the HyperPod Ray Endpoin
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-endpoint-operator-prereqs"></a>
-+ The SageMaker Spaces add-on is **Active** with web browser access enabled. The HyperPod Ray Endpoint Operator depends on it. For more information, see [Setting up the Spaces add-on](sagemaker-hyperpod-ray-spaces-addon-setup.md).
+
+Before you install the HyperPod Ray Endpoint Operator, make sure that you have the following:
++ The SageMaker Spaces add-on is **Active** with web browser access enabled. The HyperPod Ray Endpoint Operator depends on it. For more information, see [Setting up the SageMaker Spaces add-on for Ray](sagemaker-hyperpod-ray-spaces-addon-setup.md).
 + `kubectl` and `helm` installed, with `kubectl` configured for your cluster.
 + The Amazon EKS Pod Identity Agent add-on is installed on your cluster (required for KMS signing). For more information, see [Set up the EKS Pod Identity Agent](https://docs.aws.amazon.com/eks/latest/userguide/pod-id-agent-setup.html) in the *Amazon EKS User Guide*.
 
@@ -104,7 +106,7 @@ To set up KMS signing, complete the following steps.
      --set manager.enableEndpointsByDefault={{true|false}}
    ```
 
-   Where:
+   The preceding commands use the following values:
    + `domain` is the Route 53 domain that the SageMaker Spaces add-on was configured with.
    + `manager.enableEndpointsByDefault` controls whether authenticated dashboard endpoints are created automatically for every Ray resource. When set to `true`, all Ray resources (`RayCluster`, `RayJob`, `RayService`, `RayCronJob`) get endpoints automatically; individual resources can opt out by adding `access.sagemaker.amazonaws.com/enabled: "false"` to their metadata annotations. When set to `false`, no endpoints are created unless a resource explicitly opts in with `access.sagemaker.amazonaws.com/enabled: "true"`.
 
@@ -138,7 +140,7 @@ ray job submit --address "sagemaker_ray://{{cluster-name}}/{{namespace}}" -- pyt
 
 The `sagemaker_ray://` address scheme handles authentication without exposing a URL in terminal output or logs.
 
-## Uninstalling
+## Uninstalling the HyperPod Ray Endpoint Operator
 <a name="sagemaker-hyperpod-ray-endpoint-operator-uninstall"></a>
 
 ```

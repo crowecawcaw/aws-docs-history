@@ -22,8 +22,8 @@ The following pages cover setup and use, in order.
 
 **Topics**
 + [Use cases](#sagemaker-hyperpod-ray-ide-notebooks-use-cases)
-+ [Setting up the Spaces add-on](sagemaker-hyperpod-ray-spaces-addon-setup.md)
-+ [Attaching Ray cluster to Space](sagemaker-hyperpod-ray-attach-space.md)
++ [Setting up the SageMaker Spaces add-on for Ray](sagemaker-hyperpod-ray-spaces-addon-setup.md)
++ [Attaching a Ray cluster to a space](sagemaker-hyperpod-ray-attach-space.md)
 + [Accessing your development environment](sagemaker-hyperpod-ray-remote-ide.md)
 + [Managing dependencies with runtime\_env](sagemaker-hyperpod-ray-runtime-env.md)
 + [Scaling a development cluster](sagemaker-hyperpod-ray-scaling-dev-cluster.md)

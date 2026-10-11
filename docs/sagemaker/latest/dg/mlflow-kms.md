@@ -60,7 +60,7 @@ To use your customer managed key with your MLflow App, your key policy must perm
 
 The following are policy statement examples you can add for MLflow Apps based on whether the persona is an administrator or a user. For more information about specifying permissions in a policy, see [AWS KMS permissions](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) in the *AWS Key Management Service Developer Guide*. For more information about troubleshooting, see [Troubleshooting key access](https://docs.aws.amazon.com/kms/latest/developerguide/policy-evaluation.html) in the *AWS Key Management Service Developer Guide*.
 
-#### Administrator
+#### Administrator key policy
 <a name="mlflow-kms-configure-key-policy-administrator"></a>
 
 The following policy can be used for the administrator who is creating MLflow Apps.
@@ -97,11 +97,13 @@ The following policy can be used for the administrator who is creating MLflow Ap
     }
 }
 ```
+
+The following list describes the condition keys and encryption context in the preceding policy:
 + `kms:ViaService` — Restricts use of the key to requests that originate from SageMaker in a specific Region. With `"kms:ViaService": "sagemaker.{{region}}.amazonaws.com"`, the `kms:CreateGrant` and `kms:DescribeKey` permissions can be exercised only when the request is made through SageMaker on your behalf — not directly by any other principal or service. This ensures your key is used only for your MLflow App.
 + `kms:GrantOperations` — Constrains the operations that the grant SageMaker creates is allowed to contain. When you create an MLflow App, SageMaker calls `CreateGrant` to allow its data plane to encrypt and decrypt your data at rest. Adding `kms:GrantOperations` to the `kms:CreateGrant` statement ensures SageMaker can only create a grant containing exactly the operations required for that purpose — `CreateGrant`, `Decrypt`, `DescribeKey`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, and `RetireGrant`.
 + Encryption context — Not applicable. MLflow Apps do not set a custom encryption context on the grant, so you cannot use the `kms:EncryptionContext` condition key to further scope down access.
 
-#### User
+#### User key policy
 <a name="mlflow-kms-configure-key-policy-user"></a>
 
 Accessing an MLflow App — through the MLflow APIs or a presigned URL — does not involve AWS KMS. SageMaker encrypts and decrypts your data at rest for you, and no AWS KMS request is made when you access the app. As a result, if you access an MLflow App, you do not need any AWS KMS permissions. You do not need to account for AWS KMS access when you define security policies for your users.

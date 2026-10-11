@@ -5,7 +5,7 @@
 
 HyperPod managed tiered checkpointing writes checkpoints to your cluster's CPU memory first and replicates them across nodes. It periodically persists them to durable storage such as Amazon S3. Because the fast tier is memory rather than object storage, you can checkpoint more often and lose less progress when a node fails. For how it works and how to configure it, see [HyperPod managed tiered checkpointing](managed-tier-checkpointing.md).
 
-## Setup
+## Set up managed tiered checkpointing on the cluster
 <a name="sagemaker-hyperpod-ray-tiered-storage-setup"></a>
 
 Set up managed tiered checkpointing on the cluster first. It is a cluster-level capability, and the setup is the same whatever framework you train with. For the steps, see [Set up managed tiered checkpointing](managed-tier-checkpointing-setup.md).
@@ -143,7 +143,7 @@ trainer = TorchTrainer(
 )
 ```
 
-Key points:
+Note the following key points about this example:
 + **Async save with serialized writes.** Only one `async_save` can be in flight at a time. The background threads perform collective operations that require all ranks to participate. Calling `async_save` again before the previous one completes causes a deadlock. The `_prev_checkpoint_future` pattern ensures each save finishes before the next one starts, while still overlapping the upload with the next training step.
 + **delete\_local\_checkpoint\_after\_upload=False.** Set this to prevent Ray from deleting the checkpoint reported through `ray.train.report`. Because the reported checkpoint points to an S3 path managed by the tiered storage writer, deleting it would remove the checkpoint from S3.
 + **Resume from checkpoint.** `load_checkpoint` reads from tiered storage (cluster memory first, then Amazon S3). When a node is replaced and the job restarts via `FailureConfig`, recovery reads from the fast memory tier when available, avoiding a full Amazon S3 download.

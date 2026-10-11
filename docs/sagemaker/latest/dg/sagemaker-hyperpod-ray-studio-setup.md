@@ -13,7 +13,7 @@ You need the following before you set up Studio:
 + The KubeRay operator installed. It reconciles every Ray resource Studio creates. For more information, see [Installing KubeRay on HyperPod Amazon EKS](sagemaker-hyperpod-ray-install-kuberay.md).
 
 The following are optional, and each one adds a capability rather than gating the setup:
-+ The SageMaker AI Spaces add-on, for interactive development in a JupyterLab or Code Editor space attached to a Ray cluster. For more information, see [Setting up the Spaces add-on](sagemaker-hyperpod-ray-spaces-addon-setup.md).
++ The SageMaker AI Spaces add-on, for interactive development in a JupyterLab or Code Editor space attached to a Ray cluster. For more information, see [Setting up the SageMaker Spaces add-on for Ray](sagemaker-hyperpod-ray-spaces-addon-setup.md).
 + The HyperPod Ray Endpoint Operator, for authenticated Ray Dashboard links and remote job submission. For more information, see [Installing the HyperPod Ray Endpoint Operator](sagemaker-hyperpod-ray-endpoint-operator.md).
 
 ## Step 1: Create a SageMaker AI domain

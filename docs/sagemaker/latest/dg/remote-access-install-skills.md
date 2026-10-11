@@ -3,32 +3,29 @@
 # Installing Amazon SageMaker AI skills
 <a name="remote-access-install-skills"></a>
 
-This Amazon SageMaker AI plugin is available on the [AWSLabs GitHub page](https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai) and brings deep AWS AI/ML expertise directly into your coding assistant, covering the surface area of [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ai/); currently, skills are provided to assist with the following capability areas:
-+ **Model Customization** — End-to-end guided workflows for fine-tuning foundation models, from use case definition through data preparation, training, evaluation, and deployment on Amazon SageMaker AI.
-+ **HyperPod Cluster Operations** — Remote command execution on nodes via SSM, version checking, and diagnostic reporting for Amazon SageMaker AI HyperPod training clusters.
+The Agent Toolkit for AWS gives AI coding agents the tools, knowledge, and science-based best practices they need to work with AWS services. It works with the coding agents you already use, including Claude Code, Codex, Cursor, and Kiro. The toolkit bundles the AWS MCP Server configuration and a curated set of agent skills in a single install, so your agent can discover and apply AWS best practices automatically without you having to know which skill to invoke.
+
+The toolkit includes a broad set of core skills that span many AWS services and common workflows, such as Amazon Bedrock and Amazon Elastic Compute Cloud, in addition to the AWS AI/ML skill covered on this page. Your agent loads only the skills relevant to the task at hand.
+
+The AWS AI/ML skill (`aws-ai-ml`) brings deep AWS AI/ML expertise into your coding assistant and covers [Amazon SageMaker AI](https://aws.amazon.com/sagemaker/ai/). It supports the full model customization lifecycle from planning through production, and it currently assists with the following capability areas:
++ **Model selection** — Guided selection of a base model from Amazon SageMaker AI Hub, matching model family and size to your use case requirements, for either fine-tuning or off-the-shelf deployment.
++ **Model deployment** — Deployment configuration and endpoint setup on Amazon SageMaker AI or Amazon Bedrock, covering the Nova and open-source (OSS) deployment pathways.
++ **Model fine-tuning** — End-to-end guided workflows for fine-tuning foundation models, from use case definition through data preparation, training, evaluation, and deployment on Amazon SageMaker AI. Supports both serverful and serverless paths.
++ **Model evaluation** — Evaluation design, benchmark selection, LLM-as-a-judge and custom scorers, and side-by-side model comparison to measure quality before and after customization.
++ **Inference optimization** — Benchmarking and tuning of real-time endpoints to meet performance, cost, latency, and throughput goals, including instance recommendations.
++ **MLflow** — Set up, update, or delete a Amazon SageMaker AI Managed MLflow app to track experiments, parameters, and metrics across the customization lifecycle.
 
 ## Agent Skills
 <a name="remote-access-install-skills-list"></a>
 
-The following skills are installed by the plugin:
+The following skill is installed by the plugin:
 
 
 **Amazon SageMaker AI agent skills**  
 
 | Skill | Description | Documentation | 
 | --- | --- | --- | 
-| planning | Builds a dynamic, step-by-step plan tailored to your intents | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/planning/SKILL.md) | 
-| directory-management | Manages project directory setup, artifact organization, and plan association for new or existing projects | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/directory-management/SKILL.md) | 
-| use-case-specification | Guided, conversational process to define your model customization use case goals, key stakeholders, and success criteria | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/use-case-specification/SKILL.md) | 
-| dataset-evaluation | Dataset quality validation, format detection, and data requirements analysis | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/dataset-evaluation/SKILL.md) | 
-| dataset-transformation | Dataset format conversion and preparation for SageMaker AI-compatible training formats | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/dataset-transformation/SKILL.md) | 
-| finetuning-setup | Fine-tuning technique selection (SFT, DPO, RLVR, etc.) and base model selection | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/finetuning-setup/SKILL.md) | 
-| finetuning | Hyperparameter configuration and training job execution | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/finetuning/SKILL.md) | 
-| model-evaluation | Evaluation design, benchmark selection, LLM-as-a-judge, and model comparison | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/model-evaluation/SKILL.md) | 
-| model-deployment | Deployment configuration and endpoint setup (SageMaker AI or Amazon Bedrock) | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/model-deployment/SKILL.md) | 
-| hyperpod-ssm | Remote command execution and file transfer on HyperPod cluster nodes via SSM | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/hyperpod-ssm/SKILL.md) | 
-| hyperpod-version-checker | Check and compare software component versions across HyperPod cluster nodes | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/hyperpod-version-checker/SKILL.md) | 
-| hyperpod-issue-report | Generate diagnostic reports for HyperPod troubleshooting and support cases | [SKILL.md](https://github.com/awslabs/agent-plugins/blob/main/plugins/sagemaker-ai/skills/hyperpod-issue-report/SKILL.md) | 
+| aws-ai-ml | Selects, deploys, and customizes AI models on Amazon SageMaker AI. Covers the full lifecycle from planning through production: model selection, dataset preparation, fine-tuning (SFT, DPO, RLVR, RLAIF), evaluation, deployment to Amazon SageMaker AI endpoints or Amazon Bedrock, inference optimization, endpoint diagnostics, and Amazon SageMaker AI Managed MLflow. | [SKILL.md](https://github.com/aws/agent-toolkit-for-aws/blob/main/plugins/aws-core/skills/aws-ai-ml/SKILL.md) | 
 
 ## MCP Servers
 <a name="remote-access-install-skills-mcp"></a>
@@ -45,21 +42,43 @@ You may use the [Skills CLI](https://github.com/vercel-labs/skills) (from Vercel
 + **Claude Code**:
 
   ```
-  npx skills add https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai/skills --all --agent claude-code --copy
+  npx skills add aws/agent-toolkit-for-aws/skills/core-skills/aws-ai-ml --all --agent claude-code --copy
   ```
 + **Cursor**:
 
   ```
-  npx skills add https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai/skills --all --agent cursor --copy
+  npx skills add aws/agent-toolkit-for-aws/skills/core-skills/aws-ai-ml --all --agent cursor --copy
   ```
 + **Kiro**:
 
   ```
-  npx skills add https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai/skills --all --agent kiro-cli --copy
+  npx skills add aws/agent-toolkit-for-aws/skills/core-skills/aws-ai-ml --all --agent kiro-cli --copy
   ```
 
-If you have configured other agents, use:
+If you have configured other agents, substitute your agent name for `<agent>` and use:
 
 ```
-npx skills add https://github.com/awslabs/agent-plugins/tree/main/plugins/sagemaker-ai/skills --all --agent 
+npx skills add aws/agent-toolkit-for-aws/skills/core-skills/aws-ai-ml --all --agent <agent>
 ```
+
+Alternatively, install the full `aws-core` plugin, which bundles the AWS MCP Server configuration and the curated core skill set in a single install:
++ **Claude Code**:
+
+  ```
+  /plugin install aws-core@claude-plugins-official
+  /reload-plugins
+  ```
++ **Codex**:
+
+  ```
+  codex plugin marketplace add aws/agent-toolkit-for-aws
+  ```
+
+  Then launch Codex, run `/plugins`, and install the `aws-core` plugin.
++ **AWS CLI** (version 2.35.0 or later):
+
+  Run the interactive setup wizard, which detects your installed AI coding agents, installs default AWS skills, and configures the AWS MCP Server connection in a single command:
+
+  ```
+  aws configure agent-toolkit
+  ```

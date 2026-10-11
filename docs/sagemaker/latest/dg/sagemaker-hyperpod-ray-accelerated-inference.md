@@ -1,6 +1,6 @@
 
 
-# Accelerated inference
+# Accelerated inference with Ray Serve
 <a name="sagemaker-hyperpod-ray-accelerated-inference"></a>
 
 Ray Serve is the open source model-serving library for Ray. You deploy a model as a Serve application, and Ray Serve handles request routing, batching, and replica scaling. On HyperPod, Ray Serve runs on KubeRay through a `RayService` resource, so your Serve code and deployment graph are unchanged.

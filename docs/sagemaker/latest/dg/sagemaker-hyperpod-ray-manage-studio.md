@@ -18,7 +18,7 @@ The namespace selector in the form shows the compute allocation and current util
 
 Attach a space to the cluster when you want to develop against it interactively. A space is a JupyterLab or Code Editor environment in Amazon SageMaker Studio. Code you run there, in a notebook or a terminal, reaches the cluster through `ray.init()`.
 
-A space carries its own Ray version, from the SageMaker AI Distribution image it runs. Match that version to the Ray version of the cluster. A mismatch produces runtime errors that are hard to diagnose. For more information, see [Attaching Ray cluster to Space](sagemaker-hyperpod-ray-attach-space.md).
+A space carries its own Ray version, from the SageMaker AI Distribution image it runs. Match that version to the Ray version of the cluster. A mismatch produces runtime errors that are hard to diagnose. For more information, see [Attaching a Ray cluster to a space](sagemaker-hyperpod-ray-attach-space.md).
 
 ## Actions on a cluster
 <a name="sagemaker-hyperpod-ray-manage-studio-actions"></a>
@@ -28,7 +28,7 @@ Choose **Actions** on a row to act on that resource without leaving Studio.
 
 | Action | What it does | 
 | --- | --- | 
-| Interactive development | Opens a JupyterLab or Code Editor space attached to the cluster, so ray.init() in that space connects to it. Requires the SageMaker AI Spaces add-on. For more information, see [Attaching Ray cluster to Space](sagemaker-hyperpod-ray-attach-space.md). | 
+| Interactive development | Opens a JupyterLab or Code Editor space attached to the cluster, so ray.init() in that space connects to it. Requires the SageMaker AI Spaces add-on. For more information, see [Attaching a Ray cluster to a space](sagemaker-hyperpod-ray-attach-space.md). | 
 | Submit job | Submits a job to the running cluster. | 
 | Open Ray Dashboard | Opens the Ray Dashboard for the cluster. Requires the Ray Endpoint Operator. For more information, see [Installing the HyperPod Ray Endpoint Operator](sagemaker-hyperpod-ray-endpoint-operator.md). | 
 | Open Grafana | Opens the Grafana dashboards for the cluster. Requires the observability add-on. For more information, see [Setting up Ray metrics collection](sagemaker-hyperpod-ray-observability-setup.md). | 

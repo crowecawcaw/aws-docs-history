@@ -25,7 +25,7 @@ Environment variables and entrypoint scripts are visible through the Ray dashboa
 ## Use sagemaker\_ray:// for programmatic job submission
 <a name="sagemaker-hyperpod-ray-endpoint-operator-security-sagemaker-ray"></a>
 
-The `sagemaker_ray://` address scheme handles authentication without exposing a URL in terminal output or logs. The [toolkit-for-ray-on-sagemaker-ai](https://pypi.org/project/toolkit-for-ray-on-sagemaker-ai/) Python library on the PyPI website registers this scheme, so Ray's standard Jobs CLI and Python SDK authenticate through the cluster's secured endpoint. The library is preinstalled in SageMaker AI Distribution images. For more information, see [Submitting jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md).
+The `sagemaker_ray://` address scheme handles authentication without exposing a URL in terminal output or logs. The [toolkit-for-ray-on-sagemaker-ai](https://pypi.org/project/toolkit-for-ray-on-sagemaker-ai/) Python library on the PyPI website registers this scheme, so Ray's standard Jobs CLI and Python SDK authenticate through the cluster's secured endpoint. The library is preinstalled in SageMaker AI Distribution images. For more information, see [Submitting Ray jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md).
 
 ```
 ray job submit --address "sagemaker_ray://{{cluster-name}}/{{namespace}}" -- python train.py
@@ -50,11 +50,11 @@ For more information about Kubernetes RBAC, see [Identity and access management]
 ## Use unique session names for shared execution roles
 <a name="sagemaker-hyperpod-ray-endpoint-operator-security-session-names"></a>
 
-The HyperPod Ray Endpoint Operator identifies users by their full IAM principal ARN, which includes the role session name (for example, `arn:aws:sts::123456789012:assumed-role/DataScientist/alice`). If multiple users assume the same IAM role with the same session name, the operator cannot distinguish between them and treats them as the same identity.
+The HyperPod Ray Endpoint Operator identifies users by their full IAM principal ARN, which includes the role session name (for example, `arn:aws:sts::111122223333:assumed-role/DataScientist/alice`). If multiple users assume the same IAM role with the same session name, the operator cannot distinguish between them and treats them as the same identity.
 
 To enable per-user access control when users share an execution role, configure unique session names for each user. For more information, see [sts:RoleSessionName](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname) in the *IAM User Guide*.
 
-## Revoking sessions
+## Revoking Ray dashboard sessions
 <a name="sagemaker-hyperpod-ray-endpoint-operator-security-revoke"></a>
 
 To revoke all sessions (requires cluster access), run the following commands. This invalidates sessions for all users on all Ray clusters in the Amazon EKS cluster.

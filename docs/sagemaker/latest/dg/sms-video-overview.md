@@ -11,7 +11,6 @@ Use this page to learn about the object detection and object tracking video fram
 The video frame labeling job is unique because of the following:
 + You can either provide data objects that are ready to be annotated (video frames), or you can provide video files and have Ground Truth automatically extract video frames. 
 + Workers have the ability to save work as they go. 
-+ You cannot use the Amazon Mechanical Turk workforce to complete your labeling tasks. 
 + Ground Truth provides a worker UI, as well as assistive and basic labeling tools, to help workers complete your tasks. You do not need to provide a worker task template. 
 
 Use the following topics to learn more about video frame labeling jobs.
@@ -60,7 +59,7 @@ The following task types are available for both video object tracking or video o
 ## Workforces
 <a name="sms-video-workforces"></a>
 
-When you create a video frame labeling job, you need to specify a work team to complete your annotation tasks. You can choose a work team from a private workforce of your own workers, or from a vendor workforce that you select in the AWS Marketplace. You cannot use the Amazon Mechanical Turk workforce for video frame labeling jobs. 
+When you create a video frame labeling job, you need to specify a work team to complete your annotation tasks. You can choose a work team from a private workforce of your own workers, or from a vendor workforce that you select in the AWS Marketplace. 
 
 To learn more about vendor workforces, see [Subscribe to vendor workforces](sms-workforce-management-vendor.md).
 

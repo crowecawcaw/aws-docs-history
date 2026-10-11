@@ -81,4 +81,4 @@ For every field these resources accept, see [RayCluster Configuration](https://d
 ## Submitting jobs to a running cluster
 <a name="sagemaker-hyperpod-ray-manage-kubectl-submit"></a>
 
-Applying a `RayJob` creates a cluster for that job. To submit to a cluster that is already running, use the `toolkit-for-ray-on-sagemaker-ai` package. For more information, see [Submitting jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md).
+Applying a `RayJob` creates a cluster for that job. To submit to a cluster that is already running, use the `toolkit-for-ray-on-sagemaker-ai` package. For more information, see [Submitting Ray jobs remotely with the toolkit library](sagemaker-hyperpod-ray-remote-job-submission.md).

@@ -7,6 +7,8 @@ To collect Ray metrics, install or update the SageMaker HyperPod Observability a
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-observability-setup-prereq"></a>
+
+Before you set up Ray metrics collection, make sure you have the following:
 + The KubeRay operator installed on your HyperPod cluster. For more information, see [Installing KubeRay on HyperPod Amazon EKS](sagemaker-hyperpod-ray-install-kuberay.md).
 + The Observability add-on on version 1.0.6 or later. Earlier versions run, but Ray metrics do not appear.
 

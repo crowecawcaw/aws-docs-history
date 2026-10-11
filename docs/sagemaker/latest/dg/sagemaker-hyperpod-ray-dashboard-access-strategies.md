@@ -21,6 +21,8 @@ When you add these annotations to a `RayJob`, `RayService`, or `RayCronJob`, the
 
 ## Strategies
 <a name="sagemaker-hyperpod-ray-dashboard-access-strategies-strategies"></a>
+
+Set one of the following access strategies:
 + `ray-access-strategy-private` — the default when no strategy annotation is set. Access is scoped to the identity that created the cluster.
 + `ray-access-strategy-public` — any identity with connect permission in the cluster's namespace can reach the endpoint.
 

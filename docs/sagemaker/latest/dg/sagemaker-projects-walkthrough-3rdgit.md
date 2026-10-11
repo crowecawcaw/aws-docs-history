@@ -58,7 +58,7 @@ In this step, you connect to your GitHub repositories using an [AWS CodeConnecti
 
 1. Choose **Connect**.
 
-1. Add a tag with the key `sagemaker` and value `true` to this CodeConnections connection.
+1. Add a tag with the key `sagemaker` and value `true` to this AWS CodeConnections connection.
 
 1. Copy the connection ARN to save for later. You use the ARN as a parameter in the project creation step.
 
@@ -86,12 +86,12 @@ In this step, you create a SageMaker AI MLOps project by using a SageMaker AI-pr
 1. Under **ModelBuild CodeRepository Info**, provide the following parameters:
    + For **Branch**, enter the branch to use from your Git repository for pipeline activities.
    + For **Full Repository Name**, enter the Git repository name in the format of {{username/repository name}} or {{organization/repository name}}.
-   + For **Code Connection ARN**, enter the ARN of the CodeConnections connection you created in Step 1.
+   + For **Code Connection ARN**, enter the ARN of the AWS CodeConnections connection you created in Step 1.
 
 1. Under **ModelDeploy CodeRepository Info**, provide the following parameters:
    + For **Branch**, enter the branch to use from your Git repository for pipeline activities.
    + For **Full Repository Name**, enter the Git repository name in the format of {{username/repository name}} or {{organization/repository name}}.
-   + For **Code Connection ARN**, enter the ARN of the CodeConnections connection you created in Step 1.
+   + For **Code Connection ARN**, enter the ARN of the AWS CodeConnections connection you created in Step 1.
 
 1. Choose **Create Project**.
 

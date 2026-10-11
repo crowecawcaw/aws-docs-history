@@ -1,12 +1,14 @@
 
 
-# Setting up the Spaces add-on
+# Setting up the SageMaker Spaces add-on for Ray
 <a name="sagemaker-hyperpod-ray-spaces-addon-setup"></a>
 
 The SageMaker Spaces add-on provides the IDE and notebook spaces that attach to a Ray cluster. You install it from the console, then configure web browser access so users open a space in a browser.
 
 ## Prerequisites
 <a name="sagemaker-hyperpod-ray-spaces-addon-setup-prereqs"></a>
+
+Ray interactive development requires the following:
 + A HyperPod cluster orchestrated by Amazon EKS. For more information, see [Creating a SageMaker HyperPod cluster with Amazon EKS orchestration](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-hyperpod-eks-operate-console-ui-create-cluster.html).
 
 The following are optional. You need them for web browser access to a space, and for Ray Dashboard access through the Ray Endpoint Operator:

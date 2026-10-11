@@ -16,7 +16,7 @@ You can keep the KubeRay operator you already run. HyperPod capabilities install
 ## Do I need SageMaker Studio?
 <a name="sagemaker-hyperpod-ray-faq-studio"></a>
 
-Amazon SageMaker Studio is required only for the managed experience, where data scientists create and manage Ray clusters without Kubernetes knowledge. On an existing Ray platform, you use `kubectl`, Helm, and the toolkit library, and nothing requires Studio. For more information, see [Getting started](sagemaker-hyperpod-ray-getting-started.md).
+Amazon SageMaker Studio is required only for the managed experience, where data scientists create and manage Ray clusters without Kubernetes knowledge. On an existing Ray platform, you use `kubectl`, Helm, and the toolkit library, and nothing requires Studio. For more information, see [Getting started with Ray on HyperPod](sagemaker-hyperpod-ray-getting-started.md).
 
 ## Can I use my own Prometheus and Grafana?
 <a name="sagemaker-hyperpod-ray-faq-prometheus"></a>
@@ -41,4 +41,4 @@ HyperPod supports the open source Ray libraries, including Ray Core, Ray Train, 
 ## Can I adopt one capability without the others?
 <a name="sagemaker-hyperpod-ray-faq-one-capability"></a>
 
-Each HyperPod capability installs independently as an add-on or a Python package, so you can adopt one and stop. A team with its own Ray platform can add observability or authenticated dashboard access without changing the rest. For the full list and dependencies, see [Getting started](sagemaker-hyperpod-ray-getting-started.md).
+Each HyperPod capability installs independently as an add-on or a Python package, so you can adopt one and stop. A team with its own Ray platform can add observability or authenticated dashboard access without changing the rest. For the full list and dependencies, see [Getting started with Ray on HyperPod](sagemaker-hyperpod-ray-getting-started.md).
