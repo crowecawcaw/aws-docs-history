@@ -38,9 +38,9 @@ The `AWS/SMSVoice` namespace includes the following metrics specific to RCS mess
 
 | Metric | Description | Unit | Meaningful statistics | 
 | --- | --- | --- | --- | 
-| RCS.MessagesSent | The number of RCS messages sent. This metric counts messages that AWS End User Messaging accepted and attempted to deliver via RCS. Messages blocked by Protect or service limits are excluded from this count. | Count |  + Sum<br />+ Sample Count<br />+ Average  | 
-| RCS.MessagesDelivered | The number of RCS messages successfully delivered to the recipient's device. A message is counted as delivered when AWS End User Messaging receives a delivery confirmation from the RCS infrastructure. | Count |  + Sum<br />+ Sample Count<br />+ Average  | 
-| RCS.MessagesFallenBackToSMS | The number of messages that were initially attempted via RCS but fell back to SMS delivery. This metric helps you understand how often RCS delivery is unavailable for your recipients and can be used to track fallback rates over time. | Count |  + Sum<br />+ Sample Count<br />+ Average  | 
+| RCSMessagesSent | The number of RCS messages sent. This metric counts messages that AWS End User Messaging accepted and attempted to deliver via RCS. Messages blocked by Protect or service limits are excluded from this count. | Count |  + Sum<br />+ Sample Count<br />+ Average  | 
+| RCSMessagesDelivered | The number of RCS messages successfully delivered to the recipient's device. A message is counted as delivered when AWS End User Messaging receives a delivery confirmation from the RCS infrastructure. | Count |  + Sum<br />+ Sample Count<br />+ Average  | 
+| RCSMessagesFallenBackToSMS | The number of messages that were initially attempted via RCS but fell back to SMS delivery. This metric helps you understand how often RCS delivery is unavailable for your recipients and can be used to track fallback rates over time. | Count |  + Sum<br />+ Sample Count<br />+ Average  | 
 
 #### OriginationIdentityType dimension
 <a name="nx-rcs-mon-metrics-dimensions-origination"></a>
@@ -119,8 +119,8 @@ Create CloudWatch alarms to alert you when RCS messaging patterns change unexpec
 
 | Alarm on | Why | 
 | --- | --- | 
-| **High fallback rate** | Set an alarm when `RCS.MessagesFallenBackToSMS` exceeds a threshold percentage of `RCS.MessagesSent`. A sudden increase in fallback may indicate an issue with your AWS RCS Agent or a carrier outage. | 
-| **Delivery rate drop** | Set an alarm when the ratio of `RCS.MessagesDelivered` to `RCS.MessagesSent` drops below your expected delivery rate. | 
+| **High fallback rate** | Set an alarm when `RCSMessagesFallenBackToSMS` exceeds a threshold percentage of `RCSMessagesSent`. A sudden increase in fallback may indicate an issue with your AWS RCS Agent or a carrier outage. | 
+| **Delivery rate drop** | Set an alarm when the ratio of `RCSMessagesDelivered` to `RCSMessagesSent` drops below your expected delivery rate. | 
 | **Inbound message volume** | If you use two-way RCS messaging, set an alarm on `NumberOfMessagesReceived` (filtered by `OriginationIdentityType = RCS_AGENT`) to detect unexpected changes in inbound message volume. | 
 
 You can create a Amazon CloudWatch alarm that sends a notification when an RCS metric crosses a threshold you set. For example, you can alarm when your RCS-to-SMS fallback rate rises above an expected level. For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*.
@@ -134,7 +134,7 @@ You can create a Amazon CloudWatch alarm that sends a notification when an RCS m
 
 1. Choose **Alarms** in the navigation pane, and then choose **Create alarm**.
 
-1. Choose **Select metric**, choose the `AWS/SMSVoice` namespace, and choose the RCS metric that you want to set an alarm for, such as `RCS.MessagesFallenBackToSMS`.
+1. Choose **Select metric**, choose the `AWS/SMSVoice` namespace, and choose the RCS metric that you want to set an alarm for, such as `RCSMessagesFallenBackToSMS`.
 
 1. Set the statistic to **Sum**, the period to 1 hour, the condition to **Static** and **Greater than**, and enter the threshold value.
 
@@ -149,7 +149,7 @@ Use the [put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/clou
 $ aws cloudwatch put-metric-alarm \
 > --alarm-name {{HighRcsFallbackRate}} \
 > --namespace AWS/SMSVoice \
-> --metric-name RCS.MessagesFallenBackToSMS \
+> --metric-name RCSMessagesFallenBackToSMS \
 > --statistic Sum \
 > --period 3600 \
 > --evaluation-periods 1 \

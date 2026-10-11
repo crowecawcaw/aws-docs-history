@@ -3,7 +3,7 @@
 # Outbound messaging
 <a name="nx-voice-send-outbound"></a>
 
-You place a voice call with the `SendVoiceMessage` operation. Use the AWS CLI to call from your application. The service converts text to speech with Amazon Polly, or plays an audio file that you reference with speech synthesis markup language (SSML). The example uses a phone pool as the origination identity, which is the recommended approach; you can also specify a single phone number instead.
+You place a voice call with the `SendVoiceMessage` operation. Use the AWS CLI to call from your application. The service converts a text script to speech with Amazon Polly. Provide the script as plain text, or use speech synthesis markup language (SSML) to control pronunciation, pauses, and emphasis. The example uses a phone pool as the origination identity, which is the recommended approach; you can also specify a single phone number instead.
 
 **Note**  
 While your account is in the sandbox, you can only place calls to verified destination phone numbers. Production accounts can call any valid number.
@@ -31,7 +31,4 @@ While your account is in the sandbox, you can only place calls to verified desti
 
 If AWS End User Messaging accepts the request, it returns a `MessageId`. This means only that the request was accepted, not that the call has been answered.
 
-To play audio that you supply instead of synthesized speech, set `--message-body-text-type` to `SSML` and reference your audio file with an SSML `audio` tag in the message body, for example `"<speak><audio src='https://example.com/audio/greeting.mp3'/></speak>"`. For the SSML tags that Amazon Polly supports, see [Supported SSML tags](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html) in the *Amazon Polly Developer Guide*.
-
-**Note**  
-[needs SME confirmation] Confirm the supported audio hosting and file-format requirements for AWS End User Messaging voice calls (for example, whether the audio must be reachable over HTTPS and the accepted codecs/bitrate). The API Reference documents `MessageBody` and `MessageBodyTextType` but does not restate Amazon Polly audio constraints.
+To control how Amazon Polly reads the message, set `--message-body-text-type` to `SSML` and format the message body with speech synthesis markup language. SSML lets you adjust pronunciation, add pauses, change speaking rate and emphasis, and spell out acronyms. For the SSML tags that Amazon Polly supports, see [Supported SSML tags](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html) in the *Amazon Polly Developer Guide*. An unsupported tag causes the request to fail.

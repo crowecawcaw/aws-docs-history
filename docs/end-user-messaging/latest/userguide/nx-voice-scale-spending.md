@@ -34,6 +34,6 @@ You can also create a CloudWatch billing alarm that notifies you through an Amaz
 ## Understand voice billing and usage reports
 <a name="nx-voice-scale-spending-billing"></a>
 
-Voice charges depend on the recipient's country and the duration of each call, so voice bills differently from SMS. The exact voice usage-type format and the per-message or per-minute billing specifics are [needs SME confirmation] — confirm the current voice usage types and charge units before you rely on them for cost allocation. For current voice pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
+Voice charges depend on the recipient's country and the duration of each call, so voice bills differently from SMS. For current voice pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
 
 You can use tags for organizing your bill to reflect your own cost structure. For example, you can tag several resources with a specific campaign name, and then organize your billing information to see the total cost of that campaign across several services. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing User Guide*.

@@ -36,9 +36,4 @@ You can also create a CloudWatch billing alarm that notifies you through an Amaz
 
 Unlike SMS, which is billed per message part, MMS is billed per message. A single MMS message is delivered as one message part and is not broken into multiple parts, so each MMS message that AWS End User Messaging accepts generates a single billable send regardless of the size of the media or the length of the text body. For more information about pricing, see [AWS End User Messaging Pricing](https://aws.amazon.com/end-user-messaging/pricing/).
 
-The MMS channel generates a usage type on your bill for each combination of destination country and origination identity. The usage type follows the same field format as the SMS usage type, with the message type reading **OutboundMMS** rather than **OutboundSMS**.
-
-**Note**  
-The exact MMS usage type string format, the set of usage types generated per send (message count, message fees, and any carrier fees), and whether MMS incurs carrier fees in the United States and Canada [needs SME confirmation]. Confirm the MMS usage type details against the AWS Billing and Cost Management usage report before publishing specific examples.
-
 You can use tags for organizing your bill to reflect your own cost structure. For example, you can tag several resources with a specific campaign name, and then organize your billing information to see the total cost of that campaign across several services. For more information, see [Cost allocation and tagging](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the *AWS Billing User Guide*.

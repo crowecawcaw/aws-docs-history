@@ -35,12 +35,12 @@ Validate your integration with a testing agent and a test device before you laun
 ## Track RCS versus SMS delivery rates
 <a name="nx-rcs-scale-bp-delivery-rates"></a>
 
-Compare `RCS.MessagesDelivered` against `RCS.MessagesFallenBackToSMS` to understand what percentage of your messages are delivered via RCS versus SMS. A high fallback rate may indicate that many of your recipients are on carriers or devices that don't support RCS. Use the following formulas to calculate key rates:
+Compare `RCSMessagesDelivered` against `RCSMessagesFallenBackToSMS` to understand what percentage of your messages are delivered via RCS versus SMS. A high fallback rate may indicate that many of your recipients are on carriers or devices that don't support RCS. Use the following formulas to calculate key rates:
 
 ```
-RCS delivery rate = 100 * SUM(RCS.MessagesDelivered) / SUM(RCS.MessagesSent)
+RCS delivery rate = 100 * SUM(RCSMessagesDelivered) / SUM(RCSMessagesSent)
 
-SMS fallback rate = 100 * SUM(RCS.MessagesFallenBackToSMS) / SUM(RCS.MessagesSent)
+SMS fallback rate = 100 * SUM(RCSMessagesFallenBackToSMS) / SUM(RCSMessagesSent)
 ```
 
 Track these rates over time to identify trends as carrier and device support for RCS expands. A decreasing fallback rate indicates that more of your recipients are receiving messages via RCS.
