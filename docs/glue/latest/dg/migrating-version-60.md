@@ -111,11 +111,13 @@ Refer to the Spark migration documentation:
 
 ## Migrating from older AWS Glue versions to AWS Glue 6.0
 <a name="migrating-older-versions-to-60"></a>
+
+Use the following steps to migrate from an older AWS Glue version to AWS Glue 6.0:
 + For migration steps related to AWS Glue 5.0 to AWS Glue 5.1, see [Migrating from AWS Glue 5.0 to AWS Glue 5.1](migrating-version-51.md#migrating-version-51-from-50).
 + For migration steps related to AWS Glue 4.0 to AWS Glue 5.0, see [Migrating from AWS Glue 4.0 to AWS Glue 5.0](migrating-version-50.md#migrating-version-50-from-40).
 + For migration steps related to AWS Glue 3.0 to AWS Glue 5.0, see [Migrating from AWS Glue 3.0 to AWS Glue 5.0](migrating-version-50.md#migrating-version-50-from-30).
 + For migration steps related to AWS Glue 2.0 to AWS Glue 5.0, see [Migrating from AWS Glue 2.0 to AWS Glue 5.0](migrating-version-50.md#migrating-version-50-from-20).
-+ After completing the steps above, finish migrating to AWS Glue 6.0 by following [Migrating from AWS Glue 5.1 to AWS Glue 6.0](#migrating-version-60-from-51).
++ For the final migration step, see [Migrating from AWS Glue 5.1 to AWS Glue 6.0](#migrating-version-60-from-51).
 
 ## Connector and JDBC driver migration for AWS Glue 6.0
 <a name="migrating-version-60-connector-driver-migration"></a>

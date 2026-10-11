@@ -10,6 +10,8 @@ See the following sections for troubleshooting solutions.
 
 AWS Glue uses Spark resources profiles to split job execution. AWS Glue uses the user profile to run the code you supplied, while the system profile enforces Lake Formation policies. You can access the logs for the tasks ran as the user profile.
 
+To troubleshoot a failure in the system profile, you can also retrieve the system logs for a job run or session. For more information, see [Debugging fine-grained access control (FGAC) jobs and sessions](debugging-fgac-jobs-sessions.md).
+
 ## Live UI and Spark History Server
 <a name="security-lf-troubleshooting-live-ui"></a>
 

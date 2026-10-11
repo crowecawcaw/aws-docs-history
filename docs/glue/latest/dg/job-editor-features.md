@@ -64,7 +64,7 @@ Choose the settings icon (a gear symbol) to configure your preferences for data 
 + Choose to wrap the text from one line to the next. This option is enabled by default
 + Change the number of rows (default to 200) 
 + Choose an IAM role or create an IAM role if needed
-+ Choose to automatically start a new session when you author a job. This provisions a new interactive session when authoring jobs. **This setting applies at the account level.** Once set, it will apply to all users in your account when editing any job.
++ Choose to automatically start a new session when you author a job. This provisions a new interactive session when authoring jobs. This setting applies to the IAM identity that you use. If you assume an IAM role, anyone who assumes the same role shares this setting. If you sign in as an IAM user, the setting applies to that user. Other IAM roles and users in your account must configure it separately.
 + Choose to automatically infer schema. Output schemas will be automatically inferred for the selected node
 + Choose to automatically import AWS Glue libraries. This is useful as it will prevent data preview from restarting new sessions when adding new transforms that require a session restart
 

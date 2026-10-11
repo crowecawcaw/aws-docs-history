@@ -203,6 +203,9 @@ The Amazon Simple Storage Service (Amazon S3) location where your ETL script is 
 **`--spark-event-logs-path`**  
 Specifies an Amazon S3 path. When using the Spark UI monitoring feature, AWS Glue flushes the Spark event logs to this Amazon S3 path every 30 seconds to a bucket that can be used as a temporary directory for storing Spark UI events.
 
+**`--system-logs-kms-key-arn`**  
+Specifies the ARN of a customer managed AWS KMS key that AWS Glue uses to encrypt the system logs for a Lake Formation-enabled job or session. For more information, see [Encrypting system logs with a customer managed key](debugging-fgac-jobs-sessions.md#debugging-fgac-encryption).
+
 **`--TempDir`**  
 Specifies an Amazon S3 path to a bucket that can be used as a temporary directory for the job.  
 For example, to set a temporary directory, pass the following argument.  

@@ -44,7 +44,7 @@ Data compaction supports a variety of data types and compression formats for rea
 
  **Data compaction supports:**
 + **Encryption** – Data compaction only supports default Amazon S3 encryption (SSE-S3) and server-side KMS encryption (SSE-KMS).
-+ **Compaction strategies** – Binpack, sort, and Z-order sorting
++ **Compaction strategies** – Binpack, sort, and Z-order are supported for Apache Iceberg v3. Sort and Z-order can be applied only for columns with Iceberg primitive types.
 + You can run compaction from the account where Data Catalog resides when the Amazon S3 bucket that stores the underlying data is in another account. To do this, the compaction role requires access to the Amazon S3 bucket.
 
  **Data compaction currently doesn’t support:** 
