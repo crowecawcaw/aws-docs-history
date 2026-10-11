@@ -3,9 +3,6 @@
 # What is the AWS Events API?
 <a name="what-is-events-api"></a>
 
-**Note**  
-Reserved seating for AWS re:Invent opens October 6, 2026, but does not open through this API until October 8, 2026. Until then, reserving or canceling returns `409`. Reading the catalog and marking favorites work as normal.
-
  AWS re:Invent, AWS Summits, and other AWS conferences publish session catalogs listing talks, workshops, and labs. 
 
  With this API you can list events, read a session catalog, and manage your own schedule: reserve sessions, mark favorites, and add personal time. 
