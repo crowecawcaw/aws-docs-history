@@ -20,7 +20,6 @@ aws comprehend create-document-classifier \
     --document-classifier-name {{example-classifier}} \
     --data-access-role-arn {{arn:aws:iam::111122223333:role/service-role/AmazonComprehendServiceRole-example-role}} \
     --input-data-config {{"S3Uri=s3://amzn-s3-demo-bucket/"}} \
-    --input-data-config {{"S3Uri=s3://amzn-s3-demo-bucket/"}} \
     --language-code {{en}}
 ```
 Output:  
