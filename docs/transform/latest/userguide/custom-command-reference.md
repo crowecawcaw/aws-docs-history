@@ -55,6 +55,8 @@ atx custom def list
 atx custom def list --json    # Output in JSON format
 ```
 
+The **Category** column shows whether each transformation definition is an `analysis` or a `remediation` transformation. A transformation definition without a category shows `—`. In `--json` output, the category appears in the `category` field. This field is omitted when no category is set.
+
 **atx custom def get**
 
 Get details of a specific transformation definition.
@@ -87,6 +89,7 @@ Publish a transformation definition to the registry.
 | --tv | --transformation-version | <version> | The version of the transformation definition to use (not applicable with --description or --source-directory) | 
 | --sd | --source-directory | <directory> | The source directory from which to read the local transformation definition files (not applicable with --transformation-version) | 
 | --description | --description | <description> | A description for the transformation definition (not applicable with --transformation-version) | 
+| --category | --category | <category> | The category of the transformation definition. Use analysis for transformations that read code and report findings, or remediation for transformations that change code. If you don't specify a category when you publish a new version, the previous version's category is kept. Not applicable with --transformation-version. | 
 | --json | --json | - | Output response in JSON format | 
 | -h | --help | - | Display help for command | 
 
@@ -97,6 +100,8 @@ Save a transformation definition as a draft in the registry. Drafts expire after
 ```
 atx custom def save-draft -n <transformation-name> --description "Description" --sd <directory>
 ```
+
+To set the category of the transformation definition, add `--category analysis` or `--category remediation`.
 
 ## Lesson Commands
 <a name="custom-knowledge-item-commands"></a>

@@ -107,7 +107,7 @@ atx ct repository update --source {{name}} --labels "{{migration:wave-1}}"
 The `--type` flag specifies the kind of analysis to run:
 + `rapid-techdebt-analysis` – Outdated dependencies and easy wins.
 + `tech-debt-comprehensive` – Deeper AI-powered analysis covering dependency, security, pattern, performance, maintainability, architecture, code-quality, and infrastructure findings.
-+ `security` – Security vulnerabilities and exposures.
++ `security` – Static application security testing (SAST) for insecure coding patterns in source code.
 + `agentic-readiness` – Readiness of your repositories for AI agents (frameworks, APIs, documentation).
 + `modernization-readiness` – Modernization opportunities across your infrastructure, application, data, security, and operations dimensions.
 

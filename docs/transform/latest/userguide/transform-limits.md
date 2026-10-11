@@ -17,7 +17,7 @@ Your AWS account has the following quotas related to AWS Transform.
 | Platform | Workspaces per AWS Region per AWS Transform-enabled account | 100 workspaces for each supported AWS Region | Yes | The maximum number of workspaces per AWS Transform-enabled account per AWS Region | 
 | VMWare Migration | Server count for each wave | Each wave: 150 servers | No | The maximum number of servers in a wave | 
 | Mainframe | Concurrent jobs for each IAM Identity Center account | 10 jobs for each supported Region | Yes | The maximum number of concurrent Mainframe jobs in an IAM Identity Center account | 
-|  | Lines of code for each job | 3,000,000 lines of code for each supported region | No | The maximum number of lines of code for each job. | 
+|  | Lines of code for each job | 30,000,000 lines of code for each supported region | No | The maximum number of lines of code for each job. | 
 |  | Analysis monthly lines of code | 100,000,000 lines of code for each supported region | Yes | The maximum number of lines of code for Analyze Code job objective in a calendar month | 
 |  | Business document generation monthly lines of code | 50,000,000 lines of code for each supported region | Yes | The maximum number of lines of code for Business Documentation Generation job objective in a calendar month | 
 |  | Technical document generation monthly lines of code | 50,000,000 lines of code for each supported region | Yes | The maximum number of lines of code for Technical Documentation Generation job objective in a calendar month | 

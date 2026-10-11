@@ -32,7 +32,7 @@ AWS Transform continuous modernization supports the following analysis types to 
 | --- | --- | 
 | rapid-techdebt-analysis | Fast metadata-only scan of package manifests (pom.xml, package.json, requirements.txt) to identify stale versions and outdated dependencies. Does not analyze source code. | 
 | tech-debt-comprehensive | Deep code-level technical debt analysis using the AWS Transform agent. Examines source code to identify debt patterns, code quality issues, architecture concerns, and improvement opportunities. | 
-| security | Security vulnerability and CVE detection using the AWS Security Agent. Scans source code and dependencies for known vulnerabilities, insecure coding patterns, and exploitable weaknesses. Requires one-time infrastructure setup. | 
+| security | Static application security testing (SAST) using the AWS Security Agent. Scans source code for insecure coding patterns such as SQL injection, hardcoded secrets, and unsafe deserialization. Requires one-time infrastructure setup. | 
 | agentic-readiness | AI and agent integration readiness assessment. Scores 56 criteria across five categories: Infrastructure & Platform, Application Architecture, Data Foundations, Identity/Security/Governance, and Operations & Observability. | 
 | modernization-readiness | Cloud modernization opportunity assessment. Evaluates readiness across infrastructure, application, data, security, and operations dimensions. Identifies candidates for containerization, serverless migration, and platform upgrades. | 
 | custom | Run any transformation definition (TD) as an analysis. Use this type to define your own analysis criteria or to run AWS managed transforms not covered by the built-in types. | 
@@ -150,7 +150,7 @@ To set up Amazon EC2 execution, use the `atx ct remote` commands directly (see [
 ### Security agent setup
 <a name="ct-security-agent-setup"></a>
 
-The `security` analysis type uses the AWS Security Agent service for vulnerability and CVE detection. Unlike other analysis types, it requires one-time infrastructure setup in your AWS account.
+The `security` analysis type uses the AWS Security Agent service for static application security testing (SAST) of your source code. Unlike other analysis types, it requires one-time infrastructure setup in your AWS account.
 
 **Note**  
 The `security` analysis type is not available in the following Regions: Canada (Central) (`ca-central-1`), Europe (London) (`eu-west-2`), and Asia Pacific (Seoul) (`ap-northeast-2`). The other analysis types are unaffected.
