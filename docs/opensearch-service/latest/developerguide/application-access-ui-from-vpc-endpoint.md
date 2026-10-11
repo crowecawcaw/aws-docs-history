@@ -58,24 +58,20 @@ aws opensearchserverless create-vpc-endpoint \
 ## Updating the VPC endpoint policy to allow access to the OpenSearch UI application
 <a name="ui-access-from-vpc-endpoint-allow"></a>
 
-After you create the private connection, update the VPC endpoint policy to allow access to the OpenSearch UI application in the VPC endpoint policy by specifying the application ID.
+After you create the private connection, update the VPC endpoint policy to allow access to the OpenSearch UI application in the VPC endpoint policy by specifying the application ARN.
 
 For information about updating a VPC endpoint policy, see [Update a VPC endpoint policy](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html#update-vpc-endpoint-policy) in the *AWS PrivateLink Guide*.
 
-Ensure that the VPC endpoint policy includes the following statement. Replace the {{placeholder value}} with your own information.
+Ensure that the VPC endpoint policy includes the following statement. Replace the {{placeholder values}} with your own AWS Region, account ID, and application ID.
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [{
-        "Action": ["opensearch:*"],
         "Effect": "Allow",
         "Principal": "*",
-        "Resource": "*",
-        "Condition": {
-            "StringEquals": {
-                "opensearch:ApplicationId": ["{{opensearch-ui-application-id}}"]
-            }
-        }
+        "Action": "opensearch:ApplicationAccessAll",
+        "Resource": "arn:aws:opensearch:{{region}}:{{account-id}}:application/{{application-id}}"
     }]
 }
 ```
@@ -87,20 +83,16 @@ OpenSearch UI requires explicit permission in the VPC endpoint policy to allow u
 
 For information about updating a VPC endpoint policy, see [Update a VPC endpoint policy](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html#update-vpc-endpoint-policy) in the *AWS PrivateLink Guide*.
 
-The following is an example of VPC endpoint policy that denies access to the UI applications from the VPC:
+Alternatively, you can explicitly deny access. The following is an example of a VPC endpoint policy that denies access to an OpenSearch UI application from the VPC. Replace the {{placeholder values}} with your own AWS Region, account ID, and application ID.
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [{
-        "Action": ["opensearch:*"],
-        "Effect": "Allow",
+        "Effect": "Deny",
         "Principal": "*",
-        "Resource": "*",
-        "Condition": {
-            "StringEquals": {
-                "opensearch:ApplicationId": [""]
-            }
-        }
+        "Action": "opensearch:ApplicationAccessAll",
+        "Resource": "arn:aws:opensearch:{{region}}:{{account-id}}:application/{{application-id}}"
     }]
 }
 ```

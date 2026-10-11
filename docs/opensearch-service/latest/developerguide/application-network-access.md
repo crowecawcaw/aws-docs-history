@@ -76,7 +76,7 @@ The following procedure blocks the login page for users outside your approved ne
                "Resource": "arn:aws:opensearch:*:*:application/*",
                "Condition": {
                    "StringNotEqualsIfExists": {
-                       "aws:SourceVpce": "{{vpc-endpoint-id}}"
+                       "aws:SourceVpce": "{{vpce-1234567890abcdef0}}"
                    }
                }
            }

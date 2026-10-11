@@ -45,7 +45,7 @@ The following identity-based policy denies a user or role access to OpenSearch U
                "Resource": "arn:aws:opensearch:*:*:application/*",
                "Condition": {
                    "StringNotEqualsIfExists": {
-                       "aws:SourceVpce": "{{vpc-endpoint-id}}"
+                       "aws:SourceVpce": "{{vpce-1234567890abcdef0}}"
                    }
                }
            }
@@ -143,7 +143,7 @@ An identity-based policy governs a specific principal. To control which applicat
                "Effect": "Allow",
                "Principal": "*",
                "Action": "opensearch:ApplicationAccessAll",
-               "Resource": "arn:aws:opensearch:{{region}}:{{account-id}}:application/{{application-id}}"
+               "Resource": "arn:aws:opensearch:{{us-east-1}}:{{111122223333}}:application/{{application-id}}"
            }
        ]
    }
@@ -185,7 +185,7 @@ The following resource control policy denies all access to OpenSearch UI applica
                "Resource": "arn:aws:opensearch:*:*:application/*",
                "Condition": {
                    "StringNotEqualsIfExists": {
-                       "aws:SourceVpce": "{{vpc-endpoint-id}}"
+                       "aws:SourceVpce": "{{vpce-1234567890abcdef0}}"
                    }
                }
            }
@@ -242,7 +242,7 @@ To approve every interface VPC endpoint in a VPC instead of naming one endpoint,
                "Resource": "arn:aws:opensearch:*:*:application/*",
                "Condition": {
                    "StringNotEqualsIfExists": {
-                       "aws:SourceVpc": "{{vpc-id}}"
+                       "aws:SourceVpc": "{{vpc-1234567890abcdef0}}"
                    }
                }
            }

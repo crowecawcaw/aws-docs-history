@@ -55,7 +55,7 @@ Add the following permissions to allow the pipeline to poll and manage messages 
         "sqs:DeleteMessageBatch",
         "sqs:ChangeMessageVisibility"
       ],
-      "Resource": "arn:aws:sqs:{{region}}:{{account-id}}:{{queue-name}}"
+      "Resource": "arn:aws:sqs:{{us-east-1}}:{{111122223333}}:{{queue-name}}"
     }
   ]
 }
@@ -74,7 +74,7 @@ If your Amazon SQS queue is encrypted with an AWS KMS customer managed key, add 
     "kms:Decrypt",
     "kms:GenerateDataKey"
   ],
-  "Resource": "arn:aws:kms:{{region}}:{{account-id}}:key/{{key-id}}"
+  "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{key-id}}"
 }
 ```
 
@@ -92,8 +92,8 @@ Add the following permissions for writing to your OpenSearch domain or collectio
     "es:ESHttp*"
   ],
   "Resource": [
-    "arn:aws:es:{{region}}:{{account-id}}:domain/{{domain-name}}",
-    "arn:aws:es:{{region}}:{{account-id}}:domain/{{domain-name}}/*"
+    "arn:aws:es:{{us-east-1}}:{{111122223333}}:domain/{{domain-name}}",
+    "arn:aws:es:{{us-east-1}}:{{111122223333}}:domain/{{domain-name}}/*"
   ]
 }
 ```
@@ -115,10 +115,10 @@ The pipeline role must have a trust relationship with `osis-pipelines.amazonaws.
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "{{account-id}}"
+          "aws:SourceAccount": "{{111122223333}}"
         },
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:osis:{{region}}:{{account-id}}:pipeline/*"
+          "aws:SourceArn": "arn:aws:osis:{{us-east-1}}:{{111122223333}}:pipeline/*"
         }
       }
     }
@@ -137,10 +137,10 @@ If you're writing to an OpenSearch Service domain, configure the [domain access 
     {
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::{{account-id}}:role/{{pipeline-role}}"
+        "AWS": "arn:aws:iam::{{111122223333}}:role/{{pipeline-role}}"
       },
       "Action": ["es:DescribeDomain", "es:ESHttp*"],
-      "Resource": "arn:aws:es:{{region}}:{{account-id}}:domain/{{domain-name}}/*"
+      "Resource": "arn:aws:es:{{us-east-1}}:{{111122223333}}:domain/{{domain-name}}/*"
     }
   ]
 }

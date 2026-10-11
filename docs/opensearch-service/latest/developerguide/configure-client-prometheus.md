@@ -43,7 +43,7 @@ The following sample policy shows the required permissions for using Amazon Mana
       "Action": [
         "aps:RemoteWrite"
       ],
-      "Resource": "arn:aws:aps:{{region}}:{{account-id}}:workspace/{{workspace-id}}"
+      "Resource": "arn:aws:aps:{{us-east-1}}:{{111122223333}}:workspace/{{workspace-id}}"
     }
   ]
 }

@@ -65,7 +65,7 @@ The key policy for your customer managed key must grant OpenSearch UI permission
             "Sid": "AllowKeyAdministration",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::{{account-id}}:root"
+                "AWS": "arn:aws:iam::{{111122223333}}:root"
             },
             "Action": "kms:*",
             "Resource": "*"
