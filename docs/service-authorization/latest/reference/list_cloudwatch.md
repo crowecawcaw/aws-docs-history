@@ -284,6 +284,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   PutLogAlarm  **
   - **SDK client:** cloudwatch
+  - **IAM action:**  [cloudwatch:ListTagsForResource](#list_cloudwatch-action-ListTagsForResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** List
   - **IAM action:**  [cloudwatch:PutLogAlarm](#list_cloudwatch-action-PutLogAlarm)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [cloudwatch:TagResource](#list_cloudwatch-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** cloudwatch.amazonaws.com / **Access level:** Write
@@ -761,10 +762,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdateSpace  **
   - **SDK client:** cloudwatchomni
-  - **IAM action:**  [cloudwatch:UpdateSpace](#list_cloudwatch-action-UpdateSpace) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [cloudwatch:UpdateSpace](#list_cloudwatch-action-UpdateSpace)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** cloudwatch.amazonaws.com / **Access level:** Write
 
 - **   UpdateView  **
   - **SDK client:** cloudwatchomni
@@ -1216,7 +1215,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Access level:** Read
 
 - **   [GetRecords](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_GetRecords.html)  **
-  - **Description:** Grants permission to fetch logs, metrics, and traces
+  - **Description:** Grants permission to fetch logs and traces
   - **Resource types (\*required):** 
   - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
   - **Access level:** Read
@@ -1503,6 +1502,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_cloudwatch-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_cloudwatch-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_cloudwatch-aws_TagKeys)
   - **Access level:** Write
 
+- **   [PutRecords](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_PutRecords.html)  **
+  - **Description:** Grants permission to put logs and traces
+  - **Resource types (\*required):** 
+  - **Condition keys:** [cloudwatch:HasAccessGrant](#list_cloudwatch-cloudwatch_HasAccessGrant)
+  - **Access level:** Write
+
 - **   [QueryTraces](https://docs.aws.amazon.com/cloudwatch-omni/latest/APIReference/API_QueryTraces.html)  **
   - **Description:** Grants permission to query traces
   - **Resource types (\*required):** 
@@ -1749,6 +1754,12 @@ The following actions are defined by Amazon CloudWatch but are not directly invo
 
 - **   [StopOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/permissions-reference-cw.html)  **
   - **Description:** Grants permission to disable OTel Enrichment of vended metrics for PromQL querying
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [SubmitAlarmFeedback](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Improve_Anomaly_Detection_Alarm)  **
+  - **Description:** Grants permission to submit feedback on an anomaly detection alarm to improve its anomaly detection model
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write

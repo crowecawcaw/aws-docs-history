@@ -262,6 +262,12 @@ The following actions are defined by AWS Account Management but are not directly
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [ReopenAccount](https://docs.aws.amazon.com/accounts/latest/reference/security_account-permissions-ref.html)  **
+  - **Description:** Grants permission to reopen a closed account
+  - **Resource types (\*required):** [account](#list_account-resource-account)
+  - **Condition keys:**  
+  - **Access level:** Write
+
 
 
 ## Resource types defined by AWS Account Management

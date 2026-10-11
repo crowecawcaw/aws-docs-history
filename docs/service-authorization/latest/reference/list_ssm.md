@@ -832,6 +832,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   UpdateDocument  **
+  - **IAM action:**  [ssm:GetDocument](#list_ssm-action-GetDocument)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [ssm:UpdateDocument](#list_ssm-action-UpdateDocument)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** justintimeaccess.ssm.amazonaws.com, ssm.amazonaws.com / **Access level:** Write
 

@@ -244,6 +244,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateManagedNotificationChannelAssociation  **
+  - **IAM action:**  [notifications:SubscribeSensitiveEvents](#list_notifications-action-SubscribeSensitiveEvents)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [notifications:UpdateManagedNotificationChannelAssociation](#list_notifications-action-UpdateManagedNotificationChannelAssociation)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
 - **   UpdateNotificationConfiguration  **
   - **IAM action:**  [notifications:UpdateNotificationConfiguration](#list_notifications-action-UpdateNotificationConfiguration) 
   - **Condition key:** 

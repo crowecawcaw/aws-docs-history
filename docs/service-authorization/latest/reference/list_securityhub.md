@@ -104,6 +104,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [securityhub:BatchUpdateStandardsControlAssociations](#list_securityhub-action-BatchUpdateStandardsControlAssociations)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [securityhub:UpdateStandardsControl](#list_securityhub-action-UpdateStandardsControl)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
+- **   CancelExportJobV2  **
+  - **IAM action:**  [securityhub:CancelExportJobV2](#list_securityhub-action-CancelExportJobV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   CreateActionTarget  **
   - **IAM action:**  [securityhub:CreateActionTarget](#list_securityhub-action-CreateActionTarget) 
   - **Condition key:** 
@@ -400,6 +406,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   GetExportJobV2  **
+  - **IAM action:**  [securityhub:GetExportJobV2](#list_securityhub-action-GetExportJobV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetFindingAggregator  **
   - **IAM action:**  [securityhub:GetFindingAggregator](#list_securityhub-action-GetFindingAggregator) 
   - **Condition key:** 
@@ -556,6 +568,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListExportJobsV2  **
+  - **IAM action:**  [securityhub:ListExportJobsV2](#list_securityhub-action-ListExportJobsV2) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListExposuresByRemediationV2  **
   - **IAM action:**  [securityhub:ListExposuresByRemediationV2](#list_securityhub-action-ListExposuresByRemediationV2) 
   - **Condition key:** 
@@ -619,6 +637,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
+
+- **   StartExportJobV2  **
+  - **IAM action:**  [securityhub:GetFindings](#list_securityhub-action-GetFindings)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [securityhub:StartExportJobV2](#list_securityhub-action-StartExportJobV2)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   TagResource  **
   - **IAM action:**  [securityhub:TagResource](#list_securityhub-action-TagResource) 
@@ -792,6 +814,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 
 - **   [BatchUpdateStandardsControlAssociations](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html)  **
   - **Description:** Grants permission to update the enablement status of a batch of security controls in standards
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
+- **   [CancelExportJobV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CancelExportJobV2.html)  **
+  - **Description:** Grants permission to cancel an export job
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Write
@@ -1114,6 +1142,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [GetExportJobV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetExportJobV2.html)  **
+  - **Description:** Grants permission to retrieve an export job
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [GetFindingAggregator](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingAggregator.html)  **
   - **Description:** Grants permission to retrieve details for a finding aggregator, which configures finding aggregation across Regions
   - **Resource types (\*required):** [finding-aggregator\*](#list_securityhub-resource-finding-aggregator)
@@ -1258,6 +1292,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** List
 
+- **   [ListExportJobsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListExportJobsV2.html)  **
+  - **Description:** Grants permission to list export jobs
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListExposuresByRemediationV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ListExposuresByRemediationV2.html)  **
   - **Description:** Grants permission to retrieve a list of exposure findings associated with a remediation target
   - **Resource types (\*required):** [hubv2\*](#list_securityhub-resource-hubv2)
@@ -1322,6 +1362,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StartConfigurationPolicyDisassociation](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartConfigurationPolicyDisassociation.html)  **
   - **Description:** Grants permission to remove a configuration policy association from a member account or organizational unit in the calling account's organization
   - **Resource types (\*required):** [hub](#list_securityhub-resource-hub)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StartExportJobV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_StartExportJobV2.html)  **
+  - **Description:** Grants permission to start an export job
+  - **Resource types (\*required):** [hubv2](#list_securityhub-resource-hubv2)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_securityhub-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 

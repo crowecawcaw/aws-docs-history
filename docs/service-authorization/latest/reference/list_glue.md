@@ -841,6 +841,16 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetSystemLogsForJobRun  **
+  - **IAM action:**  [glue:GetDatabases](#list_glue-action-GetDatabases)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [glue:GetSystemLogsForJobRun](#list_glue-action-GetSystemLogsForJobRun)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [glue:SearchTables](#list_glue-action-SearchTables)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
+- **   GetSystemLogsForSession  **
+  - **IAM action:**  [glue:GetDatabases](#list_glue-action-GetDatabases)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [glue:GetSystemLogsForSession](#list_glue-action-GetSystemLogsForSession)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [glue:SearchTables](#list_glue-action-SearchTables)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
 - **   GetTable  **
   - **IAM action:**  [glue:GetTable](#list_glue-action-GetTable)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [athena:GetTable](https://docs.aws.amazon.com/athena/latest/ug/connect-with-previous-jdbc.html#jdbc-prev-version-policies)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
@@ -2567,6 +2577,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** 
   - **Condition keys:**  
   - **Access level:** Permissions management, Write
+
+- **   [GetSystemLogsForJobRun](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html)  **
+  - **Description:** Grants permission to retrieve system logs for a job run
+  - **Resource types (\*required):** [job\*](#list_glue-resource-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
+- **   [GetSystemLogsForSession](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-interactive-sessions.html)  **
+  - **Description:** Grants permission to retrieve system logs for an interactive session
+  - **Resource types (\*required):** [session\*](#list_glue-resource-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_glue-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
 
 - **   [GetTable](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-GetTable)  **
   - **Description:** Grants permission to retrieve a table

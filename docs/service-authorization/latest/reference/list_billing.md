@@ -253,6 +253,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListCreditEntitlementPeriods](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to view the measurement periods of a credit entitlement
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListCreditEntitlements](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to view the credit entitlements the caller's account is set to receive
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Read
+
 - **   [ListEnterpriseSupportLinkedAccountCharges](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
   - **Description:** Grants permission to view Enterprise Support charges broken down by linked account
   - **Resource types (\*required):** 
@@ -277,11 +289,23 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [SplitCredit](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to split a credit into multiple child credits in the same account
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
+
 - **   [TagResource](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_TagResource.html)  **
   - **Description:** Grants permission to add tags to a specified billing view
   - **Resource types (\*required):** [billingview\*](#list_billing-resource-billingview)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_billing-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_billing-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_billing-aws_TagKeys)
   - **Access level:** Tagging, Write
+
+- **   [TransferCredit](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-permissions-ref.html#user-permissions)  **
+  - **Description:** Grants permission to transfer a credit to another account under the same payer
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** Write
 
 - **   [UntagResource](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_billing_UntagResource.html)  **
   - **Description:** Grants permission to remove a tag from a specified billing view

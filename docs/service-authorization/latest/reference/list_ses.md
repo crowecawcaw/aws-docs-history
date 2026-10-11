@@ -293,6 +293,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   SendTemplatedEmail  **
+  - **IAM action:**  [ses:SendTemplatedEmail](#list_ses-action-SendTemplatedEmail) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   SetActiveReceiptRuleSet  **
   - **IAM action:**  [ses:SetActiveReceiptRuleSet](#list_ses-action-SetActiveReceiptRuleSet) 
   - **Condition key:** 

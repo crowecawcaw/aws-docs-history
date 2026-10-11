@@ -139,6 +139,7 @@ The **condition keys** table lists all of the condition keys that you can use in
 + [AWS Elemental MediaTailor (mediatailor)](list_mediatailor.md)
 + [AWS Elemental Support Cases (elemental-support-cases)](list_elemental-support-cases.md)
 + [AWS Elemental Support Content (elemental-support-content)](list_elemental-support-content.md)
++ [AWS End User Messaging (end-user-messaging)](list_endusermessaging.md)
 + [AWS End User Messaging SMS and Voice V2 (sms-voice)](list_pinpoint-sms-voice-v2.md)
 + [AWS End User Messaging Social (social-messaging)](list_socialmessaging.md)
 + [AWS Entity Resolution (entityresolution)](list_entityresolution.md)

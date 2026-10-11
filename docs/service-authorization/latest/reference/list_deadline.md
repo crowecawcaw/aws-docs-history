@@ -505,6 +505,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListMemberships  **
+  - **IAM action:**  [deadline:ListMemberships](#list_deadline-action-ListMemberships) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListMeteredProducts  **
   - **IAM action:**  [deadline:ListMeteredProducts](#list_deadline-action-ListMeteredProducts) 
   - **Condition key:** 
@@ -1216,6 +1222,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list all limits in a farm
   - **Resource types (\*required):** [farm\*](#list_deadline-resource-farm)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_deadline-aws_ResourceTag___TagKey_)<br />[deadline:FarmMembershipLevels](#list_deadline-deadline_FarmMembershipLevels)
+  - **Access level:** List
+
+- **   [ListMemberships](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMemberships.html)  **
+  - **Description:** Grants permission to list Deadline Cloud resource memberships associated with an IAM Identity Center principal
+  - **Resource types (\*required):** 
+  - **Condition keys:** [deadline:PrincipalId](#list_deadline-deadline_PrincipalId)<br />[deadline:RequesterPrincipalId](#list_deadline-deadline_RequesterPrincipalId)
   - **Access level:** List
 
 - **   [ListMeteredProducts](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ListMeteredProducts.html)  **

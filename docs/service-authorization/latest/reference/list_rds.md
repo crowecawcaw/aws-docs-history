@@ -401,7 +401,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   AddRoleToDBCluster  **
   - **SDK client:** neptune
   - **IAM action:**  [rds:AddRoleToDBCluster](#list_rds-action-AddRoleToDBCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rds-preview.amazonaws.com, rds.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rds.amazonaws.com / **Access level:** Write
 
 - **   AddSourceIdentifierToSubscription  **
   - **SDK client:** neptune
@@ -868,7 +868,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   AddRoleToDBCluster  **
   - **SDK client:** rds
   - **IAM action:**  [rds:AddRoleToDBCluster](#list_rds-action-AddRoleToDBCluster)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rds-preview.amazonaws.com, rds.amazonaws.com / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** rds.amazonaws.com / **Access level:** Write
 
 - **   AddRoleToDBInstance  **
   - **SDK client:** rds

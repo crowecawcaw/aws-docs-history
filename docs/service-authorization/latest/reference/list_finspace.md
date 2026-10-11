@@ -45,8 +45,10 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [finspace:TagResource](#list_finspace-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
 
 - **   CreateKxDataview  **
-  - **IAM action:**  [finspace:CreateKxDataview](#list_finspace-action-CreateKxDataview)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
-  - **IAM action:**  [finspace:TagResource](#list_finspace-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [finspace:CreateKxDataview](#list_finspace-action-CreateKxDataview) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
 
 - **   CreateKxEnvironment  **
   - **IAM action:**  [finspace:CreateKxEnvironment](#list_finspace-action-CreateKxEnvironment)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

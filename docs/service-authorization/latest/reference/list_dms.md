@@ -88,6 +88,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   CreateInstanceProfile  **
   - **IAM action:**  [dms:AddTagsToResource](#list_dms-action-AddTagsToResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [dms:CreateInstanceProfile](#list_dms-action-CreateInstanceProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** dms.amazonaws.com / **Access level:** Write
 
 - **   CreateMigrationProject  **
   - **IAM action:**  [dms:AddTagsToResource](#list_dms-action-AddTagsToResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
@@ -530,10 +531,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Access level:** Write
 
 - **   ModifyInstanceProfile  **
-  - **IAM action:**  [dms:UpdateInstanceProfile](#list_dms-action-UpdateInstanceProfile) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [dms:UpdateInstanceProfile](#list_dms-action-UpdateInstanceProfile)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** dms.amazonaws.com / **Access level:** Write
 
 - **   ModifyMigrationProject  **
   - **IAM action:**  [dms:UpdateMigrationProject](#list_dms-action-UpdateMigrationProject)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write

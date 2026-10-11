@@ -613,10 +613,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   CreatePaymentConnector  **
   - **SDK client:** bedrock-agentcore-control
-  - **IAM action:**  [bedrock-agentcore:CreatePaymentConnector](#list_bedrock-agentcore-action-CreatePaymentConnector) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:CreatePaymentConnector](#list_bedrock-agentcore-action-CreatePaymentConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:GetPaymentCredentialProvider](#list_bedrock-agentcore-action-GetPaymentCredentialProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
 
 - **   CreatePaymentCredentialProvider  **
   - **SDK client:** bedrock-agentcore-control
@@ -1561,10 +1559,8 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   UpdatePaymentConnector  **
   - **SDK client:** bedrock-agentcore-control
-  - **IAM action:**  [bedrock-agentcore:UpdatePaymentConnector](#list_bedrock-agentcore-action-UpdatePaymentConnector) 
-  - **Condition key:** 
-  - **Possible value(s):** 
-  - **Access level:** Write
+  - **IAM action:**  [bedrock-agentcore:GetPaymentCredentialProvider](#list_bedrock-agentcore-action-GetPaymentCredentialProvider)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [bedrock-agentcore:UpdatePaymentConnector](#list_bedrock-agentcore-action-UpdatePaymentConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
 - **   UpdatePaymentCredentialProvider  **
   - **SDK client:** bedrock-agentcore-control
