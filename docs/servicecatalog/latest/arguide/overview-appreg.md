@@ -68,7 +68,7 @@ AWS Service Catalog AppRegistry is no longer open to new customers. Existing cus
  Tags are key-value pairs that act as metadata. You create tags using key-value pairs. You can add tags to applications and attribute groups, so you can group them by environment, owner, purpose, or other criteria. 
 
 **Note**  
- This tag is not the same as the [the `awsApplication` tag](https://docs.aws.amazon.com/servicecatalog/latest/arguide/overview-appreg.html#ar-user-tags). The `awsApplication` tag tag is an AWS user tag that AppRegistry vends when you create an application. You can add the `awsApplication` tag tag to resources, so you can identify which resources are associated with an application. 
+ This tag is not the same as the [the `awsApplication` tag](https://docs.aws.amazon.com/servicecatalog/latest/arguide/overview-appreg.html#ar-user-tags). The `awsApplication` tag is an AWS user tag that AppRegistry vends when you create an application. You can add the `awsApplication` tag to resources, so you can identify which resources are associated with an application. 
 
 **Example: AWS CLI output with `tags` parameter**  
  The following is an example of the output for an application created in the AWS CLI, which includes the `tags` and `applicationTag` parameters. 

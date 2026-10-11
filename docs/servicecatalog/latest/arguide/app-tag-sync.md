@@ -96,7 +96,7 @@ For instructions to bulk-onboard application resources by specifying an existing
    + **RoleARN** — The ARN of the role that AWS Resource Groups assumes when performing the tag-sync task to apply the `awsApplication` tag to resources. This role must have the tagging permissions to all resources you want to include in the application. For more information, review [Tag-sync task required permissions](#tag-sync-role). 
 
    ```
-   aws resourcegroups start-tag-sync-task --group {{appgroup-ARN-or-name}} --tagkey {{tag-key}} --tagvalue {{tag-value}} --roleArn {{role-ARN}}
+   aws resource-groups start-tag-sync-task --group {{appgroup-ARN-or-name}} --tag-key {{tag-key}} --tag-value {{tag-value}} --role-arn {{role-ARN}}
    ```
 
    **Example output**:
@@ -119,7 +119,7 @@ For some accounts, an attempted `StartTagSyncTask` call may result in a `GroupNo
 1. Verify the status of the tag-sync task by calling the [`GetTagSyncTask` API](https://docs.aws.amazon.com/ARG/latest/APIReference/API_GetTagSyncTask.html). Enter the `TaskArn` from the output of the previous `StartTagSyncTask` call. 
 
    ```
-   aws resourcegroups get-tag-sync-task --taskArn {{task-ARN}}
+   aws resource-groups get-tag-sync-task --task-arn {{task-ARN}}
    ```
 
    **Example output:**
@@ -144,7 +144,7 @@ For some accounts, an attempted `StartTagSyncTask` call may result in a `GroupNo
 To list all active tag-sync tasks, call the [`ListTagSyncTasks` API](https://docs.aws.amazon.com/ARG/latest/APIReference/API_ListTagSyncTasks.html). You can optionally include the `Filters` parameter with a `GroupArn` or `GroupName` to narrow your results to tasks in a specific application. 
 
 ```
-aws resourcegroups list-tag-sync-task --filters {{group-name}}
+aws resource-groups list-tag-sync-tasks --filters {{group-name}}
 ```
 
 **Example output**:
@@ -173,7 +173,7 @@ aws resourcegroups list-tag-sync-task --filters {{group-name}}
 To cancel a tag-sync task, call the [`CancelTagSyncTask` API](https://docs.aws.amazon.com/ARG/latest/APIReference/API_CancelTagSyncTask.html) and enter the `TaskArn` of the tag-sync task you want to delete. 
 
 ```
-aws resourcegroups cancel-tag-sync-task --task-arn {{task-ARN}}
+aws resource-groups cancel-tag-sync-task --task-arn {{task-ARN}}
 ```
 
 ------

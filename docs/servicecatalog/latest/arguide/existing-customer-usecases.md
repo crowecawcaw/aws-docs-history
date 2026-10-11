@@ -50,5 +50,5 @@ Call the Resource Groups `GroupResources` API and define the following parameter
 **Example CLI command**:
 
 ```
-aws resourcegroups group-resources —-group "{{ApplicationGroup-ARN}}" —-resourceArns "{{Resource-ARNs}}"
+aws resource-groups group-resources --group "{{ApplicationGroup-ARN}}" --resource-arns "{{Resource-ARNs}}"
 ```
