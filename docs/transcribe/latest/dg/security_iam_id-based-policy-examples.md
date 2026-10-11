@@ -277,6 +277,43 @@ You must also add a key policy to your customer-managed key that grants the data
 
 ------
 
+The role you specify in `DataAccessRoleArn` must also have a trust policy that allows Amazon Transcribe to assume it. Use `transcribe.amazonaws.com` for batch transcription. If your streaming request uses a customer-managed key to encrypt a custom vocabulary, custom vocabulary filter, or custom language model, the role must also trust `transcribe.streaming.amazonaws.com`. The following is an example trust policy that allows both.
+
+------
+#### [ JSON ]
+
+****  
+
+```
+{
+  "Version":"2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "transcribe.amazonaws.com",
+          "transcribe.streaming.amazonaws.com"
+        ]
+      },
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "{{111122223333}}"
+        },
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:transcribe:{{us-west-2}}:{{111122223333}}:*"
+        }
+      }
+    }
+  ]
+}
+```
+
+------
+
 ## Allow users to view their own permissions
 <a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 
