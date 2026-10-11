@@ -68,7 +68,7 @@ Certain combinations, although permitted, may create unusable situations such as
 | Key Type | Allowed Key Usage | Allowed Key Algorithm | Allowed combination of key modes of use | 
 | --- | --- | --- | --- | 
 | PIN Encryption Key | TR31\_P0\_PIN\_ENCRYPTION\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    | For IBM3624\_NATURAL\_PIN, IBM3624\_RANDOM\_PIN, IBM3624\_PIN\_FROM\_OFFSET+  { Encrypt = true, Wrap = true } <br />+  { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } <br />+  { NoRestrictions = true } <br />For IBM3624\_PIN\_OFFSET+  { Encrypt = true, Unwrap = true } <br />+  { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } <br />+  { NoRestrictions = true }  | 
-| PIN Generation Key | TR31\_V1\_IBM3624\_PIN\_VERIFICATION\_KEY |  +   TDES\_3KEY    |  +  { Generate = true } <br />+  { Generate = true, Verify = true }  | 
+| PIN Generation Key | TR31\_V1\_IBM3624\_PIN\_VERIFICATION\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    |  +  { Generate = true } <br />+  { Generate = true, Verify = true }  | 
 
 ## VerifyPinData (for VISA/ABA schemes)
 <a name="w2aac15c31c21"></a>
@@ -90,7 +90,7 @@ Certain combinations, although permitted, may create unusable situations such as
 | Key Type | Allowed Key Usage | Allowed Key Algorithm | Allowed combination of key modes of use | 
 | --- | --- | --- | --- | 
 | PIN Encryption Key | TR31\_P0\_PIN\_ENCRYPTION\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    | For IBM3624\_NATURAL\_PIN, IBM3624\_RANDOM\_PIN, IBM3624\_PIN\_FROM\_OFFSET+  { Decrypt = true, Unwrap = true } <br />+  { Encrypt = true, Decrypt = true, Wrap = true, Unwrap = true } <br />+  { NoRestrictions = true }  | 
-| PIN Verification Key | TR31\_V1\_IBM3624\_PIN\_VERIFICATION\_KEY |  +   TDES\_3KEY    |  +  { Verify = true } <br />+  { Generate = true, Verify = true }  | 
+| PIN Verification Key | TR31\_V1\_IBM3624\_PIN\_VERIFICATION\_KEY |  +   TDES\_2KEY  <br />+   TDES\_3KEY    |  +  { Verify = true } <br />+  { Generate = true, Verify = true }  | 
 
 ## Decrypt Data
 <a name="w2aac15c31c27"></a>
