@@ -201,6 +201,9 @@ The minimum number of targets that must be healthy. If the number of healthy tar
 `target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage`  
 The minimum percentage of targets that must be healthy. If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets. The possible values are `off` or an integer from 1 to 100. The default is `off`.
 
+`routing.http2.rst_stream_error_forwarding.enabled`  
+Indicates whether the load balancer forwards an HTTP/2 or gRPC target's `RST_STREAM` error code to the downstream client, instead of returning an HTTP 502 (Bad Gateway) response. This attribute applies only to target groups that use the `HTTP2` or `GRPC` protocol version. The value is `true` or `false`. The default is `false`.
+
 The following target group attribute is supported if the target group type is `lambda`:
 
 `lambda.multi_value_headers.enabled`  

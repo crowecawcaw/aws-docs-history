@@ -14,6 +14,7 @@ After you create a target group for you Application Load Balancer, you can edit 
 + [Automatic Target Weights (ATW)](#automatic-target-weights)
 + [Sticky sessions](#sticky-sessions)
 + [WAF HTTP/2 traffic inspection behavior](#waf-http2-inspection)
++ [HTTP/2 RST\_STREAM error forwarding](#http2-rst-stream-error-forwarding)
 
 ## Deregistration delay
 <a name="deregistration-delay"></a>
@@ -828,6 +829,66 @@ Resources:
       TargetGroupAttributes:
         - Key: "waf.http2.traffic_inspection_behavior"
           Value: "{{inspect_after_sufficient_data}}"
+```
+
+------
+
+## HTTP/2 RST\_STREAM error forwarding
+<a name="http2-rst-stream-error-forwarding"></a>
+
+By default, when an HTTP/2 or gRPC target ends a stream by sending an `RST_STREAM` frame with an error, the load balancer returns an HTTP 502 (Bad Gateway) response to the client. This hides the specific error that the target reported.
+
+When you enable RST\_STREAM error forwarding, the load balancer instead forwards the target's `RST_STREAM` error code to the downstream client for the following error codes: `REFUSED_STREAM`, `CANCEL`, `ENHANCE_YOUR_CALM`, and `INTERNAL_ERROR`. This lets gRPC and HTTP/2 clients observe and react to the exact error that the target returned. This attribute applies only to target groups that use the `HTTP2` or `GRPC` protocol version, and it is disabled by default.
+
+------
+#### [ Console ]
+
+**To configure HTTP/2 RST\_STREAM error forwarding**
+
+1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/).
+
+1. On the navigation pane, under **Load Balancing**, choose **Target Groups**.
+
+1. Choose the name of the target group to open its details page.
+
+1. On the **Attributes** tab, choose **Edit**.
+
+1. For **HTTP/2 RST\_STREAM error forwarding**, turn the setting on or off.
+
+1. Choose **Save changes**.
+
+------
+#### [ AWS CLI ]
+
+**To configure HTTP/2 RST\_STREAM error forwarding**  
+Use the [modify-target-group-attributes](https://docs.aws.amazon.com/cli/latest/reference/elbv2/modify-target-group-attributes.html) command with the `routing.http2.rst_stream_error_forwarding.enabled` attribute.
+
+```
+aws elbv2 modify-target-group-attributes \
+    --target-group-arn {{target-group-arn}} \
+    --attributes "Key=routing.http2.rst_stream_error_forwarding.enabled,Value=true"
+```
+
+------
+#### [ CloudFormation ]
+
+**To configure HTTP/2 RST\_STREAM error forwarding**  
+Update the [AWS::ElasticLoadBalancingV2::TargetGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-elasticloadbalancingv2-targetgroup.html) resource to include the `routing.http2.rst_stream_error_forwarding.enabled` attribute.
+
+```
+Resources:
+  myTargetGroup:
+    Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
+    Properties:
+      Name: my-target-group
+      Protocol: HTTP
+      ProtocolVersion: HTTP2
+      Port: 80
+      TargetType: ip
+      VpcId: !Ref myVPC
+      TargetGroupAttributes:
+        - Key: "routing.http2.rst_stream_error_forwarding.enabled"
+          Value: "true"
 ```
 
 ------
