@@ -160,7 +160,7 @@ You can share the following AWS CodeBuild resources by using AWS RAM.
 ## AWS CodeConnections
 <a name="shareable-codeconnections"></a>
 
-You can share the following CodeConnections resources by using AWS RAM.
+You can share the following AWS CodeConnections resources by using AWS RAM.
 
 
 | Resource type and code | Use case | Can share with IAM users and roles | Can share with accounts outside its organization | Can use customer managed permissions | Can share with service principals | 
