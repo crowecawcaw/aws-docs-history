@@ -53,7 +53,7 @@ For more information about compute, see [Configuring compute and runtime images]
 ## Environments
 <a name="workflows-concepts-environments"></a>
 
-A CodeCatalyst *environment*, not to be confused with a [Dev Environment](https://docs.aws.amazon.com/codecatalyst/latest/userguide/devenvironment.html), defines the target AWS account and optional Amazon VPC that a CodeCatalyst [workflow](workflow.md) connects to. An environment also defines the [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a workflow needs to access the AWS services and resources within the target account.
+A CodeCatalyst *environment*, not to be confused with a [Dev Environment](https://docs.aws.amazon.com/codecatalyst/latest/userguide/devenvironment.html), defines the target AWS account and optional Amazon VPC that a CodeCatalyst [workflow](https://docs.aws.amazon.com/codecatalyst/latest/userguide/flows.html) connects to. An environment also defines the [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a workflow needs to access the AWS services and resources within the target account.
 
 You can set up multiple environments and give them names such as development, test, staging, and production. When you deploy into these environments, information about the deployments appears on the CodeCatalyst **Deployment activity** and **Deployment targets** tabs in the environment.
 
