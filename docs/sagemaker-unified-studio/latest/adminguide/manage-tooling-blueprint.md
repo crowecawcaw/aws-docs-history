@@ -3,7 +3,9 @@
 # Manage Tooling blueprint parameters
 <a name="manage-tooling-blueprint"></a>
 
-The Tooling blueprint provisions infrastructure for each project, including IAM roles, security groups, and an Amazon SageMaker unified domain. You can customize the blueprint's behavior by modifying its parameters, such as idle timeout settings, EBS volume sizes, network isolation, and permissions boundaries. Changes to blueprint parameters apply to all new projects created under the blueprint.
+The Tooling blueprint provisions infrastructure for each project, including IAM roles, security groups, and an Amazon SageMaker Unified Studio domain. You can customize the blueprint's behavior by modifying its parameters, such as idle timeout settings, EBS volume sizes, network isolation, and permissions boundaries. Changes to blueprint parameters apply to all new projects created under the blueprint.
+
+These parameters belong to the managed Tooling blueprint. A custom blueprint used as Tooling takes its values from reserved parameters and from the project profile instead.
 
 This topic covers the following tasks:
 + Configure Tooling blueprint parameters through the console
@@ -35,9 +37,9 @@ The following parameters are available for the Tooling blueprint:
 + `maxEbsVolumeSize` — The maximum EBS storage volume size (in GB) for the user's private spaces.
 + `idleTimeoutInMinutes` — The time (in minutes) that Amazon SageMaker waits after the application becomes idle before shutting down the user's space.
 + `enableNetworkIsolation` — Enables network isolation for training and deployed inference containers.
-+ `lifecycleManagement` — Indicates whether idle shutdown is activated for this project's Amazon SageMaker unified domain.
-+ `sagemakerDomainNetworkType` — The network type for this project's Amazon SageMaker unified domain.
-+ `maxIdleTimeoutInMinutes` — The maximum time (in minutes) that Amazon SageMaker waits after the application becomes idle before shutting down this project's Amazon SageMaker unified domain.
++ `lifecycleManagement` — Indicates whether idle shutdown is activated for this project's Amazon SageMaker Unified Studio domain.
++ `sagemakerDomainNetworkType` — The network type for this project's Amazon SageMaker Unified Studio domain.
++ `maxIdleTimeoutInMinutes` — The maximum time (in minutes) that Amazon SageMaker waits after the application becomes idle before shutting down this project's Amazon SageMaker Unified Studio domain.
 + `allowConnectionToUserGovernedEmrClusters` — Allows connection creation to existing user-governed EMR clusters.
 + `enableSpaces` — Enables creation of private compute spaces for development tools.
 + `enableProjectRepositoryAutoSync` — Synchronizes your Git repository code artifacts to your project's S3 bucket at `s3://{bucket}/{domain_id}/{project_id}/sys/code/dev/{repository_id}/{branch}/`. Synchronization is triggered by Git push events.

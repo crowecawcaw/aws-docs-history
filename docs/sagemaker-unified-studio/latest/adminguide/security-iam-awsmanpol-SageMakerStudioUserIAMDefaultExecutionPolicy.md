@@ -7,7 +7,7 @@ This is the default execution policy for using IAM roles with Amazon SageMaker U
 + Amazon DataZone permissions are required to access DataZone resources such as Project and Asset.
 + AWS Identity and Access Management permissions are required to list IAM roles, create service-linked roles, and pass roles when provisioning resources.
 + AWS STS permissions are required to assume other roles for accessing resources in cross-account.
-+ Amazon S3 permissions are required to list S3 buckets and allow cross-account object read.
++ Amazon S3 permissions are required to list S3 buckets, allow cross-account object read, and register Amazon S3 Access Grants locations and manage the grants that share project data.
 + AWS Lake Formation permissions are required to describe AWS Lake Formation resources.
 + Amazon Redshift Query Editor permissions are required to interact with the query editor in Amazon SageMaker Unified Studio.
 + Amazon Redshift Data API API permissions are required to run SQL statements using the Data API.
@@ -22,5 +22,6 @@ This is the default execution policy for using IAM roles with Amazon SageMaker U
 + Amazon ECR permissions are required to run SageMaker training jobs.
 + Amazon MWAA permissions are required to manage and schedule workflows.
 + AWS KMS permissions are required to support customer managed key. Resources provisioned by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
++ AWS IAM Identity Center permissions are required to look up the users and groups that Amazon S3 Access Grants are issued to.
 
 To view the permissions for this policy, see [SageMakerStudioUserIAMDefaultExecutionPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/SageMakerStudioUserIAMDefaultExecutionPolicy.html) in the *AWS Managed Policy Reference*.

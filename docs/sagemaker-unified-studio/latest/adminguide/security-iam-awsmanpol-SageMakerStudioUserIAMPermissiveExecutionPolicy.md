@@ -18,5 +18,6 @@ Additional access is provided for the following services:
 + Amazon ECR permissions are required to run Amazon SageMaker AI training jobs.
 + Amazon MWAA permissions are required to manage and schedule workflows.
 + AWS KMS permissions are required to support customer managed key. Resources provisioned by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
++ AWS IAM Identity Center permissions are required to look up the users and groups that Amazon S3 Access Grants are issued to.
 
 To view the permissions for this policy, see [SageMakerStudioUserIAMPermissiveExecutionPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/SageMakerStudioUserIAMPermissiveExecutionPolicy.html) in the *AWS Managed Policy Reference*.

@@ -11,7 +11,7 @@ This is the administrative execution policy for using IAM roles with Amazon Sage
 + AWS Glue permissions are required to access data in Glue and allow usage of Glue Sessions.
 + AWS Systems Manager permissions are required to manage parameters to enable Q and access SageMaker distribution.
 + Amazon SageMaker AI permissions are required to manage SageMaker Space and allow SageMaker ML workloads.
-+ Amazon S3 permissions are required to create S3 buckets, access service CloudFormation templates in S3, and delete S3 bucket policies.
++ Amazon S3 permissions are required to create S3 buckets, access service CloudFormation templates in S3, delete S3 bucket policies, and register Amazon S3 Access Grants locations and manage the grants that share project data.
 + CloudFormation permissions are required to manage CloudFormation stack for managing resources of other services.
 + Amazon CloudWatch Logs permissions are required to access logs from workloads in Amazon SageMaker Unified Studio.
 + AWS Lake Formation permissions are required to manage Lake Formation grants to access data.
@@ -28,5 +28,6 @@ This is the administrative execution policy for using IAM roles with Amazon Sage
 + Amazon ECR permissions are required to run SageMaker training jobs.
 + Amazon MWAA permissions are required to manage and schedule workflows.
 + AWS KMS permissions are required to support customer managed key. Resources provisioned by Amazon SageMaker Unified Studio can be encrypted with your customer managed key.
++ AWS IAM Identity Center permissions are required to look up the users and groups that Amazon S3 Access Grants are issued to.
 
 To view the permissions for this policy, see [SageMakerStudioAdminIAMDefaultExecutionPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/SageMakerStudioAdminIAMDefaultExecutionPolicy.html) in the *AWS Managed Policy Reference*.
