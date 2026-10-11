@@ -32,6 +32,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 + Customer Queue flow
 + Customer Hold flow
 + Customer Whisper flow
++ Outbound Whisper flow
 + Agent Hold flow
 + Agent Whisper flow
 + Transfer to Agent flow 

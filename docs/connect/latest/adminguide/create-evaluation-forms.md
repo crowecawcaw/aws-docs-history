@@ -135,8 +135,8 @@ The form is created including questions, instructions, answers, scoring, and aut
 
 1. Choose **Add question** to add a question. 
 
-1. In the **Question title** box, enter the question that will appear on the evaluation form. For example, *Did the agent state their name and say they are here to assist?*   
-![The evaluation form page, the question title box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-greetingquestion1.png)
+1. In the **Question title** box, enter the question that will appear on the evaluation form. For example, *Did the agent address all of the customer's questions or concerns?*   
+![The evaluation form page, the question title box.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-agent-address-title.png)
 
 1. In the **Instructions to evaluators** box, add information to help the evaluators or generative AI to answer the question.
 

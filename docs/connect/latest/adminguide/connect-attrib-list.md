@@ -25,7 +25,7 @@ The JSONPath reference for each attribute is provided so you can [create dynamic
 + [External tool attributes](#external-tool-attributes)
 + [User-defined attributes](#user-defined-attributes)
 + [Flow attributes](#flow-attributes)
-+ [Loop Attributes](#w2aac20c54b9c43)
++ [Loop Attributes](#w2aac18c56b9c43)
 + [Flow modules attributes](#flow-modules-attributes)
 + [Data Table attributes](#data-table-attributes)
 + [Apple Messages for Business attributes](#apple-messages-for-business-attributes)
@@ -351,7 +351,7 @@ Flow attributes are useful in situations where you don't want to persist the dat
 | Any name you choose | A flow attribute has two parts:+  Destination key: this is any name you choose for the key. However, the **$** and **.** (period) characters are not allowed because they are both used in defining the attribute paths in JSONPath. <br />+  Value: this is can be any value you choose.  | Flow | $.FlowAttributes.*name\_of\_your\_destination\_key* | 
 
 ## Loop Attributes
-<a name="w2aac20c54b9c43"></a>
+<a name="w2aac18c56b9c43"></a>
 
 The following table lists the attributes that are available with the Loop block if a LoopName is specified in the Loop block.
 

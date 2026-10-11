@@ -184,7 +184,7 @@ Use case 4: AMD is off and agents can leave a prerecorded voicemail
 ## Using sorted segments with outbound campaigns and journeys
 <a name="sorted-segments-best-practices"></a>
 
-When you create segments, you can optionally sort them by up to 10 profile attributes. Outbound campaigns and journeys respect this sort order during execution, processing and dialing profiles in the order specified by the segment at the time the campaign or journey runs. When used in a recurring campaign or journey, a sorted segment's order is evaluated every time the campaign or journey repeats and when new profiles are added to a segment.
+When you create segments, you can optionally sort them by up to 10 profile attributes. Outbound campaigns and journeys respect this sort order during execution, submitting profiles for dialing in the order specified by the segment at the time the campaign or journey runs. In a recurring campaign or journey, each segment refresh sorts the new profiles that enter alongside profiles that enter again. Profiles already in progress keep their position.
 
 Sorted segments are useful when you want to:
 + Prioritize high-value customers by sorting on attributes such as lifetime value or account tier.
@@ -194,6 +194,7 @@ Sorted segments are useful when you want to:
 **Note**  
 The segment sort order applies only to voice campaigns and voice activities in journeys. Other communication channels process profiles in an unsorted order.
 Sorted segments are split into 100 batches. Each batch is processed according to the specified sort order. This results in an execution order that is within 1% of the defined segment order.
+The segment sort order determines the order in which profiles are submitted for dialing, not the order in which calls connect, because multiple calls may be placed at the same time. The difference is most noticeable in agentless mode, and with small audiences that are dialed within a few minutes. Sort order has the most effect on large audiences, where it determines which customers are reached earlier.
 Initial dial attempts take precedence over any reattempts that are defined in a campaign. In a journey, earlier send communication blocks are prioritized over later ones.
 
 For more information about creating and sorting segments, see [Build customer segments in Connect Customer](customer-segments-building-segments.md).

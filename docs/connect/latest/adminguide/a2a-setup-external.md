@@ -7,7 +7,7 @@ This page explains how to configure your Connect AI agent to collaborate with an
 
 By the end of this setup, your Connect AI agent can bring in the external agent during a live contact, either to handle actions behind the scenes or to talk to the customer directly.
 
-This is an API-only feature. All setup requests must be SigV4-signed. You can drive every step with the AWS CLI or SDK. For A2A-specific shapes (the `A2A_SERVER` application type and multi-agent AI agent configuration), the installed CLI does not yet include the newest shapes, so some steps use `awscurl` to send SigV4-signed requests directly.
+This is an API-only feature. All setup requests must be SigV4-signed. You can drive every step with the AWS CLI or SDK.
 
 All steps target production endpoints in your instance's Region: `secretsmanager.<REGION>.amazonaws.com`, `app-integrations.<REGION>.amazonaws.com`, `connect.<REGION>.amazonaws.com`, and `wisdom.<REGION>.amazonaws.com` (the qconnect API).
 
@@ -86,24 +86,14 @@ Do not use the default AWS managed key (`aws/secretsmanager`). AWS managed keys 
 Register the external agent's endpoint as an AppIntegrations application. The `ApplicationType` must be `A2A_SERVER`, and `AuthConfig` is required.
 
 ```
-awscurl --service app-integrations --region <REGION> -X POST \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "Name": "my-agent",
-    "Namespace": "my-agent-ns",
-    "Description": "My external A2A agent",
-    "ApplicationSourceConfig": {
-      "ExternalUrlConfig": {
-        "AccessUrl": "wss://agent.example.com"
-      }
-    },
-    "ApplicationType": "A2A_SERVER",
-    "AuthConfig": {
-      "AuthType": "API_KEY",
-      "CredentialProviderIdentifier": "<SECRET_ARN>"
-    }
-  }' \
-  https://app-integrations.<REGION>.amazonaws.com/applications
+aws appintegrations create-application \
+  --name my-agent \
+  --namespace my-agent-ns \
+  --description "My external A2A agent" \
+  --application-source-config '{"ExternalUrlConfig":{"AccessUrl":"wss://agent.example.com"}}' \
+  --application-type A2A_SERVER \
+  --auth-config '{"AuthType":"API_KEY","CredentialProviderIdentifier":"<SECRET_ARN>"}' \
+  --region <REGION>
 ```
 
 The response returns the application ID and ARN:
@@ -120,13 +110,11 @@ Record the returned `Id` (referenced from your Connect AI agent configuration) a
 <a name="a2a-setup-external-step3"></a>
 
 ```
-awscurl --service connect --region <REGION> -X PUT \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "IntegrationArn": "<APPLICATION_ARN>",
-    "IntegrationType": "APPLICATION"
-  }' \
-  https://connect.<REGION>.amazonaws.com/instance/<INSTANCE_ID>/integration-associations
+aws connect create-integration-association \
+  --instance-id <INSTANCE_ID> \
+  --integration-type APPLICATION \
+  --integration-arn <APPLICATION_ARN> \
+  --region <REGION>
 ```
 
 ## Step 4: Allow-list the application in the security profile
@@ -135,17 +123,11 @@ awscurl --service connect --region <REGION> -X PUT \
 The security profile attached to your Connect AI agent must explicitly allow the third-party application, or collaboration fails at runtime. Update the security profile to include the application ARN with type `THIRD_PARTY` in its allowed AI agents.
 
 ```
-awscurl --service connect --region <REGION> -X POST \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "AllowedAIAgents": [
-      {
-        "Arn": "<APPLICATION_ARN>",
-        "Type": "THIRD_PARTY"
-      }
-    ]
-  }' \
-  https://connect.<REGION>.amazonaws.com/security-profiles/<INSTANCE_ID>/<SECURITY_PROFILE_ID>
+aws connect update-security-profile \
+  --instance-id <INSTANCE_ID> \
+  --security-profile-id <SECURITY_PROFILE_ID> \
+  --allowed-ai-agents '[{"Arn":"<APPLICATION_ARN>","Type":"THIRD_PARTY"}]' \
+  --region <REGION>
 ```
 
 Also associate the security profile with your Connect AI agent (both the unversioned and versioned agent ARN):
@@ -166,10 +148,10 @@ Create or update your Connect AI agent through the qconnect API to reference the
 Save the request body to a file (for example, `create-ai-agent.json`) and send it:
 
 ```
-awscurl --service wisdom --region <REGION> -X POST \
-  --header 'Content-Type: application/json' \
-  --data @create-ai-agent.json \
-  https://wisdom.<REGION>.amazonaws.com/assistants/<ASSISTANT_ID>/aiagents
+aws qconnect create-ai-agent \
+  --assistant-id <ASSISTANT_ID> \
+  --cli-input-json file://create-ai-agent.json \
+  --region <REGION>
 ```
 
 ### Pattern A: Handle actions behind the scenes

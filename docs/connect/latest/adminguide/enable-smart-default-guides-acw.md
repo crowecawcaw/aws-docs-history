@@ -3,31 +3,38 @@
 # Enable smart default guides for after contact work
 <a name="enable-smart-default-guides-acw"></a>
 
-Connect Customer provides a default Step-by-Step Guide for after contact work (ACW) that automatically launches when an agent enters the ACW state. This guide standardizes post-contact workflows by surfacing wrap-up tasks such as disposition codes, contact summaries, and follow-up actions directly in the agent workspace, without requiring manual configuration.
+Connect Customer provides a default step-by-step guide for after contact work (ACW) that automatically launches when an agent enters the ACW state. The guide shows wrap-up tasks in the agent workspace, such as disposition codes, contact summaries, and follow-up actions. You don't need to configure it.
 
-New Connect Customer instances created after this feature's launch date automatically include the smart default Guide. For existing instances, you can enable this capability by importing the default flow and configuring it to use the AWS managed view.
+New Connect Customer instances created after May 8, 2026 automatically include the smart default guide. For existing instances, you can enable this capability by importing the default flow and configuring it to use the AWS managed view.
 
-**To enable smart default guides on an existing instance:**
+**To enable smart default guides on an existing instance**
 
-1. Copy the flow schema (JSON) provided in the **Flow schema** section.
+1. Copy the flow schema (JSON) provided in [Flow schema](#enable-smart-default-guides-acw-schema).
 
-1. In the Connect Customer admin workspace, navigate to **Routing** > **Flows**.
+1. Save the JSON as a `.json` file.
 
-1. Choose **Create flow**, then select **Import flow** and upload the copied JSON schema as a file.
+1. In the Connect Customer admin workspace, choose **Routing**, **Flows**.
+
+1. Choose **Create flow**, then choose **Import flow** and upload the copied JSON schema as a file.
 
 1. Open the imported flow in the flow designer.
 
-1. Locate the **Show View** block in the flow. Select it to open its configuration.
+1. Choose the **Show view** block to open its properties.
 
-1. Under **View**, a view name might already be displayed, but you must select the AWS managed view titled **after contact work** from the dropdown.
+1. Under **View**, choose the AWS managed view **After Contact Work**, even if a view name already appears.
 
 1. Save and publish the flow.
 
-1. Navigate to the inbound contact flow that handles the contacts you want to enable ACW guides for. Add or configure a **Set event flow** block and set it to reference the sample after contact work flow you imported in the previous steps. Save and publish the inbound contact flow.
+1. Open the inbound contact flow that handles the contacts you want to enable ACW guides for.
 
-Once published, agents handling contacts through that inbound flow will automatically receive the guided ACW experience when they enter the after contact work state. The guide includes disposition code capture, contact summary review, and follow-up tracking. You can customize the flow or view content to match your organization's specific wrap-up requirements.
+1. Add or configure a **Set event flow** block that references the sample after contact work flow you imported in the previous steps.
 
-**Flow schema**
+1. Save and publish the inbound contact flow.
+
+After you publish the flow, agents see the ACW guide when they enter ACW on contacts that use that flow. The guide includes disposition code capture, contact summary review, and follow-up tracking. You can customize the flow or view content to match your organization's specific wrap-up requirements.
+
+## Flow schema
+<a name="enable-smart-default-guides-acw-schema"></a>
 
 ```
 {
@@ -74,7 +81,7 @@ Once published, agents handling contacts through that inbound flow will automati
         "ViewData": {
           "CustomerName": "Jane Doe",
           "Example_Label": "example.com",
-          "PhoneNumber": "(880) 953-0129",
+          "PhoneNumber": "(555) 555-0100",
           "AdditionalNotes_DefaultValue": "Additional contact details...",
           "AdditionalNotes_Header_Description": "Add any extra information that may be helpful for future reference.",
           "AdditionalNotes_Header_Title": "Additional Notes",

@@ -51,6 +51,7 @@ The predefined modalities include:
 | **Carousel** | Shows multiple options in a horizontally browsable card layout. | 
 | **Card** | Shows a single focused item, summary, confirmation, or preview. | 
 | **Date input** | Lets users select a date through a date picker. | 
+| **Video** | Shows an inline video player that the user can play, with an optional preview image. | 
 
 ### Carousel
 <a name="acxd-modalities-carousel"></a>
@@ -119,6 +120,36 @@ Best for:
 + Capturing a date for a downstream Data request
 
 The Date input modality does not require a custom schema. It opens a date selector and returns the selected date to the conversation.
+
+### Video
+<a name="acxd-modalities-video"></a>
+
+Use a Video modality when a short video helps the user more than text alone.
+
+Best for:
++ Product demos
++ How-to or troubleshooting clips
++ Onboarding or welcome messages
++ Visual confirmations or walkthroughs
+
+The Video modality takes two payload values.
+
+
+| Field | Required | Description | 
+| --- | --- | --- | 
+| url | Yes | The URL of the video file to play, such as an MP4. | 
+| previewImageUrl | No | The URL of an image shown in the player as a preview (poster) frame before the user plays the video. | 
+
+Example video payload:
+
+```
+{
+  "url": "https://example.com/demo.mp4",
+  "previewImageUrl": "https://example.com/demo-preview.jpg"
+}
+```
+
+In the Canvas, this modality appears as **DefaultVideo**.
 
 ## Custom modalities
 <a name="acxd-modalities-custom"></a>

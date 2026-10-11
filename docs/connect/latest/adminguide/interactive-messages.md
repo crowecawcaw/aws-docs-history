@@ -20,7 +20,16 @@ All other field limits must be followed for the message to be successfully sent.
 **Image URL requirements for Apple Messages for Business**  
 When using interactive messages with the [Apple Messages for Business](apple-messages-for-business.md) channel, image URLs (`imageData`) must be Amazon S3 object URLs. Other publicly accessible URLs are not supported. In addition, the following requirements apply:  
 The S3 bucket must grant read access to the `connect.amazonaws.com` service principal, or the S3 object must be publicly accessible.
+Images must be in PNG format. Connect Customer automatically converts non-PNG images (such as JPEG) to PNG and resizes them to fit within the 200 KB limit. If an image cannot be resized to 200 KB or less, Connect Customer will drop the image from the message.
 The image size must not exceed 200 KB.
+The total ImageItem dictionary (including Base64-encoded image data) must not exceed 5 MB. If the total image data in a single message exceeds 5 MB, Connect Customer drops excess images to stay within Apple's budget.
+
+**HTTPS required for Apple Messages for Business**  
+All URLs included in Apple Messages for Business interactive message payloads must use HTTPS. Examples include image URLs (`imageData`), Apple Pay payment endpoints (`paymentGatewayUrl`, `fallbackUrl`, `orderTrackingUrl`, and similar fields), and iMessage App icon URLs (`appIconUrl`).  
+Connect Customer rejects payloads containing HTTP URLs with a validation error.
+
+**Apple Messages for Business string length limit**  
+When using interactive messages with the Apple Messages for Business channel, any string displayed in the Messages UI — including titles, subtitles, labels, and button text — must not exceed 200 characters. Strings that exceed this limit are rejected with a validation error. For other channels, the limits shown in the following individual template tables continue to apply.
 
 ## Message display templates
 <a name="message-display-templates"></a>
@@ -134,9 +143,9 @@ To send unlimited options, implement action buttons in your application. For mor
   - **Field:** replyMessage / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
 
 - ****content** **
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** Should be a description for promptless templates
   - **Field:** elements / **Required:** Yes / **Minimum characters:** 1 item / **Maximum characters:** 10 items / **Other requirement:** This is an array of elements. Maximum 10 elements in the array. To send unlimited elements, use the action buttons feature.
-  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
   - **Field:** multiSelect / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** **Boolean** - indicates whether the customer can make multiple selections. Defaults to false. This field is applicable only for [Apple Messages for Business flows](apple-messages-for-business.md). 
   - **Field:** targetForLinks / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** Must be one of the following values: `_blank`, `_parent`, `_top`, `_self`.+  **\_blank**: Default behavior. Opens link in new browser tab. <br />+  **\_parent**: Opens the link in the parent browsing context. In other words, if there is a parent-child relationship between multiple iframe container applications, it will open the link in the parent iframe to the current context. <br />+  **\_top**: Opens the link in the topmost browsing context. <br />+  **\_self**: Opens link in the current browsing context. <br />**Please see the note after this table.**
   - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
@@ -154,16 +163,16 @@ To send unlimited options, implement action buttons in your application. For mor
   - **Maximum characters:** Number. Should be an UUID. **This field is required** if List Picker/Panel is being used in a Carousel.
 
 - ****elements** **
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000  / **Other requirement:** 
-  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
   - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
   - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
   - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Cannot exist without an image
   - **Field:** actionDetail / **Required:** No / **Minimum characters:**   / **Maximum characters:**   / **Other requirement:** Only required for action button feature. Must be "PREVIOUS\_OPTIONS" or "SHOW\_MORE".
 
 - **replyMessage **
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000  / **Other requirement:** 
-  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
   - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
   - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
   - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Cannot exist without an image
@@ -287,14 +296,14 @@ The following table lists the limits for each of the time picker elements. Use t
   - **Field:** content  / **Required:** Yes / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
 
 - **replyMessage **
-  - **Field:** **title** / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 / **Other requirement:** Should be description for promptless templates
-  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** **title** / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** Should be description for promptless templates
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
   - **Field:** imageType / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Must be "URL"
   - **Field:** imageData / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 200 / **Other requirement:** Must be a valid publicly accessible URL
   - **Field:** imageDescription / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Cannot exist without an image
 
 - ****content****
-  - **Field:** **title** / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 / **Other requirement:** Should be description for promptless templates
+  - **Field:** **title** / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** Should be description for promptless templates
   - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** 
   - **Field:** imageType / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 50 / **Other requirement:** Must be "URL"
   - **Field:** imageData / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 200 / **Other requirement:** Must be a valid publicly accessible URL
@@ -306,7 +315,7 @@ The following table lists the limits for each of the time picker elements. Use t
 - **location**
   - **Field:** longitude / **Required:** Yes / **Minimum characters:** -180 / **Maximum characters:** 180  / **Other requirement:** Must be [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) 
   - **Field:** latitude / **Required:** Yes / **Minimum characters:** -90 / **Maximum characters:** 90 / **Other requirement:** Must be [double](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) 
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000 / **Other requirement:** 
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
   - **Field:** radius / **Required:** No / **Minimum characters:** 0 / **Maximum characters:** 200 / **Other requirement:** 
 
 - ****timeslots** **
@@ -396,8 +405,8 @@ To send unlimited options, implement action buttons in your application. For mor
   - **Field:** content  / **Required:** Yes / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
 
 - ****content** **
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
-  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 / **Other requirement:** 
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** Should be a description for promptless templates
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
   - **Field:** elements / **Required:** Yes / **Minimum characters:** 1 item / **Maximum characters:** 10 items / **Other requirement:** This is an array of elements. Maximum 10 elements in the array.
   - **Field:** imageType / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 50  / **Other requirement:** Must be "URL"
   - **Field:** imageData / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 200  / **Other requirement:** Must be a valid publicly accessible URL
@@ -412,7 +421,7 @@ To send unlimited options, implement action buttons in your application. For mor
   - **Field:** title
   - **Required:** Yes
   - **Minimum characters:** 1 
-  - **Maximum characters:** 5000 
+  - **Maximum characters:** 5000 (200 for Apple Messages for Business)
   - **Other requirement:** 
 
 - ****
@@ -423,8 +432,8 @@ To send unlimited options, implement action buttons in your application. For mor
   - **Other requirement:** Only required for action button feature. Must be "PREVIOUS\_OPTIONS" or "SHOW\_MORE".
 
 - **replyMessage **
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000  / **Other requirement:** 
-  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000  / **Other requirement:** 
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
+  - **Field:** subtitle / **Required:** No / **Minimum characters:** 0  / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** 
 
 
 
@@ -499,7 +508,7 @@ The following table lists the limits for each of the quick reply elements. Use t
   - **Field:** replyMessage / **Required:** No / **Minimum characters:**  / **Maximum characters:**  / **Other requirement:** 
 
 - ****content** **
-  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000  / **Other requirement:** Should be a description for promptless templates
+  - **Field:** title / **Required:** Yes / **Minimum characters:** 1 / **Maximum characters:** 5000 (200 for Apple Messages for Business) / **Other requirement:** Should be a description for promptless templates
   - **Field:** elements / **Required:** Yes / **Minimum characters:** 2 item / **Maximum characters:** 10 items for web chats<br />5 items for Apple Business Chat (this is a hard limit set by Apple) / **Other requirement:** This is an array of elements. Minimum 2 elements and maximum 10 elements in the array.<br />To work around Apple's limit of 5 items, consider implementing multiple quick replies with a "Show more" option. Or use ListPicker since it allows for up to 10 items.
 
 - ****elements** **
@@ -513,7 +522,7 @@ The following table lists the limits for each of the quick reply elements. Use t
   - **Field:** title
   - **Required:** Yes
   - **Minimum characters:** 1
-  - **Maximum characters:** 5000 
+  - **Maximum characters:** 5000 (200 for Apple Messages for Business)
   - **Other requirement:** 
 
 
@@ -792,38 +801,38 @@ The following code is an example of an Apple forms template you can use in your 
 <a name="apple-forms-limits-appleformcontent"></a>
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| title  | String  | Yes  | Top-level title of the form. Displayed in Apple receive message bubble and transcript rendering  | 
-| subtitle  | String  | No  | Used as subtitle in ReceivedMessage  | 
-| imageType  | String  | No  | Valid values: "URL" Used for image in ReceivedMessage  | 
-| imageData  | String  | No  | S3 image url Used for image in ReceivedMessage  | 
-| pages  | AppleFormPage[]  | Yes  | List of form pages  | 
-| showSummary  | Boolean  | No  | Whether to display a summary page of responses to review before submission Default: False (no confirmation/summary page)  | 
-| splashPage  | AppleFormSplashPage  | No  | Initial splash page to display before actual pages Default: No splash page  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| title  | String  | Yes  | 200  | Top-level title of the form. Displayed in Apple receive message bubble and transcript rendering  | 
+| subtitle  | String  | No  | 200  | Used as subtitle in ReceivedMessage  | 
+| imageType  | String  | No  |  | Valid values: "URL" Used for image in ReceivedMessage  | 
+| imageData  | String  | No  |  | S3 image url Used for image in ReceivedMessage  | 
+| pages  | AppleFormPage[]  | Yes  |  | List of form pages  | 
+| showSummary  | Boolean  | No  |  | Whether to display a summary page of responses to review before submission Default: False (no confirmation/summary page)  | 
+| splashPage  | AppleFormSplashPage  | No  |  | Initial splash page to display before actual pages Default: No splash page  | 
 
 #### AppleFormSplashPage
 <a name="apple-forms-limits-appleformsplashpage"></a>
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| title  | String  | Yes  | Title of splash page  | 
-| subtitle  | String  | No  | Subtitle / body of splash page  | 
-| imageType  | ImageType  | No  | Present when displaying image within splash page Allowed value: "URL" Default: No image displayed  | 
-| imageData  | String  | No  | For imageType="URL", this is the URL value Default: No image displayed  | 
-| buttonTitle  | String  | Yes  | Text of Continue button. Required by Apple, default text with localization not supported  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| title  | String  | Yes  | 200  | Title of splash page  | 
+| subtitle  | String  | No  | 200  | Subtitle / body of splash page  | 
+| imageType  | ImageType  | No  |  | Present when displaying image within splash page Allowed value: "URL" Default: No image displayed  | 
+| imageData  | String  | No  |  | For imageType="URL", this is the URL value Default: No image displayed  | 
+| buttonTitle  | String  | Yes  | 200  | Text of Continue button. Required by Apple, default text with localization not supported  | 
 
 #### AppleFormPage
 <a name="apple-forms-limits-appleformpage"></a>
 +  Base model for form pages. Specific page types extend from this model 
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| pageType  | ApplePageType  | Yes  | Enum for page type. Allowed values: ["Input", "DatePicker", "WheelPicker", "ListPicker"]  | 
-| title  | String  | Yes  | Page title  | 
-| subtitle  | String  | Yes  | Page subtitle. Used in confirmation page  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  |  | Enum for page type. Allowed values: ["Input", "DatePicker", "WheelPicker", "ListPicker"]  | 
+| title  | String  | Yes  | 200  | Page title  | 
+| subtitle  | String  | Yes  | 200  | Page subtitle. Used in confirmation page  | 
 
 #### AppleFormDatePickerPage
 <a name="apple-forms-limits-appleformdatapickerpage"></a>
@@ -831,15 +840,15 @@ The following code is an example of an Apple forms template you can use in your 
  **AppleFormDatePickerPage **extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| pageType  | ApplePageType  | Yes  | Value: "DatePicker"  | 
-| labelText  | String  | No  | Text displayed next to the date input. See example screenshots in Appendix  | 
-| helperText  | String  | No  | Helper text displayed under the date input. See example screenshots in Appendix Default: No helper text  | 
-| dateFormat  | String  | No  | ISO 8601 date format. Default: MM/dd/yyyy  | 
-| startDate  | String  | No  | Initial / default selected date in valid date format Default: Current date for end user when message is sent  | 
-| minDate  | String  | No  | Min date allowed to be selected in valid date format Default: No min  | 
-| maxDate  | String  | No  | Max date allowed to be selected in valid date format Default: Current date for end user when message is sent  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  |  | Value: "DatePicker"  | 
+| labelText  | String  | No  | 200  | Text displayed next to the date input. See example screenshots in Appendix  | 
+| helperText  | String  | No  | 200  | Helper text displayed under the date input. See example screenshots in Appendix Default: No helper text  | 
+| dateFormat  | String  | No  |  | ISO 8601 date format. Default: MM/dd/yyyy  | 
+| startDate  | String  | No  |  | Initial / default selected date in valid date format Default: Current date for end user when message is sent  | 
+| minDate  | String  | No  |  | Min date allowed to be selected in valid date format Default: No min  | 
+| maxDate  | String  | No  |  | Max date allowed to be selected in valid date format Default: Current date for end user when message is sent  | 
 
 #### AppleFormListPickerPage
 <a name="apple-forms-limits-appleformlistpickerpage"></a>
@@ -859,11 +868,11 @@ The following code is an example of an Apple forms template you can use in your 
  **AppleFormListPickerPageItem** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| title  | String  | Yes  | Display text of item  | 
-| imageType  | ImageType  | No  | Present when displaying image within item Allowed value: "URL" Default: No image displayed  | 
-| imageData  | String  | No  | For imageType="URL", this is the URL value Default: No image displayed  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| title  | String  | Yes  | 200  | Display text of item  | 
+| imageType  | ImageType  | No  |  | Present when displaying image within item Allowed value: "URL" Default: No image displayed  | 
+| imageData  | String  | No  |  | For imageType="URL", this is the URL value Default: No image displayed  | 
 
 **Note**  
 Similar image model to existing interactive message models (ListPicker), except `imageDescription` is not included, which is used for image alt text in chat widget / web chats and ignored for Apple interactive messages.
@@ -874,11 +883,11 @@ Similar image model to existing interactive message models (ListPicker), except 
  **AppleFormWheelPickerPage** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| pageType  | ApplePageType  | Yes  | Value: "WheelPicker"  | 
-| items  | AppleFormWheelPickerPageItem[]  | Yes  | List of wheel picker items  | 
-| labelText  | String  | No  | Text displayed next to the input. See example screenshots in Appendix  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  |  | Value: "WheelPicker"  | 
+| items  | AppleFormWheelPickerPageItem[]  | Yes  |  | List of wheel picker items  | 
+| labelText  | String  | No  | 200  | Text displayed next to the input. See example screenshots in Appendix  | 
 
 #### AppleFormWheelPickerPageItem
 <a name="apple-forms-limits-appleformwheelpickerpageitem"></a>
@@ -886,9 +895,9 @@ Similar image model to existing interactive message models (ListPicker), except 
  **AppleFormWheelPickerPageItem** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| title  | String  | Yes  | Display text of picker item  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| title  | String  | Yes  | 200  | Display text of picker item  | 
 
 #### AppleFormInputPage
 <a name="apple-forms-limits-appleforminputpage"></a>
@@ -896,19 +905,19 @@ Similar image model to existing interactive message models (ListPicker), except 
  **AppleFormInputPage** extends [AppleFormPage](#apple-forms-limits-appleformpage) 
 
 
-| Field  | Type  | Required  | Description / Notes  | 
-| --- | --- | --- | --- | 
-| pageType  | ApplePageType  | Yes  | Value: "Input"  | 
-| labelText  | String  | No  | Text displayed next to the input box. See example screenshots in Appendix  | 
-| helperText  | String  | No  | Additional text displayed under input box Default: No helper text  | 
-| placeholderText  | String  | No  | Placeholder text to display initially when there's no input Default: "(Optional)" or "(Required)" placeholder text  | 
-| prefixText  | String  | No  | Prefix text to display next to input. Ex: '$' when input is monetary value Default: No prefix text  | 
-| required  | Boolean  | No  | Whether end user is required to provide input Default: false  | 
-| multiLine  | Boolean  | No  | Whether multi-line input can be provided Default: false (single line)  | 
-| maxCharCount  | Number  | No  | Max char count of input. Enforced on Apple client Default: No limit  | 
-| regex  | String  | No  | Regex string to place constraints on input provided Default: No regex constraints  | 
-| keyboardType  | String  | No  | Determines what type of keyboard is displayed when end user is providing input Allowed values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message). Some of the allowed values: numberPad, phonePad, emailAddress  | 
-| textContentType  | String  | No  | Helps with auto-fill suggestions on Apple device.  Allowed values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message). Some of the allowed values: telephoneNumber, fullStreetAddress, familyName  | 
+| Field  | Type  | Required  | Maximum characters  | Description / Notes  | 
+| --- | --- | --- | --- | --- | 
+| pageType  | ApplePageType  | Yes  |  | Value: "Input"  | 
+| labelText  | String  | No  | 200  | Text displayed next to the input box. See example screenshots in Appendix  | 
+| helperText  | String  | No  | 200  | Additional text displayed under input box Default: No helper text  | 
+| placeholderText  | String  | No  | 200  | Placeholder text to display initially when there's no input Default: "(Optional)" or "(Required)" placeholder text  | 
+| prefixText  | String  | No  | 200  | Prefix text to display next to input. Ex: '$' when input is monetary value Default: No prefix text  | 
+| required  | Boolean  | No  |  | Whether end user is required to provide input Default: false  | 
+| multiLine  | Boolean  | No  |  | Whether multi-line input can be provided Default: false (single line)  | 
+| maxCharCount  | Number  | No  |  | Max char count of input. Enforced on Apple client Default: No limit  | 
+| regex  | String  | No  |  | Regex string to place constraints on input provided Default: No regex constraints  | 
+| keyboardType  | String  | No  |  | Determines what type of keyboard is displayed when the end user is providing input. Allowed values: default, asciiCapable, numbersAndPunctuation, URL, numberPad, phonePad, namePhonePad, emailAddress, decimalPad, webSearch. Unsupported values (such as UIKeyboardTypeTwitter) will be transformed to default.  | 
+| textContentType  | String  | No  |  | Helps with auto-fill suggestions on Apple device.  Allowed values: Same as Apple. See [docs](https://register.apple.com/resources/messages/msp-rest-api/type-interactive#form-message). Some of the allowed values: telephoneNumber, fullStreetAddress, familyName  | 
 
 ## Apple Pay template
 <a name="apple-pay-template"></a>
@@ -1050,24 +1059,24 @@ This template is applicable only for Apple Messages for Business contact flows.
 |  | data  | Yes  |  |  |  | 
 |  | version  | Yes  |  |  | Must be "1.0"  | 
 | data  | content  | Yes  |  |  |  | 
-| content  | title  | Yes  | 1  | 512  | The title of the received message bubble  | 
-|  | subtitle  | No  | 0  | 512  | Subtitle to be displayed under title of the received message bubble  | 
+| content  | title  | Yes  | 1  | 200  | The title of the received message bubble  | 
+|  | subtitle  | No  | 0  | 200  | Subtitle to be displayed under title of the received message bubble  | 
 |  | imageData  | No  | 0  | 200  | Must be a valid publicly accessible URL  | 
 |  | imageType  | No  | 0  | 50  | Must be "URL"  | 
 |  | payment  | Yes  |  |  | A dictionary containing fields giving the specifics of an Apple Pay request.  | 
-|  | requestIdentifier  | No  |  |  | String, An identifier for the ApplePay request. If not specified, an UUID will be generated and used.  | 
+|  | requestIdentifier  | No  |  |  | String. Must be a valid RFC 4122 UUID in canonical form (for example, 550e8400-e29b-41d4-a716-446655440000). The requestIdentifier must not contain the characters ../, ", or '. If not specified, a UUID will be generated and used.  | 
 | payment  | endpoints  | Yes  |  |  | A dictionary containing the endpoints for payment processing, contact updates, and order tracking.  | 
 |  | merchantSession  | Yes  |  |  | A dictionary containing the payment session provided by Apple Pay after requesting a new payment session.  | 
 |  | paymentRequest  | Yes  |  |  | A dictionary with information about the payment request  | 
-| endpoints  | paymentGatewayUrl  | Yes  |  |  | String. Called by Apple Pay to process the payment through the payment provider. The URL should match the URL in the initiativeContext field of the merchant session  | 
-|  | fallbackUrl  | No  |  |  | A URL that opens in a web browser so the customer can complete the purchase if their device is unable to make payments using Apple Pay. If specified, fallbackUrl need to match paymentGatewayUrl.  | 
-|  | orderTrackingUrl  | No  |  |  | Called by Messages for Business after completing the order; provides you with an opportunity to update the order information in your system.  | 
-|  | paymentMethodUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes the payment method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message.  | 
-|  | shippingContactUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes their shipping address information. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message  | 
-|  | shippingMethodUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes the shipping method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message.  | 
+| endpoints  | paymentGatewayUrl  | Yes  |  |  | String. Called by Apple Pay to process the payment through the payment provider. The URL should match the URL in the initiativeContext field of the merchant session. HTTPS required.  | 
+|  | fallbackUrl  | No  |  |  | A URL that opens in a web browser so the customer can complete the purchase if their device is unable to make payments using Apple Pay. If specified, fallbackUrl need to match paymentGatewayUrl. HTTPS required.  | 
+|  | orderTrackingUrl  | No  |  |  | Called by Messages for Business after completing the order; provides you with an opportunity to update the order information in your system. HTTPS required.  | 
+|  | paymentMethodUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes the payment method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. HTTPS required.  | 
+|  | shippingContactUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes their shipping address information. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. HTTPS required.  | 
+|  | shippingMethodUpdateUrl  | No  |  |  | Called by Apple Pay when the customer changes the shipping method. If you don’t implement this endpoint and you include this key in the dictionary, the customer sees an error message. HTTPS required.  | 
 | merchantSession  | displayName  | Yes  | 1  | 64  | String. The canonical name for your store, suitable for display. Do not localize the name.  | 
 |  | initiative  | Yes  |  |  | String. Must be “messaging”  | 
-|  | initiativeContext  | Yes  |  |  | String. Pass your payment gateway URL.  | 
+|  | initiativeContext  | Yes  |  |  | String. Pass your payment gateway URL. HTTPS required.  | 
 |  | merchantIdentifier  | Yes  |  |  | String. A unique identifier that represents a merchant for Apple Pay.  | 
 |  | merchantSessionIdentifier  | Yes  |  |  | String. A unique identifier that represents a merchant's session for Apple Pay.  | 
 |  | epochTimestamp  | Yes  |  |  | String.The time representation in number of seconds that have elapsed since 00:00:00 UTC, Thursday, January 1, 1970.  | 
@@ -1078,7 +1087,7 @@ This template is applicable only for Apple Messages for Business contact flows.
 | paymentRequest  | applePay  | Yes  |  |  | A dictionary that describes the Apple Pay configuration.  | 
 |  | countryCode  | Yes  |  |  | String. The merchant’s two-letter ISO 3166 country code.  | 
 |  | currencyCode  | Yes  |  |  | String. The three-letter ISO 4217 currency code for the payment.  | 
-|  | lineItems  | No  |  |  | An array of line items explaining payments and additional charges. Line items are not required. However, the array cannot be empty if the lineItems key is present.  | 
+|  | lineItems  | No  |  |  | An array of line items explaining payments and additional charges. Maximum 20 items. Line items are not required. However, the array cannot be empty if the lineItems key is present. Payloads exceeding the 20-item limit will be rejected by Connect Customer with a validation error.  | 
 |  | total  | Yes  |  |  | A dictionary containing the total. The total amount must be greater than zero to pass validation.  | 
 |  | requiredBillingContactFields  | No  |  |  | The list of the customer's required billing information needed to process the transaction. For the list of possible strings, see [requiredBillingContactFields](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216120-requiredbillingcontactfields). Require only the contact fields needed to process the payment. Requesting unnecessary fields adds complexity to the transaction, which can increase the chances of the customer canceling the payment request.  | 
 |  | requiredShippingContactFields  | No  |  |  | The list of shipping or contact information required from the customer to fulfill the order. For example, if you need the customer's email or phone number, then include this key. For the list of possible strings, see [requiredShippingContactFields](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypaymentrequest/2216121-requiredshippingcontactfields).  | 
@@ -1088,14 +1097,14 @@ This template is applicable only for Apple Messages for Business contact flows.
 |  | merchantCapabilities  | Yes  |  |  | An array of payment capabilities supported by the merchant. The array must include supports3DS, and can optionally include supportsCredit, supportsDebit, and supportsEMV.  | 
 |  | supportedNetworks  | Yes  |  |  | An array of payment networks supported by the merchant. The array must include one or more of the following values: amex, discover, jcb, masterCard, privateLabel, or visa  | 
 | lineItem  | amount  | Yes  |  |  | The monetary amount of the line item.  | 
-|  | label  | Yes  |  |  | A short, localized description of the line item.  | 
+|  | label  | Yes  |  | 200  | A short, localized description of the line item.  | 
 |  | type  | No  |  |  | A value that indicates whether the line item is final or pending.  | 
 | total  | amount  | Yes  |  |  | The total amount of the payment.  | 
 |  | label  | Yes  |  |  | A short, localized description of the payment.  | 
 |  | type  | No  |  |  | A value that indicates whether the payment is final or pending.  | 
 | shippingMethods  | amount  | Yes  |  |  | String. The non-negative cost associated with this shipping method.  | 
-|  | detail  | Yes  |  |  | String. Additional description of the shipping method.  | 
-|  | label  | Yes  |  |  | String. A short description of the shipping method.  | 
+|  | detail  | Yes  |  | 200  | String. Additional description of the shipping method.  | 
+|  | label  | Yes  |  | 200  | String. A short description of the shipping method.  | 
 |  | identifier  | Yes  |  |  | String. A client-defined value used to identify this shipping method.  | 
 
 ## iMessage App template
@@ -1136,25 +1145,25 @@ This template is applicable only for Apple Messages for Business contact flows.
 <a name="imessage-apps-limits"></a>
 
 
-|  **Parent Field**  |  **Field**  |  **Required**  |  **Type**  |  **Other Notes**  | 
-| --- | --- | --- | --- | --- | 
-|  |  templateType  | Yes  | TemplateType  | Valid template type, "AppleCustomInteractiveMessage"  | 
-|  |  data  | Yes  | InteractiveMessageData  | Contains content and receivedMessage dictionaries  | 
-|  |  version  | Yes  | string  | Must be "1.0"  | 
-|  data  |  content  | Yes  | InteractiveMessageContent  | Interactive Content of the iMessage App  | 
-|  |  replyMessage  | Yes  | ReplyMessage  | Message display configuration for after response to interactive message is sent  | 
-|  content  |  appIconUrl  | Yes  | string  | AWS S3 URL  | 
-|  |  appId  | Yes  | string  | Business IMessage App Id  | 
-|  |  appName  | Yes  | string  | Business IMessage App name  | 
-|  |  bid  | Yes  | string  | Business IMessage App Bid. Pattern:  com.apple.messages.MSMessageExtensionBalloonPlugin:{team-id}:{ext-bundle-id}  | 
-|  |  dataUrl  | Yes  | string  | Data that is passed into the iMessage App  | 
-|  |  useLiveLayout  | No  | boolean  | Default True  | 
-|  |  title  | Yes  | string  | title of the Imessage App bubble  | 
-|  |  subtitle  | No  | string  | subtitle of the Imessage App bubble  | 
-|  replyMessage  |  title  | No  | string  |  | 
-|  |  subtitle  | No  | string  |  | 
-|  |  imageType  | No  | string  | Must be a valid publicly accessible URL  | 
-|  |  imageData  | No  | string  | Cannot exist without an image  | 
+|  **Parent Field**  |  **Field**  |  **Required**  |  **Type**  |  **Maximum characters**  |  **Other Notes**  | 
+| --- | --- | --- | --- | --- | --- | 
+|  |  templateType  | Yes  | TemplateType  |  | Valid template type, "AppleCustomInteractiveMessage"  | 
+|  |  data  | Yes  | InteractiveMessageData  |  | Contains content and receivedMessage dictionaries  | 
+|  |  version  | Yes  | string  |  | Must be "1.0"  | 
+|  data  |  content  | Yes  | InteractiveMessageContent  |  | Interactive Content of the iMessage App  | 
+|  |  replyMessage  | Yes  | ReplyMessage  |  | Message display configuration for after response to interactive message is sent  | 
+|  content  |  appIconUrl  | Yes  | string  |  | AWS S3 URL. HTTPS required.  | 
+|  |  appId  | Yes  | string  |  | Business IMessage App Id  | 
+|  |  appName  | Yes  | string  |  | Business IMessage App name  | 
+|  |  bid  | Yes  | string  |  | Business IMessage App Bid. Pattern:  com.apple.messages.MSMessageExtensionBalloonPlugin:{team-id}:{ext-bundle-id}  | 
+|  |  dataUrl  | Yes  | string  |  | Data that is passed into the iMessage App  | 
+|  |  useLiveLayout  | No  | boolean  |  | Default True  | 
+|  |  title  | Yes  | string  | 200  | title of the Imessage App bubble  | 
+|  |  subtitle  | No  | string  | 200  | subtitle of the Imessage App bubble  | 
+|  replyMessage  |  title  | No  | string  |  |  | 
+|  |  subtitle  | No  | string  |  |  | 
+|  |  imageType  | No  | string  |  | Must be a valid publicly accessible URL  | 
+|  |  imageData  | No  | string  |  | Cannot exist without an image  | 
 
 ## WhatsApp list
 <a name="whatsapp-list"></a>

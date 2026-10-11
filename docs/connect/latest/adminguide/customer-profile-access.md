@@ -18,9 +18,9 @@ Customer Profiles is already embedded alongside the Contact Control Panel (CCP).
 
 **Note**  
 You can also access the agent workspace by using the following URL:  
-**https://{{instance name}}.my.connect.aws/agent-app-v2/**
+`https://{{instance-name}}.my.connect.aws/agent/`
 If you access your instance using the **awsapps.com** domain, use the following URL:   
-**https://{{instance name}}.awsapps.com/connect/agent-app-v2/**
+`https://{{instance-name}}.awsapps.com/connect/agent/`
 For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md).
 
 Following is an example of what Customer Profiles looks like in the agent workspace.

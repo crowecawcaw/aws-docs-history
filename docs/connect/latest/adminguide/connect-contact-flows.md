@@ -14,6 +14,7 @@ A *flow* defines the customer experience with your contact center from start to 
 + [Use the flow designer in Connect Customer to create flows](create-contact-flow.md)
 + [Agentic voice](agentic-voice.md)
 + [Attach a claimed or ported phone number to a flow in Connect Customer](associate-claimed-ported-phone-number-to-flow.md)
++ [Flow versioning and aliasing in Connect Customer](flows-versions-aliases.md)
 + [Flow modules for reusable functions in Connect Customer](contact-flow-modules.md)
 + [Enable agent-initiated flows during active chat sessions](agent-initiated-flows.md)
 + [Create prompts in Connect Customer](prompts.md)

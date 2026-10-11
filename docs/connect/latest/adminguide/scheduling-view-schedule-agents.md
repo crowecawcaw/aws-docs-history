@@ -4,8 +4,8 @@
 <a name="scheduling-view-schedule-agents"></a>
 
 There are two ways agents can access their schedules:
-+ If your organization uses the Connect Customer agent workspace, agents access their schedule by entering **https://{{instance name}}/connect/agent-app-v2/** into their browser and then choosing the calendar icon.
-+ If your organization uses the Salesforce CTI, or a custom agent application, agents access their schedule by entering **https://{{instance name}}/connect/agent-app-v2/scheduling** into their browser, logging into Connect Customer, and then choosing the calendar icon.
++ If your organization uses the Connect Customer agent workspace, agents access their schedule by entering `https://{{instance-name}}/connect/agent/` into their browser and then choosing the calendar icon.
++ If your organization uses the Salesforce CTI, or a custom agent application, agents access their schedule by entering `https://{{instance-name}}/connect/agent/scheduling` into their browser, logging into Connect Customer, and then choosing the calendar icon.
 
 Following are steps agents use to view their schedule in the agent workspace.
 

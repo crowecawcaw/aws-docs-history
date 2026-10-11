@@ -123,4 +123,4 @@ You must enable SAML for your Connect Customer instance to use Connect Customer 
    + `accountId`: The AWS account ID where the Connect Customer instances are located.
    + `role`: Set to the name or Amazon Resource Name (ARN) of the SAML role used for Connect Customer federation.
    + `idp`: Set to the name or Amazon Resource Name (ARN) of the SAML identity provider in IAM.
-   + `destination`: Set to the optional path where agents will land in the instance after signing in (for example: `/agent-app-v2`).
+   + `destination`: Set to the optional path where agents will land in the instance after signing in (for example: `/agent`).

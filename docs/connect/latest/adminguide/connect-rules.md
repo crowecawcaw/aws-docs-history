@@ -13,6 +13,7 @@ A rule is an action that Connect Customer automatically performs, based on condi
 + [Create a rule that generates a task](contact-lens-rules-create-task.md)
 + [Create a rule that generates an EventBridge event](contact-lens-rules-eventbridge-event.md)
 + [Create rules that send email notifications](contact-lens-rules-email.md)
++ [Create rules that send in-app notifications](contact-lens-rules-in-app-notification.md)
 + [Notify supervisors and agents about performance evaluations](create-evaluation-rules.md)
 + [Create alerts on real-time metrics in Connect Customer](rule-real-time-metrics.md)
 + [Create rules that generate tasks for third-party integrations in Connect Customer](add-rules-task-creation.md)

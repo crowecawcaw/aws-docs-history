@@ -219,7 +219,7 @@ Values are case-sensitive. For example, *Address.Country is US* returns differen
 
  Optionally configure sorting for your segment results. You can use sorting to control the order in which profiles appear in your segment output. You can sort by up to 10 attributes. Attributes are evaluated from top to bottom. When multiple profiles share the same value for an attribute, the next attribute in the list is used as a tiebreaker, and so on.
 
-Outbound campaigns and journeys respect this sort order when executing, which means profiles are processed and dialed in the order defined by the segment. For more information about using sorted segments with outbound campaigns, see [Outbound campaign best practices](https://docs.aws.amazon.com/connect/latest/adminguide/outbound-campaign-best-practices.html). Sorting segments is useful when you want to:
+Outbound campaigns and journeys respect this sort order when executing, which means profiles are submitted for dialing in the order defined by the segment. For more information about using sorted segments with outbound campaigns, see [Outbound campaign best practices](https://docs.aws.amazon.com/connect/latest/adminguide/outbound-campaign-best-practices.html). Sorting segments is useful when you want to:
 + Prioritize high-value customers by sorting on attributes such as lifetime value or account tier.
 + Contact customers with upcoming appointments first by sorting on appointment date.
 + Process time-sensitive communications in a specific order.
@@ -239,7 +239,7 @@ Segment sort order is respected only for voice campaigns and voice activities in
 
 
 ## Creating segments powered by Spark SQL
-<a name="w2aac40c53c13c15"></a>
+<a name="w2aac38c53c13c15"></a>
 
 With segments powered by Spark SQL, you can use complete Customer Profile data and expanded functionality to define segments. You can use standard profile object attributes and custom object attributes. You can also used SQL-based functionality such as joining standard and custom objects together to use data from various objects, filtering segments with statistics such as percentiles and standardizing date fields to make comparisons. 
 
@@ -255,14 +255,14 @@ When you use a Spark SQL segment in a segment membership call, Flow block, or Ou
 **SQL segmentation runs on Data store which has up to 10 years data. Classic segmentation uses latest data (data updated in past 3 years)**
 
 ### Step 1: Build a new segment
-<a name="w2aac40c53c13c15c15"></a>
+<a name="w2aac38c53c13c15c15"></a>
 
 In the Segment AI assistant, select “How to create a segment” for more guidance on creating valuable segments or “I want to generate a segment” to enter a natural language prompt to create the segment. 
 
 Alternatively, use SQL to define a new segment in the query editor. 
 
 ### Step 2: Specify a name and description
-<a name="w2aac40c53c13c15c17"></a>
+<a name="w2aac38c53c13c15c17"></a>
 
 For Name, enter a name for the customer segment to make it easy to recognize later.
 
@@ -272,7 +272,7 @@ The Amazon Connect admin website uses the entered name as the `DisplayName` of t
 For Description, optionally enter a description for the customer segment.
 
 ### Step 3: Review and validate the segment
-<a name="w2aac40c53c13c15c19"></a>
+<a name="w2aac38c53c13c15c19"></a>
 
 Review the data the Segment AI assistant used and the steps the AI model it took to generate your segment. You can also review the SQL it created to define the segment in the query editor. If it was not able to create the segment, address the feedback it provided to help it create an accurate segment. After it has generated a segment, Customer Profiles will automatically create a segment estimate for you. 
 
@@ -284,7 +284,7 @@ If you are not using the Segment AI assistant, you can validate the query and cr
 Segments powered by Spark SQL will take time depending on the amount of profile data you use in the segment and the SQL used, similar to other query engines (for example, multiple joins across objects usually take more time). 
 
 ### Step 4: Create segment
-<a name="w2aac40c53c13c15c21"></a>
+<a name="w2aac38c53c13c15c21"></a>
 
 After you have build a segment and are satisfied, select “Create segment” button on the top right. After you have created the segment, you can select Actions - exporting to .csv, using the segment in Flows and using the segment in Outbound Campaigns.
 

@@ -33,8 +33,8 @@ Assign users the following permissions in their security profile so they can acc
 <a name="view-perf-metrics"></a>
 
 1. Access the agent workspace using the following URL:
-   + **https://{{instance name}}.my.connect.aws/agent-app-v2/**
-   + If you access your instance using the awsapps.com domain, use the following URL: **https://{{instance name}}.awsapps.com/connect/agent-app-v2/** 
+   + `https://{{instance-name}}.my.connect.aws/agent/`
+   + If you access your instance using the awsapps.com domain, use the following URL: `https://{{instance-name}}.awsapps.com/connect/agent/` 
 
    Where {{instance name}} is provided by your IT department or the individuals that set up Connect Customer for your business.
 

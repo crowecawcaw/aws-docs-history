@@ -102,6 +102,8 @@ In addition to categorizing a contact, you can define what actions Connect Custo
 
 1. [Send email notifications](contact-lens-rules-email.md)
 
+1. [Send in-app notification](contact-lens-rules-in-app-notification.md)
+
 1. [Create a rule that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md)
 
 ### Step 3: Review and save

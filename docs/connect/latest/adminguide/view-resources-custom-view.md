@@ -1,26 +1,24 @@
 
 
-# Custom views in the Connect Customer agent workspace
+# Custom views in Connect Customer
 <a name="view-resources-custom-view"></a>
 
-Using APIs you can create your own view resources. The View resource includes CloudFormation, CloudTrail, and tagging support.
+You can create your own views with Connect Customer APIs. Views support AWS CloudFormation, AWS CloudTrail, and tagging.
 
 ## Views API example
 <a name="view-resources-custom-view-example"></a>
 
-**View description**
+This view nests two cards within a container and places a **Skip** button to their right.
 
-This view nests two cards within a container, and places a skip button to their right. 
-
-**CLI command**
+The following command creates the view:
 
 ```
-aws connect create-view --name CustomerManagedCardsNoContainer \
+aws connect create-view --name CustomerManagedCards \
 --status PUBLISHED --content file://view-content.json \
 --instance-id $INSTANCE_ID --region $REGION
 ```
 
-**view-content.json**
+The `view-content.json` file contains the following:
 
 ```
 {
@@ -29,12 +27,12 @@ aws connect create-view --name CustomerManagedCardsNoContainer \
 }
 ```
 
-**Template JSON (not stringified)**
+The following is the template JSON before it's stringified:
 
 ```
 {
     "Head": {
-        "Title": "CustomerManagedFormView",
+        "Title": "CustomerManagedCards",
         "Configuration": {
             "Layout": {
                 "Columns": ["10", "2"] // Default column width for each component is 12, which is also the width of the entire view.
@@ -86,26 +84,24 @@ aws connect create-view --name CustomerManagedCardsNoContainer \
 }
 ```
 
-## The View
+## How the view renders
 <a name="view-resources-custom-the-view"></a>
-
-**Inputs**
 
 `$.NoIconCardHeading` indicates that an input for the field `NoIconCardHeading` is necessary to render the view.
 
 Let's say `NoIconCardHeading` is set to `No Icon Card`.
 
-**Appearance**
+The view renders as follows:
 
-![The agent workspace view card.](https://docs.aws.amazon.com/connect/latest/adminguide/images/view-resources-custom-the-view.png)
+![Two cards in a container, with a Skip button to their right.](https://docs.aws.amazon.com/connect/latest/adminguide/images/view-resources-custom-the-view.png)
 
 
 ## View output example
 <a name="view-resources-custom-view-output-example"></a>
 
-Views output two main pieces of data: the `Action` taken, and the `Output` data.
+A view returns two pieces of data: the `Action` taken, and the `Output` data.
 
-When using a view with the [Show view block](https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html), `Action` represents a branch, and `Output` data is set to the `$.Views.ViewResultData` flow attribute, as mentioned in the Show View block documentation.
+When using a view with the [Show view](show-view-block.md) block, `Action` represents a branch, and `Output` data is set to the `$.Views.ViewResultData` flow attribute.
 
 **Scenario 1: Choose the **Cafe Card** Card**
 
@@ -126,27 +122,27 @@ When using a view with the [Show view block](https://docs.aws.amazon.com/connect
 }
 ```
 
-## Form View output example
+## Form view output example
 <a name="view-resources-custom-form-view-output-example"></a>
 
-When using the **AWS-managed view (Form view)**, the result of form data will be under *FormData*.
+When using the AWS managed Form view, the form data is under `FormData`.
 
 ```
 {
-   FormData: {
-       email: "a@amazon.com"
+   "FormData": {
+       "email": "user@example.com"
    }
 }
 ```
 
-You can access the data in the show view block such as `$.Views.ViewResultData.FormData.email`.
+In the Show view block, reference the data as `$.Views.ViewResultData.FormData.email`.
 
-When using the **Custom view (with form component)**, the result of form data be come directly under output.
+When using the **Custom view (with form component)**, the form data is directly under `Output`.
 
 ```
 {
-    email: "a@amazon.com"
+    "email": "user@example.com"
 }
 ```
 
-You can access the data in the show view block such as `$.Views.ViewResultData.email`.
+In the Show view block, reference the data as `$.Views.ViewResultData.email`.

@@ -7,10 +7,10 @@ When you design step-by-step guides for the agent workspace, you can set them up
 
 To display contact attributes at the start of a contact, you configure a **Detail view**, which is an [AWS managed view](view-resources-managed-view.md). 
 
-The **Detail view** is for displaying information to the agent and providing them with a list of actions that they can take. A common use case of the **Detail view** is to surface a screen pop to the agent at the start of a call. 
-+ Actions in this view can be used to let an agent continue to the next step in a step-by-step guide. The actions can also be used to invoke entirely new workflows.
-+ **Sections** is the only required component. It is where you can configure the body of the page you want to show to your agent.
-+ Optional components such as the **AttributeBar** are supported by this view.
+The **Detail view** shows information and a list of actions the user can take. For example, use it for a screen pop at the start of a call.
++ Actions can move the user to the next step in a step-by-step guide or start a new workflow.
++ `Sections`, the body of the page, is the only required component.
++ The view also supports optional components, such as `AttributeBar`.
 
 **Tip**  
 For interactive documentation that shows a preview of a **Detail view**, see [Detail](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-detail--with-all).
@@ -21,28 +21,28 @@ The following image shows an example of a **Detail view**. It has a page heading
 
 
 **Sections**
-+ Content can be a static string, a TemplateString or a key-value pair. It can be a single data point or a list. For more information, see [TemplateString](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#templatestring) or [AtrributeSection](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute-section).
++ Content can be a static string, a TemplateString, or a key-value pair. It can be a single data point or a list. For more information, see [TemplateString](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#templatestring) or [AttributeSection](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute-section).
 
 **AttributeBar (Optional)**
-+ Optional, if provided it displays the Attribute bar at the top of the view.
-+ A list of objects with required properties, **Label**, **Value**, and optional properties **LinkType**, **ResourceId**, **Copyable** and **Url**. For more information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute).
-  + **LinkType** can be external or a Connect Customer application such as Connect Customer Cases.
-    + When it is *external*, an agent can navigate to a new browser page, which is configured with **Url**.
-    + When it is *case*, an agent can navigate to a new case detail on the agent workspace, which configured with ResourceId.
-  + **Copyable** allows agents to copy the ResourceId by choosing it with your input device.
++ Optional. If provided, displays the Attribute bar at the top of the view.
++ A list of objects with required properties, `Label`, `Value`, and optional properties `LinkType`, `ResourceId`, `Copyable` and `Url`. For more information, see [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute).
+  + `LinkType` can be `external` or a Connect Customer application, such as `case`.
+    + When it is *external*, an agent can navigate to a new browser page, which is configured with `Url`.
+    + When it's `case`, the link opens the case that `ResourceId` identifies in the agent workspace.
+  + `Copyable` lets users copy the `ResourceId` by choosing it.
 
 **Back (Optional)**
-+ Optional, but required if no actions are included. If provided will display the back navigation link.
++ Optional, but required if the view has no actions. If provided, displays the back navigation link.
 + Is an object with a *Label* which will control what is displayed in the link text.
 
 **Heading (Optional)**
-+ Optional, if provided will display Text as the title.
++ Optional. If provided, displays Text as the title.
 
 **Description (Optional)**
-+ Optional, if provided will display description text under the title.
++ Optional. If provided, displays description text under the title.
 
 **Actions (Optional)**
-+ Optional. If provided, will display a list of action at the bottom of the page.
++ Optional. If provided, displays a list of actions at the bottom of the page.
 
 **Input example**
 
@@ -56,11 +56,11 @@ The following image shows an example of a **Detail view**. It has a page heading
     "Label": "Back"
   },
   "Heading": "Hello world",
-  "Description": "This view is showing off the wonders of a detail page",
+  "Description": "This is a detail page",
   "Sections": [{
     "TemplateString": "This is an intro paragraph"
   }, "abc"],
-  "Actions": ["Do thing!", "Update thing 2!"],
+  "Actions": ["Do thing!", "Update thing 2!"]
 }
 ```
 
@@ -68,9 +68,9 @@ The following image shows an example of a **Detail view**. It has a page heading
 
 ```
 {
-    Action: "ActionSelected",
-    ViewResultData: {
-        actionName: "Action 2"
+    "Action": "ActionSelected",
+    "ViewResultData": {
+        "actionName": "Do thing!"
     }
 }
 ```

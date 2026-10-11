@@ -237,7 +237,7 @@ When you configure the relay state for your identity provider, you can use the d
 + `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fccp-v2%2Fchat&new_domain=true`
 
 Another example of a valid URL is:
-+ `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2`
++ `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent`
 
 For a GovCloud instance, the URL is **https://console.amazonaws-us-gov.com/**. So the address would be: 
 + `https://console.amazonaws-us-gov.com/connect/federate/instance-id?destination=%2Fccp-v2%2Fchat&new_domain=true`

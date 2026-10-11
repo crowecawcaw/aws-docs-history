@@ -7,7 +7,7 @@
 This is the URL to the CCP website:   
 **https://{{instance name}}.my.connect.aws/ccp-v2/**
 This is the URL to the [agent workspace](#use-agent-workspace):  
-**https://{{instance name}}.my.connect.aws/agent-app-v2/**
+`https://{{instance-name}}.my.connect.aws/agent/`
 
 ## Steps to ensure agents can access the CCP
 <a name="setup-agents-on-ccp"></a>
@@ -37,7 +37,7 @@ Want your agents to handle contacts and access customer profiles, cases, and kno
 The *agent workspace* is a single web browser interface that hosts the CCP, [Customer Profiles](ag-cp-select.md), [Cases](search-cases.md), and [agent assist](search-for-answers.md).
 
 If you're using the CCP that is provided with Connect Customer, after you enable Customer Profiles, Cases, or agent assist, share the following URL with your agents so they can access it in the agent workspace:
-+ **https://{{instance name}}.my.connect.aws/agent-app-v2/**
++ `https://{{instance-name}}.my.connect.aws/agent/`
 
 For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md).
 

@@ -9,10 +9,10 @@ The Intraday forecast performance dashboard provides forecasts for:
 
 **Topics**
 + [Enable access to the dashboard](#intraday-forecast-performance-dashboard-enable-access)
-+ [Performance overview chart](#intraday-forecast-performance-dashboard-performance-overview)
++ [Performance overview widget](#intraday-forecast-performance-dashboard-performance-overview)
 + [Comparison trend graphs](#intraday-forecast-comparison-trend-graphs)
 + [Comparison against short term forecasts](#intraday-forecast-comparison-shortterm)
-+ [Daily projection chart](#intraday-forecast-daily-projection)
++ [Daily projection widget](#intraday-forecast-daily-projection)
 
 ## Enable access to the dashboard
 <a name="intraday-forecast-performance-dashboard-enable-access"></a>
@@ -21,30 +21,37 @@ Ensure users are assigned the appropriate **Analytics and Optimization** securit
 + **Access metrics - Access permission** or the **Dashboard - Access permission**. For information about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md). 
 + **Forecasting - View**. If you don't see this permission on the security profiles page, ask your Administrator to [enable forecasting, capacity planning, and scheduling](enable-forecasting-capacity-planning-scheduling.md) in the AWS console. 
 
-## Performance overview chart
+## Performance overview widget
 <a name="intraday-forecast-performance-dashboard-performance-overview"></a>
 
-The **Intraday trailing performance overview** chart that provides aggregated metrics based on your filters. Each metric in the chart is compared to your "compare to" benchmark time range filter. 
+The **Intraday trailing performance overview** widget provides aggregated metrics based on your filters. Each metric in the widget is compared to your "compare to" benchmark time range filter. The widget displays the following metrics:
++ [Contact volume](metrics-definitions.md#contact-volume)
++ [Average handle time](metrics-definitions.md#average-handle-time)
++ [Average queue answer time](metrics-definitions.md#average-queue-answer-time)
++ [Effective staffing](metrics-definitions.md#effective-staffing)
++ [Abandonment rate](metrics-definitions.md#abandonment-rate)
++ [Service level](metrics-definitions.md#service-level)
 
-The following image shows an example **Intraday trailing performance overview** chart: 
+The following image shows an example **Intraday trailing performance overview** widget: 
 
-![The performance overview chart in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-overview-chart.png)
+![The Intraday trailing performance overview widget showing six metrics compared to forecast.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-overview-chart.png)
 
 
-This chart shows the following information:
-+ Contact volume during your time range selection was 1,213.
-+ This is down \~13% compared to your benchmark number of contacts handled.
+This widget shows the following information:
++ Contact volume during your time range selection was 3,921.
++ This is down 5% compared to the forecasted contact volume of 4,128.
 + The percentages are rounded up or down.
-+  The colors that appear for the metrics indicate positive (green) or negative (red) compared to your benchmark. 
++ The colors that appear for the metrics indicate positive (green) or negative (red) compared to your benchmark. 
 
 ## Comparison trend graphs
 <a name="intraday-forecast-comparison-trend-graphs"></a>
 
-The Intraday performance dashboard displays the following three trend graphs, which cover different metrics: 
+The Intraday performance dashboard displays the following trend graphs, which cover different metrics: 
 + [Contact volume](metrics-definitions.md#contact-volume)
 + [Average handle time](metrics-definitions.md#average-handle-time)
-+  [Average speed of answer](metrics-definitions.md#average-queue-answer-time) 
-+  [Effective staffing](metrics-definitions.md#effective-staffing) 
++ [Average queue answer time](metrics-definitions.md#average-queue-answer-time)
++ [Effective staffing](metrics-definitions.md#effective-staffing)
++ [Service level](metrics-definitions.md#service-level)
 
 These graphs include the intraday forecast that projects up to 24 hours on a 15 minute interval based on:
 + The value of the respective metric.
@@ -56,6 +63,11 @@ These trend graphs provide data only for the next 24 hours and the past 24 hours
 The following image shows an example of a **Contact volume** trend graph.
 
 ![The Contact volume trend graph.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-trend-graph.png)
+
+
+The following image shows an example of a **Service level** trend graph. It shows the trend of the actual **Service level 60 seconds** up to the last update, and the **Intraday forecast service level 60 seconds** after it.
+
+![The Service level trend graph showing actual and forecast service level over 24 hours.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-service-level-trend-graph.png)
 
 
 ## Comparison against short term forecasts
@@ -72,15 +84,16 @@ This is the new default comparison for this dashboard.
 ![The Short-term published forecast option.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-shortterm.png)
 
 
-## Daily projection chart
+## Daily projection widget
 <a name="intraday-forecast-daily-projection"></a>
 
-The **Daily projection** chart provides a projection of how the day will end by combining historical metrics for the day so far with intraday forecasts for the remainder of the day. This is available for the following metrics: 
-+ [Average handle time](metrics-definitions.md#average-handle-time)
-+  [Average queue answer time](metrics-definitions.md#average-queue-answer-time) 
+The **Daily projection** widget provides a projection of how the day will end by combining historical metrics for the day so far with intraday forecasts for the remainder of the day. This is available for the following metrics: 
 + [Contact volume](metrics-definitions.md#contact-volume)
-+  [Effective staffing](metrics-definitions.md#effective-staffing) 
++ [Average handle time](metrics-definitions.md#average-handle-time)
++ [Average queue answer time](metrics-definitions.md#average-queue-answer-time)
++ [Effective staffing](metrics-definitions.md#effective-staffing)
++ [Service level](metrics-definitions.md#service-level)
 
 This widget only supports comparing against short term forecasts for **Contact volume** and **Average handle time**.
 
-![The Daily projection chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-daily-projection.png)
+![The Daily projection widget showing projected values for five metrics.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-daily-projection.png)

@@ -488,7 +488,7 @@ This feature is available in all AWS Regions where Connect Customer AI Agents is
 
 Connect Customer Outbound Campaigns now allows you to dial contacts in configurable priority order based on up to 10 profile attributes for voice campaigns and voice activities in journeys. This helps you focus agent time on the most valuable customers or time-sensitive opportunities, improving campaign effectiveness and conversion rates. Initial dial attempts always take precedence over reattempts, ensuring your priority order is maintained throughout campaign execution.
 
-To get started, configure sort attributes when building segments in Connect Customer Customer Profiles. For more information, see [Outbound Campaigns best practices](https://docs.aws.amazon.com/connect/latest/adminguide/outbound-campaigns-best-practices.html).
+To get started, configure sort attributes when building segments in Connect Customer Customer Profiles. For more information, see [Outbound Campaigns best practices](https://docs.aws.amazon.com/connect/latest/adminguide/outbound-campaign-best-practices.html#sorted-segments-best-practices).
 
 ### Outbound Campaigns now supports hourly segment refresh
 <a name="apr26-hourly-segment-refresh"></a>
@@ -1400,7 +1400,7 @@ The Connect Customer UI builder, used to create Views that power Step-by-Step Gu
 
 In addition, the UI builder contains a consistent look and feel with the rest of Connect Customer by using [Cloudscape Design System](https://cloudscape.design/) components. 
 
-For more information, see [Use the UI builder in Connect Customer for resources in step-by-step guides](no-code-ui-builder.md), especially the subtopic [Configure dynamic fields](no-code-ui-builder-properties-dynamic-fields.md). 
+For more information, see [Build views with the UI builder in Connect Customer](no-code-ui-builder.md), especially the subtopic [Configure dynamic fields](no-code-ui-builder-properties-dynamic-fields.md). 
 
 ### Segment creation from imported files in Customer Profiles
 <a name="segment-creation-june25"></a>
@@ -2430,7 +2430,7 @@ Customer Profiles provides a generative AI powered customer data mapping capabil
 #### UI builder for step-by-step guides
 <a name="reinvent-no-code-ui-builder-nov23"></a>
 
-This feature allows you to create and manage the UI pages shown to agents in step-by-step guides. Using a drag-and-drop interface you are able to define static and dynamic content for the agent's UI. This includes layouts, styles, and dynamic data, which enables you to control the look and feel of your agent's experience. With this capability, you are able define what gets displayed in your agent's UI during the step-by-step guided experience. For more information, see the [Use the UI builder in Connect Customer for resources in step-by-step guides](no-code-ui-builder.md) documentation.
+This feature allows you to create and manage the UI pages shown to agents in step-by-step guides. Using a drag-and-drop interface you are able to define static and dynamic content for the agent's UI. This includes layouts, styles, and dynamic data, which enables you to control the look and feel of your agent's experience. With this capability, you are able define what gets displayed in your agent's UI during the step-by-step guided experience. For more information, see the [Build views with the UI builder in Connect Customer](no-code-ui-builder.md) documentation.
 
 #### Added agent assist
 <a name="reinvent-q-nov23"></a>
@@ -2712,7 +2712,7 @@ You can subscribe to an event type called `CONTACT_DATA_UPDATED`. The `Contact` 
 #### APIs to programmatically configure views in step-by-step guides
 <a name="views-sept23"></a>
 
-Connect Customer provides APIs to programmatically create and manage view resources used in step-by-step guides. View resources define what gets displayed in your agent's UI during a step-by-step guide. For more information, see the [Views: UI templates to customize the Connect Customer agent workspace](view-resources-sg.md) documentation.
+Connect Customer provides APIs to programmatically create and manage view resources used in step-by-step guides. View resources define what gets displayed in your agent's UI during a step-by-step guide. For more information, see the [Use views to customize the user interface for agents, customers, and other user personas in Connect Customer](view-resources-sg.md) documentation.
 
 #### Support for UIFN in more than 60 countries
 <a name="uifn-sept23"></a>
@@ -3002,7 +3002,7 @@ You can choose Microsoft SharePoint Online as knowledge base for Wisdom articles
 #### Create step-by-step guides for your agents
 <a name="step-by-step-guides-mar23"></a>
 
-Inside the out-of-the-box Connect Customer agent workspace, you can create workflows that walk agents through custom UI pages that suggest what to do at a given moment during a customer interaction. You can create guides that help agents identify customer issues and recommend subsequent actions, as well as surface screen-pops and forms for submitting transactions and disposition codes. For more information, see [Step-by-step Guides to set up your Connect Customer agent workspace](step-by-step-guided-experiences.md).
+Inside the out-of-the-box Connect Customer agent workspace, you can create workflows that walk agents through custom UI pages that suggest what to do at a given moment during a customer interaction. You can create guides that help agents identify customer issues and recommend subsequent actions, as well as surface screen-pops and forms for submitting transactions and disposition codes. For more information, see [Set up step-by-step guides in Connect Customer](step-by-step-guided-experiences.md).
 
 #### Added support for nested JSON in Invoke AWS Lambda function flow block
 <a name="nest-json-labmda-flow-block-mar23"></a>

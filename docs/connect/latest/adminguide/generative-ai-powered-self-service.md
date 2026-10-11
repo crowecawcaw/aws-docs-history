@@ -127,7 +127,7 @@ tools:
 ### Example: Recommend an action for a customer
 <a name="recommend-action-for-an-end-customer-to-take"></a>
 
- You can configure next best actions in Connect Customer by using flows. You can also configure automated actions and create step-by-step guides to provide UI-based actions to customers. For more information, see [Step-by-step Guides to set up your Connect Customer agent workspace](step-by-step-guided-experiences.md).  agent assist saves the selected tool name as a Lex session attribute. The attribute can then be accessed by using the **Check contact attributes** flow block.  
+ You can configure next best actions in Connect Customer by using flows. You can also configure automated actions and create step-by-step guides to provide UI-based actions to customers. For more information, see [Set up step-by-step guides in Connect Customer](step-by-step-guided-experiences.md).  agent assist saves the selected tool name as a Lex session attribute. The attribute can then be accessed by using the **Check contact attributes** flow block.  
 
 Here's an example tool definition for booking a trip:
 

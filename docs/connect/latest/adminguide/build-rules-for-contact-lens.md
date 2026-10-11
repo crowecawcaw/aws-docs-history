@@ -88,6 +88,7 @@ For a list of rules feature specifications (for example, how many rules you can 
 1. Choose **Add action**. You can choose the following actions:
    + [Create Task](contact-lens-rules-create-task.md): this option is not available for real-time chat
    + [Send email notification](contact-lens-rules-email.md)
+   + [Send in-app notification](contact-lens-rules-in-app-notification.md)
    + [Generate an EventBridge event](contact-lens-rules-eventbridge-event.md)  
 ![The add action dropdown menu, a list of actions.](https://docs.aws.amazon.com/connect/latest/adminguide/images/contact-lens-add-action-no-wisdom.png)
 

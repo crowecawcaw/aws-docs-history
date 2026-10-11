@@ -78,7 +78,7 @@ Connect Customer includes a set of views that you can add to the agent workspace
 ![The properties page of the Show view block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/show-view-block-form.png)
 
 
-Following is a brief description of these AWS managed views. For detailed information about each one, see [Set up AWS managed views for the Connect Customer agent workspace](view-resources-managed-view.md). Customer-managed views are also supported. For more information, see the [Customer-managed views](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/customer-managed-views-customer-managed-views--page) documentation.
+Following is a brief description of these AWS managed views. For detailed information about each one, see [Set up AWS managed views in Connect Customer](view-resources-managed-view.md). Customer-managed views are also supported. For more information, see the [Customer-managed views](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/customer-managed-views-customer-managed-views--page) documentation.
 + **Detail view**: Display information to agents and provide them with a list of actions that they can take. A common use case of the Detail view is to surface a screen-pop to the agent at the start of a call.
 + **List view**: Display information as a list of items with titles and descriptions. Items can act as links with actions attached. It also optionally supports the standard back navigation and persistent context header.
 + **Form view**: Provide customers and agents with input fields to gather required data and submit data to backend systems. This view consists of multiple Sections with a predefined Section style with a header. The body consists of various input fields arranged in a column or a grid layout format.
@@ -381,7 +381,7 @@ You can download a sample flow from Step 2 in the following blog: [Getting start
 <a name="show-view-more-resources"></a>
 
 See the following topics to learn more about step-by-step guides and Views.
-+ [Step-by-step Guides to set up your Connect Customer agent workspace](step-by-step-guided-experiences.md)
++ [Set up step-by-step guides in Connect Customer](step-by-step-guided-experiences.md)
 + Explore [how to implement sensitive data collection in Amazon Connect Chat](https://aws.amazon.com/blogs/contact-center/collecting-sensitive-information-with-amazon-connect-chat/).
 + For step-by-step instructions about how to set up a customer-managed Views, see [Customer-managed Views](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/customer-managed-views-customer-managed-views--page). 
 + For setting up a plug-and-play step-by-step guide experience in your instance, see [Getting started with step-by-step guides](https://aws.amazon.com/blogs/contact-center/getting-started-with-step-by-step-guides-for-the-amazon-connect-agent-workspace/). 

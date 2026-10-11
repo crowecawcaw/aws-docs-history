@@ -100,7 +100,7 @@ Rich links show an inline preview of a URL that contains an image or video. Unli
 
 To use rich links in Connect Customer chat messages, your URL and images must meet the following requirements:
 + Your website must use Facebook Open Graph tags. For more information, see [A Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/). 
-+ The image accompanying the URL must be .jpeg, .jpg, or .png.
++ The image accompanying the URL must be in PNG format. Connect Customer automatically converts non-PNG images (such as JPEG) to PNG and resizes them to fit within the 200 KB limit. If an image cannot be resized to 200 KB or less, Connect Customer will send the rich link without an image preview.
 + The website must be HTML.
 
 **Note**  

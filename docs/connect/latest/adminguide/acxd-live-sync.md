@@ -566,6 +566,9 @@ Use the manual Context API for advanced or custom control, when your implementat
 
 The Context API lets your frontend send real-time page context to the active Live Sync conversation.
 
+**Context size limit**  
+The context you send to a Live Sync conversation through the Context API is limited to 8 KB per update. Keep the context focused. Advertise only the actions, fields, and destinations relevant to the current page. Trim large or unnecessary values to stay within the limit.
+
 This helps the agent understand:
 + Current page or route
 + Available form fields

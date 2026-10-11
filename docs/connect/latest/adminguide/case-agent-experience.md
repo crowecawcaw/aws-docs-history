@@ -12,10 +12,10 @@ Make sure your agents have **Cases** permissions in their security profile so th
 <a name="cases-access-out-of-the-box"></a>
 
 Cases is already embedded alongside the Contact Control Panel (CCP). Your agents will access the CCP and Cases in the same browser window using a link that looks like this:
-+ **https://{{instance name}}.my.connect.aws/agent-app-v2/** 
++ `https://{{instance-name}}.my.connect.aws/agent/`
 
 If you access your instance using the **awsapps.com** domain, use the following URL: 
-+ **https://{{instance name}}.awsapps.com/connect/agent-app-v2/**
++ `https://{{instance-name}}.awsapps.com/connect/agent/`
 
 For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md).
 

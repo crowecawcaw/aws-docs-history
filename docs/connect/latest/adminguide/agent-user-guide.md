@@ -15,7 +15,7 @@ With the agent workspace you can access all Connect Customer features in a singl
 + [Use Connect Customer agent assist](search-for-answers.md) to obtain the information you need from your company knowledge base.
 
 To access the agent workspace use the following URL:
-+ https://{{instance name}}.my.connect.aws/agent-app-v2/
++ `https://{{instance-name}}.my.connect.aws/agent/`
 
 Where {{instance name}} is provided by your IT department or the individuals that set up Connect Customer for your business.
 

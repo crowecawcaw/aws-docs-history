@@ -119,6 +119,10 @@ The following tables contain contact analytics data.
 |  data\_lake\_last\_processed\_timestamp  |  Timestamp  |  Yes  |  Timestamp, which shows the last time the data lake processed the record. This can include transformation and backfill. This field cannot reliably be used to determine data freshness.  | 
 |  multi\_select\_answer\_reference\_ids  |  array(string)  |  Yes  |  Value for question where answer type is multi-select.  | 
 |  date\_time\_answer  |  Timestamp  |  Yes  |  Value for question where answer type is dateTime.  | 
+|  answer\_option  |  string  |  Yes  |  The selected answer option text for a single-select answer type.  | 
+|  multi\_select\_answer\_options  |  array(string)  |  Yes  |  The selected answer option text for a multi-select answer type.  | 
+|  item\_note  |  string  |  Yes  |  The note text added to the evaluation item.  | 
+|  original\_evaluator\_id  |  string  |  Yes  |  The user\_ID of the evaluator who originally submitted the evaluation.  | 
 |  evaluated\_participant\_role  |  string  |  Yes  |  The role of the evaluated contact participant.  | 
 |  evaluated\_participant\_id  |  string  |  Yes  |  The ID of the evaluated contact participant.  | 
 |  is\_sampled  |  Boolean  |  Yes  |  Whether the evaluation was created by a sampling job.  | 

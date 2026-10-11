@@ -94,6 +94,22 @@ Example JSON format:
 ]
 ```
 
+You can also upload Q&A content as a comma-separated values (CSV) file. Each row is one article: The first column is the question, and the second column is the response.
+
+```
+question,answer
+What is your refund policy?,We send you money.
+```
+
+You can name the response column either `answer` or `responses`. Both names produce the same result:
+
+```
+question,responses
+What is your refund policy?,We send you money.
+```
+
+Use one response per row. To provide multiple responses for a single question, use the JSON format.
+
 Metadata can be used to filter which Q&A content should be searched during retrieval, when supported.
 
 Use metadata when a Q&A knowledge base contains a large amount of content and you only want to search a specific subset.

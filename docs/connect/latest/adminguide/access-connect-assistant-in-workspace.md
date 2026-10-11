@@ -4,10 +4,10 @@
 <a name="access-connect-assistant-in-workspace"></a>
 
 If you're using the CCP that is provided with Connect Customer, after you enable the Connect assistant, share the following URL with your agents so they can access it:
-+ **https://{{instance name}}.my.connect.aws/agent-app-v2/**
++ `https://{{instance-name}}.my.connect.aws/agent/`
 
 If you access your instance using the **awsapps.com** domain, use the following URL: 
-+ **https://{{instance name}}.awsapps.com/connect/agent-app-v2/**
++ `https://{{instance-name}}.awsapps.com/connect/agent/`
 
 For help finding your instance name, see [Find your Connect Customer instance name](find-instance-name.md).
 
