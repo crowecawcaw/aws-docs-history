@@ -108,6 +108,8 @@ The rule group might add more than one of the following labels to a request, in 
   `awswaf:managed:aws:anti-ddos:high-suspicion-ddos-request` – Indicates a highly likely DDoS attack request.
 + `awswaf:managed:aws:anti-ddos:challengeable-request` – Indicates that the request URI is capable of handling the Challenge action. The managed rule group applies this to any request whose URI isn't exempted. URIs are exempted if they match the rule group's exempt URI regular expressions. 
 
+  The rule group matches each exempt URI regular expression against the request's host followed by its normalized URI path (the scheme and query string aren't included), so a pattern anchored to the start of the path such as `^/api/` doesn't match. The path is normalized first, so `/api/` is evaluated as `/api`. Only `GET` requests are challengeable; the rule group never applies this label to requests that use other methods.
+
   For information about the requirements for requests that can take a silent browser challenge, see [CAPTCHA and Challenge action behavior](waf-captcha-and-challenge-actions.md).
 
 You can retrieve all labels for a rule group through the API by calling `DescribeManagedRuleGroup`. The labels are listed in the `AvailableLabels` property in the response. 

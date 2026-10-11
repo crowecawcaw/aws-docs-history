@@ -13,6 +13,7 @@ Service features are sometimes rolled out incrementally to the AWS Regions where
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Added FAQ page for supported protocols](#doc-history) | Added a new FAQ page with answers to common questions about the AWS JSON and Smithy RPC v2 CBOR wire protocols. For more information, see [ FAQs on supported protocols](https://docs.aws.amazon.com/waf/latest/dg/cbor-faq.html). | October 6, 2026 | 
 | [Updated AWS Managed Rules for AWS WAF](aws-managed-rule-groups-changelog.md) | Released static version 2.5 of the SQL database managed rule group. | September 16, 2026 | 
 | [Updated AWS Managed Rules for AWS WAF](aws-managed-rule-groups-changelog.md) | Released static version 1.23 of the core rule set (CRS) managed rule group. | August 28, 2026 | 
 | [Updated AWS Managed Rules for AWS WAF](aws-managed-rule-groups-changelog.md) | Released static version 2.4 of the SQL database managed rule group. | August 12, 2026 | 
