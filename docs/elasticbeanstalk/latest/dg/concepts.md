@@ -37,7 +37,7 @@ An *environment* is a collection of AWS resources running an application version
 ## Environment tier
 <a name="concepts-tier"></a>
 
-When you launch an Elastic Beanstalk environment, you first choose an environment tier. The environment tier determines what resources Elastic Beanstalk provisions to support it. An application that runs directly on Amazon EC2 and serves HTTP requests runs in a [web server environment tier](concepts-webserver.md). A backend environment that runs directly on Amazon EC2 and pulls tasks from an Amazon Simple Queue Service (Amazon SQS) queue runs in a [worker environment tier](concepts-worker.md). An application that runs as containers on Amazon Elastic Kubernetes Service (Amazon EKS) runs in a cluster environment tier.
+When you launch an Elastic Beanstalk environment, you first choose an environment tier. The environment tier determines what resources Elastic Beanstalk provisions to support it. An application that runs directly on Amazon EC2 and serves HTTP requests runs in a [web server environment tier](concepts-webserver.md). A backend environment that runs directly on Amazon EC2 and pulls tasks from an Amazon Simple Queue Service (Amazon SQS) queue runs in a [worker environment tier](concepts-worker.md). An application that runs as containers on Amazon Elastic Kubernetes Service (Amazon EKS) runs in a [cluster environment tier](concepts-cluster.md).
 
 ## Environment configuration
 <a name="concepts-environmentconfig"></a>

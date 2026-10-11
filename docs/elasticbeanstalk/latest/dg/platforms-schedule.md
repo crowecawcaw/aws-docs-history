@@ -45,7 +45,6 @@ For a more detailed list of retiring platform branches that includes their speci
 
 |  Runtime version / platform branch  |  Target retirement date  | 
 | --- | --- | 
-| IIS 10.0 on Windows Server 2016 (& Core) | September 30, 2026 | 
 | PHP 8.2 AL2023 | March 31, 2027 | 
 | .NET 9 AL2023 | March 31, 2027 | 
 | .NET 8 AL2023 | March 31, 2027 | 
@@ -139,6 +138,7 @@ The following tables list Elastic Beanstalk platform branches that are already i
 
 | Runtime version / platform branch |  Retirement date  | 
 | --- | --- | 
+| IIS 10.0 running on 64bit Windows Server 2016 (& Core) | October 8, 2026 | 
 | IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 | December 4, 2023 | 
 | IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 version 0.1.0 | June 29, 2022 | 
 | IIS 8.5 running on 64bit Windows Server (& Core) 2012 R2 version 1.2.0 | June 29, 2022 | 
@@ -160,6 +160,8 @@ The following tables provide a history of the operating systems, application ser
 
 |  OS version  |  Platform retirement date  | 
 | --- | --- | 
+|  Windows Server 2016 (& Core) running IIS 10.0 | October 8, 2026 | 
+| Amazon Linux 2 (AL2) | August 6, 2026 | 
 |  Windows Server 2012 R2 running IIS 8.5 | December 4, 2023 | 
 |  Windows Server Core 2012 R2 running IIS 8.5 | December 4, 2023 | 
 | Amazon Linux AMI (AL1) |  July 18, 2022  | 
