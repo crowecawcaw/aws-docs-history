@@ -60,6 +60,7 @@ Critical updates that affect Amazon Redshift behavior are introduced as Amazon R
 <a name="cluster-version-205"></a>
 
 Cluster versions in this patch:
++ 1.0.477953 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 6, 2026
 + 1.0.434008 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released September 16, 2026
 
 ### New features and improvements in this patch
@@ -112,8 +113,6 @@ Cluster versions in this patch:
 + Added user\_query\_id to stl\_udf\_log table to remove dependency on stl\_user\_query\_map joins in sys\_ view definitions.
 + Added two new Amazon CloudWatch metrics, IntegrationLatestDetectedChange and IntegrationLatestAppliedChange, for zero-ETL integrations to allow monitoring of replication health.
 + Added the AUTO\_REMEDIATION option for CREATE DATABASE and ALTER DATABASE on zero-ETL integration databases. When AUTO\_REMEDIATION is set, Amazon Redshift automatically resynchronizes tables that have replication issues. Details appear in svv\_integration\_table\_state.reason.
-+ Added user lockout support, including ALTER USER NOLOGIN or LOGIN to disable or re-enable login access, and SHOW USER LOCKOUT to display lockout status.
-+ Added account lockout protection: User accounts are now temporarily locked after repeated consecutive failed sign-in attempts. Administrators can configure the threshold with `ALTER SYSTEM SET max_failed_login_attempts` (range 2–50, default 5).
 + Added support for reading, creating, and writing to Apache Iceberg v3 tables using the Amazon Redshift native engine. This includes support for default values, row lineage, and deletion vectors across all previously supported data types. Support for the Variant, Geography, and Geometry data types is not included in this release and will be announced in a future patch.
 + After upgrading an Iceberg table to v3, the Iceberg `timestamptz` type is mapped to the Amazon Redshift `TIMESTAMPTZ` type. In Iceberg v2 tables, `timestamptz` is mapped to the Amazon Redshift `TIMESTAMP` type. With v3, this means your queries output the timestamp based on their timezone.
 + Added support for `CURSOR`s that exceed the maximum result set size for the instance type. When a cursor's result set exceeds the available disk capacity, Amazon Redshift automatically spills overflow data to Amazon S3. This feature can be enabled per cluster upon request to AWS Support.

@@ -16,7 +16,7 @@ The following describes upcoming behavior changes.
 + [Amazon Redshift takes automated snapshots of paused data sharing producer clusters starting September 30, 2026](#paused-producer-snapshots-sep2026)
 + [SUPER data type supports larger individual strings starting with Patch 206](#super-large-strings-patch206)
 + [AWS KMS key permission enforcement for Amazon Redshift Serverless APIs after August 17, 2026](#kms-permission-serverless-aug2026)
-+ [Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204](#user-lockout-patch204)
++ [Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 208](#user-lockout-patch208)
 + [Enhanced billing model for manual snapshots on Amazon Redshift Serverless and Amazon Redshift RG instances effective June 08, 2026](#snapshot-billing-model-jun2026)
 + [Iceberg DELETE on Lake Formation tables requires DELETE permission starting with Patch 202](#iceberg-delete-lf-permission-patch202)
 + [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202)
@@ -81,10 +81,10 @@ The affected APIs and required permissions on the namespace's customer managed k
 
 For more information, see [Controlling access to AWS KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*. For more information about Amazon Redshift database encryption, see [Amazon Redshift database encryption](working-with-db-encryption.md).
 
-### Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 204
-<a name="user-lockout-patch204"></a>
+### Amazon Redshift enforces user lockout after multiple failed login attempts starting with Patch 208
+<a name="user-lockout-patch208"></a>
 
-Starting with Amazon Redshift Patch 204, to enhance the security posture of your data warehouse, Amazon Redshift automatically locks a database user after it exceeds the configured number of consecutive failed login attempts. The feature is enabled by default with a threshold of 5 failed attempts (configurable from 2 to 50) and applies to both provisioned clusters and serverless workgroups.
+Starting with Amazon Redshift Patch 208, to enhance the security posture of your data warehouse, Amazon Redshift automatically locks a database user after it exceeds the configured number of consecutive failed login attempts. The feature is enabled by default with a threshold of 5 failed attempts (configurable from 2 to 50) and applies to both provisioned clusters and serverless workgroups.
 
 You may be impacted by this if you connect using database (password-based) connections. Once locked, login attempts are rejected even with the correct password until an administrator or superuser unlocks it. Federated identities that authenticate through IAM or AWS IAM Identity Center are not affected, because they use short-lived tokens rather than static passwords.
 
