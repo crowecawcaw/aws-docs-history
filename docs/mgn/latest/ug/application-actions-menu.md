@@ -19,9 +19,9 @@ The **Actions** menu allows you to perform the following actions:
 
   The **Revert testing** dialog will appear. Select whether you want to terminate the launched instances used for testing. It is recommended to terminate these instances, as you will be charged for them even though you will no longer need them. Check the **Yes, terminate launched instances (recommended)** box and choose **Revert**. 
 +  **Launch cutover instances** – Choose this option to launch cutover instances for this application servers after you have finalized all of your testing and are ready to initiate a cutover. 
-+  **Finalize cutover** – Choose this option to finalize the cutover for this application servers after you have successfully performed a cutover. 
++  **Finalize cutover** – Choose this option to finalize the cutover for this application servers after you have successfully performed a cutover. The AWS Replication Agent will receive a command to uninstall itself (within 10 minutes). 
 **Note**  
- This action does not uninstall the AWS Replication Agent from the source servers. When you have completed the migration and want to uninstall the agent from your source servers, go to ** Source servers ** page and select the relevant servers. Use the **Disconnect from service** option under the **Actions** menu. 
+ Another way to uninstall the agent from your source servers is, go to ** Source servers ** page and select the relevant servers. Use the **Disconnect from service** option under the **Actions** menu. 
 +  **Revert to "ready for cutover"** – Choose this option to revert a finalized cutover for this application if you encounter any issues or want to reverse the cutover for any reason. 
 +  **Start data replication** – Choose this option to start replicating the application source servers. 
 **Note**  

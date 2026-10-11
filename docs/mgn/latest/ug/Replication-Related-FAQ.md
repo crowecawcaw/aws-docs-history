@@ -150,7 +150,7 @@ To replicate more than 50 disks, you must use a 24xlarge or larger instance size
 
 For each source block device, MGN creates a corresponding EBS volume. If the agent on the source machine cannot send data to a volume, MGN creates a replacement volume. The old volume might remain for approximately 10 minutes after the replacement volume comes online. Volume replacement occurs only when there is an agent communication failure, which typically results from an unstable network connection.
 
-MGN takes regular EBS snapshots to use incremental snapshot capabilities. Frequent snapshots reduce the time required to create each snapshot, which means that test or cutover instance launches are not delayed while waiting for EBS snapshots to complete. MGN retains 5–6 snapshots per volume to ensure that at least one completed snapshot is available at launch time. EBS snapshot creation has no SLA and can be delayed. Snapshot creation can also fail independently of the API call. MGN retains multiple snapshots to provide redundancy if the most recent snapshot fails.
+MGN takes regular EBS snapshots to use incremental snapshot capabilities. Frequent snapshots reduce the time required to create each snapshot, which means that test or cutover instance launches are not delayed while waiting for EBS snapshots to complete. MGN retains 5–7 snapshots per volume to ensure that at least one completed snapshot is available at launch time. EBS snapshot creation has no SLA and can be delayed. Snapshot creation can also fail independently of the API call. MGN retains multiple snapshots to provide redundancy if the most recent snapshot fails.
 
 ## How many snapshots does AWS Transform MGN create?
 <a name="How-Many-Snapshots"></a>

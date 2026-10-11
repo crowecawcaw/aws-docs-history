@@ -49,4 +49,4 @@ Run the AWS Replication Agent installer with the --s3-endpoint parameter. Enter 
 
  A detailed guide for rehosting servers using MGN over private networks is available here: 
 
-[Migrating on-premises servers to AWS over private networks by using MGN.](https://docs.aws.amazon.com/prescriptive-guidance/latest/rehost-servers-over-private-networks-mgn/welcome.html)
+[Migrating on-premises servers to AWS over private networks by using MGN.](https://docs.aws.amazon.com/prescriptive-guidance/latest/rehost-servers-over-private-networks-mgn/introduction.html)
