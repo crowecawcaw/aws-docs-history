@@ -32,6 +32,7 @@ This section shows a full list of the CloudTrail events related to Billing and C
 | `DeletePricingRule` | Logs the deletion of a pricing rule. | 
 | `DisassociateAccounts` | Logs the disassociation of accounts from a billing group. | 
 | `DisassociatePricingRules` | Logs the disassociation of pricing rules from a pricing plan. | 
+| `GetBillingTransferPreference` | Logs the retrieval of the auto billing group creation preference for a billing transfer. | 
 | `ListAccountAssociations` | Logs the access to the account ids in the billing group. | 
 | `ListBillingGroupCostReports` | Logs the access to the actual AWS charges for the billing group. | 
 | `ListBillingGroups` | Logs the access to the billing groups in a billing period. | 
@@ -45,6 +46,7 @@ This section shows a full list of the CloudTrail events related to Billing and C
 | `ListTagsForResource` | Logs the access to the tags on a resource. | 
 | `TagResource` | Logs the association of tags on a resource. | 
 | `UpdateBillingGroup` | Logs the update of a billing group. | 
+| `UpdateBillingTransferPreference` | Logs the update of the auto billing group creation preference for a billing transfer. | 
 | `UpdateCustomLineItem` | Logs the update of a custom line item. | 
 | `UpdatePricingPlan` | Logs the update of a pricing plan. | 
 | `UpdatePricingRule` | Logs the update of a pricing rule. | 
