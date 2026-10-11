@@ -143,7 +143,6 @@ For information about which services log data events, see [Data events](logging-
 | Amazon GameLift Streams | [Logging Amazon GameLift Streams API calls using AWS CloudTrail](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/logging-using-cloudtrail.html) | 03/05/2025 | 
 | Amazon GuardDuty | [Logging Amazon GuardDuty API Calls with AWS CloudTrail](https://docs.aws.amazon.com/guardduty/latest/ug/logging-using-cloudtrail.html) | 02/12/2018 | 
 | Amazon Inspector | [Logging Amazon Inspector API calls using AWS CloudTrail](https://docs.aws.amazon.com/inspector/latest/user/logging-using-cloudtrail.html) | 11/29/2021 | 
-| Amazon Inspector Classic | [Logging Amazon Inspector Classic API calls with AWS CloudTrail](https://docs.aws.amazon.com/inspector/v1/userguide/logging-using-cloudtrail.html) | 04/20/2016 | 
 | Amazon Inspector Scan | [Amazon Inspector Scan information in CloudTrail](https://docs.aws.amazon.com/inspector/latest/user/logging-using-cloudtrail.html#inspector-scan-in-cloudtrail) | 11/27/2023 | 
 | Amazon Interactive Video Service | [Logging Amazon IVS API Calls with AWS CloudTrail](https://docs.aws.amazon.com/ivs/latest/LowLatencyUserGuide/cloudtrail.html) | 07/15/2020 | 
 | Amazon Kendra | [Logging Amazon Kendra API calls with AWS CloudTrail](https://docs.aws.amazon.com/kendra/latest/dg/cloudtrail.html) and [Logging Amazon Kendra Intelligent Ranking API calls with AWS CloudTrail logs](https://docs.aws.amazon.com/kendra/latest/dg/cloudtrail-intelligent-ranking.html) | 05/11/2020 | 
@@ -298,7 +297,6 @@ For information about which services log data events, see [Data events](logging-
 | Oracle Database@AWS | [Logging Oracle Database@AWS API Calls with AWS CloudTrail](https://docs.aws.amazon.com/odb/latest/UserGuide/logging-using-cloudtrail.html) | 12/01/2024 | 
 | AWS Organizations | [Logging AWS Organizations API calls with AWS CloudTrail](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html#orgs_cloudtrail-integration) | 02/27/2017 | 
 | AWS Outposts | [Logging AWS Outposts API calls with AWS CloudTrail](https://docs.aws.amazon.com/outposts/latest/userguide/logging-using-cloudtrail.html) | 02/04/2020 | 
-| AWS Panorama | [AWS Panorama API Reference](https://docs.aws.amazon.com/panorama/latest/api/API_Operations.html) | 10/20/2021 | 
 | AWS Payment Cryptography | [Logging AWS Payment Cryptography API calls using AWS CloudTrail](https://docs.aws.amazon.com/payment-cryptography/latest/userguide/monitoring-cloudtrail.html) | 06/08/2023 | 
 | AWS Private 5G | Logging AWS Private 5G API calls using AWS CloudTrail | 08/11/2022 | 
 | AWS Private Certificate Authority (AWS Private CA) | [Using CloudTrail](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCtIntro.html) | 04/04/2018 | 

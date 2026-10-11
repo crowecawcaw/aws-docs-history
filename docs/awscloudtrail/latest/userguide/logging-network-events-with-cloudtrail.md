@@ -60,6 +60,7 @@ You can log network activity events for the following services:
 + EC2 Auto Scaling
 + Elastic Compute Cloud (EC2)
 + Elastic File System (EFS)
++ end-user-messaging
 + IoT
 + Key Management Service (KMS)
 + Lambda
@@ -147,6 +148,7 @@ The following advanced event selector fields are required to log network activit
   + `ecs.amazonaws.com`
   + `elasticfilesystem.amazonaws.com`
   + `elasticloadbalancing.amazonaws.com`
+  + `end-user-messaging.amazonaws.com`
   + `events.amazonaws.com`
   + `eventsv2.amazonaws.com`
   + `firehose.amazonaws.com`

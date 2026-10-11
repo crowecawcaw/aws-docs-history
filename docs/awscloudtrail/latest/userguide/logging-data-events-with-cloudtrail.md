@@ -76,6 +76,7 @@ For event data stores, you can use only advanced event selectors to include data
 
 | AWS service | Description | Resource type (console) | resources.type value | 
 | --- | --- | --- | --- | 
+| OMWDeviceCommunicationService | API activity on `AWS::Account::ControlledDomain` resources. | AWS::Account::ControlledDomain | `AWS::Account::ControlledDomain` | 
 | Amazon WorkSpaces Applications | Agents accessing WorkSpaces Applications MCP tool events | Agent Access MCP Tools | `AWS::AgentAccessMCP::Tools` | 
 | AWS Agent Registry | API activity on `AWS::AgentRegistry::Registry` resources. | AWS Agent Registry | `AWS::AgentRegistry::Registry` | 
 | Amazon AIDevOps | AIDevOps API activity on agent spaces. | Agent Space | `AWS::AIDevOps::AgentSpace` | 
@@ -172,11 +173,11 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon EMR | Amazon EMR API activity on a write-ahead log workspace. For more information, see [Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/logging-using-cloudtrail.html#cloudtrail-data-events). | EMR write-ahead log workspace | `AWS::EMRWAL::Workspace` | 
 | end-user-messaging | API activity on `AWS::EndUserMessaging::NotifyCodeVerification` resources. | AWS::EndUserMessaging::NotifyCodeVerification | `AWS::EndUserMessaging::NotifyCodeVerification` | 
 | EventBridge endpoint | API activity on `AWS::Events::Endpoint` resources. | EventBridge endpoint | `AWS::Events::Endpoint` | 
-| EventBridge event bus | API activity on `AWS::Events::EventBus` resources. | EventBridge event bus | `AWS::Events::EventBus` | 
+| EventBridge Custom event bus - classic | API activity on `AWS::Events::EventBus` resources. | EventBridge Custom event bus - classic | `AWS::Events::EventBus` | 
 | EventBridge partner event source | API activity on `AWS::Events::EventSource` resources. | EventBridge partner event source | `AWS::Events::EventSource` | 
 | EventBridge rule | API activity on `AWS::Events::Rule` resources. | EventBridge rule | `AWS::Events::Rule` | 
-| AWS EventBridge V2 Event Source | API activity on `AWS::EventsV2::EventBus` resources. | AWS EventBridge V2 Event Source | `AWS::EventsV2::EventBus` | 
-| EventBridge Event Bus Event Source | API activity on `AWS::EventsV2::EventSource` resources. | EventBridge Event Bus Event Source | `AWS::EventsV2::EventSource` | 
+| EventBridge Custom event bus | API activity on `AWS::EventsV2::EventBus` resources. | EventBridge Custom event bus | `AWS::EventsV2::EventBus` | 
+| EventBridge Custom event bus event source | API activity on `AWS::EventsV2::EventSource` resources. | EventBridge Custom event bus event source | `AWS::EventsV2::EventSource` | 
 | Amazon FinSpace | Amazon FinSpace API activity on environments. For more information, see [Amazon FinSpace](https://docs.aws.amazon.com/finspace/latest/userguide/logging-cloudtrail-events.html#finspace-dataplane-events). | FinSpace | `AWS::FinSpace::Environment` | 
 | Amazon FSx | Amazon FSx API activity on volumes. | FSx Volume | `AWS::FSx::Volume` | 
 | Amazon GameLift Streams | Amazon GameLift Streams streaming API activity on applications. For more information, see [Amazon GameLift Streams](https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/logging-using-cloudtrail.html#cloudtrail-data-events). | GameLift Streams application | `AWS::GameLiftStreams::Application` | 
@@ -213,7 +214,6 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Kinesis Video Streams | Kinesis Video Streams API activity on video streams, such as calls to GetMedia and PutMedia. | Kinesis video stream | `AWS::KinesisVideo::Stream` | 
 | AWS Lambda | AWS Lambda function execution activity (the Invoke API). | Lambda | `AWS::Lambda::Function` | 
 | Lambda microvm image | API activity on `AWS::Lambda::MicrovmImage` resources. | Lambda microvm image | `AWS::Lambda::MicrovmImage` | 
-| Lambda WebFunction | API activity on `AWS::Lambda::WebFunction` resources. | Lambda WebFunction | `AWS::Lambda::WebFunction` | 
 | Lex Bot | API activity on `AWS::Lex::Bot` resources. | Lex Bot | `AWS::Lex::Bot` | 
 | AWS Lex Bot Alias | API activity on `AWS::Lex::BotAlias` resources. | AWS Lex Bot Alias | `AWS::Lex::BotAlias` | 
 | CloudWatch Logs log group authorization | API activity on `AWS::Logs::LogGroupAuthorization` resources. | CloudWatch Logs log group authorization | `AWS::Logs::LogGroupAuthorization` | 
@@ -317,6 +317,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon SWF | Amazon SWF API activity on domains. For more information, see [Amazon SWF](https://docs.aws.amazon.com/amazonswf/latest/developerguide/ct-logging.html#cloudtrail-data-events). | SWF domain | `AWS::SWF::Domain` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on a Device. | Thin Client Device | `AWS::ThinClient::Device` | 
 | Amazon WorkSpaces Thin Client | WorkSpaces Thin Client API activity on an Environment. | Thin Client Environment | `AWS::ThinClient::Environment` | 
+| Timestamp token | API activity on `AWS::Timestamp::TimestampToken` resources. | Timestamp token | `AWS::Timestamp::TimestampToken` | 
 | Amazon Timestream | Amazon Timestream Query API activity on databases. For more information, see [Amazon Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html). | Timestream database | `AWS::Timestream::Database` | 
 | Amazon Timestream | Amazon Timestream API activity on regional endpoints. | Timestream regional endpoint | `AWS::Timestream::RegionalEndpoint` | 
 | Amazon Timestream | Amazon Timestream Query API activity on tables. For more information, see [Amazon Timestream](https://docs.aws.amazon.com/timestream/latest/developerguide/API_query_Query.html). | Timestream table | `AWS::Timestream::Table` | 
