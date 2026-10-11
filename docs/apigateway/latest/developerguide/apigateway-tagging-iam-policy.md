@@ -56,14 +56,9 @@ The following example policy grants users permission to perform all actions on a
 
 The following example policy allows users to perform all actions on API Gateway resources, as long as the resources have the tag `Environment` with a value of `Development`. The `Deny` statement prevents the user from changing the value of the `Environment` tag.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-  "Version":"2012-10-17",		 	 	 
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Sid": "ConditionallyAllow",
@@ -100,7 +95,7 @@ The following example policy allows users to perform all actions on API Gateway 
         "arn:aws:apigateway:*::/tags/*"
       ],
       "Condition": {
-        "ForAnyValue:StringEquals": {
+        "ForAnyValue:StringEqualsIgnoreCase": {
           "aws:TagKeys": "Environment"
         }
       }
@@ -108,8 +103,6 @@ The following example policy allows users to perform all actions on API Gateway 
   ]
 }
 ```
-
-------
 
 ## Deny tagging operations
 <a name="deny-tagging"></a>
