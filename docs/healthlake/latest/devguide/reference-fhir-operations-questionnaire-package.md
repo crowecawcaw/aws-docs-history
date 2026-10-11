@@ -56,6 +56,9 @@ The request body must contain a FHIR Parameters resource with the following para
 + `coverage` \+ `order`
 + `coverage` \+ `questionnaire` \+ `order`
 
+**Note**  
+HealthLake does not support the `context` parameter. If you include `context` together with a `questionnaire` or `order`, HealthLake ignores it. If `context` is the only selector in the request, HealthLake returns `501 Not Implemented`.
+
 ## Example request
 <a name="questionnaire-package-example-request"></a>
 
@@ -133,7 +136,7 @@ The operation returns a FHIR Parameters resource containing one or more **Packag
 | Entry Type | Cardinality | Description | 
 | --- | --- | --- | 
 | Questionnaire | 1 | The questionnaire to be rendered | 
-| QuestionnaireResponse | 0..1 | Pre-populated or partially completed response (if applicable) | 
+| QuestionnaireResponse | 0..\* | Existing responses for the questionnaire. If none exists, a draft response (see [Draft QuestionnaireResponse](#questionnaire-package-draft-response)) | 
 | Library | 0..\* | CQL Libraries containing pre-population and conditional logic | 
 | ValueSet | 0..\* | Expanded ValueSets (for answer choices with <40 expansions) | 
 
@@ -279,7 +282,7 @@ When you call `$questionnaire-package`, HealthLake performs the following steps:
 1. **Gather Dependencies**: Automatically retrieves everything needed to render the questionnaire:
    + **CQL Libraries** - Logic for pre-population and conditional questions
    + **ValueSets** - Answer choices (automatically expanded if <40 options)
-   + **QuestionnaireResponse** - Any existing in-progress or completed responses
+   + **QuestionnaireResponse** - Any existing in-progress or completed responses, or a draft response if none exists
 
 1. **Package Everything Together**:
    + Bundles all resources (each resource included only once)
@@ -365,7 +368,18 @@ Returned when an unexpected server error occurs.
 ### 501 Not Implemented
 <a name="questionnaire-package-501-error"></a>
 
-Returned when the requested operation is not yet implemented.
+Returned when the requested operation is not yet implemented. For example, HealthLake returns this error when `context` is the only selector in the request.
+
+```
+{
+  "resourceType": "OperationOutcome",
+  "issue": [{
+    "severity": "error",
+    "code": "not-supported",
+    "diagnostics": "Interaction not supported."
+  }]
+}
+```
 
 ## Validation rules
 <a name="questionnaire-package-validation-rules"></a>
@@ -374,6 +388,7 @@ Returned when the requested operation is not yet implemented.
 <a name="questionnaire-package-input-validation"></a>
 + `coverage` parameter is **required** (1..\* cardinality)
 + At least one of `questionnaire` or `order` must be provided
++ `context` is ignored when a `questionnaire` or `order` is provided, and returns `501 Not Implemented` when it is the only selector
 + All Coverage resources must be valid FHIR resources
 + All Order resources must be valid FHIR resources
 + Canonical URLs must be properly formatted
@@ -460,6 +475,12 @@ The operation may return a QuestionnaireResponse with pre-populated data when:
 | based-on | QuestionnaireResponse.basedOn | Links to ServiceRequest or CarePlan | 
 | patient | QuestionnaireResponse.subject | The patient who is the subject | 
 | questionnaire | QuestionnaireResponse.questionnaire | The questionnaire being answered | 
+
+### Draft QuestionnaireResponse
+<a name="questionnaire-package-draft-response"></a>
+
+If no existing QuestionnaireResponse is found for a questionnaire, HealthLake adds a draft QuestionnaireResponse to the Package Bundle. The draft conforms to the [DTR QuestionnaireResponse profile](https://build.fhir.org/ig/HL7/davinci-dtr/en/StructureDefinition-dtr-questionnaireresponse.html) and contains the following:
++ `status` set to `in-progress`, and a generated `id`
 
 ### Changed resources filtering
 <a name="questionnaire-package-changed-filtering"></a>
@@ -676,7 +697,7 @@ Each Package Bundle is self-contained with all necessary dependencies.
 
 **Possible Causes:**  
 
-+ No existing QuestionnaireResponse found
++ No existing QuestionnaireResponse found, so the package contains an unanswered draft response
 + CQL Library logic couldn't extract required data
 + Patient data is missing or incomplete
 

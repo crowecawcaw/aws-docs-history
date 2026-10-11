@@ -31,7 +31,7 @@ Subscription with `event-bridge` channel **and** `id-only` payload type.
   },
   "channel": {
     "type": "event-bridge",
-    "endpoint": "arn:aws:healthlake:eu-west-2:{{111122223333}}:event-bus/FhirSubscriptions-bus",
+    "endpoint": "arn:aws:events:eu-west-2:{{111122223333}}:event-bus/FhirSubscriptions-bus",
     "payload": "application/fhir+json",
     "_payload": {
       "extension": [

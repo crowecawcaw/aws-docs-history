@@ -51,7 +51,7 @@ The following is a policy statement example that allows a user to create and int
         "Sid": "Allow access to create data stores and do CRUD/search in AWS HealthLake",
         "Effect": "Allow",
         "Principal": {
-            "AWS": "arn:aws:iam::111122223333:HealthLakeFullAccessRole"
+            "AWS": "arn:aws:iam::111122223333:role/HealthLakeFullAccessRole"
         },
         "Action": [
             "kms:DescribeKey",
@@ -62,7 +62,7 @@ The following is a policy statement example that allows a user to create and int
         "Resource": "*",
         "Condition": {
             "StringEquals": {
-                "kms:ViaService": "healthlake.amazonaws.com",
+                "kms:ViaService": "healthlake.us-east-1.amazonaws.com",
                 "kms:CallerAccount": "111122223333"
             }
         }

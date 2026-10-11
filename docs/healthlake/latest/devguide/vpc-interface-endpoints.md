@@ -48,7 +48,7 @@ The following is an example of an endpoint policy for HealthLake. When attached 
          "Principal":"*",
          "Effect":"Allow",
          "Action":[
-            "{{healthlake}}:{{create-fhir-datastore}}"
+            "{{healthlake}}:{{CreateFHIRDatastore}}"
          ],
          "Resource":"*"
       }

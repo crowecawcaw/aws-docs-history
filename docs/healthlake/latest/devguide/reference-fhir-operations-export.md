@@ -228,3 +228,15 @@ When successful, you will get the following JSON response.
   }
 }
 ```
+
+When the export job is complete, each entry in the `output` array of the response includes a `count` key with the number of resources in that file. `count` is omitted when a count is not available, for example for a canceled export.
+
+```
+"output": [
+  {
+    "type": "Patient",
+    "url": "s3://amzn-s3-demo-bucket/EXPORT-JOB/Patient/Patient-0.ndjson",
+    "count": 250
+  }
+]
+```

@@ -66,9 +66,14 @@ The operation returns job status information:
       "datastoreId": "datastoreId",
       "jobId": "jobId",
       "status": "COMPLETED",
-      "submittedTime": "2025-10-09T15:09:51.336Z"
+      "resourceType": "Patient",
+      "submittedTime": "2025-10-09T15:09:51.336Z",
+      "completedTime": "2025-10-09T15:12:24.582Z",
+      "resourcesDeleted": 42
     }
 ```
+
+`resourceType` is the FHIR resource type targeted by the job. `completedTime` is included once the job reaches a terminal state, and `resourcesDeleted` reports the number of resources deleted for a completed job.
 
 ## Behavior
 <a name="bulk-delete-behavior"></a>

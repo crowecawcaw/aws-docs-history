@@ -69,7 +69,7 @@ The following guide shows you how to create a FHIR Subscription using AWS Health
            "Service": "healthlake.amazonaws.com"
          },
          "Action": "events:PutEvents",
-         "Resource": "arn:aws:healthlake:us-east-1:{{111122223333}}:event-bus/FhirSubscriptions-bus"
+         "Resource": "arn:aws:events:us-east-1:{{111122223333}}:event-bus/FhirSubscriptions-bus"
        }
      ]
      }

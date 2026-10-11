@@ -97,6 +97,32 @@ The following parameter combinations are supported:
 }
 ```
 
+For an `open` list, the operation removes the member from the list entirely:
+
+```
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "result",
+      "valueBoolean": true
+    },
+    {
+      "name": "effectiveDate",
+      "valueDate": "2024-06-30"
+    },
+    {
+      "name": "status",
+      "valueCode": "removed"
+    },
+    {
+      "name": "message",
+      "valueString": "Member removed from attribution list (open status: member will not appear in subsequent exports)"
+    }
+  ]
+}
+```
+
 ## Behavior
 <a name="member-remove-behavior"></a>
 
@@ -106,7 +132,7 @@ Lists with `final` status will reject the operation with a 422 error
 
 Member Removal Process  
 *Draft Status Lists*: Members are marked as inactive (`inactive: true`) and their `changeType` extension is updated to `changed`  
-*Open Status Lists*: Similar behavior to draft status  
+*Open Status Lists*: Members are removed from the list entirely and no longer appear in subsequent `$davinci-data-export` output  
 *Final Status Lists*: Operation is rejected
 
 Validation  
