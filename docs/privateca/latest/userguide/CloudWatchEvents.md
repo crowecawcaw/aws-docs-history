@@ -135,10 +135,18 @@ On success, the operation returns the ARNs of the CA and of the revoked certific
 ## Success or failure when generating a CRL
 <a name="cwe-CRL"></a>
 
-These events are triggered by the [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) operation, which should result in the creation of a certificate revocation list (CRL).
+AWS Private CA sends these events each time it generates, or attempts to generate, a certificate revocation list (CRL). This includes both complete and partitioned CRLs. AWS Private CA generates a CRL in the following cases:
++ After you configure a CRL for a CA, AWS Private CA writes the first CRL even if you haven't revoked any certificates.
++ After you revoke a certificate by using the [RevokeCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html) operation, AWS Private CA generates a CRL.
++ Before the current CRL expires, AWS Private CA begins to regenerate the CRL halfway through the validity period that you set with `ExpirationInDays`. If `ExpirationInDays` is 1, AWS Private CA regenerates the CRL every 6 hours.
++ After a CRL generation fails, AWS Private CA retries the generation.
+
+As a result, you can expect periodic CRL generation events, even when you don't revoke any certificates. A failure event can result from a scheduled regeneration, not only from a certificate revocation. For more information about CRLs, see [Set up a CRL for AWS Private CA](crl-planning.md). For instructions on changing the CRL validity period, see [Updating a CA's revocation configuration (console)](PCAUpdateCA.md#update-revocation).
+
+The `detail` object of each event includes `CrlUrl`, the URL of the CRL that AWS Private CA generated or attempted to generate. For a partitioned CRL, `CrlUrl` is the URL of that partition's CRL.
 
 **Success**  
-On success, the operation returns the ARN of the CA associated with the CRL.
+On success, the event includes the ARN of the CA that's associated with the CRL.
 
 ```
 {
@@ -153,7 +161,8 @@ On success, the operation returns the ARN of the CA associated with the CRL.
       "arn:{{aws}}:acm-pca:{{us-east-1}}:{{111122223333}}:certificate-authority/{{11223344-1234-1122-2233-112233445566}}"
    ],
    "detail":{
-      "result":"success"
+      "result":"success",
+      "CrlUrl":"http://{{amzn-s3-demo-bucket}}.s3.{{us-east-1}}.amazonaws.com/crl/{{11223344-1234-1122-2233-112233445566}}.crl"
    }
 }
 ```
@@ -175,7 +184,8 @@ Check your Amazon S3 bucket permissions if this error occurs.
    ],
    "detail":{
       "result":"failure",
-      "reason":"Failed to write CRL to S3. Check your S3 bucket permissions."
+      "reason":"Failed to write CRL to S3. Check your S3 bucket permissions.",
+      "CrlUrl":"http://{{amzn-s3-demo-bucket}}.s3.{{us-east-1}}.amazonaws.com/crl/{{11223344-1234-1122-2233-112233445566}}.crl"
    }
 }
 ```
@@ -197,7 +207,8 @@ Retry the operation if this error occurs.
    ],
    "detail":{
       "result":"failure",
-      "reason":"Failed to write CRL to S3. Internal failure."
+      "reason":"Failed to write CRL to S3. Internal failure.",
+      "CrlUrl":"http://{{amzn-s3-demo-bucket}}.s3.{{us-east-1}}.amazonaws.com/crl/{{11223344-1234-1122-2233-112233445566}}.crl"
    }
 }
 ```
@@ -219,7 +230,8 @@ To troubleshoot this error, check your [CloudWatch metrics](https://docs.aws.ama
    ],
    "detail":{
       "result":"failure",
-      "reason":"Failed to generate CRL. Internal failure."
+      "reason":"Failed to generate CRL. Internal failure.",
+      "CrlUrl":"http://{{amzn-s3-demo-bucket}}.s3.{{us-east-1}}.amazonaws.com/crl/{{11223344-1234-1122-2233-112233445566}}.crl"
    }
 }
 ```
