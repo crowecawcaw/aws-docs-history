@@ -84,7 +84,6 @@ If you aren’t connected successfully, ensure that you have followed the instru
 + You can run your flows either on demand, or on schedule, which enables you to integrate your ServiceNow data with AWS services.
 + When you use ServiceNow as a source, you can run schedule-triggered flows at a maximum frequency of one flow run per minute.
 + When you use ServiceNow as a source for incremental flows that run on a schedule, Amazon AppFlow uses the `sys_updated_on` field to identify the updated record set.
-+ ServiceNow can process up to 100,000 records as part of a single flow run.
 + The Truncate or Mask transformations are not supported for ServiceNow reference type fields. If applied, the following behavior occurs for the respective transformation:
   + Truncate: Reference type fields become an empty string
   + Mask: Reference type fields become `null`
