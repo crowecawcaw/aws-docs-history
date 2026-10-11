@@ -20,7 +20,7 @@ Region switch supports the following execution blocks.
 | [Amazon EKS resource scaling execution block](eks-resource-scaling-block.md) | Scale Amazon EKS cluster pods as part of your plan execution. | N/A | 
 | [Amazon ECS service scaling execution block](ecs-service-scaling-block.md) | Scale Amazon ECS service tasks as part of your plan execution. | N/A | 
 | [ARC routing control execution block](arc-routing-controls-block.md) | Add a step to change the state of one or more ARC routing controls, to redirect your application traffic to a target AWS Region. | N/A | 
-| [Amazon Aurora Global Database execution block](aurora-global-database-block.md) | Perform a recovery workflow for an Aurora global database. | Perform an Aurora global databases failover (can potentially cause data loss). | 
+| [Amazon Aurora Global Database execution block](aurora-global-database-block.md) | Perform a recovery workflow for an Aurora global database. | Optionally perform an Aurora global database failover, which might cause data loss. If you don't configure ungraceful behavior, the block uses its default behavior. | 
 | [Aurora Provisioned Scaling execution block](aurora-provisioned-scaling-block.md) | Scale Aurora provisioned cluster instances to match the instance class of the source Region. | N/A | 
 | [Aurora Serverless Scaling execution block](aurora-serverless-scaling-block.md) | Scale Aurora Serverless cluster capacity as part of your multi-Region recovery process. | N/A | 
 | [Amazon DocumentDB Global Cluster execution block](documentdb-global-cluster-block.md) | Perform a recovery workflow for a Amazon DocumentDB global cluster. | Perform a Amazon DocumentDB global cluster failover (can potentially cause data loss). | 
@@ -29,6 +29,6 @@ Region switch supports the following execution blocks.
 | [Amazon RDS Create Cross-Region Replica execution block](rds-create-cross-region-replica-block.md) | Create a cross-Region read replica for an Amazon RDS database instance as part of post-recovery. | N/A | 
 | [Amazon RDS Switchover Read Replica execution block](rds-switchover-read-replica-block.md) | Perform a switchover of an Amazon RDS Oracle read replica to make it the primary database instance. | Promote the read replica directly (can potentially cause data loss). | 
 | [Manual approval execution block](manual-approval-block.md) | Insert an approval step, to require approval or cancellation of an execution before proceeding. | N/A | 
-| [Custom action Lambda execution block](custom-action-lambda-block.md) | Add a custom step for running a Lambda function, to enable custom actions. | Skip the step. | 
+| [Custom action Lambda execution block](custom-action-lambda-block.md) | Add a custom step for running a Lambda function, to enable custom actions. | Optionally skip the step. If you don't configure skip behavior, the step runs during ungraceful execution. | 
 | [Amazon Route 53 health check execution block](route53-health-check-block.md) | Specifies the Regions that your application traffic will be redirected to during failover. | N/A | 
-| [Lambda event source mapping execution block](lambda-event-source-mapping-block.md) | Add a step to enable or disable a Lambda event source mapping. | Skip the step. | 
+| [Lambda event source mapping execution block](lambda-event-source-mapping-block.md) | Add a step to enable or disable a Lambda event source mapping. | Optionally skip the step. If you don't configure skip behavior, the step runs during ungraceful execution. | 

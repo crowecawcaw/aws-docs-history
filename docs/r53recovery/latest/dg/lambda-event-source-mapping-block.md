@@ -30,7 +30,7 @@ Before you configure the execution block, make sure that the plan's execution ro
 
 1. **Timeout: **Enter a timeout value.
 
-1. **Ungraceful execution: **Choose whether to skip this execution block during ungraceful (unplanned) executions.
+1. **Ungraceful execution: **Choose whether to skip this execution block during ungraceful (unplanned) executions. If you don't choose to skip the block, Region switch performs the configured action during ungraceful execution.
 
 Then, choose **Save step.**
 
@@ -45,4 +45,4 @@ This block supports both graceful and ungraceful execution modes. Ungraceful mod
 ## How it works
 <a name="lambda-event-source-mapping-block-how"></a>
 
-The Lambda event source mapping execution block enables or disables an event source mapping on a Lambda function. When the block is called during plan execution, Region switch invokes the Lambda `UpdateEventSourceMapping` API to perform the configured action (enable or disable) on the specified Lambda event source mapping. Region switch then waits until the event source mapping reaches the target state and updates the status of this step (complete or paused because of failure) before proceeding to the next step in the plan. If the mapping is already in the desired state, Region switch marks the step as complete immediately. When a plan containing this execution block configured for ungraceful execution is run in ungraceful mode, the plan skips the execution of this step.
+The Lambda event source mapping execution block enables or disables an event source mapping on a Lambda function. When the block is called during plan execution, Region switch invokes the Lambda `UpdateEventSourceMapping` API to perform the configured action (enable or disable) on the specified Lambda event source mapping. Region switch then waits until the event source mapping reaches the target state and updates the status of this step (complete or paused because of failure) before proceeding to the next step in the plan. If the mapping is already in the desired state, Region switch marks the step as complete immediately. During ungraceful execution, Region switch skips this step only when you configure the ungraceful behavior to skip. If you don't configure ungraceful behavior, Region switch enables or disables the event source mapping as configured.

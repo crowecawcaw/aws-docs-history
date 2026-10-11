@@ -25,6 +25,8 @@ Before you configure the execution block, make sure that the plan's execution ro
 
 1. **Retry interval: **Enter a retry interval, to rerun the Lambda function if it does not succeed within this interval.
 
+1. **Ungraceful execution (optional): **Choose whether to skip this execution block during ungraceful (unplanned) executions. If you don't choose to skip the block, Region switch invokes the Lambda function during ungraceful execution.
+
 Then, choose **Save step.**
 
 ## How it works
@@ -32,4 +34,4 @@ Then, choose **Save step.**
 + When you create a custom action Lambda execution block, you're required to specify two Lambda functions for the step to execute—one in each of the plan's Regions.
 + You can configure which Region you want the Lambda to run in, for example, in the activating Region or in the deactivating Region. However, if you execute in the deactivating Region, you take a dependency on that Region. We do not recommend that you take a dependency on the deactivating Region.
 
-This block supports both graceful and ungraceful execution modes. In ungraceful execution mode, Region switch skips the Lambda execution block step.
+This block supports both graceful and ungraceful execution modes. During ungraceful execution, Region switch skips the step only when you configure the ungraceful behavior to skip. If you don't configure ungraceful behavior, Region switch invokes the Lambda function by using the same configuration as graceful execution.

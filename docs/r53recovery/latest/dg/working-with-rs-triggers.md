@@ -5,6 +5,9 @@
 
 If you want to automate recovery for your application in Region switch, you can create one or more triggers for your Region switch plan. Triggers automatically start executing a Region switch plan, based on CloudWatch alarm conditions that you choose.
 
+**Note**  
+A trigger always starts a plan execution in graceful mode. You can't configure a trigger to start in ungraceful mode. After the execution starts, you can switch the entire execution to ungraceful mode in the console or with [UpdatePlanExecution](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_UpdatePlanExecution.html). You can switch an individual step with [UpdatePlanExecutionStep](https://docs.aws.amazon.com/arc-region-switch/latest/api/API_UpdatePlanExecutionStep.html).
+
 # To create a trigger for a Region switch plan
 
 

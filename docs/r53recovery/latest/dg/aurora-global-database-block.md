@@ -23,9 +23,9 @@ Before you configure the execution block, make sure that the plan's execution ro
 
 1. **Cluster ARN for *Region*: **Enter the cluster ARN to use in each Region in the plan.
 
-1. **Specify the option for Aurora database: **Choose either **Switchover** or **Failover (data loss)**, depending on how you want 
+1. **Specify the option for Aurora database: **Choose the default behavior for the block. **Switchover** performs a zero-data-loss switchover. **Failover (data loss)** performs a failover that might cause data loss. This behavior also applies during graceful execution.
 
-1. **Aurora Global Database cluster name: **
+1. **Ungraceful execution (optional): **Choose **Failover (data loss)** to perform a failover during ungraceful execution. If you don't configure this option, Region switch uses the default behavior that you selected.
 
 1. **Timeout: **Enter a timeout value.
 
@@ -36,7 +36,14 @@ Then, choose **Save step.**
 
 By configuring a Aurora Global Databases execution block, you can failover or switchover global databases as part of your application recovery. If you’re using an active/active approach, Region switch uses the other configured Region as the source. That is, if a Region is being deactivated, Region switch uses the other active Region as the source to match for the percent to scale.
 
-This block supports both graceful and ungraceful execution modes. Ungraceful settings perform an Aurora Global Database *failover*, which might cause data loss.
+This block supports both graceful and ungraceful execution modes.
+
+
+
+| Execution mode | Behavior | 
+| --- | --- | 
+| Graceful | Region switch uses the default behavior that you configured. Switchover calls the Aurora SwitchoverGlobalCluster API operation. This operation performs a zero-data-loss switchover. Failover (data loss) calls the Aurora FailoverGlobalCluster API operation with AllowDataLoss set to true. This operation might cause data loss. | 
+| Ungraceful | If you configure Failover (data loss), Region switch calls FailoverGlobalCluster with AllowDataLoss set to true. This operation might cause data loss. If you don't configure ungraceful behavior, Region switch uses the default behavior. The block then performs the same switchover or failover as in graceful execution. | 
 
 For more information about Aurora Global Database disaster recovery, including failover and switchover, see [ Using switchover or failover in Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.html) in the Amazon Aurora User Guide.
 
