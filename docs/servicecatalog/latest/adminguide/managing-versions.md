@@ -22,7 +22,7 @@
 
  There are two options for version guidance: 
 +  **None** - By default, product versions do not have any guidance. End users can use that version to update and launch provisioned products. 
-+  **Deprecated** - Users cannot launch new provisioned products using a deprecated product version. If a p provisioned product launched previously uses a now deprecated version, users can only update that provisioned product using the existing version or a new version. 
++  **Deprecated** - Users cannot launch new provisioned products using a deprecated product version. If a provisioned product launched previously uses a now deprecated version, users can only update that provisioned product using the existing version or a new version. 
 
 ## Updating Versions
 <a name="updating-versions"></a>

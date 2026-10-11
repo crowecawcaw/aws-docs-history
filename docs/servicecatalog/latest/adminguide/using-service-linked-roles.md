@@ -14,13 +14,13 @@ For information about other services that support service-linked roles, see [AWS
 ## Service-linked role permissions for `AWSServiceRoleForServiceCatalogSync`
 <a name="slr-permissions"></a>
 
-AWS Service Catalog can use the service-linked role named **`AWSServiceRoleForServiceCatalogSync`** – This service-linked role is required for AWS Service Catalog to use CodeConnections and to create, update, and describe AWS Service Catalog Provisioning Artifacts for a product.
+AWS Service Catalog can use the service-linked role named **`AWSServiceRoleForServiceCatalogSync`** – This service-linked role is required for AWS Service Catalog to use AWS CodeConnections and to create, update, and describe AWS Service Catalog Provisioning Artifacts for a product.
 
 The `AWSServiceRoleForServiceCatalogSync` service-linked role trusts the following services to assume the role:
 + `sync.servicecatalog.amazonaws.com`
 
 The role permissions policy named **AWSServiceCatalogSyncServiceRolePolicy** allows AWS Service Catalog to complete the following actions on the specified resources:
-+ Action: `Connection` on `CodeConnections`
++ Action: `Connection` on `AWS CodeConnections`
 + Action: `Create, Update, and Describe` on `ProvisioningArtifact` for a AWS Service Catalog product
 
 You must configure permissions to allow an IAM entity (such as a user, group, or role) to create, edit, or delete a service-linked role. For more information, see [Service-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*.
@@ -28,12 +28,12 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 ### Creating the `AWSServiceRoleForServiceCatalogSync` service-linked role
 <a name="create-slr1"></a>
 
-You do not need to manually create the `AWSServiceRoleForServiceCatalogSync` service-linked role. AWS Service Catalog creates the service-linked role for you automatically when you establish CodeConnections in the AWS Management Console, the AWS CLI, or the AWS API. 
+You do not need to manually create the `AWSServiceRoleForServiceCatalogSync` service-linked role. AWS Service Catalog creates the service-linked role for you automatically when you establish AWS CodeConnections in the AWS Management Console, the AWS CLI, or the AWS API. 
 
 **Important**  
 This service-linked role can appear in your account if you completed an action in another service that uses the features supported by this role. Also, if you were using the AWS Service Catalog service before November 18, 2022, when it began supporting service-linked roles, then AWS Service Catalog created the `AWSServiceRoleForServiceCatalogSync` role in your account. To learn more, see [A new role appeared in my IAM account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared).
 
-If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account. When you establish CodeConnections, AWS Service Catalog creates the service-linked role for you again. 
+If you delete this service-linked role, and then need to create it again, you can use the same process to recreate the role in your account. When you establish AWS CodeConnections, AWS Service Catalog creates the service-linked role for you again. 
 
 You can also use the IAM console to create a service-linked role with the **synced AWS Service Catalog Products** use case. In the AWS CLI or the AWS API, create a service-linked role with the `sync.servicecatalog.amazonaws.com` service name. For more information, see [Creating a service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*. If you delete this service-linked role, you can use this same process to create the role again.
 

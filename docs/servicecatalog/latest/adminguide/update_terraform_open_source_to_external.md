@@ -19,4 +19,4 @@ If you have not already done so, you must transition all existing Terraform Open
 
 After transitioning your existing products, use the External product type for any new products that use a tar.gz configuration file. 
 
-AWS Service Catalog will support customers through this change as needed. If these changes require extensive effort for your account, or impact critical product workloads, contact your account representitive to request assistance. 
+AWS Service Catalog will support customers through this change as needed. If these changes require extensive effort for your account, or impact critical product workloads, contact your account representative to request assistance. 

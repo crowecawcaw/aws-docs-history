@@ -17,7 +17,7 @@ AWS Service Catalog allows you to sync products to template files that are manag
 ## Required permissions to sync products to external template files
 <a name="required-perms-synced-repo"></a>
 
-You can use the following AWS Identity and Access Management (IAM) policy as a template to enable AWS Service Catalog administrators to sync products to template files from an external repository. This policy includes required permissions from both CodeConnections and AWS Service Catalog. AWS Service Catalog recommends that you copy the template policy below, and also use the AWS Service Catalog `AWSServiceCatalogAdminFullAccess` [managed policy](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol) when enabling repository-synced products. 
+You can use the following AWS Identity and Access Management (IAM) policy as a template to enable AWS Service Catalog administrators to sync products to template files from an external repository. This policy includes required permissions from both AWS CodeConnections and AWS Service Catalog. AWS Service Catalog recommends that you copy the template policy below, and also use the AWS Service Catalog `AWSServiceCatalogAdminFullAccess` [managed policy](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/security-iam-awsmanpol) when enabling repository-synced products. 
 
 ------
 #### [ JSON ]
@@ -66,7 +66,7 @@ You can use the following AWS Identity and Access Management (IAM) policy as a t
 ## Create an account connection
 <a name="create-synced-product"></a>
 
-Before syncing a template file to a AWS Service Catalog product, you must create and authorize a one-time, account-to-account connection. You use this connection to specify the details of the repository containing the desired template file. You can create a connection using the AWS Service Catalog console, CodeConnections console, AWS Command Line Interface (CLI), or CodeConnections APIs. 
+Before syncing a template file to a AWS Service Catalog product, you must create and authorize a one-time, account-to-account connection. You use this connection to specify the details of the repository containing the desired template file. You can create a connection using the AWS Service Catalog console, AWS CodeConnections console, AWS Command Line Interface (CLI), or AWS CodeConnections APIs. 
 
 After establishing a connection, you can use the AWS Service Catalog console, AWS Service Catalog API, or CLI to create a synced AWS Service Catalog product. AWS Service Catalog administrators can create new or update existing AWS Service Catalog products based on a template file in a repository and branch. If a change is committed in the repository, AWS Service Catalog automatically detects the change and creates a new product version. Previous product versions are maintained up to the prescribed version limit and assigned a **deprecated** status. 
 
@@ -120,7 +120,7 @@ Additionally, AWS Service Catalog automatically creates a service-linked role (S
 You can use the AWS Service Catalog console, API, or AWS CLI to view repository connection details. For AWS Service Catalog products that are linked to a template file, you can retrieve information about the repository connection and the last time the template was synced with the product from the **Last Sync Status**. 
 
 **Note**  
-You can view repository information and the **Last Sync Status** at the product level. Users must have IAM permissions in the CodeConnections APIs to view repository details. Refer to [Required permissions to sync AWS Service Catalog products to template files](#required-perms-synced-repo) for more information about the required policy for these IAM permissions. 
+You can view repository information and the **Last Sync Status** at the product level. Users must have IAM permissions in the AWS CodeConnections APIs to view repository details. Refer to [Required permissions to sync AWS Service Catalog products to template files](#required-perms-synced-repo) for more information about the required policy for these IAM permissions. 
 
 **To view connection and repository details using AWS Management Console**
 
@@ -190,7 +190,7 @@ From the AWS CLI run the `$ aws servicecatalog update-product` and `$ aws servic
 ## Deleting Git-synced product connections
 <a name="delete-repo-sync"></a>
 
-You can delete a connection between a AWS Service Catalog product and a template file using the AWS Service Catalog console, CodeConnections API, or AWS CLI. When you disconnect a product from a template file, the synced AWS Service Catalog product switches to a regularly managed product. After disconnecting the product, if the template file is changed and committed in the previously connected repository, the changes are *not* reflected. To re-connect a AWS Service Catalog product to a template file in an external repository, refer to [Updating connections and synced AWS Service Catalog products](). 
+You can delete a connection between a AWS Service Catalog product and a template file using the AWS Service Catalog console, AWS CodeConnections API, or AWS CLI. When you disconnect a product from a template file, the synced AWS Service Catalog product switches to a regularly managed product. After disconnecting the product, if the template file is changed and committed in the previously connected repository, the changes are *not* reflected. To re-connect a AWS Service Catalog product to a template file in an external repository, refer to [Updating connections and synced AWS Service Catalog products](). 
 
 **To disconnect a Git-synced product using the AWS Service Catalog console**
 
@@ -208,9 +208,9 @@ You can delete a connection between a AWS Service Catalog product and a template
 
 From the AWS CLI, run the `$ aws servicecatalog update-product` command. In the `ConnectionParameters` input, remove the specified connection. 
 
-**To delete a connection using the CodeConnections API or AWS CLI**
+**To delete a connection using the AWS CodeConnections API or AWS CLI**
 
-In the CodeConnections API or AWS CLI, run the `$ aws codestar-connections delete-connection` command. 
+In the AWS CodeConnections API or AWS CLI, run the `$ aws codestar-connections delete-connection` command. 
 
 ## Syncing Terraform products to template files from GitHub, GitHub Enterprise, or Bitbucket
 <a name="git-synced-Terraform"></a>

@@ -211,7 +211,7 @@ Service Catalog sends all Update requests to an Amazon SQS queue in your account
 | **Field** | **Type** | **Required** | **Description** | 
 | --- | --- | --- | --- | 
 | token | string | Yes | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results. | 
-| operation | string | Yes | This field must be UPDATE\_PROVISION\_PRODUCT for this operation. | 
+| operation | string | Yes | The type of operation to perform. This field must be UPDATE\_PROVISIONED\_PRODUCT for this operation. | 
 | provisionedProductId | string | Yes | ID of the provisioned product. | 
 | provisionedProductName | string | Yes | Name of the provisioned product. | 
 | productId | string | Yes | ID of the product. | 
@@ -259,7 +259,7 @@ Service Catalog sends all Terminate requests to an Amazon SQS queue in your acco
 | **Field** | **Type** | **Required** | **Description** | 
 | --- | --- | --- | --- | 
 | token | string | Yes | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results. | 
-| operation | string | Yes | This field must be TERMINATE\_PROVISION\_PRODUCT for this operation. | 
+| operation | string | Yes | The type of operation to perform. This field must be TERMINATE\_PROVISIONED\_PRODUCT for this operation. | 
 | provisionedProductId | string | Yes | ID of the provisioned product. | 
 | provisionedProductName | string | Yes | Name of the provisioned product. | 
 | recordId | string | Yes | ID of the Service Catalog record for this operation. | 

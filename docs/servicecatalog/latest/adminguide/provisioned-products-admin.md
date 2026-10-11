@@ -7,8 +7,8 @@
 
 **Tip**  
  For static provisioned-product chaining, you must reference provisioned-product outputs in a product-artifact template before the provisioned product is provisioned. For more information, including an example, see the following:   
- [AWS::ServiceCatalog::CloudFormationProvisionedProduct](https://amazonaws.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#aws-resource-servicecatalog-cloudformationprovisionedproduct--examples) in the *AWS CloudFormation User Guide*. 
- [DescribeProvisioningParameters (ProvisioningArtifactOutputKeys)](https://amazonaws.com/servicecatalog/latest/dg/API_DescribeProvisioningParameters.html#API_DescribeProvisioningParameters_ResponseElements) in the *AWS Service Catalog Developer Guide*. 
+ [AWS::ServiceCatalog::CloudFormationProvisionedProduct](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#aws-resource-servicecatalog-cloudformationprovisionedproduct--examples) in the *AWS CloudFormation Template Reference*. 
+ [DescribeProvisioningParameters (ProvisioningArtifactOutputKeys)](https://docs.aws.amazon.com/servicecatalog/latest/APIReference/API_DescribeProvisioningParameters.html#API_DescribeProvisioningParameters_ResponseElements) in the *AWS Service Catalog API Reference*. 
 
 **To view and manage all provisioned products**
 

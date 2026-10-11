@@ -9,6 +9,9 @@ Each rule consists of two properties: a rule condition (optional) and assertions
 
 As an example, assume that you declared a VPC and a subnet parameter in the `Parameters` section. You can create a rule that validates that a given subnet is in a particular VPC. So when a user specifies a VPC, CloudFormation evaluates the assertion to check whether the subnet parameter value is in that VPC before creating or updating the stack. If the parameter value is invalid, CloudFormation immediately fail to create or update the stack. If users don't specify a VPC, CloudFormation doesn't check the subnet parameter value.
 
+**Note**  
+When you launch or update a provisioned product, the AWS Service Catalog console doesn't evaluate the `Rules` section if the underlying CloudFormation template contains a `Transform` section. In that case, CloudFormation evaluates those rules only after it applies the transform, so the console doesn't flag invalid parameter values. Instead, the stack operation fails.
+
 ## Syntax
 <a name="template-constraint-rules-syntax"></a>
 

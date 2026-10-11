@@ -71,8 +71,9 @@ To view provisioned Cloudformation products and resources in the AWS Service Cat
 1. Enter a name for the policy, and then paste the following into the **Policy Document** editor: 
 
    ```
-     
-             "Statement":[
+   {
+      "Version":"2012-10-17",
+      "Statement":[
          {
             "Effect":"Allow",
             "Action":[
@@ -84,6 +85,7 @@ To view provisioned Cloudformation products and resources in the AWS Service Cat
                   "s3:ExistingObjectTag/servicecatalog:provisioning":"true"
                }
             }
+         }
       ]
    }
    ```

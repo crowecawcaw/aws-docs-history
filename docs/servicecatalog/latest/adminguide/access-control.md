@@ -3,7 +3,7 @@
 # Controlling Access
 <a name="access-control"></a>
 
- a AWS Service Catalog portfolio gives your administrators a level of access control for your groups of end users. When you add users to a portfolio, they can browse and launch any of the products in the portfolio. For more information, see [Managing Portfolios](catalogs_portfolios.md). 
+An AWS Service Catalog portfolio gives your administrators a level of access control for your groups of end users. When you add users to a portfolio, they can browse and launch any of the products in the portfolio. For more information, see [Managing Portfolios](catalogs_portfolios.md). 
 
 ## Constraints
 <a name="constraints-access-control"></a>
