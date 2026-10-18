@@ -17,6 +17,7 @@ SELECT version();
 Critical updates that affect Amazon Redshift behavior are introduced as Amazon Redshift evolves. To keep up with these changes, take actions, and avoid potential disruptions to your workloads, see [Behavior changes in Amazon Redshift](behavior-changes.md).
 
 **Topics**
++ [Amazon Redshift patch 206](#cluster-version-206)
 + [Amazon Redshift patch 205](#cluster-version-205)
 + [Amazon Redshift patch 204](#cluster-version-204)
 + [Amazon Redshift patch 203](#cluster-version-203)
@@ -56,6 +57,41 @@ Critical updates that affect Amazon Redshift behavior are introduced as Amazon R
 + [Amazon Redshift patch 169](#cluster-version-169)
 + [Amazon Redshift patch 168](#cluster-version-168)
 
+## Amazon Redshift patch 206
+<a name="cluster-version-206"></a>
+
+Cluster versions in this patch:
++ 1.0.485645 – **CURRENT Track** Amazon Redshift provisioned cluster version and Amazon Redshift Serverless workgroup version – Released October 13, 2026
+
+### New features and improvements in this patch
+<a name="cluster-version-2026-10-13-features"></a>
++ Added the `probe_input_rows` and `build_input_rows` columns to `STL_HASHJOIN`, which record the number of input rows on the probe and build sides of a hash join.
++ Added the `PG_LAST_QUERY_UUID()` function, which returns the UUID of the last completed query.
++ Added a `session_id` column to `STL_UNLOAD_LOG` that records the leader node's session identifier that matches the `session_id` value in `SYS_QUERY_HISTORY`.
++ Added an `external_user_id` column to STL and STV system tables and SYS monitoring views for consistent identity tracking across provisioned clusters and serverless workgroups.
++ Added opt-in support for storing string values up to 16,000,000 bytes in the `SUPER` data type.
++ Added support for Amazon Redshift Federated Permissions in multi-warehouse configurations.
++ Added support for sharing stored procedures through Amazon Redshift data sharing. Consumers can now call stored procedures shared by a producer and run them on the consumer's own compute.
++ Improved cluster stability by reducing node restarts that could occur while committing transactions under high memory pressure.
++ Fixed an issue where a database name with leading or trailing spaces could cause a system table upgrade to fail and the cluster to enter a restart loop.
++ Fixed an issue where queries with large parameters could cause a session to terminate unexpectedly.
++ Improved the reliability of streaming ingestion from Amazon Kinesis Data Streams into streaming materialized views with auto refresh, preventing unexpected interruptions and restarts.
++ Improved zero-ETL integration recovery after cluster restarts by skipping unnecessary catalog updates when the integration database state is unchanged.
++ Improved zero-ETL ingestion throughput on larger clusters (4xlarge-class node types and above) by allowing more concurrent ingestions per database when there is sustained backlog.
++ Auto refresh interval for materialized views (MVs) -- We are introducing a new capability to set a user configurable MV auto refresh interval. This aligns MV auto refresh behavior with ETL (extract transform load) SLAs (service level agreements) by providing you an option to set when the MV auto refresh is triggered.
++ Vacuum of tables with dependent MVs -- With this enhancement, the refresh of materialized views (MVs) defined on local RMS (Redshift Managed Storage) tables stay incremental after a vacuum operation is run on the MV's base tables.
++ Materialized View internal backing tables are now stored in an internal protected schema.
++ AQMV support for MVs on Iceberg tables
++ Fixed a rare issue where a disk error during internal cluster maintenance could cause an unexpected node restart.
++ Fixed a rare issue where memory pressure could cause an unexpected node restart.
++ Fixed an issue where files belonging to dropped databases were not cleaned up promptly under heavy `DROP DATABASE` activity.
++ Fixed an issue where query admission on clusters using automatic workload management could cause an unexpected cluster restart.
++ Fixed an issue where queries that reference objects in another Amazon Redshift warehouse could slow down when that warehouse contains a large number of tables.
++ Fixed an issue where a Lambda user-defined function in a join condition could cause an unexpected query failure when it referenced neither joined table.
++ Fixed a query failure that could occur when `ST_Collect` was combined with a `DISTINCT` aggregate (such as `COUNT(DISTINCT)`) in the same grouped aggregation
++ Fixed a query failure on an external (Spectrum/Iceberg) table that combined a Lambda UDF with a hash join and dynamic partition elimination
++ Improved error messages for zero-ETL integrations to provide clearer guidance on recovery behavior, including when Amazon Redshift automatically resynchronizes affected tables.
+
 ## Amazon Redshift patch 205
 <a name="cluster-version-205"></a>
 
@@ -67,7 +103,6 @@ Cluster versions in this patch:
 <a name="cluster-version-2026-09-16-features"></a>
 + Iceberg MV – Materialized views stored in Iceberg offering incremental refresh and full recompute.
 + System tables now include an `external_user_id` column that records the durable IAM or IAM Identity Center identity associated with each query, enabling per-user filtering across cluster lifecycle events.
-+ Amazon Redshift Spectrum queries on external tables now support reading gzip and bzip2 compressed Text/CSV files.
 + Added support for the IAM\_ROLE 'SESSION' keyword for COPY and UNLOAD, allowing customers to use session-bound FAS credentials for Amazon S3 access instead of specifying an explicit IAM role ARN.
 + Added `ALTER DATABASE ... INTEGRATION REFRESH REMEDIABLE TABLES`, which resynchronizes zero-ETL tables flagged with a duplicate-date warning on demand, optionally scoped to a schema.
 + Added the `IntegrationLatestSourceCommit` Amazon CloudWatch metric for zero-ETL integrations, reporting the latest source commit time observed so you can distinguish an idle source from a stalled pipeline.

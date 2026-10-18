@@ -337,6 +337,8 @@ You govern access to the retained system table data; Redshift does not apply rea
 
 ## Delivery and lifecycle behavior
 <a name="system-table-s3-tables-lifecycle"></a>
+
+The following behaviors apply to data delivery and the lifecycle of the integration:
 + **Delivery frequency**. Data is delivered in batches at a fixed frequency.
 + **Exactly-once delivery**. Each record is delivered once; re-enabling or re-adding a system table does not create duplicates.
 + **Enable, disable, re-enable**. While the feature (or a specific system table) is disabled, no data is captured for that period. Disabling stops writes but does not remove the S3 Tables or previously delivered data. Re-enabling resumes delivery going forward and does not backfill the gap.

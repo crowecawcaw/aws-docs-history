@@ -33,6 +33,7 @@ The following table shows the default parameter values at a glance with links to
 | auto\_mv | true |  [Automated materialized views](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-auto-mv.html) in the Amazon Redshift Database Developer Guide | 
 | datestyle |  ISO, MDY  |  [datestyle](https://docs.aws.amazon.com/redshift/latest/dg/r_datestyle.html) in the Amazon Redshift Database Developer Guide  | 
 | enable\_case\_sensitive\_identifier |  false  |  [enable\_case\_sensitive\_identifier](https://docs.aws.amazon.com/redshift/latest/dg/r_enable_case_sensitive_identifier.html) in the Amazon Redshift Database Developer Guide  | 
+| enable\_large\_strings\_opt\_in | "" or not set |  [enable\_large\_strings\_opt\_in](https://docs.aws.amazon.com/redshift/latest/dg/r_enable_large_strings_opt_in.html) in the Amazon Redshift Database Developer Guide  | 
 | enable\_user\_activity\_logging |  false  |  [Database audit logging](db-auditing.md) in this guide  | 
 | extra\_float\_digits | 0 |  [extra\_float\_digits](https://docs.aws.amazon.com/redshift/latest/dg/r_extra_float_digits.html) in the Amazon Redshift Database Developer Guide  | 
 | max\_concurrency\_scaling\_clusters | 1 |  [max\_concurrency\_scaling\_clusters](https://docs.aws.amazon.com/redshift/latest/dg/r_max_concurrency_scaling_clusters.html) in the Amazon Redshift Database Developer Guide  | 
