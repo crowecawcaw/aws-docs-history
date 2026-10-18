@@ -15,6 +15,7 @@ This guide helps you understand what is changing during the transition and what 
 + [How we support you through the transition](#transition-support)
 + [What changes at a glance](#transition-changes-glance)
 + [EC2 instance access](#transition-ec2-access)
++ [Managing EC2 instance access](transition-managing-ec2-access-accelerate.md)
 + [AMS Amazon Machine Images (AMIs)](#transition-amis)
 + [Endpoint security](#transition-endpoint-security)
 + [Monitoring and alarms](#transition-monitoring)
@@ -71,11 +72,11 @@ The following table summarizes what's available in Accelerate and what's differe
 | **Reporting** | Yes, same coverage | Reports transition to the Accelerate reporting framework. Historical data is retained. | 
 | **Configuration compliance (detective controls)** | Yes, expanded coverage | Replaces the AMS Advanced change management preventive model with continuous compliance monitoring. AMS deploys a library of AWS Config rules aligned to CIS and NIST standards that continuously evaluate your resource configurations. You configure how AMS responds to each finding: auto-remediate, notify, or report. Accelerate includes approximately 87 rules with broader coverage than AMS Advanced, including net-new checks for IAM, networking, storage, database, serverless, and encryption. Additional controls will be added over time. | 
 | **CSDM and CA support** | Yes, same coverage | No change. Your CSDM and CA remain your primary contacts. | 
-| **EC2 instance access** | Customer-managed | You connect directly using your AD credentials over your existing network. AMS-managed bastion hosts are decommissioned. You can deploy your own bastions or use Session Manager. | 
+| **EC2 instance access** | Customer-managed | You connect directly using your Active Directory (AD) credentials over your existing network. AMS-managed bastion hosts are decommissioned. You can deploy your own bastions or use Session Manager. | 
 | **Endpoint security** | Customer-managed | You choose your own endpoint security vendor (including Trend Micro Vision One) and manage agent lifecycle. Customers who want AMS to monitor third-party security alerts can onboard to AWS Security Incident Response (SIR) at no additional cost—it's included for AMS customers. | 
 | **Change management (RFC system)** | Not available | The RFC system is not part of Accelerate. You use your preferred tools (Console, CLI, Terraform, AWS CloudFormation) directly. Configuration compliance monitors for risky changes after the fact. Operations on Demand is available if you need assisted change management. | 
 | **Landing zone management** | Customer-managed (MALZ: AWS Control Tower available) | For MALZ customers, AMS can transition your multi-account landing zone to AWS Control Tower, an AWS-native service that provides automated account provisioning, preventive guardrails, and centralized governance. Your core accounts (Management, Shared Services, Networking, Security, Logging) carry forward into AWS Control Tower's account structure. AMS removes AMS-managed infrastructure during offboarding; your VPCs, subnets, and network configurations remain in place. For more information, see [Landing zone governance with AWS Control Tower (optional)](#transition-control-tower). | 
-| **AMS AMIs** | Not available | AMS no longer produces monthly AMIs. Use standard AWS AMIs and EC2 Image Builder for your own pipelines. Operations on Demand offers managed AMI building if you have custom needs. | 
+| **AMS Amazon Machine Images (AMIs)** | Not available | AMS no longer produces monthly AMIs. Use standard AWS AMIs and EC2 Image Builder for your own pipelines. Operations on Demand offers managed AMI building if you have custom needs. | 
 
 ## EC2 instance access
 <a name="transition-ec2-access"></a>
@@ -87,15 +88,11 @@ In AMS Accelerate, you choose your own access method. There's no prescribed path
 As part of the transition, we remove the AMS bastion hosts and hand over the Active Directory infrastructure to you. Your existing instances remain domain-joined and accessible with your AD credentials—we've validated this with zero access downtime. You can continue using AD as your long-term access method if it works for your organization, or you can use it temporarily while you configure a different approach. Either way, the AD trust, network connectivity, and domain configuration are yours to keep.
 
 **What you need to do**  
-For existing instances, you need to add your corporate users or groups to the AMS AD access groups so that they have persistent access. In AMS Advanced, the RFC process granted temporary 8-hour access windows. Post-transition, that automation is no longer available—instead, you add your users as permanent members of the access groups. We provide guidance on which groups to add your users to and the tools to do so.
+For existing instances, you need to add your corporate users or groups to the AMS AD access groups so that they have persistent access. In AMS Advanced, the RFC process granted temporary, time-limited access. After the transition, that automation is no longer available. Instead, you add your users as permanent members of the access groups. We provide guidance on which groups to add your users to and the tools to do so.
 
 After users are provisioned, they connect directly over your existing network path (Direct Connect, VPN, or Transit Gateway) using their AD credentials.
 
-For new instances, the AMS bootstrap script no longer runs on boot, so two things that were previously automatic now need configuration:
-+ **Domain join** – New instances don't automatically join the domain. We recommend configuring automated domain join using AWS Directory Service seamless join or SSM State Manager. See [Joining an instance to your directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*.
-+ **Local group configuration** – New instances need the AD access groups added to the local administrator groups so that group members get admin access. We provide guidance on configuring this using GPO or SSM State Manager—both apply automatically to new instances without per-instance setup.
-
-**Access administration:** You take ownership of who has access to your instances. We provide you with an AD admin account, an admin workstation, and automation tools for user provisioning. You decide your access policy—whether that's permanent group membership, time-limited access through your own governance tooling, or Session Manager IAM policies.
+For detailed guidance on managing EC2 instance access through the transition, see [Managing EC2 instance access](transition-managing-ec2-access-accelerate.md).
 
 ## AMS Amazon Machine Images (AMIs)
 <a name="transition-amis"></a>
