@@ -180,6 +180,7 @@ Because the view arrangement lives in the query string, each distinct combinatio
 + Time delay is supported up to a maximum of 24 hours.
 + The manifest window cannot exceed 900 seconds (15 minutes).
 + I-frame-only playlists and trickplay tracks are not supported.
++ Muxed TS output, where audio and video are multiplexed into a single stream, is not supported.
 
 **Content protection**
 + A single DRM key covers every view and every layout. Per-view DRM keys are not supported.
