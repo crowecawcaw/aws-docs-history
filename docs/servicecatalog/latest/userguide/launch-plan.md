@@ -7,6 +7,9 @@ Before you provision a product, AWS Service Catalog enables you to create a laun
 
 Creating a plan to provision a product is optional. Once you create a plan, you won't be able to execute any actions until the plan is complete.
 
+**Note**  
+You can't create a launch plan for an AWS Control Tower Account Factory product.
+
 **To create a launch plan**
 
 1. In the left navigation menu, choose **Product**.
