@@ -30,12 +30,20 @@ Some quotas can be increased. For more information, see [AWS service quotas](htt
 | Burst rate of `SearchDevices` requests | The maximum number of additional `SearchDevices` requests per second (RPS) that you can send in one burst in this account in the current Region. | 50 | No | 
 | Rate of `CreateJob` requests | The maximum number of `CreateJob` requests you can send per second in this account per Region. | 1 per second | Yes | 
 | Burst rate of `CreateJob` requests | The maximum number of additional `CreateJob` requests per second (RPS) that you can send in one burst in this account in the current Region. | 5 | No | 
-| Rate of `SearchJobs` requests | The maximum number of `SearchJob` requests you can send per second in this account per Region. | 5 per second | Yes | 
-| Burst rate of `SearchJobs` requests | The maximum number of additional `SearchJob` requests per second (RPS) that you can send in one burst in this account in the current Region. | 50 | No | 
+| Rate of `SearchJobs` requests | The maximum number of `SearchJobs` requests you can send per second in this account per Region. | 5 per second | Yes | 
+| Burst rate of `SearchJobs` requests | The maximum number of additional `SearchJobs` requests per second (RPS) that you can send in one burst in this account in the current Region. | 50 | No | 
 | Rate of `GetJob` requests | The maximum number of `GetJob` requests you can send per second in this account per Region. | 5 per second | Yes | 
 | Burst rate of `GetJob` requests | The maximum number of additional `GetJob` requests per second (RPS) that you can send in one burst in this account in the current Region. | 25 | No | 
 | Rate of `CancelJob` requests | The maximum number of `CancelJob` requests you can send per second in this account per Region. | 2 per second | Yes | 
 | Burst rate of `CancelJob` requests | The maximum number of additional `CancelJob` requests per second (RPS) that you can send in one burst in this account in the current Region. | 5 | No | 
+| Rate of `CreateSpendingLimit` requests | The maximum number of `CreateSpendingLimit` requests you can send per second in this account per Region. | 2 per second | Yes | 
+| Burst rate of `CreateSpendingLimit` requests | The maximum number of additional `CreateSpendingLimit` requests per second (RPS) that you can send in one burst in this account in the current Region. | 5 | No | 
+| Rate of `SearchSpendingLimits` requests | The maximum number of `SearchSpendingLimits` requests you can send per second in this account per Region. | 5 per second | Yes | 
+| Burst rate of `SearchSpendingLimits` requests | The maximum number of additional `SearchSpendingLimits` requests per second (RPS) that you can send in one burst in this account in the current Region. | 50 | No | 
+| Rate of `UpdateSpendingLimit` requests | The maximum number of `UpdateSpendingLimit` requests you can send per second in this account per Region. | 2 per second | Yes | 
+| Burst rate of `UpdateSpendingLimit` requests | The maximum number of additional `UpdateSpendingLimit` requests per second (RPS) that you can send in one burst in this account in the current Region. | 5 | No | 
+| Rate of `DeleteSpendingLimit` requests | The maximum number of `DeleteSpendingLimit` requests you can send per second in this account per Region. | 2 per second | Yes | 
+| Burst rate of `DeleteSpendingLimit` requests | The maximum number of additional `DeleteSpendingLimit` requests per second (RPS) that you can send in one burst in this account in the current Region. | 5 | No | 
 | Number of concurrent ** SV1 ** quantum tasks | The maximum number of concurrent quantum tasks running on the state vector simulator (SV1) in the current Region. | 100 us-east-1,<br />50 us-west-1,<br />100 us-west-2,<br />50 eu-west-2 | No | 
 | Number of concurrent ** DM1 ** quantum tasks | The maximum number of concurrent quantum tasks running on the density matrix simulator (DM1) in the current Region. | 100 us-east-1,<br />50 us-west-1,<br />100 us-west-2,<br />50 eu-west-2 | No | 
 | Number of concurrent hybrid jobs | The maximum number of concurrent hybrid jobs in the current Region. | 3 | Yes | 
