@@ -16,7 +16,7 @@ Connecting GitLab to AWS Security Agent requires providing a GitLab access token
 ## How GitLab integration works
 <a name="_how_gitlab_integration_works"></a>
 
- **Merge request analysis** happens within GitLab. After you provide your access token, connect projects, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new merge request (a differential scan of just the changed code) and posts findings as merge request comments.
+ **Merge request analysis** happens within GitLab. After you provide your access token, connect projects, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new merge request (a differential scan of the changed code, which can also flag existing code that the changes make reachable) and posts findings as merge request comments.
 
 **Note**  
 The webhooks that trigger merge request analysis are created best-effort when you register the connection. With a personal access token, AWS Security Agent creates a webhook on each project the token can access. With a group access token, it creates a single webhook on the group.

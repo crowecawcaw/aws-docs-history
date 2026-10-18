@@ -13,11 +13,11 @@ This page applies to GitHub pull requests, GitLab merge requests, and Bitbucket 
 
 When you submit a pull request (or merge request in GitLab) in a repository with code review enabled, AWS Security Agent evaluates it against the configured review triggers. If the pull request matches a trigger, analysis begins.
 
-1.  **Pull request analysis trigger** - By default, AWS Security Agent starts a code review when a pull request is ready for review. Administrators can limit reviews by target branch or label. They can also start reviews when a label is added. For more information, see [Configure pull request code review triggers](configure-code-review-triggers.md).
+1.  **Pull request analysis trigger** – By default, AWS Security Agent starts a code review when a pull request is ready for review. Administrators can limit reviews by target branch or label. They can also start reviews when a label is added. To start a review at any time, comment `@AWS-Continuum-Pentesting review` on the pull request. For more information, see [Configure pull request code review triggers](configure-code-review-triggers.md).
 
-1.  **Analysis acknowledgment** - When AWS Security Agent begins analyzing your pull request, it posts an initial comment: "AWS Security Agent is analyzing your code…​" This lets you know the analysis has started and is in progress.
+1.  **Analysis acknowledgment** – When the review starts, AWS Security Agent posts a comment to let you know that the review is in progress.
 
-1.  **Review completion** - After analysis completes, AWS Security Agent posts a review to your pull request with the results. All security findings are batched together in a single review to keep your pull request organized and minimize notifications.
+1.  **Review completion** – After analysis completes, AWS Security Agent posts a review to your pull request with the results. All security findings are batched together in a single review to keep your pull request organized and minimize notifications.
 
 ## Understanding code review results
 <a name="_understanding_code_review_results"></a>

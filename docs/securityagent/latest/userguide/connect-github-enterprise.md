@@ -13,7 +13,7 @@ GitHub Enterprise is registered through the **GitHub** integration, not a separa
 ## How GitHub Enterprise integration works
 <a name="_how_github_enterprise_integration_works"></a>
 
- **Pull request analysis** happens within GitHub Enterprise. After you authorize the connection, connect repositories, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new pull request (a differential scan of just the changed code) and posts findings as pull request comments.
+ **Pull request analysis** happens within GitHub Enterprise. After you authorize the connection, connect repositories, and enable code review comments in the AWS Management Console, AWS Security Agent automatically scans the changes in each new pull request (a differential scan of the changed code, which can also flag existing code that the changes make reachable) and posts findings as pull request comments.
 
 You create and run **full code reviews** — which scan a repository’s entire codebase — in the AWS Security Agent web application, not in GitHub Enterprise.
 

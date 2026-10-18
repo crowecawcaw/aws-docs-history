@@ -158,6 +158,19 @@ AWS Security Agent requires an IAM role to access your AWS resources (VPC, Cloud
 **Note**  
 The default IAM role includes permissions for accessing VPC resources, CloudWatch log groups, Secrets Manager, Lambda functions, and other services required for penetration testing. It is recommended to use the default IAM role unless you have specific security requirements.
 
+### (Optional) Enable penetration test scheduling
+<a name="enable-penetration-test-scheduling"></a>
+
+Enable scheduling if you want penetration tests in this Agent Space to run automatically, either once or on a repeating schedule. For how to create a schedule in the web application, see [Schedule a penetration test](schedule-penetration-test.md).
+
+1. Expand the **Penetration test scheduling** section.
+
+1. Select **Enable scheduling**.
+
+When you save the configuration, the console creates an IAM role named `continuum-schedule-agentSpaceId ` in your account. Amazon EventBridge Scheduler assumes this role to start the scheduled runs. Each Agent Space has its own role. For the policies that the console attaches to it, see [Scheduler execution role](create-iam-role.md#scheduler-execution-role).
+
+You can also enable scheduling for an existing Agent Space without editing its configuration. On the Agent Space details page, choose the **Penetration test** tab, and then choose **Enable scheduling**. In the **Enable penetration test scheduling** dialog box, choose **Enable**. The **Penetration test scheduling** section on the tab shows the status and the name of the role.
+
 ## Step 4: Save and enable penetration testing
 <a name="_step_4_save_and_enable_penetration_testing"></a>
 

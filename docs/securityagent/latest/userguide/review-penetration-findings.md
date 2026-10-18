@@ -266,7 +266,7 @@ Maintain a remediation log that maps each finding to its resolution, including t
 After reviewing your penetration test findings:
 + Prioritize critical and high-severity findings with high confidence for immediate remediation
 + Download, review, and run verification scripts in your test environment to test the scripts and identify vulnerabilities
-+ Create tracking tickets in your issue management system with links to finding details and evidence
++ Create a Jira issue for a finding so your team can track it in Jira. See [Create Jira issues for findings](export-findings-to-issue-tracker.md).
 + Implement fixes and security controls to address identified vulnerabilities
 + Monitor the penetration test run progress indicator for newly discovered vulnerabilities
 + Revalidate a finding after you deploy a fix to confirm whether it is still exploitable. See [Revalidate penetration test findings](revalidate-findings.md).

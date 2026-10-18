@@ -194,9 +194,23 @@ The `oidc: true` flag is required: it is what makes Bitbucket issue the OIDC tok
 
 Pass **every** value the Pipe reads through `variables:`, including `AWS_ROLE_ARN`. A Pipe runs in its own container, and a variable exported in the step’s `script` does not cross into it, so a role ARN exported in the shell is not reachable by the Pipe at all. The OIDC token is the one exception: Bitbucket places `$BITBUCKET_STEP_OIDC_TOKEN` inside the Pipe’s container directly, so the Pipe reads it there and exchanges it for temporary credentials. You do not need to write the token to a file.
 
+**Pinning the commit range**  
+The Pipe reads the commit range through `variables:` like everything else. To test a specific range instead of the one the gate resolves, add `BASE_COMMIT_SHA`, `HEAD_COMMIT_SHA`, or both:  
+
+```
+            - pipe: docker://public.ecr.aws/aws-continuum/run-pentest:1-bitbucket
+              variables:
+                AGENT_SPACE_ID: "as-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                PENTEST_ID: "pt-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                AWS_REGION: "us-west-2"
+                AWS_ROLE_ARN: "$AWS_PENTEST_ROLE_ARN"
+                BASE_COMMIT_SHA: "<full 40-character commit hash>"
+```
+Each takes the full 40-character hash, and the commit needs to be in the clone. Raise `clone: depth` if it’s older than the default depth. Either variable works on its own, but pinning only `HEAD_COMMIT_SHA` is the riskier choice. When the Pipe has no recorded baseline, it takes the parent of the commit you pinned, and a pinned commit missing from the clone has no parent to take. The Pipe then starts no penetration test at all, and under the default `FAIL_ON_ERROR` of `false` the step passes without testing anything. Set both variables when you need an exact range. For more information, see [Pin the commit range explicitly](cicd-pentest.md#cicd-pentest-pin-range).
+
 Because Bitbucket Pipelines steps run in sequence and a failed step fails the pipeline, the gate step blocks the production step when it fails.
 
-**Note**  
+**A moving tag can change what runs in your pipeline**  
 Pin the Pipe to an immutable image digest (for example, `docker://public.ecr.aws/aws-continuum/run-pentest@sha256:…​`) rather than a tag, so that a change to the upstream image cannot alter what runs in your pipeline without your review. The `1-bitbucket` tag above tracks the latest 1.x release, so it moves as patches are published. See [How the integration differs by provider](cicd-pentest.md#cicd-pentest-choose-provider).
 
 ## Step 4: Validate your setup with a dry run

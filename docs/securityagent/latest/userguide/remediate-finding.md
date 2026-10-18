@@ -43,6 +43,9 @@ Run the penetration test to detect findings. For more information, see [Review f
 ## Step 4: Start and view code remediation
 <a name="_step_4_start_and_view_code_remediation"></a>
 
+**Note**  
+If a finding is already linked to a Jira issue, AWS Security Agent also adds the remediation pull request as a link on that issue. To make sure the remediation pull request is linked, link the finding to a Jira issue before remediation finishes. For more information, see [Create Jira issues for findings](export-findings-to-issue-tracker.md).
+
 1. Navigate to the finding.
 
 1. If you’ve enabled automatic code remediation, a code remediation will be started once AWS Security Agent confirms a finding.

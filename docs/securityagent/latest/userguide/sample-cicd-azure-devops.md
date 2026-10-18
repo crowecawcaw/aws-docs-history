@@ -232,7 +232,18 @@ The dry run checks AWS authentication, the Region, and that your repository reso
 
 **A dry run can become the next run’s base commit**  
 On Azure DevOps the gate falls back to the last successful build of this pipeline when it has no baseline to read, and a dry-run build succeeds. So on a pipeline with no baseline yet — which is the case the first time you run this tutorial — the commit you dry-ran on can become the base of the next real run. The gate then tests only what changed after it, rather than the range you meant to gate.  
-Dry-run on the commit you intend to gate next, so that the range is the one you want either way. If you have already dry-run on an earlier commit, pin the base explicitly on your first real run.
+Dry-run on the commit you intend to gate next, so that the range is the one you want either way. If you’ve already dry-run on an earlier commit, pin the base on your first real run by adding `baseCommitSha` to the task:  
+
+```
+          - task: RunPentest@1
+            inputs:
+              awsCredentials: aws-pentest-gate
+              regionName: us-west-2
+              agentSpaceId: "as-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+              pentestId: "pt-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+              baseCommitSha: "<full 40-character commit hash>"
+```
+The input pins the base for that run only, and the integration still resolves the head from the commit the pipeline built. For more information, see [Pin the commit range explicitly](cicd-pentest.md#cicd-pentest-pin-range).
 
 ## Step 6: Trigger the gate and read the result
 <a name="_step_6_trigger_the_gate_and_read_the_result"></a>

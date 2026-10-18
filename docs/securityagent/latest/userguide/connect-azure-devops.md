@@ -19,7 +19,7 @@ AWS Security Agent supports Git repositories in Azure DevOps only. Team Foundati
 ## How Azure DevOps integration works
 <a name="_how_azure_devops_integration_works"></a>
 
- **Pull request analysis** happens within Azure DevOps. After you register the integration, connect repositories, and enable code review comments in the AWS Management Console, AWS Security Agent installs a service hook (webhook) that notifies it of new pull requests. The agent scans the changes in each pull request (a differential scan of just the changed code) and posts findings as pull request comments.
+ **Pull request analysis** happens within Azure DevOps. After you register the integration, connect repositories, and enable code review comments in the AWS Management Console, AWS Security Agent installs a service hook (webhook) that notifies it of new pull requests. The agent scans the changes in each pull request (a differential scan of the changed code, which can also flag existing code that the changes make reachable) and posts findings as pull request comments.
 
 You create and run **full code reviews**—which scan a repository’s entire codebase—in the AWS Security Agent web application, not in Azure DevOps.
 

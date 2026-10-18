@@ -48,6 +48,9 @@ You can trigger remediation for an individual finding on demand, whether its sou
 ## Review remediation pull requests
 <a name="_review_remediation_pull_requests"></a>
 
+**Note**  
+If a finding is already linked to a Jira issue, AWS Security Agent also adds the remediation pull request as a link on that issue. To make sure the remediation pull request is linked, link the finding to a Jira issue before remediation finishes. For more information, see [Create Jira issues for findings](export-findings-to-issue-tracker.md).
+
 After AWS Security Agent submits a remediation pull request (or merge request) to a connected private repository:
 
 1. Navigate to the repository on your source code provider.

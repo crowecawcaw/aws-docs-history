@@ -12,7 +12,7 @@ Unlike pull request-based code review which is triggered automatically by third-
 
 A differential scan analyzes your code changes in the full context of your repository. When you create a code review resource with your source code uploaded to S3, the differential scan uses the complete repository as context while focusing findings specifically on the changed lines in your diff. This enables the scan to identify security issues that arise from how your changes interact with existing code — such as broken authentication flows, insecure data handling across modules, or changes that expose existing vulnerabilities.
 
-The scan process: . You upload a unified diff file (the output of `git diff`) to an S3 bucket connected to your Agent Space. . You call the `StartCodeReviewJob` API with a `diffSource` parameter pointing to the S3 location of your diff. . AWS Security Agent analyzes only the changed code in the diff for security vulnerabilities and compliance with your organization’s security requirements. . Findings are scoped to the changed lines, with severity ratings, code locations, and remediation guidance.
+The scan process: . You upload a unified diff file (the output of `git diff`) to an S3 bucket connected to your Agent Space. . You call the `StartCodeReviewJob` API with a `diffSource` parameter pointing to the S3 location of your diff. . AWS Security Agent analyzes the changed code in the diff for security vulnerabilities and compliance with your organization’s security requirements. . Findings focus on the changed lines and can also point to existing code that the changes make reachable, with severity ratings, code locations, and remediation guidance.
 
 ## Prerequisites
 <a name="_prerequisites"></a>

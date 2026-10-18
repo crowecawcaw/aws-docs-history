@@ -44,6 +44,8 @@ Revalidation runs as its own job and does not change the original finding. For e
 |  **Active**  | AWS Security Agent reproduced the vulnerability. The finding is still exploitable and needs further remediation. | 
 |  **Resolved**  | AWS Security Agent could not reproduce the vulnerability during revalidation. | 
 
+If a finding is linked to a Jira issue, AWS Security Agent adds a comment to that issue with the revalidation result.
+
 ## Trace revalidation history
 <a name="_trace_revalidation_history"></a>
 

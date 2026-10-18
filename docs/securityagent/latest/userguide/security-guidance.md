@@ -80,12 +80,10 @@ Yes. AWS Security Agent integrates with AWS IAM Identity Center, allowing admins
 ### Testing Capabilities
 <a name="_testing_capabilities"></a>
 
-#### What types of vulnerabilities can AWS Security Agent detect?
-<a name="_what_types_of_vulnerabilities_can_aws_security_agent_detect"></a>
+#### What vulnerabilities does a web application test scope cover?
+<a name="web-application-vulnerability-coverage"></a>
 
-AWS Security Agent detects vulnerabilities in the OWASP Top 10 for web applications. AWS Security Agent provides specific risk types that you can include or exclude in testing outlined below. Findings could arise within these risk categories or from novel findings discovered by following leads from a combination of these risk categories.
-
-For a **Gen AI application** test scope, AWS Security Agent also tests for large language model (LLM) prompt injection, where crafted input makes the model ignore its instructions and perform unintended actions. For more information, see [Choose a test scope](perform-penetration-test.md#choose-a-test-scope).
+For a **Web application** test scope, AWS Security Agent detects vulnerabilities in the OWASP Top 10 for Web Applications. AWS Security Agent provides specific risk types that you can include or exclude in testing, shown in the following list. Findings could arise within these risk categories or from novel findings discovered by following leads from a combination of these risk categories. For more information, see [Choose a test scope](perform-penetration-test.md#choose-a-test-scope).
 +  [Arbitrary File Upload](https://cheatsheetseries.owasp.org/cheatsheets/File_Upload_Cheat_Sheet.html) 
   + Arbitrary File Upload confirms that the application should be able to fend off bogus and malicious files in a way to keep the application and the users safe
 +  [Code Injection](https://owasp.org/www-community/attacks/Code_Injection) 
@@ -112,6 +110,21 @@ For a **Gen AI application** test scope, AWS Security Agent also tests for large
   + SQL injection attack consists of insertion or “injection” of a SQL query via the input data from the client to the application
 +  [XML External Entity](https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing) 
   + XML External Entity attack is a type of attack against an application that parses XML input. This attack occurs when XML input containing a reference to an external entity is processed by a weakly configured XML parser
+
+#### What vulnerabilities does a Gen AI application test scope cover?
+<a name="gen-ai-application-vulnerability-coverage"></a>
+
+For a **Gen AI application** test scope, AWS Security Agent discovers the application’s large language model (LLM) surfaces and tests them for the following risk types from the OWASP Top 10 for LLM Applications. The Gen AI scope tests a fixed set of risk types. Unlike the web application scope, it doesn’t support including or excluding them. For more information, see [Choose a test scope](perform-penetration-test.md#choose-a-test-scope).
++  [Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/) 
+  + Crafted input makes the model cross a boundary it would normally refuse, such as following attacker content over its own rules or making a decision it should not
++  [Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/) 
+  + The model reveals data it should withhold, such as another user’s data, secrets, or internal details
++  [Improper Output Handling](https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/) 
+  + Unsanitized model output flows into a downstream sink and is interpreted there, such as cross-site scripting or SQL injection
++  [Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) 
+  + The model is driven into an unauthorized tool call or backend action
++  [System Prompt Leakage](https://genai.owasp.org/llmrisk/llm072025-system-prompt-leakage/) 
+  + The model discloses its hidden system prompt, developer instructions, or configured rules
 
 #### Does AWS Security Agent report open network ports?
 <a name="exposed-network-ports"></a>

@@ -30,12 +30,16 @@ When you connect a resource to an Agent Space, that resource is shared across th
 **Note**  
 Confluence is a documentation provider rather than a source code provider. AWS Security Agent reads connected Confluence pages to provide context for design reviews, threat modeling, and penetration tests. Selecting a page grants read access. You can also enable create and update capabilities on a connected space to publish reports from AWS Security Agent to Confluence. The create and update capabilities are both opt-in and disabled by default.
 
+**Note**  
+Jira is an issue tracker. After you connect a Jira project to an Agent Space, you can create a Jira issue for a finding so your team can track it in Jira. For each connected project, you choose whether AWS Security Agent can create issues and comment on them. For more information about connecting a Jira project, see [Connect AWS Security Agent to Jira](connect-jira.md).
+
 ## Supported providers
 <a name="_supported_providers"></a>
 
 AWS Security Agent supports the following providers:
 +  **Source code** - GitHub (cloud-hosted GitHub and cloud-hosted GitHub Enterprise), GitHub Enterprise Server (self-hosted), GitLab (cloud-hosted), GitLab Self-Managed (self-hosted), Azure DevOps, Bitbucket Cloud, and Bitbucket Data Center (self-hosted).
 +  **Documentation** - Confluence Cloud.
++  **Issue tracking** – Jira Cloud.
 
 For self-hosted providers that are not reachable over the public internet, you can route the agent’s traffic through a private connection. For more information, see [Connect to privately hosted source control](connect-private-connection.md).
 

@@ -3,7 +3,9 @@
 # Configure pull request code review triggers
 <a name="configure-code-review-triggers"></a>
 
-Configure when AWS Security Agent reviews pull requests and merge requests in connected repositories. By default, AWS Security Agent reviews a pull request when it’s ready for review and doesn’t review draft pull requests. Use trigger filters to limit reviews by target branch or label, to review draft pull requests, or to start a review when a label is added.
+Configure when AWS Security Agent reviews pull requests and merge requests in connected repositories. By default, AWS Security Agent reviews a pull request when it’s ready for review. It doesn’t review draft pull requests.
+
+To focus reviews on the pull requests that matter to you, use trigger filters. Trigger filters can limit reviews by target branch or label. They can also review draft pull requests or start a review when a label is added. A review that you start with a pull request comment doesn’t use trigger filters.
 
 Trigger filters apply only to repositories where you turn on **Code review comments**. AWS Security Agent checks each filter group on its own. A pull request starts a review if it meets every condition in at least one group.
 
@@ -67,6 +69,11 @@ To start a review when someone adds a label, create a filter group that has only
 
  **Labels** conditions aren’t available for Bitbucket Cloud or Azure DevOps.
 
+## Manually trigger a review
+<a name="start-code-review-manually"></a>
+
+To start a review at any time, add a comment that contains only `@AWS-Continuum-Pentesting review` to an open pull request. In GitHub, add the comment to the main conversation, not to a line of code or a review thread. AWS Security Agent reviews all of the changes in the pull request, even if the pull request doesn’t match a filter group. The repository must have **Code review comments** turned on.
+
 ## If a pull request isn’t reviewed
 <a name="_if_a_pull_request_isnt_reviewed"></a>
 
@@ -75,6 +82,8 @@ AWS Security Agent doesn’t comment on pull requests that don’t match a filte
 + The pull request is open. Draft pull requests are reviewed only by a group without trigger events or a group that includes the **Pull request drafted** event.
 + The pull request meets every condition in at least one filter group.
 + Each pattern matches the complete branch or label name.
+
+To review a pull request that doesn’t match any filter group, see [Manually trigger a review](#start-code-review-manually).
 
 ## Related topics
 <a name="_related_topics"></a>

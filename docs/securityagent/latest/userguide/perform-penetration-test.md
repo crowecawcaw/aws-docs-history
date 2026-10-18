@@ -64,8 +64,8 @@ Provide a descriptive name that helps identify the purpose and scope of this pen
 Choose the kind of application this penetration test targets. The test scope determines which risks AWS Security Agent tests for.
 
 Choose one of the following in the **Test scope** field:
-+  **Web application (default)** – A full application penetration test covering web and API risks. AI features are in scope but are not the focus.
-+  **Gen AI application** – A focused test of large language model (LLM) risks in chatbots, agents, and other generative AI features. AWS Security Agent discovers the application’s LLM-backed surfaces and tests them for prompt injection. Prompt injection is crafted input that makes the model ignore its instructions and perform unintended actions.
++  **Web application (default)** – A full application penetration test covering web and API risks. AI features are in scope but are not the focus. For more information about the risk types in scope, see [web application vulnerability coverage](security-guidance.md#web-application-vulnerability-coverage).
++  **Gen AI application** – A focused test of large language model (LLM) risks in chatbots, agents, and other generative AI features. AWS Security Agent discovers the application’s LLM-backed surfaces and tests them. For more information about the risk types in scope, see [Gen AI application vulnerability coverage](security-guidance.md#gen-ai-application-vulnerability-coverage).
 
 For how the test scope affects risk exclusion, see [Exclude risk types (optional)](#exclude-risk-types-optional).
 

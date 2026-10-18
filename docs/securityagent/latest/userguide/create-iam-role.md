@@ -3,11 +3,12 @@
 # Create the IAM roles for AWS Security Agent
 <a name="create-iam-role"></a>
 
-AWS Security Agent assumes IAM service roles in your account. It uses these roles to call its own APIs on behalf of web application users, and to reach the AWS resources you want it to assess. There are two of them:
+AWS Security Agent assumes IAM service roles in your account. It uses these roles to call its own APIs on behalf of web application users and to reach the AWS resources that you want it to assess. If you schedule penetration tests, Amazon EventBridge Scheduler also assumes a role in your account to start the scheduled runs. There are three roles:
 +  **Application role** – One per application. AWS Security Agent assumes this role to give web application users permission to call AWS Security Agent APIs.
 +  **Agent Space service role** – One per Agent Space. AWS Security Agent assumes this role to reach the AWS resources you attach to that Agent Space, such as VPCs, secrets, S3 buckets, Lambda functions, and CloudWatch log groups.
++  **Scheduler execution role** – One per Agent Space. EventBridge Scheduler assumes this role to start scheduled penetration test runs in that Agent Space. This role exists only if you enable penetration test scheduling for the Agent Space.
 
-The console creates both roles for you, and generates their permissions from the resources you select. You do not need to write these policies by hand. This topic describes what the console creates, so that you can review and audit it. In the policies that follow, replace `111122223333` with your account ID, `us-east-1` with your Region, and the resource names with your own.
+The console creates these roles for you, and generates their permissions from the resources you select. You do not need to write these policies by hand. This topic describes what the console creates, so that you can review and audit it. In the policies that follow, replace `111122223333` with your account ID, `us-east-1` with your Region, and the resource names with your own.
 
 <a name="actor-role"></a>A penetration test can also assume a role in your account to authenticate to your target application. That role is separate from the application role and the Agent Space service role. You configure it per penetration test, as a credential, and you can use an IAM role, an AWS Secrets Manager secret, or a Lambda function. For more information, see [Provide authentication credentials for penetration testing](provide-testing-credentials.md).
 
@@ -96,6 +97,11 @@ The application role carries two sets of permissions, and it needs both. The fir
 ```
 
 If you encrypt your Agent Space with a customer managed key, the application role needs additional AWS KMS permissions. For those statements, see [Customer managed keys for AWS Security Agent](customer-managed-keys.md).
+
+### Permissions for penetration test scheduling
+<a name="application-role-scheduling-permissions"></a>
+
+To schedule penetration tests in the web application, you need permissions in Amazon EventBridge Scheduler and IAM. `AWSSecurityAgentWebAppPolicy` grants these permissions, so a role that has the managed policy attached receives them automatically. To add these permissions to your own policy instead, see [AWS managed policy: AWSSecurityAgentWebAppPolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSSecurityAgentWebAppPolicy).
 
 ## Agent Space service role
 <a name="agent-space-service-role"></a>
@@ -331,5 +337,86 @@ The Amazon S3 policy, scoped to the buckets you selected, such as a bucket that 
       }
     }
   ]
+}
+```
+
+## Scheduler execution role
+<a name="scheduler-execution-role"></a>
+
+Amazon EventBridge Scheduler assumes this role to start scheduled penetration test runs, so the runs start on time without anyone signing in. The console creates the role when you enable penetration test scheduling for an Agent Space. For information about how to enable it, see [(Optional) Enable penetration test scheduling](enable-penetration-test.md#enable-penetration-test-scheduling). Each Agent Space has its own role, named `continuum-schedule-agentSpaceId `, under the `/service-role/` path. The web application finds the role by this name, so don’t rename it.
+
+In the policies that follow, `as-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111` is the ID of your Agent Space.
+
+### Trust policy
+<a name="scheduler-execution-role-trust-policy"></a>
+
+With the following JSON trust policy, EventBridge Scheduler can assume the role only for schedules in the schedule group for this Agent Space. The schedule group has the same name as the Agent Space ID. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md).
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowEventBridgeSchedulerAssumeRole",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "scheduler.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "111122223333",
+          "aws:SourceArn": "arn:aws:scheduler:us-east-1:111122223333:schedule-group/as-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+        }
+      }
+    }
+  ]
+}
+```
+
+### Permissions policy
+<a name="scheduler-execution-role-permissions"></a>
+
+The console attaches the following JSON customer managed policy, named `continuum-schedule-agentSpaceId-SchedulerPolicy-suffix `. With this policy, the role can start jobs only in this Agent Space. The policy also includes the actions to start code review and threat model jobs and to create design reviews, but scheduled penetration test runs use only `securityagent:StartPentestJob`. For more information about these actions, see the [AWS Security Agent API Reference](https://docs.aws.amazon.com/securityagent/latest/APIReference/Welcome.html).
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "TriggerSecurityAgentJobsForAgentSpace",
+      "Effect": "Allow",
+      "Action": [
+        "securityagent:StartPentestJob",
+        "securityagent:StartCodeReviewJob",
+        "securityagent:StartThreatModelJob",
+        "securityagent:CreateDesignReview"
+      ],
+      "Resource": "arn:aws:securityagent:us-east-1:111122223333:agent-space/as-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ]
+}
+```
+
+If you encrypt the Agent Space with a customer managed key, the console adds the following JSON statement to the policy. With this statement, the role can use the key only through AWS Security Agent, and only for data in this Agent Space.
+
+```
+{
+  "Sid": "AllowKmsKeyDecryptionForAgentSpaceData",
+  "Effect": "Allow",
+  "Action": [
+    "kms:GenerateDataKey",
+    "kms:Decrypt"
+  ],
+  "Resource": "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-EXAMPLE11111",
+  "Condition": {
+    "StringEquals": {
+      "aws:ResourceAccount": "111122223333"
+    },
+    "StringLike": {
+      "kms:ViaService": "securityagent.us-east-1.amazonaws.com",
+      "kms:EncryptionContext:aws:securityagent:agent-space": "arn:aws:securityagent:us-east-1:111122223333:agent-space/as-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  }
 }
 ```

@@ -195,6 +195,7 @@ After merging remediation pull requests, start a new run of the same code review
 
 After reviewing your code review findings:
 + Prioritize high-severity findings with high confidence for immediate remediation
++ Create a Jira issue for a finding so your team can track it in Jira. For information about creating a Jira issue to track a finding, see [Create Jira issues for findings](export-findings-to-issue-tracker.md).
 + Use **Remediate code** to generate fixes for findings from a connected source code repository or an Amazon S3 source (see [Remediate code review findings](remediate-code-scan-findings.md))
 + Run additional code reviews after implementing fixes to verify remediation
 + Adjust your code review sources or settings as your codebase evolves (see [Enable code review](enable-code-review-scan.md))
