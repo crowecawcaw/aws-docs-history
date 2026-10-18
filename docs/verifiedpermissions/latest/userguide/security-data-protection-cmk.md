@@ -122,7 +122,7 @@ Customers can utilize source context as additional conditions on their key polic
                 "StringEquals": {  
                     "aws:SourceAccount": "111122223333"  
                 },  
-                "StringLike": {  
+                "ArnLike": {  
                     "aws:SourceArn": "arn:aws:verifiedpermissions::111122223333:policy-store/*"  
                 }  
             }  
@@ -145,7 +145,7 @@ Customers can utilize source context as additional conditions on their key polic
                 "StringEquals": {  
                     "aws:SourceAccount": "111122223333"  
                 },  
-                "StringLike": {  
+                "ArnLike": {  
                     "aws:SourceArn": "arn:aws:verifiedpermissions::111122223333:policy-store/*"  
                 }  
             }  
@@ -288,7 +288,7 @@ Based on the concepts in the previous sections, this is an example key policy th
                 "StringEquals": {  
                     "aws:SourceAccount": "111122223333"  
                 },  
-                "StringLike": {  
+                "ArnLike": {  
                     "aws:SourceArn": "arn:aws:verifiedpermissions::111122223333:policy-store/*"  
                 }  
             }  
@@ -310,7 +310,9 @@ Based on the concepts in the previous sections, this is an example key policy th
             "Condition": {  
                 "StringLike": {  
                     "kms:EncryptionContext:aws:verifiedpermissions:policy-store-arn": "arn:aws:verifiedpermissions::111122223333:policy-store/*",  
-                    "kms:EncryptionContext:policy_owner": "Tim",  
+                    "kms:EncryptionContext:policy_owner": "Tim"  
+                },  
+                "ArnLike": {  
                     "aws:SourceArn": "arn:aws:verifiedpermissions::111122223333:policy-store/*"  
                 },  
                 "StringEquals": {  
@@ -329,8 +331,7 @@ Based on the concepts in the previous sections, this is an example key policy th
                 "kms:GenerateDataKeyWithoutPlaintext",  
                 "kms:Encrypt",  
                 "kms:ReEncryptFrom",  
-                "kms:ReEncryptTo",  
-                "kms:DescribeKey"  
+                "kms:ReEncryptTo"  
             ],  
             "Resource": "*",  
             "Condition": {  
@@ -342,6 +343,22 @@ Based on the concepts in the previous sections, this is an example key policy th
                 "StringLike": {  
                     "kms:EncryptionContext:aws:verifiedpermissions:policy-store-arn": "arn:aws:verifiedpermissions::111122223333:policy-store/*",  
                     "kms:EncryptionContext:policy_owner": "Tim"  
+                }  
+            }  
+        },  
+        {  
+            "Sid": "Enable AVP to describe this key using credentials of BrentRole",  
+            "Effect": "Allow",  
+            "Principal": {  
+                "AWS": "arn:aws:iam::111122223333:role/BrentRole"  
+            },  
+            "Action": "kms:DescribeKey",  
+            "Resource": "*",  
+            "Condition": {  
+                "StringEquals": {  
+                    "kms:ViaService": [  
+                        "verifiedpermissions.us-east-1.amazonaws.com"  
+                    ]  
                 }  
             }  
         }  

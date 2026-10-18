@@ -19,7 +19,7 @@ For the list of all Verified Permissions quotas, see [Quotas for Amazon Verified
 
 Each policy contributes to the total for a resource as follows:
 + **Static policies** – A static policy contributes its full size. This is the same value that is measured against the *Policy size* quota.
-+ **Template-linked policies** – A template-linked policy contributes the combined length of the principal and resource used to instantiate it. If you don't specify the principal or resource, its length is counted as 0. The size of the policy template body itself doesn't count toward this quota.
++ **Template-linked policies** – A template-linked policy contributes the combined length of the principal and resource used to instantiate it, as well as some fixed overhead stored in the database item. If a template has no principal or resource slot, then the length of this unspecified entity is counted as 0. The size of the policy template body itself doesn't count toward this quota.
 
 Each policy also adds a fixed overhead of up to a few hundred bytes to the total. Template-linked policies add more overhead than static policies.
 

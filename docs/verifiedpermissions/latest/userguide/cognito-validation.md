@@ -3,7 +3,7 @@
 # Client and audience validation for Amazon Cognito
 <a name="cognito-validation"></a>
 
-When you add an identity source to a policy store, Verified Permissions has configuration options that verify that ID and access tokens are being used as intended. This validation happens in the processing of `IsAuthorizedWithToken` and `BatchIsAuthorizedWithToken` API requests. The behavior differs between ID and access tokens, and between Amazon Cognito and OIDC identity sources. With Amazon Cognito user pools providers, Verified Permissions can validate the client ID in both ID and access tokens. With OIDC providers, Verified Permissions can validate the client ID in ID tokens, and the audience in access tokens.
+When you add an identity source to a policy store, Verified Permissions has configuration options that validate the client ID and audience of ID and access tokens, and verify the `token_use` claim. This validation happens in the processing of `IsAuthorizedWithToken` and `BatchIsAuthorizedWithToken` API requests. The behavior differs between ID and access tokens, and between Amazon Cognito and OIDC identity sources. With Amazon Cognito user pools providers, Verified Permissions can validate the client ID in both ID and access tokens. With OIDC providers, Verified Permissions can validate the client ID in ID tokens, and the audience in access tokens.
 
 A *client ID* is an identifier associated with the identity provider instance that your application uses, for example `1example23456789`. An *audience* is a URL path associated with the intended *relying party*, or destination, of the access token, for example `https://mytoken.example.com`. When using access tokens, the `aud` claim is always associated with the audience.
 

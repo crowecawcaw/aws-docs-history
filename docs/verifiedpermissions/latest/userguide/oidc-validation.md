@@ -3,7 +3,9 @@
 # Client and audience validation for OIDC providers
 <a name="oidc-validation"></a>
 
-When you add an identity source to a policy store, Verified Permissions has configuration options that verify that ID and access tokens are being used as intended. This validation happens in the processing of `IsAuthorizedWithToken` and `BatchIsAuthorizedWithToken` API requests. The behavior differs between ID and access tokens, and between Amazon Cognito and OIDC identity sources. With Amazon Cognito user pools providers, Verified Permissions can validate the client ID in both ID and access tokens. With OIDC providers, Verified Permissions can validate the client ID in ID tokens, and the audience in access tokens.
+When you add an identity source to a policy store, Verified Permissions has configuration options that validate the client ID and audience of ID and access tokens. This validation happens in the processing of `IsAuthorizedWithToken` and `BatchIsAuthorizedWithToken` API requests. The behavior differs between ID and access tokens, and between Amazon Cognito and OIDC identity sources. With Amazon Cognito user pools providers, Verified Permissions can validate the client ID in both ID and access tokens. With OIDC providers, Verified Permissions can validate the client ID in ID tokens, and the audience in access tokens.
+
+Unlike Amazon Cognito tokens, OIDC tokens have no standard claim that indicates whether a token is an ID token or an access token. As a result, Verified Permissions does not verify the token type for OIDC identity sources. You are responsible for passing the token type that your policy store is configured to process in each `IsAuthorizedWithToken` or `BatchIsAuthorizedWithToken` request.
 
 A *client ID* is an identifier associated with the identity provider instance that your application uses, for example `1example23456789`. An *audience* is a URL path associated with the intended *relying party*, or destination, of the access token, for example `https://mytoken.example.com`. When using access tokens, the `aud` claim is always associated with the audience.
 
