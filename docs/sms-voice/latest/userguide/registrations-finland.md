@@ -5,6 +5,12 @@
 
 Follow these directions to register your sender ID in Finland. As required by Finnish regulation (Traficom Order 28 L/2025 M), all sender IDs used to send SMS messages to Finnish mobile numbers must be pre-registered with local operators.
 
+Finnish sender ID rules cover both registering a sender ID and protecting it.
+
+If you protect your sender ID with Traficom, Finnish operators block it after the Traficom numbering-decision grace period. To keep sending, also register it through a separately-agreed operator route.
+
+To use that route, indicate during registration that your sender ID is protected. You then attach two documents: the Sender ID Protection letter of authorization and your Traficom certificate. The Traficom certificate is the numbering or registration decision issued to you by Traficom.
+
 1. Open the AWS End User Messaging SMS console at [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/).
 
 1. In the navigation pane, under **Registrations**, choose **Create registration**.
@@ -17,6 +23,9 @@ If you already created a registration when requesting the origination identity t
 
 1. In the **Sender ID info** section, enter the following:
    + For **Sender ID**, enter the sender ID to request. The sender ID must be between 3 and 11 alphanumeric characters. For more information on sender ID formatting rules, see [Considerations for a sender ID](sender-id.md#sender-id-considerations)
+   + Select **This sender ID is protected with Traficom** if applicable.
+   + (Optional) To download the Sender ID Protection letter of authorization, choose [Sender ID Protection letter of authorization](samples/Finland_SenderId_SenderIdProtection_LOA.zip), then complete and attach it.
+   + (Optional) Attach your **Traficom certificate**.
 
    Choose **Next**.
 

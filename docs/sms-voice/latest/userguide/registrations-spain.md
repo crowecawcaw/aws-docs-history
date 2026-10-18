@@ -48,6 +48,7 @@ To complete your Spain sender ID registration, you must:
   <tr><td>SINCH COMMUNICATIONS SPAIN, S.L.</td><td>Sinch</td></tr>
   <tr><td>VONAGE, B.V.</td><td>Vonage</td></tr>
   <tr><td>Twilio Ireland Limited</td><td>Twilio</td></tr>
+  <tr><td>TELESIGN CORPORATION</td><td>Telesign</td></tr>
 </tbody>
 </table>
 
