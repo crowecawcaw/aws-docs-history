@@ -38,5 +38,6 @@ Reference `WrappedAction.*` only in a wrap hook's `command` or `args`. Embedded 
 + Give build identities permission to push images. Give queue and fleet roles read-only Amazon ECR access.
 + Don't store AWS credentials, license secrets, or private keys in an image.
 + Forward only the environment variables required by the workload. The default queue environment forwards an allowlist of usage-based license variables and doesn't forward the host's AWS credentials.
++ Move data on the worker and keep the container for computation. The worker downloads job attachment inputs before tasks run and uploads outputs after them, so a container that reads and writes the session directory doesn't need AWS credentials. For more information, see [Return output files from a container](containers-share-session-directory.md#containers-session-directory-outputs).
 + Mount only the directories that the workload requires. Use read-only mounts for input data when no action needs to modify it.
 + Stop only the container created for the current session. Don't prune or stop unrelated containers on the worker.

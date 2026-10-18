@@ -8,6 +8,7 @@ Security in Deadline Cloud comes down to three questions: who can see and manage
 **Topics**
 + [Security controls in Deadline Cloud](security-controls.md)
 + [Data flow, ports, and encryption in Deadline Cloud](security-data-flow.md)
++ [Access, logging, and data retention in Deadline Cloud](access-logging-retention.md)
 + [Security best practices for Deadline Cloud](security-best-practices.md)
 + [Verify the authenticity of downloaded software](verify-installer.md)
 + [Identity and Access Management in Deadline Cloud](security-iam.md)

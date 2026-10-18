@@ -52,7 +52,6 @@ To install a digital content creation (DCC) adaptor on a customer-managed fleet
   <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/blender.html">Blender</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-blender">deadline-cloud-for-blender</a></td></tr>
   <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-maya.html">Chaos V-Ray for Maya</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-maya">deadline-cloud-for-maya</a></td></tr>
   <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/foundry-nuke.html">Foundry Nuke</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-nuke">deadline-cloud-for-nuke</a></td></tr>
-  <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/keyshot.html">KeyShot Studio</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-keyshot">deadline-cloud-for-keyshot</a></td></tr>
   <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/maxon-cinema-4d.html">Maxon Cinema 4D</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-cinema-4d">deadline-cloud-for-cinema-4d</a></td></tr>
   <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/autodesk-maya.html">Maxon Redshift for Maya</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-maya">deadline-cloud-for-maya</a></td></tr>
   <tr><td><a href="https://docs.aws.amazon.com/deadline-cloud/latest/userguide/sidefx-houdini.html">SideFX Houdini</a></td><td><a href="https://github.com/aws-deadline/deadline-cloud-for-houdini">deadline-cloud-for-houdini</a></td></tr>
@@ -60,6 +59,8 @@ To install a digital content creation (DCC) adaptor on a customer-managed fleet
 </tbody>
 </table>
 
+
+KeyShot jobs don't use an adaptor package. To run KeyShot jobs on a customer-managed fleet, install KeyShot Studio on the worker and set the `KEYSHOT_EXECUTABLE` environment variable or add the KeyShot installation directory to the `PATH`. For more information, see [Setting up workers](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/keyshot.html#keyshot-worker-setup) in the *Deadline Cloud User Guide*.
 
 **Installing multiple adaptors on the same worker**  
 If you install more than one DCC adaptor on the same worker, install each adaptor into its own Python virtual environment. Adaptors can pin different version ranges for shared Python packages (for example, `deadline` or `openjd-adaptor-runtime`). An environment with multiple adaptors might fail with a `ResolutionImpossible` error. It might also silently downgrade a shared package and break the adaptors that need the newer version.

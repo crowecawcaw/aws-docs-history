@@ -105,6 +105,29 @@ You must also set a trust policy on the role. In the following example, replace 
 
 ------
 
+## Bucket settings and what Deadline Cloud configures
+<a name="job-attachment-bucket-settings"></a>
+
+When you create a queue in the console and let Deadline Cloud create a new bucket for it, Deadline Cloud blocks all public access to the bucket and adds a bucket policy that denies requests made with a TLS version earlier than 1.2. Deadline Cloud doesn't change the settings of a bucket that already exists, so when you select your own bucket, confirm those two settings yourself.
+
+The remaining settings are yours to choose. The following table lists the setting, the default for a bucket that Deadline Cloud creates, and where to change it.
+
+
+**Job attachments bucket settings**  
+
+| Setting | Default | Where to change it | 
+| --- | --- | --- | 
+| Block Public Access | All four settings enabled | Amazon S3. Job attachments never needs public access, so leave the settings enabled. | 
+| Minimum TLS version | A bucket policy denies requests below TLS 1.2 | Amazon S3 bucket policy. To require TLS 1.3, raise the value in the policy. | 
+| Encryption at rest | Amazon S3 managed keys (SSE-S3), which Amazon S3 applies to every new object | Amazon S3. To use your own key, configure the bucket for SSE-KMS and grant the queue role access to the key. See [Encryption for job attachment S3 buckets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html#storage-job-attachments-encryption). | 
+| Versioning | Off | Amazon S3. Turn versioning on to keep a recoverable copy of overwritten or deleted objects. | 
+| Access logging | Off | CloudTrail data events or Amazon S3 server access logs, either of which records per-object access. For more information, see [Audit and access logging sources](access-logging-retention.md#audit-logging-sources). | 
+| Lifecycle configuration | None, so objects stay until you delete them | Amazon S3. Add a lifecycle rule to expire old job attachments. For more information, see [Managing job attachments in S3 buckets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html#storage-job-attachments-s3-lifecycle) in the *Deadline Cloud User Guide*. | 
+
+The job attachments feature doesn't restrict files by file name extension. Two controls shape what a job can bring with it and what it can reach:
++ Storage profiles declare the file system locations that a queue expects. If a scene references files outside those locations, the submitter warns you before you submit the job. For more information, see [Storage profiles](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-profile.html) in the *Deadline Cloud User Guide*.
++ What a job can do with a file it receives comes from the operating system user that job processes run as, and from the queue role. For more information, see [Run jobs as dedicated OS users](job-run-as-user.md).
+
 ## Custom software Amazon S3 buckets
 <a name="software-buckets"></a>
 

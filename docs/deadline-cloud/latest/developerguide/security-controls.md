@@ -5,6 +5,8 @@
 
 A render farm runs jobs from many people on shared infrastructure. Artists submit scenes, worker hosts run them, and the results land in shared storage. AWS Deadline Cloud gives you a set of controls to decide who can see and change farm resources, what jobs can do while they run, and how workloads stay separate from each other.
 
+For information about components, network ports, protocols, and encryption, see [Data flow, ports, and encryption in Deadline Cloud](security-data-flow.md). For information about authentication, sessions, logging, data retention, and AWS access, see [Access, logging, and data retention in Deadline Cloud](access-logging-retention.md).
+
 Three questions organize the controls:
 + **Who can see and manage farm resources?** Monitor users with access levels, and IAM policies for the console and API.
 + **What can the service, workers, and jobs do on your behalf?** The IAM service roles for fleets, worker hosts, queues, and monitors.

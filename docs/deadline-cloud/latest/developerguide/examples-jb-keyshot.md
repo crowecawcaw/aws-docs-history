@@ -17,3 +17,5 @@ The bundle expects one of the following:
 + All referenced files available through network storage or another method that isn't job attachments.
 
 To run this bundle, your queue needs KeyShot available through a queue environment. The [keyshot-2025 conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025) on the GitHub website builds a KeyShot conda package you can publish to your queue's S3 conda channel.
+
+The bundle launches KeyShot once for each frame. To submit from inside KeyShot with a job that starts KeyShot once for each worker session, use the [KeyShot submitter sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/keyshot) on the GitHub website. For more information, see [KeyShot Studio](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/keyshot.html) in the *Deadline Cloud User Guide*.

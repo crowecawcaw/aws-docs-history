@@ -116,6 +116,8 @@ The easiest to start with mechanism for asset access is Deadline Cloud job attac
 
 Job attachments is not the best tool for all situations. If your data is already on AWS, then job attachments add an additional copy of your data, including associated transfer time and storage costs. Job attachments require that the job can fully specify the data it requires at submission time, so that the data can be uploaded.
 
+If your job reads inputs from Amazon S3 and writes outputs there directly instead of through job attachments, Deadline Cloud monitor doesn't show or download those outputs. To keep a preview in the monitor, also write a small subset, such as summaries or sample frames, to a job attachments output location. For more information, see [Getting output files from a job](getting-output-files-from-a-job.md).
+
 To use job attachments, your Deadline Cloud queue must have an associated job attachments bucket and the queue role must be used to provide access to that bucket. By default, Deadline Cloud integrated submitters all support job attachments. If you are not using a Deadline Cloud integrated submitter, job attachments can be used with your custom software by integrating the [Deadline Cloud python library](https://github.com/aws-deadline/deadline-cloud) on the GitHub website.
 
 ### Custom storage access

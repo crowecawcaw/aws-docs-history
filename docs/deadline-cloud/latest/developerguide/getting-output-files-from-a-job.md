@@ -31,6 +31,12 @@ parameterDefinitions:
 
 The `OutputDir` parameter's `dataFlow` value of `OUT` marks its value as an output location. If no `SHARED` location in the job's storage profile covers `./output_dir`, the worker checks it for new files after each task and uploads them to Amazon S3 as job outputs.
 
+<a name="job-attachments-output-file-rules"></a>The worker uses the following rules to choose which files in an output location to upload:
++ The worker uploads files that are new and files whose size or modification time changed since the session downloaded them. An input file that a task modifies is uploaded as an output.
++ The upload runs as the job user. If the job user can't read a file in an output location, the output upload fails.
++ The worker follows symbolic links and uploads the contents of the target file under the link's path. A link whose target doesn't exist on the worker host is skipped.
++ Files outside every output location aren't uploaded, even when they're in the session working directory.
+
  To see how this process works, first start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any previously submitted jobs finish running. Then delete the job logs from the logs directory: 
 
 ```
