@@ -62,7 +62,7 @@ Authorizing an agent does not grant it any additional AWS permissions. AWS evalu
 The OAuth token expires based on the session duration configured for the IAM role used for authentication and can be extended for up to 12 hours. After the session expires, re-authenticate through the browser.
 
 **Prerequisites**  
-Grant OAuth sign-in permissions to your IAM role or user. You can attach the `AWSMcpServiceActionsFullAccess` managed policy, or add the `signin:AuthorizeOAuth2Access` and `signin:CreateOAuth2Token` actions to your IAM policy.
+Grant OAuth sign-in permissions to your IAM role or user. Add an explicit `Allow` for the `signin:AuthorizeOAuth2Access` and `signin:CreateOAuth2Token` actions to your IAM policy, as shown in the following policy.
 
 ```
 {
@@ -159,10 +159,10 @@ kiro-cli --v3 mcp add --name partnercentral --url https://partnercentral-agents-
 ```
 
 **Note**  
-OAuth with the Partner Central Agent MCP Server requires Kiro CLI version 3 or later. Earlier versions do not support this flow.
+OAuth with the Partner Central Agent MCP Server requires a Kiro CLI version that supports the OAuth flow (the `--v3` option). If you are on an earlier version, the command fails with `error: unexpected argument '--v3' found`. Run `kiro-cli update` to upgrade, then verify with `kiro-cli --version` before retrying. The same updated runtime also enables the OAuth connection in Kiro IDE.
 
 **Kiro IDE**  
-Add as a remote MCP server with the following URL:
+Add as a remote MCP server with the following URL (requires an updated Kiro version that supports OAuth MCP connections; run `kiro-cli update` if the connection fails):
 
 ```
 https://partnercentral-agents-mcp.us-east-1.api.aws/mcp
@@ -758,7 +758,7 @@ The following table lists common errors and their resolutions.
 | Error | Cause | Resolution | 
 | --- | --- | --- | 
 | The security token included in the request is invalid | Expired credentials | Run aws sso login to refresh credentials | 
-| Access denied: User is not authorized to perform signin:AuthorizeOAuth2Access | Missing OAuth permissions | Attach AWSMcpServiceActionsFullAccess or add signin permissions | 
+| Access denied: User is not authorized to perform signin:AuthorizeOAuth2Access | Missing OAuth sign-in permissions | Add an explicit Allow for the signin:AuthorizeOAuth2Access and signin:CreateOAuth2Token actions to your IAM policy | 
 | 400 error after OAuth sign-in | IAM principal lacks OAuth permissions | Verify signin:AuthorizeOAuth2Access and signin:CreateOAuth2Token are allowed | 
 | Access denied or implicit deny on partnercentral:InvokeMcp or signin:\* actions | Organization uses allowlist-based Service Control Policies (SCPs) that block services not explicitly permitted | Ask your AWS administrator to add partnercentral and signin (for OAuth only) to the allowed services in your organization's SCPs. The SCP must permit these services at the account level before identity policies can take effect. The only action that controls MCP protocol access is partnercentral:InvokeMcp — an explicit Deny on this action blocks all MCP requests. | 
 
