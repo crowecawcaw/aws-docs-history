@@ -26,7 +26,7 @@ The following table shows which workflow stages support each step action. A chec
 | CreateImageFromIso | X | X | X | Creates an AMI from an ISO disk image. | 
 | RegisterImage | X | X | X | Registers an AMI from snapshots. | 
 | DistributeContainerImage |  |  | X | Distributes a container image. Restricted to the distribution stage. | 
-| CollectImageScanFindings |  | X |  | Collects image scan findings. Restricted to the test stage. Requires Amazon Inspector and image scanning. | 
+| CollectImageScanFindings |  | X |  | Collects image scan findings. Restricted to the test stage. Requires Amazon Inspector. | 
 | RunCommand | X | X | X | Runs an AWS Systems Manager (Systems Manager) command document. | 
 | WaitForSSMAgent | X | X | X | Waits for Systems Manager connectivity after a reboot. | 
 | WaitForAction | X | X | X | Pauses for an external action. | 
@@ -250,9 +250,9 @@ $.stepOutputs.{{CollectMetadataStep}}.osVersion
 ## CollectImageScanFindings
 <a name="wfdoc-step-action-collect-findings"></a>
 
-If Amazon Inspector is enabled for your account and image scanning is enabled for your pipeline, this step action collects image scan findings reported by Amazon Inspector for your test instance. This step action is not available for build workflows.
+This step action collects the image scan findings that Amazon Inspector reports for your test instance, or for the copy of your container image that Image Builder pushes to Amazon ECR. You can use this step action only in test workflows.
 
-**Default Timeout: **120 minutes
+**Default Timeout: **15 minutes
 
 **Max Timeout: **720 minutes (12 hours)
 
@@ -265,16 +265,9 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 | Input name | Description | Type | Required | Default | Constraints | 
 | --- | --- | --- | --- | --- | --- | 
-| instanceId | The ID for the instance that scanning ran on. | String | Yes |  | This must be the output instance ID from the workflow step that launched the instance for this workflow. | 
+| instanceId | For an AMI, the ID of the test instance to scan. For a container image, the ID of the instance that pushes the image copy to Amazon ECR. | String | Yes |  | In an AMI test workflow, use the instance ID output from the step that launched the instance. In a container test workflow, use $.workflowOutputs.InstanceId. | 
 
-**Outputs: **The following table includes outputs for this step action.
-
-
-| Output name | Description | Type | 
-| --- | --- | --- | 
-| runCommandId | The ID of the Systems Manager sendCommand that ran the script to collect findings. | String | 
-| status | The status returned from the Systems Manager sendCommand. | String | 
-| output | Output returned from the Systems Manager sendCommand. | String | 
+**Outputs: **This step action doesn't produce outputs.
 
 **Example**
 
@@ -284,14 +277,11 @@ Specify the step action in the workflow document.
 - name: {{CollectFindingsStep}}
   action: CollectImageScanFindings
   onFailure: Abort
+  if:
+    booleanEquals: true
+    value: "$.imagebuilder.collectImageScanFindings"
   inputs:
       instanceId.$: $.stepOutputs.{{LaunchStep}}.instanceId
-```
-
-Use the output of the step action value in the workflow document.
-
-```
-$.stepOutputs.{{CollectFindingsStep}}.status
 ```
 
 ## CreateImage
@@ -634,6 +624,8 @@ $.stepOutputs.{{ValidateImageCompliance}}.executionArn
 
 Use this step action to launch an instance in your AWS account. The action waits until the instance meets the specified health check condition and the Systems Manager agent is running before proceeding to the next step. The launch action uses settings from your recipe and infrastructure configuration resources. For example, the instance type to launch comes from the infrastructure configuration. The output is the instance ID of the instance that launched.
 
+In a build workflow, the action uses an instance that's already running instead of launching one when you specify `parentInstanceId`, or when your infrastructure configuration has a parent instance. For more information, see [Build on an instance from an Auto Scaling group](infra-config-parent-instance.md).
+
 The `waitFor` input configures the condition that satisfies the step completion requirement. The `healthCheck` input specifies the level of EC2 instance health validation that must pass before the step proceeds.
 
 **Default Timeout: **75 minutes
@@ -653,13 +645,38 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 | instanceTypesOverride | Image Builder tries each instance type in the list until it finds one that launches successfully | List of String | No | Instance types specified in your Infrastructure Configuration | Must be valid instance types | 
 | waitFor | The condition to wait for before completing the workflow step and moving on to the next step | String | Yes | None | Image Builder supports ssmAgent. | 
 | healthCheck | The level of EC2 health validation required before the workflow step proceeds. Specify RUNNING for faster builds with minimal validation, or STATUS\_CHECK\_PASSED to wait for EC2 status checks to pass. | String | No | STATUS\_CHECK\_PASSED | Valid values: RUNNING \| STATUS\_CHECK\_PASSED. | 
+| parentInstanceId | The ID of a running instance to build on, instead of launching a new instance. Applies only in build workflows. By default, Image Builder terminates the instance when the build ends. | String | No | None | Must be an instance ID with 8 or 17 lowercase hexadecimal characters after i-. When you set it, Image Builder ignores imageIdOverride, instanceTypesOverride, userDataOverride, and healthCheck. | 
+
+**Build on an existing instance: **When you specify `parentInstanceId`, the launch settings from your recipe and infrastructure configuration don't apply, and the following rules apply:
++ The instance must be running, in the same AWS account and AWS Region as the image, run the same platform and architecture as the image, and not be in use by another Image Builder workflow. Otherwise, the step fails.
++ The execution role needs the EC2ImageBuilderExecutionPolicy managed policy and `ec2:CreateTags` on the instance. Image Builder tags the instance with `CreatedBy: EC2 Image Builder`, and the managed policy only lets Image Builder run commands on, stop, create an image from, and terminate instances with that tag. The tags also replace the instance's `Name` tag. If tagging fails, the step continues, but later steps fail unless the instance already has the `CreatedBy` tag. The following example policy lets the role tag two instances:
+
+  ```
+  {
+      "Version": "2012-10-17",
+      "Statement": [
+          {
+              "Sid": "TagParentInstance",
+              "Effect": "Allow",
+              "Action": "ec2:CreateTags",
+              "Resource": [
+                  "arn:aws:ec2:{{us-west-2}}:{{111122223333}}:instance/{{i-0123456789abcdef0}}",
+                  "arn:aws:ec2:{{us-west-2}}:{{111122223333}}:instance/{{i-0fedcba9876543210}}"
+              ]
+          }
+      ]
+  }
+  ```
++ The instance must be able to run SSM Agent commands, and for container builds, Docker.
++ Image Builder doesn't detach the instance from an Auto Scaling group, and `parentInstanceId` takes precedence over a parent instance in the infrastructure configuration. Test workflows ignore it.
++ To keep the instance after the build, set `terminateInstanceOnCompletion` and `terminateInstanceOnFailure` to `false`, and skip any `TerminateInstance` step for it when `terminateInstanceOnCompletion` is `false`. For more information, see [TerminateInstance](#wfdoc-step-action-terminate-instance).
 
 **Outputs: **The following table includes outputs for this step action.
 
 
 | Output name | Description | Type | 
 | --- | --- | --- | 
-| instanceId | The instance ID of the instance that launched. | String | 
+| instanceId | The instance ID of the instance that launched, or of the running instance that the action used instead. | String | 
 
 **Example**
 
@@ -679,6 +696,38 @@ Use output from the step action in the workflow document.
 ```
 $.stepOutputs.{{LaunchStep}}.instanceId
 ```
+
+Build on an existing instance with the following build workflow.
+
+```
+parameters:
+  - name: parentInstanceId
+    type: string
+    default: ""
+
+steps:
+  - name: LaunchBuildInstance
+    action: LaunchInstance
+    onFailure: Abort
+    inputs:
+      waitFor: ssmAgent
+      parentInstanceId.$: "$.parameters.parentInstanceId"
+
+  # Your build steps go here.
+
+  - name: TerminateBuildInstance
+    action: TerminateInstance
+    onFailure: Continue
+    if:
+      booleanEquals: true
+      value: "$.imagebuilder.terminateInstanceOnCompletion"
+    inputs:
+      instanceId.$: "$.stepOutputs.LaunchBuildInstance.instanceId"
+```
+
+This workflow does the following:
++ `parentInstanceId.$` takes the instance ID from the `parentInstanceId` workflow parameter. For more information, see [Workflow document input parameters](image-workflow-create-document.md#wfdoc-struct-param).
++ The `if` condition skips `TerminateBuildInstance` when `$.imagebuilder.terminateInstanceOnCompletion` is `false`. For more information, see [Use Image Builder system variables](wfdoc-dynamic-vars.md#wfdoc-ib-vars).
 
 ## ModifyImageAttributes
 <a name="wfdoc-step-action-modify-image-attributes"></a>
@@ -1010,6 +1059,8 @@ $.stepOutputs.{{SanitizeStep}}.status
 
 This step action terminates the instance that you specify with the `instanceId` input. By default, it initiates termination and moves to the next step without waiting. A background process handles cleanup if termination encounters EC2 service errors. To wait for full termination before proceeding, set the `waitForTermination` input to `true`.
 
+`terminateInstanceOnCompletion` doesn't override this step. To keep the instance when `terminateInstanceOnCompletion` is `false`, skip the step with an `if` condition on `$.imagebuilder.terminateInstanceOnCompletion`, or remove the step.
+
 **Default Timeout: **30 minutes
 
 **Max Timeout: **720 minutes (12 hours)
@@ -1041,6 +1092,19 @@ Specify the step action in the workflow document.
       waitForTermination: {{false}}
 ```
 
+Skip the step when `terminateInstanceOnCompletion` is `false`.
+
+```
+- name: TerminateBuildInstance
+  action: TerminateInstance
+  onFailure: Continue
+  if:
+    booleanEquals: true
+    value: "$.imagebuilder.terminateInstanceOnCompletion"
+  inputs:
+    instanceId.$: "$.stepOutputs.LaunchBuildInstance.instanceId"
+```
+
 ## WaitForAction
 <a name="wfdoc-step-action-waitfor"></a>
 
@@ -1066,9 +1130,9 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 
 | Input name | Description | Type | Required | Default | Constraints | 
 | --- | --- | --- | --- | --- | --- | 
-| snsTopicArn | An optional SNS topic ARN to send a notification to when the workflow step is pending. | String | No |  |  | 
+| snsTopicArn | An optional SNS topic ARN to send a notification to when the workflow step is pending. | String | No |  | The topic name can contain only letters, numbers, hyphens, and underscores. | 
 | lambdaFunctionName | An optional name or ARN of the Lambda function to invoke asynchronously when the workflow step is pending. | String | No |  |  | 
-| payload | JSON string used as message for SNS and payload for Lambda. If provided, a custom payload is wrapped in default message/payload, used for SNS and Lambda respectively. If not provided, generates default message/payload. | String | No |  | Must be valid JSON string, max 16 KiB | 
+| payload | An optional value that Image Builder adds as a customPayload field to the Amazon SNS notification, the Lambda payload, or both, depending on which of snsTopicArn and lambdaFunctionName you set. Image Builder always sends the default message fields that are shown in the examples that follow. If you don't provide a payload, or you provide an empty one, Image Builder sends only the default fields. | String | No |  | Maximum 16,384 characters. Image Builder doesn't validate that the value is well-formed JSON. | 
 
 **Outputs: **The following table includes outputs for this step action.
 
@@ -1083,11 +1147,17 @@ You can override the default with `timeoutSeconds`, up to the maximum shown. A v
 Your custom execution role must have the following permissions to use this step action:
 
 **Allow actions**
-+ `lambda:InvokeFunction`
++ `lambda:InvokeFunction`—required only when you set `lambdaFunctionName`.
++ `sns:Publish`—required only when you set `snsTopicArn`.
 
 **Specify resources**
-+ `arn:aws:lambda:{{us-west-2}}:{{111122223333}}:function:{{function-name}}`
-+ `arn:aws:lambda:{{us-west-2}}:{{111122223333}}:function:*`
++ `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:function:{{function-name}}`
++ `arn:aws:lambda:{{us-west-2}}:{{123456789012}}:function:*`
++ `arn:aws:sns:{{us-west-2}}:{{123456789012}}:{{ExampleTopic}}`
+
+**Note**  
+Unlike the infrastructure configuration status notification, the `WaitForAction` Amazon SNS notification is required for the step to succeed. If Image Builder can't publish to the topic that you specify in `snsTopicArn`, the step fails. Image Builder publishes the Amazon SNS notification before it invokes the function that you specify in `lambdaFunctionName`, so a publish failure also prevents that invocation. A failure of the Lambda invoke call also fails the step. Image Builder invokes the function asynchronously, so an error that the function itself raises doesn't fail the step. When `onFailure` is `Abort`, which is the default, the workflow fails. When `onFailure` is `Continue`, the workflow runs the next step. If the step that failed is the last step in the workflow, the workflow is reported as completed even though the step failed.  
+Image Builder calls Amazon SNS in the Region where the workflow runs, with the execution role for the image. If the image has no execution role, Image Builder uses the service-linked role. Any error that the publish request returns fails the step.
 
 **Example**
 
@@ -1098,8 +1168,24 @@ Specify the step action in the workflow document with SNS notification.
   action: WaitForAction
   onFailure: Abort
   inputs:
-    snsTopicArn: arn:aws:sns:{{us-west-2}}:{{111122223333}}:{{ExampleTopic}}
+    snsTopicArn: arn:aws:sns:{{us-west-2}}:{{123456789012}}:{{ExampleTopic}}
 ```
+
+When the step enters the `WAITING` state, Image Builder publishes the following message to the topic that you specify in `snsTopicArn`. If you specify a `lambdaFunctionName`, Image Builder sends this same message as the payload to that function and invokes the function asynchronously. You can set either input on its own, or both. The `customPayload` field appears only when you provide a `payload` value. Image Builder first resolves a `payload.$` JSONPath reference, and any `{{ }}` interpolation token inside a `payload` value, before it adds the result to the message. Image Builder doesn't parse the result as JSON. When you set `payload` to a string, `customPayload` is a JSON string inside the message, so parse it a second time to read structured data from it.
+
+```
+{
+  "imageArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-image}}/1.0.0/1",
+  "workflowArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:workflow/build/{{my-workflow}}/1.0.0/1",
+  "workflowExecutionId": "wf-{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}",
+  "workflowStepExecutionId": "step-{{a1b2c3d4-5678-90ab-cdef-EXAMPLE22222}}",
+  "workflowStepName": "SendEventAndWait",
+  "version": "1.0",
+  "customPayload": "{\"customMessage\": \"This is a custom payload\", \"imageId\": \"ami-12345\"}"
+}
+```
+
+The `workflowArn` field contains the workflow build version ARN, which ends with the build version number. Image Builder publishes this JSON as the Amazon SNS message body.
 
 Specify the step action in the workflow document with Lambda function invocation.
 

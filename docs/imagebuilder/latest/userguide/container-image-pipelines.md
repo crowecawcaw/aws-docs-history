@@ -15,5 +15,5 @@ For more information and a step-by-step tutorial about using the **Create image 
 
 **Topics**
 + [Create a container image pipeline from the AWS CLI](cli-create-container-pipeline.md)
-+ [Update a container image pipeline from the console](update-container-pipeline-console.md)
++ [Update a container image pipeline in the console](update-container-pipeline-console.md)
 + [Update container image pipelines from the AWS CLI](cli-update-container-pipeline.md)

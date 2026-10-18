@@ -50,7 +50,7 @@ To use custom log groups for image build or pipeline execution, first create the
 Specify the **Image log group** or **Pipeline log group** for your pipeline in the **Logging configuration** section under **Advanced settings**.
 
 ------
-#### [ CLI ]
+#### [ AWS CLI ]
 
 Specify the following fields within the `logging-configuration` object if you use a JSON object for configuration:
 + `imageLogGroupName`

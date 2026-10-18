@@ -6,10 +6,10 @@
 This section shows you how to create a container recipe or a new version of an existing recipe. A container recipe defines three key elements: the base image, the build components, and the target repository. Use this recipe to produce Docker container images that Image Builder stores in Amazon ECR.
 
 **Topics**
-+ [Create a new container recipe version with the console](#create-container-recipe-version)
++ [Create a new container recipe version in the console](#create-container-recipe-version)
 + [Create a container recipe with the AWS CLI](#create-container-recipe-cli)
 
-## Create a new container recipe version with the console
+## Create a new container recipe version in the console
 <a name="create-container-recipe-version"></a>
 
 Creating a new version of a container recipe is virtually the same as creating a new recipe. The difference is that certain details are pre-selected to match the base recipe, in most cases. The following list describes the differences between creating a new recipe and creating a new version of an existing recipe.

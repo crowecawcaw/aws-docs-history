@@ -8,7 +8,7 @@ EC2 Image Builder maintains two classes of AWS service-owned S3 buckets that con
 **Component management bootstrapping scripts (Required)**  
 This S3 bucket contains bootstrapping scripts to set up the AWSTOE application on the EC2 instances that are used to create images. Image Builder requires access to download the scripts to support build and testing for new images.  
 + **S3 bucket ARN:** `arn:{{<AWS partition>}}:s3:::ec2imagebuilder-managed-resources-{{<AWS Region>}}-prod`
-+ **S3 bucket URL:** `https://ec2imagebuilder-managed-resources-{{<AWS Region>}}.s3.{{<AWS Region>}}.{{<AWS partition-specific domain name>}}`
++ **S3 bucket URL:** `https://ec2imagebuilder-managed-resources-{{<AWS Region>}}-prod.s3.{{<AWS Region>}}.{{<AWS partition-specific domain name>}}`
 
 **Managed components**  
 This S3 bucket contains package payloads for Amazon managed components. Image Builder requires access to download any managed components that are configured in your recipes.  

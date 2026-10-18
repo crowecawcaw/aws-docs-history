@@ -152,7 +152,7 @@ For details about the Image Builder service-linked role, see [Use IAM service-li
 ## Image Builder identity-based policies
 <a name="security_iam_id-based-policy-examples"></a>
 
-With IAM identity-based policies, you can specify allowed or denied actions and resources, and also the conditions under which actions are allowed or denied. Image Builder supports specific actions, resources, and condition keys. For information about all of the elements that you use in a JSON policy, see [Actions, Resources, and Condition Keys for Amazon EC2 Image Builder](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazonec2imagebuilder.html) in the *IAM User Guide*.
+With IAM identity-based policies, you can specify allowed or denied actions and resources, and also the conditions under which actions are allowed or denied. Image Builder supports specific actions, resources, and condition keys. For information about all of the elements that you use in a JSON policy, see [Actions, Resources, and Condition Keys for Amazon EC2 Image Builder](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonec2imagebuilder.html) in the *Service Authorization Reference*.
 
 ### Actions
 <a name="sec-iam-ib-id-based-policies-actions"></a>
@@ -272,7 +272,7 @@ Works with [string operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/r
 
 Use this key to filter access by the presence of tag keys in the request. This allows you to manage the resources that Image Builder creates.
 
-**Availability** – This key is available to only the `CreateInfrastrucutreConfiguration` and `UpdateInfrastructureConfiguration` APIs.
+**Availability** – This key is available to only the `CreateInfrastructureConfiguration` and `UpdateInfrastructureConfiguration` APIs.
 
 #### imagebuilder:CreatedResourceTag/<key>
 <a name="image-builder-security-createdresourcetag"></a>
@@ -281,7 +281,7 @@ Works with [string operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/r
 
 Use this key to filter access by the tag key-value pairs that are attached to the resource that Image Builder created. This allows you to manage Image Builder resources through defined tags.
 
-**Availability** – This key is available to only the `CreateInfrastrucutreConfiguration` and `UpdateInfrastructureConfiguration` APIs.
+**Availability** – This key is available to only the `CreateInfrastructureConfiguration` and `UpdateInfrastructureConfiguration` APIs.
 
 #### imagebuilder:LifecyclePolicyResourceType
 <a name="image-builder-security-lifecyclepolicyresourcetype"></a>
@@ -301,18 +301,18 @@ Works with [string operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/r
 
 Use this key to filter access by the EC2 Instance Metadata HTTP Token Requirement specified in the request.
 
-This value for this key can be either `optional` or `required`.
+The value for this key can be either `optional` or `required`.
 
-**Availability** – This key is available to only the `CreateInfrastrucutreConfiguration` and `UpdateInfrastructureConfiguration` APIs.
+**Availability** – This key is available to only the `CreateInfrastructureConfiguration` and `UpdateInfrastructureConfiguration` APIs.
 
 #### imagebuilder:StatusTopicArn
 <a name="image-builder-security-statustopicarn"></a>
 
 Works with [string operators](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html#Conditions_String).
 
-Use this key to filter access by the SNS Topic ARN in the request to which terminal state notifications will be published.
+Use this key to filter access by the SNS topic ARN in the request to which Image Builder publishes image status notifications. Image Builder publishes image status notifications only for the `AVAILABLE` and `FAILED` states.
 
-**Availability** – This key is available to only the `CreateInfrastrucutreConfiguration` and `UpdateInfrastructureConfiguration` APIs.
+**Availability** – This key is available to only the `CreateInfrastructureConfiguration` and `UpdateInfrastructureConfiguration` APIs.
 
 ### Examples
 <a name="sec-iam-ib-id-based-policies-examples"></a>
@@ -334,7 +334,7 @@ When you update a resource policy using Image Builder, the update will appear in
 ## Authorization based on Image Builder tags
 <a name="security-iam-service-with-ib-tags"></a>
 
-You can attach tags to Image Builder resources or pass tags in a request to Image Builder. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `imagebuilder:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys. For more information about tagging Image Builder resources, see [Tag a resource from the AWS CLI](tag-resources.md#cli-tag-resource).
+You can attach tags to Image Builder resources or pass tags in a request to Image Builder. To control access based on tags, you provide tag information in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of a policy using the `imagebuilder:ResourceTag/{{key-name}}`, `aws:RequestTag/{{key-name}}`, or `aws:TagKeys` condition keys. For more information about tagging Image Builder resources, see [Tag a resource](tag-resources.md#cli-tag-resource).
 
 ## Image Builder IAM roles
 <a name="security-iam-service-with-ib-roles"></a>

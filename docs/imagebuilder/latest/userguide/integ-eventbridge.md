@@ -56,10 +56,10 @@ The following sections describe each event: when Image Builder sends it, the fie
 <a name="eb-event-state-change"></a>
 
 Image Builder sends this event when the state changes for an image resource during image creation. For example, when the image status changes from one state to another, as follows:
-+ From `building` to `testing`
-+ From `testing` to `distribution`
-+ From `testing` to `failed`
-+ From `integrating` to `available`
++ From `BUILDING` to `TESTING`
++ From `TESTING` to `DISTRIBUTING`
++ From `TESTING` to `FAILED`
++ From `INTEGRATING` to `AVAILABLE`
 
 ```
 {
@@ -82,7 +82,7 @@ Image Builder sends this event when the state changes for an image resource duri
 }
 ```
 
-Image Builder sends this event each time an image resource changes state during image creation, across the build transitions shown above.
+Image Builder sends this event when an image resource changes state during image creation. The build transitions in the preceding list are examples.
 
 The event `detail` contains the following fields:
 
@@ -91,15 +91,20 @@ The event `detail` contains the following fields:
 | --- | --- | 
 | `previous-state.status` | The image status before the change (for example, `TESTING`). | 
 | `state.status` | The new image status (for example, `AVAILABLE`). | 
+| `state.reason` | The reason for the new status. Image Builder includes this field when the new status is `FAILED`. | 
 
-The build-transition status values are `BUILDING`, `TESTING`, `DISTRIBUTING`, `INTEGRATING`, `AVAILABLE`, `CANCELLED`, and `FAILED`.
+The `state.status` values that this event reports are `CREATING`, `IMPORTING`, `BUILDING`, `TESTING`, `DISTRIBUTING`, `INTEGRATING`, `AVAILABLE`, `CANCELLED`, and `FAILED`. Image Builder reports `IMPORTING` only for an image import operation, such as an image that you import from a VM, and reports `CREATING` only on the first attempt of a build. A build that converts a disk image reports `CREATING` and `BUILDING` instead.
+
+An image with no distribution configuration doesn't report `INTEGRATING`.
+
+Image Builder sends this event on a best-effort basis. To confirm the state of an image, call **GetImage**.
 
 The `resources` array contains the ARN of the image resource that changed state.
 
 ### EC2 Image Builder CVE Detected
 <a name="eb-event-cve-detected"></a>
 
-If you have CVE detection enabled for your image, Image Builder sends a message with the results whenever an image scan completes.
+Image Builder sends this event with the results after it collects the findings from a successful image scan, even if the scan finds no vulnerabilities.
 
 ```
 {
@@ -126,14 +131,16 @@ If you have CVE detection enabled for your image, Image Builder sends a message 
 }
 ```
 
-Image Builder sends this event when an image scan completes, and only when you enable image scanning (Amazon Inspector) for the image. If scanning is off, Image Builder doesn't send this event. To turn on scanning, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans).
+If scanning is off, the AWS managed test workflows skip the `CollectImageScanFindings` step, so Image Builder doesn't send this event. To turn on scanning, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans).
+
+Image Builder sends this event only from a `CollectImageScanFindings` workflow step, and sends it even when the scan returns no findings, so check `finding-severity-counts` before you act on it. Delivery is best effort, so a delivery failure doesn't fail the build. After the first `CollectImageScanFindings` step for an image finishes, whether it succeeds or fails, any later `CollectImageScanFindings` step for the image fails and doesn't send an event.
 
 The event `detail` contains the following fields:
 
 
 | Field | Description | 
 | --- | --- | 
-| `resource-id` | The ID of the Amazon EC2 test instance that Image Builder scanned. | 
+| `resource-id` | The ID of the resource that Amazon Inspector scanned: the ID of the Amazon EC2 test instance for an AMI build, or for a container build, the ARN of the copy of the Amazon ECR container that Image Builder pushes for scanning. | 
 | `finding-severity-counts.all` | Total number of findings across the reported severities. | 
 | `finding-severity-counts.critical` | Number of critical-severity findings. | 
 | `finding-severity-counts.high` | Number of high-severity findings. | 

@@ -59,7 +59,7 @@ When you select the owner filter from the search bar, Image Builder shows a list
 ------
 #### [ AWS CLI ]
 
-When you run the **[list-workflows](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-workflows.html)** command in the AWS CLI, you can get a list of image workflows that you own or have access to.
+When you run the [list-workflows](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-workflows.html) command in the AWS CLI, you can get a list of image workflows that you own or have access to.
 
 The following command example shows how to use the **list-workflows** command without filters to list all of the Image Builder image workflow resources that you own or have access to.
 
@@ -135,6 +135,32 @@ To get the details for a specific image workflow version, run the [get-workflow]
 ```
 aws imagebuilder get-workflow \
     --workflow-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/build/{{example-build-workflow}}/{{1.0.0}}/{{1}}
+```
+
+The response includes the workflow `type`, `state`, `data` (the YAML workflow document), `parameters`, `owner`, and `kmsKeyId`.
+
+------
+#### [ PowerShell ]
+
+When you run the [Get-EC2IBWorkflowList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBWorkflowList.html) cmdlet, you get a list of image workflows. This list includes workflows that you own or have access to.
+
+The following example shows how to use the `Get-EC2IBWorkflowList` cmdlet without filters to list all of the Image Builder image workflow resources that you own or have access to:
+
+```
+Get-EC2IBWorkflowList
+```
+
+When you run the `Get-EC2IBWorkflowList` cmdlet, you can apply filters to streamline the results, as shown in the following example, which filters results by workflow type:
+
+```
+Get-EC2IBWorkflowList -Filter @{Name="type";Values="{{BUILD}}"}
+```
+
+To get the details for a specific image workflow version, run the [Get-EC2IBWorkflow](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBWorkflow.html) cmdlet:
+
+```
+Get-EC2IBWorkflow `
+    -WorkflowBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:workflow/build/{{example-build-workflow}}/{{1.0.0}}/{{1}}
 ```
 
 The response includes the workflow `type`, `state`, `data` (the YAML workflow document), `parameters`, `owner`, and `kmsKeyId`.

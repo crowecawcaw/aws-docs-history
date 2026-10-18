@@ -28,10 +28,10 @@ Use the output as the basis for your update request JSON file.
 
    ```
    	{
-   	"imagePipelineArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-pipeline/{{my-example-pipeline}}",
-   	"imageRecipeArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-example-recipe}}/2019.12.08",
-   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
+   	"imagePipelineArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}",
+   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2019.12.08",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
    	"imageTestsConfiguration": {
    		"imageTestsEnabled": true,
    		"timeoutMinutes": 120

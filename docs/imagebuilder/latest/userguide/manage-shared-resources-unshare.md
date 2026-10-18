@@ -12,4 +12,4 @@ Owners cannot delete a shared resource until it is no longer shared. An owner ca
 See [Updating a Resource Share](https://docs.aws.amazon.com/ram/latest/userguide/working-with-sharing.html#working-with-sharing-update) in the *AWS RAM User Guide*.
 
 **To unshare a shared component, image, or recipe that you own using the AWS CLI**  
-Use the **[disassociate-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/disassociate-resource-share.html)** command to stop sharing the resource.
+Use the [disassociate-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/disassociate-resource-share.html) command to stop sharing the resource.

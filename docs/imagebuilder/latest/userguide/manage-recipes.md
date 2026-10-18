@@ -92,7 +92,7 @@ Components must also meet the following compatibility requirements:
 + Components must match the recipe's platform (Linux, Windows, or macOS).
 + Components must support the parent image's OS version, when OS version metadata is available.
 + Components with a `DEPRECATED` or `DISABLED` status can't be added to new recipes.
-+ CIS hardening components require a CIS-published parent image.
++ CIS hardening components require a subscription to the component in AWS Marketplace.
 
 ## Clean up resources
 <a name="recipes-cleanup"></a>

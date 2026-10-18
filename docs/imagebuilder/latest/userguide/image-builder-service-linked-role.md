@@ -19,9 +19,9 @@ You don't need to manually create this service-linked role. When you create your
 The following actions create a new image:
 + Run the pipeline wizard in the Image Builder console to create a custom image.
 + Use one of the following API actions, or its corresponding AWS CLI command:
-  + The **[CreateImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImage.html)** API action (**[create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html)** in the AWS CLI).
-  + The **[ImportVmImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportVmImage.html)** API action (**[import-vm-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/import-vm-image.html)** in the AWS CLI).
-  + The **[StartImagePipelineExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html)** API action (**[start-image-pipeline-execution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/start-image-pipeline-execution.html)** in the AWS CLI).
+  + The [CreateImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImage.html) API action ([create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html) in the AWS CLI).
+  + The [ImportVmImage](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ImportVmImage.html) API action ([import-vm-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/import-vm-image.html) in the AWS CLI).
+  + The [StartImagePipelineExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_StartImagePipelineExecution.html) API action ([start-image-pipeline-execution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/start-image-pipeline-execution.html) in the AWS CLI).
 
 **Important**  
 If the service-linked role is deleted from your account, you can use the same process to create it again. When you create your first EC2 Image Builder resource, Image Builder creates the service-linked role for you again.

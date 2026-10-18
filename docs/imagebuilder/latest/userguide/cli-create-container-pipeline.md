@@ -28,9 +28,9 @@ If you do not include a distribution configuration resource when you run the **c
    	"name": "{{MyWindows2019Pipeline}}",
    	"description": "{{Builds Windows 2019 Images}}",
    	"enhancedImageMetadataEnabled": true,
-   	"containerRecipeArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:container-recipe/{{my-example-recipe}}/2020.12.03",
-   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
+   	"containerRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-recipe}}/2020.12.03",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
    	"imageTestsConfiguration": {
    		"imageTestsEnabled": true,
    		"timeoutMinutes": 60
@@ -54,6 +54,9 @@ The path for the JSON file should follow the appropriate convention for the base
 
 **Example: Create a container pipeline with image scanning and custom workflows**  
 This example configures a container pipeline that checks every Monday at 10:00 AM UTC and runs only when dependency updates are available. The configuration file uses existing resources for the container recipe and infrastructure. It enables [vulnerability scanning](https://docs.aws.amazon.com/imagebuilder/latest/userguide/integ-inspector.html) with Amazon Inspector and ECR integration. The configuration also specifies [custom workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html) with an execution role. Parallel groups run security and functional tests at the same time. Pipeline logs are sent to custom [CloudWatch log groups](https://docs.aws.amazon.com/imagebuilder/latest/userguide/monitor-cwlogs.html).
+
+**Container pipeline prerequisites**  
+To create a container pipeline with scanning enabled, you must meet the Amazon Inspector and Amazon ECR prerequisites. For more information, see [Amazon Inspector integration in Image Builder](integ-inspector.md). This example specifies custom workflows. Include exactly one `CollectImageScanFindings` step across its test workflows. For more information, see [Create custom images with Image Builder](create-images.md).
 
 1. 
 

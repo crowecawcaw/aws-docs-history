@@ -10,7 +10,7 @@ For image creation, you can specify one build stage workflow, one or more test s
 To create a new build, test, or distribution workflow, select the tab that matches your environment.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 You can use the following process to create a new workflow in the Image Builder console.
 
@@ -45,7 +45,7 @@ The YAML workflow document contains all of the configuration for your workflow.
 ------
 #### [ AWS CLI ]
 
-Before you run the **[create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html)** command in the AWS CLI, you must create the YAML document that contains all of the configuration for your workflow. For more information, see [Create a YAML workflow document](image-workflow-create-document.md).
+Before you run the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) command in the AWS CLI, you must create the YAML document that contains all of the configuration for your workflow. For more information, see [Create a YAML workflow document](image-workflow-create-document.md).
 
 The following example shows how to create a build workflow with the [create-workflow](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-workflow.html) AWS CLI command. The `--data` parameter refers to a YAML document that contains the build configuration for the workflow you create.
 

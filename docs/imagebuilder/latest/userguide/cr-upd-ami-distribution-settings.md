@@ -30,7 +30,12 @@ Before you create a new AMI distribution configuration that sets an AWS Systems 
 When you create a pipeline or use the create-image command in the AWS CLI, you can only specify one Image Builder execution role. If you have defined an Image Builder workflow execution role, you would add any additional feature permissions to that role. Otherwise, you would create a new custom role that includes the required permissions.  
 We recommend that you don't pass the [AWSServiceRoleForImageBuilder](security-iam-awsmanpol.md#sec-iam-manpol-AWSServiceRoleForImageBuilder) service-linked role as your execution role. Instead, create a custom IAM role and attach the [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy) AWS managed policy. This policy grants the same permissions that Image Builder needs to call AWS services on your behalf. Using a custom role gives you full control over the permissions that Image Builder uses. It also keeps your service control policies (SCPs) and resource control policies (RCPs) in effect for operations that Image Builder performs on your behalf.
 + To store the output AMI ID in an SSM parameter during distribution, you must specify the `ssm:PutParameter` action in your Image Builder execution role, with the parameter listed as a resource.
-+ When you set the parameter data type to `AWS EC2 Image` to signal Systems Manager to validate the parameter value as an AMI ID, you must also add the `ec2:DescribeImages` action.
++ When the parameter data type is `aws:ec2:image` (the default if you omit `dataType`), Systems Manager validates the parameter value as an AMI ID, so you must also add the `ec2:DescribeImages` action.
+
+**Parameter constraints**  
++ To skip AMI ID validation, set the data type to `text`.
++ If the parameter already exists in your account, it must be a `String` type parameter, and its data type must match the `dataType` that you specify. Otherwise, Image Builder rejects the distribution configuration. Image Builder checks this with your credentials when you create or update the distribution configuration, so you need `ssm:GetParameter` for the parameter. Image Builder doesn't check parameters in other accounts at that time.
++ The account that the parameter belongs to (`amiAccountId`, or your own account if you omit it) must be one of the Region's target distribution accounts. Parameter names must be unique per target account in each Region.
 
 **Opt-in Region**  
 You must enable an [opt-in Region (Region that is disabled by default)](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html?icmpid=docs_homepage_addtlrcs#optinregion) in the source account. This requirement applies when your distribution configuration targets that Region in `ssmParameterConfigurations`, whether you use the Image Builder service-linked role or a custom execution role.  
@@ -60,14 +65,14 @@ Before you create a new distribution configuration for EC2 Fast Launch for Windo
   + A security group with no inbound or outbound rules
 
 **Note**  
-Image Builder doesn't support cross-account distribution for AMIs with EC2 Fast Launch pre-enabled. EC2 Fast Launch must be enabled from the destination account.
+EC2 Fast Launch configurations are same-account only. You can specify at most one fast launch configuration per account in a Region. Image Builder doesn't support cross-account distribution for AMIs with EC2 Fast Launch pre-enabled. Image Builder enables fast launch only on the AMI that your account owns in the destination Region. For AMI copies that Image Builder distributes to other accounts, enable fast launch from the account that owns the copy.
 
 ## Create an AMI distribution configuration
 <a name="create-ami-distribution-config"></a>
 
 Distribution configurations include the output AMI name, specific Region settings for encryption, launch permissions, and AWS accounts, organizations, and organizational units (OUs) that can launch the output AMI, and license configurations.
 
-A distribution configuration allows you to specify the name and description of your output AMI, authorize other AWS accounts to launch the AMI, copy the AMI to other accounts, and replicate the AMI to other AWS Regions. It also allows you to export the AMI to Amazon Simple Storage Service (Amazon S3), or configure EC2 Fast Launch for output Windows AMIs. To make an AMI public, set the launch permission authorized accounts to `all`. See the examples for making an AMI public at EC2 **[ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html)**.
+A distribution configuration allows you to specify the name and description of your output AMI, authorize other AWS accounts to launch the AMI, copy the AMI to other accounts, and replicate the AMI to other AWS Regions. It also allows you to export the AMI to Amazon Simple Storage Service (Amazon S3), or configure EC2 Fast Launch for output Windows AMIs. To make an AMI public, set the launch permission authorized accounts to `all`. See the examples for making an AMI public at EC2 [ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html).
 
 ------
 #### [ Console ]
@@ -88,7 +93,7 @@ Follow these steps to create a new AMI distribution configuration in the AWS Man
 
    1. The AMI is distributed to the current Region (**Region 1**), by default. **Region 1** is the source for the distribution. Some settings for **Region 1** are not open for editing. For any Regions that you add, you can choose a Region from the **Region** dropdown list.
 
-      The **Kms key** identifies the AWS KMS key that's used to encrypt the EBS volumes for your image in the target Region. It's important to note that this doesn't apply for the original AMI that the build creates under your account in the source Region (**Region 1**). Encryption that runs during the distribution phase of the build is only for images that are distributed to other accounts or Regions.
+      The **KMS key** identifies the AWS KMS key that's used to encrypt the EBS volumes for your image in the target Region. It's important to note that this doesn't apply for the original AMI that the build creates under your account in the source Region (**Region 1**). Encryption that runs during the distribution phase of the build is only for images that are distributed to other accounts or Regions.
 
       To encrypt the EBS volumes for the AMI that's created in the source Region for your account, you must set the KMS key in the image recipe block device mapping (**Storage (volumes)** in the console).
 
@@ -230,6 +235,46 @@ This example stores the output AMI ID in an AWS Systems Manager Parameter Store 
    }
    ```
 
+**Example 4: Share with an OU and update a launch template**  
+This example assumes that you run the build in `us-west-2`. It copies the AMI to `eu-west-1`, shares the AMI with an organizational unit in both Regions, and creates a new version of an Amazon EC2 launch template in `us-west-2` that references the new AMI ID.
+
+   ```
+   {
+   	"name": "OrgShareWithLaunchTemplate",
+   	"description": "Shares the AMI with an OU and updates a launch template.",
+   	"distributions": [
+   		{
+   			"region": "us-west-2",
+   			"amiDistributionConfiguration": {
+   				"name": "AppImage {{ imagebuilder:buildDate }}",
+   				"launchPermission": {
+   					"organizationalUnitArns": [
+   						"arn:aws:organizations::123456789012:ou/o-123example/ou-1234-myorganizationalunit"
+   					]
+   				}
+   			},
+   			"launchTemplateConfigurations": [
+   				{
+   					"launchTemplateId": "lt-0ab1234c56d789012",
+   					"setDefaultVersion": true
+   				}
+   			]
+   		},
+   		{
+   			"region": "eu-west-1",
+   			"amiDistributionConfiguration": {
+   				"name": "AppImage {{ imagebuilder:buildDate }}",
+   				"launchPermission": {
+   					"organizationalUnitArns": [
+   						"arn:aws:organizations::123456789012:ou/o-123example/ou-1234-myorganizationalunit"
+   					]
+   				}
+   			}
+   		}
+   	]
+   }
+   ```
+
 1. 
 
 **Run the following command, using the file you created as input.**
@@ -241,7 +286,7 @@ This example stores the output AMI ID in an AWS Systems Manager Parameter Store 
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   For more detailed information, see **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html)** in the *AWS CLI Command Reference*.
+   For more detailed information, see [create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html) in the *AWS CLI Command Reference*.
 
 ------
 
@@ -251,9 +296,9 @@ The path for the JSON file should follow the appropriate convention for the base
 You can change your AMI distribution configuration. However, the changes you make do not apply to any resources that Image Builder has already distributed. For example, if you have distributed an AMI to a Region that you later remove from your distribution, the AMI that was already distributed remains in that Region until you remove it manually.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
-Follow these steps to an AMI distribution configuration in the AWS Management Console:
+Follow these steps to update an AMI distribution configuration in the AWS Management Console:
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).
 
@@ -270,7 +315,7 @@ You can also select the check box next to the **Configuration name**, then choos
 ------
 #### [ AWS CLI ]
 
-The following example shows how to use the **[update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html)** command to update distribution settings for your AMI, using the AWS CLI.
+The following example shows how to use the [update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html) command to update distribution settings for your AMI, using the AWS CLI.
 
 1. 
 
@@ -280,7 +325,7 @@ The following example shows how to use the **[update-distribution-configuration]
 
    ```
    {
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-2:123456789012:distribution-configuration/update-ami-distribution-configuration.json",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-2:123456789012:distribution-configuration/update-ami-distribution-configuration",
    	"description": "Copies AMI to eu-west-2, and specifies accounts that can launch instances in each Region.",
    	"distributions": [
    	  {
@@ -324,14 +369,14 @@ The following example shows how to use the **[update-distribution-configuration]
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   For more detailed information, see **[update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html)** in the *AWS CLI Command Reference*. To update tags for your distribution configuration resource, see the [Tag resources](tag-resources.md) section.
+   For more detailed information, see [update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html) in the *AWS CLI Command Reference*. To update tags for your distribution configuration resource, see the [Tag resources](tag-resources.md) section.
 
 ------
 
 ## Example: Enable EC2 Fast Launch with a launch template for output AMIs
 <a name="create-ami-dist-win-fast-launch"></a>
 
-The following example shows how to use the **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html)** command with a launch template to create distribution settings that have EC2 Fast Launch configured for your AMI, from the AWS CLI.
+The following example shows how to use the [create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html) command with a launch template to create distribution settings that have EC2 Fast Launch configured for your AMI, from the AWS CLI.
 
 To configure EC2 Fast Launch settings without a launch template, ensure that you've met all of the [EC2 Fast Launch prerequisites](#ami-distribution-prereqs-fast-launch) before you create your distribution configuration.
 
@@ -341,7 +386,9 @@ To configure EC2 Fast Launch settings without a launch template, ensure that you
 
    Use a file editing tool to create a JSON file with keys as shown in the following example, plus values that are valid for your environment.
 
-   This example launches instances for all of its target resources simultaneously, because the maximum number of parallel launches is greater than the target resource count. This file is named `ami-dist-config-win-fast-launch.json` in the command example shown in the next step.
+   This file is named `ami-dist-config-win-fast-launch.json` in the command example shown in the next step.
+
+   `maxParallelLaunches` caps how many instances EC2 Fast Launch launches at the same time to build the pre-provisioned snapshots, and `targetResourceCount` is the number of snapshots to keep on hand. In this example, `maxParallelLaunches` is greater than `targetResourceCount`, so Amazon EC2 launches instances for all of the target resources at the same time. If `targetResourceCount` is higher than `maxParallelLaunches`, Amazon EC2 first launches `maxParallelLaunches` instances, and then launches more as those instances finish, until it reaches the target resource count. `maxParallelLaunches` must be 6 or greater.
 
    ```
    {
@@ -389,7 +436,7 @@ You can specify the `launchTemplateName` instead of the `launchTemplateId` in th
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   For more detailed information, see **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html)** in the *AWS CLI Command Reference*.
+   For more detailed information, see [create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html) in the *AWS CLI Command Reference*.
 
 ## Example: Create distribution settings for output VM disks from the AWS CLI
 <a name="cli-create-vm-dist-config"></a>
@@ -402,7 +449,7 @@ The following example shows how to use the **create-distribution-configuration**
 
    You can streamline the **create-distribution-configuration** command that you use in the AWS CLI. To do this, create a JSON file that contains all of the export configuration that you want to pass into the command.
 **Note**  
-The naming convention for the data values in the JSON file follows the pattern that is specified for the Image Builder API operation request parameters. To review the API operation request parameters, see the **[CreateDistributionConfiguration](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateDistributionConfiguration.html)** command in the *EC2 Image Builder API Reference*.  
+The naming convention for the data values in the JSON file follows the pattern that is specified for the Image Builder API operation request parameters. To review the API operation request parameters, see the [CreateDistributionConfiguration](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateDistributionConfiguration.html) command in the *EC2 Image Builder API Reference*.  
 To provide the data values as command line parameters, refer to the parameter names specified in the *AWS CLI Command Reference*. to the **create-distribution-configuration** command as options.
 
    Here is a summary of the parameters that we specify in the `s3ExportConfiguration` JSON object for this example:
@@ -447,4 +494,4 @@ To provide the data values as command line parameters, refer to the parameter na
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   For more detailed information, see **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html)** in the *AWS CLI Command Reference*.
+   For more detailed information, see [create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html) in the *AWS CLI Command Reference*.

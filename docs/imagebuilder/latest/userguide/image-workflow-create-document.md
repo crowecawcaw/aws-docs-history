@@ -48,7 +48,7 @@ You can define up to 25 parameters in a workflow document. Each parameter value 
 | name | The name of the parameter. | String | Yes |  | 
 | description | The parameter description. | String | No |  | 
 | default | The default value of the parameter, if no value is provided. If you don't include a default value in the parameter definition, the parameter value is required at runtime. | Matches the parameter data type. | No |  | 
-| type | The data type of the parameter. If you don't include the data type in the parameter definition, the parameter type defaults to a string value required at runtime. | String | Yes | The data type of the parameter must be one of the following:+  `string` <br />+  `integer` <br />+  `boolean` <br />+  `stringList`  | 
+| type | The data type of the parameter. If you don't include the data type in the parameter definition, the parameter type defaults to a string value required at runtime. | String | No | The data type of the parameter must be one of the following:+  `string` <br />+  `integer` <br />+  `boolean` <br />+  `stringList`  | 
 
 **Example**
 
@@ -104,6 +104,8 @@ Each step can include the following attributes.
 | waitSeconds | The time, in seconds, for which the step execution will pause. | Integer | No | 0 | Cannot be more than timeoutSeconds of the step action | 
 
 **Example**
+
+The following example uses the `waitForActionAtEnd` parameter, which the workflow document must declare in its `parameters` section.
 
 ```
 steps:
@@ -182,7 +184,7 @@ Each output that you define includes the following attributes.
 |  Field  |  Description  |  Type  |  Required  | 
 | --- | --- | --- | --- | 
 | name | The name of the output. The name must be unique across the workflows that you include in your pipeline. | String | Yes | 
-| value | The value for the output. The value of the string can be a dyanmic variable, such as an output file from a step action. For more information, see [Use dynamic variables in your workflow document](wfdoc-dynamic-vars.md). | String | Yes | 
+| value | The value for the output. The value of the string can be a dynamic variable, such as an output file from a step action. For more information, see [Use dynamic variables in your workflow document](wfdoc-dynamic-vars.md). | String | Yes | 
 
 **Example**
 

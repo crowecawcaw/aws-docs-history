@@ -8,13 +8,13 @@ After you've completed your component document, you can use it to create a custo
 The following sections show you how to create components from the console or from the AWS CLI.
 
 **Topics**
-+ [Create a custom component from the console](#create-component-ib-console)
++ [Create a custom component in the console](#create-component-ib-console)
 + [Create a custom component from the AWS CLI](#create-component-ib-cli)
 + [Import a script to create a component from the AWS CLI](#import-component-cli)
 + [Automatic build version management](#auto-build-version-management)
 + [Using version references](#using-version-references)
 
-## Create a custom component from the console
+## Create a custom component in the console
 <a name="create-component-ib-console"></a>
 
 To create an AWSTOE application component from the Image Builder console, follow these steps:
@@ -103,7 +103,7 @@ To provide the data values as command line parameters, refer to the parameter na
    	"changeDescription": "{{Initial version.}}",
    	"platform": "Linux",
    	"uri": "s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{update-linux-os.yaml}}",
-   	"kmsKeyId": "arn:aws:kms:us-west-{{2:123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
+   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
    	"tags": {
    		"{{MyTagKey-purpose}}": "{{security-updates}}"
    	}
@@ -160,7 +160,7 @@ To provide the data values as command line parameters, refer to the parameter na
    	"changeDescription": "{{Initial version.}}",
    	"platform": "Windows",
    	"uri": "s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{update-windows-os.yaml}}",
-   	"kmsKeyId": "arn:aws:kms:us-west-{{2:123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
+   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
    	"tags": {
    		"{{MyTagKey-purpose}}": "{{security-updates}}"
    	}
@@ -214,13 +214,13 @@ To provide the data values as command line parameters, refer to the parameter na
 
    ```
    {
-   	"name": "{{install install-wget-macos-component}}",
+   	"name": "{{install-wget-macos-component}}",
    	"semanticVersion": "1.1.2",
    	"description": "{{An example component that installs and verifies the wget utility on macOS.}}",
    	"changeDescription": "{{Initial version.}}",
    	"platform": "macOS",
    	"uri": "s3://{{amzn-s3-demo-destination-bucket}}/{{my-path}}/{{wget-macos.yaml}}",
-   	"kmsKeyId": "arn:aws:kms:us-west-{{2:123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
+   	"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{98765432-b123-456b-7f89-0123456f789c}}",
    	"tags": {
    		"{{MyTagKey-purpose}}": "{{install-software}}"
    	}
@@ -297,7 +297,7 @@ This example assumes that you have a file called `{{import-component.json}}` (as
 "platform": "Windows",
 "type": "BUILD",
 "uri": "s3://{{amzn-s3-demo-source-bucket}}/{{AdminConfig.ps1}}",
-"kmsKeyId": "arn:aws:kms:us-west-{{{{2:123456789012}}}}:key/{{60763706-b131-418b-8f85-3420912f020c}}"
+"kmsKeyId": "arn:aws:kms:{{us-west-2}}:{{123456789012}}:key/{{60763706-b131-418b-8f85-3420912f020c}}"
 }
 ```
 
@@ -319,6 +319,6 @@ When you create or retrieve a component, Image Builder automatically provides pr
 
 **Choosing the right version reference**
 + latestVersionArn (x.x.x) - Always use the absolute latest component version.
-+ atestMajorVersionArn (1.x.x) - Use the latest minor and patch versions within a major version.
++ latestMajorVersionArn (1.x.x) - Use the latest minor and patch versions within a major version.
 + latestMinorVersionArn (1.2.x) - Use the latest patch version only.
 + latestPatchVersionArn (1.2.3) - Reference a specific semantic version, but get the latest build version.

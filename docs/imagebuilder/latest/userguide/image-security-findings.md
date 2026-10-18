@@ -5,7 +5,7 @@
 
 When you activate security scanning with Amazon Inspector, it continuously scans machine images and running instances in your account for operating system and programming language vulnerabilities. If activated, security scanning is automatic, and Image Builder can save a snapshot of the findings from your test instance when you create a new image. Amazon Inspector is a paid service.
 
-When Amazon Inspector discovers vulnerabilities in your software or network settings, it takes the following actions:
+When Amazon Inspector discovers vulnerabilities in your software, it takes the following actions:
 + Notifies you that there was a finding.
 + Rates the severity of the finding. The severity rating categorizes vulnerabilities to help you prioritize your findings, and includes the following values:
   + Untriaged
@@ -37,6 +37,9 @@ Amazon Inspector incurs charges. For more information, see [Amazon Inspector pri
 
 If you've activated scanning for your pipeline, Image Builder takes a snapshot of the findings for your test instance when you create a new image. This way, you can access the findings after Image Builder terminates the test instance.
 
+**Finding retention**  
+Image Builder keeps the findings snapshot until you delete the image build version. For more information, see [Delete an image](delete-resources.md#delete-resources-image).
+
 **Step 2: Configure your pipeline to save snapshots for vulnerability findings**  
 To configure vulnerability finding snapshots for your pipeline, perform the following steps:
 
@@ -64,6 +67,9 @@ If you want to turn off the snapshots later, you can edit your pipeline to clear
 
 ## Manage security findings for Image Builder images in the AWS Management Console
 <a name="image-manage-security-findings"></a>
+
+**Package vulnerability findings only**  
+Image Builder saves only package vulnerability findings from Amazon Inspector. For more information, see [Understanding Amazon Inspector findings](https://docs.aws.amazon.com/inspector/latest/user/findings-understanding.html) in the *Amazon Inspector User Guide*.
 
 The **Security findings** list pages display high-level information about the findings for your resources, with views based on several different filters that you can apply. Each view includes the following options at the top to change your view:
 + **All security findings** – This is the default view if you choose **Security findings** page from the navigation pane in the Image Builder console.
@@ -113,3 +119,31 @@ Links to details about the recommended course of action to remediate the finding
 
 **Published date**  
 The date and time when this vulnerability was first added to the vendor's database.
+
+## Image scan status and failure reasons
+<a name="image-scan-status-failure-reasons"></a>
+
+Amazon Inspector, not Image Builder, runs the scan. When you enable scanning, the `CollectImageScanFindings` step in your test workflow polls Amazon Inspector for the scan status of the test instance for an AMI-based image, or of the Amazon ECR container that Image Builder pushes to the scanning repository for a container-based image. Polling continues until the scan reaches a terminal state or the wait time ends. If the scan succeeds, Image Builder saves a one-time snapshot of the findings.
+
+Image Builder treats the following Amazon Inspector reasons as terminal. When Amazon Inspector returns one, Image Builder stops polling, sets the image scan status to `FAILED`, and records the reason unchanged. For all reasons, see the [ScanStatus](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ScanStatus.html) data type in the *Amazon Inspector API Reference*.
+
+`ACCESS_DENIED`  
+**Cause** – A resource access policy restricts Amazon Inspector (not Image Builder) access to the scanned resource.  
+**Resolution** – Update the IAM or resource policy that denies Amazon Inspector access, then build a new image.
+
+`INTERNAL_ERROR`  
+**Cause** – Amazon Inspector encountered an internal error for the scanned resource.  
+**Resolution** – Build a new image to scan again.
+
+`UNSUPPORTED_OS`  
+**Cause** – Amazon Inspector doesn't support the operating system, architecture, or image manifest type of the scanned resource.  
+**Resolution** – Build from a parent image that Amazon Inspector supports. For the list of supported operating systems, see [Supported operating systems and programming languages for Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/supported.html) in the *Amazon Inspector User Guide*.
+
+If the scan doesn't reach a terminal state in time, Image Builder sets the image scan status to `FAILED` with the reason `UNKNOWN`. By default, Image Builder waits 15 minutes for the scan. If the `CollectImageScanFindings` step sets `timeoutSeconds`, that value limits the whole step instead, including the wait for the scan. When the default wait ends, Image Builder also writes a message to the image's log group in CloudWatch Logs that says the image scan didn't finish. For the log group names, see [Monitor Image Builder logs with Amazon CloudWatch Logs](monitor-cwlogs.md).
+
+The scan also ends this way in the following cases, because Amazon Inspector reports no coverage for the resource:
++ Amazon Inspector isn't activated for your account when the build runs.
++ The scanned resource is terminated before the scan completes.
+
+**Failed scans can't be repeated**  
+After a scan fails, Image Builder can't scan the same image again, even if the `CollectImageScanFindings` step has a `retry` attribute. To scan again, build a new image.

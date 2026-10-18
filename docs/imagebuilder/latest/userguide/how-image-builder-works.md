@@ -96,7 +96,7 @@ For AMI output images, you can define AMI launch permissions to control which AW
 
 You can also use your AWS Organizations account to enforce limitations on member accounts to launch instances only with approved and compliant AMIs. For more information, see [Managing the AWS accounts in Your Organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html).
 
-To update your distribution settings using the Image Builder console, follow the steps to [Create a new image recipe version from the console](create-image-recipes.md#create-image-recipe-version-console), or [Create a new container recipe version with the console](create-container-recipes.md#create-container-recipe-version).
+To update your distribution settings using the Image Builder console, follow the steps to [Create a new image recipe version in the console](create-image-recipes.md#create-image-recipe-version-console), or [Create a new container recipe version in the console](create-container-recipes.md#create-container-recipe-version).
 
 ## Sharing Resources
 <a name="ibhow-sharing"></a>
@@ -106,6 +106,6 @@ To share components, recipes, or images with other accounts or within AWS Organi
 ## Compliance
 <a name="ibhow-compliance"></a>
 
-For Center for Internet Security (CIS) Benchmarks, EC2 Image Builder uses Amazon Inspector to perform assessments for exposure, vulnerabilities, and deviations from best practices and compliance standards. For example, Image Builder assesses unintended network accessibility, unpatched CVEs, public internet connectivity, and remote root login activation. Amazon Inspector is offered as a test component that you can choose to add to your image recipe. For more information about Amazon Inspector, see the *[Amazon Inspector](https://docs.aws.amazon.com/inspector/v1/userguide/inspector_introduction.html) User Guide*. For more information, see [Center for Internet Security (CIS) Benchmarks](https://docs.aws.amazon.com/inspector/latest/userguide/inspector_cis.html).
+For Center for Internet Security (CIS) Benchmarks, subscribe to a CIS hardening component in AWS Marketplace, and add it to an image recipe whose parent image runs an operating system that the component supports. Container recipes don't support CIS hardening components. For more information, see [CIS hardening components](toe-cis.md).
 
 Image Builder provides STIG hardening components to help you more efficiently build compliant images for baseline STIG standards. These STIG components scan for misconfigurations and run a remediation script. There are no additional charges for using STIG-compliant components. For a complete list of STIG components available through Image Builder, see [Amazon managed STIG hardening components for Image Builder](ib-stig.md).

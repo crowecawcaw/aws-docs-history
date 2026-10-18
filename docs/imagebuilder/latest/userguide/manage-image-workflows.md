@@ -69,9 +69,9 @@ Each step ends in one of the following states.
 | --- | --- | 
 | `COMPLETED` | The step finished successfully. | 
 | `SKIPPED` | A conditional `if` statement on the step evaluated to `false`, so Image Builder skipped the step. | 
-| `FAILED` | The step did not finish successfully. | 
+| `FAILED` | The step did not finish successfully. This includes a step that ran longer than its `timeoutSeconds` value. | 
 | `WAITING` | A `WaitForAction` step is paused, waiting for an external action. | 
-| `TIMED_OUT` | The step ran longer than its `timeoutSeconds` value. | 
+| `CANCELLED` | The step was running or waiting when the image moved to a `FAILED` or `CANCELLED` state, so Image Builder stopped the step. | 
 
 **Failure handling**  
 The `onFailure` attribute on each step controls what happens when a step fails.

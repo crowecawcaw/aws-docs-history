@@ -475,7 +475,7 @@ Updated STIG versions and applied STIGS for the 2021 third quarter release.
 This section contains information about Linux STIG hardening components, followed by a version history log. If the Linux distribution doesn’t have STIG settings of its own, the hardening component applies RHEL settings.
 
 The Linux components have optional input parameters that help you customize the following behaviors for your Linux instance.
-+ **Level (string)**   If no value is specified, the default is `High` and will apply all aplicable Low, Medium, and High configurations.
++ **Level (string)**   If no value is specified, the default is `High` and will apply all applicable Low, Medium, and High configurations.
 + **InstallPackages (string)**   If the value is `No`, the component does not install any additional software packages. If the value is `Yes`, the component installs additional software packages that are required for maximum compliance. The default is `No`.
 + **SetDoDConsentBanner (string)**   If the value is `No`, the DoD consent banner is not shown when you attach to an instance that has one of the STIG Linux components installed. If the value is `Yes`, the DoD consent banner is shown before you log in when you attach to an instance that has one of the STIG Linux components installed. You must acknowledge the banner before you can log in. The default is `No`.
 
@@ -1181,6 +1181,6 @@ The following table describes important changes to the SCAP environment and sett
 | Change | Description | Date | 
 | --- | --- | --- | 
 | 2025 Q1 SCAP Updates |  +  scap-compliance-checker-windows version 2024.03.0 (SCC Version: 5.10) <br />+  scap-compliance-checker-windows version 2025.01.0 (SCC Version: 5.10   | April 11, 2025 | 
-| 2023 Q4 SCAP Updates |  +  scap-compliance-checker-windows version 2023.04.0 (SCC Version: 5.8) <br />+  scap-compliance-checker-windows version 2023.04.0 (SCC Version: 5.8)   | December 20, 2021 | 
+| 2023 Q4 SCAP Updates |  +  scap-compliance-checker-windows version 2023.04.0 (SCC Version: 5.8) <br />+  scap-compliance-checker-linux version 2023.04.0 (SCC Version: 5.8)   | December 20, 2021 | 
 | 2023 Q3 SCAP Updates |  +  scap-compliance-checker-windows version 2023.03.0 (SCC Version: 5.7.2) <br />+  scap-compliance-checker-linux version 2023.03.0 (SCC Version: 5.7.2   | November 13, 2023 | 
-| Added SCAP components |  +  Created scap-compliance-checker-linux version 2021.04.0 (SCC Version: 5.4.2) <br />+  Created scap-compliance-checker-linux version 2021.04.0 (SCC Version: 5.4.2)   | December 20, 2021 | 
+| Added SCAP components |  +  Created scap-compliance-checker-windows version 2021.04.0 (SCC Version: 5.4.2) <br />+  Created scap-compliance-checker-linux version 2021.04.0 (SCC Version: 5.4.2)   | December 20, 2021 | 

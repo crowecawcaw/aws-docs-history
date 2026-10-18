@@ -31,9 +31,9 @@ This example configures a pipeline that is scheduled to run once a week on Sunda
    	"name": "{{ExampleWindows2019Pipeline}}",
    	"description": "{{Builds Windows 2019 Images}}",
    	"enhancedImageMetadataEnabled": true,
-   	"imageRecipeArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-example-recipe}}/2020.12.03",
-   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
+   	"imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2020.12.03",
+   	"infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
    	"imageTestsConfiguration": {
    		"imageTestsEnabled": true,
    		"timeoutMinutes": 60

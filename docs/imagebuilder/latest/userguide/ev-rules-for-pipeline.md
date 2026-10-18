@@ -75,7 +75,7 @@ Use the **pipeline schedule** for a simple recurring rebuild. It can also gate b
 Use an **EventBridge rule** to start a build from an event pattern, or to fan one trigger out to multiple targets.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).
 
@@ -200,7 +200,7 @@ The following example starts a build whenever a specific base image becomes `AVA
 Scope the event pattern to the base image, as shown by the `resources` prefix in this example. A pattern that matches every `AVAILABLE` image in the account also matches the dependent pipeline's own output image, which starts the pipeline again and can create an endless build loop. Filter on the specific base image name or ARN prefix so the rule matches only the image you intend.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
@@ -275,7 +275,7 @@ Use a numeric matcher so that clean scans don't trigger the rule:
 ```
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 

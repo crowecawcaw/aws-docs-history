@@ -17,10 +17,21 @@ To run your pipeline from the pipeline details page in the Image Builder console
 ------
 #### [ AWS CLI ]
 
-The following example shows how to use the **[start-image-pipeline-execution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/start-image-pipeline-execution.html)** command in the AWS CLI to start an image pipeline manually. When you run this command, the pipeline builds and distributes a new image.
+The following example shows how to use the [start-image-pipeline-execution](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/start-image-pipeline-execution.html) command in the AWS CLI to start an image pipeline manually. When you run this command, the pipeline builds and distributes a new image.
 
 ```
-aws imagebuilder start-image-pipeline-execution --image-pipeline-arn arn:aws:imagebuilder:us-west-{{2:111122223333}}:image-pipeline/{{my-example-pipeline}}
+aws imagebuilder start-image-pipeline-execution --image-pipeline-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-pipeline/{{my-example-pipeline}}
+```
+
+To see what resources are created when the build pipeline runs, see [Resources created](how-image-builder-works.md#image-builder-resources).
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Start-EC2IBImagePipelineExecution](https://docs.aws.amazon.com/powershell/latest/reference/items/Start-EC2IBImagePipelineExecution.html) cmdlet to start an image pipeline manually. When you run this cmdlet, the pipeline builds and distributes a new image.
+
+```
+Start-EC2IBImagePipelineExecution -ImagePipelineArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-pipeline/{{my-example-pipeline}}
 ```
 
 To see what resources are created when the build pipeline runs, see [Resources created](how-image-builder-works.md#image-builder-resources).

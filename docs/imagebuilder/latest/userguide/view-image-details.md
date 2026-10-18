@@ -9,7 +9,7 @@ For more information about resources that another AWS account shared with you th
 
 **Topics**
 + [View image details in the Image Builder console](#view-image-details-console)
-+ [Get image policy details from the AWS CLI](#cli-get-image-policy-details)
++ [Get image policy details](#cli-get-image-policy-details)
 
 ## View image details in the Image Builder console
 <a name="view-image-details-console"></a>
@@ -183,7 +183,7 @@ The timestamp when the specified step for this runtime instance of the workflow 
 
 If you've activated scanning, the **Security findings** tab displays Common Vulnerabilities and Exposures (CVE) findings. Amazon Inspector identified these findings on the test instance that Image Builder launched to create your new image. To ensure that Image Builder captures findings for your image, you must configure scanning as follows:
 
-1. Activate Amazon Inspector scans for your account. For more information, see [Getting started with Amazon Inspector](https://docs.aws.amazon.com/inspector/v1/userguide/inspector_getting-started.html) in the *Amazon Inspector User Guide*.
+1. Activate Amazon Inspector scans for your account. For more information, see [Getting started tutorial: Activating Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/getting_started_tutorial.html) in the *Amazon Inspector User Guide*.
 
 1. Activate security findings for the pipeline that creates this image. When you activate security findings for your pipeline, Image Builder saves a snapshot of the findings before it terminates the test instance. For more information, see [Configure security scans for Image Builder images in the AWS Management Console](image-security-findings.md#image-config-security-scans)
 
@@ -215,11 +215,27 @@ The score that Amazon Inspector assigned for the CVE finding.
 
 The **Tags** tab displays any tags that you have defined for your image.
 
-## Get image policy details from the AWS CLI
+## Get image policy details
 <a name="cli-get-image-policy-details"></a>
+
+------
+#### [ AWS CLI ]
 
 The following example shows how to get the details of an image policy with its Amazon Resource Name (ARN).
 
 ```
-aws imagebuilder get-image-policy --image-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012:image}}/{{example-image}}/2019.12.02
+aws imagebuilder get-image-policy --image-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{example-image}}/2019.12.02
 ```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBImagePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImagePolicy.html) cmdlet to get the details of an image policy with its ARN:
+
+```
+Get-EC2IBImagePolicy -ImageArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{example-image}}/2019.12.02
+```
+
+The cmdlet returns the policy as a JSON string. If no policy is attached to the image, the cmdlet returns `{}`.
+
+------

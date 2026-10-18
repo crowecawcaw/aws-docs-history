@@ -18,12 +18,12 @@ To create your resource share using the AWS RAM console, see [Share AWS resource
 + 
 
 **AWS CLI**  
-To create your resource share using the AWS RAM command line interface, run the **[create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html)** command in the AWS CLI.
+To create your resource share using the AWS RAM command line interface, run the [create-resource-share](https://docs.aws.amazon.com/cli/latest/reference/ram/create-resource-share.html) command in the AWS CLI.
 
 ## Option 2: Apply a resource policy and promote to an existing resource share
 <a name="share-opt2-promote-resource-share"></a>
 
-The second option for sharing your resources involves two steps, running commands in the AWS CLI for both. The first step uses Image Builder commands in the AWS CLI to apply resource-based policies to the shared resource. The second step promotes the resource to a RAM resource share using the **[promote-resource-share-created-from-policy](https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html)** AWS RAM command in the AWS CLI to ensure that the resource is visible to all principals with whom you've shared it.
+The second option for sharing your resources involves two steps, running commands in the AWS CLI for both. The first step uses Image Builder commands in the AWS CLI to apply resource-based policies to the shared resource. The second step promotes the resource to a RAM resource share using the [promote-resource-share-created-from-policy](https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html) AWS RAM command in the AWS CLI to ensure that the resource is visible to all principals with whom you've shared it.
 
 1. 
 
@@ -38,7 +38,7 @@ The second option for sharing your resources involves two steps, running command
 
    You can apply a resource policy to an image, to allow others to use it as the base image in their recipes. 
 
-   Run the **[put-image-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-image-policy.html)** Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
+   Run the [put-image-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-image-policy.html) Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
 
    ```
    aws imagebuilder put-image-policy --image-arn arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image/2019.12.03/1 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": ["imagebuilder:GetImage", "imagebuilder:ListImages"], "Resource": [ "arn:aws:imagebuilder:us-west-2:123456789012:image/my-example-image/2019.12.03/1" ] } ] }'
@@ -49,10 +49,10 @@ The second option for sharing your resources involves two steps, running command
 
    You can apply a resource policy to a build or test component to enable cross-account sharing. This command gives other accounts permission to use your component in their recipes. To successfully apply the resource policy, you must ensure that the account with which you are sharing has permission to access any resources referenced by the shared component, such as files hosted on private repositories.
 
-   Run the **[put-component-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-component-policy.html)** Image Builder command in the AWS CLI, to identify the AWS principals to share the component with.
+   Run the [put-component-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-component-policy.html) Image Builder command in the AWS CLI, to identify the AWS principals to share the component with.
 
    ```
-   aws imagebuilder put-component-policy --component-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:component/{{my-example-component}}/2019.12.03/1 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetComponent", "imagebuilder:ListComponents" ], "Resource": [ "arn:aws:imagebuilder:us-west-{{2:123456789012}}:component/{{my-example-component}}/2019.12.03/1" ] } ] }'
+   aws imagebuilder put-component-policy --component-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{my-example-component}}/2019.12.03/1 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetComponent", "imagebuilder:ListComponents" ], "Resource": [ "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{my-example-component}}/2019.12.03/1" ] } ] }'
    ```
 
 ------
@@ -60,10 +60,10 @@ The second option for sharing your resources involves two steps, running command
 
    You can apply a resource policy to an image recipe to enable cross-account sharing. This command gives other accounts permission to use your recipe to create images in their accounts. To successfully apply the resource policy, you must ensure that the account with which you are sharing has permission to access any resources that the recipe references, such as the base image, or selected components.
 
-   Run the **[put-image-recipe-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-image-recipe-policy.html)** Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
+   Run the [put-image-recipe-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-image-recipe-policy.html) Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
 
    ```
-   aws imagebuilder put-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-example-image-recipe}}/2019.12.03 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetImageRecipe", "imagebuilder:ListImageRecipes" ], "Resource": [ "arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-example-image-recipe}}/2019.12.03" ] } ] }'
+   aws imagebuilder put-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-image-recipe}}/2019.12.03 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetImageRecipe", "imagebuilder:ListImageRecipes" ], "Resource": [ "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-image-recipe}}/2019.12.03" ] } ] }'
    ```
 
 ------
@@ -71,10 +71,10 @@ The second option for sharing your resources involves two steps, running command
 
    You can apply a resource policy to a container recipe to enable cross-account sharing. This command gives other accounts permission to use your recipe to create images in their accounts. To successfully apply the resource policy, you must ensure that the account with which you are sharing has permission to access any resources that the recipe references, such as the base image, or selected components.
 
-   Run the **[put-container-recipe-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-container-recipe-policy.html)** Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
+   Run the [put-container-recipe-policy](https://docs.aws.amazon.com/cli/latest/reference//imagebuilder/put-container-recipe-policy.html) Image Builder command in the AWS CLI, to identify the AWS principals to share the image with.
 
    ```
-   aws imagebuilder put-container-recipe-policy --container-recipe-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:container-recipe/{{my-example-container-recipe}}/2021.12.03 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetContainerRecipe", "imagebuilder:ListContainerRecipes" ], "Resource": [ "arn:aws:imagebuilder:us-west-{{2:123456789012}}:container-recipe/{{my-example-container-recipe}}/2021.12.03" ] } ] }'
+   aws imagebuilder put-container-recipe-policy --container-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-container-recipe}}/2021.12.03 --policy '{ "Version": "2012-10-17",		 	 	  "Statement": [ { "Effect": "Allow", "Principal": { "AWS": [ "123456789012" ] }, "Action": [ "imagebuilder:GetContainerRecipe", "imagebuilder:ListContainerRecipes" ], "Resource": [ "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-container-recipe}}/2021.12.03" ] } ] }'
    ```
 
 ------
@@ -85,4 +85,4 @@ To set the correct policies for sharing and unsharing a resource, the resource o
 
 **Promote as a RAM resource share**
 
-   To ensure that the resource is visible to all principals with whom you've shared it, run the **[promote-resource-share-created-from-policy](https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html)** AWS RAM command in the AWS CLI.
+   To ensure that the resource is visible to all principals with whom you've shared it, run the [promote-resource-share-created-from-policy](https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html) AWS RAM command in the AWS CLI.

@@ -58,7 +58,7 @@ The following table describes how Image Builder uses wildcards for cron expressi
 Cron expressions are entered differently for the Image Builder console, than they are for the API or CLI. To see examples, choose the tab that applies to you.
 
 ------
-#### [ Image Builder console ]
+#### [ Console ]
 
 The following examples show cron expressions that you can enter into the console for your build schedule. UTC time is specified using a 24-hour clock.
 

@@ -3,9 +3,12 @@
 # Update an infrastructure configuration
 <a name="update-infra-config"></a>
 
-This section covers how you can use the Image Builder console or **imagebuilder** commands in the AWS CLI to update an infrastructure configuration resource. To track your resources, you can apply tags as follows. Enter tags as key-value pairs.
+This section covers how to update an infrastructure configuration resource. You can use the Image Builder console, **imagebuilder** commands in the AWS CLI, or AWS Tools for PowerShell. To track your resources, you can apply tags as follows. Enter tags as key-value pairs.
 + *Resource tags* assign metadata tags to the Amazon EC2 instance that Image Builder launches during the build process.
 + *Tags* assign metadata tags to the infrastructure configuration resource that Image Builder creates as output.
+
+**Note**  
+We recommend that you configure all EC2 instances that Image Builder launches from a pipeline build to use IMDSv2 so that instance metadata retrieval requests require a signed token header.
 
 ------
 #### [ Console ]
@@ -36,40 +39,38 @@ You can also select the check box next to the **Configuration name**, then choos
 ------
 #### [ AWS CLI ]
 
-The following example shows how to update the infrastructure configuration for your image with the Image Builder **[update-infrastructure-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-infrastructure-configuration.html)** command in the AWS CLI.
+The following example shows how to update the infrastructure configuration for your image with the Image Builder [update-infrastructure-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-infrastructure-configuration.html) command in the AWS CLI.
 
 1. 
 
 **Create a CLI input JSON file**
 
-   In this example, the settings match the create example, except that `terminateInstanceOnFailure` is set to `true`. After you run the **update-infrastructure-configuration** command, pipelines that use this infrastructure configuration terminate the build and test instances when a build fails.
+   This example is based on the first example in [Create an infrastructure configuration](create-infra-config.md). It sets `terminateInstanceOnFailure` to `true`, so pipelines that use this infrastructure configuration terminate the build and test instances when a build fails.
 
    The following example sets common infrastructure fields. To require IMDSv2 tokens on the build and test instances, add an `instanceMetadataOptions` block with `httpTokens` set to `required`.
-**Note**  
-We recommend that you configure all EC2 instances that Image Builder launches from a pipeline build to use IMDSv2 so that instance metadata retrieval requests require a signed token header.
 
    Use a file editing tool to create a JSON file with keys shown in the following example, plus values that are valid for your environment. This example uses a file named `update-infrastructure-configuration.json`:
 
    ```
    {
-   "infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-   "description": "{{An example that will terminate instances of failed builds}}",
-   "instanceTypes": [
-       "m7i.large", "m7i.2xlarge"
-   ],
-   "instanceProfileName": "{{myIAMInstanceProfileName}}",
-   "securityGroupIds": [
-       "{{sg-12345678}}"
-   ],
-   "subnetId": "subnet-{{12345678}}",
-   "logging": {
-       "s3Logs": {
-           "s3BucketName": "{{my-logging-bucket}}",
-           "s3KeyPrefix": "{{my-path}}"
-       }
-   },
-   "terminateInstanceOnFailure": true,
-   "snsTopicArn": "arn:aws:sns:{{us-west-2}}:{{123456789012}}:{{MyTopic}}"
+       "infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+       "description": "{{An example that will terminate instances of failed builds}}",
+       "instanceTypes": [
+           "m7i.large", "m7i.2xlarge"
+       ],
+       "instanceProfileName": "{{my-iam-instance-profile-name}}",
+       "securityGroupIds": [
+           "sg-{{12345678}}"
+       ],
+       "subnetId": "subnet-{{12345678}}",
+       "logging": {
+           "s3Logs": {
+               "s3BucketName": "{{amzn-s3-demo-logging-bucket}}",
+               "s3KeyPrefix": "{{my-path}}"
+           }
+       },
+       "terminateInstanceOnFailure": true,
+       "snsTopicArn": "arn:aws:sns:{{us-west-2}}:{{111122223333}}:{{my-topic}}"
    }
    ```
 
@@ -80,5 +81,27 @@ We recommend that you configure all EC2 instances that Image Builder launches fr
    ```
    aws imagebuilder update-infrastructure-configuration --cli-input-json file://{{update-infrastructure-configuration.json}}
    ```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Update-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Update-EC2IBInfrastructureConfiguration.html) cmdlet to update an infrastructure configuration. This example is based on the first example in [Create an infrastructure configuration](create-infra-config.md). It sets the `TerminateInstanceOnFailure` parameter to `$true`, so pipelines that use this infrastructure configuration terminate the build and test instances when a build fails.
+
+The following example sets common infrastructure fields. To require IMDSv2 tokens on the build and test instances, set the `InstanceMetadataOptions_HttpToken` parameter to `required`.
+
+To update the infrastructure configuration, run the `Update-EC2IBInfrastructureConfiguration` cmdlet:
+
+```
+Update-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}} `
+    -Description "{{An example that will terminate instances of failed builds}}" `
+    -InstanceType m7i.large, m7i.2xlarge `
+    -InstanceProfileName {{my-iam-instance-profile-name}} `
+    -SecurityGroupId sg-{{12345678}} `
+    -SubnetId subnet-{{12345678}} `
+    -S3Logs_S3BucketName {{amzn-s3-demo-logging-bucket}} `
+    -S3Logs_S3KeyPrefix {{my-path}} `
+    -TerminateInstanceOnFailure $true `
+    -SnsTopicArn arn:aws:sns:{{us-west-2}}:{{111122223333}}:{{my-topic}}
+```
 
 ------

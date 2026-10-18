@@ -13,10 +13,11 @@ Image pipeline
 Image recipe
 All remaining resources
 
-## Delete resources from the AWS Management Console
-<a name="delete-resources-console"></a>
+## Delete an image pipeline
+<a name="delete-resources-pipeline"></a>
 
-To delete an image pipeline and its resources, follow these steps:
+------
+#### [ Console ]
 
 **Delete the pipeline**
 
@@ -28,6 +29,32 @@ To delete an image pipeline and its resources, follow these steps:
 
 1. To confirm the deletion, enter `Delete` in the box, and choose **Delete**.
 
+------
+#### [ AWS CLI ]
+
+The following example shows how to delete an image pipeline by specifying its ARN:
+
+```
+aws imagebuilder delete-image-pipeline --image-pipeline-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBImagePipeline](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBImagePipeline.html) cmdlet to delete an image pipeline by specifying its Amazon Resource Name (ARN):
+
+```
+Remove-EC2IBImagePipeline -ImagePipelineArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-pipeline/{{my-example-pipeline}}
+```
+
+------
+
+## Delete an image recipe
+<a name="delete-resources-image-recipe"></a>
+
+------
+#### [ Console ]
+
 **Delete the recipe**
 
 1. To see a list of the recipes created under your account, choose **Image recipes** from the navigation pane.
@@ -37,6 +64,68 @@ To delete an image pipeline and its resources, follow these steps:
 1. At the top of the **Image recipes** panel, on the **Actions** menu, choose **Delete recipe**.
 
 1. To confirm the deletion, enter `Delete` in the box, and choose **Delete**.
+
+------
+#### [ AWS CLI ]
+
+The following example shows how to delete an image recipe by specifying its ARN:
+
+```
+aws imagebuilder delete-image-recipe --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2019.12.03
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBImageRecipe.html) cmdlet to delete an image recipe by specifying its Amazon Resource Name (ARN):
+
+```
+Remove-EC2IBImageRecipe -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2019.12.03
+```
+
+------
+
+## Delete a container recipe
+<a name="delete-resources-container-recipe"></a>
+
+------
+#### [ Console ]
+
+**Delete the container recipe**
+
+1. To see a list of the container recipes created under your account, choose **Container recipes** from the navigation pane.
+
+1. Select the check box next to **Recipe name** to select the recipe that you want to delete.
+
+1. At the top of the **Container recipes** panel, on the **Actions** menu, choose **Delete recipe**.
+
+1. To confirm the deletion, enter `Delete` in the box, and choose **Delete**.
+
+------
+#### [ AWS CLI ]
+
+The following example shows how to delete a container recipe by specifying its ARN:
+
+```
+aws imagebuilder delete-container-recipe --container-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-container-recipe}}/{{1.0.0}}
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBContainerRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBContainerRecipe.html) cmdlet to delete a container recipe by specifying its Amazon Resource Name (ARN):
+
+```
+Remove-EC2IBContainerRecipe -ContainerRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:container-recipe/{{my-example-container-recipe}}/{{1.0.0}}
+```
+
+------
+
+## Delete an infrastructure configuration
+<a name="delete-resources-infra-config"></a>
+
+------
+#### [ Console ]
 
 **Delete infrastructure configuration**
 
@@ -48,6 +137,32 @@ To delete an image pipeline and its resources, follow these steps:
 
 1. To confirm the deletion, enter `Delete` in the box, and choose **Delete**.
 
+------
+#### [ AWS CLI ]
+
+The following example shows how to delete an infrastructure configuration resource by specifying its ARN:
+
+```
+aws imagebuilder delete-infrastructure-configuration --infrastructure-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBInfrastructureConfiguration.html) cmdlet to delete an infrastructure configuration resource by specifying its Amazon Resource Name (ARN):
+
+```
+Remove-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
+```
+
+------
+
+## Delete distribution settings
+<a name="delete-resources-distribution"></a>
+
+------
+#### [ Console ]
+
 **Delete distribution settings**
 
 1. To see a list of the distribution settings created under your account, choose **Distribution settings** from the navigation pane.
@@ -58,7 +173,31 @@ To delete an image pipeline and its resources, follow these steps:
 
 1. To confirm the deletion, enter `Delete` in the box, and choose **Delete**.
 
-**Delete an image**
+------
+#### [ AWS CLI ]
+
+The following example shows how to delete a distribution settings resource by specifying its ARN:
+
+```
+aws imagebuilder delete-distribution-configuration --distribution-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBDistributionConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBDistributionConfiguration.html) cmdlet to delete a distribution settings resource by specifying its Amazon Resource Name (ARN):
+
+```
+Remove-EC2IBDistributionConfiguration -DistributionConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
+```
+
+------
+
+## Delete an image
+<a name="delete-resources-image"></a>
+
+------
+#### [ Console ]
 
 1. To see a list of the images created under your account, choose **Images** from the navigation pane.
 
@@ -70,58 +209,48 @@ To delete an image pipeline and its resources, follow these steps:
 
 1. To confirm the deletion, enter `Delete` in the box, and choose **Delete**.
 
-## Delete an image pipeline from the AWS CLI
-<a name="delete-resources-cli"></a>
+------
+#### [ AWS CLI ]
 
-The following examples show how to delete Image Builder resources using the AWS CLI. As mentioned previously, resources must be deleted in the following order to avoid dependency errors:
-
-1. Image pipeline
-
-1. Image recipe
-
-1. All remaining resources
-
-**Delete image pipeline from the AWS CLI**  
-The following example shows how to delete an image pipeline by specifying its ARN.
+The following example shows how to delete an image build version by specifying its ARN:
 
 ```
-aws imagebuilder delete-image-pipeline --image-pipeline-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-pipeline/{{my-example-pipeline}}
+aws imagebuilder delete-image --image-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-image}}/2019.12.02/1
 ```
 
-**Delete image recipe from the AWS CLI**  
-The following example shows how to delete an image recipe by specifying its ARN.
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBImage.html) cmdlet to delete an image build version by specifying its Amazon Resource Name (ARN):
 
 ```
-aws imagebuilder delete-image-recipe --image-recipe-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-example-recipe}}/2019.12.03
+Remove-EC2IBImage -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-image}}/2019.12.02/1
 ```
 
-**Delete an infrastructure configuration**  
-The following example shows how to delete an infrastructure configuration resource by specifying its ARN.
+------
 
-```
-aws imagebuilder delete-infrastructure-configuration --infrastructure-configuration-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
-```
-
-**Delete distribution settings**  
-The following example shows how to delete a distribution settings resource by specifying its ARN.
-
-```
-aws imagebuilder delete-distribution-configuration --distribution-configuration-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}
-```
-
-**Delete an image**  
-The following example shows how to delete an image build version by specifying its ARN.
-
-```
-aws imagebuilder delete-image --image-build-version-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image/{{my-example-image}}/2019.12.02/1
-```
-
-**Delete a component**  
-The following example shows how to use an **imagebuilder** CLI command to delete a component build version by specifying its ARN.
-
-```
-aws imagebuilder delete-component --component-build-version-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:component/{{my-example-component}}/2019.12.02/1
-```
+## Delete a component
+<a name="delete-resources-component"></a>
 
 **Important**  
 Make sure there are no recipes that reference the component build version in any way before you delete it. Failing to do so could cause pipeline failures.
+
+------
+#### [ AWS CLI ]
+
+The following example shows how to delete a component build version by specifying its ARN:
+
+```
+aws imagebuilder delete-component --component-build-version-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{my-example-component}}/2019.12.02/1
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBComponent](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBComponent.html) cmdlet to delete a component build version by specifying its Amazon Resource Name (ARN):
+
+```
+Remove-EC2IBComponent -ComponentBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{my-example-component}}/2019.12.02/1
+```
+
+------

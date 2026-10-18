@@ -14,7 +14,7 @@ Before you create a lifecycle policy, make sure that you've met all [Prerequisit
 You can use one of the following methods to create an AMI image lifecycle policy with the AWS Management Console or AWS CLI. You can also use the [CreateLifecyclePolicy](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html) API action. For the associated SDK request, you can refer to the [See Also](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html#API_CreateLifecyclePolicy_SeeAlso) link for that command in the *EC2 Image Builder API Reference*.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 To create a lifecycle policy for AMI image resources in the AWS Management Console, follow these steps:
 
@@ -113,17 +113,17 @@ Add tags to your lifecycle policy.
 ------
 #### [ AWS CLI ]
 
-To create a new Image Builder lifecle policy, you can use the **[create-lifecycle-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-lifecycle-policy.html)** command in the AWS CLI.
+To create a new Image Builder lifecycle policy, you can use the **[create-lifecycle-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-lifecycle-policy.html)** command in the AWS CLI.
 
 ------
 
 ## Create lifecycle management policies for Image Builder container image resources
 <a name="create-lifecycle-policy-container"></a>
 
-You can use one of the following methods to create a container image lifecycle policy with the AWS Management Console or AWS CLI. You can also use the [CreateLifecyclePolicy](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html) API action. For the associated SDK request, you can refer to the [See Also](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateImage.html#API_CreateLifecyclePolicy_SeeAlso) link for that command in the *EC2 Image Builder API Reference*.
+You can use one of the following methods to create a container image lifecycle policy with the AWS Management Console or AWS CLI. You can also use the [CreateLifecyclePolicy](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html) API action. For the associated SDK request, you can refer to the [See Also](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateLifecyclePolicy.html#API_CreateLifecyclePolicy_SeeAlso) link for that command in the *EC2 Image Builder API Reference*.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 To create a lifecycle policy for container image resources in the AWS Management Console, follow these steps:
 
@@ -210,6 +210,6 @@ Add tags to your lifecycle policy.
 ------
 #### [ AWS CLI ]
 
-To create a new Image Builder lifecle policy, you can use the **[create-lifecycle-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-lifecycle-policy.html)** command in the AWS CLI.
+To create a new Image Builder lifecycle policy, you can use the **[create-lifecycle-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-lifecycle-policy.html)** command in the AWS CLI.
 
 ------

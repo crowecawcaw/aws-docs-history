@@ -6,16 +6,19 @@
 This section describes the various ways that you can find information and view details for your EC2 Image Builder image recipes.
 
 **Topics**
-+ [List image recipes from the console](#list-image-recipes-console)
-+ [List image recipes from the AWS CLI](#cli-list-image-recipes)
-+ [View image recipe details from the console](#view-image-recipe-details-console)
-+ [Get image recipe details from the AWS CLI](#cli-get-image-recipe)
-+ [Get image recipe policy details from the AWS CLI](#cli-get-image-recipe-policy)
++ [List image recipes](#list-image-recipes-console)
++ [View image recipe details](#view-image-recipe-details-console)
++ [Get image recipe policy details](#cli-get-image-recipe-policy)
 
-## List image recipes from the console
+## List image recipes
 <a name="list-image-recipes-console"></a>
 
-To see a list of the image recipes created under your account in the Image Builder console, follow these steps:
+You can list all of your image recipes, or filter the results by owner. Use `Self` to list the recipes that you own, or `Shared` to list recipes that other accounts have shared with you.
+
+------
+#### [ Console ]
+
+To see a list of the image recipes created under your account, follow these steps:
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).
 
@@ -25,8 +28,8 @@ To see a list of the image recipes created under your account in the Image Build
 **Note**  
 You can also select the check box next to the **Recipe name**, then choose **View details**.
 
-## List image recipes from the AWS CLI
-<a name="cli-list-image-recipes"></a>
+------
+#### [ AWS CLI ]
 
 The following example shows how to list all of your image recipes, using the AWS CLI.
 
@@ -55,28 +58,48 @@ The command returns a summary for each image recipe, shown in the following exam
 }
 ```
 
-You can filter the results by owner to control which recipes the command returns.
+The following example lists only the recipes that you own:
 
 ```
 aws imagebuilder list-image-recipes --owner Self
 ```
 
-Use `Self` to list the recipes that you own, or `Shared` to list recipes that other accounts have shared with you.
+The following example lists the recipes that other accounts have shared with you:
 
 ```
 aws imagebuilder list-image-recipes --owner Shared
 ```
 
-To limit the number of results that the command returns on each page, use the `--max-results` parameter. If more results are available, the response includes a `nextToken` value that you pass to the next command to retrieve the following page.
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBImageRecipeList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageRecipeList.html) cmdlet to list all of your image recipes:
 
 ```
-aws imagebuilder list-image-recipes --max-results 10 --next-token "{{eyJuZXh0VG9rZW4...}}"
+Get-EC2IBImageRecipeList
 ```
 
-## View image recipe details from the console
+The following example lists only the recipes that you own:
+
+```
+Get-EC2IBImageRecipeList -Owner Self
+```
+
+The following example lists the recipes that other accounts have shared with you:
+
+```
+Get-EC2IBImageRecipeList -Owner Shared
+```
+
+------
+
+## View image recipe details
 <a name="view-image-recipe-details-console"></a>
 
-To view details for a specific image recipe using the Image Builder console, select the image recipe to review, using the steps described in [List image recipes from the console](#list-image-recipes-console).
+------
+#### [ Console ]
+
+To view details for a specific image recipe, select the image recipe to review, and use the steps described in [List image recipes](#list-image-recipes-console).
 
 On the recipe detail page, you can:
 + Delete the recipe. For more information about deleting resources in Image Builder, see [Delete outdated or unused Image Builder resources](delete-resources.md).
@@ -85,13 +108,13 @@ On the recipe detail page, you can:
 **Note**  
 When you create a pipeline from an existing recipe, the option to create a new recipe is not available.
 
-## Get image recipe details from the AWS CLI
-<a name="cli-get-image-recipe"></a>
+------
+#### [ AWS CLI ]
 
 The following example shows how to use an **imagebuilder** CLI command to get the details of an image recipe by specifying its Amazon Resource Name (ARN).
 
 ```
-aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-recipe}}/1.0.0
+aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-recipe}}/1.0.0
 ```
 
 The command returns the full image recipe, shown in the following example output.
@@ -118,7 +141,18 @@ The command returns the full image recipe, shown in the following example output
 }
 ```
 
-## Get image recipe policy details from the AWS CLI
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageRecipe.html) cmdlet to get the details of an image recipe by specifying its Amazon Resource Name (ARN):
+
+```
+Get-EC2IBImageRecipe -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-recipe}}/1.0.0
+```
+
+------
+
+## Get image recipe policy details
 <a name="cli-get-image-recipe-policy"></a>
 
 A recipe policy is a resource-based policy. It controls cross-account access to your recipe. When you share a recipe through AWS Resource Access Manager (AWS RAM), Image Builder creates the policy automatically. You can also set a custom policy with the `put-image-recipe-policy` command.
@@ -126,8 +160,24 @@ A recipe policy is a resource-based policy. It controls cross-account access to 
 **Note**  
 If you set the resource policy directly with `put-image-recipe-policy`, you must then promote the resource to a AWS RAM resource share so that it's visible to the principals you share it with. For more information, see [Option 2: Apply a resource policy and promote to an existing resource share](manage-shared-resources-share.md#share-opt2-promote-resource-share).
 
+------
+#### [ AWS CLI ]
+
 The following example shows how to use an **imagebuilder** CLI command to get the details of an image recipe policy by specifying its ARN. If no policy is attached to the recipe, the response is empty.
 
 ```
-aws imagebuilder get-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-recipe}}/1.0.0
+aws imagebuilder get-image-recipe-policy --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-recipe}}/1.0.0
 ```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBImageRecipePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageRecipePolicy.html) cmdlet to get the details of an image recipe policy by specifying its ARN:
+
+```
+Get-EC2IBImageRecipePolicy -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-recipe}}/1.0.0
+```
+
+The cmdlet returns the policy as a JSON string. If no policy is attached to the recipe, the cmdlet returns `{}`.
+
+------

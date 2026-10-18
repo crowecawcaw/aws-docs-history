@@ -39,7 +39,7 @@ The input configuration file contains the following settings. To streamline your
   + **path** (String, required) – The file location of the YAML component document. This must be one of the following:
     + A local file path ({{./component-doc-example.yaml}}).
     + An S3 URI (`s3://{{bucket/key}}`).
-    + An Image Builder component build version ARN (arn:aws:imagebuilder:us-west-{{2:123456789012}}:component/{{my-example-component}}/2021.12.02/1).
+    + An Image Builder component build version ARN (arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:component/{{my-example-component}}/2021.12.02/1).
   + **parameters** (array of objects) – An array of key-value pair objects, each representing a component-specific parameter that the **run** command passes in when it runs the component document. Parameters are optional for components. The component document may or may not have parameters defined.
 
     Each object consists of the following fields:

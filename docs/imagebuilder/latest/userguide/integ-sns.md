@@ -5,18 +5,38 @@
 
 Amazon Simple Notification Service (Amazon SNS) is a managed service that provides asynchronous message delivery from publishers to subscribers (also known as producers and consumers).
 
+**Note**  
+You can also receive `AVAILABLE` and `FAILED` state changes through the EventBridge `EC2 Image Builder Image State Change` event. The native Amazon SNS notification that's described here delivers detailed image information, whereas the event `detail` contains only the previous and new image state. For more information, see [Amazon EventBridge integration in Image Builder](integ-eventbridge.md).
+
 You can specify an SNS topic in your infrastructure configuration. When you create an image or run a pipeline, Image Builder can publish detailed messages about your image status to this topic. When the image status reaches one of the following states, Image Builder publishes a message:
 + `AVAILABLE`
 + `FAILED`
+
+Image Builder publishes an image status notification only for the `AVAILABLE` and `FAILED` states. Other states, including the intermediate build states and the `CANCELLED` terminal state, don't generate a status notification. To track those states, use an EventBridge rule for the `EC2 Image Builder Image State Change` event. For more information, see [EC2 Image Builder Image State Change](integ-eventbridge.md#eb-event-state-change).
+
+**Note**  
+Image Builder sends the image status notification on a best-effort basis. If Image Builder can't publish to your topic, the image build still completes and reaches its final state. A missing notification doesn't indicate a failed build. Image Builder can also drop the `FAILED` notification, so don't treat the notification as the source of truth for image status. To confirm the state of an image, call **GetImage**. Image Builder doesn't add a failure to publish the image status notification to your image build log.
+
+**Note**  
+When a `CreateInfrastructureConfiguration` or `UpdateInfrastructureConfiguration` request includes an `snsTopicArn` value, Image Builder validates the topic by publishing a test message with your credentials. If Amazon SNS rejects the test message, the request fails with an `InvalidParameterValueException` error for the `snsTopicArn` parameter, and the error message comes from Amazon SNS. If Amazon SNS returns a server error instead, the request fails with a `ServiceException` error.  
+The test message body is a JSON object with a single `name` field, whose value is `EC2 Image Builder: {{operation}} - Validating caller SNS Topic publish permissions.`, where {{operation}} is `CreateInfrastructureConfiguration` or `UpdateInfrastructureConfiguration`. The test message also has a `String` message attribute named `EC2ImageBuilder`.
+
+**Note**  
+The topic name in `snsTopicArn` can contain only letters, numbers, hyphens, and underscores.
+
+Image Builder validates the topic by calling Amazon SNS in the Region of the `CreateInfrastructureConfiguration` or `UpdateInfrastructureConfiguration` request. Image Builder publishes the status notification from the Region where the image build runs.
+
+The [EC2ImageBuilderExecutionPolicy](security-iam-awsmanpol.md#sec-iam-manpol-EC2ImageBuilderExecutionPolicy) AWS managed policy allows `sns:Publish` only for topics in the same account as the role.
 
 For an example SNS message from Image Builder, see [SNS message format](#integ-sns-message). If you want to create a new SNS topic, see [Getting started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html) in the *Amazon Simple Notification Service Developer Guide*.
 
 ## Encrypted SNS Topics
 <a name="integ-sns-encrypted"></a>
 
-If your SNS topic is encrypted, you must grant permission in the AWS KMS key policy for the Image Builder service role to perform the following actions:
+If your SNS topic is encrypted, you must grant permission in the AWS KMS key policy to perform the following actions. Grant this permission to the role that Image Builder uses to publish notifications. That role is the Image Builder service-linked role `AWSServiceRoleForImageBuilder`, or the workflow execution role that you specified for the image or image pipeline.
 + `kms:Decrypt`
 + `kms:GenerateDataKey`
++ `kms:GenerateDataKeyWithoutPlaintext`
 
 **Note**  
 If your SNS topic is encrypted, the key that encrypts this topic must reside in the account where the Image Builder service runs. Image Builder can't send notifications to SNS topics that are encrypted with keys from other accounts.
@@ -32,18 +52,23 @@ The following example shows the additional section that you add to the KMS key p
       "AWS": "arn:aws:iam::{{123456789012}}:role/aws-service-role/imagebuilder.amazonaws.com/AWSServiceRoleForImageBuilder"
     },
     "Action": [
-      "kms:GenerateDataKey*",
-      "kms:Decrypt"
+      "kms:Decrypt",
+      "kms:GenerateDataKey",
+      "kms:GenerateDataKeyWithoutPlaintext"
     ],
     "Resource": "*"
   }]
 }
 ```
 
+**Note**  
+Image Builder publishes the status notification with the role that it uses to run the workflows for the image build, not with the instance profile in your infrastructure configuration. By default, that role is the service-linked role. If you specify a workflow execution role for the image or image pipeline, Image Builder uses that role instead. You set this role in the `executionRole` parameter of **CreateImage**, **CreateImagePipeline**, **UpdateImagePipeline**, or **ImportDiskImage**. **UpdateImagePipeline** doesn't support selective updates, so include `executionRole` in every update request for a pipeline that uses one. Otherwise, Image Builder runs later pipeline builds with the service-linked role.  
+Grant the same KMS key permissions to the role that you specify.
+
 You can use one of the following methods to get the ARN.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 To get the ARN for the service-linked role that Image Builder created under your account from the AWS Management Console, follow these steps:
 
@@ -78,13 +103,30 @@ aws iam get-role --role-name AWSServiceRoleForImageBuilder
 ```
 
 ------
+#### [ PowerShell ]
+
+To get the ARN for the service-linked role that Image Builder created under your account with PowerShell, use the IAM [Get-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-IAMRole.html) cmdlet:
+
+```
+Get-IAMRole -RoleName AWSServiceRoleForImageBuilder
+```
+
+------
 
 ## SNS message format
 <a name="integ-sns-message"></a>
 
-After Image Builder publishes a message to your Amazon SNS topic, other services that subscribe to the topic can filter on the message format and determine if it meets criteria for further action. For example, a success message might initiate a task to update an AWS Systems Manager parameter store, or to launch an external compliance testing workflow for the output AMI.
+After Image Builder publishes a message to your Amazon SNS topic, other services that subscribe to the topic can act on the message contents. For example, a success message might initiate a task to update an AWS Systems Manager parameter store, or to launch an external compliance testing workflow for the output AMI.
+
+**Note**  
+Image Builder sends the image status notification data in the message body and doesn't set any Amazon SNS message attributes on that notification. To filter image status notifications with an Amazon SNS subscription filter policy, set the `FilterPolicyScope` subscription attribute to `MessageBody`. For more information, see [Amazon SNS subscription filter policy scope](https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering-scope.html) in the *Amazon Simple Notification Service Developer Guide*.  
+Image Builder publishes other messages to the topics that you configure: the test message that validates the topic when you create or update an infrastructure configuration, and, if you use the `WaitForAction` workflow step, that step's waiting notification. Those messages have a different body structure.
 
 The following example shows the JSON payload for a typical message that Image Builder publishes when a pipeline build runs to completion, and creates a Linux image.
+
+Image Builder uses the same message format for every image, but not every field appears in every message. Which fields appear depends on the image type, on the configurations that you attached to the image or pipeline, and on how far the build progressed before it reached its final state. For example, a message for a Windows image can include an `inventoryConfiguration` block, and a message for a failed build can omit `osVersion` and contain an empty output resource list. Treat every block as optional.
+
+The `type` field tells you whether the message describes an AMI (`AMI`) or a container image (`DOCKER`). Branch on `type` before you read any of the blocks that depend on it. A message for a container image includes a `containerRecipe` block instead of `imageRecipe`, and `outputResources.containers` instead of `outputResources.amis`.
 
 ```
 {
@@ -285,6 +327,10 @@ The following example shows the JSON payload for a typical message that Image Bu
   "outputResources": {
     "amis": []
   },
+  "buildExecutionId": "cd12ef34-56ab-7890-c123-4e5678f90ab1",
+  "testExecutionId": "7b8c9012-def3-456b-67c8-9de01fa12345",
+  "distributionJobId": "2f345678-9bcd-0e1f-2345-ab67c8d901ef",
+  "integrationJobId": "543210c9-bfa8-7ed6-5432-1cb09f8765f4",
   "accountId": "123456789012",
   "enhancedImageMetadataEnabled": true,
   "buildType": "SCHEDULED",
@@ -294,3 +340,7 @@ The following example shows the JSON payload for a typical message that Image Bu
   }
 }
 ```
+
+**Note**  
+Image Builder includes the `buildExecutionId`, `testExecutionId`, `distributionJobId`, and `integrationJobId` fields only for backward compatibility, and sets each one to a randomly generated value in every message. No Image Builder API returns these four fields for an image. Image Builder also replaces every `internalId` value with a randomly generated value, so the value in a message changes from message to message and doesn't match the value that Image Builder stores for the resource. Don't use any of these values as stable or queryable identifiers.  
+For backward compatibility, Image Builder also reports every `dateCreated` and `dateUpdated` value in the message in the format `Mon D, YYYY H:MM:SS AM`, instead of the ISO 8601 format that **GetImage** returns. The message carries no time zone offset for these values. Image Builder also reports the image's `imageTestsConfiguration` in a field named `imageTestsConfigurationDocument`. Parse the message body as its own schema, and call **GetImage** when you need the current state of the image.

@@ -12,7 +12,6 @@ To share resources through AWS RAM, you must create a resource share. A resource
 + Specific AWS accounts inside or outside of its organization in AWS Organizations.
 + An organizational unit (OU) inside of its organization in AWS Organizations.
 + Its entire organization in AWS Organizations.
-+ AWS Organizations or OUs outside of its organization.
 
 In this model, the AWS account that owns the resource (owner) shares it with other AWS accounts or through AWS Organizations (consumers) within the same Region. When a shared resource is updated, consumers get those updates automatically.
 
@@ -53,7 +52,7 @@ The following resources that Image Builder creates from your pipeline build are 
 
 For more information about distribution settings for your AMI, see [Create and update AMI distribution configurations](cr-upd-ami-distribution-settings.md). For more information about distribution settings for your container image in Amazon ECR, see [Create and update distribution settings for container images](cr-upd-container-distribution-settings.md).
 
-For more information about sharing your AMI with AWS Organizations and OUs, see [Share an AMI with organizations or OUs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.html). 
+For more information about sharing your AMI with AWS Organizations and OUs, see [Share an AMI with organizations and organizational units](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/share-amis-with-organizations-and-OUs.html). 
 
 ## Resource consumers
 <a name="share-ib-resources-comsumers"></a>

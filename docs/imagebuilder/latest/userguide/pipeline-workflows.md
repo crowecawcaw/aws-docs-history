@@ -30,7 +30,7 @@ Image Builder runs your test workflows in test groups. It runs the groups one at
 How you define test groups depends on whether you use the console or the AWS CLI and API. Select the tab that matches the method you use.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 When you create or edit a pipeline in the console, you define your test workflows in the **Test workflow** section of the image creation process. To run tests, choose the option to select test workflows. To build images without testing, choose the option to skip test workflows.
 
@@ -89,7 +89,7 @@ If the order doesn't matter, and you want to run as many test workflows as possi
 **Scenario 3: Mix and match**  
 If you have a mixed scenario, with some test workflows that can run at the same time and some that should run one at a time, you can configure your test groups to accomplish this goal. The only limit to how you configure your test groups is the maximum number of test workflows that can run for your pipeline
 
-## Set workflow parameters in an Image Builder pipeline from the console
+## Set workflow parameters for an Image Builder pipeline in the console
 <a name="pipeline-workflow-set-params"></a>
 
 Workflow parameters function the same way for build, test, and distribution workflows. When you create or update a pipeline, you select the build, test, and distribution workflows that you want to include. If you defined parameters in the workflow document for a workflow that you selected, Image Builder displays them in the **Parameters** panel. The panel is hidden for workflows that do not have parameters defined.
@@ -119,7 +119,7 @@ To create a custom execution role, see [Creating a role to delegate permissions 
 To associate custom build, test, and distribution image workflows with your pipeline, select the tab that matches the method you want to use.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 When you create or update a pipeline in the AWS Management Console, the **Create image pipeline** wizard includes a **Workflows** step where you select the workflows that your pipeline runs. To associate custom image workflows, do the following in that step:
 
@@ -131,14 +131,14 @@ When you create or update a pipeline in the AWS Management Console, the **Create
 
 1. For **Execution role**, select the IAM role that Image Builder assumes to run your workflow actions. An execution role is required when you associate custom image workflows. For more information, see [Specify the IAM service role that Image Builder uses to run workflow actions](#pipeline-workflow-service-role).
 
-1. If a workflow that you selected defines parameters, set their values in the **Parameters** panel. For more information, see [Set workflow parameters in an Image Builder pipeline from the console](#pipeline-workflow-set-params).
+1. If a workflow that you selected defines parameters, set their values in the **Parameters** panel. For more information, see [Set workflow parameters for an Image Builder pipeline in the console](#pipeline-workflow-set-params).
 
 For a step-by-step walkthrough of the full **Create image pipeline** wizard, see [Create and update AMI image pipelines](ami-image-pipelines.md).
 
 ------
 #### [ AWS CLI ]
 
-To associate custom image workflows when you create a pipeline, use the **[create-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image-pipeline.html)** command. Specify your execution role with the `--execution-role` parameter, and list your build, test, and distribution workflows with the `--workflows` parameter. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow.
+To associate custom image workflows when you create a pipeline, use the [create-image-pipeline](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image-pipeline.html) command. Specify your execution role with the `--execution-role` parameter, and list your build, test, and distribution workflows with the `--workflows` parameter. The following example creates a pipeline with one build workflow, one test workflow, and one distribution workflow.
 
 ```
 aws imagebuilder create-image-pipeline \

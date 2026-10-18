@@ -28,7 +28,7 @@ The component step
 For a build or test failure that a component caused, the component that ran, the phase and step within its document, the AWSTOE action module that the step ran, and the error the step reported. Image Builder identifies the component by build version, so it names the exact revision that ran even when your recipe references a wildcard version. For the action modules, see [Action modules supported by AWSTOE component manager](toe-action-modules.md).
 
 The destination Regions  
-For a distribution or integration failure, a summary error for the distribution as a whole, and one entry for each destination that failed. Each entry carries its , how the distribution ended there, the error from the service that Image Builder called, and, for a cross-account distribution, the target AWS account that Image Builder distributed to. When the AMI copy succeeded but a step that follows it didn't, the entry also names that step – associating license configurations, updating launch templates, putting SSM parameters, updating Amazon EC2 Fast Launch configurations, or exporting the AMI. Destinations that succeeded are omitted.
+For a distribution or integration failure, a summary error for the distribution as a whole, and one entry for each destination that failed. Each entry carries its AWS Region, how the distribution ended there, the error from the service that Image Builder called, and, for a cross-account distribution, the target AWS account that Image Builder distributed to. When the AMI copy succeeded but a step that follows it didn't, the entry also names that step – associating license configurations, updating launch templates, putting SSM parameters, updating Amazon EC2 Fast Launch configurations, or exporting the AMI. Destinations that succeeded are omitted.
 
 **Note**  
 Which members Image Builder returns depends on how far the build progressed. A failure that happens before Image Builder starts a workflow has no workflow to name. For example, if the parent image in your recipe no longer exists, failure context identifies the stage and nothing more.
@@ -38,8 +38,10 @@ The examples in [View failure context for a failed image](#image-failure-context
 ## View failure context for a failed image
 <a name="image-failure-context-view"></a>
 
-**View failure context in the Image Builder console**  
-Image Builder displays the failure details for an image wherever it displays a `Failed` image status.
+Image Builder displays the failure details for an image wherever it displays a `Failed` image status. You can view the failure context in the console, or get it with the AWS CLI or AWS Tools for PowerShell.
+
+------
+#### [ Console ]
 
 1. Open the EC2 Image Builder console at [https://console.aws.amazon.com/imagebuilder/](https://console.aws.amazon.com/imagebuilder/).
 
@@ -47,7 +49,9 @@ Image Builder displays the failure details for an image wherever it displays a `
 
 1. Choose the `Failed` image status. Image Builder displays the failure details for the image, and links the failed workflow step to its runtime detail.
 
-**Get failure context with the AWS CLI**  
+------
+#### [ AWS CLI ]
+
 Run the **get-image** command with the build version ARN of the failed image.
 
 ```
@@ -122,22 +126,49 @@ aws imagebuilder list-image-build-versions \
     --query "imageSummaryList[?state.status=='FAILED'].[arn, state.failureContext]"
 ```
 
+------
+#### [ PowerShell ]
+
+To get the failure context, run the [Get-EC2IBImage](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImage.html) cmdlet with the build version ARN of the failed image and read the `State` property:
+
+```
+(Get-EC2IBImage -ImageBuildVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-recipe}}/1.0.0/1).State
+```
+
+The `State` property includes `Status`, `Reason`, and `FailureContext`. `FailureContext` contains the same information as the `failureContext` member in the AWS CLI example output. Its property names use PascalCase, such as `ImageStatus`, `FailedStep`, `ComponentFailure`, and `DistributionFailure`.
+
+To find the failed builds in an account without inspecting each one, run the [Get-EC2IBImageBuildVersionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageBuildVersionList.html) cmdlet and filter on the image status. The following example returns the failed builds for an image, with the failure context for each:
+
+```
+Get-EC2IBImageBuildVersionList -ImageVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{my-example-recipe}}/1.0.0 |
+    Where-Object { $_.State.Status -eq "FAILED" } |
+    Select-Object Arn, @{Name="FailureContext"; Expression={$_.State.FailureContext}}
+```
+
+------
+
 ## Trace a failure to its root cause
 <a name="image-failure-context-rca"></a>
 
 Failure context narrows a failure down to a single step. Use the following steps to go from that step to the evidence that explains it.
 
-1. **Read `imageStatus` to find the stage that failed.** A value of `BUILDING` or `TESTING` means the failure happened on the Amazon EC2 instance that Image Builder launched, so the component logs are the next place to look. A value of `DISTRIBUTING` or `INTEGRATING` means the image was built and the failure is in your distribution settings or in a destination account or .
+1. **Read `imageStatus` to find the stage that failed.** A value of `BUILDING` or `TESTING` means the failure happened on the Amazon EC2 instance that Image Builder launched, so the component logs are the next place to look. A value of `DISTRIBUTING` or `INTEGRATING` means the image was built and the failure is in your distribution settings or in a destination account or AWS Region.
 
 1. **Read the member that describes the specific failure.** If `componentFailure` is present, it identifies the failing step in your component document, along with the action the step ran and the error it reported. If `distributionFailure` is present, each entry in `regionFailures` gives you a destination and its own error.
 
 1. **Inspect the workflow runtime detail.** Call [ListWorkflowStepExecutions](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflowStepExecutions.html) with `workflowExecutionId` to see every step in the workflow and where the failed step falls in the sequence. Call [GetWorkflowStepExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowStepExecution.html) with `stepExecutionId` for the inputs, outputs, and rollback status of the failed step itself.
 
-   The following example lists the steps for a failed workflow execution.
+   The following AWS CLI example lists the steps for a failed workflow execution:
 
    ```
    aws imagebuilder list-workflow-step-executions \
        --workflow-execution-id wf-{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}
+   ```
+
+   To list the steps with Tools for PowerShell, run the [Get-EC2IBWorkflowStepExecutionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBWorkflowStepExecutionList.html) cmdlet. The cmdlet returns the full response, so the following example reads its `Steps` property:
+
+   ```
+   (Get-EC2IBWorkflowStepExecutionList -WorkflowExecutionId wf-{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}).Steps
    ```
 
 1. **Read the logs for the failed step.** Use `workflowExecutionId` and `failedStep` to go directly to the log path for that step. For more information, see [Get the full component output from the logs](#image-failure-context-logs).
@@ -170,7 +201,7 @@ Image Builder streams the component logs to Amazon CloudWatch Logs when the buil
 ## Use failure context with AI agents
 <a name="image-failure-context-ai"></a>
 
-Failure context is designed to be read by automation as well as by people. An AI agent that troubleshoots a failed build reads the named fields and uses their values as arguments to the next API call it makes. That makes a diagnosis repeatable, and it keeps the agent from guessing which component or to investigate.
+Failure context is designed to be read by automation as well as by people. An AI agent that troubleshoots a failed build reads the named fields and uses their values as arguments to the next API call it makes. That makes a diagnosis repeatable, and it keeps the agent from guessing which component or AWS Region to investigate.
 
 You can use failure context in either of the following ways:
 + **Troubleshoot in the Image Builder AWS Management Console** – The Troubleshoot feature, powered by AWS DevOps Agent, uses failure context to scope its investigation to the workflow step and component that failed before it examines logs and related resources. For more information, see [Troubleshoot failed builds with AI - Preview](devops-agent-troubleshooting.md).

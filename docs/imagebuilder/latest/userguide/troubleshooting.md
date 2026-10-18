@@ -26,14 +26,14 @@ If an Image Builder pipeline build fails, Image Builder returns an error message
 Workflow Execution ID: {{wf-12345abc-6789-0123-abc4-567890123abc}} failed with reason: …
 ```
 
-A failed image also carries structured failure context that names the workflow step, component step, or distribution that caused the failure. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
+A failed image also carries structured failure context that names the workflow step, component step, or distribution AWS Region that caused the failure. For more information, see [Find the cause of a failed image build with failure context](image-failure-context.md).
 
 Image Builder arranges and directs image build actions through a series of steps that are defined for the runtime stages in its standard image creation process. The build and test stages of the process each have an associated workflow. When Image Builder runs a workflow to build or test a new image, it generates a workflow metadata resource that keeps track of runtime details.
 
 Container images have an additional workflow that runs during distribution.
 
 **Research details for runtime instance failures for your workflow**  
-To troubleshoot a runtime failure for your workflow, you can call the [GetWorkflowExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowExecution.html) and [ListWorkflowStepExecutions](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowExecution.html) API actions with your `workflow execution ID`.
+To troubleshoot a runtime failure for your workflow, you can call the [GetWorkflowExecution](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_GetWorkflowExecution.html) and [ListWorkflowStepExecutions](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListWorkflowStepExecutions.html) API actions with your `workflow execution ID`.
 
 **Review workflow runtime logs**
 + **Amazon CloudWatch Logs**
@@ -195,7 +195,7 @@ You or your organization might have created a Systems Manager State Manager asso
 To resolve this issue, turn off enhanced image metadata collection, using one of the following methods:
 + Update your image pipeline in the console, to clear the **Enable enhanced metadata collection** check box. Save your changes and run a pipeline build.
 
-  For more information about updating your AMI image pipeline using the EC2 Image Builder console, see [Update AMI image pipelines from the console](update-image-pipeline-console.md). For more information about updating your container image pipeline using the EC2 Image Builder console, see [Update a container image pipeline from the console](update-container-pipeline-console.md).
+  For more information about updating your AMI image pipeline using the EC2 Image Builder console, see [Update AMI image pipelines in the console](update-image-pipeline-console.md). For more information about updating your container image pipeline using the EC2 Image Builder console, see [Update a container image pipeline in the console](update-container-pipeline-console.md).
 + You can also update your image pipeline with the **update-image-pipeline** command in the AWS CLI. To do this, include the `EnhancedImageMetadataEnabled` property in your JSON file, set to `false`. The following example shows the property set to `false`.
 
   ```
@@ -203,9 +203,9 @@ To resolve this issue, turn off enhanced image metadata collection, using one of
       "name": "{{MyWindows2019Pipeline}}",
       "description": "{{Builds Windows 2019 Images}}",
       "enhancedImageMetadataEnabled": {{false}},
-      "imageRecipeArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:image-recipe/{{my-example-recipe}}/2020.12.03",
-      "infrastructureConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
-      "distributionConfigurationArn": "arn:aws:imagebuilder:us-west-{{2:123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
+      "imageRecipeArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image-recipe/{{my-example-recipe}}/2020.12.03",
+      "infrastructureConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}",
+      "distributionConfigurationArn": "arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:distribution-configuration/{{my-example-distribution-configuration}}",
       "imageTestsConfiguration": {
           "imageTestsEnabled": true,
           "timeoutMinutes": 60

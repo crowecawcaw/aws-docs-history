@@ -35,7 +35,7 @@ At the top of the page, you can search for a specific product by name, or you ca
 **Note**  
 If you're looking for a product that you just subscribed to, and you don't see it in the list, use the refresh button at the top of the tab to refresh your results. It might take a few minutes for a new subscription to appear in the list.
 
-## Discover AWS Marketplace image products from the Image Builder console
+## Discover AWS Marketplace image products in the Image Builder console
 <a name="integ-marketplace-find"></a>
 
 This section focuses on AWS Marketplace image products to use as a base image in your recipe. For products that include associated software components, you can filter on the product owner in the console and in the API, SDK, and CLI. For more information, see [List Image Builder components](component-details.md#list-components). For more information about finding, subscribing to, and using AWS Marketplace components, see [Use AWS Marketplace components to customize your image](use-marketplace-components.md).
@@ -93,11 +93,9 @@ Open the **Create recipe** page and select an AWS Marketplace image product to u
 
 1. In the **Base image** section, choose the **AWS Marketplace images** option. This shows you a list of the AWS Marketplace image products that you’ve subscribed to in the **Subscriptions** tab. You can choose your base image from the list.
 
-   You can also search for other image products that are available in AWS Marketplace directly from the **AWS Marketplace** tab. Choose **Add products**, or open the **AWS Marketplace** tab directly. For more information about how to set filters and search in the AWS Marketplace, see [Discover AWS Marketplace image products from the Image Builder console](#integ-marketplace-find).
+   You can also search for other image products that are available in AWS Marketplace directly from the **AWS Marketplace** tab. Choose **Add products**, or open the **AWS Marketplace** tab directly. For more information about how to set filters and search in the AWS Marketplace, see [Discover AWS Marketplace image products in the Image Builder console](#integ-marketplace-find).
 
-1. Enter remaining details as usual. If any or your product subscriptions include build components, you can select them from the **Build components** list. Select `AWS Marketplace` from the component owner type list to see them, or select `Third party managed` for the CIS component.
-**Note**  
-If your base image is a CIS-published AWS Marketplace image product, Image Builder verifies CIS hardening component compatibility. Choose the CIS component that matches the benchmark and operating system of your base image to avoid a recipe validation error.
+1. Enter remaining details as usual. If any or your product subscriptions include build components, you can select them from the **Build components** list. Select `AWS Marketplace` from the component owner type list to see them.
 
 1. Choose **Create recipe**.
 

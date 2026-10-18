@@ -22,5 +22,5 @@ For more information and a step-by-step tutorial about using the **Create image 
 
 **Topics**
 + [Create an AMI image pipeline from the AWS CLI](cli-create-image-pipeline.md)
-+ [Update AMI image pipelines from the console](update-image-pipeline-console.md)
++ [Update AMI image pipelines in the console](update-image-pipeline-console.md)
 + [Update AMI image pipelines from the AWS CLI](cli-update-image-pipeline.md)

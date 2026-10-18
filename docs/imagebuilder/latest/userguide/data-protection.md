@@ -27,32 +27,41 @@ An ISO from an untrusted source can affect the output AMI and any instances that
 ## Encryption and key management in Image Builder
 <a name="ib-encryption"></a>
 
-Image Builder encrypts data in transit and at rest by default with a service-owned KMS key, except for the following:
-+ **Custom components** – Image Builder encrypts custom components with your default KMS key, or a service-owned KMS key.
-+ **Image workflows** – Image Builder can encrypt your image workflows with a customer managed key if you specify the key during workflow creation. Image Builder handles encryption and decryption with your key to run the workflows that you've configured for your images.
+Image Builder encrypts the data that it stores at rest by default.
 
-You can manage your own keys through AWS KMS. However, you don't have permission to manage the Image Builder KMS key owned by Image Builder. For more information about managing your KMS keys with AWS Key Management Service, see [Getting Started](https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html) in the AWS Key Management Service Developer Guide.
+### Encryption at rest
+<a name="ib-encryption-at-rest"></a>
+
+Image Builder encrypts the following resources with a KMS key that Image Builder owns, unless you specify your own customer managed key when you create the resource:
++ **Components** – Image Builder encrypts the component document.
++ **Container recipes** – Image Builder encrypts the Dockerfile template.
++ **Image workflows** – Image Builder encrypts the workflow document.
+
+### Key management
+<a name="ib-key-management"></a>
+
+You can manage your own keys through AWS KMS. However, you can't manage the KMS keys that Image Builder owns.
 
 **Encryption context**  
-To provide an additional integrity and authenticity check on your encrypted data, you have the option of including an [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) when you encrypt the data. When a resource is encrypted with an encryption context, AWS KMS cryptographically binds the context to the ciphertext. The resource can only be decrypted if the requester provides an exact, case-sensitive match for the context.
-
-The policy examples in this section use an encryption context that resembles the Amazon Resource Name (ARN) of an Image Builder workflow resource.
+As an additional integrity and authenticity check, Image Builder uses the Amazon Resource Name (ARN) of the resource as the [encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html) when it encrypts a component, container recipe, or workflow. For the inputs and outputs of `RunCommand` steps that Image Builder encrypts during a workflow run, Image Builder uses the ARN of the workflow build version. The encryption context also includes an `aws-crypto-public-key` key-value pair that the AWS Encryption SDK adds. AWS KMS decrypts the data key only when the request includes an exact, case-sensitive match of the encryption context. Image Builder supplies the encryption context, so you don't provide it.
 
 ### Encrypt image workflows with a customer managed key
 <a name="ib-workflow-encrypt-cmk"></a>
 
-To add a layer of protection, you can encrypt your Image Builder workflow resources with your own customer managed key. If you use your customer managed key to encrypt the Image Builder workflows that you create, you must grant access in the key policy for Image Builder to use your key when it encrypts and decrypts workflow resources. You can revoke access at any time. However, Image Builder will not have access to any workflows that are already encrypted if you revoke access to the key.
+To add a layer of protection, you can encrypt your Image Builder workflow resources with your own customer managed key. If you encrypt your Image Builder workflows with your customer managed key, two principals need permission to use the key: the principal that creates the workflow and your workflow execution role. You can revoke access at any time. If you revoke the access of your workflow execution role to the key, builds that use workflows encrypted with the key fail, because Image Builder can't decrypt the workflow document.
 
 The process to grant Image Builder access to use your customer managed key has two steps, as follows:
 
 **Step 1: Add key policy permissions for Image Builder workflows**  
-To enable Image Builder to encrypt and decrypt workflow resources when it creates or uses those workflows, you must specify permissions in the KMS key policy.
+When Image Builder runs your workflows, your workflow execution role decrypts the workflow document and encrypts and decrypts the inputs and outputs of `RunCommand` steps.
 
-This example key policy grants access for Image Builder pipelines to encrypt workflow resources during the creation process, and decrypt workflow resources to use them. The policy also grants access for key administrators. The encryption context and resource specification use a wildcard to cover all Regions where you have workflow resources.
+This example key policy grants access to your workflow execution role and grants your AWS account full access to the key. The encryption context condition uses wildcards to match the ARN of any workflow in your account, in any Region.
 
 As a prerequisite for using image workflows, you created an IAM workflow execution role that grants permission for Image Builder to run workflow actions. The principal for the first statement shown in the key policy example here must specify your IAM workflow execution role.
 
-For more information about customer managed keys, see [ Managing access to customer managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the *AWS Key Management Service Developer Guide*.
+**CreateWorkflow** encrypts the workflow document with the caller's credentials. The caller therefore needs `kms:GenerateDataKey`. To view the workflow document with **GetWorkflow**, or the inputs and outputs of `RunCommand` steps with **GetWorkflowStepExecution** or **ListWorkflowStepExecutions**, the caller needs `kms:Decrypt`.
+
+For more information about customer managed keys, see [KMS key access and permissions](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*.
 
 ------
 #### [ JSON ]

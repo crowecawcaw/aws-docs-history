@@ -97,6 +97,7 @@ Image Builder provides the following system variables that you can use in your w
 | securityGroups | The security group IDs that apply to build and test instances. | List [String] | {{[sg-1234567890abcdef1, sg-11112222333344445]}} | 
 | sourceImageARN | The Amazon Resource Name (ARN) of the Image Builder image resource that the workflow uses for build and test stages. | String | arn:aws:imagebuilder:{{us-east-1}}:{{111122223333}}:image/{{sampleImage}}/{{1.0.0/1}} | 
 | subnetId | The ID of the subnet to launch the build and test instances into. | String | {{subnet-1234567890abcdef1}} | 
+| terminateInstanceOnCompletion | Specifies whether Image Builder terminates instances when image creation ends without a failure. | Boolean | `true` \| `false` | 
 | terminateInstanceOnFailure | The current value of the setting that directs Image Builder to terminate the instance on failure or keep it for troubleshooting. | Boolean | `true` \| `false` | 
 | workflowPhase | The current stage that's running for the workflow execution. | String | `Build` \| `Test` | 
 | workingDirectory | The path to the working directory. | String | `/tmp` | 

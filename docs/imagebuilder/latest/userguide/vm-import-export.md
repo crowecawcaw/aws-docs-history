@@ -143,7 +143,7 @@ To provide the data values as command line parameters, refer to the parameter na
 
 **Import the image**
 
-   Run the **[import-vm-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/import-vm-image.html)** command, with the file that you created as input:
+   Run the [import-vm-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/import-vm-image.html) command, with the file that you created as input:
 
    ```
    aws imagebuilder import-vm-image --cli-input-json file://{{import-vm-image.json}}

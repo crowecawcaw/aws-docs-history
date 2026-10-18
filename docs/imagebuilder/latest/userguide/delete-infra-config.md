@@ -23,10 +23,19 @@ To delete an infrastructure configuration from the Image Builder console, follow
 ------
 #### [ AWS CLI ]
 
-The following example shows how to delete an infrastructure configuration with the **[delete-infrastructure-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/delete-infrastructure-configuration.html)** command in the AWS CLI.
+The following example shows how to delete an infrastructure configuration with the [delete-infrastructure-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/delete-infrastructure-configuration.html) command in the AWS CLI:
 
 ```
-aws imagebuilder delete-infrastructure-configuration --infrastructure-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
+aws imagebuilder delete-infrastructure-configuration --infrastructure-configuration-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Remove-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/Remove-EC2IBInfrastructureConfiguration.html) cmdlet to delete an infrastructure configuration by specifying its ARN:
+
+```
+Remove-EC2IBInfrastructureConfiguration -InfrastructureConfigurationArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:infrastructure-configuration/{{my-example-infrastructure-configuration}}
 ```
 
 ------

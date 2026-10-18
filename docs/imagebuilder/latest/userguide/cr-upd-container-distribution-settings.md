@@ -66,12 +66,12 @@ A distribution configuration enables you to specify the name and description of 
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   For more detailed information, see **[create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html)** in the *AWS CLI Command Reference*.
+   For more detailed information, see [create-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-distribution-configuration.html) in the *AWS CLI Command Reference*.
 
 ## Update distribution settings for your container image from the AWS CLI
 <a name="cli-update-container-distribution-configuration"></a>
 
-The following example shows how to use the **[update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html)** command to update distribution settings for your container image, using the AWS CLI. You can also update tags for the container images within each Region.
+The following example shows how to use the [update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html) command to update distribution settings for your container image, using the AWS CLI. You can also update tags for the container images within each Region.
 
 1. 
 
@@ -81,7 +81,7 @@ The following example shows how to use the **[update-distribution-configuration]
 
    ```
    {
-   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-2:123456789012:distribution-configuration/update-container-distribution-configuration.json",
+   	"distributionConfigurationArn": "arn:aws:imagebuilder:us-west-2:123456789012:distribution-configuration/update-container-distribution-configuration",
    	"description": "Distributes container image to Amazon ECR repository in two regions.",
    	"distributions": [
    		{
@@ -121,4 +121,4 @@ The following example shows how to use the **[update-distribution-configuration]
 You must include the `file://` notation at the beginning of the JSON file path.
 The path for the JSON file should follow the appropriate convention for the base operating system where you are running the command. For example, Windows uses the backslash (\\) to refer to the directory path, while Linux and macOS use the forward slash (/).
 
-   For more detailed information, see **[update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html)** in the *AWS CLI Command Reference*. To update tags for your distribution configuration resource, see the [Tag resources](tag-resources.md) section.
+   For more detailed information, see [update-distribution-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/update-distribution-configuration.html) in the *AWS CLI Command Reference*. To update tags for your distribution configuration resource, see the [Tag resources](tag-resources.md) section.

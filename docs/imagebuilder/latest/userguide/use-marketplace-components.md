@@ -49,7 +49,7 @@ Shows whether you are subscribed to this product. If you're not subscribed, you 
 If the AWS Marketplace product has one or more versions that are included with your subscription, they are shown in the **Associated components** section. The section is collapsed initially, and displays a count of the associated components. You can expand the section to see more details.
 
 **Note**  
-The Center for Internet Security (CIS) component that's associated with their AWS Marketplace image product is not shown in the **Discover products** results. If you subscribe to their image product, the associated component is shown in the **Subscriptions** page, and as a third-party component in the **Create image recipe** dialog. For more information about the component, see [CIS hardening components](toe-cis.md).
+To use a Center for Internet Security (CIS) hardening component, subscribe to it as described in [Subscribe to AWS Marketplace components](#use-marketplace-components-subscribe). For more information about the component, see [CIS hardening components](toe-cis.md).
 
 ## Subscribe to AWS Marketplace components
 <a name="use-marketplace-components-subscribe"></a>
@@ -74,9 +74,6 @@ For more information about the AWS Marketplace products that you're currently su
 <a name="use-marketplace-components-recipe"></a>
 
 You can use AWS Marketplace components in your Image Builder image recipes the same way that you use other types of components. For most of the components that are associated with an AWS Marketplace image product, the ownership category is `AWS Marketplace`. For example, to use a build component from an AWS Marketplace product that you've subscribed to, choose **Add build components**, and select `AWS Marketplace` from the list. This opens a selection panel on the right side of the console interface that lists AWS Marketplace components.
-
-**Note**  
-If you're looking for the CIS hardening component, select `Third party managed`, from the ownership list instead of `AWS Marketplace`.
 
 **Important**  
 A recipe that includes one or more AWS Marketplace components must also include at least one build component. Image Builder returns an error if you create a recipe that references AWS Marketplace components but has no build component. Container recipes don't support AWS Marketplace components. For more information, see [Container recipe constraints](create-container-recipes.md#container-recipe-constraints).

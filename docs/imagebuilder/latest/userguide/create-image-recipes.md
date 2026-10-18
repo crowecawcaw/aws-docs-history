@@ -6,11 +6,11 @@
 This section shows you how to create an image recipe or a new version of an existing recipe. An image recipe defines the base AMI, the build components, and the configuration. Use this recipe to create Amazon Machine Images (AMIs) with Image Builder. You can create image recipes from the Image Builder console or with the AWS CLI.
 
 **Topics**
-+ [Create a new image recipe version from the console](#create-image-recipe-version-console)
++ [Create a new image recipe version in the console](#create-image-recipe-version-console)
 + [Create an image recipe with the AWS CLI](#create-image-recipe-cli)
 + [Import a VM as your base image in the console](#import-vm-recipes)
 
-## Create a new image recipe version from the console
+## Create a new image recipe version in the console
 <a name="create-image-recipe-version-console"></a>
 
 When you create a new recipe version, it's virtually the same as creating a new recipe. The difference is that certain details are pre-selected to match the base recipe, in most cases. The following list describes the differences between creating a new recipe and creating a new version of an existing recipe.
@@ -140,7 +140,7 @@ The `parentImage` parameter accepts an AMI ID, an Image Builder image ARN, an `s
    + **components** (array, optional) – Contains an array of `ComponentConfiguration` objects. Components are optional - you can create recipes without any components for testing or distribution workflows:
 **Note**  
 Image Builder installs components in the order that you specified them in the recipe. However, CIS hardening components always run last to ensure that the benchmark tests run against your output image.
-     + **componentARN** (string, required) – The component ARN.
+     + **componentArn** (string, required) – The component ARN.
 **Tip**  
 To use one of the examples to create your own image recipe, you must replace the example ARNs with the ARNs for the components that you are using for your recipe.
      + **parameters** (array of objects) – Contains an array of `ComponentParameter` objects. If an input parameter is required, but doesn't have a default value defined in the component, you must provide a value. Image Builder won't create the recipe version if there are any required parameters that are missing and don't have a default value defined.

@@ -62,7 +62,7 @@ if:
     - stringEquals: 'my_string'    #second level
       value: 'my_string'
     - and:                         #also second level
-        - numberEquals: '1'        #third level
+        - numberEquals: 1          #third level
           value: 1
         - not:                     #also third level
             stringEquals: 'second_string'      #fourth level
@@ -115,19 +115,19 @@ The following example evaluates to `true` when the `not` modifier negates the `s
 ```
 if:
   not:
-    - stringEquals: 'test_string'
-      value: 'test_string_not_equal'
+    stringEquals: 'test_string'
+    value: 'test_string_not_equal'
 ```
 
 **Conditional statement: booleanEquals**  
-The `booleanEquals` comparison operator compares Boolean values and returns true if the Boolean values exact match.
+The `booleanEquals` comparison operator compares Boolean values and returns true if the Boolean values are an exact match.
 
 The following example determines if `collectImageScanFindings` is enabled.
 
 ```
 if:
-  - booleanEquals: true
-    value: '$.imagebuilder.collectImageScanFindings'
+  booleanEquals: true
+  value: '$.imagebuilder.collectImageScanFindings'
 ```
 
 **Conditional statement: stringEquals**  
@@ -137,37 +137,22 @@ The following example compares the platform system variable to determine if the 
 
 ```
 if:
-  - stringEquals: 'Linux'
-    value: '$.imagebuilder.platform'
+  stringEquals: 'Linux'
+  value: '$.imagebuilder.platform'
 ```
 
 **Conditional statement: numberEquals**  
-The `numberEquals` comparison operator compares two numbers and returns true if the numbers are equal. The numbers to compare must be one of the following formats.
-+ Integer
-+ Float
-+ A string that matches the following regex pattern: `^-?[0-9]+(\.)?[0-9]+$`.
+The `numberEquals` comparison operator compares two numbers and returns true if the numbers are equal. A literal operand must be an integer or a float. A string operand must be a JSONPath reference, such as `'$.parameters.count'`.
 
-The following example comparisons all evaluate to `true`.
+The following example evaluates to `true`. It compares integers, floats, and negative values.
 
 ```
 if:
-  # Value provider as a number
-  numberEquals: 1
-  value: '1'
-  
-  # Comparison value provided as a string
-  numberEquals: '1'
-  value: 1
-  
-  # Value provided as a string
-  numberEquals: 1
-  value: '1'
-  
-  # Floats are supported
-  numberEquals: 5.0
-  value: 5.0
-  
-  # Negative values are supported
-  numberEquals: -1
-  value: -1
+  and:
+    - numberEquals: 1
+      value: 1
+    - numberEquals: 5.0
+      value: 5.0
+    - numberEquals: -1
+      value: -1
 ```

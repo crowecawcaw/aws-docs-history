@@ -19,12 +19,8 @@ This section describes the different ways that you can list information about yo
 
 You can use one of the following methods to list Image Builder image resources that you have access to. For the API action, see [ListImages](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImages.html) in the *EC2 Image Builder API Reference*. For the associated SDK request, refer to the [See Also](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImages.html#API_ListImages_SeeAlso) link on the same page.
 
-**Topics**
-+ [List images in the console](#list-images-console)
-+ [List images with AWS CLI commands](#list-images-cli)
-
-### List images in the console
-<a name="list-images-console"></a>
+------
+#### [ Console ]
 
 To open the **Images** list page in the console, follow these steps:
 
@@ -32,11 +28,9 @@ To open the **Images** list page in the console, follow these steps:
 
 1. Choose **Images** from the navigation pane.
 
-The **Images** page in the console is divided into tabs, based on image ownership or workflow actions that are pending. This section covers the first three tabs that show images that you own or have access to.
-
-#### Console tab: Owned by me
+The **Images** page in the console is divided into tabs, based on image ownership or workflow actions that are pending. The following describes the first three tabs, which show images that you own or have access to.
 <a name="list-images-owned-console"></a>
-
+**Owned by me**  
 In the **Owned by me** tab, you can use the following filters to streamline the image list results.
 + You can search for all or part of the name in the search bar.
 + You can filter images based on their operating system platform (Windows, Linux, or macOS).
@@ -62,10 +56,8 @@ The date and time when Image Builder created the current version of the image re
 
 **ARN**  
 The Amazon Resource Name (ARN) of the current version of the image resource.
-
-#### Console tab: Shared with me
 <a name="list-images-shared-console"></a>
-
+**Shared with me**  
 In the **Shared with me** tab, you can use the following filters to streamline the image list results.
 + You can search for all or part of the name in the search bar.
 + You can filter images based on their operating system platform (Windows, Linux, or macOS).
@@ -97,10 +89,8 @@ The owner of the shared image resource.
 
 **ARN**  
 The Amazon Resource Name (ARN) of the image resource version that was shared with you.
-
-#### Console tab: Managed by Amazon
 <a name="list-images-managed-console"></a>
-
+**Managed by Amazon**  
 In the **Managed by Amazon** tab, you can use the following filters to streamline the image list results.
 + You can search for all or part of the name in the search bar.
 + You can filter images based on their operating system platform (Windows, Linux, or macOS).
@@ -130,10 +120,10 @@ Amazon owns the managed images.
 **ARN**  
 The Amazon Resource Name (ARN) of the image resource version that was shared with you.
 
-### List images with AWS CLI commands
-<a name="list-images-cli"></a>
+------
+#### [ AWS CLI ]
 
-When you run the **[list-images](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-images.html)** command in the AWS CLI, you can get a list of images that you own or have access to.
+When you run the [list-images](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-images.html) command in the AWS CLI, you can get a list of images that you own or have access to.
 
 The following command example shows how to use the **list-images** command without filters to list all of the Image Builder image resources that you own.
 
@@ -207,6 +197,23 @@ aws imagebuilder list-images --filters name="{{platform}}",values="{{Linux}}"
 }
 ```
 
+------
+#### [ PowerShell ]
+
+When you run the [Get-EC2IBImageList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageList.html) cmdlet, you can get a list of images that you own or have access to. The following example shows how to use the cmdlet without filters to list all of the Image Builder image resources that you own:
+
+```
+Get-EC2IBImageList
+```
+
+You can also apply a filter to streamline the results, as the following example shows. This example filters for Linux images:
+
+```
+Get-EC2IBImageList -Filter @{Name="{{platform}}";Values="{{Linux}}"}
+```
+
+------
+
 ## List images waiting for action
 <a name="list-images-waiting-for-action"></a>
 
@@ -241,7 +248,7 @@ Workflow details for the pending step include the following:
 ------
 #### [ AWS CLI ]
 
-When you run the **[list-waiting-workflow-steps](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-waiting-workflow-steps.html)** command in the AWS CLI, you'll get a list of all of the images in your account that have workflow steps that are waiting for action before completing the image creation process.
+When you run the [list-waiting-workflow-steps](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-waiting-workflow-steps.html) command in the AWS CLI, you'll get a list of all of the images in your account that have workflow steps that are waiting for action before completing the image creation process.
 
 The following command example shows how to use the **list-waiting-workflow-steps** command to list all of the images in your account with workflow steps that are waiting for action.
 
@@ -269,6 +276,15 @@ The output for this example shows one image in the account with a step that's wa
         }
     ]
 }
+```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBWaitingWorkflowStepList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBWaitingWorkflowStepList.html) cmdlet to list all of the images in your account that have workflow steps that are waiting for action before completing the image creation process:
+
+```
+Get-EC2IBWaitingWorkflowStepList
 ```
 
 ------
@@ -307,7 +323,7 @@ To list image build versions in the Image Builder console, perform the following
 ------
 #### [ AWS CLI ]
 
-When you run the **[list-image-build-versions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-image-build-versions.html)** command in the AWS CLI, you'll get a full list of build versions for the specified image resource. You must own the image to run this command.
+When you run the [list-image-build-versions](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/list-image-build-versions.html) command in the AWS CLI, you'll get a full list of build versions for the specified image resource. You must own the image to run this command.
 
 The following command example shows how to use the **list-image-build-versions** command to list all of the build versions for the specified image.
 
@@ -381,5 +397,14 @@ The output for this example includes two build versions for the specified image 
 
 **Note**  
 Output from the **list-image-build-versions** command doesn't include security findings or log streams at this time.
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBImageBuildVersionList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageBuildVersionList.html) cmdlet to list all of the build versions for the specified image resource. You must own the image to run this cmdlet:
+
+```
+Get-EC2IBImageBuildVersionList -ImageVersionArn arn:aws:imagebuilder:{{us-west-2}}:{{123456789012}}:image/{{image-recipe-name}}/{{1.0.0}}
+```
 
 ------

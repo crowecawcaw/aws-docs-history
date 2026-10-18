@@ -9,9 +9,7 @@ Image Builder integrates with the following compliance products:
 + 
 
 **Center for Internet Security (CIS) Benchmarks hardening**  
-You can use CIS Hardened Images and the related CIS hardening components to build custom images that comply with the latest CIS Benchmarks Level 1 guidelines. CIS Hardened Images are available in AWS Marketplace. To learn more about how to set up and use CIS Hardened Images and hardening components, see the [Quick Start Guide: CIS Hardening Components for EC2 Image Builder](https://cisecurity.atlassian.net/wiki/spaces/CSKB/pages/2850881850/Quick+Start+Guide+CIS+Hardening+Components+for+EC2+Image+Builder) in the CIS security wiki.
-**Note**  
-When you subscribe to a CIS Hardened Image, you also get access to the associated build component that runs a script to enforce CIS Benchmark Level 1 guidelines for your configuration. For more information, see [CIS hardening components](toe-cis.md).
+To build custom images that comply with CIS Benchmarks Level 1 guidelines, subscribe to a CIS hardening component in AWS Marketplace, and add it to an image recipe whose parent image runs an operating system that the component supports. For more information, see [CIS hardening components](toe-cis.md).
 + 
 
 **Security Technical Implementation Guides (STIG)**  

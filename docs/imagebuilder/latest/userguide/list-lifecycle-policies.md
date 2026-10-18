@@ -8,7 +8,7 @@ You can get a list of your image lifecycle management policies that includes key
 You can use one of the following methods to list Image Builder image lifecycle policy resources in your AWS account. For the API action, see [ListLifecyclePolicies](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecyclePolicies.html) in the *EC2 Image Builder API Reference*. For the associated SDK request, refer to the [See Also](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListLifecyclePolicies.html#API_ListLifecyclePolicies_SeeAlso) link on the same page.
 
 ------
-#### [ AWS Management Console ]
+#### [ Console ]
 
 The following details are shown in the console for your existing policies. You can select any column to change the sort order for your results. The policy list is initially sorted by **Policy name**. The column name for the current sort order is bold.
 
@@ -87,5 +87,17 @@ aws imagebuilder list-lifecycle-policies \
 
 **Note**  
 To use your default AWS Region, run this command without the `--region` parameter.
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBLifecyclePolicyList](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBLifecyclePolicyList.html) cmdlet to list image lifecycle policies for a specific AWS Region:
+
+```
+Get-EC2IBLifecyclePolicyList -Region {{us-west-1}}
+```
+
+**Note**  
+To use your default AWS Region, run this cmdlet without the `-Region` parameter.
 
 ------

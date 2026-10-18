@@ -165,10 +165,10 @@ For more information about the phases, steps, and syntax for AWSTOE application 
 
 **Create a component from the YAML component document**  
 Whatever method you use to create an AWSTOE component, the YAML application component document is always required as a baseline.
-+ To create a component directly from your YAML document with the Image Builder console, see [Create a custom component from the console](create-component.md#create-component-ib-console).
++ To create a component directly from your YAML document with the Image Builder console, see [Create a custom component in the console](create-component.md#create-component-ib-console).
 + To create a component from the command line with the Image Builder **create-component** command, see [Create a custom component from the AWS CLI](create-component.md#create-component-ib-cli). Replace the YAML document name in those examples with the name of your Hello World YAML document (`{{hello-world-test.yaml}}`).
 
-## Set component parameters in an Image Builder recipe from the console
+## Set component parameters for an Image Builder recipe in the console
 <a name="recipe-set-component-params"></a>
 
 Setting component parameters works the same for image recipes and container recipes. When you create a new recipe, or a new version of a recipe, you choose which components to include from the **Build components** and **Test components** lists. The component lists include components that are applicable for the base operating system you chose for your image.

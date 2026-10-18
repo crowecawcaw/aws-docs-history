@@ -35,7 +35,7 @@ if:
 | step action | Conditional | When you use `then` or `else`, you must specify one of the following step actions:+  **Abort** – AWSTOE marks the step as failed. <br />+  **Execute** – AWSTOE runs the step. <br />+  **Skip** – AWSTOE skips the step.  | 
 
 **Example 1: Install package**  
-The following example steps from an AWSTOE component document use logical operators to test a parameter value and run the appropriate package manager commands to install an application if the package is unzipped.
+The following example steps from an AWSTOE component document use logical operators to detect which package manager is available and install the unzip utility only when the unzip binary is not already present.
 
 ```
     - name: InstallUnzipAptGet

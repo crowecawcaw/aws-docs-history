@@ -3,15 +3,21 @@
 # Configure AMI distribution with an EC2 launch template
 <a name="dist-using-launch-template"></a>
 
-To help ensure a consistent launch experience for your Image Builder AMI in target accounts and Regions, you can specify an Amazon EC2 launch template in your distribution settings, using `launchTemplateConfigurations`. When `launchTemplateConfigurations` are present during the distribution process, Image Builder creates a new version of the launch template that includes all of the original settings from the template, and the new AMI ID from the build. For more information about launching an EC2 instance using a launch template, see one of the following links, depending on your target operating system.
-+ [Launch a Linux instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
-+ [Launch a Windows instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
+To help ensure a consistent launch experience for your Image Builder AMI in target accounts and Regions, you can specify an Amazon EC2 launch template in your distribution settings, using `launchTemplateConfigurations`. When `launchTemplateConfigurations` are present during the distribution process, Image Builder creates a new version of the launch template that includes all of the original settings from the template, and the new AMI ID from the build. For more information about launching an EC2 instance using a launch template, see [Launch EC2 instances using a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launch-instances-from-launch-template.html) in the *Amazon EC2 User Guide*.
 
 **Note**  
 When you include a launch template to enable Windows Fast Launch in your image, the launch template must include the following tag so that Image Builder can enable Windows Fast Launch on your behalf.  
 `CreatedBy: EC2 Image Builder`
 
-## Add an EC2 launch template to AMI distribution settings from the console
+When you configure `launchTemplateConfigurations`, the following rules apply:
++ Identify the launch template by `launchTemplateId`. Within the launch template configurations for a Region, a launch template ID can appear at most once.
++ `setDefaultVersion` controls whether Image Builder makes the new launch template version the default version. This optional field defaults to `true`. To create the new version without changing the launch template's default version, set this field to `false`.
++ Use `accountId` to update a launch template that another account owns. If you omit it, Image Builder updates the launch template in your account. To update a launch template in another account, Image Builder assumes the `EC2ImageBuilderDistributionCrossAccountRole` in that account, in the Region of the distribution. For more information, see [Set up cross-account AMI distribution with Image Builder](cross-account-dist.md). The new launch template version references the AMI that your account owns in that Region.
+
+  Image Builder rejects the distribution configuration unless the account is listed in `targetAccountIds` or in the `userIds` of `launchPermission` for that Region, or the AMI is public. Launch permission that you grant through `organizationArns` or `organizationalUnitArns` doesn't meet this requirement.
++ You can configure up to five launch template configurations per Region. This is a default service quota that you can request to increase. For more information, see [EC2 Image Builder endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/imagebuilder.html).
+
+## Add an EC2 launch template to AMI distribution settings in the console
 <a name="dist-using-launch-template-console"></a>
 
 To provide a launch template with your output AMI, follow these steps in the console:

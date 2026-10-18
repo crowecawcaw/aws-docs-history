@@ -125,13 +125,29 @@ For more information about the `AmiWatermarks` property, see [AWS::ImageBuilder:
 ## View watermarks on an existing recipe
 <a name="ami-watermarks-view"></a>
 
-You can view the watermarks configured for a recipe by calling the **get-image-recipe** command in the AWS CLI.
+------
+#### [ AWS CLI ]
+
+The following example shows how to use the [get-image-recipe](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/get-image-recipe.html) command in the AWS CLI to view the watermarks configured for a recipe.
 
 ```
 aws imagebuilder get-image-recipe --image-recipe-arn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-watermarked-recipe}}/{{1.0.0}}
 ```
 
 The response includes the `amiWatermarks` array if watermarks were configured for that recipe version.
+
+------
+#### [ PowerShell ]
+
+The following example shows how to use the [Get-EC2IBImageRecipe](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-EC2IBImageRecipe.html) cmdlet to view the watermarks configured for a recipe:
+
+```
+Get-EC2IBImageRecipe -ImageRecipeArn arn:aws:imagebuilder:{{us-west-2}}:{{111122223333}}:image-recipe/{{my-watermarked-recipe}}/{{1.0.0}}
+```
+
+The response includes the `AmiWatermarks` property if watermarks were configured for that recipe version.
+
+------
 
 ## Considerations
 <a name="ami-watermarks-considerations"></a>

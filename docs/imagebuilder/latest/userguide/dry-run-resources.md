@@ -22,8 +22,13 @@ The following create actions support the `dryRun` parameter:
 **Note**  
 The `CreateImage` action doesn't support the `dryRun` parameter, because it starts an image build rather than creating a configuration resource.
 
-**Perform a dry run from the AWS CLI**  
-The following example shows how to validate an infrastructure configuration with the `create-infrastructure-configuration` command. The `--dry-run` option turns the request into a dry run.
+**Perform a dry run**  
+The following examples show how to perform a dry run when you create an infrastructure configuration.
+
+------
+#### [ AWS CLI ]
+
+The following example shows how to validate an infrastructure configuration with the [create-infrastructure-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-infrastructure-configuration.html) command. The `--dry-run` option turns the request into a dry run:
 
 ```
 aws imagebuilder create-infrastructure-configuration \
@@ -32,8 +37,23 @@ aws imagebuilder create-infrastructure-configuration \
     --dry-run
 ```
 
-If the configuration is valid, the command returns the following error to show that the request would have succeeded.
+If the configuration is valid, the command returns the following error, which shows that the request is valid:
 
 ```
 An error occurred (DryRunOperationException) when calling the CreateInfrastructureConfiguration operation: Request would have succeeded, but dryRun flag is set.
 ```
+
+------
+#### [ PowerShell ]
+
+The following example shows how to validate an infrastructure configuration with the [New-EC2IBInfrastructureConfiguration](https://docs.aws.amazon.com/powershell/latest/reference/items/New-EC2IBInfrastructureConfiguration.html) cmdlet. Setting the `DryRun` parameter to `$true` turns the request into a dry run:
+
+```
+New-EC2IBInfrastructureConfiguration -Name {{my-example-infrastructure-configuration}} `
+    -InstanceProfileName {{EC2InstanceProfileForImageBuilder}} `
+    -DryRun $true
+```
+
+If the configuration is valid, the cmdlet returns a `DryRunOperationException` error with the message `Request would have succeeded, but dryRun flag is set.` This error shows that the request is valid.
+
+------

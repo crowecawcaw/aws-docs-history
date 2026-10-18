@@ -3,7 +3,7 @@
 # Set up cross-account AMI distribution with Image Builder
 <a name="cross-account-dist"></a>
 
-This section describes how you can configure distribution settings to deliver an Image Builder AMI to other accounts that you specify.
+You can configure distribution settings that deliver an Image Builder AMI to other accounts that you specify.
 
 The destination account can then launch or modify the AMI, as needed.
 
@@ -21,6 +21,8 @@ To ensure that target accounts can successfully launch instances from your Image
 If you encrypt your AMI using AWS Key Management Service (AWS KMS), you must configure an AWS KMS key for your account that is used to encrypt the new image.
 
 When Image Builder performs cross-account distribution for encrypted AMIs, the image in the source account is decrypted and pushed to the target Region, where it is re-encrypted using the designated key for that Region. Because Image Builder acts on behalf of the target account, and uses an IAM role that you create in the destination Region, that account must have access to keys in both the source and destination Regions.
+
+If a cross-account distribution fails because of a missing role or key policy, fix the configuration and then retry the image. If the image failed during its distribution phase, Image Builder reruns that phase without rebuilding the image. For more information, see [Retry a failed image](distribution-enhanced_functionality.md#distribution-retry).
 
 ### Encryption keys
 <a name="cross-account-prereqs-encryption"></a>
@@ -94,7 +96,7 @@ To configure cross-account distribution permissions in AWS Identity and Access M
 
    For more information about trust policies, see [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based) in the *AWS Identity and Access Management User Guide*.
 
-1. If the AMI you distribute is encrypted, the destination account owner must add the following inline policy to the `EC2ImageBuilderDistributionCrossAccountRole` in their account so that they can use your KMS keys. The `Principal` section contains their account number. This enables Image Builder to act on their behalf when it uses AWS KMS to encrypt and decrypt the AMI with the appropriate keys for each Region.
+1. If the AMI you distribute is encrypted, the destination account owner must add the following inline policy to the `EC2ImageBuilderDistributionCrossAccountRole` in their account so that they can use your KMS keys. This enables Image Builder to act on their behalf when it uses AWS KMS to encrypt and decrypt the AMI with the appropriate keys for each Region.
 
 ------
 #### [ JSON ]
@@ -218,7 +220,7 @@ There are some limitations when distributing Image Builder images across account
 
 For more information, see [CreateDistributionConfiguration](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateDistributionConfiguration.html) in the *EC2 Image Builder API Reference*.
 
-## Configure cross-account distribution for an Image Builder AMI from the console
+## Configure cross-account distribution for an Image Builder AMI in the console
 <a name="cross-account-dist-console-create-ami"></a>
 
 This section describes how to create and configure distribution settings for cross-account distribution of your Image Builder AMIs using the AWS Management Console. Configuring cross-account distribution requires specific IAM permissions. You must complete the [Prerequisites for cross-account AMI distribution](#cross-account-dist-prereqs) for this section before you continue.
