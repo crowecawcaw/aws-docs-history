@@ -280,6 +280,12 @@ storagegateway.us-west-2.api.aws:443
 **FIPS endpoints**  
 These endpoints support IPv4 traffic between your gateway appliance and AWS, and comply with FIPS.
 
+The following service endpoint is required by FIPS-enabled gateways for head-bucket operations.
+
+```
+{{bucket-name}}.s3-fips.{{region}}.amazonaws.com:443
+```
+
 The following service endpoints are required by FIPS-enabled gateways for control path (`anon-cp`, `client-cp`, `proxy-app`) and data path (`dp-1`) operations.
 
 ```
@@ -297,6 +303,12 @@ storagegateway-fips.{{region}}.amazonaws.com:443
 
 **Dual-stack FIPS endpoints**  
 These endpoints support both IPv4 and IPv6 traffic between your gateway appliance and AWS, and comply with FIPS.
+
+The following dual-stack service endpoint is required by FIPS-enabled gateways for head-bucket operations.
+
+```
+{{bucket-name}}.s3-fips.dualstack.{{region}}.amazonaws.com:443
+```
 
 The following dual-stack service endpoints are required by FIPS-enabled gateways for control path (activation, controlplane, proxy) and data path (dataplane) operations.
 

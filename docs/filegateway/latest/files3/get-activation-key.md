@@ -49,28 +49,35 @@ To get the activation key for a dual-stack endpoint:
 IPv4
 
 ```
-curl "http://{{gateway_ip_address}}/?activationRegion&endpointType=DUALSTACK&ipVersion=ipv4&no_redirect"
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&endpointType=DUALSTACK&ipVersion=ipv4&no_redirect"
 ```
 
 IPv6
 
 ```
-curl "http://{{gateway_ip_address}}/?activationRegion&endpointType=DUALSTACK&ipVersion=ipv6&no_redirect"
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&endpointType=DUALSTACK&ipVersion=ipv6&no_redirect"
 ```
 
 **FIPS endpoints**  
 To get the activation key for a FIPS endpoint:
 
+```
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&endpointType=FIPS&no_redirect"
+```
+
+**Dual-stack FIPS endpoints**  
+To get the activation key for a dual-stack FIPS endpoint:
+
 IPv4
 
 ```
-curl "http://{{gateway_ip_address}}/?activationRegion&endpointType=FIPS_DUALSTACK&ipVersion=ipv4&no_redirect"
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&endpointType=FIPS_DUALSTACK&ipVersion=ipv4&no_redirect"
 ```
 
 IPv6
 
 ```
-curl "http://{{gateway_ip_address}}/?activationRegion&endpointType=FIPS_DUALSTACK&ipVersion=ipv6&no_redirect"
+curl "http://{{gateway_ip_address}}/?activationRegion={{region_code}}&endpointType=FIPS_DUALSTACK&ipVersion=ipv6&no_redirect"
 ```
 
 **VPC endpoints**  
