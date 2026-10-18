@@ -141,3 +141,66 @@ To enable Continuously Available on an existing file share, use the following co
 ```
 Invoke-Command -ComputerName {{powershell_endpoint}} -ConfigurationName FSxRemoteAdmin -scriptblock { set-fsxsmbshare -name {{share_name}} -ContinuouslyAvailable $True}
 ```
+
+## To enable access-based enumeration (ABE) on a share
+<a name="access-based-enumeration"></a>
+
+You can enable access-based enumeration (ABE) on file shares using the Amazon FSx CLI for Remote Management on PowerShell. With ABE enabled, your users see only the files and folders in a file share that they have permission to read. ABE is disabled by default on new file shares.
+
+**Note**  
+ABE changes only which files and folders your users can see. To control who can access them, use share permissions and NTFS permissions.
+
+If you enable ABE, you might see higher CPU utilization when your users view or list file shares, or during the optimization phase of a storage scaling job. Each time a user lists a folder, ABE checks that user's permissions on every file and folder in it.
+
+In the commands in this section, replace `{{powershell_endpoint}}` with the Windows Remote PowerShell endpoint of your file system, and `{{share_name}}` with the name of your file share. You can find the Windows Remote PowerShell endpoint in the Amazon FSx console, in the **Network & Security** section of the file system details page.
+
+### Create a file share with ABE enabled
+<a name="create-abe-share"></a>
+
+Use the `New-FSxSmbShare` command with the `-FolderEnumerationMode` option set to `AccessBased`. The following is an example command to create a share with ABE enabled. Replace the share name, path, and description with your own values.
+
+```
+New-FSxSmbShare -Name "New ABE Share" -Path "D:\share\new-share" -Description "ABE share" -FolderEnumerationMode AccessBased
+```
+
+### Enable or disable ABE on an existing file share
+<a name="enable-disable-abe"></a>
+
+Use the `Set-FSxSmbShare` command with the `-FolderEnumerationMode` option. To enable ABE, set the option to `AccessBased`:
+
+```
+Invoke-Command -ComputerName {{powershell_endpoint}} -ConfigurationName FSxRemoteAdmin -scriptblock { set-fsxsmbshare -name {{share_name}} -FolderEnumerationMode AccessBased }
+```
+
+To disable ABE, set the option to `Unrestricted`:
+
+```
+Invoke-Command -ComputerName {{powershell_endpoint}} -ConfigurationName FSxRemoteAdmin -scriptblock { set-fsxsmbshare -name {{share_name}} -FolderEnumerationMode Unrestricted }
+```
+
+### Determine if access-based enumeration is enabled on an existing file share
+<a name="determine-if-abe-enabled"></a>
+
+Use the following command to view the value of the `FolderEnumerationMode` property for an existing file share.
+
+```
+Invoke-Command -ComputerName {{powershell_endpoint}} -ConfigurationName FSxRemoteAdmin -scriptblock { get-fsxsmbshare -name {{share_name}} }
+```
+
+The command returns `FolderEnumerationMode` as a number: `0` for `AccessBased` and `1` for `Unrestricted`. For more information, see [MSFT\_SmbShare class](https://learn.microsoft.com/en-us/previous-versions/windows/desktop/smb/msft-smbshare) in the *Microsoft Windows Documentation*.
+
+If ABE is enabled, the output will include the following line:
+
+```
+[...]
+FolderEnumerationMode : 0
+[...]
+```
+
+If ABE is not enabled, the output will include the following line:
+
+```
+[...]
+FolderEnumerationMode : 1
+[...]
+```
