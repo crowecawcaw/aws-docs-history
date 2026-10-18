@@ -77,7 +77,7 @@ Use the [ create-volume-from-backup](https://docs.aws.amazon.com/cli/latest/refe
                 "SnapshotPolicy": "default", 
                 "CopyTagsToBackups": false, 
             }, 
-            "ResourceARN": "arn:aws:fsx:us-east-1:752825163408:volume/fs-07ab735385276ed60/fsvol-0b6ec764c9c5f654a", 
+            "ResourceARN": "arn:aws:fsx:us-east-1:111122223333:volume/fs-07ab735385276ed60/fsvol-0b6ec764c9c5f654a", 
             "VolumeId": "fsvol-0b6ec764c9c5f654a", 
             "VolumeType": "ONTAP", 
     --->    "AdministrativeActions": [
@@ -114,7 +114,7 @@ Use the [ create-volume-from-backup](https://docs.aws.amazon.com/cli/latest/refe
                 "SnapshotPolicy": "default", 
                 "CopyTagsToBackups": false, 
             }, 
-            "ResourceARN": "arn:aws:fsx:us-east-1:752825163408:volume/fs-07ab735385276ed60/fsvol-0b6ec764c9c5f654a", 
+            "ResourceARN": "arn:aws:fsx:us-east-1:111122223333:volume/fs-07ab735385276ed60/fsvol-0b6ec764c9c5f654a", 
             "VolumeId": "fsvol-0b6ec764c9c5f654a", 
             "VolumeType": "ONTAP",
         } 
