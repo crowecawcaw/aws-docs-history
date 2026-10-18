@@ -464,7 +464,7 @@ async fn find_first_queue(client: &Client) -> Result<String, Error> {
 ```
 import AWSSQS
 
-        let config = try await SQSClient.SQSClientConfiguration(region: region)
+        let config = try await SQSClient.SQSClientConfig(region: region)
         let sqsClient = SQSClient(config: config)
 
         var queues: [String] = []

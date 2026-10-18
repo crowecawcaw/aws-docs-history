@@ -624,7 +624,7 @@ class SqsWrapper:
 ```
 import AWSSQS
 
-        let config = try await SQSClient.SQSClientConfiguration(region: region)
+        let config = try await SQSClient.SQSClientConfig(region: region)
         let sqsClient = SQSClient(config: config)
 
         do {
