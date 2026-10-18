@@ -12,8 +12,12 @@ AWS Batch makes calls to other AWS services on your behalf. As a result, AWS Bat
 **Note**  
 For information about controlling who can apply capacity tags to Amazon ECS Managed Instances compute environments, see [Control access to capacity tags with `batch:SetCapacityTags`](capacity-tags-access-policy.md).
 
+**Note**  
+To control which Amazon EC2 tags and tag keys a principal can set on the compute resources that a compute environment manages, see [Control access to compute resource tags with condition keys](compute-resources-tag-access-policy.md).
+
 **Topics**
 + [IAM policy structure](iam-policy-structure.md)
 + [Resource: Example policies for AWS Batch](ExamplePolicies_BATCH.md)
 + [Resource: AWS Batch managed policy](batch_managed_policies.md)
 + [Control access to capacity tags with `batch:SetCapacityTags`](capacity-tags-access-policy.md)
++ [Control access to compute resource tags with condition keys](compute-resources-tag-access-policy.md)

@@ -7,6 +7,7 @@ Use the following information to help you diagnose and fix common issues that yo
 
 **Topics**
 + [I am not authorized to perform an action in AWS Batch](#security_iam_troubleshoot-no-permissions)
++ [I am not authorized to create or update a compute environment with compute resource tags](#security_iam_troubleshoot-compute-resources-tag)
 + [I am not authorized to perform iam:PassRole](#security_iam_troubleshoot-passrole)
 + [I want to allow people outside of my AWS account to access my AWS Batch resources](#security_iam_troubleshoot-cross-account-access)
 
@@ -22,6 +23,17 @@ User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: 
 ```
 
 In this case, Mateo asks his administrator to update his policies to allow him to access the `{{my-example-widget}}` resource using the `batch:{{GetWidget}}` action. For more information about granting permissions to pass a role, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html).
+
+## I am not authorized to create or update a compute environment with compute resource tags
+<a name="security_iam_troubleshoot-compute-resources-tag"></a>
+
+If you create or update a compute environment and specify `computeResources.tags`, AWS Batch can deny the request if an IAM policy restricts the `batch:ComputeResourcesTag/{{tag-key}}` condition key for the tag keys or values that you set. The following example error occurs when a user tries to create a compute environment with a `CostCenter` compute resource tag value that their policy doesn't allow.
+
+```
+User: arn:aws:iam::123456789012:user/mateojackson is not authorized to perform: batch:CreateComputeEnvironment on resource: {{my-compute-environment}} because no identity-based policy allows the batch:CreateComputeEnvironment action
+```
+
+To resolve this error, ask your administrator to update your IAM policy to allow the `batch:ComputeResourcesTag/{{tag-key}}` condition key for the tag keys and values that you need to set, or set `computeResources.tags` to only the tag keys and values that your policy allows. For more information about this condition key, see [Control access to compute resource tags with condition keys](compute-resources-tag-access-policy.md).
 
 ## I am not authorized to perform iam:PassRole
 <a name="security_iam_troubleshoot-passrole"></a>

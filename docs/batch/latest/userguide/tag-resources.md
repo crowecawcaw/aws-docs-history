@@ -26,3 +26,7 @@ The following table describes the AWS Batch resources that can be tagged, and th
 | AWS Batch service environments | Yes | No | Yes | 
 | AWS Batch consumable resources | Yes | No | Yes | 
 | AWS Batch quota shares | Yes | No | Yes | 
+
+**Note**  
+The Amazon EC2 tags that you apply to a compute environment's underlying instances through `computeResources.tags` are separate from the AWS Batch resource tags described in this topic. To control which Amazon EC2 tags a principal can set in `computeResources.tags`, use the `batch:ComputeResourcesTag/{{tag-key}}` condition key in an IAM policy. For more information, see [Control access to compute resource tags with condition keys](compute-resources-tag-access-policy.md).  
+Capacity tags are a separate set of tags that you apply to Amazon ECS Managed Instances compute resources through `computeResources.capacityTags`. To control which capacity tags a principal can set, grant or deny the `batch:SetCapacityTags` action and use the `aws:RequestTag/{{tag-key}}` and `aws:TagKeys` condition keys. For more information, see [Control access to capacity tags with `batch:SetCapacityTags`](capacity-tags-access-policy.md).

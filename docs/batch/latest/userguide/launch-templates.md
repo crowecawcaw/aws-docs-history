@@ -48,7 +48,7 @@ Suppose that any of these parameters (except the Amazon EC2 tags) are specified 
 + Amazon EC2 key pair
 + Amazon EC2 AMI ID
 + Security group IDs
-+ Amazon EC2 tags
++ Amazon EC2 tags (`computeResources.tags`)
 
 The following launch template parameters are **ignored** by AWS Batch:
 + Instance type (specify your desired instance types when you create your compute environment)
@@ -56,6 +56,9 @@ The following launch template parameters are **ignored** by AWS Batch:
 + Network interface subnets (specify your desired subnets when you create your compute environment)
 + Instance market options (AWS Batch must control Spot Instance configuration)
 + Disable API termination (AWS Batch must control instance lifecycle)
+
+**Note**  
+To authorize the Amazon EC2 tags applied to your compute resources with IAM policies, set those tags in the compute environment's `computeResources.tags` instead of only in the launch template. When AWS Batch processes a `CreateComputeEnvironment` or `UpdateComputeEnvironment` request, it uses the `batch:ComputeResourcesTag/{{tag-key}}` condition key to authorize the tags in `computeResources.tags`. This condition key doesn't evaluate tags that are set only in the launch template. For more information, see [Control access to compute resource tags with condition keys](compute-resources-tag-access-policy.md).
 
 AWS Batch only updates the launch template with a new launch template version during infrastructure updates. For more information, see [Update a compute environment in AWS Batch](updating-compute-environments.md).
 

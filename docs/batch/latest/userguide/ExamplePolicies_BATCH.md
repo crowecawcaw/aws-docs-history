@@ -19,3 +19,4 @@ The following examples show policy statements that you can use to control the pe
 + [Use the `batch:ShareIdentifier` condition key](iam-example-share-identifier.md)
 + [Manage SageMaker AI resources with AWS Batch](iam-example-full-access-service-environment.md)
 + [Restrict job submission by resource tags](iam-example-restrict-job-submission-by-tags.md)
++ [Restrict compute resource tags](iam-example-restrict-compute-environment-tags.md)

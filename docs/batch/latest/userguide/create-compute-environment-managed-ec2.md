@@ -66,7 +66,7 @@ AWS Batch periodically updates your instances in default bundles to newer, more 
 **Note**  
 When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.
 **Note**  
-AWS Batch will scale GPUs based on the required amount in your job queues. To use GPU scheduling, the compute environment must include instance types from the `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, or `g6` families.
+AWS Batch will scale GPUs based on the required amount in your job queues. To use GPU scheduling, the compute environment must include instance types from the `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, `g6`, `gr6`, `g7`, or `g7e` families.
 
    1. For **Allocation strategy**, choose the allocation strategy to use when selecting instance types from the list of allowed instance types. **BEST\_FIT\_PROGRESSIVE** is usually the better choice for EC2 On-Demand compute environments, **SPOT\_CAPACITY\_OPTIMIZED**, and **SPOT\_PRICE\_CAPACITY\_OPTIMIZED** for EC2 Spot compute environments. For more information, see [Instance type allocation strategies for AWS Batch](allocation-strategies.md).
 

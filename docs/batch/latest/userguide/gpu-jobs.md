@@ -5,7 +5,7 @@
 
 GPU jobs help you to run jobs that use an instance's GPUs.
 
-The following Amazon EC2 GPU-based instance types are supported. For more information, see [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/), [Amazon EC2 G4 Instances](https://aws.amazon.com/ec2/instance-types/g4/), [Amazon EC2 G5 Instances](https://aws.amazon.com/ec2/instance-types/g5/),[Amazon EC2 G6 Instances](https://aws.amazon.com/ec2/instance-types/g6/) , [Amazon EC2 P2 Instances](https://aws.amazon.com/ec2/instance-types/p2/), [Amazon EC2 P3 Instances](https://aws.amazon.com/ec2/instance-types/p3/), [Amazon EC2 P4d Instances](https://aws.amazon.com/ec2/instance-types/p4/), [Amazon EC2 P5 Instances](https://aws.amazon.com/ec2/instance-types/p5/), [Amazon EC2 P6 Instances](https://aws.amazon.com/ec2/instance-types/p6/), [Amazon EC2 Trn1 Instances](https://aws.amazon.com/ec2/instance-types/trn1/), [Amazon EC2 Trn2 Instances](https://aws.amazon.com/ec2/instance-types/trn2/), [Amazon EC2 Inf1 Instances](https://aws.amazon.com/ec2/instance-types/inf1/), [Amazon EC2 Inf2 Instances](https://aws.amazon.com/ec2/instance-types/inf2/), [Amazon EC2 Dl1 Instances](https://aws.amazon.com/ec2/instance-types/dl1/), and [Amazon EC2 Dl2 Instances](https://aws.amazon.com/ec2/instance-types/dl2q/).
+The following Amazon EC2 GPU-based instance types are supported. For more information, see [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/), [Amazon EC2 G4 Instances](https://aws.amazon.com/ec2/instance-types/g4/), [Amazon EC2 G5 Instances](https://aws.amazon.com/ec2/instance-types/g5/),[Amazon EC2 G6 Instances](https://aws.amazon.com/ec2/instance-types/g6/), [Amazon EC2 G7 Instances](https://aws.amazon.com/ec2/instance-types/g7/), [Amazon EC2 G7e Instances](https://aws.amazon.com/ec2/instance-types/g7e/), [Amazon EC2 P2 Instances](https://aws.amazon.com/ec2/instance-types/p2/), [Amazon EC2 P3 Instances](https://aws.amazon.com/ec2/instance-types/p3/), [Amazon EC2 P4d Instances](https://aws.amazon.com/ec2/instance-types/p4/), [Amazon EC2 P5 Instances](https://aws.amazon.com/ec2/instance-types/p5/), [Amazon EC2 P6 Instances](https://aws.amazon.com/ec2/instance-types/p6/), [Amazon EC2 Trn1 Instances](https://aws.amazon.com/ec2/instance-types/trn1/), [Amazon EC2 Trn2 Instances](https://aws.amazon.com/ec2/instance-types/trn2/), [Amazon EC2 Inf1 Instances](https://aws.amazon.com/ec2/instance-types/inf1/), [Amazon EC2 Inf2 Instances](https://aws.amazon.com/ec2/instance-types/inf2/), [Amazon EC2 Dl1 Instances](https://aws.amazon.com/ec2/instance-types/dl1/), and [Amazon EC2 Dl2 Instances](https://aws.amazon.com/ec2/instance-types/dl2q/).
 
 
 |  Instance type  |  GPUs  |  GPU memory  |  vCPUs  |  Memory  |  Network bandwidth  | 
@@ -50,6 +50,18 @@ The following Amazon EC2 GPU-based instance types are supported. For more inform
 | g6e.12xlarge | 4 | 192 GiB | 48 | 384 GiB | 100 Gbps | 
 | g6e.24xlarge | 4 | 192 GiB | 96 | 768 GiB | 200 Gbps | 
 | g6e.48xlarge | 8 | 384 GiB | 192 | 1536 GiB | 400 Gbps | 
+| g7.2xlarge | 1 | 32 GiB | 8 | 32 GiB | Up to 60 Gbps | 
+| g7.4xlarge | 1 | 32 GiB | 16 | 64 GiB | Up to 100 Gbps | 
+| g7.8xlarge | 1 | 32 GiB | 32 | 128 GiB | 100 Gbps | 
+| g7.12xlarge | 2 | 64 GiB | 48 | 192 GiB | 175 Gbps | 
+| g7.24xlarge | 4 | 128 GiB | 96 | 384 GiB | 350 Gbps | 
+| g7.48xlarge | 8 | 256 GiB | 192 | 768 GiB | 700 Gbps | 
+| g7e.2xlarge | 1 | 96 GiB | 8 | 64 GiB | Up to 50 Gbps | 
+| g7e.4xlarge | 1 | 96 GiB | 16 | 128 GiB | 50 Gbps | 
+| g7e.8xlarge | 1 | 96 GiB | 32 | 256 GiB | 100 Gbps | 
+| g7e.12xlarge | 2 | 192 GiB | 48 | 512 GiB | 400 Gbps | 
+| g7e.24xlarge | 4 | 384 GiB | 96 | 1024 GiB | 800 Gbps | 
+| g7e.48xlarge | 8 | 768 GiB | 192 | 2048 GiB | 1600 Gbps | 
 | gr6.4xlarge | 1 | 24 GiB | 16 | 128 GiB | Up to 25 Gbps | 
 | gr6.8xlarge | 1 | 24 GiB | 32 | 256 GiB | 25 Gbps | 
 | p2.xlarge | 1 | 12 GiB | 4 | 61 GiB | High | 
@@ -84,7 +96,7 @@ The following Amazon EC2 GPU-based instance types are supported. For more inform
 For GPU jobs AWS Batch only supports instance types that have NVIDIA GPUs. For example, the [`G4ad`](https://aws.amazon.com/ec2/instance-types/g4/#Amazon_EC2_G4ad_instances) family is not supported for GPU scheduling. You can still use [`G4ad`](https://aws.amazon.com/ec2/instance-types/g4/#Amazon_EC2_G4ad_instances) on AWS Batch by defining only the vcpu and memory requirements in the job definition, then accessing the host GPUs directly through customization in an Amazon EC2 [launch template user data](launch-templates.md#lt-user-data) with an Amazon ECS or Amazon EKS compute optimized AMI, or a customized AMI for using AMD GPUs.  
 Instance types that use an ARM64 architecture are supported for GPU jobs on custom AMIs provided to AWS Batch or Amazon EC2 user data to access the GPUs by customized code and configurations. For example, the [`G5g`](https://aws.amazon.com/ec2/instance-types/g5g/) instance family.
 
-The [resourceRequirements](job_definition_parameters.md#ContainerProperties-resourceRequirements) parameter for the job definition specifies the number of GPUs to be pinned to the container. This number of GPUs isn't available to any other job that runs on that instance for the duration of that job. All instance types in a compute environment that run GPU jobs must be from the `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, or `g6` instance families. If this isn't done a GPU job might get stuck in the `RUNNABLE` status.
+The [resourceRequirements](job_definition_parameters.md#ContainerProperties-resourceRequirements) parameter for the job definition specifies the number of GPUs to be pinned to the container. This number of GPUs isn't available to any other job that runs on that instance for the duration of that job. All instance types in a compute environment that run GPU jobs must be from the `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, `g6`, `gr6`, `g7`, or `g7e` instance families. If this isn't done a GPU job might get stuck in the `RUNNABLE` status.
 
 Jobs that don't use the GPUs can be run on GPU instances. However, they might cost more to run on the GPU instances than on similar non-GPU instances. Depending on the specific vCPU, memory, and time needed, these non-GPU jobs might block GPU jobs from running.
 

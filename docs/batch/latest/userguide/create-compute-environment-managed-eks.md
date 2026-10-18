@@ -58,7 +58,7 @@ AWS Batch periodically updates your instances in default bundles to newer, more 
 **Note**  
 When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment.
 **Note**  
-AWS Batch will scale GPUs based on the required amount in your job queues. To use GPU scheduling, the compute environment must include instance types from the `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, or `g6` families.
+AWS Batch will scale GPUs based on the required amount in your job queues. To use GPU scheduling, the compute environment must include instance types from the `p3`, `p4`, `p5`, `p6`, `g3`, `g3s`, `g4`, `g5`, `g6`, `gr6`, `g7`, or `g7e` families.
 
 1. (Optional) Expand **Additional configuration**.
 
