@@ -10,7 +10,7 @@ If you choose to monitor applications across your organization, log into your or
 You can either add cross account support for your organization using the Console, or you can do so by using the AWS CLI.
 
 ## Onboard with the DevOps Guru Console
-<a name="w2aac20b9b7b7"></a>
+<a name="w2aac22b9b7b7"></a>
 
 You can use the Console to add support for accounts across your organization.
 
@@ -23,7 +23,7 @@ You can use the Console to add support for accounts across your organization.
 1. Choose which account you'd like to use as your delegated administrator. Then, choose **Register delegated administrator**. This provides access to a consolidated view for any account that has DevOps Guru enabled. The delegated administrator has a consolidated view of all DevOps Guru insights and metrics across your organization. You can enable other accounts with SSM quick setup or AWS CloudFormation stack sets. To learn more about quick setup, see [Configure DevOps Guru with Quick Setup](https://docs.aws.amazon.com/systems-manager/latest/userguide/quick-setup-devops.html). To learn more about setting up with stack sets, see [Working with stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html) in the *CloudFormation User Guide*, and [Step 2 – Determine coverage for DevOps Guru](setting-up.md#setting-up-determine-coverage). and [Using CloudFormation stacks to identify resources in your DevOps Guru applications](working-with-cfn-stacks.md).
 
 ## Onboard with the AWS CLI
-<a name="w2aac20b9b7b9"></a>
+<a name="w2aac22b9b7b9"></a>
 
 You can use the AWS CLI to enable DevOps Guru to view aggregated insights. Run the following commands.
 
