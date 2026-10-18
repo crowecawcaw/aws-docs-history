@@ -19,6 +19,8 @@ The following topics include a description of each of the metadata fields requir
 | BigID | [BigIDClientSecret](mes-partner-BigId.md) | 
 | Cisco | [CiscoSecurityPlatformApiKey](mes-partner-CiscoSecurityPlatformApiKey.md) | 
 | Confluent Cloud | [ConfluentCloudApiKey](mes-partner-ConfluentCloudApiKey.md) | 
+| Databricks | [DatabricksPAT](mes-partner-DatabricksPAT.md) | 
+| Databricks | [DatabricksSPSecret](mes-partner-DatabricksSPSecret.md) | 
 | Datadog | [DatadogApiKey](mes-partner-DatadogApiKey.md) | 
 | Datadog | [DatadogApplicationKey](mes-partner-DatadogApplicationKey.md) | 
 | Datadog | [DatadogAdminKey](mes-partner-DatadogAdminKey.md) | 
@@ -32,3 +34,6 @@ The following topics include a description of each of the metadata fields requir
 | Snowflake | [SnowflakeKeyPairAuthentication](mes-partner-Snowflake.md) | 
 | Snowflake | [SnowflakePat](mes-partner-SnowflakePat.md) | 
 | SonarQube | [SonarQubeToken](mes-partner-SonarQubeToken.md) | 
+| Twilio | [TwilioApiKey](mes-partner-TwilioApiKey.md) | 
+| Twilio | [TwilioAuthToken](mes-partner-TwilioAuthToken.md) | 
+| Twilio | [TwilioMainApiKey](mes-partner-TwilioMainApiKey.md) | 

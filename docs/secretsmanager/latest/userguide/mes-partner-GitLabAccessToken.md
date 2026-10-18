@@ -4,7 +4,7 @@
 <a name="mes-partner-GitLabAccessToken"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c25b3"></a>
+<a name="w2aac27c13c29b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -34,7 +34,7 @@ groupId
 (Optional) Numeric group ID. Provide for group access tokens only.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c25b5"></a>
+<a name="w2aac27c13c29b5"></a>
 
 The following are the metadata fields for GitLab Access Token:
 
@@ -52,7 +52,7 @@ daysToExpiry
 (Optional) Number of days until the new token expires (1–365). Maps to the `expires_at` field in the GitLab rotate API. If omitted, the new token inherits the instance default expiration.
 
 ## Usage Flow
-<a name="w2aac27c13c25b7"></a>
+<a name="w2aac27c13c29b7"></a>
 
 This rotation supports both single-secret (self-rotation) and two-secret (admin-assisted) architectures. The token scope is determined by the optional `projectId` and `groupId` fields. If neither field is present, the token is a personal access token. If `projectId` is present, the token is a project access token. If `groupId` is present, the token is a group access token.
 

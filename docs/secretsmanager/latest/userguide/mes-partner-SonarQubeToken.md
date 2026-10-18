@@ -4,7 +4,7 @@
 <a name="mes-partner-SonarQubeToken"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c43b3"></a>
+<a name="w2aac27c13c47b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -38,7 +38,7 @@ projectKey
 (Optional) The SonarQube project key. Required only when `tokenType` is `PROJECT_ANALYSIS_TOKEN`.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c43b5"></a>
+<a name="w2aac27c13c47b5"></a>
 
 The following are the metadata fields for SonarQube Token:
 
@@ -52,7 +52,7 @@ adminSecretArn
 (Optional) The Amazon Resource Name (ARN) for a secret of type SonarQubeToken that contains an admin token. This field is required for Global Analysis and Project Analysis tokens. It is optional for User Tokens; omit it to enable self-rotation, where the current token generates and revokes its own replacement.
 
 ## Usage Flow
-<a name="w2aac27c13c43b7"></a>
+<a name="w2aac27c13c47b7"></a>
 
 This rotation supports single-secret (self-rotation) for User Tokens and two-secret (admin-assisted) rotation for Global Analysis and Project Analysis tokens. The `tokenType` value determines the token scope.
 

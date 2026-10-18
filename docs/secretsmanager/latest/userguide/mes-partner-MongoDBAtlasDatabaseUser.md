@@ -4,7 +4,7 @@
 <a name="mes-partner-MongoDBAtlasDatabaseUser"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c29b3"></a>
+<a name="w2aac27c13c33b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -34,7 +34,7 @@ groupId
 The 24-character hexadecimal Atlas Project ID (also known as Group ID). You can find this in your Atlas Project Settings.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c29b5"></a>
+<a name="w2aac27c13c33b5"></a>
 
 The following are the metadata fields for MongoDB Atlas Database User:
 
@@ -52,7 +52,7 @@ apiVersion
 (Optional) The Atlas Admin API version date in `yyyy-mm-dd` format. This value is used in the `Accept` header as `application/vnd.atlas.{apiVersion}+json`. Defaults to `2025-03-12` if not specified.
 
 ## Usage Flow
-<a name="w2aac27c13c29b7"></a>
+<a name="w2aac27c13c33b7"></a>
 
 This rotation type uses a two-secret architecture. An admin secret containing Atlas service account OAuth credentials (`clientId`, `clientSecret`, `serviceAccountId`) is required to authenticate to the Atlas Admin API. The admin secret should be of type MongoDBAtlasServiceAccount.
 

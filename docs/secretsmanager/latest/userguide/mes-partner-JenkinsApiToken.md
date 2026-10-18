@@ -4,7 +4,7 @@
 <a name="mes-partner-JenkinsApiToken"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c27b3"></a>
+<a name="w2aac27c13c31b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -30,7 +30,7 @@ jenkinsUrl
 Your Jenkins instance URL (for example, `https://jenkins.example.com`). The URL must use HTTPS and must not end with a trailing slash.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c27b5"></a>
+<a name="w2aac27c13c31b5"></a>
 
 The following are the metadata fields for Jenkins API Token:
 
@@ -44,7 +44,7 @@ adminSecretArn
 (Optional) The Amazon Resource Name (ARN) for a secret of type JenkinsApiToken that contains an admin token. The admin token can generate and revoke API tokens for the target user. If omitted, the token rotates itself (self-rotation).
 
 ## Usage Flow
-<a name="w2aac27c13c27b7"></a>
+<a name="w2aac27c13c31b7"></a>
 
 This rotation supports both single-secret (self-rotation) and two-secret (admin-assisted) architectures. When you provide `adminSecretArn`, the admin token generates and revokes the target user's tokens. If you omit it, the current token rotates itself.
 

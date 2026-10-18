@@ -4,7 +4,7 @@
 <a name="mes-partner-PaddleApiKey"></a>
 
 ## Secret Value Fields
-<a name="w2aac27c13c35b3"></a>
+<a name="w2aac27c13c39b3"></a>
 
 The following are the fields that must be contained in the Secrets Manager secret:
 
@@ -18,7 +18,7 @@ api\_key
 The Paddle API key value (starts with `pdl_live_`, `pdl_test_`, or `pdl_sdbx_` followed by `apikey_` and the key content). This is the field that gets rotated.
 
 ## Secret Metadata Fields
-<a name="w2aac27c13c35b5"></a>
+<a name="w2aac27c13c39b5"></a>
 
 The following are the metadata fields for Paddle API Key:
 
@@ -32,7 +32,7 @@ gracePeriodSeconds
 (Optional) Number of seconds the old API key remains valid after rotation (0–86400). Default: 300. Set to 0 for immediate expiry of the old key. The grace period countdown starts when the new key is first used successfully.
 
 ## Usage Flow
-<a name="w2aac27c13c35b7"></a>
+<a name="w2aac27c13c39b7"></a>
 
 This rotation uses a single-secret architecture. No admin secret is required. The API key rotates itself through the Paddle rotation endpoint.
 
