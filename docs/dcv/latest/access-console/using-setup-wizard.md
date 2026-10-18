@@ -4,13 +4,16 @@
 <a name="using-setup-wizard"></a>
 
 The Setup Wizard is a CLI designed to help you install the Amazon DCV Access Console, and configure the hosts you plan to install the components on. The Setup Wizard can be used whether you install the Access Console components all on the same host, or on separate hosts. If you install the components on a single host, it will install the components and dependencies for the Access Console for you. If you install the components on separate hosts, the Setup Wizard will help you create the configuration files needed for each component. The Setup Wizard can optionally: 
+
+**Note**  
+The Setup Wizard requires Python 3.10 or later to be installed on the host.
 + Install MariaDB using the OS package manager to act as a datastore. If you choose to use Amazon DynamoDB, no additional packages need to be installed.
 + Create the necessary database in your chosen datastore
 + Install NGINX using the OS package manager
 + Generate and saves a self-signed certificate
 + Install the Amazon DCV Access Console components
 + Configure the Authentication Server with PAM authentication
-+ Start the datastore, NGNIX and the Amazon DCV Access Console components
++ Start the datastore, NGINX and the Amazon DCV Access Console components
 + Create a user with the Admin role
 + Validate that each component started correctly
 

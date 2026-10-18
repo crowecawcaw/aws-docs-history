@@ -57,6 +57,16 @@ The Amazon DCV Access Console has three components Handler, Web Client, and Auth
      ```
      $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el9-aarch64.tgz
      ```
+   + For RHEL10, Rocky10 (x86\_64)
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el10-x86_64.tgz
+     ```
+   + For RHEL10, Rocky10 (ARM aarch64)
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-el10-aarch64.tgz
+     ```
    + For Ubuntu22 (x86\_64)
 
      ```
@@ -76,6 +86,16 @@ The Amazon DCV Access Console has three components Handler, Web Client, and Auth
 
      ```
      $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2404-aarch64.tgz
+     ```
+   + For Ubuntu26 (x86\_64)
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2604-x86_64.tgz
+     ```
+   + For Ubuntu26 (ARM aarch64)
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-access-console-ubuntu2604-aarch64.tgz
      ```
 
 1. Unzip the packaged components.

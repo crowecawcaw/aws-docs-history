@@ -15,6 +15,7 @@ This page provides the release notes and document history for Amazon DCV Access 
 This section provides release notes for the Amazon DCV Access Console by release date.
 
 **Topics**
++ [2026.0-188 — September 30, 2026](#2026.0-188)
 + [2025.0-175 — February 2, 2026](#2025.0-175)
 + [2025.0-168 — December 23, 2025](#2025.0-168)
 + [2025.0-159 — November 12, 2025](#2025.0-159)
@@ -25,6 +26,15 @@ This section provides release notes for the Amazon DCV Access Console by release
 + [2023.1-57 — August 1, 2024](#2023.1-57)
 + [2023.1-20 — June 26, 2024](#2023.1-20)
 + [2023.1 — June 13, 2024](#2023.1)
+
+### 2026.0-188 — September 30, 2026
+<a name="2026.0-188"></a>
+
+
+
+| Build numbers | Release notes | 
+| --- | --- | 
+| Version: 2026.0-188+ Web Client: 188<br />+ Handler: 188<br />+ Authentication Server: 188<br />+ Setup Wizard: 188 |  +  Added support for RHEL 10, Rocky Linux 10, and Ubuntu 26.04. <br />+  The Setup Wizard now requires Python 3.10 or later. <br />+  Updated dependencies to address security vulnerabilities.   | 
 
 ### 2025.0-175 — February 2, 2026
 <a name="2025.0-175"></a>
@@ -125,6 +135,7 @@ The following table describes the documentation for this release of Amazon DCV A
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Amazon DCV Version 2026.0-188 | Amazon DCV Access Console has been updated for Amazon DCV 2026.0-188. For more information, see [2026.0-188--September 30, 2026](#2026.0-188). | September 30, 2026 | 
 | Amazon DCV Version 2025.0-175 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-175. For more information, see [2025.0-175--February 2, 2026](#2025.0-175). | February 2, 2026 | 
 | Amazon DCV Version 2025.0-168 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-168. For more information, see [2025.0-168--December 23, 2025](#2025.0-168). | December 23, 2025 | 
 | Amazon DCV Version 2025.0-159 | Amazon DCV Access Console has been updated for Amazon DCV 2025.0-159. For more information, see [2025.0-159--November 12, 2025](#2025.0-159). | November 12, 2025 | 
