@@ -7,6 +7,8 @@ This guide walks you through setting up authentication and making your first Age
 
 ## Prerequisites
 <a name="acxd-getting-started-prerequisites"></a>
+
+Before you begin, make sure that you have the following:
 + An Agentic CX Designer workspace with an Administrator role
 + Access to Agentic CX Designer workspace (Admin Hub)
 
@@ -112,6 +114,8 @@ The API key is just a credential - it carries no permissions itself. Permissions
 
 ## Next Steps
 <a name="acxd-getting-started-next-steps"></a>
+
+After you make your first call, continue with the following resources:
 + **API Reference**: Explore all available operations
 + **Concepts**: Understand workspaces, applications, and flows
 + **Error Handling**: Handle errors and retries gracefully

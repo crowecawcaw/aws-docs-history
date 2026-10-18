@@ -444,6 +444,7 @@ Max items per page (1–500). See Common Types.
 | environments | object | No | 
 | provider | object | No | 
 | mcp | object | No | 
+| flowModule | object | No | 
 | sendContext | boolean | No | 
 
 ### implementation
@@ -451,7 +452,7 @@ Max items per page (1–500). See Common Types.
 
 Type: String
 
-The webhook implementation type. One of: `inline-static`, `external`, `mcp`.
+The webhook implementation type. One of: `inline-static`, `external`, `mcp`, `flow-module`.
 
 ### method
 <a name="acxd-data-requests-webhook-config-method"></a>
@@ -557,6 +558,34 @@ Configuration for `mcp` implementation. Contains `method`, `url`, `headers`, `en
 Type: Array
 
 MCP tool definitions. Each tool has `name` (string, required), `enabled` (boolean), `requestSchema` (object), `responseSchema` (object). Max 100 tools.
+
+### flowModule
+<a name="acxd-data-requests-webhook-config-flowmodule"></a>
+
+Type: Object
+
+Configuration for `flow-module` implementation. Invokes a published Connect Customer flow module and returns its output to the conversation. Contains `moduleId`, `version`, and `mockResponse`.
+
+### flowModule.moduleId
+<a name="acxd-data-requests-webhook-config-flowmodule-moduleid"></a>
+
+Type: String
+
+The identifier of the Connect Customer flow module to invoke. Max 256 characters. The module must be published and have external invocation enabled.
+
+### flowModule.version
+<a name="acxd-data-requests-webhook-config-flowmodule-version"></a>
+
+Type: Integer
+
+The published version of the flow module to invoke (an integer of 1 or greater). Omit this field to use the latest published version.
+
+### flowModule.mockResponse
+<a name="acxd-data-requests-webhook-config-flowmodule-mockresponse"></a>
+
+Type: String
+
+A JSON mock response that test invocations return in place of invoking the module. Max 200,000 characters. Must be valid JSON. A flow module is invoked only in a live conversation.
 
 ### sendContext
 <a name="acxd-data-requests-webhook-config-sendcontext"></a>

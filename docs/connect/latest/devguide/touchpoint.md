@@ -159,6 +159,9 @@ await touchpoint.sendContext({
 });
 ```
 
+**Note**  
+The context you pass to `sendContext`—actions, fields, and destinations—is limited to 8 KB per call. Advertise only what the current page needs and trim large values to stay within the limit.
+
 Actions can also be configured in [Agentic CX designer (ACXD)](https://docs.aws.amazon.com/connect/latest/adminguide/acxd.html) on the Live Sync node; defining them here is useful for rapid prototyping. To notify a Live Sync script that the user reached a step, call `touchpoint.sendStep({ stepId, scriptId, apiKey, context })`.
 
 ### External (no UI)

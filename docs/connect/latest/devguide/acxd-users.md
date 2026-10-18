@@ -45,7 +45,7 @@ await client.send(new ListUsersCommand({}));
     {
       "userId": "user-id-string",
       "cxnRole": "administrator",
-      "userArn": "arn:aws:connect:us-west-2:123456789:instance/.../user/...",
+      "userArn": "arn:aws:connect:us-west-2:111122223333:instance/.../user/...",
       "username": "jane.doe",
       "firstName": "Jane",
       "lastName": "Doe",
@@ -98,7 +98,7 @@ Creates a new user.
 await client.send(new CreateUserCommand({
       userId: "00000000-0000-4000-8000-000000000099",
       cxnRole: "member",
-      userArn: "arn:aws:connect:us-west-2:176202286863:instance/cb0ac315-73ce-4def-a2cc-cf3caf9866cc/agent/00000000-0000-4000-8000-000000000099",
+      userArn: "arn:aws:connect:us-west-2:111122223333:instance/cb0ac315-73ce-4def-a2cc-cf3caf9866cc/agent/00000000-0000-4000-8000-000000000099",
       username: "sdk.testuser",
       firstName: "SDK",
       lastName: "TestUser",
@@ -118,7 +118,7 @@ await client.send(new CreateUserCommand({
 {
   "userId": "00000000-0000-4000-8000-000000000099",
   "cxnRole": "member",
-  "userArn": "arn:aws:connect:us-west-2:176202286863:instance/cb0ac315-73ce-4def-a2cc-cf3caf9866cc/agent/00000000-0000-4000-8000-000000000099",
+  "userArn": "arn:aws:connect:us-west-2:111122223333:instance/cb0ac315-73ce-4def-a2cc-cf3caf9866cc/agent/00000000-0000-4000-8000-000000000099",
   "username": "sdk.testuser",
   "firstName": "SDK",
   "lastName": "TestUser",
