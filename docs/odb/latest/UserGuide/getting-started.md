@@ -68,7 +68,7 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | US East (N. Virginia) | us-east-1 | use1-az1, use1-az2, use1-az4, use1-az6 | 
 | US East (Ohio) | us-east-2 | use2-az1, use2-az2 | 
 | US West (N. California) | us-west-1 | usw1-az1, usw1-az3 | 
-| US West (Oregon) | us-west-2 | usw2-az3, usw2-az4 | 
+| US West (Oregon) | us-west-2 | usw2-az2, usw2-az3, usw2-az4 | 
 
 **Europe**
 
@@ -138,7 +138,7 @@ Plan carefully for IP address space in Oracle Database@AWS. Consider the IP addr
 ### Restrictions for IP addresses in the ODB network
 <a name="getting-started-ip-restrict"></a>
 
-Note the following restrictions regarding CIDR ranges in the ODB network:
+Note the following restrictions regarding CIDR ranges in the ODB network. The same restricted ranges also apply to peer network CIDRs on ODB peering connections, including supernets and the default route 0.0.0.0/0:
 + You can't modify the client or backup subnet CIDR range for the ODB network after you create it.
 + You can't use the VPC CIDR ranges in the **Restricted associations** column in the table in [IPv4 CIDR block association restrictions](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-cidr-blocks.html#add-cidr-block-restrictions).
 + For Exadata X9M, IP addresses 100.106.0.0/16 and 100.107.0.0/16 are reserved for the cluster interconnect by OCI automation, so you can't do the following:

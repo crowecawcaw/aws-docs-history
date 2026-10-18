@@ -66,7 +66,7 @@ When you create an ODB network, you specify information such as the following:
   <tr><td>US East (N. Virginia)</td><td><code>us-east-1</code></td><td><code>use1-az1</code>, <code>use1-az2</code>, <code>use1-az4</code>, <code>use1-az6</code></td></tr>
   <tr><td>US East (Ohio)</td><td><code>us-east-2</code></td><td><code>use2-az1</code>, <code>use2-az2</code></td></tr>
   <tr><td>US West (N. California)</td><td><code>us-west-1</code></td><td><code>usw1-az1</code>, <code>usw1-az3</code></td></tr>
-  <tr><td>US West (Oregon)</td><td><code>us-west-2</code></td><td><code>usw2-az3</code>, <code>usw2-az4</code></td></tr>
+  <tr><td>US West (Oregon)</td><td><code>us-west-2</code></td><td><code>usw2-az2</code>, <code>usw2-az3</code>, <code>usw2-az4</code></td></tr>
 </tbody>
 </table>
 

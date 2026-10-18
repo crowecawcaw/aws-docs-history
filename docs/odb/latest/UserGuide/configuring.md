@@ -13,7 +13,10 @@ Now, you can have up to 125 ODB peering connections between your Amazon VPCs and
 
 With ODB peering connections, you can establish private network connectivity between your Oracle Exadata infrastructure and the applications running in your Amazon VPCs. Each ODB peering connection is a separate resource that you can create, view, and delete independently of the ODB network.
 
-When creating an ODB peering connection, you can specify peer network CIDR ranges. This technique limits network access to the required subnets, reduces potential targets for attacks, and enables more granular network segmentation for compliance requirements.
+When you create or update an ODB peering connection, you specify peer network CIDRs, which are the IP address ranges from the peer network that the ODB network accepts traffic from. A peer network CIDR is an advertised route, so you can specify any IPv4 prefix from /0 to /32, including a summarized supernet (for example, 10.0.0.0/8) or a default route (0.0.0.0/0). When CIDRs overlap, longest-prefix match applies. The most specific matching CIDR always wins, so a supernet or default route only carries traffic that no more-specific route already handles. Specifying narrower CIDRs limits access to required subnets for segmentation. Specifying a supernet or default route simplifies route management when many destinations are reachable through a transit Amazon VPC.
+
+**Note**  
+A default route (0.0.0.0/0) here refers only to the peer network CIDR on the peering connection. It does not make the ODB network the default gateway for your Amazon VPC. Existing peering connections continue to work and do not need to be recreated to use broader CIDRs.
 
 You can create the following types of ODB peering connections:
 
@@ -27,6 +30,8 @@ You can create an ODB peering connection between an ODB network in one account a
 <a name="peering-limit"></a>
 
 You can create up to 125 peerings for a single ODB network.
+
+Peer network CIDRs are subject to the same restricted IP address ranges as the ODB network, even when you use a supernet or the default route 0.0.0.0/0. For the list of restricted ranges, see [Restrictions for IP addresses in the ODB network](getting-started.md#getting-started-ip-restrict).
 
 ### Console
 <a name="CreatePeering.CON"></a>
@@ -74,6 +79,15 @@ aws odb create-odb-peering-connection \
     --peer-network-id {{vpc-abcdef1234567890}} \
     --peer-network-route-table-ids {{rtb-1234567890abcdefg}} \
     --peer-network-cidrs-to-be-added {{"10.0.1.0/24,10.0.2.0/24"}}
+```
+
+To summarize many destinations behind a transit Amazon VPC into a single entry, specify a supernet or a default route:
+
+```
+aws odb create-odb-peering-connection \
+    --odb-network-id {{odbnet-1234567890abcdef}} \
+    --peer-network-id {{vpc-abcdef1234567890}} \
+    --peer-network-cidrs-to-be-added {{"10.0.0.0/8"}}
 ```
 
 To list your ODB peering connections, use the `list-odb-peering-connections` command.
@@ -130,6 +144,49 @@ aws odb update-odb-peering-connection \
     --peer-network-cidrs-to-be-removed {{"10.0.1.0/24,10.0.3.0/24"}}
 ```
 
+You can add and remove CIDRs in the same command. Because more-specific routes always win, you can add a summarizing supernet before removing the specific CIDRs that it replaces, with no interruption to traffic:
+
+```
+aws odb update-odb-peering-connection \
+    --odb-peering-connection-id {{odbpcx-1234567890abcdef}} \
+    --peer-network-cidrs-to-be-added {{"10.0.0.0/16"}} \
+    --peer-network-cidrs-to-be-removed {{"10.0.0.0/24,10.0.1.0/24"}}
+```
+
+### Advanced peered-CIDR routing
+<a name="advanced-peered-cidr"></a>
+
+The following routing patterns rely on longest-prefix match, where the most specific matching CIDR always wins. You can combine broad and narrow CIDRs across peering connections and let longest-prefix match resolve them.
+
+#### Supernet CIDR for transit VPC architectures
+<a name="supernet-transit-vpc"></a>
+
+A single supernet (for example, 10.0.0.0/8) on the transit Amazon VPC peering summarizes every destination reachable behind a transit gateway, instead of listing each CIDR. More-specific CIDRs on other peerings still win through longest-prefix match.
+
+#### Zero-downtime route summarization
+<a name="zero-downtime-summarization"></a>
+
+Add the summarizing supernet first. Traffic stays on the existing specific CIDRs because they are more specific. Verify the configuration, and then remove the specific CIDRs so that traffic shifts to the supernet. Neither transition causes an outage. Overlap on the same peering is allowed.
+
+#### Default route to AWS
+<a name="default-route-to-aws"></a>
+
+Register 0.0.0.0/0 on the transit Amazon VPC peering so that all OCI traffic that no more-specific route handles forwards to AWS. A directly peered Amazon VPC CIDR on another peering still wins for its range.
+
+#### Peered CIDR that encompasses the ODB network client subnet
+<a name="peered-cidr-encompass-client-subnet"></a>
+
+A peered CIDR can contain (encompass) the ODB network client subnet, as long as the two are not identical. Longest-prefix match keeps client-subnet traffic on the local route, and other traffic that matches the peered CIDR routes to AWS.
+
+### Rules and limitations for peered CIDRs
+<a name="peered-cidr-rules"></a>
++ A given CIDR, including a supernet or 0.0.0.0/0, can appear on only one peering connection per ODB network. You cannot use identical prefixes on two peerings because there is no longest-prefix-match tiebreaker.
++ The Amazon VPC CIDRs of two VPCs that are directly peered to the same ODB network must not overlap, and their subnets must not be identical. Peer network CIDRs advertised as routes can overlap, but this restriction applies to the underlying Amazon VPC address space of directly peered VPCs.
++ A peered CIDR can encompass the ODB network client subnet but must not be identical to it.
+
+**Note**  
+The ODB network validates that directly peered Amazon VPC CIDRs do not overlap when you create or update a peering connection. It does not revalidate afterward. If you add a CIDR to a VPC that is already peered, for example by associating a secondary CIDR block, you can introduce an overlap that was not present when the peering was created. If two directly peered VPCs then contain identical subnets, return traffic can be routed to the wrong VPC, which causes intermittent or broken connectivity. You are responsible for keeping the CIDRs of directly peered VPCs non-overlapping, including any CIDRs that you add after you create the peering connection.
+
 ## Configuring VPC route tables for ODB peering
 <a name="configure-routes"></a>
 
@@ -146,7 +203,7 @@ aws ec2 create-route \
     --odb-network-arn {{arn:aws:odb:us-east-1:111111111111:odb-network/odbnet_1234567890abcdef}}
 ```
 
-The ODB network route tables are automatically updated with the VPC CIDRs. To allow access to the ODB network for only specific subnet CIDRs rather than all CIDRs in the VPC, you can specify peer network CIDRs when creating an ODB peering connection or update an existing ODB peering connection to add or remove peered CIDR ranges.
+The ODB network route tables are automatically updated with the VPC CIDRs. To allow access to the ODB network for only specific subnet CIDRs rather than all CIDRs in the VPC, you can specify peer network CIDRs when creating an ODB peering connection or update an existing ODB peering connection to add or remove peered CIDR ranges. Peer network CIDRs (the routes advertised to the ODB network) and your Amazon VPC route table entries serve different purposes and do not need to match. On the Amazon VPC side, you typically continue to route the specific CIDR of the ODB network. When multiple routes match a destination, longest-prefix match applies, and the most specific route is always used.
 
 For more information about VPC route tables, see [Subnet route tables](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-route-tables.html) in the *Amazon Virtual Private Cloud User Guide* and [ec2 create-route](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-route.html) in the *AWS CLI Command Reference*.
 
@@ -327,9 +384,9 @@ Data Guard communications between ODB networks must be routed through the OCI ne
 Before implementing this architecture, consider the following:
 + An ODB network supports up to a maximum of 125 peering connections.
 + Each VPC CIDR block consumes routing resources in the ODB network.
-+ CIDR blocks must not overlap between the ODB network and peered VPCs to avoid routing conflicts.
++ The Amazon VPC CIDRs of two VPCs that are directly peered to the same ODB network must not overlap. Peer network CIDRs advertised as routes can overlap. For example, a supernet on one peering can contain a more-specific CIDR on another, because longest-prefix match resolves them.
 + A VPC can establish multiple peering connections to different ODB networks, but only one peering connection to each ODB network.
-+ Supernet CIDR blocks that encompass multiple existing subnets are not supported in peered configurations.
++ Supernet CIDR blocks and a default route (0.0.0.0/0) are supported as peer network CIDRs. When CIDRs overlap, longest-prefix match determines routing.
 + The error message "security rules per network security group count limit exceeded" indicates that you have reached your NSG rule limit on OCI. To fix this issue, you raise the quota limit from the OCI console to increase your NSG rule limit (limit-name: securityrules-per-networksecuritygroup-count). This limit request is auto approved. Once your NSG rules are increased, you can add more ODB peering.
 +  ODB networks in US East (N. Virginia) and US West (Oregon) created before February 7, 2026, require a network upgrade before adding more than 1 ODB peering. To upgrade, you need to fully recreate your ODB network. Deletion of ODB network requires you to delete all Exadata VMs but does not require you to delete or recreate your Exadata Infrastructure.
 
@@ -339,14 +396,14 @@ Before implementing this architecture, consider the following:
 To implement this architecture, you need:
 + An ODB network configured in your AWS account, or access to an ODB network shared with your account via AWS Resource Access Manager. For more information, see [Step 1: Create an ODB network in Oracle Database@AWS](getting-started.md#getting-started-odb).
 + One or more application VPCs in the same AWS Region as the ODB network. For more information, see [Create a VPC](https://docs.aws.amazon.com/vpc/latest/userguide/create-vpc.html) in the *Amazon Virtual Private Cloud User Guide*.
-+ Non-overlapping CIDR blocks for all VPCs and the ODB network
++ Non-overlapping Amazon VPC CIDR blocks for any VPCs that are directly peered to the same ODB network. (Peer network CIDRs advertised as routes can overlap.)
 
 ### Configuration steps
 <a name="multiple-app-vpcs-configuration"></a>
 
 1. Identify your application VPCs that require access to the ODB network, or identify the ODB networks that a single VPC needs to access.
 
-1. Verify CIDR blocks to ensure no overlaps exist between VPCs and the ODB network.
+1. Verify that the Amazon VPC CIDR blocks of directly peered VPCs do not overlap.
 
 1. Create ODB peering connections for each VPC-to-ODB network relationship that you need to establish.
 
@@ -359,7 +416,9 @@ For more information about creating and managing ODB peering connections, see [C
 
 Amazon VPC Transit Gateways is a network transit hub that interconnects virtual private clouds (VPCs) and on-premises networks. Each VPC in the hub-and-spoke architecture can connect to the transit gateway to gain access to other connected VPCs. AWS Transit Gateway supports traffic for both IPv4 and IPv6.
 
-In Oracle Database@AWS, an ODB network supports up to 45 peering connections. You can establish direct peering connections between your ODB network and multiple VPCs. Alternatively, if you connect a transit gateway to a VPC that is peered to an ODB network, you can route traffic from multiple VPCs through this central hub. Applications running in these different VPCs can access an Exadata VM cluster running in your ODB network.
+In Oracle Database@AWS, an ODB network supports up to 125 peering connections. You can establish direct peering connections between your ODB network and multiple VPCs. Alternatively, if you connect a transit gateway to a VPC that is peered to an ODB network, you can route traffic from multiple VPCs through this central hub. Applications running in these different VPCs can access an Exadata VM cluster running in your ODB network. On that peering connection, you can advertise a single supernet CIDR or a default route (0.0.0.0/0). This route summarizes every destination reachable behind the transit gateway, instead of listing each CIDR individually.
+
+When you advertise a supernet or default route, the peering connection no longer limits which destinations the ODB network can reach. Control reachability using your transit gateway route tables, security groups, and network ACLs.
 
 The following diagram shows a transit gateway that is connected to two VPCs and one on-premises network. 
 
@@ -422,7 +481,7 @@ AWS Cloud WAN provides the following key benefits:
 + Core networks with built-in segmentation to isolate traffic through multiple routing domains
 + Support for policies to automate network management and define consistent configurations across your global network
 
-In Oracle Database@AWS, an ODB network supports up to 45 peering connections. You can connect multiple VPCs directly to your ODB network, or use AWS Cloud WAN for global traffic routing. If you connect a AWS Cloud WAN core network to one or more peered VPCs, it enables global traffic routing. Applications in attached VPCs across multiple Regions can access Exadata VM clusters in your ODB network. You can isolate ODB network traffic in its own segment or enable access to other segments.
+In Oracle Database@AWS, an ODB network supports up to 125 peering connections. You can connect multiple VPCs directly to your ODB network, or use AWS Cloud WAN for global traffic routing. If you connect a AWS Cloud WAN core network to one or more peered VPCs, it enables global traffic routing. Applications in attached VPCs across multiple Regions can access Exadata VM clusters in your ODB network. You can isolate ODB network traffic in its own segment or enable access to other segments. When you attach a AWS Cloud WAN core network to a peered Amazon VPC, you can advertise a single supernet CIDR or a default route (0.0.0.0/0) on that peering. This route summarizes all destinations reachable through the core network.
 
 The following diagram shows an AWS Cloud WAN core network that is connected to three VPCs and one on-premises network. 
 
