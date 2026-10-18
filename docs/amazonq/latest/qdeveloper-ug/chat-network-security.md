@@ -3,11 +3,8 @@
 # Chatting about your network security
 <a name="chat-network-security"></a>
 
-
-
-|  | 
-| --- |
-| Chatting about network security is in preview, and is subject to change. | 
+**Note**  
+The public preview of this capability has now ended and is no longer accessible. For more information about this capability, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/).
 
 Amazon Q can help you analyze your network security configurations, identify missing or misconfigured AWS network security services, and provide recommendations for a stronger network security posture. This helps you understand network security findings, implement remediation steps, and follow security best practices without interrupting your workflow.
 
