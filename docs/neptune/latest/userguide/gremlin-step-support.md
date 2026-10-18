@@ -9,6 +9,18 @@ The Amazon Neptune engine does not currently have full native support for all Gr
 + [Gremlin steps that are never converted to native Neptune engine operations](#gremlin-steps-never) 
 + [Gremlin steps that are not supported in Neptune at all](#neptune-gremlin-steps-unsupported) 
 
+**Note**  
+In Neptune engine release 1.5.0.0 and later, DFE natively supports most Gremlin steps. If you use engine release 1.5.0.0 or later, see [Neptune engine release 1.5.0.0 and later](gremlin-step-coverage-in-DFE.md#gremlin-step-coverage-in-DFE-15) for the current DFE step coverage. The native-engine step support described below applies to workloads that do not use [DFE](neptune-dfe-engine.md).
+
+**Neptune 1.5.0.0: step behavior changes**  
+TinkerPop 3.8.0 changed the behavior of several steps. Notes throughout this page describe each change next to the affected entry. The highlights are:  
+The `store()` step and the `aggregate(Scope)` overload (for example, `aggregate(local)`) have been removed. Use `aggregate(global)` (the default) for global accumulation, or `local(aggregate())` if you need local-scope aggregation.
+The `choose()` step now matches only the first matching option, traversers that do not match any option are passed through automatically, and the `option(Traversal, v)` variant has been removed. A new `Pick.unproductive` token is available for handling traversers that do not produce a result.
+The `valueMap()`, `propertyMap()`, `groupCount()`, `dedup()`, `sack()`, `sample()`, and `aggregate()` steps now throw an error if more than one `by()` modulator is supplied.
+Inside `repeat()`, `cap()` and `inject()` are no longer allowed. Test any `repeat()` that uses these steps before upgrading to 3.8.0.
+The `none()` step has been renamed to `discard()`. A new predicate-filter step, `none(P)`, reuses the `none` name and drops traversers that match the predicate.
+For more information, see the [TinkerPop 3.8.0 upgrade documentation](https://tinkerpop.apache.org/docs/current/upgrade/#_tinkerpop_3_8_0_2) on the Apache TinkerPop website.
+
 ## Gremlin steps that can always be converted to native Neptune engine operations
 <a name="gremlin-steps-always"></a>
 
@@ -50,7 +62,9 @@ The following Gremlin steps are always converted to native Neptune engine operat
 Some Gremlin steps can be converted to native Neptune engine operations in some situations but not in others:
 + [addE( )](http://tinkerpop.apache.org/docs/current/reference/#addedge-step)   –   The `addE()` step can generally be converted to a native Neptune engine operation, unless it is immediately followed by a `property()` step containing a traversal as a key.
 + [addV( )](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step)   –   The `addV()` step can generally be converted to a native Neptune engine operation, unless it is immediately followed by a `property()` step containing a traversal as a key, or unless multiple labels are assigned.
-+ [aggregate( )](http://tinkerpop.apache.org/docs/current/reference/#store-step)   –   The `aggregate()` step can generally be converted to a native Neptune engine operation, unless the step is used in a child traversal or sub-traversal, or unless the value being stored is something other than a vertex, edge, id, label or property value.
++ [aggregate( )](http://tinkerpop.apache.org/docs/current/reference/#aggregate-step)   –   The `aggregate()` step can generally be converted to a native Neptune engine operation, unless the step is used in a child traversal or sub-traversal, or unless the value being stored is something other than a vertex, edge, id, label or property value.
+**Neptune 1.5.0.0: store() and aggregate(Scope) removed**  
+The `store()` step and the `aggregate(Scope)` overload (for example, `aggregate(local)`) have been removed in TinkerPop 3.8.0. Existing Neptune queries that use the default `aggregate()` form continue to work. For migration guidance, see the page-level note at the top of this page.
 
   In example below, `aggregate()` is not converted because it is being used in a child traversal:
 
@@ -133,6 +147,8 @@ Some Gremlin steps can be converted to native Neptune engine operations in some 
   ```
   g.V().has('code','ANC').repeat(out().repeat(out()).times(2)).times(2)
   ```
+**Neptune 1.5.0.0: repeat() restrictions**  
+Starting with TinkerPop 3.8.0, `cap()` and `inject()` are no longer allowed inside a `repeat()` traversal. Retest any `repeat()` traversal that uses `cap()` or `inject()` before you upgrade.
 + [sack( )](http://tinkerpop.apache.org/docs/current/reference/#sack-step)   –   The `sack()` step can generally be converted to a native Neptune engine operation, except in the following cases:
   + If a non-numeric sack operator is being used.
   + If a numeric sack operator other than `+`, `-`, `mult`, `div`, `min` and `max` is being used.
@@ -167,6 +183,9 @@ Some Gremlin steps can be converted to native Neptune engine operations in some 
 <a name="gremlin-steps-never"></a>
 
 The following Gremlin steps are supported in Neptune but are never converted to native Neptune engine operations. Instead, they are executed by the Gremlin server.
+
+**Neptune 1.5.0.0: choose() step behavior change**  
+The `choose()` step behavior changed in TinkerPop 3.8.0. For migration guidance, see the page-level note at the top of this page.
 + [choose( )](http://tinkerpop.apache.org/docs/current/reference/#choose-step)
 + [coin( )](http://tinkerpop.apache.org/docs/current/reference/#coin-step)
 + [fail( )](http://tinkerpop.apache.org/docs/current/reference/#fail-step)

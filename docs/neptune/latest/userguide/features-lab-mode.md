@@ -114,3 +114,23 @@ This feature is available starting in [Neptune engine release 1.4.0.0](engine-re
  Allowed values: enabled/disabled 
 
  [Gremlin query result cache](https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-results-cache.html), when enabled, allows caching of query results on the database. By deafult the approximate estimate is used to determine the size of the result cached, with this lab mode param `AccurateQRCMemoryEstimation` enabled, the size estimation for cached results will use accurate size estimates instead of approximate. This labmode parameter is available starting from Neptune engine release version 1.4.0.0. 
+
+## UndoLogPurgeConfig
+<a name="labmode-UndoLogPurgeConfig"></a>
+
+**Note**  
+This feature is available starting in [Neptune engine release 1.2.0.0](engine-releases-1.2.0.0.md).
+
+ Default value: default 
+
+ Allowed values: default or aggressive 
+
+ `UndoLogPurgeConfig` controls how aggressively Neptune purges undo logs. You enable it through the [`neptune_lab_mode`](parameters.md#parameters-db-cluster-parameters-neptune_lab_mode) DB cluster parameter by including `UndoLogPurgeConfig=aggressive` in the parameter value. 
+
+ When set to `default`, Neptune uses the standard number of threads for undo log purging. When set to `aggressive`, Neptune uses an increased number of threads to expedite the cleanup of undo logs. The number of purge threads scales with the instance size, so pairing this setting with a larger writer instance increases the rate at which undo logs drain. 
+
+ Undo log purging is performed only by the writer instance. Because `neptune_lab_mode` is a static parameter, you must reboot the writer instance for a change to `UndoLogPurgeConfig` to take effect. Beginning with Neptune engine release 1.2.0.0, restarting the writer no longer restarts the read replicas. If you want the setting active on a replica in case of a failover, you must reboot that replica separately. 
+
+ To revert to standard purging, set `UndoLogPurgeConfig=default` in the `neptune_lab_mode` parameter and reboot the writer instance. 
+
+ After the setting is active, you can track the [`UndoLogListSize`](cw-metrics.md#cw-metrics-UndoLogListSize) and [`NumUndoPagesPurged`](cw-metrics.md#cw-metrics-NumUndoPagesPurged) CloudWatch metrics to observe the net drain rate under your production load. This is useful when you need to bring `UndoLogListSize` below the threshold required before a version upgrade (see [Upgrading to engine version 1.2.0.0 or above from a version earlier than 1.2.0.0](engine-updates-1200-changes.md)). 

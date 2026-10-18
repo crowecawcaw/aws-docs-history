@@ -124,11 +124,11 @@ awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
 The response contains a schema object with the following fields:
 
 **Status object:**
-+ `state` (String) – Current lifecycle state: `NotStarted`, `InProgress`, `Completed`, `Stopped`, `Failed`
++ `state` (String) – Current lifecycle state: `NotStarted`, `InProgress`, `Completed`, `Stopped`, `Failed`. Beginning with Neptune engine version 1.5.0.0, an interrupted computation can also report `Paused`. For more information, see [States](#access-graph-pg-schema-states).
 + `concurrency` (String) – Number of threads used for the computation. 0 means auto (determined based on hardware). Range: 1 (lowest) to 16 (highest).
 + `lastComputedTimestamp` (String) – ISO-8601 UTC timestamp of the last successful computation (e.g., `2026-05-29T08:00:00Z`)
 + `progressPercentage` (String) – Computation progress: 0 when not started, 0–99 during computation, 100 when completed
-+ `errorMessage` (String) – Present only when a request is rejected or the computation fails. Explains the reason.
++ `errorMessage` (String) – The reason a request was rejected or the computation is `Paused` or `Failed`. For example, a restart or failover interrupted the computation, or the computation failed.
 
 **Schema object:**
 + `nodeLabels` – Array of all unique node labels in the graph
@@ -213,7 +213,7 @@ awscurl -X POST https://{{your-neptune-endpoint}}:{{port}}/openCypher \
 
 **Behavior:**
 + Returns immediately with the current status. The computation runs asynchronously in the background.
-+ If called when state is `Stopped`, the computation resumes from where it left off.
++ If called when state is `Stopped` or `Paused`, the computation resumes from where it left off. For details about these states, see [States](#access-graph-pg-schema-states).
 + If called when state is `Completed`, starts a fresh recomputation. The previous schema continues serving reads until the new computation completes.
 + If called when a computation is already `InProgress`, Neptune rejects the request with an error message.
 + If called during an active bulk load, Neptune rejects the request with an error message.
@@ -326,14 +326,16 @@ The schema computation moves through the following states:
 + `NotStarted` – No schema has been computed yet. `pg_schema()` returns an empty schema.
 + `InProgress` – A background computation is running. `pg_schema()` returns partial results (a union of the last complete schema and discoveries from the current computation).
 + `Completed` – The computation finished successfully. The full schema is available.
-+ `Stopped` – The computation was stopped, either by calling `stop()` or because an engine restart interrupted it. Partial results are available. Progress is saved so the computation can resume from where it left off when you call `compute()`.
-+ `Failed` – The computation encountered an error. The last successfully computed schema (if any) remains available.
++ `Stopped` – The computation was stopped by an explicit call to `stop()`. Partial results are available. Progress is saved so the computation can resume from where it left off when you call `compute()`. A stopped computation does not carry an `errorMessage`.
++ `Paused` – Beginning with Neptune engine version 1.5.0.0, an engine restart or failover transitions an `InProgress` computation to `Paused` rather than `Stopped`. Partial results are available, and the computation saves its progress. To resume from where it left off, call `compute()`. Resuming returns the computation to `InProgress` and then `Completed`.
++ `Failed` – The computation encountered an error. The last successfully computed schema (if any) remains available. The status object includes an `errorMessage` explaining the failure.
 
 ### Persistence and restart behavior
 <a name="access-graph-pg-schema-persistence"></a>
 
 The computed schema is persisted and survives engine restarts. The restart behavior depends on the state at the time of restart:
-+ `InProgress` – If the engine restarts during computation, the computation transitions to `Stopped`. Call `compute()` to resume from where it left off. Progress is preserved and the computation continues from its last checkpoint.
++ `InProgress` – If the engine restarts or fails over during computation, the computation is interrupted. Beginning with Neptune engine version 1.5.0.0, the computation transitions to `Paused`; in earlier versions it transitions to `Stopped`. Call `compute()` to resume from where it left off. The computation preserves progress and continues from its last checkpoint.
++ `Paused` – The computation does *not* automatically resume. You must call `compute()` to continue from where it left off.
 + `Stopped` – The computation does *not* automatically resume. You must call `compute()` to continue from where it left off.
 + `Completed` – The schema is loaded and available immediately.
 
@@ -356,7 +358,7 @@ Read replicas cannot run `compute()` or `stop()`. These calls return an error:
 + **Recompute after mutations** – The schema does not update automatically when data changes. Recompute the schema after bulk loads or significant data mutations. Use the `lastComputedTimestamp` field to determine whether the schema is outdated relative to recent changes in your graph.
 + **Concurrency** – The default concurrency value (0) automatically adapts to your instance hardware. For most workloads this is the recommended setting. If the background computation impacts your query workload, specify a lower value (for example, 1 or 2) to reduce resource usage.
 + **Stop and resume** – If the background computation impacts your query workload, stop it with `stop()` and resume later during a lower-traffic period by calling `compute()` again. The computation continues from where it left off.
-+ **Handle restarts gracefully** – If the engine restarts while a schema computation is in progress, the computation transitions to `Stopped`. Call `compute()` to resume from where it left off. Progress is preserved.
++ **Handle restarts gracefully** – If the engine restarts or fails over while a schema computation is in progress, the computation is interrupted. Beginning with Neptune engine version 1.5.0.0, it transitions to `Paused`. Call `compute()` to resume from where it left off. Progress is preserved.
 + **Large databases** – For databases with large storage volumes (multiple TB), a full schema computation may take extended time. You can start a compute, let it run until 10–20% progress, then stop. The partial results collected during this window provide a useful schema sample with many labels, properties, and triples already discovered. Read the partial schema with `pg_schema()` while the computation is in progress or after stopping. Resume later when your workload allows.
 
 ## Limitations

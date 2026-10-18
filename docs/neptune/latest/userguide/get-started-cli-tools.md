@@ -3,7 +3,7 @@
 # Using command-line tools to access Amazon Neptune
 <a name="get-started-cli-tools"></a>
 
-You can use the AWS CLI, AWS SDKs, and HTTP tools such as `curl` and `awscurl` to submit queries to your Neptune DB cluster. The following sections show how to set up each tool and run basic Gremlin and openCypher queries.
+You can use the AWS CLI, AWS SDKs, and HTTP tools such as `curl` and `awscurl` to submit queries to your Neptune DB cluster. The following sections show how to set up each tool and run basic queries. You can run Gremlin and openCypher queries with all of these tools. You submit SPARQL queries to the HTTP `/sparql` endpoint using `curl` or `awscurl`.
 
 ## Using the AWS CLI
 <a name="get-started-cli-tools-cli"></a>
@@ -37,6 +37,9 @@ aws neptunedata execute-open-cypher-query \
 For more information, see [execute-open-cypher-query](https://docs.aws.amazon.com/cli/latest/reference/neptunedata/execute-open-cypher-query.html) in the AWS CLI Command Reference.
 
 ------
+
+**Note**  
+The `aws neptunedata` commands don't include a SPARQL query operation. To run SPARQL queries, submit them to the HTTP `/sparql` endpoint using `curl` or `awscurl`. For more information, see [Using `curl` and `awscurl`](#get-started-cli-tools-curl).
 
 ## Using the AWS SDK
 <a name="get-started-cli-tools-sdk"></a>
@@ -95,6 +98,9 @@ print(json.dumps(response['results'], indent=2))
 For AWS SDK examples in other languages, see [AWS SDK](access-graph-opencypher-sdk.md).
 
 ------
+
+**Note**  
+The Neptune Data API doesn't include a SPARQL query operation. To run SPARQL queries, submit them to the HTTP `/sparql` endpoint using `curl` or `awscurl`. For more information, see [Using `curl` and `awscurl`](#get-started-cli-tools-curl).
 
 ## Using `curl` and `awscurl`
 <a name="get-started-cli-tools-curl"></a>
@@ -164,5 +170,28 @@ curl -X POST \
 Plain `curl` works only when IAM authentication is not enabled on your cluster.
 
 ------
+#### [ SPARQL (awscurl) ]
 
-For more Gremlin HTTP examples, see [HTTPS REST](access-graph-gremlin-rest.md). For more openCypher HTTP examples, see [HTTPS endpoint](access-graph-opencypher-queries.md).
+```
+awscurl https://{{your-neptune-endpoint}}:{{port}}/sparql \
+  --region {{us-east-1}} \
+  --service neptune-db \
+  -X POST \
+  -d "query=SELECT ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 1"
+```
+
+------
+#### [ SPARQL (curl) ]
+
+```
+curl -X POST \
+  -d "query=SELECT ?s ?p ?o WHERE { ?s ?p ?o } LIMIT 1" \
+  https://{{your-neptune-endpoint}}:{{port}}/sparql
+```
+
+**Note**  
+Plain `curl` works only when IAM authentication is not enabled on your cluster.
+
+------
+
+For more Gremlin HTTP examples, see [HTTPS REST](access-graph-gremlin-rest.md). For more openCypher HTTP examples, see [HTTPS endpoint](access-graph-opencypher-queries.md). For more SPARQL HTTP examples, see [SPARQL HTTP API](sparql-api-reference.md).

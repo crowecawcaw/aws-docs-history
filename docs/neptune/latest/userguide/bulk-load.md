@@ -35,4 +35,5 @@ The following sections provide instructions for preparing and loading data into 
 + [Load Data Formats](bulk-load-tutorial-format.md)
 + [Example: Loading Data into a Neptune DB Instance](bulk-load-data.md)
 + [Optimizing an Amazon Neptune bulk load](bulk-load-optimize.md)
++ [Fast bulk load (offline loader)](bulk-load-offline.md)
 + [Neptune Loader Reference](load-api-reference.md)

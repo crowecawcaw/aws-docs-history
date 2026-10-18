@@ -15,6 +15,9 @@ For some concrete examples of these implementation differences shown in Gremlin 
 + [Variables and parameters in scripts](#feature-gremlin-differences-variables)
 + [Script execution](#feature-gremlin-differences-script)
 + [Properties on elements](#feature-gremlin-differences-properties-on-elements)
++ [Meta-properties](#feature-gremlin-differences-meta-properties)
++ [Ordering of vertices, edges, and properties](#feature-gremlin-differences-ordering)
++ [Datetime offsets](#feature-gremlin-differences-datetime-offsets)
 + [Sessions](#feature-gremlin-differences-sessions)
 + [Transactions](#feature-gremlin-differences-transactions)
 + [Vertex and edge IDs](#feature-gremlin-differences-vertex-edge-ids)
@@ -95,16 +98,16 @@ The following table lists the allowed short-form values and the underlying Tinke
 | id, key, label, value | [org.apache.tinkerpop.gremlin.structure.T](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/T.html) | 
 | T.id, T.key, T.label, T.value | [org.apache.tinkerpop.gremlin.structure.T](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/T.html) | 
 | set, single | [org.apache.tinkerpop.gremlin.structure.VertexProperty.Cardinality](https://tinkerpop.apache.org/javadocs/current/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html) | 
-| asc, desc, shuffle | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html) | 
-| Order.asc, Order.desc, Order.shuffle | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.7.2/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html) | 
-| global, local | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html) | 
-| Scope.global, Scope.local | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html) | 
-| all, first, last, mixed | [org.apache.tinkerpop.gremlin.process.traversal.Pop](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Pop.html) | 
-| normSack | [org.apache.tinkerpop.gremlin.process.traversal.SackFunctions.Barrier](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/SackFunctions.Barrier.html) | 
-| addAll, and, assign, div, max, min, minus, mult, or, sum, sumLong | [org.apache.tinkerpop.gremlin.process.traversal.Operator](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/process/traversal/Operator.html) | 
-| keys, values | [org.apache.tinkerpop.gremlin.structure.Column](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Column.html) | 
-| BOTH, IN, OUT | [org.apache.tinkerpop.gremlin.structure.Direction](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Direction.html) | 
-| any, none | [org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent.Pick](https://tinkerpop.apache.org/javadocs/current/full/org/apache/tinkerpop/gremlin/process/traversal/Pick.html) | 
+| asc, desc, shuffle | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.8.0/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html) | 
+| Order.asc, Order.desc, Order.shuffle | [org.apache.tinkerpop.gremlin.process.traversal.Order](https://tinkerpop.apache.org/javadocs/3.8.0/full/org/apache/tinkerpop/gremlin/process/traversal/Order.html) | 
+| global, local | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html) | 
+| Scope.global, Scope.local | [org.apache.tinkerpop.gremlin.process.traversal.Scope](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/process/traversal/Scope.html) | 
+| all, first, last, mixed | [org.apache.tinkerpop.gremlin.process.traversal.Pop](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/process/traversal/Pop.html) | 
+| normSack | [org.apache.tinkerpop.gremlin.process.traversal.SackFunctions.Barrier](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/process/traversal/SackFunctions.Barrier.html) | 
+| addAll, and, assign, div, max, min, minus, mult, or, sum, sumLong | [org.apache.tinkerpop.gremlin.process.traversal.Operator](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/process/traversal/Operator.html) | 
+| keys, values | [org.apache.tinkerpop.gremlin.structure.Column](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/structure/Column.html) | 
+| BOTH, IN, OUT | [org.apache.tinkerpop.gremlin.structure.Direction](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/structure/Direction.html) | 
+| any, none, unproductive | [org.apache.tinkerpop.gremlin.process.traversal.step.TraversalOptionParent.Pick](https://tinkerpop.apache.org/javadocs/current/full/org/apache/tinkerpop/gremlin/process/traversal/Pick.html) | 
 
 ### What a script may not contain
 <a name="feature-gremlin-differences-script-not-contents"></a>
@@ -126,7 +129,38 @@ The following are **not** supported in text-string Gremlin queries to Neptune, b
 ## Properties on elements
 <a name="feature-gremlin-differences-properties-on-elements"></a>
 
- Neptune does not support the `materializeProperties` flag that was introduced in TinkerPop 3.7.0 to return properties on elements. As a result, Neptune will still only return vertices or edges as references with just their `id` and `label`.
+Starting with Amazon Neptune engine release 1.5.0.0, you can use the `materializeProperties` flag, introduced in TinkerPop 3.7.0, to control whether the query returns properties on the elements (vertices and edges) in the result. For more information, see [Properties of Elements](https://tinkerpop.apache.org/docs/current/reference/#_properties_of_elements) on the Apache TinkerPop website.
+
+You set the flag on a traversal using the `with()` configuration step:
++ `g.with('materializeProperties', 'all')` returns elements with their properties included inline in the result.
++ `g.with('materializeProperties', 'tokens')` returns elements as references only (that is, with just their `id` and `label`, and no properties).
+
+When the flag is not set explicitly, the default behavior depends on the serializer that the request uses, not on the transport or the submission method:
++ GraphSON requests (such as HTTP and script-based requests) default to returning properties, which is equivalent to `all`.
++ GraphBinary requests (such as modern Gremlin Language Variant (GLV) clients like `gremlin-python` and `gremlin-java` over a WebSocket) default to returning references only, which is equivalent to `tokens`.
+
+You can override either default by setting the `materializeProperties` flag explicitly with the `with()` step, as shown earlier.
+
+Neptune does not accept `null`, `Map`, or `UUID` values as vertex or edge property values. `Set`-cardinality property values are supported (see [Cardinality of vertex properties](#feature-gremlin-differences-vertex-property-cardinality)), but property values that are themselves sets — a single property whose value is a set of nested elements — are not supported.
+
+## Meta-properties
+<a name="feature-gremlin-differences-meta-properties"></a>
+
+Neptune does not support meta-properties — that is, properties on properties. Attempting to attach a property to another property through TinkerPop's `VertexProperty.property(...)` API does not persist the nested value.
+
+## Ordering of vertices, edges, and properties
+<a name="feature-gremlin-differences-ordering"></a>
+
+Neptune does not preserve insertion order for vertices, edges, or properties. Iteration order for `V()`, `E()`, and property enumeration is determined by an internal hash of the element's `(id, key, value)` tuple.
+
+This behavior is not unique to Neptune. The Apache TinkerPop specification does not require providers to enforce insertion order for vertices, edges, or properties, so most graph databases behave the same way. You might encounter the expectation of preserved insertion order from in-memory graphs like `TinkerGraph` that preserve it.
+
+If your application requires a deterministic iteration order, apply an explicit `order()` step with a stable `by()` modulator (for example, `order().by(id)` or `order().by('name')`) rather than relying on insertion order.
+
+## Datetime offsets
+<a name="feature-gremlin-differences-datetime-offsets"></a>
+
+Neptune internally represents datetime values as instants — UTC-based points in time. When `asDate()` or a related datetime step is applied to a string that carries a time zone offset (for example, `'2024-01-15T10:30:00+05:00'`), the offset is normalized to UTC and the original offset information is not preserved in the round-trip result.
 
 ## Sessions
 <a name="feature-gremlin-differences-sessions"></a>
@@ -189,9 +223,9 @@ Vertex property IDs are generated automatically and can show up as positive or n
 ## Cardinality of vertex properties
 <a name="feature-gremlin-differences-vertex-property-cardinality"></a>
 
-Neptune supports set cardinality and single cardinality. If it isn't specified, set cardinality is selected. This means that if you set a property value, it adds a new value to the property, but only if it doesn't already appear in the set of values. This is the Gremlin enumeration value of [Set](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html). 
+Neptune supports set cardinality and single cardinality. If it isn't specified, set cardinality is selected. This means that if you set a property value, it adds a new value to the property, but only if it doesn't already appear in the set of values. This is the Gremlin enumeration value of [Set](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/structure/VertexProperty.Cardinality.html). 
 
-`List` is not supported. For more information about property cardinality, see the [Vertex](https://tinkerpop.apache.org/javadocs/3.7.2/core/org/apache/tinkerpop/gremlin/structure/Vertex.html#property-org.apache.tinkerpop.gremlin.structure.VertexProperty.Cardinality-java.lang.String-V-java.lang.Object...-) topic in the Gremlin JavaDoc.
+`List` is not supported. For more information about property cardinality, see the [Vertex](https://tinkerpop.apache.org/javadocs/3.8.0/core/org/apache/tinkerpop/gremlin/structure/Vertex.html#property-org.apache.tinkerpop.gremlin.structure.VertexProperty.Cardinality-java.lang.String-V-java.lang.Object...-) topic in the Gremlin JavaDoc.
 
 ## Updating a vertex property
 <a name="feature-gremlin-differences-vertex-property-update"></a>
@@ -203,6 +237,8 @@ g.V('exampleid01').property(single, 'age', 25)
 ```
 
 This removes all existing values for the property.
+
+Changing a vertex property's cardinality from `single` to `set` through `property(set, ...)` does not remove the existing single-cardinality value. The single value remains in the property set alongside any new set values. To replace an existing single value, drop the property first with `properties(...).drop()` before applying the new set-cardinality value.
 
 ## Labels
 <a name="feature-gremlin-differences-labels"></a>
@@ -257,7 +293,7 @@ Neptune does not support Lambda Steps.
 <a name="feature-gremlin-differences-unsupported-steps"></a>
 
 Neptune does not support the following Gremlin steps:
-+ The Gremlin [io( ) Step](http://tinkerpop.apache.org/docs/3.7.2/reference/#io-step) is only partially supported in Neptune. You can use it in a read context, as in `g.io("https://example.com/data/my-graph.graphml").read()`, but you cannot use it to write. To read a file that you store as an Amazon S3 object, first generate a presigned URL. Then pass that HTTPS URL to `g.io()`. For more information about presigned URLs, see [Download and upload objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) in the *Amazon S3 User Guide*.
++ The Gremlin [io( ) Step](http://tinkerpop.apache.org/docs/3.8.0/reference/#io-step) is only partially supported in Neptune. You can use it in a read context, as in `g.io("https://example.com/data/my-graph.graphml").read()`, but you cannot use it to write. To read a file that you store as an Amazon S3 object, first generate a presigned URL. Then pass that HTTPS URL to `g.io()`. For more information about presigned URLs, see [Download and upload objects with presigned URLs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-presigned-url.html) in the *Amazon S3 User Guide*.
 
 ## Gremlin graph features in Neptune
 <a name="gremlin-api-reference-features"></a>

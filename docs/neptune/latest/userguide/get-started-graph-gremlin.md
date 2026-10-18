@@ -18,7 +18,7 @@ You have installed the Gremlin console as described in [Installing the Gremlin c
 1. Change directories into the folder where the Gremlin console files are unzipped.
 
    ```
-   cd apache-tinkerpop-gremlin-console-3.7.2
+   cd apache-tinkerpop-gremlin-console-3.8.0
    ```
 
 1. Enter the following command to run the Gremlin Console.
@@ -179,9 +179,18 @@ The Gremlin Console sends a separate command at every newline (`'\n'`), so they 
    g.V().property(single, 'lastUpdate', datetime('2018-01-01T00:00:00'))
    ```
 
-   Neptune does not support Java Date. Use the `datetime()` function instead. `datetime()` accepts an ISO8061-compliant `datetime` string.
+   For Gremlin queries sent as text strings (Gremlin Console, HTTP REST, or query strings submitted through a driver), use the `datetime()` function — Neptune doesn't accept raw `java.util.Date` values in string queries. `datetime()` accepts an ISO-8601-compliant `datetime` string.
 
    It supports the following formats: `YYYY-MM-DD, YYYY-MM-DDTHH:mm`, `YYYY-MM-DDTHH:mm:SS`, and `YYYY-MM-DDTHH:mm:SSZ`.
+**Neptune 1.5.0.0: GLV datetime values**  
+Starting with TinkerPop 3.8.0, the Java GLV returns datetime values as `java.time.OffsetDateTime` instead of `java.util.Date`. Other GLVs continue to use their language-native datetime type. The `datetime()` function shown above is for string-mode queries and is unaffected.  
+If you are using a GLV, use the language-native datetime type rather than `java.util.Date`. For example:  
+Java: `java.time.OffsetDateTime`
+Python: `datetime.datetime`
+JavaScript: `Date`
+.NET: `System.DateTime`
+Go: `time.Time`
+For more information, see [Using Native Date and Time for GLV Time Data](best-practices-gremlin-datetime-glv.md).
 
 1. **Delete vertices, properties, or edges.**
 

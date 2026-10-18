@@ -12,7 +12,8 @@ Different Neptune engine versions support different Gremlin versions. Check the 
 
 | Neptune Engine Version | Minimum TinkerPop Version | Maximum TinkerPop Version | 
 | --- | --- | --- | 
-| `1.3.2.0 and newer` | `3.7.1` | `3.7.3` | 
+| `1.5.0.0 and newer` | `3.8.0` | `3.8.1` | 
+| `1.3.2.0 <= 1.4.x` | `3.7.1` | `3.7.7` | 
 | `1.3.1.0` | `3.6.2` | `3.6.5` | 
 | `1.3.0.0` | `3.6.2` | `3.6.4` | 
 | `1.2.1.0 <= 1.2.1.2` | `3.6.2` | `3.6.2` | 
@@ -62,4 +63,4 @@ For more information about loading data into Neptune, including prerequisites, l
 + [Making efficient upserts with Gremlin `mergeV()` and `mergeE()` steps](gremlin-efficient-upserts.md)
 + [Making efficient Gremlin upserts with `fold()/coalesce()/unfold()`](gremlin-efficient-upserts-pre-3.6.md)
 + [Analyzing Neptune query execution using Gremlin `explain`](gremlin-explain.md)
-+ [Using Gremlin with the Neptune DFE query engine](gremlin-with-dfe.md)
++ [Using Gremlin with the Amazon Neptune DFE query engine](gremlin-with-dfe.md)

@@ -25,7 +25,6 @@ You manage your database configuration in Amazon Neptune by using parameters in 
 + [neptune\_dfe\_query\_engine](#parameters-instance-parameters-neptune_dfe_query_engine)
 + [neptune\_query\_timeout](#parameters-instance-parameters-neptune_query_timeout)
 + [neptune\_result\_cache](#parameters-db-instance-parameters-neptune_result_cache)
-+ [UndoLogPurgeConfig](#parameters-db-instance-parameters-undo_log_purge_config)
 
    
 
@@ -226,13 +225,6 @@ You can avoid unexpected expenses of this kind by using a query timeout value th
 This parameter is static, meaning that changes to it do not take effect on any instance until it has been rebooted.
 
 Allowed values are `0`, (disabled, which is the default), and `1` (enabled).
-
-## `UndoLogPurgeConfig` (instance-level parameter)
-<a name="parameters-db-instance-parameters-undo_log_purge_config"></a>
-
-**`UndoLogPurgeConfig`**   –   Use this parameter to enable or disable aggressive UndoLog purging in Neptune.
-
-Allowed values are `default`, which utilizes the standard number of threads for undo log purging, and `aggressive`, which uses an increased number of threads to expedite the cleanup of undo logs. When the `agressive` option is selected, you can expect to observe a hugher value for the `NumUndoPagesPurged` metric.
 
 ## `neptune_enforce_ssl` (DEPRECATED cluster-level parameter)
 <a name="parameters-db-cluster-parameters-neptune_enforce_ssl"></a>

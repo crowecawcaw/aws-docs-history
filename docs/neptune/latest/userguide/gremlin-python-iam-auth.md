@@ -8,6 +8,12 @@
 
  This guide demonstrates how to connect to an Amazon Neptune database with IAM authentication enabled using the Gremlin Python driver, with Signature Version 4 authentication and the AWS SDK for Python (Boto3). 
 
+## Prerequisites
+<a name="gremlin-python-iam-auth-prereqs"></a>
++ An Amazon Neptune cluster with IAM authentication enabled.
++ Python 3.10 or later. The `gremlinpython` library aligned with TinkerPop 3.8.x requires this version.
++ AWS credentials configured (via environment variables, shared credentials file, or IAM role).
+
 ## Create a basic connection
 <a name="gremlin-python-iam-auth-basic-connection"></a>
 

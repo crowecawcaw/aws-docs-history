@@ -29,13 +29,16 @@ g.V('3').property('date', time.Now()).next();
 For a complete example for connecting to Neptune using Go, see [ Using a Go client to connect to a Neptune DB instance](https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin-go.html).
 
 **Java**  
-The following is a partial example in Java that creates a single property named '`date`' for the vertex with an ID of '`3`'. It sets the value to be a date generated using the Java `Date()` constructor.
+The following is a partial example in Java that creates a single property named '`date`' for the vertex with an ID of '`3`'. It sets the value to a date returned by `java.time.OffsetDateTime.now()`.
 
 ```
-import java.util.date
+import java.time.OffsetDateTime;
 
-g.V('3').property('date', new Date()).next();
+g.V('3').property('date', OffsetDateTime.now()).next();
 ```
+
+**Neptune 1.5.0.0: Java GLV datetime change**  
+Starting with TinkerPop 3.8.0, the Java GLV uses `java.time.OffsetDateTime` as the standard datetime type instead of `java.util.Date`. If you have existing code that passes a `java.util.Date` through the Java GLV, migrate it to `OffsetDateTime` when you upgrade.
 
 For a complete example for connecting to Neptune using Java, see [Using a Java client to connect to a Neptune DB instance](access-graph-gremlin-java.md).
 

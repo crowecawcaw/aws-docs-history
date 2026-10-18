@@ -11,7 +11,7 @@
 ## Prerequisites
 <a name="gremlin-go-iam-auth-prereqs"></a>
 +  An Amazon Neptune cluster with IAM authentication enabled. 
-+  Go 1.22 or later (refer to minimal supported versions for [ Gremlin Go](https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver) and [AWS SDK for Go v2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2)). 
++  Go 1.25 or later, as required by TinkerPop 3.8.x. For information about minimum supported versions, see [ Gremlin Go](https://pkg.go.dev/github.com/apache/tinkerpop/gremlin-go/v3/driver) and the [AWS SDK for Go v2](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2). 
 +  AWS credentials configured (via environment variables, shared credentials file, or IAM role) 
 
 ## Create a basic connection

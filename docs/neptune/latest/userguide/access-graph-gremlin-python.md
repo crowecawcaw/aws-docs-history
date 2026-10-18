@@ -11,7 +11,7 @@ The following section walks you through the running of a Python sample that conn
 You must follow these instructions from an Amazon EC2 instance in the same virtual private cloud (VPC) as your Neptune DB instance.
 
 Before you begin, do the following:
-+ Download and install Python 3.6 or later from the [Python.org website](https://www.python.org/downloads/).
++ Download and install Python 3.10 or later from the [Python.org website](https://www.python.org/downloads/). TinkerPop 3.8.x requires Python 3.10 or later.
 + Verify that you have **pip** installed. If you don't have **pip** or you're not sure, see [Do I need to install pip?](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip) in the **pip** documentation.
 + If your Python installation does not already have it, download `futures` as follows: `pip install futures`
 

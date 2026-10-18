@@ -8,6 +8,12 @@
 
  This guide demonstrates how to connect to a Amazon Neptune database with IAM authentication enabled using the Gremlin .NET driver, with Signature Version 4 authentication and the AWS SDK for .NET v3. 
 
+## Prerequisites
+<a name="gremlin-dotnet-iam-auth-prereqs"></a>
++ An Amazon Neptune cluster with IAM authentication enabled.
++ .NET 6.0 or later. The `gremlin.net` library, version 3.8.0, requires .NET 6.0 or later.
++ AWS credentials configured (through environment variables, the shared credentials file, or an IAM role).
+
 ## Create a basic connection
 <a name="gremlin-dotnet-iam-auth-basic-connection"></a>
 
@@ -26,7 +32,7 @@ Project File:
   <ItemGroup>
     <Compile Include="../src/SigV4RequestSigner.cs" Link="SigV4RequestSigner.cs" />
     <PackageReference Include="AWSSDK.Core" Version="3.7.402.24" />
-    <PackageReference Include="gremlin.net" Version="3.7.3" />
+    <PackageReference Include="gremlin.net" Version="3.8.0" />
   </ItemGroup>
 
 </Project>

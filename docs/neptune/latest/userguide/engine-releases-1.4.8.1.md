@@ -1,9 +1,9 @@
 
 
-# Amazon Neptune Engine version 1.4.8.1 (2026-09-30)
+# Amazon Neptune Engine version 1.4.8.1 (2026-10-06)
 <a name="engine-releases-1.4.8.1"></a>
 
-As of 2026-09-30, engine version 1.4.8.1 is being generally deployed. Please note that it takes several days for a new release to become available in every region.
+As of 2026-10-06, engine version 1.4.8.1 is being generally deployed. Please note that it takes several days for a new release to become available in every region.
 
 ## Improvements in This Engine Release
 <a name="engine-releases-1481-improvements"></a>

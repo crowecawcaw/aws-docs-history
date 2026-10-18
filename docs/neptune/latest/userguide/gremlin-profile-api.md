@@ -243,9 +243,6 @@ Nested subqueries in different `DFESubQuery` elements are flattened in this sect
 
 **Traversal metrics:** This section shows step-level traversal metrics, and when the DFE engine runs all or part of the query, displays metrics for `DFEStep` and/or `NeptuneInterleavingStep`. See [Tuning Gremlin queries using `explain` and `profile`](gremlin-traversal-tuning.md).
 
-**Note**  
-Because DFE support for Gremlin is an experimental feature, the exact format of the `profile` output is subject to change.
-
 ## Sample `profile` output when the Neptune Dataflow engine (DFE) is enabled
 <a name="gremlin-profile-sample-dfe-output"></a>
 
@@ -449,6 +446,3 @@ curl -X POST https://{{your-neptune-endpoint}}:{{port}}/gremlin/profile \
         # of statement index ops: 0
         # of terms materialized: 0
 ```
-
-**Note**  
-Because DFE support for Gremlin is an experimental feature, the exact format of the `profile` output is subject to change.

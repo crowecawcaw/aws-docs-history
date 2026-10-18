@@ -14,7 +14,10 @@ This section contains recommendations for handling common differences, but they 
 ## Rewriting `None`, `All`, and `Any` predicate functions
 <a name="migration-opencypher-rewrites-none-all-any"></a>
 
-These functions are not part of the openCypher specification. Comparable results can be achieved in openCypher using List Comprehension.
+**Note**  
+Starting with Neptune engine release 1.5.0.0, the `none()`, `all()`, `any()`, and `single()` predicate functions are natively supported in openCypher. If you are using engine release 1.5.0.0 or later, you can use these functions directly without the rewrites described below.
+
+In engine releases before 1.5.0.0, these functions are not part of the openCypher specification. Comparable results can be achieved in openCypher using List Comprehension.
 
 For example, find all the paths that go from node `Start` to node `End`, but no journey is allowed to pass through a node with a class property of `D`:
 

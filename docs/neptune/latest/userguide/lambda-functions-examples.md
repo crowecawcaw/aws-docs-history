@@ -24,7 +24,7 @@ Here are some things to keep in mind about Java AWS Lambda functions:
 + The Java driver's connection pool monitors the availability of server hosts and automatically attempts to reconnect if a connection fails. It starts a background task to try to re-establish the connection. Use `reconnectInterval( )` to configure the interval between reconnection attempts. While the driver is attempting to reconnect, your Lambda function can simply retry the query.
 
   If the interval between retries is smaller than the interval between reconnect attempts, retries on a failed connection fail again because the host is considered unavailable. This does not apply to retries for a `ConcurrentModificationException`.
-+ Use Java 8 rather than Java 11. `Netty` optimizations are not enabled by default in Java 11.
++ Use Java 11 or later. TinkerPop 3.8.0 drops support for Java 8, so the Gremlin Java driver requires Java 11 as a minimum.
 + This example uses [Retry4j](https://github.com/elennick/retry4j) for retries.
 + To use the `Sigv4` signing driver in your Java Lambda function, see the dependency requirements in [Connecting to Amazon Neptune databases using IAM with Gremlin Java](iam-auth-connecting-gremlin-java.md).
 
@@ -351,6 +351,7 @@ exports.handler = async (event, context) => {
 Here are some things to notice about the following Python AWS Lambda example function:
 + It uses the [backoff module](https://pypi.org/project/backoff/).
 + It sets `pool_size=1` to keep from creating an unnecessary connection pool.
++ Requires the Python 3.10 or later Lambda runtime, because the `gremlinpython` library aligned with TinkerPop 3.8.0 requires Python 3.10 or later.
 
 ```
 import os, sys, backoff, math

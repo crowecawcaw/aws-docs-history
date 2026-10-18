@@ -165,6 +165,9 @@ Upserts typically proceed one element at a time. If you stick to the upsert patt
 
 However, sometimes you may want to mix upserts with inserts. This can be the case, for example, if you use edges to represent instances of actions or events. A request might use upserts to ensure that all necessary vertices exist, and then use inserts to add edges. With requests of this kind, pay attention to the potential number of traversers being emitted from each operation.
 
+**Neptune 1.5.0.0: mergeV()/mergeE() callback change**  
+Starting with TinkerPop 3.8.0, the `onCreate` and `onMatch` callbacks for `mergeV()` and `mergeE()` are passed the matched or newly created element (the vertex or edge) instead of the incoming traverser. This change affects mid-traversal `mergeV()` and `mergeE()` usage like the chained examples in this section. The upsert patterns shown here continue to work, but if you reference the incoming traverser inside an `onCreate` or `onMatch` child traversal, update your code to use the element directly. For more information, see the [TinkerPop 3.8.0 upgrade documentation](https://tinkerpop.apache.org/docs/3.8.0/upgrade/#element-promoted-for-mergeV) on the Apache TinkerPop website.
+
 Consider the following example, which mixes upserts and inserts to add edges that represent events into the graph:
 
 ```

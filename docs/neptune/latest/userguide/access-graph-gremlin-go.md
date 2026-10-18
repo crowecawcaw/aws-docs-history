@@ -14,7 +14,7 @@ The following section walks you through the running of a Go sample that connects
 You must follow these instructions from an Amazon EC2 instance in the same virtual private cloud (VPC) as your Neptune DB instance.
 
 Before you begin, do the following:
-+ Download and install Go 1.17 or later from the [go.dev](https://go.dev/dl/) website.
++ Download and install Go 1.25 or later from the [go.dev](https://go.dev/dl/) website. TinkerPop 3.8.x requires Go 1.25 or later.
 
 **To connect to Neptune using Go**
 

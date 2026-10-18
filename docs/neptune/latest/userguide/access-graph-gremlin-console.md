@@ -17,7 +17,7 @@ If you have [IAM authentication enabled](iam-auth-enable.md) on your Neptune DB 
 
 **To install the Gremlin Console and connect to Neptune**
 
-1. The Gremlin Console binaries require Java 8 or Java 11. These instructions assume usage of Java 11. You can install Java 11 on your EC2 instance as follows:
+1. The Gremlin Console binaries for TinkerPop 3.8.x require Java 11 or later. These instructions assume Java 11. To install Java 11 on your EC2 instance, do the following:
    + If you're using [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2):
 
      ```
@@ -48,22 +48,22 @@ If you have [IAM authentication enabled](iam-auth-enable.md) on your Neptune DB 
 
    When prompted, enter the number for Java 11.
 
-1. Download the appropriate version of the Gremlin Console from the Apache web site. You can check the [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md) to determine which Gremlin version your version of Neptune supports. For example, if you need version 3.7.2, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip) from the [Apache Tinkerpop](https://tinkerpop.apache.org/download.html) website onto your EC2 instance like this:
+1. Download the appropriate version of the Gremlin Console from the Apache web site. You can check the [Accessing a Neptune graph with Gremlin](access-graph-gremlin.md) to determine which Gremlin version your version of Neptune supports. For example, if you need version 3.8.0, you can download the [Gremlin console](https://archive.apache.org/dist/tinkerpop/3.8.0/apache-tinkerpop-gremlin-console-3.8.0-bin.zip) from the [Apache Tinkerpop](https://tinkerpop.apache.org/download.html) website onto your EC2 instance like this:
 
    ```
-   wget https://archive.apache.org/dist/tinkerpop/3.7.2/apache-tinkerpop-gremlin-console-3.7.2-bin.zip
+   wget https://archive.apache.org/dist/tinkerpop/3.8.0/apache-tinkerpop-gremlin-console-3.8.0-bin.zip
    ```
 
 1. Unzip the Gremlin Console zip file.
 
    ```
-   unzip apache-tinkerpop-gremlin-console-3.7.2-bin.zip
+   unzip apache-tinkerpop-gremlin-console-3.8.0-bin.zip
    ```
 
 1. Change directories into the unzipped directory.
 
    ```
-   cd apache-tinkerpop-gremlin-console-3.7.2
+   cd apache-tinkerpop-gremlin-console-3.8.0
    ```
 
 1. In the `conf` subdirectory of the extracted directory, create a file named `neptune-remote.yaml` with the following text. Replace {{your-neptune-endpoint}} with the hostname or IP address of your Neptune DB instance. The square brackets (`[ ]`) are required.
@@ -80,7 +80,7 @@ For information about finding the hostname of your Neptune DB instance, see the 
 **Note**  
  Serializers were moved from the `gremlin-driver` module to the new `gremlin-util` module in version 3.7.0. The package changed from org.apache.tinkerpop.gremlin.driver.ser to org.apache.tinkerpop.gremlin.util.ser. 
 
-1. In a terminal, navigate to the Gremlin Console directory (`apache-tinkerpop-gremlin-console-3.7.2`), and then enter the following command to run the Gremlin Console.
+1. In a terminal, navigate to the Gremlin Console directory (`apache-tinkerpop-gremlin-console-3.8.0`), and then enter the following command to run the Gremlin Console.
 
    ```
    bin/gremlin.sh

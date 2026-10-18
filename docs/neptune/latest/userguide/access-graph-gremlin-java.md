@@ -28,7 +28,7 @@ These instructions must be followed from an Amazon EC2 instance in the same virt
    source ~/.bashrc
    ```
 
-1. **Install Java.** The Gremlin libraries need Java 8 or 11. You can install Java 11 as follows:
+1. **Install Java.** The Gremlin libraries for TinkerPop 3.8.x require Java 11 or later. To install Java 11, do the following:
    + If you're using [Amazon Linux 2 (AL2)](https://aws.amazon.com/amazon-linux-2):
 
      ```
@@ -51,7 +51,7 @@ These instructions must be followed from an Amazon EC2 instance in the same virt
      sudo apt-get install openjdk-11-jdk
      ```
 
-1. **Set Java 11 as the default runtime on your EC2 instance:** Enter the following to set Java 8 as the default runtime on your EC2 instance:
+1. **Set Java 11 as the default runtime on your EC2 instance:** Enter the following to set Java 11 as the default runtime on your EC2 instance:
 
    ```
    sudo /usr/sbin/alternatives --config java
@@ -92,7 +92,7 @@ These instructions must be followed from an Amazon EC2 instance in the same virt
        <dependency>
          <groupId>org.apache.tinkerpop</groupId>
          <artifactId>gremlin-driver</artifactId>
-         <version>{{3.7.2}}</version>
+         <version>{{3.8.0}}</version>
        </dependency>
        <dependency>
          <groupId>org.slf4j</groupId>

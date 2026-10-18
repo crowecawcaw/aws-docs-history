@@ -54,11 +54,14 @@ Because certain types of data consume permanent storage in Neptune, use these be
 
   To avoid this, split large transactions into smaller ones and allow time between them so that the associated internal logs have a chance to expire and release their internal storage for re-use by subsequent logs.
 + For monitoring the growth of your Neptune cluster volume, you can set a CloudWatch alarm on the `VolumeBytesUsed` CloudWatch metric. This can be particularly helpful if your data is reaching the maximum size of the cluster volume. For more information, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html).
++ Use [Neptune storage usage breakdown](storage-info.md) to see how your storage is distributed across dictionaries, quad indexes, and internal metadata tables before you decide how to reclaim space. Large index sizes relative to entry counts indicate fragmentation. High dictionary counts after large deletes indicate bloat.
 
-If your DB cluster has a large amount of unused allocated space, you can shrink its storage. To do this, export all the data in your graph and then reload it into a new DB cluster. See the [Neptune data export service and utility](machine-learning-data-export.md) for an easy way to export data from a DB cluster, and the [Neptune bulk loader](bulk-load.md) for an easy way to import data back into Neptune.
+If your DB cluster has significant unused allocated space, you can reclaim it in one of two ways:
++ **Online index rebuild.** Run an [online index rebuild](storage-index-rebuild.md) to defragment the Neptune indexes and reclaim space in place, without taking your database offline. Use [Neptune storage usage breakdown](storage-info.md) before and after to quantify the space reclaimed.
++ **Export and reload.** Export all the data in your graph and then reload it into a new DB cluster. See the [Neptune data export service and utility](machine-learning-data-export.md) for an easy way to export data from a DB cluster, and the [Neptune bulk loader](bulk-load.md) for an easy way to import data back into Neptune.
 
 **Note**  
-Creating and restoring a [snapshot](backup-restore-restore-snapshot.md) does not reduce the amount of storage allocated for your DB cluster, because a snapshot retains the original image of the cluster's underlying storage. If a substantial amount of your allocated storage is not being used, the only way to shrink the amount of allocated storage is to export your graph data and reload it into a new DB cluster.
+Creating and restoring a [snapshot](backup-restore-restore-snapshot.md) does not reduce the amount of storage allocated for your DB cluster, because a snapshot retains the original image of the cluster's underlying storage. To reclaim unused storage, run an [online index rebuild](storage-index-rebuild.md), or export your graph data and reload it into a new DB cluster.
 
 ## Neptune storage reliability and high availability
 <a name="storage-reliability"></a>

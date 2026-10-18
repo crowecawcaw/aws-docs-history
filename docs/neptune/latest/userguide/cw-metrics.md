@@ -60,7 +60,7 @@ All cumulative metrics are reset to zero whenever the server restarts, whether f
 | `NumTxCommitted` | The number of transactions successfully committed per second. | 1 min | sum | 
 | `NumTxOpened` | The number of transactions opened on the server per second. | 1 min | sum | 
 | `NumTxRolledBack` | For write queries, the number of transactions per second rolled back on the server because of errors. For read-only queries, this metric is equal to the number of completed read-only transactions per second. | 1 min | sum | 
-| NumUndoPagesPurged |  This metric indicates the number of batches purged. This metric is indicator of progress in purging. The value is 0 for reader instances, and the metric only applies to the writer instance.  | 1 min | sum | 
+| `NumUndoPagesPurged` |  This metric indicates the number of batches purged. This metric is indicator of progress in purging. The value is 0 for reader instances, and the metric only applies to the writer instance.  | 1 min | sum | 
 | `OpenCypherRequestsPerSec` | Number of requests per second (both HTTPS and Bolt) to the openCypher engine. | 1 min | average | 
 | `OpenCypherBoltOpenConnections` | The number of open Bolt connections to Neptune. | 1 min | sum | 
 | `ResultCacheSizeInBytes` | Total estimated size (in bytes) of all cached items in the Gremlin result cache. | 1 min | sum | 
