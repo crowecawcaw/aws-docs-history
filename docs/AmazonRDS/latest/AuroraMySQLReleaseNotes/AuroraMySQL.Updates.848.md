@@ -83,7 +83,6 @@ This release includes fixes for the following low severity CVEs:
 + Fixed an issue where graceful reader disconnections could incorrectly increment `Aborted_clients` on the writer instance when write forwarding is enabled.
 + Fixed an issue where in some cases connection state is not preserved following a zero-downtime upgrade, which could result in unexpected behavior.
 + Fixed an issue where, during write forwarding, a reader instance restart could leave an orphan forwarding session on the writer instance, and killing that session could cause the writer to restart.
-+ Reduced the downtime during zero-downtime patching (ZDP) by optimizing the communication between the database instance and the storage layer after patching.
 + Fixed an issue with Aurora MySQL memory management where out-of-memory (OOM) response actions were not reliably disabled after an internal timeout period, if there was a concurrent change to the `aurora_oom_response` DB parameter value.
 + Fixed an issue in Enhanced Binlog that reported incorrect binary log coordinates after a snapshot restore. Previously, this could result in an invalid binlog replication setup when Enhanced Binlog was running on the source cluster and some transactions were rolled back.
 + Fixed an issue in the auto-increment recovery feature where auto-increment values for partitioned tables were not recovered correctly, which could lead to potential DUPLICATE KEY errors.
