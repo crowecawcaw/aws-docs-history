@@ -803,7 +803,7 @@ class SnsWrapper:
 ```
 import AWSSNS
 
-        let config = try await SNSClient.SNSClientConfiguration(region: region)
+        let config = try await SNSClient.SNSClientConfig(region: region)
         let snsClient = SNSClient(config: config)
 
         _ = try await snsClient.unsubscribe(
@@ -1208,7 +1208,7 @@ class SnsWrapper:
 ```
 import AWSSNS
 
-        let config = try await SNSClient.SNSClientConfiguration(region: region)
+        let config = try await SNSClient.SNSClientConfig(region: region)
         let snsClient = SNSClient(config: config)
 
         _ = try await snsClient.deleteTopic(

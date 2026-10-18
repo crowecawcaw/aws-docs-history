@@ -1206,7 +1206,7 @@ Subscribe an email address to a topic.
 ```
 import AWSSNS
 
-        let config = try await SNSClient.SNSClientConfiguration(region: region)
+        let config = try await SNSClient.SNSClientConfig(region: region)
         let snsClient = SNSClient(config: config)
 
         let output = try await snsClient.subscribe(
@@ -1230,7 +1230,7 @@ Subscribe a phone number to a topic to receive notifications by SMS.
 ```
 import AWSSNS
 
-        let config = try await SNSClient.SNSClientConfiguration(region: region)
+        let config = try await SNSClient.SNSClientConfig(region: region)
         let snsClient = SNSClient(config: config)
 
         let output = try await snsClient.subscribe(

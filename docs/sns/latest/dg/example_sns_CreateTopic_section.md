@@ -586,7 +586,7 @@ async fn make_topic(client: &Client, topic_name: &str) -> Result<(), Error> {
 ```
 import AWSSNS
 
-        let config = try await SNSClient.SNSClientConfiguration(region: region)
+        let config = try await SNSClient.SNSClientConfig(region: region)
         let snsClient = SNSClient(config: config)
 
         let output = try await snsClient.createTopic(
