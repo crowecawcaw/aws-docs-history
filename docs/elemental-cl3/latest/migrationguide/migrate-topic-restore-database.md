@@ -106,7 +106,7 @@ Follow these steps on each node.
 
 For example, to specify the location of the certificate and the key:
 
-`sudo ./configure -xeula --skip-all --https --https-cert /home/elemental/cert --https-key /home/elemental/cert`
+`sudo ./configure -xeula --skip-all --https --https-crt /home/elemental/cert --https-key /home/elemental/cert`
 
 ### Firewall configuration
 <a name="migrate-topic-restore-manual-fw"></a>
