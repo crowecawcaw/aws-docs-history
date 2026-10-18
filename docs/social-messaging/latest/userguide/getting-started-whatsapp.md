@@ -26,6 +26,9 @@ You must create a Business Manager account with Meta and link it to your WABA.
 You must provide control of your WABA to us. At your request, we will transfer control of your WABA back to you in a reasonable and timely manner using the methods Meta makes available to us.
 In connection with your use of the WhatsApp Business Solution, you will not submit any content, information, or data that is subject to safeguarding and/or limitations on distribution pursuant to applicable laws and/or regulation.
 WhatsApp’s pricing for use of the WhatsApp Business Solution can be found at [Conversation-Based Pricing](https://developers.facebook.com/docs/whatsapp/pricing).
+
+**Important**  
+WhatsApp Business messaging through AWS End User Messaging Social is not available to customers located in China. Customers located in China cannot link a WhatsApp Business Account (WABA) to AWS End User Messaging Social.
 + To create a WhatsApp Business Account (WABA), your business needs a [Meta Business Account](https://business.facebook.com/). Check if your company already has a Meta Business Account. If you don't have a Meta Business Account, you can create one during the sign-up process. 
 + To use a phone number that's already in use with the WhatsApp Messenger application or WhatsApp Business application, you must delete it first.
 + A phone number that can receive either an SMS or a voice One-Time Passcode (OTP). The phone number used for sign-up becomes associated with your WhatsApp account and the phone number is used when you send messages. The phone number can still be used for SMS, MMS, and voice messaging.
