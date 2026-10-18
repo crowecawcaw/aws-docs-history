@@ -3,7 +3,7 @@
 # Downloading reports in AWS Artifact
 <a name="downloading-documents"></a>
 
-You can download reports from the AWS Artifact console. When you download a report from AWS Artifact, the report is generated specifically for you, and every report has a unique watermark. For this reason, you should share the reports only with those you trust. Don't email the reports as attachments, and don't share them online. To share a report, use a secure sharing service such as Amazon WorkDocs. Some reports require you to accept the **Terms and conditions** before you can download them.
+You can download reports from the AWS Artifact console. When you download a report from AWS Artifact, the report is generated specifically for you, and every report has a unique watermark. For this reason, you should share the reports only with those you trust. Don't email the reports as attachments, and don't share them online. To share a report, use a secure sharing service. Some reports require you to accept the **Terms and conditions** before you can download them.
 
 **Topics**
 + [Downloading a report](#artifact-download-report)
@@ -62,7 +62,7 @@ For instructions on how to view PDF attachments in Acrobat Reader, see [Links an
 
 AWS Artifact documents are confidential and should be kept secure at all times. AWS Artifact uses the AWS shared responsibility model for its documents. This means that AWS is responsible for keeping documents secure while they are in the AWS Cloud, but you are responsible for keeping them secure after you download them. AWS Artifact might require you to accept the **Terms and conditions** before you can download documents. Each document download has a unique, traceable watermark.
 
-You are only permitted to share documents marked as confidential within your company, with your regulators, and with your auditors. You aren't permitted to share these documents with your customers or on your website. We strongly recommend that you use a secure document sharing service, such as Amazon WorkDocs, to share documents with others. Do not send the documents through email or upload them to a site that is not secure.
+You are only permitted to share documents marked as confidential within your company, with your regulators, and with your auditors. You aren't permitted to share these documents with your customers or on your website. We strongly recommend that you use a secure document sharing service to share documents with others. Do not send the documents through email or upload them to a site that is not secure.
 
 ## Troubleshooting
 <a name="artifact-troubleshooting"></a>
