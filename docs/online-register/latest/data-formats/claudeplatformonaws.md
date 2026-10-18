@@ -13,6 +13,7 @@ Claude Platform on AWS provides the following APIs for data retrieval.
 | <a name="aws-external-anthropic-GetAccountStatus"></a>[GetAccountStatus](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve the status of account setup and AWS Marketplace registration | Read | 
 | <a name="aws-external-anthropic-GetAgent"></a>[GetAgent](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve details or versions of a managed agent | Read | 
 | <a name="aws-external-anthropic-GetBatchInference"></a>[GetBatchInference](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve details of a batch inference request | Read | 
+| <a name="aws-external-anthropic-GetDeployment"></a>[GetDeployment](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve details of a managed agent deployment or its runs | Read | 
 | <a name="aws-external-anthropic-GetEnvironment"></a>[GetEnvironment](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve details of a managed agent environment | Read | 
 | <a name="aws-external-anthropic-GetFile"></a>[GetFile](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve a file or its content from a workspace | Read | 
 | <a name="aws-external-anthropic-GetKey"></a>[GetKey](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Get an external encryption key | Read | 
@@ -26,6 +27,7 @@ Claude Platform on AWS provides the following APIs for data retrieval.
 | <a name="aws-external-anthropic-GetWorkspace"></a>[GetWorkspace](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | Retrieve details of a workspace | Read | 
 | <a name="aws-external-anthropic-ListAgents"></a>[ListAgents](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List managed agents in a workspace | List | 
 | <a name="aws-external-anthropic-ListBatchInferences"></a>[ListBatchInferences](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List batch inference requests in a workspace | List | 
+| <a name="aws-external-anthropic-ListDeployments"></a>[ListDeployments](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List managed agent deployments in a workspace | List | 
 | <a name="aws-external-anthropic-ListEnvironments"></a>[ListEnvironments](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List managed agent environments in a workspace | List | 
 | <a name="aws-external-anthropic-ListFiles"></a>[ListFiles](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List files in a workspace | List | 
 | <a name="aws-external-anthropic-ListKeys"></a>[ListKeys](https://docs.aws.amazon.com/claude-platform/latest/userguide/iam-actions.html#iam-actions) | List external encryption keys | List | 

@@ -20,6 +20,7 @@ AWS Resilience Hub provides the following APIs for data retrieval.
 | <a name="resiliencehub-DescribeMetricsExport"></a>[DescribeMetricsExport](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeMetricsExport.html) | Describe metrics export | Read | 
 | <a name="resiliencehub-DescribeResiliencyPolicy"></a>[DescribeResiliencyPolicy](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeResiliencyPolicy.html) | Describe resiliency policy | Read | 
 | <a name="resiliencehub-DescribeResourceGroupingRecommendationTask"></a>[DescribeResourceGroupingRecommendationTask](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_DescribeResourceGroupingRecommendationTask.html) | Describe the latest status of the grouping recommendation process | Read | 
+| <a name="resiliencehub-GetDependencyInsights"></a>[GetDependencyInsights](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_GetDependencyInsights.html) | Retrieve dependency insights for a service | Read | 
 | <a name="resiliencehub-GetFailureModeFinding"></a>[GetFailureModeFinding](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_GetFailureModeFinding.html) | Retrieve a failure mode finding | Read | 
 | <a name="resiliencehub-GetPolicy"></a>[GetPolicy](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_GetPolicy.html) | Retrieve a resilience policy | Read | 
 | <a name="resiliencehub-GetService"></a>[GetService](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_GetService.html) | Retrieve a service | Read | 
@@ -47,6 +48,7 @@ AWS Resilience Hub provides the following APIs for data retrieval.
 | <a name="resiliencehub-ListInputSources"></a>[ListInputSources](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListInputSources.html) | List input sources for a service | Read | 
 | <a name="resiliencehub-ListMetrics"></a>[ListMetrics](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListMetrics.html) | List metrics | List | 
 | <a name="resiliencehub-ListPolicies"></a>[ListPolicies](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListPolicies.html) | List resilience policies | Read | 
+| <a name="resiliencehub-ListPolicyEvents"></a>[ListPolicyEvents](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListPolicyEvents.html) | List events for a resilience policy | Read | 
 | <a name="resiliencehub-ListRecommendationTemplates"></a>[ListRecommendationTemplates](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListRecommendationTemplates.html) | List recommendation templates | List | 
 | <a name="resiliencehub-ListReports"></a>[ListReports](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListReports.html) | List reports | Read | 
 | <a name="resiliencehub-ListResiliencyPolicies"></a>[ListResiliencyPolicies](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListResiliencyPolicies.html) | List resiliency policies | List | 
