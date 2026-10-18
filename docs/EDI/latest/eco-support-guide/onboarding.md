@@ -17,6 +17,6 @@ The initial steps to onboarding EDI are as follows:
 
    1. Accept the onboarding email and provide the requested EDI deployment parameters. 
 
-   1. Create new EDI on AWS accounts, one account for user management and a separate account for EDI IQ.
+   1. Create new EDI on AWS accounts, one account for user management.
 
 ECO notifies you when the deployment is successful and provides a URL for you to start using EDI.

@@ -15,7 +15,7 @@ The following are examples of when to submit a service request:
 
 Don't submit a service request for the following:
 + Access issues
-+ Portal issues
++ User Interface Issue
 + Backup failure
 
 Instead, submit an incident report, see [Working with incidents in the Support Center](incident-mgmt.md#incident-work-with).

@@ -20,17 +20,17 @@ ECO manages your EDI on AWS environment. The following table provides an overvie
 </thead>
 <tbody>
   <tr><td colspan="3"><b>Provisioning</b></td></tr>
-  <tr><td>EDI solution (Operations, Data Platform, and EDI IQ) deployment in the customer's account</td><td>C, I</td><td>R, A</td></tr>
-  <tr><td>EDI Data Portal initial admin user creation</td><td>C, I</td><td>R, A</td></tr>
-  <tr><td>EDI Data Portal user creation and management</td><td>R, A</td><td>C</td></tr>
-  <tr><td>EDI hosted zone creation and management for Data Portal</td><td>R</td><td>I</td></tr>
+  <tr><td>EDI solution (Orchestration, EDI User Interface) deployment in the customer's account</td><td>C, I</td><td>R, A</td></tr>
+  <tr><td>EDI User Interface initial admin user creation</td><td>C, I</td><td>R, A</td></tr>
+  <tr><td>EDI User Interface user creation and management</td><td>R, A</td><td>C</td></tr>
+  <tr><td>EDI hosted zone creation and management for EDI User Interface</td><td>R</td><td>I</td></tr>
   <tr><td colspan="3"><b>Monitoring and Logging</b></td></tr>
   <tr><td>EDI solution monitoring</td><td>I</td><td>R, A</td></tr>
   <tr><td>AWS infrastructure monitoring</td><td>C, I</td><td>R, A</td></tr>
   <tr><td>Recording AWS infrastructure change logs</td><td>I</td><td>R, A</td></tr>
   <tr><td>Deploying and managing third-party monitoring tools, such as Dynatrace and New Relic</td><td>R, A</td><td>C</td></tr>
   <tr><td colspan="3"><b>Data load and ingestion</b></td></tr>
-  <tr><td>Data ingestion and reingestion from the application, the EDI IQ and custom sources—such as CSV, WITSML, Manifest, and Code Pipeline— into the EDI cluster</td><td>R, A</td><td>C</td></tr>
+  <tr><td>Data ingestion and reingestion from the application and custom sources—such as CSV, WITSML, Manifest, and Code Pipeline— into the EDI cluster</td><td>R, A</td><td>C</td></tr>
   <tr><td>Missing or incorrect data validation and indexing issues</td><td>R</td><td>C</td></tr>
   <tr><td colspan="3"><b>Disaster recovery</b></td></tr>
   <tr><td>Performing point-in-time backup restoration activities through AWS managed services, such as Amazon Relational Database Service (Amazon RDS), and Amazon DynamoDB</td><td>C</td><td>R, A</td></tr>
@@ -45,6 +45,7 @@ ECO manages your EDI on AWS environment. The following table provides an overvie
   <tr><td>Patching the EDI environment and AWS infrastructure for hotfixes or security vulnerabilities</td><td>I</td><td>R</td></tr>
   <tr><td>Notification for EDI end of life support</td><td>I</td><td>R</td></tr>
   <tr><td>Approval for EDI environment upgrade</td><td>R</td><td>I</td></tr>
+  <tr><td>Detecting OS/code level security vulnerabilities (CVE)</td><td>R</td><td>C</td></tr>
   <tr><td colspan="3"><b>Incident management</b></td></tr>
   <tr><td>Proactively notifying incidents on the EDI environment and AWS infrastructure that are based on monitoring</td><td>I</td><td>R</td></tr>
   <tr><td>Categorizing incident priority</td><td>I</td><td>R</td></tr>
