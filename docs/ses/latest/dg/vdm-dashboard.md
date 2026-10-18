@@ -147,6 +147,9 @@ This example shows you how to use the [`CreateExportJob`](https://docs.aws.amazo
 
 **To filter and export your deliverability metric data to a .csv or .json file using the AWS CLI**  
 You can use the [`CreateExportJob`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CreateExportJob.html) operation along with the [`MetricsDataSource`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_MetricsDataSource.html) data type in the Amazon SES API v2 to filter and export your metric data to a .csv or .json file. You call this operation from the AWS CLI as shown in the following example.
+
+**Note**  
+In `ExportDestination`, specify only `DataFormat`. Amazon SES writes the export file to a location that it manages. After the job completes, retrieve the file with `GetExportJob`. To store a copy in your own Amazon S3 bucket, upload the downloaded file to your bucket.
 + Filter and export your deliverability metric data using an input file:
 
   ```
@@ -190,6 +193,9 @@ You can use the [`CreateExportJob`](https://docs.aws.amazon.com/ses/latest/APIRe
 
 **Note**  
 If your filtered search returns more than 10,000 messages, the 10,000 messages in the API's result set are a random sample of the total returned.
+
+**Note**  
+In `ExportDestination`, specify only `DataFormat`. Amazon SES writes the export file to a location that it manages. After the job completes, retrieve the file with `GetExportJob`. To store a copy in your own Amazon S3 bucket, upload the downloaded file to your bucket.
 + Find sent messages, see their current status, and export results using an input file:
 
   ```
@@ -408,6 +414,57 @@ You can use the [`GetExportJob`](https://docs.aws.amazon.com/ses/latest/APIRefer
   ```
 
   More information about parameter values for the [`GetExportJob`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetExportJob.html) operation can be found in the Amazon SES API v2 reference.
++ Export jobs run asynchronously. Call `get-export-job` until `JobStatus` is `COMPLETED`, `FAILED`, or `CANCELLED`. When the status is `COMPLETED`, the response includes a pre-signed URL in `ExportDestination.S3Url` that you use to download the export file. When the status is `FAILED`, see `FailureInfo`. The URL expires five minutes after `get-export-job` returns it. Call `get-export-job` again to get a new URL. A completed job's response looks similar to the following example:
+
+  ```
+  {
+      "JobId": "e2220d6b-dce5-45f2-bf60-3287a465b732",
+      "ExportSourceType": "MESSAGE_INSIGHTS",
+      "JobStatus": "COMPLETED",
+      "ExportDestination": {
+          "DataFormat": "CSV",
+          "S3Url": "https://{{presigned-url}}"
+      },
+      "ExportDataSource": {
+          "MessageInsightsDataSource": {
+              "StartDate": "2023-07-01T00:00:00",
+              "EndDate": "2023-07-10T00:00:00",
+              "Include": {
+                  "Subject": [
+                      "Sale Ends Tonight!"
+                  ]
+              }
+          }
+      },
+      "CreatedTimestamp": "2023-07-10T10:00:00",
+      "CompletedTimestamp": "2023-07-10T10:05:00",
+      "Statistics": {
+          "ProcessedRecordsCount": 5,
+          "ExportedRecordsCount": 5
+      }
+  }
+  ```
+
+  To upload the export file to your own Amazon S3 bucket, download it locally first and then use `aws s3 cp`:
+
+  ```
+  set -euo pipefail
+  
+  S3_URL=$(aws --region us-east-1 sesv2 get-export-job \
+      --job-id=<JobId> \
+      --query 'ExportDestination.S3Url' \
+      --output text)
+  
+  if [ -z "$S3_URL" ] || [ "$S3_URL" = "None" ]; then
+      echo "Export job is not COMPLETED yet; no download URL is available." >&2
+      exit 1
+  fi
+  
+  curl --fail --location --output export-file "$S3_URL"
+  aws s3 cp export-file s3://{{amzn-s3-demo-bucket}}/{{key}}
+  ```
+
+  You must have `s3:PutObject` permission for the destination bucket.
 
 **To cancel your export job using the AWS CLI**  
 You can use the [`CancelExportJob`](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_CancelExportJob.html) operation in the Amazon SES API v2 to cancel your export job. You can call this operation from the AWS CLI as shown in the following examples.

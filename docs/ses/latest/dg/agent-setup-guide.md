@@ -1,6 +1,6 @@
 
 
-# Agent setup guide
+# Set up an AI coding agent for Amazon SES
 <a name="agent-setup-guide"></a>
 
 Amazon SES publishes the `amazon-ses` skill to help AI coding agents set up and troubleshoot email sending. The AWS MCP Server can provide the current skill when your request needs it.

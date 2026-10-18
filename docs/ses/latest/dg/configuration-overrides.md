@@ -231,6 +231,8 @@ Delivery, bounce, and complaint reporting are not affected by tracking overrides
 
 ## Best practices and considerations
 <a name="tracking-overrides-considerations"></a>
+
+Tracking overrides change open and click tracking for a single send request. Follow these best practices to apply them effectively:
 + Treat the override as the expression of a recipient's consent, and derive it from the consent state that you store for that recipient rather than hard-coding it per mail stream.
 + Group recipients by tracking preference and send one request per group. An override applies to every message in the request.
 + Keep your configuration sets organized around settings that are stable for a mail stream, such as the dedicated IP pool, event destinations, and the custom domain used for tracking. Use overrides for the settings that change per recipient.

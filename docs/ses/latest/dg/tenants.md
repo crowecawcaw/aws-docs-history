@@ -264,7 +264,7 @@ To pause a tenant:
 # Pause a tenant
 aws sesv2 update-reputation-entity-customer-managed-status \
   --reputation-entity-type RESOURCE 
-  --reputation-entity-reference "arn:aws:ses:us-east-1:593442965613:tenant/tenantId"
+  --reputation-entity-reference "arn:aws:ses:us-east-1:111122223333:tenant/tenantId"
   --sending-status DISABLED
 ```
 
@@ -274,7 +274,7 @@ To unpause a tenant:
 # Unpause a tenant
 aws sesv2 update-reputation-entity-customer-managed-status \
   --reputation-entity-type RESOURCE 
-  --reputation-entity-reference "arn:aws:ses:us-east-1:593442965613:tenant/tenantId"
+  --reputation-entity-reference "arn:aws:ses:us-east-1:111122223333:tenant/tenantId"
   --sending-status ENABLED
 ```
 
@@ -389,8 +389,12 @@ You can create rules on the default event bus to identify specific events for Ev
 The following detail-types are available:
 
 **For tenant sending status changes:**
-+ `Sending Status Enabled` – The tenant is enabled and can send email.
-+ `Sending Status Disabled` – The tenant has been paused and cannot send email.
++ `Sending Status Enabled` – The new sending status is `ENABLED`.
++ `Sending Status Disabled` – The new sending status is `DISABLED` or `REINSTATED`.
+
+**Note**  
+SES sends `Sending Status Disabled` for both a pause and a reinstatement. Read `detail.data.record.status` to tell the two apart. A status of `DISABLED` means the origin cannot send email. A status of `REINSTATED` means the origin can send email again. Do not use the detail-type alone to decide if a tenant can send email.  
+The status in the event applies only to the origin named in `detail.data.origin`. It does not describe the tenant as a whole. If either origin is `DISABLED`, the tenant cannot send email. To read the combined status, call [GetReputationEntity](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_GetReputationEntity.html) and use the `SendingStatusAggregate` value.
 
 **For reputation findings:**
 + `Advisor Recommendation Status Open`
@@ -471,8 +475,8 @@ Field descriptions:
 + **source** – Identifies the service that generated the event. For SES events, this value is `aws.ses`.
 + **detail-type** – The type of status change event (see Event Types above).
 + **resources** – Array containing the ARN of the affected tenant.
-+ **detail.data.origin** – Source of the status change (e.g., "CUSTOMER\_MANAGED" or "AWS\_MANAGED").
-+ **detail.data.record.status ** – The new status of the tenant (ENABLED, DISABLED, or REINSTATED).
++ **detail.data.origin** – Source of the status change: `CUSTOMER_MANAGED` (you or your application changed the status) or `AWS_SES` (SES changed it). These are the only two values.
++ **detail.data.record.status ** – The new status for the origin in `detail.data.origin` (`ENABLED`, `DISABLED`, or `REINSTATED`).
 + **detail.data.record.cause** – Description of why the status changed.
 + **detail.data.record.lastUpdatedTimestamp ** – Timestamp when the status was updated.
 

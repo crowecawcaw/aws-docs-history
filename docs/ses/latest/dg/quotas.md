@@ -42,7 +42,7 @@ Messages larger than 10MB are subject to bandwidth throttling, and depending on 
 
 | Resource | Default Quota | Adjustable | 
 | --- | --- | --- | 
-| Maximum number of tenants | 10,000 | [ Yes ](manage-sending-quotas-request-increase.md#user-requested-increased-sending-quotas) | 
+| Maximum number of tenants | 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-E7F21B4C) | 
 | Maximum number of recipients per message | 50 recipients per message. A recipient is any "To", "CC", or "BCC" address.  | No. | 
 | Maximum number of identities that you can verify | 10,000 identities per AWS Region. An *identity* is a domain or email address that you use to send email through SES.  | Please contact your AWS Account Manager to discuss your use case. | 
 | Maximum number of dedicated IP pools (inclusive of both managed and standard IP pools) | 50 | No | 
@@ -53,7 +53,7 @@ Messages larger than 10MB are subject to bandwidth throttling, and depending on 
 
 | Resource | Default Quota | Adjustable | 
 | --- | --- | --- | 
-| Maximum number of configuration sets | 10,000 | No | 
+| Maximum number of configuration sets | 10,000 | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ses/quotas/L-10E24536) | 
 | Maximum length of configuration set name | Configuration set names can contain up to 64 alphanumeric characters. They can also contain hyphens (-) and underscores (\_). Names can't contain spaces, accented characters, or any other special characters. | No | 
 | Maximum number of event destinations per configuration set | 10 | No | 
 | Maximum number of dimensions per CloudWatch event destination | 10 | No | 

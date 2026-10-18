@@ -36,7 +36,7 @@ If you set up a custom domain that uses the HTTP protocol, and you send an email
 
 1. Create a subdomain to use for open and click tracking links. SES recommends that this subdomain is specifically dedicated to handling these links, and that a subdomain is created for each AWS Region you send email in that you want to track.
 
-1. Verify the subdomain for use with SES. For more information, see [Creating a domain identity](creating-identities.md#verify-domain-procedure).
+1. Confirm that the subdomain is verified for use with SES in the same AWS account as the configuration set. A verified parent domain satisfies this: If you verified example.com, you don't need a separate identity for click.example.com. Verify the subdomain itself only if no parent domain is verified in that account. For more information, see [Creating a domain identity](creating-identities.md#verify-domain-procedure).
 
 1. Add a new CNAME record to your subdomain’s DNS settings that redirects requests to the SES tracking domain. The address that you redirect to must be the in the same AWS Region as your custom subdomain. 
    + Use the [Tracking domains table](https://docs.aws.amazon.com/general/latest/gr/ses.html#ses_tracking_domains) in the AWS General Reference to select the tracking domain that's in the same region as your custom domain.
@@ -52,7 +52,7 @@ You can also use an HTTPS domain for tracking open and link clicks. To set up an
 
 1. Create a subdomain to use for open and click tracking links. SES recommends that this subdomain is specifically dedicated to handling these links, and that a subdomain is created for each AWS Region you send email in that you want to track.
 
-1. Verify the subdomain for use with SES. For more information, see [Creating a domain identity](creating-identities.md#verify-domain-procedure).
+1. Confirm that the subdomain is verified for use with SES in the same AWS account as the configuration set. A verified parent domain satisfies this: If you verified example.com, you don't need a separate identity for click.example.com. Verify the subdomain itself only if no parent domain is verified in that account. For more information, see [Creating a domain identity](creating-identities.md#verify-domain-procedure).
 
 1. Create a new account with a Content Delivery Network (CDN), such as [Amazon CloudFront](https://aws.amazon.com/cloudfront), see [Get started with a basic CloudFront distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/GettingStarted.SimpleDistribution.html).
 

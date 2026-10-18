@@ -49,7 +49,7 @@ The following example attaches a certificate to a domain email identity for a sp
 aws sesv2 associate-email-identity-certificate \
     --email-identity {{example.com}} \
     --from-address {{sender@example.com}} \
-    --certificate-arn {{arn:aws:acm:us-east-1:123456789012:certificate/abcd1234-abcd-1234-abcd-abcd12345678}}
+    --certificate-arn {{arn:aws:acm:us-east-1:111122223333:certificate/abcd1234-abcd-1234-abcd-abcd12345678}}
 ```
 
 For a domain email identity, the `--from-address` parameter is required and must match an email address in the certificate SAN. For an email-address identity, you can omit `--from-address`.

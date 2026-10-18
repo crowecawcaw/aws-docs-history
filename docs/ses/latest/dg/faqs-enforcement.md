@@ -179,6 +179,21 @@ Reputation metrics includes information about the current status of your account
 
 If you're already working with an AWS account representative, we'll automatically contact him or her if we pause your account's ability to send email. Your account representative may be able to provide additional information to help you better understand the issue. If you use Premium Support, you should also contact that team for additional help.
 
+### Q12. How can I detect an account-level sending pause or reinstatement programmatically?
+<a name="sp-q12"></a>
+
+Account-level sending pauses and reinstatements are surfaced through the [Account dashboard](monitor-sending-activity-console.md), the AWS Health Dashboard (PHD) at [https://phd.aws.amazon.com/](https://phd.aws.amazon.com/), and the AWS Support case that we open on your behalf. To react to these changes in your own automation, poll the account status rather than waiting for an event.
+
+**Note**  
+SES does not emit an Amazon EventBridge event when it pauses or reinstates sending for your entire account. Automation that responds to account-level enforcement must read the account status; it cannot subscribe to an event for it. This is different from the tenant-level path, where pausing or reinstating an individual tenant does emit an EventBridge event. For more information, see [Pausing and unpausing tenants](tenants.md#pausing-and-unpausing-tenants) and [Monitoring SES events using Amazon EventBridge](monitoring-eventbridge.md).
+
+To read the account status programmatically, call the `GetAccount` operation in the Amazon SES API v2 and check the `EnforcementStatus` field. This is the same value shown as **Account status** in the SES console. When your account's ability to send email is paused for enforcement, this status reflects the pause. When your account is reinstated, the status returns to **Healthy**.
+
+**Important**  
+Do not use the value returned by `GetAccountSendingEnabled` (the `Enabled` flag) to detect an enforcement pause. That flag reflects whether you have turned account-level sending on or off yourself, and it does not change when SES pauses or reinstates your account for enforcement. Key your detection on the account status (`EnforcementStatus`) instead.
+
+You can also detect account-level pauses by monitoring the PHD. When we pause your account's ability to send email, we add an **SES sending paused** event to the PHD, as described in [Q3. My account's ability to send email is paused. Why didn't I receive a notification?](#sp-q3). You can use Amazon CloudWatch to create an alarm that alerts you when new events appear on your PHD.
+
 ## Bounce FAQ
 <a name="e-faq-bn"></a>
 

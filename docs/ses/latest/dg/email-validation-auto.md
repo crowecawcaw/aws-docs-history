@@ -36,7 +36,8 @@ The following procedure shows you how to enable or change Auto Validation settin
    The **Auto Validation** panel shows your updated settings.
 
 **Important**  
-Auto Validation applies to all outbound emails sent through your account. Addresses that don't meet your threshold will be suppressed. You also have an option to enable auto validation at the configuration set level. Suppressed sends still count towards your daily send quota and you will still be charged the standard outgoing message fee for suppressed sends in addition to the fee for auto validation. For pricing information, see the [SES pricing page](https://aws.amazon.com/ses/pricing/). 
+Auto Validation applies to all outbound emails sent through your account. Addresses that don't meet your threshold will be suppressed. You also have an option to enable auto validation at the configuration set level. Suppressed sends still count towards your daily send quota and you will still be charged the standard outgoing message fee for suppressed sends in addition to the fee for auto validation. For pricing information, see the [SES pricing page](https://aws.amazon.com/ses/pricing/).   
+Amazon SES reports each suppressed send as a `Bounce` event with a `bounceType` of `Permanent` and a `bounceSubType` of `EmailValidationSuppressed`. These bounces don't count toward the *Reputation.BounceRate* metric for your account. They are counted under the *Bounce* metric in the AWS/SES namespace.
 
 ## Enable Auto Validation at Configuration set level
 <a name="email-validation-auto-config-set"></a>

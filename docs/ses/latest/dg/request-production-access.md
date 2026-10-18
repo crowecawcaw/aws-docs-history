@@ -46,9 +46,9 @@ If you're using Amazon SES to send email from an Amazon EC2 instance, you might 
 
 1. Choose the **Submit request** button - a banner will display to confirm your request was submitted and is currently under review.
 
-Once you submit a review of your account details, you can’t edit your details until the review is complete. The AWS Support team provides an initial response to your request within 24 hours.
+Once you submit a review of your account details, you can’t edit your details until the review is complete. The AWS Support team provides an initial response to your request within 96 hours.
 
-In order to prevent our systems from being used to send unsolicited or malicious content, we have to consider each request carefully. If we're able to do so, we'll grant your request within this 24-hour period. However, if we need to obtain additional information from you, it might take longer to resolve your request. 
+In order to prevent our systems from being used to send unsolicited or malicious content, we have to consider each request carefully. If we're able to do so, we'll grant your request within this 96-hour period. However, if we need to obtain additional information from you, it might take longer to resolve your request. 
 
 Optionally, you can also submit your request for production access using the AWS CLI. Submitting your request using the AWS CLI is helpful when you want to request production access for a large number of identities, or when you want to automate the process of setting up Amazon SES.
 
@@ -77,6 +77,6 @@ Optionally, you can also submit your request for production access using the AWS
 
    1. Replace {{EN}} with your preferred language. You can specify `EN` for English or `JA` for Japanese.
 
-Once you submit a review of your account details, you can’t edit your details until the review is complete. The AWS Support team provides an initial response to your request within 24 hours.
+Once you submit a review of your account details, you can’t edit your details until the review is complete. The AWS Support team provides an initial response to your request within 96 hours.
 
-In order to prevent our systems from being used to send unsolicited or malicious content, we have to consider each request carefully. If we're able to do so, we'll grant your request within this 24-hour period. However, if we need to obtain additional information from you, it might take longer to resolve your request. 
+In order to prevent our systems from being used to send unsolicited or malicious content, we have to consider each request carefully. If we're able to do so, we'll grant your request within this 96-hour period. However, if we need to obtain additional information from you, it might take longer to resolve your request. 
