@@ -5,8 +5,10 @@
 
 You can use Amazon DCV to use one or more smart cards that's connected to your client computer. You can do this using the standard Personal Computer/Smart Card (PC/SC) interface, in a Amazon DCV session. For each session, only one connected client can connect a smart card at a time. This is especially important in environments where multiple clients connect to the same session.
 
+**Note**  
 Smart card access is supported only with the Windows, Linux, and macOS clients. It's not supported with the web browser client.
 
+**Important**  
 Only one client can connect a smart card at a time. While your smart card is connected, no other clients who are connected to the session can connect a smart card.
 
 After you're done using the smart card in the Amazon DCV session, release it. After it's released, other clients who are connected to the session can connect a smart card. The smart card is automatically released when you disconnect from the session.
@@ -19,9 +21,10 @@ Smart card access in a Amazon DCV session operates at the PC/SC interface level.
 ## Connecting a smart card
 <a name="connecting-smartcard"></a>
 
-**Connecting to a Windows client**
+Launch the client and connect to the Amazon DCV session. The steps depend on the client used.
 
-1. Launch the client and connect to the Amazon DCV session.
+------
+#### [ Windows ]
 
 1. Choose the **Settings** icon.
 
@@ -30,27 +33,26 @@ Smart card access in a Amazon DCV session operates at the PC/SC interface level.
 1. Enable the **Smart Card** toggle.  
 ![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/smartcard.png)
 
-**Connecting to a macOS client**
+------
+#### [ macOS ]
 
-1. Launch the client and connect to the Amazon DCV session.
+1. Choose the **Devices** toolbar button.
 
-1. Choose the **DCV Viewer** icon.
+1. Toggle **Smartcard** on.  
+![Devices toolbar showing the Smartcard toggle.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-smartcard.png)
 
-1. Select the **General** tab in the **Preferences** window.
+**Tip**  
+You can also toggle this setting from the menu bar. Choose the **Connection** menu, then select **Devices**, **Smartcard**.
 
-1. Check the **Redirect smartcard devices** checkbox.  
-![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-general-smartcard.png)
+------
+#### [ Linux ]
 
-**Connecting to a Linux client**
+1. Click on the **Devices** menu icon from the toolbar at the top.
 
-1. Launch the client and connect to the Amazon DCV session.
+1. Turn on the **Smartcard** toggle.  
+![Devices menu showing the Smartcard toggle alongside Speaker, Microphone, and Camera options.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-general-smartcard.png)
 
-1. Choose the **Settings** icon.
-
-1. Select the **General** tab in the **Preferences** window.
-
-1. Check the **Redirect smartcard devices** checkbox.  
-![Settings button located in the top-left corner of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-general-smartcard.png)
+------
 
 ## Using a smart card on Linux servers
 <a name="using-smart-card-linux"></a>
@@ -68,7 +70,10 @@ If you enabled smart card caching, run the following command in the same termina
 ## Releasing a smart card
 <a name="releasing-smartcard"></a>
 
-**Releasing from a Windows client**
+The steps depend on the client used.
+
+------
+#### [ Windows ]
 
 1. Choose the **Settings** icon.
 
@@ -76,13 +81,26 @@ If you enabled smart card caching, run the following command in the same termina
 
 1. Disable the **Smart Card** toggle.
 
-**Releasing from a macOS and Linux clients**
+------
+#### [ macOS ]
+
+1. Choose the **Devices** toolbar button.
+
+1. Toggle **Smartcard** off.
+
+**Tip**  
+You can also toggle this setting from the menu bar. Choose the **Connection** menu, then select **Devices**, **Smartcard**.
+
+------
+#### [ Linux ]
 
 1. Choose the **Settings** icon.
 
 1. Select the **General** tab in the **Preferences** window.
 
 1. Uncheck the **Redirect smartcard devices** checkbox.
+
+------
 
 ## Smart card data caching (optional)
 <a name="data-caching-smartcard"></a>

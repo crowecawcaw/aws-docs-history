@@ -20,9 +20,15 @@ The steps for selecting the camera to use are the same across all supported web 
 1. Close the **Preferences** modal.
 
 **Note**  
-The camera menu items appears only if you're authorized to use a webcam in the session. If you don't see the camera menu items, you might not be authorized to use a webcam.
+The webcam option is available only if you're authorized to use a webcam in the session. If you don't see the option, you might not be authorized to use a webcam.
+
+**Important**  
 You can't change the webcam selection while the webcam is in use, or while another client enabled a webcam in the session.
+
+**Note**  
 If the camera permission settings have not been expressly granted or denied by the user, you're prompted to allow camera detection before being able to select the camera to use.
+
+**Note**  
 In case the camera permission settings have been expressly granted or denied by the user, you would be able to change such setting following this procedure:   
 At the top left of your browser window, click the area on the address bar left of the URL.
 In the popup window that opened, select the desired camera permission setting to be applied.

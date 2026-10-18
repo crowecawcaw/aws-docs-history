@@ -15,6 +15,7 @@ This page provides the release notes and document history for Amazon DCV.
 This section provides an overview of the major updates, feature releases, and bug fixes for Amazon DCV. All the updates are organized by release data. We update the documentation frequently to address the feedback that you send us.
 
 **Topics**
++ [DCV 2026.0-24952 — October 13, 2026](#dcv-2026-0-24952)
 + [DCV 2025.0-21744 — April 1, 2026](#dcv-2025-0-21744)
 + [DCV 2025.0-20177 — November 11, 2025](#dcv-2025-0-20177)
 + [DCV 2025.0-20103 — October 22, 2025](#dcv-2025-0-20103)
@@ -72,6 +73,15 @@ This section provides an overview of the major updates, feature releases, and bu
 + [DCV 2017.0-5121 — March 18, 2018](#dcv-2017-0-5121)
 + [DCV 2017.0-4334 — January 24, 2018](#dcv-2017-0-4334)
 + [DCV 2017.0-4100 — December 18, 2017](#dcv-2017-0-4100)
+
+### DCV 2026.0-24952 — October 13, 2026
+<a name="dcv-2026-0-24952"></a>
+
+
+
+| Build numbers | New features | Changes and bug fixes | 
+| --- | --- | --- | 
+|  + nice-dcv-server: 24952<br />+ nice-dcv-client (Windows): 13455<br />+ nice-dcv-viewer (macOS): 14405<br />+ nice-dcv-viewer (Linux): 14405<br />+ nice-dcv-web-viewer: 24952<br />+ nice-xdcv: 714<br />+ nice-dcv-gl: 1122<br />+ nice-dcv-gltest: 371<br />+ nice-dcv-simple-external-authenticator: 300  |  +  Support for RHEL 10, Rocky Linux 10, CentOS 10, and Ubuntu 26.04 (virtual sessions) based on Wayland. <br />+  A new native macOS client that replaces the previous one. It requires macOS 14 (Sonoma) or newer. <br />+  A renewed user experience for the Linux client. <br />+  A minimize button in the full-screen toolbar of the Windows and macOS clients. <br />+  Gamepad support on the macOS client. <br />+  URL redirection on Windows hosts. <br />+  Printer preferences redirection on Windows client to Windows host. <br />+  H.264 frame slice support, with multithreaded slice software decoding on the Linux and macOS clients. <br />+  Support for DCV EC2 licensing in the AWS European Sovereign Cloud. <br />+  Support for macOS 27 on the DCV server on Amazon EC2 Mac instances.   |  +  Support for Amazon Linux 2 was discontinued. <br />+  The Windows client requires the Microsoft Visual C\+\+ Redistributable version 14.50 or later (Visual Studio 2026). <br />+  Security and performance improvements.   | 
 
 ### DCV 2025.0-21744 — April 1, 2026
 <a name="dcv-2025-0-21744"></a>
@@ -595,6 +605,7 @@ The following table describes the documentation for this release of Amazon DCV.
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Amazon DCV Version 2026.0 | Amazon DCV 2026.0 is now available. For more information, see [DCV 2026.0-24952 — October 13, 2026](#dcv-2026-0-24952). | October 13, 2026 | 
 | Amazon DCV Version 2024.0 | Amazon DCV fixes for 2024.0. For more information, see [DCV 2024.0-19030 — June 10, 2025](#dcv-2024-0-19030-2). | June 10, 2025 | 
 | Amazon DCV Version 2024.0 | Amazon DCV fixes for 2024.0. For more information, see [DCV 2024.0-19030 — May 16, 2025](#dcv-2024-0-19030-1). | May 16, 2025 | 
 | Amazon DCV Version 2024.0 | Amazon DCV fixes for 2024.0. For more information, see [DCV 2024.0-19030 — March 31, 2025](#dcv-2024-0-19030). | March 31, 2025 | 

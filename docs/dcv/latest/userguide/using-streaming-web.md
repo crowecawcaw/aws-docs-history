@@ -26,9 +26,9 @@ The streaming metrics provide the following real-time information:
 
 **Note**  
 Metrics are displayed for the current Amazon DCV session connection.
-+ **Framerate**—Indicates the number of frames received from the Amazon DCV server every second.
-+ **Network latency**—Indicates the amount of time (in milliseconds) it takes for a packet of data to be sent to the Amazon DCV server and back to the client.
-+ **Bandwidth usage**—Indicates the amount of data being sent and received over the network connection. The red line shows the peak network throughput. The yellow line shows the average throughput. The blue line shows the current (real-time) throughput. 
++ **Framerate** – Indicates the number of frames received from the Amazon DCV server every second.
++ **Network latency** – Indicates the amount of time (in milliseconds) it takes for a packet of data to be sent to the Amazon DCV server and back to the client.
++ **Bandwidth usage** – Indicates the amount of data being sent and received over the network connection. The red line shows the peak network throughput. The yellow line shows the average throughput. The blue line shows the current (real-time) throughput. 
 
 To view the streaming metrics:
 

@@ -16,7 +16,7 @@ Amazon DCV can configure a resolution according to the settings and the server s
 + Web client resolution is limited by default to 1920x1080 (from web-client-max-head-resolution server setting).
 + Native clients are limited by default to 4096x2160 (from max-head-resolution).
 
-**Note**  
+**Important**  
 Maximum supported per-monitor resolution is 4096x4096 for up to 4 monitors. Higher resolutions or more than 4 monitors are not supported in any configuration.
 
 Make sure to follow the [prerequisites guide](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing.html) to properly setup the system environment and drivers for best performance.

@@ -13,33 +13,42 @@ With the web browser client, the session display can be extended to up to two sc
 For example, three monitors are connected to your local computer. The server extends the display for a session across all three monitors and matches the specific screen resolutions of your display.
 
 To enable this feature, do one of the following depending on your client.
-+ **Windows client**
 
-  1. Go to the toolbar at the top of the window.
+------
+#### [ Windows ]
 
-  1. Choose the **Full Screen** icon.
+1. Go to the toolbar at the top of the window.
 
-  1. Select **Across all monitors** from the drop-down menu.  
+1. Choose the **Full Screen** icon.
+
+1. Select **Across all monitors** from the drop-down menu.  
 ![Display settings menu showing options for monitor configuration, with "Across all monitors" highlighted.](https://docs.aws.amazon.com/dcv/latest/userguide/images/Full_screen_all_windows.png)
-+ **macOS client**
-**Note**  
-The **Displays have separate Spaces** option in **Mission Control** system preference must be enabled.
 
-  1. Go to the toolbar at the top of the window.
+------
+#### [ macOS ]
 
-  1. Choose **View** from the toolbar at the top of window.
+1. Choose the **Multi Monitor** toolbar button. This button is visible only when two or more monitors are connected.
 
-  1. Select **Full Screen All Monitors** from the drop-down menu.  
-![DCV Viewer menu showing "View" options, with "Full Screen All Monitors" highlighted.](https://docs.aws.amazon.com/dcv/latest/userguide/images/macos-extend.png)
-+ **Linux client**
+1. Select **All Monitors**.  
+![Multi Monitor toolbar showing Monitor Selection and All Monitors options.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-full-screen.png)
 
-  1. Go to the toolbar at the top of the window.
+**Tip**  
+You can also enter full screen on all monitors from the menu bar. Choose the **View** menu, then select **Full Screen**, **All Monitors**. Alternatively, use the configured fullscreen-all keyboard shortcut.
 
-  1. Choose the **Full Screen** icon.  
+------
+#### [ Linux ]
+
+1. Go to the toolbar at the top of the window.
+
+1. Choose the **Full Screen** icon.  
 ![Fullscreen icon highlighted in red circle within a row of interface controls.](https://docs.aws.amazon.com/dcv/latest/userguide/images/full_screen_linux.png)
-+ **Web browser client**
 
-  1. Go to the toolbar at the top of the window.
+------
+#### [ Web browser ]
 
-  1. Choose the **Multiscreen** icon.  
+1. Go to the toolbar at the top of the window.
+
+1. Choose the **Multiscreen** icon.  
 ![Icon of a computer monitor or screen, highlighted with a red circle.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-multiscreen.png)
+
+------

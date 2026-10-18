@@ -7,6 +7,7 @@ This chapter describes how to identify and troubleshoot problems that you might 
 
 **Topics**
 + [Using the Log Files](troubleshooting-logs.md)
++ [macOS connection diagnostics](troubleshooting-macos-diagnostics.md)
 
 For additional support, use any of the following resources.
 + If you are a Amazon DCV on-premises customer and you need additional help, contact your Amazon DCV reseller.

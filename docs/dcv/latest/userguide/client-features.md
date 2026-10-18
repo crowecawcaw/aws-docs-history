@@ -25,7 +25,7 @@ The following table compares the features that are supported by the Amazon DCV c
 | Stereo 2.0 audio recording | ✓ | ✓ | ✓ | ✓ | 
 | Touchscreen support | ✓ (Windows 10 and later) | ✓ 2 | ✓ | ✗ | 
 | Stylus support | ✓ (Windows 10 and later) | ✓ 3 | ✓ | ✓ | 
-| Gamepad support | ✓ (Windows 10 and later) | ✓ | ✗ | ✗ | 
+| Gamepad support | ✓ (Windows 10 and later) | ✓ | ✗ | ✓6 | 
 | [Multiple monitor support](using-multiple-screens.md) | ✓ | ✓4 | ✓ | ✓ | 
 | [Extending full screen across selected monitors](using-multiple-screens.md) | ✓ | ✓ | ✓ | ✓ | 
 | [Webcam support](using-webcam.md) | ✓ | ✓ 5 | ✓ | ✓ | 
@@ -43,5 +43,7 @@ The following table compares the features that are supported by the Amazon DCV c
 4Support for up to two monitors.
 
 5Supported in Chromium-based browsers only. This includes Google Chrome and Microsoft Edge version 79 and later. This doesn't include Firefox and Safari.
+
+6Supported gamepads on macOS: DualShock 4 (PS4), DualSense (PS5), and Xbox controllers. Third-party or compatible controllers are not supported.
 
 For more information about the Amazon DCV server features, see [ Amazon DCV server features](https://docs.aws.amazon.com/dcv/latest/adminguide/servers.html#features) in the *Amazon DCV Administrator Guide*.

@@ -11,4 +11,4 @@ Amazon DCV clients include:
 + [Windows client](client-windows.md)– Provides seamless integration with Windows, supporting features like desktop sharing, audio/video playback, USB device redirection, and clipboard integration.
 + [Web browser client](client-web.md)– This option is useful for those who need to access remote resources from various devices or locations without the need to install a dedicated client application. 
 + [Linux client](client-linux.md)– Allows Linux users to access their remote resources with the same level of performance and functionality as the Windows client.
-+ [MacOS client](client-mac.md)– Provides a dedicated client that seamlessly integrates with the macOS environment. This client offers the same feature set.
++ [macOS client](client-mac.md)– Allows macOS users to access their remote resources with the same level of performance and functionality as the Windows client.

@@ -11,14 +11,15 @@ Amazon DCV can configure a resolution according to the settings and the server s
 
 Note that the available resolutions and number of monitors depend on the configuration of the server, make sure to follow the [prerequisites guide](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing.html) to properly setup the system environment and drivers for best performance.
 
-**Note**  
+**Important**  
 Maximum supported per-monitor resolution is 4096x4096 for up to 4 monitors. Higher resolutions or more than 4 monitors are not supported in any configuration.
 
 If you prefer a fixed resolution on the server, which does not change even when the client window is resized, select the **Display Resolution** menu and specify the desired resolution. If you decide to re-enable automatic resize, you can select **Adapt automatically **.
 
-This functionality is available on the Windows client, web browser client, Linux client, and macOS client.
+This functionality is available on the Windows client, web browser client, Linux client, and macOS client. The steps depend on the client used.
 
-**Changing display resolution on Windows clients**
+------
+#### [ Windows ]
 
 1. Click on the **Settings** icon from the menu at the top.
 
@@ -26,27 +27,25 @@ This functionality is available on the Windows client, web browser client, Linux
 
 1. Select your preferred resolution from the drop-down menu.
 
-**Changing display resolution on macOS clients**
+------
+#### [ macOS ]
 
-1. Click on the **DCV Viewer** icon from the menu at the top.
+1. Choose the **Display** toolbar button.
 
-1. Select **Preferences** from the drop-down menu.
+1. From the **Resolution** menu, choose **Auto** to automatically fit the remote desktop to the window size, the current remote desktop resolution to keep it unchanged, or a specific fixed resolution.  
+![Display resolution options including Auto, current remote resolution, 3840x2160, 2560x1440, 1920x1080, 1280x720, 1024x768, and 800x600.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-display-resolution.png)
 
-1. Go to the **Display** tab.
+**Tip**  
+You can also change the resolution from the menu bar. Choose the **Connection** menu, then select **Display**, **Resolution**, and choose the desired option.
 
-1. Select your preferred resolution from the **Display Resolution** menu.
+------
+#### [ Linux ]
 
-![Display resolution options including Adapt Automatically, 2560x1386, 1920x1080, 1280x720, 1024x768, and 800x600.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-display-resolution.png)
+1. Click on the **Display Settings** menu icon from the toolbar at the top.
 
+1. Select your preferred resolution from the **Resolution** menu.
+**Note**  
+Selecting **Auto** allows the client to adapt the resolution automatically when the client window is resized.  
+![Resolution menu with Auto selected, showing resolutions 1920x1080, 1280x720, 1024x768, and 800x600.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-resolution.png)
 
-**Changing display resolution on Linux clients**
-
-1. Click on the **Settings** icon from the menu at the top.
-
-1. Select **Preferences** from the menu.
-
-1. Go to the **Display** tab.
-
-1. Select your preferred resolution from the **Display Resolution** menu.
-
-![Display resolution options with Adapt Automatically selected, showing resolutions from 1848x1006 to 800x600.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-resolution.png)
+------

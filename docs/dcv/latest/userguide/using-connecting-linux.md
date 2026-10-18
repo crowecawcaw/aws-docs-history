@@ -9,11 +9,14 @@ The steps for connecting to a Amazon DCV session are the same across all Linux c
 
 1. Launch the Linux client.
 
-1. Choose **Connections Settings**, configure your proxy settings as follows, and then choose **Apply**.
-   + To avoid connecting through a proxy, choose **Connect directly**.
-   + To connect to the Amazon DCV server using your preconfigured operating system proxy settings, choose **Use system proxy**.
-   + To connect to the Amazon DCV server through a specific HTTP proxy server, choose **Get through web proxy (HTTP)**. Specify the IP address or the hostname of the proxy server, as well as the communication port. If the HTTP proxy server requires authentication, select the check box of the **Proxy server requiring password** and enter your sign-in credentials.
-   + To connect to the Amazon DCV server through a specific HTTPS proxy server, choose **Get through web proxy (HTTPS)**. Specify the IP address or the hostname of the proxy server, as well as the communication port. If the web proxy server requires authentication, select the **Proxy server requiring password** check box and enter your sign-in credentials.
+1. On the **Application menu**, choose **Connection Settings**.
+
+1. Configure your proxy settings as follows, and then choose **Apply**.
+   + To avoid connecting through a proxy, choose **None**.
+   + To connect to the Amazon DCV server using your preconfigured operating system proxy settings, choose **System**.
+   + To connect to the Amazon DCV server through a specific SOCKS5 proxy server, choose **SOCKS**. Specify the IP address or the hostname of the proxy server, as well as the communication port. If the proxy server requires authentication, toggle the **Authentication** switch and enter your sign-in credentials.
+   + To connect to the Amazon DCV server through a specific HTTP proxy server, choose **HTTP**. Specify the IP address or the hostname of the proxy server, as well as the communication port. If the proxy server requires authentication, toggle the **Authentication** switch and enter your sign-in credentials.
+   + To connect to the Amazon DCV server through a specific HTTPS proxy server, choose **HTTPS**. Specify the IP address or the hostname of the proxy server, as well as the communication port. If the proxy server requires authentication, toggle the **Authentication** switch and enter your sign-in credentials.
    + To select the transport protocol to use for data transport, choose the **Protocol** tab. By default, the client uses the QUIC protocol (based on UDP) for data transport if it's available. If it isn't available, the client uses the WebSocket protocol (based on TCP). This option is always available.
 
      QUIC is available only if the following two conditions are met. First, the Amazon DCV server is configured to support it. Second, your network configuration supports UDP communication between the Amazon DCV client and the Amazon DCV server. Additionally, it's only supported for direct client-server communication where there are no intermediate proxies, gateways, or load balancers.

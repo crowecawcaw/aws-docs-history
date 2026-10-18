@@ -5,18 +5,16 @@
 
 By default, Amazon DCV uses YUV 4:2:0 chroma subsampling when compressing the display output and then updates the parts of the screen that are not changing over time to a full lossless RGB implementation. This default behavior aims to strike a balance between performance and image fidelity, though it may introduce chroma artifacts. By enabling the High color accuracy setting, the YUV chroma subsampling will be set to 4:4:4, thus increasing color fidelity. However this will increase network bandwidth and could affect performance of clients, especially at high resolution, because most client machines do not support HW accelerated decoding when using YUV 4:4:4.
 
-The steps for setting the high color accuracy depend on the client used.
+**Important**  
+High color accuracy requires a Amazon DCV Server and a Amazon DCV Client both having version 2022.0 or later.
 
-**Topics**
-+ [High color accuracy on native clients](#using-high-color-accuracy-native)
-+ [High color accuracy on Web browser client](#using-high-color-accuracy-web)
+**Note**  
+The web browser client also requires a browser supporting the [VideoDecoder](https://developer.mozilla.org/en-US/docs/Web/API/VideoDecoder) interface of the Web Codecs API.
 
-## High color accuracy on native clients
-<a name="using-high-color-accuracy-native"></a>
+The steps depend on the client used.
 
-As long as you are using a Amazon DCV Server and a Amazon DCV Client both having version 2022.0 or later, please follow these steps to enable high color accuracy:
-
-**Enabling high color accuracy on Windows clients**
+------
+#### [ Windows ]
 
 1. Choose the **Settings** icon.
 
@@ -27,40 +25,27 @@ As long as you are using a Amazon DCV Server and a Amazon DCV Client both having
 
 1. Close the **Streaming Mode** window.
 
-**Enabling high color accuracy on macOS clients**
+------
+#### [ macOS ]
 
-1. Choose the **DCV Viewer** icon.
+1. Choose the **Display** toolbar button.
 
-1. Select **Preferences** from the drop-down menu.
+1. Toggle **High Color Accuracy** on or off.  
+![Display toolbar showing the High Color Accuracy toggle.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-high-color-accuracy.png)
 
-1. Select the **Display** tab in the **Preferences** window.
+**Tip**  
+You can also toggle this setting from the menu bar. Choose the **Connection** menu, then select **Display**, **High Color Accuracy**.
 
-1. Check one or both of the following checkboxes:
-   + High color accuracy (YUV 4:4:4)
-   + High pixel density  
-![Preferences dialog box with high color accuracy.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-preferences-display-high-accu.png)
+------
+#### [ Linux ]
 
-1. Close the **Preferences** window.
+1. Click on the **Display Settings** menu icon from the toolbar at the top.
 
-**Enabling high color accuracy on Linux clients**
+1. Turn on the **High color accuracy** option.  
+![Display Settings menu showing the High color accuracy toggle.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-high-accu.png)
 
-1. Choose the **Settings** icon.
-
-1. Select **Preferences** from the drop-down menu.
-
-1. Select the **Display** tab in the **Preferences** window.
-
-1. Check the checkbox for **High color accuracy (YUV 4:4:4)**.  
-![Preferences dialog box with high color accuracy.](https://docs.aws.amazon.com/dcv/latest/userguide/images/linux-pref-display-high-accu.png)
-
-1. Close the **Preferences** window.
-
-## High color accuracy on Web browser client
-<a name="using-high-color-accuracy-web"></a>
-
-In order to use high color accuracy on Web browser client you need a Amazon DCV Server with version 2022.0 or later, as well as a browser supporting the [VideoDecoder](https://developer.mozilla.org/en-US/docs/Web/API/VideoDecoder) interface of the Web Codecs API.
-
-The steps for enabling the high color accuracy are the same across all supported web browsers.
+------
+#### [ Web browser ]
 
 1. In the client, choose **Session**, **Preferences**.  
 ![Session is located inside the menu in the top-right of the interface.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-menu.png)
@@ -69,3 +54,5 @@ The steps for enabling the high color accuracy are the same across all supported
 ![Display is the second tab from the left inside the Preferences modal.](https://docs.aws.amazon.com/dcv/latest/userguide/images/web-preferences-yuv444.png)
 
 1. Save and close the **Preferences** modal.
+
+------

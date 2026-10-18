@@ -24,7 +24,7 @@ Before using the wizard or the command line to install the client, make sure tha
 
 **To install the Windows client using the installation wizard**
 
-1. Download the [Windows client installer](https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Clients/nice-dcv-client-Release-2025.0-9800.msi).
+1. Download the [Windows client installer](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-client-Release-2026.0-13455.msi).
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that always point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.
 
@@ -44,20 +44,20 @@ Using specialized USB devices requires additional client and server configuratio
 
 **To install the Windows client using an unattended installation**
 
-1. Download the [Windows client installer](https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Clients/nice-dcv-client-Release-2025.0-9800.msi).
+1. Download the [Windows client installer](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-client-Release-2026.0-13455.msi).
 
 1. Open a command prompt window and navigate to the folder where you downloaded the installer.
 
 1. Run the unattended installer.
 
    ```
-   C:\> msiexec.exe /i nice-dcv-client-Release-2025.0-9800.msi /quiet /norestart /l*v dcv_client_install_msi.log
+   C:\> msiexec.exe /i nice-dcv-client-Release-2026.0-13455.msi /quiet /norestart /l*v dcv_client_install_msi.log
    ```
 
    To install all of the optional components, including the USB driver, include the `ADDLOCAL=ALL` option in the command.
 
    ```
-   C:\>  msiexec.exe /i nice-dcv-client-Release-2025.0-9800.msi ADDLOCAL=ALL /quiet /norestart /l*v dcv_client_install_msi.log
+   C:\>  msiexec.exe /i nice-dcv-client-Release-2026.0-13455.msi ADDLOCAL=ALL /quiet /norestart /l*v dcv_client_install_msi.log
    ```
 
 ## Portable Windows client
@@ -67,7 +67,7 @@ The Windows client is also available in a portable version. You don't need to in
 
 **To use the portable Windows client**
 
-1. Download the portable [Windows client zip file](https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/Clients/nice-dcv-client-Release-portable-2025.0-9800.zip).
+1. Download the portable [Windows client zip file](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/Clients/nice-dcv-client-Release-portable-2026.0-13455.zip).
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that always point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.
 

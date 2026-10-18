@@ -7,18 +7,23 @@
 
 1. Launch the macOS client.
 
-   If you get an error stating that the application can't be opened because it's from an unidentified developer, see the [Safely open apps on your Mac](https://support.apple.com/en-ie/HT202491) webpage.
+   If you get an error stating that the application can't be opened because it's from an unidentified developer, see the [Safely open apps on your Mac](https://support.apple.com/en-ie/HT202491) webpage.  
+![macOS client connection page showing the address bar and Connection Settings button.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-connection-page.png)
 
-1. Choose **Connections Settings**, configure your proxy settings as follows, and then choose **Apply**.
-   + To avoid connecting through a proxy, choose **Connect directly**.
-   + To connect to the Amazon DCV server using your preconfigured operating system proxy settings, choose **Use system proxy**.
-   + To connect to the Amazon DCV server through a specific HTTP proxy server, choose **Get through web proxy (HTTP)**. Specify the IP address or hostname of the proxy server as well as the communication port. If the HTTP proxy server requires authentication, select the **Proxy server requiring password** check box and enter your sign-in credentials.
-   + To connect to the Amazon DCV server through a specific HTTPS proxy server, choose **Get through web proxy (HTTPS)**. Specify the IP address or hostname of the proxy server as well as the communication port. If the web proxy server requires authentication, select the **Proxy server requiring password** check box and enter your sign-in credentials.
-   + To select the transport protocol to use for data transport, choose the **Protocol** tab. By default, the client uses the QUIC protocol (based on UDP) for data transport if it's available. If it isn't available, the client uses the WebSocket protocol (based on TCP). This option is always available.
+1. Choose the **Connection Settings** toolbar button, configure your proxy and transport settings as follows, and then choose **Apply**.  
+![Network settings showing Transport and Proxy configuration options.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-network-settings.png)
+   + To avoid connecting through a proxy, set **Type** to **None**.
+   + To connect to the Amazon DCV server using your preconfigured operating system proxy settings, set **Type** to **System**.
+   + To connect to the Amazon DCV server through a specific HTTP proxy server, set **Type** to **HTTP**. Specify the hostname and port. If the HTTP proxy server requires authentication, enable the **Authentication** toggle and enter your sign-in credentials.
+   + To connect to the Amazon DCV server through a specific HTTPS proxy server, set **Type** to **HTTPS**. Specify the hostname and port. If the HTTPS proxy server requires authentication, enable the **Authentication** toggle and enter your sign-in credentials.
+   + To select the transport protocol to use for data transport, set **Transport** to **Auto** (default), **TCP**, or **UDP**. By default, the client uses the QUIC protocol (based on UDP) for data transport if it's available. If it isn't available, the client uses the WebSocket protocol (based on TCP). This option is always available.
 
      QUIC is available only if the following conditions are met. First, the Amazon DCV server is configured to support it. Second, your network configuration supports UDP communication between the Amazon DCV client and the Amazon DCV server. Additionally, it's only supported for direct client-server communication where there are no intermediate proxies, gateways, or load balancers.
 
-     You can force the client to use a data transport protocol by explicitly selecting it. To verify which protocol is in use, check the Streaming Modes dialog. Additionally, if the QUIC protocol is in use, "QUIC" appears in the titlebar.
+     To use a specific data transport protocol, select it in Connection Settings.
+
+     To verify which protocol is in use, check the **Connection** tab in the Dashboard.  
+![Dashboard Connection tab showing the Transport field.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-dashboard-connection.png)
 
      For more information, see [ Enable the QUIC UDP transport protocol](https://docs.aws.amazon.com/dcv/latest/adminguide/enable-quic.html) in the *Amazon DCV Administrator Guide*.
 
@@ -33,11 +38,23 @@
    ```
    my-dcv-server.com:8443#my-session
    ```
+**Tip**  
+As you type, you can choose from suggested matches in your connection history.
 
 1. Choose **Connect**.
 
-1. Enter your sign-in credentials and choose **Login**.
+1. Enter your sign-in credentials and choose **Log In**.  
+![macOS client login screen showing username and password fields.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-login-page.png)
 **Note**  
 By default, the connection is terminated after three unsuccessful login attempts. To try again, restart the connection.
 
-1. If you're prompted to verify the server's certificate, confirm the certificate's fingerprint with your Amazon DCV administrator. If the fingerprint is valid, choose **Trust & Connect**.
+1. If you're prompted to verify the server's certificate, confirm the certificate's fingerprint with your Amazon DCV administrator. If the fingerprint is valid, choose **Trust Certificate**.
+
+**Alternative connection methods**  
+In addition to the address bar, you can also connect using the following methods:
++ **Connection file** – Double-click a `.dcv` file to open it. You can also drag the file onto the **DCV Viewer** icon in the Dock while the application is running.
++ **Menu bar** – Choose the DCV icon in the macOS menu bar to see recent connections and connect immediately.
++ **Spotlight** – Search for a previously connected hostname in Spotlight to find and open a connection.
+
+**Connection diagnostics**  
+If you encounter a connection error, choose **Diagnose…** on the error screen to run automated connectivity checks. For more information, see [macOS connection diagnostics](troubleshooting-macos-diagnostics.md).

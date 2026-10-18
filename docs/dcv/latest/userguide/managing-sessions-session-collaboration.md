@@ -8,43 +8,46 @@ Amazon DCV users can collaborate on the same session, enabling screen and mouse 
 **Note**  
 When collaborating on Amazon DCV sessions, the multiple monitor function is disabled.
 
-**Requirements**
+**Important**  
+For users to collaborate on the same session, the active permissions applied to the session need to be updated to include the `display` parameter. Administrator privileges are required to edit the permissions file. For more information, see [ Configuring Amazon DCV authorization](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization.html).
 
-By default, the only user that can connect to a Amazon DCV session is the owner of that session.
+To collaborate on a Amazon DCV session, do one of the following depending on your client.
 
-For users to collaborate on the same session, the active permissions applied to the session need to be updated to include the `display` parameter. For more information on editing the permissions file, see [ Configuring Amazon DCV authorization](https://docs.aws.amazon.com/dcv/latest/adminguide/security-authorization.html).
+------
+#### [ Windows ]
 
-**Note**  
-Administrator privileges are required to edit the permissions file.
-
-**To collaborate on Amazon DCV sessions for Windows or Linux based servers:**
-
-1. Choose the **Collaborators** icon on the Amazon DCV client located in the DCV toolbar.  
+1. Choose the **Collaborators** icon on the toolbar.  
 ![Collaborators icon on the DCV client](https://docs.aws.amazon.com/dcv/latest/userguide/images/collaboration.png)
 
    A **Collaborators Window** will open showing all of the connected Amazon DCV sessions available.
 
 1. Select a session to join.
 
-1. Choose **Disconnect**, to remove one or all client connections, except yours, from the DCV session.
+1. To disconnect a collaborator, choose **Disconnect** next to their name.
 
    This option is only available for session owners.  
 ![Collaborating user sessions](https://docs.aws.amazon.com/dcv/latest/userguide/images/collaboration-users.png)
 
-1. Choose **Disconnect** to remove an user from an active session.
+------
+#### [ macOS ]
 
-**To collaborate on Amazon DCV sessions for macOS:**
+1. Choose the **Session** toolbar button.
 
-1. Go to **View** on the top toolbar.  
-![View menu dropdown showing Full Screen options, Collaborators, and Notifications items.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-view-collaborators.png)
+1. The **Collaborators** section lists all connected users with their username and number of connections.  
+![Collaborators section in the Session toolbar, showing connected users with a disconnect button next to each name.](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-collaborators.png)
 
-1. Choose **Collaborators** from the drop-down menu.
+1. To disconnect a collaborator, choose the disconnect button next to their name. If you're the session owner, you can also choose **Disconnect All** to remove all other connections.
 
-   A **Collaborators Window** will open showing all of the connected Amazon DCV sessions available.  
-![Collaborating user sessions](https://docs.aws.amazon.com/dcv/latest/userguide/images/mac-collaborators.png)
+------
+#### [ Linux ]
 
-1. Select the session to join.
+1. Choose the **Collaborators** icon on the toolbar.
 
-1. Choose **Disconnect** to remove one or all client connections, except yours, from the DCV session.
+   The **Collaborators** list shows all connected users.
 
-   This option is only available for session owners.
+1. To disconnect a collaborator, choose **Disconnect** next to their name. If you're the session owner, you can also choose **Disconnect All** to remove all other connections.
+
+------
+
+**Note**  
+**Disconnect All** is available only to session owners when two or more distinct collaborators are connected.
