@@ -27,7 +27,7 @@ If any condition is not met, Yield Optimization is skipped and MediaTailor proce
 
 1. The unfilled duration equals the total break duration minus the sum of primary ad durations.
 
-1. If unfilled duration is greater than or equal to `MinimumUnfilledDuration`, Yield Optimization proceeds.
+1. If unfilled duration, rounded down to whole seconds, is greater than `MinimumUnfilledDuration`, Yield Optimization proceeds.
 
 **Example:** A 60-second ad break where the primary ADS returns 30 seconds of ads leaves 30 seconds unfilled. If `MinimumUnfilledDuration` is set to 15, Yield Optimization triggers and requests ads for the remaining 30 seconds.
 

@@ -25,6 +25,7 @@ An `AWS_SERVICE_REQUEST` function has the following fields:
 + **Body** (conditional) — The request body. Required when `MethodType` is `POST`. You can use a JSONata expression to build the body dynamically from session state.
 + **RequestTimeoutMilliseconds** (required) — How long to wait for a response.
 + **Output** (optional) — Defines the values to produce after the call completes. Each entry maps an output key to an expression that can reference the `response` object. Output expressions can reference the same `response` object described in [Response fields](monetization-functions-types-http-request.md#monetization-functions-types-http-request-response).
++ **Cache** (optional) — Turns on response caching for the function. For details, see [Caching HTTP responses](monetization-functions-caching.md).
 
 ## Security model
 <a name="monetization-functions-types-aws-service-request-security"></a>

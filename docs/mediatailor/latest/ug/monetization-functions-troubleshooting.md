@@ -213,6 +213,8 @@ If the data you need is beyond the 20,000-character limit, consider asking the e
 | A required field is missing in an HTTP\_REQUEST function. | The URL field is empty or the method is not specified. | Ensure the URL and method fields are set. The method must be GET or POST. | 
 | The URL built by the expression is invalid. | The evaluated URL uses an unsupported scheme like ftp://, exceeds 2,048 characters, or is malformed. | Verify the URL expression produces a valid http:// or https:// URL. Use $encodeUrlComponent() for query parameter values that may contain special characters. | 
 | An HTTP header contains invalid characters or uses a restricted name. | A header value contains line breaks, or the header name is host or transfer-encoding. | Remove invalid characters from header values. Avoid restricted header names. See [HTTP request](monetization-functions-types-http-request.md) for header limits. | 
+| The Cache configuration is invalid. | TtlMinimumSeconds is greater than TtlMaximumSeconds, a TTL is outside the range 1–300, or Key is a static string instead of a {%...%} expression. | Correct the Cache fields. See [Configuration fields](monetization-functions-caching.md#monetization-functions-caching-fields). | 
+| The cache key built by the expression is too long. | The evaluated Key exceeds 1,024 characters. | Shorten the key. Reference only the values that change the endpoint's response. | 
 
 Check the `cause` field in the error log event — it identifies which field or expression failed validation.
 
@@ -256,3 +258,35 @@ Injection checks run after your function returns, so the function's log events r
 | The invocation exceeded the injection limit of 10 ads. | Injections beyond the limit are dropped. Reduce the number of injected ads per invocation. | 
 | The target ad break is not modifiable (mutable: false). | Only inject into ad breaks where mutable is true. | 
 | The injected ad's renditions don't match the stream's variants, or the added duration overflows the ad break. | Injected ads go through the same variant matching and fill policy as ads from the ADS. Verify the creative's renditions match the stream, and keep total ad duration within the ad break. | 
+
+### Function returns outdated or another viewer's data
+<a name="monetization-functions-ts-cache-stale"></a>
+
+**Symptom:** A function with response caching turned on returns data that doesn't reflect a recent change at your endpoint, or returns data that belongs to a different session.
+
+The following table lists possible causes and fixes.
+
+
+| Cause | Fix | 
+| --- | --- | 
+| MediaTailor is serving a cached response that hasn't expired. | Cached responses can be served for up to TtlMaximumSeconds. Lower TtlMaximumSeconds, or return a shorter Cache-Control max-age from your endpoint. | 
+| Your endpoint's response depends on a request header, which isn't part of the default cache key. | Set a custom Key that includes the values that change the response, or turn off caching for the function. | 
+| A custom Key doesn't include every value that changes the response, or two functions on the same playback configuration produce the same key value. | Add the missing values to the key expression, and add a prefix that is unique to each function. | 
+| Your endpoint returned a temporary error response that MediaTailor caches, such as 404. | The error response expires after the cache TTL. Check response.statusCode in your Output expressions so that cached errors fall back to a default value. | 
+
+For details, see [Caching HTTP responses](monetization-functions-caching.md).
+
+### Caching doesn't reduce requests to your endpoint
+<a name="monetization-functions-ts-cache-no-effect"></a>
+
+**Symptom:** Response caching is turned on, but your endpoint still receives about one request for each function execution.
+
+The following table lists possible causes and fixes.
+
+
+| Cause | Fix | 
+| --- | --- | 
+| The URL or body includes a per-session or per-request value, such as session.id or $random(), so each request has a different default cache key. | Remove the value from the URL and body, or set a custom Key that includes only the values that change the response. | 
+| Your endpoint returns responses that MediaTailor doesn't cache, such as 500 errors, or requests time out. | Check the health and latency of your endpoint. See [Which responses are cached](monetization-functions-caching.md#monetization-functions-caching-status). | 
+| The custom Key expression fails to evaluate or produces an empty value, so MediaTailor uses the default cache key. | Verify that every value that the key expression references exists in the session state at the hook where the function runs. | 
+| The function runs on several playback configurations. | Cached responses aren't shared across playback configurations. Each playback configuration keeps its own cache entries. | 

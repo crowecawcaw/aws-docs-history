@@ -21,6 +21,7 @@ A `VAST_REQUEST` function has the following fields:
 + **Body** — The request body to send. Used with `POST` requests, for example to send an OpenRTB bid request. You can use a JSONata expression to build the body dynamically.
 + **RequestTimeoutMilliseconds** (required) — How long to wait for a response.
 + **Output** — Defines the values to produce after the call completes. Each entry maps an output key to an expression that can reference the `response` object, including `response.parsedAds`.
++ **Cache** (optional) — Turns on response caching for the function. For details, see [Caching HTTP responses](monetization-functions-caching.md).
 
 The HTTP request limits that apply to `HTTP_REQUEST` functions also apply here. For details, see [Limits](monetization-functions-limits.md).
 

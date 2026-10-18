@@ -27,24 +27,19 @@ In this documentation, an ad break is also called an *avail*. Input field names 
 
 The following table lists the input fields available at each lifecycle hook. In the Field column, `parent[].child` notation indicates a field of each element in the `parent` array.
 
-**Note**  
-The `POST_ADS_RESPONSE` and `PRE_MANIFEST_INSERTION` hooks expose session fields in camelCase (for example, `session.clientIp`), while the first two hooks use snake\_case (for example, `session.client_ip`). Player parameters are available through the `player_params` namespace at the first two hooks and as the `session.playerParams` object at the other two.
-
 
 | Field | Type | PRE\_SESSION\_INITIALIZATION | PRE\_ADS\_REQUEST | POST\_ADS\_RESPONSE | PRE\_MANIFEST\_INSERTION | 
 | --- | --- | --- | --- | --- | --- | 
 | session.id | Long | ✓ | ✓ | ✓ | ✓ | 
 | session.uuid | String | ✓ | ✓ | ✓ | ✓ | 
-| session.client\_ip | String | ✓ | ✓ | ✗ | ✗ | 
-| session.clientIp | String | ✗ | ✗ | ✓ | ✓ | 
-| session.user\_agent | String | ✓ | ✓ | ✗ | ✗ | 
-| session.userAgent | String | ✗ | ✗ | ✓ | ✓ | 
+| session.client\_ip | String | ✓ | ✓ | ✓ | ✓ | 
+| session.user\_agent | String | ✓ | ✓ | ✓ | ✓ | 
 | session.referer\* | String | ✓ | ✓ | ✗ | ✗ | 
 | session.avail\_duration\_secs | Long | ✗ | ✓ | ✗ | ✗ | 
 | session.avail\_duration\_ms | Long | ✗ | ✓ | ✗ | ✗ | 
-| session.streamingProtocol | String | ✗ | ✗ | ✓ | ✓ | 
-| session.playerParams | Object | ✗ | ✗ | ✓ | ✓ | 
-| player\_params.\* | String | ✓ | ✓ | ✗ | ✗ | 
+| session.streaming\_mode | String | ✗ | ✗ | ✓ | ✓ | 
+| session.media\_protocol | String | ✗ | ✗ | ✗ | ✓ | 
+| player\_params.\* | String | ✓ | ✓ | ✓ | ✓ | 
 | event.id | String | ✓ | ✓ | ✓ | ✓ | 
 | event.hook | String | ✓ | ✓ | ✓ | ✓ | 
 | event.timestamp | String | ✓ | ✓ | ✓ | ✓ | 

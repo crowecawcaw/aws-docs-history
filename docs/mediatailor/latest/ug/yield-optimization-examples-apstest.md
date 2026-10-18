@@ -114,9 +114,9 @@ The table below explains what each field represents and how it maps to what Medi
 | Field | Who sets it | Notes | 
 | --- | --- | --- | 
 | id | MediaTailor (hardcoded) | In production, auto-generated as {sessionId}\_{availId}. For testing, use any unique string. | 
-| imp[0].video.minduration | MediaTailor (hardcoded) | Set from your MinimumUnfilledDuration config. Use 15 for testing. | 
+| imp[0].video.minduration | Your template (default: 6) | Taken from your template's minduration, or 6 if omitted. Not related to MinimumUnfilledDuration. Use 15 for testing. | 
 | imp[0].video.maxduration | MediaTailor (hardcoded) | Calculated from unfilled break duration. Use 30 for testing. | 
-| imp[0].video.maxseq | MediaTailor (hardcoded) | Calculated: floor(unfilled\_duration / 6). Use 5 for testing. | 
+| imp[0].video.maxseq | MediaTailor (hardcoded) | Calculated: floor(unfilled\_duration / minduration), or floor(unfilled\_duration / 15) if your template omits minduration. Use 5 for testing. Test values in a hand-built request don't need to match this formula. | 
 | imp[0].video.poddur | MediaTailor (hardcoded) | Unfilled break duration. Use 120 for testing. | 
 | imp[0].video.mimes | Your template | Supported video formats. ["video/mp4"] is sufficient. | 
 | imp[0].video.protocols | Your template | VAST protocol versions. [1,2,3,4,5,6,7,8] for maximum compatibility. | 

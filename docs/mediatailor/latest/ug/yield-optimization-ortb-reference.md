@@ -90,9 +90,9 @@ Your template must contain exactly **one** `imp` object in an array.
 | imp[0].video | Mandatory | The video object must exist. | 
 | imp[0].video.mimes | Mandatory | Supported MIME types (for example, ["video/mp4"]). | 
 | imp[0].video.protocols | Optional | Supported VAST protocols. If omitted, MediaTailor uses hardcoded fallback [1, 2, 3, 4, 5, 6, 7, 8]. See the protocol enum reference below. | 
-| imp[0].video.minduration | Hardcoded by EMT | Set to your MinimumUnfilledDuration from the console. | 
+| imp[0].video.minduration | Optional (default: 6) | Minimum creative duration in seconds. MediaTailor sends your template value as-is and also uses it to calculate maxseq. If omitted, MediaTailor sends 6. This field is independent of MinimumUnfilledDuration. See [How `minduration` and `maxseq` are set](yield-optimization-bid-construction.md#yield-optimization-bid-construction-pod-sizing). | 
 | imp[0].video.maxduration | Hardcoded by EMT | Set to the actual unfilled duration (seconds). | 
-| imp[0].video.maxseq | Hardcoded by EMT | Calculated: floor(unfilled\_duration / 6). APS recommends either maxseq or poddur to return multiple ads. | 
+| imp[0].video.maxseq | Hardcoded by EMT | Calculated: floor(unfilled\_duration / minduration) when your template sets minduration, otherwise floor(unfilled\_duration / 15). Limited to between 1 and the larger of 30 and floor(unfilled\_duration / 15). APS recommends either maxseq or poddur to return multiple ads. | 
 | imp[0].video.poddur | Hardcoded by EMT | Set to the unfilled duration (seconds). | 
 | imp[0].video.startdelay | Optional | Start delay. 0 = pre-roll, -1 = generic mid-roll, -2 = post-roll, > 0 = mid-roll offset in seconds. Use -1 for live mid-roll breaks. Hardcoded fallback: 6. | 
 | imp[0].video.w | APS Recommended | Video width in pixels. | 

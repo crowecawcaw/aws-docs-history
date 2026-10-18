@@ -19,6 +19,7 @@ An `HTTP_REQUEST` function has the following fields:
 + **Body** — The request body to send. Used with `POST` requests. You can use a JSONata expression to build the body dynamically.
 + **RequestTimeoutMilliseconds** (required) — How long to wait for a response.
 + **Output** — Defines the values to produce after the HTTP call completes. Each entry maps an output key (such as `player_params.envelope_id`) to an expression that can reference the `response` object.
++ **Cache** (optional) — Turns on response caching for the function. For details, see [Caching HTTP responses](monetization-functions-caching.md).
 
 For size limits and restrictions that apply to these fields, see [Limits](monetization-functions-limits.md).
 

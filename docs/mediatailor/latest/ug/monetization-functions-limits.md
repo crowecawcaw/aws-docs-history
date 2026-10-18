@@ -15,11 +15,11 @@ This page lists the limits that apply to Functions. These limits are enforced at
 | PRE\_SESSION\_INITIALIZATION | Total player\_params size | 1,000 characters | 
 | PRE\_ADS\_REQUEST | Total timeout | 2,000 ms | 
 | POST\_ADS\_RESPONSE | Total timeout | 2,000 ms | 
-| POST\_ADS\_RESPONSE | Input payload size | 128 KB | 
-| POST\_ADS\_RESPONSE | Output size | 256 KB | 
+| POST\_ADS\_RESPONSE | Input payload size | 400 KB | 
+| POST\_ADS\_RESPONSE | Output size | 512 KB | 
 | PRE\_MANIFEST\_INSERTION | Total timeout | 2,000 ms | 
-| PRE\_MANIFEST\_INSERTION | Input payload size | 128 KB | 
-| PRE\_MANIFEST\_INSERTION | Output size | 256 KB | 
+| PRE\_MANIFEST\_INSERTION | Input payload size | 400 KB | 
+| PRE\_MANIFEST\_INSERTION | Output size | 512 KB | 
 | PRE\_MANIFEST\_INSERTION | Injected ads per invocation | 10 | 
 | Request-path hooks combined (per request) | Shared execution budget | 2,000 ms | 
 
@@ -27,7 +27,9 @@ These timeouts cover the entire hook execution, including all function steps and
 
 In addition to each hook's own timeout, the `PRE_ADS_REQUEST`, `POST_ADS_RESPONSE`, and `PRE_MANIFEST_INSERTION` hooks that run within a single request share a combined execution budget of 2,000 ms. Time spent by an earlier hook reduces the budget available to later hooks in the same request, and a hook's effective timeout is the smaller of its own timeout and the remaining budget. If the budget is exhausted before a hook starts, MediaTailor skips that hook entirely and continues processing the request. `PRE_SESSION_INITIALIZATION` runs during session initialization and is not part of the combined budget.
 
-The input payload size limit applies to the serialized JSON input that MediaTailor builds for the `POST_ADS_RESPONSE` and `PRE_MANIFEST_INSERTION` hooks. If the input exceeds 128 KB, MediaTailor skips the hook invocation for that request. The output size limit caps the total serialized size that a function can write to the hook's writable namespace; output that exceeds 256 KB is discarded.
+The input payload size limit applies to the ads projection that MediaTailor serializes for the `POST_ADS_RESPONSE` and `PRE_MANIFEST_INSERTION` hooks. It measures only the writable projection, not the full request, and does not count session variables. If the projection exceeds 400 KB, MediaTailor skips the hook invocation for that request. The output size limit caps the total serialized size that a function can write to the hook's writable namespace; output that exceeds 512 KB is discarded.
+
+MediaTailor projects slightly more data for `PRE_MANIFEST_INSERTION` than for `POST_ADS_RESPONSE` with the same ads, so when a session uses both hooks, `PRE_MANIFEST_INSERTION` reaches the 400 KB limit first.
 
 Individual function timeouts (such as `RequestTimeoutMilliseconds` for HTTP\_REQUEST functions) must fit within the hook's total timeout. For example, if the hook timeout is 2,000 ms and an HTTP\_REQUEST function sets `RequestTimeoutMilliseconds` to 2,000 ms, the function may time out before completing if any processing occurs before or after the HTTP call.
 
@@ -83,6 +85,19 @@ These limits are enforced at authoring time.
 Expression length limits and header limits are enforced at authoring time, when you create or update the function. The evaluated URL and body size limits, the request timeout, and restricted headers are enforced at runtime, after MediaTailor evaluates the expressions. A URL expression that is accepted at authoring time can still exceed the evaluated URL limit at runtime, in which case the request is not sent.
 
 If a function sets a restricted header, MediaTailor accepts the function configuration at authoring time but drops the header when the HTTP request is sent during execution.
+
+## Response caching limits
+<a name="monetization-functions-limits-caching"></a>
+
+
+| Limit | Value | Enforced at | 
+| --- | --- | --- | 
+| TtlMinimumSeconds | 1–300 seconds | Authoring | 
+| TtlMaximumSeconds | 1–300 seconds, and greater than or equal to TtlMinimumSeconds | Authoring | 
+| Cache key expression length | 2,048 characters | Authoring | 
+| Cache key length (after evaluation) | 1,024 characters | Runtime | 
+
+If the evaluated cache key exceeds 1,024 characters, MediaTailor doesn't send the request. For more information about response caching, see [Caching HTTP responses](monetization-functions-caching.md).
 
 ## Response limits
 <a name="monetization-functions-limits-response"></a>

@@ -40,12 +40,12 @@ The following table shows which service principal to use based on your deploymen
 
 | Scenario | Service principal | 
 | --- | --- | 
-| MediaTailor and Elemental Inference in the same non-opt-in Region, or in different non-opt-in Regions | mediatailor.amazonaws.com | 
-| MediaTailor in an opt-in Region calling Elemental Inference in a non-opt-in Region | mediatailor.{{region}}.amazonaws.com (for example, mediatailor.af-south-1.amazonaws.com) | 
+| MediaTailor and Elemental Inference in the same Region that is enabled by default, or in different Regions that are enabled by default | mediatailor.amazonaws.com | 
+| MediaTailor in an opt-in Region calling Elemental Inference in a Region that is enabled by default | mediatailor.{{region}}.amazonaws.com (for example, mediatailor.af-south-1.amazonaws.com) | 
 | Restrict access to a single MediaTailor Region | mediatailor.{{region}}.amazonaws.com | 
 
 **Note**  
-MediaTailor does not currently support cross-opt-in-Region access (opt-in to different opt-in, or non-opt-in to opt-in).
+MediaTailor does not currently support cross-opt-in-Region access (opt-in to different opt-in, or enabled-by-default to opt-in).
 
 The following example resource policy grants MediaTailor permission to call `GetMetadata` on a feed.
 
@@ -59,13 +59,13 @@ The following example resource policy grants MediaTailor permission to call `Get
                 "Service": "mediatailor.amazonaws.com"
             },
             "Action": "elemental-inference:GetMetadata",
-            "Resource": "arn:aws:elemental-inference:us-west-2:123456789012:feed/my-contextual-feed",
+            "Resource": "arn:aws:elemental-inference:us-west-2:111122223333:feed/my-contextual-feed",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "123456789012"
+                    "aws:SourceAccount": "111122223333"
                 },
                 "ArnLike": {
-                    "aws:SourceArn": "arn:aws:mediatailor:us-west-2:123456789012:playbackConfiguration/*"
+                    "aws:SourceArn": "arn:aws:mediatailor:us-west-2:111122223333:playbackConfiguration/*"
                 }
             }
         }
@@ -73,7 +73,7 @@ The following example resource policy grants MediaTailor permission to call `Get
 }
 ```
 
-Replace `us-west-2`, `123456789012`, and `my-contextual-feed` with your Region, account ID, and feed ID.
+Replace `us-west-2`, `111122223333`, and `my-contextual-feed` with your Region, account ID, and feed ID.
 
 The `aws:SourceAccount` condition ensures only MediaTailor operating on behalf of your account can access the feed. The `aws:SourceArn` condition further restricts access to specific playback configurations. Replace the wildcard with a specific playback configuration name for tighter scoping.
 
@@ -89,13 +89,13 @@ The following example shows a resource policy for an opt-in Region, where the se
                 "Service": "mediatailor.af-south-1.amazonaws.com"
             },
             "Action": "elemental-inference:GetMetadata",
-            "Resource": "arn:aws:elemental-inference:us-west-2:123456789012:feed/my-contextual-feed",
+            "Resource": "arn:aws:elemental-inference:us-west-2:111122223333:feed/my-contextual-feed",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "123456789012"
+                    "aws:SourceAccount": "111122223333"
                 },
                 "ArnLike": {
-                    "aws:SourceArn": "arn:aws:mediatailor:af-south-1:123456789012:playbackConfiguration/*"
+                    "aws:SourceArn": "arn:aws:mediatailor:af-south-1:111122223333:playbackConfiguration/*"
                 }
             }
         }
@@ -207,6 +207,9 @@ The following list explains the key fields in the preceding example:
 + The URL is constructed from `inference.dataEndpoint` and `inference.feedId`.
 + The Body queries from the end of the previous ad break (or up to 30 seconds lookback) to the current break.
 + Output extracts IAB category IDs and flagged GARM categories.
+
+**Tip**  
+Sessions that reach the same ad break often send the same `GetMetadata` request. To reduce the request rate to Elemental Inference, add a `Cache` object to the function. For details and an example, see [Caching HTTP responses](monetization-functions-caching.md).
 
 **Note**  
 Replace `my-contextual-output` with the name of your Elemental Inference feed's contextual metadata output.

@@ -13,9 +13,9 @@ When you enable Yield Optimization on a playback configuration, you provide four
 
 | Field | Description | Required | 
 | --- | --- | --- | 
-| PublisherId | Your APS publisher ID (obtained from APS registration). Injected into app.publisher.id on every bid request. | Yes | 
+| PublisherId | Your Amazon Publisher Services (APS) publisher ID (obtained from APS registration). Injected into app.publisher.id on every bid request. | Yes | 
 | Region | APS region: AMERICAS, EUROPE, or ASIA\_PACIFIC. Determines the APS endpoint. | Yes | 
-| MinimumUnfilledDuration | Minimum unfilled seconds required before MediaTailor triggers a bid request. Also used as imp.video.minduration. | Yes | 
+| MinimumUnfilledDuration | Bid gate, in whole seconds. MediaTailor sends a bid request only when the unfilled duration is greater than this value. This value is not sent to APS and does not affect imp.video.minduration. To control the minimum creative duration, set imp[0].video.minduration in your template, as described later on this page. | Yes | 
 | OpenRtbTemplate | Your ORTB JSON template (max 100 KB). Defines the bid request body. | Yes | 
 
 ## How the bid request is constructed
@@ -187,7 +187,7 @@ MediaTailor performs **one level of URL decoding** on player parameter values be
 | Value sent | Value after decoding (used in template) | 
 | --- | --- | 
 | Test%20Os | Test Os | 
-| https%3A%2F%2Flocalhost | https://localhost | 
+| https%3A%2F%2Fexample.com | https://example.com | 
 | foo%20bar | foo bar | 
 | Mozilla%2F5.0%20(SMART-TV) | Mozilla/5.0 (SMART-TV) | 
 
@@ -217,11 +217,29 @@ The following fields are always set by MediaTailor using values from your consol
 | --- | --- | 
 | id | Auto-generated: {sessionId}\_{availId} format (for example, abc123-def456\_78901). Useful for correlating bid requests with session logs. | 
 | app.publisher.id | Your PublisherId from the console configuration. | 
-| imp[0].video.minduration | Your MinimumUnfilledDuration from the console configuration. | 
 | imp[0].video.maxduration | Calculated: actual unfilled seconds for this avail. | 
-| imp[0].video.maxseq | Calculated: floor(unfilled\_duration / 6). | 
+| imp[0].video.maxseq | Calculated from the unfilled duration and the imp[0].video.minduration in your template, as described in the following section. | 
 | imp[0].video.poddur | Calculated: actual unfilled seconds for this avail. | 
 | ext.integrationType | Always set to "EMT". | 
+
+## How `minduration` and `maxseq` are set
+<a name="yield-optimization-bid-construction-pod-sizing"></a>
+
+MediaTailor sizes the ad pod from the `imp[0].video.minduration` value in your template. `MinimumUnfilledDuration` only decides whether a bid request is sent. It is not used to size the pod.
+
+The following table shows how the `minduration` value in your template determines the `minduration` and `maxseq` values sent to APS:
+
+
+| Template `imp[0].video.minduration` | `minduration` sent to APS | `maxseq` sent to APS | 
+| --- | --- | --- | 
+| Set to a number greater than 0 | Your template value | floor(unfilled\_duration / minduration) | 
+| Omitted, 0, or not a number (for example, a placeholder that resolves to an empty string) | 6 | floor(unfilled\_duration / 15) | 
+
+In both cases, `maxseq` is limited to at least `1` and at most the larger of `30` and `floor(unfilled_duration / 15)`.
+
+**Example:** If your template omits `minduration`, a 60-second unfilled duration produces `minduration` 6 and `maxseq` 4. If your template sets `"minduration": 6`, the same unfilled duration produces `maxseq` 10, so you can receive more short ads from APS.
+
+If your template `minduration` is longer than the unfilled duration, MediaTailor sends it unchanged rather than lowering it. As a result, `minduration` is greater than `maxduration` in that request, and you might not receive an ad. To avoid this, set `minduration` no higher than your `MinimumUnfilledDuration`. Every bid request has more unfilled time than that value.
 
 ## Next steps
 <a name="yield-optimization-bid-construction-next-steps"></a>

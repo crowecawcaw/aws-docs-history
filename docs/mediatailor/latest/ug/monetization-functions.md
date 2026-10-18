@@ -15,6 +15,7 @@ Use Functions when you need to:
 + **Target ads based on video content.** Query Elemental Inference for IAB content classifications and GARM brand safety signals, then pass contextual metadata to your ad decision server for contextual ad targeting.
 + **Filter or reorder the ads returned by your ADS.** Remove ads from specific ad systems for competitive separation, or reorder ads before MediaTailor selects which to insert.
 + **Fill unfilled ad time with your own ads.** Detect underfilled ad breaks and fetch house ads or promos from a secondary VAST endpoint to fill the remaining time.
++ **Reduce traffic to your endpoints.** Cache function responses and share them across sessions so that MediaTailor calls your endpoint only when it needs fresh data.
 
 ## How Functions fit into the MediaTailor workflow
 <a name="monetization-functions-workflow"></a>
@@ -35,6 +36,7 @@ If you are new to Functions, start with the [Quick start guide](monetization-fun
 + [Functions quick start guide](monetization-functions-quickstart.md)
 + [Functions lifecycle hooks](monetization-functions-hooks.md)
 + [Function types and composition](monetization-functions-types.md)
++ [Caching HTTP responses](monetization-functions-caching.md)
 + [Contextual ad targeting with Elemental Inference](monetization-functions-elemental-inference-integration.md)
 + [Creating and managing Functions](monetization-functions-managing.md)
 + [JSONata expression reference for Functions](monetization-functions-jsonata.md)
