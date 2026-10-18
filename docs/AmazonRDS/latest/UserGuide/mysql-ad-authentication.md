@@ -1,21 +1,21 @@
 
 
-# Using Kerberos authentication for Amazon RDS for MySQL
-<a name="mysql-kerberos"></a>
+# Using Active Directory authentication for Amazon RDS for MySQL
+<a name="mysql-ad-authentication"></a>
 
- You can use Kerberos authentication to authenticate users when they connect to your MySQL DB instance. The DB instance works with AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to enable Kerberos authentication. When users authenticate with a MySQL DB instance joined to the trusting domain, authentication requests are forwarded. Forwarded requests go to the domain directory that you create with Directory Service. 
+ You can use Active Directory (AD) authentication to authenticate users when they connect to your MySQL DB instance. The DB instance works with AWS Directory Service for Microsoft Active Directory (AWS Managed Microsoft AD) to enable Active Directory authentication. When users authenticate with a MySQL DB instance joined to the trusting domain, authentication requests are forwarded. Forwarded requests go to the domain directory that you create with Directory Service. 
 
  Keeping all of your credentials in the same directory can save you time and effort. With this approach, you have a centralized place for storing and managing credentials for multiple DB instances. Using a directory can also improve your overall security profile. 
 
 ## Region and version availability
-<a name="mysql-kerberos-setting-up.RegionVersionAvailability"></a>
+<a name="mysql-ad-authentication-setting-up.RegionVersionAvailability"></a>
 
-Feature availability and support varies across specific versions of each database engine, and across AWS Regions. For more information on version and Region availability of Amazon RDS with Kerberos authentication, see [Supported Regions and DB engines for Kerberos authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.KerberosAuthentication.md).
+Feature availability and support varies across specific versions of each database engine, and across AWS Regions. For more information on version and Region availability of Amazon RDS with Active Directory authentication, see [Supported Regions and DB engines for Active Directory authentication in Amazon RDS](Concepts.RDS_Fea_Regions_DB-eng.Feature.ActiveDirectoryAuthentication.md).
 
-## Overview of Setting up Kerberos authentication for MySQL DB instances
-<a name="mysql-kerberos-setting-up-overview"></a>
+## Overview of Setting up Active Directory authentication for MySQL DB instances
+<a name="mysql-ad-authentication-setting-up-overview"></a>
 
- To set up Kerberos authentication for a MySQL DB instance, complete the following general steps, described in more detail later: 
+ To set up Active Directory authentication for a MySQL DB instance, complete the following general steps, described in more detail later: 
 
 1.  Use AWS Managed Microsoft AD to create an AWS Managed Microsoft AD directory. You can use the AWS Management Console, the AWS CLI, or the Directory Service to create the directory. For details about doing so, see [Create your AWS Managed Microsoft AD directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.html) in the *AWS Directory Service Administration Guide*. 
 
@@ -27,17 +27,17 @@ Feature availability and support varies across specific versions of each databas
 
 1.  Create or modify a MySQL DB instance. If you use either the CLI or RDS API in the create request, specify a domain identifier with the `Domain` parameter. Use the `d-*` identifier that was generated when you created your directory and the name of the role that you created. 
 
-    If you modify an existing MySQL DB instance to use Kerberos authentication, set the domain and IAM role parameters for the DB instance. Locate the DB instance in the same VPC as the domain directory. 
+    If you modify an existing MySQL DB instance to use Active Directory authentication, set the domain and IAM role parameters for the DB instance. Locate the DB instance in the same VPC as the domain directory. 
 
-1.  Use the Amazon RDS master user credentials to connect to the MySQL DB instance. Create the user in MySQL using the `CREATE USER` clause `IDENTIFIED WITH 'auth_pam'`. Users that you create this way can log in to the MySQL DB instance using Kerberos authentication. 
+1.  Use the Amazon RDS master user credentials to connect to the MySQL DB instance. Create the user in MySQL using the `CREATE USER` clause `IDENTIFIED WITH 'auth_pam'`. Users that you create this way can log in to the MySQL DB instance using Active Directory authentication. 
 
-## Setting up Kerberos authentication for MySQL DB instances
-<a name="mysql-kerberos-setting-up"></a>
+## Setting up Active Directory authentication for MySQL DB instances
+<a name="mysql-ad-authentication-setting-up"></a>
 
- You use AWS Managed Microsoft AD to set up Kerberos authentication for a MySQL DB instance. To set up Kerberos authentication, you take the following steps. 
+ You use AWS Managed Microsoft AD to set up Active Directory authentication for a MySQL DB instance. To set up Active Directory authentication, you take the following steps. 
 
 ### Step 1: Create a directory using AWS Managed Microsoft AD
-<a name="mysql-kerberos-setting-up.create-directory"></a>
+<a name="mysql-ad-authentication-setting-up.create-directory"></a>
 
  Directory Service creates a fully managed Active Directory in the AWS Cloud. When you create an AWS Managed Microsoft AD directory, Directory Service creates two domain controllers and Domain Name System (DNS) servers on your behalf. The directory servers are created in different subnets in a VPC. This redundancy helps make sure that your directory remains accessible even if a failure occurs. 
 
@@ -107,7 +107,7 @@ Feature availability and support varies across specific versions of each databas
 
 
 ### Step 2: Create the IAM role for use by Amazon RDS
-<a name="mysql-kerberos-setting-up.CreateIAMRole"></a>
+<a name="mysql-ad-authentication-setting-up.CreateIAMRole"></a>
 
 For Amazon RDS to call Directory Service for you, an IAM role that uses the managed IAM policy `AmazonRDSDirectoryServiceAccess` is required. This role allows Amazon RDS to make calls to the Directory Service.
 
@@ -214,14 +214,14 @@ For AWS Regions launched after Israel (Tel Aviv), starting with Canada West (Cal
 ```
 
 ### Step 3: Create and configure users
-<a name="mysql-kerberos-setting-up.create-users"></a>
+<a name="mysql-ad-authentication-setting-up.create-users"></a>
 
  You can create users with the Active Directory Users and Computers tool. This tool is part of the Active Directory Domain Services and Active Directory Lightweight Directory Services tools. Users represent individual people or entities that have access to your directory. 
 
  To create users in an Directory Service directory, you must be connected to an Amazon EC2 instance based on Microsoft Windows. This instance must be a member of the Directory Service directory and be logged in as a user that has privileges to create users. For more information, see [Manage users and groups in AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/creating_ad_users_and_groups.html) in the *AWS Directory Service Administration Guide*. 
 
 ### Step 4: Create or modify a MySQL DB instance
-<a name="mysql-kerberos-setting-up.create-modify"></a>
+<a name="mysql-ad-authentication-setting-up.create-modify"></a>
 
 Create or modify a MySQL DB instance for use with your directory. You can use the console, CLI, or RDS API to associate a DB instance with a directory. You can do this in one of the following ways:
 + Create a new MySQL DB instance using the console, the [ create-db-instance](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) CLI command, or the [CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) RDS API operation.
@@ -237,7 +237,7 @@ Create or modify a MySQL DB instance for use with your directory. You can use th
 
   For instructions, see [Restoring a DB instance to a specified time for Amazon RDS](USER_PIT.md).
 
-Kerberos authentication is only supported for MySQL DB instances in a VPC. The DB instance can be in the same VPC as the directory, or in a different VPC. The DB instance must use a security group that allows egress within the directory's VPC so the DB instance can communicate with the directory.
+Active Directory authentication is only supported for MySQL DB instances in a VPC. The DB instance can be in the same VPC as the directory, or in a different VPC. The DB instance must use a security group that allows egress within the directory's VPC so the DB instance can communicate with the directory.
 
 When you use the console to create, modify, or restore a DB instance, choose **Password and Kerberos authentication** in the **Database authentication** section. Choose **Browse Directory** and then select the directory, or choose **Create a new directory**.
 
@@ -269,10 +269,10 @@ aws rds modify-db-instance ^
 ```
 
 **Important**  
-If you modify a DB instance to enable Kerberos authentication, reboot the DB instance after making the change.
+If you modify a DB instance to enable Active Directory authentication, reboot the DB instance after making the change.
 
-### Step 5: Create Kerberos authentication MySQL logins
-<a name="mysql-kerberos-setting-up.create-logins"></a>
+### Step 5: Create Active Directory authentication MySQL logins
+<a name="mysql-ad-authentication-setting-up.create-logins"></a>
 
  Use the Amazon RDS master user credentials to connect to the MySQL DB instance as you do any other DB instance. The DB instance is joined to the AWS Managed Microsoft AD domain. Thus, you can provision MySQL logins and users from the Active Directory users in your domain. Database permissions are managed through standard MySQL permissions that are granted to and revoked from these logins. 
 
@@ -282,7 +282,7 @@ If you modify a DB instance to enable Kerberos authentication, reboot the DB ins
 CREATE USER '{{testuser}}'@'%' IDENTIFIED WITH 'auth_pam';
 ```
 
- Users (both humans and applications) from your domain can now connect to the DB instance from a domain joined client machine using Kerberos authentication. 
+ Users (both humans and applications) from your domain can now connect to the DB instance from a domain joined client machine using Active Directory authentication. 
 
 **Important**  
 We strongly recommended that clients use SSL/TLS connections when using PAM authentication. If they don't use SSL/TLS connections, the password might be sent as clear text in some cases. To require an SSL/TLS encrypted connection for your AD user, run the following command and replace `{{testuser}}` with the user name:  
@@ -293,60 +293,61 @@ ALTER USER '{{testuser}}'@'%' REQUIRE SSL;
 For more information, see [SSL/TLS support for MySQL DB instances on Amazon RDS](MySQL.Concepts.SSLSupport.md).
 
 ## Managing a DB instance in a domain
-<a name="mysql-kerberos-managing"></a>
+<a name="mysql-ad-authentication-managing"></a>
 
- You can use the CLI or the RDS API to manage your DB instance and its relationship with your managed Active Directory. For example, you can associate an Active Directory for Kerberos authentication and disassociate an Active Directory to disable Kerberos authentication. You can also move a DB instance to be externally authenticated by one Active Directory to another. 
+ You can use the CLI or the RDS API to manage your DB instance and its relationship with your managed Active Directory. For example, you can associate a directory to enable Active Directory authentication. You can also disassociate a directory to disable it, or move a DB instance to be externally authenticated by one Active Directory to another. 
 
  For example, using the Amazon RDS API, you can do the following: 
-+  To reattempt enabling Kerberos authentication for a failed membership, use the `ModifyDBInstance` API operation and specify the current membership's directory ID. 
++  To reattempt enabling Active Directory authentication for a failed membership, use the `ModifyDBInstance` API operation and specify the current membership's directory ID. 
 +  To update the IAM role name for membership, use the `ModifyDBInstance` API operation and specify the current membership's directory ID and the new IAM role. 
-+  To disable Kerberos authentication on a DB instance, use the `ModifyDBInstance` API operation and specify `none` as the domain parameter. 
++  To disable Active Directory authentication on a DB instance, use the `ModifyDBInstance` API operation and specify `none` as the domain parameter. 
 +  To move a DB instance from one domain to another, use the `ModifyDBInstance` API operation and specify the domain identifier of the new domain as the domain parameter. 
 +  To list membership for each DB instance, use the `DescribeDBInstances` API operation. 
 
 ### Understanding domain membership
-<a name="mysql-kerberos-managing.understanding"></a>
+<a name="mysql-ad-authentication-managing.understanding"></a>
 
- After you create or modify your DB instance, it becomes a member of the domain. You can view the status of the domain membership for the DB instance by running the [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) CLI command. The status of the DB instance can be one of the following: 
-+  `kerberos-enabled` – The DB instance has Kerberos authentication enabled. 
-+  `enabling-kerberos` – AWS is in the process of enabling Kerberos authentication on this DB instance. 
-+  `pending-enable-kerberos` – The enabling of Kerberos authentication is pending on this DB instance. 
-+  `pending-maintenance-enable-kerberos` – AWS will attempt to enable Kerberos authentication on the DB instance during the next scheduled maintenance window. 
-+  `pending-disable-kerberos` – The disabling of Kerberos authentication is pending on this DB instance. 
-+  `pending-maintenance-disable-kerberos` – AWS will attempt to disable Kerberos authentication on the DB instance during the next scheduled maintenance window. 
-+  `enable-kerberos-failed` – A configuration problem has prevented AWS from enabling Kerberos authentication on the DB instance. Check and fix your configuration before reissuing the DB instance modify command. 
-+  `disabling-kerberos` – AWS is in the process of disabling Kerberos authentication on this DB instance. 
+ After you create or modify your DB instance, it becomes a member of the domain. You can view the status of the domain membership for the DB instance by running the [describe-db-instances](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-instances.html) CLI command. The status values use `kerberos` in their names for API consistency across engines, but for RDS for MySQL they describe the state of Active Directory authentication. The status of the DB instance can be one of the following: 
++  `kerberos-enabled` – The DB instance has Active Directory authentication enabled. 
++  `enabling-kerberos` – AWS is in the process of enabling Active Directory authentication on this DB instance. 
++  `pending-enable-kerberos` – The enabling of Active Directory authentication is pending on this DB instance. 
++  `pending-maintenance-enable-kerberos` – AWS will attempt to enable Active Directory authentication on the DB instance during the next scheduled maintenance window. 
++  `pending-disable-kerberos` – The disabling of Active Directory authentication is pending on this DB instance. 
++  `pending-maintenance-disable-kerberos` – AWS will attempt to disable Active Directory authentication on the DB instance during the next scheduled maintenance window. 
++  `enable-kerberos-failed` – A configuration problem has prevented AWS from enabling Active Directory authentication on the DB instance. Check and fix your configuration before reissuing the DB instance modify command. 
++  `disabling-kerberos` – AWS is in the process of disabling Active Directory authentication on this DB instance. 
 
- A request to enable Kerberos authentication can fail because of a network connectivity issue or an incorrect IAM role. For example, suppose that you create a DB instance or modify an existing DB instance and the attempt to enable Kerberos authentication fails. If this happens, re-issue the modify command or modify the newly created DB instance to join the domain. 
+ A request to enable Active Directory authentication can fail because of a network connectivity issue or an incorrect IAM role. For example, suppose that you create a DB instance or modify an existing DB instance and the attempt to enable Active Directory authentication fails. If this happens, re-issue the modify command or modify the newly created DB instance to join the domain. 
 
-## Connecting to MySQL with Kerberos authentication
-<a name="mysql-kerberos-connecting"></a>
+## Connecting to MySQL with Active Directory authentication
+<a name="mysql-ad-authentication-connecting"></a>
 
- To connect to MySQL with Kerberos authentication, you must log in using the Kerberos authentication type. 
+ To connect to MySQL with Active Directory authentication, enter your Active Directory user name and password when the `mysql` client prompts for them. The client sends the password to the DB instance, which verifies it against your Active Directory domain. 
 
- To create a database user that you can connect to using Kerberos authentication, use an `IDENTIFIED WITH` clause on the `CREATE USER` statement. For instructions, see [Step 5: Create Kerberos authentication MySQL logins](#mysql-kerberos-setting-up.create-logins). 
+ To create a database user that you can connect to using Active Directory authentication, use an `IDENTIFIED WITH` clause on the `CREATE USER` statement. For instructions, see [Step 5: Create Active Directory authentication MySQL logins](#mysql-ad-authentication-setting-up.create-logins). 
 
 To avoid errors, use the MariaDB `mysql` client. You can download MariaDB software at [https://downloads.mariadb.org/](https://downloads.mariadb.org/).
 
-At a command prompt, connect to one of the endpoints associated with your MySQL DB instance. Follow the general procedures in [Connecting to your MySQL DB instance](USER_ConnectToInstance.md). When you're prompted for the password, enter the Kerberos password associated with that user name.
+At a command prompt, connect to one of the endpoints associated with your MySQL DB instance. Follow the general procedures in [Connecting to your MySQL DB instance](USER_ConnectToInstance.md). When you're prompted for the password, enter the Active Directory password associated with that user name. The MySQL client sends this password to the DB instance, which verifies it against your Active Directory domain.
 
 ## Restoring a MySQL DB instance and adding it to a domain
-<a name="mysql-kerberos-restoring"></a>
+<a name="mysql-ad-authentication-restoring"></a>
 
- You can restore a DB snapshot or complete a point-in-time restore for a MySQL DB instance and then add it to a domain. After the DB instance is restored, modify the DB instance using the process explained in [Step 4: Create or modify a MySQL DB instance](#mysql-kerberos-setting-up.create-modify) to add the DB instance to a domain. 
+ You can restore a DB snapshot or complete a point-in-time restore for a MySQL DB instance and then add it to a domain. After the DB instance is restored, modify the DB instance using the process explained in [Step 4: Create or modify a MySQL DB instance](#mysql-ad-authentication-setting-up.create-modify) to add the DB instance to a domain. 
 
-## Kerberos authentication MySQL limitations
-<a name="mysql-kerberos.limitations"></a>
+## Active Directory authentication limitations for Amazon RDS for MySQL
+<a name="mysql-ad-authentication.limitations"></a>
 
- The following limitations apply to Kerberos authentication for MySQL: 
+ The following limitations apply to Active Directory authentication for MySQL: 
++ To use credentials from a self-managed Active Directory, you must set up a trust relationship between your self-managed Active Directory and an AWS Managed Microsoft AD directory.
 + Only an AWS Managed Microsoft AD is supported. However, you can join RDS for MySQL DB instances to shared Managed Microsoft AD domains owned by different accounts in the same AWS Region.
 +  You must reboot the DB instance after enabling the feature. 
 +  The domain name length can't be longer than 61 characters. 
-+  You can't enable Kerberos authentication and IAM authentication at the same time. Choose one authentication method or the other for your MySQL DB instance. 
++  You can't enable Active Directory authentication and IAM authentication at the same time. Choose one authentication method or the other for your MySQL DB instance. 
 +  Don't modify the DB instance port after enabling the feature. 
-+  Don't use Kerberos authentication with read replicas.
-+ If you have auto minor version upgrade turned on for a MySQL DB instance that is using Kerberos authentication, you must turn off Kerberos authentication and then turn it back on after an automatic upgrade. For more information about auto minor version upgrades, see [Automatic minor version upgrades for RDS for MySQL](USER_UpgradeDBInstance.MySQL.Minor.md).
++  Don't use Active Directory authentication with read replicas.
++ If you have auto minor version upgrade turned on for a MySQL DB instance that is using Active Directory authentication, you must turn off Active Directory authentication and then turn it back on after an automatic upgrade. For more information about auto minor version upgrades, see [Automatic minor version upgrades for RDS for MySQL](USER_UpgradeDBInstance.MySQL.Minor.md).
 +  To delete a DB instance with this feature enabled, first disable the feature. To do so, run the `modify-db-instance` CLI command for the DB instance and specify `none` for the `--domain` parameter. 
 
    If you use the CLI or RDS API to delete a DB instance with this feature enabled, expect a delay. 
-+ RDS for MySQL doesn't support Kerberos authentication across a forest trust between your on-premise or self-hosted AD and the AWS Managed Microsoft AD. 
++ RDS for MySQL doesn't support Active Directory authentication across a forest trust between your on-premise or self-hosted AD and the AWS Managed Microsoft AD. 

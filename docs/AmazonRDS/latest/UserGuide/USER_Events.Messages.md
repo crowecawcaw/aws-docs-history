@@ -282,6 +282,14 @@ The following table shows the event category and a list of events when a DB inst
 | maintenance | RDS-EVENT-0502 | Amazon RDS has scheduled a server certificate rotation for DB instance during the next maintenance window. This maintenance will require a database reboot. | None | 
 | notification | RDS-EVENT-0610 | The log file {{log\_name}} will be deleted since it is past the log retention period and may not be uploaded to CloudWatch Logs. | None | 
 | notification | RDS-EVENT-0611 | Due to storage space constraints, the log file {{log\_name}} will be deleted and will not be uploaded to CloudWatch Logs. | None | 
+| notification | RDS-EVENT-0516 | The capacity reservation {{name}} is expired or cancelled and can't be used. Amazon RDS is continuing the DB instance class modification without a capacity reservation. | None | 
+| notification | RDS-EVENT-0520 | The capacity reservation {{name}} expired or was cancelled and can't be used. Amazon RDS is continuing the Multi-AZ conversion without a capacity reservation. | None | 
+| notification | RDS-EVENT-0544 | Amazon RDS is relocating the DB instance to capacity reservation {{name}}. A brief downtime is expected. | None | 
+| notification | RDS-EVENT-0545 | The DB instance has been relocated to capacity reservation {{name}}. | None | 
+| notification | RDS-EVENT-0636 | The capacity reservation {{name}} is expired or cancelled and can't be used. Amazon RDS is continuing the license model modification without a capacity reservation. | None | 
+| notification | RDS-EVENT-0637 | The capacity reservation {{name}} is expired or cancelled and can't be used. Amazon RDS is continuing the conversion to a CDB (multitenant) DB instance without a capacity reservation. | None | 
+| notification | RDS-EVENT-0638 | The DB instance was converted to a CDB (multitenant) architecture without a capacity reservation, so it is no longer covered by capacity reservation {{name}}. To keep capacity coverage, create a CDB-engine capacity reservation and supply it when converting. | None | 
+| notification | RDS-EVENT-0639 | The capacity reservation {{name}} is expired or cancelled and can't be used. Amazon RDS is continuing to start the DB instance without a capacity reservation. | None | 
 
 ## DB parameter group events
 <a name="USER_Events.Messages.parameter-group"></a>

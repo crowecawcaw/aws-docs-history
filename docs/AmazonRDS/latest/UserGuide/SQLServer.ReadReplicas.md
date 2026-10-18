@@ -24,6 +24,17 @@ For a read replica to receive and apply changes from the source, it should have 
 
 For more information about how to create a read replica, see [Creating a read replica](USER_ReadRepl.Create.md).
 
+## Backing up SQL Server read replicas
+<a name="SQLServer.ReadReplicas.Backups"></a>
+
+With Amazon RDS for SQL Server, you can back up read replicas independently of their source DB instance in the following ways:
++ **Automated backups** – To enable automated backups on a read replica, modify the read replica and set its backup retention period to a value other than 0. For more information, see [Backup retention period](USER_WorkingWithAutomatedBackups.BackupRetention.md).
++ **Manual snapshots** – You can take manual DB snapshots of a read replica, and restore a new DB instance from a read replica snapshot in the same way as from any other DB snapshot.
++ **Retained automated backups** – When you delete a read replica, you can retain its automated backups.
+
+**Note**  
+Point-in-time recovery (PITR) from a read replica isn't supported. To restore, use a manual snapshot or an automated backup snapshot of the read replica.
+
 ## Read replica limitations with SQL Server
 <a name="SQLServer.ReadReplicas.Limitations"></a>
 
@@ -39,9 +50,7 @@ The following limitations apply to SQL Server read replicas on Amazon RDS:
   If the source DB instance uses a KMS key to encrypt data, read replicas in the same region use the same KMS key. For cross-region read replicas, you must specify a KMS key from the read replica’s region when creating the read replica. You can't change the KMS key for a read replica.
 + Read replicas have the same time zone and collation as the source DB instance, regardless of Availabilty Zone they're created in.
 + The following aren't supported on Amazon RDS for SQL Server:
-  + Backup retention of read replicas
   + Point-in-time recovery from read replicas
-  + Manual snapshots of read replicas
   + Multi-AZ read replicas
   + Creating read replicas of read replicas
   + Synchronization of user logins to read replicas

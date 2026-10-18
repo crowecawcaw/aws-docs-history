@@ -18,7 +18,7 @@ The following limitations apply to active-active clusters for RDS for MySQL:
 + The master user name can't be `rdsgrprepladmin` for DB instances in an active-active cluster. This user name is reserved for Group Replication connections.
 + For DB instances with read replicas in active-active clusters, a prolonged replication status other than `Replicating` can cause log files to exceed storage limits. For information about the status of read replicas, see [Monitoring read replication](USER_ReadRepl.Monitoring.md).
 + Blue/green deployments aren't supported for DB instances in an active-active cluster. For more information, see [Using Amazon RDS Blue/Green Deployments for database updates](blue-green-deployments.md).
-+ Kerberos authentication isn't supported for DB instances in an active-active cluster. For more information, see [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md).
++ Active Directory authentication isn't supported for DB instances in an active-active cluster. For more information, see [Using Active Directory authentication for Amazon RDS for MySQL](mysql-ad-authentication.md).
 + The DB instances in a Multi-AZ DB cluster can't be added to an active-active cluster. However, the DB instances in a Multi-AZ DB instance deployment can be added to an active-active cluster. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md).
 + Tables that don't have a primary key aren't replicated in an active-active cluster because writes are rejected by the Group Replication plugin.
 + Non-InnoDB tables aren't replicated in an active-active cluster.

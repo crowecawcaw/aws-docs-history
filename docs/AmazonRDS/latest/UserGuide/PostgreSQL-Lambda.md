@@ -45,6 +45,11 @@ Lambda functions always run inside an Amazon VPC that's owned by the AWS Lambda 
 
 Your VPC can now interact with the AWS Lambda VPC at the network level. Next, you configure the permissions using IAM. 
 
+**DNS resolution conflicts with Kerberos authentication and Lambda VPC endpoints**  
+Lambda invocations from your DB instance may fail if you enable Kerberos authentication and configure Lambda VPC endpoints in your AWS Managed Microsoft AD VPC.  
+When you enable Kerberos authentication, your DB instance prioritizes AWS Managed Microsoft AD DNS servers over the VPC DNS resolver. If Lambda endpoint records exist in your AWS Managed Microsoft AD DNS, the endpoints may resolve to IP addresses in your Active Directory VPC rather than your database VPC. This configuration prevents successful Lambda invocations.  
+For more information, see [Using Kerberos authentication with Amazon RDS for PostgreSQL](postgresql-kerberos.md).
+
 ## Step 2: Configure IAM for your RDS for PostgreSQL DB instance and AWS Lambda
 <a name="PostgreSQL-Lambda-access"></a>
 

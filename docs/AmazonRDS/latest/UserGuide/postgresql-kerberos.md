@@ -22,6 +22,7 @@ RDS for PostgreSQL doesn't support Kerberos authentication for Active Directory 
 + [Setting up Kerberos authentication for PostgreSQL DB instances](postgresql-kerberos-setting-up.md)
 + [Managing an RDS for PostgreSQL DB instance in an Active Directory domain](postgresql-kerberos-managing.md)
 + [Connecting to PostgreSQL with Kerberos authentication](postgresql-kerberos-connecting.md)
++ [Considerations when using Kerberos authentication](#postgresql-kerberos-considerations)
 
 ## Region and version availability
 <a name="postgresql-kerberos.RegionVersionAvailability"></a>
@@ -55,3 +56,15 @@ To set up Kerberos authentication for a PostgreSQL DB instance, take the followi
    + Ensure that the DB instance security group can receive inbound traffic from the directory security group.
 
 1. Use the RDS master user credentials to connect to the PostgreSQL DB instance. Create the user in PostgreSQL to be identified externally. Externally identified users can log in to the PostgreSQL DB instance using Kerberos authentication.
+
+## Considerations when using Kerberos authentication
+<a name="postgresql-kerberos-considerations"></a>
+
+The following considerations apply when using Kerberos authentication with your DB instance:
++ **DNS resolution with Kerberos authentication when using AWS service integration**
+
+  Enabling Kerberos authentication on your DB instance changes DNS resolution behavior, which can affect integration with AWS services such as Lambda.
+
+  When you enable Kerberos authentication, your DB instance prioritizes AWS Managed Microsoft AD DNS servers over Amazon DNS resolvers. If your AWS Managed Microsoft AD DNS contains endpoint records for AWS services (such as Lambda VPC endpoints), your database may resolve these services to IP addresses in your Active Directory VPC rather than your database VPC. This configuration prevents successful connections from your DB instance to these AWS services.
+**Note**  
+This limitation applies only if you have AWS service VPC endpoints configured in your AWS Managed Microsoft AD VPC.

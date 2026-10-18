@@ -5,7 +5,7 @@
 
  Amazon RDS supports several ways to authenticate database users.
 
-Password, Kerberos, and IAM database authentication use different methods of authenticating to the database. Therefore, a specific user can log in to a database using only one authentication method. 
+Password, Kerberos, Active Directory, and IAM database authentication use different methods of authenticating to the database. Therefore, a specific user can log in to a database using only one authentication method. 
 
 For PostgreSQL, use only one of the following role settings for a user of a specific database: 
 + To use IAM database authentication, assign the `rds_iam` role to the user.
@@ -21,6 +21,7 @@ We strongly recommend that you do not use the master user directly in your appli
 + [Password authentication](#password-authentication)
 + [IAM database authentication](#iam-database-authentication)
 + [Kerberos authentication](#kerberos-authentication)
++ [Active Directory authentication for RDS for MySQL](#database-authentication-ad-mysql)
 
 ## Password authentication
 <a name="password-authentication"></a>
@@ -51,14 +52,25 @@ To use credentials from your self-managed Active Directory, you need to setup a 
 
 In some scenarios, you can configure Kerberos authentication over an external trust relationship. This requires your self-managed Active Directory to have additional settings. This includes but is not limited to [ Kerberos Forest Search Order](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/kfso-not-work-in-external-trust-event-is-17). 
 
-Microsoft SQL Server and PostgreSQL DB instances support one-way and two-way forest trust relationships. Oracle DB instances support one-way and two-way external and forest trust relationships. For more information, see [When to create a trust relationship](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/setup_trust.html) in the *Directory Service Administration Guide*. 
+Microsoft SQL Server and PostgreSQL DB instances support one-way and two-way forest trust relationships. Oracle DB instances support one-way and two-way external and forest trust relationships. For more information, see [When to create a trust relationship](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_setup_trust.html) in the *Directory Service Administration Guide*. 
 
 For information about Kerberos authentication with a specific DB engine, see the following:
 +  [Working with AWS Managed Active Directory with RDS for SQL Server](USER_SQLServerWinAuth.md) 
-+  [Using Kerberos authentication for Amazon RDS for MySQL](mysql-kerberos.md) 
 +  [Configuring Kerberos authentication for Amazon RDS for Oracle](oracle-kerberos.md) 
 +  [Using Kerberos authentication with Amazon RDS for PostgreSQL](postgresql-kerberos.md) 
 +  [Working with AWS Managed Active Directory with RDS for Db2](db2-managed-active-directory.md) .
 
 **Note**  
 Currently, Kerberos authentication isn't supported for MariaDB DB instances.
+
+## Active Directory authentication for RDS for MySQL
+<a name="database-authentication-ad-mysql"></a>
+
+RDS for MySQL supports external authentication of database users using Microsoft Active Directory. This enables centralized credential management. You can keep your user credentials in Active Directory instead of managing them separately in the database. Use Active Directory authentication when you already manage users centrally in Active Directory and want to avoid maintaining separate database credentials.
+
+RDS for MySQL uses password-based Active Directory authentication through PAM (Pluggable Authentication Modules). When a user connects, the MySQL client prompts for the user's AD password. The client then sends the password to the DB instance. The DB instance verifies the password against your Active Directory domain.
+
+**Important**  
+We strongly recommend requiring SSL/TLS encrypted connections for all Active Directory-authenticated connections to protect the password in transit. For instructions, see [Encrypting client connections with SSL/TLS to MySQL DB instances on Amazon RDS](mysql-ssl-connections.md).
+
+For instructions on setting up Active Directory authentication, including the trust relationships required to use credentials from a self-managed Active Directory, see [Using Active Directory authentication for Amazon RDS for MySQL](mysql-ad-authentication.md).
