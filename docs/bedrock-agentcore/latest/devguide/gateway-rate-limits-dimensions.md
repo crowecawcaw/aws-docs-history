@@ -17,6 +17,37 @@ Dimension keys determine how the gateway groups traffic into rate limit buckets.
 |  `$.context.jwt.<claim>`  | A claim extracted from the caller’s JWT token. Replace `<claim>` with the claim name (for example, `$.context.jwt.sub`, `$.context.jwt.team`). |  `user-123`  | 
 |  `$.context.iam.principal`  | The IAM principal ARN of the caller. |  `arn:aws:iam::123456789012:role/MyRole`  | 
 |  `$.context.iam.sourceIdentity`  | The source identity set by the caller when assuming a role. |  `developer@example.com`  | 
+|  `$.context.request.header.<name>`  | The value of a caller-supplied request header. Replace `<name>` with the header name (for example, `$.context.request.header.X-Customer-Id`). Header name matching is case-insensitive. Requires a trusted identity co-dimension in the same rate limit — see [Custom request header and body dimensions](#gateway-rate-limits-dimensions-custom-context). |  `premium`  | 
+|  `$.context.request.body.<path>`  | The value of a field in the JSON request body, addressed by a simple dotted path. Replace `<path>` with the dotted field path (for example, `$.context.request.body.metadata.tier`). Requires a trusted identity co-dimension in the same rate limit — see [Custom request header and body dimensions](#gateway-rate-limits-dimensions-custom-context). |  `batch`  | 
+
+## Custom request header and body dimensions
+<a name="gateway-rate-limits-dimensions-custom-context"></a>
+
+The `$.context.request.header.<name>` dimension groups traffic by a caller-supplied request header. The `$.context.request.body.<path>` dimension groups traffic by a field in the JSON request body. For example, you can rate limit by a tenant tier passed in an `X-Customer-Id` header, or by a `workload_type` field in the request body.
+
+### Required identity co-dimension
+<a name="gateway-rate-limits-dimensions-custom-context-codimension"></a>
+
+Because the caller supplies the header or body value, a custom request header or body dimension cannot be used on its own. Each rate limit that uses one of these dimensions must also include a trusted identity co-dimension in the same rate limit, so that each bucket is scoped to an authenticated identity:
++ For a gateway with IAM (SigV4) inbound authentication, include an `$.context.iam.*` dimension (for example, `$.context.iam.principal`).
++ For a gateway with OAuth (JWT) inbound authentication, include a `$.context.jwt.<claim>` dimension (for example, `$.context.jwt.sub`).
+
+The gateway rejects a rate limit that specifies a custom request header or body dimension without a matching identity co-dimension, returning a `ValidationException` at creation. A gateway’s inbound authentication must be bindable to an IAM or JWT identity to use these dimensions. For example, a gateway configured with no inbound authentication cannot use custom request header or body dimensions.
+
+**Note**  
+The identity co-dimension can appear in any position in `dimensionKeys` relative to the header or body dimension; it only has to be present in the same rate limit.
+
+### Selector syntax and value constraints
+<a name="gateway-rate-limits-dimensions-custom-context-syntax"></a>
+
+Custom request header and body selectors use a fixed field-pointer grammar — JSONPath operators (such as filters, wildcards, or array slices) are not supported:
++ A header selector is `$.context.request.header.<name>`, where `<name>` is a single HTTP header name.
++ A body selector is `$.context.request.body.<path>`, where `<path>` is a dotted path of object field names (for example, `metadata.customer.tier`). Each segment addresses a nested JSON object field; the final segment must resolve to a scalar (string, number, or boolean) value.
++ A selector can be at most 128 characters.
+
+At runtime, the gateway resolves the value and applies the following rules before using it as a bucket key:
++ Leading and trailing whitespace is removed. Values are case-sensitive and are otherwise used exactly as supplied (for example, `gold` and `Gold` are distinct values).
++ A resolved value can be at most 256 characters and must not contain `/`, `|`, `,`, the `*` character, or control characters. A value that violates these rules causes the dimension to be skipped for that request (see [Dimension resolution behavior](#gateway-rate-limits-dimensions-resolution)).
 
 ## The default value (`*`)
 <a name="gateway-rate-limits-dimensions-default-value"></a>
@@ -65,6 +96,7 @@ Use specific entries for known high-value or restricted entities, and `*` entrie
 
 When the gateway evaluates a rate limit, it resolves each dimension key from the request context:
 + If a dimension key cannot be resolved from the request (for example, `toolName` on a non-tool request, or a JWT claim that does not exist), the gateway skips that rate limit entirely. The request is not throttled by that rate limit.
++ A custom request header or body dimension is skipped the same way when the value cannot be resolved to a usable value. This happens when the header is absent, the request body is not valid JSON, the dotted path does not exist or does not resolve to a scalar, or the resolved value violates the value constraints (see [Selector syntax and value constraints](#gateway-rate-limits-dimensions-custom-context-syntax)).
 + Only validated context is used for resolution. JWT claims are extracted from tokens that have been validated by the gateway’s authentication configuration. IAM context is available only for SigV4-authenticated requests.
 
 ## Shared vs individual limits
@@ -82,4 +114,4 @@ The combination of dimension keys and entry values determines whether traffic sh
 |  `["targetName", "$.context.jwt.sub"]`  |  `{"targetName": "*", "$.context.jwt.sub": "*"}`  | Each unique target-and-caller combination gets its own bucket. | 
 
 **Warning**  
-Avoid using high-cardinality or unbounded JWT claims as dimension keys (for example, `$.context.jwt.jti`, `$.context.jwt.nonce`, or request IDs). These create an unbounded number of rate buckets, which might reduce the effectiveness of rate limiting. Use stable, bounded identifiers such as `sub`, `team`, or `tier` instead.
+Avoid using high-cardinality or unbounded dimension values as dimension keys — for example JWT claims such as `$.context.jwt.jti` or `$.context.jwt.nonce`, or custom request header/body selectors that carry per-request-unique values such as a request ID, trace ID, or UUID (for example, `$.context.request.header.X-Request-Id`). These create an unbounded number of rate buckets, which might reduce the effectiveness of rate limiting. Use stable, bounded identifiers such as `sub`, `team`, or `tier` instead.

@@ -14,7 +14,7 @@ You can use these evaluators with on-demand, batch, and online evaluations. For 
 
 The Skill selection accuracy evaluator (`Builtin.SkillSelectionAccuracy`) judges whether the skill the agent loaded fits the task, given the catalog of available skills. It returns `Yes` (1.0) or `No` (0.0).
 
-Placeholders the evaluator uses:
+The evaluator uses the following placeholders:
 +  `invoked_skill` – The name of the skill the agent loaded in this tool call.
 +  `available_skills` – The catalog of skills the agent could choose from at runtime. Not every framework exposes a catalog. When the catalog is not in the trace, this placeholder is empty and the evaluator judges the invoked skill against the user request and the conversation context alone.
 +  `user_message` – The user request in the turn that triggered the skill invocation.
@@ -27,7 +27,7 @@ The evaluator runs whenever AgentCore Evaluations detects a skill invocation. It
 
 The Skill instruction following evaluator (`Builtin.SkillInstructionFollowing`) judges how fully the agent followed the loaded skill’s prescribed steps. It returns `Fully Followed` (1.0), `Mostly Followed` (0.75), `Partially Followed` (0.5), `Minimally Followed` (0.25), or `Not Followed` (0.0).
 
-Placeholders the evaluator uses:
+The evaluator uses the following placeholders:
 +  `invoked_skill` – The name of the skill the agent loaded in this tool call.
 +  `skill_content` – The full body of the loaded skill’s `SKILL.md` instructions.
 +  `context` – The **full session context** — every turn from session start through session end. Because the agent may carry out prescribed steps at any point after loading the skill, the judge needs the entire session, not just the turns up to the tool call.

@@ -30,10 +30,10 @@ The **Create gateway** wizard creates both the gateway and its target in the sam
 
  **To add a Memory connector target (console)** 
 
-![The Add targets step of the Create gateway wizard](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-connector-target-console.png)
-
-
 1. Under **Add targets**, for **Select a target protocol**, choose **Custom target**.
+
+   The following image shows the **Add targets** step of the **Create gateway** wizard. **Custom target** is selected as the target protocol, and **Target type** is set to **Memory resource**.  
+![Add targets step with Custom target selected.](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/images/memory-connector-target-console.png)
 
 1. For **Target name**, enter a name for the target. This name becomes the prefix of every Cedar action ID for the target, so choose a name you are comfortable referencing in access-control policies.
 

@@ -12,8 +12,9 @@ Before using Policy in Amazon Bedrock AgentCore, it’s important to understand 
 + [Cedar](#concept-cedar)
 + [Cedar Policy](#concept-cedar-policy)
 + [Dogwood](#concept-dogwood)
++ [Choosing between Cedar and Dogwood](#concept-choosing-language)
 + [Temporal policies](#concept-temporal-policy)
-+ [Guardrails](#concept-guardrails)
++ [Guardrails in policies](#concept-guardrails)
 + [Policy session](#concept-policy-session)
 + [Policy engine](#concept-policy-engine)
 + [Cedar Schema](#concept-cedar-schema)
@@ -53,15 +54,28 @@ A Cedar policy is a declarative statement that permits or forbids access to gate
 
  [Dogwood](https://dogwood-policy.github.io/dogwood/index.html) is an open-source policy language on the Dogwood Policy website that is compatible with Cedar: every valid Cedar policy is also a valid Dogwood policy, so your existing Cedar policies work unchanged. Beyond the point-in-time conditions you can already express, Dogwood also supports session-aware *temporal* conditions and *information providers*, such as Guardrails, that supply computed signals to a policy. Dogwood policies are evaluated against a policy session that groups related requests.
 
+## Choosing between Cedar and Dogwood
+<a name="concept-choosing-language"></a>
+
+ **Write Dogwood.** Dogwood is a superset of Cedar: every valid Cedar policy is also a valid Dogwood policy, and Dogwood adds the condition blocks that guardrail and temporal rules need. Writing Dogwood means you never have to migrate a policy when a rule outgrows the current request.
++ A rule decided from **the request in front of you** — who the principal is, which action they are calling, and the input values of that call — needs only Cedar-compatible syntax.
++ A rule that needs **something the request does not contain** needs a Dogwood condition block: a signal computed at evaluation time, which is a [guardrail](#concept-guardrails), or the history of what has already happened in the session, which is a [temporal policy](#concept-temporal-policy).
+
+Both Dogwood condition blocks are written into ordinary `permit` and `forbid` rules — `when guardrails { …​ }` or `when temporal { …​ }` — so adopting them is additive rather than a rewrite. A policy can carry input conditions, a guardrail signal, and session history at once.
+
+Existing Cedar policies continue to be supported.
+
 ## Temporal policies
 <a name="concept-temporal-policy"></a>
 
 Most Cedar policies are stateless: each request is evaluated on its own. A *temporal policy* adds conditions that depend on what happened earlier in the same session, such as requiring a prior approval, limiting how often an action runs, or keeping a running total under a threshold. Temporal policies are written in Dogwood, which is compatible with Cedar, and are evaluated against a policy session that groups related requests. For more information, see [Temporal policies](policy-temporal.md).
 
-## Guardrails
+## Guardrails in policies
 <a name="concept-guardrails"></a>
 
-Guardrails are information providers that a Dogwood policy can consult inline. At evaluation time, a guardrail computes a content-safety signal for the request — such as a content-filter, prompt-attack, or sensitive-information score — and the policy permits or forbids the action based on that result. For more information, see [Guardrails in policies](policy-guardrails-in-policies.md).
+A *guardrail* is a content-safety check that runs at evaluation time. Before the authorization decision, Policy in AgentCore calls the guardrail with the content that your data path selects, and the guardrail returns a confidence score for the categories it assessed.
+
+A policy can then condition on that score — permitting the request, forbidding it, or suppressing the response. For more information, see [Guardrails in policies](policy-guardrails-in-policies.md).
 
 ## Policy session
 <a name="concept-policy-session"></a>

@@ -21,6 +21,8 @@ Policy in AgentCore supports fine-grained permissions based on user identity and
 + [AgentCore Gateway and Policy in AgentCore IAM Permissions](policy-permissions.md)
 + [Create a policy engine](policy-create-engine.md)
 + [Create a policy](policy-create-policies.md)
++ [Guardrails in policies](policy-guardrails-in-policies.md)
++ [Temporal policies](policy-temporal.md)
 + [Writing policies in natural language](policy-natural-language.md)
 + [Validate and test policies](policy-validate-policies.md)
 + [Use policies](policy-use-policies.md)

@@ -10,6 +10,7 @@ AgentCore Memory provides pre-configured, [built-in memory strategies](built-in-
 + [Semantic](#long-term-semantic-facts-strategy)
 + [Session summaries](#long-term-session-summaries-strategy)
 + [Episodic](#long-term-session-episodic-strategy)
++ [Configure record retention (time-to-live)](#long-term-built-in-strategy-record-ttl)
 
 ## User preferences
 <a name="long-term-user-preferences-strategy"></a>
@@ -125,3 +126,10 @@ response = control_client.create_memory(
     ]
 )
 ```
+
+## Configure record retention (time-to-live)
+<a name="long-term-built-in-strategy-record-ttl"></a>
+
+For any built-in strategy, you can optionally set how long its long-term memory records are retained before they expire. Configure retention per strategy with a `recordExpirySpecification` on `CreateMemory` or `UpdateMemory`. Configuring or removing a time-to-live requires the `bedrock-agentcore:UpdateMemoryRecordExpirySpecification` permission.
+
+For the full configuration reference, consistency constraints across strategy groups, IAM policy, and examples, see [Set a time-to-live for long-term memory records](long-term-record-ttl.md).

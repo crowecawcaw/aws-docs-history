@@ -188,7 +188,7 @@ Then run `agentcore deploy` to apply.
 To give your agent web search, put the [Web Search Tool](gateway-target-connector-web-search-tool.md) connector behind an [AgentCore Gateway](gateway.md) and attach that gateway to your harness as an `agentcore_gateway` tool. The gateway exposes web search as a standard MCP `WebSearch` tool. Your agent discovers and calls it like any other gateway tool. AgentCore Gateway serves all queries entirely within AWS. For more information about the privacy model and the purpose-built web index, see the Web Search Tool connector page.
 
 **Region availability**  
-Web Search Tool is available in the US East (N. Virginia) `us-east-1` Region. Create the gateway and harness in `us-east-1`.
+Web Search Tool is available in multiple AWS Regions. For the current list, see [Availability](gateway-target-connector-web-search-tool.md#gateway-target-connector-web-search-tool-availability) on the Web Search Tool connector page. Create the gateway and harness in a supported Region.
 
 Complete the following steps to set up web search for your harness.
 

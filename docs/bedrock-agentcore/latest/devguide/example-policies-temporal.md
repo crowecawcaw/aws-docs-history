@@ -210,7 +210,7 @@ A `response` event is recorded shortly after the call completes. Wait for the ap
 
  **Intent:** Prevent the same action from repeating within a minute of completing.
 
-This condition refers to the same action it authorizes. `::response` is what makes that safe: the current request has no response yet, so it does not match itself. Written with `::request`, the current request would match its own event and the action would be forbidden permanently.
+This condition refers to the same action it authorizes. `::response` is what makes that safe: the current request has no response yet, so it does not match itself. Written with `::request`, the current request would match its own event and the action would be forbidden permanently. For more information, see [Self-referential conditions include the current request](policy-temporal.md#policy-temporal-self-referential).
 
 ```
 forbid (

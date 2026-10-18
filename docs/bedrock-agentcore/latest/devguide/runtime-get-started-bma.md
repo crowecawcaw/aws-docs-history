@@ -168,6 +168,8 @@ When you start a new session and do not give `--role-arn`, the client does these
 
 To change the role, change the files. The client does not remove other policies that someone adds to the role. It does not check the role when you give `--session-id`, and it does not change a role that you give with `--role-arn`.
 
+For production, give the client a role for one Runtime and one gateway with `--role-arn`. To make the role, use the two files in `policies/`. Put in your partition, Region, and account ID, and change the ` ` in `runtime/` and `gateway/*` to your Runtime ID and gateway ID. Do not change the files in the project, because all the projects in the Region share `BmaSessionRole-<region>`.
+
 The identity that runs the client needs the Bedrock Managed Agents client permissions, `bedrock-mantle:CallWithBearerToken`, and `iam:PassRole` on the session role. To let the client create and repair the role, also give `iam:GetRole`, `iam:CreateRole`, `iam:UpdateAssumeRolePolicy`, `iam:GetRolePolicy`, and `iam:PutRolePolicy` on `arn:aws:iam::<account-id>:role/BmaSessionRole-*`. If you give `--role-arn`, the client does not need these five permissions.
 
 For the trust policy, the permissions of the session role, and the client permissions, see [Security and IAM roles](https://docs.aws.amazon.com/bedrock/latest/userguide/bedrock-managed-agents-openai-security.html) in the *Amazon Bedrock User Guide*.
@@ -187,6 +189,8 @@ When the client creates the session, it sets these values in `environment`:
 The client also sets `role_arn` in `extra_body` to the session role. The `openai` package does not have a parameter for this field.
 
 The `provide_token` helper uses your AWS credentials to get a short-lived Amazon Bedrock bearer token for each request.
+
+If you add a gateway to the project, give its ARN from the output of `agentcore deploy` with `--gateway`. Use the flag only for a new session. The client adds the gateway as an `mcp` tool with the ARN in `connector_id`. Bedrock Managed Agents calls the gateway with the session role. The gateway must support MCP version `2025-03-26`. If it does not, the agent gets no gateway tools, and Bedrock Managed Agents does not show an error.
 
 ```
 """Send an input to a Bedrock Managed Agents session that uses this project's ACR."""
@@ -291,7 +295,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--gateway",
-        help="The Gateway URL from the output of `agentcore deploy`.",
+        help="The Gateway ARN from the output of `agentcore deploy`.",
     )
     parser.add_argument(
         "--role-arn",
@@ -345,20 +349,11 @@ def main() -> None:
                 "instructions": "Use the available tools to complete the task.",
             }
             if args.gateway:
-                # Bedrock Managed Agents calls Gateway with IAM from the service side.
+                # Bedrock Managed Agents calls Gateway with the session role from the service side.
                 agent["tools"] = [
-                    {
-                        "type": "mcp",
-                        "server_label": "team_tools",
-                        "required": True,
-                        "connection_origin": "service",
-                        "transport": {"type": "http", "server_url": args.gateway},
-                    }
+                    {"type": "mcp", "server_label": "team_tools", "connector_id": args.gateway}
                 ]
-                args.input += (
-                    " Then use the Gateway's documentation and runbook tools to explain"
-                    " how to investigate an MCP connection failure. Cite your sources."
-                )
+                args.input += " Then list the tools that the Gateway gives you."
             events = sessions.create(
                 agent=agent,
                 environment={
@@ -542,14 +537,22 @@ To find the log groups, run these commands. Then delete each log group.
 ```
 aws logs describe-log-groups --log-group-name-prefix /aws/bedrock-agentcore/runtimes/<project-name>_<agent-name>- --query 'logGroups[].logGroupName'
 aws logs describe-log-groups --log-group-name-prefix /aws/codebuild/AgentCore-<project-name>-<target-name>- --query 'logGroups[].logGroupName'
-aws logs describe-log-groups --log-group-name-prefix /aws/lambda/AgentCore-<project-name>-<target-name>- --query 'logGroups[].logGroupName'
+aws logs describe-log-groups --log-group-name-prefix /aws/lambda/AgentCore- --query 'logGroups[].logGroupName'
 aws logs delete-log-group --log-group-name <log-group-name>
 ```
 
 Replace these values:
 +  `<project-name>` - The name of the project. In Step 1, it is `MyManagedAgent`.
 +  `<agent-name>` - The name of the agent. In Step 1, it is also `MyManagedAgent`.
-+  `<target-name>` - The name of the deploy target in `agentcore/aws-targets.json`. The default is `default`. In the CodeBuild and Lambda names, each underscore (`_`) in the project name and the target name changes to a hyphen (`-`).
++  `<target-name>` - The name of the deploy target in `agentcore/aws-targets.json`. The default is `default`. In the CodeBuild names, each underscore (`_`) in the project name and the target name changes to a hyphen (`-`).
+
+The name of the Lambda log group is shortened, as in this example:
+
+```
+/aws/lambda/AgentCore-MyManagedAgent--ApplicationAgentMyManage-<suffix>
+```
+
+The command lists the Lambda log groups of all AgentCore CLI projects in the Region. Delete only the log groups of your project.
 
 If you added other resources to the project, such as a gateway or a memory, check that the deploy deleted them.
 

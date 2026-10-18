@@ -141,7 +141,7 @@ To create and manage the organization-scoped registry and its records, the calle
 Enabling auto-detection is a three-step process: the management account enables trusted access and registers a delegated administrator, and then the administrator creates an organization-scoped registry with auto-detection turned on.
 
 **Note**  
-The steps in this section must be performed in order. After you register the delegated administrator (step 2), it can take a short time for the organization state to propagate. Until it does, creating an organization-scoped registry (step 3) is rejected. See [Troubleshooting](#registry-organizations-troubleshooting).
+The steps in this section must be performed in order. After you register the delegated administrator (step 2), it can take a short time for the organization state to propagate. Until it does, creating an organization-scoped registry (step 3) is rejected. See [Troubleshooting auto-detection](#registry-organizations-troubleshooting).
 
 ### Step 1: Enable trusted access and create the service-linked role (management account)
 <a name="registry-organizations-step1"></a>
@@ -232,7 +232,7 @@ aws agent-registry-control create-registry \
   --name "my-organization-registry" \
   --description "Auto-detected resources across my organization" \
   --auto-detection-configuration '{"scope":"ORGANIZATION","enabled":true}' \
-  --region us-east-1
+  --region my-region
 ```
 
 When you run `get-registry` or `list-registries`, you see two separate status fields. The registry `status` field starts as `CREATING` and transitions to `READY` when provisioning completes. The `autoDetection.status` field is tracked separately: it is `INACTIVE` until auto-detection is running, then becomes `ACTIVE`. When the registry `status` is `READY` and `autoDetection.status` is `ACTIVE`, records begin to appear for supported resources across your member accounts.
@@ -248,7 +248,7 @@ List the registry’s records and look for records created by auto-detection:
 ```
 aws agent-registry-control list-registry-records \
   --registry-id <registry-id-or-arn> \
-  --region us-east-1
+  --region my-region
 ```
 
 **Note**  
@@ -285,7 +285,7 @@ aws agent-registry-control update-registry-record \
   --registry-id <registry-id-or-arn> \
   --record-id <record-id> \
   --description '{"optionalValue":"MCP server exposing the order-management API as agent tools"}' \
-  --region us-east-1
+  --region my-region
 ```
 
  AWS Agent Registry separates the fields you own from the fields auto-detection owns on an auto-detected record:
@@ -339,7 +339,7 @@ To delete an organization-scoped registry, complete these steps in order:
 aws agent-registry-control update-registry \
   --registry-id <registry-id-or-arn> \
   --auto-detection-configuration '{"optionalValue":{"scope":"ORGANIZATION","enabled":false}}' \
-  --region us-east-1
+  --region my-region
 ```
 
 The update is asynchronous: the registry moves to `UPDATING` and returns to `READY` when the change takes effect.
@@ -365,7 +365,7 @@ Disabling trusted access, or deregistering a delegated administrator that owns t
 **Important**  
 If you re-enable trusted access after disabling it, auto-detection does not resume automatically. You must manually update the registry’s auto-detection configuration to set `enabled` back to `true`.
 
-## Troubleshooting
+## Troubleshooting auto-detection
 <a name="registry-organizations-troubleshooting"></a>
 
 For troubleshooting auto-detection issues, see [Auto-detection errors](registry-troubleshooting.md#registry-troubleshooting-auto-detection) in the main troubleshooting page.

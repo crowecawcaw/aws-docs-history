@@ -114,7 +114,6 @@ permit(
   resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
 )
 when {
-  context.input has model &&
   context.input.model like "openai.gpt-oss-*"
 };
 ```
@@ -123,7 +122,7 @@ The `model` value carries both the provider and the model, in the form `<provide
 
 **Important**  
  **A Cedar condition cannot read the conversation itself — use a guardrail for that.**   
-Conditions on an inference target reach only the **scalar** members of the request body, such as `model` or `max_tokens`. They cannot reach the message text: `context.input.messages` is a `Set<record>`, which no Cedar operator accepts, and Dogwood has no array-projection syntax for the strings inside it.  
+Conditions on an inference target reach only the **scalar** members of the request body, such as `model` or `max_tokens`. They cannot reach the message text. `context.input.messages` is a `Set<record>`, and no Dogwood or Cedar operator reads a string out of one. Set operators such as `isEmpty` apply to the set itself. However, neither Cedar nor Dogwood has array-projection syntax for the strings inside it.  
 To act on what was actually said, write a guardrail whose data path is a JSONPath into the message array. For a policy you can copy for each inference API, see [Reaching text inside arrays with a JSONPath](example-policies-guardrails.md#example-policies-guardrails-jsonpath).
 
 ## Conditions on tool input
@@ -417,7 +416,7 @@ If any `forbid` matches, the request is denied, even when a `permit` matches it 
  **Permits do not intersect**   
 Two `permit` policies for the same action are alternatives, not requirements. If one `permit` allows `update_coverage` for managers and another allows it for liability changes, then a manager changing anything is allowed and anyone changing liability is allowed. To require both conditions, put them in one `permit` as [Constrain a job title and its input together](#example-policies-action-resource-combined-authority) does, or express the restriction as a `forbid …​ unless`.
 
-The last rule is the one that most often surprises people. Consider these three policies applied to `update_coverage`:
+Note that a `permit` cannot narrow another `permit`. The following three policies apply to the `update_coverage` action:
 +  [Permit a specific user](example-policies-principal.md#example-policies-principal-username) permits `clare`.
 +  [Forbid everyone except a set of roles](example-policies-principal.md#example-policies-principal-role-forbid) denies anyone who is not a senior adjuster or manager.
 +  [Constrain a job title and its input together](#example-policies-action-resource-combined-authority) permits senior adjusters changing liability or collision within their limit.

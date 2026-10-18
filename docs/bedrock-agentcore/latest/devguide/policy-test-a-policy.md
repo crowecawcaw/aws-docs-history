@@ -69,16 +69,60 @@ Policy engine enforcement mode takes precedence. When a policy engine is associa
 
 You can set the `enforcementMode` field on a policy when you create or update the policy (i.e., `CreatePolicy` and `UpdatePolicy`), and it is returned by `GetPolicy` and `ListPolicies`.
 
- **Create a policy in `LOG_ONLY` mode** Create a policy in `LOG_ONLY` mode by setting `enforcementMode` to `LOG_ONLY` in the `CreatePolicy` request. The following example creates a guardrail in policy that forbids violent content above a confidence threshold, but only observes it. For more information about guardrails in policy, see [guardrails in policies](policy-guardrails-in-policies.md).
+ **Create a policy in `LOG_ONLY` mode** Create a policy in `LOG_ONLY` mode by setting `enforcementMode` to `LOG_ONLY` in the `CreatePolicy` request. The following example creates a policy with a guardrail that forbids violent content above a confidence threshold, but only observes it. For more information, see [Guardrails in policies](policy-guardrails-in-policies.md).
 
-```
-aws bedrock-agentcore-control create-policy \
---policy-engine-id my-policy-engine-id \
---name "LogOnlyViolenceFilter" \
---enforcement-mode LOG_ONLY \
---validation-mode IGNORE_ALL_FINDINGS \
---definition '{"policy":{"statement":"forbid (principal, action == AgentCore::Action::\"MyTarget\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway\") when guardrails { BedrockGuardrails::ContentFilter([\"VIOLENCE\"], [context.input.userMessage])[\"VIOLENCE\"].confidenceScore.greaterThan(decimal(\"0.7\")) };"}}'
-```
+**Example**  
+
+1. Save the statement to `log_only_violence.dw`, then add it with `LOG_ONLY` enforcement and deploy:
+
+   ```
+   agentcore add policy --name LogOnlyViolenceFilter \
+     --engine my_policy_engine \
+     --source log_only_violence.dw \
+     --enforcement-mode LOG_ONLY \
+     --validation-mode IGNORE_ALL_FINDINGS
+   
+   agentcore deploy --yes
+   ```
+
+1. Run the following code in a terminal to create the policy in `LOG_ONLY` mode using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control create-policy \
+     --policy-engine-id my_policy_engine-a1b2c3d4e5 \
+     --name LogOnlyViolenceFilter \
+     --enforcement-mode LOG_ONLY \
+     --validation-mode IGNORE_ALL_FINDINGS \
+     --definition '{"policy":{"statement":"forbid (principal, action == AgentCore::Action::\"MyTarget___send_message\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-a1b2c3d4e5\") when guardrails { BedrockGuardrails::ContentFilter([\"VIOLENCE\"], [context.input.userMessage])[\"VIOLENCE\"].confidenceScore.greaterThan(decimal(\"0.7\")) };"}}'
+   ```
+
+1. Run the following code to create the policy in `LOG_ONLY` mode using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   GATEWAY_ARN = 'arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-a1b2c3d4e5'
+   
+   statement = (
+       'forbid (principal, '
+       'action == AgentCore::Action::"MyTarget___send_message", '
+       f'resource == AgentCore::Gateway::"{GATEWAY_ARN}") '
+       'when guardrails { BedrockGuardrails::ContentFilter('
+       '["VIOLENCE"], [context.input.userMessage])["VIOLENCE"]'
+       '.confidenceScore.greaterThan(decimal("0.7")) };'
+   )
+   
+   response = client.create_policy(
+       policyEngineId='my_policy_engine-a1b2c3d4e5',
+       name='LogOnlyViolenceFilter',
+       enforcementMode='LOG_ONLY',
+       validationMode='IGNORE_ALL_FINDINGS',
+       definition={'policy': {'statement': statement}},
+   )
+   print(response['policyId'], response['enforcementMode'])
+   ```
 
 The response echoes the policy with "enforcementMode": "LOG\_ONLY". The policy begins evaluating against traffic and from that point its matches appear in traces and CloudWatch metrics — without affecting any decision.
 
@@ -86,11 +130,36 @@ The response echoes the policy with "enforcementMode": "LOG\_ONLY". The policy b
 
 ListPolicies returns `enforcementMode` in each policy summary, so you can see at a glance which policies are observing and which are enforcing.
 
-```
-aws bedrock-agentcore-control list-policies \
---policy-engine-id my-policy-engine-id \
---query 'policies[].{name:name,enforcementMode:enforcementMode,status:status}'
-```
+**Example**  
+
+1. Show the deployed policies the project manages and their state:
+
+   ```
+   agentcore status
+   ```
+
+    `agentcore status` covers only this project’s resources. Use the AWS CLI or an SDK to list every policy in an engine.
+
+1. Run the following code in a terminal to list policies and their enforcement modes using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control list-policies \
+     --policy-engine-id my_policy_engine-a1b2c3d4e5 \
+     --query 'policies[].{name:name,enforcementMode:enforcementMode,status:status}'
+   ```
+
+1. Run the following code to list policies and their enforcement modes using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   paginator = client.get_paginator('list_policies')
+   for page in paginator.paginate(policyEngineId='my_policy_engine-a1b2c3d4e5'):
+       for policy in page['policies']:
+           print(policy['name'], policy['enforcementMode'], policy['status'])
+   ```
 
  **response** 
 
@@ -123,19 +192,49 @@ You observe `LOG_ONLY` policy behavior through traces and Amazon CloudWatch metr
 
 All metrics include PolicyEngine and OperationName dimensions for filtering. Per-policy metrics additionally include a Policy dimension with the policy ID.
 
-For more information about viewing metrics for your AgentCore resources, see [Bedrock AgentCore generated observability data](observability.md).
+For more information about viewing metrics for your AgentCore resources, see [Observe your agent applications on Amazon Bedrock AgentCore Observability](observability.md).
 
 ## Promote a policy to enforcement
 <a name="promote-a-policy-to-enforcement"></a>
 
 When you are confident in a `LOG_ONLY` policy, promote it to enforcement with `UpdatePolicy`, setting `enforcementMode` to `ACTIVE`. No other change is required, and the policy keeps its ID, name, and definition.
 
-```
-aws bedrock-agentcore-control update-policy \
---policy-engine-id my-policy-engine-id \
---policy-id LogOnlyViolenceFilter-a1b2c3d4e5 \
---enforcement-mode ACTIVE
-```
+**Example**  
+
+1. Change the policy’s enforcement mode in the project and deploy:
+
+   ```
+   agentcore add policy --name LogOnlyViolenceFilter \
+     --engine my_policy_engine \
+     --source log_only_violence.dw \
+     --enforcement-mode ACTIVE \
+     --validation-mode IGNORE_ALL_FINDINGS
+   
+   agentcore deploy --yes
+   ```
+
+1. Run the following code in a terminal to promote the policy using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control update-policy \
+     --policy-engine-id my_policy_engine-a1b2c3d4e5 \
+     --policy-id LogOnlyViolenceFilter-a1b2c3d4e5 \
+     --enforcement-mode ACTIVE
+   ```
+
+1. Run the following code to promote the policy using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   client.update_policy(
+       policyEngineId='my_policy_engine-a1b2c3d4e5',
+       policyId='LogOnlyViolenceFilter-a1b2c3d4e5',
+       enforcementMode='ACTIVE',
+   )
+   ```
 
 The reverse is also supported: you can move an `ACTIVE` policy back to `LOG_ONLY` to take it out of enforcement while keeping it in place and continuing to observe it.
 
@@ -144,21 +243,63 @@ A typical lifecycle is therefore to create a policy in `LOG_ONLY`, observe traff
 ## Choosing a threshold with LOG\_ONLY mode
 <a name="choosing-a-threshold-with-log-only-mode"></a>
 
- `LOG_ONLY` mode is particularly useful for guardrail policies, where you need to select a confidence-score threshold that balances security against disruption to legitimate traffic. A threshold that is too low blocks legitimate requests; one that is too high may let threats through.
+ `LOG_ONLY` mode is particularly useful for guardrails, where you need to select a confidence-score threshold that balances security against disruption to legitimate traffic. A threshold that is too low blocks legitimate requests; one that is too high may let threats through.
 
- **The recommended workflow:** Deploy the guardrail in `LOG_ONLY` mode with a threshold you believe is reasonable (for example, 0.7). The policy evaluates every request and emits a confidence score to CloudWatch metrics, but never blocks traffic.
+ **The recommended workflow:** Deploy the policy in `LOG_ONLY` mode with a threshold you believe is reasonable (for example, 0.7). The policy evaluates every request and emits a confidence score to CloudWatch metrics, but never blocks traffic.
 
 Accumulate data over a representative window — days or weeks of real production traffic. The ConfidenceScore metric (with PolicyEnforcementMode=LOG\_ONLY) gives you the distribution of scores your traffic produces.
 
 Analyze the scores against ground truth. If you have a labeled test set (prompts marked as benign or malicious), you can compute precision and recall at each threshold value and select the one that best meets your goals. If you do not have labeled data, sample prompts from the high-score range (for example, 0.8–1.0), the low-score range (0–0.2), and the ambiguous middle zone (0.4–0.7), then classify each sample to build confidence in your threshold choice. Update the policy with your chosen threshold and promote it to `ACTIVE`:
 
-```
-aws bedrock-agentcore-control update-policy \
---policy-engine-id my-policy-engine-id \
---policy-id LogOnlyViolenceFilter-a1b2c3d4e5 \
---enforcement-mode ACTIVE \
---definition '{"policy":{"statement":"forbid (principal, action == AgentCore::Action::\"MyTarget\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway\") when guardrails { BedrockGuardrails::ContentFilter([\"VIOLENCE\"], [context.input.userMessage])[\"VIOLENCE\"].confidenceScore.greaterThan(decimal(\"0.65\")) };"}}'
-```
+**Example**  
+
+1. Edit the threshold in `log_only_violence.dw`, then re-add the policy with `ACTIVE` enforcement and deploy:
+
+   ```
+   agentcore add policy --name LogOnlyViolenceFilter \
+     --engine my_policy_engine \
+     --source log_only_violence.dw \
+     --enforcement-mode ACTIVE \
+     --validation-mode IGNORE_ALL_FINDINGS
+   
+   agentcore deploy --yes
+   ```
+
+1. Run the following code in a terminal to update the threshold and promote the policy using the AWS CLI:
+
+   ```
+   aws bedrock-agentcore-control update-policy \
+     --policy-engine-id my_policy_engine-a1b2c3d4e5 \
+     --policy-id LogOnlyViolenceFilter-a1b2c3d4e5 \
+     --enforcement-mode ACTIVE \
+     --definition '{"policy":{"statement":"forbid (principal, action == AgentCore::Action::\"MyTarget___send_message\", resource == AgentCore::Gateway::\"arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-a1b2c3d4e5\") when guardrails { BedrockGuardrails::ContentFilter([\"VIOLENCE\"], [context.input.userMessage])[\"VIOLENCE\"].confidenceScore.greaterThan(decimal(\"0.65\")) };"}}'
+   ```
+
+1. Run the following code to update the threshold and promote the policy using the AWS SDK for Python:
+
+   ```
+   import boto3
+   
+   client = boto3.client('bedrock-agentcore-control')
+   
+   GATEWAY_ARN = 'arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/my-gateway-a1b2c3d4e5'
+   
+   statement = (
+       'forbid (principal, '
+       'action == AgentCore::Action::"MyTarget___send_message", '
+       f'resource == AgentCore::Gateway::"{GATEWAY_ARN}") '
+       'when guardrails { BedrockGuardrails::ContentFilter('
+       '["VIOLENCE"], [context.input.userMessage])["VIOLENCE"]'
+       '.confidenceScore.greaterThan(decimal("0.65")) };'
+   )
+   
+   client.update_policy(
+       policyEngineId='my_policy_engine-a1b2c3d4e5',
+       policyId='LogOnlyViolenceFilter-a1b2c3d4e5',
+       enforcementMode='ACTIVE',
+       definition={'policy': {'statement': statement}},
+   )
+   ```
 
 This workflow ensures the threshold reflects your actual traffic patterns rather than a generic default.
 

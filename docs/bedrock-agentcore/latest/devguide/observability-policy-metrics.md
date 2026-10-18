@@ -1,6 +1,6 @@
 
 
-# AgentCore generated Policy in AgentCore observability data
+# AgentCore generated policy observability data
 <a name="observability-policy-metrics"></a>
 
 For policy and policy engine resource types, Amazon Bedrock AgentCore publishes invocation metrics to CloudWatch by default. Additional span data is available when traces are enabled for the attached AgentCore Gateway resource, which will emit spans for Policy in AgentCore related operations. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch) to learn more about enablement.
@@ -30,7 +30,7 @@ Amazon Bedrock AgentCore publishes the following invocation metrics by default t
 | NoDeterminingPolicies | Number of requests denied due to no determining policies | Count | 
 | GuardrailLatency | Time spent evaluating guardrails for a request | Milliseconds | 
 | ConfidenceScore | Score returned by Bedrock Guardrails for a policy evaluation. In the Bedrock Guardrails documentation this value is called a *severity score* for content filters and prompt attacks, and a *confidence score* for sensitive information filters. See [Bedrock Guardrails score definitions](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-use-invoke-guardrail-checks-scores.html). | None | 
-| ConfidenceThreshold | Score threshold configured by a guardrail policy | None | 
+| ConfidenceThreshold | Score threshold configured by a guardrail condition | None | 
 | SuppressOutputs | Number of outputs suppressed by policies using the `suppressOutput` effect | Count | 
 | LogOnlyMatches | Number of `LOG_ONLY` policy matches | Count | 
 | LogOnlyDecisionFlips | Number of `LOG_ONLY` policy matches that change the authorization decision when the policy is promoted to `ACTIVE`  | Count | 
@@ -51,7 +51,7 @@ The following dimensions are available for the above metrics. These dimensions a
 | TargetResource | The AgentCore Gateway resource identifier associated with the request | 
 | ToolName | The name of the tool the metric applies to | 
 | Mode | The enforcement mode configured on the AgentCore Gateway, valid values are `LOG_ONLY` and `ENFORCE`  | 
-| Category | The guardrail safeguard type. Valid values are `contentFilter`, `promptAttack`, and `sensitiveInformation`. See [Guardrails in policies](policy-guardrails-in-policies.md). | 
+| Category | The type of guardrail. Valid values are `contentFilter`, `promptAttack`, and `sensitiveInformation`. See [Guardrails in policies](policy-guardrails-in-policies.md). | 
 | Filter | The guardrail filter or sensitive information entity, such as `VIOLENCE`, `PROMPT_INJECTION`, or `EMAIL`  | 
 | PolicyEnforcementMode | The enforcement mode of an individual policy. Valid values are `ACTIVE` and `LOG_ONLY`. This dimension applies to `ConfidenceScore`, `ConfidenceThreshold`, and `MismatchErrors`. See [Test a policy in LOG\_ONLY mode](policy-test-a-policy.md). | 
 

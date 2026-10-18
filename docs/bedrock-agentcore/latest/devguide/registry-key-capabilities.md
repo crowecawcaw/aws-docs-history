@@ -21,6 +21,12 @@ Add records of any type with a flexible structure and custom metadata. AWS Agent
 
  AWS Agent Registry gives administrators control over what builders in their organization can discover and use. Administrators can ensure that only records meeting internally defined criteria for security, metadata richness, compliance, safety, and any other organizational standards are approved and made visible in search results. When a curator needs to remove a resource from discovery — whether due to a newly discovered issue, a deprecation, or a policy change — they can deprecate existing approved records, ensuring those resources can no longer be found by builders. For development environments where manual review isn’t needed, administrators can enable auto-approval so that submitted records become discoverable immediately.
 
+**Important**  
+Auto-approved records skip human review and become discoverable as soon as they’re submitted. If you enable auto-approval, use compensating controls such as the following:  
+Restrict who has permission to submit records, for example by limiting access to the `SubmitRegistryRecordForApproval` action.
+Use [Amazon EventBridge events](registry-eventbridge.md) to trigger automated checks on submitted records, and deprecate records that fail them.
+Validate record metadata on the consumer side. For more information, see [Validate record metadata before you act on it](registry-data-protection.md#registry-consumer-validation).
+
 ## Amazon EventBridge notifications
 <a name="registry-eventbridge-notifications"></a>
 

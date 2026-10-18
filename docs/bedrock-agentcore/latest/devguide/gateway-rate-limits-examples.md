@@ -407,6 +407,78 @@ The following example blocks a specific caller by setting their rate to 0. This 
    print(f"Rate Limit ID: {response['rateLimitId']}")
    ```
 
+## Rate limit by a request header with an identity co-dimension
+<a name="gateway-rate-limits-examples-custom-context"></a>
+
+The following example rate limits by a caller-supplied `X-Customer-Id` request header, scoped to the authenticated caller. Because a header value is caller-supplied, the rate limit also includes the `$.context.jwt.sub` identity co-dimension (required for custom request header and body dimensions — see [Custom request header and body dimensions](gateway-rate-limits-dimensions.md#gateway-rate-limits-dimensions-custom-context)). Requests carrying `X-Customer-Id: premium` get 100 RPS per caller; all other header values each get their own 10 RPS bucket per caller.
+
+**Example**  
+
+1. Run the following command:
+
+   ```
+   aws bedrock-agentcore-control create-gateway-rate-limit \
+       --gateway-identifier my-gateway-abc1234567 \
+       --dimension-keys '["$.context.request.header.X-Customer-Id", "$.context.jwt.sub"]' \
+       --description "Per-caller limit by customer tier header" \
+       --entries '[
+           {
+               "dimensions": {"$.context.request.header.X-Customer-Id": "premium", "$.context.jwt.sub": "*"},
+               "requests": [
+                   {
+                       "rate": 100,
+                       "period": "second"
+                   }
+               ]
+           },
+           {
+               "dimensions": {"$.context.request.header.X-Customer-Id": "*", "$.context.jwt.sub": "*"},
+               "requests": [
+                   {
+                       "rate": 10,
+                       "period": "second"
+                   }
+               ]
+           }
+       ]'
+   ```
+
+1. 
+
+   ```
+   import boto3
+   
+   client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+   
+   response = client.create_gateway_rate_limit(
+       gatewayIdentifier="my-gateway-abc1234567",
+       dimensionKeys=["$.context.request.header.X-Customer-Id", "$.context.jwt.sub"],
+       description="Per-caller limit by customer tier header",
+       entries=[
+           {
+               "dimensions": {"$.context.request.header.X-Customer-Id": "premium", "$.context.jwt.sub": "*"},
+               "requests": [
+                   {
+                       "rate": 100,
+                       "period": "second",
+                   }
+               ],
+           },
+           {
+               "dimensions": {"$.context.request.header.X-Customer-Id": "*", "$.context.jwt.sub": "*"},
+               "requests": [
+                   {
+                       "rate": 10,
+                       "period": "second",
+                   }
+               ],
+           },
+       ],
+   )
+   
+   print(f"Rate Limit ID: {response['rateLimitId']}")
+   ```
+
 ## Get a rate limit
 <a name="gateway-rate-limits-examples-get"></a>
 

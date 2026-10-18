@@ -34,4 +34,4 @@ By instrumenting your agent code, you can also gather more detailed trace and sp
 + [AgentCore generated gateway observability data](observability-gateway-metrics.md)
 + [AgentCore generated built-in tools observability data](observability-tool-metrics.md)
 + [AgentCore generated identity observability data](observability-identity-metrics.md)
-+ [AgentCore generated Policy in AgentCore observability data](observability-policy-metrics.md)
++ [AgentCore generated policy observability data](observability-policy-metrics.md)

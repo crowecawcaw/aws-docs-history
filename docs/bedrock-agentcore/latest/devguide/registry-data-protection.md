@@ -14,8 +14,14 @@ For data protection purposes, we recommend that you protect AWS account credenti
 
 We strongly recommend that you never put sensitive identifying information, such as your customers' account numbers, into free-form fields such as a **Name** field. This includes when you work with AWS Agent Registry or other AWS services using the console, API, AWS CLI, or AWS SDKs. Any data that you enter into AWS Agent Registry or other services might get picked up for inclusion in diagnostic logs. When you provide a URL to an external server, don’t include credentials information in the URL to validate your request to that server.
 
+## Validate record metadata before you act on it
+<a name="registry-consumer-validation"></a>
+
+Publishers provide record metadata, including package identifiers, repository URLs, and remote endpoint URLs. AWS Agent Registry checks this metadata only against the schema for the record’s descriptor. It doesn’t verify the packages, repositories, or endpoints that a record references. Under the AWS [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/), you are responsible for validating these fields. Validate them before your agent installs, downloads, or connects to anything a record references, in the same way you validate input from any external source. For the fields that each descriptor supports, see [Supported record types and descriptors](registry-supported-record-types.md).
+
+To validate record metadata, use patterns such as the following:
++ Install packages only from an allowlist or from a package repository that you control, such as AWS CodeArtifact, and pin each package to a specific version.
++ Download source code only from repository hosts and owners that you allow.
++ Connect only to MCP server endpoints whose URL scheme and domain you allow.
+
 **Topics**
-+ [Data encryption](registry-data-encryption.md)
-+ [Set customer managed key policy](registry-kms-key-policy.md)
-+ [Configure KMS key for a registry](registry-configure-encryption.md)
-+ [Cross-region inference in AWS Agent Registry](registry-cross-region-inference.md)

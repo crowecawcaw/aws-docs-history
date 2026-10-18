@@ -3,7 +3,7 @@
 # Specify long-term memory organization with namespaces
 <a name="specify-long-term-memory-organization"></a>
 
-When you [create](memory-create-a-memory-store.md) an AgentCore Memory, use a namespace to specify where the [long-term memories](memory-types.md#memory-long-term-memory) for a [memory strategy](memory-strategies.md) are logically grouped. Every time a new long-term memory is extracted using the memory strategy, it is saved under the namespace you set. This means that all long-term memories are scoped to their specific namespace, keeping them organized and preventing any mix-ups with other users or sessions. You should use a hierarchical format separated by forward slashes `/` . This helps keep memories organized clearly. As needed, you can choose to use the following pre-defined variables within braces in the namespace based on your application’s organization needs:
+When you [create](memory-create-a-memory-store.md) an AgentCore Memory, use a namespace to specify where the [long-term memories](memory-types.md#memory-long-term-memory) for a [memory strategy](memory-strategies.md) are logically grouped. Every time a new long-term memory is extracted using the memory strategy, it is saved under the namespace you set. This means that all long-term memories are scoped to their specific namespace, keeping them organized and preventing any mix-ups with other users or sessions. You should use a hierarchical format separated by forward slashes `/`, starting and ending with a slash (for example, `/actors/alice/`). This helps keep memories organized clearly. As needed, you can choose to use the following pre-defined variables within braces in the namespace based on your application’s organization needs:
 +  **actorId** – Identifies who the long-term memory belongs to.
 
   An actor refers to entity such as end users or agent/user combinations. For example, in a coding support chatbot, the actor is usually the developer asking questions. Using the actor ID helps the system know which user the memory belongs to, keeping each user’s data separate and organized.
@@ -21,7 +21,7 @@ For example, if you define the following namespace as the input to your strategy
 After memory creation, this namespace might look like:
 
 ```
-/strategy/summarization-93483043/actor/actor-9830m2w3/session/session-9330sds8
+/strategy/summarization-93483043/actor/actor-9830m2w3/session/session-9330sds8/
 ```
 
 A namespace can have different levels of granularity. The following examples use built-in variables only:
@@ -45,6 +45,18 @@ A namespace can have different levels of granularity. The following examples use
 For even more granular organization, you can add [custom namespace variables](#specify-custom-namespace-variables) to represent additional dimensions such as tenant, team, or environment.
 
 For example code, see [Enable long-term memory](long-term-enabling-long-term-memory.md).
+
+## Namespace format
+<a name="memory-namespace-format"></a>
+
+AgentCore Memory stores each namespace in a normalized form, with one leading slash `/` and one trailing slash `/` (for example, `/actors/alice/`). We recommend that you use this format everywhere you specify a namespace:
++  **Memory strategies** – The namespace templates in `CreateMemory` and `UpdateMemory`.
++  **Writing memory records** – The `namespaces` of each record in `BatchCreateMemoryRecords` and `BatchUpdateMemoryRecords`, and `sourceNamespaces` in `BatchUpdateMemoryRecords`.
++  **Reading memory records** – The `namespace` and `namespacePath` in `ListMemoryRecords` and `RetrieveMemoryRecords`.
++  **IAM policies** – The values for condition keys such as `bedrock-agentcore:namespace` and `bedrock-agentcore:namespacePath`. Use the same normalized value that your application sends, for example `/summaries/agent1/`, or `/summaries/agent1/*` for a hierarchy.
+
+**Note**  
+If a namespace value in an IAM policy omits the leading or trailing slash (for example, `summaries/agent1` or `/summaries/agent1`), the policy will not match the namespace that AgentCore Memory acts on.
 
 ## Custom namespace variables
 <a name="specify-custom-namespace-variables"></a>

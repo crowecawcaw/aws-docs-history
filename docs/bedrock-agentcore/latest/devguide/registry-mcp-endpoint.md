@@ -11,6 +11,9 @@
 
 Each registry exposes an MCP-compatible endpoint following the [2025-11-25 specification](https://modelcontextprotocol.io/specification/2025-11-25) on the Model Context Protocol website. The endpoint supports tool listing and tool invocation for searching registry records.
 
+**Important**  
+The MCP endpoint returns record metadata as publishers provide it. Before your agent installs a package, downloads from a repository, or connects to an endpoint that a returned record references, validate it. For more information, see [Validate record metadata before you act on it](registry-data-protection.md#registry-consumer-validation).
+
 **Example**  
 
 ```

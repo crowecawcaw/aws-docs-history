@@ -432,7 +432,7 @@ The following table describes the service quotas for AgentCore Evaluations:
 
 | Limit | Default Value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
-| Input tokens per minute for built-in evaluators | 1,000,000 | No | Applies to on-demand evaluations. | 
+| Input tokens per minute for built-in evaluators | 1,000,000 | Yes | Applies to on-demand evaluations. | 
 | Evaluations per minute for built-in evaluators | 1,200 | No | Applies to on-demand evaluations. Asia Pacific (Mumbai) and Asia Pacific (Singapore) have a limit of 200 per minute. | 
 | Spans per on-demand evaluation | 20,000 | No |  | 
 | On-demand evaluation payload size (in MB) | 200 | No |  | 
@@ -440,8 +440,9 @@ The following table describes the service quotas for AgentCore Evaluations:
 | Input tokens per evaluation | 200,000 | No |  | 
 | Spans evaluated per sampled session | 20,000 | No |  | 
 | Size of all spans in a sampled session (in MB) | 200 | No |  | 
-| Online evaluation configurations per account | 1,000 | No |  | 
+| Online evaluation configurations per account | 1,000 | Yes |  | 
 | Evaluators per online evaluation configuration | 25 | No |  | 
+| Custom evaluators per account | 10,000 | Yes |  | 
 
 ## AgentCore Batch Evaluation Service Quotas
 <a name="optimization-batch-evaluation-limits"></a>
@@ -468,9 +469,9 @@ The following table describes the rate quotas for AgentCore Batch Evaluation API
 
 | Limit | Value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
-| Active evaluations per account | 5 | No | Maximum concurrent batch evaluations running | 
+| Active evaluations per account | 5 | Yes | Maximum concurrent batch evaluations running | 
 | Maximum batch evaluations per account | 2,000 | No | Total batch evaluations that can exist. To create more, delete existing batch evaluations. | 
-| Sessions per evaluation job | 500 | No | Maximum number of sessions per batch evaluation job | 
+| Sessions per evaluation job | 500 | Yes | Maximum number of sessions per batch evaluation job | 
 | Evaluators per job | 10 | No | Maximum number of evaluators per batch evaluation job | 
 
 ## AgentCore AB Testing Service Quotas
@@ -498,7 +499,7 @@ The following table describes the rate quotas for AgentCore AB Testing APIs. Req
 
 | Limit | Value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
-| Active AB tests per account | 20 | No | AB tests with execution status of PAUSED or RUNNING | 
+| Active AB tests per account | 20 | Yes | AB tests with execution status of PAUSED or RUNNING | 
 | Maximum AB tests per gateway | 1 | No |  | 
 | Treatments per AB test | 2 | No | Control and one treatment variant | 
 | Maximum AB tests per account | 2,000 | No | Total AB tests that can exist. To create more, delete existing AB tests. | 
@@ -527,7 +528,7 @@ The following table describes the rate quotas for AgentCore Recommendations APIs
 
 | Limit | Value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
-| Active recommendations per account | 5 | No | Maximum concurrent recommendations running | 
+| Active recommendations per account | 5 | Yes | Maximum concurrent recommendations running | 
 | Maximum recommendations per account | 2,000 | No | Total recommendations that can exist. To create more, delete existing recommendations. | 
 | Sessions per recommendation | 20 | No | Number of sessions sampled per recommendation | 
 | Spans per request (inline) | 1,000 | No | Maximum size of sessionSpans list when using inline input | 
@@ -560,7 +561,7 @@ The following table describes the rate quotas for AgentCore Configuration Bundle
 
 | Limit | Value | Adjustable | Notes | 
 | --- | --- | --- | --- | 
-| Maximum configuration bundles per account | 1,000 | No |  | 
+| Maximum configuration bundles per account | 1,000 | Yes |  | 
 | Maximum bundle versions per configuration bundle | 10,000 | No |  | 
 | Maximum payload (JSON) size | 5 MB | No |  | 
 

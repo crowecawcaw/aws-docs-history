@@ -23,6 +23,7 @@ With self-managed strategies, you can:
 + [Understanding payload delivery](#understanding-payload-delivery)
 + [Build your custom pipeline](#building-custom-pipeline)
 + [Test your implementation](#testing-implementation)
++ [Set record retention (time-to-live) on batch operations](#batch-record-ttl)
 + [Best practices](#best-practices)
 
 ## Create and use a self-managed strategy
@@ -336,6 +337,13 @@ aws bedrock-agentcore list-memory-records \
   --memory-id "your-memory-id" \
   --namespace-path "/" # lists all records present under the namespace hierarchy
 ```
+
+## Set record retention (time-to-live) on batch operations
+<a name="batch-record-ttl"></a>
+
+When you ingest records directly with `BatchCreateMemoryRecords` or update them with `BatchUpdateMemoryRecords`, you can set a request-level time-to-live (TTL) that applies to every record in the request by providing a `recordExpirySpecification`. Configuring or removing a TTL requires the `bedrock-agentcore:UpdateMemoryRecordExpirySpecification` permission in addition to the batch write action.
+
+For the batch TTL IAM policy, the `BatchCreateMemoryRecords` and `BatchUpdateMemoryRecords` examples, and the rules that govern how `BatchUpdateMemoryRecords` applies a TTL, see [Set a time-to-live for long-term memory records](long-term-record-ttl.md).
 
 ## Best practices
 <a name="best-practices"></a>

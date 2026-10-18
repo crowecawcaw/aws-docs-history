@@ -54,6 +54,12 @@
 
 The registry status starts as **Creating** and transitions to **Ready** when provisioning completes.
 
+**Important**  
+Auto-approved records skip human review and become discoverable as soon as they’re submitted. If you enable auto-approval, use compensating controls such as the following:  
+Restrict who has permission to submit records, for example by limiting access to the `SubmitRegistryRecordForApproval` action.
+Use [Amazon EventBridge events](registry-eventbridge.md) to trigger automated checks on submitted records, and deprecate records that fail them.
+Validate record metadata on the consumer side. For more information, see [Validate record metadata before you act on it](registry-data-protection.md#registry-consumer-validation).
+
 **Note**  
 For JWT enabled registries, At least one **JWT authorization configuration** field is required: allowed audiences, allowed clients, allowed scopes, or custom claims. If you configure more than one, AWS Agent Registry verifies all of them.
 
@@ -468,6 +474,9 @@ Tags are not edited from the **Edit registry** page. To modify tags, go to the r
 
 **Note**  
 Updating auto-approval config from OFF to ON only affects records submitted after the change. Existing records already 'Pending Approval' are not affected and must still be approved or rejected by calling UpdateRegistryRecordStatus API. Changing the config from ON to OFF only affects records that are published to 'Pending Approval' after the change is made.
+
+**Important**  
+Turning on auto-approval removes human review for new records, so put compensating controls in place before you turn it on. For more information about compensating controls, see [Create a registry](#registry-create).
 
 **Note**  
 The inbound authorization type (IAM or JWT) and the JWT discovery URL cannot be changed after the registry is created. For JWT-authorized registries, you can only update the authorizer configuration (allowed clients, audiences, scopes, custom claims).

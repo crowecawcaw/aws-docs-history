@@ -9,6 +9,8 @@ A temporal policy is a `permit` or `forbid` rule that contains one or more tempo
 
 Temporal policies are written in Dogwood, which is compatible with Cedar and supports all existing Cedar policies. Standard Cedar policies are stateless and consider only the current request. Temporal policies follow the same deny-by-default model: a request is allowed only when a `permit` applies and no `forbid` overrides it. Temporal conditions are distinct from [time-based conditions](example-policies-time-based.md), which restrict access based on wall-clock time (`context.system.now`) rather than on session history. You can also run a temporal policy in `LOG_ONLY` mode to observe what it would decide before promoting it to `ENFORCE`; see [Policy enforcement modes](policy-enforcement-modes.md).
 
+For more information about temporal policies that cover each pattern, see [Temporal policy examples](example-policies-temporal.md) in [Policy authoring guide](policy-authoring-guide.md).
+
 **Topics**
 + [Key concepts](#policy-temporal-concepts)
 + [Supported AWS Regions](#policy-temporal-regions)
@@ -27,21 +29,20 @@ Temporal policies build on two things: the Dogwood policy language, which expres
 ### The Dogwood policy language
 <a name="policy-temporal-dogwood"></a>
 
-Temporal policies are written in Dogwood, an open source policy language that Policy in AgentCore uses for session-aware authorization. Dogwood builds on Cedar and uses the same authorization model: you write `permit` and `forbid` rules over a principal, action, and resource, and a request is allowed only when a `permit` applies and no `forbid` overrides it. Dogwood is compatible with Cedar and supports all existing Cedar policies, so every valid Cedar policy is also a valid Dogwood policy. Your existing point-in-time policies continue to work without changes, and you add temporal conditions only where a rule must consider more than the current request.
+Temporal policies are written in Dogwood, an open-source policy language for session-aware authorization - authorization decisions that factor in prior events, not just the current request. Dogwood extends the authorization model of Cedar, adding stateful, session-aware conditions and additional policy information providers, such as Amazon Bedrock Guardrails. You write `permit` and `forbid` rules over a principal, action, and resource. A request is allowed only when a `permit` applies and no `forbid` overrides it. Your existing point-in-time policies written in Dogwood or Cedar continue to work without changes. You add temporal conditions only where a rule must consider more than the current request.
 
-With Dogwood, you express session-aware rules declaratively as policy instead of implementing event-tracking logic in your agent or tool code. The policy engine records the relevant events and evaluates the condition on each request. For example, the following policy permits a sale only when a matching approval occurred within the previous hour:
+With Dogwood, you express session-aware rules declaratively as policy instead of implementing event-tracking logic in your agent or tool code. The policy engine records the relevant events and evaluates the condition on each request. For example, the following policy permits disbursing a payment only when an approval for the same claim arrived within the previous hour:
 
 ```
 permit (
     principal,
-    action == AgentCore::Action::"TradingTarget___SellShares",
-    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/my-gateway"
+    action == AgentCore::Action::"InsuranceAPI___disburse_payment",
+    resource == AgentCore::Gateway::"arn:aws:bedrock-agentcore:us-west-2:123456789012:gateway/insurance-gw-a1b2c3d4e5"
 )
 when temporal {
-    formerly within 1h AgentCore::Action::"TradingTarget___ApproveSale"::response{
+    formerly within 1h AgentCore::Action::"InsuranceAPI___approve_claim"::response{
         eventResource:   resource,
-        input.stock:     context.input.stock,
-        input.shares:    context.input.shares,
+        input.claimId:   context.input.claimId,
         output.approved: true
     }
 };
@@ -152,7 +153,7 @@ The following signals are specific to temporal policies:
 +  `aws.agentcore.policy.temporal.evaluation_invoked` (span attribute): whether temporal evaluation ran for the request. This does not indicate that a temporal policy matched or determined the decision.
 +  `aws.agentcore.policy.temporal.event_timestamp_ns` (span attribute): the exact event timestamp the evaluator used to order the request event, in nanoseconds.
 
-For the complete list of policy metrics, dimensions, and span attributes, and for how to enable observability, see [Policy in AgentCore observability data](observability-policy-metrics.md).
+For the complete list of policy metrics, dimensions, and span attributes, see [AgentCore generated policy observability data](observability-policy-metrics.md). That page also explains how to enable observability.
 
 ## Security considerations
 <a name="policy-temporal-security"></a>

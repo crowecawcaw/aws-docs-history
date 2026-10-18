@@ -107,6 +107,9 @@ Skills are reusable capabilities shared across agents. A skill record uses the `
 +  **Skill markdown (optional)** — Content of SKILL.md, validated against the [official AgentSkills specification](https://agentskills.io/home) on the AgentSkills website. Store in `descriptors.agentSkillsDefinition.additionalData.skillMd.data`. Note that the markdown is only used as metadata for discovery purpose. Registry does not support storing other agent skill files.
 +  **Skill definition (optional)** — Structured definition validated against an Amazon pre-defined schema. Store in `descriptors.agentSkillsDefinition.data`. Supported `dataSchemaVersion`: 0.1.0.
 
+**Important**  
+ AWS Agent Registry checks the skill definition only against the following schema. It doesn’t verify the packages in `packages[].identifier` or the repository in `repository.url`. Before you install or download them, validate them. For more information, see [Validate record metadata before you act on it](registry-data-protection.md#registry-consumer-validation).
+
 The skill definition schema is defined as follow:
 
 ```

@@ -11,7 +11,7 @@ If role manager is enabled in your account, AgentCore attaches the role for you,
 +  **IAM permissions model.** Harness APIs require permissions on both the harness resource and the underlying [AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html) resource. For example, calling `InvokeHarness` requires both `bedrock-agentcore:InvokeHarness` and `bedrock-agentcore:InvokeAgentRuntime` permissions on the harness ARN. The same pattern applies to control plane operations: `UpdateHarness` requires `bedrock-agentcore:UpdateAgentRuntime`, `DeleteHarness` requires `bedrock-agentcore:DeleteAgentRuntime`, and so on. See [execution role policy](#harness-execution-role-policy) for the full list.
 +  **Inbound OAuth Support.** JWT configured Harness resources require callers to present a valid JWT issued by a configured identity provider before they can invoke the harness. [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) threads the end-user identity through the agent, so downstream tools can call APIs with scoped user credentials instead of a shared service account.
 +  **VPC.** Connect harness sessions to your VPC for private access to internal resources.
-+  **Policies on Gateway.** When tools are served through [AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html), Cedar-based [policies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html) can be configured to gate every call: who can call which tool, under which conditions, with which arguments.
++  **Policies on Gateway.** When tools are served through [AgentCore Gateway](gateway.md), [policies](policy.md) written in Dogwood or Cedar can be configured to gate every call: which agentic actions a caller can invoke, under which conditions, with which arguments.
 
 **Note**  
  **SigV4 and per-user identity.** When callers authenticate with SigV4 (AWS IAM), the harness does not propagate per-user identity into downstream tool calls. This means per-user credential scoping features in [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) Token Vault - such as user-scoped OAuth token storage and on-behalf-of token exchange - are only available when callers authenticate with a Bearer JWT via the OAuth inbound path. If your use case requires per-user credential scoping for downstream tools, configure inbound OAuth on the harness. SigV4 support for per-user identity is planned for a future release.
@@ -227,9 +227,9 @@ Learn more: [AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/l
 ## Gateway policies
 <a name="_gateway_policies"></a>
 
-When tools are served through [AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html), Cedar-based [policies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html) gate every call: who can call which tool, under which conditions, with which arguments.
+When tools are served through [AgentCore Gateway](gateway.md), [policies](policy.md) written in Dogwood or Cedar gate every call: which agentic actions a caller can invoke, under which conditions, with which arguments.
 
-Learn more: [AgentCore Policy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html) · [common patterns](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy-common-patterns.html) 
+Learn more: [AgentCore Policy](policy.md) · [Policy authoring guide](policy-authoring-guide.md) 
 
 ## Execution role policy
 <a name="harness-execution-role-policy"></a>

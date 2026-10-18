@@ -8,6 +8,20 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 ## October 2026
 <a name="_october_2026"></a>
 
+### Memory: Time-to-live for long-term memory records
+<a name="_memory_time_to_live_for_long_term_memory_records_2"></a>
+
+Amazon Bedrock AgentCore Memory now supports a time-to-live (TTL) for long-term memory records, so you can control how long extracted records are retained before they expire. TTL configuration is done through `recordExpirySpecification`. Configuring or removing a TTL requires the new `bedrock-agentcore:UpdateMemoryRecordExpirySpecification` IAM permission.
+
+For more information, see [Configure record retention (time-to-live)](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html#long-term-built-in-strategy-record-ttl).
+
+### Memory: Consumption-based pricing for short-term memory
+<a name="_memory_consumption_based_pricing_for_short_term_memory_2"></a>
+
+Amazon Bedrock AgentCore Memory now bills short-term memory based on consumption instead of a flat rate per event, with charges calculated separately for ingestion, retrieval, and storage. This change applies automatically to short-term memory usage; no configuration is required.
+
+For more information, see [Amazon Bedrock AgentCore pricing](https://aws.amazon.com/bedrock/agentcore/pricing/) page.
+
 ### Gateway: Private certificate authority support for targets
 <a name="_gateway_private_certificate_authority_support_for_targets_2"></a>
 

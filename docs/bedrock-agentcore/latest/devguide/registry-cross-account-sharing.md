@@ -18,7 +18,7 @@ Cross-account sharing follows a three-step process:
 
 1.  **Consumer accesses the shared registry**—The consumer calls AWS Agent Registry APIs using their own credentials against the owner’s registry ARN. The actions they can perform depend on the managed permission attached to the share.
 
-Key characteristics:
+Cross-account sharing has the following key characteristics:
 + Only the registry owner can initiate sharing.
 + RAM creates and manages the resource-based policy on your behalf—you select a managed permission to control which actions it grants.
 + The managed permission you select determines what the consumer can do (discover, publish, or administer).
@@ -53,7 +53,7 @@ This is the default permission for the `agent-registry:Registry` resource type. 
 
  **Use case:** Share a registry for visibility and auditing. The consumer can browse and search the catalog, but cannot publish, modify, or invoke tools through the MCP endpoint.
 
- **Permissions granted:** 
+This permission grants the following actions to the consumer account:
 +  `agent-registry:GetRegistry`—View registry configuration and metadata.
 +  `agent-registry:GetRegistryRecord`—Read individual record details (control plane).
 +  `agent-registry:ListRegistryRecords`—List all records in the registry (control plane).
@@ -69,7 +69,7 @@ This permission grants data-plane discovery access plus the ability to invoke th
 
  **Use case:** Share a registry with an account whose agents need to discover tools and invoke them through the MCP endpoint. The consumer cannot create or manage records.
 
- **Permissions granted:** 
+This permission grants the following actions to the consumer account:
 +  `agent-registry:SearchDiscoverableRegistryRecords`—Search approved records.
 +  `agent-registry:GetDiscoverableRegistryRecord`—Get full details of an approved record.
 +  `agent-registry:ListDiscoverableRegistryRecords`—List approved records.
@@ -82,7 +82,7 @@ This permission grants everything the Consumer permission grants, plus control-p
 
  **Use case:** Share a registry with a team that needs to publish MCP servers, agents, or tools into your catalog. The publisher can manage their own records and discover others, but cannot approve or reject records.
 
- **Permissions granted:** 
+This permission grants the following actions to the consumer account:
 +  `agent-registry:GetRegistry`—View registry configuration.
 +  `agent-registry:CreateRegistryRecord`—Create new records.
 +  `agent-registry:UpdateRegistryRecord`—Update existing records.
@@ -103,7 +103,7 @@ This permission grants everything the Publisher permission grants, plus the abil
 
  **Use case:** Share a registry with an account that manages the full record lifecycle—publishing, reviewing, and approving records—without owning the registry infrastructure itself. The admin cannot update or delete the registry.
 
- **Permissions granted:** 
+This permission grants the following actions to the consumer account:
 +  `agent-registry:GetRegistry`—View registry configuration.
 +  `agent-registry:CreateRegistryRecord`—Create new records.
 +  `agent-registry:UpdateRegistryRecord`—Update existing records.

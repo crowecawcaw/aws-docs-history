@@ -216,8 +216,12 @@ The Web Search Tool returns results in the following MCP-compliant format:
 
 The Web Search Tool connector is available in the following AWS Regions:
 + US East (N. Virginia) `us-east-1` 
++ US East (Ohio) `us-east-2` 
++ US West (Oregon) `us-west-2` 
 + Europe (Ireland) `eu-west-1` 
++ Asia Pacific (Sydney) `ap-southeast-2` 
 + Asia Pacific (Tokyo) `ap-northeast-1` 
++  AWS GovCloud (US-West) `us-gov-west-1` 
 
 Because Amazon operates the full search stack, improvements to freshness, coverage, relevance, and snippet quality flow to your agents automatically through the same managed connector. No version upgrades or migrations are needed on your side.
 

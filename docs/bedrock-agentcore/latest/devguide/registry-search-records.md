@@ -91,7 +91,7 @@ response = client.search_discoverable_registry_records(
     maxResults=10
 )
 for record in response['registryRecords']:
-    print(f"{record['displayName']} ({record['name']}) - {record['recordType']} - {record['status']}")
+    print(f"{record.get('displayName', record['name'])} ({record['name']}) - {record['recordType']} - {record['status']}")
 ```
 
 ```
@@ -288,7 +288,7 @@ To combine a custom metadata filter with a base field filter:
 ```
 
 **Note**  
-Filter values for `customMetadata.{fieldName}` are strings or native booleans. For a **Boolean** field, use the string `"true"` or `"false"`, or a native JSON boolean (`true` / `false`). For an **Enum** field, use one of the schema’s allowed values. If the same field name is defined in more than one record-type schema, the filter matches that field’s value regardless of which schema resolved it for the record.
+Filter values for `customMetadata.{fieldName}` are strings or native booleans. For a **Boolean** field, use the string `"true"` or `"false"`, or a native JSON boolean (`true` / `false`). For an **Enum** field, use one of the schema’s allowed values. A filter on a field matches records of every record type that has that field.
 
 ### Search returns only approved records
 <a name="registry-search-approved-only"></a>

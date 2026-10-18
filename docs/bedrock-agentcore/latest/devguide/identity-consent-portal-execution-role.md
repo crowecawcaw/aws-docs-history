@@ -12,7 +12,7 @@ The consent portal execution role must include the following trust policy, which
 
 In the policy, replace:
 +  `us-east-1` with the AWS Region that you are using
-+  `123456789012` with your AWS account ID
++  `111122223333` with your AWS account ID
 +  {{consent-portal-id}} with the ID of your consent portal
 
 ```
@@ -28,10 +28,10 @@ In the policy, replace:
       "Action": "sts:AssumeRole",
       "Condition": {
         "StringEquals": {
-          "aws:SourceAccount": "123456789012"
+          "aws:SourceAccount": "111122223333"
         },
         "ArnLike": {
-          "aws:SourceArn": "arn:aws:bedrock-agentcore:us-east-1:123456789012:consent-portal/consent-portal-id"
+          "aws:SourceArn": "arn:aws:bedrock-agentcore:us-east-1:111122223333:consent-portal/consent-portal-id"
         }
       }
     }
@@ -51,7 +51,7 @@ Attach the following inline permissions policy to the execution role. It grants 
 
 In the policy, replace:
 +  `us-east-1` with the AWS Region that you are using
-+  `123456789012` with your AWS account ID
++  `111122223333` with your AWS account ID
 +  {{gateway-id}} with the ID of the gateway that the consent portal serves
 
 ```
@@ -65,7 +65,7 @@ In the policy, replace:
         "bedrock-agentcore:GetGatewayTarget",
         "bedrock-agentcore:ListGatewayTargets"
       ],
-      "Resource": "arn:aws:bedrock-agentcore:us-east-1:123456789012:gateway/gateway-id"
+      "Resource": "arn:aws:bedrock-agentcore:us-east-1:111122223333:gateway/gateway-id"
     },
     {
       "Effect": "Allow",
@@ -74,8 +74,8 @@ In the policy, replace:
         "bedrock-agentcore:ListOauth2CredentialProviders"
       ],
       "Resource": [
-        "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/default/oauth2credentialprovider/*",
-        "arn:aws:bedrock-agentcore:us-east-1:123456789012:token-vault/default"
+        "arn:aws:bedrock-agentcore:us-east-1:111122223333:token-vault/default/oauth2credentialprovider/*",
+        "arn:aws:bedrock-agentcore:us-east-1:111122223333:token-vault/default"
       ]
     },
     {
@@ -93,7 +93,7 @@ In the policy, replace:
         "secretsmanager:GetSecretValue"
       ],
       "Resource": [
-        "arn:aws:secretsmanager:us-east-1:123456789012:secret:bedrock-agentcore-identity!default/oauth2/*"
+        "arn:aws:secretsmanager:us-east-1:111122223333:secret:bedrock-agentcore-identity!default/oauth2/*"
       ],
       "Condition": {
         "StringEquals": {
