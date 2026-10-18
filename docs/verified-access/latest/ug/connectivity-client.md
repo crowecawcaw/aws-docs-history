@@ -35,9 +35,9 @@ Before you begin, complete the following prerequisites:
 <a name="connectivity-client-download"></a>
 
 Uninstall any previous version of the client. Download the client, verify that the installer is signed, and run the installer. Do not install the client using an unsigned installer.
-+ [Connectivity Client for Mac with Apple Silicon version 1.0.4](https://d1wo6wuaox5vq3.cloudfront.net/mac-arm64/1.0.4/ConnectivityClientInstaller.pkg)
-+ [Connectivity Client for Mac with Intel version 1.0.4](https://d1wo6wuaox5vq3.cloudfront.net/mac-x86_64/1.0.4/ConnectivityClientInstaller.pkg)
-+ [Connectivity Client for Windows with x64 version 1.0.6](https://d1wo6wuaox5vq3.cloudfront.net/windows-x86_64/1.0.6/ConnectivityClientInstaller.msi)
++ [Connectivity Client for Mac with Apple Silicon version 1.1.0](https://d1wo6wuaox5vq3.cloudfront.net/mac-arm64/1.1.0/ConnectivityClientInstaller.pkg)
++ [Connectivity Client for Mac with Intel version 1.1.0](https://d1wo6wuaox5vq3.cloudfront.net/mac-x86_64/1.1.0/ConnectivityClientInstaller.pkg)
++ [Connectivity Client for Windows with x64 version 1.1.0](https://d1wo6wuaox5vq3.cloudfront.net/windows-x86_64/1.1.0/ConnectivityClientInstaller.msi)
 
 ## Export the client configuration file
 <a name="connectivity-client-export-configuration"></a>
@@ -162,6 +162,7 @@ The following table contains the version history of the client.
 
 | Version | Changes | Download | Date | 
 | --- | --- | --- | --- | 
+| 1.1.0 |  + Updated the OpenSSL library + Updated the OpenSSL library  |  +  [Mac with Apple Silicon](https://d1wo6wuaox5vq3.cloudfront.net/mac-arm64/1.1.0/ConnectivityClientInstaller.pkg) <br />+  [Mac with Intel](https://d1wo6wuaox5vq3.cloudfront.net/mac-x86_64/1.1.0/ConnectivityClientInstaller.pkg) <br />+  [Windows with x64](https://d1wo6wuaox5vq3.cloudfront.net/windows-x86_64/1.1.0/ConnectivityClientInstaller.msi)   | October 14, 2026 | 
 | 1.0.6 |  + Minor bug fixes  |  +  [Windows with x64](https://d1wo6wuaox5vq3.cloudfront.net/windows-x86_64/1.0.6/ConnectivityClientInstaller.msi)   | June 1, 2026 | 
 | 1.0.5 |  + Minor bug fixes  |  +  [Windows with x64](https://d1wo6wuaox5vq3.cloudfront.net/windows-x86_64/1.0.5/ConnectivityClientInstaller.msi)   | April 20, 2026 | 
 | 1.0.4 |  + Minor bug fixes  |  +  [Mac with Apple Silicon](https://d1wo6wuaox5vq3.cloudfront.net/mac-arm64/1.0.4/ConnectivityClientInstaller.pkg) <br />+  [Mac with Intel](https://d1wo6wuaox5vq3.cloudfront.net/mac-x86_64/1.0.4/ConnectivityClientInstaller.pkg)   | April 9, 2026 | 
