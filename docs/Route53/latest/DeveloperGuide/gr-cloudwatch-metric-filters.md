@@ -95,16 +95,16 @@ This section contains example metric filter patterns and Amazon CloudWatch Logs 
 }
 ```
 
-**REFUSED by Access Source**
+**NXDOMAIN by Access Source**
 
 ```
 {
  "logGroupName": "/aws/vendedlogs/route53globalresolver/global-resolver/GLOBAL_RESOLVER_LOGS/gr-<resolverId>",
- "filterName": "RefusedQueriesByAccessSourceCidr",
- "filterPattern": "{ $.rcode = \"REFUSED\" }",
+ "filterName": "NxdomainQueriesByAccessSourceCidr",
+ "filterPattern": "{ $.rcode = \"NXDOMAIN\" }",
  "metricTransformations": [
    {
-     "metricName": "RefusedQueriesByAccessSourceCidr",
+     "metricName": "NxdomainQueriesByAccessSourceCidr",
      "metricNamespace": "Route53GlobalResolver",
      "metricValue": "1",
      "dimensions": { "AccessSourceCidr": "$.enrichments[0].data.access_source_cidr" }

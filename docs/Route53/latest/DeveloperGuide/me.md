@@ -8,9 +8,6 @@
 **Lease period for registration and renewal**  
 One to ten years.
 
-**Restrictions**  
-Domain.me, the registry for .me domains, considers two-letter domain names and some longer domain names to be premium domain names. You can't register premium .me domains with or transfer them to Route 53. For more information about premium .me domain names, see the [domain.me](https://domain.me/) website.
-
 **Privacy protection**  
 All information is hidden.
 

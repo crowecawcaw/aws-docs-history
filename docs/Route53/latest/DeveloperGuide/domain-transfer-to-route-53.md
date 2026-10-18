@@ -52,9 +52,6 @@ When you transfer a domain to Route 53, the transfer fee that we apply to your 
 You can't use AWS credits to pay the fee, if any, for transferring a domain to Route 53.  
 Route 53 charges the fee for transferring your domain before we start the transfer process. If a transfer fails for some reason, we immediately credit your account for the cost of the transfer.
 
-**Special and premium domain names**  
-TLD registries have assigned special or premium prices to some domain names. You can't transfer a domain to Route 53 if the domain has a special or premium price.
-
 **Domain quotas**  
 The default maximum number of domains per AWS account is 20. You can [request a higher quota](https://us-east-1.console.aws.amazon.com/servicequotas/home/services/route53/quotas/L-F767CB15). For more information, see [Quotas on domains](DNSLimitations.md#limits-api-entities-domains).
 

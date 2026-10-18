@@ -22,7 +22,7 @@ Make sure you turn off automatic renewal if you intend to cancel your AWS accoun
 
    In the **Turn on auto-renew for <domain name>?** agree to pay the yearly rate, and choose **Turn on**.
 **Note**  
-The price listed is for the current registration period, and can change. For more information, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf).
+The price listed is for the current registration period, and can change. For more information, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf). The pricing list doesn't include registry premium prices, which vary by domain name.
 
 1. To turn off auto-renew, select **Turn off auto-renew** in the **Actions** dropdown.
 

@@ -27,9 +27,6 @@ If you accidentally register the wrong domain name, you can't change it. Instead
 **AWS credits**  
 You can't use AWS credits to pay the fee for registering a new domain with Route 53.
 
-**Special or premium prices**  
-TLD registries have assigned special or premium prices to some domain names. You can't use Route 53 to register a domain that has a special or premium price.
-
 **Charges for hosted zones**  
 When you register a domain with Route 53, Route 53 automatically creates a hosted zone for the domain and charges a small monthly fee for the hosted zone in addition to the annual charge for the domain registration. This hosted zone is where you store information about how to route traffic for your domain, for example, to an Amazon EC2 instance or a CloudFront distribution. If you don't want to use your domain right now, you can delete the hosted zone; if you delete it within 12 hours of registering the domain, there won't be any charge for the hosted zone on your AWS bill. Route 53 also charges a small fee for the DNS queries that it receives for your domain. For more information, see [Amazon Route 53 Pricing](https://aws.amazon.com/route53/pricing/).
 
@@ -73,6 +70,8 @@ For languages that have more than one code, you might need to try both of them. 
 1. Choose **Proceed to checkout**. 
 
 1. On the **Pricing** page, choose the number of years that you want to register the domain for and whether you want Route 53 to automatically renew your domain registration before the expiration date. 
+**Note**  
+Multi-year registration is not supported for premium domains.
 **Note**  
 Domain name registrations and renewals are not refundable. If you enable automatic domain renewal and you decide that you don't want the domain name after Route 53 renews the registration, you can't get a refund for the cost of the renewal.
 

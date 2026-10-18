@@ -27,9 +27,9 @@ DNS query logs use the Open Cybersecurity Schema Framework (OCSF), which provide
 ### OCSF log format examples
 <a name="gr-ocsf-log-examples"></a>
 
-Route 53 Global Resolver DNS query logs follow the OCSF schema structure, providing detailed information about each DNS query, response, and security action. The following examples show the log format for allowed and denied queries.
+Route 53 Global Resolver DNS query logs follow the OCSF schema structure, providing detailed information about each DNS query, response, and security action. The following examples show the log format for allowed, denied, and alerted queries.
 
-#### Route 53 Global Resolver DNS log - Access allowed example
+#### Route 53 Global Resolver DNS log - Example – Access allowed
 <a name="gr-ocsf-allowed-example"></a>
 
 This example shows a DNS query that was allowed through firewall rules. The log includes query details, response information, and enrichment data with Route 53 Global Resolver-specific identifiers.
@@ -56,9 +56,11 @@ This example shows a DNS query that was allowed through firewall rules. The log 
         "direction_id": 1,  
         "protocol_name": "udp",  
         "protocol_num": 17,  
-        "protocol_ver": "",  
+        "protocol_ver_id": 4,
         "uid": "db21d1739ddb423a"  
-    },  
+    },
+    "disposition": "Allowed",
+    "disposition_id": 1,
     "duration": 1,  
     "end_time": 1761358379996,  
     "answers": [{  
@@ -83,10 +85,8 @@ This example shows a DNS query that was allowed through firewall rules. The log 
         "data": {  
             "dns_view_id": "dnsv-a1b2c3d4fexample",  
             "firewall_rule_id": "fr-a1b2c3d4fexample",  
-            "token_id": "t-a1b2c3d4fexample",  
-            "token_name": "device-123456",  
-            "token_expiration": "1789419206",  
-            "access_source_cidr": "3.3.3.0/24",  
+            "firewall_domain_list_id": "fdl-a1b2c3d4fexample",
+            "access_source_cidr": "3.3.3.0/24"
         }  
     }],  
     "message": "",  
@@ -113,10 +113,6 @@ This example shows a DNS query that was allowed through firewall rules. The log 
     "response_time": 1761358379995,  
     "severity": "Informational",  
     "severity_id": 1,  
-    "src_endpoint": {  
-        "ip": "3.3.3.3",  
-        "port": 28276  
-    },  
     "start_time": 1761358379995,  
     "status": "Success",  
     "status_id": 1,  
@@ -126,7 +122,7 @@ This example shows a DNS query that was allowed through firewall rules. The log 
 }
 ```
 
-#### Route 53 Global Resolver DNS log - Access denied example
+#### Route 53 Global Resolver DNS log - Example – Access denied
 <a name="gr-ocsf-denied-example"></a>
 
 This example shows a DNS query that was blocked by firewall rules. The log includes the denial action, empty answers array, and REFUSED response code indicating the query was not processed.
@@ -155,7 +151,9 @@ This example shows a DNS query that was blocked by firewall rules. The log inclu
         "protocol_num": 6,  
         "protocol_ver_id": 4,  
         "uid": "9fdc6fbc09794d5e"  
-    },  
+    },
+    "disposition": "Blocked",
+    "disposition_id": 2,
     "duration": 1,  
     "end_time": 1761358379996,  
     "answers": [],  
@@ -170,10 +168,11 @@ This example shows a DNS query that was blocked by firewall rules. The log inclu
             "data": {  
                 "dns_view_id": "dnsv-a1b2c3d4fexample",  
                 "firewall_rule_id": "fr-a1b2c3d4fexample",  
-                "token_id": "t-a1b2c3d4fexample",  
+                "firewall_domain_list_id": "fdl-a1b2c3d4fexample",
+                "token_id": "at-a1b2c3d4fexample",  
                 "token_name": "device-123456",  
-                "token_expiration": "1789419206",  
-                "access_source_cidr": "3.3.3.0/24",  
+                "token_expiration_time": "1789419206",
+                "token_ttl_days": 134
             }  
         }  
     ],  
@@ -207,5 +206,98 @@ This example shows a DNS query that was blocked by firewall rules. The log inclu
     "time": 1761358379995,  
     "type_name": "DNS Activity: Traffic",  
     "type_uid": 400306  
+}
+```
+
+#### Route 53 Global Resolver DNS log - Example – Access alert
+<a name="gr-ocsf-alert-example"></a>
+
+This example shows a DNS query that triggered an alert rather than being blocked. The log includes the `disposition` value of `Alert`, indicating the query was allowed through and resolved, but flagged for review.
+
+```
+{
+    "action_id": 1,
+    "action_name": "Allowed",
+    "activity_id": 6,
+    "activity_name": "Traffic",
+    "category_name": "Network Activity",
+    "category_uid": 4,
+    "class_name": "DNS Activity",
+    "class_uid": 4003,
+    "cloud": {
+        "provider": "AWS",
+        "region": "eu-west-1",
+        "account": {
+            "uid": "123456789012"
+        }
+    },
+    "connection_info": {
+        "direction": "Inbound",
+        "direction_id": 1,
+        "protocol_name": "tcp",
+        "protocol_num": 6,
+        "protocol_ver_id": 4,
+        "uid": "b7e4a1f2c6d84e39"
+    },
+    "disposition": "Alert",
+    "disposition_id": 19,
+    "duration": 1,
+    "end_time": 1761358379996,
+    "answers": [{
+        "rdata": "3.3.3.3",
+        "type": "A",
+        "class": "IN",
+        "ttl": 300
+    },
+    {
+        "rdata": "3.3.3.4",
+        "type": "A",
+        "class": "IN",
+        "ttl": 300
+    }],
+    "src_endpoint": {
+        "ip": "3.3.3.2",
+        "port": 58492
+    },
+    "enrichments": [{
+        "name": "global-resolver",
+        "value": "gr-a1b2c3d4fexample",
+        "data": {
+            "dns_view_id": "dnsv-a1b2c3d4fexample",
+            "firewall_rule_id": "fr-a1b2c3d4fexample",
+            "firewall_domain_list_id": "fdl-a1b2c3d4fexample",
+            "access_source_cidr": "3.3.3.2/32"
+        }
+    }],
+    "message": "",
+    "metadata": {
+        "version": "1.2.0",
+        "product": {
+            "name": "Global Resolver",
+            "vendor_name": "AWS",
+            "feature": {
+                "name": "DNS"
+            }
+        }
+    },
+    "query": {
+        "hostname": "example.com.",
+        "class": "IN",
+        "type": "A",
+        "opcode": "Query",
+        "opcode_id": 0
+    },
+    "query_time": 1761358379995,
+    "rcode": "NOERROR",
+    "rcode_id": 0,
+    "response_time": 1761358379995,
+    "severity": "Informational",
+    "severity_id": 1,
+    "start_time": 1761358379995,
+    "status": "Success",
+    "status_id": 1,
+    "time": 1761358379995,
+    "type_name": "DNS Activity: Traffic",
+    "type_uid": 400306
 }
 ```

@@ -10,9 +10,6 @@ Used as a general extension for any purpose.
 **Lease period for registration and renewal**  
 One to ten years.
 
-**Restrictions**  
-The registry for .xyz domains, Generation XYZ, considers some domain names to be premium domain names. You can't register premium .xyz domains with or transfer them to Route 53. For more information, see the [Generation XYZ](https://gen.xyz) website.
-
 **Privacy protection (applies to all contact types: person, company, association, and public body)**  
 All information is hidden except organization name.
 

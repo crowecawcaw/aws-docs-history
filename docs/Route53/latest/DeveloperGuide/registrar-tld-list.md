@@ -9,14 +9,14 @@ The top-level domain restrictions below apply to domain registration only. You c
 The following lists of generic and geographic top-level domains show the top-level domains (TLDs) that you can use to register domains with Amazon Route 53. 
 
 **Registering domains with Route 53**  
- TLD registries have assigned special or premium prices to some domain names. You can't use Route 53 to register a domain that has a special or premium price. The TLDs that you can register with Route 53 are included in the following lists. If the TLD isn't included, you can't register the domain with Route 53. 
+The TLDs that you can register with Route 53 are included in the following lists. If the TLD isn't included, you can't register the domain with Route 53. 
 
 **Transferring domains to Route 53**  
 You can transfer a domain to Route 53 if the TLD is included on the following lists. If the TLD isn't included, you can't transfer the domain to Route 53.  
 For most TLDs, you need to get an authorization code from the current registrar to transfer a domain. To determine whether you need an authorization code, see the "Authorization code required for transfers" section for your TLD.
 
 **Pricing for domain registration and transfers**  
-For information about the cost to register domains or transfer them to Route 53, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf).
+For information about the cost to register domains or transfer them to Route 53, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf). Certain domain names are designated as premium, often because they are shorter, more descriptive, or easier to remember. The registry sets prices for each premium domain individually. Prices for operations such as registration, transfer, renewal, and restoration might differ from the standard TLD prices and can change over time. The pricing list doesn't include registry premium prices, which vary by domain name. To check whether a domain is premium and to see its price, search for it in the Route 53 console or use the `GetDomainPrices` API operation.
 
 **Using Route 53 as your DNS service**  
 You can use Route 53 as the DNS service for any domain, even if the TLD for the domain isn't included on the following lists. For more information about Route 53 as a DNS service, see [How internet traffic is routed to your website or web application](welcome-dns-service.md). For information about how to transfer DNS service for your domain to Route 53, see [Making Amazon Route 53 the DNS service for an existing domain](MigratingDNS.md).
