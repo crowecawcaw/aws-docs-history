@@ -14,7 +14,7 @@ Amazon Bedrock provides the OpenAI Responses API on both the `bedrock-runtime` a
 **Note**  
 On `bedrock-mantle`, the path prefix varies by model. Most models are served under `/v1`, as shown in the preceding table, but some are served under `/openai/v1` instead. A request that uses the wrong prefix for a model is rejected with `model `<model-id>` isn't supported on this route`. To confirm the base URL for a specific model, see the **Programmatic Access** table on its card in [Models at a glance](model-cards.md).
 
-The two endpoints don't have identical feature support. Requests on `bedrock-runtime` are always synchronous, server-side tools aren't available, and only the default project is supported. For the full comparison, see [Endpoints supported by Amazon Bedrock](endpoints.md), and for the details of each difference, see [Using the Responses API on the bedrock-runtime endpoint](#bedrock-mantle-responses-runtime).
+The two endpoints don't have identical feature support. Requests on `bedrock-runtime` are always synchronous, server-side tools aren't available, and only the default project is supported. For the full comparison, see [Inference endpoints supported by Amazon Bedrock](endpoints.md), and for the details of each difference, see [Using the Responses API on the bedrock-runtime endpoint](#bedrock-mantle-responses-runtime).
 
 **Important**  
 When using the OpenAI SDK with Amazon Bedrock, you must point it to the Amazon Bedrock endpoint, not the OpenAI endpoint. Set the following environment variables, choosing the base URL for the endpoint you want:  
@@ -44,7 +44,7 @@ Each endpoint is governed by its own set of quotas. For Responses traffic on `be
 
 On the `bedrock-runtime` endpoint, the Responses API is available in every AWS Region where that endpoint is available, including the AWS GovCloud (US) Regions. For the list, see [Regional availability by endpoints](endpoints-region-availability.md). Which models support the API on each endpoint is listed in [Endpoint availability](models-endpoint-availability.md).
 
-The `bedrock-mantle` endpoint is available in a subset of those AWS Regions. For the Regions that support each endpoint, see [Regional availability by endpoints](endpoints-region-availability.md). For the base URL to use with a Region, see [Endpoints supported by Amazon Bedrock](endpoints.md).
+The `bedrock-mantle` endpoint is available in a subset of those AWS Regions. For the Regions that support each endpoint, see [Regional availability by endpoints](endpoints-region-availability.md). For the base URL to use with a Region, see [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 ## Prerequisites
 <a name="bedrock-mantle-prereq"></a>

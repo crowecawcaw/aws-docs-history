@@ -36,14 +36,310 @@ Model lifecycle state can differ by AWS Region. The **Regions** column in the fo
 The following models are in the Legacy state with an announced EOL date. Migrate to an Active model before the EOL date.
 
 
-| Model provider | Model name | Model ID | Regions | Legacy date | EOL date | Public extended access start date | 
-| --- | --- | --- | --- | --- | --- | --- | 
-| AI21 Labs | Jamba 1.5 Large | ai21.jamba-1-5-large-v1:0 | us-east-1 | May 26, 2026 | November 26, 2026 | August 26, 2026 | 
-| AI21 Labs | Jamba 1.5 Mini | ai21.jamba-1-5-mini-v1:0 | us-east-1 | May 26, 2026 | November 26, 2026 | August 26, 2026 | 
-| Anthropic | Claude Sonnet 4.5 | anthropic.claude-sonnet-4-5-20250929-v1:0 | af-south-1, ap-east-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-6, ap-southeast-7, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3, il-central-1, mx-central-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2 | October 8, 2026 | April 8, 2027 | January 8, 2027 | 
-| Anthropic | Claude Opus 4.1 | anthropic.claude-opus-4-1-20250805-v1:0 | us-east-1, us-east-2, us-west-2 | July 8, 2026 | January 8, 2027 | October 8, 2026 | 
-| Anthropic | Claude Sonnet 4 | anthropic.claude-sonnet-4-20250514-v1:0 | ap-northeast-1, eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3, us-east-1, us-east-2, us-west-1, us-west-2, ap-east-2, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-7, il-central-1 | April 14, 2026 | October 14, 2026 | July 14, 2026 | 
-| TwelveLabs | Marengo Embed v2.7 | twelvelabs.marengo-embed-2-7-v1:0 | ap-northeast-2, eu-west-1, us-east-1 | May 29, 2026 | November 30, 2026 | August 29, 2026 | 
+
+- **AI21 Labs**
+  - **Model name:** Jamba 1.5 Large
+  - **Model ID:** ai21.jamba-1-5-large-v1:0
+  - **Regions:** us-east-1
+  - **Legacy date:** May 26, 2026
+  - **EOL date:** November 26, 2026
+  - **Public extended access start date:** August 26, 2026
+
+- **AI21 Labs**
+  - **Model name:** Jamba 1.5 Mini
+  - **Model ID:** ai21.jamba-1-5-mini-v1:0
+  - **Regions:** us-east-1
+  - **Legacy date:** May 26, 2026
+  - **EOL date:** November 26, 2026
+  - **Public extended access start date:** August 26, 2026
+
+- **Anthropic**
+  - **Model name:** Claude 3 Haiku
+  - **Model ID:** anthropic.claude-3-haiku-20240307-v1:0
+  - **Regions:** ap-northeast-2, ap-south-1, ap-southeast-1 / **Legacy date:** October 10, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 10, 2026
+  - **Regions:** eu-central-2, sa-east-1 / **Legacy date:** October 13, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 13, 2026
+  - **Regions:** ca-central-1 / **Legacy date:** October 15, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 15, 2026
+
+- **Anthropic**
+  - **Model name:** Claude 3 Sonnet
+  - **Model ID:** anthropic.claude-3-sonnet-20240229-v1:0
+  - **Regions:** ap-south-1, ap-southeast-1, eu-west-2 / **Legacy date:** October 10, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 10, 2026
+  - **Regions:** sa-east-1 / **Legacy date:** October 13, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 13, 2026
+  - **Regions:** ca-central-1 / **Legacy date:** October 15, 2026 / **EOL date:** November 13, 2026 / **Public extended access start date:** October 15, 2026
+
+- **Anthropic**
+  - **Model name:** Claude 3.5 Sonnet
+  - **Model ID:** anthropic.claude-3-5-sonnet-20240620-v1:0
+  - **Regions:** ap-northeast-2, ap-south-1, ap-southeast-1
+  - **Legacy date:** October 10, 2026
+  - **EOL date:** November 13, 2026
+  - **Public extended access start date:** October 10, 2026
+
+- **Anthropic**
+  - **Model name:** Claude 3.5 Sonnet v2
+  - **Model ID:** anthropic.claude-3-5-sonnet-20241022-v2:0
+  - **Regions:** ap-northeast-2, ap-south-1, ap-southeast-1
+  - **Legacy date:** October 10, 2026
+  - **EOL date:** November 13, 2026
+  - **Public extended access start date:** October 10, 2026
+
+- **Anthropic**
+  - **Model name:** Claude 3.7 Sonnet
+  - **Model ID:** anthropic.claude-3-7-sonnet-20250219-v1:0
+  - **Regions:** ap-south-1, eu-west-2
+  - **Legacy date:** October 10, 2026
+  - **EOL date:** November 13, 2026
+  - **Public extended access start date:** October 10, 2026
+
+- **Anthropic**
+  - **Model name:** Claude Sonnet 4.5
+  - **Model ID:** anthropic.claude-sonnet-4-5-20250929-v1:0
+  - **Regions:** af-south-1, ap-east-2, ap-northeast-1, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-6, ap-southeast-7, ca-central-1, ca-west-1, eu-central-1, eu-central-2, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-2, eu-west-3, il-central-1, mx-central-1, sa-east-1, us-east-1, us-east-2, us-west-1, us-west-2
+  - **Legacy date:** October 8, 2026
+  - **EOL date:** April 8, 2027
+  - **Public extended access start date:** January 8, 2027
+
+- **Anthropic**
+  - **Model name:** Claude Opus 4.1
+  - **Model ID:** anthropic.claude-opus-4-1-20250805-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** July 8, 2026
+  - **EOL date:** January 8, 2027
+  - **Public extended access start date:** October 8, 2026
+
+- **DeepSeek**
+  - **Model name:** DeepSeek-R1
+  - **Model ID:** deepseek.r1-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **DeepSeek**
+  - **Model name:** DeepSeek-V3.1
+  - **Model ID:** deepseek.v3-v1:0 (bedrock-runtime), deepseek.v3.1 (bedrock-mantle)
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-north-1, eu-west-2, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Google**
+  - **Model name:** Gemma 3 12B IT
+  - **Model ID:** google.gemma-3-12b-it
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Google**
+  - **Model name:** Gemma 3 27B PT
+  - **Model ID:** google.gemma-3-27b-it
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Google**
+  - **Model name:** Gemma 3 4B IT
+  - **Model ID:** google.gemma-3-4b-it
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 3 70B Instruct
+  - **Model ID:** meta.llama3-70b-instruct-v1:0
+  - **Regions:** ap-south-1, ca-central-1, eu-west-2, us-east-1, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 3 8B Instruct
+  - **Model ID:** meta.llama3-8b-instruct-v1:0
+  - **Regions:** ap-south-1, ca-central-1, eu-west-2, us-east-1, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 3.1 70B Instruct
+  - **Model ID:** meta.llama3-1-70b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 3.1 8B Instruct
+  - **Model ID:** meta.llama3-1-8b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 3.3 70B Instruct
+  - **Model ID:** meta.llama3-3-70b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 4 Maverick 17B Instruct
+  - **Model ID:** meta.llama4-maverick-17b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-1, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Meta**
+  - **Model name:** Llama 4 Scout 17B Instruct
+  - **Model ID:** meta.llama4-scout-17b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-1, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **MiniMax**
+  - **Model name:** MiniMax M2
+  - **Model ID:** minimax.minimax-m2
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **MiniMax**
+  - **Model name:** MiniMax M2.1
+  - **Model ID:** minimax.minimax-m2.1
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Mistral AI**
+  - **Model name:** Devstral 2 123B
+  - **Model ID:** mistral.devstral-2-123b
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Mistral AI**
+  - **Model name:** Mistral 7B Instruct
+  - **Model ID:** mistral.mistral-7b-instruct-v0:2
+  - **Regions:** ap-south-1, ap-southeast-2, ca-central-1, eu-west-1, eu-west-2, eu-west-3, sa-east-1, us-east-1, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Mistral AI**
+  - **Model name:** Mixtral 8x7B Instruct
+  - **Model ID:** mistral.mixtral-8x7b-instruct-v0:1
+  - **Regions:** ap-south-1, ap-southeast-2, ca-central-1, eu-west-1, eu-west-2, eu-west-3, sa-east-1, us-east-1, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Mistral AI**
+  - **Model name:** Voxtral Mini 3B 2507
+  - **Model ID:** mistral.voxtral-mini-3b-2507
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Mistral AI**
+  - **Model name:** Voxtral Small 24B 2507
+  - **Model ID:** mistral.voxtral-small-24b-2507
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Moonshot AI**
+  - **Model name:** Kimi K2 Thinking
+  - **Model ID:** moonshot.kimi-k2-thinking (bedrock-runtime), moonshotai.kimi-k2-thinking (bedrock-mantle)
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **NVIDIA**
+  - **Model name:** NVIDIA Nemotron Nano 12B v2 VL BF16
+  - **Model ID:** nvidia.nemotron-nano-12b-v2
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **NVIDIA**
+  - **Model name:** NVIDIA Nemotron Nano 9B v2
+  - **Model ID:** nvidia.nemotron-nano-9b-v2
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Qwen**
+  - **Model name:** Qwen3-Coder-30B-A3B-Instruct
+  - **Model ID:** qwen.qwen3-coder-30b-a3b-v1:0 (bedrock-runtime), qwen.qwen3-coder-30b-a3b-instruct (bedrock-mantle)
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Qwen**
+  - **Model name:** Qwen3 Coder 480B A35B Instruct
+  - **Model ID:** qwen.qwen3-coder-480b-a35b-v1:0 (bedrock-runtime), qwen.qwen3-coder-480b-a35b-instruct (bedrock-mantle)
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-north-1, eu-west-2, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **TwelveLabs**
+  - **Model name:** Marengo Embed v2.7
+  - **Model ID:** twelvelabs.marengo-embed-2-7-v1:0
+  - **Regions:** ap-northeast-2, eu-west-1, us-east-1
+  - **Legacy date:** May 29, 2026
+  - **EOL date:** November 30, 2026
+  - **Public extended access start date:** August 29, 2026
+
+- **Writer**
+  - **Model name:** Palmyra X4
+  - **Model ID:** writer.palmyra-x4-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 9, 2026
+  - **EOL date:** March 9, 2027
+  - **Public extended access start date:** To be announced
+
+- **Writer**
+  - **Model name:** Palmyra X5
+  - **Model ID:** writer.palmyra-x5-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 21, 2026
+  - **EOL date:** March 21, 2027
+  - **Public extended access start date:** To be announced
+
+- **Z.AI**
+  - **Model name:** GLM 4.7
+  - **Model ID:** zai.glm-4.7
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-north-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+- **Z.AI**
+  - **Model name:** GLM 4.7 Flash
+  - **Model ID:** zai.glm-4.7-flash
+  - **Regions:** ap-northeast-1, ap-south-1, ap-southeast-2, ap-southeast-3, eu-central-1, eu-north-1, eu-south-1, eu-west-1, eu-west-2, sa-east-1, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** September 30, 2026
+  - **EOL date:** March 30, 2027
+  - **Public extended access start date:** To be announced
+
+
 
 **Models that have reached EOL**
 
@@ -89,6 +385,14 @@ The following models have passed their EOL date. They have been removed from the
   - **Regions:** ap-northeast-1, ap-southeast-2, eu-central-1, eu-west-1, eu-west-2, eu-west-3, us-east-1, us-east-2, us-west-2 / **Legacy date:** March 10, 2026 / **EOL date:** September 10, 2026 / **Public extended access start date:** June 10, 2026
   - **Regions:** us-gov-east-1, us-gov-west-1 / **Legacy date:** March 10, 2026 / **EOL date:** September 10, 2026 / **Public extended access start date:** June 10, 2026
 
+- **Anthropic**
+  - **Model name:** Claude Sonnet 4
+  - **Model ID:** anthropic.claude-sonnet-4-20250514-v1:0
+  - **Regions:** ap-northeast-1, eu-central-1, eu-north-1, eu-south-1, eu-south-2, eu-west-1, eu-west-3, us-east-1, us-east-2, us-west-1, us-west-2, ap-east-2, ap-northeast-2, ap-northeast-3, ap-south-1, ap-south-2, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-4, ap-southeast-5, ap-southeast-7, il-central-1
+  - **Legacy date:** April 14, 2026
+  - **EOL date:** October 14, 2026
+  - **Public extended access start date:** July 14, 2026
+
 - **Cohere**
   - **Model name:** Command R
   - **Model ID:** cohere.command-r-v1:0
@@ -104,6 +408,46 @@ The following models have passed their EOL date. They have been removed from the
   - **Legacy date:** February 19, 2026
   - **EOL date:** August 19, 2026
   - **Public extended access start date:** May 19, 2026
+
+- **Meta**
+  - **Model name:** Llama 3.1 405B Instruct
+  - **Model ID:** meta.llama3-1-405b-instruct-v1:0
+  - **Regions:** us-east-2, us-west-2
+  - **Legacy date:** January 7, 2026
+  - **EOL date:** July 7, 2026
+  - **Public extended access start date:** April 7, 2026
+
+- **Meta**
+  - **Model name:** Llama 3.2 11B Instruct
+  - **Model ID:** meta.llama3-2-11b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** January 7, 2026
+  - **EOL date:** July 7, 2026
+  - **Public extended access start date:** April 7, 2026
+
+- **Meta**
+  - **Model name:** Llama 3.2 1B Instruct
+  - **Model ID:** meta.llama3-2-1b-instruct-v1:0
+  - **Regions:** eu-central-1, eu-west-1, eu-west-3, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** January 7, 2026
+  - **EOL date:** July 7, 2026
+  - **Public extended access start date:** April 7, 2026
+
+- **Meta**
+  - **Model name:** Llama 3.2 3B Instruct
+  - **Model ID:** meta.llama3-2-3b-instruct-v1:0
+  - **Regions:** eu-central-1, eu-west-1, eu-west-3, us-east-1, us-east-2, us-west-2
+  - **Legacy date:** January 7, 2026
+  - **EOL date:** July 7, 2026
+  - **Public extended access start date:** April 7, 2026
+
+- **Meta**
+  - **Model name:** Llama 3.2 90B Instruct
+  - **Model ID:** meta.llama3-2-90b-instruct-v1:0
+  - **Regions:** us-east-1, us-east-2, us-west-2
+  - **Legacy date:** January 7, 2026
+  - **EOL date:** July 7, 2026
+  - **Public extended access start date:** April 7, 2026
 
 
 

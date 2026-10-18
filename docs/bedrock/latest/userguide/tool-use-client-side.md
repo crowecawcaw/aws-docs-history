@@ -277,6 +277,26 @@ if __name__ == "__main__":
     main()
 ```
 
+**Choosing which tool the model requests**
+
+The optional `toolChoice` field in `toolConfig` controls whether the model has to request a tool. Which settings you can use depends on the individual model that you call, not on the model provider or the model family:
++ `auto` (the default) is supported by every model that supports tool use. The model decides whether to request a tool or to generate text instead.
++ `any`, which requires the model to request at least one tool, and `tool`, which requires the model to request one tool that you name, are supported by some models but not others. A model can support one of the two and not the other.
+
+If a model doesn't support the setting that you send, the request fails with a `ValidationException` rather than falling back to `auto`. The message identifies the field to remove, for example `This model doesn't support the toolConfig.toolChoice.tool field. Remove toolConfig.toolChoice.tool and try again.` Some models instead return the error that the model provider reports, such as `The model returned the following errors: tool_choice: type "tool" and "any" are not supported for this model.` For the Anthropic Claude models that don't support `any` or `tool`, see [Forced tool use](model-parameters-anthropic-claude-messages-tool-use.md#model-parameters-anthropic-claude-forced-tool-use).
+
+A model that doesn't support tool use at all fails with `This model doesn't support tool use.` for every `toolChoice` setting, including `auto`.
+
+**Tool use with response streaming**
+
+Support for tool use and support for response streaming are independent capabilities. Most models that support tool use also accept a `toolConfig` field on `ConverseStream`, but the following models accept tools only on the non-streaming `Converse` operation and reject them on `ConverseStream` with `This model doesn't support tool use in streaming mode.`:
++ Llama 3.1 8B Instruct, Llama 3.1 70B Instruct, and Llama 3.3 70B Instruct
++ Llama 4 Scout 17B Instruct and Llama 4 Maverick 17B Instruct
++ Mistral Large 1 (24.02), Mistral Large 2 (24.07), and Pixtral Large (25.02)
++ Writer Palmyra X4 and Writer Palmyra X5
+
+Response streaming itself works with all of these models. Only the combination of streaming and tool use is unsupported. If you need tool use with one of them, call `Converse` instead.
+
 **About the tool use ID**
 
 Each tool request in a response carries a `toolUseId` that identifies that request. You echo the same value back in the corresponding `toolResult` block so that the model can match the result to the request. How Amazon Bedrock produces this value depends on the kind of tool and on the model:

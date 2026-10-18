@@ -60,7 +60,7 @@ The `confluence-onprem-connector.json` file contains the following:
             "aclEnabled": false,
             "connectionConfiguration": {
                 "authType": "BASIC",
-                "secretArn": "{{arn:aws:secretsmanager:us-west-2:123456789012:secret:bedrock-confluence-onprem-creds}}",
+                "secretArn": "{{arn:aws:secretsmanager:us-west-2:111122223333:secret:bedrock-confluence-onprem-creds}}",
                 "contextPath": "{{/wiki}}",
                 "vpcConfiguration": {
                     "vpcConfigurationId": "{{your-vpc-configuration-id}}"

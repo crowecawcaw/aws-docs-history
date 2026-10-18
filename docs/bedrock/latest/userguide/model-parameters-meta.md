@@ -29,7 +29,7 @@ This section provides information for using the following models from Meta.
 The request body is passed in the `body` field of a request to [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) or [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html).
 
 **Note**  
-You can't use the [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) or [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) (streaming) operations with Llama 4 Instruct.
+Response streaming works with these models. Tool use *within* a streaming request does not: Llama 3.1 8B Instruct, Llama 3.1 70B Instruct, Llama 3.3 70B Instruct, Llama 4 Scout 17B Instruct, and Llama 4 Maverick 17B Instruct accept a `toolConfig` field only on the non-streaming `Converse` operation. Sending `toolConfig` to [ConverseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ConverseStream.html) fails with `This model doesn't support tool use in streaming mode.`
 
 ------
 #### [ Request ]

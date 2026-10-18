@@ -38,10 +38,12 @@ Management events are logged by default to your CloudTrail **Event history** at 
 | Event name | HTTP route | Additional request parameters | 
 | --- | --- | --- | 
 | ListProjects | GET /v1/organization/projects | none | 
-| CreateProject | POST /v1/organization/projects | name, tags | 
+| CreateProject | POST /v1/organization/projects | name, tags, data\_retention\_mode | 
 | GetProject | GET /v1/organization/projects/{project\_id} | project\_id | 
-| UpdateProject | POST /v1/organization/projects/{project\_id} | project\_id, name, add\_tags, remove\_tag\_keys, tags | 
+| UpdateProject | POST /v1/organization/projects/{project\_id} | project\_id, name, add\_tags, remove\_tag\_keys, tags, data\_retention\_mode | 
 | ArchiveProject | POST /v1/organization/projects/{project\_id}/archive | project\_id | 
+
+In a request body, the project data-retention mode is the `mode` field of a `data_retention` object. CloudTrail records it as the flat `data_retention_mode` key shown in the preceding table. `CreateProject` records this key on every call, including calls that omit `data_retention`, in which case the recorded value is `inherit`. `UpdateProject` records it only when the request sets `data_retention`, which that operation requires you to set on its own, so `data_retention_mode` never appears in the same `UpdateProject` event as `name`, `tags`, `add_tags`, or `remove_tag_keys`.
 
 ## Data events
 <a name="mantle-cloudtrail-data-events"></a>

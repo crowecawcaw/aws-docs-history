@@ -126,6 +126,8 @@ IAM recommends that you limit your access keys to 12 hours.
 
 ------
 
+1. Choose **Next**, enter a name for the policy, and then choose **Create policy**.
+
 **Create an access key**
 
 1. On the **User details** page, select the **Security credentials** tab. In the **Access keys** section, choose **Create access key**.
@@ -146,7 +148,7 @@ After setting up credentials for programmatic access, you need to configure perm
 
 1. Select **Users** or **Roles** and then select your user or role.
 
-1. In the **Permissions** tab, choose **Add permissions** and then choose **Add AWS managed policy**. Choose the [AmazonBedrockFullAccess]() AWS managed policy.
+1. In the **Permissions** tab, choose **Add permissions** and then choose **Add AWS managed policy**. Choose the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess) AWS managed policy.
 
 1. To allow the user or role to subscribe to models, choose **Create inline policy** and then specify the following permissions in the JSON editor:
 
@@ -174,6 +176,8 @@ After setting up credentials for programmatic access, you need to configure perm
    ```
 
 ------
+
+1. Choose **Next**, enter a name for the policy, and then choose **Create policy**.
 
 ## Try making API calls to Amazon Bedrock
 <a name="gs-try-bedrock"></a>

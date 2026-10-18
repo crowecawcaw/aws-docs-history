@@ -351,7 +351,7 @@ struct ExampleCommand: ParsableCommand {
     /// Called by ``main()`` to run the bulk of the example.
     func runAsync() async throws {
         // Always use the Region "us-east-1" to have access to the most models.
-        let config = try await BedrockClient.BedrockClientConfiguration(region: "us-east-1")
+        let config = try await BedrockClient.BedrockClientConfig(region: "us-east-1")
         let bedrockClient = BedrockClient(config: config)
 
         let output = try await bedrockClient.listFoundationModels(

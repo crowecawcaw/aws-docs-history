@@ -20,7 +20,7 @@ Access to this model is limited to eligible customers. To learn more, see [Accel
 + **Model EOL date:** N/A
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
 + **Model lifecycle:** Active
-+ **Context window:** 1M tokens
++ **Context window:** 1,050,000 tokens
 + **Languages:** English, Spanish, French, German, Portuguese, Italian, Dutch, Russian, Chinese (Simplified and Traditional), Japanese, Korean, Arabic, Hindi, Turkish, Polish, Ukrainian, and other languages.
 + **Fine-tuning supported:** No
 + **Supported use cases:** Vulnerability discovery, detection engineering, and incident response.
@@ -38,7 +38,7 @@ Access to this model is limited to eligible customers. To learn more, see [Accel
 ## Endpoints and APIs supported
 <a name="model-card-openai-gpt-daybreak-blue-56-sol-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for Daybreak Blue: GPT-5.6 Sol. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs are supported for Daybreak Blue: GPT-5.6 Sol. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -84,6 +84,8 @@ For Chat Completions, use `/openai/v1/chat/completions`.
 
 All prices are in USD per 1 million tokens for the Standard tier.
 
+The **Input — 30-minute cache write** column is the price per 1 million tokens written to the prompt cache. The 30-minute figure is how long a cached prompt prefix is retained, not a quantity of tokens. For more information, see [prompt caching](prompt-caching.md).
+
 Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need to add this fee.
 
 *Priority and Flex tiers are not supported for this model.*
@@ -92,7 +94,7 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 <a name="model-card-openai-gpt-daybreak-blue-56-sol-pricing-commercial-short"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $4.40 | $5.50 | $0.44 | $22.00 | 
 
@@ -100,7 +102,7 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 <a name="model-card-openai-gpt-daybreak-blue-56-sol-pricing-commercial-long"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $8.80 | $11.00 | $0.88 | $33.00 | 
 

@@ -12,7 +12,7 @@ Amazon Bedrock supports two endpoints for inference:
 + `bedrock-mantle.{region}.api.aws` — Supports the OpenAI-compatible Chat Completions and Responses APIs, and the Anthropic Messages API.
 + `bedrock-runtime.{region}.amazonaws.com` — Supports the Bedrock-native InvokeModel and Converse APIs, the OpenAI-compatible Chat Completions and Responses APIs, and the Anthropic Messages API.
 
-For most new applications, start with `bedrock-runtime`. Use `bedrock-mantle` when you need capabilities that are available only on that endpoint, such as server-side tools, background inference, Projects, Workspaces, or a model that is available only on `bedrock-mantle`. You can use both endpoints in the same application. For a complete comparison, see [Endpoints supported by Amazon Bedrock](endpoints.md).
+For most new applications, start with `bedrock-runtime`. Use `bedrock-mantle` when you need capabilities that are available only on that endpoint, such as server-side tools, background inference, Projects, Workspaces, or a model that is available only on `bedrock-mantle`. You can use both endpoints in the same application. For a complete comparison, see [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 ### Why the two endpoints behave differently
 <a name="scaling-endpoint-differences"></a>
@@ -168,7 +168,7 @@ On-demand capacity is Regional and can vary across Regions. If your workload tar
 
 | Scenario | Recommendation | 
 | --- | --- | 
-| General workloads | Start with bedrock-runtime. Use bedrock-mantle for capabilities or models that require it. See [Endpoints supported by Amazon Bedrock](endpoints.md). | 
+| General workloads | Start with bedrock-runtime. Use bedrock-mantle for capabilities or models that require it. See [Inference endpoints supported by Amazon Bedrock](endpoints.md). | 
 | Transient 429, 503, or 529 errors | Inspect the API error type. For retryable errors, honor Retry-After and retry with exponential backoff and jitter within a bounded retry budget. | 
 | Sustained capacity errors | Stop ramping, return to the last stable level, bound concurrency and queues, defer lower-priority work, and use cross-Region inference where supported. | 
 | Quota planning | Use separate input and output TPM for bedrock-mantle. Use combined token quotas, token burndown, and RPM where applicable for bedrock-runtime. | 

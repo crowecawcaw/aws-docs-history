@@ -38,7 +38,7 @@ This model is a Preview and is made available to you as a "Beta Service" as defi
 ## Endpoints and APIs supported
 <a name="model-card-anthropic-claude-mythos-5-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for Claude Mythos 5. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs are supported for Claude Mythos 5. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 

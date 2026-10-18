@@ -9,6 +9,9 @@
 ## Model Details
 <a name="model-card-cohere-command-r-plus-details"></a>
 
+**Important**  
+Command R\+ reached end of life on August 19, 2026 and is no longer available. Requests to this model fail with `ResourceNotFoundException: This model version has reached the end of its life.` For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+
 Command R\+ is Cohere's model for complex RAG workflows, multi-step tool use, and enterprise tasks with a 128K context window. For more information about model development and performance, see the [model/service card](https://docs.cohere.com/docs/command-r-plus).
 + **Model launch date:** Aug 2024
 + **EOL no sooner than:** Aug 2025
@@ -16,7 +19,7 @@ Command R\+ is Cohere's model for complex RAG workflows, multi-step tool use, an
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
 + **Model EOL date:** August 19, 2026
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
-+ **Model lifecycle:** Legacy
++ **Model lifecycle:** EOL: 2026-08-19
 + **Context window:** 128K tokens
 + **Max output tokens:** 4K
 + **Knowledge cutoff:** Mar 2024
@@ -32,7 +35,7 @@ Command R\+ is Cohere's model for complex RAG workflows, multi-step tool use, an
 | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video |  |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-cohere-command-r-plus-capabilities"></a>

@@ -66,6 +66,7 @@ Automated Reasoning checks in Amazon Bedrock Guardrails are generally available 
 + EU (Frankfurt)
 + EU (Paris)
 + EU (Ireland)
++ Asia Pacific (Sydney)
 
 Automated Reasoning checks currently support English (US) only.
 
@@ -90,23 +91,31 @@ Charges are incurred for each validation request, regardless of the result (for 
 + Consider caching validation results for identical or similar queries when appropriate for your use case.
 + Monitor usage patterns and adjust policies to reduce unnecessary validation requests.
 
-## Cross-region inference for policy operations
+## Cross-Region inference
 <a name="automated-reasoning-cross-region-inference"></a>
 
-Automated Reasoning uses cross-region inference to optimize the performance and availability of policy creation and testing operations. Specific API operations automatically distribute processing across AWS Regions within your geographic boundary to ensure reliable service delivery.
+Automated Reasoning uses cross-Region inference to optimize the performance and availability of policy creation, policy testing, and runtime validation. These operations automatically distribute processing across multiple AWS Regions to ensure reliable service delivery.
 
-The following Automated Reasoning API operations employ cross-region inference:
+The following Automated Reasoning operations use cross-Region inference:
 + `StartAutomatedReasoningPolicyBuildWorkflow` — Invoked during policy creation and compilation from source documents.
 + `StartAutomatedReasoningPolicyTestWorkflow` — Invoked during policy validation and testing procedures.
++ Runtime validation — Invoked when a guardrail that includes an Automated Reasoning policy checks content.
 
-These operations invoke large language models to extract formal logic rules from source documents and translate natural language constructs into structured logical representations. To ensure optimal performance and availability, request processing is distributed according to the following geographic routing:
-+ **United States Regions:** API requests originating from US East (N. Virginia), US West (Oregon), or US East (Ohio) may be processed in any supported US Region.
-+ **European Union Regions:** API requests originating from EU (Frankfurt), EU (Paris), or EU (Ireland) may be processed in any supported EU Region.
+These operations use large language models. The models extract formal logic rules from source documents and translate natural language into logic that Automated Reasoning checks against your policy. The following table shows where Automated Reasoning might process a request, based on the Region where the request originates.
+
+
+**Where Automated Reasoning processes requests**  
+
+| Request originates in | Automated Reasoning might process the request in | 
+| --- | --- | 
+| US East (N. Virginia), US West (Oregon), US East (Ohio) | Any supported US Region | 
+| EU (Frankfurt), EU (Paris), EU (Ireland) | Any supported EU Region | 
+| Asia Pacific (Sydney) | Any supported Region in Australia | 
 
 **Important**  
-Customer data remains within the originating geographic boundary (United States or European Union) and is processed in accordance with AWS data residency commitments. Cross-region inference routes requests exclusively within the same geographic Region to optimize performance and service availability.
+Customer data remains within the geographic boundary where the request originates (the United States, the European Union, or Australia). AWS processes this data in accordance with AWS data residency commitments.
 
-Cross-region inference operates transparently without requiring customer configuration. API functionality remains consistent regardless of the specific Region that processes the request.
+Cross-Region inference operates transparently without requiring customer configuration. API functionality remains consistent regardless of the specific Region that processes the request.
 
 **Topics**
 + [What Automated Reasoning checks do](#automated-reasoning-what-it-does)
@@ -116,7 +125,7 @@ Cross-region inference operates transparently without requiring customer configu
 + [Availability and language support](#automated-reasoning-availability)
 + [Limitations and considerations](#automated-reasoning-limitations)
 + [Pricing](#automated-reasoning-pricing)
-+ [Cross-region inference for policy operations](#automated-reasoning-cross-region-inference)
++ [Cross-Region inference](#automated-reasoning-cross-region-inference)
 + [Automated Reasoning checks concepts](automated-reasoning-checks-concepts.md)
 + [Create your Automated Reasoning policy](create-automated-reasoning-policy.md)
 + [Automated Reasoning policy best practices](automated-reasoning-policy-best-practices.md)

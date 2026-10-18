@@ -16,7 +16,7 @@ This section covers how to interact with Amazon Bedrock programmatically. For ne
 | Migrating from Anthropic APIs | Use the bedrock-runtime endpoint with the [Messages API](inference-messages-api.md) | 
 
 **Topics**
-+ [Endpoints supported by Amazon Bedrock](endpoints.md)
++ [Inference endpoints supported by Amazon Bedrock](endpoints.md)
 + [APIs supported by Amazon Bedrock](apis.md)
 + [Making inference requests](inference.md)
 + [Use a tool to complete an Amazon Bedrock model response](tool-use.md)

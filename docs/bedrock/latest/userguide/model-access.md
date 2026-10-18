@@ -14,8 +14,10 @@ Some models require additional account-level access. Completing model activation
 When you invoke a third-party model for the first time in your account, Amazon Bedrock automatically initiates the subscription process in the background. During this setup period (up to 15 minutes), your API calls may succeed temporarily while the subscription is being finalized. If any prerequisites are missing, the subscription attempt fails and subsequent API calls will return `AccessDeniedException`. After granting the necessary permissions, it may take up to 2 minutes for the subscription to complete. During this time, API calls may continue to return `AccessDeniedException`. Once the subscription is complete, subsequent invocations can proceed if your account has access to the model. To avoid subscription failures, verify all prerequisites before invoking models in production.  
 **Prerequisites for successful model access:**  
 **AWS Marketplace permissions**: Your IAM role must have `aws-marketplace:Subscribe`, `aws-marketplace:Unsubscribe`, and `aws-marketplace:ViewSubscriptions` permissions. See [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions) for details.
-**Anthropic models**: For Anthropic models, you must complete the First Time Use (FTU) form before invoking the model. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint.
+**Anthropic models**: For Anthropic models, you must complete the First Time Use (FTU) form before invoking the model. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint. For more information, see [Step 2: [Required one-time for Anthropic models only] Put use case for first-time user](#model-access-sdk-step2).
 **Valid payment method**: Your AWS account must have a valid payment method configured for AWS Marketplace purchases.
+**Where the first invocation has to come from:** The invocation that initiates the subscription is authorized like any other `bedrock:InvokeModel` request, against the policies that apply to the principal making it. If those policies restrict `bedrock:InvokeModel` with condition keys, the invocation has to be made by a principal, and from a request context, that satisfies them. Otherwise it fails with `AccessDeniedException` and the subscription isn't initiated. For example, if the permission is scoped with an `IpAddress` condition on `aws:SourceIp`, make the first invocation from a host whose address the condition permits.  
+The address that a host reports for itself isn't always the address that AWS records as `aws:SourceIp`, and it can differ between requests from the same host. To find the value that your condition has to permit, read the `sourceIPAddress` field of the CloudTrail event for the invocation, as described in [Monitor Amazon Bedrock API calls using CloudTrail](logging-using-cloudtrail.md). Also note that `aws:SourceIp` isn't present in the request context when the request is made through a VPC endpoint, and that network context is redacted when an AWS service calls Amazon Bedrock on your behalf. In both cases an `IpAddress` condition on that key can't be satisfied. For more information, see [AWS global condition context keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html) in the *IAM User Guide*.
 
 **Note**  
 Anthropic requires first-time customers to submit use case details before invoking a model once per account or once at the organization's management account. This requirement does not apply to Anthropic models accessed through the `bedrock-mantle` endpoint. You can submit use case details by selecting an Anthropic model from the model catalog in the Amazon Bedrock console or calling the `PutUseCaseForModelAccess` API command. In most cases, access to the model is granted as soon as use case details are successfully submitted. Submission doesn't always complete immediately, however. The model agreement can enter a pending state, during which invoking the model continues to return `AccessDeniedException` even though your submission succeeded. AWS sends you an email when the agreement finishes being set up. To check the state of your submission rather than waiting, call `GetFoundationModelAvailability` and read the `agreementAvailability` status, as described in [Step 4: Get foundation model availability](#model-access-sdk-step4). The form submission at the root account will be inherited by other accounts in the same AWS Organization.  
@@ -29,9 +31,21 @@ Review the EULA terms
 Enable model access through SCP/IAM policies only if you agree to the EULA terms
 
 **Topics**
++ [Request access to models using the console](#model-access-console)
 + [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions)
 + [Manage model access using SDK and CLI](#model-access-modify)
 + [Access Amazon Bedrock foundation models in AWS GovCloud (US)](#model-access-govcloud)
+
+## Request access to models using the console
+<a name="model-access-console"></a>
+
+If you are signed in to the AWS Management Console, you can complete the model access requirements without using the AWS CLI or an SDK. Open the [Amazon Bedrock console](https://console.aws.amazon.com/bedrock/home) and use the following paths.
++ **Most models** – Choose **Model catalog** in the navigation pane, choose a model, and then open it in the playground. Amazon Bedrock starts the subscription for you on the first invocation, so there is no access request to submit. Your identity still needs the AWS Marketplace permissions described in [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions).
++ **Anthropic models** – Submit your first-time use case details before you invoke the model. Choose an Anthropic model from **Model catalog** and open it in the playground, or go to the [Anthropic providers page](https://console.aws.amazon.com/bedrock/home#/providers/anthropic), and then complete the form. If the management account for your organization has already submitted these details, you can use Anthropic models right away.
++ **AWS Marketplace permissions** – Attach the policy described in [Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID](#model-access-permissions) in the [IAM console](https://console.aws.amazon.com/iam).
+
+**Note**  
+The **Model access** page under **Bedrock configurations** applies to AWS GovCloud (US). In commercial AWS Regions, access to most models is enabled on first use and there is no access request to submit on that page. For the GovCloud procedure, see [Access Amazon Bedrock foundation models in AWS GovCloud (US)](#model-access-govcloud).
 
 ## Grant IAM permissions to request access to Amazon Bedrock foundation models with a product ID
 <a name="model-access-permissions"></a>
@@ -81,6 +95,7 @@ Z.AI
 Some providers sell only part of their model catalog through AWS Marketplace. The following models don't have product keys even though other models from the same provider do:  
 OpenAI open-weight models: gpt-oss-120b, gpt-oss-20b, gpt-oss-safeguard-120b, and gpt-oss-safeguard-20b. These models are available to all Amazon Bedrock users and don't require a AWS Marketplace subscription.
 Writer Palmyra Vision 7B.
+This list covers providers whose models have no product key at all. It isn't a complete list of models without a documented product ID. To check a specific model, see the **Marketplace product ID** field on its model card in [models at a glance](model-cards.md). If a model's card doesn't show that field, scope your policy by model ID instead.  
 You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](#model-access-prevent-usage).
 
 Select a section to see IAM policy examples for a specific use case:

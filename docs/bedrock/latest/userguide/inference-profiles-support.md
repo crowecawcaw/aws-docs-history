@@ -105,4 +105,4 @@ Application inference profiles can be created for supported models in the follow
 + us-west-1
 + us-west-2
 
-Application inference profiles can be created from most models supported in Amazon Bedrock. Some models, such as embedding models, do not support inference profiles. To check if a specific model supports inference profiles, see [models at a glance](model-cards.md).
+Application inference profiles can be created from any foundation model or cross-Region (system-defined) inference profile supported in Amazon Bedrock, including embedding models. Specify a foundation model if the model supports on-demand inference in the Region where you create the profile, or a cross-Region (system-defined) inference profile if the model is served only through an inference profile. To check how a model is served in a given Region, see [models at a glance](model-cards.md).

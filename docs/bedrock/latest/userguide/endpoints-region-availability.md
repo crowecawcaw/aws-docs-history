@@ -3,7 +3,7 @@
 # Regional availability by endpoints
 <a name="endpoints-region-availability"></a>
 
-The following tables show which AWS Regions support each Amazon Bedrock inference endpoint, organized by geography. The `bedrock-runtime` endpoint is available in every AWS Region where Amazon Bedrock is offered. The `bedrock-mantle` endpoint is available in a subset of those Regions. To choose between endpoints, see [Endpoints supported by Amazon Bedrock](endpoints.md); for model-level Regional availability, see [Regional availability by models](models-region-compatibility.md).
+The following tables show which AWS Regions support each Amazon Bedrock inference endpoint, organized by geography. The `bedrock-runtime` endpoint is available in every AWS Region where Amazon Bedrock is offered. The `bedrock-mantle` endpoint is available in a subset of those Regions. To choose between endpoints, see [Inference endpoints supported by Amazon Bedrock](endpoints.md); for model-level Regional availability, see [Regional availability by models](models-region-compatibility.md).
 
 ## United States
 <a name="endpoints-region-us"></a>

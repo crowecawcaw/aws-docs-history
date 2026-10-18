@@ -28,7 +28,7 @@ Before you begin, make sure that you have the following in Zendesk:
    + **Unique identifier** – This value becomes the Client ID (`clientId`) that you store in the secret.
    + **Client kind** – `Confidential`. The connector authenticates with a client secret, and only a confidential client is issued one. A public client doesn't receive a secret.
    + **Scopes** – Grant `read`. The connector only reads content to crawl, and the token exchange requests `scope=read`.
-   + **Redirect URL** – Not used by this connector, because the client credentials (2LO) flow performs no redirect. If the form requires a value, enter a placeholder such as `http://localhost`.
+   + **Redirect URL** – Not used by this connector, because the client credentials (2LO) flow performs no redirect. If the form requires a value, enter a placeholder such as `https://example.com`.
 
 1. Choose **Save**.
 

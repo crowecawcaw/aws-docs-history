@@ -19,6 +19,7 @@ Nova 2 Lite is Amazon's cost-efficient multimodal model for simple automation, d
 + **Model lifecycle:** Active
 + **Context window:** 1M tokens
 + **Max output tokens:** 64K
++ **Reasoning:** Supported, off by default (enable with `reasoningConfig`; effort configurable: low, medium, high)
 + **Knowledge cutoff:** Oct 2025
 
 
@@ -31,7 +32,7 @@ Nova 2 Lite is Amazon's cost-efficient multimodal model for simple automation, d
 | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video |  |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-amazon-nova-2-lite-capabilities"></a>

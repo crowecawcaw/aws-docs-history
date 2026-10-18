@@ -19,9 +19,12 @@ Claude Opus 4.8 is an Anthropic Opus model optimized for coding, agents, and dee
 + **Model lifecycle:** Active
 + **Context window:** 1M tokens
 + **Max output tokens:** 128K
-+ **Reasoning:** Supported
++ **Reasoning:** Supported (`thinking.type: "adaptive"` only)
 + **Knowledge cutoff:** January 2026
 + **Marketplace product ID:** `prod-bk5rjg4eo2pke`
+
+**Important**  
+Claude Opus 4.8 only supports `thinking.type: "adaptive"` for extended thinking. Unlike Claude Opus 4.6, `thinking.type: "enabled"` with `budget_tokens` is not supported and will return a 400 error. If you are migrating from Opus 4.6, update your requests to use `thinking.type: "adaptive"`. For more information, see [Adaptive thinking](claude-messages-adaptive-thinking.md).
 
 
 | **Input Modalities** | **Output Modalities** | 
@@ -35,7 +38,7 @@ Claude Opus 4.8 is an Anthropic Opus model optimized for coding, agents, and dee
 ## Endpoints and APIs supported
 <a name="model-card-anthropic-claude-opus-4-8-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for Claude Opus 4.8. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs are supported for Claude Opus 4.8. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -60,7 +63,7 @@ The following tables show which endpoints and APIs are supported for Claude Opus
 | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-anthropic-claude-opus-4-8-capabilities"></a>
@@ -121,7 +124,7 @@ Use the following model IDs and endpoint URLs to access this model programmatica
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 
 | --- | --- | --- | --- | --- | 
-| bedrock-runtime | anthropic.claude-opus-4-8 | N/A | `us.anthropic.claude-opus-4-8`<br />`eu.anthropic.claude-opus-4-8`<br />`jp.anthropic.claude-opus-4-8`<br />`au.anthropic.claude-opus-4-8` | global.anthropic.claude-opus-4-8 | 
+| bedrock-runtime | anthropic.claude-opus-4-8 | N/A | `us.anthropic.claude-opus-4-8`<br />`eu.anthropic.claude-opus-4-8`<br />`jp.anthropic.claude-opus-4-8`<br />`au.anthropic.claude-opus-4-8`<br />`us-gov.anthropic.claude-opus-4-8` | global.anthropic.claude-opus-4-8 | 
 | bedrock-mantle | anthropic.claude-opus-4-8 | https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages | N/A | N/A | 
 
 *For example, if region is us-east-1 (N. Virginia), then the bedrock-runtime endpoint URL will be "https://bedrock-runtime.us-east-1.amazonaws.com" and for bedrock-mantle will be "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages".*
@@ -249,6 +252,16 @@ Geo Inference ID: `au.anthropic.claude-opus-4-8`
 | --- | --- | 
 | ap-southeast-2 (Sydney) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
 | ap-southeast-4 (Melbourne) | ap-southeast-2 (Sydney), ap-southeast-4 (Melbourne) | 
+
+**Geo: US-GOV**
+
+Geo Inference ID: `us-gov.anthropic.claude-opus-4-8`
+
+
+| **Source Region** | **Destination Regions** | 
+| --- | --- | 
+| us-gov-west-1 (GovCloud West) | us-gov-west-1 (GovCloud West), us-gov-east-1 (GovCloud East) | 
+| us-gov-east-1 (GovCloud East) | us-gov-west-1 (GovCloud West), us-gov-east-1 (GovCloud East) | 
 
 ***Global inference details***
 

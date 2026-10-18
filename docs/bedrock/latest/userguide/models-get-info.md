@@ -3,7 +3,7 @@
 # Get list of models
 <a name="models-get-info"></a>
 
-Amazon Bedrock provides separate model discovery experiences for its inference endpoints. For new applications, use `bedrock-runtime`. For an overview of the endpoints, see [Endpoints supported by Amazon Bedrock](endpoints.md).
+Amazon Bedrock provides separate model discovery experiences for its inference endpoints. For new applications, use `bedrock-runtime`. For an overview of the endpoints, see [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 + **`bedrock-runtime` (recommended)** – Use the AWS-native [ListFoundationModels](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListFoundationModels.html) API to discover foundation models and [ListInferenceProfiles](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListInferenceProfiles.html) to discover inference profiles. The OpenAI-compatible `GET /openai/v1/models` operation and `client.models.list()` aren't available on `bedrock-runtime`. Check each [model card](model-cards.md) for endpoint-specific API support and the exact model or system inference profile ID to use.
 **Note**  
 The response also returns model IDs that aren't in the [base model ID](models-supported.md) or base model IDs for Provisioned Throughput charts. These model IDs are deprecated or for backwards compatibility.

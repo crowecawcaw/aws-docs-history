@@ -1,6 +1,6 @@
 
 
-# Endpoints supported by Amazon Bedrock
+# Inference endpoints supported by Amazon Bedrock
 <a name="endpoints"></a>
 
 An endpoint is the URL that your application uses to send [inference](inference.md) requests to Amazon Bedrock. Amazon Bedrock provides two inference endpoints. The endpoint you choose determines which APIs and features are available.
@@ -14,7 +14,7 @@ For most new applications, use the `bedrock-runtime` endpoint. Use `bedrock-mant
 | bedrock-mantle.{region}.api.aws | [Responses API](inference-responses-api.md) / [Chat Completions API](inference-chat-completions.md) / [Messages API](inference-messages-api.md) | Region-specific endpoints for making inference requests for models hosted in Amazon Bedrock using the OpenAI-compatible endpoints and the Anthropic Messages API. | 
 
 **Note**  
-Both endpoints use the same underlying Mantle inference engine and benefit from Mantle's [zero operator access (ZOA)](https://aws.amazon.com/blogs/machine-learning/exploring-the-zero-operator-access-design-of-mantle/) design. The `bedrock-mantle` name identifies an endpoint surface, not a different inference engine.
+Both endpoints use the same underlying Mantle inference engine. The `bedrock-mantle` name identifies an endpoint surface, not a different inference engine.
 
 Existing applications that use `bedrock-mantle` continue to be fully supported and do not need to change. Both endpoints let you bring an existing OpenAI SDK codebase to Amazon Bedrock by changing only the base URL and API key, and both support the OpenAI-compatible Responses and Chat Completions APIs and the Anthropic Messages API.
 
@@ -60,7 +60,7 @@ Authentication does not grant access by itself. Whether you use SigV4 or a Bedro
 
 | Item | `bedrock-runtime` | `bedrock-mantle` | 
 | --- | --- | --- | 
-| AWS [SigV4](AmazonS3/latest/API/sig-v4-authenticating-requests.html) authentication | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
+| AWS [SigV4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) authentication | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | [Bedrock API key (also works with OpenAI SDK)](api-keys.md) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) | 
 | IAM authorization for inference | bedrock:InvokeModel on the inference target and, for the Responses API, the default project; bedrock:InvokeModelWithResponseStream for streaming | bedrock-mantle:CreateInference | 
 | [Usage attribution](cost-management.md) | [IAM principal](cost-mgmt-iam-principal-tracking.md), [per-request metadata tagging](cost-mgmt-request-metadata.md), [application inference profiles](cost-mgmt-application-inference-profiles.md) | [Projects](projects.md), [Workspaces](workspaces.md) | 

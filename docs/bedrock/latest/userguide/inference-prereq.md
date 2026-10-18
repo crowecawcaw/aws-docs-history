@@ -54,7 +54,7 @@ The following list summarizes whether you need an action, depending on your use 
   + `bedrock:CancelInvoke` – Required to cancel a response that is still in progress.
   + `bedrock:DeleteInvoke` – Required to delete a stored response.
 
-  Creating a response also requires `bedrock:InvokeModel` on the project, in addition to the inference target. The Converse, Invoke, and Chat Completions APIs store no responses and don't need these actions. For more information, see [Projects (OpenAI-compatible)](projects.md).
+  Creating a response also requires `bedrock:InvokeModel` on the project, in addition to the inference target. The Converse, Invoke, and Chat Completions APIs don't store responses, so they don't need these actions. For more information, see [Projects (OpenAI-compatible)](projects.md).
 + The following actions allow a role to run inference with Amazon Bedrock resources other than foundation models:
   + `bedrock:GetInferenceProfile` – Required to run inference with an [inference profile](inference-profiles.md).
   + `bedrock:RenderPrompt` – Required to invoke a prompt from [Prompt management](prompt-management.md).

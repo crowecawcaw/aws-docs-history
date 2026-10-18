@@ -9,6 +9,9 @@
 ## Model Details
 <a name="model-card-anthropic-claude-sonnet-4-details"></a>
 
+**Important**  
+Claude Sonnet 4 reached end of life on October 14, 2026 and is no longer available. Requests to this model fail with `ResourceNotFoundException: This model version has reached the end of its life.` For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+
 Claude Sonnet 4 is Anthropic's balanced model with strong coding and reasoning capabilities, improved instruction following, and extended thinking with tool use. For more information about model development and performance, see the [model/service card](https://www-cdn.anthropic.com/4263b940cabb546aa0e3283f35b686f4f3b2ff47.pdf).
 + **Model launch date:** May 23, 2025
 + **EOL no sooner than:** May 23, 2026
@@ -16,7 +19,7 @@ Claude Sonnet 4 is Anthropic's balanced model with strong coding and reasoning c
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
 + **Model EOL date:** October 14, 2026
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
-+ **Model lifecycle:** Legacy (certain regions)
++ **Model lifecycle:** EOL: 2026-10-14
 + **Context window:** 200K tokens
 + **Max output tokens:** 64K
 + **Reasoning:** Supported
@@ -35,7 +38,7 @@ Claude Sonnet 4 is Anthropic's balanced model with strong coding and reasoning c
 ## Endpoints and APIs supported
 <a name="model-card-anthropic-claude-sonnet-4-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for Claude Sonnet 4. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs are supported for Claude Sonnet 4. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -60,7 +63,7 @@ The following tables show which endpoints and APIs are supported for Claude Sonn
 | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-anthropic-claude-sonnet-4-capabilities"></a>

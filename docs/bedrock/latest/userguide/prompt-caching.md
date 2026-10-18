@@ -94,9 +94,9 @@ To see which prompt caching types a model supports, refer to [Models at a glance
 | Claude 3.5 Sonnet v2 | anthropic.claude-3-5-sonnet-20241022-v2:0 | Preview | 1,024 | 4 | 5 minutes | `system`, `messages`, and `tools` | 
 | Claude Haiku 4.5 | anthropic.claude-haiku-4-5-20251001-v1:0 | Generally Available | 4,096 | 4 | 5 minutes, 1 hour | `system`, `messages`, and `tools` | 
 | GPT-6.1 Sol | openai.gpt-6.1-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel). Converse doesn't support explicit caching for this model. | 
-| GPT-5.6 Sol | openai.gpt-5.6-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
-| GPT-5.6 Terra | openai.gpt-5.6-terra | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
-| GPT-5.6 Luna | openai.gpt-5.6-luna | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) | 
+| GPT-5.6 Sol | openai.gpt-5.6-sol | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel) | 
+| GPT-5.6 Terra | openai.gpt-5.6-terra | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel) | 
+| GPT-5.6 Luna | openai.gpt-5.6-luna | Generally Available | 1,024 | 4 cache writes | 30 minutes | `prompt_cache_breakpoint` on `input_text`, `input_image`, and `input_file` blocks (Responses API) and `text` content parts (Chat Completions and InvokeModel) | 
 | Nova 2 Lite | amazon.nova-2-lite-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
 | Amazon Nova Pro | amazon.nova-pro-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 
 | Amazon Nova Lite | amazon.nova-lite-v1:0 | Generally Available | 1K\* | 4 | 5 minutes | `system` and `messages` | 

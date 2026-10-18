@@ -13,7 +13,7 @@ Bedrock Managed Knowledge Base provides *ACL-aware filtering*, not a security bo
 
 ACL-aware retrieval operates in two stages:
 + **Pre-retrieval filtering** — During ingestion, Bedrock Managed Knowledge Base crawls document permissions from the data source. At query time, Bedrock Managed Knowledge Base uses the user context you provide to filter the search results, returning only documents where the user (or their groups) appears in the allow list and does not appear in the deny list.
-+ **Real-time ACL verification** — For connectors that support it (SharePoint, OneDrive, Google Drive, Confluence), Bedrock Managed Knowledge Base makes a real-time call to the data source to verify that the user still has access to each returned document. This catches permission changes that occurred between syncs. S3 and Custom connectors do not support real-time verification because their ACL metadata is provided by the customer through configuration files rather than crawled from a live permission system.
++ **Real-time ACL verification** — For connectors that support it (SharePoint, OneDrive, Google Drive, Confluence, Confluence Data Center, Box, and Zendesk), Bedrock Managed Knowledge Base makes a real-time call to the data source to verify that the user still has access to each returned document. This catches permission changes that occurred between syncs. For ServiceNow, real-time verification applies only to advanced (scripted) user criteria and requires the real-time ACL verifier endpoint that you install in your ServiceNow instance; all other user criteria are resolved at crawl time and permission changes take effect only after the next sync. S3 and Custom connectors do not support real-time verification because their ACL metadata is provided by the customer through configuration files rather than crawled from a live permission system.
 
 Both stages use the same evaluation logic: if a user appears in both an allow list and a deny list for a document, access is denied. Deny always overrides allow.
 
@@ -45,6 +45,9 @@ Not all connectors support ACL awareness. The following table shows which connec
 | [Google Drive](kb-managed-ds-googledrive-acl.md) | Supported | Supported | Uses domain-wide delegation (2LO). Requires SERVICE\_ACCOUNT auth type. | 
 | [Confluence](kb-managed-ds-confluence-acl.md) | Supported | Supported | Uses admin API token for real-time checks. Requires BASIC auth type. | 
 | [Confluence Data Center](kb-managed-ds-confluence-onprem-acl.md) | Supported | Supported | Uses the Confluence Data Center admin REST API for real-time checks over a VPC configuration. Requires BASIC or PERSONAL\_TOKEN auth type. | 
+| [ServiceNow](kb-managed-ds-servicenow-acl.md) | Supported | Partial | Real-time checks apply only to advanced (scripted) user criteria, and require the real-time ACL verifier endpoint that you install in your ServiceNow instance. All other user criteria are resolved at crawl time. Requires OAUTH2 auth type. | 
+| [Box](kb-managed-ds-box-acl.md) | Supported | Supported | Uses Client Credentials Grant (2LO) for real-time checks. Requires CCG auth type. | 
+| [Zendesk](kb-managed-ds-zendesk-acl.md) | Supported | Supported | Uses OAuth 2.0 Client Credentials (2LO) for real-time checks. Requires OAUTH2 auth type. | 
 | [Amazon S3](kb-managed-ds-s3-acl.md) | Supported | Not supported | ACLs defined through a customer-provided ACL configuration file in Amazon S3. No real-time verification because the customer-provided metadata file is the source of truth. | 
 | [Custom](kb-managed-ds-custom-acl.md) | Supported | Not supported | ACLs defined through customer-provided metadata. No real-time verification because the customer-provided metadata is the source of truth. | 
 | Web Crawler | Not supported | N/A | Web content has no permission model. ACL awareness cannot be enabled for this connector. | 
@@ -55,6 +58,9 @@ For connector-specific ACL configuration details, see:
 + [ACL awareness for Google Drive](kb-managed-ds-googledrive-acl.md)
 + [ACL awareness for Confluence](kb-managed-ds-confluence-acl.md)
 + [ACL awareness for Confluence Data Center](kb-managed-ds-confluence-onprem-acl.md)
++ [ACL awareness for ServiceNow](kb-managed-ds-servicenow-acl.md)
++ [ACL awareness for Box](kb-managed-ds-box-acl.md)
++ [ACL awareness for Zendesk](kb-managed-ds-zendesk-acl.md)
 + [ACL awareness for Amazon S3](kb-managed-ds-s3-acl.md)
 + [ACL awareness for Custom](kb-managed-ds-custom-acl.md)
 

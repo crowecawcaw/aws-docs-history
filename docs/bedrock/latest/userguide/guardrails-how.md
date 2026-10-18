@@ -12,7 +12,7 @@ You can configure guardrails for your applications based on the following consid
 + An account can have multiple guardrails, each with a different configuration and customized to a specific use case.
 + A guardrail is a combination of multiple policies configured for prompts and response including; content filters, denied topics, sensitive information filters, word filters, and image content filters.
 + A guardrail can be configured with a single policy, or a combination of multiple policies. 
-+ A guardrail can be used with any text or image foundation model (FM) by referencing the guardrail during the model inference.
++ A guardrail can be used with a text or chat foundation model (FM) by referencing the guardrail during the model inference. Embedding, reranking, and image generation models don't support guardrails.
 + You can use guardrails with Amazon Bedrock Agents and Amazon Bedrock Knowledge Bases.
 
 When using a guardrail in the `InvokeModel`, `InvokeModelWithResponseStream`, `Converse`, or `ConverseStream` operations, it works as follows during the inference call. (How this works depends on how you configure your policies to handle inputs and outputs.)

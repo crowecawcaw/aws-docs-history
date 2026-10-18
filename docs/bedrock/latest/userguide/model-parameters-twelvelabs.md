@@ -3,12 +3,13 @@
 # TwelveLabs models
 <a name="model-parameters-twelvelabs"></a>
 
-This section describes the request parameters and response fields for TwelveLabs models. Use this information to make inference calls to TwelveLabs models. The TwelveLabs Pegasus 1.2 model supports [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming) operations. The TwelveLabs Marengo Embed 2.7 and TwelveLabs Marengo Embed 3.0 models support [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_StartAsyncInvoke.html) operations. This section also includes code examples that show how to call TwelveLabs models. To use a model in an inference operation, you need the model ID for the model. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md).
+This section describes the request parameters and response fields for TwelveLabs models. Use this information to make inference calls to TwelveLabs models. The TwelveLabs Pegasus 1.2 and TwelveLabs Pegasus 1.5 models support [InvokeModel](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModel.html) and [InvokeModelWithResponseStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html) (streaming) operations. The TwelveLabs Marengo Embed 2.7 and TwelveLabs Marengo Embed 3.0 models support [StartAsyncInvoke](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_StartAsyncInvoke.html) operations. This section also includes code examples that show how to call TwelveLabs models. To use a model in an inference operation, you need the model ID for the model. To get the model ID, see [Supported foundation models in Amazon Bedrock](models-supported.md).
 
 TwelveLabs is a leading provider of multimodal AI models specializing in video understanding and analysis. Their advanced models enable sophisticated video search, analysis, and content generation capabilities through state-of-the-art computer vision and natural language processing technologies.
 
-Amazon Bedrock offers three TwelveLabs models:
+Amazon Bedrock offers four TwelveLabs models:
 + TwelveLabs Pegasus 1.2 provides comprehensive video understanding and analysis.
++ TwelveLabs Pegasus 1.5 generates video-to-text output and analyzes video directly without pre-indexing to produce summaries, descriptions, answers, and structured timestamped metadata.
 + TwelveLabs Marengo Embed 2.7 generates high-quality embeddings for video, text, audio, and image content.
 + TwelveLabs Marengo Embed 3.0 is the latest embedding model with enhanced performance and capabilities.
 
@@ -17,6 +18,10 @@ These models help you build applications that process, analyze, and derive insig
 **TwelveLabs Pegasus 1.2**
 
 A multimodal model that provides comprehensive video understanding and analysis capabilities, including content recognition, scene detection, and contextual understanding. The model can analyze video content and generate textual descriptions, insights, and answers to questions about the video.
+
+**TwelveLabs Pegasus 1.5**
+
+A video-to-text generation model that analyzes video directly without pre-indexing to produce summaries, descriptions, answers, and structured timestamped metadata. Building on TwelveLabs Pegasus 1.2, it adds video segmentation that transforms raw video into structured, timestamped metadata across an entire video.
 
 **TwelveLabs Marengo Embed 2.7**
 
@@ -28,5 +33,6 @@ An enhanced multimodal embedding model that extends the capabilities of Marengo 
 
 **Topics**
 + [TwelveLabs Pegasus 1.2](model-parameters-pegasus.md)
++ [TwelveLabs Pegasus 1.5](model-parameters-pegasus-1-5.md)
 + [TwelveLabs Marengo Embed 2.7](model-parameters-marengo.md)
 + [TwelveLabs Marengo Embed 3.0](model-parameters-marengo-3.md)

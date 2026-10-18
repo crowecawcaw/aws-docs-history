@@ -38,7 +38,7 @@ Search is always served from the Amazon Bedrock web index. The `external_web_acc
 ### Supported models
 <a name="web-search-supported-models"></a>
 
-Web Search is available for OpenAI GPT models served through the Amazon Bedrock `bedrock-mantle` endpoint, using the Responses API. In the commercial US Regions, it is supported on the GPT-5.6 family — `openai.gpt-5.6-sol`, `openai.gpt-5.6-terra`, and `openai.gpt-5.6-luna` — as well as the earlier `openai.gpt-5.4` and `openai.gpt-5.5`. In AWS GovCloud (US), it is supported on `openai.gpt-5.6-terra`, `openai.gpt-5.6-luna`, and `openai.gpt-5.4`. Examples in this guide use `openai.gpt-5.6-terra`. For Web Search pricing, refer to the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/).
+Amazon Bedrock supports Web Search for OpenAI GPT-5.4 and later models in the commercial US Regions, served through the `bedrock-mantle` endpoint using the Responses API. In AWS GovCloud (US), it is supported on `openai.gpt-5.6-terra`, `openai.gpt-5.6-luna`, and `openai.gpt-5.4`. Examples in this guide use `openai.gpt-5.6-terra`. For Web Search pricing, refer to the [Amazon Bedrock pricing page](https://aws.amazon.com/bedrock/pricing/).
 
 **Note**  
 Web Search is a server-side tool, so it isn't available when you call the Responses API on the `bedrock-runtime` endpoint. To use it, call the Responses API on `bedrock-mantle`. For the other differences between the two endpoints, see [Using the Responses API on the bedrock-runtime endpoint](inference-responses-api.md#bedrock-mantle-responses-runtime).
@@ -320,6 +320,43 @@ Web Search on Amazon Bedrock uses AWS Identity and Access Management (IAM) to co
 <a name="web-search-monitoring-overview"></a>
 
 Web Search on Amazon Bedrock is integrated with AWS CloudTrail. CloudTrail captures API activity for Web Search as data events, so you can audit who invoked the tool, when, and from where. For the fields captured, how to enable data event logging, and what is intentionally excluded, see [Monitor Web Search](monitoring-web-search.md).
+
+## Data retention
+<a name="web-search-data-retention"></a>
+
+This section describes how Web Search tool works and data handling. For more details on how your prompts and model outputs are handled, see [Data retention](data-retention.md).
+
+### How does Web Search work?
+<a name="web-search-data-retention-how"></a>
+
+The Web Search tool supports two operations: Search and Fetch. Search returns a ranked list of observations as search results for a model generated query. Each observation includes a title, a source URL, and a content snippet. Search results are retrieved from a Web index built by Amazon that includes publicly available web content, licensed content and structured Amazon Knowledge Graph data. Fetch returns the contents of a specific URL to the model. When `external_web_access` is enabled, live web content can be retrieved for URLs present in Amazon's Web index or the public web. URLs fetched from the public web are written to a Live-Fetch cache where they are retained temporarily to avoid exceeding polite request rates against publisher sites.
+
+By default, Web Search retrieves content entirely from Amazon's Web index and data does not leave the AWS boundary. Web Search can retrieve live content from the web only if you explicitly enable `external_web_access`. This distinction determines most of the retention behavior described in the next sections.
+
+### What Web Search does not retain
+<a name="web-search-data-retention-not-retained"></a>
+
+#### Prompts and search queries
+<a name="web-search-data-retention-prompts-queries"></a>
+
+Web Search does not persist your prompt. Your prompt input and model generated search queries are not written into durable storage.
+
+#### Search results tied to your account
+<a name="web-search-data-retention-results"></a>
+
+Search results include a title, source URL and content snippets. They are not written into durable storage against your account, your request identity, or your prompt text.
+
+### Data sharing
+<a name="web-search-data-retention-data-sharing"></a>
+
+Search operations are served from a Web index and cache that is built and operated by Amazon. Your prompts and model generated tool calls are not sent to a third-party search provider.
+
+Depending on the model you use, your request may be subject to automated Amazon Bedrock abuse detection. Retention of prompts and model outputs by Amazon Bedrock is governed separately by your account or project data retention mode. See [Data retention](data-retention.md) for more details.
+
+### External web access
+<a name="web-search-data-retention-external"></a>
+
+By default, retrieval is served entirely from Amazon's Web index, and no request data leaves the AWS boundary. Only when you choose to enable external web access by granting `bedrock-websearch:ExternalWebAccess` and set `external_web_access` to `true` can Fetch retrieve content live from the web. See [Controlling external web access](#web-search-controlling-external) for more details.
 
 ## Acceptable use
 <a name="web-search-acceptable-use"></a>

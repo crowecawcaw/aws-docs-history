@@ -21,9 +21,10 @@ Z.AI
 Some providers sell only part of their model catalog through AWS Marketplace. The following models don't have product keys even though other models from the same provider do:  
 OpenAI open-weight models: gpt-oss-120b, gpt-oss-20b, gpt-oss-safeguard-120b, and gpt-oss-safeguard-20b. These models are available to all Amazon Bedrock users and don't require a AWS Marketplace subscription.
 Writer Palmyra Vision 7B.
+This list covers providers whose models have no product key at all. It isn't a complete list of models without a documented product ID. To check a specific model, see the **Marketplace product ID** field on its model card in [models at a glance](model-cards.md). If a model's card doesn't show that field, scope your policy by model ID instead.  
 You can, however, prevent the usage of these models by denying Amazon Bedrock actions and specifying these model IDs in the `Resource` field. For an example, see [Prevent an identity from using a model after access has already been granted](model-access.md#model-access-prevent-usage).
 
-Please refer to [models at a glance](model-cards.md) to see product IDs for individual models. The following table shows product IDs for models not available on that page:
+Please refer to [models at a glance](model-cards.md) to see product IDs for individual models. The following table shows product IDs for additional models, including older models that do not have a model card:
 
 
 | Model | Product ID | 

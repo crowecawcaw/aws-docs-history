@@ -34,7 +34,7 @@ GPT-6 Sol is designed for demanding development work. It can build features, deb
 ## Endpoints and APIs supported
 <a name="model-card-openai-gpt-6-sol-apis-endpoints"></a>
 
-These tables show the endpoints and APIs that GPT-6 Sol supports. See [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+These tables show the endpoints and APIs that GPT-6 Sol supports. See [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -64,7 +64,7 @@ For Responses, use `/openai/v1/responses`.
 For Chat Completions, use `/openai/v1/chat/completions`.
 
 **Tip**  
-For new applications, use the `bedrock-runtime` endpoint when possible. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+For new applications, use the `bedrock-runtime` endpoint when possible. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and features
 <a name="model-card-openai-gpt-6-sol-capabilities"></a>
@@ -76,7 +76,7 @@ For new applications, use the `bedrock-runtime` endpoint when possible. See [End
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) (InvokeModel and [Converse](conversation-inference.html) APIs only; not supported with Responses or Chat Completions)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-sol-prompt-caching) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-sol-prompt-caching) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-sol-structured-output) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)  | 
+|  + ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) (InvokeModel and [Converse](conversation-inference.html) APIs only; not supported with Responses or Chat Completions)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-sol-prompt-caching) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-sol-prompt-caching) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-sol-structured-output) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses, [Converse](conversation-inference.html), and ConverseStream APIs; on Converse, set `additionalModelRequestFields.reasoning.summary`)  |  + ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![Not supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)  | 
 
 **Features supported on the `bedrock-mantle` endpoint**
 
@@ -125,6 +125,10 @@ For JSON Schema output with the Converse API, you must set `additionalModelReque
 }
 ```
 
+**Converse content blocks**
+
+On the `bedrock-runtime` endpoint, Converse accepts `text` and `image` content blocks in user messages. This model doesn't accept `document` content blocks, and it doesn't accept an `image` content block inside a `toolResult`. A request that includes either is rejected with a `ValidationException`. To send a document to this model, use the Responses API with an `input_file` content part instead.
+
 ## Pricing
 <a name="model-card-openai-gpt-6-sol-pricing"></a>
 
@@ -170,7 +174,7 @@ Use these model IDs and endpoint URLs to call the model. See [APIs supported](ap
 | bedrock-runtime | openai.gpt-6-sol | Not supported | us.openai.gpt-6-sol | global.openai.gpt-6-sol | 
 | bedrock-mantle | openai.gpt-6-sol | https://bedrock-mantle.{region}.api.aws/openai/v1 | Not supported | Not supported | 
 
-On `bedrock-runtime`:
+Configure your client for the `bedrock-runtime` endpoint as follows:
 + Use this base URL: `https://bedrock-runtime.{region}.amazonaws.com/openai/v1`.
 + Set the model ID to `us.openai.gpt-6-sol` or `global.openai.gpt-6-sol`.
 + Choose a profile that is available in your source Region.

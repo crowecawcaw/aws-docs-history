@@ -3,7 +3,7 @@
 # Configure response generation for reasoning models with Knowledge Bases
 <a name="kb-test-configure-reasoning"></a>
 
-Certain foundation models can perform model reasoning, where they take a larger, complex task and break it down into smaller, simpler steps. This process, often referred to as chain of thought (CoT) reasoning, can improve model accuracy by giving the model a chance to think before it responds. Model reasoning is most useful for task such as multi-step analysis, math problems, and complex reasoning tasks. For more information, see [Enhance model responses with model reasoning](inference-reasoning.md).
+Certain foundation models can perform model reasoning, where they take a larger, complex task and break it down into smaller, simpler steps. This process, often referred to as chain of thought (CoT) reasoning, can improve model accuracy by giving the model a chance to think before it responds. Model reasoning is most useful for tasks such as multi-step analysis, math problems, and complex reasoning tasks. For more information, see [Enhance model responses with model reasoning](inference-reasoning.md).
 
 **Note**  
 This page describes how to use the reasoning configuration specifically for Amazon Bedrock Knowledge Bases. For information about configuring reasoning for direct model invocation using the `InvokeModel` API, see [Enhance model responses with model reasoning](inference-reasoning.md).

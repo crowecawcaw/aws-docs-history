@@ -34,7 +34,7 @@ GPT-6 Astra is OpenAI's most capable model. It handles the hardest end-to-end wo
 ## Endpoints and APIs supported
 <a name="model-card-openai-gpt-6-astra-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs GPT-6 Astra supports. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs GPT-6 Astra supports. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -73,7 +73,7 @@ For Chat Completions, use `/openai/v1/chat/completions`.
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-| + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) ([Converse API](conversation-inference.html) only)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) ([Converse API](conversation-inference.html) only; not supported with Responses or Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs (JSON Schema; see API configuration)](#model-card-openai-gpt-6-astra-structured-output)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only) | + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html) | 
+| + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) ([Converse API](conversation-inference.html) only)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) ([Converse API](conversation-inference.html) only; not supported with Responses or Chat Completions APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses, Chat Completions, and InvokeModel APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs (JSON Schema; see API configuration)](#model-card-openai-gpt-6-astra-structured-output)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses, [Converse](conversation-inference.html), and ConverseStream APIs; on Converse, set `additionalModelRequestFields.reasoning.summary`) | + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html) | 
 
 **Features supported using `bedrock-mantle`**
 
@@ -105,10 +105,16 @@ For JSON Schema output with the Converse API, you must set `additionalModelReque
 }
 ```
 
+**Converse content blocks**
+
+On the `bedrock-runtime` endpoint, Converse accepts `text` and `image` content blocks in user messages. This model doesn't accept `document` content blocks, and it doesn't accept an `image` content block inside a `toolResult`. A request that includes either is rejected with a `ValidationException`. To send a document to this model, use the Responses API with an `input_file` content part instead.
+
 ## Pricing
 <a name="model-card-openai-gpt-6-astra-pricing"></a>
 
 All prices are in USD per 1 million tokens. The following tables list Standard and Ultrafast prices.
+
+The **Input — 30-minute cache write** column is the price per 1 million tokens written to the prompt cache. The 30-minute figure is how long a cached prompt prefix is retained, not a quantity of tokens. For more information, see [prompt caching](prompt-caching.md).
 
 Commercial In-Region and Geo CRIS prices include a 10% premium over the corresponding OpenAI rates for the same service tier. You do not need to add this premium.
 
@@ -118,7 +124,7 @@ Commercial In-Region and Geo CRIS prices include a 10% premium over the correspo
 <a name="model-card-openai-gpt-6-astra-pricing-commercial-short"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $11.00 | $13.75 | $1.10 | $55.00 | 
 | Geo CRIS | $11.00 | $13.75 | $1.10 | $55.00 | 
@@ -128,7 +134,7 @@ Commercial In-Region and Geo CRIS prices include a 10% premium over the correspo
 <a name="model-card-openai-gpt-6-astra-pricing-commercial-long"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $22.00 | $27.50 | $2.20 | $82.50 | 
 | Geo CRIS | $22.00 | $27.50 | $2.20 | $82.50 | 
@@ -140,7 +146,7 @@ Ultrafast prices are six times the corresponding Standard prices. On `bedrock-ru
 <a name="model-card-openai-gpt-6-astra-pricing-ultrafast-short"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region (us-east-1) | $66.00 | $82.50 | $6.60 | $330.00 | 
 | Geo CRIS (US) | $66.00 | $82.50 | $6.60 | $330.00 | 
@@ -150,7 +156,7 @@ Ultrafast prices are six times the corresponding Standard prices. On `bedrock-ru
 <a name="model-card-openai-gpt-6-astra-pricing-ultrafast-long"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region (us-east-1) | $132.00 | $165.00 | $13.20 | $495.00 | 
 | Geo CRIS (US) | $132.00 | $165.00 | $13.20 | $495.00 | 
@@ -159,7 +165,7 @@ Ultrafast prices are six times the corresponding Standard prices. On `bedrock-ru
 ## Programmatic Access
 <a name="model-card-openai-gpt-6-astra-programmatic-access"></a>
 
-To call this model from code, use the following model IDs and endpoint URLs. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+To call this model from code, use the following model IDs and endpoint URLs. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 

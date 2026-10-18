@@ -18,7 +18,7 @@ GLM 4.7 is Z.AI's large language model with strong multilingual capabilities and
 + **End User License Agreements and Terms of Use:** [View](https://github.com/zai-org/GLM-4/blob/main/LICENSE)
 + **Model lifecycle:** Legacy
 + **Context window:** 203K tokens
-+ **Max output tokens:** 4K
++ **Max output tokens:** 128K
 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.html)** | **[Endpoints supported](endpoints.html)** | 
@@ -30,7 +30,7 @@ GLM 4.7 is Z.AI's large language model with strong multilingual capabilities and
 | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video |  |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-zai-glm-4-7-capabilities"></a>

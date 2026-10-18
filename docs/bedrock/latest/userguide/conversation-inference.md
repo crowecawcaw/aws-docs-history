@@ -108,7 +108,7 @@ The following shows an example [Message](https://docs.aws.amazon.com/bedrock/lat
 }
 ```
 
-You can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
+If you are using an Amazon Nova model, you can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. Other models accept only the `bytes` field and reject an Amazon S3 URI with a validation error. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
 
 ```
 {
@@ -133,6 +133,9 @@ You can also specify an Amazon S3 URI instead of passing the bytes directly in t
 #### [ document ]
 
 The `document` field maps to an [DocumentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_DocumentBlock.html). If you include a `DocumentBlock`, check that your request conforms to the following restrictions:
++ You must specify the `format` field. Amazon Bedrock doesn't infer the document format from the `name` field or from the file extension in an `s3Location` URI. If you omit `format`, the request fails with a `ValidationException` and the message `Document format is required.` The same requirement applies to a document that you return in a `toolResult` field.
+
+  The one exception is a document that has `citations` enabled and that supplies its content inline in the `content` field of `source`. For that document, `format` is optional and defaults to `txt`.
 + In the `content` field of the [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object, you must also include a `text` field with a prompt related to the document.
 + Pass the raw bytes, encoded in base64, for the document in the `bytes` field. If you use an AWS SDK, you don't need to encode the document bytes in base64.
 + The `name` field can only contain the following characters:
@@ -145,6 +148,10 @@ The `document` field maps to an [DocumentBlock](https://docs.aws.amazon.com/bedr
 The `name` field is vulnerable to prompt injections, because the model might inadvertently interpret it as instructions. Therefore, we recommend that you specify a neutral name.
 
 When using a document you can enable the `citations` tag, which will provide document specific citations in the response of the API call. See the [DocumentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_DocumentBlock.html) API for more details.
+
+When `citations` is enabled, the following additional restrictions apply:
++ The `format` field can only be `txt` or `pdf`. Any other value fails with a `ValidationException`.
++ You can't use `s3Location` as the document source. Pass the document in the `bytes` or `content` field instead.
 
 The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_Message.html) object with a `content` array containing only a document [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html) and a required accompanying text [ContentBlock](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_ContentBlock.html).
 
@@ -168,7 +175,7 @@ The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/lates
 }
 ```
 
-You can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
+If you are using an Amazon Nova model, you can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. Other models accept only the `bytes` field and reject an Amazon S3 URI with a validation error. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
 
 ```
 {
@@ -218,7 +225,7 @@ The following shows a sample [Message](https://docs.aws.amazon.com/bedrock/lates
 }
 ```
 
-You can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
+If you are using an Amazon Nova model, you can also specify an Amazon S3 URI instead of passing the bytes directly in the request body. Other models accept only the `bytes` field and reject an Amazon S3 URI with a validation error. The following shows a sample `Message` object with a content array containing the source passed through an Amazon S3 URI.
 
 ```
 {

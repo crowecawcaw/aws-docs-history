@@ -3,7 +3,7 @@
 # Endpoint availability
 <a name="models-endpoint-availability"></a>
 
-Amazon Bedrock supports two endpoints: bedrock-runtime and bedrock-mantle. For new applications, we recommend the `bedrock-runtime` endpoint. Please refer to the [Endpoints supported by Amazon Bedrock](endpoints.md) to learn more about how to choose between the two endpoints.
+Amazon Bedrock supports two endpoints: bedrock-runtime and bedrock-mantle. For new applications, we recommend the `bedrock-runtime` endpoint. Please refer to the [Inference endpoints supported by Amazon Bedrock](endpoints.md) to learn more about how to choose between the two endpoints.
 
 
 | **Endpoint** | **Supported APIs** | **Description** | 

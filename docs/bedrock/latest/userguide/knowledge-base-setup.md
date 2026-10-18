@@ -233,7 +233,7 @@ Amazon S3 Vectors introduces S3 vector buckets, which contain vector indexes tha
 
 **Note**  
 You can create a knowledge base for Amazon S3 Vectors in all AWS Regions where both Amazon Bedrock and Amazon S3 Vectors are available. For information about regional availability of Amazon S3 Vectors, see [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html) in the *Amazon S3 User Guide*.
-When using very high token counts with hierarchical chunking in Amazon Bedrock Knowledge Bases, you can exceed the maximum metadata size limits as parent-child chunk relationships and hierarchical context are stored as non-filterable metadata in Amazon S3 Vectors. For more information about metadata size limits per vector, see [Limitations and restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html) in the *Amazon S3 User Guide*. For information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md).
+When using very high token counts with hierarchical chunking in Amazon Bedrock Knowledge Bases, you can exceed the maximum metadata size limits as parent-child chunk relationships and hierarchical context are stored as non-filterable metadata in Amazon S3 Vectors. The broader context that Amazon Bedrock Knowledge Bases attaches for tables and figures in parsed markdown content is stored the same way, and can reach the same limit under any chunking strategy that sets a maximum token limit. For more information about metadata size limits per vector, see [Limitations and restrictions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors-limitations.html) in the *Amazon S3 User Guide*. For information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md).
 <a name="metadata-support"></a>
 **Metadata support**  
 You can attach metadata as key-value pairs to each vector. By default, metadata is filterable and can be used in similarity search queries to filter by conditions such as dates, categories, or user preferences.
@@ -303,7 +303,13 @@ After you've gathered this information, you can proceed to [create your knowledg
 | Field | Corresponding field in knowledge base setup (Console) | Corresponding field in knowledge base setup (API) | Description | 
 | --- | --- | --- | --- | 
 | Vector bucket ARN | S3 vector bucket ARN | vectorBucketArn | The Amazon Resource Name (ARN) of your S3 vector bucket. | 
-| Vector index ARN | S3 vector index ARN | vectorIndexARN | The Amazon Resource Name (ARN) of the vector index for your S3 vector bucket. | 
+| Vector index ARN | S3 vector index ARN | indexArn | The Amazon Resource Name (ARN) of the vector index for your S3 vector bucket. | 
+
+**Note**  
+In the API, `s3VectorsConfiguration` accepts the vector index in one of two ways, and you must use exactly one of them:  
+`indexArn` on its own. If you also pass `vectorBucketArn`, the `indexArn` value must begin with it.
+`vectorBucketArn` and `indexName` together, with `indexArn` omitted.
+Passing both `indexArn` and `indexName` returns a `ValidationException` with the message `Vector index name should not be present with namespace arn`. Omitting `indexArn` without providing both `vectorBucketArn` and `indexName` also returns a `ValidationException`.
 
 ------
 #### [ Amazon Aurora (RDS) ]

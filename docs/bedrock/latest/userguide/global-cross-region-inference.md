@@ -5,10 +5,12 @@
 
 Global cross-Region inference extends cross-Region inference beyond geographic boundaries, enabling the routing of inference requests to supported commercial AWS Regions worldwide.
 
+Global cross-Region inference is available for the models that have a global inference profile. For the list of supported models and Regions, see [Supported Regions and models for inference profiles](inference-profiles-support.md).
+
 ## Benefits of global cross-Region inference
 <a name="global-cris-benefits"></a>
 
-With global cross-Region inference for the Anthropic Claude Sonnet 4.5 model, you get the following advantages over a geographic cross-Region inference profile:
+With global cross-Region inference, you get the following advantages over a geographic cross-Region inference profile:
 + **Cost-efficiency** – You save approximately 10% on both input and output token pricing compared to geographic cross-Region inference. Amazon Bedrock calculates the price based on the AWS Region from which you make the request (the source AWS Region).
 + **Streamlined monitoring** – When using global cross-Region inference, CloudWatch and CloudTrail continue to record log entries in your source AWS Region, simplifying observability and management. Even though your requests are processed across different AWS Regions worldwide, you maintain a centralized view of your application's performance and usage patterns through your familiar AWS monitoring tools.
 + **Worldwide request routing** – With global cross-Region inference, your requests can be processed by compute across supported commercial AWS Regions worldwide rather than within a single geography.
@@ -195,8 +197,8 @@ For all other models, the burndown rate is **1:1** (1 output token consumes 1 to
 ## Use Global cross-Region inference
 <a name="global-cris-usage"></a>
 
-To use global cross-Region inference with Anthropic's Claude Sonnet 4.5, developers must complete the following key steps:
-+ **Use the global inference profile ID** – When making API calls to Amazon Bedrock, specify the global Anthropic's Claude Sonnet 4.5 inference profile ID (`global.anthropic.claude-sonnet-4-5-20250929-v1:0`) instead of a AWS Region-specific model ID.
+To use global cross-Region inference with a supported model, complete the following key steps:
++ **Use the global inference profile ID** – When making API calls to Amazon Bedrock, specify the model's global inference profile ID, which starts with `global.` (for example, `global.anthropic.claude-sonnet-4-5-20250929-v1:0`), instead of a AWS Region-specific model ID.
 + **Configure IAM permissions** – Grant appropriate IAM permissions to access the inference profile and FMs in potential destination AWS Regions.
 
 Global cross-Region inference is supported for:
@@ -213,7 +215,7 @@ Global inference profile is supported for On-demand model inference, Batch infer
 ## Implement global cross-Region inference
 <a name="global-cris-implementation"></a>
 
-Implementing global cross-Region inference with Anthropic's Claude Sonnet 4.5 is straightforward, requiring only a few changes to your existing application code. The following is an example of how to update your code in Python:
+Implementing global cross-Region inference is straightforward, requiring only a few changes to your existing application code. The following Python example uses the global inference profile for Anthropic Claude Sonnet 4.5; to use a different model, replace the model ID with that model's global inference profile ID:
 
 ```
 import boto3

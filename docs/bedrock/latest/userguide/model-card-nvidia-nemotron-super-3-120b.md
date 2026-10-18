@@ -19,6 +19,7 @@ NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating ju
 + **Model lifecycle:** Active
 + **Context window:** 256K tokens
 + **Max output tokens:** 32K
++ **Reasoning:** Supported (effort configurable: none, low, medium, high)
 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.html)** | **[Endpoints supported](endpoints.html)** | 
@@ -30,7 +31,7 @@ NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating ju
 | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video |  |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-nvidia-nemotron-super-3-120b-capabilities"></a>

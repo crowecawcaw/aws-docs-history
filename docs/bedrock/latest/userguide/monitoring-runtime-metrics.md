@@ -49,6 +49,11 @@ To retrieve metrics for your Amazon Bedrock operations, you specify the followin
 + The metric dimension. A *dimension* is a set of name-value pairs that you use to identify a metric. Amazon Bedrock supports the following dimensions:
   + `ModelId` – all metrics
   + `ModelId + ImageSize + BucketedStepSize` – OutputImageCount
+  + `ModelId + ContextWindow` – Invocations, InvocationLatency, InputTokenCount, OutputTokenCount, EstimatedTPMQuotaUsage
+
+  Amazon Bedrock publishes metrics with the `ContextWindow` dimension only for requests that are billed at a model's long-context rate. The dimension value is `1M` for every such request, regardless of the request's token count. For which models and request sizes are billed at a long-context rate, see [Amazon Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/).
+
+  A request that publishes metrics with the `ContextWindow` dimension also publishes them with the `ModelId` dimension alone. The `ModelId + ContextWindow` series is therefore a subset of the `ModelId` series, not an additional amount. To get total usage for a model, use the `ModelId` series by itself. To get usage for requests that aren't billed at a long-context rate, subtract the `ModelId + ContextWindow` series from the `ModelId` series.
 + The metric name, such as `InvocationClientErrors`. 
 
 You can get metrics for Amazon Bedrock with the AWS Management Console, the AWS CLI, or the CloudWatch API. You can use the CloudWatch API through one of the AWS Software Development Kits (SDKs) or the CloudWatch API tools.

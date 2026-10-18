@@ -18,6 +18,8 @@ Get started with Amazon Bedrock in minutes. For new applications, we recommend t
    For production applications, use [IAM roles or temporary credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds-programmatic-access.html#security-creds-alternatives-to-long-term-access-keys). 
 
 1. Install the relevant SDK for the APIs you plan to use. Python must already be installed.
+**Note**  
+API key authentication through the `AWS_BEARER_TOKEN_BEDROCK` environment variable requires `boto3` version 1.39.0 or later. Earlier versions ignore the variable and fail with `Unable to locate credentials`. If you already have `boto3` installed, run `pip install --upgrade boto3` to make sure you are on a supported version.
 
 ------
 #### [ Messages API ]
@@ -42,29 +44,43 @@ Get started with Amazon Bedrock in minutes. For new applications, we recommend t
 
 ------
 
-1. Set the following environment variables to use the API key for authentication.
+1. Set the following environment variables in the terminal session where you run your code to use the API key for authentication.
 
 ------
 #### [ Messages API ]
 
    ```
-   AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
-   ANTHROPIC_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/anthropic"
+   # macOS/Linux
+   export AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+   export ANTHROPIC_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/anthropic"
+   
+   # Windows (PowerShell)
+   $env:AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+   $env:ANTHROPIC_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/anthropic"
    ```
 
 ------
 #### [ Responses/Chat Completions API ]
 
    ```
-   OPENAI_API_KEY="<provide your Bedrock API key>"
-   OPENAI_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/openai/v1"
+   # macOS/Linux
+   export OPENAI_API_KEY="<provide your Bedrock API key>"
+   export OPENAI_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/openai/v1"
+   
+   # Windows (PowerShell)
+   $env:OPENAI_API_KEY="<provide your Bedrock API key>"
+   $env:OPENAI_BASE_URL="https://bedrock-runtime.<your-region>.amazonaws.com/openai/v1"
    ```
 
 ------
 #### [ Invoke/Converse API ]
 
    ```
-   AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+   # macOS/Linux
+   export AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
+   
+   # Windows (PowerShell)
+   $env:AWS_BEARER_TOKEN_BEDROCK="<provide your Bedrock API key>"
    ```
 
 ------
@@ -160,8 +176,8 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
                   'messages': [{ 'role': 'user', 'content': 'Can you explain the features of Amazon Bedrock?'}],
                   'max_tokens': 1024
           })
-       )
-       print(json.loads(response['body'].read()))
+      )
+      print(json.loads(response['body'].read()))
       ```
 
 ------
@@ -176,7 +192,7 @@ The OpenAI-compatible examples use a global system inference profile. If you hav
 
       You should see the output of your inference request.
 
-To learn more about using other APIs and endpoints, see [Build](build.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+To learn more about using other APIs and endpoints, see [Build](build.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 ## Next steps
 <a name="getting-started-next-steps"></a>

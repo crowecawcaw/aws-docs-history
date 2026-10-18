@@ -28,7 +28,7 @@ The following table describes the input parameters for the TwelveLabs Pegasus 1.
 | responseFormat | Object | No | Specifies a structured-output JSON Schema. Set the schema object directly under responseFormat.jsonSchema. | 
 | mediaSource | object | Yes | Describes the media source. Either base64String or s3Location must be provided. | 
 | mediaSource.base64String | string | No | Base64 encoded byte string for the video. Max: 25MB. | 
-| mediaSource.s3Location.uri | string | No | S3 URI where the video could be downloaded from. Max: 1 hour long video (< 2GB file size). | 
+| mediaSource.s3Location.uri | string | No | S3 URI where the video could be downloaded from. Max: 1 hour long video (< 2GB file size). The bucket must be in the same AWS Region that you send the request to, including when you use a geo inference profile. A bucket in any other Region fails with a ValidationException. | 
 | mediaSource.s3Location.bucketOwner | string | No | AWS account ID of the bucket owner. | 
 | maxOutputTokens | integer | No | The maximum number of tokens to generate. Max: 4096. | 
 

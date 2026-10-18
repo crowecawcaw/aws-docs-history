@@ -36,7 +36,6 @@ The following table shows models supported for intelligent prompt routing:
 <a name="prompt-routing-benefits"></a>
 + **Optimized Response Quality and Cost:** Routes prompts to different foundational models to achieve the best response quality at the lowest cost.
 + **Simplified Management:** Eliminates the need for complex orchestration logic.
-+ **Future-Proof:** Incorporates new models as they become available.
 
 ## Default and configured prompt routers
 <a name="prompt-routing-types"></a>
@@ -70,7 +69,7 @@ Choose a fallback model that works well for your requests. This model serves as 
 
 The response quality difference measures the disparity between the responses of the fallback model and the other models. A smaller value indicates that the responses are similar. A higher value indicates a significant difference in the responses between the fallback model and the other models.
 
-For example, a response quality difference of 10% means that, say the response quality of the fallback model, Claude Haiku3, is 10%, then the router will switch to another model, say Claude Sonnet3, only if its responses are 10% better than Claude Haiku3's responses.
+For example, if you set a response quality difference of 10% and choose Amazon Nova Lite as the fallback model, the router switches to the other model in the router, such as Amazon Nova Pro, only if its predicted response quality is more than 10% better than Amazon Nova Lite's.
 
 ## How intelligent prompt routing works
 <a name="prompt-routing-works"></a>

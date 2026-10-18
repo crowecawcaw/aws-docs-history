@@ -103,7 +103,7 @@ A bucket policy is automatically attached to the bucket on your behalf when you 
 For more information on S3 SSE-KMS configurations, see [Specifying KMS Encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/specifying-kms-encryption.html).
 
 **Note**  
-The bucket ACL must be disabled in order for the bucket policy to take effect. For more information, see [Disabling ACLs for all new buckets and enforcing Object Ownership](AmazonS3/latest/userguide/ensure-object-ownership.html).
+The bucket ACL must be disabled in order for the bucket policy to take effect. For more information, see [Disabling ACLs for all new buckets and enforcing Object Ownership](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ensure-object-ownership.html).
 
 ## Set up an CloudWatch Logs destination
 <a name="setup-cloudwatch-logs-destination"></a>

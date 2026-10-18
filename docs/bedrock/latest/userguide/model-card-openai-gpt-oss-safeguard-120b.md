@@ -19,6 +19,7 @@ GPT OSS Safeguard 120B is OpenAI's 120-billion parameter open-source safety mode
 + **Model lifecycle:** Active
 + **Context window:** 128K tokens
 + **Max output tokens:** 16K
++ **Reasoning:** Supported, on by default (effort configurable: low, medium, high)
 
 
 | **Input Modalities** | **Output Modalities** | 
@@ -32,7 +33,7 @@ GPT OSS Safeguard 120B is OpenAI's 120-billion parameter open-source safety mode
 ## Endpoints and APIs supported
 <a name="model-card-openai-gpt-oss-safeguard-120b-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for GPT OSS Safeguard 120B. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs are supported for GPT OSS Safeguard 120B. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -62,7 +63,7 @@ For Responses, use `/v1/responses`.
 For Chat Completions, use `/v1/chat/completions`.
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-openai-gpt-oss-safeguard-120b-capabilities"></a>

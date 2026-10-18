@@ -18,7 +18,7 @@ If you will manage licenses directly from the management account, skip to Step 2
 
 1. In the navigation pane, choose **Settings**.
 
-1. Under **Delegated administrator**, enter the AWS account ID of the member account you want to designate.
+1. On the **Delegated administration** tab, enter the AWS account ID of the member account you want to designate.
 
 1. Choose **Save changes**.
 
@@ -45,7 +45,7 @@ You must enable trusted access and create service-linked roles for both AWS Lice
 
 1. In the navigation pane, choose **Settings**.
 
-1. Under Account management, choose Link AWS Organization accounts.
+1. On the **Managed licenses** tab, under **Account details**, choose **Link AWS Organizations accounts**.
 
 This enables cross-account grant acceptance and creates a trusted access relationship between AWS Organizations and AWS License Manager.
 
@@ -55,7 +55,7 @@ This enables cross-account grant acceptance and creates a trusted access relatio
 
 1. In the navigation pane, choose **Settings**.
 
-1. Under **AWS License Manager Integration**, choose **View setting details**.
+1. Under **AWS License Manager integration**, choose **View setting details**.
 
 1. Select both checkboxes:
    + **Enable trusted access across your organization**
@@ -77,17 +77,17 @@ After completing the setup steps, verify that everything is configured correctly
 
 1. In the AWS License Manager console, choose **Settings** in the navigation pane.
 
-1. Under **Account management**, confirm you see **AWS Organizations account linking: Enabled**.
+1. On the **Managed licenses** tab, under **Account details**, confirm that your AWS Organizations accounts are linked.
 
-1. Under **Organization details**, you should see your Organization ID.
+1. The same section shows your account type, the License Manager Amazon S3 bucket ARN, and the AWS RAM share ARN that account linking creates.
 
 **To verify AWS Marketplace configuration**
 
 1. In the AWS Marketplace console, choose **Settings** in the navigation pane.
 
-1. Under **AWS License Manager Integration**, confirm you see **Organization integration: Enabled**.
+1. Under **AWS License Manager integration**, confirm that the integration has been created and that trusted access is enabled for your organization.
 
-1. You should also see **Trusted access status: Enabled**.
+1. The status labels in this section can change. To confirm the setup definitively, use the service-linked role check that follows.
 
 **To verify service-linked roles**
 

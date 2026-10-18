@@ -9,6 +9,9 @@
 ## Model Details
 <a name="model-card-amazon-nova-reel-details"></a>
 
+**Important**  
+Nova Reel reached end of life on September 30, 2026 and is no longer available. Requests to this model fail with `ResourceNotFoundException: This model version has reached the end of its life.` For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+
 Nova Reel is Amazon's video generation model that creates short videos from text and image prompts with camera motion controls. For more information about model development and performance, see the [model/service card](/ai/responsible-ai/nova-micro-lite-pro/overview.html).
 + **Model launch date:** Dec 3, 2024
 + **EOL no sooner than:** Dec 3, 2025
@@ -16,7 +19,7 @@ Nova Reel is Amazon's video generation model that creates short videos from text
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
 + **Model EOL date:** September 30, 2026
 + **End User License Agreements and Terms of Use:** [View](https://aws.amazon.com/legal/bedrock/third-party-models/)
-+ **Model lifecycle:** Legacy
++ **Model lifecycle:** EOL: 2026-09-30
 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.html)** | **[Endpoints supported](endpoints.html)** | 
@@ -28,7 +31,7 @@ Nova Reel is Amazon's video generation model that creates short videos from text
 | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) Video | ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) StartAsyncInvoke |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Pricing
 <a name="model-card-amazon-nova-reel-pricing"></a>

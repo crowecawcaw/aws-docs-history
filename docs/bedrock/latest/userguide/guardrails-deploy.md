@@ -10,7 +10,8 @@ You can use the test window (for more information, see [Test your guardrail](gua
 The following topics discuss how to create a version of your guardrail when it's ready for deployment, view information about it, and delete it when you no longer want to use it.
 
 **Note**  
-Guardrail versions are not considered resources and do not have an ARN. IAM Policies that apply to a guardrail apply to all of its versions.
+Guardrail versions aren't separate resources and don't have their own ARN. A guardrail ARN doesn't include a version, so the `Resource` element of an IAM policy can't target an individual version. It applies to the guardrail and all of its versions.  
+To restrict access to a specific guardrail version, use the `bedrock:GuardrailIdentifier` condition key, which accepts the guardrail ARN with an optional `:{{version}}` suffix. For more information, see [Enforce the use of specific guardrails in model inference requests](guardrails-permissions-id.md).
 
 **Topics**
 + [Create a version of a guardrail](guardrails-versions-create.md)

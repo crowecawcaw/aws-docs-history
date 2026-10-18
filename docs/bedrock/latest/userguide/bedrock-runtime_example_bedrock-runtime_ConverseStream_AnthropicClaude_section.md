@@ -26,8 +26,10 @@ using Amazon.BedrockRuntime.Model;
 // Create a Bedrock Runtime client in the AWS Region you want to use.
 var client = new AmazonBedrockRuntimeClient(RegionEndpoint.USEast1);
 
-// Set the model ID, e.g., Claude 3 Haiku.
-var modelId = "anthropic.claude-3-haiku-20240307-v1:0";
+// Set the model ID, e.g., Claude Haiku 5.5.
+// Claude Haiku 5.5 is available through an inference profile, so this uses the
+// "us." cross-Region profile ID that matches the Region set above.
+var modelId = "us.anthropic.claude-haiku-5-5";
 
 // Define the user message.
 var userMessage = "Describe the purpose of a 'hello world' program in one line.";
@@ -46,9 +48,7 @@ var request = new ConverseStreamRequest
     },
     InferenceConfig = new InferenceConfiguration()
     {
-        MaxTokens = 512,
-        Temperature = 0.5F,
-        TopP = 0.9F
+        MaxTokens = 512
     }
 };
 
@@ -106,8 +106,10 @@ public class ConverseStream {
                 .region(Region.US_EAST_1)
                 .build();
 
-        // Set the model ID, e.g., Claude 3 Haiku.
-        var modelId = "anthropic.claude-3-haiku-20240307-v1:0";
+        // Set the model ID, e.g., Claude Haiku 5.5.
+        // Claude Haiku 5.5 is available through an inference profile, so this uses
+        // the "us." cross-Region profile ID that matches the Region set above.
+        var modelId = "us.anthropic.claude-haiku-5-5";
 
         // Create the input text and embed it in a message object with the user role.
         var inputText = "Describe the purpose of a 'hello world' program in one line.";
@@ -133,8 +135,6 @@ public class ConverseStream {
                     .messages(message)
                     .inferenceConfig(config -> config
                             .maxTokens(512)
-                            .temperature(0.5F)
-                            .topP(0.9F)
                     ), responseStreamHandler).get();
 
         } catch (ExecutionException | InterruptedException e) {
@@ -163,8 +163,10 @@ import {
 // Create a Bedrock Runtime client in the AWS Region you want to use.
 const client = new BedrockRuntimeClient({ region: "us-east-1" });
 
-// Set the model ID, e.g., Claude 3 Haiku.
-const modelId = "anthropic.claude-3-haiku-20240307-v1:0";
+// Set the model ID, e.g., Claude Haiku 5.5.
+// Claude Haiku 5.5 is available through an inference profile, so this uses the
+// "us." cross-Region profile ID that matches the Region set above.
+const modelId = "us.anthropic.claude-haiku-5-5";
 
 // Start a conversation with the user message.
 const userMessage =
@@ -180,7 +182,7 @@ const conversation = [
 const command = new ConverseStreamCommand({
   modelId,
   messages: conversation,
-  inferenceConfig: { maxTokens: 512, temperature: 0.5, topP: 0.9 },
+  inferenceConfig: { maxTokens: 512 },
 });
 
 try {
@@ -217,8 +219,10 @@ from botocore.exceptions import ClientError
 # Create a Bedrock Runtime client in the AWS Region you want to use.
 client = boto3.client("bedrock-runtime", region_name="us-east-1")
 
-# Set the model ID, e.g., Claude 3 Haiku.
-model_id = "anthropic.claude-3-haiku-20240307-v1:0"
+# Set the model ID, e.g., Claude Haiku 4.5.
+# Claude Haiku 4.5 is available through an inference profile, so this uses the
+# "us." cross-Region profile ID that matches the us-east-1 Region set above.
+model_id = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
 
 # Start a conversation with the user message.
 user_message = "Describe the purpose of a 'hello world' program in one line."
@@ -234,7 +238,7 @@ try:
     streaming_response = client.converse_stream(
         modelId=model_id,
         messages=conversation,
-        inferenceConfig={"maxTokens": 512, "temperature": 0.5, "topP": 0.9},
+        inferenceConfig={"maxTokens": 512, "temperature": 0.5},
     )
 
     # Extract and print the streamed response text in real-time.
@@ -335,8 +339,10 @@ use aws_sdk_bedrockruntime::{
     Client,
 };
 
-// Set the model ID, e.g., Claude 3 Haiku.
-const MODEL_ID: &str = "anthropic.claude-3-haiku-20240307-v1:0";
+// Set the model ID, e.g., Claude Haiku 5.5.
+// Claude Haiku 5.5 is available through an inference profile, so this uses the
+// "us." cross-Region profile ID that matches CLAUDE_REGION below.
+const MODEL_ID: &str = "us.anthropic.claude-haiku-5-5";
 const CLAUDE_REGION: &str = "us-east-1";
 
 // Start a conversation with the user message.
@@ -407,11 +413,13 @@ func printConverseStream(_ textPrompt: String) async throws {
 
     // Create a Bedrock Runtime client in the AWS Region you want to use.
     let config =
-        try await BedrockRuntimeClient.BedrockRuntimeClientConfiguration()
+        try await BedrockRuntimeClient.BedrockRuntimeClientConfig()
     let client = BedrockRuntimeClient(config: config)
 
     // Set the model ID.
-    let modelId = "anthropic.claude-3-haiku-20240307-v1:0"
+    // Claude Haiku 5.5 is available through an inference profile, so this uses
+    // the "us." cross-Region profile ID that matches the default Region.
+    let modelId = "us.anthropic.claude-haiku-5-5"
 
     // Start a conversation with the user message.
     let message = BedrockRuntimeClientTypes.Message(
@@ -423,9 +431,7 @@ func printConverseStream(_ textPrompt: String) async throws {
     let inferenceConfig =
         BedrockRuntimeClientTypes.InferenceConfiguration(
             maxTokens: 512,
-            stopSequences: ["END"],
-            temperature: 0.5,
-            topp: 0.9
+            stopSequences: ["END"]
         )
 
     // Create the ConverseStreamInput to send to the model.

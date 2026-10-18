@@ -19,6 +19,7 @@ Nemotron Nano 3 30B is NVIDIA's 30-billion parameter model with strong reasoning
 + **Model lifecycle:** Active
 + **Context window:** 256K tokens
 + **Max output tokens:** 8K
++ **Reasoning:** Supported (effort configurable: none, low, medium, high)
 
 
 | **Input Modalities** | **Output Modalities** | **[APIs supported](apis.html)** | **[Endpoints supported](endpoints.html)** | 
@@ -30,7 +31,7 @@ Nemotron Nano 3 30B is NVIDIA's 30-billion parameter model with strong reasoning
 | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video |  |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-nvidia-nemotron-nano-3-30b-capabilities"></a>

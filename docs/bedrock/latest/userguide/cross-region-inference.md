@@ -27,6 +27,7 @@ Amazon Bedrock provides two types of cross-Region inference profiles, each desig
 | --- | --- | --- | --- | 
 | Data residency | Within geographic boundaries (such as US, EU, and APAC) | Any supported AWS commercial Region worldwide | Choose Geographic for compliance requirements | 
 | Request routing | Routed within the geography | Routed worldwide | Choose based on where requests can be processed | 
+| Reliability and availability | Routes within the AWS Regions listed in the profile (for example, us-east-1, us-east-2, and us-west-2 for a US profile) | Routes across all supported AWS commercial Regions | To meet an availability target, add bounded retries and multi-Region or multi-model fallback in your application. For more information, see [Scaling and throughput best practices](scaling-throughput-best-practices.md). | 
 | Cost | Standard pricing | Approximately 10% savings | Choose Global for cost optimization | 
 | SCP requirements | Allow all destination Regions in profile | Allow "aws:RequestedRegion": "unspecified" | Configure based on your organizational policies | 
 | Best suited for | Organizations with data residency regulations | Organizations prioritizing cost optimization | Assess your compliance and cost needs | 

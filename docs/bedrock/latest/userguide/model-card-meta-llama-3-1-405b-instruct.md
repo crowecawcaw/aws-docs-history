@@ -9,14 +9,17 @@
 ## Model Details
 <a name="model-card-meta-llama-3-1-405b-instruct-details"></a>
 
+**Important**  
+Llama 3.1 405B Instruct reached end of life on July 7, 2026 and is no longer available. Requests to this model fail with `ResourceNotFoundException: This model version has reached the end of its life.` For models that are currently available, see [Models at a glance](model-cards.md). For how model lifecycle stages work, see [Model lifecycle](model-lifecycle-legacy.md).
+
 Llama 3.1 405B Instruct is Meta's largest open model with 405 billion parameters and a 128K context window, supporting tool use and multilingual tasks. For more information about model development and performance, see the [model/service card](https://www.llama.com/docs/model-cards-and-prompt-formats/llama3_1/).
 + **Model launch date:** Jul 23, 2024
 + **EOL no sooner than:** Jul 23, 2025
 + **Legacy period:** at least 6 months
 + **Model lifecycle policy:** [Model lifecycle (For Models Launched Prior to Sept 7 2026)](model-lifecycle-legacy.md)
-+ **Model EOL date:** Legacy: July 7, 2026
++ **Model EOL date:** July 7, 2026
 + **End User License Agreements and Terms of Use:** [View](https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE)
-+ **Model lifecycle:** Legacy
++ **Model lifecycle:** EOL: 2026-07-07
 + **Context window:** 128K tokens
 + **Max output tokens:** 4K
 + **Knowledge cutoff:** Dec 2023
@@ -31,7 +34,7 @@ Llama 3.1 405B Instruct is Meta's largest open model with 405 billion parameters
 | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video | ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) Video |  |  | 
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-meta-llama-3-1-405b-instruct-capabilities"></a>

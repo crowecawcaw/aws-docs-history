@@ -245,6 +245,61 @@ The following partial response shows the blocked content text and the trace from
 }
 ```
 
+### Processing anonymized output when using the Converse API
+<a name="guardrails-use-converse-api-response-anonymized"></a>
+
+A sensitive information filter whose action is `ANONYMIZE` masks the values that it detects instead of blocking the request. The result is a usable model response, but it reports the same `stopReason` as a block, so you can't distinguish the two from `stopReason` alone.
++ The `stopReason` field is `guardrail_intervened`, exactly as it is when content is blocked.
++ The `output` field contains the model response with each detected value replaced by a placeholder that names the entity type, such as `{NAME}` or `{EMAIL}`. It does **not** contain the blocked message that you configured in the guardrail.
++ To tell masking from blocking, enable tracing and read the `action` field of each entry under `sensitiveInformationPolicy` in the trace assessments. The value is `ANONYMIZED` for masked values and `BLOCKED` for blocked content. The `actionReason` field reports `Guardrail masked.` when values were masked.
++ With `ConverseStream`, the masked text arrives in the streamed content blocks and the trace is in the metadata that the operation returns.
+
+**Important**  
+The trace returns the unmasked values. The `modelOutput` field in the guardrail trace carries the model response as it was before masking, and each assessment entry includes a `match` field holding the value that was detected. Because tracing is the only way to detect that masking occurred, treat the trace as sensitive data and don't log it alongside ordinary responses.
+
+The following partial response shows a masked name and email address, together with the assessment that reports the masking.
+
+```
+{
+    "output": {
+        "message": {
+            "role": "assistant",
+            "content": [
+                {
+                    "text": "My name is {NAME} and my email is {EMAIL}. Please confirm you received it."
+                }
+            ]
+        }
+    },
+    "stopReason": "guardrail_intervened",
+    "trace": {
+        "guardrail": {
+            "outputAssessments": {
+                "3o06191495ze": [
+                    {
+                        "sensitiveInformationPolicy": {
+                            "piiEntities": [
+                                {
+                                    "match": "Alice Henderson",
+                                    "type": "NAME",
+                                    "action": "ANONYMIZED"
+                                },
+                                {
+                                    "match": "alice.henderson@example.com",
+                                    "type": "EMAIL",
+                                    "action": "ANONYMIZED"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "actionReason": "No action.\nGuardrail masked."
+        }
+    }
+}
+```
+
 ## Code example for using Converse API with guardrails
 <a name="converse-api-guardrail-example"></a>
 

@@ -33,7 +33,7 @@ GPT-5.6 Terra is the balanced model for everyday production work. It delivers su
 ## Endpoints and APIs supported
 <a name="model-card-openai-gpt-56-terra-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs are supported for GPT-5.6 Terra. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs are supported for GPT-5.6 Terra. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -63,7 +63,7 @@ For Responses, use `/openai/v1/responses`.
 For Chat Completions, use `/openai/v1/chat/completions`.
 
 **Tip**  
-Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Endpoints supported by Amazon Bedrock](endpoints.md) for details.
+Whenever possible, we recommend using the `bedrock-runtime` endpoint for new applications. See [Inference endpoints supported by Amazon Bedrock](endpoints.md) for details.
 
 ## Capabilities and Features
 <a name="model-card-openai-gpt-56-terra-capabilities"></a>
@@ -75,7 +75,7 @@ Whenever possible, we recommend using the `bedrock-runtime` endpoint for new app
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) ([Converse API](conversation-inference.html) only)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) ([Converse API](conversation-inference.html) only; not supported with Responses or Chat Completions APIs)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) (Responses API only)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses API only)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs (JSON Schema; see API configuration)](#model-card-openai-gpt-56-terra-structured-output)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)  | 
+|  + ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) ([Converse API](conversation-inference.html) only)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) ([Converse API](conversation-inference.html) only; not supported with Responses or Chat Completions APIs)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](prompt-caching.html#prompt-caching-implicit) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![Green circle with white checkmark icon.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](prompt-caching.html#prompt-caching-explicit) (Responses API only)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs (JSON Schema; see API configuration)](#model-card-openai-gpt-56-terra-structured-output)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses, [Converse](conversation-inference.html), and ConverseStream APIs; on Converse, set `additionalModelRequestFields.reasoning.summary`)  |  + ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side tool use](tool-use.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![Red circle with white X icon indicating error, cancel, or close action.](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)  | 
 
 **Features supported using `bedrock-mantle` endpoint**
 
@@ -107,10 +107,16 @@ For JSON Schema output with the Converse API, you must set `additionalModelReque
 }
 ```
 
+**Converse content blocks**
+
+On the `bedrock-runtime` endpoint, Converse accepts `text` and `image` content blocks in user messages. This model doesn't accept `document` content blocks, and it doesn't accept an `image` content block inside a `toolResult`. A request that includes either is rejected with a `ValidationException`. To send a document to this model, use the Responses API with an `input_file` content part instead.
+
 ## Pricing
 <a name="model-card-openai-gpt-56-terra-pricing"></a>
 
 All prices are in USD per 1 million tokens for the Standard tier.
+
+The **Input — 30-minute cache write** column is the price per 1 million tokens written to the prompt cache. The 30-minute figure is how long a cached prompt prefix is retained, not a quantity of tokens. For more information, see [prompt caching](prompt-caching.md).
 
 Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need to add this fee.
 
@@ -120,7 +126,7 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 <a name="model-card-openai-gpt-56-terra-pricing-commercial-short"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $2.20 | $2.75 | $0.22 | $13.20 | 
 | Geo CRIS | $2.20 | $2.75 | $0.22 | $13.20 | 
@@ -130,7 +136,7 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 <a name="model-card-openai-gpt-56-terra-pricing-commercial-long"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $4.40 | $5.50 | $0.44 | $19.80 | 
 | Geo CRIS | $4.40 | $5.50 | $0.44 | $19.80 | 
@@ -143,7 +149,7 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 <a name="model-card-openai-gpt-56-terra-pricing-govcloud-short"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $2.70 | $3.375 | $0.27 | $16.20 | 
 
@@ -151,7 +157,7 @@ Commercial In-Region prices include a 10% fee over OpenAI rates. You do not need
 <a name="model-card-openai-gpt-56-terra-pricing-govcloud-long"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region | $5.40 | $6.75 | $0.54 | $24.30 | 
 

@@ -31,7 +31,7 @@ OpenAI GPT-6.1 Sol brings advanced capabilities to workloads where both performa
 ## Endpoints and APIs supported
 <a name="model-card-openai-gpt-6-1-sol-apis-endpoints"></a>
 
-The following tables show which endpoints and APIs GPT-6.1 Sol supports. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+The following tables show which endpoints and APIs GPT-6.1 Sol supports. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 **Endpoint support**
 
@@ -70,7 +70,7 @@ For Chat Completions, use `/openai/v1/chat/completions`.
 
 | **Supported** | **Not Supported** | 
 | --- | --- | 
-|  + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) (Chat Completions, InvokeModel, and Converse APIs; not supported with Responses)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) (InvokeModel and Converse APIs only; not supported with Responses or Chat Completions)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-1-sol-structured-output) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses API only)  |  + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side system tools](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Prompt optimization](prompt-management-optimize.html)  | 
+|  + ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Projects (default project only)](projects.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Invocation logs](model-invocation-logging.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Response streaming](/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Abuse detection](abuse-detection.html)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Guardrails](guardrails.html) (Chat Completions, InvokeModel, and Converse APIs; not supported with Responses)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Application inference profiles](cost-mgmt-application-inference-profiles.html) (InvokeModel and Converse APIs only; not supported with Responses or Chat Completions)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Implicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Explicit Prompt Caching](#model-card-openai-gpt-6-1-sol-prompt-caching) (Responses, Chat Completions, and InvokeModel APIs; not supported with Converse)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Structured outputs](#model-card-openai-gpt-6-1-sol-structured-output) (Responses, Chat Completions, InvokeModel, and Converse APIs)<br />+ ![supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-yes.png) [Reasoning Summaries](https://developers.openai.com/api/docs/guides/reasoning#reasoning-summaries) (Responses, [Converse](conversation-inference.html), and ConverseStream APIs; on Converse, set `additionalModelRequestFields.reasoning.summary`)  |  + ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Server-side system tools](tool-use.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Intelligent prompt routing](prompt-routing.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Count tokens](count-tokens.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Knowledge Bases](knowledge-base.html)<br />+ ![not-supported](https://docs.aws.amazon.com/bedrock/latest/userguide/images/icons/icon-no.png) [Prompt optimization](prompt-management-optimize.html)  | 
 
 **Features supported using `bedrock-mantle`**
 
@@ -115,10 +115,16 @@ For JSON Schema output with Converse and ConverseStream, you must set `additiona
 }
 ```
 
+**Converse content blocks**
+
+On the `bedrock-runtime` endpoint, Converse accepts `text` and `image` content blocks in user messages. This model doesn't accept `document` content blocks, and it doesn't accept an `image` content block inside a `toolResult`. A request that includes either is rejected with a `ValidationException`. To send a document to this model, use the Responses API with an `input_file` content part instead.
+
 ## Pricing
 <a name="model-card-openai-gpt-6-1-sol-pricing"></a>
 
 All prices are in USD per 1 million tokens. The following tables list Standard and Ultrafast prices. Global CRIS rates match [OpenAI first-party pricing](https://developers.openai.com/api/docs/pricing) for the same service tier.
+
+The **Input — 30-minute cache write** column is the price per 1 million tokens written to the prompt cache. The 30-minute figure is how long a cached prompt prefix is retained, not a quantity of tokens. For more information, see [prompt caching](prompt-caching.md).
 
 In-Region access on `bedrock-mantle` costs 10% more than Global CRIS. US geographic cross-Region inference (US CRIS) on `bedrock-runtime` has the same premium. This applies to both service tiers. The tables include this premium.
 
@@ -154,7 +160,7 @@ Ultrafast costs six times as much as Standard. Global CRIS rates match [OpenAI f
 <a name="model-card-openai-gpt-6-1-sol-pricing-ultrafast-short"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region (bedrock-mantle in us-east-1) | $13.20 | $16.50 | $0.66 | $66.00 | 
 | US CRIS (bedrock-runtime) | $13.20 | $16.50 | $0.66 | $66.00 | 
@@ -164,7 +170,7 @@ Ultrafast costs six times as much as Standard. Global CRIS rates match [OpenAI f
 <a name="model-card-openai-gpt-6-1-sol-pricing-ultrafast-long"></a>
 
 
-| **Inference option** | **Input** | **Input — 30m cache write** | **Input — cache read** | **Output** | 
+| **Inference option** | **Input** | **Input — 30-minute cache write** | **Input — cache read** | **Output** | 
 | --- | --- | --- | --- | --- | 
 | In-Region (bedrock-mantle in us-east-1) | $26.40 | $33.00 | $1.32 | $99.00 | 
 | US CRIS (bedrock-runtime) | $26.40 | $33.00 | $1.32 | $99.00 | 
@@ -173,7 +179,7 @@ Ultrafast costs six times as much as Standard. Global CRIS rates match [OpenAI f
 ## Programmatic Access
 <a name="model-card-openai-gpt-6-1-sol-programmatic-access"></a>
 
-To call this model from code, use the following model IDs and endpoint URLs. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Endpoints supported by Amazon Bedrock](endpoints.md).
+To call this model from code, use the following model IDs and endpoint URLs. For more information, see [APIs supported by Amazon Bedrock](apis.md) and [Inference endpoints supported by Amazon Bedrock](endpoints.md).
 
 
 | **Endpoint** | **Model ID** | **In-Region endpoint URL** | **Geo inference ID** | **Global inference ID** | 

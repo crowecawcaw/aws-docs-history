@@ -103,7 +103,7 @@ In its response, the model uses the tool result to generate a response for the o
 ## Fine-grained tool streaming
 <a name="model-parameters-anthropic-claude-messages-fine-grained-tool-streaming"></a>
 
-Fine-grained tool streaming is an Anthropic Claude model capability available with Claude Sonnet 4.5, Claude Haiku 4.5, Claude Sonnet 4, and Claude Opus 4. With fine-grained tool streaming, Claude developers can stream tool use parameters without buffering or JSON validation, reducing the latency to begin receiving large parameters.
+Fine-grained tool streaming is an Anthropic Claude model capability. With fine-grained tool streaming, Claude developers can stream tool use parameters without buffering or JSON validation, reducing the latency to begin receiving large parameters.
 
 **Note**  
 When using fine-grained tool streaming, you may potentially receive invalid or partial JSON inputs. Please make sure to account for these edge cases in your code.

@@ -6,10 +6,26 @@
 When ingesting your data, Amazon Bedrock first splits your documents or content into manageable chunks for efficient data retrieval. The chunks are then converted to embeddings and written to a vector index (vector representation of the data), while maintaining a mapping to the original document. The vector embeddings allow the texts to be quantitatively compared.
 
 **Topics**
++ [Tables and figures in parsed content](#kb-chunking-tables-figures)
 + [Standard chunking](#kb-standard-chunking)
 + [Hierarchical chunking](#kb-hiearchical-chunking)
 + [Semantic chunking](#kb-semantic-chunking)
 + [Multimodal content chunking](#kb-multimodal-chunking)
+
+## Tables and figures in parsed content
+<a name="kb-chunking-tables-figures"></a>
+
+When a document is processed as markdown (a `.md` file, content parsed by an advanced or foundation model parser, or content converted from HTML) and a page contains a table or a figure, Amazon Bedrock Knowledge Bases can attach broader context to each chunk from that page. This context is the full page text or the full table. During retrieval, a matching chunk is replaced with this broader context, and chunks that share the same context are returned as a single result.
+
+This behavior applies to every chunking strategy that sets a maximum token limit, including fixed-size chunking, default chunking, semantic chunking, and hierarchical chunking. It does not apply when you choose no chunking.
+
+**Note**  
+The text returned for a result can be the whole page or the whole table instead of the chunk that matched.
+Because chunks that share the same context are returned as a single result, the number of results can be fewer than the number that you requested in `numberOfResults`.
+Context is attached only when the full page text or the full table is 10,000 characters or fewer. Above that size, no broader context is attached and the chunk that matched is returned as it is.
+When you use S3 vector bucket as your vector store, this context counts toward the metadata size limit for each vector. When you create the vector index, add `AMAZON_BEDROCK_TEXT` and `AMAZON_BEDROCK_METADATA` as non-filterable metadata keys.
+
+To return chunk-level results for table content, choose no chunking and chunk the content yourself in a custom transformation Lambda function.
 
 ## Standard chunking
 <a name="kb-standard-chunking"></a>
@@ -20,7 +36,8 @@ Amazon Bedrock supports the following standard approaches to chunking:
 Text chunking strategies apply only to text documents. For multimodal content (audio, video, images), chunking occurs at the embedding model level, not through these text-based strategies.
 + Fixed-size chunking: You can configure the desired chunk size by specifying the number of tokens per chunk, and an overlap percentage, providing flexibility to align with your specific requirements. You can set the maximum number of tokens that must not exceed for a chunk and the overlap percentage between consecutive chunks.
 **Note**  
-For parsed content (such as content using advanced parsers or converted from HTML), Amazon Bedrock Knowledge Bases may chunk content to optimize for best results. The chunker respects logical document boundaries (such as pages or sections) and does not merge content across these boundaries, even when increasing the maximum token size would otherwise allow for larger chunks.
+For parsed content (such as content using advanced parsers or converted from HTML), Amazon Bedrock Knowledge Bases may chunk content to optimize for best results. The chunker respects logical document boundaries (such as pages or sections) and does not merge content across these boundaries, even when increasing the maximum token size would otherwise allow for larger chunks.  
+If parsed content contains a table or a figure, retrieval can also return broader context in place of the chunk that matched. For more information, see [Tables and figures in parsed content](#kb-chunking-tables-figures).
 + Default chunking: Splits content into text chunks of approximately 300 tokens. The chunking process honors sentence boundaries, ensuring that complete sentences are preserved within each chunk.
 
 You can also choose no chunking for your documents. Each document is treated a single text chunk. You might want to pre-process your documents by splitting them into separate files before choosing no chunking as your chunking approach/strategy. If you choose no chunking for your documents, you cannot view page number in citation or filter by the *x-amz-bedrock-kb-document-page-number* metadata field/attribute.
@@ -35,6 +52,7 @@ Small text embeddings are more precise, but retrieval aims for comprehensive con
 **Note**  
 Since child chunks get replaced by parent chunks during retrieval, the returned number of results might be less than the requested amount.
 Hierarchical chunking is not recommended when using S3 vector bucket as your vector store. When using high number of tokens for chunking (over 8000 tokens combined), you may run into metadata size limitations.
+The broader context that Amazon Bedrock Knowledge Bases attaches for tables and figures in parsed content can reach the same metadata size limit, under any chunking strategy that sets a maximum token limit. For more information, see [Tables and figures in parsed content](#kb-chunking-tables-figures).
 
 For hierarchical chunking, Amazon Bedrock knowledge bases supports specifying two levels or the following depth for chunking:
 + Parent: You set the maximum parent chunk token size.
@@ -46,6 +64,9 @@ You also set the overlap tokens between chunks. This is the absolute number of o
 <a name="kb-semantic-chunking"></a>
 
 Semantic chunking is a natural language processing technique that divides text into meaningful chunks to enhance understanding and information retrieval. It aims to improve retrieval accuracy by focusing on the semantic content rather than just syntactic structure. By doing so, it may help more precise extraction and manipulation of relevant information.
+
+**Note**  
+If parsed content contains a table or a figure, retrieval can return broader context in place of the chunk that matched. For more information, see [Tables and figures in parsed content](#kb-chunking-tables-figures).
 
 When configuring semantic chunking, you have the option to specify the following hyper parameters.
 + Maximum tokens: The maximum number of tokens that should be included in a single chunk, while honoring sentence boundaries.

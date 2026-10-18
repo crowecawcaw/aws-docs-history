@@ -19,13 +19,14 @@ The supported models are as follows:
 | Claude Sonnet 5 | `anthropic.claude-sonnet-5` | 
 | Claude Mythos 5 | `anthropic.claude-mythos-5` | 
 | Claude Fable 5 | `anthropic.claude-fable-5` | 
+| Claude Opus 4.8 | `anthropic.claude-opus-4-8` | 
 | Claude Opus 4.7 | `anthropic.claude-opus-4-7` | 
 | Claude Opus 4.6 | `anthropic.claude-opus-4-6-v1` | 
 | Claude Sonnet 4.6 | `anthropic.claude-sonnet-4-6` | 
 
 **Note**  
 Claude Fable 5.1, Claude Mythos 5.1, Claude Mythos 5, and Claude Fable 5 *only* support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) and disabled thinking (`thinking.type: "disabled"`) are not supported on these models and will return a 400 error. Use `thinking.type: "adaptive"` with `output_config.effort` to control thinking behavior.  
-Claude Opus 4.7 supports adaptive and disabled thinking. To turn thinking off, use `thinking.type: "disabled"`. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not supported and will return a 400 error.  
+Claude Opus 4.8 and Claude Opus 4.7 support adaptive and disabled thinking. To turn thinking off, use `thinking.type: "disabled"`. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not supported on these models and will return a 400 error.  
 `thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.  
 Older models (Claude Sonnet 4.5, Claude Opus 4.5, etc.) do not support adaptive thinking and require `thinking.type: "enabled"` with `budget_tokens`.
 
@@ -151,8 +152,8 @@ You can combine adaptive thinking with the effort parameter to guide how much th
 
 | Effort level | Thinking behavior | 
 | --- | --- | 
-| max | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6, Claude Sonnet 4.6, Claude Opus 5, and Claude Haiku 5.5 support max. Requests using max on unsupported models return an error. | 
-| xhigh | Claude always thinks with extended depth. Claude Opus 5, Claude Opus 4.6, and Claude Haiku 5.5 only. | 
+| max | Claude always thinks with no constraints on thinking depth. Claude Opus 4.6, Claude Sonnet 4.6, Claude Sonnet 5, Claude Opus 5, and Claude Haiku 5.5 support max. Requests using max on unsupported models return an error. | 
+| xhigh | Claude always thinks with extended depth. Claude Opus 5, Claude Opus 4.6, Claude Sonnet 5, and Claude Haiku 5.5 only. | 
 | high (default) | Claude always thinks. Provides deep reasoning on complex tasks. | 
 | medium | Claude uses moderate thinking. May skip thinking for very simple queries. | 
 | low | Claude minimizes thinking. Skips thinking for simple tasks where speed matters most. | 
@@ -177,6 +178,39 @@ The following example shows how to set the effort level when using the InvokeMod
     },
     "output_config": {
         "effort": "high"
+    },
+    "messages": [{
+        "role": "user",
+        "content": "Your prompt here"
+    }]
+}
+```
+
+## Controlling thinking visibility with the display parameter
+<a name="claude-messages-adaptive-thinking-display"></a>
+
+When you use adaptive thinking, the `display` field controls whether Claude returns the text of its reasoning. Set it inside the `thinking` object, alongside `"type": "adaptive"`:
+
+
+| Display value | Behavior | 
+| --- | --- | 
+| omitted (default) | The response still contains a thinking block, but its thinking text is empty. The block carries a signature, so you can pass it back unchanged in multi-turn conversations. | 
+| summarized | The thinking block contains a summary of Claude's reasoning as text. | 
+
+Both values are generally available and don't require a beta header. A value other than `summarized` or `omitted` returns a `400` error.
+
+**Note**  
+Setting `summarized` doesn't guarantee that reasoning text is returned. Some models accept the parameter but return no thinking text, and some don't return a thinking block at all. Read the `thinking` field of the response rather than assuming that a request accepted with `summarized` produced reasoning text.
+
+The following example requests summarized reasoning when using the InvokeModel API:
+
+```
+{
+    "anthropic_version": "bedrock-2023-05-31",
+    "max_tokens": 16000,
+    "thinking": {
+        "type": "adaptive",
+        "display": "summarized"
     },
     "messages": [{
         "role": "user",
@@ -278,7 +312,7 @@ Steering Claude to think less often may reduce quality on tasks that benefit fro
 ## Connector text summarization (beta)
 <a name="claude-messages-adaptive-thinking-connector-summarization"></a>
 
-On Claude Fable 5, text that the model emits between tool calls (sometimes called "connector text" — for example, "Let me check that file next...") is summarized server-side and returned as a thinking block rather than a plain text content block. The thinking block uses the same shape as any other thinking block (empty text with a signature under the default `omitted` display).
+On Claude Fable 5, text that the model emits between tool calls (sometimes called "connector text" — for example, "Let me check that file next...") is summarized server-side and returned as a thinking block rather than a plain text content block. The thinking block uses the same shape as any other thinking block (empty text with a signature under the default `omitted` display, described in [Controlling thinking visibility with the display parameter](#claude-messages-adaptive-thinking-display)).
 
 **Customer impact:**
 + **Response shape:** Tool-use responses from Claude Fable 5 may contain additional thinking blocks where previous models emitted plain text between `tool_use` blocks. There is no new content block type. Final assistant answers (after all tool use is complete) are unaffected and remain plain text.

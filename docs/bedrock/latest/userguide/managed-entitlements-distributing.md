@@ -32,9 +32,9 @@ You can distribute licenses using three methods:
 
 1. In the navigation pane, choose **Granted Licenses**.
 
-1. Select the license you want to share by choosing the radio button next to the license.
+1. Choose the license ID of the license you want to share to open the **License overview** page.
 
-1. Choose **Create grant**.
+1. In the **Grants** section, choose **Create grant**.
 
 1. Under **Grant details**, enter a descriptive name for the grant in **Grant name**.
 

@@ -23,7 +23,7 @@ Managed Amazon Bedrock knowledge bases are available in the following AWS Region
 <a name="kb-managed-regions-govcloud"></a>
 
 In AWS GovCloud (US-West) (`us-gov-west-1`), the following features are not supported:
-+ **Data sources other than Amazon S3.** Only the Amazon S3 connector is available. Confluence, Microsoft SharePoint, Microsoft OneDrive, Google Drive, Web Crawler, and Custom data sources are not available.
++ **Third-party connector data sources.** Only the Amazon S3 connector and the Custom data source are available. Confluence, Microsoft SharePoint, Microsoft OneDrive, Google Drive, and Web Crawler data sources are not available.
 + **Document-level access control (ACLs).** The `aclEnabled` setting and ACL filtering at query time are not available.
 + **Service-managed embedding, reranking, and agentic retrieval models.** You must provide your own Amazon Bedrock embedding model when you create a knowledge base, and your own reranking model at query time if you want reranking. Agentic retrieval is not available.
 + **Amazon Bedrock AgentCore Gateway integration.** The AgentCore Gateway target for managed knowledge bases is not available.
