@@ -20,11 +20,34 @@ You can't change the application or plan of your virtual computer after it's cre
 Amazon Lightsail for Research provides and manages machine images that contain the application and operating system required to launch a virtual computer. You choose from a list of applications when you create a virtual computer in Lightsail for Research. All Lightsail for Research application images use the Ubuntu (Linux) operating system.
 
 The following applications are available in Lightsail for Research:
++ **Ubuntu 24.04 LTS** – Ubuntu is an open source Linux distribution based on Debian. Lean, fast, and powerful, Ubuntu Server delivers services reliably, predictably and economically. It's a great base on which to build your virtual computers. For more information, see [Ubuntu releases](https://releases.ubuntu.com/noble/) on the *Ubuntu website*.
 + **JupyterLab** – JupyterLab is a web-based Integrated Development Environment (IDE) for notebooks, code, and data. With its flexible interface you can configure and arrange workflows in data science, scientific computing, computational journalism, and machine learning. For more information, see the [Jupyter Project Documentation](https://docs.jupyter.org/en/latest/).
 + **RStudio** – RStudio is an open-source Integrated Development Environment (IDE) for R, a programming language for statistical computing and graphics, and Python. It combines a source code editor, build automation tools and a debugger, as well as tools for plotting and workspace management. For more information, see the [RStudio IDE](https://posit.co/products/open-source/rstudio/).
 + **VSCodium** – VSCodium is a community-driven, binary distribution of Microsoft’s editor VS Code. For more information, see [VSCodium](https://vscodium.com/).
 + **Scilab** – Scilab is an open source numerical computational package, and a high-level, numerically oriented programming language. For more information, see [Scilab](https://www.scilab.org/).
-+ **Ubuntu 20.04 LTS** – Ubuntu is an open source Linux distribution based on Debian. Lean, fast and powerful, Ubuntu Server delivers services reliably, predictably and economically. It's a great base on which to build your virtual computers. For more information, see [Ubuntu releases](https://releases.ubuntu.com/focal/).
+
+### Application versions for virtual computers
+<a name="application-versions"></a>
+
+Lightsail for Research updates its application images to newer versions from time to time. When you create a virtual computer, you get the current version of the application that you choose. After an update, Lightsail for Research no longer offers the previous version to new virtual computers.
+
+You can still create a virtual computer that runs a previous version. First, create a snapshot of a virtual computer that already runs that version. Then, create a new virtual computer from the snapshot. The new virtual computer runs the same version as the original.
+
+The following table lists the current version that Lightsail for Research offers for each application. It also lists the previous version that you can create through snapshots.
+
+
+| Application | Current version | Previous version | 
+| --- | --- | --- | 
+| Ubuntu (base image) | 24.04 LTS (Noble Numbat) | 22.04 LTS | 
+| JupyterLab | 4.6.3 | 4.0.2 | 
+| RStudio | 2026.08.0 | 2024.04.0 | 
+| VSCodium | 1.126.0 | 1.90.0 | 
+| Scilab | 2026.1.0 | 2024.1.0 | 
+
+**Note**  
+To create a previous version, you must have a virtual computer, or a snapshot of one, that already runs that version. When you create a new virtual computer, Lightsail for Research doesn't provide a direct way to select a previous version.
+
+For more information about creating and using snapshots, see [Backup virtual computers and disks with Lightsail for Research snapshots](snapshots.md).
 
 ## Plans
 <a name="plans"></a>
