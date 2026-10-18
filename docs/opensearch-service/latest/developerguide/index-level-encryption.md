@@ -16,14 +16,14 @@ Index level encryption builds upon the existing encryption at rest capability in
 When you enable index level encryption, data is encrypted as follows:
 
 **Encrypted at the index level (using customer managed keys):**
-+ All user created data (indices and snapshots)
++ All user-created data (indices and snapshots)
 
 **Encrypted at the domain level (using the domain default key that you specify in `KmsKeyId` when you create the domain):**
 + System indices
 + OpenSearch logs
 
 **Note**  
-If you create an index without specifying a key, OpenSearch Service still encrypts it (`cryptofs`) using the domain default key.
+If you create an index without specifying a key, OpenSearch Service encrypts it using the domain default key.
 
 ## AWS Region support
 <a name="ile-region-support"></a>
@@ -50,8 +50,8 @@ Index level encryption is supported on OpenSearch Service domains that are runni
 Before enabling index level encryption, ensure that your domain meets the following requirements:
 + **New domain only**: Index level encryption can only be enabled on new domains during creation and cannot be enabled on existing domains. Additionally, once enabled, this option cannot be disabled.
 + **OpenSearch version**: Your domain must run OpenSearch 3.3 or later.
-+ **Encryption at rest**: Encryption of data at rest option must be enabled (EncryptionAtRestOptions is set to true)
-+ **IAM permissions**: You need permissions to register AWS KMS keys and create indices
++ **Encryption at rest**: Encryption of data at rest option must be enabled (EncryptionAtRestOptions is set to true).
++ **IAM permissions**: You need permissions to register AWS KMS keys and create indices.
 
 ## Important considerations before enabling index level encryption
 <a name="ile-considerations"></a>
@@ -65,9 +65,9 @@ Consider the following important considerations when using index level encryptio
   + Cross-cluster replication
 + **Memory requirements**: Index level encryption requires a data node instance type with at least 16 GB of memory.
 + **KNN plugin engine limitations**: When using the k-nearest neighbors (KNN) plugin with index level encryption, only the Lucene engine is supported. The FAISS engine is not supported with index level encryption.
-+ **Key recovery**: If you delete a customer managed key, you cannot recover data encrypted with that key. Always maintain proper key lifecycle management practices
-+ **Manual snapshots**: Data in manual snapshots stored in Amazon S3 is not encrypted with index-level keys. Use Amazon S3 server-side encryption for snapshot repository buckets
-+ **Fine-grained access control integration**: Index level encryption does not replace Fine-Grained Access Control. Use both features together for comprehensive security
++ **Key recovery**: If you delete a customer managed key, you cannot recover data encrypted with that key. Always maintain proper key lifecycle management practices.
++ **Manual snapshots**: Data in manual snapshots stored in Amazon S3 is not encrypted with index-level keys. Use Amazon S3 server-side encryption for snapshot repository buckets.
++ **Fine-grained access control integration**: Index level encryption does not replace Fine-Grained Access Control. Use both features together for comprehensive security.
 + **Key deletion impact**: If you disable or delete your AWS KMS key without unregistering it from your domain, the index turns red.
 + **Performance**: Search and analytics queries that use multi-term aggregations may experience higher latency on encrypted indices. Test your application performance with index-level encryption enabled before deploying to production.
 
@@ -75,9 +75,9 @@ Consider the following important considerations when using index level encryptio
 <a name="ile-authorization-model"></a>
 
 Index level encryption uses a two-phase authorization model:
-+ **Key registration phase**: When you register a AWS KMS key using the `_plugins/_opensearch_storage_encryption/_register_key` API, OpenSearch Service performs authorization checks to verify that you have permission to use the key. The service creates appropriate AWS KMS grants for the key and stores the key reference in Amazon S3.
++ **Key registration phase**: When you register an AWS KMS key using the `_plugins/_opensearch_storage_encryption/_register_key` API, OpenSearch Service performs authorization checks to verify that you have permission to use the key. The service creates appropriate AWS KMS grants for the key and stores the key reference in Amazon S3.
 + **Index creation phase**: When you create an index with encryption settings, OpenSearch Service uses the grant created during registration. If the grant does not exist, index creation fails, ensuring only registered keys can encrypt indices.
-+ If you don't specify a AWS KMS key, OpenSearch Service uses the domain default key to encrypt the index. You don't need to register the domain default key.
++ If you don't specify an AWS KMS key, OpenSearch Service uses the domain default key to encrypt the index. You don't need to register the domain default key.
 
 **Note**  
 The AWS KMS authorization check occurs when you register and when you unregister a key. If you have cluster access and the appropriate fine-grained access control permissions, you can create indices using registered keys without direct AWS KMS permissions.
@@ -137,7 +137,7 @@ OpenSearch Service requires the following AWS KMS permissions to implement index
 Creates a grant during key registration that allows OpenSearch to encrypt and decrypt data on your behalf without requiring users to have direct AWS KMS permissions for daily operations.
 
 `kms:DescribeKey`  
-Validates the AWS KMS key exists, is enabled, and is a valid symmetric encryption key during registration.
+Validates that the AWS KMS key exists, is enabled, and is a valid symmetric encryption key during registration.
 
 `kms:GenerateDataKey`  
 Generates data encryption keys (DEKs) when writing data to encrypted indices using envelope encryption.
@@ -210,13 +210,16 @@ To enable index level encryption when creating a new domain:
 
 When creating a new domain with OpenSearch 3.3\+ and a customer managed AWS KMS key, the console displays encryption mode options as shown below. To enable index level encryption, you must select **Native** for **Encryption mode**.
 
+![The Encryption section of the Create domain page in the console. Native is selected for Encryption mode, and Choose a different AWS KMS key (advanced) is selected.](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/images/ile-console-encryption-mode.png)
+
+
 The console encryption settings section displays:
-+ **Require HTTPS for all traffic to the domain** (enabled) - Your domain only accepts requests over HTTPS
-+ **Node-to-node encryption** (enabled) - Provides additional layer of security with TLS encryption for all communications within the VPC
-+ **Enable encryption of data at rest** (enabled) - Secures indexes and automated snapshots
++ **Require HTTPS for all traffic to the domain** (enabled) - Your domain only accepts requests over HTTPS.
++ **Node-to-node encryption** (enabled) - Provides an additional layer of security with TLS encryption for all communications within the VPC.
++ **Enable encryption of data at rest** (enabled) - Secures indexes and automated snapshots.
 + **Encryption mode** section with two options:
   + **Disk** - Default encryption mode that encrypts entire domain at rest using AWS KMS
-  + **Native** (selected) - Data is encrypted before it is written to disk. The AWS KMS key selected below is your domain default, with the option to specify a different key per index
+  + **Native** (selected) - Data is encrypted before it is written to disk. The AWS KMS key selected below is your domain default, with the option to specify a different key per index.
 + **Choose an AWS KMS key** section with options for AWS owned key or customer managed key
 
 **Note**  
@@ -277,7 +280,7 @@ Before you can use a customer managed key for index encryption, you must registe
 **Note**  
 The `_register_key` and `_unregister_key` API calls must be signed with SigV4.
 
-**To register a AWS KMS key using the OpenSearch API:**
+**To register an AWS KMS key using the OpenSearch API:**
 
 ```
 POST _plugins/_opensearch_storage_encryption/_register_key
@@ -315,7 +318,7 @@ Only IAM principals with AWS KMS permissions mentioned above can register keys. 
 ### Step 3: Create encrypted indices
 <a name="ile-create-indices"></a>
 
-After registering a AWS KMS key, you can create indices that use the key for encryption.
+After registering an AWS KMS key, you can create indices that use the key for encryption.
 
 **To create an encrypted index:**
 
@@ -385,9 +388,9 @@ AWS KMS supports automatic key rotation for customer managed keys. When you enab
 ### Unregistering AWS KMS keys
 <a name="ile-unregister-keys"></a>
 
-You can unregister a AWS KMS key when you no longer need it for encryption. Unregistering a key revokes the AWS KMS grant and removes the key reference from your domain.
+You can unregister an AWS KMS key when you no longer need it for encryption. Unregistering a key revokes the AWS KMS grant and removes the key reference from your domain.
 
-**To unregister a AWS KMS key:**
+**To unregister an AWS KMS key:**
 
 ```
 POST _plugins/_opensearch_storage_encryption/_unregister_key
@@ -403,14 +406,14 @@ If you registered the key with an encryption context, you must pass the same `en
 Before unregistering a key, reindex or delete any indices encrypted with the key. If any index still uses the key, the request fails with a `409` error and the key stays registered.
 
 **Warning**  
-If you disable or delete a AWS KMS key that is still in use, you will not be able to access data encrypted with that key. OpenSearch Service cannot recover encrypted data if the key is lost or deleted.
+If you disable or delete an AWS KMS key that is still in use, you will not be able to access data encrypted with that key. OpenSearch Service cannot recover encrypted data if the key is lost or deleted.
 
 ## Manual snapshots
 <a name="ile-manual-snapshots"></a>
 
 Manual snapshots are stored in Amazon S3 repositories that you manage. When you create manual snapshots of encrypted indices:
-+ Data is exported to your Amazon S3 bucket in unencrypted form (following standard OpenSearch snapshot behavior)
-+ You should enable Amazon S3 server-side encryption on your snapshot repository bucket
++ Data is exported to your Amazon S3 bucket in unencrypted form (following standard OpenSearch snapshot behavior).
++ You should enable Amazon S3 server-side encryption on your snapshot repository bucket.
 + You can use Amazon S3-managed keys (SSE-S3) or AWS KMS keys (SSE-KMS) for Amazon S3 bucket encryption. This encryption is configured at the bucket level and is separate from the customer managed keys used for index-level encryption.
 
 **To enable Amazon S3 encryption on your snapshot repository:**
@@ -460,7 +463,7 @@ Scale up when `IleDirectMemoryWorkingSetPercentage` is sustained near its ceilin
 On fine-grained access control domains, invoking the `_plugins/_opensearch_storage_encryption/_register_key` and `_plugins/_opensearch_storage_encryption/_unregister_key` APIs requires the following three fine-grained access control permissions to be enabled on the roles mapped to the fine-grained access control user invoking the API.
 
 **Note**  
-Even on fine-grained access control domains, only SigV4 signed requests can invoke these two APIs, and the IAM user or role invoking this API needs to have the above-mentioned IAM permissions to access the AWS KMS keys.
+Even on fine-grained access control domains, only SigV4-signed requests can invoke these two APIs, and the IAM user or role invoking this API needs to have the above-mentioned IAM permissions to access the AWS KMS keys.
 
 ### Available permissions
 <a name="ile-fgac-permissions"></a>
@@ -567,10 +570,10 @@ PUT /_plugins/_security/api/rolesmapping/storage_encryption_admin
 ## Monitoring and auditing
 <a name="ile-monitoring-auditing"></a>
 
-### logging
+### AWS CloudTrail logging
 <a name="ile-cloudtrail-logging"></a>
 
-When you register a key, OpenSearch Service creates an AWS KMS grant on that key. logs this as a `CreateGrant` event from `kms.amazonaws.com`. The grant's `encryptionContextSubset` constraint contains your domain ARN and any custom encryption context that you specified when you registered the key. The `_register_key` and `_unregister_key` calls themselves aren't logged as OpenSearch Service events. Only the resulting AWS KMS calls appear in . You can use these logs to audit encryption key lifecycle operations.
+When you register a key, OpenSearch Service creates an AWS KMS grant on that key. AWS CloudTrail logs this as a `CreateGrant` event from `kms.amazonaws.com`. The grant's `encryptionContextSubset` constraint contains your domain ARN and any custom encryption context that you specified when you registered the key. The `_register_key` and `_unregister_key` calls themselves aren't logged as OpenSearch Service events. Only the resulting AWS KMS calls appear in AWS CloudTrail. You can use these AWS CloudTrail logs to audit encryption key lifecycle operations.
 
 **Example CloudTrail log entry for key registration:**
 
@@ -633,7 +636,7 @@ When you register a key, OpenSearch Service creates an AWS KMS grant on that key
 ### AWS KMS metrics
 <a name="ile-kms-metrics"></a>
 
-AWS KMS doesn't publish separate request-count metrics for `GenerateDataKey` or `Decrypt`. To track AWS KMS usage in CloudWatch, use the `CallCount` metric in the `AWS/Usage` namespace with the resource `CryptographicOperationsSymmetric`. This metric counts all symmetric cryptographic operations together. For per-operation detail, use the AWS KMS events in .
+AWS KMS doesn't publish separate request-count metrics for `GenerateDataKey` or `Decrypt`. To track AWS KMS usage in CloudWatch, use the `CallCount` metric in the `AWS/Usage` namespace with the resource `CryptographicOperationsSymmetric`. This metric counts all symmetric cryptographic operations together. For per-operation detail, use the AWS KMS events in AWS CloudTrail.
 
 ## Troubleshooting
 <a name="ile-troubleshooting"></a>
@@ -656,7 +659,7 @@ When an encrypted index is created successfully with a registered key, the respo
 ```
 + `"acknowledged": true` - Index metadata was created
 + `"shards_acknowledged": true` - All primary shards were started successfully
-+ Both values must be `true` for a fully successful operation
++ Both values must be `true` for a fully successful operation.
 
 **Failed index creation (KMS key unusable)**
 
