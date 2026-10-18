@@ -44,7 +44,7 @@ Configure customer-managed encryption:
                "Sid": "ListAndDescribe",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:DescribeKey",
@@ -55,8 +55,8 @@ Configure customer-managed encryption:
                "Condition": {
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -64,7 +64,7 @@ Configure customer-managed encryption:
            {
                "Sid": "CloudWatchLogs",
                "Effect": "Allow",
-               "Principal": { "Service": "logs.<region>.amazonaws.com" },
+               "Principal": { "Service": "logs.{{us-east-1}}.amazonaws.com" },
                "Action": [
                    "kms:Encrypt*",
                    "kms:Decrypt*",
@@ -95,7 +95,7 @@ Configure customer-managed encryption:
                "Sid": "DataZone",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -112,8 +112,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name<"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -122,7 +122,7 @@ Configure customer-managed encryption:
                "Sid": "S3Kms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -138,8 +138,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -148,7 +148,7 @@ Configure customer-managed encryption:
                "Sid": "SchedulerKms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -161,8 +161,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -171,7 +171,7 @@ Configure customer-managed encryption:
                "Sid": "SecretsKms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -188,8 +188,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -198,7 +198,7 @@ Configure customer-managed encryption:
                "Sid": "SageMakerKms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -218,8 +218,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -228,7 +228,7 @@ Configure customer-managed encryption:
                "Sid": "SageMakerCreateGrant",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:CreateGrant"
@@ -240,8 +240,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -250,7 +250,7 @@ Configure customer-managed encryption:
                "Sid": "DataZoneCreateGrant",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:CreateGrant"
@@ -262,8 +262,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    },
                    "ForAllValues:StringEquals": {
@@ -285,7 +285,7 @@ Configure customer-managed encryption:
                "Sid": "GlueKms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -303,8 +303,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -313,7 +313,7 @@ Configure customer-managed encryption:
                "Sid": "BedrockKms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -329,8 +329,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -339,7 +339,7 @@ Configure customer-managed encryption:
                "Sid": "WorkflowsCreateGrant",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:CreateGrant"
@@ -363,8 +363,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -373,7 +373,7 @@ Configure customer-managed encryption:
                "Sid": "WorkflowsKms",
                "Effect": "Allow",
                "Principal": {
-                   "AWS": "arn:aws:iam::<account>:root"
+                   "AWS": "arn:aws:iam::{{111122223333}}:root"
                },
                "Action": [
                    "kms:Decrypt",
@@ -388,8 +388,8 @@ Configure customer-managed encryption:
                    },
                    "ArnLike": {
                        "aws:PrincipalArn": [
-                           "arn:aws:iam::<account>:role/service-role/AmazonSageMaker*",
-                           "arn:aws:iam::<account>:role/<role_name>"
+                           "arn:aws:iam::{{111122223333}}:role/service-role/AmazonSageMaker*",
+                           "arn:aws:iam::{{111122223333}}:role/{{role_name}}"
                        ]
                    }
                }
@@ -397,6 +397,16 @@ Configure customer-managed encryption:
        ]
    }
    ```
+
+   Replace the following placeholder values with your own:  
+{{111122223333}}  
+Your 12-digit AWS account ID.  
+{{role\_name}}  
+The name of the IAM role that requires AWS KMS key access, in addition to the `AmazonSageMaker*` service roles.  
+{{us-east-1}}  
+The AWS Region of your Amazon SageMaker Unified Studio domain.
+
+   Each statement (`Sid`) grants the required AWS KMS permissions to a specific integrated service — for example, Amazon S3 (`S3Kms`), AWS Glue (`GlueKms`), Amazon Bedrock (`BedrockKms`), AWS Secrets Manager (`SecretsKms`), and workflows (`WorkflowsKms`, `WorkflowsCreateGrant`) — scoped to the SageMaker principals in the `aws:PrincipalArn` condition.
 
 1. Replace the resource ARN with your actual KMS key ARN.
 

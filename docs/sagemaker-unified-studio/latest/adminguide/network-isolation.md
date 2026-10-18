@@ -32,9 +32,9 @@ This level of network isolation means:
 Amazon Athena for Apache Spark does not currently support Amazon VPC. If you require Amazon VPC connectivity for your Spark workloads, use Amazon EMR or AWS Glue instead.
 
 If your organization requires all compute traffic to stay within the Amazon VPC, you can disable Amazon Athena Spark by using the following controls.
-+ **Account or organization-level SCP** — Apply a service control policy (SCP) that denies `athena:StartSession` and `athena:UpdateSession`.
++ **Account or organization-level SCP** — Apply a service control policy (SCP) that denies `athena:StartSession`.
 
-  The following IAM policy denies these actions for all Amazon Athena workgroups.
+  The following IAM policy denies this action for all Amazon Athena workgroups.
 
   ```
   {
@@ -44,8 +44,7 @@ If your organization requires all compute traffic to stay within the Amazon VPC,
               "Sid": "DenyAthenaSparkStartSession",
               "Effect": "Deny",
               "Action": [
-                  "athena:StartSession",
-                  "athena:UpdateSession"
+                  "athena:StartSession"
               ],
               "Resource": [
                   "arn:aws:athena:*:*:workgroup/*"

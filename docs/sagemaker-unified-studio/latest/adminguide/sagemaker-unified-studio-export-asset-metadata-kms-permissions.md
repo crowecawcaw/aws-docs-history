@@ -33,10 +33,10 @@ To read more about the S3 maintenance service principal, see [Permissions requir
                 "kms:GenerateDataKey",
                 "kms:Decrypt"
             ],
-            "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key-id}}",
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{key-id}}",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceAccount": "111122223333"
+                    "aws:SourceAccount": "{{111122223333}}"
                 }
             }
         },
@@ -50,16 +50,24 @@ To read more about the S3 maintenance service principal, see [Permissions requir
                 "kms:GenerateDataKey",
                 "kms:Decrypt"
             ],
-            "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key-id}}",
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{key-id}}",
             "Condition": {
                 "StringLike": {
-                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:{{region}}:111122223333:bucket/*"
+                    "kms:EncryptionContext:aws:s3:arn": "arn:aws:s3tables:{{us-east-1}}:{{111122223333}}:bucket/*"
                 }
             }
         }
     ]
 }
 ```
+
+Replace the following placeholder values with your own:
+
+{{us-east-1}}  
+The AWS Region of your AWS KMS key.
+
+{{key-id}}  
+The ID of your AWS KMS key.
 
 ## IAM permissions required for the principal for exporting
 <a name="export-asset-metadata-kms-permissions-service-principal-exporting"></a>
@@ -77,13 +85,13 @@ To read more about how Amazon SageMaker Catalog domain data encryption works at 
             "Sid": "Allow access to principal to manage an Amazon SageMaker catalog domain with the given domain id",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::111122223333:role/{{ExampleRole}}"
+                "AWS": "arn:aws:iam::{{111122223333}}:role/{{ExampleRole}}"
             },
             "Action": [
                 "kms:Decrypt",
                 "kms:GenerateDataKey"
             ],
-            "Resource": "arn:aws:kms:{{region}}:111122223333:key/{{key-id}}",
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{key-id}}",
             "Condition": {
                 "StringEquals": {
                     "kms:EncryptionContext:aws:datazone:domainId": "{{dzd_sampleid}}"
@@ -93,3 +101,17 @@ To read more about how Amazon SageMaker Catalog domain data encryption works at 
     ]
 }
 ```
+
+Replace the following placeholder values with your own:
+
+{{ExampleRole}}  
+The IAM role granted access to decrypt the Amazon SageMaker Unified Studio domain.
+
+{{us-east-1}}  
+The AWS Region of your AWS KMS key.
+
+{{key-id}}  
+The ID of your AWS KMS key.
+
+{{dzd\_sampleid}}  
+Your Amazon SageMaker Unified Studio domain ID (begins with `dzd_`).
