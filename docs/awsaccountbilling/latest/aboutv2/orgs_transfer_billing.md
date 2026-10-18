@@ -77,9 +77,9 @@ AWS Billing Conductor enables the bill source accounts to view pro forma cost da
 Review the following considerations and impact to the bill-source account before opting into to Billing Transfer.
 
 **Loss of historical data access**  
-After transition, historical cost data becomes unavailable in AWS Cost Explorer, AWS Budgets, and AWS Cost Anomaly Detection. Cost and budget forecasting tools require 36-60 days of new data for accurate forecasts. AWS Cost and Usage Report (CUR) files become unavailable.  
+After transition, historical cost data becomes unavailable in AWS Cost Anomaly Detection. AWS Cost and Usage Report (CUR) files become unavailable.  
 Recommended actions:  
-- Download historical cost data and CUR files before transition  
+- Download CUR files and AWS Budgets data before transition  
 - Configure a CUDOS dashboard to visualize historical data
 
 **CUR reconfiguration requirement**  

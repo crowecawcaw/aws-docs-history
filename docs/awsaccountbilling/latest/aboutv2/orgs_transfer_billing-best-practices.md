@@ -55,8 +55,8 @@ In the AWS Billing and Cost Management console, choose **Preferences and Setting
 
 **Important**  
 Before proceeding with billing transfer:  
-Back up Cost Explorer data from bill source accounts, as they lose historical data visibility when billing transfer becomes active.  
-Create new preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating preferences.
+Back up AWS Cost and Usage Report and AWS Budgets data from bill source accounts before billing transfer becomes active.  
+Create new AWS Cost and Usage Report preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating AWS Cost and Usage Report preferences.
 
 ### Option 2: Create an AWS organization before setting up billing transfer
 <a name="orgs_transfer_billing-best-practices-prereq-1"></a>
@@ -176,9 +176,9 @@ In the AWS Billing and Cost Management console, choose **Preferences and Setting
 
 **Important**  
 Before proceeding:  
-Wait for billing transfer to become active on the first day of the next month.  
-Back up Cost Explorer data from bill source accounts, as they lose historical data visibility when billing transfer becomes active.  
-Create new preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating preferences.
+Wait for billing transfer to become active on the start date specified in the invitation.  
+Back up AWS Cost and Usage Report and AWS Budgets data from bill source accounts before billing transfer becomes active.  
+Create new AWS Cost and Usage Report preferences after billing transfer is active, as existing preferences become unhealthy and stop receiving data. Disable the split cost allocation data functionality when creating AWS Cost and Usage Report preferences.
 
 **Step 3: Prepare for root access transfer**
 
@@ -196,9 +196,9 @@ Sign in to the organization's root account and navigate to **My Account** in the
 **Important**  
 Before transferring root ownership:  
 Remove any existing MFA devices and security configurations.  
-Back up any billing information you need, including invoices, s, and Cost Explorer reports.  
+Back up any billing information you need, including invoices, AWS Cost and Usage Reports, and Cost Explorer reports.  
 Note that the new owner will have access to historical billing data. Contact AWS Support with questions about historical data visibility.  
-To prevent new owner access to historical billing data, use Option A instead.
+To prevent new owner access to historical billing data, use [Option 2: Create an AWS organization before setting up billing transfer](#orgs_transfer_billing-best-practices-prereq-1) instead.
 
 **Step 5: Verify the transfer**
 
@@ -211,8 +211,7 @@ Any account can withdraw from billing transfer. For more information, see [Withd
 
 **Important**  
 Before withdrawing from billing transfer:  
-Back up historical data from Cost Explorer, as bill source accounts lose access to their pro forma historical data after withdrawal.  
-Prepare to create new preferences, as existing reports are marked as unhealthy and stop receiving data after withdrawal.
+Prepare to create new AWS Cost and Usage Report preferences, as existing reports are marked as unhealthy and stop receiving data after withdrawal.
 
 **Note**  
 The bill transfer account maintains access to historical data for bill source accounts after withdrawal.

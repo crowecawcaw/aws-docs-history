@@ -58,7 +58,7 @@ To send an invitation, you must have the following permissions:
 **Note**  
 When you use two-level billing transfer as a bill receiver account, you can control the names only for your direct transfers. The bill transfer accounts control transfer names for their bill source accounts. For distribution partners, we recommend using your downstream sellers' names consistently for each billing transfer. This helps you search for all billing transfers associated with a specific downstream seller.
    + **Email address or account ID of the AWS management account:** Account you want to invite. This must be the management account of an organization.
-   + **Monthly billing period start:** Start date when your account will begin managing and paying for their consolidated bills. It can be either the first day of the next month or two months in the future.
+   + **Monthly billing period start:** Start date when your account will begin managing and paying for their consolidated bills. It can be the first day of any month from the next month up to six months in the future.
 **Note**  
 The start date is the first day of the month you select. Transfers begin on the start date regardless of the date the invitation is accepted. Invitations expire at 8 PM Eastern Standard Time two days before the start date.
    + **Pricing configuration:** Pricing seen by the *bill-source account* once the transfer begins.
@@ -89,7 +89,7 @@ You can use one of the following operations:
   - `Id`: Email address or account ID of the account you want to invite. For example, `{"Id":"alejandro_rosalez@example.com","Type":"EMAIL"}`
 
   - `Type`: The type of ID for the participant: `ACCOUNT` or `EMAIL`.
-+ **`start-timestamp` (Required)**: Start date when your account will begin managing and paying for their consolidated bill. It can be either the first day of the next month or two months in the future. It must be the beginning of the day (00:00:00.000).
++ **`start-timestamp` (Required)**: Start date when your account will begin managing and paying for their consolidated bill. It can be the first day of any month from the next month up to six months in the future. It must be the beginning of the day (00:00:00.000).
 **Note**  
 The start date is the first day of the month you select. Transfers begin on the start date regardless of the date the invitation is accepted. Invitations expire at 8 PM Eastern Standard Time two days before the start date.
 + **`sourceName` (Optional)**: Name you want to assign to the transfer.
