@@ -18,20 +18,6 @@ Agentic systems that are built on strong operational foundations (with clear rol
 + Operational signals, failure test outcomes, and business metrics feed a continuous improvement loop that keeps agent behavior aligned with evolving business needs.
 + Operational artifacts such as job descriptions, handoff runbooks, and failure test scenarios are treated as living documents that stay in sync with the agents they describe.
 
-## Maturity levels
-<a name="agentops01-maturity"></a>
-
-These levels summarize what each stage of maturity looks like for operational practices for agentic AI systems as a whole.
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Agent scope, handoffs, and failure testing are ad-hoc. Knowledge about what each agent is meant to do, and how agents interact, lives with individual builders. Out-of-scope requests produce unpredictable responses, handoffs lose context, and failure modes are typically first encountered during production incidents. | 
-| 2 | Emerging | Each agent has a documented job description covering purpose, stakeholders, and measurable success criteria. Basic handoff runbooks and human escalation paths cover the most common scenarios. An initial failure test suite covers the happy path and a handful of dependent component failures, and reviews happen on an informal cadence. | 
-| 3 | Defined | Agent job descriptions, handoff protocols, and failure test suites are standardized across teams and stored in shared repositories. [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) enforce scope at runtime, structured context packages accompany every handoff, and failure tests run in CI/CD as a mandatory gate across dependent components, orchestration protocols, and business processes. Handoff success rates and failure test pass rates are tracked as first-class metrics. | 
-| 4 | Proactive | Operational controls are automated and data-driven. [AWS Agent Registry](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html) supports runtime discovery and intelligent routing across agents and tools. [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) run on a regular cadence to validate agent performance and resilience, and [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) alarms on handoff and evaluation metrics trigger automated remediation. | 
-| 5 | Optimized | Operational practice is a continuously refined, self-improving system. Production incidents automatically generate new failure test scenarios, and agent job descriptions evolve through spec-driven development with reproducible audit trails. Multi-agent orchestration uses and contributes to industry standards such as [Model Context Protocol](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) and [Agent-to-Agent communication](https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/introduction.html). Resilience metrics and business outcome metrics are correlated in real time and feed directly into roadmap decisions. | 
-
 ## Common issues to watch for
 <a name="agentops01-issues"></a>
 + Teams define agents by what they can do rather than what they are accountable for, leaving operators without a clear way to judge whether the agent is working or to decide when to escalate.
@@ -42,7 +28,6 @@ These levels summarize what each stage of maturity looks like for operational pr
 
 **Topics**
 + [Capability intent](#agentops01-intent)
-+ [Maturity levels](#agentops01-maturity)
 + [Common issues to watch for](#agentops01-issues)
 + [AGENTOPS01-BP01 Establish well-defined agent roles, responsibilities, and success criteria](agentops01-bp01.md)
 + [AGENTOPS01-BP02 Design multi-agent handoff procedures with human-in-the-loop escalation](agentops01-bp02.md)

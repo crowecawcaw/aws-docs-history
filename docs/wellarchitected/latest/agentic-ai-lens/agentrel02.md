@@ -18,20 +18,6 @@
 +  Instructions reach agents through canonical prompt templates, versioned configuration, and explicit handoff schemas, so interpretation of objectives is consistent across single-agent and multi-agent workflows. 
 +  Agent actions are routed to the appropriate tier of human oversight based on risk and reversibility, so high-consequence decisions receive review without adding latency to routine work. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for predictable task execution as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Agents are general-purpose processors with broad system prompts and ambiguous input and output contracts. Permissions are coarse-grained, logging is generic and lacks agent-specific decision points, prompts are ad-hoc and unversioned, and every agent action receives the same level of human review, or none at all.  | 
-|  2  |  Emerging  |  Teams have started decomposing workflows into single-purpose agents and defining input and output schemas. Each agent has a dedicated IAM execution role, [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) captures per-agent telemetry, and prompt templates live in shared documentation. Some high-risk actions require human approval, though classification is informal.  | 
-|  3  |  Defined  |  Atomic agents run on [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html) with [structured output](https://docs.aws.amazon.com/bedrock/latest/userguide/structured-output.html) enforcement and regular validation through [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html). Access is restricted through [Amazon Bedrock AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) and [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) policies scoped per agent. Behavioral baselines drive alerts through [Amazon CloudWatch Anomaly Detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html), prompt templates are versioned, and a documented risk framework routes agent actions into autonomous, notify, and approve tiers.  | 
-|  4  |  Proactive  |  Access boundaries are enforced through [Amazon Bedrock AgentCore Policy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html) with [Cedar](https://docs.cedarpolicy.com/) policies at the gateway, and [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) intercept policy-violating outputs before escalation to human reviewers. Prompt-version comparisons run through [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) before traffic migrates, [IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) drives least-privilege remediations from [AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) data, and approval workflows carry timeouts, escalation paths, and full audit context.  | 
-|  5  |  Optimized  |  Atomic task contracts, least-privilege scopes, anomaly baselines, prompt libraries, and oversight tiers are continuously recalibrated from observability data. Automated responses quarantine anomalous agents, adversarial contract tests block prompt-injection regressions in CI/CD, and the organization publishes its agent reliability patterns and measurements back to its communities of practice.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Agents accumulate broad, overlapping responsibilities over time, so a single misinterpretation can affect multiple capabilities and failure modes become harder to reproduce as scope expands. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-1)
-+ [Maturity levels](#maturity-levels-1)
 + [Common issues to watch for](#common-issues-to-watch-for-1)
 + [AGENTREL02-BP01 Design agents for specific and atomic tasks](agentrel02-bp01.md)
 + [AGENTREL02-BP02 Limit agent permissions to minimum required access](agentrel02-bp02.md)

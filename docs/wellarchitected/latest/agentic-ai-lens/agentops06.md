@@ -18,20 +18,6 @@ Systematic testing and evaluation processes confirm agent quality, reliability, 
 + Evaluation datasets, prompts, and scoring rubrics are versioned and kept current as agent capabilities and use cases evolve.
 + Rollback paths for prompts, tools, models, and agent versions are defined, rehearsed, and wired to the same telemetry that detects quality threshold violations.
 
-## Maturity levels
-<a name="agentops06-maturity"></a>
-
-These levels summarize what each stage of maturity looks like for testing, evaluation, and validation frameworks as a whole.
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Testing is one-time and focused on the happy path. Teams rely on manual inspection of agent outputs and infrequent exact-match assertions, missing failures that only appear in tool-use, multi-agent, or production traffic paths. No formal evaluation metrics exist beyond deployment-time smoke tests. Approvals are informal emails or chats, and rollback is a manual, untested redeploy of an older artifact. | 
-| 2 | Emerging | Unit and integration tests exist for the core reasoning, tool, and memory components, and run in a [CI/CD](https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html) pipeline. Evaluation is performed at key milestones using [Amazon Bedrock model evaluation](https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html) and documented acceptance criteria. Approval workflows distinguish at least two risk tiers, and rollback procedures are documented per agent. Coverage of edge cases, adversarial inputs, and production shadow runs is still patchy. | 
-| 3 | Defined | A four-layer testing pyramid, covering unit, integration, end-to-end, and shadow, is standard across agent teams, with [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) supplying built-in evaluators as standardized quality gates. Continuous evaluation tracks output quality, safety, efficiency, and business alignment over time, and risk-tiered approval workflows route changes by scope of impact. Rollback procedures are automated through pipeline triggers and exercised regularly. | 
-| 4 | Proactive | Shadow testing runs alongside production for every significant release, with divergences triaged through [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) traces correlated to evaluation scores. Online evaluation samples live interactions continuously, with thresholds that trigger automated rollback through deployment alarms. Risk-tiered approvals include business owners and SMEs for autonomy-increasing changes, and evaluation datasets evolve automatically from incident and feedback data. Quality, safety, and business metrics are tracked across agent versions as first-class release artifacts. | 
-| 5 | Optimized | Testing, evaluation, and validation are an integrated, self-healing system. Custom evaluators encode organization-specific quality standards and are versioned with the agents they cover. Policy-as-code expresses risk-tier rules and approval routing, and rollback is provably correct, tested quarterly through game-day exercises. Evaluation scoring, shadow comparisons, and human feedback feed a continuous improvement loop that updates datasets, prompts, and guardrails automatically. The organization contributes patterns and evaluators back to internal communities and external forums. | 
-
 ## Common issues to watch for
 <a name="agentops06-issues"></a>
 + Teams stop at deterministic unit tests and skip shadow testing on real traffic, so agents ship with unknown behavior on edge cases, adversarial inputs, and production data distributions.
@@ -42,7 +28,6 @@ These levels summarize what each stage of maturity looks like for testing, evalu
 
 **Topics**
 + [Capability intent](#agentops06-intent)
-+ [Maturity levels](#agentops06-maturity)
 + [Common issues to watch for](#agentops06-issues)
 + [AGENTOPS06-BP01 Design multi-layered testing frameworks](agentops06-bp01.md)
 + [AGENTOPS06-BP02 Evaluate and track ongoing agent performance](agentops06-bp02.md)

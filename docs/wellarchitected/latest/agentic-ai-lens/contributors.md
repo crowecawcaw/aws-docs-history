@@ -34,6 +34,7 @@ The following individuals and organizations contributed to this document.
 + Madhuri Srinivasan, Senior Technical Writer Well-Architected, Amazon Web Services
 + Nataliya Godunok, Senior Guidance Lead Solutions Architect, Amazon Web Services
 + Alex Pieri, Solutions Architect, Amazon Web Services
++ Anastasia Tzeveleka, Principal AI/ML Specialist SA, Amazon Web Services
 
 ## Acknowledgments
 <a name="contributors-acknowledgments"></a>

@@ -18,20 +18,6 @@
 +  Multi-layer caching (prompt prefixes, retrieval results, tool outputs) reduces redundant work across iterations and sessions, with TTLs and keys tuned per layer against measured hit rates and staleness tolerance. 
 +  Retrieval is expressed as a set of agent-invoked tools with bounded iteration, sufficiency checks, and parallel sub-query execution so complex questions converge within the workload's latency budget. 
 
-## Maturity levels
-<a name="maturity-levels-2"></a>
-
- These levels summarize what each stage of maturity looks like for memory, context, and RAG optimization as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Memory, context, and retrieval are treated as single-tier concerns. Full conversation history and the entire tool catalog flow into every prompt, RAG chunks are fixed-size with no relevance filtering, and no caching exists beyond what individual services provide by default. Token consumption and retrieval latency are reviewed only after a cost spike or a user-reported slowdown.  | 
-|  2  |  Emerging  |  Teams have separated short-term from long-term memory and adopted basic summarization of conversation history. RAG is running through a managed service such as [Amazon Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html), and prompts are structured so that system instructions and stable tool definitions sit in a reusable prefix. Per-component token usage and retrieval latency are measured for production agents but tuning is still manual and reactive.  | 
-|  3  |  Defined  |  Memory tiers use storage matched to access pattern, with [Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html) or [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html) serving short-term state and [AgentCore Memory long-term strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-configuring-built-in-strategies.html) or [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-agentic-memory.html) serving cross-session knowledge. RAG pipelines use semantic chunking, hybrid search, and a re-ranking stage, with top-k caps and per-passage thresholds enforced. Prompts compose with [Amazon Bedrock prompt caching](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html), and prompt templates are versioned in [Amazon Bedrock Prompt management](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-create.html) with per-component token budgets.  | 
-|  4  |  Proactive  |  Retrieval is expressed as a set of agent tools through [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) with sufficiency evaluation, bounded iteration, and parallel sub-query execution for complex questions. Multi-layer caching is active across prompt prefixes, semantic retrieval keys, and tool outputs, with per-layer hit rates monitored against floors. Memory extraction, eviction, and prompt-template promotion run through automated pipelines, and per-tier latency and cache hit rate feed continuous tuning in [Amazon CloudWatch generative AI observability](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/GenAI-observability.html).  | 
-|  5  |  Optimized  |  Memory tier sizing, retrieval budgets, and cache TTLs are recalibrated continuously from production telemetry rather than by scheduled review. Prompt components, tool selection, and retrieval routing are evaluated through [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) gated in CI/CD, and optimization patterns flow back to internal communities of practice. The organization contributes memory and retrieval patterns to the broader agentic AI community.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-2"></a>
 +  Teams store all agent memory in a single database regardless of access pattern, which forces sub-millisecond session reads and large-scale semantic searches to compete on the same backend and degrades both. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-2)
-+ [Maturity levels](#maturity-levels-2)
 + [Common issues to watch for](#common-issues-to-watch-for-2)
 + [AGENTPERF03-BP01 Implement tiered memory management systems](agentperf03-bp01.md)
 + [AGENTPERF03-BP02 Optimize context window utilization and prompt management](agentperf03-bp02.md)

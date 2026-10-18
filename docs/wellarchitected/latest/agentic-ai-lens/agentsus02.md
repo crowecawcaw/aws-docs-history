@@ -18,20 +18,6 @@
 +  Regional and connectivity choices are deliberate, so traffic stays close to the services agents depend on and private paths are used where security or latency justifies them. 
 +  Environmental impact is measured alongside operational metrics, and deferrable workloads are scheduled and placed with carbon-awareness to reduce footprint without affecting user-facing performance. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for resource right-sizing as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Agent memory, caching, and infrastructure run without deliberate right-sizing. Memory grows unboundedly, caches are isolated to each agent if they exist at all, and compute is statically provisioned for peak demand. Environmental impact isn't measured, and Region placement is treated as an afterthought.  | 
-|  2  |  Emerging  |  Teams have adopted [Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html) with basic retention policies and have enabled [Amazon Bedrock prompt caching](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html) for stable system prompts. [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime.html) is used for some agents, and [AWS Sustainability](https://docs.aws.amazon.com/sustainability/latest/userguide/what-is-sustainability.html) has been turned on for reporting but has not informed design decisions.  | 
-|  3  |  Defined  |  Tiered memory with shared persistent context through [AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html) namespaces is the default for multi-agent systems. Shared caches exposed through [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) amortize work across the fleet. Token caching in [Amazon Bedrock AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html) reduces repeated credential validation. [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) tracks memory access patterns, cache hit rates, and efficiency metrics, and a 30-day environmental baseline has been established.  | 
-|  4  |  Proactive  |  Infrastructure scaling, Regional placement, and private connectivity through [VPC interface endpoints](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/vpc-interface-endpoints.html) are driven by observed patterns. Context compression, semantic retrieval through [Amazon Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html), and streaming responses are standard. Deferrable workloads run off-peak, and [Amazon Bedrock cross-region inference](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) routes batch workloads to Regions with favorable energy profiles where latency allows. Sustainability dashboards combining operational and carbon metrics are reviewed on a regular cadence.  | 
-|  5  |  Optimized  |  Memory tiers, cache policies, and infrastructure provisioning are continuously recalibrated from telemetry rather than through periodic review. Environmental footprint is a first-class design input for every new agent workload, and efficiency improvements compound week over week as coverage expands. The organization contributes reasoning-cost and sustainability patterns back to its communities of practice.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Teams build flat memory architectures without tiered storage, so frequently accessed context competes with archival data for the same tier and retrieval costs grow with every new session. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-1)
-+ [Maturity levels](#maturity-levels-1)
 + [Common issues to watch for](#common-issues-to-watch-for-1)
 + [AGENTSUS02-BP01 Optimize context management and memory utilization](agentsus02-bp01.md)
 + [AGENTSUS02-BP02 Establish efficient agent caching strategies](agentsus02-bp02.md)

@@ -18,20 +18,6 @@ Agents rely on external tools and services to complete work, and the way those i
 + Tool failures are contained and routed through documented fallback chains, so a single degraded dependency doesn't cascade into agent-wide outages.
 + Tool inventory, version distribution, and per-tool reliability are monitored centrally, giving operators the visibility to evolve and retire tools without disrupting dependent agents.
 
-## Maturity levels
-<a name="agentops04-maturity"></a>
-
-These levels summarize what each stage of maturity looks like for tool integration and management as a whole.
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | No centralized registry exists. Teams build agent-to-tool integrations point-to-point with each tool's interface. Authentication, error handling, and logging are per-tool and inconsistent. A single degraded tool often cascades into broader agent failures because no fallback plan exists, and tool usage is visible only through ad-hoc logs. | 
-| 2 | Emerging | A registry lists the tools in use with owner and version, even if enforcement is informal. Most new tools are exposed through a standard protocol, typically [MCP through Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html), rather than as bespoke integrations. Basic retry and timeout policies are applied per tool, and teams document the most common tool failures. Audit logging is collected but not currently centralized. | 
-| 3 | Defined | Tools are exposed through [AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) or an equivalent registry and discovered by agents through semantic search. Protocol-based integration using MCP and [A2A in AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-a2a-protocol-contract.html) is the default for new tools. Per-tool authentication, authorization with [Cedar policies in Policy in AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html), and audit logging are enforced centrally at the service layer. Fallback chains and [circuit-breaker](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/circuit-breaker.html) cutoffs exist for the most critical tools, and per-tool reliability metrics are tracked in a shared dashboard. | 
-| 4 | Proactive | The registry is the single source of truth for tool definitions, versions, ownership, and deprecation timelines, and registration is a gate on production use. Standardized protocols and least-privilege policies are enforced across the organization, with Cedar policy reviews part of the change process. Fallback chains, [exponential backoff and jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/), and automatic cutoffs are applied consistently based on a shared error taxonomy. Tool telemetry is instrumented end-to-end through [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html), with alarms and runbooks owned by tool teams. | 
-| 5 | Optimized | The tool inventory is governed by policy-as-code. New tools must pass registry, protocol, policy, and observability gates before any agent can invoke them. Protocol and policy choices are continuously validated and tightened using closed-loop feedback from production telemetry. Fallback chains adjust automatically based on historical reliability, and the organization contributes improvements back to the open protocol specifications it depends on. Tool deprecation is routine and low-risk. | 
-
 ## Common issues to watch for
 <a name="agentops04-issues"></a>
 + Teams build point-to-point tool integrations without a shared registry or protocol, producing duplicate tools and inconsistent documentation that agents can't reliably discover or use across team boundaries.
@@ -42,7 +28,6 @@ These levels summarize what each stage of maturity looks like for tool integrati
 
 **Topics**
 + [Capability intent](#agentops04-intent)
-+ [Maturity levels](#agentops04-maturity)
 + [Common issues to watch for](#agentops04-issues)
 + [AGENTOPS04-BP01 Implement tool registry and catalog management](agentops04-bp01.md)
 + [AGENTOPS04-BP02 Establish standardized tool integration protocols (MCP, A2A)](agentops04-bp02.md)

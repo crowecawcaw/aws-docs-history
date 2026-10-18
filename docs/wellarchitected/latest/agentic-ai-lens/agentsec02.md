@@ -18,20 +18,6 @@
 +  Tools and the MCP servers that host them are available to agents only after going through a documented security review and being registered with a pinned version, data classification, and review expiry. 
 +  Tool usage is observable end to end, with authorization decisions, validation failures, and invocation rates feeding detection and compliance workflows. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for secure agent tool usage as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Agents are granted blanket access to available tools, and authorization is delegated to the agent's own reasoning. Parameters flow to tools without schema enforcement, error responses return raw stack traces, internal endpoint addresses, or database schema details to the agent's context, and there is no registry or version control over tools or the MCP servers that host them. High-risk writes, deletes, and financial actions execute without review.  | 
-|  2  |  Emerging  |  Each agent runs under a dedicated identity with scoped permissions on the tools it needs. Schema validation is applied in the tool handler for user-facing parameters, error responses are sanitized so internal details don't reach the agent or the user, and [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) timeouts and memory allocations bound the runtime cost and execution time of any single tool invocation. Tools and the MCP servers hosting them are documented in a shared list, but enforcement depends on reviewer discipline.  | 
-|  3  |  Defined  |  Agent-to-tool traffic flows through [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore-gateway.html), which centralizes OAuth-based inbound authorization and target-specific outbound authentication. Tools and the MCP servers that host them are registered in a version-controlled registry with documented permissions, data classification, and review expiry, and [strict tool use](https://docs.aws.amazon.com/bedrock/latest/userguide/tool-use.html) constrains model-generated parameters to conform to the tool schema at the decoding layer.  | 
-|  4  |  Proactive  |  [Policy in Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore-policy.html) enforces [Cedar](https://docs.cedarpolicy.com/) policies with a default-deny posture at the gateway, evaluating every tool call against identity-aware conditions and parameter constraints outside the agent's reasoning loop. Human-in-the-loop checkpoints intercept high-risk mutating operations through [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) callback patterns, rate limits run at both the gateway and tool tiers, and [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) alarms fire on authorization failures and validation spikes.  | 
-|  5  |  Optimized  |  Tool authorization, validation, and registry controls are codified end to end and validated continuously through red-team exercises and automated drift detection with [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html). Deprecation workflows remove expired tools and MCP server entries automatically, policies adapt from observed behavior, and centralized MCP server governance (covering registration, version pinning, network egress controls, and shared discovery) is enforced consistently across accounts.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Tool access granted at the agent level but enforced only by the agent's reasoning, so nothing outside the model helps prevent an injected or poisoned prompt from invoking tools that sit outside the agent's intended scope. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-1)
-+ [Maturity levels](#maturity-levels-1)
 + [Common issues to watch for](#common-issues-to-watch-for-1)
 + [AGENTSEC02-BP01 Implement tool authorization](agentsec02-bp01.md)
 + [AGENTSEC02-BP02 Validate tool inputs and outputs](agentsec02-bp02.md)

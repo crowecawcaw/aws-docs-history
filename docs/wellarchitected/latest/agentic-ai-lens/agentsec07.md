@@ -18,20 +18,6 @@
 +  Behavioral baselines exist for each agent, and deviations trigger rapid containment through credential revocation and circuit-breaker activation, with forensic state captured before isolation. 
 +  Security assessments combine continuous automated scanning with scheduled red team and purple team exercises targeted at agent-specific manipulation scenarios, and findings flow back into guardrails, detection rules, and incident response runbooks. Red team exercises are adversarial simulations where a dedicated team attempts to compromise the agent system using the techniques a real attacker would use. Purple team exercises run the same scenarios collaboratively with the defenders so detection rules and runbooks are updated based on what was observed during the simulation. 
 
-## Maturity levels
-<a name="maturity-levels-6"></a>
-
- These levels summarize what each stage of maturity looks like for human oversight protection and agent containment as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Review pipelines are informal and routed to whoever is available, with no workload metrics or priority classification. Reviewers evaluate agent decisions without confidence scores, historical context, or independent verification. Agent behavior is observed only through infrastructure metrics, and containment depends on manual investigation after the fact. Security assessments are one-off or absent.  | 
-|  2  |  Emerging  |  Review requests flow through a documented queue with coarse priority tiers, and single-reviewer approval applies to most agent decisions. Agent outputs include generic grounding checks, but reviewers don't see historical patterns or manipulation warnings. Generic security assessments cover agent deployments, and agent-specific red team scenarios are limited.  | 
-|  3  |  Defined  |  A prioritized review pipeline backed by [Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) and [Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) tracks time-to-decision and approval-rate metrics, with alarms on rubber-stamping patterns. Reviewers see grounding scores from [Amazon Bedrock Guardrails contextual grounding](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-contextual-grounding-check.html) checks, deviation flags against historical decisions, and plain-language warnings for flagged manipulation attempts. High-risk operations require independent review from more than one person using [AWS Step Functions parallel states](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-parallel-state.html). Behavioral metrics are published as custom metrics with [Amazon CloudWatch anomaly detection](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html), and findings from [Amazon GuardDuty](https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html) and [Amazon Macie](https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html) are centralized in [AWS Security Hub CSPM](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html). Red team exercises run on a defined cadence using the OWASP Top 10 for Agentic Applications as the starting scenario library.  | 
-|  4  |  Proactive  |  Review quality is managed through dashboards and composite alarms that automatically escalate or quarantine when review-behavior metrics degrade. Blind review and consensus logic are the default for high-risk operations, with disagreements routed to senior reviewers. Containment is automated through [Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) rules that capture forensic state to [Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html), revoke credentials by attaching a deny-all policy to the agent's IAM role, and broadcast quarantine events for circuit breakers in dependent workflows. Purple team activities run after each assessment cycle and update [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) configurations, detection rules, and runbooks based on observed patterns.  | 
-|  5  |  Optimized  |  Review quality metrics, agent behavioral baselines, and containment procedures are continuously tuned based on outcomes, and new attack techniques feed directly into detection and response tooling. Containment runbooks are regularly exercised through [AWS Fault Injection Service](https://docs.aws.amazon.com/fis/latest/userguide/what-is.html) to validate that isolation, circuit breakers, and forensic capture behave as expected. Purple team findings, [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) evaluation trends, and runtime threat signals drive continuous refinement of guardrails, detection thresholds, and reviewer training.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-6"></a>
 +  Review capacity is planned by volume alone, without metrics that detect rubber-stamping when queues back up, so human oversight degrades silently under load as reviewers approve faster than they can evaluate. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-6)
-+ [Maturity levels](#maturity-levels-6)
 + [Common issues to watch for](#common-issues-to-watch-for-6)
 + [AGENTSEC07-BP01 Implement cognitive load management](agentsec07-bp01.md)
 + [AGENTSEC07-BP02 Clear confidence indicators and manipulation warnings](agentsec07-bp02.md)

@@ -18,20 +18,6 @@
 +  Reviewers receive sufficient decision context, timeout policies, and escalation paths to make informed approvals without stalling the workflow or defaulting to rubber-stamping. 
 +  Guardrail interventions, approval decisions, and evaluation results are logged, alerted on, and reviewed on a defined cadence to keep policies current with emerging patterns. 
 
-## Maturity levels
-<a name="maturity-levels-3"></a>
-
- These levels summarize what each stage of maturity looks like for agent goal alignment and manipulation prevention as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Operational boundaries exist only as natural-language instructions in the system prompt. No content guardrails, input validation, or human-in-the-loop controls are in place. Alignment depends on the model following instructions, and a single adversarial input can redirect the agent with no defense in depth.  | 
-|  2  |  Emerging  |  [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) are configured with basic [content filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filter.html) covering inputs and outputs. A single approval tier exists for a subset of consequential actions, implemented through built-in mechanisms such as [Amazon Bedrock Agents user confirmation](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-userconfirmation.html) or routed through ad-hoc channels such as email or chat. Guardrail interventions are captured in logs but reviewed irregularly.  | 
-|  3  |  Defined  |  Tiered guardrail configurations align filter strengths to each agent's use case, and [denied topics and word filters](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-content-filters-overview.html) are calibrated per risk profile. Deterministic risk classification routes approvals through a structured workflow mechanism such as [AWS Step Functions callback workflows](https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html) or [return of control](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html), with defined timeouts and escalation paths. [Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) fire on intervention spikes, and guardrail versioning supports rollback of policy changes.  | 
-|  4  |  Proactive  |  Validation runs at every stage of the call chain: input, inference, output, and tool invocation. [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) run on a defined cadence with alarms on correctness, tool selection accuracy, and safety score drift. Persistent trust grants are scoped narrowly by command and parameter shape, tiered by risk, and made auditable and revocable. Full decision context is written to durable storage before approval notifications, and approval records are linked to the centralized audit trail.  | 
-|  5  |  Optimized  |  Alignment controls are calibrated from intervention and evaluation data, and risk classification adapts to dynamic signals such as operation frequency, time of day, and source location. Multi-reviewer consensus is available for the highest-risk operations, including asynchronous workflows running on [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime.html). Policy updates flow through versioned configurations with provable change history, and the feedback loop from logged interventions back into policy is automated rather than manual.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-3"></a>
 +  Alignment is treated as a prompt-engineering exercise rather than a layered enforcement problem, so a single adversarial input that influences the model can collapse multiple boundaries at once. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-3)
-+ [Maturity levels](#maturity-levels-3)
 + [Common issues to watch for](#common-issues-to-watch-for-3)
 + [AGENTSEC04-BP01 Implement guardrails and alignment controls](agentsec04-bp01.md)
 + [AGENTSEC04-BP02 Human-in-the-loop for critical decisions](agentsec04-bp02.md)

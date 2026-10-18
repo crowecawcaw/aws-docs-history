@@ -18,20 +18,6 @@
 +  A central catalog of deployed agents captures owner, purpose, dependencies, and usage, and teams consult it before building new agents. 
 +  The agent portfolio is actively rationalized, with inactive agents flagged for review, decommissioned through a structured lifecycle, and reclaimed infrastructure returned to the shared pool. 
 
-## Maturity levels
-<a name="maturity-levels-2"></a>
-
- These levels summarize what each stage of maturity looks like for agent governance as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Agents are built and deployed without competency tiering, ownership assignment, or portfolio oversight. Documentation is thin, decommissioning is one-time, and institutional knowledge is held only by the original developers rather than recorded in any specification.  | 
-|  2  |  Emerging  |  Teams have categorized competencies into human-owned, agent-augmented, and fully automated tiers, and [Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html) are in place for high-stakes escalation. Declarative configuration in [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) captures the baseline agent specification. Basic ownership metadata is recorded for each deployed agent.  | 
-|  3  |  Defined  |  Documented workflows feed agent development through [Amazon Bedrock Knowledge Bases](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html) RAG sources, and [Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html) routing separates routine tasks from cases that require human judgment. [Amazon Bedrock AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) compares agent outputs against expert baselines, and rotation programs keep subject matter experts practiced in the underlying work. A central agent catalog with ownership and purpose is maintained.  | 
-|  4  |  Proactive  |  Runtime documentation generated through [Amazon Bedrock AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html) validates design specifications against actual behavior, and production promotion is gated on current documentation. [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) metrics flag inactive agents for owner review, and a structured decommissioning lifecycle moves agents through active, under review, deprecated, and decommissioned states. Quarterly portfolio rationalization reviews are a standing cadence.  | 
-|  5  |  Optimized  |  Governance is continuous rather than periodic. Portfolio health metrics (total agent count, percentage with active usage, percentage with current documentation) are reviewed at the organizational level. Specification currency, evaluation baselines, and competency tiering adjust based on operational telemetry, and the organization shares its agent governance patterns with its communities of practice.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-2"></a>
 +  Teams automate unfamiliar or poorly understood processes where decision criteria and success metrics are not documented, so agent development wastes resources on untested methodologies. 
@@ -42,7 +28,6 @@
 
 **Topics**
 + [Capability intent](#capability-intent-2)
-+ [Maturity levels](#maturity-levels-2)
 + [Common issues to watch for](#common-issues-to-watch-for-2)
 + [AGENTSUS03-BP01 Maintain organizational skills and competencies](agentsus03-bp01.md)
 + [AGENTSUS03-BP02 Build agents to mirror your organizational skills and competencies](agentsus03-bp02.md)
