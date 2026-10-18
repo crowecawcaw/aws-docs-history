@@ -12,6 +12,7 @@ A cache behavior lets you configure what is cached or isn't cached from your ori
 + [Directory and file overrides](#changing-caching-behavior-distribution-directory-file-overrides)
 + [Advanced cache settings](#changing-caching-behavior-distribution-advanced-settings)
 + [Change your distribution's cache behavior](#change-distribution-cache-behavior)
++ [Test your distribution](amazon-lightsail-testing-distribution.md)
 
 ## Caching preset
 <a name="changing-caching-behavior-distribution-caching-preset"></a>
@@ -30,7 +31,7 @@ A caching preset can be specified only in the Lightsail console. It cannot be sp
 ## Best for WordPress caching preset
 <a name="changing-caching-behavior-wordpress-distribution-preset"></a>
 
-When you select an instance that uses the **WordPress Certified by Bitnami and Automattic** blueprint as the origin of your distribution, Lightsail asks if you want to apply the **Best for WordPress** caching preset to your distribution. If you apply the present, then your distribution is automatically configured to work best with your WordPress website. There are no other distribution settings that you need to apply. The Best for WordPress preset to *cache nothing* except the files in the `wp-includes/` and `wp-content/` directories of your WordPress website. It also configures your distribution to clear its cache every day (cache lifespan of 1 day), allow all HTTP methods, forward only the `Host` header, forward no cookies, and forwards all query strings.
+When you select an instance that uses the **WordPress Certified by Bitnami and Automattic** blueprint as the origin of your distribution, Lightsail asks if you want to apply the **Best for WordPress** caching preset to your distribution. If you apply the present, then your distribution is automatically configured to work best with your WordPress website. There are no other distribution settings that you need to apply. The Best for WordPress preset to *cache nothing* except the files in the `wp-includes/` and `wp-content/` directories of your WordPress website. It also configures your distribution to clear its cache every day (cache lifespan of 1 day), allow all HTTP methods, forward only the `Host` and `CloudFront-Forwarded-Proto` headers, forward no cookies, and forwards all query strings. The `CloudFront-Forwarded-Proto` header tells your origin whether the viewer's original request used HTTP or HTTPS, which WordPress needs to generate links and redirects with the correct protocol. For more information about this header, see [Add custom headers to origin requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/adding-cloudfront-headers.html) in the Amazon CloudFront Developer Guide.
 
 **Important**  
 You must edit the WordPress configuration file in your instance to make your WordPress website work with your distribution. For more information, see [Configure your WordPress instance to work with your distribution](amazon-lightsail-configure-wordpress-for-distribution.md).

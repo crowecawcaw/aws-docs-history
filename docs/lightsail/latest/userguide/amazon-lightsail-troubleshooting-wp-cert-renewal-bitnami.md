@@ -3,7 +3,7 @@
 # Certificate did not automatically renew
 <a name="amazon-lightsail-troubleshooting-wp-cert-renewal-bitnami"></a>
 
-The WordPress guided workflow configures automatic renewal of your Let's Encrypt SSL/TLS certificate. The Bitnami blueprint uses a cron job that runs a Python script twice daily to check and renew the certificate. If your certificate expires despite automatic renewal being configured, use the following steps to diagnose and resolve the issue.
+The WordPress Lightsail Setup configures automatic renewal of your Let's Encrypt SSL/TLS certificate. The Bitnami blueprint uses a cron job that runs a Python script twice daily to check and renew the certificate. If your certificate expires despite automatic renewal being configured, use the following steps to diagnose and resolve the issue.
 
 ## Step 1: Check if your certificate has expired
 <a name="cert-renewal-check-expired-bitnami"></a>

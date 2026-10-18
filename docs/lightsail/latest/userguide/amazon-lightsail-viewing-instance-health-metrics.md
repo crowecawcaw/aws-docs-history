@@ -82,3 +82,4 @@ There are a few additional tasks that you can perform for your instance metrics:
 + [View instance metrics in the Lightsail console](#viewing-instance-metrics-console)
 + [Next steps](#next-steps-viewing-instance-metrics)
 + [Create instance alarms](amazon-lightsail-adding-instance-health-metric-alarms.md)
++ [System disk performance](amazon-lightsail-viewing-instance-disk-performance-metrics.md)

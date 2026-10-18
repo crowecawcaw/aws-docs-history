@@ -4,7 +4,7 @@
 <a name="amazon-lightsail-lets-encrypt-certbot-wordpress"></a>
 
 **Tip**  
-Amazon Lightsail offers a guided workflow that automates the installation, configuration, and renewal of a Let's Encrypt certificate on your WordPress instance. We highly recommend that you use the workflow instead of following the manual steps in this tutorial. For more information, see [Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md).
+Amazon Lightsail offers Lightsail Setup, which automates the installation, configuration, and renewal of a Let's Encrypt certificate on your WordPress instance. We highly recommend that you use Lightsail Setup instead of following the manual steps in this tutorial. For more information, see [Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md).
 
 With Amazon Lightsail load balancers, you can secure your websites and applications with SSL/TLS. However, using a Lightsail load balancer might not generally be the right choice. Perhaps your site doesn't need the scalability or fault tolerance that load balancers provide, or maybe you're optimizing for cost.
 
@@ -304,4 +304,4 @@ Your WordPress instance is now configured to use SSL encryption. Additionally, y
 Let's Encrypt certificates are valid for 90 days. Certificates can be renewed 30 days before they expire. To renew the Let's Encrypt certificates, run the original command used to obtain them. Repeat the steps in the [Request a Let's Encrypt SSL wildcard certificate](#request-a-lets-encrypt-certificate-wordpress-lightsail) section of this tutorial.
 
 **Note**  
-The Amazon Lightsail guided workflow handles certificate renewal automatically. To avoid renewing certificates manually, switch to the guided workflow. For more information, see [Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md).
+Lightsail Setup handles certificate renewal automatically. To avoid renewing certificates manually, switch to Lightsail Setup. For more information, see [Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md).

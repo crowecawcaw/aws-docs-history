@@ -3,6 +3,10 @@
 # Launch and configure a Windows Server 2016 instance on Lightsail
 <a name="amazon-lightsail-tutorial-launching-and-configuring-windows-server-2016"></a>
 
+**Important**  
+Windows Server 2016 will reach End of Extended Support on January 12, 2027. You will not be able to create new Lightsail instances with this blueprint on or after January 12, 2027. We recommend that you use Windows Server 2022 or Windows Server 2025 instead.  
+Existing instances and snapshots are not affected, and you can still create instances from snapshots. For more information, see the [Microsoft website](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016).
+
 Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) if you just need virtual private servers. Lightsail includes everything you need to launch your project quickly – a virtual machine, SSD-based storage, data transfer, DNS management, and a static IP – for a low, predictable price.
 
 This tutorial shows you how to launch and configure a Windows Server 2016 instance on Lightsail. It includes steps to connect to your instance via RDP, create a static IP and attach it to your instance, and create a DNS zone and map your domain. When you’re done with this tutorial, you have the fundamentals to get your instance up and running on Lightsail.

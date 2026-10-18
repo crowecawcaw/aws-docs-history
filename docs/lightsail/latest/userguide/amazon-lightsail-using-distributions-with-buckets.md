@@ -80,7 +80,7 @@ Complete the following procedure to create a Lightsail distribution and choose y
 1. Choose your bucket as the origin.  
 ![The bucket dropdown list in the Choose your origin pane.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-bucket-choose-origin.png)
 **Note**  
-The permissions of your bucket must be set to **Individual objects can be made public (read only)**. Only individual objects that are public will be cached and served by the distribution. When you choose a bucket as the origin of a distribution, the options to specify the origin protocol policy, caching behavior, default behavior, and directory and file overrides become unavailable and cannot be edited. The origin protocol policy defaults to **HTTPS only** for buckets, and the caching behavior defaults to **Cache everything**. You can change the advanced cache settings of the distribution after it's created.
+The permissions of your bucket must be set to **Individual objects can be made public (read only)**. Only individual objects that are public will be cached and served by the distribution. When you choose a bucket as the origin of a distribution, the options to specify the origin protocol policy, caching behavior, default behavior, and directory and file overrides become unavailable and cannot be edited. The origin protocol policy defaults to **HTTP only** for buckets, and the caching behavior defaults to **Cache everything**. You can change the advanced cache settings of the distribution after it's created.
 
 1. Choose your distribution plan.
 

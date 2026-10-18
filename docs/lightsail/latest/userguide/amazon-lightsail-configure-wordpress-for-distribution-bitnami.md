@@ -24,7 +24,7 @@ Before you get started, make sure your WordPress instance is in a running state.
 ## Step 2: Create the distribution
 <a name="create-distribution-wordpress-bitnami"></a>
 
-Complete the following steps to configure a Lightsail distribution for your WordPress instance. For more information, see [Create a Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
+Complete the following steps to configure a Lightsail distribution for your WordPress instance. For more information, see [Create and configure a Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
 
 **To create a distribution for your WordPress instance**
 

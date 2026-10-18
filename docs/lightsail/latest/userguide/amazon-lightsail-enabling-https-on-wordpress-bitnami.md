@@ -11,11 +11,11 @@ Enabling Hypertext Transfer Protocol Secure (HTTPS) for your WordPress website a
 ## Step 1: Configure your WordPress instance
 <a name="set-up-wordpress-instance-website-bitnami"></a>
 
-You can configure your WordPress instance by using a guided, step-by-step workflow that will configure the following:
+You can configure your WordPress instance by using Lightsail Setup, which configures the following:
 + **A registered domain name** – Your WordPress site needs a domain name that is easy to remember. Users will specify this domain name to access your WordPress site. For more information, see [Register and manage domains for your website in Lightsail](amazon-lightsail-domain-registration.md).
 + **DNS management** – You must decide how to manage the DNS records for your domain. A DNS record tells the DNS server which IP address or hostname a domain or subdomain is associated with. A DNS zone contains the DNS records for your domain. For more information, see [Understanding DNS in Lightsail](understanding-dns-in-amazon-lightsail.md).
 + **A Static IP address** – The default public IP address for your WordPress instance changes if you stop and start your instance. When you attach a static IP address to your instance, it stays the same even if you stop and start your instance. For more information, see [View and manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md).
-+ **An SSL/TLS certificate** – After you create a validated certificate and install it on your instance, you can enable HTTPS for your WordPress website so that traffic that is routed to the instance through your registered domain is encrypted using HTTPS. For more information, see [Secure your WordPress site with HTTPS on Lightsail](amazon-lightsail-enabling-https-on-wordpress.md).
++ **An SSL/TLS certificate** – After you create a validated certificate and install it on your instance, you can enable HTTPS for your WordPress website so that traffic that is routed to the instance through your registered domain is encrypted using HTTPS. For more information, see [Enable HTTPS on your WordPress instance with a Lightsail managed domain](amazon-lightsail-enabling-https-on-wordpress.md).
 
 **Tip**  
 Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-https-bitnami.md).  
@@ -28,7 +28,7 @@ Wordpress instances that were created prior to January 1, 2023, might contain a 
 Let's Encrypt certificates will automatically renew every 60 to 90 days.
 While setup is in progress, do not stop or make changes to your instance. It can take up to 15 minutes to configure your instance. You can view the progress for each step in the instance connect tab.
 
-**To configure your instance using the website setup wizard**
+**To configure your instance using Lightsail Setup**
 
 1. On the instance management page, on the **Connect** tab, choose **Set up your website**.  
 ![Launching WordPress setup in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-gf-01.png)
@@ -50,7 +50,7 @@ While setup is in progress, do not stop or make changes to your instance. It can
 1. After the website setup is complete, verify that the URLs that you specified in the domain assignments step open your WordPress site.
 
 **Note**  
-If your blueprint does not support the guided workflow, you can use `bncert` to create your SSL certificates.For more information about using `bncert` to enable HTTPS, see [ Secure your WordPress site with HTTPS on Lightsail with bncert](amazon-lightsail-enabling-https-on-wordpress-with-bncert.md).
+If your blueprint does not support Lightsail Setup, you can use `bncert` or Certbot to create your SSL certificates. For more information, see [Secure your WordPress site with HTTPS on Lightsail with bncert](amazon-lightsail-enabling-https-on-wordpress-with-bncert.md) or [Enable HTTPS on your WordPress instance with Let's Encrypt and Certbot](amazon-lightsail-using-lets-encrypt-certificates-with-wordpress.md).
 
 ## Step 2: Get the admin password for your WordPress website
 <a name="tutorial-launching-and-configuring-wordpress-connecting-to-your-instance-via-ssh-bitnami"></a>

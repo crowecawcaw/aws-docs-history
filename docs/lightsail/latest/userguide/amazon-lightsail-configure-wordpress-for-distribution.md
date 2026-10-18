@@ -12,7 +12,7 @@ All Lightsail distributions have HTTPS enabled by default for their default doma
 ## Create the distribution
 <a name="create-distribution-wordpress"></a>
 
-Complete the following steps to configure a Lightsail distribution for your WordPress instance. For more information, see [Create a Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
+Complete the following steps to configure a Lightsail distribution for your WordPress instance. For more information, see [Create and configure a Lightsail content delivery network distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
 
 **Prerequisite**  
 Create and configure a WordPress instance as described in [Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md).

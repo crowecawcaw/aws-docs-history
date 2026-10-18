@@ -3,7 +3,7 @@
 # Adjust the data transfer quota for your Lightsail distribution
 <a name="amazon-lighstail-changing-distribution-plan"></a>
 
-When you create a Amazon Lightsail distribution, you choose a distribution plan that specifies the monthly data transfer quota and cost of your distribution. If your distribution transfers more data than your plan's monthly data transfer quota, you are charged an overage. For more information about overage pricing, see the [Lightsail pricing page](https://aws.amazon.com/lightsail/pricing/).
+When you create a Amazon Lightsail distribution, you choose a distribution plan that specifies the monthly data transfer quota and cost of your distribution. If your distribution transfers more data than your plan's monthly data transfer quota, you are charged an overage. For details about how data transfer is aggregated, what counts toward your quota, and overage pricing by AWS Region, see [Understand data transfer for your distribution](amazon-lightsail-distribution-plans.md#amazon-lightsail-distribution-data-transfer).
 
 To avoid an overage fee, change your distribution's current plan to a different plan that offers a greater amount of monthly data transfer before your distribution exceeds its monthly quota. You can change your distribution's plan only one time during each AWS billing cycle. In this guide, we show you how to change your distribution's plan.
 

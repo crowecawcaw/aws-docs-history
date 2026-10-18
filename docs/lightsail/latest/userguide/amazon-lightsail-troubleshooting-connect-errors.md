@@ -37,9 +37,9 @@ This guide explains the error codes you might see when connecting to a Lightsail
 **What to do:**
 + If the instance was recently started or rebooted, wait a short time for the instance to be ready to connect, then try again.
 + Verify your instance's firewall rules allow SSH/RDP from Lightsail Connect.
-  + If a required rule is missing, add it by following these instructions: [Add firewall rules to Lightsail instances](amazon-lightsail-editing-firewall-rules.md)
+  + If a required rule is missing, add it by following these instructions. For instructions, see [Add firewall rules to Lightsail instances](amazon-lightsail-editing-firewall-rules.md).
   + Retry the connection after adding the required rule.
-+ Reboot the instance, then try again. For instructions, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
++ Reboot the instance following these instructions, then try again: [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
 
 ## 516 (RESOURCE\_NOT\_FOUND)
 <a name="connect-error-516"></a>

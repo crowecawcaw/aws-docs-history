@@ -414,7 +414,7 @@ When your distribution gets a response from your origin, it tries to maintain th
 ### Protocols
 <a name="RequestCustomProtocols"></a>
 
-Your distribution forwards HTTP or HTTPS requests to the origin server based on value of the **Origin protocol policy** field in the Lightsail console . In the Lightsail console, the options are **HTTP only**, and **HTTPS only**. 
+Your distribution forwards HTTP or HTTPS requests to the origin server based on value of the **Origin protocol policy** field in the Lightsail console. In the Lightsail console, the options are **HTTP only**, and **HTTPS only**. 
 
 If you specify **HTTP Only** or **HTTPS Only**, your distribution forwards requests to your origin using the specified protocol, regardless of the protocol in the viewer request.
 
@@ -430,8 +430,6 @@ You can configure whether your distribution forwards query string parameters to 
 <a name="custom-origin-timeout-attempts"></a>
 
 By default, your distribution waits as long as 30 seconds (3 attempts of 10 seconds each) before returning an error response to the viewer.
-
-
 
 ### Origin response timeout
 <a name="request-custom-request-timeout"></a>

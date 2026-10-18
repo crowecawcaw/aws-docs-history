@@ -65,7 +65,7 @@ Allow time for any DNS record changes to propagate through the internet's DNS, w
 The instance was just created or rebooted, and the SSH connection is not ready.
 
 **Fix**  
-Allow a few minutes for the SSH connection to become ready. Then, retry the guided workflow. For more information, see [Troubleshooting SSH in Lightsail](amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection.md).
+Allow a few minutes for the SSH connection to become ready. Then, retry Lightsail Setup. For more information, see [Troubleshooting SSH in Lightsail](amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection.md).
 
 ## Unsupported WordPress version. Setup only supports WordPress versions 6, and up.
 <a name="unsupported-wp-version-bitnami"></a>
@@ -114,7 +114,7 @@ Allow time for any DNS record changes to propagate through the internet's DNS, w
 This error can surface if another process is using port 80 while the HTTPS certificate is being configured on the instance.
 
 **Fix**  
-Restart your WordPress instance. Then, run the guided workflow again. Use the following procedure to terminate any running processes on the instance that are running on port 80 if restarting doesn't resolve the issue.
+Restart your WordPress instance. Then, run Lightsail Setup again. Use the following procedure to terminate any running processes on the instance that are running on port 80 if restarting doesn't resolve the issue.
 
 **Procedure**
 
@@ -217,7 +217,7 @@ Use the following procedure to manually remove the deprecated PPA repository fro
 One or more of your domains or subdomains has already been used to create 5 certificates within the last week. For more information, see [Rate Limits](https://letsencrypt.org/docs/rate-limits/) on the *Let's Encrypt website*.
 
 **Fix**  
-Wait one week (168 hours), and then restart the guided workflow for this domain.
+Wait one week (168 hours), and then restart Lightsail Setup for this domain.
 
 ## Too many failed authorizations
 <a name="too-many-failed-authorizations-bitnami"></a>

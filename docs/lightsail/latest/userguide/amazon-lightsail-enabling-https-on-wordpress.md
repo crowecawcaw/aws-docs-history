@@ -1,92 +1,161 @@
 
 
-# Secure your WordPress site with HTTPS on Lightsail
+# Enable HTTPS on your WordPress instance with a Lightsail managed domain
 <a name="amazon-lightsail-enabling-https-on-wordpress"></a>
 
-Enabling Hypertext Transfer Protocol Secure (HTTPS) for your WordPress website assures visitors that your website is secure; that it's sending and receiving encrypted data. A non-secure website has an address that starts with `http`, such as `http://example.com`, while a secure website has an address that starts with `https`, such as `https://example.com`. Even if your website is primarily informational, it's still recommended that you enable HTTPS. This is because most web browsers will notify website visitors that your website is not secure if HTTPS is not enabled, and your website will rank lower in search engine results.
+Lightsail Setup helps you quickly connect your domain to your WordPress instance. Lightsail Setup creates a Let's Encrypt certificate that automatically renews every 60 to 90 days. When the setup is complete, visitors can securely access your website using your custom domain name.
 
-## Step 1: Configure your WordPress instance
-<a name="set-up-wordpress-instance-website"></a>
+This guide applies to domains that are:
++ Registered through Lightsail or Route 53
++ Managed using a Lightsail DNS zone
 
-You can configure your WordPress instance by using a guided, step-by-step workflow that will configure the following:
-+ **A registered domain name** – Your WordPress site needs a domain name that is easy to remember. Users will specify this domain name to access your WordPress site. For more information, see [Register and manage domains for your website in Lightsail](amazon-lightsail-domain-registration.md).
-+ **DNS management** – You must decide how to manage the DNS records for your domain. A DNS record tells the DNS server which IP address or hostname a domain or subdomain is associated with. A DNS zone contains the DNS records for your domain. For more information, see [Understanding DNS in Lightsail](understanding-dns-in-amazon-lightsail.md).
-+ **A Static IP address** – The default public IP address for your WordPress instance changes if you stop and start your instance. When you attach a static IP address to your instance, it stays the same even if you stop and start your instance. For more information, see [View and manage IP addresses for Lightsail resources](understanding-public-ip-and-private-ip-addresses-in-amazon-lightsail.md).
-+ **An SSL/TLS certificate** – After you create a validated certificate and install it on your instance, you can enable HTTPS for your WordPress website so that traffic that is routed to the instance through your registered domain is encrypted using HTTPS. For more information, see [Secure your WordPress site with HTTPS on Lightsail](#amazon-lightsail-enabling-https-on-wordpress).
+If your domain is registered with a third-party registrar (such as GoDaddy, Namecheap, or Cloudflare), or your DNS is not managed using a Lightsail DNS zone, see [Enable HTTPS on your WordPress instance with a domain registered outside of Lightsail](amazon-lightsail-enabling-https-on-wordpress-thirdparty.md).
+
+## Step 1: Complete the prerequisites
+<a name="before-you-begin-https"></a>
+
+Complete the following prerequisites if you haven't already done so:
++ Create a WordPress instance in Lightsail. Your instance must be in a running state. To learn more, see [Create an instance](how-to-create-amazon-lightsail-instance-virtual-private-server-vps.md).  
+![A WordPress instance in a running state in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/instance-running.png)
++ Register a domain name through Lightsail or Route 53. For more information, see [Register a domain in Lightsail](amazon-lightsail-register-new-domain.md). Also ensure the domain is verified, active, and in the same account that you are using for Lightsail Setup. See [Verify the domain contact information](amazon-lightsail-register-new-domain.md#reg-new-domain-verify-info).
++ Ensure that ports 22, 80, and 443 are configured on your instance's firewall to enable Lightsail Setup. Port 22 is required for Lightsail Setup to connect to your instance. Port 80 is required for domain ownership validation during certificate installation. Port 443 is required for serving HTTPS traffic after installation. To verify, open the **Networking** tab of your instance and check that all three ports appear in the firewall rules. To learn more, see [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).  
+![Firewall rules showing ports 22, 80, and 443 configured on the Networking tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/ports-open.png)
+
+**Note**  
+If your domain is registered with a third-party registrar, or your DNS is not managed using a Lightsail DNS zone, see [Enable HTTPS on your WordPress instance with a domain registered outside of Lightsail](amazon-lightsail-enabling-https-on-wordpress-thirdparty.md).
+
+## Step 2: Start Lightsail Setup
+<a name="setup-wizard-start-lightsail"></a>
+
+1. Open the Lightsail console at [https://lightsail.aws.amazon.com/](https://lightsail.aws.amazon.com/).
+
+1. Choose your WordPress instance from the instance list.  
+![Selecting a WordPress instance from the instance list in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/instance-selection.png)
+
+1. Choose the **Connect** tab and choose **Set up your website**.  
+![The Set up your website button on the Connect tab in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/your-website.png)
+
+## Step 3: Select your domain
+<a name="setup-wizard-domain-lightsail"></a>
+
+1. Choose **Lightsail managed domain**.
+
+1. Select your domain from the dropdown list.
+
+Your domain appears in this list if it is registered through Lightsail or Route 53 in the same account that you are using for Lightsail Setup.
+
+![Selecting a domain name in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/domain-name.png)
+
+
+## Step 4: Configure DNS
+<a name="setup-wizard-dns-lightsail"></a>
+
+A DNS zone manages the DNS records that direct traffic for your domain to your instance. Lightsail Setup requires a Lightsail DNS zone to automatically create and manage these records for you.
+
+1. Choose **Lightsail DNS zone**.
+
+1. Lightsail Setup checks if a Lightsail DNS zone already exists for your domain:
+   + **If a DNS zone exists** – Lightsail Setup displays it. Choose **Use this DNS zone**.  
+![Choosing an existing DNS zone in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/choose-dns.png)
+   + **If a DNS zone does not exist** – Choose **Create DNS zone**. Lightsail Setup creates the DNS zone for your domain.  
+![Creating a new DNS zone in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/create-dns.png)
+
+**Important**  
+To route traffic to your instance, your domain's name servers must point to your Lightsail DNS zone. If they don't match, update your name servers before continuing with Lightsail Setup. For instructions, see [Change the name servers at your domain registrar](lightsail-how-to-create-dns-entry.md#lightail-change-the-name-servers).
+
+To verify your name servers are pointing correctly and have propagated globally, check [DNS Checker](https://dnschecker.org) on the *dnschecker.org* website.
+
+You can also verify from the command line:
++ **macOS and Linux:**
+
+  ```
+  $ dig NS {{yourdomain.com}} +short
+  ```
++ **Windows:**
+
+  ```
+  C:\> nslookup -type=NS {{yourdomain.com}}
+  ```
+
+The result should show your Lightsail DNS zone's name servers (for example, `ns-123.awsdns-01.com`). You can find your DNS zone's name servers on the **Domains & DNS** > **DNS zones** page in the Lightsail console.
+
+**Note**  
+Name server changes can take up to 48 hours to propagate. If Lightsail Setup fails after updating name servers, wait and try again.
+
+## Step 5: Configure a static IP
+<a name="setup-wizard-static-ip-lightsail"></a>
+
+A static IP address provides a fixed public IP for your instance. Without a static IP, your instance's IP address can change if you stop and restart it, which breaks your domain's connection.
+
+Choose one of the following:
++ **Create a new static IP** – Enter a name for your static IP and choose **Create static IP**.  
+![Creating a new static IP in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/create-static-ip.png)
++ **Use an existing static IP** – If you have an unattached static IP in the same AWS Region, select it from the list and choose **Attach static IP**.  
+![Attaching an existing static IP in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/attach-static-ip.png)
+
+After this step, Lightsail Setup attaches the static IP to your instance.
+
+## Step 6: Add domain assignments
+<a name="setup-wizard-domain-assignments-lightsail"></a>
+
+Domain assignments are DNS records that direct traffic for your domain to your instance.
+
+1. Choose **Add assignment**.
+
+1. Add your apex domain (for example, `example.com`).
+
+1. (Optional) To also secure your www subdomain, choose **Add assignment** again and add your www subdomain (for example, `www.example.com`).
+
+![Managing domain assignments in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/manage-domains.png)
+
 
 **Tip**  
-Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-https-lightsail.md).  
-Your instance must be in a **Running** state. Allow a few minutes for the SSH connection to become ready if the instance was just started.
-Ports 22, 80, and 443 on your instance firewall must allow TCP connections from any IP address while setup is running. For more information, see [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md).
-When you add or update DNS records that point traffic from your apex domain (`example.com`) and its `www` subdomains (`www.example.com`), they will need to propagate throughout the Internet. You can verify that your DNS changes have taken effect by using tools such as [nslookup](https://aws.amazon.com/blogs/messaging-and-targeting/how-to-check-your-domain-verification-settings/), or [DNS Lookup](https://mxtoolbox.com/DnsLookup.aspx) from *MxToolbox*.
-Let's Encrypt certificates will automatically renew every 60 to 90 days.
-While setup is in progress, do not stop or make changes to your instance. It can take up to 15 minutes to configure your instance. You can view the progress for each step in the instance connect tab.
+If you skip the www subdomain, visitors who type `www.example.com` will not reach your site. Add it if you want both addresses to work.
 
-**To configure your instance using the website setup wizard**
+## Step 7: Create SSL/TLS certificate
+<a name="setup-wizard-certificate-lightsail"></a>
 
-1. On the instance management page, on the **Connect** tab, choose **Set up your website**.  
-![Launching WordPress setup in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-gf-01.png)
+1. Select the domains and subdomains you want to secure with HTTPS. You can choose up to 10 domains and subdomains.
 
-1. For **Specify a domain name**, use an existing Lightsail managed domain, register a new domain with Lightsail, or use a domain that you registered by using another domain registrar. Choose **Use this domain** to go to the next step.
+1. Enter your email address. This is used for certificate renewal notifications.
 
-1. For **Configure DNS**, do one of the following:
-   + Choose **Lightsail managed domain** to use a Lightsail DNS zone. Choose **Use this DNS zone** to go to the next step.
-   + Choose **Third-party domain** to use the hosting service that manages the DNS records for your domain. Note that we create a matching DNS zone in your Lightsail account in case you decide to use it later on. Choose **Use third-party DNS** to go to the next step.
+1. Select **I authorize Lightsail to configure a Let's Encrypt certificate on my instance**. This gives Lightsail restricted access to create and configure the certificate on your instance.
 
-1. For **Create a static IP address**, enter a name for your static IP address and then choose **Create static IP**.
+1. Choose **Create certificate**.
 
-1. For **Manage domain assignments**, choose **Add assignment**, choose a domain type, and then choose **Add**. Choose **Continue** to go to the next step.
+![Creating an SSL/TLS certificate in the Lightsail Setup workflow.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/create-certificate.png)
 
-1. For **Create an SSL/TLS certificate**, choose your domains and subdomains, enter an email address, select **I authorize Lightsail to configure a Let's Encrypt certificate on my instance**, and choose **Create certificate**. We start to configure the Lightsail resources.
 
-   While setup is in progress, do not stop or make changes to your instance. It can take up to 15 minutes to configure your instance. You can view the progress for each step in the instance connect tab.
+Lightsail Setup begins configuring HTTPS on your instance. This process takes up to 15 minutes.
 
-1. After the website setup is complete, verify that the URLs that you specified in the domain assignments step open your WordPress site.
+If setup fails, see [Lightsail Setup failed](amazon-lightsail-troubleshooting-wp-https-lightsail.md) for troubleshooting steps.
 
-1. Your WordPress instance is automatically configured to redirect HTTP connections into encrypted HTTPS. You can verify that automatic redirection is configured by going to `http://{{<DomainName>}}`. You should see that once your site loads, you will be redirected to `https://{{<DomainName>}}`.
+**Important**  
+Do not stop, reboot, or modify your instance while setup is in progress.
 
-## Step 2: Get the admin password for your WordPress website
-<a name="tutorial-launching-and-configuring-wordpress-connecting-to-your-instance-via-ssh"></a>
+## Step 8: Verify your website
+<a name="setup-wizard-verify-lightsail"></a>
 
-The default password to sign in to the administration dashboard of your WordPress website is stored on the instance. Complete the following steps to get the password.
+After Lightsail Setup completes:
 
-**To get the default password for the WordPress administrator**
+1. Open your browser and go to `https://{{yourdomain.com}}`.
 
-1. Open the instance management page for your WordPress instance.
+1. Confirm that your website loads successfully.
 
-1. On the **WordPress** panel, choose **Retrieve default password**. This expands **Access default password** at the bottom of the page.  
-![Accessing WordPress admin password in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/wordpress-lightsail-retrieve-password.png)
+1. (Optional) Test `https://www.{{yourdomain.com}}` to confirm both addresses work.
 
-1. Choose **Launch CloudShell**. This opens a panel at the bottom of the page.
+![WordPress website loaded successfully with HTTPS enabled.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/https-verified.png)
 
-1. Choose **Copy** and then paste the contents into the CloudShell window. You can either put your cursor at the CloudShell prompt and press Ctrl\+V, or you can right-click to open the menu and then choose **Paste**.
 
-1. Make a note of the password displayed in the CloudShell window. You need this to sign in to the administration dashboard of your WordPress website.  
-![Viewing WordPress admin password in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/wordpress/amazon-wordpress-lightsail-viewing-admin-password.png)
+Your website is now configured with HTTPS and an **automatic redirect from HTTP to HTTPS**. You can sign in to the WordPress administration dashboard to customize your site, install plugins, and manage content.
 
-## Step 3: Sign in to the administration dashboard of your WordPress website
-<a name="tutorial-wp-sign-in-dashboard"></a>
+**Note**  
+Let's Encrypt certificates will automatically renew every 60 to 90 days. If renewal fails in the future, see [Certificate did not automatically renew](amazon-lightsail-troubleshooting-wp-cert-renewal-lightsail.md).
 
-Now that you have the password for the administration dashboard of your WordPress website, you can sign in. In the administration dashboard, you can change your user password, install plugins, change the theme of your website, and more.
-
-Complete the following steps to sign in to the administration dashboard of your WordPress website.
-
-**To sign in to the administration dashboard**
-
-1. Open the instance management page for your WordPress instance.
-
-1. On the **WordPress** panel, choose **Access WordPress Admin**.
-
-1. On the **Access your WordPress Admin Dashboard** panel, under **Use public IP address**, choose the link with this format:
-
-   http://{{public-ipv4-address}}/wp-admin
-
-1. For **Username or Email Address**, enter **user**.
-
-1. For **Password**, enter the password obtained in the previous step.
-
-1. Choose **Log in**.  
-![Launching and configuring WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-07.png)
-
-   You are now signed in to the administration dashboard of your WordPress website where you can perform administrative actions. For more information about administering your WordPress website, see the [WordPress Codex](https://codex.wordpress.org/) in the WordPress documentation.  
-![Launching and configuring WordPress in Lightsail.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-wordpress-tutorial-08.png)
+## Learn more
+<a name="lightsail-setup-learn-more"></a>
++ [Understanding DNS in Lightsail](understanding-dns-in-amazon-lightsail.md)
++ [Register and manage domains](amazon-lightsail-domain-registration.md)
++ [Create a DNS zone to manage domain records](lightsail-how-to-create-dns-entry.md)
++ [Instance firewalls](understanding-firewall-and-port-mappings-in-amazon-lightsail.md)
++ [Static IP addresses](understanding-static-ip-addresses-in-amazon-lightsail.md)

@@ -31,7 +31,7 @@ If a person from Australia wants to view your content, the browser will have to 
 ![Lightsail distribution example](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-cdn-use-cases.png)
 
 
-A CDN resolves this situation by caching your website content at edge locations. This method of serving content is faster and more efficient than the traditional method of serving content from one central resource. When a viewer makes a request on your website or through your application, DNS routes the request to the location that can best serve the user’s request. Your users access your content from locations that are nearby, as opposed to all of your users accessing the same central resource that may be far away.
+A Content Delivery Network (CDN) resolves this situation by caching your website content at edge locations. This method of serving content is faster and more efficient than the traditional method of serving content from one central resource. When a viewer makes a request on your website or through your application, Domain Name System (DNS) routes the request to the location that can best serve the user’s request. Your users access your content from locations that are nearby, as opposed to all of your users accessing the same central resource that may be far away.
 
 ## Use cases
 <a name="distribution-use-cases"></a>
@@ -68,7 +68,7 @@ These are the general steps to follow to serve your website or web application u
 
 1. **(Optional) Create a Lightsail load balancer if your website being hosted on an instance requires fault tolerance.** Then attach multiple copies of your instance to your load balancer. You can configure your load balancer (with one or more instances attached to it) as the origin of your distribution, instead of configuring your instance as the origin. For more information, see [Create a load balancer and attach instances to it](create-lightsail-load-balancer-and-attach-lightsail-instances.md).
 
-1. **Create a Lightsail distribution, and configure your instance, container service, load balancer, or bucket as the origin.** At the same time, you specify details such as the cache lifespan of your content, and which elements of your website or web application are cached. For more information, see [Create a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md).
+1. **Create a Lightsail distribution, and configure your instance, container service, load balancer, or bucket as the origin.** At the same time, you specify details such as the cache lifespan of your content, and which elements of your website or web application are cached. For more information, see [Create and configure a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md). For details about the monthly data transfer quota, what counts toward it, and overage pricing, see [Understand data transfer for your distribution](amazon-lightsail-distribution-plans.md#amazon-lightsail-distribution-data-transfer).
 
 1. (Optional) If your distribution's origin is a WordPress instance, you must edit the WordPress configuration file in your instance to make your WordPress website work with your distribution. For more information, see [Configure your WordPress instance to work with your distribution](amazon-lightsail-configure-wordpress-for-distribution.md).
 
@@ -81,6 +81,22 @@ These are the general steps to follow to serve your website or web application u
 1. **Add an alias record to your domain's DNS to begin routing traffic for your domain to your distribution.** After you add the alias record, users who visit your domain are routed through your distribution. For more information, see [Point your domain to a distribution](amazon-lightsail-point-domain-to-distribution.md).
 
 1. **Test that your distribution is caching your content.** For more information, see [Test your distribution](amazon-lightsail-testing-distribution.md).
+
+## Topics
+<a name="distribution-topics-toc"></a>
+
+This section contains the following topics to help you create, configure, and manage your Lightsail distributions.
++ [Create and configure a distribution](amazon-lightsail-creating-content-delivery-network-distribution.md)
++ [Test your distribution](amazon-lightsail-testing-distribution.md)
++ [Understand distribution origins](amazon-lightsail-distribution-origins.md)
+  + [Use distributions with buckets](amazon-lightsail-using-distributions-with-buckets.md)
+  + [Change the origin of your distribution](amazon-lightsail-changing-distribution-origin.md)
++ [Distribution plans](amazon-lightsail-distribution-plans.md)
+  + [Change your distribution plan](amazon-lighstail-changing-distribution-plan.md)
++ [Change the default cache behavior of your distribution](amazon-lightsail-changing-default-cache-behavior.md)
++ [Understand request and response behaviors](amazon-lightsail-distribution-request-and-response.md)
++ [Enable custom domains for your distribution](amazon-lightsail-enabling-distribution-custom-domains.md)
++ [Delete your distribution](amazon-lightsail-deleting-distribution.md)
 
 ## Edge locations and IP address ranges
 <a name="edge-locations"></a>

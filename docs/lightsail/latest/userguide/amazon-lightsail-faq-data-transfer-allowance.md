@@ -65,7 +65,7 @@ For Lightsail instances, both data transfer in and data transfer out of your ins
 
 For Lightsail managed databases, only data transfer OUT is counted against your allowance. If you exceed your data transfer allowance, you will only get charged for data transfer OUT from a Lightsail managed database to the internet.
 
-For Lightsail CDN distributions, all data transfer out of your distribution counts toward your allowance. All data transfer out of your distribution will incur a charge after you exceed your distribution data transfer allowance.
+For Lightsail CDN distributions, only data transfer OUT of your distribution counts toward your data transfer allowance, and only data transfer OUT can incur an overage charge after you exceed your distribution's data transfer allowance. Data transfer IN to your distribution does not count toward your allowance and is not charged. Data transfer between your origin and your distribution (in either direction) is also free and does not count toward your allowance.
 
 ## How does my data transfer allowance work with my load balancers?
 <a name="data-transfer-allowance-how-does-data-transfer-allowance-work-with-load-balancers"></a>

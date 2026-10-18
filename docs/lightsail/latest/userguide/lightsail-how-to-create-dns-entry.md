@@ -130,6 +130,9 @@ Time to live (TTL) for DNS records cannot be configured in the Lightsail DNS zon
 
 Complete the following steps to transfer management of your domain's DNS records to Lightsail. To do this, you sign in to the website of your domain’s current DNS hosting provider, and change your domain’s name servers to the Lightsail name servers.
 
+### If your domain is registered with another provider
+<a name="lightail-change-nameservers-other-provider"></a>
+
 **Important**  
 If web traffic is currently being routed to your domain, make sure that all of the existing DNS records are present in the Lightsail DNS zone before changing the name servers at your domain’s current DNS hosting provider. This way, traffic continually flows uninterrupted after the transfer to the Lightsail DNS zone.
 
@@ -147,6 +150,23 @@ If web traffic is currently being routed to your domain, make sure that all of t
 1. Save your changes.
 
    Allow time for the name server change to propagate through the internet's DNS, which might take several hours. After that is completed, internet traffic for your domain should begin routing through the Lightsail DNS zone.
+
+### If your domain is registered through Lightsail or Route 53
+<a name="lightail-change-nameservers-lightsail-domain"></a>
+
+You can update the name servers directly in the Lightsail console:
+
+1. Open the Lightsail console and choose **Domains & DNS**.
+
+1. Under **Registered domains**, choose your domain.  
+![Selecting a registered domain in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/registered-domains.png)
+
+1. Scroll to the **Name servers** section.
+
+1. Replace the current name servers with your Lightsail DNS zone's name servers and choose **Save**.  
+![Updating name servers for a registered domain in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/lightsail-setup/add-nameserver.png)
+
+Allow time for the name server change to propagate through the internet's DNS, which might take several hours.
 
 ## Next steps
 <a name="lightail-dns-management-next-steps"></a>

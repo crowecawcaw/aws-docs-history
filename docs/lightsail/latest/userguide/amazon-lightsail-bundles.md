@@ -9,11 +9,14 @@ Lightsail offers a variety of instance bundles (also known as instance plans) to
 
 Each bundle will include public IP addressing. It will provide either a public IPv4 address, a public IPv4 address with an IPv6 address (known as dual-stack), or just an IPv6 address (known as IPv6 only). The bundle price varies depending on whether it includes a public IPv4 address.
 
+To understand how to pick the right bundle for your use case, see [Choose the right plan for your Lightsail instance](amazon-lightsail-right-size-instance.md).
+
 **Topics**
 + [Linux/Unix bundles (with public IPv4 addressing)](#linux-unix-bundles)
 + [Linux/Unix bundles (IPv6-only)](#linux-unix-ipv6-bundles)
 + [Windows bundles (with public IPv4 addressing)](#windows-bundles)
 + [Windows bundles (IPv6-only)](#windows-ipv6-bundles)
++ [Choose the right plan for your Lightsail instance](amazon-lightsail-right-size-instance.md)
 
 ## Linux/Unix bundles (with public IPv4 addressing)
 <a name="linux-unix-bundles"></a>

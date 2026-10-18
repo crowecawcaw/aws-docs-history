@@ -20,9 +20,9 @@ Complete the following procedure to test your distribution. We use the Chrome we
 
 1. Browse to the domain of your distribution (e.g., `https://www.example.com`).
 
-   The **Network** tab of the Chrome developer tools should will populate with a list of objects from your website. 
+   The **Network** tab of the Chrome developer tools should populate with a list of objects from your website. 
 
 1. Choose a static object, such as an image file (.jpg, .png, .gif).
 
-1. In the **Header** panel that appears, you should see that the `via` and `x-cache` headers both mention CloudFront. This confirms that your distribution is caching and serving content from your origin. your   
+1. In the **Header** panel that appears, you should see that the `via` header mentions CloudFront, and that the `x-cache` header shows `Hit from cloudfront`. A value of `Hit from cloudfront` confirms that your distribution served the object from its cache. If you instead see `Miss from cloudfront`, the object wasn't in the cache yet and was fetched from your origin; reload the page and check again, and the subsequent request should show a `Hit`.  
 ![Distribution test result](https://docs.aws.amazon.com/lightsail/latest/userguide/images/distribution-test-result.png)

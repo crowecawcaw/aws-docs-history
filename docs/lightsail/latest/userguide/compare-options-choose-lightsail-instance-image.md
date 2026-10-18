@@ -26,6 +26,8 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [Windows Server 2019](https://aws.amazon.com/marketplace/pp/B07QZ4XZ8F). 
 
 ** **Windows Server 2016** **  
+Windows Server 2016 will reach End of Extended Support on January 12, 2027. You will not be able to create new Lightsail instances with this blueprint on or after January 12, 2027. We recommend that you use Windows Server 2022 or Windows Server 2025 instead.  
+Existing instances and snapshots are not affected, and you can still create instances from snapshots. For more information, see the [Microsoft website](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016).
 Lightsail running Windows Server is a fast and dependable environment for deploying applications using the Microsoft Web Platform. Lightsail enables you to run any compatible Windows-based solution on the high-performance, reliable, cost-effective AWS cloud computing platform. Common Windows use cases include enterprise Windows-based application hosting, website and web service hosting, data processing, distributed testing, ASP.NET application hosting, and any other application requiring Windows software. For end of support information, see the [Microsoft](https://learn.microsoft.com/en-us/lifecycle/products/windows-server-2016) website.  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more about [Windows Server 2016](https://aws.amazon.com/marketplace/pp/B01M7SJEU7). 
@@ -37,7 +39,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [Amazon Linux 2023](https://aws.amazon.com/linux/amazon-linux-2023/).
 
 ** **Amazon Linux 2** **  
-Amazon Linux 2 will reach End of Long Term Support on June 30, 2026. You will not be able to create new Lightsail instances with this blueprint on or after June 30, 2026. For more information, see the [Amazon Linux 2 website](https://aws.amazon.com/amazon-linux-2/faqs/).
+Amazon Linux 2 reached End of Long Term Support on June 30, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. For more information, see the [Amazon Linux 2 website](https://aws.amazon.com/amazon-linux-2/faqs/).
 Amazon Linux 2 is the previous generation of Amazon Linux, a Linux server operating system from AWS. It provides a secure, stable, and high performance execution environment to develop and run cloud and enterprise applications. With Amazon Linux 2, you get an application environment that offers long term support with access to the latest innovations in Linux. Amazon Linux 2 is provided at no additional charge. For end of support information, see [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/).  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more about [ Amazon Linux 2](https://aws.amazon.com/amazon-linux-2).
@@ -53,7 +55,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more at the [*CentOS Stream*](https://www.centos.org/centos-stream/) website.
 
 ** **Debian 13, 12, and 11** **  
-Debian 11 will reach End of Long Term Support on August 31, 2026. You will not be able to create new Lightsail instances with this blueprint on or after August 31, 2026. For more information, see the [Debian website](https://wiki.debian.org/LTS).
+Debian 11 reached End of Long Term Support on August 31, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. For more information, see the [Debian website](https://wiki.debian.org/LTS).
 Debian is a free operating system, developed by thousands of volunteers from all over the world who collaborate over the internet. The Debian project's key strengths are its volunteer base, its dedication to the Debian Social Contract and Free Software, and its commitment to provide the best operating system possible. This new release is another important step in that direction. For end of support information, see the [Debian website](https://wiki.debian.org/DebianReleases).  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
 Learn more at the [*Debian*](https://www.debian.org/doc/) website.
@@ -64,7 +66,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more at the [*FreeBSD*](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/) website.
 
 ** **openSUSE 16 and 15** **  
-openSUSE Leap 15 will reach End of Life on July 30, 2026. You will not be able to create new Lightsail instances with the openSUSE 15 blueprint on or after July 30, 2026. For more information, see the [*openSUSE*](https://en.opensuse.org/) website.
+openSUSE Leap 15 reached End of Life on July 30, 2026. You can no longer create new Lightsail instances with the openSUSE 15 blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. For more information, see the [*openSUSE*](https://en.opensuse.org/) website.
 The openSUSE distribution is a stable, easy to use and complete multipurpose Linux distribution. It is aimed towards users and developers working on the desktop or server. It is great for beginners, experienced users and ultra geeks alike, in short, it is perfect for everybody\! For end of support information, see the [*openSUSE*](https://en.opensuse.org/) website.  
 Password authentication is disabled by default for this operating system. This means that even if you create an instance from a snapshot of an instance with password authentication enabled, the new instance will have password authentication disabled. For more information about password authentication in SUSE Linux, see [document 3404214](https://www.suse.com/support/kb/doc/?id=000016192) in the SUSE documentation.  
 To log in to your instance with password authentication disabled, you can use the browser-based SSH client on the Lightsail console or a key pair. For more information about logging in, see [Connect to Linux or Unix instances on Lightsail](lightsail-how-to-connect-to-your-instance-virtual-private-server.md) or [Connect to Lightsail Linux or Unix instances with the SSH command](amazon-lightsail-ssh-using-terminal.md).  
@@ -93,7 +95,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 Learn more about [SQL Server 2019 Express](https://aws.amazon.com/marketplace/pp/prodview-xbikutlmywslu).
 
 ** **SQL Server 2016 Express** **  
-SQL Server 2016 Express will reach End of Extended Support on July 14, 2026. You will not be able to create new Lightsail instances with this blueprint on or after July 14, 2026. For more information, see the [Microsoft website](https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016).
+SQL Server 2016 Express reached End of Extended Support on July 14, 2026. You can no longer create new Lightsail instances with this blueprint. Existing instances and snapshots are not affected; you can keep using them and can still create new instances from snapshots. For more information, see the [Microsoft website](https://learn.microsoft.com/en-us/lifecycle/products/sql-server-2016).
 SQL Server Express is a relational database management system that is free to download, distribute, and use. It comprises a database specifically targeted for embedded and smaller-scale applications. This Lightsail image runs on a base OS of Windows Server 2016.  
 This blueprint is compatible with both dual-stack and IPv6-only Lightsail instance plans.  
  Learn more about [SQL Server 2016 Express](https://aws.amazon.com/marketplace/pp/B01MAZHH98).
@@ -104,7 +106,7 @@ This blueprint is compatible with both dual-stack and IPv6-only Lightsail instan
 The following content management system (CMS) applications are available in Lightsail:
 
 ** **WordPress** **  
- The WordPress blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and WordPress. This blueprint supports Lightsail’s guided workflow for configuring HTTPS with Let’s Encrypt SSL certificates with just a few clicks. Popular plugins like Jetpack, All in One SEO, WP Mail, Google Analytics for WordPress, All-in-One WP Migration and Backup, AMP, and W3 Total Cache are pre-installed in this blueprint.   
+ The WordPress blueprint provides a complete production environment with PHP, MariaDB, phpMyAdmin, and WordPress. This blueprint supports Lightsail Setup for configuring HTTPS with Let’s Encrypt SSL certificates with just a few clicks. Popular plugins like Jetpack, All in One SEO, WP Mail, Google Analytics for WordPress, All-in-One WP Migration and Backup, AMP, and W3 Total Cache are pre-installed in this blueprint.   
 Lightsail instances launched from WordPress will have Instance Metadata Service Version 2 (IMDSv2) enforced by default. For more information, see [How Instance Metadata Service Version 2 works](amazon-lightsail-configuring-instance-metadata-service.md).  
 [Launch and configure a WordPress instance](amazon-lightsail-launch-and-configure-wordpress.md)  
 Learn more about the [WordPress stack](https://wordpress.org/) at the *WordPress* website.
