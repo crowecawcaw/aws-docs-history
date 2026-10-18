@@ -86,6 +86,7 @@ The buffer is automatically cleared in the following situations:
 + A **Stop and Clear** action is executed.
 + When transferring to an agent or queue.
 + When using [Get customer input](get-customer-input.md) with Amazon Lex bots.
++ The contact reaches the [Agentic CX](agentic-cx-block.md) block.
 + The contact ends.
 
 ## Error scenarios

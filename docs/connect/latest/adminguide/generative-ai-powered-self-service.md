@@ -92,7 +92,7 @@ You can extend the capabilities of AI agents by adding custom tools. These tools
 You can create a generative AI assistant that gathers information before routing to an agent. This requires:
 + No knowledge base configuration.
 + Simple instructions to collect information.
-+ Step-by-step guides to present the information to the agents. For more information, see [Display contact context in the agent workspace when a contact begins in Connect Customer](display-contact-attributes-sg.md).
++ Step-by-step guides to present the information to the agents. For more information, see [Display contact information in the agent workspace when a contact begins](display-contact-attributes-sg.md).
 
 Following is an example tool definition for disambiguation. You can remove all default tools except CONVERSATION and add one new custom tool called HANDOFF:
 
@@ -149,7 +149,7 @@ When using the **Check contact attributes** flow block to determine which tool A
 + Route to the appropriate step-by-step guide.
 + Display the step-by-step interface directly in the customer's chat window.
 
- For more information about implementing step-by-step guides in chat, see [Deploy step-by-step guides in Connect Customer chats](step-by-step-guides-chat.md).
+ For more information about implementing step-by-step guides in chat, see [Use step-by-step guides in chats](step-by-step-guides-chat.md).
 
 ## FOLLOW\_UP\_QUESTION tool
 <a name="follow-up-question-tool"></a>

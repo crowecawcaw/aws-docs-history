@@ -3,9 +3,9 @@
 # Apply tag-based access controls to dashboards and reports in Connect Customer
 <a name="dashboard-tag-based-access-control"></a>
 
-You can use resource tags and access control tags to apply granular access to users, queues, routing profiles, flows, flow modules, evaluation forms, and test cases on analytics user interfaces.
+You can use resource tags and access control tags to apply granular access to users, queues, routing profiles, flows, flow modules, evaluation forms, test cases, and rules on analytics user interfaces.
 
-With tag-based access controls, you can configure granular access to specific resources based on assigned resource tags. You can configure tag-based access controls by using the API or the Connect Customer admin website for supported resources. You must configure resource tags and access control tags before tag-based access control is applied to users, queues, routing profiles, flows, flow modules, evaluation forms, and test cases on analytics pages. For more information, see [Add tags to resources in Connect Customer](tagging.md) and [Apply tag-based access control in Connect Customer](tag-based-access-control.md).
+With tag-based access controls, you can configure granular access to specific resources based on assigned resource tags. You can configure tag-based access controls by using the API or the Connect Customer admin website for supported resources. You must configure resource tags and access control tags before tag-based access control is applied to users, queues, routing profiles, flows, flow modules, evaluation forms, test cases, and rules on analytics pages. For more information, see [Add tags to resources in Connect Customer](tagging.md) and [Apply tag-based access control in Connect Customer](tag-based-access-control.md).
 
 **Topics**
 + [How to enable tag-based access control for dashboards and reports](#dashboard-tbac-enable)
@@ -15,8 +15,8 @@ With tag-based access controls, you can configure granular access to specific re
 ## How to enable tag-based access control for dashboards and reports
 <a name="dashboard-tbac-enable"></a>
 
-To apply tags to control access to users, queues, routing profiles, flows, flow modules, evaluation forms, and test cases metrics in dashboards and reports:
-+ Apply tags to the resources that you're going to use in the dashboards and reports, such as users, queues, routing profiles, flows, flow modules, evaluation forms, and test cases. For more information, see [Add tags to resources in Connect Customer](tagging.md).
+To apply tags to control access to users, queues, routing profiles, flows, flow modules, evaluation forms, test cases, and rules metrics in dashboards and reports:
++ Apply tags to the resources that you're going to use in the dashboards and reports, such as users, queues, routing profiles, flows, flow modules, evaluation forms, test cases, and rules. For more information, see [Add tags to resources in Connect Customer](tagging.md).
 + You need to be assigned to a security profile that specifically grants you access to the resources that have been tagged. On the Security profiles page, choose **Show advanced** options to assign these permissions.
 + You will need one of the following permissions to view the reports and dashboards in the same security profile that has tag based access controls enabled:
   + **Analytics and Optimization - Access metrics - Access**: If you choose this option, access is granted to Real-time metrics, Historical metrics reports, Dashboards, and Agent activity audit.
@@ -36,14 +36,15 @@ To apply tags to control access to users, queues, routing profiles, flows, flow 
   OR
   + **Analytics and Optimization - Login/Logout report - View**
 
-Additionally, you will need one or more relevant permissions to view specific resource data on dashboards and reports: **Routing profiles - View**, **Queues - View**, **Users - View**, **Test Cases - View**, **Evaluation forms - manage form definitions - View**, **Flows - View**, **Flow modules - View**, and **Bot - View** are selected. The following image shows an example of security profile permissions that grant users the ability to view routing profiles, queues, and Connect Customer user accounts.
+Additionally, you will need one or more relevant permissions to view specific resource data on dashboards and reports: **Routing profiles - View**, **Queues - View**, **Users - View**, **Test Cases - View**, **Evaluation forms - manage form definitions - View**, **Flows - View**, **Flow modules - View**, **Bot - View**, and **Conversational analytics - View** are selected. The following image shows an example of security profile permissions that grant users the ability to view routing profiles, queues, and Connect Customer user accounts.
 
 ![Security profile permissions showing View permissions for routing profiles, queues, users, test cases, evaluation forms.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-tbac-permissions.png)
 
 
 ## Important things to know when using tag-based access controls
 <a name="dashboard-tbac-limitations"></a>
-+ The Dashboards support access controls on users, queues, routing profiles, flows, flow modules, evaluation forms, and test cases.
++ The Dashboards support access controls on users, queues, routing profiles, flows, flow modules, evaluation forms, test cases, and rules.
++ Access to contact categories is controlled by the tags on the rules that create them. You see a contact category only if your security profile grants access to the tags on its rule. To view contact categories, you also need the **Conversational analytics - View** permission. Without it, requests for contact category data on dashboards are denied, even if you have **Analytics and Optimization - Access metrics - Access**.
 + Real-time metrics and Historical metrics support access controls on users, queues, and routing profiles.
 + The Agent Activity Audit report supports access controls on users only.
 + The tag-based access control experience on the **Historical metrics**, **Agent Activity Audit**, and **Login/Logout** pages remain unchanged after this launch for users that had tag based access controls enabled in their security profile before January 15, 2026. It will continue to work the same way. However, if you would like the enhanced tag based access controls experience on your historical metrics, Agent Activity Audit report or Login/Logout, please contact the Connect Customer service team to assist with the migration. When you migrate to the new tag based access controls experience, please note that, the historical metrics report shows data from November, 2025 to the current date. The Login/Logout report shows data from April 9, 2026 to the current date. The retention period will increase by 1 day each day. 

@@ -219,6 +219,8 @@ The last reconnected node is often where the issue begins.
 
 ## Testing best practices
 <a name="acxd-testing-best-practices"></a>
+
+Follow these best practices when you test your applications and flows:
 + Create a successful build before using application or flow testing.
 + Use application tests for end-to-end behavior.
 + Use flow tests for focused troubleshooting.

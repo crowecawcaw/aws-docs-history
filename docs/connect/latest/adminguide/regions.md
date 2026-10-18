@@ -26,7 +26,7 @@ This topic lists the AWS Regions where Connect Customer features are available.
 + [Global Resiliency availability by Region](#gr_region)
 + [In-app, web, and video calling capabilities](#inapp_region)
 + [Live media streaming](#livemediastreaming_region)
-+ [Outbound campaigns](#campaigns_region)
++ [Outbound Campaigns availability by Region](#campaigns_region)
 + [Tasks](#tasks_region)
 + [Voice ID availability by Region](#voiceid_region)
 
@@ -333,18 +333,25 @@ Agentic CX Designer, and the [Agentic CX](agentic-cx-block.md) block that connec
 + Europe (Frankfurt)
 + Europe (London)
 
-## Outbound campaigns
+## Outbound Campaigns availability by Region
 <a name="campaigns_region"></a>
-+ US East (N. Virginia)
-+ US West (Oregon)
-+ Africa (Cape Town)
-+ Asia Pacific (Seoul)
-+ Asia Pacific (Singapore)
-+ Asia Pacific (Sydney)
-+ Asia Pacific (Tokyo)
-+ Canada (Central)
-+ Europe (Frankfurt)
-+ Europe (London)
+
+Connect Customer outbound campaigns is available at the following endpoints.
+
+
+| Region Name | Region | Endpoint | Protocol | 
+| --- | --- | --- | --- | 
+| US East (N. Virginia) | us-east-1 | connect-campaigns.us-east-1.amazonaws.com<br />connect-campaigns-fips.us-east-1.amazonaws.com | HTTPS<br />HTTPS | 
+| US West (Oregon) | us-west-2 | connect-campaigns.us-west-2.amazonaws.com<br />connect-campaigns-fips.us-west-2.amazonaws.com | HTTPS<br />HTTPS | 
+| Africa (Cape Town) | af-south-1 | connect-campaigns.af-south-1.amazonaws.com | HTTPS | 
+| Asia Pacific (Seoul) | ap-northeast-2 | connect-campaigns.ap-northeast-2.amazonaws.com | HTTPS | 
+| Asia Pacific (Singapore) | ap-southeast-1 | connect-campaigns.ap-southeast-1.amazonaws.com | HTTPS | 
+| Asia Pacific (Sydney) | ap-southeast-2 | connect-campaigns.ap-southeast-2.amazonaws.com | HTTPS | 
+| Asia Pacific (Tokyo) | ap-northeast-1 | connect-campaigns.ap-northeast-1.amazonaws.com | HTTPS | 
+| Canada (Central) | ca-central-1 | connect-campaigns.ca-central-1.amazonaws.com | HTTPS | 
+| Europe (Frankfurt) | eu-central-1 | connect-campaigns.eu-central-1.amazonaws.com | HTTPS | 
+| Europe (London) | eu-west-2 | connect-campaigns.eu-west-2.amazonaws.com | HTTPS | 
+| AWS GovCloud (US-West) (API only) | us-gov-west-1 | connect-campaigns.us-gov-west-1.amazonaws.com | HTTPS | 
 
 The phone numbers that outbound campaigns can call are based on the AWS Region where your Connect Customer instance is created. 
 + From instances created in US East (N. Virginia) or US West (Oregon) you can call all phone numbers based in the US, Mexico, and Brazil.
@@ -355,6 +362,7 @@ The phone numbers that outbound campaigns can call are based on the AWS Region w
 + From instances created in Asia Pacific (Sydney) you can call phone numbers based in Australia and New Zealand. There are a few specific restrictions explained in [ Make predictive and progressive calls using Connect Customer outbound campaigns](https://aws.amazon.com/blogs/contact-center/make-predictive-and-progressive-calls-using-amazon-connect-high-volume-outbound-communications/)).
 + From instances created in Europe (Frankfurt) or Europe (London) you can call all phone numbers based in the Belgium, Denmark, France, Germany, Ireland, Italy, Netherlands, Poland, Portugal, Spain, and UK.
 + From instances created in Africa (Cape Town) you can call all phone numbers that are based in South Africa.
++ From instances created in AWS GovCloud (US-West) you can call all phone numbers based in the US.
 + No other combinations are supported. For example, you can't make campaign calls from Europe (London) to US phone numbers, or from Europe (Frankfurt) to New Zealand phone numbers.
 
 ## Tasks

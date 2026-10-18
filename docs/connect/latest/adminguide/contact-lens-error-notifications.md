@@ -52,7 +52,7 @@ The format of a notification looks like the following sample:
 | INVALID\_ANALYSIS\_CONFIGURATION | Conversational analytics received invalid values when the flow was initiated, such as an unsupported or invalid language code, or an unsupported value for redaction behavior. | 
 | RECORDING\_FILE\_CANNOT\_BE\_READ | Conversational analytics can't read the recording file. This might be because the file isn't present in the S3 bucket, there are problems with permissions, or an error occurred when conversational analytics tried to read the file. | 
 | RECORDING\_FILE\_TOO\_SMALL | The recording file is too small for analysis (less than 500 ms).<br />If file doesn't have expected format, an INVALID error occurs. Empty JSON is also an unexpected object. | 
-| RECORDING\_FILE\_TOO\_LARGE | The recording file exceeds the duration limit for analysis. +  Voice: More than 14,400 seconds, or 4 hours <br />+  Chat: More than 20K messages in a transcript  | 
+| RECORDING\_FILE\_TOO\_LARGE | The source file exceeds the duration or size limit for analysis. +  Voice: More than 14,400 seconds, or 4 hours <br />+  Chat: More than 20K messages in a transcript <br />+  Email: The HTML body of the email message is larger than 75 KB, or the plain text body is larger than 50 KB  | 
 | RECORDING\_FILE\_INVALID | The recording file is invalid. | 
 | RECORDING\_FILE\_EMPTY | The recording file is empty. | 
 | RECORDING\_SAMPLE\_RATE\_NOT\_SUPPORTED | The sample rate of the audio file is not supported. conversational analytics supports audio files with an 8kHz sample rate. That is the sample rate for Connect Customer recordings. | 

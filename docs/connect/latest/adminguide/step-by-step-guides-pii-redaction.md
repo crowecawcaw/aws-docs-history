@@ -1,8 +1,14 @@
 
 
-# Prevent PII from appearing in a contact record transcript using Connect Customer conversational analytics
+# Redact PII from a guide in a contact transcript
 <a name="step-by-step-guides-pii-redaction"></a>
 
-By default, any information passed through a guide is included in the contact record transcript. To prevent PII from appearing in your contact record transcript, use the [Set recording and analytics behavior block](set-recording-behavior.md) in your step-by-step guide flow, [enable conversational analytics](sensitive-data-redaction.md), and enable the redaction of sensitive date.
+By default, the contact transcript includes all information that passes through a guide, including personally identifiable information (PII). To redact PII from the transcript:
 
-For full details on how to enable PII redaction, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction).
+1. Add a [Set recording and analytics behavior](set-recording-behavior.md) block to your guide flow.
+
+1. In the block, enable conversational analytics.
+
+1. Enable redaction of sensitive data.
+
+For more information, see [Enable redaction of sensitive data](enable-analytics.md#enable-redaction).

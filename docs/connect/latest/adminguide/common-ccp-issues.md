@@ -33,6 +33,8 @@ The dialed number does not use E.164 format, or your instance does not allow the
 + [CCP browser microphone access](#microphone-access-issues)
 + [CCP initialization issues](#ccp-initialization-issues)
 + [CCP WebRTC issues](#ccp-webrtc-issues)
++ [The agent workspace or CCP freezes or is unresponsive](#ccp-freeze-issues)
++ [Connection failures and disconnections caused by network or firewall](#ccp-network-disconnect-issues)
 + [CCP audio issues on first call after system reboot when using Windows 11](#ccp-windows-11-audio-issues-after-reboot)
 + [CCP outbound configuration issues](#ccp-outbound-issues)
 + [CCP invalid number issues](#ccp-invalidnumber-issues)
@@ -91,6 +93,44 @@ WebRTC issues occur when a request to Connect Customer Soft-phone Media (`TurnNl
 + Check Firewall or NAT settings to see if UDP 3478 outbound traffic to Amazon Connect Softphone Media is allowed. See [Set up your network](ccp-networking.md).
 + Use the [End Point Connectivity Tool](check-connectivity-tool.md) to determine if agents are able to successfully connect to all the required endpoints.
 + Because errors can occur due to poor networking conditions, and then result in latency or outages, we recommend also checking your agent networking connections.
+
+## The agent workspace or CCP freezes or is unresponsive
+<a name="ccp-freeze-issues"></a>
+
+The agent workspace or CCP becomes unresponsive during operation. Buttons don't respond, or the UI freezes for an extended period when accepting a contact. This occurs in the following situations:
++ The UI freezes for tens of seconds to several minutes when accepting a contact because of a network problem such as high latency.
++ Insufficient CPU or memory on the agent workstation causes freezes or out-of-memory crashes.
+
+### How to fix
+<a name="howtofix-freeze-issues"></a>
++ Check the CCP logs for high latency (use the API Call Metrics section in the CCP Log Parser). Verify that network latency is acceptable. Latency outside the acceptable range indicates a possible network problem. For instructions on downloading CCP logs, see [Download and review CCP logs](download-ccp-logs.md).
++ If you run software such as screen recording software, noise-suppression software, or VDI at the same time, check whether the concurrently running software is causing insufficient CPU and memory.
++ Browser extensions (such as translation extensions) might cause this problem. Disable extensions and test whether the issue persists.
+
+## Connection failures and disconnections caused by network or firewall
+<a name="ccp-network-disconnect-issues"></a>
+
+The CCP requires stable connectivity to the required endpoints and ports, including signaling and softphone media on UDP port 3478. When firewalls, proxies, VPNs, or network instability prevent reachability to these endpoints, agents experience failure to connect, missed calls, or mid-call disconnections.
+
+**Note**  
+This section covers connection failures, disconnections, and missed calls caused by network or firewall issues. For audio-quality degradation (choppy audio, echo, one-way audio, silence, or delay) when a connection is already established, see [Troubleshoot audio quality issues](troubleshoot-audio-quality.md).
+
+When the connection to the media endpoint is lost during a call, CCP logs show entries similar to the following:
+
+```
+softphone INFO {contact ID} SESSION Lost ICE connection
+```
+
+### How to fix
+<a name="howtofix-network-disconnect-issues"></a>
++ Verify that outbound traffic is allowed to UDP port 3478 (softphone media), TCP port 443, and WebSocket connections. For more information, see [Set up your network](ccp-networking.md).
++ To simplify management, set up your network to use [Option 1 (recommended): Replace Amazon EC2 and CloudFront IP range requirements with a domain allowlist](ccp-networking.md#option1).
++ If you use a corporate proxy, add Connect Customer domains to the allowlist and verify that DNS resolution is correct. If WebSocket disconnections are frequent, test without the proxy to determine whether the proxy is causing the issue.
++ If you use a VPN, test without it to determine whether the VPN is causing the issue.
++ Review the `ToInstancePacketLossRate` CloudWatch metric over the time period when the issue occurred. This metric is expressed as a ratio between 0 and 1. A ratio greater than 0.2 indicates a significant network issue that can cause disconnections or missed calls.
++ If the agent is located far from the AWS Region of the Connect Customer instance, latency increases. Verify that the average latency measured by the [Endpoint Test Utility](check-connectivity-tool.md) doesn't exceed 300 ms.
+
+To isolate workstation-specific issues, see [Troubleshoot an agent's workstation](agent-ts.md).
 
 ## CCP audio issues on first call after system reboot when using Windows 11
 <a name="ccp-windows-11-audio-issues-after-reboot"></a>

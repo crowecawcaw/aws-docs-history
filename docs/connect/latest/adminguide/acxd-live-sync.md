@@ -104,7 +104,7 @@ A clear tool prompt helps the agent decide:
 + What the tool returns
 + What to do if the tool fails or returns no results
 
-Example knowledge base tool prompt:
+The following example shows a knowledge base tool prompt:
 
 ```
 Use this knowledge base to answer questions about hotel policies,
@@ -127,7 +127,7 @@ Before adding slots to Data capture, attach the slots to the flow in the flow se
 
 In the agent instructions, refer to slot names in plain text rather than placeholder syntax.
 
-Good example:
+The following example shows an agent instruction that refers to a slot name in plain text:
 
 ```
 Collect customerEmail before calling the newsletterSignup tool.
@@ -210,7 +210,7 @@ Example: Use this action when the guest asks to select a room from available opt
 | Description | Use this action to select the room ID from the available options based on what the user said. | 
 | Scope | room\_selection | 
 
-Example input schema:
+The following example shows an input schema:
 
 ```
 {
@@ -231,7 +231,7 @@ Example input schema:
 }
 ```
 
-Example output schema:
+The following example shows an output schema:
 
 ```
 {
@@ -252,7 +252,7 @@ Scope tags help prevent actions from being used in the wrong place.
 
 For example, a `select_room` action should only be available when the user is on the room selection page. A `modify_checkout_date` action may only apply when the user is on a checkout or stay modification screen.
 
-Example scope tag:
+The following example shows a scope tag:
 
 ```
 {
@@ -522,7 +522,7 @@ For Live Sync actions to work, the frontend must listen for the commands the age
 
 The command names and schemas configured in the agent node should match the frontend code.
 
-Example setup pattern:
+The following example shows a setup pattern:
 
 ```
 function handleCustomCommand(action, payload) {

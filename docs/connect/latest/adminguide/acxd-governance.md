@@ -34,7 +34,7 @@ Use roles and permissions to control who can:
 + Create builds or deploy applications
 + Manage users, roles, and workspace settings
 
-**Common governance goals**
+Common governance goals include the following:
 + Limit who can deploy to Production
 + Restrict who can configure integrations and secrets
 + Allow read-only access for reviewers and stakeholders
@@ -60,7 +60,7 @@ Integrations are a critical security boundary between a conversational AI applic
 
 Agentic CX designer supports secure integration patterns through structured Data requests, schemas, secrets, and environment-specific configuration.
 
-**Best practices**
+Follow these best practices when you configure external integrations:
 + Store API keys, tokens, and credentials as Secrets instead of hardcoding them in headers or payloads.
 + Use separate Development and Production endpoints when possible.
 + Validate request and response payloads with clear schemas.

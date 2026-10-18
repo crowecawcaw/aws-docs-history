@@ -1,31 +1,31 @@
 
 
-# UI component library for UI builder in Connect Customer
+# Component library in the Connect Customer UI builder
 <a name="user-interface-component-library-sg"></a>
 
-All of the UI builder components are described in the [Connect Customer UI component documentation](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page). This documentation shows you the individual UI components that you can use in the UI builder, and how you can configure them.
+Connect Customer offers a library of UI components to build views. This [reference guide](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/overview--page) describes every component and how to configure it.
 
-You access the library components in the UI builder in the **Create** panel, the **Library** tab. The following image shows an example of the **Library** tab and the **Container** components. 
+To find the components, open the **Library** tab of the **Create** panel in the UI builder. The following image shows an example of the **Library** tab and the **Container** components.
 
 ![The UI builder Create panel, the Library tab, the UI components.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-example.png)
 
 
-## Use Containers to move and organize components
+## Use containers to group components
 <a name="user-interface-component-library-containers"></a>
 
-Containers are a core building block to make views. You can move UI components (including other containers) into a container to group them together logically and visually on the page. 
+Containers are the core building block of a view. You can move UI components (including other containers) into a container to group them together logically and visually on the page.
 
-To keep the contents of the page relatively consistent as you customize the top level view settings, we recommend using containers in all of your views. Containers also come with column layout. With column layout, you can organize the contents within a container.
+Use containers in every view, so the page stays consistent when you change view-level settings. Containers also have a column layout for arranging their contents.
 
 ## Create a form
 <a name="user-interface-component-library-form-section"></a>
 
-To create a form for agents or customers to complete and submit, you use the [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all) component. You can either: 
-+ Drag and drop a **Form** component onto the canvas from the UI library.
-+ Or, from the **Templates** tab, select the **Form Example** template. It uses a form component.
+To create a form that users fill in and submit, use the [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all) component. You can either:
++ Drag a **Form** component from the **Library** tab onto the canvas.
++ From the **Templates** tab, choose the **Form Example** template, which uses a Form component.
 
-A [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all) component is a special type of container into which you can insert input fields and add a **Submit** button. When a user who is interacting with the guide presses the **Submit** button, Connect Customer passes all of the values entered into the form fields to the flow. At that point in the flow, you can customize your own business logic and send/retrieve data to third-party systems by using the [AWS Lambda function](invoke-lambda-function-block.md) block. 
+A [Form](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/aws-managed-views-form--with-all) component is a special type of container into which you can insert input fields and add a **Submit** button. When a user chooses **Submit**, Connect Customer passes all of the values entered into the form fields to the flow. At that point in the flow, you can customize your own business logic and send data to and retrieve data from third-party systems by using the [AWS Lambda function](invoke-lambda-function-block.md) block.
 
-The following image shows an example **Form** component with placeholder labels and a Submit Button.
+The following image shows an example **Form** component with placeholder labels and a Submit button.
 
-![A Form component with placeholder labels and a Submit Button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-form-section-example.png)
+![A Form component with placeholder labels and a Submit button.](https://docs.aws.amazon.com/connect/latest/adminguide/images/user-interface-component-library-form-section-example.png)

@@ -135,7 +135,7 @@ For voice dials, you can attach a set of contact attributes to the dial request 
 
 For example, suppose a campaign calls customers about an item in their cart. With each dial, you can pass the product name and offer code as the `Product` and `OfferCode` attributes. You can then use these attributes in the outbound voice contact flow in ways such as the following:
 + Greet the customer by name, or mention the offer, by using a [Play prompt](play.md) block.
-+ Give the agent the customer's name, product, and offer when the call connects, so the agent can continue the conversation without asking the customer to repeat details. To show these details in a screen pop, launch a step-by-step guide with a [Show view](show-view-block.md) block by using a [Set event flow](set-event-flow.md) block. For more information, see [Display contact attributes in the agent workspace](display-contact-attributes-sg.md).
++ Give the agent the customer's name, product, and offer when the call connects, so the agent can continue the conversation without asking the customer to repeat details. To show these details in a screen pop, launch a step-by-step guide with a [Show view](show-view-block.md) block by using a [Set event flow](set-event-flow.md) block. For more information, see [Display contact information in the agent workspace](display-contact-attributes-sg.md).
 + Give an AI agent the same context by using an [AWS Lambda function](invoke-lambda-function-block.md) block to add the attributes to the AI agent session. For more information, see [Add customer data to an AI agent session](ai-agent-session.md).
 + Route the call based on the offer, for example to a team of specialists, by using a [Check contact attributes](check-contact-attributes.md) block.
 

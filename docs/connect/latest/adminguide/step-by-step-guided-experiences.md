@@ -12,13 +12,7 @@ To learn more about the possible UI configurations, see the interactive [UI comp
 + [Enable step-by-step guides in Connect Customer](enable-guided-experiences-sg.md)
 + [Use views to customize the user interface for agents, customers, and other user personas in Connect Customer](view-resources-sg.md)
 + [Build views with the UI builder in Connect Customer](no-code-ui-builder.md)
-+ [Invoke a guide at the start of a contact in Connect Customer](how-to-invoke-a-flow-sg.md)
-+ [Deploy step-by-step guides in Connect Customer chats](step-by-step-guides-chat.md)
-+ [Display contact context in the agent workspace when a contact begins in Connect Customer](display-contact-attributes-sg.md)
-+ [Enable Connect Customer contact center agents to enter disposition codes when a contact ends](disposition-codes-sg.md)
-+ [Prevent PII from appearing in a contact record transcript using Connect Customer conversational analytics](step-by-step-guides-pii-redaction.md)
-+ [Integrate Views with Connect Resources](integrate-views-with-connect-resources.md)
-+ [Use Step by Step Guides in Workspace for Managers](use-guides-in-manager-workspace.md)
++ [Use step-by-step guides](use-step-by-step-guides.md)
 
 ## How step-by-step guides work
 <a name="step-by-step-guided-experiences-overview"></a>

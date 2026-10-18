@@ -32,6 +32,8 @@ The **Intraday trailing performance overview** widget provides aggregated metric
 + [Abandonment rate](metrics-definitions.md#abandonment-rate)
 + [Service level](metrics-definitions.md#service-level)
 
+The **Service level** metric uses a 60-second threshold by default. You can change the threshold for this widget, independently of the other widgets, to match your service level target.
+
 The following image shows an example **Intraday trailing performance overview** widget: 
 
 ![The Intraday trailing performance overview widget showing six metrics compared to forecast.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-overview-chart.png)
@@ -53,6 +55,8 @@ The Intraday performance dashboard displays the following trend graphs, which co
 + [Effective staffing](metrics-definitions.md#effective-staffing)
 + [Service level](metrics-definitions.md#service-level)
 
+The **Service level** trend graph uses a 60-second threshold by default. To use a different threshold, edit the trend graph widget. Its threshold is independent of the threshold in the other widgets.
+
 These graphs include the intraday forecast that projects up to 24 hours on a 15 minute interval based on:
 + The value of the respective metric.
 + The historical actuals from the current day.
@@ -65,7 +69,7 @@ The following image shows an example of a **Contact volume** trend graph.
 ![The Contact volume trend graph.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-perf-trend-graph.png)
 
 
-The following image shows an example of a **Service level** trend graph. It shows the trend of the actual **Service level 60 seconds** up to the last update, and the **Intraday forecast service level 60 seconds** after it.
+The following image shows an example of a **Service level** trend graph. It shows the trend of the actual service level up to the last update, and the intraday forecast service level after it. The legend labels include the threshold, such as **Service level 60 seconds** for the default threshold. If you choose a different threshold, the labels show that value.
 
 ![The Service level trend graph showing actual and forecast service level over 24 hours.](https://docs.aws.amazon.com/connect/latest/adminguide/images/intraday-service-level-trend-graph.png)
 
@@ -93,6 +97,8 @@ The **Daily projection** widget provides a projection of how the day will end by
 + [Average queue answer time](metrics-definitions.md#average-queue-answer-time)
 + [Effective staffing](metrics-definitions.md#effective-staffing)
 + [Service level](metrics-definitions.md#service-level)
+
+The **Service level** metric uses a 60-second threshold by default. To use a different threshold, edit the **Daily projection** widget. Its threshold is independent of the threshold in the other widgets.
 
 This widget only supports comparing against short term forecasts for **Contact volume** and **Average handle time**.
 

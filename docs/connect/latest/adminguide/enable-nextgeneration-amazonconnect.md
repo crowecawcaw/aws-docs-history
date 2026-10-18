@@ -51,6 +51,7 @@ The following features are only available in Connect Customer. They are not incl
   + [Contact estimated wait time](get-queue-metrics.md#get-metrics-tips)
   + [Customer-first callbacks](customer-first-cb.md) — dials the customer first and only offers the callback to an agent if the customer answers the call
 + [Conversational analytics](analyze-conversations.md)
+  + Voice automated interaction conversational analytics in real-time
   + Email conversational analytics, including:
     + Sensitive data redaction
     + Summarization

@@ -109,34 +109,8 @@ The following table lists the languages supported by AI features in Connect Cust
 + \*\* Redaction support is only for post-call analytics and chat analytics. It is not supported for real-time call analytics.
 + † You can manually complete performance evaluations in any language. Automated performance evaluations filled using generative AI is not available in instances in the following AWS Regions: Africa (Cape Town), Asia Pacific (Mumbai), Asia Pacific (Seoul) and AWS GovCloud (US-West).
 
-### Language support for agent assist
-<a name="qic-notes-languages"></a>
-
-Following is additional information about language support for agent assist.
-
-#### Agent assistance - Proactive Intent Detection based on transcripts
-<a name="qic-agentassist-languages"></a>
-+ **Supported languages:** English, Spanish, Portuguese, French, Korean, Japanese, and Chinese
-
-agent assist uses conversational analytics and natural language understanding (NLU) to detect customer intent during calls and chats. It provides agents with real-time generative responses and suggested actions.
-
-#### Self-service
-<a name="qic-selfservice-languages"></a>
-+ **Default language:** English
-+ **Other languages:** Requires prompt customization
-
-To support languages other than English:
-
-1. Customize the self-service prompts:
-   + `SELF_SERVICE_PRE_PROCESSING`
-   + `SELF_SERVICE_ANSWER_GENERATION`
-
-1. Specify the desired language in the customized prompts.
-
-For more information on customizing prompts, see [Create AI prompts in Connect Customer](create-ai-prompts.md).
-
-#### Guardrails
-<a name="qic-selfservice-languages"></a>
+### Guardrails
+<a name="qic-guardrails"></a>
 
 Guardrails for AI agents support the same languages as Amazon Bedrock guardrails classic tier. For a complete list of supported languages, see [Languages supported by Amazon Bedrock Guardrails](https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-supported-languages.html). Evaluating text content in other languages will be ineffective.
 

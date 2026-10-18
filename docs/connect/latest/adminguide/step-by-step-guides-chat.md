@@ -1,22 +1,19 @@
 
 
-# Deploy step-by-step guides in Connect Customer chats
+# Use step-by-step guides in chats
 <a name="step-by-step-guides-chat"></a>
 
-You can enable step-by-step Guides within Connect Customer chats to create interactive, self-service experiences. This feature helps you resolve customer issues faster by gathering and transferring context to your agents. You can present the same guide that you built for your agents to customers for better configuration management. 
+You can show step-by-step guides to customers in chat for self-service. A guide collects context from the customer and passes it to the agent if the chat transfers. You can reuse a guide that you built for agents, so you maintain one guide instead of two.<a name="step-by-step-guides-chat-enable"></a>
 
-## Enable step-by-step Guides in Connect Customer chats
-<a name="step-by-step-guides-chat-enable"></a>
+1. Set up [step-by-step guides](step-by-step-guided-experiences.md) for agents. Confirm that a guide opens when a contact is offered to an agent.
 
-1. Make sure that you have enabled and configured [step-by-step Guides](step-by-step-guided-experiences.md) for agents. After you configure the guides, confirm that they pop up when a contact is reserved for an agent to answer.
+1. In your chat flow, add a [Show view](show-view-block.md) block to show the view, the same way you would for agents. In the following example, the guide starts when the customer chooses the chat bubble. The flow shows two views, then transfers the chat to an agent.  
+![A chat flow that uses the Show view block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-1.png)
 
-1. Set up your flow to invoke Views in the chat flow by using the Show View Block, in the same way that you would configure this for your agent. The following example will trigger the guide when the chat bubble is chosen by the customer. The flow will go through two views before transferring the chat to an agent.  
-![Set up your flow to invoke Views in the chat flow using Show View Block.](https://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-1.png)
+1. In the Connect Customer admin workspace, create a [communications widget](add-chat-to-website.md). Set its chat flow to the flow from step 2.  
+![A communications widget with its chat flow set to the flow from step 2.](https://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-2.png)
 
-1. Create a hosted chat widget from the admin page. Set the chat flow to the one you created.  
-![Create a hosted chat widget from the admin page. Set chat flow to the one you created..](https://docs.aws.amazon.com/connect/latest/adminguide/images/step-by-step-guides-chat-enable-2.png)
-
-   This hosted chat will generate a script similar to the following:
+   The widget generates a script similar to the following:
 
    ```
    <script type="text/javascript">
@@ -34,17 +31,17 @@ You can enable step-by-step Guides within Connect Customer chats to create inter
    </script>
    ```
 
-   The last line contains an array of allowed messages. You can add interactive messages to it to enable Guides within chat. For example:
+   The last line lists the allowed message content types. To show guides in chat, add the interactive message types. For example:
 
    ```
    amazon_connect('supportedMessagingContentTypes', ['text/plain', 'application/vnd.amazonaws.connect.message.interactive', 'application/vnd.amazonaws.connect.message.interactive.response']);                        
    ```
 
-1. Add the following to your allow list of URLs to allow step-by-step Guides to work within chat:
+1. Add the following URL to your allowlist so guides work in chat:
    + `{{your-website-url}}/views/renderer/`
 
-   If you use a CSP for the chat widget to work on your website, you should already have a cloudfront url. For example:
+   If your website uses a content security policy (CSP) for the chat widget, it already allows a CloudFront URL, such as:
    + `https://{{unique-id}}.cloudfront.net/amazon-connect-chat-interface.js`
 
 **Note**  
-You can also use Guides in chat with a custom build communications widget. For more information about adding step-by-step guides into your custom communications widget, see the [Connect Customer chat interface](https://github.com/amazon-connect/amazon-connect-chat-interface) on Github.
+You can also use guides in chat with a custom communications widget. For more information, see the [Connect Customer chat interface](https://github.com/amazon-connect/amazon-connect-chat-interface) on GitHub.

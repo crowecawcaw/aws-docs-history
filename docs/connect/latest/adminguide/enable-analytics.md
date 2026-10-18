@@ -5,7 +5,7 @@
 
 You can enable conversational analytics in a few steps:
 
-1. Enable conversational analytics on your Connect Customer instance.
+1. Check whether you need to enable conversational analytics on your Connect Customer instance. Conversational analytics is enabled by default on new instances. You only need to enable it on older instances, or on instances where it was previously disabled.
 
 1. Add a [Set recording and analytics behavior](set-recording-behavior.md) block to a flow, and configure it to enable conversational analytics for voice, chat, email, or a combination of channels.
 
@@ -35,6 +35,9 @@ For new flows, the [Set recording, analytics and processing behavior](set-record
 
 ## Important things to know
 <a name="important-set-behaviorblock"></a>
++ **Multiple analytics flow blocks**: If your flow has multiple analytics configuration flow blocks, real-time analytics for automated interactions and agent interactions use the configuration in the first analytics configuration block executed in the flow. If you configure post-call agent analytics, it will use the configuration in the last analytics configuration block executed in the flow.
+**Important**  
+Starting October 2026, automated interaction conversational analytics is transitioning from post-contact to real-time in Connect Customer instances. If you have multiple analytics configuration flow blocks, the automated interaction analytics configuration will transition from the last to the first analytics configuration flow block. Customer Basic instances will continue to have post-contact analytics for automated interactions that use the last analytics configuration flow block.
 + **Collect data after transferring a contact**: If you want to continue using conversational analytics to collect data after transferring a contact to another agent or queue, you need to add another [Set recording and analytics behavior](set-recording-behavior.md) block with **Enable analytics** enabled for the flow. This is because a transfer generates a second contact ID and contact record. Conversational analytics needs to run on that contact record as well.
 **Note**  
 For [queue-to-queue transfers](queue-to-queue-transfer.md) the configuration information for conversational analytics is copied to the transferred contact.
@@ -44,7 +47,7 @@ For [queue-to-queue transfers](queue-to-queue-transfer.md) the configuration inf
 ## Enable conversational analytics for your Connect Customer instance
 <a name="enable-cl"></a>
 
-Before you can enable conversational analytics, you first need to enable conversational analytics for your instance. 
+Conversational analytics (conversational analytics) is enabled by default on new instances. Check whether conversational analytics is already enabled for your instance. You only need to follow the steps below to enable it if you have an older instance, or if it was previously disabled. 
 
 1. Open the Connect Customer console at [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/).
 

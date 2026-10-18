@@ -14,9 +14,11 @@ When this happens, we recommend checking the information in [Step 1: Create a st
 ## Flow doesn't start
 <a name="contact-flow-not-starting"></a>
 
-If you're using the message streaming APIs in place of websockets, send a connection acknowledgment event; see [Step 4: Create the participant connection](chat-message-streaming.md#step4-chat-streaming). This is synonymous to connecting to websocket. The flow begins only after that the connection acknowledgement event.
+The flow begins only after the customer is connected. If you're using the message streaming APIs in place of websockets, send a connection acknowledgment event. This is synonymous to connecting to websocket. For instructions, see [Step 4: Create the participant connection](chat-message-streaming.md#step4-chat-streaming).
 
-Call [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) after [StartContactStreaming](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartContactStreaming.html) to mark `Customer` as connected; see [Step 3: Enable message streaming on the contact](chat-message-streaming.md#step3-chat-streaming). This ensures messages are sent after you have confirmed that the customer is ready to receive them.
+Call [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) with `ConnectParticipant` set to true to mark `Customer` as connected. This works only after streaming is enabled on the contact. For instructions, see [Step 3: Enable message streaming on the contact](chat-message-streaming.md#step3-chat-streaming). Marking `Customer` as connected ensures messages are sent after you have confirmed that the customer is ready to receive them.
+
+Setting `ChatStreamingConfiguration` on [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) does not connect the customer. Neither does a response that returns only a connection token.
 
 ## Issue not resolved?
 <a name="other-issues-message-streaming"></a>

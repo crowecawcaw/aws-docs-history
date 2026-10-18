@@ -137,7 +137,7 @@ Use **Exit upon completion** when the main purpose of the node is to collect a s
 
 In the main prompt, refer to slot names in plain language, as the placeholder syntax is empty until a value is given by the user.
 
-Good examples:
+The following examples show prompt instructions that refer to slot names in plain language:
 
 ```
 Collect the checkInDate, checkoutDate, and preferred roomType. Only
@@ -175,7 +175,7 @@ A good tool prompt should explain:
 + Any rules for using the result
 + What to do if the tool fails or returns no data
 
-Example Data request tool prompt:
+The following example shows a Data request tool prompt:
 
 ```
 Use this tool only after the user has provided an appointment date and
@@ -184,7 +184,7 @@ returned, tell the user there are no available times for that date and
 ask whether they want to try another date.
 ```
 
-Example knowledge base tool prompt:
+The following example shows a knowledge base tool prompt:
 
 ```
 Use this knowledge base to answer questions about cancellation policy,
@@ -193,7 +193,7 @@ found, do not guess. Exit through Escalation requested if the user
 needs policy confirmation from an agent.
 ```
 
-Example modality tool prompt:
+The following example shows a modality tool prompt:
 
 ```
 Use this carousel to show available appointment times after the
@@ -226,7 +226,7 @@ Use the placeholder menu by typing { in supported fields, then select the value 
 
 Use variables in the prompt when the agent needs known context.
 
-Example with context variables:
+The following example shows a prompt that uses context variables:
 
 ```
 #Important Customer Information
@@ -234,7 +234,7 @@ Example with context variables:
 - Authentication status: {authenticated}
 ```
 
-Example with a prior Data request result:
+The following example shows a prompt that uses a prior Data request result:
 
 ```
 The customer has the following active reservations: {Reservations}.
@@ -264,7 +264,7 @@ Use a Data request tool when the agent needs to call an external system.
 
 1. Save and test.
 
-Example interim message:
+The following example shows an interim message:
 
 ```
 One moment while I check your reservation.
@@ -289,7 +289,7 @@ Use a knowledge base tool when the agent needs to answer questions from approved
 
 1. Save and test.
 
-Example:
+The following example shows a knowledge base tool prompt:
 
 ```
 Use this knowledge base for questions about refund policy and
@@ -314,7 +314,7 @@ Use a modality tool when the agent should present structured UI during the task.
 
 1. Save and test.
 
-Example:
+The following example shows a modality tool prompt:
 
 ```
 Use this card after the user selects an appointment time. Populate it
@@ -415,7 +415,7 @@ You can use MCP input variables in places such as:
 + Define nodes
 + Modality payload fields
 
-Example message:
+The following example shows a message:
 
 ```
 I'll look for {location} restaurants that match your interest in {cuisine}.

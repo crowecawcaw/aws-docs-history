@@ -20,7 +20,7 @@ To access flows, select **Resources** from your workspace menu, then choose **Fl
 
 A user's intent is what they are trying to do.
 
-For example:
+The following example shows a user intent:
 
 ```
 "I want to book a room."
@@ -178,7 +178,7 @@ The most important routing field is the *AI description*.
 
 Use the AI description to explain what the flow does and when it should be used.
 
-Example:
+The following example shows a flow description:
 
 ```
 Use this flow when the user wants to update, modify, or cancel an
@@ -192,7 +192,7 @@ A strong AI description should be:
 + Written from the user's intent
 + Distinct from other flow descriptions
 
-Good examples:
+The following examples show effective flow descriptions:
 
 ```
 Use this flow when the user wants to check the status of an order.
@@ -258,7 +258,7 @@ Example input schema descriptions:
 
 Inside the MCP-enabled flow, type { in supported fields to reference MCP input variables in messages, Data request payloads, Split conditions, and other node configurations.
 
-Example message:
+The following example shows a message:
 
 ```
 I'll look for {cuisine} restaurants near {location}.
@@ -353,7 +353,7 @@ Use variables in:
 + Knowledge base questions
 + Agent instructions
 
-Example:
+The following example shows a confirmation message:
 
 ```
 Thanks, {firstName}. I found your reservation for {checkInDate}.

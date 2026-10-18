@@ -103,7 +103,7 @@ After a context variable is created, you can reference it in supported fields ac
 
 To reference a context variable, type { in a supported text field, then select the context variable from the placeholder menu.
 
-Examples:
+The following examples show how to use context variables in messages:
 
 ```
 Thanks, {customerName}. I found your claim: {claimNumber}.
@@ -161,13 +161,13 @@ When passing context from Connect Customer flow into agentic CX designer:
 + You do not need to add a system-internal prefix to the context variable name.
 + The special key `nlx_userId` does not need to be created as a context variable. When passed on the Agentic CX block, it sets {System.userId}.
 
-For example, use:
+For example, use the following variable name:
 
 ```
 claimNumber
 ```
 
-Not:
+Do not use the following:
 
 ```
 acxd_claimNumber

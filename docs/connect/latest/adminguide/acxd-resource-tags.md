@@ -84,6 +84,8 @@ Before removing a tag from multiple resources, confirm that it is no longer need
 
 ## Best practices
 <a name="acxd-resource-tags-best-practices"></a>
+
+Follow these best practices when you tag resources:
 + Use clear tag names that are easy for teammates to understand.
 + Keep tag naming consistent across the workspace.
 + Use tags to distinguish resources by environment, team, project, audience, or status.

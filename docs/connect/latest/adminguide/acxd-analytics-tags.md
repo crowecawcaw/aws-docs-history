@@ -129,6 +129,8 @@ Before deleting a tag, confirm that it is no longer needed for active reporting 
 
 ## Best practices
 <a name="acxd-analytics-tags-best-practices"></a>
+
+Follow these best practices when you use analytics tags:
 + Analytics tags only apply to conversations that occur after the tag is added to a node and deployed.
 + Tags are not applied retroactively to previous conversations.
 + A node can have more than one tag, but using one tag per node is often easier to interpret and helps avoid confusing counts.

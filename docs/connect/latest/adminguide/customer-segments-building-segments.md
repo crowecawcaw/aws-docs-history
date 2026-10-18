@@ -254,15 +254,18 @@ When you use a Spark SQL segment in a segment membership call, Flow block, or Ou
 **Note**  
 **SQL segmentation runs on Data store which has up to 10 years data. Classic segmentation uses latest data (data updated in past 3 years)**
 
+**Note**  
+Segment exports for SQL segments can contain duplicate profiles. This can occur if your SQL query does not include deduplication logic for profiles. To avoid duplicates, ensure your query uses appropriate deduplication, such as `DISTINCT` or `GROUP BY`, on profile identifiers.
+
 ### Step 1: Build a new segment
-<a name="w2aac38c53c13c15c15"></a>
+<a name="w2aac38c53c13c15c17"></a>
 
 In the Segment AI assistant, select “How to create a segment” for more guidance on creating valuable segments or “I want to generate a segment” to enter a natural language prompt to create the segment. 
 
 Alternatively, use SQL to define a new segment in the query editor. 
 
 ### Step 2: Specify a name and description
-<a name="w2aac38c53c13c15c17"></a>
+<a name="w2aac38c53c13c15c19"></a>
 
 For Name, enter a name for the customer segment to make it easy to recognize later.
 
@@ -272,7 +275,7 @@ The Amazon Connect admin website uses the entered name as the `DisplayName` of t
 For Description, optionally enter a description for the customer segment.
 
 ### Step 3: Review and validate the segment
-<a name="w2aac38c53c13c15c19"></a>
+<a name="w2aac38c53c13c15c21"></a>
 
 Review the data the Segment AI assistant used and the steps the AI model it took to generate your segment. You can also review the SQL it created to define the segment in the query editor. If it was not able to create the segment, address the feedback it provided to help it create an accurate segment. After it has generated a segment, Customer Profiles will automatically create a segment estimate for you. 
 
@@ -284,7 +287,7 @@ If you are not using the Segment AI assistant, you can validate the query and cr
 Segments powered by Spark SQL will take time depending on the amount of profile data you use in the segment and the SQL used, similar to other query engines (for example, multiple joins across objects usually take more time). 
 
 ### Step 4: Create segment
-<a name="w2aac38c53c13c15c21"></a>
+<a name="w2aac38c53c13c15c23"></a>
 
 After you have build a segment and are satisfied, select “Create segment” button on the top right. After you have created the segment, you can select Actions - exporting to .csv, using the segment in Flows and using the segment in Outbound Campaigns.
 

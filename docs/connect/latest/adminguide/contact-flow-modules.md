@@ -223,14 +223,41 @@ Following is an image of a sample customer support flow that invokes the module 
 
 To enable Flow Modules to be invoked outside of a Flow by various systems as independent execution units, expanding their utility and supporting powerful use cases with established automation tools such as Q in Connect, where AI Agents can use modules as tools to fulfill actions identified during customer service interactions, such as executing payment workflows and automated task workflows. With this approach, you can define business logic once as modules and execute it across multiple channels and contexts, ensuring consistency while reducing development overhead.
 
+Enabling external invocation makes a flow module usable as a tool. A tool is an independent execution unit that systems and applications can call from outside a flow. When you enable a module as a tool, you can reuse the business logic you built once, across multiple channels and contexts, rather than rebuilding it in each place. This is what lets the agentic CX designer call the module through a data request.
+
+Before you can select a flow module as a data request in the agentic CX designer, the module must meet all of the following conditions:
++ The module is active.
++ The module is published (it has at least one published version).
++ The module has external invocation enabled (it is saved as a tool).
+
+Only modules that meet all three conditions are available to builders in the agentic CX designer. Enabling external invocation is an action you take on the module in Connect Customer. You do not configure it from within the agentic CX designer.
+
+A module that you use as a tool can contain only supported blocks. For more information about the blocks you can use in a module as a tool, see [Module as tool supported blocks](#module-tool-supported-blocks).
+
+You can enable external invocation when you create a new module as a tool, or you can enable it on a module you already have. For more information about converting a module you already have, see [Create module as tool from existing module](#create-module-tool-from-existing).
+
 ### Create new module as tool
 <a name="create-new-module-as-tool"></a>
+
+When you create a new module as a tool, you build it with supported blocks and enable external invocation as part of saving it.
+
+**To create a new module as a tool**
+
+1. Create a flow module and add your business logic using only supported blocks. For more information about the blocks you can use, see [Module as tool supported blocks](#module-tool-supported-blocks).
+
+1. Enable external invocation for the module by choosing **Save as tool**.
+
+1. Publish the module so that a published version is available.
+
+After the module is active, published, and saved as a tool, it appears in the module picker when you create a data request in the agentic CX designer.
 
 ![Create new module as tool interface.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-create-new.png)
 
 
 ### Create module as tool from existing module
 <a name="create-module-tool-from-existing"></a>
+
+You do not have to create a new module to use it as a tool. You can enable external invocation on a module you already have. When you convert an existing module, Connect Customer shows you which of its blocks are not supported in a module as a tool. For more information about the blocks you can use, see [Module as tool supported blocks](#module-tool-supported-blocks).
 
 ![Create module as tool from existing module interface.](https://docs.aws.amazon.com/connect/latest/adminguide/images/module-as-tool-from-existing.png)
 
@@ -281,3 +308,13 @@ When you are creating a new tool module, you will only see supported list of blo
 | SetWhisperFlow | 
 | SetWisdomAssistant | 
 | TagContact | 
+
+### Security considerations for external invocation
+<a name="external-invocation-security"></a>
+
+**Important**  
+When you enable external invocation on a flow module, that module becomes invocable by any agentic CX designer builder in your Connect Customer instance, regardless of that builder's flow module permissions in Connect Customer. Your Connect Customer instance authorizes invocation at the instance level. Treat enabling external invocation as an explicit decision to make the module's logic available for reuse across the instance.
+
+A flow module can take real actions on behalf of a caller. For example, it can process a payment or perform an authentication. For this reason, enable external invocation deliberately, and only on modules you intend to reuse as tools. Do not save a module as a tool unless you intend to share it.
+
+To limit which data requests a builder can work with, you can use custom security profiles (custom roles) that are scoped to specific data requests. This scoping applies to the data requests themselves. It does not change the instance-level scope of a module's external invocation.

@@ -177,6 +177,8 @@ If you are skipping the out-of-the-box Chat UI or agent workspace, you can use t
 
 We recommend enabling attachment scanning to meet compliance requirements or security policies that your organization might have in place for file sharing. For more information, see [Set up attachment scanning in Connect Customer](setup-attachment-scanning.md).
 
+After attachments are enabled, agents can preview them in the agent workspace without downloading them. For more information, see [Preview attachments in the agent workspace](preview-attachments.md).
+
 ## Attachments not appearing?
 <a name="problems-enabling-attachments"></a>
 

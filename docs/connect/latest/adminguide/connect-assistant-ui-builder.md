@@ -108,7 +108,7 @@ Instead of manually configuring conditions in the UI conditions tab, you can des
 
 1. Components with conditions applied are outlined in dashed lines on the canvas, consistent with manually created conditions.
 
-For more information about UI conditions, see [Build conditional UIs with Views](ui-conditions-on-views.md).
+For more information about UI conditions, see [Build conditional UIs with views](ui-conditions-on-views.md).
 
 ## Get recommendations and explanations
 <a name="connect-assistant-ui-builder-recommendations"></a>

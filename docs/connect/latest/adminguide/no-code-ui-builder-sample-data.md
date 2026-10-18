@@ -1,14 +1,14 @@
 
 
-# Use sample data to preview your view in Connect Customer
+# Use sample data to preview your view
 <a name="no-code-ui-builder-sample-data"></a>
 
-You can use sample data to see what the view will look like to the user. You can even see data fields that are dynamically determined at runtime. When a field is set to dynamic (the lightning bolt is selected), sample data can be entered in the input field under the **Sample Data** section of that property. This sample data is for view purposes only. It appears only in the Connect Customer UI builder.
+Use sample data to preview how a view looks to users, including fields that get their values at runtime. When you set a field to dynamic (the lightning bolt is selected), enter sample data in the property's **Sample Data** section. Sample data appears only in the UI builder.
 
-For example, the following image shows an example of a **Mailing address form**.
+The following image shows a **Mailing address form**.
 
 ![The DefaultValue and Sample data sections of the Customize panel.](https://docs.aws.amazon.com/connect/latest/adminguide/images/no-code-ui-builder-sample-data-example.png)
 
-+ **Street address** is a dynamic default value. It is populated at runtime by the address found in the customer profile.
-+ To see how the final UI appears to the agent, you can enter a text default value. 
-+ The value `7 W 34th St` is for display purposes only in the Connect Customer admin website. It does not appear to the agent.
++ **Street address** is a dynamic default value. At runtime, it fills in with the address from the customer profile.
++ To preview how the field looks to users, enter sample data.
++ The value `7 W 34th St` appears only in the UI builder. Users don't see it.

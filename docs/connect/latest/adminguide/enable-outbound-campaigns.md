@@ -7,7 +7,7 @@ This topic explains how to set up Connect Customer outbound campaigns, a feature
 
 ## Important things to know
 <a name="important-things-to-know-oc"></a>
-+ The phone numbers that outbound campaigns can call are based on the AWS Region where your Connect Customer instance is created. For a list of AWS Regions and countries, see [Outbound campaigns](regions.md#campaigns_region) in the *Availability of Connect Customer services by Region* topic. 
++ The phone numbers that outbound campaigns can call are based on the AWS Region where your Connect Customer instance is created. For a list of AWS Regions and countries, see [Outbound Campaigns availability by Region](regions.md#campaigns_region) in the *Availability of Connect Customer services by Region* topic. 
 + You must obtain pre-authorization by creating an AWS Support ticket to use Connect Customer outbound campaigns for event-driven mass notifications, such as severe weather warnings, evacuation notices, disaster response communications, or utility disruptions that impact several thousand of customers. 
 
    This review process helps ensure the reliable delivery of these critical messages while maintaining service quality for all customers. While we might support these use-cases, they require additional technical validation due to their unique nature and implications, such as the impact on carrier networks for voice or SMS communications. 

@@ -5,8 +5,36 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox. Choose the **RSS** link (under the topic title **Release notes**), and then copy the URL (it ends with `doc-history.xml.rss`) into your RSS reader. For example, you can subscribe to an RSS feed in Outlook.
 
+## October 2026 Updates
+<a name="oct26-release-notes"></a>
+
+### Amazon Connect Customer now prefills step-by-step guides for after contact work
+<a name="oct26-acw-guide-prefill"></a>
+
+Amazon Connect Customer can now fill in the step-by-step guides that agents complete after a contact, using information extracted from customer conversations, such as booking identifiers, claim numbers, and conversation summaries. Managers can set which information populates each form field. Agents can review and submit rather than manually typing in each field, saving time and improving data accuracy during after contact work.
+
+For more information, see [Prefill guides for after contact work using conversational analytics](https://docs.aws.amazon.com/connect/latest/adminguide/integrate-views-conversational-analytics.html).
+
 ## September 2026 Updates
 <a name="sep26-release-notes"></a>
+
+### Amazon Connect Customer now supports invoking a flow module as a data request in the agentic CX designer
+<a name="sep26-flow-module-data-request"></a>
+
+With Connect Customer, you can now invoke an Connect Customer flow module as a data request in the agentic CX designer. This lets a conversational AI application reuse existing flow module logic during a voice or chat conversation instead of rebuilding that logic. For example, a data request can call a flow module that looks up a customer's account details and returns the result to the conversation.
+
+For more information, see [Data requests](https://docs.aws.amazon.com/connect/latest/adminguide/acxd-data-requests.html).
+
+Available in US East (N. Virginia), US West (Oregon), Asia Pacific (Tokyo), Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney), Canada (Central), Europe (Frankfurt), and Europe (London).
+
+### Amazon Connect Customer now lets agents preview attachments in the agent workspace
+<a name="sep26-attachment-preview"></a>
+
+Agents can now preview attachments on an email contact, a chat contact, or a case directly in the Connect Customer agent workspace, without downloading them to their device. Previewing reduces the risk of customer files being retained on agent machines, and it is faster than a download-then-open round trip. PDF, image, and common text file types are rendered inline. Any other file type is shown with its details and a download button, and can still be downloaded as usual.
+
+Preview requires no configuration beyond enabling attachments for your instance. For more information, see [Preview attachments in the agent workspace](https://docs.aws.amazon.com/connect/latest/adminguide/preview-attachments.html) in the Connect Customer Administrator Guide.
+
+Available in the AWS Regions where Connect Customer is offered.
 
 ### Connect Customer Global Resiliency now routes contacts across two active AWS Regions
 <a name="sep26-global-routing-acgr"></a>
@@ -52,6 +80,19 @@ Connect Customer now supports Malay for generative AI performance evaluations of
 For more information, see [generative AI performance evaluations](https://docs.aws.amazon.com/connect/latest/adminguide/generative-ai-performance-evaluations.html).
 
 Available in the AWS Regions where Connect Customer performance evaluations are offered.
+
+### Connect Customer now returns chat connection information from StartChatContact
+<a name="sep26-startchatcontact-inline-connection"></a>
+
+With Connect Customer, you can now get a chat participant's connection information in the same call that starts the chat. Request the connection types you want on `StartChatContact`, and the response returns a websocket URL, a connection token, or both. Requesting a websocket URL saves your back end a round trip. Your client connects to that URL instead of calling `CreateParticipantConnection` to connect the participant. Your customers wait less time before the chat window is ready to use.
+
+The same request can also start real-time message streaming. Supply a streaming configuration, and the response returns a streaming identifier. Your back end does not call `StartContactStreaming`.
+
+Both request members are optional, so existing chat integrations are unaffected.
+
+For more information, see the [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html) API.
+
+Available in all AWS Regions where Connect Customer is offered.
 
 ## August 2026 Updates
 <a name="aug26-release-notes"></a>
@@ -2284,7 +2325,7 @@ conversational analytics enables you to automatically fill and submit evaluation
 #### Connect Customer allows you to create rich, interactive chat experiences for customers using step-by-step guides
 <a name="guides-in-chat-mar24"></a>
 
-Connect Customer allows you to create rich, interactive chat experiences for customers using step-by-step guides, that help resolve issues faster and improve the customer experience. For more information, see [Deploy step-by-step guides in Connect Customer chats](step-by-step-guides-chat.md).
+Connect Customer allows you to create rich, interactive chat experiences for customers using step-by-step guides, that help resolve issues faster and improve the customer experience. For more information, see [Use step-by-step guides in chats](step-by-step-guides-chat.md).
 
 #### Connect Customer agent workspace supports third-party applications in general availability
 <a name="3p-ga-mar24"></a>

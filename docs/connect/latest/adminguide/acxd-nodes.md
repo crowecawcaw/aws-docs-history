@@ -279,6 +279,12 @@ After the request succeeds, reference returned values by typing { in supported f
 | **Timeout** | The request did not respond before the timeout. | 
 | **In progress** | Optional path used while the request is still resolving to deliver a message. Link path back to the data request. | 
 
+The data request node has a **Mode** setting that controls whether the conversation waits for the request to finish before continuing. **Mode** has two options, **Synchronous** and **Asynchronous**, and is available on voice and chat.
+
+In **Synchronous** mode, the conversation turn waits for the request to resolve, and the node routes the conversation on its result by using the **Success**, **Failure**, and **Timeout** paths.
+
+In **Asynchronous** mode, the request runs on a background path and the conversation turn continues without waiting, so the result becomes available on a later turn. In this mode, the node replaces the **Success** and **Failure** paths with a single **Next** path. The **In progress** path still applies. Because there is no **Failure** path in asynchronous mode, plan how a later turn reads the result and how the conversation responds when the result is missing or indicates a failure.
+
 ## Knowledge base node
 <a name="acxd-nodes-knowledge-base"></a>
 

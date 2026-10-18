@@ -66,7 +66,7 @@ Best for:
 + Search results
 + Return or exchange options
 
-Example carousel schema:
+The following example shows a carousel schema:
 
 ```
 [
@@ -94,7 +94,7 @@ Best for:
 + Account or profile previews
 + Important next-step information
 
-Example card schema:
+The following example shows a card schema:
 
 ```
 {
@@ -140,7 +140,7 @@ The Video modality takes two payload values.
 | url | Yes | The URL of the video file to play, such as an MP4. | 
 | previewImageUrl | No | The URL of an image shown in the player as a preview (poster) frame before the user plays the video. | 
 
-Example video payload:
+The following example shows a video payload:
 
 ```
 {

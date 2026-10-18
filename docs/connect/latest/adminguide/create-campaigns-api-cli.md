@@ -5,6 +5,9 @@
 
 You can create and manage outbound campaigns programmatically using the AWS CLI or the [Amazon Connect Outbound Campaigns API](https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Outbound_Campaigns_V2.html). This topic explains how to create a Connect Customer outbound campaign, define campaign flows, and reference lifecycle commands using the CLI.
 
+**Note**  
+We recommend using the V2 API to create campaigns, which is available in all AWS Regions where outbound campaigns is supported. The capabilities described on this page are available only through the V2 API.
+
 ## Prerequisites
 <a name="create-campaigns-api-cli-prereqs"></a>
 

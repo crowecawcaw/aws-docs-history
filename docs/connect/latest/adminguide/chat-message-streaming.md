@@ -25,6 +25,11 @@ This topic describes how to set up real-time message streaming using Connect Cus
 
 1. Call the [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) API to create the participant's connection.
 
+**Move message streaming and participant connection into StartChatContact**  
+When you create the chat, you can move some of this work into [Step 2: Initiate the chat contact](#step2-chat-streaming). Two optional members on `StartChatContact` do this: `ChatStreamingConfiguration` and `ConnectionTypes`. They are independent. Set one, both, or neither.  
+Set `ChatStreamingConfiguration` and you can skip [Step 3: Enable message streaming on the contact](#step3-chat-streaming). Connect Customer starts message streaming when it creates the chat. The response returns `StreamingId`.  
+Set `ConnectionTypes` to `WEBSOCKET` and you can skip [Step 4: Create the participant connection](#step4-chat-streaming). The response returns a websocket URL, and your client connects to it. A response that returns only a connection token does not connect the participant, so that step still applies.
+
 ## Step 1: Create a standard SNS topic
 <a name="step1-chat-streaming"></a>
 
@@ -34,7 +39,7 @@ This topic describes how to set up real-time message streaming using Connect Cus
 **Note**  
 Currently, the message streaming APIs only support standard SNS for real-time streaming of messages. They don't support [Amazon SNS FIFO (first in, first out) topics](https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html). 
 
-1. After you create the topic, its Amazon Resource Name (ARN) is displayed in the **Details** section. Copy the topic ARN to the clipboard. Use the topic ARN in the next step and in [Step 3: Enable message streaming on the contact](#step3-chat-streaming). 
+1. After you create the topic, its Amazon Resource Name (ARN) is displayed in the **Details** section. Copy the topic ARN to the clipboard. Use the topic ARN in the next step and in [Step 3: Enable message streaming on the contact](#step3-chat-streaming). If you set `ChatStreamingConfiguration` when you create the chat, use the topic ARN there instead. 
 
    The topic ARN looks similar to the following example: 
 
@@ -170,13 +175,16 @@ This prevents a [cross-service confused deputy](cross-service-confused-deputy-pr
 
     A single SNS topic ARN might be used across multiple AWS accounts, but it must be in the same Region as your Connect Customer instance. For example, if your topic ARN is in **us-east-1**, your Connect Customer instance must be in **us-east-1**.
   + For initial chat messages that aren't received on the streaming endpoint, you can call the [GetTranscript](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_GetTranscript.html) API to receive the initial messages.
+  + You can skip this step (enabling message streaming) if you set `ChatStreamingConfiguration` on [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html). When you create the chat, Connect Customer starts message streaming and the response returns `StreamingId`.
 
 ## Step 4: Create the participant connection
 <a name="step4-chat-streaming"></a>
 + Call [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) with the `ConnectParticipant` attribute passed as true. 
   + You must call [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) within five minutes of creating the chat.
   + Calling [CreateParticipantConnection](https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html) with `ConnectParticipant` set to true only works if you enabled streaming in [Step 2: Initiate the chat contact](#step2-chat-streaming) and caller participant is `Customer`.
-  + This step (creating the participant connection) is optional if you have already successfully connected to the chat contact using `WEBSOCKET`.
+  + You can skip this step (creating the participant connection) if you have already connected to the chat contact using `WEBSOCKET`, including a websocket URL returned by [StartChatContact](https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html).
+
+    Requesting only `CONNECTION_CREDENTIALS` does not connect the participant. Setting `ChatStreamingConfiguration` does not make this step optional. In both cases, this step still applies.
 
 ## Next steps
 <a name="nextsteps-chat-streaming"></a>

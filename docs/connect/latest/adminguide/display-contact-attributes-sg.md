@@ -1,11 +1,11 @@
 
 
-# Display contact context in the agent workspace when a contact begins in Connect Customer
+# Display contact information in the agent workspace when a contact begins
 <a name="display-contact-attributes-sg"></a>
 
-When you design step-by-step guides for the agent workspace, you can set them up to display contact attributes at the start of the contact. This gives agents the context they need at the start of the contact so they can dive right into problem solving. This feature is sometimes referred to as a screen pop. 
+A step-by-step guide can show contact attributes to the agent when a contact starts. This gives agents the context they need before the conversation begins. This pattern is also called a screen pop.
 
-To display contact attributes at the start of a contact, you configure a **Detail view**, which is an [AWS managed view](view-resources-managed-view.md). 
+To show contact attributes, configure a **Detail view**, an [AWS managed view](view-resources-managed-view.md).
 
 The **Detail view** shows information and a list of actions the user can take. For example, use it for a screen pop at the start of a call.
 + Actions can move the user to the next step in a step-by-step guide or start a new workflow.

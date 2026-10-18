@@ -25,7 +25,7 @@ This topic explains how to create a form and configure automation using the Conn
   + [Step 5.2: Point-based scoring](#step-assignscores-pointbased)
   + [Step 5.3: Assign performance thresholds](#step-assignscores-performance-thresholds)
 + [Step 6: Enable automated evaluations](#step-automate)
-  + [Choose a Gen AI version for automated evaluations](#step-automate-genai-version)
+  + [Choose a Gen AI model version for automated evaluations](#step-automate-genai-version)
 + [Step 7: Preview the evaluation form](#step-preview)
 + [Step 8: Assign weights for final score](#step-weights)
   + [Weight distribution mode](#weight-distribution-mode)
@@ -358,36 +358,33 @@ After an evaluation form is activated with automation configured on some of the 
 
 1. Upon activation you will be asked to create a rule in conversational analytics that submits an automated evaluation. For more information, see [Create a rule in conversational analytics that submits an automated evaluation](contact-lens-rules-submit-automated-evaluation.md). With the rule, you can specify which contacts should be automatically evaluated using the evaluation form.
 
-### Choose a Gen AI version for automated evaluations
+### Choose a Gen AI model version for automated evaluations
 <a name="step-automate-genai-version"></a>
 
-When you enable automated evaluations, Connect Customer uses generative AI to suggest answers for the automated questions on the form. The Gen AI configuration behind those suggestions improves over time as Connect Customer ships refined prompts and upgrades the underlying model. By default, a form automatically uses the latest generally available Gen AI version, so your automated evaluations benefit from these improvements without any action on your part.
+When you enable automated evaluations, Connect Customer uses generative AI to automatically fill answers to questions on the form. Each automated evaluation uses a specific Gen AI model version — the generative AI model, the prompts, or any other configurations. By default, an evaluation form uses the latest generally available Gen AI model version, so your automated evaluations benefit from the latest models and optimal configurations, without requiring any action on your part.
 
-**Note**  
-Gen AI version selection is not available to customers on Amazon Connect Customer Basic.
+If you want more control, choose the Gen AI model version the form uses. On the evaluation form builder, choose the **Additional settings** tab. In the **Gen AI model version** section, choose one of the following options.
 
-If you want more control, choose the Gen AI version the form uses. On the evaluation form builder, choose the **Additional settings** tab. In the **Gen AI version** section, choose one of the following options.
-
-![The Gen AI version section on the Additional settings tab, showing the Latest, Preview, and Specific version options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-genai-version-selector.png)
+![The Gen AI model version section on the Additional settings tab, showing the Latest, Preview, and Specific version options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-genai-version-selector.png)
 
 
 **Latest**  
-Automatically upgrade to the latest Gen AI version for automating evaluations. This is the default. When Connect Customer promotes a new version to latest, forms set to **Latest** move to it automatically so you always benefit from the most recent improvements.
+Automatically upgrade to the latest Gen AI model version for automating evaluations. This is the default. When Connect Customer promotes a new model version to latest, forms set to **Latest** move to it automatically so you always benefit from the most recent improvements.
 
 **Preview**  
-Try automated evaluations with an upcoming Gen AI version so you can make adjustments before the preview version becomes the latest. If no version is currently in preview, the form uses the latest version.
+Try automated evaluations with an upcoming Gen AI model version. This enables you to check if your evaluation criteria is being correctly interpreted by the upcoming Gen AI model version, and make adjustments to your evaluation forms if needed, before the Preview model version becomes the Latest. If no Preview version is available, then this uses the Latest version.
 
 **Specific version**  
-Continue using a specific version until it reaches end of life. Choose this option for predictable automation. If your chosen version reaches end of life, the form automatically uses the latest version.
+Continue using a specific model version until it reaches end of life. Choose this option for predictable automation. If your chosen version reaches end of life, the form automatically uses the latest version.
 
-When you choose **Specific version**, choose a version from the dropdown list. Each entry shows the version name and the date it was released, and a badge indicates the version's state. The versions that are available depend on your form type and your account's enrollment in cross-Region inference. The following tables describe the available versions.
+When you choose **Specific version**, choose a version from the dropdown list. Each entry shows the version name and the date it was released, and a badge indicates the version's state. The versions that are available depend on your form type, your AWS Region, and your account's enrollment in cross-Region inference. The following tables describe the available versions.
 
 ![The Specific version dropdown expanded, listing available versions with their release dates and state badges.](https://docs.aws.amazon.com/connect/latest/adminguide/images/evaluationforms-genai-specific-version.png)
 
 
 Versions that have reached end of life appear dimmed and cannot be selected for a new form version.
 
-**Agent evaluation versions** — available for agent evaluation forms when your account is enrolled in cross-Region inference.
+**Agent evaluation model versions** — available for agent evaluation forms when your account is enrolled in cross-Region inference.
 
 
 | Version | State | What changed | 
@@ -396,7 +393,16 @@ Versions that have reached end of life appear dimmed and cannot be selected for 
 | AGENT\_EVALUATION\_2026-04-16 | Latest | Reduces the rate of automated evaluations that fail to generate a suggested answer, so more questions receive an automated suggestion. | 
 | AGENT\_EVALUATION\_2025-12-03 | Active | The first version with the model upgrade. | 
 
-**Automated interaction (self-service) evaluation versions** — available for automated interaction evaluation forms when your account is enrolled in cross-Region inference.
+**In-Region model versions for agent evaluations** — available only to customers that have opted out from using cross-Region inference for Connect Customer generative AI capabilities. These model versions are offered in the Europe (London) and Asia Pacific (Singapore) Regions.
+
+
+| Version | State | What changed | 
+| --- | --- | --- | 
+| AGENT\_EVALUATION\_IN\_REGION\_2026-10-08 | Latest | Latest in-Region version. Adjusts how strictly the model scores answers, so that automated suggestions are less strict where earlier versions were too harsh, improving agreement with human evaluators on borderline answers. | 
+| AGENT\_EVALUATION\_IN\_REGION\_2026-10-07 | Active | Reduces the rate of automated evaluations that fail to generate a suggested answer, so more questions receive an automated suggestion and fewer are left unanswered. | 
+| AGENT\_EVALUATION\_IN\_REGION\_2026-10-06 | Active | The first in-Region version. Introduces agent evaluation on an in-Region model so accounts not enrolled in cross-Region inference can use Gen AI automated evaluations. | 
+
+**Automated interaction (self-service) evaluation model versions** — available for automated interaction evaluation forms when your account is enrolled in cross-Region inference.
 
 
 | Version | State | What changed | 
@@ -405,7 +411,7 @@ Versions that have reached end of life appear dimmed and cannot be selected for 
 | SELF\_SERVICE\_EVALUATION\_2026-03-18 | Latest | The initial Gen AI version for automated interaction evaluations. | 
 
 **Note**  
-The Gen AI versions available to you depend on your form type, your AWS Region, and your account's enrollment in cross-Region inference. If no versions are available for your form's context, the version selector does not list any versions, and the form uses the latest version that Connect Customer resolves at evaluation time.
+The Gen AI model versions available to you depend on your form type, your AWS Region, and your account's enrollment in cross-Region inference. If only one version is available for your form's context, the version selector does not list any versions, and the form uses the latest version that Connect Customer provides.
 
 The Gen AI version you choose is saved on the form version when you save the form, and it applies to that form version for its lifetime. You can change the selection while a form version is in **Draft**; after a form version is activated, its Gen AI version selection is fixed. To move a form to a different version, create a new form version and choose the version you want. Forms created before this feature was available do not have a selection, and Connect Customer uses the latest version for them at evaluation time.
 

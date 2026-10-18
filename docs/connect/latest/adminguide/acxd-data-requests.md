@@ -62,7 +62,7 @@ For example, a scheduling flow may collect a user's preferred date, send it to a
 
 1. Add a description.
 
-1. Select the implementation (static, external, or MCP).
+1. For **Implementation**, select the implementation type (static, external, Model Context Protocol (MCP), or Connect flow module).
 
 1. Define the request/response model, or MCP tools.
 
@@ -82,7 +82,7 @@ Examples:
 
 The **Implementation** tab defines what happens when the data request is called.
 
-A data request can use one of three implementation types:
+The following table describes the four implementation types.
 
 
 |  |  | 
@@ -90,6 +90,7 @@ A data request can use one of three implementation types:
 | **Static** | Returns a fixed response. Use this for prototyping, testing flow logic, or building before an endpoint is ready. | 
 | **External** | Calls a configured external endpoint using an HTTP method, URL, headers, parameters, and request/response models. Use this for traditional API or webhook calls. | 
 | **MCP** | Connects to an MCP server endpoint and syncs available tools so they can be reviewed, enabled, and used from the data request resource. Use this when the external service exposes tool-based capabilities through MCP. | 
+| **Connect flow module** | Invokes a published flow module in your Connect Customer instance and returns its output to the conversation. Use this type to reuse conversation logic you already built and govern in Connect Customer, instead of building and maintaining an external endpoint. | 
 
 Use a *Static* implementation when you want the data request to return sample data without calling an external system.
 
@@ -144,6 +145,93 @@ For external or MCP implementations, dynamic headers can let you adjust header v
 Use dynamic headers when a header value may change based on the flow, environment, or context.
 
 For sensitive or reusable values, such as API keys, bearer tokens, or authorization headers, use Secrets instead of entering the value directly.
+
+Use a *Connect flow module* implementation when a data request should call a published flow module in your Connect Customer instance. A flow module packages conversation logic that you author, version, and govern in Connect Customer. With this implementation type, agentic CX designer invokes that logic during a conversation and returns its output to your application. You reuse governed logic instead of standing up and maintaining an external endpoint.
+
+When you configure a *Connect flow module* implementation, you select and review the following items:
++ The published flow module to invoke
++ The module version
++ The read-only request and response models
++ An optional mock response used for testing
+
+**Important**  
+Before a flow module appears in agentic CX designer, an administrator must publish the module and enable external invocation for it in Connect Customer. You can select only modules that an administrator has published and enabled for external invocation. For instructions on preparing a module, see [Create module as tools](contact-flow-modules.md#create-module-as-tools).
+
+When you configure the implementation, you choose a module version. Choose **Latest** to always use the current published version of the module. When you republish the module, the data request uses the new current version. Choose a specific version number to pin the data request to that exact version. The data request keeps using that version even after you republish the module.
+
+For a *Connect flow module* data request, the request and response models are read-only. These models derive from the module's input and output parameters, which you edit in Connect Customer. You cannot change the fields of these models in agentic CX designer. The only setting you can edit here is each field's sensitivity.
+
+**To configure a Connect flow module data request**
+
+1. For the implementation method, choose **Connect flow module**.
+
+1. For the module, choose **Select Connect flow module**, then choose a module from the list.
+
+   Only modules that are published and externally invocable appear in the list. A module that is not published, or that is not externally invocable, does not appear in the list. If you expect a module and cannot find it, prepare it as described in the prerequisites, then reopen the list.
+
+1. For the version, choose **Select version**, then choose **Latest** or a specific version number.
+
+1. Review the read-only request and response models.
+
+1. (Optional) For **Mock response**, enter valid JSON. The data request uses the mock response only when you test it.
+
+   When you test the data request in the resource editor, on the canvas, or on the application page, agentic CX designer returns this mock response and never invokes the live module. A flow module runs only in a real conversation. Author a mock response that matches the shape of the module's response model so that your tests exercise realistic data.
+
+After you configure the implementation, add the data request to a flow so your conversation can call the module and use its results. This procedure adds a data request node that calls the module and makes the returned data available to later nodes.
+
+Before you start, configure the *Connect flow module* implementation for the data request, including the module, version, and models. For instructions on preparing a module in Connect Customer, see [Create module as tools](contact-flow-modules.md#create-module-as-tools).
+
+The **Payload** editor is bound to the module's declared input schema. It marks required fields.
+
+**To use the data request in a data request node**
+
+1. Add a data request node and select the *Connect flow module* data request you configured.
+
+1. In the **Payload** editor, map the values to send to the module. Provide a value for each required field, either a literal value or a reference to conversation data.
+
+1. For **Output variable**, enter a name for the variable that receives the module's result.
+
+1. Reference the fields of the output variable in later nodes to use the returned data downstream in the conversation.
+
+**Important**  
+Saving a *Connect flow module* data request validates only the shape of the request. For example, it checks that the mock response is valid JSON and that field values are within their limits. Saving does not verify that the referenced module exists, is published, or is externally invocable.  
+Saving accepts a reference to a module that is missing or ineligible. The reference fails during a live conversation, when the module cannot be invoked. Confirm that the module is published and externally invocable before you rely on the data request in production.
+
+The following limits apply to a *Connect flow module* data request.
+
+
+| Field | Constraint | 
+| --- | --- | 
+| **Connect flow module** | Required. The module identifier is 1 to 256 characters. | 
+| **Version** | Optional. Defaults to **Latest**. A specific version is an integer of 1 or greater. | 
+| **Mock response** | Optional. Up to 200,000 characters. Must be valid JSON. Used only when you test the data request. | 
+| **Payload** | Optional. Bound to the module's input schema. The serialized request payload is 1 to 60,000 characters. | 
+| **Output variable** | Required. A local variable name that receives the module's result. | 
+
+The module's response is limited to 1 MiB (1,048,576 bytes). If a response is larger than this limit, agentic CX designer rejects it instead of truncating it, and the data request takes the failure path. Because the limit is measured in bytes, a response that contains multi-byte characters reaches the limit with fewer characters.
+
+Use a mock response that matches the shape of the module's response model so that your tests behave like a real invocation. The following JSON mock response returns an order status:
+
+```
+{
+  "orderStatus": "SHIPPED",
+  "estimatedDelivery": "2026-10-02",
+  "carrier": "ExampleCarrier"
+}
+```
+
+When you test the data request, agentic CX designer returns this response instead of invoking the module. To reference a field of this result downstream, use the output variable name. For example, if the output variable is named `orderLookup`, reference `orderLookup.orderStatus`.
+
+In the **Payload** editor, map each required input field to a literal value or to conversation data. In the following example, replace `A12345` and `C67890` with your own order and customer identifiers.
+
+The following JSON payload maps two values to the module's declared input fields:
+
+```
+{
+  "orderId": "A12345",
+  "customerId": "C67890"
+}
+```
 
 ## Request model
 <a name="acxd-data-requests-request-model"></a>
@@ -330,6 +418,49 @@ Example:
 
 A rescheduling agent may collect the user's preferred date, call a data request to retrieve availability, ask the user to choose a time, then call another data request to update the appointment.
 
+## Synchronous and asynchronous data requests
+<a name="acxd-data-requests-async"></a>
+
+On the data request node, the **Mode** control sets whether the conversation waits for the data request to finish. **Mode** has two options: **Synchronous** and **Asynchronous**. This setting is available on voice and chat.
+
+In **Synchronous** mode, the conversation turn waits for the data request to resolve before it continues. The node routes the conversation on its result. For example, it can route along a success, failure, or timeout path.
+
+In **Asynchronous** mode, the data request runs on a background path and the conversation turn continues without waiting. The result becomes available on a later turn.
+
+Asynchronous mode removes the success and failure edges from the node. Because there is no failure edge in asynchronous mode, you must design failure handling differently. Plan how a later turn reads the result, and how the conversation responds when the result is missing or indicates a failure.
+
+You can add an **In progress** edge to deliver a message while the request is still resolving. When you use the **In progress** edge, set a **Wait time** from 0 to 30,000 milliseconds. The conversation follows the **In progress** edge to deliver your message, then returns to the data request.
+
+## Resolve flow module data request errors
+<a name="acxd-data-requests-troubleshooting"></a>
+
+Use the following table to resolve the messages you might see when you configure a *Connect flow module* data request in agentic CX designer, or when a data request fails during a conversation. Some messages appear in the designer while you build. Others reach you as the failure reason on a data request that failed during a live conversation. The symptom column shows the message text where a message exists. The cause and remediation help you correct the underlying configuration.
+
+
+| Symptom | Cause | What to do | 
+| --- | --- | --- | 
+| Save error: **You must select a compatible flow module** | The selected module is not published, or it is not enabled for external invocation. | In Connect Customer, publish the module and enable it as a tool. Then return to the data request and select the module again. | 
+| Notice: **Connect flow module not published** | The referenced module has no published version. | Publish a version of the module in Connect Customer. | 
+| Notice: **External invocation disabled**, with the link **How to enable external invocation** | The module is not saved and published as a tool, so it cannot be invoked from outside a flow. | Enable external invocation on the module in Connect Customer. For instructions, see [Create module as tools](contact-flow-modules.md#create-module-as-tools). | 
+| Drift banner: **Out of date**, with text about parameters that have changed since the models were last synced, and a **Re-sync** button | The module's input or output parameters changed in Connect Customer after the request and response models were last synced. | Choose **Re-sync**. Then review your mapped inputs and outputs, because a parameter might have been added, removed, or renamed. | 
+| Mock editor error: **Invalid response** | The mock response does not match the response model. | Edit the mock response so that it matches the fields and types in the response model. | 
+| Save or test error: **Invalid JSON mock response.** or **The mock response of this flow module data request is not valid JSON.** | The mock response is not valid JSON. | Enter valid JSON for the mock response. | 
+| Empty state: **No Connect flow modules available** or **There are no Connect flow modules in your Connect Customer instance yet…** | Your instance has no modules that qualify, or no modules at all. | In Connect Customer, create a module, publish it, and enable it as a tool. | 
+| A module you expect is missing from the module list | The module is not published, or it is not enabled for external invocation. Modules that do not qualify do not appear in the list. | In Connect Customer, publish the module and enable it as a tool. After the module qualifies, it appears in the list. | 
+| Canvas warning: **Data request not found.** | The data request that the node references was deleted or is missing. | Recreate the data request, or select a different data request on the node. | 
+| A data request saves without error but fails only during a live conversation | Saving validates the shape of your configuration. It does not check that the module exists, that your instance owns it, that it is published, or that it is enabled for external invocation. | Confirm that the module exists in your instance, is published, and is enabled as a tool. | 
+| Failure reason: **Flow module request could not be built** | The request payload is outside the allowed size, or an input mapping is missing required context. | Reduce or correct the request payload, and check your input mapping against the module's required inputs. | 
+| Failure reason: **flow module response exceeds the 1,048,576-byte limit** | The module returned a response larger than 1 MiB. The response is rejected, not truncated. | Reduce the size of the data that the module returns. | 
+| Failure reason: **flow module response did not match its declared schema** | The module's output does not match the declared response model. | Change the module so that its output matches the declared response model. | 
+| Failure reason: **flow module orchestration** followed by a status (for example, `TIMED_OUT` or `FAILED`), or the module's own error details | The module did not finish successfully. | Handle the failure edge on the data request node, and review the module's own error handling. | 
+| Failure reason: **Flow module invocation throttled: request rate exceeded** | The synchronous request rate for the instance was exceeded. | Reduce the request rate, then retry. | 
+| Failure reason: **Flow module invocation throttled: too many concurrent requests** | Too many asynchronous requests ran at the same time. | Reduce the number of concurrent requests, then retry. | 
+| Failure reason: **Flow module endpoint could not be resolved** | The module's endpoint could not be resolved. This can happen after your Connect Customer account is migrated. | Contact AWS Support. This condition can persist, so retrying does not resolve it. | 
+| Failure reason: **Flow module invocation failed** or **Failed to trigger async flow module invocation** | The invocation, or the asynchronous dispatch, failed. | Handle the failure edge on the data request node, then retry. | 
+
+**Note**  
+A data request can report success while its output variable holds unexpected or empty content. This can happen when a module signals a failure in a way that the data request node does not recognize as a failure. If a downstream step behaves as though the data succeeded when it did not, check the module's own error handling and confirm how the module reports failures in its output.
+
 ## Best practices
 <a name="acxd-data-requests-best-practices"></a>
 + Use clear data request names and descriptions.
@@ -341,3 +472,13 @@ A rescheduling agent may collect the user's preferred date, call a data request 
 + Send only the data the external system needs.
 + Test the data request before using it in a flow or agent node.
 + Use a data request node for controlled deterministic calls.
++ Keep chained data request nodes shallow. Each data request node that runs in sequence across conversation turns adds to the time a customer waits. When you need several results, prefer adding several data requests to one node over chaining separate nodes across turns.
+
+**Important**  
+Make modules with side effects idempotent. A module that changes state, such as one that takes a payment, can run more than once for a single customer intent. A retried conversation turn can invoke the module again, and a deliberate repeat invocation of the same module on the same node might return the earlier result instead of running again. Design modules that have side effects to be idempotent, or add a guard that prevents a repeated action from taking effect twice.
+
+**Important**  
+Author failure-edge handling. When a data request fails, the customer hears nothing from this node unless you handle the failure. Authoring failure-edge handling is required, not optional. On the data request node, connect the failure edge to a step that responds to the customer or recovers the conversation.
+
+**Note**  
+Treat module output as untrusted. A flow module's output can be bound to a variable that a generative node later references. Validate or sanitize the module's output before you reference it from a generative node.

@@ -170,7 +170,7 @@ The following table lists the specifications for WhatsApp business messaging
 | Schedules per instance | 1000 | 
 | Shift activities per instance | 500 | 
 | Shift activities per shift profile | 10 | 
-| Shift profiles per instance | 2500 | 
+| Shift profiles per instance | 5000 | 
 | Shift rotation steps per pattern | 52 | 
 | Shift rotation weeks per pattern | 52 | 
 | Shift rotations associated with a single shift profile | 1300 | 

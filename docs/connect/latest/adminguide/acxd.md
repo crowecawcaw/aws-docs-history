@@ -66,7 +66,7 @@ Agentic CX designer helps teams create conversational AI applications with:
 | Generative AI nodes | Generate dynamic responses, classify user intent, transform data, and support more flexible interactions. | 
 | Agentic experiences | Use agent nodes to reason through multi-step tasks, call tools, collect information, and complete goals. | 
 | Knowledge bases | Ground responses in trusted content. | 
-| Integrations and Data requests | Connect conversations to managed services, custom APIs, and external systems. | 
+| Integrations and Data requests | Connect conversations to managed services, custom APIs, and external systems. A data request can also invoke a published Connect Customer flow module to reuse conversation logic you govern in Connect Customer. For more information, see [Data requests](https://docs.aws.amazon.com/connect/latest/adminguide/acxd-data-requests.html). | 
 | Guardrails | Apply safety, brand, compliance, and policy controls to user inputs and application outputs. | 
 | Testing and debugging | Test applications and flows, inspect event logs, and troubleshoot variables, state, tools, and routing behavior. | 
 | Analytics and monitoring | Observe live performance, review transcripts, track tags, analyze flow traversal, and improve deployed applications. | 

@@ -3,24 +3,24 @@
 # Use screen pop functionality of third-party applications in the Connect Customer agent workspace
 <a name="no-code-ui-builder-app-integration"></a>
 
-For screen pop functionality of third-party applications, you can use step-by-step guides or you can use app pinning. For more information, see [Access 3P apps in the agent workspace](3p-apps-agent-workspace.md). When the contact comes in, the **Guides** tab opens as the first one in the agent workspace. You can [configure the step-by-step guides](how-to-invoke-a-flow-sg.md) using flows.
+To screen pop a third-party application, use step-by-step guides. For more information, see [Access 3P apps in the agent workspace](3p-apps-agent-workspace.md). When a contact arrives, the **Guides** tab opens first in the agent workspace. You can [configure the step-by-step guides](how-to-invoke-a-flow-sg.md) using flows.
 
 **Note**  
 When you configure a view:   
 Make sure that the app name registered in the AWS Management Console exactly matches the app name that you are providing to the [Application](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example) or App Launch component. 
-If you get errors, and you think the names are matching, edit the AWS Management Console application name. Ensure there are no leading or trailing spaces.
-+ With the [Application](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example) component, you are embedding the third-party application into Guides. The application displays in the first tab when the contact comes in.
-+ With the App Launch component, you are configuring the application to open as a tab in the agent workspace. You can turn on auto-open, the Guide will take the focus as the first tab, and the application will open as another tab.
-+ You can always use the [Link](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-link--default-case) component with auto-open to configure any browser link to open in a new browser window.
+If you get errors even though the names match, check the application name in the AWS Management Console for leading or trailing spaces.
++ With the [Application](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-application--with-agent-workspace-example) component, you embed the application in the **Guides** tab, which opens first when a contact arrives.
++ With the App Launch component, the application opens in its own tab in the agent workspace. If you turn on auto-open, the guide keeps focus in the first tab and the application opens in another tab.
++ You can also use the [Link](https://d3irlmavjxd3d8.cloudfront.net/?path=/story/ui-component-link--default-case) component with auto-open to open any browser link in a new window.
 
-You have the option to provide a path to give a more specific destination or parameter for the contact. When you provide the path, it will be shortened to the domain. Provide a forward slash at the end of the app domain.
+You can also provide a path to send the contact to a more specific destination. The guide adds the path to the origin of the registered app domain, such as `https://example.com/`. End the registered app domain with a forward slash.
 
 **Example 1 (Recommended)**:
 
 ```
 App Domain registered in AWS Management Console: https://example.com/
 Path: cats/siamese
-Guides will attempt to render: Domain https://example.com/ + Path cats/siamese
+Guides render: Domain https://example.com/ + Path cats/siamese
 https://example.com/cats/siamese
 Success if website exists!
 ```
@@ -30,9 +30,9 @@ Success if website exists!
 ```
 App Domain registered in AWS Management Console: https://example.com/dogs/
 Path: cats/siamese
-Guides will attempt to render: Domain https://example.com/ + Path cats/siamese
+Guides render: Domain https://example.com/ + Path cats/siamese
 https://example.com/cats/siamese
-Fails because only subdomains of https://example.com/dogs/ are allowed
+Fails because only paths under https://example.com/dogs/ are allowed
 ```
 
 **Example 3**:
@@ -40,7 +40,7 @@ Fails because only subdomains of https://example.com/dogs/ are allowed
 ```
 App Domain registered in AWS Management Console: https://example.com/cats
 Path: cats/siamese
-Guides will attempt to render: Domain https://example.com/ + Path cats/siamese
+Guides render: Domain https://example.com/ + Path cats/siamese
 https://example.com/cats/siamese
 Success if website exists!
 ```

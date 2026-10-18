@@ -40,6 +40,8 @@ The `StartChatContact` API uses AWS Signature Version 4 signing. Call it from yo
       "ParticipantToken": "a-long-participant-token"
   }
   ```
+
+  Your back end can also get the connection information from this same call. Set the optional `ConnectionTypes` member on the request. Requesting `WEBSOCKET` returns a websocket URL. When your client connects to that URL, the participant is connected, so your back end does not call `CreateParticipantConnection` to connect the participant. Requesting `CONNECTION_CREDENTIALS` returns a connection token, but it does not connect the participant.
 +  [Connect Customer Participant Service API](https://docs.aws.amazon.com/connect-participant/latest/APIReference/Welcome.html). 
 +  [ Connect Customer Chat SDK and Sample Implementations](https://github.com/amazon-connect/amazon-connect-chat-ui-examples/) 
 +  [Connect Customer Streams](https://github.com/aws/amazon-connect-streams). Use to integrate your existing apps with Connect Customer. You can embed the Contact Control Panel (CCP) components into your app. 
