@@ -30,3 +30,4 @@ See these topics about how to set up and maintain managed container fleets:
 +  [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md)
 +  [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md)
 +  [Update an Amazon GameLift Servers managed container fleet](containers-update-fleet.md)
++  [Validate and troubleshoot container fleet deployments](containers-deployment-validation.md)
