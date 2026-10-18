@@ -8,15 +8,13 @@
 ## AWS Glue Schema Registry to Iceberg type mapping
 <a name="data-delivery-iceberg-type-mapping"></a>
 
- Streaming table maps JSON Schema types from AWS Glue Schema Registry to Apache Iceberg types as follows: 
+ Streaming table maps JSON Schema types from AWS Glue Schema Registry to Apache Iceberg types as shown in the following table. 
 
-
-**Schema Registry to Iceberg type mapping**  
 
 | JSON Schema type | Iceberg type | Notes | 
 | --- | --- | --- | 
 | string (plain) | string | Default string mapping. | 
-| string with format date-time | timestamptz | Timestamp with timezone. | 
+| string with format date-time | timestamptz | Timestamp with time zone. | 
 | string with format date | date | Calendar date. | 
 | string with format time | time | Time of day. | 
 | string with format uuid | uuid | Universally unique identifier. | 

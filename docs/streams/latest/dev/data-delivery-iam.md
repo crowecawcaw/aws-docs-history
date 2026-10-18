@@ -8,10 +8,8 @@
 ## Lifecycle management permissions
 <a name="data-delivery-iam-lifecycle"></a>
 
- To create, update, delete, describe, and list delivery resources, the calling IAM principal must have the following permissions: 
+ To create, update, delete, describe, and list delivery resources, the calling IAM principal must have the following permissions. 
 
-
-**Delivery lifecycle permissions**  
 
 | Action | Resource | Description | 
 | --- | --- | --- | 

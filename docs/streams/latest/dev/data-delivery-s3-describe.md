@@ -21,7 +21,7 @@
 
 ```
 aws kinesis describe-channel \
-    --channel-arn "arn:aws:kinesis:us-east-1:123456789012:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 ```
 
  The response includes the delivery's `ChannelStatus` (CREATING, ACTIVE, UPDATING, DELETING, or FAILED), the source stream configuration, the destination bucket configuration, and the data freshness setting. A delivery is ready to receive records when `ChannelStatus` is ACTIVE. 

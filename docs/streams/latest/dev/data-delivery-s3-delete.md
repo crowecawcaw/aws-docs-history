@@ -24,7 +24,7 @@
 
 ```
 aws kinesis delete-channel \
-    --channel-arn "arn:aws:kinesis:us-east-1:123456789012:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
 ```
 
  To avoid ongoing charges, also delete the IAM role you created for the delivery and, if you no longer need them, the destination bucket and dead-letter queue bucket. For a full cleanup walkthrough, see [Getting started with S3 general purpose delivery](data-delivery-s3-getting-started.md). 

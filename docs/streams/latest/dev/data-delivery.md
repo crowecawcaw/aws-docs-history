@@ -59,6 +59,8 @@ Delivery to general purpose Amazon S3 buckets follows a similar flow, with two d
 
 ## Key capabilities
 <a name="data-delivery-capabilities"></a>
+
+Data delivery provides the following key capabilities:
 + **Serverless auto-scaling** – Scales automatically with your stream throughput, up to the stream's throughput capacity. No compute resources to provision.
 + **Exactly-once delivery per shard** – Records from a shard are delivered to the destination exactly once, with no duplicates or omissions within the shard.
 + **Near real-time delivery** – Configurable data freshness from 5 to 15 minutes (300 to 900 seconds).
@@ -71,6 +73,8 @@ Delivery to general purpose Amazon S3 buckets follows a similar flow, with two d
 
 ## Requirements
 <a name="data-delivery-requirements-overview"></a>
+
+Data delivery has the following requirements:
 + Your Kinesis data stream must use On-Demand Standard or On-Demand Advantage capacity mode.
 + You must create an IAM service execution role that grants the delivery permissions to write to your destination.
 + Your destination bucket or table bucket must be in the same Region as your Kinesis data stream. Data delivery does not support cross-Region delivery for either destination type.

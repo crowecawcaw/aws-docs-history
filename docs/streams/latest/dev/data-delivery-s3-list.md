@@ -25,7 +25,7 @@ aws kinesis list-channels
 
 ```
 aws kinesis list-channels \
-    --stream-filter StreamARN="arn:aws:kinesis:us-east-1:123456789012:stream/my-stream"
+    --stream-filter StreamARN="arn:aws:kinesis:us-east-1:111122223333:stream/my-stream"
 ```
 
  The response returns up to 100 deliveries per page. Use the pagination token in the response to retrieve additional results. 

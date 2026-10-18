@@ -39,10 +39,10 @@
 ```
 aws kinesis create-channel \
     --channel-name "my-s3-delivery" \
-    --service-execution-role-arn "arn:aws:iam::123456789012:role/my-channel-role" \
+    --service-execution-role-arn "arn:aws:iam::111122223333:role/my-channel-role" \
     --stream-configuration-list '[
         {
-            "StreamARN": "arn:aws:kinesis:us-east-1:123456789012:stream/my-stream",
+            "StreamARN": "arn:aws:kinesis:us-east-1:111122223333:stream/my-stream",
             "RecordConfiguration": {
                 "RecordFormatType": "JSON"
             }
@@ -51,8 +51,8 @@ aws kinesis create-channel \
     --s3-destination-configuration '{
         "DataFreshnessInSeconds": 300,
         "StorageConfiguration": {
-            "BucketARN": "arn:aws:s3:::my-destination-bucket",
-            "ExpectedBucketOwner": "123456789012",
+            "BucketARN": "arn:aws:s3:::amzn-s3-demo-destination-bucket",
+            "ExpectedBucketOwner": "111122223333",
             "CompressionType": "GZIP",
             "StorageClass": "STANDARD"
         }

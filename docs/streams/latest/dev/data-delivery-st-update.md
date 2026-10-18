@@ -26,7 +26,7 @@ You can also edit or delete a delivery from the list page by selecting the deliv
 
 ```
 aws kinesis update-channel \
-    --channel-arn "arn:aws:kinesis:us-east-1:123456789012:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" \
+    --channel-arn "arn:aws:kinesis:us-east-1:111122223333:channel/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" \
     --s3-tables-destination-configuration '{
         "DataFreshnessInSeconds": 600
     }'

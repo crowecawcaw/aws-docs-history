@@ -39,7 +39,7 @@ If you enable data events in AWS CloudTrail, AWS CloudTrail logs data plane API 
 
 Specify the `--dry-run` flag in your AWS CLI commands.
 
-Example: Testing PutRecord permissions
+The following example tests PutRecord permissions:
 
 ```
 aws kinesis put-record \
