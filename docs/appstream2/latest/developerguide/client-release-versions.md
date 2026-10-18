@@ -10,6 +10,7 @@ For more information about the client, see [Provide Access Through the WorkSpace
 
 | Client version | Release date | Changes | 
 | --- | --- | --- | 
+| 1.5.0.1071 | 10-15-2026 |  +  Updated the client to use a Windows Installer (MSI) package, enabling per-device installation for all users. The client is no longer distributed as an EXE installer; if you deploy the client using automation, update your scripts to use the MSI package. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 
 | 1.4.0 | 09-25-2026 |  +  Re-enabled support for honoring printer preferences when printing from a session, which had been temporarily disabled in version 1.3.1992. <br />+  Made improvements to reduce client startup time. <br />+  Updated the DCV SDK. <br />+  Other bug fixes and enhancements.   | 
 | 1.3.1992 | 09-03-2026 |  +  Temporarily disabled support for honoring printer preferences, an enhancement introduced in client version 1.3.1954, due to an issue causing delays with printer detection.   | 
 | 1.3.1978 | 08-30-2026 |  +  Fixed an issue introduced in client version 1.3.1954 that prevented redirected printers and file transfers from working properly in prolonged sessions. <br />+  Updated the Enterprise Deployment Tool to use a Windows Installer (MSI) package, enabling per-device client installation for all users.   | 

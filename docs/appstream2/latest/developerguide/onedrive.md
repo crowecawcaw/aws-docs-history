@@ -21,3 +21,4 @@ To enable OneDrive for Business for stacks associated with multi-session fleets,
 **Topics**
 + [Enable OneDrive for Your WorkSpaces Applications Users](enable-onedrive.md)
 + [Disable OneDrive for Your WorkSpaces Applications Users](disable-onedrive.md)
++ [Controlling OneDrive Re-authentication](onedrive-reauthentication.md)

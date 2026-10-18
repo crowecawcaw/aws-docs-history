@@ -23,3 +23,4 @@ To enable Google Drive for stacks associated with multi-session fleets, the imag
 **Topics**
 + [Enable Google Drive for Your WorkSpaces Applications Users](enable-google-drive.md)
 + [Disable Google Drive for Your WorkSpaces Applications Users](disable-google-drive.md)
++ [Controlling Google Drive Re-authentication](google-drive-reauthentication.md)
