@@ -40,10 +40,10 @@ Before you start, review these important considerations:
 ## Procedure
 <a name="integrate-flow-with-router-procedure"></a>
 
-### Connecting a flow to a router input
+### Connecting a router input to a flow
 <a name="integrate-flow-with-router-input-section"></a><a name="integrate-flow-with-router-input-procedure"></a>
 
-**To connect a flow output to a router input**
+**To connect a router input to a flow output**
 
 1. [Add an output](outputs-add.md) to your flow, making sure that the flow output has **Router integration** enabled. 
 
@@ -56,6 +56,19 @@ Before you start, review these important considerations:
 1. [Start the router input](starting-router-io.md).
 
 When the router input and the flow are running, and the router input is assigned to an active router output, the stream is forwarded from the flow through the router.
+
+### Disconnecting a router input from a flow
+<a name="disconnect-flow-from-router-input-section"></a><a name="disconnect-flow-from-router-input-procedure"></a>
+
+**To disconnect a router input from a flow output**
+
+1. [Edit](editing-router-io.md) the router input.
+
+1. Select **Do not connect to a MediaConnect flow**.
+
+1. Choose **Save changes**.
+
+The router input keeps its other settings and returns to a disconnected state. You can connect it to a flow output again at any time.
 
 ### Connecting a router output to a flow
 <a name="integrate-flow-with-router-output-section"></a><a name="integrate-flow-with-router-output-procedure"></a>
@@ -73,6 +86,23 @@ When the router input and the flow are running, and the router input is assigned
 1. [Start the router output](starting-router-io.md).
 
 When the router output and the flow are running, and the router output is taking an active router input, the stream is forwarded through the router to the flow.
+
+### Disconnecting a router output from a flow
+<a name="disconnect-flow-from-router-output-section"></a><a name="disconnect-flow-from-router-output-procedure"></a>
+
+**To disconnect a router output from a flow source**
+
+1. [Edit](editing-router-io.md) the router output.
+
+1. Select **Do not connect to a MediaConnect flow**.
+
+1. Choose **Save changes**.
+
+The router output keeps its other settings and returns to a disconnected state. You can connect it to a flow source again at any time.
+
+## Troubleshooting
+<a name="integrate-flow-with-router-troubleshoot"></a>
++ To update the transit encryption or decryption key configuration, you must first disconnect the router I/O from the flow.
 
 ## Additional resources
 <a name="integrate-flow-with-router-additional-resources"></a>

@@ -13,6 +13,8 @@ MediaConnect assigns each router I/O a permanent IP address. This ensures stable
 
 When creating a router I/O, you must specify both a tier and a maximum bitrate. The tier you select determines the capacity limits, performance characteristics, and associated costs. The maximum bitrate must fall within the limits of your selected tier. There are separate tiers for inputs and outputs, each with different capacity limits. 
 
+Choose a tier of up to 100 Mbps for compressed video, such as the MPEG transport streams used in typical broadcast contribution workflows. Choose a higher-bitrate tier for TR-07 (JPEG XS) workflows, which carry lightly compressed video at much higher bitrates. In all cases, select the tier whose limit covers your source's maximum bitrate.
+
 You can configure router I/Os with either a Regional routing scope or a global routing scope. By default, they use Regional scope, which restricts them to being assigned only to other router I/Os within the same AWS Region. You can optionally set the routing scope to global, which allows cross-Region routing (additional data transfer costs might apply). 
 
 **Note**  

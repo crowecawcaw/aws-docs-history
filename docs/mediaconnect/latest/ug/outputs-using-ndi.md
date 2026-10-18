@@ -79,6 +79,9 @@ When planning your NDI output implementation in MediaConnect, keep in mind the f
 - **Timecode processing**
   - You can choose how MediaConnect generates timecodes for NDI output frames:+  **Embedded Timecode** (default) – Preserves timecodes from the input transport stream. The timecodes must be embedded in the video stream as SEI timing messages. If no embedded timecode is detected, MediaConnect uses the UTC system time instead. <br />+  **UTC System Time** – Generates timecodes based on the system clock time when each frame is sent. <br />You can check whether timecodes are present in your source content by using the `TimecodePresent` CloudWatch metric. NDI timecodes generated from SMPTE timecodes don't include a date component. 
 
+- **Audio reference level**
+  - Set the audio reference level, in decibels relative to full scale (dBFS), to match your NDI receiver. The default, -20, follows the NDI specification and the Society of Motion Picture and Television Engineers (SMPTE) audio standard. A value of -18 follows the European Broadcasting Union (EBU) convention. You can specify any whole number from -40 to 0.
+
 - ** Output configuration **
   - You can add one NDI output to each large-sized flow.
   - At least one NDI discovery server is required for each flow (up to a maximum of three).

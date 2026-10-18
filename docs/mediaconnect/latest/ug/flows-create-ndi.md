@@ -46,6 +46,7 @@ Before you begin, make sure you've completed the following steps:
      You can either:
      + Leave this field empty for now, and select from a list of discovered sources after starting the flow.
      + Enter the exact name of an existing NDI sender that's registered with your discovery server (for example, **MACHINE (program)**).
+   + (Optional) For **NDI audio reference level**, choose the standard that the upstream NDI sender follows. The default is -20 decibels relative to full scale (dBFS). You can also enter any whole number from -40 to 0. For more information, see [Considerations and limitations](sources-using-ndi.md#using-ndi-sources-considerations).
 
 1. Configure the VPC interfaces for your flow:
    + In the **VPC interface** section, choose Add VPC interface.

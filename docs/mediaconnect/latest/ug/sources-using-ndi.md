@@ -60,9 +60,10 @@ When planning your NDI source implementation in MediaConnect, keep in mind the f
   <tr><td rowspan="3">Management and operations</td><td>Flow source management</td><td>You can switch between an NDI source and a transport stream source while the flow is active or on standby.<ul><li> Before switching to an NDI source, you must first upgrade your flow size to large. </li><li> When switching to a transport stream source, the flow size remains large unless you choose to downgrade the size afterwards. </li></ul></td></tr>
   <tr><td>Monitoring</td><td>You can monitor the NDI source connection status through CloudWatch metrics. </td></tr>
   <tr><td>Cross-Region support</td><td>NDI sources are VPC-bound and can't span across different AWS Regions. Each flow can only receive NDI traffic from a source VPC subnet that's in the same AWS Region as your flow. </td></tr>
-  <tr><td rowspan="6">Technical specifications</td><td>Transport protocols</td><td>When using NDI as your flow source, the content is transported using TCP.</td></tr>
+  <tr><td rowspan="7">Technical specifications</td><td>Transport protocols</td><td>When using NDI as your flow source, the content is transported using TCP.</td></tr>
   <tr><td>NDI protocols</td><td>Only NDI high quality (HQ) is supported. NDI HX isn't supported.</td></tr>
   <tr><td>Timecode processing</td><td>Timecodes that are embedded in the NDI source will be inserted to the encoded AVC (H.264) video in an SEI message of type pic_timing, in accordance with section D.1.2 of ISO/IEC 14496-10-2005.</td></tr>
+  <tr><td>Audio reference level</td><td>Set the audio reference level, in decibels relative to full scale (dBFS), to match your NDI sender. The default, -20, follows the NDI specification and the Society of Motion Picture and Television Engineers (SMPTE) audio standard. A value of -18 follows the European Broadcasting Union (EBU) convention. You can specify any whole number from -40 to 0.</td></tr>
   <tr><td>Discovery and connection methods</td><td>MediaConnect supports connections to NDI sources through NDI discovery servers only. Direct mDNS discovery or manual connection to NDI sources isn't supported.</td></tr>
   <tr><td rowspan="2">NDI feature support</td><td>NDI groups aren't supported.</td></tr>
   <tr><td>NDI genlock isn't supported.</td></tr>

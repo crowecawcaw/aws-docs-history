@@ -12,3 +12,4 @@ AWS Elemental MediaConnect publishes the following EventBridge events for router
 + [MediaConnect router input failover event](monitoring-eventbridge-events-router-input-failover.md)
 + [MediaConnect router input content quality event](monitoring-eventbridge-events-router-input-content-quality.md)
 + [MediaConnect router input message event](monitoring-eventbridge-events-router-input-message.md)
++ [MediaConnect router input source metadata changed event](monitoring-eventbridge-events-router-input-source-metadata.md)

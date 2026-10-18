@@ -91,10 +91,23 @@ Follow the steps for the direction of integration that you want to set up.
 
    The MediaLive operator must create a MediaLive channel and attach the MediaLive input from step 1. With this setup in place, you can send video from the MediaConnect router to MediaLive.
 
-### Connecting a MediaLive channel output to a router input
+### Disconnecting a router output from a MediaLive input
+<a name="disconnect-eml-input-from-router-output-section"></a><a name="disconnect-eml-input-from-router-output-procedure"></a>
+
+**To disconnect a router output from a MediaLive input**
+
+1. [Edit](editing-router-io.md) the router output.
+
+1. Select **Do not connect to a MediaLive input**.
+
+1. Choose **Save changes**.
+
+The router output keeps its other settings and returns to a disconnected state. You can connect it to a MediaLive input again at any time.
+
+### Connecting a router input to a MediaLive channel output
 <a name="integrate-eml-with-router-input-section"></a><a name="integrate-eml-with-router-input-procedure"></a>
 
-**To connect a MediaLive channel output to a router input**
+**To connect a router input to a MediaLive channel output**
 
 1. **Create a MediaConnect Router output group in MediaLive**
 
@@ -118,6 +131,19 @@ You can create the router input in a disconnected state and connect it to the Me
 
    Start both the MediaLive channel and the router input. With this setup in place, you can send processed content from MediaLive to the MediaConnect router.
 
+### Disconnecting a router input from a MediaLive channel output
+<a name="disconnect-eml-channel-from-router-input-section"></a><a name="disconnect-eml-channel-from-router-input-procedure"></a>
+
+**To disconnect a router input from a MediaLive channel output**
+
+1. [Edit](editing-router-io.md) the router input.
+
+1. Select **Do not connect to a MediaLive channel**.
+
+1. Choose **Save changes**.
+
+The router input keeps its other settings and returns to a disconnected state. You can connect it to a MediaLive channel output again at any time.
+
 ## Troubleshooting
 <a name="integrate-eml-with-router-troubleshoot"></a>
 
@@ -128,6 +154,7 @@ If you encounter issues with this workflow, use this checklist to identify and r
 + The encryption scheme on the router side matches the encryption scheme on the MediaLive side.
 + You have the appropriate MediaLive permission on the target resource (`medialive:UpdateInput` for inputs, `medialive:UpdateChannel` for channels).
 + The MediaLive resource is not already connected to another router I/O.
++ To update the transit encryption or decryption key configuration, you must first disconnect the router I/O from the MediaLive input or channel output.
 
 ## Additional resources
 <a name="integrate-eml-with-router-additional-resources"></a>

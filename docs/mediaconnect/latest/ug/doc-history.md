@@ -7,8 +7,12 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [High-bitrate router tiers](using-mediaconnect-router.md) | Router inputs and outputs now support 250 Mbps and 500 Mbps high-bitrate tiers for TR-07 (JPEG XS) workflows. | October 9, 2026 | 
 | [AWS Elemental Inference support](monitor-with-workflow-monitor.md#monitor-with-workflow-monitor-supported-services) | With workflow monitor, you can now discover AWS Elemental Inference (Elemental Inference) feeds and add them to signal maps. You can also create Amazon CloudWatch alarm templates that monitor Elemental Inference feed metrics. | October 8, 2026 | 
+| [Source metadata change EventBridge event](monitoring-eventbridge-events-flow-source-metadata.md) | You can now subscribe to an EventBridge event that is published when a flow's source metadata changes. | October 6, 2026 | 
+| [Router input source metadata change EventBridge event](monitoring-eventbridge-events-router-input-source-metadata.md) | You can now subscribe to an EventBridge event that is published when a router input's source metadata changes. | October 6, 2026 | 
 | [RTMP Push protocol for router outputs](using-mediaconnect-router.md) | Router outputs can now send content using the RTMP Push protocol, including RTMPS (RTMP over TLS). | September 25, 2026 | 
+| [NDI® audio reference level](sources-using-ndi.md) | You can now declare the audio reference level of the NDI® device or application at the other end of an NDI source or NDI output. | September 11, 2026 | 
 | [Added a getting started tutorial for the router](getting-started.md) | Added a new tutorial for creating router network interfaces, inputs, outputs, and routes. | September 11, 2026 | 
 | [Router input and output EventBridge events](monitoring-with-cloudwatch-events.md) | Added new EventBridge events for router inputs and router outputs, including state, route state, health, failover, and message events. | September 8, 2026 | 
 | [Recovery latency mode](using-mediaconnect-router.md) | You can now choose a recovery latency mode for the router fabric on each router output.  | August 10, 2026 | 

@@ -75,6 +75,8 @@ Some kinds of content (such as high-motion sports) will benefit from a higher qu
 
 1. For **NDI timecode source**, choose how MediaConnect generates timecodes for the NDI output. The default is **Embedded Timecode**, which preserves timecodes from the source transport stream. Choose **UTC System Time** to use the system clock instead. For more information, see [Considerations and limitations](outputs-using-ndi.md#using-ndi-outputs-considerations). 
 
+1. (Optional) For **NDI audio reference level**, choose the standard that the downstream NDI receiver follows. The default is -20 decibels relative to full scale (dBFS). You can also enter any whole number from -40 to 0. For more information, see [Considerations and limitations](outputs-using-ndi.md#using-ndi-outputs-considerations).
+
 1. (Optional) Enter an **NDI program name**.
    + This name is used as a suffix to help you identify the NDI sources that your flow creates. For example, if you enter **MyNDIProgram**, your NDI sources will appear as `MACHINENAME` **(MyNDIProgram)**.
    + If you leave this blank, MediaConnect uses the name of the output.
