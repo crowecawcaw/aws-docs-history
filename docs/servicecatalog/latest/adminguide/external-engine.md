@@ -76,12 +76,12 @@ The Lambda function must be named `ServiceCatalogExternalParameterParser`.
 {
     "parameters": [
         {
-            "key": "{{string}}"
-            "{{defaultValue}}": "{{string}}",
+            "key": "{{string}}",
+            "defaultValue": "{{string}}",
             "type": "{{string}}",
             "description": "{{string}}",
             "isNoEcho": boolean
-        },
+        }
     ]
 }
 ```
@@ -91,11 +91,11 @@ The Lambda function must be named `ServiceCatalogExternalParameterParser`.
 | **Field** | **Type** | **Required** | **Description** | 
 | --- | --- | --- | --- | 
 | parameters | list | Yes | The list of parameters that Service Catalog asks the end user to provide when provisioning a product or updating a provisioned product. If no parameters are defined in the artifact, an empty list is returned. | 
-| key | string | Yes | The parameter key. | 
-| defaultValue | string | No | The default value of the parameter if the end user does not provide a value. | 
+| key | string | Yes | The parameter key. The maximum length is 1,000 characters. | 
+| defaultValue | string | Yes | The default value of the parameter if the end user does not provide a value. If the parameter has no default value, return an empty string. The maximum length is 4,096 characters. | 
 | type | string | Yes | The expected type of the parameter value for the engine. For example, a string, boolean, or map. The allowed values are specific to each engine. Service Catalog passes each parameter value to the engine as a string. | 
-| description | string | No | Description for the parameter. It is recommended that this is user-friendly. | 
-| isNoEcho | boolean | no | Determines if the parameter value is not echoed in logs. Default value is false (parameter values are echoed). | 
+| description | string | Yes | Description for the parameter. It is recommended that this is user-friendly. If the parameter has no description, return an empty string. The maximum length is 1,224 characters. | 
+| isNoEcho | boolean | No | Determines if the parameter value is not echoed in logs. Default value is false (parameter values are echoed). | 
 
 ## Provisioning
 <a name="external-engine-provisioning"></a>

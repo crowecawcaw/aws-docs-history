@@ -7,9 +7,7 @@ To make your AWS Service Catalog products available to users who are not in your
 
  Before you share your products and portfolios to other accounts, you must decide whether you want to share a reference of the catalog or to deploy a copy of the catalog into each recipient account. Note that if you deploy a copy, you must redeploy if there are updates you want to propagate to the recipient accounts. 
 
-You can use stack sets to deploy your catalog to many accounts at the same time. If you want to share a reference (an imported version of your portfolio that stays in sync with the original), you can use account-to-account sharing or you can share using AWS Organizations. 
-
-To use stack sets to deploy a copy of your catalog, see [How to set up a multi-region, multi-account catalog of company standard AWS Service Catalog products](https://aws.amazon.com/blogs/mt/how-to-set-up-a-multi-region-multi-account-catalog-of-company-standard-aws-service-catalog-products/).
+To share a reference (an imported version of your portfolio that stays in sync with the original), use account-to-account sharing or share using AWS Organizations. To deploy a copy of your catalog into each recipient account, use CloudFormation StackSets. StackSets can deploy your catalog to many accounts at the same time. For more information about deploying a catalog to many accounts, see [How to set up a multi-region, multi-account catalog of company standard AWS Service Catalog products](https://aws.amazon.com/blogs/mt/how-to-set-up-a-multi-region-multi-account-catalog-of-company-standard-aws-service-catalog-products/).
 
 When you share a portfolio using account-to-account sharing or AWS Organizations, you allow a AWS Service Catalog administrator of another AWS account to import your portfolio into their account and distribute the products to end users in that account. 
 

@@ -8,6 +8,7 @@ Your AWS account has the following default quotas for AWS Organizations, constra
 ## AWS Organizations
 <a name="orgs"></a>
 +  AWS Service Catalog delegated administrators per organization: 50
++ Accounts per organization for AWS Organizations access: 15,000
 
 ## Constraint quotas
 <a name="constraint"></a>
