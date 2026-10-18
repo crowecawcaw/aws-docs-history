@@ -8,7 +8,9 @@ The Deadline Cloud monitor displays farms from all AWS Regions where AWS Deadlin
 ## Managing users across Regions
 <a name="monitors-add-users-cross-region"></a>
 
-You can add users and groups to farms in any Region from the Deadline Cloud console. The console handles cross-Region AWS IAM Identity Center (IAM Identity Center) membership assignment. Your IAM Identity Center instance doesn't need to be in the same Region as the farm: a membership references the IAM Identity Center user or group by its identifier, so you can assign the same users and groups to farms in any Region. If you assign memberships with the API or the AWS CLI, for example with `AssociateMemberToQueue`, send the request to the Region that contains the farm. For more information about managing farm membership, see [Managing users in Deadline Cloud](managing-users.md).
+You can add users and groups to farms, queues, and fleets in any Region from the Deadline Cloud console. The console handles cross-Region AWS IAM Identity Center (IAM Identity Center) membership assignment. Your IAM Identity Center instance doesn't need to be in the same Region as the farm: a membership references the IAM Identity Center user or group by its identifier, so you can assign the same users and groups to resources in any Region. If you assign memberships with the API or the AWS CLI, for example with `AssociateMemberToQueue`, send the request to the Region that contains the farm. For more information about managing memberships, see [Managing users in Deadline Cloud](managing-users.md).
+
+To see the access that one user or group holds in every Region at once, open that user or group in **User management** in the Deadline Cloud console. Then choose the **Resource access** tab. For more information, see [View and change resource access for a user or group](view-member-resource-access.md).
 
 ## When to create additional monitors
 <a name="monitors-when-multiple"></a>

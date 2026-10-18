@@ -28,7 +28,7 @@ When a user has grants at more than one level, Deadline Cloud applies the highes
 
 Access levels control what you can see and manage. Access levels don't decide where jobs run: the service schedules jobs based on queue–fleet associations and each job's host requirements. For example, a grant on a fleet lets users see the fleet and its workers; it doesn't route their jobs to that fleet. To divide your farm so that permissions and hardware both land where you want them, see [Organize your farms, queues, and fleets](organize-farms-queues-fleets.md).
 
-If you have no membership on a farm, queue, or fleet, you can't see that resource in the monitor, even though you can sign in. If your only membership is on a queue or fleet, you don't see the farm in your farm list, but you can still work with that queue or fleet. To also control who can sign in to the monitor at all, see [Restricting which users can access the monitor](restrict-user-management-visibility.md).
+If you have no membership on a farm, queue, or fleet, you can't see that resource in the monitor, even though you can sign in. If your only membership is on a queue or fleet, the monitor lists the farm that contains it so that you can reach that queue or fleet. The farm's queue and fleet lists show only the resources you hold a membership on. The farm appears with its farm ID instead of its name, and without its description, because reading those requires a membership on the farm itself. To also control who can sign in to the monitor at all, see [Restricting which users can access the monitor](restrict-user-management-visibility.md).
 
 ## How access levels relate to IAM
 <a name="permissions-and-iam"></a>

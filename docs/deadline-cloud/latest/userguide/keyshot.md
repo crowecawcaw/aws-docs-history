@@ -9,7 +9,7 @@ KeyShot Studio is a real-time ray tracing and global illumination program develo
 <a name="keyshot-support-overview"></a>
 
 KeyShot Studio is supported by the following components:
-+ **Submitter**: Integrated submitter extension for direct job submission from KeyShot with automatic scene and asset detection.
++ **Submitter**: A sample KeyShot script that submits the open scene to Deadline Cloud and attaches the scene's external file references.
 + **Cross-platform compatibility**: Submitter support for Windows and macOS with worker support for Windows.
 + **Licensing (BYOL)**: Bring Your Own License for KeyShot rendering on your farm.
 
@@ -32,36 +32,59 @@ KeyShot requires **Bring Your Own License (BYOL)**. You must have valid KeyShot 
 To use KeyShot on service-managed fleets, you must create a conda package and host it in a custom conda channel. A [sample conda recipe for KeyShot](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025) is available on the GitHub website. For more information about creating custom conda channels, see [Creating custom conda channels](https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/configure-jobs-s3-channel.html).
 
 Before you begin, make sure that you have:
-+ A Windows or macOS workstation.
-+ KeyShot Studio 2023 - 2025.
-+ [Deadline Cloud monitor](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/monitor-onboarding.html) installed.
-+ Access to an Deadline Cloud farm with a fleet that has KeyShot Studio installed and licensed.
++ A Windows or macOS workstation with a version of KeyShot Studio that's listed in the preceding table.
++ Python 3.11 or later on the workstation, to build the submitter script.
++ The Deadline Cloud CLI with GUI support, installed so that the `deadline` command is on your `PATH`. The Deadline Cloud monitor installer includes the CLI. For more information, see [Set up your workstation](submitter.md).
++ Access to an Deadline Cloud queue with Windows workers that can run KeyShot. For more information, see [Setting up workers](#keyshot-worker-setup).
 
 ## Getting started
 <a name="keyshot-getting-started"></a>
 
 To use KeyShot with Deadline Cloud:
 
-1. Create a service-managed fleet and associate it with a queue. Your queue must be set up with a queue environment that includes your custom conda channel that contains the KeyShot package. For more information, see [Creating a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html).
+1. Set up Windows workers that can run KeyShot. For more information, see [Setting up workers](#keyshot-worker-setup).
 
-1. Install the Deadline Cloud monitor on your artist workstation. For more information, see [Set up your workstation](submitter.md).
+1. Install the Deadline Cloud monitor and CLI on your artist workstation. For more information, see [Set up your workstation](submitter.md).
 
 1. Install the KeyShot submitter on your artist workstation. For more information, see [Installing the submitter](#keyshot-installing-submitter).
 
 ## Installation
 <a name="keyshot-installation"></a>
 
-The KeyShot submitter extension allows you to submit jobs to Deadline Cloud directly from within KeyShot.
+The KeyShot submitter is a script that you run from inside KeyShot to submit jobs to Deadline Cloud.
 
 ### Installing the submitter
 <a name="keyshot-installing-submitter"></a>
 
-The Deadline Cloud submitter installer doesn't include the KeyShot submitter. The submitter is a single script, `Submit to AWS Deadline Cloud.py`, that you build from the [deadline-cloud-for-keyshot repository](https://github.com/aws-deadline/deadline-cloud-for-keyshot) on the GitHub website and copy into your KeyShot scripts folder. For build steps and the scripts folder location on Windows and macOS, see the [deadline-cloud-for-keyshot development guide](https://github.com/aws-deadline/deadline-cloud-for-keyshot/blob/mainline/DEVELOPMENT.md) on the GitHub website.
+The Deadline Cloud submitter installer doesn't include the KeyShot submitter. The submitter is a single script, `Submit to AWS Deadline Cloud.py`, that you build from the [KeyShot submitter sample](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/keyshot) on the GitHub website. The build uses only the Python standard library. After you build the script, copy it into your KeyShot scripts folder. KeyShot picks up the new script without a restart.
+
+In KeyShot Studio preferences, under **General**, clear **Use local Python paths**. This setting prevents the submitter from importing Python libraries that KeyShot doesn't include.
+
+For the build command and the scripts folder location on Windows and macOS, see the [KeyShot submitter README](https://github.com/aws-deadline/deadline-cloud-samples/blob/mainline/job_bundles/custom_submitters/keyshot/README.md) on the GitHub website.
+
+The KeyShot submitter was previously in the deadline-cloud-for-keyshot repository, which is no longer updated. Use the sample for the latest code.
 
 ### Updating the submitter
 <a name="keyshot-updating-submitter"></a>
 
-To update the submitter, build the script again from the latest version of the repository and replace the copy in your KeyShot scripts folder.
+To update the submitter, build the script again from the latest version of the sample and replace the copy in your KeyShot scripts folder.
+
+## Setting up workers
+<a name="keyshot-worker-setup"></a>
+
+KeyShot jobs run on Windows workers that have KeyShot Studio installed and licensed. The job doesn't use an application adaptor. It looks for the KeyShot executable in the following order:
+
+1. The `KEYSHOT_EXECUTABLE` environment variable.
+
+1. `%KEYSHOT_LOCATION%\bin\keyshot_headless.exe`
+
+1. `keyshot_headless.exe` or `keyshot` on the `PATH`.
+
+Set up workers in one of the following ways:
++ **Service-managed fleets, or any queue with a conda queue environment**: Build a KeyShot conda package with the sample conda recipe that's described in [Prerequisites](#keyshot-prerequisites), and host it in your own conda channel. Set the `CondaChannels` default in the queue environment to that channel, or enter the channel in the submitter's job settings. The submitter requests the KeyShot conda package that matches the major version of KeyShot that submits the job. For more information, see [Creating a queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html).
++ **Customer-managed fleets with KeyShot installed on the host**: Set `KEYSHOT_EXECUTABLE` on the worker, or add the KeyShot installation directory to the `PATH`. Then clear the `CondaPackages` value in the job settings.
+
+The job uses TCP ports 9000-9099 on the loopback interface (127.0.0.1) to communicate between its scripts and the KeyShot process. These ports don't need network access.
 
 ## Using the KeyShot submitter
 <a name="keyshot-using-submitter"></a>
@@ -80,9 +103,11 @@ Before submitting a job:
 ### Submitting a job
 <a name="keyshot-submitting-job"></a>
 
-1. In KeyShot, on the top toolbar, choose **Scripting Console**.
+1. Open your scene in KeyShot Studio.
 
-1. In the Scripting Console, navigate to **Scripts** > **Submit to Deadline Cloud**.
+1. Choose **Window** > **Scripting Console**.
+
+1. In the Scripting Console, choose **Scripts** > **Submit to AWS Deadline Cloud**.
 
 1. Choose **Run**.
 
@@ -119,6 +144,7 @@ After selecting your submission option, the Deadline Cloud submitter interface a
    + **Frames**: Specify which frames to render (for example, `1-30` for frames 1 through 30).
    + **Output File Path**: Set the location and naming pattern for rendered images. The path must include the file's extension, and the extension must match the output format. Use `%d` as a placeholder for the frame number.
    + **Output Format**: Choose the image format (PNG, JPEG, EXR, TIFF, PSD).
+   + **Override KeyShot render device** and **Render Device**: Choose CPU or GPU rendering instead of the device set in the scene. To render on GPU, set the minimum GPUs host requirement to 1.
 
 1. **Job attachments** (optional). Select which files are uploaded and attached to the job. The submitter automatically detects and attaches files by default.
 
@@ -139,7 +165,7 @@ If you require an unsupported version of KeyShot, you can build a custom conda r
 ## Open source resources
 <a name="keyshot-open-source"></a>
 
-The submitter is open source and available on the GitHub website:
-+ [Deadline Cloud for KeyShot](https://github.com/aws-deadline/deadline-cloud-for-keyshot).
+The following KeyShot samples are open source and available in the deadline-cloud-samples repository on the GitHub website:
++ [KeyShot submitter](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/custom_submitters/keyshot).
 + [KeyShot conda recipe](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/keyshot-2025).
 + [Standalone KeyShot job bundle](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/keyshot_standalone).

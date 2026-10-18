@@ -47,7 +47,7 @@ With the installer, you can install the following submitters:
 
 The standard installer doesn't include the Unreal Engine submitter, which has a separate setup process. For installation instructions, see the [Unreal Engine Submitter Setup Guide](https://github.com/aws-deadline/deadline-cloud-for-unreal-engine) on the GitHub website.
 
-The standard installer also doesn't include the KeyShot submitter. For installation instructions, see [Installing the submitter](keyshot.md#keyshot-installing-submitter).
+The standard installer also doesn't include the KeyShot submitter, which is available as a sample. For installation instructions, see [Installing the submitter](keyshot.md#keyshot-installing-submitter).
 
 ------
 #### [ Windows ]

@@ -32,7 +32,7 @@ There are 3 types of instance options you can choose for your service-managed fl
 
 1. Select the operating system for your workers. You can leave the default, **Linux** or choose **Windows**.
 
-1. (Optional) If you selected GPU accelerated instances, set the maximum and minimum number of GPUs in each instance. For testing purposes you are limited to one GPU. To request more for your production workloads, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
+1. (Optional) If you selected GPU accelerated instances, set the maximum and minimum number of GPUs in each instance. The default GPU quota is zero, so creating a fleet with GPU accelerators fails until you raise it. For the steps, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*, and [Use a GPU accelerator](smf-gpu.md) in this guide.
 
 1. Enter the minimum and maximum **vCPUs** that you require for you fleet.
 

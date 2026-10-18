@@ -19,3 +19,4 @@ To bring a new artist, team, or vendor onto your farm, start with [Onboard users
 + [Manage users with an external identity provider](manage-users-external-idp.md)
 + [Restricting which users can access the monitor](restrict-user-management-visibility.md)
 + [Assign permissions to users and groups](assign-permissions-procedure.md)
++ [View and change resource access for a user or group](view-member-resource-access.md)

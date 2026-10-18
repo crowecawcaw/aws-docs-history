@@ -37,7 +37,7 @@ To access the AWS Deadline Cloud console, you must have a minimum set of permiss
 
 You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API operation that they're trying to perform.
 
-To grant full access to the Deadline Cloud console, attach the policy in [Policy to access the console](#security_iam_id-based-policy-console-access). To grant users access to farm, fleet, queue, and job data based on their farm memberships and access levels, attach the AWS managed policies described in [AWS managed policies for Deadline Cloud](security-iam-awsmanpol.md). For more information about attaching policies, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
+To grant full access to the Deadline Cloud console, attach the policy in [Policy to access the console](#security_iam_id-based-policy-console-access). To grant users access to farm, fleet, queue, and job data based on their memberships and access levels, attach the AWS managed policies described in [AWS managed policies for Deadline Cloud](security-iam-awsmanpol.md). For more information about attaching policies, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*.
 
 ## Policy to access the console
 <a name="security_iam_id-based-policy-console-access"></a>

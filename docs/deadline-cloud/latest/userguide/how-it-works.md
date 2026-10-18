@@ -22,7 +22,7 @@ Deadline Cloud supports the following:
 + Managing access to its API operations using AWS Identity and Access Management (IAM) 
 + Managing access of workforce users using an integration with AWS IAM Identity Center 
 
-Before anyone can work on a project, they must have access to that project and the associated farm. Deadline Cloud is integrated with IAM Identity Center to manage workforce authentication and authorization. Users can be added directly to IAM Identity Center, or permission can be connected to your existing identity provider (IdP) such as Okta or Active Directory. IT administrators can grant access permissions to users and groups at different levels. Each subsequent level includes the permissions for the previous levels. The following list describes the four access levels from the lowest level to the highest level:
+Before anyone can work on a project, they must have access to a farm, queue, or fleet. Deadline Cloud is integrated with IAM Identity Center to manage workforce authentication and authorization. Users can be added directly to IAM Identity Center, or permission can be connected to your existing identity provider (IdP) such as Okta or Active Directory. IT administrators can grant access permissions to users and groups at different levels. Each subsequent level includes the permissions for the previous levels. The following list describes the four access levels from the lowest level to the highest level:
 + **Viewer**– Permission to see resources in the farms, queues, fleets, and jobs they have access to. A viewer can't submit or make changes to jobs.
 + **Contributor**– Same as a viewer, but with permission to submit jobs to a queue or farm.
 + **Manager**– Same as contributor, but with permission to edit jobs in queues they have access to, and grant permissions on resources that they have access to.
@@ -31,7 +31,7 @@ Before anyone can work on a project, they must have access to that project and t
 **Note**  
 These permissions don't give users access to the AWS Management Console or permission to modify Deadline Cloud infrastructure.
 
-Users must have access to a farm before they can access the associated queues and fleets. User access is assigned to queues and fleets separately within a farm.
+Users can have access to a queue or fleet without a membership on the farm. The monitor lists the containing farm so that they can reach that resource. User access is assigned to queues and fleets separately within a farm.
 
 You can add users as individuals or as part of a group. Adding groups to a farm, fleet, or queue can make it easier to manage access permissions for large groups of people. For example, if you have a team that is working on a specific project, you can add each of the team members to a group. Then, you can grant access permissions to the entire group for the corresponding farm, fleet, or queue.
 

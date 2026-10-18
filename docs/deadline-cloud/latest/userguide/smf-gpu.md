@@ -7,8 +7,14 @@ You can configure worker hosts in your service-managed fleets to use one or more
 
 GPUs are not available for fleets with wait-and-save instances.
 
-**Note**  
-For testing purposes you are limited to one GPU. To request more for your production workloads, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.
+**GPU quota is zero by default**  
+The default quota for GPUs in service-managed fleets is **zero**, for both Spot and On-Demand instances. Creating a fleet that uses GPU accelerators fails with a `ServiceQuotaExceededException` until you request an increase. The check happens when you create or update the fleet, not when the fleet scales out. For the steps, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*.  
+Choose the quota that matches the instance purchasing option your fleet uses:  
+`Spot G Instance GPUs per region` (quota code `L-2CCF07BF`)
+`OnDemand G instance GPUs per region` (quota code `L-5D6BA491`)
+Spot and On-Demand have separate quotas. Increasing one doesn't change the other.  
+Deadline Cloud counts a fleet against these quotas at its maximum possible usage. That usage is the fleet's maximum worker count multiplied by the maximum number of GPUs for each instance. Deadline Cloud then adds up that usage across all service-managed fleets in the AWS Region, whether or not those fleets have running workers. A fleet that has scaled to zero workers still counts against the quota.  
+Request at least enough GPUs for the fleets that you plan to run at the same time. For more information, see [Service quotas and throttling for Deadline Cloud](deadline-cloud-quotas.md).
 
 You decide whether your fleet will use GPU accelerators when you specify the worker instance capabilities. If you decide to use GPUs, you can specify the minimum and maximum number of GPUs for each instance, the types of GPU chips to use, and the runtime driver for the GPUs.
 

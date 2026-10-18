@@ -75,12 +75,12 @@ For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessFarms]
 
 You can attach the `AWSDeadlineCloud-UserAccessFleets` policy to your IAM identities.
 
-This policy allows users to access fleet data based on the farms that they are members of and their membership level.
+This policy allows users to access fleet data based on the fleets that they are members of and their membership level.
 
 **Permissions details**
 
 This policy includes the following permissions:
-+ `deadline` – Allows the user to access farm data.
++ `deadline` – Allows the user to access fleet data.
 + `ec2` – Allows users to see details about Amazon EC2 instance types. 
 + `identitystore` – Allows users to see user and group names. 
 
@@ -91,12 +91,12 @@ For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessFleets
 
 You can attach the `AWSDeadlineCloud-UserAccessJobs` policy to your IAM identities.
 
-This policy allows users to access job data based on the farms that they are members of and their membership level.
+This policy allows users to access job data based on the jobs that they are members of and their membership level.
 
 **Permissions details**
 
 This policy includes the following permissions:
-+ `deadline` – Allows the user to access farm data.
++ `deadline` – Allows the user to access job data.
 + `ec2` – Allows users to see details about Amazon EC2 instance types. 
 + `identitystore` – Allows users to see user and group names. 
 
@@ -107,12 +107,12 @@ For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessJobs](
 
 You can attach the `AWSDeadlineCloud-UserAccessQueues` policy to your IAM identities.
 
-This policy allows users to access queue data based on the farms that they are members of and their membership level.
+This policy allows users to access queue data based on the queues that they are members of and their membership level.
 
 **Permissions details**
 
 This policy includes the following permissions:
-+ `deadline` – Allows the user to access farm data.
++ `deadline` – Allows the user to access queue data.
 + `ec2` – Allows users to see details about Amazon EC2 instance types. 
 + `identitystore` – Allows users to see user and group names. 
 
@@ -134,6 +134,7 @@ View details about updates to AWS managed policies for Deadline Cloud since this
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms) – Change<br />[AWSDeadlineCloud-UserAccessFleets](#security-iam-awsmanpol-UserAccessFleets) – Change<br />[AWSDeadlineCloud-UserAccessJobs](#security-iam-awsmanpol-UserAccessJobs) – Change<br />[AWSDeadlineCloud-UserAccessQueues](#security-iam-awsmanpol-UserAccessQueues) – Change | Deadline Cloud added new action `deadline:ListMemberships` so you can see the farms, queues, fleets, and jobs where you hold an access level. | October 9, 2026 | 
 | [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms) – Change | Deadline Cloud added new action `kms:Decrypt` so you can use an AWS KMS customer-managed key with your IAM Identity Center instance. | December 22, 2025 | 
 | [AWSDeadlineCloud-WorkerHost](#security-iam-awsmanpol-WorkerHost) – Change | Deadline Cloud added new actions `deadline:TagResource` and `deadline:ListTagsForResource` to allow you to add and view tags associated with workers in your fleet. | May 30, 2025 | 
 | [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms) – Change<br />[AWSDeadlineCloud-UserAccessJobs](#security-iam-awsmanpol-UserAccessJobs) – Change<br />[AWSDeadlineCloud-UserAccessQueues](#security-iam-awsmanpol-UserAccessQueues) – Change | Deadline Cloud added new actions `deadline:GetJobTemplate` and `deadline:ListJobParameterDefinitions` to allow you to resubmit jobs. | October 7, 2024 | 
