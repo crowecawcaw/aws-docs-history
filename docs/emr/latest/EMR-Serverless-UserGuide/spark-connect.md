@@ -241,23 +241,51 @@ response['url']
 
 While a session is active, the URL opens the live Apache Spark UI for real-time monitoring of queries, stages, and executors. After a session ends, the Spark History Server remains available for post-session analysis through the Amazon EMR Serverless console.
 
+## Fine-grained access control with AWS Lake Formation for Spark Connect sessions
+<a name="spark-connect-fgac"></a>
+
+Starting with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later, Spark Connect sessions support fine-grained access control (FGAC) through AWS Lake Formation. When Lake Formation is enabled, the table, row, column, and cell-level permissions that you define in Lake Formation are enforced on the queries that you run in your session, the same way they are for EMR Serverless Spark batch jobs. For an overview of how EMR Serverless works with Lake Formation, see [Using EMR Serverless with AWS Lake Formation for fine-grained access control](emr-serverless-lf-enable.md).
+
+Enable Lake Formation for a session in one of the following ways:
++ Start the session on an application that already has Lake Formation enabled. For more information, see [Enabling Lake Formation in Amazon EMR](emr-serverless-lf-enable.md#emr-serverless-lf-enable-config).
++ Set `spark.emr-serverless.lakeformation.enabled` to `true` under the `spark-defaults` classification when you start the session.
+
+  ```
+  aws emr-serverless start-session \
+    --application-id APPLICATION_ID \
+    --execution-role-arn EXECUTION_ROLE_ARN \
+    --configuration-overrides '{
+      "runtimeConfiguration": [
+        {
+          "classification": "spark-defaults",
+          "properties": {
+            "spark.emr-serverless.lakeformation.enabled": "true"
+          }
+        }
+      ]
+    }'
+  ```
+
+The considerations and limitations that apply to EMR Serverless with Lake Formation also apply to Spark Connect sessions. For more information, see [Considerations and limitations](emr-serverless-lf-enable-considerations.md).
+
+To debug a Lake Formation-enabled Spark Connect session, use the `GetResourceDashboard` API to access the system profile logs. For more information, see [Debugging jobs and sessions](emr-serverless-lf-enable-debugging.md).
+
 ## Considerations and limitations
 <a name="spark-connect-considerations"></a>
 
 Consider the following when running interactive workloads through Spark Connect.
-+ Spark Connect is supported with Amazon EMR Serverless release `emr-7.13.0` and later.
++ Spark Connect is supported with Amazon EMR Serverless release `emr-7.13.0` and later. Fine-grained access control through AWS Lake Formation is supported for Spark Connect sessions with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](#spark-connect-fgac).
 + Spark Connect is supported only for the Apache Spark engine.
 + Spark Connect supports DataFrame and SQL APIs in PySpark. RDD-based APIs are not supported.
 + Authentication tokens are time-limited to 1 hour. When a token expires, gRPC calls fail with an authentication error. Call `GetSessionEndpoint` to obtain a new token and create a new `SparkSession` with the updated token.
 + Sessions end after a configurable idle timeout. Default timeout is set to 1 hour.
 + Each session has a hard limit of 24 hours by default, after which it auto-terminates even if it is actively running a task.
 + Each EMR Serverless application supports up to 25 concurrent sessions by default. To request a limit increase, contact AWS Support.
++ A Lake Formation FGAC-enabled Spark Connect session supports a single client connection (one `SparkSession`). EMR Serverless rejects additional clients that try to connect to the same session; to run a second client, start a separate session.
 + By default, `autoStopConfig` is on for applications. The application stops automatically after 15 minutes with no active sessions or job runs. You can change this configuration as part of your `create-application` or `update-application` request.
 + For the best startup experience, configure pre-initialized capacity for drivers and executors.
 + You should enable AutoStart or manually start your application before starting an EMR Serverless session.
 + The PySpark version installed locally must match the Apache Spark version on your Amazon EMR Serverless application (3.5.6 for `emr-7.13.0`). A version mismatch causes `ImportError` or unexpected behavior.
-+ Fine-grained access control through Lake Formation is not supported for Spark Connect sessions.
-+ Trusted Identity Propagation is not supported for interactive sessions with Spark Connect.
 + Serverless storage on EMR Serverless is not supported for interactive sessions with Spark Connect.
 + There is no additional charge for using Spark Connect. You pay only for EMR Serverless compute resources (vCPU, memory, and storage) consumed during your session.
 + The Spark configuration `spark.connect.grpc.binding.address` is reserved by EMR Serverless and cannot be overridden by users.

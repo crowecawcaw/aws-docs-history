@@ -13,8 +13,8 @@ When you enable Lake Formation for a Spark job on EMR Serverless, the job launch
 + Amazon EMR Serverless with Lake Formation is available in all supported [EMR Serverless Regions](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/considerations.html).
 + Starting with Amazon EMR 7.14.0, Lake Formation-enabled applications support the use of [custom EMR Serverless images](https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/application-custom-image.html) in the user space only. The system space, which enforces Lake Formation policies, continues to use the default EMR Serverless base image. This support also applies to the AWS runtime for Apache Spark 8.x release line beginning with `emr-spark-8.1.0`. Custom images with Lake Formation aren’t supported on Amazon EMR 7.13.0 and earlier releases, or on `emr-spark-8.0.0`.
 + You can't turn off `DynamicResourceAllocation` for Lake Formation jobs.
-+ You can only use Lake Formation with Spark jobs.
-+ EMR Serverless with Lake Formation only supports a single Spark session throughout a job.
++ You can use Lake Formation with Spark batch jobs, interactive Spark Connect sessions, and Livy sessions. Fine-grained access control for Spark Connect sessions is supported starting with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac).
++ EMR Serverless with Lake Formation only supports a single Spark session throughout a job. For an interactive Spark Connect session, this means that only one client can connect and run queries against a Lake Formation-enabled session, because the system profile is bound to the first client's remote Spark session UUID.
 + EMR Serverless with Lake Formation only supports cross-account table queries shared through resource links.
 + The following aren't supported:
   + Resilient distributed datasets (RDD)

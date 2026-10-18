@@ -121,5 +121,5 @@ When using user background sessions:
 
 User background sessions for EMR Serverless are available for:
 + Spark engine only (Hive engine is not supported)
-+ Livy interactive sessions only (batch jobs and streaming jobs are not supported)
++ Livy interactive sessions only (batch jobs, streaming jobs, and interactive Spark Connect sessions are not supported)
 + EMR Serverless release labels 7.8 and later

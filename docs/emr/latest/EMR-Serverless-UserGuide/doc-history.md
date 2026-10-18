@@ -7,6 +7,7 @@ The following table describes the important changes to the documentation since t
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](#doc-history) | [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac) | September 22, 2026 | 
 | [New GA release](#doc-history) | [`AWS runtime for Apache Spark` (emr-spark-8.0.0)](release-version-emr-spark-8.0.0.md) | May 21, 2026 | 
 | [New feature](#doc-history) | [Run interactive sessions with Spark Connect](spark-connect.md) | April 23, 2026 | 
 | [New preview release](#doc-history) | [`AWS runtime for Apache Spark` (emr-spark-8.0-preview)](release-version-emr-spark-8.0-preview.md) | November 21, 2025 | 

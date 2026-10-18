@@ -10,7 +10,6 @@ To maintain security and data access controls, Spark fine-grained access control
 
 The following PySpark features aren't supported in Spark FGAC:
 + RDD operations (blocked with SparkRDDUnsupportedException)
-+ Spark Connect (unsupported)
 + Spark Streaming (unsupported)
 
 While we've tested the listed functions in a Native Spark FGAC environment and confirmed they work as expected, our testing typically covers only basic usage of each API. Functions with multiple input types or complex logic paths may have untested scenarios.
@@ -36,7 +35,7 @@ The PySpark API is organized into modules. General support for methods within ea
 | pyspark\_ml | Experimental | This module containes DataFrame based ML operations, and these functions are mostly supported. This module isn't thoroughly tested. | 
 | pyspark\_pandas | Supported |  | 
 | pyspark\_pandas\_slow | Supported |  | 
-| pyspark\_connect | Blocked | Spark Connect usage is blocked in Spark FGAC. | 
+| pyspark\_connect | Supported | Interactive Spark Connect sessions support Spark FGAC starting with `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac). | 
 | pyspark\_pandas\_connect | Blocked | Spark Connect usage is blocked in Spark FGAC. | 
 | pyspark\_pandas\_slow\_connect | Blocked | Spark Connect usage is blocked in Spark FGAC. | 
 | pyspark\_errors | Experimental | This module is not thoroughly tested. Custom error classes can't be utilized. | 

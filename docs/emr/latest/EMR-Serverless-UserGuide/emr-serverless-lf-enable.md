@@ -6,7 +6,7 @@
 ## Overview
 <a name="emr-serverless-lf-enable-overview"></a>
 
-With Amazon EMR releases 7.2.0 and higher, leverage AWS Lake Formation to apply fine-grained access controls on Data Catalog tables that are backed by S3. This capability lets you configure table, row, column, and cell level access controls for read queries within your Amazon EMR Serverless Spark jobs. To configure fine-grained access control for Apache Spark batch jobs and interactive sessions, use EMR Studio. See the following sections to learn more about Lake Formation and how to use it with EMR Serverless.
+With Amazon EMR releases 7.2.0 and higher, leverage AWS Lake Formation to apply fine-grained access controls on Data Catalog tables that are backed by S3. This capability lets you configure table, row, column, and cell level access controls for read queries within your Amazon EMR Serverless Spark jobs. To configure fine-grained access control for Apache Spark batch jobs and interactive sessions, use EMR Studio. Interactive Spark Connect sessions are also supported with release `emr-7.14.0` and later, or `emr-spark-8.1.0` and later. For more information, see [Fine-grained access control with AWS Lake Formation for Spark Connect sessions](spark-connect.md#spark-connect-fgac). See the following sections to learn more about Lake Formation and how to use it with EMR Serverless.
 
 Using Amazon EMR Serverless with AWS Lake Formation incurs additional charges. For more information, refer to [Amazon EMR pricing](https://aws.amazon.com/emr/pricing/).
 

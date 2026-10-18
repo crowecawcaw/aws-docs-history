@@ -14,6 +14,7 @@ This section covers how to interact with your Amazon EMR Serverless application 
 + [Configuring VPC access for EMR Serverless applications to connect to data](vpc-access.md)
 + [Amazon EMR Serverless architecture options](architecture.md)
 + [Job concurrency and queuing for an EMR Serverless application](applications-concurrency-queuing.md)
++ [Configure IPv6 subnets for EMR Serverless applications](ipv6-subnets.md)
 
 ## Application states
 <a name="application-states"></a>
