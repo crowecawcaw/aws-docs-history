@@ -358,7 +358,7 @@ GROUP BY n_name;
 
 1. **Unsupported Pushdown Expressions**: The reason full pushdown failed: `character(25)` (the `n_name` column type in the local `nation` table). The `char(n)` type is not supported for pushdown. If this table were a foreign table with `TEXT` columns, full pushdown would succeed.
 
-**Key takeaway**: In table-scan pushdown, Aurora PostgreSQL still provides value through efficient columnar scanning with predicate pushdown and column pruning. PostgreSQL handles only the operations that can't be pushed down (unsupported functions, data types, or collations). Had the local table used a supported type such as `text` with a compatible collation, the entire hybrid join would have been pushed to the analytics engine as a single Custom Scan.
+**Key takeaway**: In table-scan pushdown, Aurora PostgreSQL still provides value through efficient columnar scanning with predicate pushdown and column pruning. PostgreSQL handles only the operations that can't be pushed down (unsupported functions, data types, or collations). Had the local table used a supported type such as `text` with a compatible collation, the entire hybrid join would have been pushed to the analytics engine as a single Custom Scan. To get full pushdown without changing the local table, see [Joining foreign tables with local tables](aurora-analytics-local-table-casts.md).
 
 ## Using EXPLAIN VERBOSE to see Pushdown SQL
 <a name="aurora-analytics-explain-verbose"></a>
@@ -480,7 +480,7 @@ If present, read the category and description to understand what prevented full 
   -- Use:
   WHERE name COLLATE "C" LIKE 'Smith%'
   ```
-+ **Unsupported type**: Avoid casting to unsupported types in expressions on foreign table columns.
++ **Unsupported type**: Avoid casting to unsupported types in expressions on foreign table columns. For local table columns, see [Joining foreign tables with local tables](aurora-analytics-local-table-casts.md).
 
 **Step 4: Verify**
 

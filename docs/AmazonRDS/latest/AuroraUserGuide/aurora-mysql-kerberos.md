@@ -77,3 +77,6 @@ The following limitations apply to Kerberos authentication for Aurora MySQL:
 + For Aurora global databases to use Kerberos authentication, you must configure it for every DB cluster in the global database.
 + The domain name must be less than 62 characters long.
 + Don't modify the DB cluster port after turning on Kerberos authentication. If you modify the port, then Kerberos authentication will no longer work. 
++ When you enable Kerberos authentication, your DB cluster prioritizes AWS Managed Microsoft AD DNS servers over Amazon DNS resolvers. If your AWS Managed Microsoft AD DNS contains endpoint records for AWS services (such as Lambda VPC endpoints), your database may resolve these services to IP addresses in your Active Directory VPC rather than your database VPC. This configuration prevents successful connections from your DB cluster to these AWS services.
+**Note**  
+This limitation applies only if you have AWS service VPC endpoints configured in your AWS Managed Microsoft AD VPC.

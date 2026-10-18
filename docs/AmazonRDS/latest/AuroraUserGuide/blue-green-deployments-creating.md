@@ -141,6 +141,30 @@ aws rds create-blue-green-deployment ^
     --target-db-cluster-parameter-group-name {{mydbclusterparametergroup}}
 ```
 
+To create a blue/green deployment for an Aurora Global Database, specify the global cluster ARN for `--source`. The global cluster ARN doesn't include an AWS Region. Run the command in the same AWS Region as the writer cluster of the Global Database.
+
+**Example**  
+For Linux, macOS, or Unix:  
+
+```
+aws rds create-blue-green-deployment \
+    --region {{us-east-2}} \
+    --blue-green-deployment-name {{aurora-global-blue-green-deployment}} \
+    --source arn:aws:rds::{{123456789012}}:global-cluster:{{my-aurora-global-cluster-1}} \
+    --target-engine-version {{8.0}} \
+    --target-db-cluster-parameter-group-name {{mydbclusterparametergroup}}
+```
+For Windows:  
+
+```
+aws rds create-blue-green-deployment ^
+    --region {{us-east-2}} ^
+    --blue-green-deployment-name {{aurora-global-blue-green-deployment}} ^
+    --source arn:aws:rds::{{123456789012}}:global-cluster:{{my-aurora-global-cluster-1}} ^
+    --target-engine-version {{8.0}} ^
+    --target-db-cluster-parameter-group-name {{mydbclusterparametergroup}}
+```
+
 ### RDS API
 <a name="blue-green-deployments-creating-api"></a>
 
@@ -155,6 +179,6 @@ The following table explains the settings that you can choose when you create a 
 | Console setting | Setting description | CLI option and RDS API parameter | 
 | --- | --- | --- | 
 | **Blue/Green Deployment identifier** | A name for the blue/green deployment. | **CLI option:**<br />`--blue-green-deployment-name`<br />**API parameter:**<br /> `BlueGreenDeploymentName` | 
-| Blue database identifier | The identifier of the cluster that you want to copy to the green environment. When using the CLI or API, specify the cluster Amazon Resource Name (ARN). | **CLI option:**<br />`--source`<br />**API parameter:**<br />`Source` | 
+| Blue database identifier | The identifier of the cluster that you want to copy to the green environment. When using the CLI or API, specify the cluster Amazon Resource Name (ARN). For an Aurora Global Database, specify the global cluster ARN instead of the ARN of the primary DB cluster. For the global cluster ARN format, see [Constructing an ARN for Amazon RDS](USER_Tagging.ARN.Constructing.md). | **CLI option:**<br />`--source`<br />**API parameter:**<br />`Source` | 
 |  DB cluster parameter group for green databases  | A parameter group to associate with the databases in the green environment. | **CLI option:**<br /><br />`--target-db-cluster-parameter-group-name`<br />**API parameter:**<br /><br />`TargetDBClusterParameterGroupName` | 
 | **Engine version for green databases** | Upgrade the cluster in the green environment to the specified DB engine version.<br />If you choose an Aurora PostgreSQL DB cluster, review and acknowledge the logical replication limitations. For more information, see [Logical replication-specific limitations for blue/green deployments](blue-green-deployments-considerations.md#blue-green-deployments-limitations-postgres). | **CLI option:**<br />`--target-engine-version`<br />**RDS API parameter:**<br />`TargetEngineVersion` | 

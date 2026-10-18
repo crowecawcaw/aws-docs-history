@@ -24,3 +24,8 @@ Before you can invoke Lambda functions from an Aurora MySQL DB cluster, make sur
 1. Configure your Aurora MySQL DB cluster to allow outbound connections to Lambda. For instructions, see [Enabling network communication from Amazon Aurora to other AWS services](AuroraMySQL.Integrating.Authorizing.Network.md).
 
     If the cluster is part of an Aurora global database, enable outbound connections for each Aurora cluster in the global database. 
+
+**DNS resolution conflicts with Kerberos authentication and Lambda VPC endpoints**  
+Lambda invocations from your DB cluster may fail if you enable Kerberos authentication and configure Lambda VPC endpoints in your AWS Managed Microsoft AD VPC.  
+When you enable Kerberos authentication, your DB cluster prioritizes AWS Managed Microsoft AD DNS servers over the VPC DNS resolver. If Lambda endpoint records exist in your AWS Managed Microsoft AD DNS, the endpoints may resolve to IP addresses in your Active Directory VPC rather than your database VPC. This configuration prevents successful Lambda invocations.  
+For more information, see [Using Kerberos authentication for Aurora MySQL](aurora-mysql-kerberos.md).

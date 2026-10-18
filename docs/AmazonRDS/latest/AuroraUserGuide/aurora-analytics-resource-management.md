@@ -94,7 +94,7 @@ Aurora PostgreSQL uses a multi-threaded execution engine for each query. Threads
 
 Both kinds of threads are internal to the engine and managed by Aurora PostgreSQL. You do not configure either one.
 
-The `AuroraAnalyticsActiveThreads` Amazon CloudWatch metric reports the active worker threads. For how to interpret it, see [Interpreting the active thread count](aurora-analytics-monitoring-troubleshooting.md#aurora-analytics-active-thread-count).
+The `AuroraAnalyticsActiveThreads` Amazon CloudWatch metric reports the active worker threads. For how to interpret it, see [Interpreting the active thread count](aurora-analytics-monitoring.md#aurora-analytics-active-thread-count).
 
 ## On-disk read cache
 <a name="aurora-analytics-on-disk-read-cache"></a>

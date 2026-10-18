@@ -139,8 +139,8 @@ AWS provides secure and private connectivity between DB instances of all types. 
 
 The following limitations exist for Amazon Aurora encrypted DB clusters:
 + You can't turn off encryption on an encrypted DB cluster.
-+ If you have an existing unencrypted cluster, all snapshots created from that cluster will also be unencrypted. To create an encrypted snapshot from an unencrypted cluster, you must copy the snapshot and specify a customer managed key during the copy operation. You cannot create an encrypted snapshot from an unencrypted snapshot without specifying a customer managed key.
-+ You can't create an encrypted snapshot of an unencrypted DB .
++ If you have an existing unencrypted cluster, all snapshots created from that cluster are also unencrypted. You can't encrypt an unencrypted Aurora DB cluster snapshot by copying it.
++ You can't create an encrypted snapshot of an unencrypted DB cluster.
 + A snapshot of an encrypted DB cluster must be encrypted using the same KMS key as the DB cluster.
 + You can't convert an unencrypted DB cluster to an encrypted one. However, you can restore an unencrypted snapshot to an encrypted Aurora DB cluster. To do this, specify a KMS key when you restore from the unencrypted snapshot.
 + If you have an existing unencrypted cluster, any Amazon Aurora replica (read instance) created from that cluster will also be unencrypted. To create an encrypted cluster from an unencrypted cluster, you need to restore the database cluster. The restored cluster will be encrypted by default after the restore operation.
