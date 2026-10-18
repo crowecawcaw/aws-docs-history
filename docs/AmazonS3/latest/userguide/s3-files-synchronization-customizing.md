@@ -18,6 +18,9 @@ Import data rules control how data is copied from your bucket to the file system
 
 **sizeLessThan** – Maximum file size (in bytes) to automatically import. While S3 Files imports metadata for all files, it only imports data for files smaller than this threshold. Minimum: 0 bytes (no data imported, metadata will still be imported). Maximum: 52,673,613,135,872 bytes (48 TiB). Default: 131,072 bytes (128 KiB).
 
+**Note**  
+Each imported file is metered as a write. A higher sizeLessThan makes more and larger files eligible for import, which increases your write charges. This effect is largest with ON\_DIRECTORY\_FIRST\_ACCESS, where a single directory traversal imports every eligible file. For more information about metering and pricing, see [How S3 Files is metered](s3-files-metering.md).
+
 ### Prefix matching behavior
 <a name="s3-files-sync-prefix-matching"></a>
 

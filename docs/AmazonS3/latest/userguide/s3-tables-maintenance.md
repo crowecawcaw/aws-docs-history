@@ -163,4 +163,4 @@ For more information, see [put-table-maintenance-configuration](https://awscli.a
 To learn more about additional consideration and limits for compaction and snapshot management, see [Considerations and limitations for maintenance jobs](s3-tables-considerations.md).
 
 **Note**  
-S3 Tables applies the parquets row-group-default size of 128 MB.
+S3 Tables applies the parquet's row-group-default size of 128 MB.

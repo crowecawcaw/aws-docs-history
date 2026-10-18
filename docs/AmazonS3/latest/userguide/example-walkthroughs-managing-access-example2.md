@@ -120,17 +120,15 @@ The bucket policy grants the `s3:GetLifecycleConfiguration` and `s3:ListBucket` 
 ------
 #### [ JSON ]
 
-****  
-
    ```
    {
-      "Version":"2012-10-17",		 	 	 
+      "Version": "2012-10-17",
       "Statement": [
          {
             "Sid": "Example permissions",
             "Effect": "Allow",
             "Principal": {
-               "AWS": "arn:aws:iam::{{111122223333}}:root"
+               "AWS": "arn:aws:iam::{{2222-2222-2222}}:root"
             },
             "Action": [
                "s3:GetLifecycleConfiguration",

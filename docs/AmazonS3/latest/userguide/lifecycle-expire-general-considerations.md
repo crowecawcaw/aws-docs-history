@@ -47,7 +47,7 @@ To reliably confirm an expiration occurred before removing the tag, wait for a [
 To find when the current version of an object is scheduled to expire, use the [HeadObject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html) or [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) API operation. These API operations return response headers that provide the date and time at which the current version of the object is no longer cacheable. 
 
 **Note**  
-There may be a delay between the expiration date and the date at which Amazon S3 removes an object. You are not charged for expiration or the storage time associated with an object that has expired. 
+There may be a delay between the expiration date and the date at which Amazon S3 removes an object. You are not charged for expiration or the storage time associated with an object that has expired. For more information, including guidance for deletions that must meet a deadline, see [Transition or expiration delay](how-to-set-lifecycle-configuration-intro.md#lifecycle-action-delay).
 Before updating, disabling, or deleting Lifecycle rules, use the `LIST` API operations (such as [ListObjectsV2](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectsV2.html), [ListObjectVersions](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectVersions.html), and [ListMultipartUploads](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListMultipartUploads.html)) or [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md) to verify that Amazon S3 has transitioned and expired eligible objects based on your use cases.
 
 ## Minimum storage duration charge

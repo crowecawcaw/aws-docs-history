@@ -31,13 +31,18 @@ S3 Metadata is currently available in the following AWS Regions:
 | --- | --- | 
 | Africa (Cape Town) | `af-south-1` | 
 | Asia Pacific (Hong Kong) | `ap-east-1` | 
+| Asia Pacific (Hyderabad) | `ap-south-2` | 
 | Asia Pacific (Jakarta) | `ap-southeast-3` | 
+| Asia Pacific (Malaysia) | `ap-southeast-5` | 
 | Asia Pacific (Melbourne) | `ap-southeast-4` | 
 | Asia Pacific (Mumbai) | `ap-south-1` | 
+| Asia Pacific (New Zealand) | `ap-southeast-6` | 
 | Asia Pacific (Osaka) | `ap-northeast-3` | 
 | Asia Pacific (Seoul) | `ap-northeast-2` | 
 | Asia Pacific (Singapore) | `ap-southeast-1` | 
 | Asia Pacific (Sydney) | `ap-southeast-2` | 
+| Asia Pacific (Taipei) | `ap-east-2` | 
+| Asia Pacific (Thailand) | `ap-southeast-7` | 
 | Asia Pacific (Tokyo) | `ap-northeast-1` | 
 | Canada (Central) | `ca-central-1` | 
 | Canada West (Calgary) | `ca-west-1` | 
@@ -50,6 +55,7 @@ S3 Metadata is currently available in the following AWS Regions:
 | Europe (Spain) | `eu-south-2` | 
 | Europe (Stockholm) | `eu-north-1` | 
 | Israel (Tel Aviv) | `il-central-1` | 
+| Mexico (Central) | `mx-central-1` | 
 | Middle East (Bahrain) | `me-south-1` | 
 | Middle East (UAE) | `me-central-1` | 
 | South America (São Paulo) | `sa-east-1` | 

@@ -386,16 +386,16 @@ If you have an [organizational unit (OU)](https://docs.aws.amazon.com/organizati
    "Version":"2012-10-17",		 	 	 
    "Statement": [
      {
-       "Sid": "AllowS3AccessOutsideMyBoundary",
-       "Effect": "Allow",
+       "Sid": "DenyS3AccessOutsideMyBoundary",
+       "Effect": "Deny",
        "Action": [
          "s3:*"
        ],
        "Resource": "*",
        "Condition": {
-         "ForAllValues:StringLike": {
+         "ForAllValues:StringNotLike": {
            "aws:ResourceOrgPaths": [
-             "{{o-acorg/r-acroot/ou-acroot-exampleou/}}"
+             "{{o-acorg/r-acroot/ou-acroot-exampleou/*}}"
            ] 
          }
        }

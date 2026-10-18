@@ -40,6 +40,7 @@ Before using S3 Batch Replication, review the following list of considerations:
 + A single Batch Replication job can support a manifest with up to 20 billion objects.
 + If you use S3 Batch Replication to replicate datasets cross region and your objects previously had their server-side encryption type updated from SSE-S3 to SSE-KMS, you may need additional permissions. On the source region bucket, you must have `kms:decrypt` permissions. Then, you will need the `kms:decrypt` and `kms:encrypt` permissions for the bucket in the destination region. For more information, see [Replicating encrypted objects](replication-config-for-kms-objects.md).
 + If objects in the source bucket have annotations, the annotations are replicated independently alongside the object during Batch Replication. There are no separate job tasks for individual annotations. The job task status depends on both the parent object replication status and the annotation replication status.
++ For best practices for managing incomplete multipart uploads in the destination bucket, see [Managing incomplete multipart uploads in destination buckets](replication-requirements.md#replication-and-incomplete-mpu).
 
 ## Specifying a manifest for a Batch Replication job
 <a name="batch-replication-manifest"></a>

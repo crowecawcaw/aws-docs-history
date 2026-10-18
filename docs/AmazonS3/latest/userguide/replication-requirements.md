@@ -29,6 +29,7 @@ Before you create a replication configuration, be aware of the following conside
 
 **Topics**
 + [Lifecycle configuration and object replicas](#replica-and-lifecycle)
++ [Managing incomplete multipart uploads in destination buckets](#replication-and-incomplete-mpu)
 + [Versioning configuration and replication configuration](#replication-and-versioning)
 + [Using S3 Replication with S3 Intelligent-Tiering](#replication-and-intelligent-tiering)
 + [Logging configuration and replication configuration](#replication-and-logging)
@@ -44,6 +45,13 @@ The time it takes for Amazon S3 to replicate an object depends on the size of th
 Replication configuration requires the bucket to be versioning-enabled. When you enable versioning on a bucket, keep the following in mind:
 + If you have an object Expiration lifecycle configuration, after you enable versioning, add a `NonCurrentVersionExpiration` policy to maintain the same permanent delete behavior as before you enabled versioning.
 + If you have a Transition lifecycle configuration, after you enable versioning, consider adding a `NonCurrentVersionTransition` policy.
+
+You can also use an S3 Lifecycle rule to manage incomplete multipart uploads in destination buckets. For more information, see [Managing incomplete multipart uploads in destination buckets](#replication-and-incomplete-mpu).
+
+### Managing incomplete multipart uploads in destination buckets
+<a name="replication-and-incomplete-mpu"></a>
+
+When a source object was uploaded with multipart upload, Amazon S3 replicates it to the destination bucket with multipart upload. As with any multipart upload, if the upload isn't completed, its parts remain in the destination bucket until the upload is stopped. As a best practice, we recommend that you configure an S3 Lifecycle rule on the destination bucket by using the `AbortIncompleteMultipartUpload` action to minimize your storage costs. For more information, see [Configuring a bucket lifecycle configuration to delete incomplete multipart uploads](mpu-abort-incomplete-mpu-lifecycle-config.md).
 
 ### Versioning configuration and replication configuration
 <a name="replication-and-versioning"></a>

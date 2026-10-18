@@ -13,7 +13,7 @@ You manage annotations using dedicated API operations, so you don't need to re-u
 
 You can enable an annotation table as part of your S3 Metadata configuration to query annotation data at scale using Athena and other analytics services. S3 Metadata stores annotation data in fully managed Apache Iceberg tables that Amazon S3 automatically keeps up to date. For more information, see [Discovering your data with S3 Metadata tables](metadata-tables-overview.md).
 
-Annotations are available in all commercial AWS Regions and China Regions (Beijing and Ningxia). Annotations are not available in the Middle East (UAE) and Middle East (Bahrain) Regions. S3 Metadata annotation tables are available in all Regions where S3 Metadata is available.
+Annotations are available in all commercial AWS Regions, the AWS GovCloud (US) Regions, and the China Regions (Beijing and Ningxia). Annotations are not available in the Middle East (UAE) and Middle East (Bahrain) Regions. S3 Metadata annotation tables are available in all Regions where S3 Metadata is available.
 
 ## When to use annotations vs. object tags
 <a name="annotations-vs-tags"></a>

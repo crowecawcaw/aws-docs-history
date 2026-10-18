@@ -42,6 +42,14 @@ With S3 Express One Zone, your data is redundantly stored on multiple devices wi
     - usw2-az3
     - usw2-az4
 
+- **Asia Pacific (Hong Kong)**
+  - **Region code:** ap-east-1
+  - **Availability Zone ID:** ape1-az1
+
+- **Asia Pacific (Jakarta)**
+  - **Region code:** ap-southeast-3
+  - **Availability Zone ID:** apse3-az1
+
 - **Asia Pacific (Mumbai)**
   - **Region code:** ap-south-1
   - **Availability Zone ID:**
@@ -78,6 +86,10 @@ With S3 Express One Zone, your data is redundantly stored on multiple devices wi
     - euw1-az1
     - euw1-az3
 
+- **Europe (London)**
+  - **Region code:** eu-west-2
+  - **Availability Zone ID:** euw2-az1
+
 - **Europe (Paris)**
   - **Region code:** eu-west-3
   - **Availability Zone ID:** euw3-az1
@@ -96,4 +108,8 @@ With S3 Express One Zone, your data is redundantly stored on multiple devices wi
 - **South America (São Paulo)**
   - **Region code:** sa-east-1
   - **Availability Zone ID:** sae1-az1
+
+- **Africa (Cape Town)**
+  - **Region code:** af-south-1
+  - **Availability Zone ID:** afs1-az1
 
