@@ -9,6 +9,7 @@ The following are the latest documentation updates for AWS Elastic Disaster Reco
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| CloudEndure Disaster Recovery discontinued | AWS discontinued CloudEndure Disaster Recovery on September 29, 2025. This update removes the upgrade guidance from CloudEndure Disaster Recovery to AWS Elastic Disaster Recovery. For more information about CloudEndure Disaster Recovery, see [Can I upgrade from CloudEndure Disaster Recovery to AWS Elastic Disaster Recovery?](FAQ.md#cedr-to-drs). | October 14, 2026 | 
 | AWS Graviton source servers | Added documentation for replicating and recovering source servers that run on AWS Graviton (`arm64`) Amazon EC2 instances. For more information, see [AWS Graviton source servers](Supported-Operating-Systems-Linux.md#arm64-source-servers). | September 25, 2026 | 
 | Recovery plans | Added documentation for [Orchestrating recovery with recovery plans](recovery-plans.md), which recover groups of source servers in a defined order with wait times between groups. | August 18, 2026 | 
 | Updated AWS managed policy | Updates the [AWSElasticDisasterRecoveryReadOnlyAccess](security-iam-awsmanpol-AWSElasticDisasterRecoveryReadOnlyAccess.md) policy with new read-only permissions for recovery plans and recovery plan executions. | August 18, 2026 | 
