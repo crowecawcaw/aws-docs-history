@@ -55,7 +55,8 @@ The following example shows policy statements that you could use to grant access
                 "ec2:DescribeInstances",
                 "ec2:DescribeInstanceStatus",
                 "ec2:StopInstances",
-                "ec2:StartInstances"
+                "ec2:StartInstances",
+                "ec2:DescribeVolumesModifications"
             ],
             "Resource": "*"
         },
@@ -67,7 +68,8 @@ The following example shows policy statements that you could use to grant access
                 "ec2:DeleteVolume",
                 "ec2:CreateVolume",
                 "ec2:AttachVolume",
-                "ec2:DetachVolume"
+                "ec2:DetachVolume",
+                "ec2:ModifyVolume"
             ],
             "Resource": "*",
             "Condition": {
