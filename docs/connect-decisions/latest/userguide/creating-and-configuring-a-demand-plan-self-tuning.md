@@ -3,26 +3,25 @@
 # Creating and Configuring a Demand Plan (Self-Tuning)
 <a name="creating-and-configuring-a-demand-plan-self-tuning"></a>
 
-**Self-Tuning Experience**
-
-*Amazon Connect Decisions \| Demand Intelligence User Guide \| August 2026*
-
 ## Overview
-<a name="creating-and-configuring-a-demand-plan-self-tuning-overview"></a>
+<a name="dpst-overview"></a>
 
 Amazon Connect Decisions offers a self-tuning experience for creating and configuring demand plans. Instead of manually selecting settings through a form, you work with the Decisions teammate, which analyzes your data, suggests a validated configuration, prepares your data, and generates forecasts through iterative experimentation.
 
+**Note**  
+Screens in this guide come from a walkthrough with a fictional company. Your instance shows your own data.
+
 ### What the Self-Tuning Experience Does
-<a name="creating-and-configuring-a-demand-plan-self-tuning-what-self-tuning-does"></a>
+<a name="dpst-what-the-self-tuning-experience-does"></a>
 + Analyzes your uploaded data and suggests a validated plan configuration
 + Inspects and prepares your historical data before forecasting
 + Runs forecasts at multiple hierarchy levels with automatic model selection
-+ Incorporates external signals (retail sales data, sentiment analysis) without manual uploads
++ Incorporates external signals (such as weather, holidays, retail sales data, and sentiment analysis) without manual uploads
 + Allows iterative refinement through natural language conversation
 + Provides ability to promote optimized plan configurations to use for performing production planning
 
 ### Key Benefits
-<a name="creating-and-configuring-a-demand-plan-self-tuning-key-benefits"></a>
+<a name="dpst-key-benefits"></a>
 + Go from data upload to production forecast in days
 + Fully self-serve with no AWS involvement required
 + Configuration validated against your data before plan creation
@@ -30,7 +29,7 @@ Amazon Connect Decisions offers a self-tuning experience for creating and config
 + Provide feedback and context in plain language at every step
 
 ## Prerequisites
-<a name="creating-and-configuring-a-demand-plan-self-tuning-prerequisites"></a>
+<a name="dpst-prerequisites"></a>
 + Your Amazon Connect Decisions instance is set up and configured
 + Your user account is assigned a Manager role
 + Historical demand data has been uploaded to the Supply Chain Data Lake (SCDL)
@@ -40,13 +39,24 @@ Amazon Connect Decisions offers a self-tuning experience for creating and config
 **Note**  
 For details on required data entities (outbound\_order\_line, product, site, etc.), refer to the Data Entities section of the Demand Planning User Guide.
 
+### Data Readiness Checklist
+<a name="dpst-data-readiness-checklist"></a>
+
+Before you start a draft, confirm that your data meets the following:
++ Every id column is unique per row
++ Every product\_id in your orders exists in Product, and every site\_id exists in Site
++ Demand quantity is in final\_quantity\_requested, not a generic quantity column
++ At least 52 weeks of order history (104 or more weeks for seasonal catalogs)
++ Product descriptions are clean, human readable, and unique per product
++ Product hierarchy levels nest cleanly (no level maps to more than one parent)
++ Sites include a state or region so weather and regional signals can be mapped
++ Discontinued products are flagged, not removed
+
 ## Workflow at a Glance
-<a name="creating-and-configuring-a-demand-plan-self-tuning-workflow-at-a-glance"></a>
+<a name="dpst-workflow-at-a-glance"></a>
 
 The self-tuning workflow has four steps. A progress indicator shows which step the plan is in at any time.
 
-
-**Self-tuning workflow steps**  
 
 | Step | Name | What Happens | 
 | --- | --- | --- | 
@@ -55,23 +65,59 @@ The self-tuning workflow has four steps. A progress indicator shows which step t
 | 3 | Review Forecast (Back Test) | Forecast generated using multiple models and levels, with accuracy metrics presented for review. | 
 | 4 | Promote to Production | Promote the validated plan to production with a recurring or one-time schedule. | 
 
+To see each stage and its status, click Show steps on the status banner at the top of the plan.
+
+![The expanded progress indicator shows each stage of the workflow.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-workflow-progress-indicator.jpg)
+
+
+*The expanded progress indicator shows each stage of the workflow.*
+
+## Draft Plans and Production Plans
+<a name="dpst-draft-plans-and-production-plans"></a>
+
+Every self-tuning plan starts as a draft. A draft is where you refine the configuration, data, and forecast with the Decisions teammate. When the draft meets your accuracy targets, you promote it to production.
+
+
+| Aspect | Draft Plan | Production Plan | 
+| --- | --- | --- | 
+| Purpose | Experiment and refine configuration, data, and forecasts before going live. | Generate forecasts for operational use. | 
+| How It Is Created | Select Start a New Draft from the Plans page and work with the Decisions teammate. | Promote a validated draft to production. | 
+| Schedule | No schedule. Forecasts are generated as back tests while you refine the plan. | Runs one time or on a recurring schedule that you set when you promote. | 
+
+### Settings Not Configured in a Draft
+<a name="dpst-settings-not-configured-in-a-draft"></a>
+
+When you configure a draft with the Decisions teammate, the following settings are not part of the draft configuration:
++ Optimization Metric. Instead of selecting an optimization metric, review WAPE and Bias in Step 3: Review Forecast (Back Test) and tell the Decisions teammate your accuracy targets, for example "WAPE needs to be below 15%."
++ Planning Schedule. You set the schedule when you promote the plan. See Step 4: Promote to Production.
+
+### Discarding a Draft
+<a name="dpst-discarding-a-draft"></a>
+
+To discard a draft, click Discard draft at the top right of the draft plan page. When the discard completes, you receive a Draft discard: Completed notification. You can start a new draft at any time.
+
 ## Step 1: Start a New Draft Plan
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-start-a-new-draft-plan"></a>
+<a name="dpst-step-1-start-a-new-draft-plan"></a>
 
 ### Navigate to Plans
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-navigate-to-plans"></a>
+<a name="dpst-navigate-to-plans"></a>
 
 1. From your Amazon Connect Decisions homepage, navigate to Plans.
 
-1. On the Plan page, click the three-dot menu (...).
+1. On the Plan page, click the three-dot menu (…).
 
 1. Select Start a New Draft.
 
 **Note**  
 If you have an existing plan, the Decisions teammate offers to carry the current configuration forward. You can keep the same settings or ask to modify them.
 
+![A new draft opens on the Plan configuration tab, with the Decisions teammate on the right.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-start-new-draft.jpg)
+
+
+*A new draft opens on the Plan configuration tab, with the Decisions teammate on the right.*
+
 ### Suggested Configuration
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-suggested-configuration"></a>
+<a name="dpst-suggested-configuration"></a>
 
 The Decisions teammate analyzes your uploaded data and presents a recommended configuration:
 + Time Bucket (for example, weekly)
@@ -84,7 +130,7 @@ The Decisions teammate analyzes your uploaded data and presents a recommended co
 This configuration is validated against your data and system capabilities to ensure a valid, high-quality forecast.
 
 ### Modifying the Configuration
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-modifying-the-configuration"></a>
+<a name="dpst-modifying-the-configuration"></a>
 
 You can modify any setting through natural language:
 + "My business works at product and site level"
@@ -94,7 +140,7 @@ You can modify any setting through natural language:
 Your preferences are validated against the data and the configuration updates accordingly.
 
 ### Defining Plan Scope
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-defining-plan-scope"></a>
+<a name="dpst-defining-plan-scope"></a>
 
 You can scope your plan to specific segments rather than forecasting the entire dataset:
 + "Only focus on products in the Electronics category"
@@ -102,12 +148,12 @@ You can scope your plan to specific segments rather than forecasting the entire 
 + "Only forecast for North American sites"
 
 ### Business Context Awareness
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-business-context-awareness"></a>
+<a name="dpst-business-context-awareness"></a>
 
 The Decisions teammate incorporates knowledge about your specific business. It understands your industry context and tailors configurations accordingly (for example, adjusting for food service demand patterns for a quick-service restaurant chain).
 
 ### Confirm and Create Plan
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step1-confirm-and-create-plan"></a>
+<a name="dpst-confirm-and-create-plan"></a>
 
 When satisfied, confirm by saying: "Looks good, set up the plan." The system will:
 
@@ -115,32 +161,44 @@ When satisfied, confirm by saying: "Looks good, set up the plan." The system wil
 
 1. Display the configuration summary on the left panel
 
-1. Automatically proceed to data preparation
+1. Prompt you to start data preparation
 
 ## Step 2: Data Preparation
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-data-preparation"></a>
+<a name="dpst-step-2-data-preparation"></a>
 
 In this step, your historical data is inspected and enriched before it enters the forecasting engine.
 
+Data preparation runs in the background. You can leave the page; you are notified when your data is ready for review. To check progress, click Show steps on the status banner or ask the Decisions teammate, "What is the status of my plan?"
+
+![Data preparation running, with the configuration summary on the Plan configuration tab.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-data-preparation-running.jpg)
+
+
+*Data preparation running, with the configuration summary on the Plan configuration tab.*
+
 ### What Happens During Data Preparation
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-what-happens"></a>
-+ **Gap Detection**: Identifies periods where data should exist but is missing
-+ **Spike Identification**: Detects unusual one-time spikes that could distort the forecast
-+ **Loss-of-Sales Correction**: Identifies zero-sales periods caused by inventory stockouts and estimates actual demand
-+ **Lineage Application**: Uses similar products as a baseline for new products with no history
-+ **Gap Filling**: Fills identified gaps with statistically inferred values
+<a name="dpst-what-happens-during-data-preparation"></a>
++ Gap Detection: Identifies periods where data should exist but is missing
++ Spike Identification: Detects unusual one-time spikes that could distort the forecast
++ Hidden Demand Detection (Loss-of-Sales Correction): Identifies zero-sales periods caused by inventory stockouts and estimates actual demand
++ Lineage Application: Uses similar products as a baseline for new products with no history
++ Gap Filling: Fills identified gaps with statistically inferred values
 
 ### Understanding the Data Preparation View
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-understanding-the-view"></a>
+<a name="dpst-understanding-the-data-preparation-view"></a>
 
 After data preparation completes, a chart displays two lines:
-+ **Original Data (Blue Line)**: Your raw historical data as uploaded
-+ **Enriched Data (Red Line)**: The corrected data after fixes are applied
++ Historical Sales Data (Blue Line): Your raw historical data as uploaded
++ Enriched Sales Data (Red Line): The corrected data after fixes are applied
 
 Use product, site, and channel filters to drill into specific items. Where no corrections were needed, the lines overlap.
 
+![The Data preparation view filtered to a single product.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-data-preparation-view.jpg)
+
+
+*The Data preparation view filtered to a single product.*
+
 ### Reviewing Corrections
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-reviewing-corrections"></a>
+<a name="dpst-reviewing-corrections"></a>
 
 For each correction, you can see:
 + What was found (for example, "Unusual spike on Feb 5 for Product 1006")
@@ -149,8 +207,10 @@ For each correction, you can see:
 
 The system is context-aware. It can recognize that a spike near a holiday is seasonal and retain it, while flattening an isolated spike with no seasonal explanation.
 
+To get a summary of what was found and treated, click Analyze data or ask the Decisions teammate to "analyze the prepared data."
+
 ### Responding to Actions
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-responding-to-actions"></a>
+<a name="dpst-responding-to-actions"></a>
 
 You may be asked for confirmation or additional business context:
 + "Is this spike a one-time event or recurring demand?"
@@ -165,7 +225,7 @@ Respond in natural language:
 The affected data is reprocessed and the chart updates immediately.
 
 ### Modifying Historical Data
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-modifying-historical-data"></a>
+<a name="dpst-modifying-historical-data"></a>
 
 You can proactively modify historical data through conversation:
 + "Remove the bulk order spike from March 2024"
@@ -173,15 +233,15 @@ You can proactively modify historical data through conversation:
 + "The drop in November was a system issue, not a real demand decline"
 
 ### Proceeding to Forecasting
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step2-proceeding-to-forecasting"></a>
+<a name="dpst-proceeding-to-forecasting"></a>
 
 Once satisfied with the prepared data, say: "My history looks good, proceed to forecasting."
 
 ## Step 3: Review Forecast (Back Test)
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step3-review-forecast-back-test"></a>
+<a name="dpst-step-3-review-forecast-back-test"></a>
 
 ### How Forecasting Works
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step3-how-forecasting-works"></a>
+<a name="dpst-how-forecasting-works"></a>
 
 A back test is run to validate the forecast before applying it to future periods:
 + Identifies the appropriate back test period
@@ -193,26 +253,42 @@ A back test is run to validate the forecast before applying it to future periods
 
 If the forecast does not meet thresholds, the system iterates automatically: pruning models, adjusting inputs, and regenerating until acceptable accuracy is achieved.
 
+Forecasting runs in the background. You are notified when the forecast is ready for your review. To check progress, ask the Decisions teammate, "What is the status of my plan?"
+
 ### External Signals
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step3-external-signals"></a>
+<a name="dpst-external-signals"></a>
 
 External signals that impact your demand are automatically identified and incorporated. You do not need to upload these.
 + Retail sales volume data
 + Industry-specific market indicators
 + Sentiment analysis for your product brands
 + Macroeconomic indicators
++ Weather
++ Holidays and seasonal events (for example, flu season and sporting events)
 
-Select a product in the forecast view to see which signals were applied. Ask the Decisions teammate to explain the impact of each signal.
+Below the chart, click External signals to see each demand driver and the public sources it is built from. Ask the Decisions teammate to explain the impact of each signal.
+
+![The External signals tab lists each demand driver and its public sources.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-external-signals.jpg)
+
+
+*The External signals tab lists each demand driver and its public sources.*
 
 ### Understanding the Forecast View
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step3-understanding-the-forecast-view"></a>
-+ **Treated Historical Data (Blue Line)**: Enriched sales history from data preparation
-+ **Forecast (Green Line)**: The generated forecast
-+ **External Signals Panel**: Signals applied per product
-+ **Accuracy Metrics**: WAPE and Bias
+<a name="dpst-understanding-the-forecast-view"></a>
++ Enriched Sales Data: Your sales history after data preparation
++ Final Forecast (Green Line): The generated forecast
++ Current Year Demand (Blue Line) and Prior Year Demand (Gray Dashed Line): Demand for the current and prior year
++ Forecast Start (Red Dashed Line): The date the forecast begins
++ External Signals Tab: Demand drivers applied, with their public sources
++ Accuracy Metrics: Bias %, WAPE, Forecasted Combinations, Zero Forecast Combinations, and average historical and forecast units per week
+
+![The Review forecast view with the accuracy scoreboard and chart.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-review-forecast.jpg)
+
+
+*The Review forecast view with the accuracy scoreboard and chart.*
 
 ### Providing Feedback
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step3-providing-feedback"></a>
+<a name="dpst-providing-feedback"></a>
 
 If you want to improve the forecast:
 + "The bias is too high"
@@ -225,10 +301,10 @@ New experiments will run with adjusted parameters.
 Reforecasting may take some time. A banner indicates the process is running. You can continue chatting while it regenerates.
 
 ## Step 4: Promote to Production
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step4-promote-to-production"></a>
+<a name="dpst-step-4-promote-to-production"></a>
 
 ### When to Promote
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step4-when-to-promote"></a>
+<a name="dpst-when-to-promote"></a>
 
 Promote your plan when:
 + The back test meets your accuracy targets
@@ -236,24 +312,66 @@ Promote your plan when:
 + You are ready for the plan to run on a schedule
 
 ### Promotion Steps
-<a name="creating-and-configuring-a-demand-plan-self-tuning-step4-promotion-steps"></a>
+<a name="dpst-promotion-steps"></a>
 
-1. Click Promote to Production.
+1. Click Promote to production at the top of the plan.
 
-1. Configure the production schedule:
+1. Choose how to run your production plan:
+   + Run Type: One time run or Recurring schedule
    + Forecast Start Date
-   + Run Type: One-time or Recurring
-   + Recurrence Frequency: Weekly, monthly, or custom
 
-1. Confirm the settings.
+1. Click Generate. A banner confirms that plan generation has started.
 
-The plan now runs automatically on your schedule and appears as a Production Plan in the Plans list.
+![The Promote to production dialog.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-promote-to-production-dialog.jpg)
+
+
+*The Promote to production dialog.*
+
+The production plan is generated from the approved draft configuration. When it is ready, you receive a Demand plan generation completed successfully notification. On the Plans page, the draft is marked Approved and the production plan appears beneath it.
+
+![The Plans page shows the approved draft and the production plan generated from it.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-plans-page.jpg)
+
+
+*The Plans page shows the approved draft and the production plan generated from it.*
+
+### Review and Publish the Production Plan
+<a name="dpst-review-and-publish-the-production-plan"></a>
+
+Review the production plan the same way as the draft, then click Publish to release it. To start the next planning cycle, open the menu next to Publish and select Start new draft.
+
+![Publish the production plan, or start a new draft from the menu.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-publish-production-plan.jpg)
+
+
+*Publish the production plan, or start a new draft from the menu.*
+
+## Notifications
+<a name="dpst-notifications"></a>
+
+You receive an email and an in-app notification when a plan task completes or needs your attention. To view in-app notifications, click the bell icon in the top bar, then select a notification to go to the plan. Email notifications include an Open draft button. Notifications are retained for 90 days.
+
+![The Notifications page.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-notifications-page.jpg)
+
+
+*The Notifications page.*
+
+
+| Notification | What to Do Next | 
+| --- | --- | 
+| Data preparation: Ready for your review | Review the corrections in the Data Preparation view and respond to any questions from the Decisions teammate. Once you are satisfied with the prepared data, say "My history looks good, proceed to forecasting." | 
+| Forecast generation: Ready for your review | Review WAPE, Bias, and the external signals in the forecast view. Provide feedback to run new experiments, or click Promote to production when the back test meets your accuracy targets. | 
+| Demand plan generation completed successfully | Your production plan is ready for review. Review it, then click Publish. | 
+| Draft discard: Completed | Your draft was discarded. Start a new draft whenever you are ready. | 
+| Action needed: Demand plan generation for <plan name> has failed | Follow the actions listed in the notification, such as correcting the data in the listed columns or adjusting the configuration. | 
+| Needs attention | The task could not be processed. The team is automatically alerted, and you receive a notification when processing is complete. If it is urgent or the issue persists, contact AWS Support. | 
+
+![A plan generation success notification and a plan generation failure notification.](https://docs.aws.amazon.com/connect-decisions/latest/userguide/images/demand-plan-self-tuning-notification-examples.jpg)
+
+
+*A plan generation success notification and a plan generation failure notification.*
 
 ## What Changed from the Previous Experience
-<a name="creating-and-configuring-a-demand-plan-self-tuning-what-changed"></a>
+<a name="dpst-what-changed-from-the-previous-experience"></a>
 
-
-**Comparison of the previous and self-tuning experiences**  
 
 | Aspect | Previous | Self-Tuning | 
 | --- | --- | --- | 
@@ -268,23 +386,45 @@ The plan now runs automatically on your schedule and appears as a Production Pla
 | Time to Production | Weeks. | Days. | 
 | Workflow Visibility | Limited: configure and wait. | Full progress tracking at each stage. | 
 
-## Glossary
-<a name="creating-and-configuring-a-demand-plan-self-tuning-glossary"></a>
+## Frequently Asked Questions
+<a name="dpst-frequently-asked-questions"></a>
 
+### How do I start a new draft plan?
+<a name="dpst-how-do-i-start-a-new-draft-plan"></a>
 
-**Glossary of terms**  
+From your Amazon Connect Decisions homepage, navigate to Plans, click the three-dot menu (…), and select Start a New Draft. See Step 1: Start a New Draft Plan.
 
-| Term | Definition | 
-| --- | --- | 
-| Back Test | A validation technique where a forecast is generated for a historical period to evaluate accuracy before applying the model to future periods. | 
-| Data Preparation | The step where historical data is inspected, corrected, and enriched before forecasting. | 
-| Decisions Teammate | The natural language interface in Amazon Connect Decisions that guides you through plan creation, data preparation, forecasting, and continuous improvement. | 
-| Draft Plan | A plan in experimentation mode where you refine configuration, data, and forecasts before promoting to production. | 
-| Enriched Data | Historical data after corrections (gap filling, spike removal, stockout adjustment) have been applied. | 
-| External Signals | Market indicators, retail sales data, and other signals automatically sourced to improve forecast accuracy. | 
-| Forecast Override Rules | Rules that adjust the baseline forecast to align with organizational goals, such as quantile selection, precedence logic, and lifecycle-based adjustments. | 
-| Lineage | Product-alternate mapping used for new products without history. Demand patterns from similar products serve as a baseline. | 
-| Plan Input Rules | Rules that control how the baseline forecast is created, including data inclusion/exclusion criteria, anomaly treatment, and history construction for new products. | 
-| Plan Scope | The defined subset of products and sites included in a plan. | 
-| Production Plan | A finalized plan that runs on a recurring schedule, generating forecasts for operational use. | 
-| Self-Tuning | The capability to automatically configure, correct data, select models, and iteratively improve forecasts without manual intervention. | 
+### How do I configure a draft demand plan?
+<a name="dpst-how-do-i-configure-a-draft-demand-plan"></a>
+
+The Decisions teammate analyzes your data and suggests a configuration, including time bucket, forecast granularity, planning horizon, and forecast start date. Change any setting in natural language, for example "I need a 52-week forecast horizon." When you are satisfied, say "Looks good, set up the plan." The Decisions teammate then prompts you to start data preparation.
+
+### What is the difference between a draft plan and a production plan?
+<a name="dpst-what-is-the-difference-between-a-draft-plan-and-a-production-plan"></a>
+
+A draft plan is where you refine the configuration, data, and forecast. A production plan runs on a one-time or recurring schedule and generates forecasts for operational use. See Draft Plans and Production Plans.
+
+### Can I set the Optimization Metric or Planning Schedule in a draft?
+<a name="dpst-can-i-set-the-optimization-metric-or-planning-schedule-in-a-draft"></a>
+
+No. These settings are not part of the draft configuration. Instead of selecting an optimization metric, review WAPE and Bias in the back test and tell the Decisions teammate your accuracy targets. You set the production schedule when you promote the plan to production.
+
+### How do I move a draft to production?
+<a name="dpst-how-do-i-move-a-draft-to-production"></a>
+
+When the back test meets your accuracy targets, click Promote to production, choose One time run or Recurring schedule, set the forecast start date, and click Generate. When the production plan is ready, review it and click Publish.
+
+### How do I check the status of my plan?
+<a name="dpst-how-do-i-check-the-status-of-my-plan"></a>
+
+Click Show steps on the status banner at the top of the plan, or ask the Decisions teammate, "What is the status of my plan?"
+
+### How do I discard a draft?
+<a name="dpst-how-do-i-discard-a-draft"></a>
+
+Click Discard draft at the top right of the draft plan page. You receive a Draft discard: Completed notification when the discard completes.
+
+### What happens after I promote a draft?
+<a name="dpst-what-happens-after-i-promote-a-draft"></a>
+
+The production plan is generated from the approved draft configuration. On the Plans page, the draft is marked Approved and the production plan appears beneath it. Review the production plan, then click Publish.

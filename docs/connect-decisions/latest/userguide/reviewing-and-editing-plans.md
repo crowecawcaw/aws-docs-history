@@ -3,18 +3,18 @@
 # Reviewing and Editing Plans
 <a name="reviewing-and-editing-plans"></a>
 
- **To review a supply plan:** 
+To review a supply plan:
 
-1. Navigate to Plans from your AWS Supply Chain homepage.
+1. Navigate to Plans from your Amazon Connect Decisions homepage.
 
-1. Click on the plan name or select **Review Plan** from the **Action** List.
+1. Click on the plan name or select Review Plan from the Action List.
 
 1. The system displays a high-level view of supply plan aggregated across products and sites.
 
 1. Use the filtering options to focus on specific products, locations, or time periods.
 
-## Review supply plan details
-<a name="reviewing-and-editing-plans-supply-plan-details"></a>
+## Review supply plan details in Supply Plan View
+<a name="reviewing-and-editing-plans-supply-plan-view"></a>
 + Demand section
   + **Total Demand**: Total summed up demand of the current time bucket
   + **Original Forecast**: Original demand forecast without forecast consumption
@@ -39,14 +39,90 @@
   + **Target Inventory Level**: Target inventory level calculated based on the inventory policy
   + **Max Inventory Level**: Maximum inventory level calculated based on the inventory policy
   + **Safety Stock**: Safety stock requirements specified in the inventory policy
-  + **Projected Days (Weeks) of Cover**: Projected Days(weeks) of Supply depending on plan time bucket configuration
+  + **Projected Days (Weeks) of Cover**: Projected Days (weeks) of Supply depending on plan time bucket configuration
+
+## View Multiple Products in the Supply Plan View
+<a name="reviewing-and-editing-plans-multiple-products"></a>
+
+Planning Hub gives planners visibility and control when working with multiple products in the Supply Plan horizontal grid view. Planners can select Product-Site granularity to view detailed supply-and-demand information for every product-site combination.
+
+Key capabilities include:
++ View detailed data by product-site combination.
++ Product-site column to display product and site descriptions.
++ Show/hide measures to create a compact, focused view.
++ Rearrange sections and the measures within each section.
++ Collapse or expand all sections with a single click.
+
+## View By UOM and Value
+<a name="reviewing-and-editing-plans-view-by-uom-value"></a>
+
+This feature in the Supply Plan Horizontal View allows planners to display supply and demand information using different units of measure (UOMs) or monetary values.
+
+Planners can choose between two options:
+
+### View by UOM
+<a name="reviewing-and-editing-plans-view-by-uom"></a>
+
+Display quantities in each product's base UOM or a selected alternate UOM.
+
+By default, the Supply Plan Horizontal View displays supply and demand quantities in each product's base unit of measure (UOM). Each product's quantity is displayed using its own base UOM. Planners can use the View By feature to display quantities in a specific UOM, such as cubic feet, cases, or pallets.
+
+#### UOM Conversion Rules
+<a name="reviewing-and-editing-plans-uom-conversion-rules"></a>
+
+When a specific UOM is selected, the system determines whether each product can be represented in that UOM.
+
+A product's quantity is included when either of the following conditions is met:
++ The selected UOM matches the product's base UOM.
++ A UOM conversion is defined between the product's base UOM and the selected UOM.
+
+If neither condition is satisfied, the product's displayed quantity is zero.
+
+**Note**  
+**Important:** A displayed quantity of zero does not necessarily mean that no supply or demand exists. It may indicate that the required UOM conversion has not been defined.
+
+### View by Value
+<a name="reviewing-and-editing-plans-view-by-value"></a>
+
+Display supply and demand as monetary values using product unit costs defined in a selected currency. This option allows planners to analyze supply and demand in monetary terms instead of physical quantities. Planners can select a currency, such as USD or EUR, to display monetary values based on product unit costs defined in that currency.
+
+The system calculates monetary values using the following formula:
+
+**Monetary Value = Quantity × Product Unit Cost**
+
+When a currency is selected, the system uses the product unit cost defined in the selected currency. Products with a unit cost defined in that currency contribute to the displayed monetary value. Products without a unit cost defined in the selected currency contribute zero to the displayed value. The monetary value is calculated using the applicable product quantity and unit cost.
+
+**Note**  
+**Important:** A displayed monetary value of zero may indicate that the product unit cost is not defined in the selected currency rather than that the product has no inventory, supply, or demand.
 
 ## Review order details
 <a name="reviewing-and-editing-plans-order-details"></a>
 
- The system provides an Order View to allow planners to drill down into the transactional data behind their plans. This view is automatically filtered based on the user's selection in the main tabular view. The user can navigate to the order detail view by clicking on order quantities in Supply Plan view and select the link. The Order Detail View will show the corresponding supply orders tied to that particular supply quantity. For example, if the supply quantity represents the total of all open purchase orders in a particular week, the order detail view can be brought up to show the corresponding open purchase order details. 
+The system provides an Order tab to allow planners to drill down into the transactional data behind their plans. This view is automatically filtered based on the user's selection in the main tabular view. The user can navigate to the Order tab by clicking on order quantities in Supply Plan view and select the link. The Order tab will show the corresponding supply orders tied to that particular supply quantity. For example, if the supply quantity represents the total of all open purchase orders in a particular week, the order detail view can be brought up to show the corresponding open purchase order details.
+
+In addition to order details, the Order tab provides planners with additional inventory, cost, and supply-and-demand information directly within the Order view. This provides the context needed to evaluate suggested planned orders without navigating away from the order.
++ **Current Days/Weeks of Supply** - The estimated number of days or weeks that available and expected supply can cover projected demand before the suggested planned order is received.
++ **Post-Order Days/Weeks of Supply** - The estimated number of days or weeks of demand coverage after considering the next suggested planned order.
+
+The next suggested planned order is the first planned order recommended by supply planning to address the product's upcoming supply requirement. Together, these measures help planners understand the expected impact of the suggested order on inventory coverage.
+
+**Additional Order Cost Information:** The Order tab also includes additional financial information for each order line:
++ Unit Cost
++ Order Line Amount
++ Currency Code
+
+This information allows planners to review the financial impact of suggested orders before placing the orders.
+
+Users can access additional supply and demand information for the ordered product directly from an order line. By clicking on the View Details button, planners can review:
++ Time-phased supply and demand
++ Projected inventory
++ Historical demand
+
+This provides additional context for understanding the supply and demand conditions driving the suggested order and evaluating the product's projected inventory position over time.
+
+By bringing inventory coverage, order cost, and supporting supply-and-demand details into the Order view, the Order tab makes it easier for planners to review and evaluate suggested orders in one place.
 
 ## Edit order details
 <a name="reviewing-and-editing-plans-edit-order-details"></a>
 
- Users can review the generated planned orders and make modifications such as adjusting quantities and updating the order start date and expected delivery date. By default, when a user makes an adjustment, the modified order is automatically marked as a firm order, indicating that it will be preserved during plan rerun. Once the orders are adjusted, the user needs to click on **Rerun** button to recalculate the supply plan such that the impact of these changes is reflected across the whole plan. During this rerun, the system respects these firmed orders and does not recalculate them, ensuring planner intent is maintained. 
+Users can review the generated planned orders and make modifications such as adjusting quantities and updating the order start date and expected delivery date. By default, when a user makes an adjustment, the modified order is automatically marked as a firm order, indicating that it will be preserved during plan rerun. Once the orders are adjusted, the user needs to click on the Rerun button to recalculate the supply plan such that the impact of these changes is reflected across the whole plan. During this rerun, the system respects these firmed orders and does not recalculate them, ensuring planner intent is maintained.
