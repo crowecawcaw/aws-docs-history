@@ -132,7 +132,10 @@ The following policy denies devices to connect to the specified domain.
 		"Resource": "arn:aws:iot:{{us-east-1}}:{{123456789012}}:client/{{clientid}}",
 		"Condition": {
 			"StringEquals": {
-				"iot:DomainName": "d1234567890abcdefghij-ats.iot.us-east-1.amazonaws.com"
+				"iot:DomainName": [
+					"d1234567890abcdefghij-ats.iot.us-east-1.amazonaws.com",
+					"d1234567890abcdefghij-ats.iot.us-east-1.amazonaws.com."
+				]
 			}
 		}
 	}
