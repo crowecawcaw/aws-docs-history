@@ -579,7 +579,7 @@ installonlypkgs=kernel, kernel-big‐mem, kernel-enterprise, kernel-smp,
 ## Ubuntu with Default Page Size (4KB)
 <a name="lustre-client-ubuntu"></a>
 
-### To install the Lustre client on Ubuntu 18.04, 20.04, 22.04, or 24.04 with the default page size (4KB)
+### To install the Lustre client on Ubuntu 18.04, 20.04, 22.04, 24.04, or 26.04 with the default page size (4KB)
 <a name="install-lustre-client-Ubuntu"></a>
 
 You can get Lustre packages from the Amazon FSx Ubuntu repository. To validate that the contents of the repository have not been tampered with before or during download, a GNU Privacy Guard (GPG) signature is applied to the metadata of the repository. Installing the repository fails unless you have the correct public GPG key installed on your system.
@@ -679,7 +679,7 @@ For example, if the latest version that is included in the repository is `lustre
 ## Ubuntu with 64KB Page Size
 <a name="lustre-client-ubuntu-64k"></a>
 
-### To install the Lustre client on Ubuntu24.04 (ARM64) with 64KB Page Size
+### To install the Lustre client on Ubuntu24.04 (ARM64), Ubuntu26.04 (ARM64) with 64KB Page Size
 <a name="install-lustre-client-ubuntu-64k"></a>
 
 You can get Lustre packages from the Amazon FSx Ubuntu repository. To validate that the contents of the repository have not been tampered with before or during download, a GNU Privacy Guard (GPG) signature is applied to the metadata of the repository. Installing the repository fails unless you have the correct public GPG key installed on your system.
@@ -708,7 +708,7 @@ You can get Lustre packages from the Amazon FSx Ubuntu repository. To validate t
       sudo bash -c 'echo "deb [signed-by=/usr/share/keyrings/fsx-ubuntu-public-key.gpg] https://fsx-lustre-client-repo.s3.amazonaws.com/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/fsxlustreclientrepo.list && apt-get update'
       ```
 
-1. Determine which kernel is currently running on your client instance, and update as needed. Your Ubuntu 24 kernel version must be `6.14.0-1018-aws-64k` or later.
+1. Determine which kernel is currently running on your client instance, and update as needed. Your Ubuntu 24 kernel version must be `6.14.0-1018-aws-64k` or later. Your Ubuntu 26 kernel version must be `7.0.0-1014-aws-64k` or later.
 
    1. Run the following command to determine which kernel is running.
 
@@ -722,7 +722,7 @@ You can get Lustre packages from the Amazon FSx Ubuntu repository. To validate t
       sudo apt install -y linux-aws-64k lustre-client-modules-aws-64k && sudo reboot
       ```
 
-      If your kernel version is greater than `6.14.0-1018-aws-64k` for the Graviton-based EC2 instances, and you don’t want to update to the latest kernel version, you can install Lustre for the current kernel with the following command.
+      If your Ubuntu24 kernel version is greater than `6.14.0-1018-aws-64k` for the Graviton-based EC2 instances, or your Ubuntu26 kernel version is greater than `7.0.0-1014-aws-64k` for the Graviton-based EC2 instances, and you don’t want to update to the latest kernel version, you can install Lustre for the current kernel with the following command.
 
       ```
       sudo apt install -y lustre-client-modules-$(uname -r)
