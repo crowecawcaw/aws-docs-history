@@ -9,6 +9,7 @@ This topic describes the concepts and procedures that are common to all IPAM pol
 
 **Topics**
 + [Prerequisites](#ipam-policies-prerequisites)
++ [Where a policy applies](#ipam-policies-scope)
 + [Terminology](#ipam-policies-terminology)
 + [Which policy applies to an account](#ipam-policies-precedence)
 + [Create an IPAM policy](#ipam-policies-create)
@@ -17,8 +18,30 @@ This topic describes the concepts and procedures that are common to all IPAM pol
 
 ## Prerequisites
 <a name="ipam-policies-prerequisites"></a>
-+ An [IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html) with [advanced tier](https://docs.aws.amazon.com/vpc/latest/ipam/mod-ipam-tier.html) enabled. To apply policies to accounts across your organization, the IPAM must be in the [delegated administrator account](https://docs.aws.amazon.com/vpc/latest/ipam/enable-integ-ipam.html). An IPAM in an account that is not the delegated administrator can apply policies to that account only.
++ An [IPAM](https://docs.aws.amazon.com/vpc/latest/ipam/create-ipam.html).
 + [IAM permissions](https://docs.aws.amazon.com/vpc/latest/ipam/iam-ipam.html) for the IPAM policy operations and for the EC2 operations that create the governed resources.
+
+## Where a policy applies
+<a name="ipam-policies-scope"></a>
+
+A policy applies only in the IPAM's operating AWS Regions. For more information, see [Modify IPAM operating Regions](mod-ipam-region.md). The accounts that a policy applies to depend on which account owns the IPAM and on the IPAM's [tier](https://docs.aws.amazon.com/vpc/latest/ipam/mod-ipam-tier.html).
+
+The following table shows which accounts a policy applies to, based on the IPAM owner and tier.
+
+
+| IPAM owner | Tier | Accounts the policy applies to | 
+| --- | --- | --- | 
+| Delegated administrator account | Advanced Tier | The targets that you choose. Target the organization root to apply the policy to every account in the organization, or target an organizational unit (OU) or individual member accounts to apply it to some accounts. | 
+| Delegated administrator account | Free Tier | Only the delegated administrator account. If you target the organization root, an OU, or member accounts, the policy rules still apply only to the delegated administrator account. | 
+| Any other account | Free Tier or Advanced Tier | Only the account that owns the IPAM. | 
+
+To apply a policy to accounts across your organization, the IPAM must be in the delegated administrator account and use the Advanced Tier.
+
+**Note**  
+A policy applies only to accounts in the delegated administrator's own organization. If your IPAM manages accounts in other organizations through shared resource discoveries, the policy does not apply to those accounts. For more information, see [Integrate IPAM with accounts outside of your organization](enable-integ-ipam-outside-org.md).
+
+**Note**  
+Organizational unit (OU) exclusions also apply to IPAM policies. A policy doesn't apply to accounts that an OU exclusion covers, even if the policy specifies those accounts as targets. Before you choose policy targets, review your OU exclusions. For more information, see [Exclude organizational units from IPAM](exclude-ous.md).
 
 ## Terminology
 <a name="ipam-policies-terminology"></a>
@@ -30,7 +53,7 @@ A set of rules that IPAM applies to resources created in the accounts that the p
 An entry in a policy that maps matching resources to an outcome, such as the IPAM pool that a resource gets its IP address from. Each kind of rule has its own matching model, described in the topic for that rule kind.
 
 **Target**  
-An AWS account, an organizational unit (OU), or the root of an AWS Organization to which a policy is applied.
+A *target* is an AWS account, an OU, or the root of an AWS Organization to which a policy is applied. The targets that take effect depend on the IPAM owner and tier. For more information, see [Where a policy applies](#ipam-policies-scope).
 
 ## Which policy applies to an account
 <a name="ipam-policies-precedence"></a>

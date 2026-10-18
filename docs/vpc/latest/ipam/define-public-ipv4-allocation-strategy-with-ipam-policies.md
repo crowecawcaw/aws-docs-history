@@ -38,6 +38,7 @@ If you choose a specific IPAM pool or EIP allocation ID when creating an AWS res
 <a name="prerequisites"></a>
 + An IPAM policy. For the IPAM requirements and how to create a policy, see [IPAM policies](ipam-policies.md).
 + A [public IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html) with IPv4 addresses
++ If you enable the policy for accounts other than the pool owner, you must share the pool with those accounts by using AWS Resource Access Manager (AWS RAM). For more information, see [Share an IPAM pool using AWS RAM](share-pool-ipam.md).
 
 ## Terminology
 <a name="terminology"></a>
@@ -76,12 +77,24 @@ Follow these steps to add allocation rules by using the AWS Console:
 **Using the AWS CLI:**  
 Use the [modify-ipam-policy-allocation-rules](https://docs.aws.amazon.com/cli/latest/reference/ec2/modify-ipam-policy-allocation-rules.html) command.
 
-## Step 2: Enable the policy
+## Step 2: Share the pools with target accounts
+<a name="share-pools-with-target-accounts"></a>
+
+An allocation rule only specifies which pool to use. To get an address from the pool, the target account must own the pool, or you must share the pool with it by using AWS RAM. If the target account can't access the pool, the request still succeeds, but the resource gets an Amazon-provided IP address.
+
+You can skip this step if you enable the policy only for the account that owns the pools in its allocation rules.
+
+If you enable the policy for an organization, an organizational unit (OU), or member accounts, share each pool in the allocation rules with those targets. For more information, see [Share an IPAM pool using AWS RAM](share-pool-ipam.md).
+
+**Note**  
+After you share a pool, wait several minutes before you test the policy. Until the share takes effect, resources might get Amazon-provided IP addresses. If you add a pool to an allocation rule later, share that pool too.
+
+## Step 3: Enable the policy
 <a name="enable-the-policy"></a>
 
 Specify which accounts should use this policy. See [Enable an IPAM policy](ipam-policies.md#ipam-policies-enable). If an account is in the scope of more than one enabled policy, see [Which policy applies to an account](ipam-policies.md#ipam-policies-precedence).
 
-## Step 3: Test your policy
+## Step 4: Test your policy
 <a name="test-your-policy"></a>
 
  Create a new resource of the type you configured (like an EIP) in one of the target accounts. The resource will automatically use an IP address from your IPAM pool.
@@ -89,7 +102,7 @@ Specify which accounts should use this policy. See [Enable an IPAM policy](ipam-
 **Important**  
 If you choose a specific IPAM pool or EIP allocation ID when creating an AWS resource, that will override the IPAM policy.
 
-## Step 4: Monitor usage
+## Step 5: Monitor usage
 <a name="monitor-usage"></a>
 
 Check your [IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/monitor-cidr-usage-ipam.html) in the console to see IP addresses being allocated to your resources.
