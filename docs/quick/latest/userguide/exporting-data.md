@@ -18,7 +18,7 @@ The following rules apply:
   + from Pivot Table visual 400K cells or 50K rows 
   + from Table visual 800K cells or 100K rows 
 **Note**  
-With a subscription to Paginated Reporting, you are able to [schedule the export of visuals in CSV and Excel formats](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html) and export up to 3M rows (CSV) and 16M cells (Excel). 
+With a subscription to Paginated Reporting, you are able to [schedule the export of visuals in CSV and Excel formats](https://docs.aws.amazon.com/quicksight/latest/user/sending-reports.html) and export up to 1M rows (CSV) and 16M cells (Excel). 
 + You can't export data from an insight, because insights consume the data, but don't contain the data. 
 + Quick Sight doesn't support exporting data from more than a single visualization at a time. To export data from additional visuals in the same analysis or dashboard, repeat this process for each visual. To export all the data from a dashboard or analysis, you need to connect to the original data source using valid credentials and a tool that you can use to extract data. 
 

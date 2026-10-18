@@ -15,3 +15,4 @@ This section covers administration for Amazon Quick Free, Plus, and Max accounts
 + [Understanding usage on the Amazon Quick Plus and Max plans](standalone-usage.md)
 + [Account settings for Amazon Quick Free and Plus accounts](standalone-account-settings.md)
 + [User profile and preferences in Amazon Quick](standalone-profile.md)
++ [AWS security in Quick](standalone-aws-security.md)

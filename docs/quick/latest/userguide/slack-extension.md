@@ -88,7 +88,7 @@ Follow these steps only if you are using IAM Identity Center with Entra ID to se
 
    1. Choose **Web**.
 
-   1. Compose a callback URL using the following format, replacing {{your-region}} with your Amazon Quick instance Region. The Slack extension supports the following Regions: `ap-southeast-2`, `eu-west-1`, `us-west-2`, and `us-east-1`.
+   1. Compose a callback URL using the following format, replacing {{your-region}} with your Amazon Quick instance AWS Region. The Slack extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
 
       ```
       qbs-cell001.dp.appintegrations.{{your-region}}.prod.plato.ai.aws.dev/auth/idc-tti/callback
@@ -147,7 +147,7 @@ Follow these steps only if you are using IAM Identity Center with Okta to set up
 
 1. Add callback URIs for each Region in which your Slack extension will be installed
 
-   1. Compose a callback URI using the following format, replacing {{your-region}} with your Amazon Quick instance Region for each region where you wish to configure the extension. The Slack extension supports the following Regions: `ap-southeast-2`, `eu-west-1`, `us-west-2`, and `us-east-1`.
+   1. Compose a callback URI for each Region where you want to configure the extension, using the following format and replacing {{your-region}} with your Amazon Quick instance AWS Region. The Slack extension supports the following Regions: `us-east-1`, `us-west-2`, `ap-northeast-1`, `ap-southeast-2`, `eu-central-1`, `eu-west-1`, and `eu-west-2`.
 
       ```
       qbs-cell001.dp.appintegrations.{{your-region}}.prod.plato.ai.aws.dev/auth/idc-tti/callback

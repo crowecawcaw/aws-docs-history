@@ -158,8 +158,9 @@ Use this group to control data source connections, including adding, editing, an
 | Feature | Amazon Quick behavior | Badge | Parent capability | 
 | --- | --- | --- | --- | 
 | Actions | Restricts all connector capabilities. | AI | Not applicable | 
-| Creating or updating all data sources | Access to creating or updating all data sources is disabled. | Not applicable | Not applicable | 
-| Sharing data sources | Access to sharing data sources is disabled. | Not applicable | Not applicable | 
+| Data sources | Restricts all data source capabilities, including the ability to create, update, and share data sources for every connector. | Not applicable | Not applicable | 
+| Creating or updating all data sources | Access to creating or updating all data sources is disabled. | Not applicable | Data sources | 
+| Sharing data sources | Access to sharing data sources is disabled. | Not applicable | Data sources | 
 | Knowledge base | Restricts all knowledge base capabilities. | AI | Not applicable | 
 | Creating or updating all knowledge bases | Users can't create or update knowledge bases. | AI | Knowledge base | 
 | Share all knowledge bases | Users can't share knowledge bases with other users. | AI | Knowledge base | 
@@ -183,6 +184,39 @@ You can restrict access to individual knowledge base connectors. Each knowledge 
 + **Use** – Restricts the ability to use knowledge bases for the connector.
 
 These permissions are available under **Knowledge base**, in the **Connectors** group of the **Capabilities & features** section. For a list of available knowledge base connectors, see [Knowledge bases](knowledge-base-integrations.md).
+
+### Data source connectors
+<a name="custom-permissions-data-source-connectors"></a>
+
+You can restrict access to individual data source connectors. For example, you can let users create Amazon Redshift data sources but not Snowflake data sources. Each data source connector supports the following permissions:
++ **Create** – Restricts the ability to create data sources for the connector.
++ **Update** – Restricts the ability to update data sources for the connector.
++ **Share** – Restricts the ability to share data sources for the connector.
+
+These permissions are available under **Data sources**, in the **Connectors** group of the **Capabilities & features** section. Each connector is listed under **Connected sources**. To restrict all three permissions for a connector, select the connector. For a list of supported data sources, see [Supported data sources](supported-data-sources.md).
+
+**Creating or updating all data sources** and **Sharing data sources** apply to every connector. If you restrict either of them, the matching permissions are restricted for all connectors. Connector permissions that you don't restrict remain allowed.
+
+To set these permissions with the Amazon Quick API or the AWS Command Line Interface, use capability names. Replace {{Connector}} with the connector's name in the API, such as `Snowflake`, `RedshiftManual`, or `GoogleBigQuery`. For more information about capability names, see `Capabilities` in the [Amazon Quick API Reference](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_Capabilities.html).
+
+The following table lists the capability name for each permission.
+
+
+| Permission | Capability name | 
+| --- | --- | 
+| All permissions for the connector | `{{Connector}}DataSource` | 
+| Create | `Create{{Connector}}DataSource` | 
+| Update | `Update{{Connector}}DataSource` | 
+| Share | `Share{{Connector}}DataSource` | 
+
+Replace {{AWSACCOUNTID}} with your AWS account ID and {{PERMISSIONNAME}} with a name for the profile. Use the following AWS CLI command to create a custom permissions profile that restricts creating and sharing Snowflake data sources:
+
+```
+aws quicksight create-custom-permissions \
+--aws-account-id {{AWSACCOUNTID}} \
+--custom-permissions-name {{PERMISSIONNAME}} \
+--capabilities '{"CreateSnowflakeDataSource": "DENY", "ShareSnowflakeDataSource": "DENY"}'
+```
 
 ### Administration
 <a name="custom-permissions-administration"></a>
