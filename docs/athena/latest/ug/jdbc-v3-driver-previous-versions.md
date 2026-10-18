@@ -8,33 +8,35 @@ We highly recommended that you use the [latest version](jdbc-v3-driver.md) of th
 ## JDBC driver uber jar
 <a name="jdbc-v3-driver-download-uber-jar-previous"></a>
 
-The following download packages the driver and all its dependencies in the same `.jar` file. This download is commonly used for third-party SQL clients.
-+ [3.8.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.8.0/athena-jdbc-3.8.0-with-dependencies.jar)
-+ [3.7.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/athena-jdbc-3.7.0-with-dependencies.jar)
-+ [3.6.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-with-dependencies.jar)
-+ [3.5.1 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.1/athena-jdbc-3.5.1-with-dependencies.jar)
-+ [3.5.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.0/athena-jdbc-3.5.0-with-dependencies.jar)
-+ [3.4.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.4.0/athena-jdbc-3.4.0-with-dependencies.jar)
-+ [3.3.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.3.0/athena-jdbc-3.3.0-with-dependencies.jar)
-+ [3.2.2 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.2.2/athena-jdbc-3.2.2-with-dependencies.jar)
-+ [3.2.1 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.2.1/athena-jdbc-3.2.1-with-dependencies.jar)
-+ [3.2.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.2.0/athena-jdbc-3.2.0-with-dependencies.jar)
-+ [3.1.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.1.0/athena-jdbc-3.1.0-with-dependencies.jar)
-+ [3.0.0 uber jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.0.0/athena-jdbc-3.0.0-with-dependencies.jar)
+To download an uber jar that packages the driver and all its dependencies in the same `.jar` file, choose a driver version. This package is commonly used for third-party SQL clients.
++ [3.8.1 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.8.1/athena-jdbc-3.8.1-with-dependencies.jar)
++ [3.8.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.8.0/athena-jdbc-3.8.0-with-dependencies.jar)
++ [3.7.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.7.0/athena-jdbc-3.7.0-with-dependencies.jar)
++ [3.6.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.6.0/athena-jdbc-3.6.0-with-dependencies.jar)
++ [3.5.1 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.5.1/athena-jdbc-3.5.1-with-dependencies.jar)
++ [3.5.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.5.0/athena-jdbc-3.5.0-with-dependencies.jar)
++ [3.4.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.4.0/athena-jdbc-3.4.0-with-dependencies.jar)
++ [3.3.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.3.0/athena-jdbc-3.3.0-with-dependencies.jar)
++ [3.2.2 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.2.2/athena-jdbc-3.2.2-with-dependencies.jar)
++ [3.2.1 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.2.1/athena-jdbc-3.2.1-with-dependencies.jar)
++ [3.2.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.2.0/athena-jdbc-3.2.0-with-dependencies.jar)
++ [3.1.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.1.0/athena-jdbc-3.1.0-with-dependencies.jar)
++ [3.0.0 uber jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.0.0/athena-jdbc-3.0.0-with-dependencies.jar)
 
 ## JDBC driver lean jar
 <a name="jdbc-v3-driver-download-lean-jar"></a>
 
-The following download is a `.zip` file that contains the lean `.jar` for the driver and separate `.jar` files for the driver's dependencies. This download is commonly used for custom applications that might have dependencies that conflict with the dependencies that the driver uses. This download is useful if you want to choose which of the driver dependencies to include with the lean jar, and which to exclude if your custom application already contains one or more of them.
-+ [3.8.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.8.0/athena-jdbc-3.8.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.7.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.7.0/athena-jdbc-3.7.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.6.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.6.0/athena-jdbc-3.6.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.5.1 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.1/athena-jdbc-3.5.1-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.5.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.5.0/athena-jdbc-3.5.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.4.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.4.0/athena-jdbc-3.4.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.3.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.3.0/athena-jdbc-3.3.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.2.2 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.2.2/athena-jdbc-3.2.2-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.2.1 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.2.1/athena-jdbc-3.2.1-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.2.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.2.0/athena-jdbc-3.2.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.1.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.1.0/athena-jdbc-3.1.0-lean-jar-and-separate-dependencies-jars.zip)
-+ [3.0.0 lean jar](https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.0.0/athena-jdbc-3.0.0-lean-jar-and-separate-dependencies-jars.zip)
+To download a `.zip` file that contains the lean `.jar` for the driver and separate `.jar` files for its dependencies, choose a driver version. This package is commonly used for custom applications that might have dependencies that conflict with the driver's dependencies. It lets you choose which driver dependencies to include and which to exclude if your application already contains one or more of them.
++ [3.8.1 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.8.1/athena-jdbc-3.8.1-lean-jar-and-separate-dependencies-jars.zip)
++ [3.8.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.8.0/athena-jdbc-3.8.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.7.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.7.0/athena-jdbc-3.7.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.6.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.6.0/athena-jdbc-3.6.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.5.1 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.5.1/athena-jdbc-3.5.1-lean-jar-and-separate-dependencies-jars.zip)
++ [3.5.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.5.0/athena-jdbc-3.5.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.4.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.4.0/athena-jdbc-3.4.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.3.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.3.0/athena-jdbc-3.3.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.2.2 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.2.2/athena-jdbc-3.2.2-lean-jar-and-separate-dependencies-jars.zip)
++ [3.2.1 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.2.1/athena-jdbc-3.2.1-lean-jar-and-separate-dependencies-jars.zip)
++ [3.2.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.2.0/athena-jdbc-3.2.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.1.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.1.0/athena-jdbc-3.1.0-lean-jar-and-separate-dependencies-jars.zip)
++ [3.0.0 lean jar](https://aws-analytics-downloads-us-east-1.s3.us-east-1.amazonaws.com/athena/JDBC/3.0.0/athena-jdbc-3.0.0-lean-jar-and-separate-dependencies-jars.zip)

@@ -19,6 +19,7 @@ For additional information, see [Run Spark SQL on Amazon Athena Spark](https://a
 
 **Topics**
 + [Release versions](notebooks-spark-release-versions.md)
++ [Migrating to Amazon Athena Apache Spark version 3.5](notebooks-spark-migration-v3-to-v35.md)
 + [Considerations and limitations](notebooks-spark-considerations-and-limitations.md)
 + [Get started](notebooks-spark-getting-started.md)
 + [Manage notebook files](notebooks-spark-managing.md)

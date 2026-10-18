@@ -5,6 +5,16 @@
 
 These release notes provide details of improvements and fixes in the Amazon Athena JDBC 3.x driver.
 
+## 3.8.2
+<a name="jdbc-v3-driver-release-notes-2026-10-09"></a>
+
+Released 2026-10-09
+
+### Improvements
+<a name="jdbc-v3-driver-release-notes-2026-10-09-improvements"></a>
++ **Security update** – This release upgrades the bundled Netty dependency from 4.1.135.Final to 4.1.138.Final, which includes security fixes. To help keep your connections to Athena secure, we recommend upgrading to this driver version.
++ **Licensing update** – The driver license now permits redistribution of the compiled driver when it is embedded in your product.
+
 ## 3.8.1
 <a name="jdbc-v3-driver-release-notes-2026-08-28"></a>
 
