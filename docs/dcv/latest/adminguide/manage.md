@@ -22,6 +22,7 @@ Accessing this management requires your administrator credentials. You must be s
 + [Enabling USB remotization](manage-usb-remote.md)
 + [Configuring smart card caching](manage-smart-card.md)
 + [Configuring WebAuthn Redirection](config-webauthn-redirect.md)
++ [Configuring host-to-client URL redirection](config-url-redirection.md)
 + [Enabling session storage](manage-storage.md)
 + [Configuring the printer on Linux](manage-printer.md)
 + [Configuring the clipboard on Linux](manage-clipboard.md)

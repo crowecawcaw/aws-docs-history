@@ -5,13 +5,16 @@
 
 **Note**  
  USB redirection for touchscreen and stylus devices is not needed. Also, no vendor drivers need to be installed on the Amazon DCV server.  
-Amazon DCV supports touchscreen and stylus by using the native operating system APIs: Windows Ink on Windows and X11 input injection on Linux.
+Amazon DCV supports touchscreen and stylus by using the native operating system APIs: Windows Ink on Windows, X11 input injection on Linux with X11, and libei on Linux with Wayland.
+
+**Note**  
+Stylus is currently not supported on Linux with Wayland.
 + **Windows servers support**
 
   Touchscreens are supported on all of the supported Windows operating systems. Styluses are supported on all the supported Windows operating systems starting from Windows 10 and Windows 2019, they are not supported on Windows 2016, Windows 8.1 and older versions. By default, the features are enabled on Windows Amazon DCV servers. No additional configuration is required. 
 + **Linux servers support**
 
-  Touchscreens and styluses are supported on all of the supported Linux operating systems. The features are enabled by default on virtual sessions hosted on Linux Amazon DCV servers. However, some additional configuration is required to enable the features on console sessions hosted on Linux Amazon DCV servers. 
+  Touchscreens are supported on all of the supported Linux operating systems. Styluses are supported on Linux with X11 only and are not supported on Linux with Wayland. The features are enabled by default on virtual sessions hosted on Linux Amazon DCV servers. However, some additional configuration is required to enable the features on console sessions hosted on Linux Amazon DCV servers. 
 
 **Important**  
  Touchscreen and stylus use with Amazon DCV is enabled if the feature is supported *on both client and server*, and enabled on the server. For information about client support, see [the client features](https://docs.aws.amazon.com/dcv/latest/userguide/client.html#client-features) in the *Amazon DCV User Guide*. 

@@ -133,7 +133,7 @@ Amazon DCV ships with a reference external authentication server called, `DcvSim
 
 DcvSimpleExternalAuthenticator server supports HTTP and HTTPS, and it must run on the same server on which the Amazon DCV server is installed. By default, the DcvSimpleExternalAuthenticator listens for requests on port `8444`. You can change the port, if needed. To do this, open `/etc/dcv/simpleextauth.conf` with your preferred text editor, locate the `EXTAUTH_PORT` parameter, and replace the existing value with the required port number.
 
-To use DcvSimpleExternalAuthenticator, you must install the `nice-dcv-simple-external-authenticator` package. For more information, see [Install the Amazon DCV Server](setting-up-installing-linux-server.md#linux-server-install).
+To use DcvSimpleExternalAuthenticator, you must install the `nice-dcv-simple-external-authenticator` package. Depending on your operating system, see [Installing the Amazon DCV Server on Linux with X11](setting-up-installing-linux-x11-installation.md) or [Installing the Amazon DCV Server on Linux with Wayland](setting-up-installing-linux-wayland-installation.md) for more information.
 
 ### Using the Simple External Authenticator
 <a name="usage"></a>

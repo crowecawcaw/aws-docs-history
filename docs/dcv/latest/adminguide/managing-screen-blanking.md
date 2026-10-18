@@ -3,6 +3,9 @@
 # Managing screen blanking on Linux
 <a name="managing-screen-blanking"></a>
 
+**Note**  
+Screen blanking applies only to console sessions, which are not supported on Linux with Wayland.
+
 For Console sessions on a Linux server, DCV blanks the local screen by default when at least one remote user is connected to the server, and restores the output (also locking the screen) upon disconnection of the last remote user.
 
 This prevents user in the physical proximity of a server to see the screen and interact with the remote session using the input devices connected to the host. This may be undesirable for privacy reasons or local laws compliance when remotely working on console sessions. Local input is prevented by disabling the physically connected devices such as the keyboard and the mouse. Input devices are disabled as soon as they are plugged in or when found to be enabled. Analogously, input devices are enabled back when no remote user is connected, thus permitting local log in and interaction.

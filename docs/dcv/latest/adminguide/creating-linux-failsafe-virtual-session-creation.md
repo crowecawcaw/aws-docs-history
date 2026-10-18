@@ -3,6 +3,9 @@
 # Creating a Failsafe Virtual Session on Linux
 <a name="creating-linux-failsafe-virtual-session-creation"></a>
 
+**Note**  
+This procedure applies only to Linux with X11. It is not applicable to Linux with Wayland.
+
  A common strategy to verify if the session creation failure is tied to the startup of the desktop environment consists in creating a minimal session. We will refer to this session as a "failsafe" session. If creating a failsafe session works correctly, then we can deduce that your normal session fails because the default system desktop environment fails to start. Conversely, if also the failsafe session fails, then the problem is more likely to be related to the setup of Amazon DCV server. 
 
  A failsafe session typically consists of a desktop session containing only a simple window manager and a terminal. This allows the user to check in case there are session creation issues related to the specific session environment in use (typically gnome or KDE). 

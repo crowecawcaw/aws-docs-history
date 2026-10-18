@@ -24,7 +24,7 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.
 
-1. Run `nice-dcv-server-x64-Release-2025.0-{{version_number}}.msi`. 
+1. Run `nice-dcv-server-x64-Release-2026.0-{{version_number}}.msi`. 
 
 1. On the Welcome screen, choose **Next**.
 
@@ -92,18 +92,18 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
    + Install default components:
 
      ```
-     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2025.0-{{version_number}}.msi
+     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2026.0-{{version_number}}.msi
      /quiet /norestart /l*v dcv_install_msi.log
      ```
    + Install all components:
 
      ```
-     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2025.0-{{version_number}}.msi
+     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2026.0-{{version_number}}.msi
      ADDLOCAL=ALL /quiet /norestart /l*v dcv_install_msi.log
      ```
    + Install a subset of components:
 
      ```
-     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2025.0-{{version_number}}.msi
+     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2026.0-{{version_number}}.msi
      ADDLOCAL=audioMicDriver,audioSpkDriver,printerDriver,webcamDriver /quiet /norestart /l*v dcv_install_msi.log
      ```

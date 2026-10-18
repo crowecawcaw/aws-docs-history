@@ -8,7 +8,7 @@ DCV allows session owners and users to set the time zone of their session to ref
  If only individual users in a session are required to have this feature, you will need to set the centralized parameter for all users first and then adjust individuals’ permissions separately by creating a custom permissions file at [Adding permissions](security-authorization-file-create-permission.md). 
 
 **Note**  
-This feature is not available on Linux virtual sessions.
+This feature isn't available on Linux virtual sessions in versions earlier than 2026.0. Starting with version 2026.0, the feature is available when you set `max-concurrent-sessions` to `1`.
 
 **Note**  
 On macOS, time zone redirection is applied after login.

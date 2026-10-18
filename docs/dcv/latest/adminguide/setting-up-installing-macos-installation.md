@@ -37,7 +37,7 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
 1. Run the unattended installer with the following command:
 
    ```
-   $ sudo installer -pkg nice-dcv-server-2025.0-{{version_number}}-macos-arm64.dist.pkg -target /
+   $ sudo installer -pkg nice-dcv-server-2026.0-{{version_number}}-macos-arm64.dist.pkg -target /
    ```
 
 ## Using the wizard
@@ -55,7 +55,7 @@ The Amazon DCV server is available only in a 64-bit version and supported on 64-
 **Tip**  
 The [latest packages](http://download.amazondcv.com/latest.html) page of the download website contains links that point to the newest available version. You can use these links to automatically retrieve the newest Amazon DCV packages.
 
-1. Run `nice-dcv-server-2025.0-{{version_number}}-macos-arm64.dist.pkg`. 
+1. Run `nice-dcv-server-2026.0-{{version_number}}-macos-arm64.dist.pkg`. 
 
 1. On the Introduction screen, choose **Continue**.
 

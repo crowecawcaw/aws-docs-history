@@ -3,6 +3,9 @@
 # Enable Remote X connections to the X Server for virtual sessions
 <a name="setup-xforwarding"></a>
 
+**Note**  
+This configuration is not needed on Linux with Wayland.
+
 By default, `Xdcv` prevents the use of X forwarding, because of inherent security risks. Amazon DCV inherits this behavior from the newer versions of the Xorg server. The Amazon DCV server implements the following default mitigations to minimize the security risks:
 + The X server prevents X connections from the network. The X server is configured to start with `-nolisten tcp` command line option. However, it is possible to change the default behavior to enable remote X connections to the X server. For more information about this workaround, see [Enable Remote X connections to the X Server](#enable-remotex).
 + The X server disables GLX indirect contexts. Because of conflicts with DCV-GL, there is currently no workaround to enable GLX indirect contexts.

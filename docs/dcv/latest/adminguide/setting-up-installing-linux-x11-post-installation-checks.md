@@ -1,7 +1,7 @@
 
 
-# Performing post-installation checks
-<a name="setting-up-installing-linux-checks"></a>
+# Performing post-installation checks for the Amazon DCV server on Linux with X11
+<a name="setting-up-installing-linux-x11-post-installation-checks"></a>
 
 This topic provides some post-installation checks that you should perform after installing Amazon DCV to ensure that your Amazon DCV server is properly configured.
 
@@ -103,12 +103,12 @@ Use the following command:
 
 ```
 gpg1 --import NICE-GPG-KEY-SECRET
-dpkg-sig --verify nice-dcv-server_2025.0.20103-1_amd64.deb
+dpkg-sig --verify nice-dcv-server_2026.0.24952-1_amd64.deb
 ```
 
 This will return a message that includes the term `GOODSIG` to confirm that the signature is verified. The following example shows a signature confirmation message. In place of {{Example Key}}, the key will be displayed.
 
 ```
-Processing nice-dcv-server_2025.0.20103-1_amd64.deb...
+Processing nice-dcv-server_2026.0.24952-1_amd64.deb...
 GOODSIG _gpgbuilder {{Example Key}}
 ```

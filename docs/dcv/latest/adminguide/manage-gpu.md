@@ -20,7 +20,7 @@ Before you begin, complete the following prerequisites:
 **Note**  
 You can use the `nvidia-xconfig` NVIDIA utility to automatically create an `xorg.conf` file and configure it for all the available NVIDIA GPUs.
 + Ensure that the X Server is running.
-+ (Optional) Verify the Amazon DCV server configuration by running the `dcvgldiag` tool. For more information, see [Performing post-installation checks](setting-up-installing-linux-checks.md).
++ (Optional) Verify the Amazon DCV server configuration by running the `dcvgldiag` tool. For more information, see [Performing post-installation checks for the Amazon DCV server on Linux with X11](setting-up-installing-linux-x11-post-installation-checks.md).
 
   You can also install the `nice-dcv-gltest` package and run the `dcvgltest` test application to check if the server is properly configured for GPU sharing.
 

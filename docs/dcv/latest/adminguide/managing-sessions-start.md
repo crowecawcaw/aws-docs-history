@@ -17,6 +17,7 @@ The Amazon DCV server must be running to start a session. For more information, 
 **Topics**
 + [Manually starting console and virtual sessions](#managing-sessions-start-manual)
 + [Enabling Automatic Console Sessions](#managing-sessions-start-auto)
++ [Automatically starting a virtual session on Linux with Wayland](#managing-sessions-start-auto-virtual)
 
 ## Manually starting console and virtual sessions
 <a name="managing-sessions-start-manual"></a>
@@ -176,7 +177,8 @@ Enabling an automatic console session ensures that a console session is automati
 Other parameters affecting automatic console sessions are `max-concurrent-clients`, `permissions-file`, and `storage-root`. For more information about these parameters, see [`session-management/automatic-console-session` Parameters](config-param-ref.md#session_management_automatic_console_session).
 
 **Note**  
-Amazon DCV doesn't support automatic virtual sessions.
+Amazon DCV doesn't support automatic virtual sessions through the `create-session` parameter.  
+On Linux with Wayland, console sessions are not supported, so automatic console sessions can't be created. To automatically start a virtual session when the server boots, see [Automatically starting a virtual session on Linux with Wayland](#managing-sessions-start-auto-virtual).
 
 ------
 #### [ Windows ]
@@ -210,7 +212,7 @@ Amazon DCV doesn't support automatic virtual sessions.
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
-#### [ Linux ]
+#### [ Linux with X11 ]
 
 **To enable an automatic console session on a Linux Amazon DCV server**
 
@@ -252,3 +254,40 @@ Amazon DCV doesn't support automatic virtual sessions.
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the Amazon DCV server.
 
 ------
+
+## Automatically starting a virtual session on Linux with Wayland
+<a name="managing-sessions-start-auto-virtual"></a>
+
+On Linux with Wayland, Amazon DCV supports virtual sessions only, so the `create-session` parameter and the automatic console session don't apply. To automatically create a virtual session when the host starts, create a systemd service that runs `dcv create-session`.
+
+**To automatically start a virtual session**
+
+1. Create a systemd service unit file at `/etc/systemd/system/dcv-automatic-virtual-session.service` with the following content. Replace {{session-owner}} with the Amazon DCV user that owns the session, and {{session-id}} with the ID to assign to the session.
+
+   ```
+   [Unit]
+   Description=Create DCV virtual session
+   After=dcvserver.service graphical.target
+   Wants=graphical.target
+   Requires=dcvserver.service
+   
+   [Service]
+   Type=oneshot
+   RemainAfterExit=yes
+   ExecStart=/usr/bin/dcv create-session --type virtual --owner {{session-owner}} {{session-id}}
+   
+   [Install]
+   WantedBy=graphical.target
+   ```
+
+1. Reload the systemd manager configuration.
+
+   ```
+   sudo systemctl daemon-reload
+   ```
+
+1. Enable and start the service so that the session is created now and on every subsequent boot.
+
+   ```
+   sudo systemctl enable --now dcv-automatic-virtual-session.service
+   ```

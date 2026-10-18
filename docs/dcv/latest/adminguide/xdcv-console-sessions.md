@@ -3,6 +3,9 @@
 # Using Xdcv with console sessions
 <a name="xdcv-console-sessions"></a>
 
+**Note**  
+This configuration is not needed on Linux with Wayland.
+
 Amazon DCV offers two types of sessions: console and virtual.
 
 With **virtual sessions**, Amazon DCV starts a dedicated X server instance, Xdcv, and runs a desktop environment inside it. Amazon DCV starts a new Xdcv instance for each virtual session, and each virtual session uses the display provided by its own X server instance. The Xdcv binary is provided by the `nice-xdcv` package.

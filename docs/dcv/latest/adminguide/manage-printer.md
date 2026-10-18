@@ -15,7 +15,7 @@ If you're using a Windows Amazon DCV server, no additional configuration is requ
    + Amazon Linux
 
      ```
-     $ sudo yum install cups
+     $ sudo dnf install cups
      ```
    + RHEL, CentOS, and Rocky Linux
 

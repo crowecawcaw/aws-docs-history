@@ -1,7 +1,7 @@
 
 
-# Prerequisites for Linux Amazon DCV servers
-<a name="setting-up-installing-linux-prereq"></a>
+# Prerequisites for the Amazon DCV server on Linux with X11
+<a name="setting-up-installing-linux-x11-prerequisites"></a>
 
 Amazon DCV enables clients to access a remote graphical X session on a Linux server. This provides access to the corresponding Linux desktop. Amazon DCV supports two types of Linux desktop streaming: console sessions and virtual sessions. For more information about console and virtual sessions, see [Managing Amazon DCV sessions](managing-sessions.md).
 
@@ -24,39 +24,6 @@ Install a desktop environment and desktop manager to improve your experience wit
 A desktop environment is a graphical user interface (GUI) that helps you to interact with the Linux operating system. There are several desktop environments, and Amazon DCV works with many of them. A desktop manager is a program that manages the user login screen, and starts and stops the desktop environment sessions and the X server.
 
 The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems and also shows how to configure and start the X server on the supported operating systems.
-
-------
-#### [ Amazon Linux 2 ]
-
-The default desktop environment for Amazon Linux 2 is GNOME and the default desktop manager is GDM.
-
-**To install and configure the desktop environment and desktop manager on Amazon Linux 2**
-
-1. Install the desktop environment and the desktop manager packages.
-
-   ```
-   $ sudo yum install gdm gnome-session gnome-classic-session gnome-session-xsession
-   ```
-
-   ```
-   $ sudo yum install xorg-x11-server-Xorg xorg-x11-fonts-Type1 xorg-x11-drivers 
-   ```
-
-   ```
-   $ sudo yum install gnome-terminal gnu-free-fonts-common gnu-free-mono-fonts gnu-free-sans-fonts gnu-free-serif-fonts
-   ```
-
-1. Update the software packages to ensure that the Linux server is up to date.
-
-   ```
-   $ sudo yum upgrade
-   ```
-
-1. Reboot the Linux server.
-
-   ```
-   $ sudo reboot
-   ```
 
 ------
 #### [ Amazon Linux 2023 ]
@@ -234,7 +201,7 @@ Amazon DCV 2022.2 and newer are not affected by this issue.
 Amazon DCV doesn't support the Wayland protocol. If you're using the GDM desktop manager, you must disable the Wayland protocol. If you aren't using GDM, skip this step.
 
 ------
-#### [ Amazon Linux 2/2023 ]
+#### [ Amazon Linux 2023 ]
 
 **To disable the Wayland protocol**
 
@@ -357,13 +324,13 @@ The glxinfo utility provides information about your Linux server's OpenGL config
 The glxinfo utility is installed as a package dependency of DCV GL. Therefore, if you installed DCV GL, the glxinfo utility is already installed on your Linux server.
 
 ------
-#### [ Amazon Linux 2/2023 ]
+#### [ Amazon Linux 2023 ]
 
 **To install the glxinfo utility**  
 Run the following command:
 
 ```
-$ sudo yum install glx-utils
+$ sudo dnf install glx-utils
 ```
 
 ------
@@ -521,13 +488,13 @@ This is not required if you intend to use virtual sessions.
 The XDummy driver is able to support only resolutions defined in its configuration.
 
 ------
-#### [ Amazon Linux 2/2023 ]
+#### [ Amazon Linux 2023 ]
 
 **To install the XDummy driver**  
 Run the following command:
 
 ```
-$ sudo yum install xorg-x11-drv-dummy
+$ sudo dnf install xorg-x11-drv-dummy
 ```
 
 ------

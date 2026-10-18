@@ -53,7 +53,7 @@ For information about the Amazon DCV server licensing compatibility requirements
 
 1. Back up your Amazon DCV server configuration. Copy the `/etc/dcv/dcv.conf` file to a safe location.
 
-1. Follow the steps described in [Install the Amazon DCV Server](setting-up-installing-linux-server.md#linux-server-install).
+1. Depending on your operating system, follow the steps described in [Installing the Amazon DCV Server on Linux with X11](setting-up-installing-linux-x11-installation.md) or [Installing the Amazon DCV Server on Linux with Wayland](setting-up-installing-linux-wayland-installation.md).
 
 1. After the installation is complete, confirm that the Amazon DCV server configuration is still correct. Open the file that you copied in step 4 and compare it to the `/etc/dcv/dcv.conf` file.
 
