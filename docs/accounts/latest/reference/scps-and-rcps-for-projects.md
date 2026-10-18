@@ -58,6 +58,8 @@ The following is a service control policy for all users in a project and cannot 
 
 This policy is not removed when you activate advanced features. For more information, see [Activate advanced AWS features](activate-advanced-features.md).
 
+After you activate advanced features, this policy stays attached to the root of your organization, so it applies to every member account, including accounts that you create or invite later.
+
 In addition, we apply the following service control policy for all users in a project to restrict certain modifications to your project that are either not supported or must be completed in AWS Settings:
 
 ```
@@ -153,6 +155,8 @@ In addition, we apply the following service control policy for all users in a pr
 ```
 
 This policy is removed when you activate advanced features. For more information, see [Activate advanced AWS features](activate-advanced-features.md).
+
+Removing this policy doesn't let you update the root user email address of a project account. For more information, see [Project accounts after you activate advanced features](activate-advanced-features.md#activate-advanced-features-project-accounts).
 
 In addition, we also apply the following service control policy for all users in a project to restrict AWS Regions to allow for support for partitional services, depending on your {{selected-region}}:
 

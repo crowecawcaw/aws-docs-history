@@ -72,9 +72,9 @@ A member account is an AWS account that is part of AWS Organizations.
 
 1. On the **AWS accounts** page, find and choose the name of the member account you want to close. You can navigate the OU hierarchy, or look at a flat list of accounts without the OU structure. 
 
-1. Choose **Close** next to the account name at the top of the page. This option is only available when an AWS organization is in [All features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set) mode.
+1. Choose **Close account** next to the account name at the top of the page. This option is only available when an AWS organization is in [All features](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set) mode.
 **Note**  
-If your organization is using [Consolidated billing](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only) mode, you won't be able to see the **Close** button in the console. To close an account in consolidated billing mode, sign in to the account you want to close as the root user. On the **Accounts** page, choose the **Close account** button, enter your account ID, and then choose the **Close account** button.
+If your organization is using [Consolidated billing](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only) mode, you won't be able to see the **Close account** button in the console. To close an account in consolidated billing mode, sign in to the account you want to close as the root user. On the **Accounts** page, choose the **Close account** button, enter your account ID, and then choose the **Close account** button.
 
 1. Read and ensure that you understand the account closure guidance.
 
@@ -86,6 +86,8 @@ Any member account that you close will display a `CLOSED` label next to its acco
 **To close a member account from the Accounts page**
 
 Optionally, you can close an AWS member account directly from the [**Account** page](https://console.aws.amazon.com/billing/home#/account) in the AWS Management Console. For step-by-step guidance, follow the instructions in the **Standalone account** tab.
+
+This option isn't available for project accounts, which don't have a root user. Close project accounts from the AWS Organizations console.
 
 **To close a member account using AWS CLI and SDKs**
 

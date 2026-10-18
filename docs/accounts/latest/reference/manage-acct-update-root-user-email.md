@@ -59,6 +59,9 @@ Before you update the root user email address for a member account, we recommend
 
 You can also update the root user email address for a member account directly from the [**Account** page](https://console.aws.amazon.com/billing/home#/account) in the AWS Management Console after signing in as the root user. For step-by-step instructions, follow the steps provided in [Update the root user email for a standalone AWS account or management account](#root-user-email-standalone). 
 
+**Note**  
+You can't update the root user email address of a project account, which is a member account that you created as a project in AWS Settings. An AWS Builder ID owns each project account instead of a root user email address, and this doesn't change when you activate advanced features. For more information, see [Project accounts after you activate advanced features](activate-advanced-features.md#activate-advanced-features-project-accounts).
+
 ------
 #### [ AWS Management Console ]
 
@@ -91,6 +94,7 @@ You can retrieve, or update the ***root user*** email address (also referred to 
 **Notes**  
 To perform these operations from the management account or a delegated admin account in an organization against member accounts, you must [enable trusted access for the Account Management service](https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-account.html#integrate-enable-ta-account).
 You can't access an account in a different organization from the one you are using to call the operation.
+For a project account, `StartPrimaryEmailUpdate` and `AcceptPrimaryEmailUpdate` fail with an `AccessDeniedException` error even when you have the required permissions.
 
 **Minimum permissions**  
 For each operation, you must have the permission that maps to that operation:  

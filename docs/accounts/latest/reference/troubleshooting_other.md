@@ -11,6 +11,7 @@ Use the information here to help you troubleshoot issues related to your AWS acc
 + [I need to change the credit card for my AWS account](#troubleshoot-change-credit-card)
 + [I need to report fraudulent AWS account activity](#troubleshoot-report-suspicious-account-activity)
 + [I need to close my AWS account](#troubleshoot-close-aws-account)
++ [I get an `AccessDeniedException` when I update a root user email address](#troubleshoot-project-account-access-denied)
 
 ## I need to change the credit card for my AWS account
 <a name="troubleshoot-change-credit-card"></a>
@@ -28,3 +29,8 @@ If you are having trouble with a purchase made on Amazon.com, see [Amazon Custom
 <a name="troubleshoot-close-aws-account"></a>
 
 For help troubleshooting issues with closing your AWS account, see [Close an AWS account](manage-acct-closing.md).
+
+## I get an `AccessDeniedException` when I update a root user email address
+<a name="troubleshoot-project-account-access-denied"></a>
+
+If the member account is a project account, you can't update its root user email address. An AWS Builder ID owns each project account instead of a root user email address. For more information, see [Project accounts after you activate advanced features](activate-advanced-features.md#activate-advanced-features-project-accounts).

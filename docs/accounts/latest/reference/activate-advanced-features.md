@@ -16,11 +16,13 @@ You must upgrade your account before you activate advanced features. For more in
 When you activate advanced features, the following changes will immediately be applied to your management account and the AWS Organization that contains your projects:
 + You are now the administrator of the AWS organization that contains your projects.
 + You set a root email address for your management account. You'll also need to set the root user password. For more information, see [Set a root user password for your management account](set-root-user-password-management-account.md).
-+ You manage your projects as member accounts in your organization. As the administrator of this organization, you can create member accounts in the organization.
++ You manage your projects as member accounts in your organization. As the administrator of this organization, you can create member accounts in the organization. Your AWS Builder ID continues to own your project accounts. For more information, see [Project accounts after you activate advanced features](#activate-advanced-features-project-accounts).
 + To give member accounts that you invite to join your organization an administrator role, you must create an OrganizationAccountAccessRole. For more information, see [Creating the OrganizationAccountAccessRole in an invited member account](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create-cross-account-role.html).
 + Your team members are referred to as workforce identities and they can still access your AWS accounts. You can also choose to customize the identity source of your workforce using IAM Identity Center. You can continue to use AWS Builder ID as the identity source, or you can change this to an external identity source. If you change your identity source from AWS Builder ID to another identity source, it is irreversible. You can't re-enable AWS Builder ID as an identity source in the future. For more information, see [Change identity source from AWS Builder ID](change-identity-source.md).
 + You control AWS access for users and groups in your IAM Identity Center organization instance using Account access manager. You can use this feature to modify user access, while still allowing your users to sign in using `aws login` to receive their IAM role session credentials from the browser. For more information, see [AWS Account Access Manager](https://docs.aws.amazon.com/IAM/latest/UserGuide/account-access-manager.html).
 + AWS creates a member account called Identity Delegated Admin in your organization with a delegated administrator role. This role is used to perform most administrative tasks in the IAM Identity Center and account access manager. The delegated administrator role must be used in US East (N. Virginia). For more information, see [Delegated administration](https://docs.aws.amazon.com/singlesignon/latest/userguide/delegated-admin.html).
+
+  Your AWS Builder ID owns the Identity Delegated Admin account, like your project accounts.
 + You can now configure Resource Control Policies (RCPs) and Service Control Policies (SCPs) to enforce custom guardrails in your organization. Previously, AWS managed RCPs and SCPs on your behalf. You can modify those policies after you activate advanced features. For more information, see [Remove organization policies](remove-org-policies.md).
 
 When you activate advanced features, the following changes are also applied to your AWS organization:
@@ -42,6 +44,21 @@ When you activate advanced features, the following changes are also applied to y
   + Enroll in an Enterprise Agreement with AWS.
   + Create a Professional Services contract.
   + Join AWS Partner Network.
+
+## Project accounts after you activate advanced features
+<a name="activate-advanced-features-project-accounts"></a>
+
+Each project that you created in AWS Settings contains an AWS account, called a project account. An AWS Builder ID owns each project account instead of a root user email address. When you activate advanced features, your project accounts become member accounts in your organization, and your AWS Builder ID continues to own them, even if you later change your identity source. Your AWS Builder ID also owns the Identity Delegated Admin account that AWS creates when you activate advanced features.
+
+Because a project account doesn't have a root user email address, it works differently from the other member accounts in your organization:
++ The email address that the AWS Organizations console shows for a project account is a placeholder that AWS generates. The `DescribeAccount`, `ListAccounts`, `ListAccountsForParent`, `ListDelegatedAdministrators`, and `GetPrimaryEmail` operations return the same placeholder. It isn't an email address that you can use or change.
++ You can't update the root user email address of a project account. Calls to `StartPrimaryEmailUpdate` or `AcceptPrimaryEmailUpdate` for a project account fail with an `AccessDeniedException` error, even when the caller has the required permissions.
++ You can't sign in to a project account as the root user or recover its root user password.
++ You can't remove a project account from your organization, and it can't leave your organization or join another organization. If you call `RemoveAccountFromOrganization` for a project account, the call fails with a `ConstraintViolationException` error that says the account is owned by a Builder ID.
+
+To stop using a project account, close it from your management account. Because you can't remove project accounts from your organization, you can delete your organization only after all of your project accounts, including the Identity Delegated Admin account, are permanently closed. AWS permanently closes an account when its 90-day post-closure period ends.
+
+Member accounts that you create in your organization after you activate advanced features have a root user email address, and these differences don't apply to them. If you need an account whose root user email address you can change, or that you can remove from your organization later, create a new member account and move your resources to it.
 
 ## How will AWS Settings change after I activate advanced features?
 <a name="activate-advanced-features-settings-change"></a>

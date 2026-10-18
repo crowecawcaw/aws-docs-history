@@ -6,7 +6,7 @@
 **Warning**  
 We're currently releasing our new experience to a limited number of customers. You might not be able to access this experience yet.
 
-After you've activated advanced features, you can change your identity source from AWS Builder ID. If you change your identity source from AWS Builder ID, you can never reuse AWS Builder ID as the identity source for your AWS organization.
+After you've activated advanced features, you can change your identity source from AWS Builder ID. If you change your identity source from AWS Builder ID, you can never reuse AWS Builder ID as the identity source for your AWS organization. Changing your identity source changes how your workforce signs in. Your AWS Builder ID continues to own your project accounts.
 
 **To change your identity source from AWS Builder ID**
 

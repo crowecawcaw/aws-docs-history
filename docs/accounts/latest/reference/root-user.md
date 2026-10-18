@@ -3,7 +3,7 @@
 # Using the AWS account root user
 <a name="root-user"></a>
 
-Depending on how you sign up for AWS, you either have access to AWS accounts or projects. Projects contain AWS accounts and the settings for sharing with other collaborators. For more information, see [Compare sign-up options](sign-up-for-aws.md). In this section, we explain how to use the root user in an AWS account that you create using Sign up for AWS (advanced).
+Depending on how you sign up for AWS, you either have access to AWS accounts or projects. Projects contain AWS accounts and the settings for sharing with other collaborators. For more information, see [Compare sign-up options](sign-up-for-aws.md). In this section, we explain how to use the root user in an AWS account that you create using Sign up for AWS (advanced). An AWS Builder ID owns each project account instead of a root user email address, so you can't use the root user in a project account, including after you activate advanced features.
 
  When you create an AWS account, you begin with one sign-in identity called the AWS account *root user* that has complete access to all AWS services and resources. We strongly recommend that you don't use the root user for everyday tasks. For tasks that require root user credentials, see [Tasks that require root user credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#root-user-tasks) in the *IAM User Guide*. 
 
