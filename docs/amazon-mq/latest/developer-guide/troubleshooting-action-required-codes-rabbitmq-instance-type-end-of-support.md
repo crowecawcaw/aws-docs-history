@@ -5,7 +5,7 @@
 
 Amazon MQ for RabbitMQ raises a `RABBITMQ_INSTANCE_TYPE_END_OF_SUPPORT` action required code when your broker is running on an instance type that has reached end of support. Support for `mq.t3.micro` ended on October 1, 2026.
 
-While a broker is in this state, you may be unable to connect to it from your client applications. The broker continues to run and none of your broker configuration or message data is deleted. You are not billed for the broker while it is unreachable.
+While a broker is in this state, you must migrate it to a supported instance type. A broker that remains on an unsupported instance type becomes unreachable, and your client applications can no longer connect to it. The broker is not deleted, and your broker configuration and message data are retained. You are not billed for the broker while it is unreachable.
 
 ## Resolving RABBITMQ\_INSTANCE\_TYPE\_END\_OF\_SUPPORT
 <a name="w2aac40c43b7"></a>
