@@ -36,7 +36,7 @@ The XML body contains one cue\_point elements containing the following tags:
 
 
 **Specifying time with "splice\_time" tag**  
-Use the splice\_offset tag to specify the start time as a specific clock time, for example, at 10:20:33. The time you specify must match the timecode format in the event, as specified by the** Timecode Config Source** field in the event or profile. For example, if you specify 10:20:33 and the event uses system clock, the message is inserted at 10:20:33 UTC. If the event uses local time, the message is inserted at 10:20:33 for the time zone of the node. 
+Use the splice\_time tag to specify the start time as a specific clock time, for example, at 10:20:33. The time you specify must match the timecode format in the event, as specified by the** Timecode Config Source** field in the event or profile. For example, if you specify 10:20:33 and the event uses system clock, the message is inserted at 10:20:33 UTC. If the event uses local time, the message is inserted at 10:20:33 for the time zone of the node. 
 
 To verify the timecode format in the event, submit a GET live\_events request and (in the response) read the value in the **timecodeconfig** tag.
 

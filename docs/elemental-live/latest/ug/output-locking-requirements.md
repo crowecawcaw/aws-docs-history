@@ -97,7 +97,7 @@ Simple conversions are allowed. The conversion between the input frame and the d
 + The output encode frame rate must be a whole number multiple of the source frame rate. For example, the source frame rate might be 30 FPS, and the output encode frame rate might be 60 FPS.
 +  The source frame rate must be a whole number multiple of the output encode frame rate. For example, the source frame rate might be 60 FPS, and the output encode frame rate might be 30 FPS. 
 
-With these rules, it is possible for the frame rates to be integers. For example, if the source frame rate is 29.97 FPS and the output encode frame rate is 59.94 FPS.
+With these rules, it is possible for the frame rates to be non-integers. For example, if the source frame rate is 29.97 FPS and the output encode frame rate is 59.94 FPS.
 
 Complex conversions aren't allowed. The following are examples of *complex* frame rates. You can't use the input if combinations like these apply to your channel:
 + Source FPS is 59.4, output FPS is 60.
@@ -113,7 +113,7 @@ In the following diagram, all of the inputs are from the same source. Therefore,
 
 Rule 1: In each event, each video encode (the oval inside the stream) must have a frame rate that is a simple conversion of the source frame rate.
 
-Rule 2: All the encodes can have a different fran rate, but they must be whole number multiples of each other. 
+Rule 2: All the encodes can have a different frame rate, but they must be whole number multiples of each other. 
 
 ![Three appliances with HLS events producing video streams at different resolutions.](https://docs.aws.amazon.com/elemental-live/latest/ug/images/outputs_opl-framerates.png)
 
