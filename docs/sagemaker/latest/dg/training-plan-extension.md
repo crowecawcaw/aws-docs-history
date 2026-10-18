@@ -8,7 +8,9 @@ SageMaker training plans allow you to extend your existing training plans to avo
 With training plan extensions, your running SageMaker training jobs or SageMaker HyperPod clusters continue to work seamlessly without interruption once the plan is extended. The extended plan reflects the new end date, and you can retrieve the history of all extensions for your training plan.
 
 **Important**  
-Please note extensions cannot be cancelled or modified to add or remove instances.
+Flexible Training Plans can only be extended if there is sufficient capacity available to support them, which is not guaranteed.
+Extensions cannot be cancelled or modified.
+Instances cannot be added or removed from an extension.
 
 ## Key features
 <a name="training-plan-extension-features"></a>

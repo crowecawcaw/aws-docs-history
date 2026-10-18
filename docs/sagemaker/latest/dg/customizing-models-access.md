@@ -14,6 +14,7 @@ Amazon SageMaker AI provides multiple interfaces for model customization. The fo
 | Recipes | [Training Jobs](customizing-models-training-jobs.md) \+ [HyperPod](customizing-models-hyperpod.md) | Pre-configured best practices | Recipe-driven — modify YAML config | 
 | HP-CLI | [HyperPod](customizing-models-hyperpod.md) (EKS) | Kubernetes-native teams | Full — Kubernetes job submission | 
 | Agent (Model customization skills) | [Serverless](customize-model.md) | Natural language workflow, guided experience | Conversational — describe what you need | 
+| Python SDK (ServiceClient) | Serverless ([Training session APIs](customizing-models-training-sessions.md)) | Custom training loops, multi-turn reinforcement learning (RL), multi-stage pipelines | Operation-level — orchestrate forward\_backward(), sample(), optim\_step() as API calls | 
 
 ## Studio UI
 <a name="access-studio-ui"></a>
@@ -86,6 +87,27 @@ trainer.train(input_data_config=[
     InputData(channel_name="training", data_source="s3://my-bucket/train")
 ])
 ```
+
+## Training session APIs
+<a name="access-training-sessions"></a>
+
+Use the SageMaker AI Training session APIs when a predefined workflow is too rigid. Instead of submitting a complete training script, you open a stateful session and call training operations — `forward_backward()`, `optim_step()`, `sample()` — as individual API calls, then compose them into whatever procedure your technique requires. The model stays loaded between calls, so you can write custom loss functions, run multi-turn reinforcement learning with elastic rollouts, and chain multiple procedures in one session. SageMaker AI manages the underlying infrastructure and tenant isolation.
+
+```
+from sagemaker.train.training_session import ServiceClient, AdamParams
+
+svc = ServiceClient(region="us-west-2", role_arn="arn:aws:iam::111122223333:role/MyRole")
+tc = svc.create_lora_training_client(base_model="gpt-oss-20b", rank=32, alpha=64)
+
+for batch in data_loader:
+    tc.forward_backward(batch, loss_fn="cross_entropy")
+    tc.optim_step(AdamParams(learning_rate=5e-5))
+
+print(tc.save_state().result().model_package_arn)
+tc.stop()
+```
+
+For more information, see [Training session APIs](customizing-models-training-sessions.md).
 
 ## Recipes (Training Jobs \+ HyperPod)
 <a name="access-launcher"></a>

@@ -20,7 +20,7 @@ Amazon SageMaker AI model customization lets you adapt foundation models to your
 + **FFT** (Full Fine-Tuning) — Updates all model weights. Higher compute, deeper customization. See [FFT](customizing-models-fft.md).
 
 **Infrastructure options** control *where* your training job runs:
-+ **Serverless** — Fully managed, no instance selection. Best for quick experimentation and production jobs without ops overhead. See [Serverless model customization](customize-model.md).
++ **Serverless** — Fully managed, no instance selection. Best for quick experimentation and production jobs without ops overhead. Serverless model customization also supports training session APIs, which give you full control over your training loop without managing GPU infrastructure. See [Serverless model customization](customize-model.md) and [Training session APIs](customizing-models-training-sessions.md).
 + **SageMaker AI Training Jobs** — Ephemeral jobs where you select instance type. Uses **Recipes** for pre-configured training. See [SageMaker AI Training Jobs](customizing-models-training-jobs.md).
 + **HyperPod** — Persistent clusters with fault recovery. Uses **Recipes** for distributed training on EKS or Slurm. See [HyperPod](customizing-models-hyperpod.md).
 

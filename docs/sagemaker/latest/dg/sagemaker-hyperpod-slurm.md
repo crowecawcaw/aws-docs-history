@@ -39,6 +39,7 @@ SageMaker AI automatically allocates jobs to instances within your UltraServer b
 + [Customizing SageMaker HyperPod clusters using lifecycle scripts](sagemaker-hyperpod-lifecycle-best-practices-slurm.md)
 + [User management on a SageMaker HyperPod Slurm cluster](sagemaker-hyperpod-slurm-user-management.md)
 + [SageMaker HyperPod multi-head node support](sagemaker-hyperpod-multihead-slurm.md)
++ [Using an external accounting database with SageMaker HyperPod Slurm clusters](sagemaker-hyperpod-external-accounting-db-slurm.md)
 + [Jobs on SageMaker HyperPod clusters](sagemaker-hyperpod-run-jobs-slurm.md)
 + [SageMaker HyperPod cluster resources monitoring](sagemaker-hyperpod-cluster-observability-slurm.md)
 + [SageMaker HyperPod Slurm cluster events](sagemaker-hyperpod-cluster-events-slurm-page.md)

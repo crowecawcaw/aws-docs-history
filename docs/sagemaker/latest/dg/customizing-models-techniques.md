@@ -7,6 +7,7 @@ Customization techniques define *how* your model learns from data. Each techniqu
 + **[SFT](customizing-models-sft.md)** (Supervised Fine-Tuning) — Train on labeled prompt-response pairs. Best for teaching a model specific style, format, or domain knowledge.
 + **[DPO](customizing-models-dpo.md)** (Direct Preference Optimization) — Train on preferred vs rejected response pairs. Best for aligning with human preferences and avoiding undesirable outputs.
 + **[RFT](customizing-models-rft.md)** (Reinforcement Fine-Tuning) — Optimize via reward signals: code-based verification (**RLVR**) or an LLM judge (**RLAIF**). Best for improving factual accuracy or subjective quality.
++ **[Sequence lengths](customizing-models-sequence-lengths.md)** — Maximum sequence lengths supported for each open weight model, technique, and training type in serverless customization.
 + **[Multi-turn reinforcement learning](model-customize-mtrl.md)** (Multi-Turn Reinforcement Learning) — Train agents for multi-step agentic tasks with growing context.
 + **[Continuous customization](customizing-models-continuous.md)** (Continuous Customization) — Chain multiple techniques sequentially (for example, SFT → DPO → RLVR). Requires [LoRA](customizing-models-lora.md) training type.
 

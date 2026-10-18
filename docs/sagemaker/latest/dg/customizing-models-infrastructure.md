@@ -8,8 +8,18 @@ Amazon SageMaker AI offers three infrastructure options for model customization.
 **Recipes** are pre-configured training configurations that work with both SageMaker AI Training Jobs and HyperPod. They automate dataset loading, distributed training, and checkpoint management. See [SageMaker Recipes](https://github.com/aws/sagemaker-hyperpod-recipes) on the GitHub website on GitHub.
 
 
-| Option | What it is | Interfaces | Best for | 
-| --- | --- | --- | --- | 
-| [Serverless model customization](customize-model.md) | Fully managed, no instance selection. Infrastructure provisioned and released automatically. | Studio UI, Python SDK (SFTTrainer, DPOTrainer, etc.) | Quick experimentation, production jobs without ops overhead | 
-| [SageMaker AI Training Jobs](customizing-models-training-jobs.md) | Ephemeral jobs where you select instance type and count. Instances released after training. | Recipes, Python SDK (ModelTrainer) | Custom instance configs, advanced distributed setups | 
-| [HyperPod](customizing-models-hyperpod.md) | Persistent clusters with automatic fault detection and recovery. Clusters remain available across jobs. | Recipes, HP-CLI | Large-scale training, long-running jobs, multi-job workflows | 
+
+- **[Serverless model customization](customize-model.md)**
+  - **What it is:** Job APIs: Fully managed, no instance selection. Infrastructure provisioned and released automatically. / **Interfaces:** Studio UI, Python SDK (SFTTrainer, DPOTrainer, etc.) / **Best for:** Quick experimentation, production jobs without ops overhead
+  - **What it is:** [Training session APIs](customizing-models-training-sessions.md): Interactive, long-lived sessions that expose low-level training primitives as API calls, so you drive the training loop from your own code. / **Interfaces:** Python SDK (ServiceClient), API / **Best for:** Custom training loops, multi-turn reinforcement learning (RL), multi-stage pipelines
+
+- **[SageMaker AI Training Jobs](customizing-models-training-jobs.md)**
+  - **What it is:** Ephemeral jobs where you select instance type and count. Instances released after training.
+  - **Interfaces:** Recipes, Python SDK (ModelTrainer)
+  - **Best for:** Custom instance configs, advanced distributed setups
+
+- **[HyperPod](customizing-models-hyperpod.md)**
+  - **What it is:** Persistent clusters with automatic fault detection and recovery. Clusters remain available across jobs.
+  - **Interfaces:** Recipes, HP-CLI
+  - **Best for:** Large-scale training, long-running jobs, multi-job workflows
+

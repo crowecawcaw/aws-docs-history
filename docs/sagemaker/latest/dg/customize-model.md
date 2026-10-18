@@ -20,6 +20,10 @@ A fully managed compute infrastructure that abstracts away all infrastructure co
 
 Comprehensive set of advanced methods including supervised fine-tuning (SFT), direct preference optimization (DPO), reinforcement learning with verifiable rewards (RLVR), reinforcement learning with AI feedback (RLAIF), and multi-turn reinforcement learning (multi-turn RL).
 
+**Sequence length**
+
+The maximum number of tokens in a training example, equal to the prompt length plus the response length. The maximum sequence length that you can set depends on the model, the customization technique, and the training type. For the supported maximums for each open weight model, see [Supported sequence lengths for open weight model serverless customization](customizing-models-sequence-lengths.md).
+
 **Custom model**
 
 A specialized version of a base foundation model that has been adapted to a specific use case by training it on your own data, resulting in an AI model that retains the general capabilities of the original foundation model while adding domain-specific knowledge, terminology, style, or behavior tailored to your requirements.

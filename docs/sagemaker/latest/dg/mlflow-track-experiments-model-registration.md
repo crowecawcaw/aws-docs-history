@@ -13,6 +13,10 @@ When you register an MLflow model, SageMaker AI automatically creates a correspo
 **Note**  
 Model Registry sync is an opt-in feature. To enable it, call the [UpdateMlflowTrackingServer](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateMlflowTrackingServer.html) or [UpdateMlflowApp](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateMlflowApp.html) API with Model Registry sync enabled.
 
+**Warning**  
+When automatic model registration is enabled, MLflow registered models are synced into a SageMaker Model Package Group with the following name: `{{mlflow-registered-model-name}}-{{suffix}}`, where {{suffix}} is the first six characters of the SHA-256 hash of the last segment of the tracking server or MLflow App ARN (the tracking server name or the MLflow App ID).  
+A pre-existing group with the same name might have been created by a different authorized IAM principal for that account, and the data synced into that group is accessible to that IAM principal. To avoid accidentally syncing registered model data to a pre-existing group, you can verify that a SageMaker Model Package Group with such a name does not already exist by calling the [DescribeModelPackageGroup](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeModelPackageGroup.html) API and checking the `CreatedBy` field.
+
 ## Log and register models
 <a name="mlflow-track-experiments-model-registration-log-register"></a>
 

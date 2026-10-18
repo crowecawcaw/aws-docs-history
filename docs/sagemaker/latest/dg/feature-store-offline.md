@@ -5,7 +5,7 @@
 
 Amazon SageMaker Feature Store supports the AWS Glue and Apache Iceberg table formats for the offline store. You can choose the table format when you’re creating a new feature group. AWS Glue is the default format.
 
- Amazon SageMaker Feature Store offline store data is stored in an Amazon S3 bucket within your account. When you call `PutRecord`, your data is buffered, batched, and written into Amazon S3 within 15 minutes. Feature Store only supports the Parquet file format when writing your data to your offline store. Specifically, when your data is written to your offline store, the data can be retrieved from your Amazon S3 bucket in Parquet format. Each file can contain multiple `Record`s.
+ Amazon SageMaker Feature Store offline store data is stored in an Amazon S3 bucket within your account. When you call `PutRecord`, your data is buffered, batched, and written into Amazon S3 within 15 minutes. For the Iceberg table format, data becomes queryable after an additional asynchronous commit to the table. Feature Store only supports the Parquet file format when writing your data to your offline store. Specifically, when your data is written to your offline store, the data can be retrieved from your Amazon S3 bucket in Parquet format. Each file can contain multiple `Record`s.
 
 For the Iceberg format, Feature Store saves the table’s metadata in the same Amazon S3 bucket that you’re using to store the offline store data. You can find it under the `metadata` prefix.
 
@@ -13,8 +13,11 @@ For the Iceberg format, Feature Store saves the table’s metadata in the same A
 
 The following additional fields are added by Feature Store to each record when they persist in the offline store: 
 +  **api\_invocation\_time** – The timestamp when the service receives the `PutRecord` or `DeleteRecord` call. If using managed ingestion (e.g. Data Wrangler), this is the timestamp when data was written into the offline store.
-+  **write\_time** – The timestamp when data was written into the offline store. Can be used for constructing time-travel related queries.
++  **write\_time** – The timestamp when the record was written to a file in your Amazon S3 bucket. This isn't necessarily when the record becomes queryable, and records don't necessarily become queryable in `write_time` order.
 +  **is\_deleted** – `False` by default. If `DeleteRecord` is called, a new `Record` is inserted into `RecordIdentifierValue` and set to `True` in the offline store.
+
+**Note**  
+To incrementally read data from an Iceberg offline store, track progress by Iceberg snapshot instead of by `write_time`. For more information, see [Time travel and version travel queries](https://docs.aws.amazon.com/athena/latest/ug/querying-iceberg-time-travel-and-version-travel-queries.html) in the *Amazon Athena User Guide*, or Apache Iceberg [incremental reads in Spark](https://iceberg.apache.org/docs/latest/spark-queries/#incremental-read) and [PyIceberg](https://py.iceberg.apache.org/reference/pyiceberg/table/#pyiceberg.table.Table.incremental_append_scan).
 
 ## Amazon SageMaker Feature Store offline store URI structures
 <a name="feature-store-offline-URI-structure"></a>

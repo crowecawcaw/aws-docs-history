@@ -60,7 +60,7 @@ For full pricing details, refer to the [public pricing page](https://aws.amazon.
 + **Train:** the cost of the backward pass, where the model's weights are updated based on the reward signal. This is the core learning step in the RL process.
 
 ## Topics
-<a name="w2aac29c25c17c13"></a>
+<a name="w2aac29c25c19c13"></a>
 +  [Prerequisites](model-customize-mtrl-prereqs.md) 
 +  [Preparing your agent](model-customize-mtrl-agent.md) 
 +  [Creating assets for multi-turn reinforcement learning](model-customize-mtrl-assets.md) 

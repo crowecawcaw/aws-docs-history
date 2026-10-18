@@ -3,9 +3,14 @@
 # Restrict artifact access to model package deployments
 <a name="model-registry-restrict-s3-access"></a>
 
-When you share a model package across accounts, the consuming account's execution role needs `s3:GetObject` on the model artifacts in the producing account. By default, that permission applies whenever the role is used. As a result, any principal that uses the role can read the artifacts from a notebook, from a training job, or through a direct API call—not only while a model package is being deployed.
+When you share a model package across accounts, the consuming account's execution role needs `s3:GetObject` on the model artifacts in the producing account. By default, that permission applies whenever the role is used. As a result, any principal that uses the role can read the artifacts from a notebook, from a training job, or through a direct API call—not only from an endpoint deployed from a model package.
 
-You can narrow that access so that only a model package deployment can read the artifacts. During deployment, SageMaker AI applies the session tag `sagemaker:ModelPackageArn` to the execution-role session it assumes. The tag value is the ARN of the model package being deployed. A bucket policy that requires this tag therefore grants access only to deployment sessions.
+You can narrow that access so that only endpoints deployed from a model package can read the artifacts. When you deploy an endpoint from a model package, SageMaker AI applies the session tag `sagemaker:ModelPackageArn` to the execution-role sessions it assumes for that endpoint. The tag value is the ARN of the model package version. The tag applies for the life of the endpoint, both to the sessions SageMaker AI uses to download the model artifacts and to the credentials that the inference container receives at runtime. A bucket policy that requires this tag therefore grants access only to sessions that belong to an endpoint deployed from a matching model package. Notebooks, training jobs, and endpoints deployed from a plain container image do not carry the tag.
+
+If code in your inference container assumes another role, the resulting credentials do not carry the `sagemaker:ModelPackageArn` tag.
+
+**Note**  
+This applies to real-time endpoint deployments. Serverless endpoints and inference components do not carry the `sagemaker:ModelPackageArn` session tag, so a bucket policy that requires the tag denies them at read time. If you need to deploy the same artifacts that way, keep them in a bucket that does not require the tag.
 
 This requires three pieces working together. All three are yours to configure; SageMaker AI supplies only the session tag:
 + An execution role tagged `ManagedBy=SageMaker` whose trust policy allows only the SageMaker AI service principal to assume it.
@@ -74,7 +79,7 @@ Both statements use `StringNotEquals` on `aws:PrincipalServiceName`, which evalu
 ## Step 3: Add the Amazon S3 bucket policy
 <a name="model-registry-restrict-s3-access-bucket"></a>
 
-In the producing account, apply the following policy to the bucket holding the model artifacts. All three conditions must hold. Amazon S3 denies any session that is missing one.
+In the producing account, apply the following policy to the bucket holding the model artifacts. The first statement governs reads by endpoints deployed from a model package. All three of its conditions must hold, and Amazon S3 denies any session that is missing one. The second statement allows model package registration, which happens before any deployment tag exists.
 
 ```
 {
@@ -96,23 +101,49 @@ In the producing account, apply the following policy to the bucket holding the m
           "aws:PrincipalTag/ManagedBy": "SageMaker"
         }
       }
+    },
+    {
+      "Sid": "AllowModelPackageRegistrationReads",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::{{registering-account-id}}:role/{{model-registration-role}}"
+      },
+      "Action": [ "s3:GetObject", "s3:ListBucket" ],
+      "Resource": [
+        "arn:aws:s3:::{{model-artifacts-bucket}}",
+        "arn:aws:s3:::{{model-artifacts-bucket}}/{{model-package-prefix}}/*"
+      ],
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalOrgID": "{{o-organization-id}}"
+        }
+      }
     }
   ]
 }
 ```
 
-Using `Principal` with a value of `*` together with these conditions means any role in your organization that is tagged `ManagedBy=SageMaker` and carries the deployment tag can read the artifacts. You do not have to edit the policy for each consuming role. The wildcard on the model package ARN covers every version in the group.
+`AllowModelPackageRegistrationReads` is required. `CreateModelPackage` reads the artifact to validate it, and at that point the model package does not exist yet, so no `sagemaker:ModelPackageArn` session tag can be present. Without this statement, the first statement denies registration, and you cannot create the model package at all. Set {{model-registration-role}} to the role that calls `CreateModelPackage`, and keep it scoped to that role rather than to the whole account.
+
+Using `Principal` with a value of `*` together with these conditions means any role in your organization can read the artifacts, provided it is tagged `ManagedBy=SageMaker` and carries the session tag. You do not have to edit the policy for each consuming role. The wildcard on the model package ARN covers every version in the group.
+
+To allow more than one model package group, add one statement per group. Pair that group's ARN pattern with that group's artifact prefix. The condition also accepts a list of ARN patterns in a single statement. Use that form only when the groups are meant to share the same artifacts, because a single statement grants every pattern it lists access to everything its `Resource` covers.
+
+Artifacts from more than one producer account need the same treatment: one pattern per account, because the tag value carries the account that owns the model package.
 
 **Important**  
-Scope `Resource` to the artifacts of a single model package group. A prefix spanning several groups would let a deployment of one model package read another group's artifacts, because the session tag is checked against the group wildcard rather than the object path.
+Do not put a wildcard immediately after a version number. A pattern ending `model-package/{{model-package-group}}/1*` also matches versions 10, 11, and 19. To restrict access to a single version, end the pattern at the version and omit the wildcard. An over-broad pattern is not visible from the endpoint or the model package, because deployments succeed either way.
 
-If the artifacts are encrypted with a customer managed AWS KMS key, the execution role also needs `kms:Decrypt` on that key. Grant it in the key policy; an IAM policy alone is not sufficient.
+**Important**  
+Scope `Resource` to the artifacts of a single model package group. A prefix spanning several groups would let a deployment of one model package read another group's artifacts. The session tag is checked against the group wildcard rather than the object path.
+
+If the artifacts are encrypted with a customer managed AWS KMS key, the execution role also needs `kms:Decrypt` on that key. Because the key and the role are in different accounts, grant it in both places: the key policy in the producing account must allow the execution role, and the execution role's IAM policy must allow `kms:Decrypt` on the key. Either grant alone is not sufficient.
 
 ## Monitor artifact access
 <a name="model-registry-restrict-s3-access-monitor"></a>
 
 Your account records both the tagging of the session and the resulting access decision.
-+ In CloudTrail, the `AssumeRole` event for the execution role lists the session tags under `requestParameters`. Confirm that `sagemaker:ModelPackageArn` is present and matches the model package you deployed.
-+ In Amazon S3 data events or server access logs, `GetObject` requests against the artifact prefix show whether each read was allowed or denied, so you can confirm that non-deployment access is being refused.
++ In CloudTrail, the `AssumeRole` event for the execution role lists the session tags under `requestParameters`. Confirm that at least one event carries `sagemaker:ModelPackageArn` and that its value matches the model package you deployed. A single deployment also produces *untagged* `AssumeRole` events, because SageMaker AI validates the artifact before the tagged session is created. Untagged events alongside a tagged one are expected and do not mean the tag was not applied.
++ In Amazon S3 data events or server access logs, `GetObject` requests against the artifact prefix show whether each read was allowed or denied, so you can confirm that access from outside a model package endpoint is being refused. A successful deployment also produces a denied `GetObject` from SageMaker AI, because SageMaker AI validates the artifact with an untagged session before the tagged session is created. This denial is expected and does not stop the deployment.
 
-Before applying the policies to a production bucket, you can evaluate them with the IAM policy simulator to confirm that a deployment session is allowed and that a session without the tag is denied. For more information, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html).
+Before applying the policies to a production bucket, you can evaluate them with the IAM policy simulator to confirm that a deployment session is allowed and that a session without the tag is denied. The simulator evaluates your policy against context keys that you supply, so it confirms the policy logic but not that a deployment actually produces the tag. Confirm that separately in CloudTrail, as described earlier in this section. For more information, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html).
