@@ -3,9 +3,13 @@
 # Learn about the silk:is-user-entitled meta tag
 <a name="user-entitled-tag"></a>
 
-The `<meta name="silk:is-user-entitled" content="true|false">` tag is a new meta tag introduced by the Silk web browser application. This tag is designed to inform Silk whether the current user is entitled to the content on the web page. It is particularly useful in scenarios where the webpage implements a paywall or other content restriction mechanism. Silk uses the value of this tag to decide whether to display a web page summarization option to the user.
+The `<meta name="silk:is-user-entitled" content="true|false">` tag is a new meta tag introduced by the Amazon Silk web browser application. This tag is designed to inform Silk whether the current user is entitled to the content on the web page. It is particularly useful in scenarios where the webpage implements a paywall or other content restriction mechanism. Silk uses the value of this tag to decide whether the page content might be used by features such as web page summarization and Alexa on-screen intelligence.
 
-When Silk encounters a web page with `<meta name="silk:is-user-entitled" content="false">`, it will assume that the current user is not entitled to the contents on the page. In this case, Silk will not provide a web page summarization option to the user on that page. If the tag is Silk present or has `content="true"`, Silk will assume that the user is entitled to the full content on the page, and the summarization option will be displayed.
+When Silk encounters a web page with `<meta name="silk:is-user-entitled" content="false">`, it will assume that the current user is not entitled to the contents on the page. In this case, Silk takes the following actions:
++ Silk will not offer the web page summarization option to the user on that page.
++ Silk will not send the content on that page to Alexa.
+
+If the tag is not present or has `content="true"`, Silk will assume that the user is entitled to the full content on the page.
 
 ## Usage guidelines
 <a name="user-entitled-tag-use-implementation"></a>
