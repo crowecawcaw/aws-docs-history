@@ -178,7 +178,15 @@ The following example is an event for a change in task status.
         "runId": "1234567",
         "runName": "run name",
         "workflowId": "1234567",
-        "workflowName": "workflow name"
+        "workflowName": "workflow name",
+        "taskName": "task name",
+        "cpus": "4",
+        "gpus": "0",
+        "memory": "16",
+        "instanceType": "omics.c.xlarge",
+        "creationTime": "2024-10-30T09:01:12.345Z",
+        "startTime": "2024-10-30T09:03:20.123Z",
+        "stopTime": "2024-10-30T09:05:44.678Z"
     }      
 }
 ```

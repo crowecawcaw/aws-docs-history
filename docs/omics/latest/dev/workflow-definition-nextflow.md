@@ -59,6 +59,7 @@ You configure Nextflow directives in the Nextflow config file or workflow defini
 + [Task retry strategy using `errorStrategy`](#workflow-nextflow-errorStrategy)
 + [Task retry attempts using `maxRetries`](#workflow-nexflow-task-retry)
 + [Opt out of task retry using `omicsRetryOn5xx`](#workflow-nextflow-retry-5xx)
++ [Configure resource fallback with **omicsResourceFallbackOrder**](#workflow-nextflow-directive-fallback)
 + [Task duration using the `time` directive](#time-directive-nextflow)
 
 ### Task retry strategy using `errorStrategy`
@@ -167,6 +168,79 @@ process {
     }
 }
 ```
+
+### Configure resource fallback with **omicsResourceFallbackOrder**
+<a name="workflow-nextflow-directive-fallback"></a>
+
+HealthOmics supports the **omicsResourceFallbackOrder** process directive to define an ordered list of accelerator (or GPU) and CPU resource profiles for a process. When the requested accelerator type is unavailable, HealthOmics automatically advances to the next profile in the list. You can include a CPU-only profile as a final option.
+
+The following example tries `nvidia-l40s` first, then `nvidia-l4`, and finally falls back to CPU if neither accelerator is available:
+
+```
+process ALIGN {
+    container 'my-registry/align-multi-arch:latest'
+
+    omicsResourceFallbackOrder([
+        [acceleratorType: 'nvidia-l40s', acceleratorCount: 1, cpus: 8, memory: '32 GB', omicsResourceWaitTimeoutInMin: 45],
+        [acceleratorType: 'nvidia-l4',   acceleratorCount: 1, cpus: 8, memory: '32 GB'],
+        [cpus: 32, memory: '128 GB']
+    ])
+
+    script:
+    """
+    your-command-here
+    """
+}
+```
+
+You can also set the directive in the Nextflow config file. In a config file, assign the list with `=`. You can set it at the top level of the `process` scope, which applies to every process, or inside a `withName` or `withLabel` selector. The following example sets a fallback order for every process, a different one for tasks with label `my_label`, and another for task `myTask`.
+
+```
+process {
+    omicsResourceFallbackOrder = [
+        [acceleratorType: 'nvidia-l4', acceleratorCount: 1, cpus: 8, memory: '32 GB'],
+        [cpus: 16, memory: '64 GB']
+    ]
+
+    withLabel: 'my_label' {
+        omicsResourceFallbackOrder = [
+            [acceleratorType: 'nvidia-l40s', acceleratorCount: 1, cpus: 8, memory: '32 GB'],
+            [cpus: 32, memory: '128 GB']
+        ]
+    }
+
+    withName: 'myTask' {
+        omicsResourceFallbackOrder = [
+            [acceleratorType: 'nvidia-l40s', acceleratorCount: 2, cpus: 16, memory: '64 GB']
+        ]
+    }
+}
+```
+
+If a process gets a fallback order from more than one place, HealthOmics uses the first one that applies:
+
+1. A `withName` or `withLabel` selector in the config file that matches the process.
+
+1. The directive in the process definition.
+
+1. The top level of the `process` scope in the config file.
+
+HealthOmics sets the **AWS\_HEALTHOMICS\_RESOURCE\_TYPE** environment variable in the task container. Its value is the active profile's accelerator type (for example, `nvidia-l40s`) or `cpu` for a CPU-only profile. Use it to branch your command when GPU and CPU code paths differ.
+
+Keep the following in mind when you use the directive in Nextflow:
++ Write **memory** with one of the units B, KB, MB, GB or TB, for example `'32 GB'`. GiB, MiB and TiB are not accepted.
++ A profile that omits **cpus** or **memory** uses the process's **cpus** or **memory** directive, if set.
++ When a profile inherits **cpus** or **memory** from the process, HealthOmics applies the process's **resourceLimits** directive, which sets the maximum **cpus** and **memory**, before copying the value into the profile.
++ `${task.cpus}` and `${task.memory}` in the script show the process-level values, not the resources of the profile that ran.
+
+For more information, see [Advanced resource configuration](advanced-resource-configuration.md), and for supported accelerator types see [Task accelerators in a HealthOmics workflow definition](task-accelerators.md).
+
+#### Interaction with retries
+<a name="workflow-nextflow-fallback-retries"></a>
+
+If you configure retries with an error strategy (the `errorStrategy` and `maxRetries` directives), the profile that each retry uses depends on why the previous attempt failed.
++ **Insufficient-capacity failures (ICE).** HealthOmics tries each profile in the list in order. After exhausting all profiles without securing capacity, the next retry starts again from the first profile in your directive.
++ **Out-of-memory (OOM) and service failures.** The retry stays on the same profile that the previous attempt reached, rather than restarting from the first profile.
 
 ### Task duration using the `time` directive
 <a name="time-directive-nextflow"></a>

@@ -16,7 +16,7 @@ If your workflow tasks use any external tools (executables, libraries, or script
   + Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md).
   + Upload your container image to the private repository. 
 + Synchronize the container image with the contents of a supported third-party registry. Prerequisites for this option:
-  + In the ECR private registry, configure a pull through cache rule for each upstream registry. For more information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format).
+  + In the ECR private registry, configure a pull through cache rule for each upstream registry. For more information, see [Image mappings](containers-workflow-creation.md#ecr-pull-through-mapping-format).
   + Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md).
   + Create repository creation templates. The template defines settings for when Amazon ECR creates the private repository for an upstream registry.
   + Create prefix mappings to remap container image references in the workflow definition to ECR cache namespaces.
@@ -129,6 +129,7 @@ Customers in the TLV region need to create a connection in the IAD (us-east-1) r
       + **ECR repository prefix** – The repository prefix to use in the Amazon ECR private repository.
       + (Optional) **Upstream repository prefix** – The prefix of the repository in the upstream registry.
       + (Optional) **ECR account ID** – Account ID of the account that owns the upstream container image.
+      + (Optional) **Credential ARN** – The ARN of the Secrets Manager secret that contains your credentials for the registry. Required for registries that Amazon ECR pull through cache doesn't support, such as Seqera, NVIDIA NGC, Google Artifact Registry, and Google Container Registry. For more information, see [Using third-party registries not supported by pull through cache](containers-non-ptc-registries.md).
 
    1. In **Image mappings**, you can edit the image mappings or add mappings (maximum of 100 image mappings).
 
@@ -179,6 +180,7 @@ You can specify any of the optional parameters when you create a workflow. For s
 + [Specify the run storage type](#create-run-storage-parameter)
 + [Specify the GPU configuration](#create-accelerator-parameter)
 + [Configure pull through cache mapping parameters](#create-prefix-mapping-parameters)
++ [Configure non-pull through cache mapping parameters](#create-non-ptc-mapping-parameters)
 
 #### Specify the workflow definition Amazon S3 location
 <a name="create-defn-uri-parameter"></a>
@@ -303,7 +305,7 @@ aws omics create-workflow --name {{workflow name}} \
 #### Configure pull through cache mapping parameters
 <a name="create-prefix-mapping-parameters"></a>
 
-If you're using the Amazon ECR pull through cache mapping feature, you can override the default mappings. For more information about the container setup parameters, see [Container images for private workflows](workflows-ecr.md).
+If you're using the Amazon ECR pull through cache mapping feature, you can override the default mappings. HealthOmics supports third-party container registries such as Amazon ECR Public, Kubernetes container image registry, Quay, Docker Hub, Microsoft Azure Container Registry, GitHub Container Registry, and GitLab Container Registry. For more information about the container setup parameters, see [Container images for private workflows](workflows-ecr.md).
 
 In the following example, file `mappings.json` contains this content:
 
@@ -343,7 +345,7 @@ Specify the mapping parameters in the create-workflow command:
 ```
 aws omics create-workflow  \
      ...
---container-registry-map-file file://mappings.json
+--container-registry-map file://mappings.json
     ...
 ```
 
@@ -354,6 +356,57 @@ aws omics create-workflow  \
      ...
 --container-registry-map-uri s3://amzn-s3-demo-bucket1/test.zip
     ...
+```
+
+#### Configure non-pull through cache mapping parameters
+<a name="create-non-ptc-mapping-parameters"></a>
+
+If you use container images from registries that pull through cache doesn't support, add `credentialArn` to each mapping for a registry that HealthOmics copies from, and use the full secret ARN. For more information, see [Using third-party registries not supported by pull through cache](containers-non-ptc-registries.md).
+
+In the following example, file `mappings.json` contains this content:
+
+```
+{
+    "registryMappings": [
+        {
+            "upstreamRegistryUrl": "community.wave.seqera.io",
+            "ecrRepositoryPrefix": "wave-seqera",
+            "credentialArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:omics-registry/seqera-EXAMPLE"
+        },
+        {
+            "upstreamRegistryUrl": "nvcr.io",
+            "ecrRepositoryPrefix": "nvidia-ngc",
+            "credentialArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:omics-registry/nvidia-ngc-EXAMPLE"
+        }
+    ]
+}
+```
+
+Specify the mapping parameters in the create-workflow command:
+
+```
+aws omics create-workflow \
+     ...
+--container-registry-map file://mappings.json
+    ...
+```
+
+You can also provide the registry map inline. The following example creates a workflow with an inline registry map for Seqera Containers:
+
+```
+aws omics create-workflow \
+  --name {{my-workflow}} \
+  --engine NEXTFLOW \
+  --definition-uri s3://{{amzn-s3-demo-bucket1}}/{{my-definition.zip}} \
+  --container-registry-map '{
+    "registryMappings": [
+      {
+        "upstreamRegistryUrl": "community.wave.seqera.io",
+        "ecrRepositoryPrefix": "wave-seqera",
+        "credentialArn": "arn:aws:secretsmanager:us-east-1:111122223333:secret:omics-registry/seqera-EXAMPLE"
+      }
+    ]
+  }'
 ```
 
 ## Creating a workflow using an SDK

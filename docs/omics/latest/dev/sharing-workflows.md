@@ -18,8 +18,7 @@ Make sure that you trust the workflow owner before you accept a share. When you 
 **Topics**
 + [Subscribing to a shared workflow](#shared-workflow-subscribe)
 + [Monitoring status of a workflow share](#shared-workflow-monitor)
-+ [Sharing a private workflow using the console](#shared-workflow-create-console)
-+ [Sharing a private workflow using the CLI](#shared-workflow-create-api)
++ [Sharing a private workflow](#shared-workflow-create-console)
 + [Accepting a shared workflow using the console](#shared-workflow-accept-console)
 + [Running a shared workflow using the console](#shared-workflow-using-console)
 + [Running a shared workflow using the API](#shared-workflow-using-api)
@@ -59,10 +58,16 @@ HealthOmics sends an event to EventBridge for each status change of a workflow s
 
 For details about using events, see [Using EventBridge with AWS HealthOmics](eventbridge.md).
 
-## Sharing a private workflow using the console
+## Sharing a private workflow
 <a name="shared-workflow-create-console"></a>
 
-From the console, you can share a private workflow with an AWS account in the same region as the workflow.
+**Note**  
+Non-PTC container support isn't supported for shared workflows, so when a subscriber runs a workflow that you shared, HealthOmics ignores registry mappings that include `credentialArn`. For more information, see [Using third-party registries not supported by pull through cache](containers-non-ptc-registries.md).
+
+------
+#### [ Console ]
+
+You can share a private workflow with an AWS account in the same region as the workflow.
 
 **To share a private workflow**
 
@@ -76,12 +81,12 @@ From the console, you can share a private workflow with an AWS account in the sa
 
 1. Choose **Share resource**. The console displays resource shares in the **All resource shares** page.
 
-The initial state of the share is pending. After the subscriber accepts the share, the state changes to active.
+The initial state of the share is `PENDING`. After the subscriber accepts the share, the state changes to `ACTIVE`.
 
-## Sharing a private workflow using the CLI
-<a name="shared-workflow-create-api"></a>
+------
+#### [ CLI ]
 
-Use the **create-share** API operation to create a workflow share. The principal subscriber is the AWS account of the user who will get access to the workflow. 
+Use the `create-share` AWS CLI command to create a workflow share. The principal subscriber is the AWS account of the user who gets access to the workflow. 
 
 ```
 aws omics create-share \
@@ -100,9 +105,11 @@ If the create is successful, you receive a response with the share ID and status
 }
 ```
 
-The share remains in pending state until the subscriber accepts it using the `accept-share` API operation. 
+The share remains in `PENDING` state until the subscriber accepts it using the `accept-share` AWS CLI command. 
 
-See [Cross-account resource sharing in AWS HealthOmics](resource-sharing.md) for other API usage examples.
+For more API usage examples, see [Cross-account resource sharing in AWS HealthOmics](resource-sharing.md).
+
+------
 
 ## Accepting a shared workflow using the console
 <a name="shared-workflow-accept-console"></a>

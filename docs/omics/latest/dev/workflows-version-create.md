@@ -126,6 +126,7 @@ Customers in the TLV region need to create a connection in the IAD (us-east-1) r
       + **ECR repository prefix** – The repository prefix to use in the Amazon ECR private repository.
       + (Optional) **Upstream repository prefix** – The prefix of the repository in the upstream registry.
       + (Optional) **ECR account ID** – Account ID of the account that owns the upstream container image.
+      + (Optional) **Credential ARN** – The ARN of the Secrets Manager secret that contains your credentials for the registry. Required for registries that Amazon ECR pull through cache doesn't support, such as Seqera, NVIDIA NGC, Google Artifact Registry, and Google Container Registry. For more information, see [Using third-party registries not supported by pull through cache](containers-non-ptc-registries.md).
 
    1. In **Image mappings**, you can edit the image mappings or add mappings (maximum of 100 image mappings).
 

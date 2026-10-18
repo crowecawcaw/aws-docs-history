@@ -62,15 +62,13 @@ The following additional best practices can further improve your success rate wh
 
    GPU availability varies across AWS Regions. If your data residency requirements allow it, consider running GPU-intensive workflows in a different Region where capacity may be more readily available. To learn more about supported Regions, see [Service quotas and endpoints for AWS HealthOmics](https://docs.aws.amazon.com/general/latest/gr/healthomics-quotas.html).
 
-1. **Configure resource fallback (Only WDL workflows)**
+1. **Configure resource fallback**
 
-   For WDL workflows, the `omicsResourceFallbackOrder` directive lets you define an ordered list of resource profiles (GPU or CPU) per task. If your preferred accelerator type is unavailable, HealthOmics automatically tries the next accelerator type or CPU instead of failing. You can also specify how long HealthOmics should search for a GPU. Use cases include:
+   For WDL and Nextflow workflows, you can use the `omicsResourceFallbackOrder` directive to define an ordered list of resource profiles (GPU or CPU) per task. If your preferred accelerator type is unavailable, HealthOmics automatically tries the next accelerator type or CPU instead of failing. You can also specify how long HealthOmics should search for a GPU. Use cases include:
    + **GPU to GPU fallback** — try your preferred accelerator first, then fall back to an alternative (for example, try `nvidia-l40s` first, then `nvidia-l4`).
    + **GPU to CPU fallback** — add a final CPU-only profile so the task completes even when no GPU capacity is available.
-**Note**  
-The `omicsResourceFallbackOrder` directive is currently supported for WDL workflows only. Nextflow support is planned.
 
-   If none of the profiles in your fallback order has capacity within its wait time, the run fails with ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED. For WDL workflows, HealthOmics doesn't retry the task for this error. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order.
+   If none of the profiles in your fallback order has capacity within its wait time, the run fails with ALL\_PROFILES\_INSTANCE\_RESERVATION\_FAILED. For WDL workflows, HealthOmics doesn't retry the task for this error. For Nextflow workflows, `errorStrategy` and `maxRetries` determine whether the task is retried, and a retry starts again from the first profile. Consider increasing the resource wait time, or specify alternate accelerators or a CPU option in your fallback order.
 
    To learn more, see [Advanced resource configuration](advanced-resource-configuration.md).
 

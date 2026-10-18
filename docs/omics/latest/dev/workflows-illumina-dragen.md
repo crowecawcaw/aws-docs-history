@@ -3,7 +3,7 @@
 # Illumina DRAGEN on HealthOmics private workflows
 <a name="workflows-illumina-dragen"></a>
 
-Illumina DRAGEN v4.6 includes a software mode (SW mode) that runs on standard x86 CPU instances and produces results that match FPGA-based DRAGEN. You can run DRAGEN SW mode as a task in a HealthOmics private workflow in all AWS Regions where HealthOmics is available. DRAGEN SW mode doesn't use FPGA instances, and you don't specify a task accelerator.
+Illumina DRAGEN v4.6 includes a software mode (SW mode) that runs on standard x86 CPU instances and produces results that match FPGA-based DRAGEN. You can run DRAGEN SW mode as a task in a HealthOmics private workflow in all Regions where HealthOmics is available. DRAGEN SW mode doesn't use FPGA instances, and you don't specify a task accelerator.
 
 **Note**  
 DRAGEN is third-party software licensed by Illumina. HealthOmics does not provide DRAGEN licenses.
@@ -11,83 +11,75 @@ DRAGEN is third-party software licensed by Illumina. HealthOmics does not provid
 ## How Illumina DRAGEN works with HealthOmics
 <a name="dragen-how-it-works"></a>
 
-To run DRAGEN, start the run in `VPC` networking mode. Use a virtual private cloud (VPC) that routes outbound traffic through a NAT gateway. Each DRAGEN task validates its license with Illumina when the task starts, and license validation requires outbound internet access.
+Each DRAGEN task validates its license with Illumina when the task starts. License validation requires outbound internet access. By default, HealthOmics runs use `RESTRICTED` networking mode, which allows access only to Amazon S3 and Amazon ECR in the same Region and blocks the public internet. To run DRAGEN, you start the run in `VPC` networking mode with a VPC that routes outbound traffic through a NAT gateway. A run that uses `RESTRICTED` mode can't validate the license and the DRAGEN task fails. DRAGEN SW mode runs on x86 CPU instances, available in all Regions where HealthOmics supports private workflows.
 
-**Important**  
-By default, HealthOmics runs use `RESTRICTED` networking mode, which allows access only to Amazon S3 and Amazon ECR in the same Region and blocks the public internet. A run that uses `RESTRICTED` mode can't validate the license, and the DRAGEN task fails.
-
-DRAGEN SW mode runs on x86 CPU instances, available in all Regions where HealthOmics supports private workflows. To see which DRAGEN pipelines are supported in SW mode, see the latest Illumina DRAGEN release notes.
+To see which DRAGEN pipelines are supported in DRAGEN SW mode, see the latest Illumina DRAGEN release notes.
 
 ## Prerequisites
 <a name="dragen-prerequisites"></a>
-
-Before you run DRAGEN SW mode, make sure that you have the following:
 + A DRAGEN license from Illumina.
 + A private Amazon ECR repository in the Region where you run the workflow.
-+ A VPC with private subnets, a NAT gateway, and a security group that allows outbound HTTPS (port 443). For more information, see [Connecting HealthOmics workflows to a VPC](workflows-vpc-networking.md). For an example VPC setup, see [ HealthOmics VPC configuration on the GitHub website](https://github.com/aws-samples/sample-healthomics-vpc-configuration).
-+ A HealthOmics service role with access to your Amazon ECR repository and your Amazon S3 input and output locations. For more information about service roles, see [Service roles for AWS HealthOmics](permissions-service.md).
++ A VPC with private subnets, a NAT gateway, and a security group that allows outbound HTTPS (port 443). For an example VPC setup, see the [ HealthOmics VPC configuration](https://github.com/aws-samples/sample-healthomics-vpc-configuration) on GitHub.
++ A HealthOmics service role with access to your Amazon ECR repository and your Amazon S3 input and output locations. See [Service roles for AWS HealthOmics](permissions-service.md).
 
 ## Get a DRAGEN license
 <a name="dragen-get-license"></a>
 
-Subscribe to DRAGEN through Illumina. After you subscribe, Illumina provides the API key that the DRAGEN container uses to validate the license. For options to store the key and pass it to the task, see [Managing license keys](#dragen-license-keys).
+Subscribe to DRAGEN through Illumina. After you subscribe, Illumina provides the credentials that the DRAGEN container uses to validate the license.
 
 ## Build the DRAGEN container image and push it to Amazon ECR
 <a name="dragen-build-image"></a>
 
-HealthOmics runs container images from private Amazon ECR repositories in the same Region as the workflow. Build the DRAGEN image before you push it to your repository. HealthOmics supports `x86_64` containers. For installation instructions, see the [DRAGEN software mode reference](https://help.dragen.illumina.com/dragen-v4.6/reference/software-mode).
+HealthOmics runs container images from private Amazon ECR repositories in the same Region as the workflow. You need to build the DRAGEN image before you push it to your repository. HealthOmics supports `x86_64` containers. For installation instructions, see the [DRAGEN software mode reference](https://help.dragen.illumina.com/dragen-v4.6/reference/software-mode).
 
-Before you build the image, extract the DRAGEN installer (`.run` file) without running it, and inspect the RPM Package Manager (RPM) packages that it contains:
+Download the DRAGEN SW mode RPM for DRAGEN 4.6.2 or later from Illumina. For example, the package for version 4.6.2 is `dragen-softwaremode-4.6.2-4.6.2-1.el9.x86_64.rpm`.
+
+Before building the image, extract the DRAGEN installer (`.run` file) without executing it, and inspect the RPMs it contains:
 
 ```
 sh dragen-4.6.2-*.multi.el9.x86_64.run --noexec --keep --target ./extracted
-ls ./extracted            # Contains RPMs, flavors/, installer/, and wrapper.
+ls ./extracted            # RPMs, flavors/, installer/, wrapper
 ```
 
-Install only the packages required for SW mode. Skip the FPGA driver, host services, and bitstream packages. The following table lists the RPMs to install and the RPMs to skip.
+Install only the packages required for SW mode, and skip the FPGA driver, host services, and bitstream packages:
 
 
-| Install | Skip and reason | 
+| Install | Skip (and why) | 
 | --- | --- | 
-| dragen-paths | dragen\_drv – FPGA XDMA kernel drivers (a container can't load kernel modules) | 
-| dragen-host | dragen-host-services – no systemd in a task | 
-| dragen | dragen-bitstream-\* – unused in SW mode | 
+| dragen-paths | dragen\_drv FPGA XDMA kernel drivers (a container can't load kernel modules) | 
+| dragen-host | dragen-host-services (no systemd in a task) | 
+| dragen | dragen-bitstream-\* (unused in SW mode) | 
 | dragen-platform-aws | None | 
 
-The following is a sample Dockerfile. It copies only the four SW mode RPMs by name. Broader patterns such as `dragen-host-*.rpm` also match the `dragen-host-services` and `dragen-bitstream` RPMs that you skip.
+Sample Dockerfile:
 
 ```
 FROM oraclelinux:9
 ARG DRAGEN_VERSION=4.6.2
 
-RUN dnf -y install bzip2-libs coreutils gawk gdb perl procps-ng rsync sed \
-        libgcc libstdc++ libgomp xz-libs zlib systemd-libs \
+# dnf resolves the RPM's declared deps (bzip2-libs, procps-ng, libgomp, ...)
+COPY dragen-softwaremode-${DRAGEN_VERSION}-${DRAGEN_VERSION}-1.el9.x86_64.rpm /tmp/
+RUN dnf -y install /tmp/dragen-softwaremode-*.rpm unzip \
+    && rm -f /tmp/*.rpm \
     && dnf clean all && rm -rf /var/cache/dnf
 
-COPY dragen-paths-${DRAGEN_VERSION}-*.rpm \
-     dragen-host-${DRAGEN_VERSION}-*.rpm \
-     dragen-${DRAGEN_VERSION}-*.el9.x86_64.rpm \
-     dragen-platform-aws-${DRAGEN_VERSION}-*.noarch.rpm /tmp/rpms/
-
-# --nodeps: the RPMs declare driver/host-services dependencies that you intentionally exclude.
-RUN rpm -ivh --nodeps /tmp/rpms/*.rpm && rm -rf /tmp/rpms
+# AWS CLI v2, used by tasks that fetch the API key from Secrets Manager
+RUN curl -sSL "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o /tmp/awscli.zip \
+    && unzip -q /tmp/awscli.zip -d /tmp && /tmp/aws/install && rm -rf /tmp/aws /tmp/awscli.zip
 
 ENV PATH="/opt/dragen/${DRAGEN_VERSION}/bin:${PATH}"
-RUN dragen --version          # sanity check: must succeed with no FPGA/driver
 CMD ["dragen", "--version"]
 ```
 
-This sample Dockerfile does not include the AWS CLI. If you use the Amazon SageMaker AI retrieval pattern described in [Managing license keys](#dragen-license-keys), add `aws-cli` to the `dnf install` line, because the task calls `aws secretsmanager get-secret-value` directly from inside the container.
-
-HealthOmics requires `linux/amd64` images. If you build the image with the `--platform` flag, you can cross-compile from an Apple silicon machine.
+HealthOmics requires `linux/amd64` images. Building the image with the `--platform` flag lets you cross-compile from an Apple silicon machine.
 
 ```
-docker build --platform linux/amd64 -f docker/Dockerfile -t dragen:4.6.2-sw extracted/
+docker build --platform linux/amd64 -t dragen:4.6.2-sw .
 ```
 
-Create an Amazon ECR private repository, and then push your DRAGEN image to the repository. For more information, see [Pushing a Docker image to an Amazon ECR private repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) in the *Amazon ECR User Guide*.
+Create an Amazon ECR private repository, and then push your DRAGEN Docker image to your Amazon ECR private repository. For more information, see [Pushing a Docker image to an Amazon ECR private repository](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html) in the *Amazon ECR User Guide*.
 
-Create a file named `ecr-omics-policy.json` that contains the following repository policy, so that HealthOmics can pull the container image:
+Add a repository policy so that HealthOmics can pull the container image.
 
 ```
 {
@@ -101,10 +93,10 @@ Create a file named `ecr-omics-policy.json` that contains the following reposito
 }
 ```
 
-Apply the policy to your repository. In the following command, replace {{dragen}} with the name of your repository, and replace `us-east-2` with your Region. Make the same Region replacement in the other commands and policies on this page.
+Add the file that contains all policy statements.
 
 ```
-aws ecr set-repository-policy --repository-name {{dragen}} --region us-east-2 \
+aws ecr set-repository-policy --repository-name {{repository-name}} --region us-east-2 \
   --policy-text file://ecr-omics-policy.json
 ```
 
@@ -119,10 +111,10 @@ Create the network resources and a HealthOmics configuration resource, as descri
 | Setting | Requirement | 
 | --- | --- | 
 | Subnets | Private subnets, one per Availability Zone, in Availability Zones where HealthOmics operates. | 
-| Routing | Route 0.0.0.0/0 from the private subnets to a NAT gateway, so that the task reaches license.dragen.illumina.com. | 
+| Routing | Route 0.0.0.0/0 from the private subnets to a NAT gateway, so the task reaches license.dragen.illumina.com. | 
 | Security group | Allow outbound TCP 443. To restrict the rule to specific destinations, use the Illumina license endpoints. | 
 
-Verify that your configuration meets these requirements:
+Verify that your configuration meets the above requirements:
 
 ```
 aws omics get-configuration --name {{my-vpc-config}} --region us-east-2
@@ -133,7 +125,7 @@ You can reuse the configuration for all DRAGEN runs in the Region.
 ## Managing license keys
 <a name="dragen-license-keys"></a>
 
-You can keep a copy of your license key in Amazon SageMaker AI. HealthOmics does not inject secrets into the task environment. Your task must call SageMaker AI at runtime to retrieve the key before it runs `dragen`.
+You can keep a copy of your license key in AWS Secrets Manager. Because HealthOmics does not inject secrets into the task environment, the task itself must call Secrets Manager at runtime to retrieve the key before running `dragen`.
 
 Store the key as a secret:
 
@@ -144,27 +136,24 @@ aws secretsmanager create-secret \
   --region us-east-2
 ```
 
-Grant your service role permission to read the secret (see [IAM service role](#dragen-iam)), and then retrieve the key inside the task before you invoke `dragen`. The DRAGEN container image must include the AWS CLI (or an AWS SDK) to make the call.
+Grant your service role permission to read the secret (see [IAM service execution role](#dragen-iam)), and then retrieve the key inside the task before invoking `dragen`. The DRAGEN container image must include the AWS CLI (or an AWS SDK) to make the call.
 
-For example, add the following to the task's command block, before the `dragen` call. It writes the key to a plain text file named `/tmp/illumina-api-key.txt`, which you then pass to `--api-key-file`.
+For example, add the following to a task's command block, before the `dragen` call. It creates a plain text file named `illumina-api-key.txt` in the `/tmp/` directory. Pass `/tmp/illumina-api-key.txt` to `--api-key-file`.
 
 ```
-dragen_api_key=$(aws secretsmanager get-secret-value \
-  --secret-id dragen/illumina-api-key \
-  --region us-east-2 \
-  --query SecretString --output text)
-
-if [ -z "$dragen_api_key" ]; then
-  echo "Error: failed to retrieve the DRAGEN API key." >&2
-  exit 1
-fi
-
-echo "$dragen_api_key" > /tmp/illumina-api-key.txt
+# Fetch the API key at runtime; never echo it.
+KEY_FILE=/tmp/illumina-api-key.txt
+REGION=$(echo "~{api_key_secret_arn}" | cut -d: -f4)
+(umask 077; aws secretsmanager get-secret-value \
+  --secret-id "~{api_key_secret_arn}" --region "${REGION}" \
+  --query SecretString --output text > "${KEY_FILE}")
 ```
 
-The task already runs in `VPC` networking mode to reach the Illumina license server. By default, the same NAT gateway route provides access to the SageMaker AI API endpoint. To avoid routing this call through the NAT gateway, add a VPC interface endpoint for SageMaker AI.
+Because the task already runs in `VPC` networking mode to reach the Illumina license server, the same NAT gateway route provides access to the Secrets Manager API endpoint. To avoid routing this call through the NAT gateway, add a VPC interface endpoint for Secrets Manager instead.
 
-You can also stage the license key as an SSE-encrypted Amazon S3 object and specify the object as an input file for the workflow or workflow tasks. This keeps the key out of the workflow definition and out of Amazon CloudWatch.
+You can also stage the license key as an SSE-encrypted Amazon S3 object and specify the key in the input files for the workflow or workflow tasks. This ensures that the key never appears in the workflow definition or in Amazon CloudWatch.
+
+Amazon S3 file input:
 
 ```
 aws s3 cp illumina-api-key.txt \
@@ -172,7 +161,7 @@ aws s3 cp illumina-api-key.txt \
   --sse AES256 --region us-east-2
 ```
 
-Grant the HealthOmics service role read access to that object (see [IAM service role](#dragen-iam)), and then reference it as a workflow parameter:
+Grant the HealthOmics service role read access to that object (see [IAM service execution role](#dragen-iam)), and then reference it as a workflow parameter:
 
 ```
 {
@@ -180,56 +169,191 @@ Grant the HealthOmics service role read access to that object (see [IAM service 
 }
 ```
 
-Make sure that the Illumina API key in the workflow inputs is scoped to DRAGEN tasks only.
+Ensure that the Illumina API key in the workflow inputs is scoped to DRAGEN tasks only.
 
 ## Define the DRAGEN task
 <a name="dragen-task"></a>
 
-The following WDL example shows the structure of a sample DRAGEN task. You can pass the license key as part of the workflow input parameters, either as a JSON file or as inline values. Also pass the image URI as a workflow input, so that HealthOmics can verify access before the run starts. For more information, see [HealthOmics run inputs](workflows-run-inputs.md).
+The following WDL example shows the structure of a sample DRAGEN task. You can pass the license key as part of the workflow input parameters, either as a JSON file or inline values. You should also pass the image URI as a workflow input so that HealthOmics can verify access before the run starts. For more information, see [HealthOmics run inputs](workflows-run-inputs.md).
 
-The `dragen` command line and the resource values depend on your analysis. For more information, see [Task resources in a HealthOmics workflow definition](task-resources.md).
+The `dragen` command line process and the resource values depend on your analysis. A minimum of 16 vCPUs and 128 GiB of memory is required to run the process. Illumina recommends up to 64 vCPUs and 256 GiB of memory for some tasks. For more information, see [Task resources in a HealthOmics workflow definition](task-resources.md).
 
-**Note**  
-Give each DRAGEN task at least 16 vCPUs and 128 GiB of memory, which matches the `omics.r.4xlarge` instance type. Illumina recommends up to 64 vCPUs and 256 GiB of memory for some tasks. For details, see the DRAGEN software mode reference that is linked earlier in this topic.
+DRAGEN analysis is I/O intensive, and disk throughput can limit performance, affecting total runtime. Illumina recommends local ephemeral storage volumes for optimal performance. You can request increased per-task ephemeral storage using the `disks` directive (or equivalent) in your workflow definition. See [Configuring ephemeral storage size](workflows-ephemeral-storage.md#ephemeral-storage-configure-size).
 
-DRAGEN analysis is I/O intensive, and disk throughput can limit performance and increase total runtime. For optimal performance, use local ephemeral storage volumes. To request more per-task ephemeral storage, use the `disks` directive (or equivalent) in your workflow definition. For more information, see [Configuring ephemeral storage size](workflows-ephemeral-storage.md#ephemeral-storage-configure-size).
+See the [IlluminaDRAGEN v4.6 User Guide](https://help.dragen.illumina.com/dragen-v4.6/reference/software-mode) for more information on required resources.
 
 **Sample DRAGEN task (WDL)**
 
 ```
-task DragenGermline {
+version 1.0
+
+workflow DragenSwGermline {
     input {
-        File api_key_file  # the SSE-encrypted S3 object, specified in inputs.json at StartRun.
-        File hashtable_tar
+        String dragen_container
+        File? hashtable_tar             # reuse an existing hash table; built from ref_fasta when absent
+        File? ref_fasta
         File fastq_1
         File fastq_2
         String sample_id
+        String api_key_secret_arn       # Secrets Manager ARN; the key itself never becomes a WDL value
+        Boolean metering_preview = true # validate the API key without analysis or billing
+    }
+
+    call CheckLicenseSecret {
+        input:
+            secret_arn = api_key_secret_arn,
+            dragen_container = dragen_container
+    }
+
+    if (!defined(hashtable_tar)) {
+        call BuildHashTable {
+            input:
+                ref_fasta = select_first([ref_fasta]),
+                dragen_container = dragen_container
+        }
+    }
+
+    call DragenGermline {
+        input:
+            hashtable_tar = select_first([hashtable_tar, BuildHashTable.hashtable]),
+            fastq_1 = fastq_1,
+            fastq_2 = fastq_2,
+            sample_id = sample_id,
+            api_key_secret_arn = CheckLicenseSecret.checked_secret_arn,
+            metering_preview = metering_preview,
+            dragen_container = dragen_container
+    }
+
+    output {
+        File? hashtable = BuildHashTable.hashtable
+        Array[File] dragen_outputs = DragenGermline.outputs
+        File dragen_log = DragenGermline.log
+    }
+}
+
+# Fails fast if the run role can't read the secret or it's empty. Outputs only the ARN.
+task CheckLicenseSecret {
+    meta {
+        volatile: true  # re-check access on every run
+    }
+
+    input {
+        String secret_arn
         String dragen_container
     }
 
     command <<<
-        set -eu
-        mkdir -p output reference
+        set -euo pipefail
+        REGION=$(echo "~{secret_arn}" | cut -d: -f4)
+        KEY=$(aws secretsmanager get-secret-value \
+            --secret-id "~{secret_arn}" --region "${REGION}" \
+            --query SecretString --output text)
+        if [ -z "${KEY}" ] || [ "${KEY}" = "None" ]; then
+            echo "Secret has no SecretString; store it with --secret-string" >&2
+            exit 1
+        fi
+        echo "API key secret is readable (${#KEY} characters)"
+    >>>
 
-        tar -xf "~{hashtable_tar}" -C reference
+    runtime {
+        container: dragen_container
+        cpu: 1
+        memory: "2 GiB"
+    }
 
-        # To validate the key first without analysis or billing, add --metering-preview to the command below.
-        dragen \
-            --sw-mode \
-            --api-key-file "~{api_key_file}" \
-            -r reference \
-            -1 "~{fastq_1}" -2 "~{fastq_2}" \
-            --RGID "~{sample_id}-rg" --RGSM "~{sample_id}" \
-            --enable-map-align true --enable-variant-caller true \
-            --validate-pangenome-reference false \
-            --output-directory output --output-file-prefix "~{sample_id}"
+    output {
+        String checked_secret_arn = secret_arn
+    }
+}
+
+# No license check, so this task is safe to call-cache.
+task BuildHashTable {
+    input {
+        File ref_fasta
+        String dragen_container
+    }
+
+    command <<<
+        set -euo pipefail
+        mkdir -p hashtable
+        dragen --sw-mode --build-hash-table true \
+            --ht-reference "~{ref_fasta}" \
+            --ht-alt-liftover /opt/dragen/4.6.2/resources/ht_builder/hg38/bwa-kit_hs38DH_liftover.sam \
+            --ht-num-threads 16 \
+            --output-directory hashtable
+        tar -cf hashtable.tar -C hashtable .
     >>>
 
     runtime {
         container: dragen_container
         cpu: 16
         memory: "128 GiB"
-        disks: "64 GiB"
+        disks: "200 GiB"
+    }
+
+    output {
+        File hashtable = "hashtable.tar"
+    }
+}
+
+task DragenGermline {
+    meta {
+        volatile: true  # contacts the license server; never reuse cached results
+    }
+
+    input {
+        File hashtable_tar
+        File fastq_1
+        File fastq_2
+        String sample_id
+        String api_key_secret_arn
+        Boolean metering_preview
+        String dragen_container
+    }
+
+    command <<<
+        set -euo pipefail
+        mkdir -p output /tmp/reference /tmp/dragen-intermediate
+
+        # Fetch the API key at runtime; never echo it.
+        KEY_FILE=/tmp/illumina-api-key.txt
+        REGION=$(echo "~{api_key_secret_arn}" | cut -d: -f4)
+        (umask 077; aws secretsmanager get-secret-value \
+            --secret-id "~{api_key_secret_arn}" --region "${REGION}" \
+            --query SecretString --output text > "${KEY_FILE}")
+
+        tar -xf "~{hashtable_tar}" -C /tmp/reference
+
+        set +e
+        dragen --sw-mode \
+            --api-key-file "${KEY_FILE}" \
+            -r /tmp/reference \
+            -1 "~{fastq_1}" -2 "~{fastq_2}" \
+            --RGID "~{sample_id}-rg" --RGSM "~{sample_id}" \
+            --enable-map-align true --enable-map-align-output true \
+            --enable-variant-caller true \
+            --validate-pangenome-reference false \
+            --intermediate-results-dir /tmp/dragen-intermediate \
+            --output-directory output --output-file-prefix "~{sample_id}" \
+            ~{if metering_preview then "--metering-preview" else ""} \
+            2>&1 | tee dragen.log
+        RC=${PIPESTATUS[0]}
+        set -e
+        rm -f "${KEY_FILE}"
+        [ "${RC}" -eq 0 ] || { echo "DRAGEN failed (${RC})" >&2; exit "${RC}"; }
+        touch output/.keep  # metering preview writes no outputs
+    >>>
+
+    runtime {
+        container: dragen_container
+        cpu: 16
+        memory: "128 GiB"
+        disks: "300 GiB"
+    }
+
+    output {
+        Array[File] outputs = glob("output/*")
+        File log = "dragen.log"
     }
 }
 ```
@@ -237,19 +361,19 @@ task DragenGermline {
 ## Create your workflow
 <a name="dragen-create-workflow"></a>
 
-Follow the steps in [Create a private workflow](create-private-workflow.md) to create the workflow by using the console, the AWS CLI, or one of the AWS SDKs.
+Follow the steps in [Create a private workflow](create-private-workflow.md) using the console, AWS CLI commands, or one of the AWS SDKs.
 
 ```
 aws omics create-workflow --name dragen-sw-germline \
   --definition-zip fileb://workflow.zip --engine WDL --main main.wdl ...
 ```
 
-You can use the HealthOmics linter for WDL or Nextflow to resolve errors before you create the workflow. For more information, see [Workflow linters in HealthOmics](workflows-linter.md).
+You can use the HealthOmics linter for miniwdl or Nextflow to resolve all errors before deploying.
 
-## IAM service role
+## IAM service execution role
 <a name="dragen-iam"></a>
 
-Create a dedicated least-privilege service role. For more information, see [IAM permissions for HealthOmics](omics-permissions.md).
+Create a dedicated least-privilege role. For more detailed instructions, see [IAM permissions for HealthOmics](omics-permissions.md).
 
 ```
 {
@@ -299,7 +423,7 @@ Create a dedicated least-privilege service role. For more information, see [IAM 
 }
 ```
 
-If you use Amazon SageMaker AI, add a statement that grants permission to read the secret:
+If you are using AWS Secrets Manager, you need permission to read the secret.
 
 ```
 {
@@ -313,48 +437,48 @@ If you use Amazon SageMaker AI, add a statement that grants permission to read t
 ## Start the run with VPC networking
 <a name="dragen-start-run"></a>
 
-Start a run in `VPC` networking mode with your configuration, and set `scratch-storage-mode` to `LOCAL` to redirect scratch I/O to local disk. In the following command, replace {{1234567}}, {{123456789012}}, {{dragen-sw-omics-role}}, {{amzn-s3-demo-bucket}}, and {{my-vpc-config}} with your own values.
+Start a run in `VPC` networking mode with your configuration applied and `scratch-storage-mode` set to `LOCAL` to redirect scratch I/O to local disk.
 
 ```
 aws omics start-run \
-  --workflow-id {{1234567}} \
+  --configuration-name {{my-vpc-config}} \
   --name dragen-sw-germline-run \
-  --role-arn arn:aws:iam::{{123456789012}}:role/{{dragen-sw-omics-role}} \
+  --networking-mode VPC \
   --output-uri s3://{{amzn-s3-demo-bucket}}/runs/ \
   --parameters file://parameters.json \
-  --networking-mode VPC \
-  --configuration-name {{my-vpc-config}} \
-  --storage-type DYNAMIC \
+  --region us-east-2 \
+  --role-arn arn:aws:iam::{{123456789012}}:role/dragen-sw-omics-role \
   --scratch-storage-mode LOCAL \
-  --region us-east-2
+  --storage-type DYNAMIC \
+  --workflow-id {{workflow-id}}
 ```
 
-For more information about run storage types, see [Run storage types in HealthOmics workflows](workflows-run-types.md).
+For more information on setting your run storage type, see [Run storage types in HealthOmics workflows](workflows-run-types.md).
 
 ## Considerations
 <a name="dragen-considerations"></a>
 
 Local disk  
-For best performance, run DRAGEN with fast local disk on the compute node. To enable scratch ephemeral storage mounted at `/tmp`, set `scratchStorageMode` to `LOCAL`. For more information, see [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md).
+We recommend that you run DRAGEN with fast local disk on the compute node. You can enable scratch ephemeral storage mounted at `/tmp` by setting `scratchStorageMode` to `LOCAL`. For more information, see [Ephemeral storage for HealthOmics workflow tasks](workflows-ephemeral-storage.md).
 
 Public internet connection  
-DRAGEN validates its license over the internet, but the default `RESTRICTED` networking mode in HealthOmics blocks outbound calls to the public internet. To run DRAGEN, start the run with `VPC` networking mode. Provide a configuration with subnets that route outbound traffic through a NAT gateway. The task then reaches `license.dragen.illumina.com` over HTTPS. For more information, see [Internet access for VPC-connected workflows](workflows-vpc-internet.md).
+DRAGEN validates its license over the internet, but the default HealthOmics `RESTRICTED` networking mode blocks outbound calls to the public internet. To run DRAGEN, start the run with `VPC` networking mode enabled and provide a configuration with subnets that route outbound traffic through a NAT gateway to reach `license.dragen.illumina.com` over HTTPS. To learn more, see [Internet access for VPC-connected workflows](workflows-vpc-internet.md).
 
 Call caching  
-If you use call caching, exclude tasks that perform license checks. License validation contacts an external service, and a run cache could affect task outputs. You can exclude a task from caching by using a directive in the workflow definition. For more information, see [Engine-specific caching features](workflow-cache-per-engine.md).
+If you are using call caching, you should exclude tasks that require license checks. The license validation contacts an external service, and a run cache could affect task outputs. You can exclude a task from caching by using a directive in the workflow definition. For instructions on how to exclude a task from call caching, see [Engine-specific caching features](workflow-cache-per-engine.md).
 
-## Troubleshooting DRAGEN runs
+## Troubleshooting
 <a name="dragen-troubleshooting"></a>
 
 
 | Symptom | Likely cause | Action | 
 | --- | --- | --- | 
-| Task fails at start with a license or connection error in the Amazon CloudWatch Logs log. | Run started in RESTRICTED mode. | Start the run with --networking-mode VPC and a configuration name. | 
-| Same error in VPC mode. | Private subnet has no route to a NAT gateway, or the security group blocks port 443. | Check the route table and security group. Run the connectivity test in [Testing VPC connectivity](workflows-vpc-internet.md#vpc-testing-connectivity). | 
-| License rejected. | Expired trial, exhausted iCredits, or wrong credentials. | Check the status of your subscription with Illumina. | 
-| AccessDenied when pulling the image. | Service role or repository policy lacks Amazon ECR permissions. | See [Amazon ECR permissions](permissions-ecr.md). | 
-| License step fails immediately with HTTP 403. | Used --lic-server (legacy credentials) instead of --api-key-file. | Switch to --api-key-file (or --lic-credentials). --lic-server is not supported in SW mode. | 
-| Task fails before any license check, even with minimal or test inputs. | DRAGEN enforces a minimum of 16 vCPUs and 120 GiB of memory to validate the command line. | Use at least omics.r.4xlarge (16 vCPUs, 128 GiB) for any DRAGEN SW mode task, including dry runs. | 
+| Task fails at start with a license or connection error in the Amazon CloudWatch Logs log | Run started in RESTRICTED mode | Start the run with --networking-mode VPC and a configuration name. | 
+| Same error in VPC mode | Private subnet has no route to a NAT gateway, or the security group blocks port 443 | Check the route table and security group. Run the connectivity test in [Testing VPC connectivity](workflows-vpc-internet.md#vpc-testing-connectivity). | 
+| License rejected | Expired trial, exhausted iCredits, or wrong credentials | Check the status of your subscription with Illumina. | 
+| AccessDenied pulling the image | Service role or repository policy lacks Amazon ECR permissions | See [Amazon ECR permissions](permissions-ecr.md). | 
+| License step fails immediately with HTTP 403 | Used --lic-server (legacy credentials) instead of --api-key-file | Switch to --api-key-file (or --lic-credentials). --lic-server is not supported in SW mode. | 
+| Task fails before any license check, even with minimal or test inputs | DRAGEN enforces a hard floor of 16 vCPUs and 120\+ GiB of memory just to validate the command line | Use at least omics.r.4xlarge (16 vCPUs, 128 GiB) for any DRAGEN SW mode task, including dry runs. | 
 
 ## Related topics
 <a name="dragen-related"></a>

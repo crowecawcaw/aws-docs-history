@@ -3,7 +3,7 @@
 # Amazon ECR permissions
 <a name="permissions-ecr"></a>
 
-Before the HealthOmics service can run a workflow in a container from your private Amazon ECR repository, you create a resource policy for the repository. The policy grants permission for the HealthOmics service to use the container. You add this resource policy to each private repository referenced by the workflow. 
+Before you can run a workflow in a container from your private Amazon ECR repository, you create a resource policy for the repository. The policy grants permission for the HealthOmics service to use the container. You add this resource policy to each private repository referenced by the workflow. 
 
 **Note**  
 The private repository and the workflow must be in the same region.
@@ -14,6 +14,8 @@ You don't need to grant additional repository access for shared workflows. Howev
 
 To use the Amazon ECR pull through cache feature, you need to create a registry permission policy.
 
+To use container images from registries that Amazon ECR pull through cache (PTC) doesn't support, you add permissions to the service role, as described in [Service role policy for non-PTC container support](#permissions-ecr-non-ptc).
+
 The following sections describe how to configure Amazon ECR resource permissions for these scenarios. For more information about permissions in Amazon ECR, see [ Private registry permissions in Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html).
 
 **Topics**
@@ -21,6 +23,7 @@ The following sections describe how to configure Amazon ECR resource permissions
 + [Running workflows with cross-account containers](#permissions-cross-account-containers)
 + [Amazon ECR policies for shared workflows](#permissions-shared-workflows)
 + [Policies for Amazon ECR pull through cache](#permissions-ecr-ptc)
++ [Service role policy for non-PTC container support](#permissions-ecr-non-ptc)
 
 ## Create a resource policy for the Amazon ECR repository
 <a name="permissions-resource-policy"></a>
@@ -304,7 +307,7 @@ In the following example, the policy allows the HealthOmics service to create re
 ------
 
 ### Repository creation template
-<a name="permissions-reg"></a>
+<a name="permissions-repo-template"></a>
 
 To use pull through cache in HealthOmics, the Amazon ECR repository must have a repository creation template. The template defines configuration settings for the private repositories created for an upstream registry. 
 
@@ -436,3 +439,57 @@ Add permissions for two additional actions (CreateRepository and BatchImportUpst
 ```
 
 ------
+
+## Service role policy for non-PTC container support
+<a name="permissions-ecr-non-ptc"></a>
+
+With non-PTC container support, HealthOmics uses the service role that you pass to `StartRun` to copy images into your Amazon ECR repositories. In addition to the permissions in [Service roles for AWS HealthOmics](permissions-service.md), the service role needs permission to:
++ Create the destination repository if it doesn't exist (`ecr:CreateRepository`).
++ Check for a repository policy, and attach one if the repository has none (`ecr:GetRepositoryPolicy`, `ecr:SetRepositoryPolicy`).
++ Push the image (`ecr:InitiateLayerUpload`, `ecr:UploadLayerPart`, `ecr:CompleteLayerUpload`, `ecr:PutImage`).
++ Read the registry credential (`secretsmanager:GetSecretValue`).
+
+The following example policy grants these permissions. Replace the Region, the account ID, {{ecr-repository-prefix}}, and the secret ARN with your values. Use the `ecrRepositoryPrefix` from your registry mapping.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EcrCopiedImages",
+      "Effect": "Allow",
+      "Action": [
+        "ecr:BatchGetImage",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:InitiateLayerUpload",
+        "ecr:UploadLayerPart",
+        "ecr:CompleteLayerUpload",
+        "ecr:PutImage",
+        "ecr:DescribeImages",
+        "ecr:CreateRepository",
+        "ecr:GetRepositoryPolicy",
+        "ecr:SetRepositoryPolicy"
+      ],
+      "Resource": "arn:aws:ecr:us-east-1:111122223333:repository/{{ecr-repository-prefix}}/*"
+    },
+    {
+      "Sid": "EcrAuthToken",
+      "Effect": "Allow",
+      "Action": "ecr:GetAuthorizationToken",
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadRegistryCredential",
+      "Effect": "Allow",
+      "Action": "secretsmanager:GetSecretValue",
+      "Resource": "arn:aws:secretsmanager:us-east-1:111122223333:secret:omics-registry/seqera-EXAMPLE"
+    }
+  ]
+}
+```
++ `ecr:GetAuthorizationToken` doesn't support resource-level permissions, so it stays on `*`.
++ If you use more than one `ecrRepositoryPrefix`, or more than one non-PTC registry, add each repository ARN and each secret ARN.
++ If you set `ecrAccountId` in the registry mapping, use that account's ID in the Amazon ECR repository ARN.
++ If your secret is in a different account, use that account's secret ARN in the `secretsmanager:GetSecretValue` resource.
++ If your secret is encrypted with a customer managed AWS KMS key, also allow `kms:Decrypt` on that key.
