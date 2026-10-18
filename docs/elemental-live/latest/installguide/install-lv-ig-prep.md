@@ -41,4 +41,4 @@ Download the installation files for Elemental Live.
 ## Create bootable kickstart
 <a name="install-lv-ig-prep-ks"></a>
 
-At your workstation, use a third-party utility (such as PowerISO or ISO2USB) to create a bootable USB drive from the `.iso` file. For help, see [ this knowledge base article](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/How-to-create-bootable-recovery-kickstart-media-Windows-and-Apple-OS-X).
+At your workstation, use a third-party utility (such as PowerISO or ISO2USB) to create a bootable USB drive from the `.iso` file. For help, see [ this knowledge base article](https://us-east-1.console.aws.amazon.com/elemental-appliances-software/home?region=us-east-1#/viewknowledge/How-to-create-bootable-recovery-kickstart-media-Windows-and-Apple-OS-X).
