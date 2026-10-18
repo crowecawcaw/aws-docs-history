@@ -20,20 +20,6 @@
 +  Vendor risk posture is monitored continuously rather than assessed only at contract renewal, with triggers for reassessment when vendor circumstances change. 
 +  Exit plans exist for critical vendors, with tested procedures for data extraction, migration, and continuity that maintain sovereignty compliance during transition. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Third-party risk assessments follow standard security questionnaires without sovereignty-specific criteria. Sub-processor chains are not evaluated. Exit provisions are generic or absent.  | 
-|  2  |  Emerging  |  Vendor assessments include questions about data residency and operator location. Some contracts include data return clauses, but they are not tested. Sub-processor visibility is limited to tier-one providers.  | 
-|  3  |  Defined  |  A structured third-party risk management process evaluates vendors against sovereignty criteria at onboarding and periodically. Contracts include enforceable data residency, notification, and exit provisions. Sub-processor chains are documented and assessed.  | 
-|  4  |  Proactive  |  Vendor risk posture is monitored continuously with automated alerts for material changes (processing location shifts, corporate ownership changes, and regulatory actions). Exit plans are tested through tabletop exercises. Alternative vendors are pre-qualified.  | 
-|  5  |  Optimized  |  Third-party risk management integrates with the broader sovereignty risk register and informs architectural decisions. Vendor concentration risk is measured and diversified. Exit procedures have been validated through live migrations or rehearsals.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Vendor risk assessments that focus on security certifications without evaluating where data is actually processed or where operators are located. 

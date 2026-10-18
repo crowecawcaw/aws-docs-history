@@ -20,20 +20,6 @@
 +  Critical operations can continue independently within approved jurisdictions during extended isolation from external dependencies. 
 +  Plans are tested through exercises that simulate non-technical disruption scenarios, not just infrastructure failures. 
 
-## Maturity levels
-<a name="maturity-levels-3"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Business continuity planning focuses on technical failures. Non-technical disruptions are not considered in planning. Response to regulatory or geopolitical disruptions is reactive and unplanned.  | 
-|  2  |  Emerging  |  Non-technical disruption scenarios are acknowledged in continuity documentation. Some trigger conditions are defined, but decision criteria and operational procedures are incomplete. Plans have not been tested against non-technical scenarios.  | 
-|  3  |  Defined  |  Business continuity plans include explicit trigger conditions, decision criteria, and response procedures for non-technical disruptions. Plans address sovereignty compliance during the response. Roles and authorities for activation are assigned.  | 
-|  4  |  Proactive  |  Response procedures are tested through tabletop exercises and simulation of non-technical disruption scenarios. Alternative supply chains and operational paths are pre-qualified. Plans are updated when geopolitical or regulatory conditions shift.  | 
-|  5  |  Optimized  |  Trigger conditions are monitored continuously through regulatory and geopolitical intelligence feeds. Response times are measured against defined objectives. Plans are refined based on exercise outcomes and real events. Cross-jurisdictional coordination is pre-established and rehearsed.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-3"></a>
 +  Business continuity plans that address only technical failures. When a disruption is regulatory, geopolitical, or supply-chain related, the organization has no documented procedure to follow. 

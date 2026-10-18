@@ -21,20 +21,6 @@
 +  Evidence storage meets data residency requirements, so audit artifacts themselves don't violate the sovereignty controls they are intended to demonstrate. 
 +  Audit readiness is continuous, not a periodic activity that creates compliance gaps between assessment cycles. 
 
-## Maturity levels
-<a name="maturity-levels-2"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Audit evidence is collected manually in response to requests. Different jurisdictions require duplicated effort because evidence isn't pre-organized by scope. Audit preparation takes weeks and diverts teams from operations.  | 
-|  2  |  Emerging  |  Some evidence collection is automated for specific controls. Evidence is centralized but not scoped by jurisdiction or regulatory framework. Audit preparation time is reduced but still requires significant manual effort.  | 
-|  3  |  Defined  |  Evidence collection is automated from controls and configuration data. Reports can be scoped by jurisdiction and regulatory framework. Evidence storage complies with data residency requirements. Audit preparation is measured in days rather than weeks.  | 
-|  4  |  Proactive  |  Evidence is collected continuously and validated for completeness against audit requirement maps. Gaps in evidence coverage trigger alerts before audit requests arrive. Report generation is available on demand with minimal preparation.  | 
-|  5  |  Optimized  |  Audit readiness is measured and maintained as a continuous operational metric. Evidence collection adapts automatically when new controls are deployed or requirements change. Audit interactions are supported by pre-prepared evidence packages that auditors can access directly within residency constraints.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-2"></a>
 +  Evidence collection that depends on point-in-time snapshots rather than continuous data, which produces artifacts that may not reflect current compliance status at the time of the audit. 

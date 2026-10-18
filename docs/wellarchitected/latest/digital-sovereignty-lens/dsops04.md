@@ -20,20 +20,6 @@
 +  Compliance metrics are tracked over time to demonstrate improvement trends and identify recurring issues that require systemic remediation. 
 +  Monitoring covers both the controls themselves and the completeness of coverage, so it detects gaps where resources are not being evaluated. 
 
-## Maturity levels
-<a name="maturity-levels-3"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Compliance status is assessed periodically through manual review or one-off scripts. Findings are not aggregated across accounts. Teams discover drift during audits rather than through monitoring.  | 
-|  2  |  Emerging  |  Detective controls generate findings for some resources. Findings are aggregated centrally but not scored or prioritized. Alerting exists but is not tuned, so it produces noise.  | 
-|  3  |  Defined  |  Findings are aggregated, scored by severity, and scoped by jurisdiction. Alerts notify responsible teams when drift is detected. Compliance dashboards provide continuous visibility. Coverage gaps are identified and tracked.  | 
-|  4  |  Proactive  |  Monitoring coverage is validated automatically when new resources are deployed. Trending analysis identifies recurring issues. Alert thresholds are tuned to reduce false positives so notifications stay actionable.  | 
-|  5  |  Optimized  |  Compliance status feeds into operational decisions (deployment gates, risk assessments, and capacity planning). Anomaly detection identifies unusual compliance patterns that rules-based monitoring would miss. Monitoring effectiveness is measured by time-to-detect and false positive rates.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-3"></a>
 +  Findings from all jurisdictions land in a single view. Regional teams then have to filter out irrelevant findings, and jurisdiction-level assessment becomes impractical. 

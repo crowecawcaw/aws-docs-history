@@ -21,20 +21,6 @@
 +  The compliance catalog serves as a single reference for which requirements apply to which workloads in which jurisdictions, eliminating ambiguity for implementation teams. 
 +  Baseline updates propagate automatically to affected workloads and accounts when requirements change, without requiring manual redeployment. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Compliance requirements are tracked in spreadsheets or documents without systematic mapping to technical controls. Implementation depends on individual team interpretation. Validation is manual.  | 
-|  2  |  Emerging  |  A compliance catalog exists mapping some requirements to controls. Policy as code is partially implemented for high-priority requirements. Automated validation covers some resources but isn't integrated into deployment pipelines.  | 
-|  3  |  Defined  |  The compliance catalog comprehensively maps requirements to technical controls with validation criteria. Policy as code enforces compliance baselines across accounts. Deployment pipelines include automated compliance gates that block noncompliant resources.  | 
-|  4  |  Proactive  |  Compliance baselines are versioned and changes propagate automatically. Pipeline validation covers edge cases such as cross-account dependencies and cross-Region configurations. Exceptions are tracked with time-bound expiration and audit justification.  | 
-|  5  |  Optimized  |  Compliance automation achieves near-zero false positives through continuous tuning. Baseline updates are deployed and validated across all accounts within defined timeframes. Policy as code is shared across jurisdictions as reusable modules, reducing duplication.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Compliance catalogs that map requirements to controls at an abstract level without specifying validation criteria, which makes it impossible to automate verification or confirm control effectiveness. 

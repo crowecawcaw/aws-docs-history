@@ -21,20 +21,6 @@
 +  Risk assessments are updated when regulatory conditions, service availability, or geopolitical context changes, rather than on a fixed schedule alone. 
 +  Recovery time and recovery point objectives account for the additional constraints sovereignty requirements impose on failover procedures. 
 
-## Maturity levels
-<a name="maturity-levels"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Risk management follows standard operational risk practices without sovereignty-specific considerations. Recovery plans assume failover to any available Region. Data residency during failover isn't explicitly validated.  | 
-|  2  |  Emerging  |  Sovereignty risks are acknowledged in the risk register but not systematically assessed or prioritized. Recovery sites are selected within approved jurisdictions, but failover procedures have not been tested against sovereignty constraints.  | 
-|  3  |  Defined  |  A sovereignty-aware risk register captures and prioritizes regulatory, jurisdictional, and concentration risks. Recovery sites are validated to maintain data residency during failover. Failover procedures are documented and include sovereignty checkpoints.  | 
-|  4  |  Proactive  |  Risk assessments are triggered by regulatory changes and geopolitical events, not just periodic reviews. Recovery procedures are tested through exercises that simulate sovereignty-specific disruption scenarios. Regional self-sufficiency is validated through isolation drills.  | 
-|  5  |  Optimized  |  Risk management integrates continuous monitoring of regulatory and geopolitical indicators to anticipate risks before they materialize. Recovery procedures are refined based on exercise outcomes and achieve recovery objectives consistently within sovereignty constraints. Alternative recovery paths are pre-qualified for emerging jurisdictional requirements.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for"></a>
 +  Risk registers that capture only technical failure modes and leave out sovereignty-specific risks such as regulatory divergence, jurisdictional dependency, and concentration with a single provider or Region. 

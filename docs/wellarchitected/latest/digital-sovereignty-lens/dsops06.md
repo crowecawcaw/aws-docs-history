@@ -21,20 +21,6 @@
 +  Cross-jurisdictional divergence is identified when a change in one jurisdiction conflicts with requirements in another, so the organization can make informed decisions about how to reconcile competing obligations. 
 +  Change implementation is tracked to completion with evidence that demonstrates the organization met its obligations within required timeframes. 
 
-## Maturity levels
-<a name="maturity-levels-5"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Regulatory changes are discovered informally through news or occasional alerts. Impact assessment is reactive and unstructured. Changes are implemented after enforcement dates, creating compliance gaps.  | 
-|  2  |  Emerging  |  Some regulatory sources are monitored for relevant jurisdictions. Impact assessment is conducted but not systematically linked to specific controls and workloads. Changes are implemented before enforcement dates for high-priority regulations.  | 
-|  3  |  Defined  |  Regulatory sources are monitored across all operating jurisdictions through defined channels. Impact analysis maps changes to affected workloads, controls, and jurisdictions. Implementation follows a structured process with tracking through completion and evidence of compliance.  | 
-|  4  |  Proactive  |  Regulatory monitoring includes early-stage legislative proposals, giving the organization lead time before final requirements are published. Impact analysis is semi-automated and identifies cross-jurisdictional conflicts. Implementation timelines are planned with buffer ahead of enforcement dates.  | 
-|  5  |  Optimized  |  Regulatory intelligence feeds are integrated into planning processes. The organization contributes to industry consultation processes that shape regulations. Cross-jurisdictional divergence is managed through pre-established decision frameworks. Change implementation is measured against SLAs and improved iteratively.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-5"></a>
 +  Monitoring covers primary legislation but not implementing regulations, delegated acts, or regulator guidance, and it misses the detailed requirements that actually drive control changes. 

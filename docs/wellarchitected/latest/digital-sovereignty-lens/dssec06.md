@@ -20,20 +20,6 @@
 +  Classification decisions are traceable to specific regulatory requirements, providing auditors with a clear link between data handling and compliance obligations. 
 +  The classification scheme adapts when jurisdictional requirements change, and existing data is re-evaluated against updated criteria. 
 
-## Maturity levels
-<a name="maturity-levels-5"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Data classification is informal or absent. Teams apply sensitivity labels inconsistently, and sovereignty-specific attributes are not captured. Tagging is voluntary and not enforced.  | 
-|  2  |  Emerging  |  A classification scheme exists that includes some sovereignty attributes. Discovery is partially automated for known data stores. Tagging policies are defined but enforcement is inconsistent across accounts.  | 
-|  3  |  Defined  |  Classification includes jurisdiction, residency, retention, and transfer attributes applied through automated pipelines. Tag policies are enforced through preventive controls that block untagged resources. New data is classified at ingestion time.  | 
-|  4  |  Proactive  |  Classification rules are updated ahead of regulatory changes. Discovery pipelines scan for new data stores automatically as infrastructure changes. Misclassification is detected through drift monitoring and triggers remediation.  | 
-|  5  |  Optimized  |  Classification accuracy is measured and improved through feedback loops. Historical data is periodically re-evaluated against current requirements. Classification metadata drives downstream enforcement automatically, with no manual interpretation layer between classification and control.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-5"></a>
 +  Classification schemes that capture sensitivity (public, confidential, and restricted) but omit jurisdiction-specific attributes, leaving sovereignty enforcement without the metadata it needs. 

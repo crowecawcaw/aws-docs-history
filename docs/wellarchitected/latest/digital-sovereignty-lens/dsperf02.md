@@ -20,20 +20,6 @@
 +  Supply chain continuity risk is assessed for critical dependencies, with mitigation plans for components where update availability depends on a single jurisdiction. 
 +  Validation is integrated into the development lifecycle so that new dependencies are assessed before they reach production, not discovered during compliance reviews. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Dependencies are added based on functionality without sovereignty-specific evaluation. The software bill of materials is incomplete or absent. Export control and licensing risks are discovered reactively.  | 
-|  2  |  Emerging  |  High-risk components are evaluated for licensing and export control concerns. A partial software bill of materials exists. Some components have known sovereignty concerns but no formal mitigation plan.  | 
-|  3  |  Defined  |  All third-party components are evaluated against documented sovereignty criteria before approval. The software bill of materials is maintained and current. Components with export control or licensing constraints are explicitly accepted with documented risk decisions. Supply chain continuity is assessed for critical dependencies.  | 
-|  4  |  Proactive  |  Dependency validation runs automatically in CI/CD pipelines and blocks unapproved components before they reach production. Maintainer jurisdiction and update availability are monitored for changes. Alternative components are pre-identified for critical dependencies with supply chain risk.  | 
-|  5  |  Optimized  |  Dependency governance adapts to changing geopolitical conditions proactively. Supply chain risk is quantified and informs architectural decisions about component selection. The organization contributes to or forks critical open source dependencies to reduce single-jurisdiction risk.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Vulnerability scanning treated as sufficient dependency governance, which overlooks sovereignty-specific risks that scanners do not evaluate, such as export controls, licensing obligations, and maintainer jurisdiction. 

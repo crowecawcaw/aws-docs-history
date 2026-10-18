@@ -22,20 +22,6 @@
 +  Governance controls are applied at the organizational level and can't be overridden by individual account administrators, so enforcement stays consistent across the environment. 
 +  Verifiable evidence of control effectiveness is produced continuously and available for regulatory review without separate preparation efforts. 
 
-## Maturity levels
-<a name="maturity-levels-6"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Data residency is managed through convention and manual configuration. Privacy protections depend on application-level logic. Data lineage isn't tracked systematically.  | 
-|  2  |  Emerging  |  Region deny controls restrict service usage to approved Regions. Some privacy-enhancing techniques are applied for high-sensitivity workloads. Data flows are documented but lineage isn't tracked at the record level.  | 
-|  3  |  Defined  |  Digital sovereignty governance controls enforce residency at the organizational unit level. Privacy-enhancing techniques are applied based on data classification. Data lineage is captured for regulated data sets and linked to classification metadata.  | 
-|  4  |  Proactive  |  Governance controls are validated through automated testing before enforcement. Privacy techniques are selected based on data utility requirements, not just sensitivity. Lineage tracking covers cross-service and cross-account flows and is used in impact analysis for regulatory changes.  | 
-|  5  |  Optimized  |  Control effectiveness is measured through continuous assurance and reported per jurisdiction. Privacy techniques evolve as new methods become available and threats change. Lineage data is queryable in real time and integrated into incident investigation and regulatory reporting workflows.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-6"></a>
 +  Region deny controls that restrict new resource creation but don't address data already replicated to non-approved Regions through legacy configurations or service defaults. 

@@ -20,20 +20,6 @@
 +  Cross-service and cross-Region data flows are explicitly mapped and controlled rather than implicitly permitted. 
 +  Access control policies are expressed declaratively and validated through automated analysis, so teams rely less on manual review. 
 
-## Maturity levels
-<a name="maturity-levels-1"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Access controls rely on individual IAM policies without coordination across layers. No formal data perimeter exists. Cross-Region data flows are not explicitly mapped or restricted.  | 
-|  2  |  Emerging  |  Basic service control policies restrict actions at the organizational unit level. Some VPC endpoint policies are in place, but coverage is inconsistent. Operator access constraints exist but are not systematically enforced.  | 
-|  3  |  Defined  |  A formal data perimeter combines identity-based, network-based, and resource-based controls. Policies are codified and applied consistently across accounts. Operator access is restricted to approved jurisdictions through condition keys and network controls.  | 
-|  4  |  Proactive  |  Access policies are validated through automated reasoning to confirm they enforce intended boundaries. New services and data flows are assessed against the data perimeter model before deployment. Exceptions are time-bound and logged.  | 
-|  5  |  Optimized  |  Data perimeter effectiveness is continuously measured and refined. Policy changes are tested in isolated environments before promotion. Access patterns are analyzed to identify unused permissions and tighten controls proactively.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-1"></a>
 +  Relying on a single control layer (for example, only detective controls) to identify violations rather than applying preventive controls that stop violations before they occur. 

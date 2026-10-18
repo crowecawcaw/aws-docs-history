@@ -20,20 +20,6 @@
 +  Regulatory notification obligations are tracked and executed within mandatory timeframes, with documented proof of compliance. 
 +  Post-incident review incorporates lessons learned into both the security posture and the compliance response process. 
 
-## Maturity levels
-<a name="maturity-levels-8"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Incident response follows a single generic playbook without jurisdiction-specific considerations. Notification obligations are identified after the fact. Evidence is preserved without explicit attention to data residency.  | 
-|  2  |  Emerging  |  Jurisdiction-specific notification timelines are documented. Response plans acknowledge data residency requirements for evidence, but procedures are not fully operationalized. Coordination with regulatory authorities is informal.  | 
-|  3  |  Defined  |  Response playbooks include jurisdiction-specific procedures for notification, evidence preservation, and authority coordination. Regional teams have defined roles in incident response. Evidence storage complies with data residency requirements by design.  | 
-|  4  |  Proactive  |  Incident response procedures are tested through exercises that simulate sovereignty-specific scenarios (cross-border data exposure, regulatory notification deadlines). Automated workflows handle evidence preservation and notification tracking. Regional teams demonstrate independent response capability through regular drills.  | 
-|  5  |  Optimized  |  Response effectiveness is measured against regulatory timelines and improved iteratively. Lessons learned feed back into both security controls and compliance processes. Cross-jurisdictional coordination is pre-established through documented agreements and rehearsed communication channels.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-8"></a>
 +  Incident response plans that treat all jurisdictions identically, missing variation in notification timelines, evidence requirements, and authority coordination protocols. 

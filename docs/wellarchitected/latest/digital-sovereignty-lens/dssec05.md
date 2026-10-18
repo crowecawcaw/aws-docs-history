@@ -21,20 +21,6 @@
 +  Regional teams possess the authority, tooling, and training to operate their jurisdictions independently without requiring access from centralized or foreign locations. 
 +  All operator access is logged with sufficient context (identity, source location, time, and scope) to support forensic review and regulatory reporting. 
 
-## Maturity levels
-<a name="maturity-levels-4"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Operators use standing credentials with broad permissions. Access location isn't validated or constrained. Regional teams depend on centralized operations for infrastructure changes.  | 
-|  2  |  Emerging  |  Multi-factor authentication is required for infrastructure access. Some jurisdictional constraints exist through network-level controls, but they are not comprehensive. Regional teams have partial operational capability but escalate frequently.  | 
-|  3  |  Defined  |  Just-in-time access is implemented with time-bound sessions and approval workflows. Access is constrained to approved locations through IP-based conditions and network controls. Regional teams operate independently for routine tasks with clear escalation paths for exceptions.  | 
-|  4  |  Proactive  |  Automation handles the majority of operational tasks, reducing the need for interactive access. Access patterns are analyzed to identify unused privileges and tighten constraints. Regional teams are fully self-sufficient with local tooling, documentation, and trained personnel.  | 
-|  5  |  Optimized  |  Interactive access is the exception, reserved for break-glass scenarios with enhanced logging and post-event review. Access models evolve based on usage data and threat intelligence. Regional operational independence is validated through exercises and measured against defined capability targets.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-4"></a>
 +  Standing administrator credentials that persist across sessions, creating a permanent attack surface and violating least-privilege principles. 

@@ -23,20 +23,6 @@
 +  Operational continuity planning covers sovereignty governance itself, so governance functions survive the loss of key personnel, tools, or jurisdictional access. 
 +  Organizational structure reflects jurisdictional boundaries, with accountable owners for each jurisdiction who maintain relationships with local regulatory authorities. 
 
-## Maturity levels
-<a name="maturity-levels"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Sovereignty governance is informal and centralized in a single team or individual. Jurisdictional requirements are addressed reactively. No formal delegation or training exists. Continuity depends on individual knowledge.  | 
-|  2  |  Emerging  |  Governance responsibilities are assigned, but delegation to jurisdictions is incomplete. Some training materials exist. The organization acknowledges the need for distributed governance but has not operationalized it.  | 
-|  3  |  Defined  |  A governance structure with central baseline ownership and jurisdictional delegation is documented and operating. Training programs cover sovereignty obligations for relevant roles. Continuity plans exist for governance functions.  | 
-|  4  |  Proactive  |  Jurisdictional teams operate independently for routine compliance decisions. Training is assessed for effectiveness and updated with regulatory changes. Governance continuity is tested through exercises that simulate the loss of key personnel or access.  | 
-|  5  |  Optimized  |  Governance effectiveness is measured (time to respond to regulatory changes and compliance gap rate per jurisdiction) and improved iteratively. Organizational structure adapts to new jurisdictional requirements before they take effect. Cross-jurisdictional knowledge sharing is systematic and continuous.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for"></a>
 +  Centralized governance that forces jurisdictional teams to wait for central approval on routine compliance requirements, which delays decisions and erodes compliance posture. 

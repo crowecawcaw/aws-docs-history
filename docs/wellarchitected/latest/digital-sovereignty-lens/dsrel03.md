@@ -20,20 +20,6 @@
 +  Integration points use open standards and well-defined APIs so proprietary lock-in does not block jurisdictional movement. 
 +  Migration timelines are estimated, tested, and documented for critical workloads, so decision-makers know what portability means in practice (hours, days, weeks) for their specific systems. 
 
-## Maturity levels
-<a name="maturity-levels-2"></a>
-
- These levels summarize what each stage of maturity looks like for this capability as a whole. 
-
-
-|  Level  |  Name  |  What it looks like  | 
-| --- | --- | --- | 
-|  1  |  Initial  |  Workloads are built with hardcoded Region and service dependencies. Data formats are proprietary or undocumented. No export or migration planning has been done.  | 
-|  2  |  Emerging  |  Some workloads use infrastructure as code with basic parameterization. Data export exists but has not been validated for completeness or portability. Migration timelines are estimated but not tested.  | 
-|  3  |  Defined  |  Workloads abstract Region and service dependencies through configuration. Data is stored in portable formats with documented schemas. Export and migration procedures are documented and validated for critical workloads.  | 
-|  4  |  Proactive  |  Portability is tested through cross-jurisdiction deployment exercises. Migration timelines are measured and meet defined objectives. Workload designs are reviewed against portability criteria before production deployment.  | 
-|  5  |  Optimized  |  Portability is a standard design requirement for new workloads. Migration procedures are automated and run as part of regular operational exercises. Lessons from portability testing feed back into architecture standards.  | 
-
 ## Common issues to watch for
 <a name="common-issues-to-watch-for-2"></a>
 +  Hardcoded Region identifiers, service endpoints, or account references embedded in application code rather than externalized as configuration. Jurisdictional movement then requires a code change instead of a deployment change. 
