@@ -290,6 +290,7 @@ For event data stores, you can use only advanced event selectors to include data
 | Amazon Kinesis Video Streams | Kinesis Video Streams API activity on video streams, such as calls to GetMedia and PutMedia. | Kinesis video stream | `AWS::KinesisVideo::Stream` | 
 | AWS Lambda | AWS Lambda function execution activity (the Invoke API). | Lambda | `AWS::Lambda::Function` | 
 | Lambda microvm image | API activity on `AWS::Lambda::MicrovmImage` resources. | Lambda microvm image | `AWS::Lambda::MicrovmImage` | 
+| Lambda Web Function | API activity on `AWS::Lambda::WebFunction` resources. | Lambda WebFunction | `AWS::Lambda::WebFunction` | 
 | Lex Bot | API activity on `AWS::Lex::Bot` resources. | Lex Bot | `AWS::Lex::Bot` | 
 | AWS Lex Bot Alias | API activity on `AWS::Lex::BotAlias` resources. | AWS Lex Bot Alias | `AWS::Lex::BotAlias` | 
 | CloudWatch Logs log group authorization | API activity on `AWS::Logs::LogGroupAuthorization` resources. | CloudWatch Logs log group authorization | `AWS::Logs::LogGroupAuthorization` | 
