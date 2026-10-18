@@ -9,6 +9,8 @@ To receive notifications about updates to the *AWS Security Hub User Guide*, you
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New security standard](#doc-history) | Security Hub CSPM released the [CRI Profile v2.2](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference-cri-profile.html) standard. This standard aligns with the CRI Profile, a cybersecurity framework developed by the Cyber Risk Institute (CRI) that harmonizes cybersecurity and regulatory expectations for the financial services sector. | October 14, 2026 | 
+| [Automation rules can update resource criticality](#doc-history) | Security Hub [automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-automation-rules.html) can now update the criticality of resources (resource rules), in addition to updating finding details and creating tickets. Setting resource criticality helps you prioritize remediation based on how important the affected resources are to your business. | October 1, 2026 | 
 | [Remediation plans](#doc-history) | Added remediation plans, which group related exposure findings by root cause so that one fix can resolve or reduce the severity of several exposures. For more information, see [Remediation plans in AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-v2-remediation-plans.html). | September 30, 2026 | 
 | [Updated Network Scanning informational findings details](#doc-history) | Added information about informational findings that Network Scanning generates. | September 3, 2026 | 
 | [Updated Network Scanning ports list](#doc-history) | Added list of ports that are currently supported by Network Scanning. | August 18, 2026 | 

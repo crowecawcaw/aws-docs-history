@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the AWS Network Firewall service a
 ## [NetworkFirewall.1] Network Firewall firewalls should be deployed across multiple Availability Zones
 <a name="networkfirewall-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -48,7 +48,7 @@ AWS global infrastructure includes multiple AWS Regions. AZs are physically sepa
 ## [NetworkFirewall.2] Network Firewall logging should be enabled
 <a name="networkfirewall-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1
+**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -74,7 +74,7 @@ To enable logging for a firewall, see [Updating a firewall's logging configurati
 ## [NetworkFirewall.3] Network Firewall policies should have at least one rule group associated
 <a name="networkfirewall-3"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.13.1
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.13.1, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure Network Configuration
 
@@ -100,7 +100,7 @@ To add a rule group to a Network Firewall policy, see [Updating a firewall polic
 ## [NetworkFirewall.4] The default stateless action for Network Firewall policies should be drop or forward for full packets
 <a name="networkfirewall-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure Network Configuration
 
@@ -127,7 +127,7 @@ To change your firewall policy, see [Updating a firewall policy](https://docs.aw
 ## [NetworkFirewall.5] The default stateless action for Network Firewall policies should be drop or forward for fragmented packets
 <a name="networkfirewall-5"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.14, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.13.6
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.14, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.13.6, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.03
 
 **Category:** Protect > Secure Network Configuration
 
@@ -154,7 +154,7 @@ To change your firewall policy, see [Updating a firewall policy](https://docs.aw
 ## [NetworkFirewall.6] Stateless Network Firewall rule group should not be empty
 <a name="networkfirewall-6"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.14, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.13.6
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.14, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.13.6, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/DE.CM-01.05
 
 **Category:** Protect > Secure Network Configuration
 
@@ -244,7 +244,7 @@ To add tags to an Network Firewall policy, see [Tagging AWS Network Firewall res
 ## [NetworkFirewall.9] Network Firewall firewalls should have deletion protection enabled
 <a name="networkfirewall-9"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Network Security
 
@@ -270,7 +270,7 @@ To enable delete protection on an existing Network Firewall firewall, see [ Upda
 ## [NetworkFirewall.10] Network Firewall firewalls should have subnet change protection enabled
 <a name="networkfirewall-10"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Network Security
 

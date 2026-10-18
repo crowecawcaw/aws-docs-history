@@ -8,7 +8,7 @@ These Security Hub CSPM controls evaluate the Amazon Elastic File System (Amazon
 ## [EFS.1] Elastic File System should be configured to encrypt file data at-rest using AWS KMS
 <a name="efs-1"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.3.1, CIS AWS Foundations Benchmark v3.0.0/2.4.1, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.3.1, CIS AWS Foundations Benchmark v3.0.0/2.4.1, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -38,7 +38,7 @@ For details on how to encrypt a new Amazon EFS file system, see [Encrypting data
 ## [EFS.2] Amazon EFS volumes should be in backup plans
 <a name="efs-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.DS-11.01
 
 **Category:** Recover > Resilience > Backup
 
@@ -64,7 +64,7 @@ To enable automatic backups for an existing Amazon EFS file system, see [Getting
 ## [EFS.3] EFS access points should enforce a root directory
 <a name="efs-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-6(10)
+**Related requirements:** NIST.800-53.r5 AC-6(10), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.IR-01.05, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure access management
 
@@ -90,7 +90,7 @@ For instructions on how to enforce a root directory for an Amazon EFS access poi
 ## [EFS.4] EFS access points should enforce a user identity
 <a name="efs-4"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-6(2), PCI DSS v4.0.1/7.3.1
+**Related requirements:** NIST.800-53.r5 AC-6(2), PCI DSS v4.0.1/7.3.1, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.DS-10.01
 
 **Category:** Protect > Secure access management
 
@@ -148,7 +148,7 @@ To add tags to an EFS access point, see [Tagging Amazon EFS resources](https://d
 ## [EFS.6] EFS mount targets should not be associated with subnets that assign public IP addresses on launch
 <a name="efs-6"></a>
 
-**Related requirements:** NIST.800-53.r5 SC-7, NIST.800-171.r2 3.1.20, PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 SC-7, NIST.800-171.r2 3.1.20, PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Network security > Resources not publicly accessible
 
@@ -181,6 +181,8 @@ To associate an existing mount target with a different subnet, you must create a
 ## [EFS.7] EFS file systems should have automatic backups enabled
 <a name="efs-7"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-11.01
+
 **Category:** Recover > Resilience > Backups enabled
 
 **Severity:** Medium
@@ -205,7 +207,7 @@ For information about using AWS Backup for EFS file systems, see [Backing up EFS
 ## [EFS.8] EFS file systems should be encrypted at rest
 <a name="efs-8"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.3.1
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.3.1, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 

@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [Backup.1] AWS Backup recovery points should be encrypted at rest
 <a name="backup-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-9(8), NIST.800-53.r5 SI-12
+**Related requirements:** NIST.800-53.r5 CP-9(8), NIST.800-53.r5 SI-12, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.DS-11.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 

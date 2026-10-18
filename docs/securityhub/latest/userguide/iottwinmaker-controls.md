@@ -42,6 +42,8 @@ To add tags to an AWS IoT TwinMaker sync job, see [TagResource](https://docs.aws
 ## [IoTTwinMaker.2] AWS IoT TwinMaker workspaces should be tagged
 <a name="iottwinmaker-2"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-01.01, CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low

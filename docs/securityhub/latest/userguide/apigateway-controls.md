@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon API Gateway service and
 ## [APIGateway.1] API Gateway REST and WebSocket API execution logging should be enabled
 <a name="apigateway-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8)
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 
@@ -39,7 +39,7 @@ To enable logging for REST and WebSocket API operations, see [Set up CloudWatch 
 ## [APIGateway.2] API Gateway REST API stages should be configured to use SSL certificates for backend authentication
 <a name="apigateway-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.15
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.15, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -65,7 +65,7 @@ For detailed instructions on how to generate and configure API Gateway REST API 
 ## [APIGateway.3] API Gateway REST API stages should have AWS X-Ray tracing enabled
 <a name="apigateway-3"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7
+**Related requirements:** NIST.800-53.r5 CA-7, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-04.02
 
 **Category:** Detect > Detection services
 
@@ -91,7 +91,7 @@ For detailed instructions on how to enable X-Ray active tracing for API Gateway 
 ## [APIGateway.4] API Gateway should be associated with a WAF Web ACL
 <a name="apigateway-4"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21)
+**Related requirements:** NIST.800-53.r5 AC-4(21), CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.03
 
 **Category:** Protect > Protective services
 
@@ -117,7 +117,7 @@ For information on how to use the API Gateway console to associate an AWS WAF Re
 ## [APIGateway.5] API Gateway REST API cache data should be encrypted at rest
 <a name="apigateway-5"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data protection > Encryption of data at rest
 
@@ -145,7 +145,7 @@ To configure API caching for a stage, see [Enable Amazon API Gateway caching](ht
 ## [APIGateway.8] API Gateway routes should specify an authorization type
 <a name="apigateway-8"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure Access Management
 
@@ -176,7 +176,7 @@ To set an authorization type for HTTP APIs, see [Controlling and managing access
 ## [APIGateway.9] Access logging should be configured for API Gateway V2 Stages
 <a name="apigateway-9"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 

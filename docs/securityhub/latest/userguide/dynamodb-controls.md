@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon DynamoDB service and re
 ## [DynamoDB.1] DynamoDB tables should automatically scale capacity with demand
 <a name="dynamodb-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -42,7 +42,7 @@ To enable DynamoDB automatic scaling on existing tables in capacity mode, see [E
 ## [DynamoDB.2] DynamoDB tables should have point-in-time recovery enabled
 <a name="dynamodb-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.DS-11.01
 
 **Category:** Recover > Resilience > Backups enabled
 
@@ -68,7 +68,7 @@ To restore a DynamoDB table to a point in time, see [Restoring a DynamoDB table 
 ## [DynamoDB.3] DynamoDB Accelerator (DAX) clusters should be encrypted at rest
 <a name="dynamodb-3"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -94,7 +94,7 @@ You cannot enable or disable encryption at rest after a cluster is created. You 
 ## [DynamoDB.4] DynamoDB tables should be present in a backup plan
 <a name="dynamodb-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.DS-11.01
 
 **Category:** Recover > Resilience > Backups enabled
 
@@ -157,7 +157,7 @@ To add tags to a DynamoDB table, see [Tagging resources in DynamoDB](https://doc
 ## [DynamoDB.6] DynamoDB tables should have deletion protection enabled
 <a name="dynamodb-6"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/GV.RM-01.03, CRI Profile v2.2/PR.DS-01.01
 
 **Category:** Protect > Data protection > Data deletion protection
 
@@ -183,7 +183,7 @@ To enable deletion protection for a DynamoDB table, see [Using deletion protecti
 ## [DynamoDB.7] DynamoDB Accelerator clusters should be encrypted in transit
 <a name="dynamodb-7"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17, NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-17, NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the AWS CloudTrail service and res
 ## [CloudTrail.1] CloudTrail should be enabled and configured with at least one multi-Region trail that includes read and write management events
 <a name="cloudtrail-1"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.1, CIS AWS Foundations Benchmark v1.2.0/2.1, CIS AWS Foundations Benchmark v1.4.0/3.1, CIS AWS Foundations Benchmark v3.0.0/3.1, NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-14(1), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-53.r5 SA-8(22)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.1, CIS AWS Foundations Benchmark v1.2.0/2.1, CIS AWS Foundations Benchmark v1.4.0/3.1, CIS AWS Foundations Benchmark v3.0.0/3.1, NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-14(1), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-53.r5 SA-8(22), CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -59,7 +59,7 @@ To update an existing trail, see [Updating a trail](https://docs.aws.amazon.com/
 ## [CloudTrail.2] CloudTrail should have encryption at-rest enabled
 <a name="cloudtrail-2"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.5, CIS AWS Foundations Benchmark v1.2.0/2.7, CIS AWS Foundations Benchmark v1.4.0/3.7, CIS AWS Foundations Benchmark v3.0.0/3.5, NIST.800-53.r5 AU-9, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.3.8, PCI DSS v3.2.1/3.4, PCI DSS v4.0.1/10.3.2
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.5, CIS AWS Foundations Benchmark v1.2.0/2.7, CIS AWS Foundations Benchmark v1.4.0/3.7, CIS AWS Foundations Benchmark v3.0.0/3.5, NIST.800-53.r5 AU-9, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.3.8, PCI DSS v3.2.1/3.4, PCI DSS v4.0.1/10.3.2, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -85,7 +85,7 @@ To enable SSE-KMS encryption for CloudTrail log files, see [Update a trail to us
 ## [CloudTrail.3] At least one CloudTrail trail should be enabled
 <a name="cloudtrail-3"></a>
 
-**Related requirements:** NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/10.1, PCI DSS v3.2.1/10.2.1, PCI DSS v3.2.1/10.2.2, PCI DSS v3.2.1/10.2.3, PCI DSS v3.2.1/10.2.4, PCI DSS v3.2.1/10.2.5, PCI DSS v3.2.1/10.2.6, PCI DSS v3.2.1/10.2.7, PCI DSS v3.2.1/10.3.1, PCI DSS v3.2.1/10.3.2, PCI DSS v3.2.1/10.3.3, PCI DSS v3.2.1/10.3.4, PCI DSS v3.2.1/10.3.5, PCI DSS v3.2.1/10.3.6, PCI DSS v4.0.1/10.2.1
+**Related requirements:** NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/10.1, PCI DSS v3.2.1/10.2.1, PCI DSS v3.2.1/10.2.2, PCI DSS v3.2.1/10.2.3, PCI DSS v3.2.1/10.2.4, PCI DSS v3.2.1/10.2.5, PCI DSS v3.2.1/10.2.6, PCI DSS v3.2.1/10.2.7, PCI DSS v3.2.1/10.3.1, PCI DSS v3.2.1/10.3.2, PCI DSS v3.2.1/10.3.3, PCI DSS v3.2.1/10.3.4, PCI DSS v3.2.1/10.3.5, PCI DSS v3.2.1/10.3.6, PCI DSS v4.0.1/10.2.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Identify > Logging
 
@@ -111,7 +111,7 @@ To get started with CloudTrail and create a trail, see the [Getting started with
 ## [CloudTrail.4] CloudTrail log file validation should be enabled
 <a name="cloudtrail-4"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.2, CIS AWS Foundations Benchmark v1.2.0/2.2, CIS AWS Foundations Benchmark v1.4.0/3.2, CIS AWS Foundations Benchmark v3.0.0/3.2, NIST.800-53.r5 AU-9, NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-7(1), NIST.800-53.r5 SI-7(3), NIST.800-53.r5 SI-7(7), NIST.800-171.r2 3.3.8, PCI DSS v3.2.1/10.5.2, PCI DSS v3.2.1/10.5.5, PCI DSS v4.0.1/10.3.2
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.2, CIS AWS Foundations Benchmark v1.2.0/2.2, CIS AWS Foundations Benchmark v1.4.0/3.2, CIS AWS Foundations Benchmark v3.0.0/3.2, NIST.800-53.r5 AU-9, NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-7(1), NIST.800-53.r5 SI-7(3), NIST.800-53.r5 SI-7(7), NIST.800-171.r2 3.3.8, PCI DSS v3.2.1/10.5.2, PCI DSS v3.2.1/10.5.5, PCI DSS v4.0.1/10.3.2, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Data protection > Data integrity
 
@@ -139,7 +139,7 @@ To enable CloudTrail log file validation, see [Enabling log file integrity valid
 ## [CloudTrail.5] CloudTrail trails should be integrated with Amazon CloudWatch Logs
 <a name="cloudtrail-5"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.4, PCI DSS v3.2.1/10.5.3, CIS AWS Foundations Benchmark v1.2.0/2.4, CIS AWS Foundations Benchmark v1.4.0/3.4, NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 AU-7(1), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-4(5), NIST.800-53.r5 SI-7(8)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.4, PCI DSS v3.2.1/10.5.3, CIS AWS Foundations Benchmark v1.2.0/2.4, CIS AWS Foundations Benchmark v1.4.0/3.4, NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 AU-7(1), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-4(5), NIST.800-53.r5 SI-7(8), CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 
@@ -178,7 +178,7 @@ To integrate CloudTrail with CloudWatch Logs, see [Sending events to CloudWatch 
 ## [CloudTrail.6] Ensure the S3 bucket used to store CloudTrail logs is not publicly accessible
 <a name="cloudtrail-6"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/2.3, CIS AWS Foundations Benchmark v1.4.0/3.3, PCI DSS v4.0.1/1.4.4
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/2.3, CIS AWS Foundations Benchmark v1.4.0/3.3, PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Identify > Logging
 
@@ -208,7 +208,7 @@ To block public access to your CloudTrail S3 bucket, see [Configuring block publ
 ## [CloudTrail.7] Ensure S3 bucket access logging is enabled on the CloudTrail S3 bucket
 <a name="cloudtrail-7"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/2.6, CIS AWS Foundations Benchmark v1.4.0/3.6, CIS AWS Foundations Benchmark v3.0.0/3.4, PCI DSS v4.0.1/10.2.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/2.6, CIS AWS Foundations Benchmark v1.4.0/3.6, CIS AWS Foundations Benchmark v3.0.0/3.4, PCI DSS v4.0.1/10.2.1, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/PR.PS-04.02
 
 **Category:** Identify > Logging
 

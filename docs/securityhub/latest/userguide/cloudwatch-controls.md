@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon CloudWatch service and 
 ## [CloudWatch.1] A log metric filter and alarm should exist for usage of the "root" user
 <a name="cloudwatch-1"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.1,CIS AWS Foundations Benchmark v1.2.0/3.3, CIS AWS Foundations Benchmark v1.4.0/1.7,CIS AWS Foundations Benchmark v1.4.0/4.3, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/7.2.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.1,CIS AWS Foundations Benchmark v1.2.0/3.3, CIS AWS Foundations Benchmark v1.4.0/1.7,CIS AWS Foundations Benchmark v1.4.0/4.3, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/7.2.1, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-05.01
 
 **Category:** Detect > Detection services
 
@@ -84,7 +84,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.2] Ensure a log metric filter and alarm exist for unauthorized API calls
 <a name="cloudwatch-2"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -160,7 +160,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.3] Ensure a log metric filter and alarm exist for Management Console sign-in without MFA
 <a name="cloudwatch-3"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.2
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.2, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03
 
 **Category:** Detect > Detection services
 
@@ -236,7 +236,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.4] Ensure a log metric filter and alarm exist for IAM policy changes
 <a name="cloudwatch-4"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.4, CIS AWS Foundations Benchmark v1.4.0/4.4, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.4, CIS AWS Foundations Benchmark v1.4.0/4.4, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.PS-01.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -313,7 +313,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.5] Ensure a log metric filter and alarm exist for CloudTrail configuration changes
 <a name="cloudwatch-5"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.5, CIS AWS Foundations Benchmark v1.4.0/4.5, NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.5, CIS AWS Foundations Benchmark v1.4.0/4.5, NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -389,7 +389,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.6] Ensure a log metric filter and alarm exist for AWS Management Console authentication failures
 <a name="cloudwatch-6"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.6, CIS AWS Foundations Benchmark v1.4.0/4.6, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.6, CIS AWS Foundations Benchmark v1.4.0/4.6, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -465,7 +465,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.7] Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer managed keys
 <a name="cloudwatch-7"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.7, CIS AWS Foundations Benchmark v1.4.0/4.7, NIST.800-171.r2 3.13.10, NIST.800-171.r2 3.13.16, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.7, CIS AWS Foundations Benchmark v1.4.0/4.7, NIST.800-171.r2 3.13.10, NIST.800-171.r2 3.13.16, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -541,7 +541,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.8] Ensure a log metric filter and alarm exist for S3 bucket policy changes
 <a name="cloudwatch-8"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.8, CIS AWS Foundations Benchmark v1.4.0/4.8, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.8, CIS AWS Foundations Benchmark v1.4.0/4.8, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -617,7 +617,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.9] Ensure a log metric filter and alarm exist for AWS Config configuration changes
 <a name="cloudwatch-9"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.9, CIS AWS Foundations Benchmark v1.4.0/4.9, NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.9, CIS AWS Foundations Benchmark v1.4.0/4.9, NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Detect > Detection services
 
@@ -693,7 +693,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.10] Ensure a log metric filter and alarm exist for security group changes
 <a name="cloudwatch-10"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.10, CIS AWS Foundations Benchmark v1.4.0/4.10, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.10, CIS AWS Foundations Benchmark v1.4.0/4.10, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/DE.CM-01.05, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-01.05, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Detect > Detection services
 
@@ -769,7 +769,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.11] Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL)
 <a name="cloudwatch-11"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.11, CIS AWS Foundations Benchmark v1.4.0/4.11, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.11, CIS AWS Foundations Benchmark v1.4.0/4.11, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Detect > Detection services
 
@@ -845,7 +845,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.12] Ensure a log metric filter and alarm exist for changes to network gateways
 <a name="cloudwatch-12"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.12, CIS AWS Foundations Benchmark v1.4.0/4.12, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.12, CIS AWS Foundations Benchmark v1.4.0/4.12, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -921,7 +921,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.13] Ensure a log metric filter and alarm exist for route table changes
 <a name="cloudwatch-13"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.13, CIS AWS Foundations Benchmark v1.4.0/4.13, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.13, CIS AWS Foundations Benchmark v1.4.0/4.13, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-01.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -998,7 +998,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.14] Ensure a log metric filter and alarm exist for VPC changes
 <a name="cloudwatch-14"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.14, CIS AWS Foundations Benchmark v1.4.0/4.14, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/3.14, CIS AWS Foundations Benchmark v1.4.0/4.14, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Detect > Detection services
 
@@ -1074,7 +1074,7 @@ To pass this control, follow these steps to create an Amazon SNS topic, an AWS C
 ## [CloudWatch.15] CloudWatch alarms should have specified actions configured
 <a name="cloudwatch-15"></a>
 
-**Related requirements:** NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 CA-7, NIST.800-53.r5 IR-4(1), NIST.800-53.r5 IR-4(5), NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-4(12), NIST.800-53.r5 SI-4(5), NIST.800-171.r2 3.3.4, NIST.800-171.r2 3.14.6
+**Related requirements:** NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 CA-7, NIST.800-53.r5 IR-4(1), NIST.800-53.r5 IR-4(5), NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-4(12), NIST.800-53.r5 SI-4(5), NIST.800-171.r2 3.3.4, NIST.800-171.r2 3.14.6, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -1116,7 +1116,7 @@ For information about actions supported by CloudWatch alarms, see [Alarm actions
 
 **Category:** Identify > Logging
 
-**Related requirements:** NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-11, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-12
+**Related requirements:** NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-11, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-12, CRI Profile v2.2/ID.AM-08.03, CRI Profile v2.2/ID.AM-08.05, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.03
 
 **Severity:** Medium
 
@@ -1147,7 +1147,7 @@ To configure log retention settings, see [Change log data retention in CloudWatc
 
 **Category:** Detect > Detection services
 
-**Related requirements:** NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-4(12)
+**Related requirements:** NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-4(12), CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01
 
 **Severity:** High
 

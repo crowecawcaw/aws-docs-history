@@ -98,7 +98,7 @@ To encrypt your Amazon Bedrock AgentCore Memory with a customer managed KMS key,
 
 **Parameters:** None
 
-This control checks whether an Amazon Bedrock AgentCore Gateway is encrypted at rest with a customer managed AWS KMS key. The control fails if the Bedrock AgentCore Gateway isn't encrypted with a customer managed KMS key.
+This control checks whether an Amazon Bedrock AgentCore Gateway is encrypted at rest with a customer managed AWS KMS key. The control fails if the Bedrock AgentCore Gateway isn't encrypted with a customer managed KMS key. The control doesn't evaluate whether the configured customer managed KMS key is disabled or deleted.
 
 By default, Amazon Bedrock AgentCore encrypts gateway data with AWS managed keys. Using a customer managed KMS key gives you full control over the encryption key lifecycle, including rotation, access policies, and auditing through AWS CloudTrail. This helps meet compliance requirements that mandate customer-controlled encryption for sensitive AI workloads.
 

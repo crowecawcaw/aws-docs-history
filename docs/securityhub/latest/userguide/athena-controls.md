@@ -72,6 +72,8 @@ To add tags to an Athena workgroup, see [Adding and deleting tags on an individu
 ## [Athena.4] Athena workgroups should have logging enabled
 <a name="athena-4"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/PR.IR-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
+
 **Category:** Identify > Logging
 
 **Severity:** Medium

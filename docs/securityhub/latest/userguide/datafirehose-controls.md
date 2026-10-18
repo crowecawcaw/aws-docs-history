@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [DataFirehose.1] Firehose delivery streams should be encrypted at rest
 <a name="datafirehose-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 AU-3, NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28
+**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 AU-3, NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 

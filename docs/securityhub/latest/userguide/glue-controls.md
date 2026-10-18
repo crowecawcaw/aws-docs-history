@@ -40,6 +40,8 @@ To add tags to a AWS Glue job, see [AWS tags in AWS Glue](https://docs.aws.amazo
 ## [Glue.3] AWS Glue machine learning transforms should be encrypted at rest
 <a name="glue-3"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
+
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
 **Severity:** Medium
@@ -64,7 +66,7 @@ To configure encryption for AWS Glue machine learning transforms, see [Working w
 ## [Glue.4] AWS Glue Spark jobs should run on supported versions of AWS Glue
 <a name="glue-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-02.03
 
 **Category:** Identify > Vulnerability, patch, and version management
 

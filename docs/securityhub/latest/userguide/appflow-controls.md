@@ -10,6 +10,8 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [AppFlow.1] Amazon AppFlow flows should be tagged
 <a name="appflow-1"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low

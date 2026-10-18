@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [SecretsManager.1] Secrets Manager secrets should have automatic rotation enabled
 <a name="secretsmanager-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.6.3, PCI DSS v4.0.1/8.3.9
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.6.3, PCI DSS v4.0.1/8.3.9, CRI Profile v2.2/PR.AA-01.01
 
 **Category:** Protect > Secure development
 
@@ -43,7 +43,7 @@ To turn on automatic rotation for Secrets Manager secrets, see [Set up automatic
 ## [SecretsManager.2] Secrets Manager secrets configured with automatic rotation should rotate successfully
 <a name="secretsmanager-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.6.3, PCI DSS v4.0.1/8.3.9
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.6.3, PCI DSS v4.0.1/8.3.9, CRI Profile v2.2/PR.AA-01.01
 
 **Category:** Protect > Secure development
 
@@ -77,7 +77,7 @@ For help diagnosing and fixing common errors related to secrets rotation, see [T
 ## [SecretsManager.3] Remove unused Secrets Manager secrets
 <a name="secretsmanager-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15)
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.AA-05.03
 
 **Category:** Protect > Secure access management
 
@@ -108,7 +108,7 @@ To delete inactive Secrets Manager secrets, see [Delete an AWS Secrets Manager s
 ## [SecretsManager.4] Secrets Manager secrets should be rotated within a specified number of days
 <a name="secretsmanager-4"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.6.3, PCI DSS v4.0.1/8.3.9
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.6.3, PCI DSS v4.0.1/8.3.9, CRI Profile v2.2/PR.AA-01.01
 
 **Category:** Protect > Secure access management
 

@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [Neptune.1] Neptune DB clusters should be encrypted at rest
 <a name="neptune-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -36,7 +36,7 @@ You can enable encryption at rest when you create a Neptune DB cluster. You can'
 ## [Neptune.2] Neptune DB clusters should publish audit logs to CloudWatch Logs
 <a name="neptune-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 AU-7(1), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-4(5), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.3.3
+**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 AU-7(1), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-4(5), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.3.3, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 
@@ -62,7 +62,7 @@ To publish Neptune audit logs to CloudWatch Logs, see [Publishing Neptune logs t
 ## [Neptune.3] Neptune DB cluster snapshots should not be public
 <a name="neptune-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.DS-01.01
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -88,7 +88,7 @@ To remove public access for Neptune manual DB cluster snapshots, see [Sharing a 
 ## [Neptune.4] Neptune DB clusters should have deletion protection enabled
 <a name="neptune-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.DS-01.02, CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Protect > Data protection > Data deletion protection
 
@@ -114,7 +114,7 @@ To enable deletion protection for an existing Neptune DB cluster, see [ Modifyin
 ## [Neptune.5] Neptune DB clusters should have automated backups enabled
 <a name="neptune-5"></a>
 
-**Related requirements:** NIST.800-53.r5 SI-12
+**Related requirements:** NIST.800-53.r5 SI-12, CRI Profile v2.2/PR.DS-11.01, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02, CRI Profile v2.2/RC.RP-03.01
 
 **Category:** Recover > Resilience > Backups enabled
 
@@ -145,7 +145,7 @@ To enable automated backups and set a backup retention period for your Neptune D
 ## [Neptune.6] Neptune DB cluster snapshots should be encrypted at rest
 <a name="neptune-6"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(18)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(18), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -171,7 +171,7 @@ You can't encrypt an existing Neptune DB cluster snapshot. Instead, you must res
 ## [Neptune.7] Neptune DB clusters should have IAM database authentication enabled
 <a name="neptune-7"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02, CRI Profile v2.2/PR.PS-06.10
 
 **Category:** Protect > Secure access management > Passwordless authentication
 
@@ -197,7 +197,7 @@ By default, IAM database authentication is disabled when you create a Neptune DB
 ## [Neptune.8] Neptune DB clusters should be configured to copy tags to snapshots
 <a name="neptune-8"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01, CRI Profile v2.2/ID.AM-08.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -223,7 +223,7 @@ To copy tags to snapshots for Neptune DB clusters, see [Copying tags in Neptune]
 ## [Neptune.9] Neptune DB clusters should be deployed across multiple Availability Zones
 <a name="neptune-9"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 

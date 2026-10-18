@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [AutoScaling.1] Auto Scaling groups associated with a load balancer should use ELB health checks
 <a name="autoscaling-1"></a>
 
-**Related requirements:** PCI DSS v3.2.1/2.2, NIST.800-53.r5 CA-7, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 SI-2
+**Related requirements:** PCI DSS v3.2.1/2.2, NIST.800-53.r5 CA-7, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 SI-2, CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Identify > Inventory
 
@@ -36,7 +36,7 @@ To add Elastic Load Balancing health checks, see [Add Elastic Load Balancing hea
 ## [AutoScaling.2] Amazon EC2 Auto Scaling group should cover multiple Availability Zones
 <a name="autoscaling-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -67,7 +67,7 @@ To add AZs to an existing Auto Scaling group, see [Add and remove Availability Z
 ## [AutoScaling.3] Auto Scaling group launch configurations should configure EC2 instances to require Instance Metadata Service Version 2 (IMDSv2)
 <a name="autoscaling-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/2.2.6
+**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/2.2.6, CRI Profile v2.2/PR.AA-04.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration
 
@@ -126,7 +126,7 @@ To modify the metadata response hop limit for an existing launch configuration, 
 ## [Autoscaling.5] Amazon EC2 instances launched using Auto Scaling group launch configurations should not have Public IP addresses
 <a name="autoscaling-5"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -154,7 +154,7 @@ After you change the launch configuration, Auto Scaling launches new instances w
 ## [AutoScaling.6] Auto Scaling groups should use multiple instance types in multiple Availability Zones
 <a name="autoscaling-6"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-2(2), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/GV.OC-04.03, CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -180,7 +180,7 @@ To create an Auto Scaling group with multiple instance types, see [Auto Scaling 
 ## [AutoScaling.9] Amazon EC2 Auto Scaling groups should use Amazon EC2 launch templates
 <a name="autoscaling-9"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Identify > Resource Configuration
 

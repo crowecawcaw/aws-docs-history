@@ -10,6 +10,8 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [WorkSpaces.1] WorkSpaces user volumes should be encrypted at rest
 <a name="workspaces-1"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
+
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
 **Severity:** Medium
@@ -33,6 +35,8 @@ To encrypt a WorkSpaces user volume, see [ Encrypt a WorkSpace](https://docs.aws
 
 ## [WorkSpaces.2] WorkSpaces root volumes should be encrypted at rest
 <a name="workspaces-2"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-01.08
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 

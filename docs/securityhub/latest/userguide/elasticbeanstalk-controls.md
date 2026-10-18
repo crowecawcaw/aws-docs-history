@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [ElasticBeanstalk.1] Elastic Beanstalk environments should have enhanced health reporting enabled
 <a name="elasticbeanstalk-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7,NIST.800-53.r5 SI-2
+**Related requirements:** NIST.800-53.r5 CA-7,NIST.800-53.r5 SI-2, CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Detect > Detection services > Application monitoring
 
@@ -40,7 +40,7 @@ For instructions on how to enable enhanced health reporting, see [Enabling enhan
 ## [ElasticBeanstalk.2] Elastic Beanstalk managed platform updates should be enabled
 <a name="elasticbeanstalk-2"></a>
 
-**Related requirements:** NIST.800-53.r5 SI-2,NIST.800-53.r5 SI-2(2),NIST.800-53.r5 SI-2(4),NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3
+**Related requirements:** NIST.800-53.r5 SI-2,NIST.800-53.r5 SI-2(2),NIST.800-53.r5 SI-2(4),NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3, CRI Profile v2.2/PR.PS-02.01
 
 **Category:** Identify > Vulnerability, patch, and version management
 
@@ -71,7 +71,7 @@ To enable managed platform updates, see [To configure managed platform updates u
 ## [ElasticBeanstalk.3] Elastic Beanstalk should stream logs to CloudWatch
 <a name="elasticbeanstalk-3"></a>
 
-**Related requirements:** PCI DSS v4.0.1/10.4.2
+**Related requirements:** PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 

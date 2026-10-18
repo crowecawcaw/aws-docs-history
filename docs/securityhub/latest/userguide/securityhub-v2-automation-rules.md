@@ -3,14 +3,21 @@
 # Automation rules in Security Hub
 <a name="securityhub-v2-automation-rules"></a>
 
- With Security Hub, you can automate tasks like updating finding details and creating tickets for third-party integrations. 
+ With Security Hub, you can automate tasks like updating finding details, updating the criticality of your resources, and creating tickets for third-party integrations. 
 
 ## Automation rules and AWS Regions
 <a name="automation-regions"></a>
 
  Automation rules can be created in one AWS Region and then applied in all configured AWS Regions. When using Region aggregation, you can only create rules in the home Region. When creating rules in the home Region, any rule you define is applied to all linked Regions, unless your rule criteria excludes a specific linked Region. You must create an automation rule for any Region that is not a linked Region. 
 
-## Rule actions and criteria
+## Types of automation rules
+<a name="rule-types"></a>
+
+ Automation rules in Security Hub support two rule types: finding rules and resource rules. A finding rule matches findings and updates finding details or creates a ticket for a third-party integration. A resource rule matches resources and sets the criticality of those resources. A single rule uses either finding criteria or resource criteria, but not both. A resource rule pairs resource criteria with the resource action to set criticality, and it cannot update finding details or create a ticket. 
+
+ Finding rules and resource rules share the same quota. You can create a maximum of 100 automation rules per account in each AWS Region, across both finding rules and resource rules. 
+
+## Finding rule actions and criteria
 <a name="ocsf-fields"></a>
 
  Automation rules in Security Hub use criteria to reference OCSF attributes in Security Hub findings. For example, the filters supported for the `Criteria` parameter in [CreateAutomationRuleV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_CreateAutomationRuleV2.html) match the filters supported for the `Filters` parameter in [GetFindingsV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetFindingsV2.html). This means filters used in automation rules can be used to get findings. Security Hub supports the following OCSF fields for automation rule criteria. 
@@ -88,6 +95,46 @@
 +  `SeverityId` 
 +  `StatusId` 
 
+## Resource rule actions and criteria
+<a name="resource-rules"></a>
+
+ Resource criteria reference resource attributes. The filters supported for resource criteria are a subset of the filters supported for the [GetResourcesV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesV2.html) operation. You can combine filters with `AND` and `OR` operators, and nest them up to three levels deep, with a maximum of 100 filters per rule. 
+
+ Security Hub supports the following resource fields for resource criteria. 
+
+
+| Resource field | Console filter value | Filter operators | Field type | 
+| --- | --- | --- | --- | 
+| ResourceId | Resource ID | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceName | Resource name | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceType | Resource type | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceCategory | Resource category | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceSubCategory | Resource sub-category | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceProvider | Cloud provider | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceCloudPartition | Resource partition | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceRegion | Region | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceGuid | Resource GUID | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| AccountId | Finding account | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| AccountName | Account name | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| Region | Finding region | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceOwnerAccountId | Account | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceOwnerOrgId | Organization | EQUALS, PREFIX, CONTAINS, NOT\_CONTAINS, NOT\_EQUALS, PREFIX\_NOT\_EQUALS | String | 
+| ResourceCreationTime | Created at | Start, End, DateRange | Date | 
+| ResourceDetailCaptureTime | Resource detail capture time | Start, End, DateRange | Date | 
+| ResourceTags | Resource tags | EQUALS, NOT\_EQUALS, CONTAINS, NOT\_CONTAINS | Map | 
+
+ Security Hub does not support number filters. It does not support the `CONTAINS_WORD` operator for resource criteria. For the complete list of resource filter fields and their allowed values, see [ResourcesFilters](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_ResourcesFilters.html) and [GetResourcesV2](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_GetResourcesV2.html) in the *Security Hub API Reference*. 
+
+**Resource fields that can be updated**  
+ A resource rule updates the criticality of resources that match your criteria. You can set the criticality to one of the following values, listed from highest to lowest. 
++  `Very High` 
++  `High` 
++  `Medium` 
++  `Low` 
++  `Unknown` 
+
+ Resource rules do not apply to self-hosted AI resources. These resource types are excluded from automation-rule criticality, and they continue to receive inferred criticality. 
+
 ## How automation rules evaluate findings
 <a name="findings-evaluate"></a>
 
@@ -105,6 +152,8 @@
  Each automation rule is assigned a rule order. This determines the order in which Security Hub applies your automation rules, and becomes important when multiple rules relate to the same finding or finding field. 
 
  When multiple rule actions relate to the same finding or finding field, the rule with the highest numerical value for rule order applies last and has the ultimate effect. 
+
+ Rule order also determines the final criticality of a resource. When multiple resource rules match the same resource, the rule that applies last determines the criticality of the resource. 
 
  When you create a rule in the Security Hub console, Security Hub automatically assigns rule order based on the order of rule creation. The first rule you create will have a rule order of 1. When more than one rule exists each subsequently created rule will have the next highest available numerical value for rule order. 
 

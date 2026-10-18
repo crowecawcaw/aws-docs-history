@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon DocumentDB (with MongoD
 ## [DocumentDB.1] Amazon DocumentDB clusters should be encrypted at rest
 <a name="documentdb-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -34,7 +34,7 @@ You can enable encryption at rest when you create an Amazon DocumentDB cluster. 
 ## [DocumentDB.2] Amazon DocumentDB clusters should have an adequate backup retention period
 <a name="documentdb-2"></a>
 
-**Related requirements:** NIST.800-53.r5 SI-12, PCI DSS v4.0.1/3.2.1
+**Related requirements:** NIST.800-53.r5 SI-12, PCI DSS v4.0.1/3.2.1, CRI Profile v2.2/PR.DS-11.01
 
 **Category:** Recover > Resilience > Backups enabled
 
@@ -65,7 +65,7 @@ To change the backup retention period for your Amazon DocumentDB clusters, see [
 ## [DocumentDB.3] Amazon DocumentDB manual cluster snapshots should not be public
 <a name="documentdb-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.DS-01.01
 
 **Category:** Protect > Secure network configuration
 
@@ -94,7 +94,7 @@ To remove public access for Amazon DocumentDB manual cluster snapshots, see [Sha
 ## [DocumentDB.4] Amazon DocumentDB clusters should publish audit logs to CloudWatch Logs
 <a name="documentdb-4"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.3.3
+**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.3.3, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -120,7 +120,7 @@ To publish Amazon DocumentDB audit logs to CloudWatch Logs, see [Enabling auditi
 ## [DocumentDB.5] Amazon DocumentDB clusters should have deletion protection enabled
 <a name="documentdb-5"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Data protection > Data deletion protection
 
@@ -145,6 +145,8 @@ To enable deletion protection for an existing Amazon DocumentDB cluster, see [Mo
 
 ## [DocumentDB.6] Amazon DocumentDB clusters should be encrypted in transit
 <a name="documentdb-6"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

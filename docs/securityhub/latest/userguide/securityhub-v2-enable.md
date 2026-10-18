@@ -5,6 +5,9 @@
 
  You can enable Security Hub for any AWS account. This section of the documentation describes all the steps required to enable Security Hub for an AWS Organization, or a standalone account. 
 
+**Important**  
+When you enable AWS Security Hub, Security Hub uses the data available to it (including findings, configuration data, software inventory, and other data from your AWS environment) to power the capabilities you turn on. As we enhance existing capabilities or add new ones, Security Hub may draw on additional data already within its reach to deliver a better experience, such as more accurately assessing the real-world impact of exposures in your environment, at no additional cost. You can manage your integrations and enabled capabilities at any time. See the [Security Hub documentation](securityhub-v2-data-use.md) for details, or reach out to your AWS account team or AWS Support with any questions.
+
 For a brief demonstration of how to enable Security Hub watch the following video:
 
 [![AWS Videos](https://img.youtube.com/vi/prtnhCfjUpM/0.jpg)](https://www.youtube.com/watch?v=prtnhCfjUpM)

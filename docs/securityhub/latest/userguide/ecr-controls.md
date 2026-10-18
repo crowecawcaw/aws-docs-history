@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [ECR.1] ECR private repositories should have image scanning configured
 <a name="ecr-1"></a>
 
-**Related requirements:** NIST.800-53.r5 RA-5, PCI DSS v4.0.1/6.2.3, PCI DSS v4.0.1/6.2.4
+**Related requirements:** NIST.800-53.r5 RA-5, PCI DSS v4.0.1/6.2.3, PCI DSS v4.0.1/6.2.4, CRI Profile v2.2/ID.RA-01.03, CRI Profile v2.2/PR.PS-02.01, CRI Profile v2.2/PR.PS-02.02
 
 **Category:** Identify > Vulnerability, patch, and version management
 
@@ -36,7 +36,7 @@ To configure image scanning for an ECR repository, see [Image scanning](https://
 ## [ECR.2] ECR private repositories should have tag immutability configured
 <a name="ecr-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-8(1)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-8(1), CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -62,7 +62,7 @@ To create a repository with immutable tags configured or to update the image tag
 ## [ECR.3] ECR repositories should have at least one lifecycle policy configured
 <a name="ecr-3"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/ID.AM-08.01, CRI Profile v2.2/PR.IR-04.02, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Identify > Resource configuration
 

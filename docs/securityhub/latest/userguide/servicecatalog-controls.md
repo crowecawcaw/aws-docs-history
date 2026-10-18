@@ -8,7 +8,7 @@ This AWS Security Hub CSPM control evaluates the AWS Service Catalog service and
 ## [ServiceCatalog.1] Service Catalog portfolios should be shared within an AWS organization only
 <a name="servicecatalog-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-6, NIST.800-53.r5 CM-8, NIST.800-53.r5 SC-7
+**Related requirements:** NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-6, NIST.800-53.r5 CM-8, NIST.800-53.r5 SC-7, CRI Profile v2.2/PR.AA-04.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure access management
 

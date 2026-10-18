@@ -8,6 +8,8 @@ These AWS Security Hub CSPM controls evaluate the AWS App Runner service and res
 ## [AppRunner.1] App Runner services should be tagged
 <a name="apprunner-1"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low

@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [Account.1] Security contact information should be provided for an AWS account
 <a name="account-1"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.2, NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.2, NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/DE.AE-06.01, CRI Profile v2.2/RS.CO-02.01, CRI Profile v2.2/RS.CO-02.03
 
 **Category:** Identify > Resource Configuration
 
@@ -38,7 +38,7 @@ To add an alternate contact as a security contact to your AWS account, see [Upda
 
 **Category:** Protect > Secure access management > Access control
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/ID.AM-08.02
 
 **Severity:** High
 

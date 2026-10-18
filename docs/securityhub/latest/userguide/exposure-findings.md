@@ -37,7 +37,13 @@ Severity classification (Critical, High, Medium, Low)
 + **Low severity** suggests routine attention is needed, with limited exploit potential and minor impact. These findings are typically difficult to exploit and present minimal risk.
 
 Contributing traits that led to the exposure  
-Contributing traits represent the primary factors that led to the exposure finding. These include direct security vulnerabilities, configuration issues, network exposure conditions, and resource permission settings. Each trait provides specific details about how it contributes to the overall security risk.
+Contributing traits represent the primary factors that led to the exposure finding. Contributing traits include the following:  
++ Direct security vulnerabilities
++ Configuration issues
++ Network exposure conditions
++ Resource permission settings
++ Resource criticality (the importance of a resource to the business)
+Each trait provides specific details about how it contributes to the overall security risk.
 
 Potential attack path and blast radius visualization  
 The potential attack path and blast radius visualization provides an interactive diagram showing how potential attackers could exploit the identified exposure. It maps resource relationships, network paths, and privilege escalation paths to downstream resources that are potentially accessible by an attacker if the exposure is exploited.
@@ -69,6 +75,7 @@ Exposure findings are classified based on:
 + Likelihood of exploit
 + Public awareness
 + Potential impact
++ Primary resource criticality
 
 For more information, see [Exposure findings severity classification](https://docs.aws.amazon.com/securityhub/latest/userguide/exposure-findings-severity.html). 
 

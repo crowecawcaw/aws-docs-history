@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon FSx service and resourc
 ## [FSx.1] FSx for OpenZFS file systems should be configured to copy tags to backups and volumes
 <a name="fsx-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-07.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -34,7 +34,7 @@ For information about configuring an FSx for OpenZFS file system to copy tags to
 ## [FSx.2] FSx for Lustre file systems should be configured to copy tags to backups
 <a name="fsx-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-9, NIST.800-53.r5 CM-8
+**Related requirements:** NIST.800-53.r5 CP-9, NIST.800-53.r5 CM-8, CRI Profile v2.2/ID.AM-02.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -59,6 +59,8 @@ For information about configuring an FSx for Lustre file system to copy tags to 
 
 ## [FSx.3] FSx for OpenZFS file systems should be configured for Multi-AZ deployment
 <a name="fsx-3"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -116,6 +118,8 @@ For information about deployment types and options for FSx for ONTAP file system
 
 ## [FSx.5] FSx for Windows File Server file systems should be configured for Multi-AZ deployment
 <a name="fsx-5"></a>
+
+**Related requirements:** CRI Profile v2.2/GV.OC-04.03, CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 

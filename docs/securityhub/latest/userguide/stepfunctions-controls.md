@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [StepFunctions.1] Step Functions state machines should have logging turned on
 <a name="stepfunctions-1"></a>
 
-**Related requirements:** PCI DSS v4.0.1/10.4.2
+**Related requirements:** PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 

@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon Elastic Compute Cloud (
 ## [EC2.1] Amazon EBS snapshots should not be configured to be publicly restorable
 <a name="ec2-1"></a>
 
-**Related requirements:** PCI DSS v3.2.1/1.2.1,PCI DSS v3.2.1/1.3.1,PCI DSS v3.2.1/1.3.4,PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9)
+**Related requirements:** PCI DSS v3.2.1/1.2.1,PCI DSS v3.2.1/1.3.1,PCI DSS v3.2.1/1.3.4,PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure network configuration
 
@@ -34,7 +34,7 @@ To make a public EBS snapshot private, see [Share a snapshot](https://docs.aws.a
 ## [EC2.2] VPC default security groups should not allow inbound or outbound traffic
 <a name="ec2-2"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.5, PCI DSS v3.2.1/1.2.1,PCI DSS v3.2.1/1.3.4,PCI DSS v3.2.1/2.1, CIS AWS Foundations Benchmark v1.2.0/4.3, CIS AWS Foundations Benchmark v1.4.0/5.3, CIS AWS Foundations Benchmark v3.0.0/5.4, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.5, PCI DSS v3.2.1/1.2.1,PCI DSS v3.2.1/1.3.4,PCI DSS v3.2.1/2.1, CIS AWS Foundations Benchmark v1.2.0/4.3, CIS AWS Foundations Benchmark v1.4.0/5.3, CIS AWS Foundations Benchmark v3.0.0/5.4, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration
 
@@ -62,7 +62,7 @@ After you assign the new security groups to your resources, remove all inbound a
 ## [EC2.3] Attached Amazon EBS volumes should be encrypted at-rest
 <a name="ec2-3"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -94,7 +94,7 @@ For more information, see [Creating an Amazon EBS volume](https://docs.aws.amazo
 ## [EC2.4] Stopped EC2 instances should be removed after a specified time period
 <a name="ec2-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/ID.AM-08.01, CRI Profile v2.2/PR.PS-02.03
 
 **Category:** Identify > Inventory
 
@@ -128,7 +128,7 @@ To terminate an inactive EC2 instance, see [Terminate an instance](https://docs.
 ## [EC2.6] VPC flow logging should be enabled in all VPCs
 <a name="ec2-6"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.7, CIS AWS Foundations Benchmark v1.2.0/2.9, CIS AWS Foundations Benchmark v1.4.0/3.9, CIS AWS Foundations Benchmark v3.0.0/3.7, NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, PCI DSS v3.2.1/10.3.3, PCI DSS v3.2.1/10.3.4, PCI DSS v3.2.1/10.3.5, PCI DSS v3.2.1/10.3.6
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.7, CIS AWS Foundations Benchmark v1.2.0/2.9, CIS AWS Foundations Benchmark v1.4.0/3.9, CIS AWS Foundations Benchmark v3.0.0/3.7, NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.3.1, NIST.800-171.r2 3.13.1, PCI DSS v3.2.1/10.3.3, PCI DSS v3.2.1/10.3.4, PCI DSS v3.2.1/10.3.5, PCI DSS v3.2.1/10.3.6, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-04.02
 
 **Category:** Identify > Logging
 
@@ -162,7 +162,7 @@ To create a VPC Flow Log, see [Create a Flow Log](https://docs.aws.amazon.com/vp
 ## [EC2.7] EBS default encryption should be enabled
 <a name="ec2-7"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.1.1, CIS AWS Foundations Benchmark v1.4.0/2.2.1, CIS AWS Foundations Benchmark v3.0.0/2.2.1, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.1.1, CIS AWS Foundations Benchmark v1.4.0/2.2.1, CIS AWS Foundations Benchmark v3.0.0/2.2.1, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -188,7 +188,7 @@ To configure default encryption for Amazon EBS volumes, see [Encryption by defau
 ## [EC2.8] EC2 instances should use Instance Metadata Service Version 2 (IMDSv2)
 <a name="ec2-8"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.7, CIS AWS Foundations Benchmark v3.0.0/5.6, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, PCI DSS v4.0.1/2.2.6
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.7, CIS AWS Foundations Benchmark v3.0.0/5.6, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, PCI DSS v4.0.1/2.2.6, CRI Profile v2.2/PR.AA-04.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Network Security
 
@@ -222,7 +222,7 @@ To configure EC2 instances with IMDSv2, see [Recommended path to requiring IMDSv
 ## [EC2.9] Amazon EC2 instances should not have a public IPv4 address
 <a name="ec2-9"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9)
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.02, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -256,7 +256,7 @@ You can disassociate an automatically-assigned public IP address from your EC2 i
 ## [EC2.10] Amazon EC2 should be configured to use VPC endpoints that are created for the Amazon EC2 service
 <a name="ec2-10"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.13.1
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.13.1, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > API private access
 
@@ -289,7 +289,7 @@ You can also create and attach an endpoint policy to your VPC endpoint to contro
 ## [EC2.12] Unused Amazon EC2 EIPs should be removed
 <a name="ec2-12"></a>
 
-**Related requirements:** PCI DSS v3.2.1/2.4, NIST.800-53.r5 CM-8(1)
+**Related requirements:** PCI DSS v3.2.1/2.4, NIST.800-53.r5 CM-8(1), CRI Profile v2.2/ID.AM-08.01, CRI Profile v2.2/ID.AM-08.02
 
 **Category:** Protect > Secure network configuration
 
@@ -317,7 +317,7 @@ To release an unused EIP, see [Release an Elastic IP address](https://docs.aws.a
 ## [EC2.13] Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 22
 <a name="ec2-13"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/4.1, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CM-7, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.13.1, PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/2.2.2, PCI DSS v4.0.1/1.3.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/4.1, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CM-7, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.13.1, PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/2.2.2, PCI DSS v4.0.1/1.3.1, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.05, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure network configuration
 
@@ -343,7 +343,7 @@ To prohibit ingress to port 22, remove the rule that allows such access for each
 ## [EC2.14] Security groups should not allow ingress from 0.0.0.0/0 or ::/0 to port 3389
 <a name="ec2-14"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/4.2, PCI DSS v4.0.1/1.3.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/4.2, PCI DSS v4.0.1/1.3.1, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration
 
@@ -369,7 +369,7 @@ To prohibit ingress to port 3389, remove the rule that allows such access for ea
 ## [EC2.15] Amazon EC2 subnets should not automatically assign public IP addresses
 <a name="ec2-15"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Network Security
 
@@ -395,7 +395,7 @@ To configure a subnet to not assign public IP addresses, see [Modify the IP addr
 ## [EC2.16] Unused Network Access Control Lists should be removed
 <a name="ec2-16"></a>
 
-**Related requirements:** NIST.800-53.r5 CM-8(1), NIST.800-171.r2 3.4.7, PCI DSS v4.0.1/1.2.7
+**Related requirements:** NIST.800-53.r5 CM-8(1), NIST.800-171.r2 3.4.7, PCI DSS v4.0.1/1.2.7, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Network Security
 
@@ -425,7 +425,7 @@ For instructions on deleting an unused network ACL, see [Deleting a network ACL]
 ## [EC2.17] Amazon EC2 instances should not use multiple ENIs
 <a name="ec2-17"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21)
+**Related requirements:** NIST.800-53.r5 AC-4(21), CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Network Security
 
@@ -451,7 +451,7 @@ To detach a network interface from an EC2 instance, see [Detach a network interf
 ## [EC2.18] Security groups should only allow unrestricted incoming traffic for authorized ports
 <a name="ec2-18"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1
+**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > Security group configuration
 
@@ -485,7 +485,7 @@ To modify a security group, see [Work with security groups](https://docs.aws.ama
 ## [EC2.19] Security groups should not allow unrestricted access to ports with high risk
 <a name="ec2-19"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-7, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1
+**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-7, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Restricted network access
 
@@ -532,7 +532,7 @@ To delete rules from a security group, see [Delete rules from a security group](
 ## [EC2.20] Both VPN tunnels for an AWS Site-to-Site VPN connection should be up
 <a name="ec2-20"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), NIST.800-171.r2 3.1.13, NIST.800-171.r2 3.1.20
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), NIST.800-171.r2 3.1.13, NIST.800-171.r2 3.1.20, CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -558,7 +558,7 @@ To modify VPN tunnel options, see [Modifying Site-to-Site VPN tunnel options](ht
 ## [EC2.21] Network ACLs should not allow ingress from 0.0.0.0/0 to port 22 or port 3389
 <a name="ec2-21"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.2, CIS AWS Foundations Benchmark v1.4.0/5.1, CIS AWS Foundations Benchmark v3.0.0/5.1, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-7, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1, PCI DSS v4.0.1/1.3.1
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.2, CIS AWS Foundations Benchmark v1.4.0/5.1, CIS AWS Foundations Benchmark v3.0.0/5.1, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-7, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(5), NIST.800-171.r2 3.1.3, NIST.800-171.r2 3.1.20, NIST.800-171.r2 3.13.1, PCI DSS v4.0.1/1.3.1, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-01.05
 
 **Category:** Protect > Secure Network Configuration
 
@@ -583,6 +583,8 @@ To edit network ACL traffic rules, see [Work with network ACLs](https://docs.aws
 
 ## [EC2.22] Unused Amazon EC2 security groups should be removed
 <a name="ec2-22"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Identify > Inventory
 
@@ -609,7 +611,7 @@ To create, assign and delete security groups, see [Security groups for your EC2 
 ## [EC2.23] Amazon EC2 Transit Gateways should not automatically accept VPC attachment requests
 <a name="ec2-23"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01
 
 **Category:** Protect > Secure network configuration
 
@@ -635,7 +637,7 @@ To modify a transit gateway, see [Modify a transit gateway](https://docs.aws.ama
 ## [EC2.24] Amazon EC2 paravirtual instance types should not be used
 <a name="ec2-24"></a>
 
-**Related requirements:** NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-02.03
 
 **Category:** Identify > Vulnerability, patch, and version management
 
@@ -663,7 +665,7 @@ To update an EC2 instance to a new instance type, see [Change the instance type]
 ## [EC2.25] Amazon EC2 launch templates should not assign public IPs to network interfaces
 <a name="ec2-25"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -677,7 +679,7 @@ To update an EC2 instance to a new instance type, see [Change the instance type]
 
 **Parameters:** None
 
-This control checks if Amazon EC2 launch templates are configured to assign public IP addresses to network interfaces upon launch. The control fails if an EC2 launch template is configured to assign a public IP address to network interfaces or if there is at least one network interface that has a public IP address.
+This control checks if Amazon EC2 launch templates are configured to assign public IP addresses to network interfaces upon launch. The control fails if an EC2 launch template is configured to assign a public IP address to network interfaces.
 
 A public IP address is one that is reachable from the internet. If you configure your network interfaces with a public IP address, then the resources associated with those network interfaces may be reachable from the internet. EC2 resources shouldn't be publicly accessible because this may permit unintended access to your workloads.
 
@@ -691,7 +693,7 @@ To update an EC2 launch template, see [Change the default network interface sett
 
 **Category:** Recover > Resilience > Backups enabled
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.DS-01.02, CRI Profile v2.2/PR.DS-11.01, CRI Profile v2.2/PR.IR-03.01
 
 **Severity:** Low
 
@@ -1296,7 +1298,7 @@ To add tags to an EC2 VPN gateway, see [Tag your Amazon EC2 resources](https://d
 ## [EC2.51] EC2 Client VPN endpoints should have client connection logging enabled
 <a name="ec2-51"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.1.12, NIST.800-171.r2 3.1.20, PCI DSS v4.0.1/10.2.1
+**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.1.12, NIST.800-171.r2 3.1.20, PCI DSS v4.0.1/10.2.1, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -1354,7 +1356,7 @@ To add tags to an EC2 transit gateway, see [Tag your Amazon EC2 resources](https
 ## [EC2.53] EC2 security groups should not allow ingress from 0.0.0.0/0 to remote server administration ports
 <a name="ec2-53"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.3, CIS AWS Foundations Benchmark v3.0.0/5.2, PCI DSS v4.0.1/1.3.1
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.3, CIS AWS Foundations Benchmark v3.0.0/5.2, PCI DSS v4.0.1/1.3.1, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-01.05, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > Security group configuration
 
@@ -1386,7 +1388,7 @@ To update an EC2 security group rule to prohibit ingress traffic to the specifie
 ## [EC2.54] EC2 security groups should not allow ingress from ::/0 to remote server administration ports
 <a name="ec2-54"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.4, CIS AWS Foundations Benchmark v3.0.0/5.3, PCI DSS v4.0.1/1.3.1
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/5.4, CIS AWS Foundations Benchmark v3.0.0/5.3, PCI DSS v4.0.1/1.3.1, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-01.05, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > Security group configuration
 
@@ -1578,7 +1580,7 @@ To configure a VPC endpoint, see [Access an AWS service using an interface VPC e
 ## [EC2.170] EC2 launch templates should use Instance Metadata Service Version 2 (IMDSv2)
 <a name="ec2-170"></a>
 
-**Related requirements:** PCI DSS v4.0.1/2.2.6
+**Related requirements:** PCI DSS v4.0.1/2.2.6, CRI Profile v2.2/PR.AA-04.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Network Security
 
@@ -1604,7 +1606,7 @@ To require IMDSv2 on an EC2 launch template, see [Configure the Instance Metadat
 ## [EC2.171] EC2 VPN connections should have logging enabled
 <a name="ec2-171"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v3.0.0/5.3, PCI DSS v4.0.1/10.4.2
+**Related requirements:** CIS AWS Foundations Benchmark v3.0.0/5.3, PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -1659,6 +1661,8 @@ To enable bi-directional BPA at the account level, see [Enable BPA bidirectional
 ## [EC2.173] EC2 Spot Fleet requests with launch parameters should enable encryption for attached EBS volumes
 <a name="ec2-173"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
+
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
 **Severity:** Medium
@@ -1689,6 +1693,8 @@ For information about creating an Amazon EC2 Spot Fleet request, see [Create a S
 
 ## [EC2.174] EC2 DHCP option sets should be tagged
 <a name="ec2-174"></a>
+
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1754,6 +1760,8 @@ For information about adding tags to an Amazon EC2 launch template, see [Tag you
 ## [EC2.176] EC2 prefix lists should be tagged
 <a name="ec2-176"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low
@@ -1786,6 +1794,8 @@ For information about adding tags to an Amazon EC2 prefix list, see [Tag your Am
 ## [EC2.177] EC2 traffic mirror sessions should be tagged
 <a name="ec2-177"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low
@@ -1817,6 +1827,8 @@ For information about adding tags to an Amazon EC2 traffic mirror session, see [
 
 ## [EC2.178] EC2 traffic mirror filters should be tagged
 <a name="ec2-178"></a>
+
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -1882,6 +1894,8 @@ For information about adding tags to an Amazon EC2 traffic mirror target, see [T
 ## [EC2.180] EC2 network interfaces should have source/destination checking enabled
 <a name="ec2-180"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01
+
 **Category:** Protect > Network Security
 
 **Severity:** Medium
@@ -1908,6 +1922,8 @@ For information about enabling source/destination checks for an Amazon EC2 ENI, 
 
 ## [EC2.181] EC2 launch templates should enable encryption for attached EBS volumes
 <a name="ec2-181"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 

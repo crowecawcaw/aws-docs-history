@@ -46,7 +46,7 @@ Don’t add personally identifiable information (PII) or other confidential or s
 ## [Transfer.2] Transfer Family servers should not use FTP protocol for endpoint connection
 <a name="transfer-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CM-7, NIST.800-53.r5 IA-5, NIST.800-53.r5 SC-8, PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 CM-7, NIST.800-53.r5 IA-5, NIST.800-53.r5 SC-8, PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -72,7 +72,7 @@ To modify the protocol for a Transfer Family server, see [Edit the file transfer
 ## [Transfer.3] Transfer Family connectors should have logging enabled
 <a name="transfer-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8)
+**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-9(7), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 
@@ -97,6 +97,8 @@ For information about enabling CloudWatch logging for a Transfer Family connecto
 
 ## [Transfer.4] Transfer Family agreements should be tagged
 <a name="transfer-4"></a>
+
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
 
 **Category:** Identify > Inventory > Tagging
 
@@ -161,6 +163,8 @@ For information about adding tags to an AWS Transfer Family certificate, see [Re
 
 ## [Transfer.6] Transfer Family connectors should be tagged
 <a name="transfer-6"></a>
+
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
 
 **Category:** Identify > Inventory > Tagging
 

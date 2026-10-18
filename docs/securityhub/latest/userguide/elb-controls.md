@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Elastic Load Balancing service
 ## [ELB.1] Application Load Balancer should be configured to redirect all HTTP requests to HTTPS
 <a name="elb-1"></a>
 
-**Related requirements:** PCI DSS v3.2.1/2.3,PCI DSS v3.2.1/4.1, NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6)
+**Related requirements:** PCI DSS v3.2.1/2.3,PCI DSS v3.2.1/4.1, NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Detect > Detection services
 
@@ -40,7 +40,7 @@ For instructions on editing an existing rule, see [Edit a rule](https://docs.aws
 ## [ELB.2] Classic Load Balancers with SSL/HTTPS listeners should use a certificate provided by AWS Certificate Manager
 <a name="elb-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(5), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(5), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -68,7 +68,7 @@ For information about how to associate an ACM SSL/TLS certificate with a Classic
 ## [ELB.3] Classic Load Balancer listeners should be configured with HTTPS or TLS termination
 <a name="elb-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8, NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8, NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -118,7 +118,7 @@ To remediate this issue, update your listeners to use the TLS or HTTPS protocol.
 ## [ELB.4] Application Load Balancer should be configured to drop invalid http headers
 <a name="elb-4"></a>
 
-**Related requirements:** NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8(2), PCI DSS v4.0.1/6.2.4
+**Related requirements:** NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8(2), PCI DSS v4.0.1/6.2.4, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Network Security
 
@@ -161,7 +161,7 @@ To remediate this issue, configure your load balancer to drop invalid header fie
 ## [ELB.5] Application and Classic Load Balancers logging should be enabled
 <a name="elb-5"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8)
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -189,7 +189,7 @@ To enable access logs, see [Step 3: Configure access logs](https://docs.aws.amaz
 ## [ELB.6] Application, Gateway, and Network Load Balancers should have deletion protection enabled
 <a name="elb-6"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Recover > Resilience > High availability
 
@@ -219,7 +219,7 @@ To enable deletion protection for an Application Load Balancer, see [Deletion pr
 ## [ELB.7] Classic Load Balancers should have connection draining enabled
 <a name="elb-7"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Recover > Resilience
 
@@ -245,7 +245,7 @@ To enable connection draining on Classic Load Balancers, see [Configure connecti
 ## [ELB.8] Classic Load Balancers with SSL listeners should use a predefined security policy that has strong AWS Configuration
 <a name="elb-8"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8, NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.8, NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -274,7 +274,7 @@ For information on how to use the predefined security policy `ELBSecurityPolicy-
 ## [ELB.9] Classic Load Balancers should have cross-zone load balancing enabled
 <a name="elb-9"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -300,7 +300,7 @@ To enable cross-zone load balancing in a Classic Load Balancer, see [Enable cros
 ## [ELB.10] Classic Load Balancer should span multiple Availability Zones
 <a name="elb-10"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -331,7 +331,7 @@ This control checks whether a Classic Load Balancer has been configured to span 
 ## [ELB.12] Application Load Balancer should be configured with defensive or strictest desync mitigation mode
 <a name="elb-12"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4, CRI Profile v2.2/GV.OC-04.03, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Protect > Data Protection > Data integrity
 
@@ -358,7 +358,7 @@ To update desync mitigation mode of an Application Load Balancer, see [Desync mi
 ## [ELB.13] Application, Network and Gateway Load Balancers should span multiple Availability Zones
 <a name="elb-13"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability 
 
@@ -389,7 +389,7 @@ To add an Availability Zone to an Application Load Balancer, see [Availability Z
 ## [ELB.14] Classic Load Balancer should be configured with defensive or strictest desync mitigation mode
 <a name="elb-14"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/6.2.4, CRI Profile v2.2/GV.OC-04.03, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Protect > Data Protection > Data integrity
 
@@ -416,7 +416,7 @@ To update desync mitigation mode on a Classic Load Balancer, see [Modify desync 
 ## [ELB.16] Application Load Balancers should be associated with an AWS WAF web ACL
 <a name="elb-16"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21)
+**Related requirements:** NIST.800-53.r5 AC-4(21), CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.IR-01.03
 
 **Category:** Protect > Protective services
 
@@ -442,7 +442,7 @@ To associate an Application Load Balancer with a web ACL, see [Associating or di
 ## [ELB.17] Application and Network Load Balancers with listeners should use recommended security policies
 <a name="elb-17"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -468,6 +468,8 @@ For information about recommended security policies and how to update listeners,
 ## [ELB.18] Application and Network Load Balancer listeners should use secure protocols to encrypt data in transit
 <a name="elb-18"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
+
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
 **Severity:** Medium
@@ -492,6 +494,8 @@ For information about configuring security protocols for listeners, see the foll
 ## [ELB.21] Application and Network Load Balancer target groups should use encrypted health check protocols
 <a name="elb-21"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
+
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
 **Severity:** Medium
@@ -515,6 +519,8 @@ To configure encrypted health checks for your Application Load Balancer target g
 
 ## [ELB.22] ELB target groups should use encrypted transport protocols
 <a name="elb-22"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

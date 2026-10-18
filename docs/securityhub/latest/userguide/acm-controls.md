@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the AWS Certificate Manager (ACM) 
 ## [ACM.1] Imported and ACM-issued certificates should be renewed after a specified time period
 <a name="acm-1"></a>
 
-**Related requirements:** NIST.800-53.r5 SC-28(3), NIST.800-53.r5 SC-7(16), NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 SC-28(3), NIST.800-53.r5 SC-7(16), NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -48,7 +48,7 @@ For more information, see [Renewal for domains validated by DNS](https://docs.aw
 ## [ACM.2] RSA certificates managed by ACM should use a key length of at least 2,048 bits
 <a name="acm-2"></a>
 
-**Related requirements:** PCI DSS v4.0.1/4.2.1
+**Related requirements:** PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Identify > Inventory > Inventory services
 

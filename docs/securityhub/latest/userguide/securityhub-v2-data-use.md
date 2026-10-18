@@ -1,0 +1,10 @@
+
+
+# How Security Hub uses data to provide the capabilities you enable
+<a name="securityhub-v2-data-use"></a>
+
+When you enable AWS Security Hub, you'll see a notice explaining that Security Hub may access and use data it already has access to in order to power the capabilities you choose to enable. This notice exists because Security Hub is designed to grow and improve over time. New detection, correlation, and enrichment capabilities are added on an ongoing basis, and many of these draw on data (such as findings, configuration data, and other Content or metadata) that Security Hub already has visibility into as part of your existing setup. Rather than asking you to opt-in every time we introduce a way to use data you've already granted Security Hub access to, this notice gives you clear, upfront visibility into how that access can be used (now and as the service evolves).
+
+In practice, this means that enabling a Security Hub capability is your instruction to Security Hub to use the relevant Content and metadata already within its reach to deliver that capability's functionality. If a capability you've enabled doesn't yet make full use of a particular data type, that may change as we roll out enhancements. For example, an existing capability might begin incorporating additional context (such as business criticality signals) to improve accuracy or provide you with deeper insights, at no additional cost to you. You won't need to take any new action for these enhancements to take effect, since they operate within the scope of data access you've already established by enabling Security Hub and its capabilities.
+
+This approach is designed to benefit your experience by letting Security Hub continuously enhance the value of the capabilities you've already turned on, without introducing friction through repeated consent or configuration requests for incremental enhancements. That said, you remain in control: you can review, manage, or disable your Security Hub integrations and enabled capabilities at any time through the Security Hub console, which determines what data Security Hub can access and use going forward.

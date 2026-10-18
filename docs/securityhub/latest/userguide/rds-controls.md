@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon Relational Database Ser
 ## [RDS.1] RDS snapshot should be private
 <a name="rds-1"></a>
 
-**Related requirements:** PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9)
+**Related requirements:** PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure network configuration
 
@@ -40,7 +40,7 @@ To remove public access from RDS snapshots, see [Sharing a snapshot](https://doc
 ## [RDS.2] RDS DB Instances should prohibit public access, as determined by the PubliclyAccessible configuration
 <a name="rds-2"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.3, CIS AWS Foundations Benchmark v3.0.0/2.3.3, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v3.2.1/7.2.1, PCI DSS v4.0.1/1.4.4
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.3, CIS AWS Foundations Benchmark v3.0.0/2.3.3, NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v3.2.1/7.2.1, PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.IR-01.01
 
 **Category:** Protect > Secure network configuration
 
@@ -68,7 +68,7 @@ To remove public access from RDS DB instances, see [Modifying an Amazon RDS DB i
 ## [RDS.3] RDS DB instances should have encryption at-rest enabled
 <a name="rds-3"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.1, CIS AWS Foundations Benchmark v3.0.0/2.3.1, CIS AWS Foundations Benchmark v1.4.0/2.3.1, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.1, CIS AWS Foundations Benchmark v3.0.0/2.3.1, CIS AWS Foundations Benchmark v1.4.0/2.3.1, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -100,7 +100,7 @@ For information about encrypting DB instances in Amazon RDS, see [Encrypting Ama
 ## [RDS.4] RDS cluster snapshots and database snapshots should be encrypted at rest
 <a name="rds-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -130,7 +130,7 @@ You can only encrypt an RDS DB instance when you create it, not after the DB ins
 ## [RDS.5] RDS DB instances should be configured with multiple Availability Zones
 <a name="rds-5"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.4, NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.4, NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Recover > Resilience > High availability
 
@@ -156,7 +156,7 @@ To deploy your DB instances in multiple AZs, [Modifying a DB instance to be a Mu
 ## [RDS.6] Enhanced monitoring should be configured for RDS DB instances
 <a name="rds-6"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.IR-04.01, CRI Profile v2.2/PR.PS-04.02
 
 **Category:** Detect > Detection services
 
@@ -189,7 +189,7 @@ For detailed instructions on enabling Enhanced Monitoring for your DB instance, 
 ## [RDS.7] RDS clusters should have deletion protection enabled
 <a name="rds-7"></a>
 
-**Related requirements:** NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2)
+**Related requirements:** NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Protect > Data protection > Data deletion protection
 
@@ -219,7 +219,7 @@ To enable deletion protection for an RDS DB cluster, see [Modifying the DB clust
 ## [RDS.8] RDS DB instances should have deletion protection enabled
 <a name="rds-8"></a>
 
-**Related requirements:** NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CM-3, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-03.01
 
 **Category: **Protect > Data protection > Data deletion protection
 
@@ -248,7 +248,7 @@ To enable deletion protection for an RDS DB instance, see [Modifying an Amazon R
 ## [RDS.9] RDS DB instances should publish logs to CloudWatch Logs
 <a name="rds-9"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.2.1
+**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.2.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/PR.IR-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Identify > Logging
 
@@ -281,7 +281,7 @@ For information about publishing RDS database logs to CloudWatch Logs, see [Spec
 ## [RDS.10] IAM authentication should be configured for RDS instances
 <a name="rds-10"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02, CRI Profile v2.2/PR.DS-01.01
 
 **Category:** Protect > Secure access management > Passwordless authentication
 
@@ -307,7 +307,7 @@ To activate IAM database authentication on an RDS DB instance, see [Enabling and
 ## [RDS.11] RDS instances should have automatic backups enabled
 <a name="rds-11"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.DS-11.01
 
 **Category:** Recover > Resilience > Backups enabled 
 
@@ -339,7 +339,7 @@ To enable automated backups on an RDS DB instance, see [Enabling automated backu
 ## [RDS.12] IAM authentication should be configured for RDS clusters
 <a name="rds-12"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02, CRI Profile v2.2/PR.DS-01.01
 
 **Category:** Protect > Secure access management > Passwordless authentication
 
@@ -365,7 +365,7 @@ To enable IAM authentication for a DB cluster, see [Enabling and disabling IAM d
 ## [RDS.13] RDS automatic minor version upgrades should be enabled
 <a name="rds-13"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.2, CIS AWS Foundations Benchmark v3.0.0/2.3.2, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.2, CIS AWS Foundations Benchmark v3.0.0/2.3.2, NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3, CRI Profile v2.2/ID.RA-01.03, CRI Profile v2.2/PR.PS-02.01
 
 **Category:** Identify > Vulnerability, patch, and version management
 
@@ -401,7 +401,7 @@ To enable automatic minor version upgrades for an existing DB instance, see [Mod
 ## [RDS.14] Amazon Aurora clusters should have backtracking enabled
 <a name="rds-14"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/GV.OC-05.04, CRI Profile v2.2/ID.IM-02.06, CRI Profile v2.2/PR.DS-11.01, CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Recover > Resilience > Backups enabled 
 
@@ -434,7 +434,7 @@ Note that you cannot enable backtracking on an existing cluster. Instead, you ca
 ## [RDS.15] RDS DB clusters should be configured for multiple Availability Zones
 <a name="rds-15"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.4, NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/2.2.4, NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.DS-11.01, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -462,7 +462,7 @@ Remediation steps differ for Aurora global databases. To configure multiple Avai
 ## [RDS.16] Aurora DB clusters should be configured to copy tags to DB snapshots
 <a name="rds-16"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/ID.AM-08.01, CRI Profile v2.2/ID.AM-08.03
 
 **Category:** Identify > Inventory
 
@@ -488,7 +488,7 @@ For information about configuring an Amazon Aurora DB cluster to automatically c
 ## [RDS.17] RDS DB instances should be configured to copy tags to snapshots
 <a name="rds-17"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), CRI Profile v2.2/ID.AM-08.01, CRI Profile v2.2/ID.AM-08.03
 
 **Category:** Identify > Inventory
 
@@ -514,7 +514,7 @@ To automatically copy tags to snapshots for an RDS DB instance, see [Modifying a
 ## [RDS.19] Existing RDS event notification subscriptions should be configured for critical cluster events
 <a name="rds-19"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services > Application monitoring
 
@@ -553,7 +553,7 @@ To subscribe to RDS cluster event notifications, see [Subscribing to Amazon RDS 
 ## [RDS.20] Existing RDS event notification subscriptions should be configured for critical database instance events
 <a name="rds-20"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/11.5.2
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/11.5.2, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services > Application monitoring
 
@@ -592,7 +592,7 @@ To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS
 ## [RDS.21] An RDS event notifications subscription should be configured for critical database parameter group events
 <a name="rds-21"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/11.5.2
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/11.5.2, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services > Application monitoring
 
@@ -629,7 +629,7 @@ To subscribe to RDS database parameter group event notifications, see [Subscribi
 ## [RDS.22] An RDS event notifications subscription should be configured for critical database security group events
 <a name="rds-22"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/11.5.2
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, PCI DSS v4.0.1/11.5.2, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection Services > Application monitoring
 
@@ -666,7 +666,7 @@ To subscribe to RDS instance event notifications, see [Subscribing to Amazon RDS
 ## [RDS.23] RDS instances should not use a database engine default port
 <a name="rds-23"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5)
+**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(5), CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure network configuration
 
@@ -694,7 +694,7 @@ To modify the default port of an existing RDS DB instance, see [Modifying an Ama
 ## [RDS.24] RDS Database clusters should use a custom administrator username
 <a name="rds-24"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/2.2.2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/2.2.2, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Identify > Resource Configuration
 
@@ -720,7 +720,7 @@ For changing the admin username associated with the Amazon RDS database cluster,
 ## [RDS.25] RDS database instances should use a custom administrator username
 <a name="rds-25"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/2.2.2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/2.2.2, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Identify > Resource Configuration
 
@@ -748,7 +748,7 @@ To change the administrative username associated with an RDS database instance, 
 
 **Category:** Recover > Resilience > Backups enabled
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6, NIST.800-53.r5 CP-6(1), NIST.800-53.r5 CP-6(2), NIST.800-53.r5 CP-9, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-12, NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.DS-11.01, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/RC.RP-01.01
 
 **Severity:** Medium
 
@@ -780,7 +780,7 @@ To add an RDS DB instance to an AWS Backup backup plan, see [Assigning resources
 ## [RDS.27] RDS DB clusters should be encrypted at rest
 <a name="rds-27"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6)
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -998,7 +998,7 @@ To add tags to an RDS DB subnet group, see [Tagging Amazon RDS resources](https:
 ## [RDS.34] Aurora MySQL DB clusters should publish audit logs to CloudWatch Logs
 <a name="rds-34"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.2.1
+**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.2.1, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Identify > Logging
 
@@ -1027,7 +1027,7 @@ To publish Aurora MySQL DB cluster audit logs to CloudWatch Logs, see [Publishin
 ## [RDS.35] RDS DB clusters should have automatic minor version upgrade enabled
 <a name="rds-35"></a>
 
-**Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3
+**Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3, CRI Profile v2.2/ID.RA-01.03, CRI Profile v2.2/PR.PS-02.01
 
 **Category:** Identify > Vulnerability, patch, and version management
 
@@ -1055,7 +1055,7 @@ To enable automatic minor version upgrade on Aurora DB clusters, see [Modifying 
 ## [RDS.36] RDS for PostgreSQL DB instances should publish logs to CloudWatch Logs
 <a name="rds-36"></a>
 
-**Related requirements:** PCI DSS v4.0.1/10.4.2
+**Related requirements:** PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -1086,7 +1086,7 @@ To publish PostgreSQL DB instance logs to CloudWatch Logs, see [Publishing Postg
 ## [RDS.37] Aurora PostgreSQL DB clusters should publish logs to CloudWatch Logs
 <a name="rds-37"></a>
 
-**Related requirements:** PCI DSS v4.0.1/10.4.2
+**Related requirements:** PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Identify > Logging
 
@@ -1112,6 +1112,8 @@ To publish Aurora PostgreSQL DB cluster logs to CloudWatch Logs, see [Publishing
 ## [RDS.38] RDS for PostgreSQL DB instances should be encrypted in transit
 <a name="rds-38"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
+
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
 **Severity:** Medium
@@ -1135,6 +1137,8 @@ To require all connections to your RDS for PostgreSQL DB instance to use SSL, se
 
 ## [RDS.39] RDS for MySQL DB instances should be encrypted in transit
 <a name="rds-39"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -1190,6 +1194,8 @@ For information about publishing logs to CloudWatch Logs for an RDS for SQL Serv
 
 ## [RDS.41] RDS for SQL Server DB instances should be encrypted in transit
 <a name="rds-41"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -1270,6 +1276,8 @@ For information about changing the settings for an Amazon RDS proxy to require T
 ## [RDS.44] RDS for MariaDB DB instances should be encrypted in transit
 <a name="rds-44"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-06.10
+
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
 **Severity:** Medium
@@ -1297,7 +1305,7 @@ For information about enabling SSL/TLS for connections to an Amazon RDS for Mari
 ## [RDS.45] Aurora MySQL DB clusters should have audit logging enabled
 <a name="rds-45"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8)
+**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
 
 **Category:** Identify > Logging
 

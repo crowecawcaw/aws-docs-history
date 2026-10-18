@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the AWS Identity and Access Manage
 ## [IAM.1] IAM policies should not allow full "\*" administrative privileges
 <a name="iam-1"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.22, CIS AWS Foundations Benchmark v1.4.0/1.16, NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2), NIST.800-53.r5 AC-6(3), NIST.800-171.r2 3.1.4, PCI DSS v3.2.1/7.2.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.22, CIS AWS Foundations Benchmark v1.4.0/1.16, NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2), NIST.800-53.r5 AC-6(3), NIST.800-171.r2 3.1.4, PCI DSS v3.2.1/7.2.1, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure access management
 
@@ -44,7 +44,7 @@ To modify your IAM policies so that they do not allow full "\*" administrative p
 ## [IAM.2] IAM users should not have IAM policies attached
 <a name="iam-2"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.14, CIS AWS Foundations Benchmark v3.0.0/1.15, CIS AWS Foundations Benchmark v1.2.0/1.16, NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3), NIST.800-171.r2 3.1.1, NIST.800-171.r2 3.1.2, NIST.800-171.r2 3.1.7, NIST.800-171.r2 3.3.9, NIST.800-171.r2 3.13.3, PCI DSS v3.2.1/7.2.1
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.14, CIS AWS Foundations Benchmark v3.0.0/1.15, CIS AWS Foundations Benchmark v1.2.0/1.16, NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3), NIST.800-171.r2 3.1.1, NIST.800-171.r2 3.1.2, NIST.800-171.r2 3.1.7, NIST.800-171.r2 3.3.9, NIST.800-171.r2 3.13.3, PCI DSS v3.2.1/7.2.1, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01
 
 **Category:** Protect > Secure access management
 
@@ -73,7 +73,7 @@ To resolve this issue, [create an IAM group](https://docs.aws.amazon.com/IAM/lat
 ## [IAM.3] IAM users' access keys should be rotated every 90 days or less
 <a name="iam-3"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.13, CIS AWS Foundations Benchmark v3.0.0/1.14, CIS AWS Foundations Benchmark v1.4.0/1.14, CIS AWS Foundations Benchmark v1.2.0/1.4, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-2(3), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.6.3
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.13, CIS AWS Foundations Benchmark v3.0.0/1.14, CIS AWS Foundations Benchmark v1.4.0/1.14, CIS AWS Foundations Benchmark v1.2.0/1.4, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-2(3), NIST.800-53.r5 AC-3(15), PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.6.3, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-05.03
 
 **Category:** Protect > Secure access management
 
@@ -115,7 +115,7 @@ To rotate access keys that are older than 90 days, see [Rotating access keys](ht
 ## [IAM.4] IAM root user access key should not exist
 <a name="iam-4"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.3, CIS AWS Foundations Benchmark v3.0.0/1.4, CIS AWS Foundations Benchmark v1.4.0/1.4, CIS AWS Foundations Benchmark v1.2.0/1.12, PCI DSS v3.2.1/2.1, PCI DSS v3.2.1/2.2, PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.3, CIS AWS Foundations Benchmark v3.0.0/1.4, CIS AWS Foundations Benchmark v1.4.0/1.4, CIS AWS Foundations Benchmark v1.2.0/1.12, PCI DSS v3.2.1/2.1, PCI DSS v3.2.1/2.2, PCI DSS v3.2.1/7.2.1, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2), CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management
 
@@ -143,7 +143,7 @@ To delete the root user access key, see [Deleting access keys for the root user]
 ## [IAM.5] MFA should be enabled for all IAM users that have a console password
 <a name="iam-5"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.9, CIS AWS Foundations Benchmark v3.0.0/1.10, CIS AWS Foundations Benchmark v1.4.0/1.10, CIS AWS Foundations Benchmark v1.2.0/1.2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), PCI DSS v4.0.1/8.4.2
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.9, CIS AWS Foundations Benchmark v3.0.0/1.10, CIS AWS Foundations Benchmark v1.4.0/1.10, CIS AWS Foundations Benchmark v1.2.0/1.2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), PCI DSS v4.0.1/8.4.2, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management
 
@@ -174,7 +174,7 @@ To add MFA for IAM users, see [Using multi-factor authentication (MFA) in AWS](h
 ## [IAM.6] Hardware MFA should be enabled for the root user
 <a name="iam-6"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.5, CIS AWS Foundations Benchmark v3.0.0/1.6, CIS AWS Foundations Benchmark v1.4.0/1.6, CIS AWS Foundations Benchmark v1.2.0/1.14, PCI DSS v3.2.1/8.3.1, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), PCI DSS v4.0.1/8.4.2
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.5, CIS AWS Foundations Benchmark v3.0.0/1.6, CIS AWS Foundations Benchmark v1.4.0/1.6, CIS AWS Foundations Benchmark v1.2.0/1.14, PCI DSS v3.2.1/8.3.1, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), PCI DSS v4.0.1/8.4.2, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management
 
@@ -206,7 +206,7 @@ For information about enabling hardware MFA for the root user, see [Multi-factor
 ## [IAM.7] Password policies for IAM users should have strong configurations
 <a name="iam-7"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-2(3), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-5(1), NIST.800-171.r2 3.5.2, NIST.800-171.r2 3.5.7, NIST.800-171.r2 3.5.8, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.3.7, PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.3.10.1, PCI DSS v4.0.1/8.6.3
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-2(3), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-5(1), NIST.800-171.r2 3.5.2, NIST.800-171.r2 3.5.7, NIST.800-171.r2 3.5.8, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.3.7, PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.3.10.1, PCI DSS v4.0.1/8.6.3, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management
 
@@ -247,7 +247,7 @@ To update your password policy, see [Setting an account password policy for IAM 
 ## [IAM.8] Unused IAM user credentials should be removed
 <a name="iam-8"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.3, NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-2(3), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-171.r2 3.1.2, PCI DSS v3.2.1/8.1.4, PCI DSS v4.0.1/8.2.6
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.3, NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-2(3), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-171.r2 3.1.2, PCI DSS v3.2.1/8.1.4, PCI DSS v4.0.1/8.2.6, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-05.03
 
 **Category:** Protect > Secure access management 
 
@@ -283,7 +283,7 @@ After you identify the inactive accounts or unused credentials, deactivate them.
 ## [IAM.9] MFA should be enabled for the root user
 <a name="iam-9"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.4, PCI DSS v3.2.1/8.3.1, PCI DSS v4.0.1/8.4.2, CIS AWS Foundations Benchmark v3.0.0/1.5, CIS AWS Foundations Benchmark v1.4.0/1.5, CIS AWS Foundations Benchmark v1.2.0/1.13, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8)
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.4, PCI DSS v3.2.1/8.3.1, PCI DSS v4.0.1/8.4.2, CIS AWS Foundations Benchmark v3.0.0/1.5, CIS AWS Foundations Benchmark v1.4.0/1.5, CIS AWS Foundations Benchmark v1.2.0/1.13, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management 
 
@@ -315,7 +315,7 @@ For information about enabling MFA for the root user of an AWS account, see [Mul
 ## [IAM.10] Password policies for IAM users should have strong configurations
 <a name="iam-10"></a>
 
-**Related requirements:** NIST.800-171.r2 3.5.2, NIST.800-171.r2 3.5.7, NIST.800-171.r2 3.5.8, PCI DSS v3.2.1/8.1.4, PCI DSS v3.2.1/8.2.3, PCI DSS v3.2.1/8.2.4, PCI DSS v3.2.1/8.2.5
+**Related requirements:** NIST.800-171.r2 3.5.2, NIST.800-171.r2 3.5.7, NIST.800-171.r2 3.5.8, PCI DSS v3.2.1/8.1.4, PCI DSS v3.2.1/8.2.3, PCI DSS v3.2.1/8.2.4, PCI DSS v3.2.1/8.2.5, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management 
 
@@ -349,7 +349,7 @@ To update your password policy to use the recommended configuration, see [Settin
 ## [IAM.11] Ensure IAM password policy requires at least one uppercase letter
 <a name="iam-11"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.5, NIST.800-171.r2 3.5.7, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.6.3
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.5, NIST.800-171.r2 3.5.7, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.6.3, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management 
 
@@ -375,7 +375,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.12] Ensure IAM password policy requires at least one lowercase letter
 <a name="iam-12"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.6, NIST.800-171.r2 3.5.7, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.6.3
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.6, NIST.800-171.r2 3.5.7, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.6.3, CRI Profile v2.2/PR.AA-01.01
 
 **Category:** Protect > Secure access management 
 
@@ -399,7 +399,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.13] Ensure IAM password policy requires at least one symbol
 <a name="iam-13"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.7, NIST.800-171.r2 3.5.7
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.7, NIST.800-171.r2 3.5.7, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management
 
@@ -425,7 +425,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.14] Ensure IAM password policy requires at least one number
 <a name="iam-14"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.8, NIST.800-171.r2 3.5.7, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.6.3
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.8, NIST.800-171.r2 3.5.7, PCI DSS v4.0.1/8.3.6, PCI DSS v4.0.1/8.6.3, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management
 
@@ -451,7 +451,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.15] Ensure IAM password policy requires minimum password length of 14 or greater
 <a name="iam-15"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.7, CIS AWS Foundations Benchmark v3.0.0/1.8, CIS AWS Foundations Benchmark v1.4.0/1.8, CIS AWS Foundations Benchmark v1.2.0/1.9, NIST.800-171.r2 3.5.7
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.7, CIS AWS Foundations Benchmark v3.0.0/1.8, CIS AWS Foundations Benchmark v1.4.0/1.8, CIS AWS Foundations Benchmark v1.2.0/1.9, NIST.800-171.r2 3.5.7, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management
 
@@ -477,7 +477,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.16] Ensure IAM password policy prevents password reuse
 <a name="iam-16"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.8, CIS AWS Foundations Benchmark v3.0.0/1.9, CIS AWS Foundations Benchmark v1.4.0/1.9, CIS AWS Foundations Benchmark v1.2.0/1.10, NIST.800-171.r2 3.5.8, PCI DSS v4.0.1/8.3.7
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.8, CIS AWS Foundations Benchmark v3.0.0/1.9, CIS AWS Foundations Benchmark v1.4.0/1.9, CIS AWS Foundations Benchmark v1.2.0/1.10, NIST.800-171.r2 3.5.8, PCI DSS v4.0.1/8.3.7, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management
 
@@ -505,7 +505,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.17] Ensure IAM password policy expires passwords within 90 days or less
 <a name="iam-17"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.11, PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.3.10.1
+**Related requirements:** CIS AWS Foundations Benchmark v1.2.0/1.11, PCI DSS v4.0.1/8.3.9, PCI DSS v4.0.1/8.3.10.1, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management
 
@@ -535,7 +535,7 @@ To change your password policy, see [Setting an account password policy for IAM 
 ## [IAM.18] Ensure a support role has been created to manage incidents with AWS Support
 <a name="iam-18"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.16, CIS AWS Foundations Benchmark v3.0.0/1.17, CIS AWS Foundations Benchmark v1.4.0/1.17, CIS AWS Foundations Benchmark v1.2.0/1.20, NIST.800-171.r2 3.1.2, PCI DSS v4.0.1/12.10.3
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.16, CIS AWS Foundations Benchmark v3.0.0/1.17, CIS AWS Foundations Benchmark v1.4.0/1.17, CIS AWS Foundations Benchmark v1.2.0/1.20, NIST.800-171.r2 3.1.2, PCI DSS v4.0.1/12.10.3, CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-04.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management
 
@@ -602,7 +602,7 @@ The administrator of the specified account can grant permission to assume this r
 ## [IAM.19] MFA should be enabled for all IAM users
 <a name="iam-19"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.5.3, NIST.800-171.r2 3.5.4, NIST.800-171.r2 3.7.5, PCI DSS v3.2.1/8.3.1, PCI DSS v4.0.1/8.4.2, 
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 IA-2(1), NIST.800-53.r5 IA-2(2), NIST.800-53.r5 IA-2(6), NIST.800-53.r5 IA-2(8), NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.5.3, NIST.800-171.r2 3.5.4, NIST.800-171.r2 3.7.5, PCI DSS v3.2.1/8.3.1, PCI DSS v4.0.1/8.4.2, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management
 
@@ -761,7 +761,7 @@ Finally, create the metric filter and alarm.
 ## [IAM.21] IAM customer managed policies that you create should not allow wildcard actions for services
 <a name="iam-21"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2), NIST.800-53.r5 AC-6(3), NIST.800-171.r2 3.1.1, NIST.800-171.r2 3.1.2, NIST.800-171.r2 3.1.5, NIST.800-171.r2 3.1.7, NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.3.9, NIST.800-171.r2 3.13.3, NIST.800-171.r2 3.13.4
+**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2), NIST.800-53.r5 AC-6(3), NIST.800-171.r2 3.1.1, NIST.800-171.r2 3.1.2, NIST.800-171.r2 3.1.5, NIST.800-171.r2 3.1.7, NIST.800-171.r2 3.3.8, NIST.800-171.r2 3.3.9, NIST.800-171.r2 3.13.3, NIST.800-171.r2 3.13.4, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Detect > Secure access management 
 
@@ -823,7 +823,7 @@ To remediate this issue, update your IAM policies so that they do not allow full
 ## [IAM.22] IAM user credentials unused for 45 days should be removed
 <a name="iam-22"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.11, CIS AWS Foundations Benchmark v3.0.0/1.12, CIS AWS Foundations Benchmark v1.4.0/1.12, NIST.800-171.r2 3.1.2
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.11, CIS AWS Foundations Benchmark v3.0.0/1.12, CIS AWS Foundations Benchmark v1.4.0/1.12, NIST.800-171.r2 3.1.2, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-05.03
 
 **Category:** Protect > Secure access management
 
@@ -956,7 +956,7 @@ To add tags to an IAM user, see [Tagging IAM resources](https://docs.aws.amazon.
 ## [IAM.26] Expired SSL/TLS certificates managed in IAM should be removed
 <a name="iam-26"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.18, CIS AWS Foundations Benchmark v3.0.0/1.19
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.18, CIS AWS Foundations Benchmark v3.0.0/1.19, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Identify > Compliance
 
@@ -982,7 +982,7 @@ To remove a server certificate from IAM, see [Managing server certificates in IA
 ## [IAM.27] IAM identities should not have the AWSCloudShellFullAccess policy attached
 <a name="iam-27"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.21, CIS AWS Foundations Benchmark v3.0.0/1.22
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.21, CIS AWS Foundations Benchmark v3.0.0/1.22, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure access management > Secure IAM policies
 
@@ -1009,7 +1009,7 @@ To detach the `AWSCloudShellFullAccess` policy from an IAM identity, see [Adding
 ## [IAM.28] IAM Access Analyzer external access analyzer should be enabled
 <a name="iam-28"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.19, CIS AWS Foundations Benchmark v3.0.0/1.20
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/1.19, CIS AWS Foundations Benchmark v3.0.0/1.20, CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.AA-05.04
 
 **Category:** Detect > Detection services > Privileged usage monitoring
 

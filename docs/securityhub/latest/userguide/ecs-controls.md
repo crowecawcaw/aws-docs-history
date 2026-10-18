@@ -8,7 +8,7 @@ These Security Hub CSPM controls evaluate the Amazon Elastic Container Service (
 ## [ECS.2] ECS services should not have public IP addresses assigned to them automatically
 <a name="ecs-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -34,7 +34,7 @@ First, you must create a task definition for your cluster that uses the `awsvpc`
 ## [ECS.3] ECS task definitions should not share the host's process namespace
 <a name="ecs-3"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02, CRI Profile v2.2/PR.PS-01.03, CRI Profile v2.2/PR.PS-01.09
 
 **Category:** Identify > Resource configuration
 
@@ -60,7 +60,7 @@ To configure the `pidMode` on a task definition, see [Task definition parameters
 ## [ECS.4] ECS containers should run as non-privileged
 <a name="ecs-4"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.AA-05.01
 
 **Category:** Protect > Secure access management > Root user access restrictions
 
@@ -86,7 +86,7 @@ To configure the `privileged` parameter on a task definition, see [Advanced cont
 ## [ECS.5] ECS task definitions should configure containers to be limited to read-only access to root filesystems
 <a name="ecs-5"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure access management
 
@@ -115,7 +115,7 @@ To give an Amazon ECS container read-only access to its root file system, add th
 ## [ECS.8] Secrets should not be passed as container environment variables
 <a name="ecs-8"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/8.6.2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, PCI DSS v4.0.1/8.6.2, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Secure development > Credentials not hard-coded
 
@@ -141,7 +141,7 @@ To create parameters using SSM, see [Creating Systems Manager parameters](https:
 ## [ECS.9] ECS task definitions should have a logging configuration
 <a name="ecs-9"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8)
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -167,7 +167,7 @@ To define a log configuration for your Amazon ECS task definitions, see [Specify
 ## [ECS.10] ECS Fargate services should run on the latest Fargate platform version
 <a name="ecs-10"></a>
 
-**Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3
+**Related requirements:** NIST.800-53.r5 SI-2, NIST.800-53.r5 SI-2(2), NIST.800-53.r5 SI-2(4), NIST.800-53.r5 SI-2(5), PCI DSS v4.0.1/6.3.3, CRI Profile v2.2/PR.PS-02.03
 
 **Category:** Identify > Vulnerability, patch, and version management
 
@@ -195,7 +195,7 @@ To update an existing service, including its platform version, see [Updating a s
 ## [ECS.12] ECS clusters should use Container Insights
 <a name="ecs-12"></a>
 
-**Related requirements:** NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2
+**Related requirements:** NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, CRI Profile v2.2/PR.IR-04.01
 
 **Category:** Identify > Logging
 
@@ -317,7 +317,7 @@ To add tags to an ECS task definition, see [Tagging your Amazon ECS resources](h
 ## [ECS.16] ECS task sets should not automatically assign public IP addresses
 <a name="ecs-16"></a>
 
-**Related requirements:** PCI DSS v4.0.1/1.4.4
+**Related requirements:** PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -343,7 +343,7 @@ To update an ECS task set so that it doesn't use a public IP address, see [Updat
 ## [ECS.17] ECS task definitions should not use host network mode
 <a name="ecs-17"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure network configuration
 

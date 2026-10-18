@@ -8,6 +8,8 @@ These Security Hub CSPM controls evaluate the AWS DataSync service and resources
 ## [DataSync.1] DataSync tasks should have logging enabled
 <a name="datasync-1"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
+
 **Category:** Identify > Logging
 
 **Severity:** Medium
@@ -31,6 +33,8 @@ For information about configuring logging for AWS DataSync tasks, see [Monitorin
 
 ## [DataSync.2] DataSync tasks should be tagged
 <a name="datasync-2"></a>
+
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
 
 **Category:** Identify > Inventory > Tagging
 

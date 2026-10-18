@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [Macie.1] Amazon Macie should be enabled
 <a name="macie-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 RA-5, NIST.800-53.r5 SA-8(19), NIST.800-53.r5 SI-4
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 RA-5, NIST.800-53.r5 SA-8(19), NIST.800-53.r5 SI-4, CRI Profile v2.2/ID.AM-05.01, CRI Profile v2.2/ID.AM-05.02, CRI Profile v2.2/ID.AM-07.01, CRI Profile v2.2/PR.DS-01.02
 
 **Category:** Detect > Detection services
 
@@ -34,7 +34,7 @@ To enable Macie, see [Enable Macie](https://docs.aws.amazon.com/macie/latest/use
 ## [Macie.2] Macie automated sensitive data discovery should be enabled
 <a name="macie-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 RA-5, NIST.800-53.r5 SA-8(19), NIST.800-53.r5 SI-4
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 CA-9(1), NIST.800-53.r5 RA-5, NIST.800-53.r5 SA-8(19), NIST.800-53.r5 SI-4, CRI Profile v2.2/PR.DS-01.02
 
 **Category:** Detect > Detection services
 

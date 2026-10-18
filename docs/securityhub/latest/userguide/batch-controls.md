@@ -40,6 +40,8 @@ To add tags to a Batch job queue, see [Tag your resources](https://docs.aws.amaz
 ## [Batch.2] Batch scheduling policies should be tagged
 <a name="batch-2"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low
@@ -103,6 +105,8 @@ To add tags to a Batch compute environment, see [Tag your resources](https://doc
 
 ## [Batch.4] Compute resources properties in managed Batch compute environments should be tagged
 <a name="batch-4"></a>
+
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
 
 **Category:** Identify > Inventory > Tagging
 

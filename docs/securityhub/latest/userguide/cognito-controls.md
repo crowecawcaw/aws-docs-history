@@ -37,6 +37,8 @@ For information about activating threat protection for an Amazon Cognito user po
 ## [Cognito.2] Cognito identity pools should not allow unauthenticated identities
 <a name="cognito-2"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-04.01
+
 **Category:** Protect > Secure access management > Passwordless authentication
 
 **Severity:** Medium
@@ -60,6 +62,8 @@ For information about deactivating guest access for an Amazon Cognito identity p
 
 ## [Cognito.3] Password policies for Cognito user pools should have strong configurations
 <a name="cognito-3"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure access management
 

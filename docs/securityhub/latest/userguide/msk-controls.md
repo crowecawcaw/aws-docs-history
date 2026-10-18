@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon Managed Streaming for A
 ## [MSK.1] MSK clusters should be encrypted in transit among broker nodes
 <a name="msk-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-4, NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -34,7 +34,7 @@ For information about updating the encryption settings for an Amazon MSK cluster
 ## [MSK.2] MSK clusters should have enhanced monitoring configured
 <a name="msk-2"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2
+**Related requirements:** NIST.800-53.r5 CA-7, NIST.800-53.r5 SI-2, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.IR-04.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Detect > Detection services
 
@@ -72,7 +72,7 @@ For more information about monitoring levels, see [Amazon MSK metrics for monito
 ## [MSK.3] MSK Connect connectors should be encrypted in transit
 <a name="msk-3"></a>
 
-**Related requirements:** PCI DSS v4.0.1/4.2.1
+**Related requirements:** PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -98,6 +98,8 @@ You can enable encryption in transit when you create an MSK Connect connector. Y
 ## [MSK.4] MSK clusters should have public access disabled
 <a name="msk-4"></a>
 
+**Related requirements:** CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02
+
 **Category:** Protect > Secure access management > Resource not publicly accessible
 
 **Severity:** Critical
@@ -121,6 +123,8 @@ For information about managing public access to an Amazon MSK cluster, see [ Tur
 
 ## [MSK.5] MSK connectors should have logging enabled
 <a name="msk-5"></a>
+
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 
@@ -148,6 +152,8 @@ To enable logging for an existing Amazon MSK connector, you have to re-create th
 
 ## [MSK.6] MSK clusters should disable unauthenticated access
 <a name="msk-6"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-02.01, CRI Profile v2.2/PR.AA-03.01, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-04.01, CRI Profile v2.2/PR.AA-05.02, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure access management > Passwordless authentication
 

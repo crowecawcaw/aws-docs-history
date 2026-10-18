@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon SageMaker AI service an
 ## [SageMaker.1] Amazon SageMaker notebook instances should not have direct internet access
 <a name="sagemaker-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v4.0.1/1.4.4
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), PCI DSS v3.2.1/1.2.1, PCI DSS v3.2.1/1.3.1, PCI DSS v3.2.1/1.3.2, PCI DSS v3.2.1/1.3.4, PCI DSS v3.2.1/1.3.6, PCI DSS v4.0.1/1.4.4, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01
 
 **Category:** Protect > Secure network configuration
 
@@ -34,7 +34,7 @@ You can't change the internet access setting after creating a notebook instance.
 ## [SageMaker.2] SageMaker notebook instances should be launched in a custom VPC
 <a name="sagemaker-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9)
+**Related requirements:** NIST.800-53.r5 AC-21, NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-4, NIST.800-53.r5 AC-4(21), NIST.800-53.r5 AC-6, NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(20), NIST.800-53.r5 SC-7(21), NIST.800-53.r5 SC-7(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-7(9), CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration > Resources within VPC
 
@@ -60,7 +60,7 @@ You can't change the VPC setting after creating a notebook instance. Instead, yo
 ## [SageMaker.3] Users should not have root access to SageMaker notebook instances
 <a name="sagemaker-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2)
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(10), NIST.800-53.r5 AC-6(2), CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.AA-05.02
 
 **Category:** Protect > Secure access management > Root user access restrictions
 
@@ -86,7 +86,7 @@ To restrict root access to SageMaker AI notebook instances, see [Control root ac
 ## [SageMaker.4] SageMaker endpoint production variants should have an initial instance count greater than 1
 <a name="sagemaker-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 SC-5, NIST.800-53.r5 SC-36, NIST.800-53.r5 SA-13
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 SC-5, NIST.800-53.r5 SC-36, NIST.800-53.r5 SA-13, CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -114,6 +114,8 @@ For more information about the parameters of endpoint configuration, see [Create
 
 ## [SageMaker.5] SageMaker models should have network isolation enabled
 <a name="sagemaker-5"></a>
+
+**Related requirements:** CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.02
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 
@@ -205,6 +207,8 @@ To add tags to an Amazon SageMaker AI image, you can use the [AddTags](https://d
 
 ## [SageMaker.8] SageMaker notebook instances should run on supported platforms
 <a name="sagemaker-8"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-02.02
 
 **Category:** Detect > Vulnerability, patch, and version management
 

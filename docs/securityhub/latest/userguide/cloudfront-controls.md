@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon CloudFront service and 
 ## [CloudFront.1] CloudFront distributions should have a default root object configured
 <a name="cloudfront-1"></a>
 
-**Related requirements:** NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), PCI DSS v4.0.1/2.2.6
+**Related requirements:** NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), PCI DSS v4.0.1/2.2.6, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Protect > Secure access management > Resources not publicly accessible
 
@@ -34,7 +34,7 @@ To configure a default root object for a CloudFront distribution, see [How to sp
 ## [CloudFront.3] CloudFront distributions should require encryption in transit
 <a name="cloudfront-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -60,7 +60,7 @@ To encrypt a CloudFront distribution in transit, see [Requiring HTTPS for commun
 ## [CloudFront.4] CloudFront distributions should have origin failover configured
 <a name="cloudfront-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-03.01, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Recover > Resilience > High availability
 
@@ -86,7 +86,7 @@ To configure origin failover for a CloudFront distribution, see [Creating an ori
 ## [CloudFront.5] CloudFront distributions should have logging enabled
 <a name="cloudfront-5"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2
+**Related requirements:** NIST.800-53.r5 AC-2(4), NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AC-6(9), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4(20), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -112,7 +112,7 @@ To configure standard logging (legacy) for a CloudFront distribution, see [Confi
 ## [CloudFront.6] CloudFront distributions should have WAF enabled
 <a name="cloudfront-6"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), PCI DSS v4.0.1/6.4.2
+**Related requirements:** NIST.800-53.r5 AC-4(21), PCI DSS v4.0.1/6.4.2, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/GV.OC-04.03, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-01.05, CRI Profile v2.2/PR.IR-04.02
 
 **Category:** Protect > Protective services
 
@@ -138,7 +138,7 @@ To associate an AWS WAF web ACL with a CloudFront distribution, see [Using AWS W
 ## [CloudFront.7] CloudFront distributions should use custom SSL/TLS certificates
 <a name="cloudfront-7"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.15
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.15, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -164,7 +164,7 @@ To add an alternate domain name for a CloudFront distribution using a custom SSL
 ## [CloudFront.8] CloudFront distributions should use SNI to serve HTTPS requests
 <a name="cloudfront-8"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Secure network configuration
 
@@ -190,7 +190,7 @@ To configure a CloudFront distribution to use SNI to serve HTTPS requests, see [
 ## [CloudFront.9] CloudFront distributions should encrypt traffic to custom origins
 <a name="cloudfront-9"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-23(3), NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -216,7 +216,7 @@ To update the Origin Protocol Policy to require encryption for a CloudFront conn
 ## [CloudFront.10] CloudFront distributions should not use deprecated SSL protocols between edge locations and custom origins
 <a name="cloudfront-10"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1
+**Related requirements:** NIST.800-53.r5 AC-17(2), NIST.800-53.r5 AC-4, NIST.800-53.r5 IA-5(1), NIST.800-53.r5 SC-12(3), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-23, NIST.800-53.r5 SC-7(4), NIST.800-53.r5 SC-8, NIST.800-53.r5 SC-8(1), NIST.800-53.r5 SC-8(2), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.15, PCI DSS v4.0.1/4.2.1, CRI Profile v2.2/PR.PS-01.05, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-02.03
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 
@@ -242,7 +242,7 @@ To update the Origin SSL Protocols for a CloudFront distribution, see [Requiring
 ## [CloudFront.12] CloudFront distributions should not point to non-existent S3 origins
 <a name="cloudfront-12"></a>
 
-**Related requirements:** NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), PCI DSS v4.0.1/2.2.6
+**Related requirements:** NIST.800-53.r5 CM-2, NIST.800-53.r5 CM-2(2), PCI DSS v4.0.1/2.2.6, CRI Profile v2.2/DE.CM-09.03, CRI Profile v2.2/PR.PS-01.03
 
 **Category:** Identify > Resource configuration
 
@@ -267,6 +267,8 @@ To modify a CloudFront distribution to point to a new origin, see [Updating a di
 
 ## [CloudFront.13] CloudFront distributions should use origin access control
 <a name="cloudfront-13"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-03.02
 
 **Category:** Protect > Secure access management > Resource not publicly accessible
 
@@ -323,6 +325,8 @@ To add tags to a CloudFront distribution, see [Tagging Amazon CloudFront distrib
 
 ## [CloudFront.15] CloudFront distributions should use the recommended TLS security policy
 <a name="cloudfront-15"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.DS-02.01, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-in-transit
 

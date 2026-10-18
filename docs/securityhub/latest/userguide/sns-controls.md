@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon Simple Notification Ser
 ## [SNS.1] SNS topics should be encrypted at-rest using AWS KMS
 <a name="sns-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.11, NIST.800-171.r2 3.13.16
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-3(6), NIST.800-53.r5 SC-13, NIST.800-53.r5 SC-28, NIST.800-53.r5 SC-28(1), NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SI-7(6), NIST.800-171.r2 3.13.11, NIST.800-171.r2 3.13.16, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -65,6 +65,8 @@ To add tags to an SNS topic, see [Configuring Amazon SNS topic tags](https://doc
 
 ## [SNS.4] SNS topic access policies should not allow public access
 <a name="sns-4"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 

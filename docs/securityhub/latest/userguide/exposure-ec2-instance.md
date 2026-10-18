@@ -44,6 +44,7 @@ A single exposure finding contains issues identified in multiple remediation top
   + [Has pass role task hijack path](#has-pass-role-task-hijack-path)
   + [Has single hop data access path](#has-single-hop-data-access-path)
   + [Has capability advancing path](#has-capability-advancing-path)
+  + [Business criticality](#business-criticality)
 
 ## Misconfiguration traits for EC2 instances
 <a name="ec2-misconfiguration"></a>
@@ -184,7 +185,7 @@ Here are vulnerability traits for EC2 instances and suggested remediation steps.
 ## Impact traits for EC2 instances
 <a name="ec2-impact"></a>
 
-Impact traits describe the potential blast radius of an exposure. Security Hub analyzes the effective permissions of the AWS Identity and Access Management principal associated with the EC2 instance to determine the downstream resources an attacker could reach if the instance is compromised. Each impact trait identifies a specific privilege escalation pattern. To reduce your blast radius, review the permission paths described in each trait and remove any unnecessary privileges.
+Impact traits describe the potential blast radius of an exposure. Security Hub analyzes the effective permissions of the AWS Identity and Access Management principal associated with the EC2 instance to determine the downstream resources an attacker could reach if the instance is compromised, as well as the business criticality of those resources. Each impact trait identifies a specific privilege escalation pattern. To reduce your blast radius, review the permission paths described in each trait and remove any unnecessary privileges.
 
 Following standard security principles, grant least privilege by providing only the permissions required to perform a task. Replace broad policies with scoped-down policies that grant only the specific actions and resources needed. To identify unused permissions to remove, use IAM Access Analyzer to generate recommendations based on access history. For more information, see [Findings for external and unused access](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-findings.html) and [Apply least-privilege permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege) in the *IAM User Guide*.
 
@@ -267,3 +268,8 @@ The associated principal can directly access sensitive data resources (such as A
 <a name="has-capability-advancing-path"></a>
 
 The associated principal has a privilege escalation path that advances its overall capabilities beyond what its directly assigned permissions would suggest. This is a general classification for paths that do not match a more specific pattern.
+
+### Business criticality
+<a name="business-criticality"></a>
+
+The business criticality of the primary resource, set either by automation rules or by inference from the name and tags.

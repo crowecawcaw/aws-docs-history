@@ -10,6 +10,8 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [Keyspaces.1] Amazon Keyspaces keyspaces should be tagged
 <a name="keyspaces-1"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low

@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [AppSync.2] AWS AppSync should have field-level logging enabled
 <a name="appsync-2"></a>
 
-**Related requirements:** PCI DSS v4.0.1/10.4.2
+**Related requirements:** PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -73,7 +73,7 @@ To add tags to an AWS AppSync GraphQL API, see [TagResource](https://docs.aws.am
 ## [AppSync.5] AWS AppSync GraphQL APIs should not be authenticated with API keys
 <a name="appsync-5"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6
+**Related requirements:** NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-6, CRI Profile v2.2/PR.AA-01.01, CRI Profile v2.2/PR.AA-03.01
 
 **Category:** Protect > Secure access management > Passwordless authentication
 

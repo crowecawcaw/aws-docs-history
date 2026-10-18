@@ -40,6 +40,8 @@ For information about adding tags to an AWS Amplify app, see [Resource tagging s
 ## [Amplify.2] Amplify branches should be tagged
 <a name="amplify-2"></a>
 
+**Related requirements:** CRI Profile v2.2/ID.AM-02.01, CRI Profile v2.2/ID.AM-05.01
+
 **Category:** Identify > Inventory > Tagging
 
 **Severity:** Low

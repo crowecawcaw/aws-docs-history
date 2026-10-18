@@ -14,6 +14,7 @@ When cross-Region aggregation is enabled with one or more linked Regions, Securi
 + Findings
 + Resources
 + Trends
++ Software and package inventory (beginning in November 2026)
 
 In addition to new data in the previous list, Security Hub also replicates updates to this data between the linked Regions and the home Region. Updates that occur in a linked Region are replicated to the home Region. Updates that occur in the home Region are replicated back to the linked Region. If there are conflicting updates in the home Region and the linked Region, then the most recent update is used.
 

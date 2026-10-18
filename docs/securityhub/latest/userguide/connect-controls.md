@@ -42,6 +42,8 @@ To add tags to a Customer Profiles object type, see [Add tags to resources in Am
 ## [Connect.2] Connect Customer instances should have CloudWatch logging enabled
 <a name="connect-2"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
+
 **Category:** Identify > Logging
 
 **Severity:** Medium

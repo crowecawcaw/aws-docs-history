@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the Amazon GuardDuty service and r
 ## [GuardDuty.1] GuardDuty should be enabled
 <a name="guardduty-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 CA-7, NIST.800-53.r5 CM-8(3), NIST.800-53.r5 RA-3(4), NIST.800-53.r5 SA-11(1), NIST.800-53.r5 SA-11(6), NIST.800-53.r5 SA-15(2), NIST.800-53.r5 SA-15(8), NIST.800-53.r5 SA-8(19), NIST.800-53.r5 SA-8(21), NIST.800-53.r5 SA-8(25), NIST.800-53.r5 SC-5, NIST.800-53.r5 SC-5(1), NIST.800-53.r5 SC-5(3), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(1), NIST.800-53.r5 SI-4(13), NIST.800-53.r5 SI-4(2), NIST.800-53.r5 SI-4(22), NIST.800-53.r5 SI-4(25), NIST.800-53.r5 SI-4(4), NIST.800-53.r5 SI-4(5), NIST.800-171.r2 3.4.2, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/11.4, PCI DSS v4.0.1/11.5.1
+**Related requirements:** NIST.800-53.r5 AC-2(12), NIST.800-53.r5 AU-6(1), NIST.800-53.r5 AU-6(5), NIST.800-53.r5 CA-7, NIST.800-53.r5 CM-8(3), NIST.800-53.r5 RA-3(4), NIST.800-53.r5 SA-11(1), NIST.800-53.r5 SA-11(6), NIST.800-53.r5 SA-15(2), NIST.800-53.r5 SA-15(8), NIST.800-53.r5 SA-8(19), NIST.800-53.r5 SA-8(21), NIST.800-53.r5 SA-8(25), NIST.800-53.r5 SC-5, NIST.800-53.r5 SC-5(1), NIST.800-53.r5 SC-5(3), NIST.800-53.r5 SI-20, NIST.800-53.r5 SI-3(8), NIST.800-53.r5 SI-4, NIST.800-53.r5 SI-4(1), NIST.800-53.r5 SI-4(13), NIST.800-53.r5 SI-4(2), NIST.800-53.r5 SI-4(22), NIST.800-53.r5 SI-4(25), NIST.800-53.r5 SI-4(4), NIST.800-53.r5 SI-4(5), NIST.800-171.r2 3.4.2, NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, PCI DSS v3.2.1/11.4, PCI DSS v4.0.1/11.5.1, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.02, CRI Profile v2.2/DE.CM-01.03
 
 **Category:** Detect > Detection services
 
@@ -130,6 +130,8 @@ To add tags to a GuardDuty detector, see [TagResource](https://docs.aws.amazon.c
 ## [GuardDuty.5] GuardDuty EKS Audit Log Monitoring should be enabled
 <a name="guardduty-5"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01
+
 **Category:** Detect > Detection services
 
 **Severity:** High
@@ -156,7 +158,7 @@ To enable GuardDuty EKS Audit Log Monitoring, see [EKS Audit Log Monitoring](htt
 ## [GuardDuty.6] GuardDuty Lambda Protection should be enabled
 <a name="guardduty-6"></a>
 
-**Related requirements:** PCI DSS v4.0.1/11.5.1
+**Related requirements:** PCI DSS v4.0.1/11.5.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/DE.CM-02.01
 
 **Category:** Detect > Detection services
 
@@ -184,7 +186,7 @@ To enable GuardDuty Lambda Protection, see [Configuring Lambda Protection](https
 ## [GuardDuty.7] GuardDuty EKS Runtime Monitoring should be enabled
 <a name="guardduty-7"></a>
 
-**Related requirements:** PCI DSS v4.0.1/11.5.1
+**Related requirements:** PCI DSS v4.0.1/11.5.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection Services
 
@@ -212,6 +214,8 @@ To enable EKS Runtime Monitoring with automated agent management, see [Enabling 
 ## [GuardDuty.8] GuardDuty Malware Protection for EC2 should be enabled
 <a name="guardduty-8"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/GV.OC-04.03, CRI Profile v2.2/GV.RM-09.02, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.DS-01.02, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/PR.PS-05.01, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
+
 **Category:** Detect > Detection services
 
 **Severity:** High
@@ -238,7 +242,7 @@ To enable GuardDuty Malware Protection for EC2, see [Configuring GuardDuty-initi
 ## [GuardDuty.9] GuardDuty RDS Protection should be enabled
 <a name="guardduty-9"></a>
 
-**Related requirements:** PCI DSS v4.0.1/11.5.1
+**Related requirements:** PCI DSS v4.0.1/11.5.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-02.01, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02
 
 **Category:** Detect > Detection services
 
@@ -266,7 +270,7 @@ To enable GuardDuty RDS Protection, see [GuardDuty RDS Protection](https://docs.
 ## [GuardDuty.10] GuardDuty S3 Protection should be enabled
 <a name="guardduty-10"></a>
 
-**Related requirements:** PCI DSS v4.0.1/11.5.1
+**Related requirements:** PCI DSS v4.0.1/11.5.1, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.01, CRI Profile v2.2/DE.CM-02.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Detect > Detection services
 
@@ -294,6 +298,8 @@ To enable GuardDuty S3 Protection, see [Amazon S3 Protection in Amazon GuardDuty
 ## [GuardDuty.11] GuardDuty Runtime Monitoring should be enabled
 <a name="guardduty-11"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/RS.MA-02.01
+
 **Category:** Detect > Detection Services
 
 **Severity:** High
@@ -320,6 +326,8 @@ For information about configuring and enabling GuardDuty Runtime Monitoring, see
 ## [GuardDuty.12] GuardDuty ECS Runtime Monitoring should be enabled
 <a name="guardduty-12"></a>
 
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.02, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/DE.CM-03.01, CRI Profile v2.2/DE.CM-03.02, CRI Profile v2.2/DE.CM-03.03, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03, CRI Profile v2.2/RS.AN-07.01, CRI Profile v2.2/RS.MA-02.01
+
 **Category:** Detect > Detection Services
 
 **Severity:** Medium
@@ -345,6 +353,8 @@ To enable and manage the security agent for GuardDuty Runtime Monitoring of ECS-
 
 ## [GuardDuty.13] GuardDuty EC2 Runtime Monitoring should be enabled
 <a name="guardduty-13"></a>
+
+**Related requirements:** CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/DE.AE-03.02, CRI Profile v2.2/DE.AE-07.01, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-03.02
 
 **Category:** Detect > Detection Services
 

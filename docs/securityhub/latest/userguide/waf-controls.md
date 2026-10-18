@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the AWS WAF service and resources.
 ## [WAF.1] AWS WAF Classic Global Web ACL logging should be enabled
 <a name="waf-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -34,7 +34,7 @@ To enable logging for an AWS WAF web ACL, see [ Logging web ACL traffic informat
 ## [WAF.2] AWS WAF Classic Regional rules should have at least one condition
 <a name="waf-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21)
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure network configuration
 
@@ -60,7 +60,7 @@ To add a condition to an empty rule, see [Adding and removing conditions in a ru
 ## [WAF.3] AWS WAF Classic Regional rule groups should have at least one rule
 <a name="waf-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21)
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure network configuration
 
@@ -86,7 +86,7 @@ To add rules and rule conditions to an empty rule group, see [Adding and deletin
 ## [WAF.4] AWS WAF Classic Regional web ACLs should have at least one rule or rule group
 <a name="waf-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure network configuration
 
@@ -112,7 +112,7 @@ To add rules or rule groups to an empty AWS WAF Classic Regional web ACL, see [E
 ## [WAF.6] AWS WAF Classic global rules should have at least one condition
 <a name="waf-6"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure network configuration
 
@@ -138,7 +138,7 @@ For instructions on creating a rule and adding conditions, see [Creating a rule 
 ## [WAF.7] AWS WAF Classic global rule groups should have at least one rule
 <a name="waf-7"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.03
 
 **Category:** Protect > Secure network configuration
 
@@ -164,7 +164,7 @@ For instructions on adding a rule to a rule group, see [Creating an AWS WAF Clas
 ## [WAF.8] AWS WAF Classic global web ACLs should have at least one rule or rule group
 <a name="waf-8"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21)
+**Related requirements:** NIST.800-53.r5 AC-4(21), NIST.800-53.r5 SC-7, NIST.800-53.r5 SC-7(11), NIST.800-53.r5 SC-7(16), NIST.800-53.r5 SC-7(21), CRI Profile v2.2/DE.CM-01.01, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02
 
 **Category:** Protect > Secure network configuration
 
@@ -190,7 +190,7 @@ To add rules or rule groups to an empty AWS WAF global web ACL, see [Editing a w
 ## [WAF.10] AWS WAF web ACLs should have at least one rule or rule group
 <a name="waf-10"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/DE.CM-01.03, CRI Profile v2.2/PR.IR-01.02, CRI Profile v2.2/PR.PS-01.01
 
 **Category:** Protect > Secure network configuration
 
@@ -216,7 +216,7 @@ To add rules or rule groups to an empty WAFV2 web ACL, see [Editing a Web ACL](h
 ## [WAF.11] AWS WAF web ACL logging should be enabled
 <a name="waf-11"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), PCI DSS v4.0.1/10.4.2, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/PR.PS-04.01, CRI Profile v2.2/PR.PS-04.02, CRI Profile v2.2/PR.PS-04.03
 
 **Category:** Identify > Logging
 
@@ -245,7 +245,7 @@ To activate logging for an AWS WAF web ACL, see [Managing logging for a web ACL]
 ## [WAF.12] AWS WAF rules should have CloudWatch metrics enabled
 <a name="waf-12"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7
+**Related requirements:** NIST.800-53.r5 AC-4(26), NIST.800-53.r5 AU-10, NIST.800-53.r5 AU-12, NIST.800-53.r5 AU-2, NIST.800-53.r5 AU-3, NIST.800-53.r5 AU-6(3), NIST.800-53.r5 AU-6(4), NIST.800-53.r5 CA-7, NIST.800-53.r5 SC-7(10), NIST.800-53.r5 SC-7(9), NIST.800-53.r5 SI-7(8), NIST.800-171.r2 3.14.6, NIST.800-171.r2 3.14.7, CRI Profile v2.2/DE.AE-02.01, CRI Profile v2.2/DE.AE-02.02, CRI Profile v2.2/DE.AE-03.01, CRI Profile v2.2/RS.MA-02.01
 
 **Category:** Identify > Logging
 

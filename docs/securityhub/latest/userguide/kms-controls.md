@@ -8,7 +8,7 @@ These AWS Security Hub CSPM controls evaluate the AWS Key Management Service (AW
 ## [KMS.1] IAM customer managed policies should not allow decryption actions on all KMS keys
 <a name="kms-1"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3)
+**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3), CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.AA-05.02, CRI Profile v2.2/PR.PS-01.01, CRI Profile v2.2/PR.PS-01.03, CRI Profile v2.2/PR.PS-01.06
 
 **Category:** Protect > Secure access management
 
@@ -40,7 +40,7 @@ To modify an IAM customer managed policy, see [Editing customer managed policies
 ## [KMS.2] IAM principals should not have IAM inline policies that allow decryption actions on all KMS keys
 <a name="kms-2"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3)
+**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3), CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.DS-01.01, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Secure access management
 
@@ -74,7 +74,7 @@ To modify an IAM inline policy, see [Editing inline policies](https://docs.aws.a
 ## [KMS.3] AWS KMS keys should not be deleted unintentionally
 <a name="kms-3"></a>
 
-**Related requirements:** NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-12(2)
+**Related requirements:** NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-12(2), CRI Profile v2.2/PR.DS-01.02, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Data protection > Data deletion protection
 
@@ -104,7 +104,7 @@ To cancel a scheduled KMS key deletion, see **To cancel key deletion** under [Sc
 ## [KMS.4] AWS KMS key rotation should be enabled
 <a name="kms-4"></a>
 
-**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.6, CIS AWS Foundations Benchmark v3.0.0/3.6, CIS AWS Foundations Benchmark v1.4.0/3.8, CIS AWS Foundations Benchmark v1.2.0/2.8, NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-12(2), NIST.800-53.r5 SC-28(3), PCI DSS v3.2.1/3.6.4, PCI DSS v4.0.1/3.7.4
+**Related requirements:** CIS AWS Foundations Benchmark v5.0.0/3.6, CIS AWS Foundations Benchmark v3.0.0/3.6, CIS AWS Foundations Benchmark v1.4.0/3.8, CIS AWS Foundations Benchmark v1.2.0/2.8, NIST.800-53.r5 SC-12, NIST.800-53.r5 SC-12(2), NIST.800-53.r5 SC-28(3), PCI DSS v3.2.1/3.6.4, PCI DSS v4.0.1/3.7.4, CRI Profile v2.2/PR.PS-01.06, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Data Protection > Encryption of data-at-rest
 
@@ -129,6 +129,8 @@ To enable KMS key rotation, see [How to enable and disable automatic key rotatio
 
 ## [KMS.5] KMS keys should not be publicly accessible
 <a name="kms-5"></a>
+
+**Related requirements:** CRI Profile v2.2/PR.AA-01.02, CRI Profile v2.2/PR.AA-03.02, CRI Profile v2.2/PR.AA-05.01, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Secure network configuration > Resources not publicly accessible
 

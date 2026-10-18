@@ -10,7 +10,7 @@ These controls may not be available in all AWS Regions. For more information, se
 ## [PCA.1] AWS Private CA root certificate authority should be disabled
 <a name="pca-1"></a>
 
-**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2
+**Related requirements:** NIST.800-53.r5 CA-9(1), NIST.800-53.r5 CM-2, CRI Profile v2.2/PR.PS-01.07
 
 **Category:** Protect > Secure network configuration
 

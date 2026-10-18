@@ -42,7 +42,7 @@ To add tags to an EventBridge event bus, see [Amazon EventBridge tags](https://d
 ## [EventBridge.3] EventBridge custom event buses should have a resource-based policy attached
 <a name="eventbridge-3"></a>
 
-**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3), PCI DSS v4.0.1/10.3.1
+**Related requirements:** NIST.800-53.r5 AC-2, NIST.800-53.r5 AC-2(1), NIST.800-53.r5 AC-3, NIST.800-53.r5 AC-3(15), NIST.800-53.r5 AC-3(7), NIST.800-53.r5 AC-5, NIST.800-53.r5 AC-6, NIST.800-53.r5 AC-6(3), PCI DSS v4.0.1/10.3.1, CRI Profile v2.2/PR.AA-05.01
 
 **Category:** Protect > Secure access management > Resource not publicly accessible
 
@@ -68,7 +68,7 @@ To attach a resource-based policy to an EventBridge custom event bus, see [Using
 ## [EventBridge.4] EventBridge global endpoints should have event replication enabled
 <a name="eventbridge-4"></a>
 
-**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5)
+**Related requirements:** NIST.800-53.r5 CP-10, NIST.800-53.r5 CP-6(2), NIST.800-53.r5 SC-36, NIST.800-53.r5 SC-5(2), NIST.800-53.r5 SI-13(5), CRI Profile v2.2/PR.IR-01.03, CRI Profile v2.2/PR.IR-03.01
 
 **Category:** Recover > Resilience > High availability
 
