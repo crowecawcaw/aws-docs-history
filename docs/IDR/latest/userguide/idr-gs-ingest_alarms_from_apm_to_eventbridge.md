@@ -111,5 +111,3 @@ Complete the following steps for each AWS account and AWS Region where AWS Incid
    + Set the target of the Lambda function to either the custom event bus (Recommended) created in Step 2 or to your default event bus.
 
 1. Create an EventBridge rule and define the event patterns that match the list of events that you want to push to AWS Incident Detection and Response. The source of the rule is the partner event bus you created in Step 1 (`aws.partner/apm_name/integrationName`). The target of the rule is the Lambda function you created in Step 3 (`[apm_name]-AWSIncidentDetectionResponse-LambdaFunction`). For guidelines on defining your EventBridge rule, see [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html).
-
-For a step by step example on how to set up partner event bus integrations manually with AWS Incident Detection and Response, see [Integrating notifications from Datadog and Splunk](https://docs.aws.amazon.com/IDR/latest/userguide/example_integrating_notifications.html).
