@@ -67,7 +67,7 @@ The following log entries reflect the SFTP user disconnecting from their SFTP se
 ```
 
 **Note**  
-The available activity types are as follows: `AUTH_FAILURE`, `CONNECTED`, `DISCONNECTED`, `ERROR`, `EXIT_REASON`, `CLOSE`, `CREATE_SYMLINK`, `DELETE`, `MKDIR`, `OPEN`, `PARTIAL_CLOSE`, `RENAME`, `RMDIR`, `SETSTAT`, `TLS_RESUME_FAILURE`.
+The available activity types are as follows: `AUTH_FAILURE`, `CONNECTED`, `CONNECTION_REJECTED`, `DISCONNECTED`, `ERROR`, `EXIT_REASON`, `CLOSE`, `CREATE_SYMLINK`, `DELETE`, `MKDIR`, `OPEN`, `PARTIAL_CLOSE`, `RENAME`, `RMDIR`, `SETSTAT`, `TLS_RESUME_FAILURE`.
 
 ## Example log entries for SFTP connectors
 <a name="example-sftp-connector-logs"></a>

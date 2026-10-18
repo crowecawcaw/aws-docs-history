@@ -34,6 +34,7 @@ We offer a workshop that provides prescriptive guidance and a hands on lab on ho
 + [Add a web application firewall](web-application-firewall.md)
 + [Cross-service confused deputy prevention](confused-deputy.md)
 + [AWS managed policies for AWS Transfer Family](security-iam-awsmanpol.md)
++ [Using service-linked roles for AWS Transfer Family](using-service-linked-roles.md)
 
 ## VPC connectivity security benefits
 <a name="vpc-connectivity-security"></a>

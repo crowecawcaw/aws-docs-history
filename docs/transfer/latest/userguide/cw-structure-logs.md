@@ -17,7 +17,7 @@ The following table contains details for log entry fields for Transfer Family SF
 
 | Field | Description | Example entry | 
 | --- |--- |--- |
-| activity-type | The action by the user | The available activity types are as follows: `AUTH_FAILURE`, `CONNECTED`, `DISCONNECTED`, `ERROR`, `EXIT_REASON`, `CLOSE`, `CREATE_SYMLINK`, `DELETE`, `MKDIR`, `OPEN`, `PARTIAL_CLOSE`, `RENAME`, `RMDIR`, `SETSTAT`, `TLS_RESUME_FAILURE`. | 
+| activity-type | The action by the user | The available activity types are as follows: `AUTH_FAILURE`, `CONNECTED`, `CONNECTION_REJECTED`, `DISCONNECTED`, `ERROR`, `EXIT_REASON`, `CLOSE`, `CREATE_SYMLINK`, `DELETE`, `MKDIR`, `OPEN`, `PARTIAL_CLOSE`, `RENAME`, `RMDIR`, `SETSTAT`, `TLS_RESUME_FAILURE`. | 
 | bytes-in | Number of bytes uploaded by the user | 29238420042 | 
 | bytes-out | Number of bytes downloaded by the user | 23094032490328 | 
 | ciphers | Specifies the SSH cipher negotiated for the connection (available ciphers are listed in [Cryptographic algorithms](security-policies.md#cryptographic-algorithms)) | aes256-gcm@openssh.com | 

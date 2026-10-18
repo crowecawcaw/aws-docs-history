@@ -3,16 +3,16 @@
 # Working with Network Load Balancers
 <a name="working-with-nlb"></a>
 
-Whether you can place a Network Load Balancer (NLB) in front of an AWS Transfer Family server depends on the protocol that your server uses. Review the following guidance before you add an NLB to your architecture.
+Whether you should place a Network Load Balancer (NLB) in front of an AWS Transfer Family server depends on the protocol that your server uses. Review the following guidance before you add an NLB to your architecture.
 + **FTP and FTPS** – We recommend against placing an NLB in front of the server. An NLB in this path increases costs and reduces the number of simultaneous connections that the server accepts. If your FTP or FTPS implementation requires an NLB, see [Avoid placing NLBs and NATs in front of AWS Transfer Family servers](infrastructure-security.md#nlb-considerations) for configuration recommendations.
-+ **SFTP** – An NLB is supported. With PROXY protocol v2 (PPv2), you can preserve the client's source IP address on SFTP connections.
++ **SFTP** – An NLB is supported for servers that use a VPC-hosted endpoint, though we recommend avoiding an NLB where possible. Where an NLB is required, you can preserve the client's source IP address with PROXY protocol v2 (PPv2).
 
-A common reason to place an NLB in front of an AWS Transfer Family server is to offer a custom listener port. AWS Transfer Family already offers several ports, so review [AWS Transfer Family endpoint type matrix](sftp-for-transfer-family.md#endpoint-matrix) and [Create an SFTP-enabled server](create-server-sftp.md) for the supported ports before you add an NLB.
+A common reason to place an NLB in front of an AWS Transfer Family server is to offer a custom listener port. AWS Transfer Family already offers several ports, so review [AWS Transfer Family endpoint type matrix](sftp-for-transfer-family.md#endpoint-matrix) and [Create an SFTP-enabled server](create-server-sftp.md) for the supported ports before you add an NLB to expose a custom listener port.
 
 ## Preserving the client's source IP for SFTP with PROXY protocol v2
 <a name="nlb-sftp-source-ip"></a>
 
-When an NLB is in the path between your client and your SFTP server, AWS Transfer Family sees the private IP address of the NLB instead of the client's source IP address. PROXY protocol v2 (PPv2) solves this problem. The NLB adds a PPv2 header that carries the client's source IP address, and AWS Transfer Family reads that header.
+This feature applies to SFTP servers that use a VPC-hosted endpoint. When an NLB is in the path between your client and your SFTP server, AWS Transfer Family sees the private IP address of the NLB instead of the client's source IP address. PROXY protocol v2 (PPv2) solves this problem. The NLB adds a PPv2 header that carries the client's source IP address, and AWS Transfer Family reads that header.
 
 When you enable PPv2, the client's source IP address becomes available in the following places:
 + Authentication requests that AWS Transfer Family sends to your custom identity provider. You can then write IP-based access policies.
@@ -24,21 +24,21 @@ When you enable PPv2, the client's source IP address becomes available in the fo
 The `SftpMode` member of `ProxyConfig` controls how your server handles the PPv2 header. It has exactly two values: `NONE` (the default) and `PROXY_PROTOCOL_V2_ENFORCED`. For more information, see [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) in the *AWS Transfer Family API Reference*.
 
 **Important**  
-With `PROXY_PROTOCOL_V2_ENFORCED` you must restrict the server's VPC endpoint security group to allow inbound traffic only via the trusted NLB.
+With `PROXY_PROTOCOL_V2_ENFORCED`, you must restrict the server's VPC endpoint security group to allow inbound traffic only through the trusted NLB. Because the server trusts the source IP address in the PPv2 header, this prevents a client from bypassing the NLB and presenting a spoofed source IP address.
 
 Complete the following three steps in order to enable enforcement without refusing any connections. This order keeps the migration free of downtime.
 
 ### Step 1: Enable PROXY protocol v2 on the NLB target group
 <a name="nlb-sftp-enable-step1"></a>
 
-Enable the `proxy_protocol_v2.enabled` attribute on the NLB target group that points at your server's VPC endpoint. This attribute tells the NLB to prepend a PPv2 header to each connection. For instructions, see [Proxy protocol](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#proxy-protocol) in the *Elastic Load Balancing User Guide*.
+Enable the `proxy_protocol_v2.enabled` attribute on the NLB target group that points at your server's VPC endpoint. This attribute tells the NLB to prepend a PPv2 header to each connection. For instructions, see [Proxy protocol for your Network Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#proxy-protocol) in the *Elastic Load Balancing User Guide*.
 
 While the server is still set to `SftpMode=NONE`, it reads and ignores any PPv2 header. Enabling PROXY protocol v2 on the target group at this stage causes no disruption.
 
 ### Step 2: Verify that the header arrives on every connection
 <a name="nlb-sftp-enable-step2"></a>
 
-Before you enforce PPv2, confirm that the server receives a PPv2 header on every connection. Inspect your server logs for the `CONNECTED` activity type. In structured (JSON) logs in Amazon CloudWatch Logs, check the `proxy-protocol-v2-header` field for the value `ignored`; in legacy logs, check the `ProxyProtocolV2Header` field for the same value.
+Before you enforce PPv2, confirm that the server receives a PPv2 header on every connection. Inspect your server logs for the `CONNECTED` activity type. In structured (JSON) logs in Amazon CloudWatch Logs, check the `proxy-protocol-v2-header` field for the value `ignored`. In legacy logs, check the `ProxyProtocolV2Header` field for the same value.
 
 The field has the following semantics:
 + The field is absent when the connection included no PPv2 header.

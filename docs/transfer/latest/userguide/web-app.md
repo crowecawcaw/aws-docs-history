@@ -24,7 +24,7 @@ The following resources are available to help you to get started with Transfer F
 ## AWS Regions for Transfer Family web apps
 <a name="webapp-regions"></a>
 
-AWS Transfer Family web apps are available in all the Transfer Family supported regions, as listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/), except for Asia Pacific (New Zealand) and AWS European Sovereign Cloud.
+AWS Transfer Family web apps are available in all the Transfer Family supported regions, as listed in the [AWS Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
 VPC endpoints for web apps are supported in all AWS Regions where web apps are available.
 

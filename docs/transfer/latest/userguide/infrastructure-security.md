@@ -17,7 +17,7 @@ Servers configured with FTP and FTPS protocols only allow a configuration with a
 
 Many customers configure a Network Load Balancer (NLB) to route traffic to their AWS Transfer Family server. They typically do this either because they created their server before AWS offered a way to access it from both inside their VPC and from the internet, or to support FTP on the internet. This configuration not only increases costs for customers, but can also cause other issues, which we describe in this section.
 
-For servers configured with the SFTP protocol, you can place an NLB in front of the server and preserve the client's source IP address by using PROXY protocol v2 (PPv2). For more information, see [Working with Network Load Balancers](working-with-nlb.md).
+For SFTP servers that use a VPC-hosted endpoint, we still recommend avoiding an NLB where possible. If your architecture requires an NLB—for example, to expose SFTP on a custom listener port that AWS Transfer Family does not offer—you can preserve the client's source IP address by enabling PROXY protocol v2 (PPv2). For more information, see [Working with Network Load Balancers](working-with-nlb.md).
 
 NAT gateways are a mandatory component when clients are connecting from a customer private network behind a corporate firewall. However, you should be aware that when many clients are behind the same NAT gateway, this can impact performance and connection limits. If there's an NLB or NAT in the communication path from the client to the FTP or FTPS server, the server can't accurately recognize the client's IP address, because AWS Transfer Family sees only the IP address of the NLB or NAT.
 

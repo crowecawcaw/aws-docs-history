@@ -70,11 +70,13 @@ FIPS-enabled endpoints are only available in North American AWS Regions. For ava
 
    1. For **Cryptographic algorithm options**, choose a security policy that contains the cryptographic algorithms enabled for use by your server. Our latest security policy is the default: for details, see [Security policies for AWS Transfer Family servers](security-policies.md).
 
-   1. (Optional) For **Server Host Key**, enter an RSA, ED25519, or ECDSA private key that will be used to identify your server when clients connect to it over SFTP. You can also add a description to differentiate among multiple host keys. 
+   1. For **Server Host Key**, choose where Transfer Family stores your host key material. Choose **AWS Secrets Manager** (the default) or **Service managed**. For more information about storage types, see [Store SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md).
+
+      Providing host key material is optional. If you don't enter an RSA, ED25519, or ECDSA private key, Transfer Family generates a host key for you. To identify your server when clients connect to it over SFTP, you can enter your own private key. You can also add a description to differentiate among multiple host keys.
 
       After you create your server, you can add additional host keys. Having multiple host keys is useful if you want to rotate keys or if you want to have different types of keys, such as an RSA key and also an ECDSA key.
 **Note**  
-The **Server Host Key** section is used only for migrating users from an existing SFTP-enabled server.
+When you choose **AWS Secrets Manager** storage, Transfer Family stores the host key in a Secrets Manager secret. Transfer Family uses the AWSServiceRoleForTransfer service-linked role to access the secret. If this role doesn't already exist in your account, Transfer Family creates it for you. For more information, see [Using service-linked roles for AWS Transfer Family](using-service-linked-roles.md).
 
    1. (Optional) For **Tags**, for **Key** and **Value**, enter one or more tags as key-value pairs, and then choose **Add tag**.
 
@@ -91,7 +93,7 @@ The **Server Host Key** section is used only for migrating users from an existin
       + **SetStat option**: enable this option to ignore the error that is generated when a client attempts to use `SETSTAT` on a file you are uploading to an Amazon S3 bucket. For additional details, see the `SetStatOption` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html).
       + **TLS session resumption**: this option is only available if you have enabled FTPS as one of the protocols for this server.
       + **Passive IP**: this option is only available if you have enabled FTPS or FTP as one of the protocols for this server.
-      + **PROXY protocol configuration**: turn on this option to preserve source IP addresses if your server endpoint sits behind a Network Load Balancer (NLB) load balancer with PROXY protocol v2 (PPv2) enabled. For more information, see [Working with Network Load Balancers](working-with-nlb.md) and `ProxyConfig` in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) API reference.
+      + **PROXY protocol configuration**: turn on this option to preserve the client's source IP address if your SFTP server sits behind a Network Load Balancer (NLB) with PROXY protocol v2 (PPv2) enabled. For more information, see [Working with Network Load Balancers](working-with-nlb.md) and `ProxyConfig` in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) API reference.
       + **SFTP custom ports**: For an SFTP server that uses a `PUBLIC` endpoint, you can choose the ports that the server listens on. Use the `SftpPorts` property to configure up to three ports. Each port can be any integer from 2000 to 65535, or 22. For each port, you can also set a `CommunicationMode` that controls which side sends data first. Use `CLIENT_TALK_FIRST` for clients that require TCP piggy-back ACKs. A piggy-back ACK carries data in the final ACK of the TCP three-way handshake. Use `SERVER_TALK_FIRST` if you are unsure of your clients' behavior or your clients do not depend on this. For more information, see the `SftpPorts` documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic.  
 ![Additional options screen for Server details page.](https://docs.aws.amazon.com/transfer/latest/userguide/images/create-server-configure-additional-items-sftp.png)
 

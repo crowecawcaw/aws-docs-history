@@ -5,11 +5,12 @@
 
 The following table describes the documentation for this release of AWS Transfer Family.
 + **API version:** transfer-2018-11-05
-+  **Latest documentation update:** September 29, 2026 
++  **Latest documentation update:** October 14, 2026 
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| AWS Secrets Manager storage for SFTP server host keys | AWS Transfer Family SFTP-enabled servers can now store host keys in AWS Secrets Manager, so that you choose the AWS Key Management Service key that encrypts the private key material and manage the secret alongside your other secrets. For details, see [Store SFTP server host keys in AWS Secrets Manager](server-host-key-storage.md). | October 14, 2026 | 
 | Configurable SFTP ports for public server endpoints | You can now choose the ports that an SFTP server with a public endpoint listens on. Use the SftpPorts property to configure up to three ports when you create or update a server. For details, see the SftpPorts documentation in the [ProtocolDetails](https://docs.aws.amazon.com/transfer/latest/APIReference/API_ProtocolDetails.html) topic. | September 29, 2026 | 
 | Source IP preservation for SFTP servers behind a Network Load Balancer | AWS Transfer Family SFTP servers behind a Network Load Balancer (NLB) can use PROXY protocol v2 to preserve the client's source IP address. IP-based access policies in your custom identity provider then see the real client address instead of the NLB private IP. For details, see [Working with Network Load Balancers](working-with-nlb.md). | September 15, 2026 | 
 | VPC endpoint support for Transfer Family web apps | AWS Transfer Family web apps now support VPC hosted endpoints, allowing you to host your web app endpoint inside a virtual private cloud for private data transfers to and from Amazon S3 without traversing the public internet. For details, see [Create a Transfer Family web app in a VPC](create-webapp-in-vpc.md). | November 19, 2025 | 

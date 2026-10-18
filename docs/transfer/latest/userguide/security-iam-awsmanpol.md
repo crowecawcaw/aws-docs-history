@@ -29,6 +29,20 @@ The `AWSTransferConsoleFullAccess` policy provides full access to Transfer Famil
 
  The `AWSTransferReadOnlyAccess` policy provides read-only access to Transfer Family services. For more information, see [Service-linked role for AWS Transfer Family](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferReadOnlyAccess.html).
 
+## AWS managed policy: AWSTransferServiceRolePolicy
+<a name="security-iam-awsmanpol-transferservicerolepolicy"></a>
+
+The `AWSTransferServiceRolePolicy` policy is attached to the AWSServiceRoleForTransfer service-linked role and allows Transfer Family to integrate with other AWS services on your behalf. You can't attach this policy to your own IAM entities. For more information, see [Using service-linked roles for AWS Transfer Family](using-service-linked-roles.md).
+
+**Permissions details**
+
+This policy allows Transfer Family to complete the following actions in AWS Secrets Manager:
++ Retrieve SFTP host key material from Transfer Family managed secrets to serve to incoming connections.
++ List and batch retrieve secrets in the same AWS account to discover the host key secrets that Transfer Family manages.
++ Delete orphaned Transfer Family managed secrets that are no longer associated with a Transfer Family host key resource.
+
+For more information, see [AWSTransferServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSTransferServiceRolePolicy.html).
+
 ## AWS Transfer Family updates to AWS managed policies
 <a name="security-iam-awsmanpol-updates"></a>
 
@@ -39,6 +53,7 @@ View details about updates to AWS managed policies for AWS Transfer Family since
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+|  [AWSTransferServiceRolePolicy](#security-iam-awsmanpol-transferservicerolepolicy) – New policy  | AWS Transfer Family added the `AWSTransferServiceRolePolicy` managed policy, attached to the AWSServiceRoleForTransfer service-linked role, to support storing SFTP host keys in AWS Secrets Manager. | October 6, 2026 | 
 |  Documentation update  | Added sections for each of the Transfer Family managed policies. | January 27, 2022 | 
 |  [AWSTransferReadOnlyAccess](#security-iam-awsmanpol-transferreadonlyaccess) – Update to an existing policy  | AWS Transfer Family added new permissions to allow the policy to read AWS Managed Microsoft AD. | September 30, 2021 | 
 | AWS Transfer Family started tracking changes | AWS Transfer Family started tracking changes for its AWS managed policies. | June 15, 2021 | 
