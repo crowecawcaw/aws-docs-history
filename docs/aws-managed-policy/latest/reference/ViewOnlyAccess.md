@@ -16,13 +16,13 @@ You can attach `ViewOnlyAccess` to your users, groups, and roles.
 <a name="ViewOnlyAccess-details"></a>
 + **Type**: Job function policy 
 + **Creation time**: November 10, 2016, 17:20 UTC 
-+ **Edited time:** September 30, 2026, 20:27 UTC
++ **Edited time:** October 14, 2026, 18:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/job-function/ViewOnlyAccess`
 
 ## Policy version
 <a name="ViewOnlyAccess-version"></a>
 
-**Policy version:** v46 (default)
+**Policy version:** v47 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -125,6 +125,20 @@ The policy's default version is the version that defines the permissions for the
         "bedrock-agentcore:ListApiKeyCredentialProviders",
         "bedrock-agentcore:ListOauth2CredentialProviders",
         "bedrock-agentcore:ListTagsForResource",
+        "bedrock-mantle:CallWithBearerToken",
+        "bedrock-mantle:GetCustomizedModel",
+        "bedrock-mantle:GetFineTuningJob",
+        "bedrock-mantle:GetModel",
+        "bedrock-mantle:GetProject",
+        "bedrock-mantle:GetReservation",
+        "bedrock-mantle:ListCustomizedModelAssociations",
+        "bedrock-mantle:ListCustomizedModels",
+        "bedrock-mantle:ListFiles",
+        "bedrock-mantle:ListFineTuningJobs",
+        "bedrock-mantle:ListModels",
+        "bedrock-mantle:ListProjects",
+        "bedrock-mantle:ListReservations",
+        "bedrock-mantle:ListTagsForResource",
         "bedrock:GetAccountDataRetention",
         "bedrock:GetAdvancedPromptOptimizationJob",
         "bedrock:GetAgent",

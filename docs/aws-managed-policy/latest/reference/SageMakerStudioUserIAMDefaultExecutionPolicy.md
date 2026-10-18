@@ -16,13 +16,13 @@ You can attach `SageMakerStudioUserIAMDefaultExecutionPolicy` to your users, gro
 <a name="SageMakerStudioUserIAMDefaultExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 08, 2026, 15:17 UTC
++ **Edited time:** October 14, 2026, 19:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioUserIAMDefaultExecutionPolicy-version"></a>
 
-**Policy version:** v30 (default)
+**Policy version:** v31 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -39,6 +39,8 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "datazone:AcceptPredictions",
         "datazone:AcceptSubscriptionRequest",
+        "datazone:BatchGetAttributesMetadata",
+        "datazone:BatchPutAttributesMetadata",
         "datazone:BatchUpdateNotifications",
         "datazone:CancelMetadataGenerationRun",
         "datazone:CancelSubscription",
@@ -90,7 +92,18 @@ The policy's default version is the version that defines the permissions for the
         "datazone:CancelMessage",
         "datazone:QueryGraph",
         "datazone:StartCompute",
-        "datazone:StopCompute"
+        "datazone:StopCompute",
+        "datazone:InvokeAgent",
+        "datazone:StopAgent",
+        "datazone:RegisterAgentArtifact",
+        "datazone:DeregisterAgentArtifact",
+        "datazone:DeleteConversation",
+        "datazone:UpdateConversation",
+        "datazone:CreateDataApp",
+        "datazone:UpdateDataApp",
+        "datazone:DeleteDataApp",
+        "datazone:PutAgentApprovalPolicy",
+        "datazone:DeleteAgentApprovalPolicy"
       ],
       "Resource" : "*"
     },

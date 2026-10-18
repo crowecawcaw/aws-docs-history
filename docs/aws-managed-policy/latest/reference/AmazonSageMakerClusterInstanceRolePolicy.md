@@ -16,13 +16,13 @@ You can attach `AmazonSageMakerClusterInstanceRolePolicy` to your users, groups,
 <a name="AmazonSageMakerClusterInstanceRolePolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 29, 2023, 15:11 UTC 
-+ **Edited time:** November 29, 2023, 15:11 UTC
++ **Edited time:** October 16, 2026, 20:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonSageMakerClusterInstanceRolePolicy`
 
 ## Policy version
 <a name="AmazonSageMakerClusterInstanceRolePolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -65,7 +65,7 @@ The policy's default version is the version that defines the permissions for the
         "*"
       ],
       "Condition" : {
-        "StringEquals" : {
+        "StringEqualsIfExists" : {
           "cloudwatch:namespace" : "/aws/sagemaker/Clusters"
         }
       }

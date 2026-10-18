@@ -16,13 +16,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 <a name="SageMakerStudioProjectProvisioningRolePolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: November 20, 2024, 21:58 UTC 
-+ **Edited time:** September 22, 2026, 21:57 UTC
++ **Edited time:** October 12, 2026, 16:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectProvisioningRolePolicy-version"></a>
 
-**Policy version:** v83 (default)
+**Policy version:** v84 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -269,7 +269,7 @@ The policy's default version is the version that defines the permissions for the
       ]
     },
     {
-      "Sid" : "IAMMng",
+      "Sid" : "IamManage",
       "Effect" : "Allow",
       "Action" : [
         "iam:CreateRole",
@@ -851,10 +851,11 @@ The policy's default version is the version that defines the permissions for the
       }
     },
     {
-      "Sid" : "GlueDbDelete",
+      "Sid" : "GlueDbManage",
       "Effect" : "Allow",
       "Action" : [
-        "glue:DeleteDatabase"
+        "glue:DeleteDatabase",
+        "glue:UpdateDatabase"
       ],
       "Resource" : "*",
       "Condition" : {
@@ -2050,7 +2051,8 @@ The policy's default version is the version that defines the permissions for the
       "Condition" : {
         "ForAllValues:StringLike" : {
           "aws:TagKeys" : [
-            "AmazonDataZone*"
+            "AmazonDataZone*",
+            "aws:cloudformation:*"
           ]
         },
         "Null" : {

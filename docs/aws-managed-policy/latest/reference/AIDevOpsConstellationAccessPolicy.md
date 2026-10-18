@@ -16,13 +16,13 @@ You can attach `AIDevOpsConstellationAccessPolicy` to your users, groups, and ro
 <a name="AIDevOpsConstellationAccessPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: August 05, 2026, 16:27 UTC 
-+ **Edited time:** August 05, 2026, 16:27 UTC
++ **Edited time:** October 13, 2026, 20:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AIDevOpsConstellationAccessPolicy`
 
 ## Policy version
 <a name="AIDevOpsConstellationAccessPolicy-version"></a>
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -34,10 +34,9 @@ The policy's default version is the version that defines the permissions for the
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "ConstellationCoordination",
+      "Sid" : "ConstellationScopedCoordination",
       "Effect" : "Allow",
       "Action" : [
-        "aidevops:GetAgentSpace",
         "aidevops:CreateBacklogTask",
         "aidevops:GetBacklogTask",
         "aidevops:ListBacklogTasks",
@@ -47,7 +46,23 @@ The policy's default version is the version that defines the permissions for the
         "aidevops:ListAssets",
         "aidevops:ListAssetFiles",
         "aidevops:ListExecutions",
-        "aidevops:ListJournalRecords"
+        "aidevops:ListJournalRecords",
+        "aidevops:SendMessage",
+        "aidevops:UpdateBacklogTask"
+      ],
+      "Resource" : "arn:aws:aidevops:*:*:agentspace/*",
+      "Condition" : {
+        "Null" : {
+          "aidevops:SourceAgentSpaceArn" : "false",
+          "aidevops:TargetAgentSpaceArn" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "ConstellationCoordination",
+      "Effect" : "Allow",
+      "Action" : [
+        "aidevops:GetAgentSpace"
       ],
       "Resource" : "arn:aws:aidevops:*:*:agentspace/*"
     }

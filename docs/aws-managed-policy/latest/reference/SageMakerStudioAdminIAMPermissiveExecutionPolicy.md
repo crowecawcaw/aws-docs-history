@@ -16,13 +16,13 @@ You can attach `SageMakerStudioAdminIAMPermissiveExecutionPolicy` to your users,
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 08, 2026, 18:57 UTC
++ **Edited time:** October 15, 2026, 21:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v22 (default)
+**Policy version:** v24 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -269,7 +269,8 @@ The policy's default version is the version that defines the permissions for the
           "iam:PolicyARN" : [
             "arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy",
             "arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy",
-            "arn:aws:iam::aws:policy/service-role/AmazonS3TablesLakeFormationServiceRole"
+            "arn:aws:iam::aws:policy/service-role/AmazonS3TablesLakeFormationServiceRole",
+            "arn:aws:iam::aws:policy/service-role/SageMakerStudioDataAppsAccessRolePolicy"
           ]
         }
       }
@@ -723,6 +724,7 @@ The policy's default version is the version that defines the permissions for the
         "identitystore:DescribeUser",
         "identitystore:DescribeGroup",
         "sso:CreateApplication",
+        "sso:DeleteApplication",
         "sso:DescribeInstance",
         "sso:DescribeApplication",
         "sso:PutApplicationGrant",

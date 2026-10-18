@@ -16,13 +16,13 @@ You can attach `AWSSecurityAgentWebAppPolicy` to your users, groups, and roles.
 <a name="AWSSecurityAgentWebAppPolicy-details"></a>
 + **Type**: Service role policy 
 + **Creation time**: February 05, 2026, 23:19 UTC 
-+ **Edited time:** October 06, 2026, 17:27 UTC
++ **Edited time:** October 12, 2026, 16:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/service-role/AWSSecurityAgentWebAppPolicy`
 
 ## Policy version
 <a name="AWSSecurityAgentWebAppPolicy-version"></a>
 
-**Policy version:** v9 (default)
+**Policy version:** v10 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -108,6 +108,8 @@ The policy's default version is the version that defines the permissions for the
         "securityagent:BatchDeleteCodeReviews",
         "securityagent:BatchDeletePentests",
         "securityagent:BatchDeleteThreatModels",
+        "securityagent:BatchDisassociateFindingIssue",
+        "securityagent:BatchExportFindings",
         "securityagent:BatchGetAgentSpaces",
         "securityagent:BatchGetArtifactMetadata",
         "securityagent:BatchGetCodeReviewJobs",

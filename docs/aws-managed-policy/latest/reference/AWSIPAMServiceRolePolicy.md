@@ -16,13 +16,13 @@ This policy is attached to a service-linked role that allows the service to perf
 <a name="AWSIPAMServiceRolePolicy-details"></a>
 + **Type**: Service-linked role policy 
 + **Creation time**: November 30, 2021, 19:08 UTC 
-+ **Edited time:** September 09, 2026, 18:17 UTC
++ **Edited time:** October 15, 2026, 15:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/aws-service-role/AWSIPAMServiceRolePolicy`
 
 ## Policy version
 <a name="AWSIPAMServiceRolePolicy-version"></a>
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -40,6 +40,7 @@ The policy's default version is the version that defines the permissions for the
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAddresses",
         "ec2:DescribeByoipCidrs",
+        "ec2:DescribeDhcpOptions",
         "ec2:DescribeIpv6Pools",
         "ec2:DescribeNetworkInterfaces",
         "ec2:DescribePublicIpv4Pools",
@@ -63,7 +64,11 @@ The policy's default version is the version that defines the permissions for the
         "organizations:DescribeOrganizationalUnit",
         "cloudfront:ListAnycastIpLists",
         "cloudfront:ListDistributionsByAnycastIpListId",
-        "cloudfront:ListTagsForResource"
+        "cloudfront:ListTagsForResource",
+        "route53:GetHostedZone",
+        "route53:ListHostedZones",
+        "route53:ListResourceRecordSets",
+        "route53:ListTagsForResource"
       ],
       "Resource" : "*"
     },
@@ -109,6 +114,16 @@ The policy's default version is the version that defines the permissions for the
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Sid" : "IPAMDhcpOptionSetManagementActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateDhcpOptions",
+        "ec2:AssociateDhcpOptions",
+        "ec2:DeleteDhcpOptions"
+      ],
+      "Resource" : "*"
     }
   ]
 }

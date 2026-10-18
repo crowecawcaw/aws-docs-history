@@ -16,13 +16,13 @@ You can attach `AWSPartnerCentralMarketingManagement` to your users, groups, and
 <a name="AWSPartnerCentralMarketingManagement-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: December 01, 2025, 00:34 UTC 
-+ **Edited time:** February 14, 2026, 00:57 UTC
++ **Edited time:** October 16, 2026, 02:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSPartnerCentralMarketingManagement`
 
 ## Policy version
 <a name="AWSPartnerCentralMarketingManagement-version"></a>
 
-**Policy version:** v4 (default)
+**Policy version:** v5 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -89,6 +89,25 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "partnercentral:ListPartners",
         "partnercentral:GetPartner"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "PartnerCentralContentAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetPartnerCentralContentDocument",
+        "partnercentral:GetPartnerCentralContentMetadata",
+        "partnercentral:ListPartnerCentralContent",
+        "partnercentral:SearchPartnerCentralContent"
       ],
       "Resource" : "*",
       "Condition" : {

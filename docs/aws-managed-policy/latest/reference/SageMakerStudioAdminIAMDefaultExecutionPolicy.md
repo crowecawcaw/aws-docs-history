@@ -16,13 +16,13 @@ You can attach `SageMakerStudioAdminIAMDefaultExecutionPolicy` to your users, gr
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 08, 2026, 18:57 UTC
++ **Edited time:** October 15, 2026, 21:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioAdminIAMDefaultExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioAdminIAMDefaultExecutionPolicy-version"></a>
 
-**Policy version:** v25 (default)
+**Policy version:** v27 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -117,7 +117,8 @@ The policy's default version is the version that defines the permissions for the
           "iam:PolicyARN" : [
             "arn:aws:iam::aws:policy/SageMakerStudioUserIAMDefaultExecutionPolicy",
             "arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy",
-            "arn:aws:iam::aws:policy/service-role/AmazonS3TablesLakeFormationServiceRole"
+            "arn:aws:iam::aws:policy/service-role/AmazonS3TablesLakeFormationServiceRole",
+            "arn:aws:iam::aws:policy/service-role/SageMakerStudioDataAppsAccessRolePolicy"
           ]
         }
       }
@@ -981,6 +982,7 @@ The policy's default version is the version that defines the permissions for the
         "identitystore:DescribeUser",
         "identitystore:DescribeGroup",
         "sso:CreateApplication",
+        "sso:DeleteApplication",
         "sso:DescribeInstance",
         "sso:DescribeApplication",
         "sso:PutApplicationGrant",
@@ -1147,6 +1149,21 @@ The policy's default version is the version that defines the permissions for the
           "s3:AccessGrantsInstanceArn" : [
             "arn:aws:s3:*:*:access-grants/default"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "S3AGIdentityCenterAssociation",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:AssociateAccessGrantsIdentityCenter"
+      ],
+      "Resource" : [
+        "arn:aws:s3:*:*:access-grants/default"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },

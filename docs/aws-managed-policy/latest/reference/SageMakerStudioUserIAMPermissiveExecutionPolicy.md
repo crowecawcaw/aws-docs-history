@@ -16,13 +16,13 @@ You can attach `SageMakerStudioUserIAMPermissiveExecutionPolicy` to your users, 
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 18, 2025, 17:19 UTC 
-+ **Edited time:** October 08, 2026, 17:57 UTC
++ **Edited time:** October 14, 2026, 19:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioUserIAMPermissiveExecutionPolicy`
 
 ## Policy version
 <a name="SageMakerStudioUserIAMPermissiveExecutionPolicy-version"></a>
 
-**Policy version:** v25 (default)
+**Policy version:** v26 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -147,6 +147,8 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "datazone:AcceptPredictions",
         "datazone:AcceptSubscriptionRequest",
+        "datazone:BatchGetAttributesMetadata",
+        "datazone:BatchPutAttributesMetadata",
         "datazone:BatchUpdateNotifications",
         "datazone:CancelMetadataGenerationRun",
         "datazone:CancelSubscription",
@@ -198,7 +200,11 @@ The policy's default version is the version that defines the permissions for the
         "datazone:CancelMessage",
         "datazone:QueryGraph",
         "datazone:StartCompute",
-        "datazone:StopCompute"
+        "datazone:StopCompute",
+        "datazone:*Agent*",
+        "datazone:DeleteConversation",
+        "datazone:UpdateConversation",
+        "datazone:*DataApp*"
       ],
       "Resource" : "*"
     },

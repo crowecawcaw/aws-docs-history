@@ -16,13 +16,13 @@ You can attach `SageMakerStudioProjectRoleMachineLearningPolicy` to your users, 
 <a name="SageMakerStudioProjectRoleMachineLearningPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: November 20, 2024, 21:55 UTC 
-+ **Edited time:** September 14, 2026, 20:37 UTC
++ **Edited time:** October 14, 2026, 19:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/SageMakerStudioProjectRoleMachineLearningPolicy`
 
 ## Policy version
 <a name="SageMakerStudioProjectRoleMachineLearningPolicy-version"></a>
 
-**Policy version:** v44 (default)
+**Policy version:** v45 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1174,8 +1174,10 @@ The policy's default version is the version that defines the permissions for the
       "Sid" : "ConsumerS3AGPermission",
       "Effect" : "Allow",
       "Action" : [
+        "s3:GetAccessGrantsInstance",
         "s3:GetAccessGrantsInstanceForPrefix",
         "s3:GetDataAccess",
+        "s3:ListAccessGrants",
         "s3:ListCallerAccessGrants",
         "ram:GetResourceShareInvitations"
       ],
@@ -1284,13 +1286,19 @@ The policy's default version is the version that defines the permissions for the
       "Action" : [
         "datazone:GenerateCode",
         "datazone:CreateAsset*",
+        "datazone:Get*",
+        "datazone:CreateListingChangeSet",
+        "datazone:CreateSubscriptionRequest",
+        "datazone:RevokeSubscription",
         "datazone:List*",
         "datazone:Search*",
         "datazone:*Message*",
         "datazone:*Conversation*",
         "datazone:*Cell*",
         "datazone:*Notebook*",
-        "datazone:*Compute*"
+        "datazone:*Compute*",
+        "datazone:*Agent*",
+        "datazone:*DataApp*"
       ],
       "Resource" : "*"
     },
@@ -1320,6 +1328,22 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "aws:ResourceTag/AmazonDataZoneProject" : "${aws:PrincipalTag/AmazonDataZoneProject}",
           "aws:ResourceTag/sqlworkbench-resource-owner" : "${aws:userid}"
+        }
+      }
+    },
+    {
+      "Sid" : "SSOReadOnlyPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "identitystore:DescribeUser",
+        "identitystore:DescribeGroup",
+        "sso:DescribeInstance",
+        "sso:DescribeApplication"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
         }
       }
     }

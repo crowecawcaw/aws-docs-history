@@ -16,13 +16,13 @@ You can attach `AWSTransformServerMigrationAgentPolicy` to your users, groups, a
 <a name="AWSTransformServerMigrationAgentPolicy-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 06, 2026, 15:27 UTC 
-+ **Edited time:** September 01, 2026, 10:37 UTC
++ **Edited time:** October 11, 2026, 08:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformServerMigrationAgentPolicy`
 
 ## Policy version
 <a name="AWSTransformServerMigrationAgentPolicy-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -1063,6 +1063,25 @@ The policy's default version is the version that defines the permissions for the
         "StringEquals" : {
           "aws:ResourceOrgID" : "${aws:PrincipalOrgID}",
           "sts:ExternalId" : "${aws:PrincipalAccount}:workspace/${aws:PrincipalTag/WorkspaceId}"
+        }
+      }
+    },
+    {
+      "Sid" : "StsCrossAccountAssumeRoleViaMgn",
+      "Effect" : "Allow",
+      "Action" : [
+        "sts:AssumeRole"
+      ],
+      "Resource" : "arn:aws:iam::*:role/AWSTransformRehostSharingRole_${aws:PrincipalAccount}",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceOrgID" : "${aws:PrincipalOrgID}",
+          "sts:ExternalId" : "${aws:PrincipalAccount}:AWSTransform"
         }
       }
     }
