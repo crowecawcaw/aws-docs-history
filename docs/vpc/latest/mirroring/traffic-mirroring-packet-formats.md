@@ -12,6 +12,8 @@ For more information about the VXLAN protocol, see [RFC 7348](https://tools.ietf
 
 The following fields apply to Traffic Mirroring:
 + **VXLAN ID** — The virtual network ID that you can assign to a traffic mirror session. If you do not assign a value, we assign a random value that is unique to all sessions in the account.
+**Important**  
+The VXLAN network identifier (VNI) is a caller-chosen label that AWS does not validate or authenticate. VNI values are not guaranteed to be unique across sessions from different accounts that share the same traffic mirror target. Do not treat the VNI as a trust boundary.
 + **Source IP address** — The primary IP address of the source network interface. 
 + **Source port** — The port is determined by a 5-tuple hash of the original L2 packet, for ICMP, TCP, and UDP flows. For other flows, the port is determined by a 3-tuple hash of the original L2 packet.
 + **Destination IP address** — The primary IP address of the appliance, Gateway Load Balancer endpoint, or Network Load Balancer (when the appliance is deployed behind one).

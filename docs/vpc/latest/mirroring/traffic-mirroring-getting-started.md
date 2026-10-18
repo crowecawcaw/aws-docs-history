@@ -122,3 +122,7 @@ Create a traffic mirror session that sends mirrored packets from the source to a
 <a name="analyze-data"></a>
 
 After the mirrored traffic is copied to the traffic mirror target, you can use a tool from the [AWS Partner Network](https://partners.amazonaws.com/search/partners/?keyword=traffic%20mirroring) to analyze the data.
+
+**Important**  
+When you analyze mirrored traffic, use the outer source IP address of the encapsulated packets to attribute the traffic to the correct mirror source. Do not rely solely on the VXLAN Network Identifier (VNI) to attribute traffic. The VNI is a caller-chosen, unauthenticated label. The VNI is not guaranteed to be unique across sessions from different accounts that share the same target.  
+The outer source IP address is set to the primary IP address of the source network interface, and it is protected by Amazon EC2 anti-spoofing. This makes the outer source IP address the reliable value for identifying the origin of mirrored traffic.
