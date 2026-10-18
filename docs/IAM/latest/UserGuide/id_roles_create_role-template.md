@@ -37,6 +37,8 @@ The following table lists the role template for each service that role manager s
 | Amazon EKS | AmazonEKSAutoNodeRoleTemplate | arn:aws:iam::aws:role-template/ec2.amazonaws.com/AmazonEKSAutoNodeRoleTemplate:1 | RoleName | 
 | AWS Elastic Beanstalk | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
 | Amazon EventBridge | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
+| AWS Glue | AWSGlueCrawlerS3PathsRoleTemplate | arn:aws:iam::aws:role-template/glue.amazonaws.com/AWSGlueCrawlerS3PathsRoleTemplate:1 | RoleName, accountId, s3path | 
+| AWS Glue | AWSGluePowerUserRoleTemplate | arn:aws:iam::aws:role-template/glue.amazonaws.com/AWSGluePowerUserRoleTemplate:1 | accountId, RoleName | 
 | AWS Lambda | PowerUserRoleTemplate | arn:aws:iam::aws:role-template/iam.amazonaws.com/PowerUserRoleTemplate:1 | AWSServiceName, RoleName | 
 | Amazon RDS | AmazonRDSDirectoryServiceIntegrationRoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSDirectoryServiceIntegrationRoleTemplate:1 | RoleName, accountId | 
 | Amazon RDS | AmazonRDSExportToS3RoleTemplate | arn:aws:iam::aws:role-template/rds.amazonaws.com/AmazonRDSExportToS3RoleTemplate:1 | RoleName, accountId, bucketName | 
