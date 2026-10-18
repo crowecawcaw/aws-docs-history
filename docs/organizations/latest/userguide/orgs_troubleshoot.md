@@ -14,6 +14,7 @@ Use the information here to help you diagnose and fix access-denied or other com
 + [I get an "access denied" message when I make a request to AWS Organizations](#troubleshoot_general_access-denied-service)
 + [I get an "access denied" message when I make a request with temporary security credentials](#troubleshoot_general_access-denied-temp-creds)
 + [I get an "access denied" message when I try to leave an organization as a member account or remove a member account as the management account](#troubleshoot_general_error-leaving-org)
++ [I get a `ConstraintViolationException` error for a project account](#troubleshoot_general_project-account-constraint-violation)
 + [I get a "quota exceeded" message when I try to add an account to my organization](#troubleshoot_general_error-adding-account)
 + [I get a "this operation requires a wait period" message while adding or removing accounts](#troubleshoot_general_error-wait-req)
 + [I get an "organization is still initializing" message when I try to add an account to my organization](#troubleshoot_general_error-still-init)
@@ -37,6 +38,11 @@ Use the information here to help you diagnose and fix access-denied or other com
 <a name="troubleshoot_general_error-leaving-org"></a>
 + You can remove a member account only after you enable IAM user access to billing in the member account. For more information, see [Activating Access to the Billing and Cost Management Console](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate) in the *AWS Billing User Guide*.
 + You can remove an account from your organization only if the account has the information required for it to operate as a standalone account. When you create an account in an organization using the AWS Organizations console, API, or AWS CLI commands, that information isn't automatically collected. For an account that you want to make standalone, you must accept the AWS Customer Agreement, choose a support plan, provide and verify the required contact information, and provide a current payment method. AWS uses the payment method to charge for any billable (not AWS Free Tier) AWS activity that occurs while the account isn't attached to an organization. For more information, see [Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md).
+
+### I get a `ConstraintViolationException` error for a project account
+<a name="troubleshoot_general_project-account-constraint-violation"></a>
+
+This error occurs when the account is a project account, which you created as a project in AWS Settings. An AWS Builder ID owns each project account instead of a root user email address. As a result, you can't remove a project account from its organization, and it can't leave or be transferred to another organization. To stop using a project account, close it from the management account. For more information about closing a member account, see [Closing a member account in an organization with AWS Organizations](orgs_manage_accounts_close.md). For more information about project accounts, see [Project accounts after you activate advanced features](https://docs.aws.amazon.com/accounts/latest/reference/activate-advanced-features.html#activate-advanced-features-project-accounts) in the *AWS Account Management Reference Guide*.
 
 ### I get a "quota exceeded" message when I try to add an account to my organization
 <a name="troubleshoot_general_error-adding-account"></a>

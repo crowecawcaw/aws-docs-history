@@ -25,6 +25,8 @@ If you delete an organization, you can't recover it. AWS also deletes any organi
 
 You can delete an organization only after you remove all member accounts from the organization. If you created some of your member accounts using AWS Organizations, you might be blocked from removing those accounts. You can remove a member account only if it has all the information that's required to operate as a standalone AWS account. For more information about how to provide that information and then remove the account, see [Leaving an organization from a member account with AWS Organizations](orgs_manage_accounts_leave-as-member.md).
 
+If your organization contains project accounts, which you created as projects in AWS Settings, you can't remove them. Close them instead, and delete the organization after they're permanently closed at the end of their 90-day post-closure period.
+
 **Member accounts in a 'suspended' state cannot be removed from an organization**
 
 If you closed a member account before you remove it from the organization, it enters a `Closed` state for a period of time and you can't remove the account from the organization until it is finally closed. This can take up to 90 days and can prevent you from deleting the organization until all member accounts are completely closed. 

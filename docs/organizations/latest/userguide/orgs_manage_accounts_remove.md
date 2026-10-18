@@ -26,6 +26,10 @@ If you receive a `ConstraintViolationException` when you try to remove an accoun
 **Note**  
 If you have AWS Enterprise Support and you are migrating accounts to another organization, you can work with Support to manage the billing during the migration. Open a billing support case from the management account to ask about options for handling charges for the standalone period, such as invoice-based billing, so that a separate payment method might not be required on each account. Availability depends on your support plan and billing configuration.
 
+**You can't remove a project account**
+
+An AWS Builder ID owns the member accounts that you created as projects in AWS Settings. You can't remove these project accounts from the organization. If you try, `RemoveAccountFromOrganization` fails with a `ConstraintViolationException` error that says the account is owned by a Builder ID. To stop using a project account, close it. For more information about closing a member account, see [Closing a member account in an organization with AWS Organizations](orgs_manage_accounts_close.md).
+
 **You must wait until at least four days after the account was created**
 
 To remove an account that you created in the organization, you must wait until at least four days after the account was created. Invited accounts aren't subject to this waiting period. 

@@ -21,6 +21,8 @@ When you create a new member account in your organization, the account has no ro
 
 You can [centralize root access for member accounts](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-enable-root-access.html) to remove root user credentials for existing member accounts in your organization. Deleting root user credentials removes the root user password, access keys, signing certificates, and deactivates multi-factor authentication (MFA). These member accounts do not have root user credentials, can't sign in as a root user, and are prevented from recovering the root user password. New accounts you create in Organizations have no root user credentials by default.
 
+Project accounts, which you created as projects in AWS Settings, don't have a root user that you can sign in to or recover.
+
 Contact your administrator if you need to perform a task that requires root user credentials on a member account where root user credentials are not present.
 
 To access your member account as the root user, you must go through the process for password recovery. For more information, see [I forgot my root user password for my AWS account](https://docs.aws.amazon.com/signin/latest/userguide/troubleshooting-sign-in-issues.html#troubleshoot-forgot-root-password) in the *AWS Sign-In User Guide*. 

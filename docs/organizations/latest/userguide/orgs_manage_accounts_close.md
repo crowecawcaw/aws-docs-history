@@ -25,11 +25,11 @@ If the member account's root user email address uses a domain registered through
 
 1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2). You must sign in as an IAM user, or sign in as the root user ([not recommended](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials)) in the organization’s management account.
 
-1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the member account you want to close. To select it, either choose the option (checkbox) next to the account name, or choose the account name to open its details page. Either selection makes the **Close** option available. You can navigate the OU hierarchy, or look at a flat list of accounts without the OU structure. 
+1. On the **[AWS accounts](https://console.aws.amazon.com/organizations/v2/home/accounts)** page, find the member account you want to close. To select it, either choose the option (checkbox) next to the account name, or choose the account name to open its details page. Either selection makes the **Close Account** option available. You can navigate the OU hierarchy, or look at a flat list of accounts without the OU structure. 
 
-1. Choose **Close** next to the account name at the top of the page. This option is only available when an AWS organization is in [All features](orgs_getting-started_concepts.md#feature-set-all) mode.
+1. Choose **Close Account** next to the account name at the top of the page. This option is only available when an AWS organization is in [All features](orgs_getting-started_concepts.md#feature-set-all) mode.
 **Note**  
-If your organization is using [Consolidated billing](orgs_getting-started_concepts.md#feature-set-cb-only) mode, you won't be able to see the **Close** button in the console. To close an account in consolidated billing mode, sign in to the account you want to close as the root user. On the **Accounts** page, choose the **Close account** button, enter your account ID, and then choose the **Close account** button.
+If your organization is using [Consolidated billing](orgs_getting-started_concepts.md#feature-set-cb-only) mode, you won't be able to see the **Close Account** button in the console. To close an account in consolidated billing mode, sign in to the account you want to close as the root user. On the **Accounts** page, choose the **Close account** button, enter your account ID, and then choose the **Close account** button.
 
 1. Read and ensure that you understand the account closure guidance.
 
