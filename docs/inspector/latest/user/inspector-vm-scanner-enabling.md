@@ -31,6 +31,12 @@
 
  After you enable Enhanced EC2 Scanning, Amazon Inspector creates an SSM association that installs the VM Scanner on all eligible instances in your account. The scanner begins executing vulnerability assessments automatically. 
 
+**Note**  
+ Warning: Enabling Enhanced EC2 Scanning with the Inspector VM Scanner permanently disables the Inspector SSM plugin. This applies to both individual AWS accounts and organizations that the delegated administrator enables. After you enable this feature, you cannot revert to the Inspector SSM plugin. 
+
+**Note**  
+ Before you enable Enhanced EC2 Scanning, consider testing in a non-production account first. If you do not test first, you cannot revert to the Inspector SSM plugin if issues arise. For more information, see [Manual installation and configuration](https://docs.aws.amazon.com/inspector/latest/user/inspector-vm-scanner-using.html). 
+
 ## Amazon VPC endpoint requirements for Enhanced EC2 Scanning on private Amazon EC2 instances
 <a name="inspector-vm-scanner-vpc-endpoints"></a>
 

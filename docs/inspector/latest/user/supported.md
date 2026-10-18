@@ -202,6 +202,7 @@ Ubuntu
 | Bottlerocket | – | 
 | BusyBox | 1.36.0\+ | 
 | Chainguard | – | 
+| CleanStart | – | 
 | Debian Server (Bookworm) | 12 | 
 | Debian Server (Trixie) | 13 | 
 | Debian Sid | – | 
