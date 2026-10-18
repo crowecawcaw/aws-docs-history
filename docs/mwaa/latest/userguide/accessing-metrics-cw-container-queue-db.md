@@ -7,7 +7,7 @@ In addition to Apache Airflow metrics, you can monitor the underlying components
 
 
 
-Amazon MWAA will provide CPU and memory utilization for each Amazon Elastic Container Service (Amazon ECS) container and Amazon Aurora PostgreSQL instance, and Amazon Simple Queue Service (Amazon SQS) metrics for the number of messages and the age of the oldest message, Amazon Relational Database Service (Amazon RDS) metrics for database connections, disk queue depth, write operations, latency, and throughput, and Amazon RDS Proxy metrics. These metrics also include the number of base workers, additional workers, schedulers, and webservers.
+Amazon MWAA will provide CPU and memory utilization for each Amazon Elastic Container Service (Amazon ECS) container and Amazon Aurora PostgreSQL instance, and Amazon Simple Queue Service (Amazon SQS) metrics for the number of messages and the age of the oldest message, Amazon Relational Database Service (Amazon RDS) metrics for database connections, disk queue depth, free local storage, write operations, latency, and throughput, and Amazon RDS Proxy metrics. These metrics also include the number of base workers, additional workers, schedulers, and webservers.
 
 These statistics are kept for 15 months, so that you can access historical information and gain a better perspective on why a schedule is failing, and troubleshoot underlying issues. You can also set alarms that monitor for certain thresholds, and send notifications or take actions when those thresholds are met. For more information, refer to the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/).
 
@@ -136,6 +136,7 @@ The following metrics apply to each database instance associated with the Amazon
 | `AWS/MWAA` | `DatabaseConnections` | Count | 
 | `AWS/MWAA` | `DiskQueueDepth` | Count | 
 | `AWS/MWAA` | `FreeableMemory` | Bytes | 
+| `AWS/MWAA` | `FreeLocalStorage` | Bytes | 
 | `AWS/MWAA` | `VolumeWriteIOPS` | Count per five minutes | 
 | `AWS/MWAA` | `WriteIOPS` | Count per second | 
 | `AWS/MWAA` | `WriteLatency` | Seconds | 
