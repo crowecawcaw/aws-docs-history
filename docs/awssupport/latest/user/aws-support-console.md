@@ -11,7 +11,7 @@ The Support Center Console API enhances your experience with the Support Center 
 For a complete list of actions provided by the Support Center Console API, see the table in [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md).
 
 **Important**  
-To continue to use the functions included in the Support Center Console API, you must add the Support Center Console operations to your AWS Identity and Access Management policies before November 16, 2026. After you create the IAM policies, update the AWS Support managed policy to include the `support-console:*` actions. For more information, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md).
+To continue to use the functions included in the Support Center Console API, you must have the Support Center Console operations in your AWS Identity and Access Management policies before November 16, 2026. If you use the AWSSupportAccess managed policy, no change is needed. If you use your own policies, add the `support-console:*` actions to them. For more information, see [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md).
 
 **Topics**
 + [Adding IAM policies for the Support Center Console API operations](support-console-access-control.md)
