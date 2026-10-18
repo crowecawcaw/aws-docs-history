@@ -59,7 +59,7 @@ A write operation fails with a `ReplicatedWriteConflictException` when it attemp
 
 The following considerations apply to MRSC global tables:
 + Time to Live (TTL) is not supported for MRSC global tables.
-+ Local secondary indexes (LSIs) are not supported for MRSC global tables.
++ Local secondary indexes (LSIs) are not supported for MRSC global tables. Global secondary indexes (GSIs) are supported. As with single-Region tables, reads from a GSI are eventually consistent. For more information, see [Using Global Secondary Indexes in DynamoDB](GSI.md).
 + CloudWatch Contributor Insights information is only reported for the Region in which an operation occurred.
 
 ## Choosing a consistency mode

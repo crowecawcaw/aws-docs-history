@@ -179,7 +179,7 @@ If you're migrating an application that uses the SDK for Java v1.x to the SDK fo
       <dependency>
          <groupId>software.amazon.dynamodb</groupId>
          <artifactId>DynamoDBLocal</artifactId>
-         <version>3.3.0</version>
+         <version>3.3.2</version>
       </dependency>
    </dependencies>
    ```
@@ -214,7 +214,7 @@ If you're migrating an application that uses the SDK for Java v1.x to the SDK fo
       <dependency>
           <groupId>software.amazon.dynamodb</groupId>
           <artifactId>DynamoDBLocal</artifactId>
-          <version>3.3.0</version>
+          <version>3.3.2</version>
       </dependency>
       <!-- Spring Boot -->
       <dependency>

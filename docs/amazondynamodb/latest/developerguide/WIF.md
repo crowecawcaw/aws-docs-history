@@ -89,7 +89,12 @@ Once again, here is the security policy for *GameRole* that was shown in [Using 
                ]
             },
             "StringEqualsIfExists":{
-               "dynamodb:Select":"SPECIFIC_ATTRIBUTES"
+               "dynamodb:Select":"SPECIFIC_ATTRIBUTES",
+               "dynamodb:ReturnValues":[
+                  "NONE",
+                  "UPDATED_OLD",
+                  "UPDATED_NEW"
+               ]
             }
          }
       }

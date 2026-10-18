@@ -68,7 +68,7 @@ If you don't specify a consistency mode when you create a global table, the glob
   + AP Region set: Asia Pacific (Tokyo), Asia Pacific (Seoul), and Asia Pacific (Osaka)
 + MRSC global tables can't span Region sets. For example, an MRSC global table can't contain replicas from both US and EU Region sets.
 + Time to Live (TTL) isn't supported for MRSC global tables.
-+ Local secondary indexes (LSIs) aren't supported for MRSC global tables.
++ Local secondary indexes (LSIs) aren't supported for MRSC global tables. Global secondary indexes (GSIs) are supported, and reads from a GSI are eventually consistent.
 + CloudWatch Contributor Insights information is only reported for the Region in which an operation occurred.
 + The local Region accepts all read and write operations as long as there is a second Region that hosts a replica or witness to establish quorum. If a second Region isn't available, the local Region can only service eventually consistent reads.
 + In the unlikely event that a Region goes fully offline, when it comes back online later, it will automatically catch up. Until it's caught up, write operations and strongly consistent read operations *only* to the catching up Region will return errors while requests to other Regions will continue to perform normally. Eventually consistent read operations to the catching up Region will return the data that has so far been propagated into the Region, with usual local consistency behavior between the leader node and local replicas. No special action is required to bring the tables back in sync.

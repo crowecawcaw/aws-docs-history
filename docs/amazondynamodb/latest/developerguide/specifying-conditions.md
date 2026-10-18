@@ -168,7 +168,12 @@ To manage user permissions in this app, you could write a permissions policy suc
                ]
             },
             "StringEqualsIfExists":{
-               "dynamodb:Select":"SPECIFIC_ATTRIBUTES"
+               "dynamodb:Select":"SPECIFIC_ATTRIBUTES",
+               "dynamodb:ReturnValues":[
+                  "NONE",
+                  "UPDATED_OLD",
+                  "UPDATED_NEW"
+               ]
             }
          }
       }
@@ -181,6 +186,7 @@ To manage user permissions in this app, you could write a permissions policy suc
 In addition to granting permissions for specific DynamoDB actions (`Action` element) on the `GameScores` table (`Resource` element), the `Condition` element uses the following condition keys specific to DynamoDB that limit the permissions as follows:
 + `dynamodb:LeadingKeys` – This condition key allows users to access only the items where the partition key value matches their user ID. This ID, `${www.amazon.com:user_id}`, is a substitution variable. For more information about substitution variables, see [Using web identity federation](WIF.md).
 + `dynamodb:Attributes` – This condition key limits access to the specified attributes so that only the actions listed in the permissions policy can return values for these attributes. In addition, the `StringEqualsIfExists` clause ensures that the app must always provide a list of specific attributes to act upon and that the app can't request all attributes.
++ `dynamodb:ReturnValues` – This condition key restricts the `ReturnValues` parameter to `NONE`, `UPDATED_OLD`, or `UPDATED_NEW`. Write actions such as `UpdateItem` perform an implicit read to check whether an item exists before replacing it, and can return attribute values from before or after the update. Excluding `ALL_OLD` and `ALL_NEW` prevents the app from reading attributes that are not in the `dynamodb:Attributes` list.
 
 When an IAM policy is evaluated, the result is always either true (access is allowed) or false (access is denied). If any part of the `Condition` element is false, the entire policy evaluates to false and access is denied.
 

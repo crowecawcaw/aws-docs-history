@@ -25,6 +25,7 @@ DynamoDB Streams writes stream records in near-real time so that you can build a
 + [Tagging DynamoDB Streams](Tagging.Streams.md)
 + [Using the DynamoDB Streams Kinesis adapter to process stream records](Streams.KCLAdapter.md)
 + [DynamoDB Streams low-level API: Java example](Streams.LowLevel.Walkthrough.md)
++ [Using the DynamoDB Streams Kinesis Adapter to read records from a timestamp](Streams.Timestamp.md)
 + [DynamoDB Streams and AWS Lambda triggers](Streams.Lambda.md)
 + [DynamoDB Streams and Apache Flink](StreamsApacheFlink.xml.md)
 
