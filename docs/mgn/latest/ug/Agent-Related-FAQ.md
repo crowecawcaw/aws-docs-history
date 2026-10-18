@@ -151,9 +151,9 @@ Rescans can still happen following a hard reboot, crashes, or when you add or re
 + Windows 11
 
 **Linux**
-+  CentOS 6–8, Stream 9, Stream 10 
-+  Oracle 6–8 
-+  RHEL 6–9.8, 10, 10.1, 10.2 
++  CentOS 7–8, Stream 9, Stream 10 
++  Oracle 7–8 
++  RHEL 7–9.8, 10, 10.1, 10.2 
 +  Rocky Linux 8–9.8, 10, 10.1, 10.2 
 +  SLES 12 and 15 
 +  Debian 9–12 

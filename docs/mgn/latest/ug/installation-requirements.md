@@ -13,7 +13,9 @@ Before installing the AWS Replication Agent on your source servers, ensure that 
   + [Supported Windows operating systems.](/mgn/latest/ug/Supported-Operating-Systems.html#Supported-Operating-Systems-Windows)
   + [Supported Linux operating systems.](/mgn/latest/ug/Supported-Operating-Systems.html#Supported-Operating-Systems-Linux)
 + Ensure that your setup meets all networking requirements. [Learn more about network requirements.](preparing-environments.md) 
-+ Ensure MAC address stability – ensure that the MAC addresses of the source servers do not change upon a reboot or any other common changes in your network environment. AWS Transform MGN calculates the unique ID of the source server from the MAC address. When a MAC address changes, MGN is no longer able to correctly identify the source server. Consequently, replication stops. If this happens, you need to reinstall the AWS Replication Agent and start replication from the beginning. 
++ Ensure hardware identifier stability and uniqueness. AWS Transform MGN identifies each source server by using the first available identifier in the following order: AWS instance ID, Google Cloud instance ID, vCenter UUID, or MAC addresses. If the identifier MGN is using for a source server changes, MGN can no longer correctly identify the source server. Consequently, replication stops. If this happens, you need to reinstall the AWS Replication Agent and start replication from the beginning. 
+
+  If a newly installed server has the same identifier as a previously installed server, MGN treats it as the same source server and the second installation updates the first. Before installing the AWS Replication Agent on a cloned VM, ensure it has a unique identifier, so it can be recognized as a separate source server. 
 + AWS Transform MGN does not support fully paravirtualized source servers. Source servers with partial paravirtualization, such as VMWare's paravirtualization of I/O devices, are supported. 
 + The AWS Replication Agent installer supports multipath. 
 
