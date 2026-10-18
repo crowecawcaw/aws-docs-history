@@ -24,6 +24,7 @@ Regardless of which option you choose, before the process starts, all the nodes 
 |  | Option 1: Rolling update | Option 2: Full-fleet maintenance stop | 
 | --- | --- | --- | 
 | Running jobs | Does not require job termination | All running jobs terminated | 
+| AMI requirement | Must include both current and target Slurm versions | Needs only the target Slurm version | 
 | Minimum cluster controller version | 24.05 | No restriction | 
 | Compute fleet after controller update | Mixed versions temporarily; drain steps required. We recommend minimizing the amount of time during which mixed versions are used in a cluster. | All nodes start fresh on target version | 
 

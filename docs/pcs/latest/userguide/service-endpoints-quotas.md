@@ -28,6 +28,7 @@ The `pcs.{{region}}.api.aws` endpoints are dual-stack. They support both IPv4 an
 | US West (Oregon) | us-west-2 | pcs.us-west-2.amazonaws.com<br />pcs-fips.us-west-2.amazonaws.com<br />pcs-fips.us-west-2.api.aws<br />pcs.us-west-2.api.aws | HTTPS | 
 | Africa (Cape Town) | af-south-1 | pcs.af-south-1.amazonaws.com<br />pcs.af-south-1.api.aws | HTTPS | 
 | Asia Pacific (Mumbai) | ap-south-1 | pcs.ap-south-1.amazonaws.com<br />pcs.ap-south-1.api.aws | HTTPS | 
+| Asia Pacific (Hyderabad) | ap-south-2 | pcs.ap-south-2.amazonaws.com<br />pcs.ap-south-2.api.aws | HTTPS | 
 | Asia Pacific (Singapore) | ap-southeast-1 | pcs.ap-southeast-1.amazonaws.com<br />pcs.ap-southeast-1.api.aws | HTTPS | 
 | Asia Pacific (Sydney) | ap-southeast-2 | pcs.ap-southeast-2.amazonaws.com<br />pcs.ap-southeast-2.api.aws | HTTPS | 
 | Asia Pacific (Jakarta) | ap-southeast-3 | pcs.ap-southeast-3.amazonaws.com<br />pcs.ap-southeast-3.api.aws | HTTPS | 

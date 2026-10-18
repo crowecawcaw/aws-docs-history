@@ -15,6 +15,7 @@ The controller is updated while the fleet keeps running. Existing nodes continue
 
 **When to use:**
 + The cluster controller is on Slurm version 24.05 or later.
++ You can provide AMIs that include both the current and target Slurm versions.
 
 ### Step 0 — Check starting state
 <a name="version_update-procedure-option1-step0"></a>
@@ -22,11 +23,12 @@ The controller is updated while the fleet keeps running. Existing nodes continue
 Your cluster is running controller version "A" (e.g. 24.11) and you want to migrate to version "B" (e.g. 25.11). Confirm all compute nodes in your fleet run the same major version, using this command from a cluster node:
 
 ```
-scontrol show nodes | grep "Version="
+sinfo -N -o "%N %T %v"
 
 # Example output:
-#   NodeAddr=compute-1 NodeHostName=compute-1 Version=24.11.7
-#   NodeAddr=compute-2 NodeHostName=compute-2 Version=24.11.7
+#   NODELIST    STATE VERSION
+#   compute-1   idle  24.11.7
+#   compute-2   idle  24.11.7
 ```
 
 Confirm the AWS PCS agent version on a compute node. Connect to the node with Systems Manager and check the bootstrap log:
@@ -38,18 +40,60 @@ grep "PCS Agent version" /var/log/amazon/pcs/bootstrap.log | tail -1
 #   /opt/aws/pcs/bin/pcs_bootstrap_init.sh: INFO: Bootstrap starting with PCS Agent version: 1.3.2-1
 ```
 
-Rolling updates require AWS PCS agent version 1.4.0 or later on all compute node AMIs. For more information, see [AWS PCS agent versions](pcs-agent-versions.md).
+Rolling updates require AWS PCS agent version 1.5.1-1 or later on all compute node AMIs. For more information, see [AWS PCS agent versions](pcs-agent-versions.md).
 
-### Step 1 — Prepare the target AMIs
+### Step 1 — Prepare and roll out the dual-version AMIs
 <a name="version_update-procedure-option1-step1"></a>
 
-Build or identify AMIs that include **Slurm version B and the latest AWS PCS agent**.
+Build or identify AMIs that include **both Slurm version A and version B, and the latest AWS PCS agent**.
 + You can use the latest **PCS-ready DLAMIs**. Such AMIs ship with the latest three supported Slurm versions. For more information, see [Using PCS-ready DLAMI with AWS PCS](working-with_ami_pcs-ready-dlami.md).
 + You can build a **custom AMI**, following the installation steps for Slurm packages and AWS PCS agent. For more information, see [Custom Amazon Machine Images (AMIs) for AWS PCS](working-with_ami_custom.md).
 + We do not recommend the **AWS PCS sample AMI** for production use. These AMIs are for testing only.
 
 **Note**  
-The same AMI can include multiple Slurm versions. AWS PCS automatically selects the version that matches the controller. Having additional versions installed does not cause issues.
+If your AMI includes more than one Slurm version, AWS PCS automatically selects the version that matches the controller. Having additional versions installed does not cause issues.
+
+Once the AMIs are ready:
+
+1. Call `UpdateComputeNodeGroup` on each compute node group to set the new dual-version AMI. Nodes will be set into DRAIN by AWS PCS and will migrate to the new AMI.
+
+------
+#### [ AWS Management Console ]
+
+   1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/pcs/).
+
+   1. In the navigation pane, choose **Clusters**, and then select the cluster.
+
+   1. Choose **Compute node groups**, select the compute node group to update, and choose **Edit**.
+
+   1. Under **Computing configuration**, enter the ID of the dual-version AMI in **AMI ID**.
+
+   1. Choose **Update**. The compute node group shows as `UPDATING` while the change is applied.
+
+   1. Repeat these steps for each compute node group in the cluster.
+
+------
+#### [ AWS CLI ]
+
+   Run the following command for each compute node group in the cluster:
+
+   ```
+   aws pcs update-compute-node-group \
+     --cluster-identifier {{cluster-id}} \
+     --compute-node-group-identifier {{cng-id}} \
+     --ami-id {{new-ami-id}}
+   ```
+
+------
+
+1. Wait for drained nodes to complete their jobs, terminate, and be replaced by nodes using the new dual-version AMI. Check all EC2 instances in the cluster are using the new AMI with:
+
+   ```
+   aws ec2 describe-instances \
+       --filters "Name=tag:aws:pcs:cluster-id,Values={{cluster-id}}" \
+       --query "Reservations[].Instances[].[InstanceId,ImageId,State.Name]" \
+       --output table
+   ```
 
 ### Step 2 — Update the cluster controller
 <a name="version_update-procedure-option1-step2"></a>
@@ -89,47 +133,40 @@ During this operation the controller is briefly unavailable:
 + New job submissions and scheduler commands are unavailable until the update completes.
 + Automatic scaling is paused until the cluster returns to `ACTIVE`.
 
+After the update, the compute fleet is in a **mixed state**: nodes running before the update continue using Slurm version A's `slurmd`; new nodes use Slurm version B. This is expected.
+
 **Note**  
 Do not add Slurm settings specific to version B while the fleet still contains nodes on version A. Configuration is distributed to all nodes; the old `slurmd` may not recognize new parameters.
 
 If the cluster does not return to `ACTIVE` or `UPDATE_FAILED` within 30 minutes, contact AWS Support for assistance.
 
-### Step 3 — Update compute node groups
+### Step 3 — Drain nodes still running Slurm version A
 <a name="version_update-procedure-option1-step3"></a>
 
-For each compute node group, set the new AMI with the target Slurm version:
+Identify and drain nodes still on the previous version. From a node of the cluster, list each node with its state and Slurm version:
 
 ```
-aws pcs update-compute-node-group \
-  --cluster-identifier {{cluster-id}} \
-  --compute-node-group-identifier {{cng-id}} \
-  --ami-id {{new-ami-id}}
+sinfo -N -o "%N %T %v"
 ```
 
-AWS PCS sets nodes running the previous version to `DRAIN` state. After the drained nodes finish their current jobs, AWS PCS terminates the nodes and replaces them with new nodes running Slurm version B.
+For each node that still reports version A, run the following command. Use the node name from the `NODELIST` column. The EC2 host name isn't a valid Slurm node name.
+
+```
+scontrol update NodeName={{node}} State=POWER_DOWN_ASAP Reason="Slurm version update"
+```
+
+Once drained nodes finish their current jobs they terminate and are replaced by nodes on Slurm version B.
 
 ### Step 4 — Verify consistent fleet on Slurm version B
 <a name="version_update-procedure-option1-step4"></a>
 
-Monitor the fleet transition. From a cluster node, check the version summary across all nodes:
+Monitor the fleet until all nodes report Slurm version B. From a node of the cluster, run:
 
 ```
-scontrol show nodes | grep "Version=" | awk -F'=' '{print $NF}' | sort | uniq -c
+sinfo -N -o "%N %T %v"
 ```
 
-Check nodes in `DRAIN` state and their version:
-
-```
-scontrol show nodes | awk '/NodeName=/{name=$1; ver=""} /Version=/{ver=$NF} /State=.*DRAIN/{print name, ver}'
-```
-
-Check the version for all active nodes:
-
-```
-scontrol show nodes | awk '/NodeName=/{name=$1; ver=""} /Version=/{ver=$NF} /State=/{if (ver) print name, ver}'
-```
-
-The update is complete when the version summary shows only the target version and no nodes remain in `DRAIN` or `DRAINING` state. Nodes in the `POWERED_DOWN` state do not report a version until AWS PCS launches them.
+While nodes are recycled they pass through the `DRAINING`, `POWERING_DOWN`, and `POWERED_DOWN` states. A node in the `POWERED_DOWN` state (shown with a `~` suffix, such as `idle~`) isn't running. Until AWS PCS launches it again, it shows the version that it last ran, or `N/A` if it has never launched. The update is complete when no nodes remain in a `DRAIN`, `DRAINING`, or `POWERING_DOWN` state and every node that isn't powered down reports version B.
 
 ## Option 2: Full-fleet maintenance stop
 <a name="version_update-procedure-option2"></a>
@@ -148,11 +185,12 @@ Terminating the entire fleet at once increases the likelihood of insufficient ca
 Your cluster is running controller version "A" (e.g. 24.11) and you want to migrate to version "B" (e.g. 25.11). Confirm all compute nodes in your fleet run the same major version, using this command from a cluster node:
 
 ```
-scontrol show nodes | grep "Version="
+sinfo -N -o "%N %T %v"
 
 # Example output:
-#   NodeAddr=compute-1 NodeHostName=compute-1 Version=24.11.7
-#   NodeAddr=compute-2 NodeHostName=compute-2 Version=24.11.7
+#   NODELIST    STATE VERSION
+#   compute-1   idle  24.11.7
+#   compute-2   idle  24.11.7
 ```
 
 Confirm the AWS PCS agent version on a compute node. Connect to the node with Systems Manager and check the bootstrap log:
