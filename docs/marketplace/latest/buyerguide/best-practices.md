@@ -31,7 +31,7 @@ Conduct regular audits of experiences, their associated audiences, and the list 
 ## Monitor all administration actions
 <a name="monitor-actions"></a>
 
-Track all Private Marketplace management actions through the **Change sets** page. You can also use AWS CloudTrail. For more information, see [Viewing changes](view-changes.md).
+Track all Private Marketplace management actions through the **Track changes** page. You can also use AWS CloudTrail. For more information, see [Viewing changes](view-changes.md).
 
 ## Manage your approved product list
 <a name="manage-product-list"></a>

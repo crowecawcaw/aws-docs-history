@@ -5,13 +5,13 @@
 
 Private Marketplace administration actions are performed using Catalog API. Actions are started as change sets with one or more changes to create or update Private Marketplace entities. For details, see [Working with Private Marketplace](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/private-marketplace.html) in the *AWS Marketplace API Reference*.
 
-All Private Marketplace change sets are listed on the **Change sets** page. This also includes change sets which are started by directly calling the APIs.
+All Private Marketplace change sets are listed on the **Track changes** page. This also includes change sets which are started by directly calling the APIs.
 
 **To track the status of Private Marketplace administration actions**
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/).
 
-1. In the navigation pane, choose **Change sets** under **Private Marketplace**.
+1. In the navigation pane, choose **Track changes** under **Private Marketplace**.
 
 1. To view a specific change set, filter using the change set ID. You can also filter using status **Succeeded**, **Failed**, **In progress**, or **Cancelled**.
 
