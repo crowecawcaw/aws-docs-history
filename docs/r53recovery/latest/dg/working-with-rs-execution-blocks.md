@@ -32,3 +32,4 @@ Region switch supports the following execution blocks.
 | [Custom action Lambda execution block](custom-action-lambda-block.md) | Add a custom step for running a Lambda function, to enable custom actions. | Optionally skip the step. If you don't configure skip behavior, the step runs during ungraceful execution. | 
 | [Amazon Route 53 health check execution block](route53-health-check-block.md) | Specifies the Regions that your application traffic will be redirected to during failover. | N/A | 
 | [Lambda event source mapping execution block](lambda-event-source-mapping-block.md) | Add a step to enable or disable a Lambda event source mapping. | Optionally skip the step. If you don't configure skip behavior, the step runs during ungraceful execution. | 
+| [AWS Systems Manager Run Command execution block](ssm-send-command-block.md) | Run an AWS Systems Manager command document against managed nodes as part of your plan execution. | Skip the step. | 

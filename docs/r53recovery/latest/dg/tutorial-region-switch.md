@@ -139,12 +139,13 @@ For more information about this execution block, see [Custom action Lambda execu
 
 1. In the right panel, configure the block:
    + **Step name**: Enter "Display maintenance page"
-   + **Step description** (optional)
+   + **Step description** **(optional)**
    + **Lambda ARN for activating us-east-1**: The ARN of the maintenance page Lambda function deployed in us-east-1
    + **Lambda ARN for activating us-west-2**: The ARN of the maintenance page Lambda function deployed in us-west-2
+   + **Payload** **(optional)**: Enter a valid JSON payload to invoke the Lambda function with.
    + **Region to run the Lambda function**: Choose **Run in activating Region**
-   + **Timeout** (optional)
-   + **Retry interval** (optional)
+   + **Timeout** **(optional)**
+   + **Retry interval** **(optional)**
 
    For information about the required IAM permissions for this execution block, see [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md).
 

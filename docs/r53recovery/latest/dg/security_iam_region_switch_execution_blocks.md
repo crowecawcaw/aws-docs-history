@@ -21,4 +21,5 @@
 + [Custom action Lambda execution block sample policy](security_iam_region_switch_lambda.md)
 + [Route 53 health check execution block sample policy](security_iam_region_switch_route53.md)
 + [Lambda event source mapping execution block sample policy](security_iam_region_switch_lambda_esm.md)
++ [AWS Systems Manager Run Command execution block sample policy](security_iam_region_switch_ssm.md)
 + [Region switch plan execution block sample policy](security_iam_region_switch_plan_execution.md)

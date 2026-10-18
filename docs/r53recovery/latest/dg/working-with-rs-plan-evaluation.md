@@ -95,6 +95,10 @@ Region switch performs specific checks for each execution block type in your pla
   - **Check category:** Configuration / **Description:** Checks that the Region switch-allocated health check is associated with the correct record set.
   - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role is authorized to access the hosted zone.
 
+- **[AWS Systems Manager Run Command execution block](ssm-send-command-block.md)**
+  - **Check category:** Resource accessibility / **Description:** Checks that the AWS Systems Manager document exists in the Region specified in its document ARN. For targets that are specified by instance ID, checks that each instance is a managed node and its AWS Systems Manager Agent is online.
+  - **Check category:** IAM permissions / **Description:** Checks that the plan's IAM role has the required policies for AWS Systems Manager Run Command operations (for example, ssm:DescribeDocument, ssm:DescribeInstanceInformation, ssm:SendCommand, ssm:ListCommandInvocations, and ssm:CancelCommand).
+
 
 
 **Note**  
