@@ -241,7 +241,7 @@ For additional troubleshooting, see the [Finch documentation](https://runfinch.c
 
 Now that you have Finch installed, you can use it with AWS SAM CLI to:
 + Build serverless applications using containers with `sam build --use-container`. For more information, see [sam build](sam-cli-command-reference-sam-build.md).
-+ Test Lambda functions locally with `sam local invoke`. For more information, see [sam local invoke](sam-cli-command-reference-sam-local-invoke.md).
++ Test Lambda Event Functions locally with `sam local invoke`. For more information, see [sam local invoke](sam-cli-command-reference-sam-local-invoke.md).
 + Start a local API Gateway with `sam local start-api`. For more information, see [sam local start-api](sam-cli-command-reference-sam-local-start-api.md).
 + Start a local Lambda endpoint with `sam local start-lambda`. For more information, see [sam local start-lambda](sam-cli-command-reference-sam-local-start-lambda.md).
 

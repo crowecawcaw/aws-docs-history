@@ -44,7 +44,7 @@ Whether this deployment preference is enabled.
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
  `Hooks`   <a name="sam-function-deploymentpreference-hooks"></a>
-Validation Lambda functions that are run before and after traffic shifting.  
+Validation Lambda Event Functions that are run before and after traffic shifting.  
 *Type*: [Hooks](sam-property-function-hooks.md)  
 *Required*: No  
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.

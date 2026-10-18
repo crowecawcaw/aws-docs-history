@@ -1,15 +1,15 @@
 
 
-# Building .NET Lambda functions with Native AOT compilation in AWS SAM
+# Building .NET Lambda Event Functions with Native AOT compilation in AWS SAM
 <a name="build-dotnet7"></a>
 
-Build and package your .NET 8 AWS Lambda functions with the AWS Serverless Application Model (AWS SAM), utilizing Native Ahead-of-Time (AOT) compilation to improve AWS Lambda cold-start times.
+Build and package your .NET 8 AWS Lambda Event Functions with the AWS Serverless Application Model (AWS SAM), utilizing Native Ahead-of-Time (AOT) compilation to improve AWS Lambda cold-start times.
 
 **Topics**
 + [.NET 8 Native AOT overview](#build-dotnet7-overview)
-+ [Using AWS SAM with your .NET 8 Lambda functions](#build-dotnet7-sam)
++ [Using AWS SAM with your .NET 8 Lambda Event Functions](#build-dotnet7-sam)
 + [Install prerequisites](#build-dotnet7-prerequisites)
-+ [Define .NET 8 Lambda functions in your AWS SAM template](#build-dotnet7-sam-define)
++ [Define .NET 8 Lambda Event Functions in your AWS SAM template](#build-dotnet7-sam-define)
 + [Build your application with the AWS SAM CLI](#build-dotnet7-sam-build)
 + [Learn more](#build-dotnet7-learn-more)
 
@@ -18,7 +18,7 @@ Build and package your .NET 8 AWS Lambda functions with the AWS Serverless Appli
 
 Historically, .NET Lambda functions have cold-start times which impact user experience, system latency, and usage costs of your serverless applications. With .NET Native AOT compilation, you can improve cold-start times of your Lambda functions. To learn more about Native AOT for .NET 8, see [Using Native AOT](https://github.com/dotnet/runtime/tree/main/src/coreclr/nativeaot#readme) in the *Dotnet GitHub repository*.
 
-## Using AWS SAM with your .NET 8 Lambda functions
+## Using AWS SAM with your .NET 8 Lambda Event Functions
 <a name="build-dotnet7-sam"></a>
 
 Do the following to configure your .NET 8 Lambda functions with the AWS Serverless Application Model (AWS SAM):
@@ -72,7 +72,7 @@ The following are required prerequisites:
 **Install Docker**
 + Building with Native AOT, requires Docker to be installed. For installation instructions, see [Installing Docker to use with the AWS SAM CLI](install-docker.md).
 
-## Define .NET 8 Lambda functions in your AWS SAM template
+## Define .NET 8 Lambda Event Functions in your AWS SAM template
 <a name="build-dotnet7-sam-define"></a>
 
 To define a .NET8 Lambda function in your AWS SAM template, do the following:

@@ -5,7 +5,7 @@
 
 To build your serverless application, use the `sam build` command. This command also gathers the build artifacts of your application's dependencies and places them in the proper format and location for next steps, such as locally testing, packaging, and deploying.
 
-You specify your application's dependencies in a manifest file, such as `requirements.txt` (Python) or `package.json` (Node.js), or by using the `Layers` property of a function resource. The `Layers` property contains a list of [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) resources that the Lambda function depends on.
+You specify your application's dependencies in a manifest file, such as `requirements.txt` (Python) or `package.json` (Node.js), or by using the `Layers` property of a function resource. The `Layers` property contains a list of [AWS Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) resources that the Lambda Event Function depends on.
 
 The format of your application's build artifacts depends on each function's `PackageType` property. The options for this property are:
 + **`Zip`** – A .zip file archive, which contains your application code and its dependencies. If you package your code as a .zip file archive, you must specify a Lambda runtime for your function.

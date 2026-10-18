@@ -32,7 +32,7 @@ Configure a DynamoDB table as a data source for your GraphQL API resolver.
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
 `Lambda`  <a name="sam-graphqlapi-datasource-lambda"></a>
-Configure a Lambda function as a data source for your GraphQL API resolver.  
+Configure a Lambda Event Function as a data source for your GraphQL API resolver.  
 *Type*: [Lambda](sam-property-graphqlapi-datasource-lambda.md)  
 *Required*: No  
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.

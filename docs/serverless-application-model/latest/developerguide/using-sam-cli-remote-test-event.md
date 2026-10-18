@@ -3,7 +3,7 @@
 # Introduction to cloud testing with sam remote test-event
 <a name="using-sam-cli-remote-test-event"></a>
 
-Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote test-event` command to access and manage shareable test events for your AWS Lambda functions.
+Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote test-event` command to access and manage shareable test events for your AWS Lambda Event Functions.
 
 To learn more about shareable test events, see [Shareable test events](https://docs.aws.amazon.com/lambda/latest/dg/testing-functions.html#creating-shareable-events) in the *AWS Lambda Developer Guide*.
 
@@ -143,7 +143,7 @@ $ sam remote test-event put --help
 ## Using shareable test events
 <a name="using-sam-cli-remote-test-event-invoke"></a>
 
-Use shareable test events to test your Lambda functions in the AWS Cloud with the `sam remote invoke` command. To learn more, see [Pass shareable test events to a Lambda function in the cloud](using-sam-cli-remote-invoke.md#using-sam-cli-remote-invoke-shareable).
+Use shareable test events to test your Lambda functions in the AWS Cloud with the `sam remote invoke` command. To learn more, see [Pass shareable test events to a Lambda Event Function in the cloud](using-sam-cli-remote-invoke.md#using-sam-cli-remote-invoke-shareable).
 
 ## Managing shareable test events
 <a name="using-sam-cli-remote-test-event-manage"></a>

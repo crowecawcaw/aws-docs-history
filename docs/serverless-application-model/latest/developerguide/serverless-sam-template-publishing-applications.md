@@ -143,7 +143,7 @@ For information about sharing your application using the AWS CLI, see [AWS Serve
 ## Publishing a new version of an existing application
 <a name="serverless-sam-template-publishing-applications-new-version"></a>
 
-After you've published an application to the AWS Serverless Application Repository, you might want to publish a new version of it. For example, you might have changed your Lambda function code or added a new component to your application architecture.
+After you've published an application to the AWS Serverless Application Repository, you might want to publish a new version of it. For example, you might have changed your Lambda Event Function code or added a new component to your application architecture.
 
 To update an application that you've previously published, publish the application again using the same process detailed previously. In the `Metadata` section of the AWS SAM template file, provide the same application name that you originally published it with, but include a new `SemanticVersion` value.
 

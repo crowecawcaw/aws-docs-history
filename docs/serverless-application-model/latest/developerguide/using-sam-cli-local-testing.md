@@ -9,7 +9,7 @@ Key benefits of using AWS SAM CLI for local testing include:
 + **Rapid development** - Test code changes without deploying to AWS
 + **Cost efficiency** - Develop and test without incurring AWS charges
 + **Offline capability** - Work on your applications without an internet connection
-+ **Simplified debugging** - Step through Lambda function code locally using a debugger
++ **Simplified debugging** - Step through Lambda Event Function code locally using a debugger
 + **Realistic testing** - Test your applications using local emulation of AWS services
 
 ## Test AWS SAM applications locally

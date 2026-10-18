@@ -47,7 +47,7 @@ Useful for overriding the API's `DefaultAuthorizer` or setting auth config on an
 
  `Method`   <a name="sam-function-httpapi-method"></a>
 HTTP method for which this function is invoked.  
-If no `Path` and `Method` are specified, SAM will create a default API path that routes any request that doesn't map to a different endpoint to this Lambda function. Only one of these default paths can exist per API.  
+If no `Path` and `Method` are specified, SAM will create a default API path that routes any request that doesn't map to a different endpoint to this Lambda Event Function. Only one of these default paths can exist per API.  
 *Type*: String  
 *Required*: No  
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.

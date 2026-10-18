@@ -46,7 +46,7 @@ If you don't provide a resource ID, but do provide a stack name with the `--stac
 
 1. If the resource type has a single resource in your stack, the AWS SAM CLI will invoke it. If multiple resources of the resource type exists in your stack, the AWS SAM CLI will return an error.
 The following are examples of what the AWS SAM CLI will do:  
-+ **Stack that contains two Lambda functions and an Amazon SQS queue** – The AWS SAM CLI will locate the Lambda resource type and return and error since the stack contains more than one Lambda function.
++ **Stack that contains two Lambda Event Functions and an Amazon SQS queue** – The AWS SAM CLI will locate the Lambda resource type and return and error since the stack contains more than one Lambda function.
 + **Stack that contains a Lambda function and two Amazon Kinesis Data Streams applications** – The AWS SAM CLI will locate the Lambda function and invoke it since the stack contains a single Lambda resource.
 + **Stack that contains a single Amazon SQS queue and two Kinesis Data Streams applications** – The AWS SAM CLI will locate the Amazon SQS queue and invoke it since the stack contains a single Amazon SQS queue.
 

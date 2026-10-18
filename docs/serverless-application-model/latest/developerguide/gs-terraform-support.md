@@ -111,7 +111,7 @@ For Windows, you can install using [Chocolatey](https://chocolatey.org/). For in
 ### Define the Lambda artifacts build logic
 <a name="gs-terraform-support-projects-logic"></a>
 
-Use the `null_resource` Terraform resource type to define your Lambda build logic. The following is an example that uses a custom build script to build a Lambda function.
+Use the `null_resource` Terraform resource type to define your Lambda build logic. The following is an example that uses a custom build script to build a Lambda Event Function.
 
 ```
 resource "null_resource" "build_lambda_function" {

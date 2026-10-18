@@ -13,7 +13,7 @@ The `Resources` section of your AWS SAM template can contain a combination of Cl
 | [AWS::Serverless::Api](sam-resource-api.md) | Creates a collection of API Gateway resources and methods that can be invoked through HTTPS endpoints. | 
 | [AWS::Serverless::Application](sam-resource-application.md) | Embeds a serverless application from the [AWS Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications) or from an Amazon S3 bucket as a nested application. | 
 | [AWS::Serverless::Connector](sam-resource-connector.md) | Configures permissions between two resources. For an introduction to connectors, see [Managing resource permissions with AWS SAM connectors](managing-permissions-connectors.md). | 
-| [AWS::Serverless::Function](sam-resource-function.md) | Creates an AWS Lambda function, an AWS Identity and Access Management (IAM) execution role, and event source mappings that trigger the function. | 
+| [AWS::Serverless::Function](sam-resource-function.md) | Creates an AWS Lambda Event Function, an AWS Identity and Access Management (IAM) execution role, and event source mappings that trigger the function. | 
 | [AWS::Serverless::GraphQLApi](sam-resource-graphqlapi.md) | creates and configures an AWS AppSync GraphQL API for your serverless application. | 
 | [AWS::Serverless::HttpApi](sam-resource-httpapi.md) | Creates an Amazon API Gateway HTTP API, which enables you to create RESTful APIs with lower latency and lower costs than REST APIs. | 
 | [AWS::Serverless::LayerVersion](sam-resource-layerversion.md) | Creates a Lambda LayerVersion that contains library or runtime code needed by a Lambda Function. | 

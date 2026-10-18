@@ -7,7 +7,7 @@ This page provides reference information for the AWS Serverless Application Mode
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 + For documentation on using the AWS SAM CLI `sam local invoke` subcommand, see [Introduction to testing with sam local invoke](using-sam-cli-local-invoke.md).
 
-The `sam local invoke` subcommand initiates a one-time invocation of an AWS Lambda function locally.
+The `sam local invoke` subcommand initiates a one-time invocation of an AWS Lambda Event Function locally.
 
 **Note**  
 It's not recommended to use SAM CLI's local invoke capabilities in untrusted code. To have complete isolation from your local environment, execute the code in the Lambda service directly.

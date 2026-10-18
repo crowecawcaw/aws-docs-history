@@ -1,9 +1,9 @@
 
 
-# Locally invoke Lambda functions with AWS SAM
+# Locally invoke Lambda Event Functions with AWS SAM
 <a name="serverless-sam-cli-using-invoke"></a>
 
-Locally invoking a Lambda function before testing or deploying in the cloud can have a variety of benefits. It allows you to test the logic of your function faster. Testing locally first reduces the likelihood of identifying issues when testing in the cloud or during deployment, which can help you avoid unnecessary costs. Additionally, local testing makes debugging easier to do.
+Locally invoking a Lambda Event Function before testing or deploying in the cloud can have a variety of benefits. It allows you to test the logic of your function faster. Testing locally first reduces the likelihood of identifying issues when testing in the cloud or during deployment, which can help you avoid unnecessary costs. Additionally, local testing makes debugging easier to do.
 
 You can invoke your Lambda function locally by using the [sam local invoke](sam-cli-command-reference-sam-local-invoke.md) command and providing the function's logical ID and an event file. **sam local invoke** also accepts `stdin` as an event. For more information about events, see [Event](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-concepts.html#gettingstarted-concepts-event) in the *AWS Lambda Developer Guide*. For information about event message formats from different AWS services, see [Using AWS Lambda with other services](https://docs.aws.amazon.com/lambda/latest/dg/lambda-services.html) in the *AWS Lambda Developer Guide*.
 

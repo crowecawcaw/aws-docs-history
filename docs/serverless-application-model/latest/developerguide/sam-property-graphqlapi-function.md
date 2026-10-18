@@ -74,7 +74,7 @@ The unique name of your function.
 *CloudFormation compatibility*: This property is passed directly to the `[Name](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-name)` property of an `AWS::AppSync::FunctionConfiguration` resource.
 
 `MaxBatchSize`  <a name="sam-graphqlapi-function-maxbatchsize"></a>
-The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a `BatchInvoke` operation.  
+The maximum number of resolver request inputs that will be sent to a single AWS Lambda Event Function in a `BatchInvoke` operation.  
 *Type*: Integer  
 *Required*: No  
 *CloudFormation compatibility*: This property is passed directly to the [MaxBatchSize](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html#cfn-appsync-functionconfiguration-maxbatchsize) property of an `AWS::AppSync::FunctionConfiguration` resource.

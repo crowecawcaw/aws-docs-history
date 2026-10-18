@@ -5,7 +5,7 @@
 
 Specifies an SQS queue or SNS topic that AWS Lambda (Lambda) sends events to when it can't process them. For more information about dead letter queue functionality, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-dlq) in the *AWS Lambda Developer Guide*.
 
-SAM will automatically add appropriate permission to your Lambda function execution role to give Lambda service access to the resource. sqs:SendMessage will be added for SQS queues and sns:Publish for SNS topics.
+SAM will automatically add appropriate permission to your Lambda Event Function execution role to give Lambda service access to the resource. sqs:SendMessage will be added for SQS queues and sns:Publish for SNS topics.
 
 ## Syntax
 <a name="sam-property-function-deadletterqueue-syntax"></a>

@@ -69,7 +69,7 @@ Docker is available on many different operating systems, including most modern L
    ```
 
 **Note**  
-On Linux, to build and run Lambda functions with a different instruction set architecture than your host machine, there are additional steps to configure Docker. For example, to run `arm64` functions on an `x86_64` machine, you can run the following command to configure the Docker daemon: `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
+On Linux, to build and run Lambda Event Functions with a different instruction set architecture than your host machine, there are additional steps to configure Docker. For example, to run `arm64` functions on an `x86_64` machine, you can run the following command to configure the Docker daemon: `docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`.
 
 If you run into issues installing Docker, see [Troubleshooting installation errors](install-sam-cli.md#sam-cli-troubleshoot-install). Or, see the [Troubleshooting](https://docs.docker.com/engine/install/linux-postinstall/#troubleshooting) section of **Post-installation steps for Linux** on the Docker Docs website.
 

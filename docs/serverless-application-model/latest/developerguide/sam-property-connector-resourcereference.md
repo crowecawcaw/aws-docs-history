@@ -50,7 +50,7 @@ The name of a resource.
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
  `Qualifier`   <a name="sam-connector-resourcereference-qualifier"></a>
-A qualifier for a resource that narrows its scope. `Qualifier` replaces the `*` value at the end of a resource constraint ARN. For an example, see [API Gateway invoking a Lambda function](#sam-property-connector-resourcereference--examples--api-gateway-invoking-a-lambda-function).  
+A qualifier for a resource that narrows its scope. `Qualifier` replaces the `*` value at the end of a resource constraint ARN. For an example, see [API Gateway invoking a Lambda Event Function](#sam-property-connector-resourcereference--examples--api-gateway-invoking-a-lambda-function).  
 Qualifier definition varies per resource type. For a list of supported source and destination resource types, see [AWS SAM connector reference](reference-sam-connector.md).
 *Type*: String  
 *Required*: Conditional  
@@ -84,10 +84,10 @@ The CloudFormation type of a resource. For more information, go to [AWS resource
 ## Examples
 <a name="sam-property-connector-resourcereference--examples"></a>
 
-### API Gateway invoking a Lambda function
+### API Gateway invoking a Lambda Event Function
 <a name="sam-property-connector-resourcereference--examples--api-gateway-invoking-a-lambda-function"></a>
 
-The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md) resource to allow Amazon API Gateway to invoke an AWS Lambda function.
+The following example uses the [AWS::Serverless::Connector](sam-resource-connector.md) resource to allow Amazon API Gateway to invoke an AWS Lambda Event Function.
 
 #### YAML
 <a name="sam-property-connector-resourcereference--examples--api-gateway-invoking-a-lambda-function--yaml"></a>

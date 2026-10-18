@@ -7,7 +7,7 @@ AWS Serverless Application Model Command Line Interface (AWS SAM CLI) is a comm
 
 AWS SAM CLI works with serverless applications that are defined using different frameworks and infrastructure as code (IaC) tools, with varying levels of support:
 + **AWS SAM templates** – Provides native support with the full feature set, including local testing, debugging, packaging, and deployment capabilities.
-+ **AWS CDK applications** – Supports local testing of Lambda functions after you synthesize the AWS CDK application to CloudFormation templates using the cdk synth command.
++ **AWS CDK applications** – Supports local testing of Lambda Event Functions after you synthesize the AWS CDK application to CloudFormation templates using the cdk synth command.
 + **CloudFormation templates** – Offers direct compatibility because AWS SAM extends CloudFormation, supporting serverless resources that are defined in standard CloudFormation templates.
 + **Terraform applications** – Provides limited support for building and local testing of Lambda functions. Requires you to generate AWS SAM template artifacts that represent your Terraform-defined Lambda functions.
 

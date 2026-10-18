@@ -20,7 +20,7 @@ $ sam remote test-event put {{<arguments> <options>}}
 <a name="sam-cli-command-reference-remote-test-event-put-args"></a>
 
 **Resource ID**  <a name="sam-cli-command-reference-remote-test-event-put-args-resource-id"></a>
-The ID of the AWS Lambda function associated with the shareable test event.  
+The ID of the AWS Lambda Event Function associated with the shareable test event.  
 If you provide a logical ID, you must also provide a value for the AWS CloudFormation stack associated with the Lambda function using the `--stack-name` option.  
 *Valid values*: The resource's logical ID or resource ARN.
 

@@ -23,7 +23,7 @@ Connectors are a way of provisioning permissions between two resources. You do t
 ## AWS SAM policy templates
 <a name="sam-permissions-intro-policy-templates"></a>
 
-AWS SAM policy templates are pre-defined sets of permissions that you can add to your AWS SAM templates to manage access and permissions between your AWS Lambda functions, AWS Step Functions state machines and the resources they interact with. To learn more about AWS SAM policy templates, see [AWS SAM policy templates](serverless-policy-templates.md).
+AWS SAM policy templates are pre-defined sets of permissions that you can add to your AWS SAM templates to manage access and permissions between your AWS Lambda Event Functions, AWS Step Functions state machines and the resources they interact with. To learn more about AWS SAM policy templates, see [AWS SAM policy templates](serverless-policy-templates.md).
 
 ## AWS CloudFormation mechanisms
 <a name="sam-permissions-intro-cloudformation"></a>

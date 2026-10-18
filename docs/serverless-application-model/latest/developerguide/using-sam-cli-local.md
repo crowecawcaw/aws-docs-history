@@ -31,6 +31,6 @@ $ sam local {{<subcommand>}}
 
 To learn more about each subcommand, see the following:
 + **[Intro to sam local generate-event](using-sam-cli-local-generate-event.md)** – Generate AWS service events for local testing.
-+ **[Intro to sam local invoke](using-sam-cli-local-invoke.md)** – Initiate a one-time invocation of an AWS Lambda function locally.
++ **[Intro to sam local invoke](using-sam-cli-local-invoke.md)** – Initiate a one-time invocation of an AWS Lambda Event Function locally.
 + **[Intro to sam local start-api](using-sam-cli-local-start-api.md)** – Run your Lambda functions using a local HTTP server.
 + **[Intro to sam local start-lambda](using-sam-cli-local-start-lambda.md)** – Run your Lambda functions using a local HTTP server for use with the AWS CLI or SDKs.

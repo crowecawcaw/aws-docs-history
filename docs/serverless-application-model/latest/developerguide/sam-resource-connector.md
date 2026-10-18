@@ -81,7 +81,7 @@ Use with the embedded connectors syntax when defining additional properties for 
 ### Embedded connectors
 <a name="sam-resource-connector-examples-embedded"></a>
 
-The following example uses embedded connectors to define a `Write` data connection between an AWS Lambda function and Amazon DynamoDB table:
+The following example uses embedded connectors to define a `Write` data connection between an AWS Lambda Event Function and Amazon DynamoDB table:
 
 ```
 Transform: AWS::Serverless-2016-10-31

@@ -23,7 +23,7 @@ $ sam package {{<arguments>}} {{<options>}}
 <a name="sam-cli-command-reference-sam-package-args"></a>
 
 **Resource ID**  <a name="sam-cli-command-reference-sam-package-args-resource-id"></a>
-The ID of the Lambda function to package.  
+The ID of the Lambda Event Function to package.  
 This argument is optional. If your application contains a single Lambda function, the AWS SAM CLI will package it. If your application contains multiple functions, provide the ID of the function to package a single function.  
 *Valid values*: The resource's logical ID or resource ARN.
 

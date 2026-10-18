@@ -1,13 +1,13 @@
 
 
-# Building Rust Lambda functions with Cargo Lambda in AWS SAM
+# Building Rust Lambda Event Functions with Cargo Lambda in AWS SAM
 <a name="building-rust"></a>
 
-Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Rust AWS Lambda functions.
+Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Rust AWS Lambda Event Functions.
 
 **Topics**
 + [Prerequisites](#building-rust-prerequisites)
-+ [Configuring AWS SAM to use with Rust Lambda functions](#building-rust-configure)
++ [Configuring AWS SAM to use with Rust Lambda Event Functions](#building-rust-configure)
 + [Examples](#building-rust-examples)
 + [Optimizing Rust builds in GitHub Actions](#building-rust-optimize-ci)
 
@@ -23,7 +23,7 @@ The AWS SAM CLI requires installation of [Cargo Lambda](https://www.cargo-lambd
 **Docker**  
 Building and testing Rust Lambda functions requires Docker. For installation instructions, see [Installing Docker](install-docker.md).
 
-## Configuring AWS SAM to use with Rust Lambda functions
+## Configuring AWS SAM to use with Rust Lambda Event Functions
 <a name="building-rust-configure"></a>
 
 ### Step 1: Configure your AWS SAM template
@@ -57,7 +57,7 @@ Resources:
 ...
 ```
 
-### Step 2: Use the AWS SAM CLI with your Rust Lambda function
+### Step 2: Use the AWS SAM CLI with your Rust Lambda Event Function
 <a name="building-rust-configure-cli"></a>
 
 Use any AWS SAM CLI command with your AWS SAM template. For more information, see [AWS SAM CLI](using-sam-cli.md).
@@ -346,7 +346,7 @@ START RequestId: fbc55e6e-0068-45f9-9f01-8e2276597fc6 Version: $LATEST
 REPORT RequestId: fbc55e6e-0068-45f9-9f01-8e2276597fc6  Init Duration: 0.68 ms  Duration: 130.63 ms     Billed Duration: 131 ms     Memory Size: 128 MB     Max Memory Used: 128 MB
 ```
 
-### Single Lambda function project
+### Single Lambda Event Function project
 <a name="building-rust-examples-single"></a>
 
 **Here is an example of a serverless application containing one Rust Lambda function. **
@@ -380,7 +380,7 @@ Resources:
 ...
 ```
 
-### Multiple Lambda function project
+### Multiple Lambda Event Function project
 <a name="building-rust-examples-multiple"></a>
 
 **Here is an example of a serverless application containing multiple Rust Lambda functions, organized as a Cargo workspace.**

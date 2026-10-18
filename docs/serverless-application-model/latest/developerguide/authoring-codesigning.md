@@ -3,7 +3,7 @@
 # Set up code signing for your AWS SAM application
 <a name="authoring-codesigning"></a>
 
-To ensure that only trusted code is deployed, you can use AWS SAM to enable code signing with your serverless applications. Signing your code helps ensure that code has not been altered since signing and that only signed code packages from trusted publishers run in your Lambda functions. This helps free up organizations from the burden of building gatekeeper components in their deployment pipelines.
+To ensure that only trusted code is deployed, you can use AWS SAM to enable code signing with your serverless applications. Signing your code helps ensure that code has not been altered since signing and that only signed code packages from trusted publishers run in your Lambda Event Functions. This helps free up organizations from the burden of building gatekeeper components in their deployment pipelines.
 
 For more information about code signing, see [Configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html) in the *AWS Lambda Developer Guide*.
 

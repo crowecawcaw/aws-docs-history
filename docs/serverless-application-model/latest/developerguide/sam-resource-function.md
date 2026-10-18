@@ -3,9 +3,11 @@
 # AWS::Serverless::Function
 <a name="sam-resource-function"></a>
 
-Creates an AWS Lambda function, an AWS Identity and Access Management (IAM) execution role, and event source mappings that trigger the function.
+The `AWS::Serverless::Function` resource creates a Lambda Event Function, an AWS Identity and Access Management (IAM) execution role, and event source mappings that trigger the function.
 
-The [AWS::Serverless::Function](#sam-resource-function) resource also supports the `Metadata` resource attribute, so you can instruct AWS SAM to build custom runtimes that your application requires. For more information about building custom runtimes, see [Building Lambda functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
+Event Function is the documentation name for the original Lambda function type, previously known as Lambda functions. The `AWS::Serverless::Function` resource type, the `AWS::Lambda::Function` resource that it generates, and their properties still use *function*, so you don't need to change your templates.
+
+The [AWS::Serverless::Function](#sam-resource-function) resource also supports the `Metadata` resource attribute, so you can instruct AWS SAM to build custom runtimes that your application requires. For more information about building custom runtimes, see [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
 
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md).
@@ -367,7 +369,7 @@ Use this property when the role is generated for you. Do not use when the role i
 
  `Runtime`   <a name="sam-function-runtime"></a>
 The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). This property is only required if the `PackageType` property is set to `Zip`.  
-If you specify the `provided` identifier for this property, you can use the `Metadata` resource attribute to instruct AWS SAM to build the custom runtime that this function requires. For more information about building custom runtimes, see [Building Lambda functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
+If you specify the `provided` identifier for this property, you can use the `Metadata` resource attribute to instruct AWS SAM to build the custom runtime that this function requires. For more information about building custom runtimes, see [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
 *Type*: String  
 *Required*: Conditional  
 *CloudFormation compatibility*: This property is passed directly to the `[Runtime](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime)` property of an `AWS::Lambda::Function` resource.

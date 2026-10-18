@@ -3,7 +3,7 @@
 # Lambda
 <a name="sam-property-graphqlapi-datasource-lambda"></a>
 
-Configure an AWS Lambda function as a data source for your GraphQL API resolver.
+Configure an AWS Lambda Event Function as a data source for your GraphQL API resolver.
 
 ## Syntax
 <a name="sam-property-graphqlapi-datasource-lambda-syntax"></a>

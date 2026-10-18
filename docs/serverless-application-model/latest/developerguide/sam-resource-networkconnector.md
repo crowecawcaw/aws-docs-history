@@ -3,7 +3,7 @@
 # AWS::Serverless::NetworkConnector
 <a name="sam-resource-networkconnector"></a>
 
- Creates a AWS Lambda Network Connector that defines network connectivity for Lambda compute resources. A network connector specifies how compute resources connect to networks — for example, routing egress traffic through a customer VPC using elastic network interfaces (ENIs) that the service provisions in specified subnets and security groups. 
+ Creates a AWS Lambda Network Connector that defines network connectivity for Lambda compute resources. A network connector specifies how compute resources connect to networks, for example by routing egress traffic through a customer VPC using elastic network interfaces (ENIs) that the service provisions in specified subnets and security groups. Each connector serves one compute type, either MicroVMs or Web Functions. To use a connector with an [AWS::Serverless::WebFunction](sam-resource-webfunction.md), set `ComputeTypes` to `WebFunction` and pass the connector's `LatestVersionArn` to the function's `EgressNetworkConnectorArn` property. 
 
 **Note**  
 When you deploy to AWS CloudFormation, AWS SAM transforms your AWS SAM resources into CloudFormation resources. For more information, see [Generated CloudFormation resources for AWS SAM](sam-specification-generated-resources.md). 
@@ -19,6 +19,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 ```
 Type: AWS::Serverless::NetworkConnector
 Properties:
+  [ComputeTypes](#sam-networkconnector-computetypes): {{List}}
   [Name](#sam-networkconnector-name): {{String}}
   [OperatorRole](#sam-networkconnector-operatorrole): {{String}}
   [PropagateTags](#sam-networkconnector-propagatetags): {{Boolean}}
@@ -28,6 +29,15 @@ Properties:
 
 ## Properties
 <a name="sam-resource-networkconnector-properties"></a>
+
+ `ComputeTypes`   <a name="sam-networkconnector-computetypes"></a>
+The type of Lambda compute resource that can use this network connector. Specify exactly one of the following values:  
++ `MicroVm`: The connector is used by MicroVM compute resources.
++ `WebFunction`: The connector is used by [AWS::Serverless::WebFunction](sam-resource-webfunction.md) resources through their `EgressNetworkConnectorArn` property.
+*Type*: List  
+*Required*: No  
+*Default*: `[MicroVm]`  
+*CloudFormation compatibility*: This property is passed directly to the `[Configuration.VpcEgressConfiguration.AssociatedComputeResourceTypes](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-networkconnector-vpcegressconfiguration.html#cfn-lambda-networkconnector-vpcegressconfiguration-associatedcomputeresourcetypes)` property of an `AWS::Lambda::NetworkConnector` resource. 
 
  `Name`   <a name="sam-networkconnector-name"></a>
 The name of the network connector. The name must be unique within your account and Region.  
@@ -58,7 +68,7 @@ A map of key-value pairs that specifies the tags added to this network connector
 The VPC egress configuration for the network connector. Specifies the subnets, security groups, and network protocol for routing outbound traffic through your VPC.  
 *Type*: [VpcConfig](sam-property-networkconnector-vpcconfig.md)  
 *Required*: Yes  
-*CloudFormation compatibility*: This property is transformed to the `[Configuration.VpcEgressConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-networkconnector-vpcegressconfiguration.html)` property of an `AWS::Lambda::NetworkConnector` resource. AWS SAM also injects `AssociatedComputeResourceTypes: [MicroVm]` automatically. 
+*CloudFormation compatibility*: This property is transformed to the `[Configuration.VpcEgressConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-networkconnector-vpcegressconfiguration.html)` property of an `AWS::Lambda::NetworkConnector` resource. AWS SAM sets `AssociatedComputeResourceTypes` from the [ComputeTypes](#sam-networkconnector-computetypes) property. 
 
 ## Return Values
 <a name="sam-resource-networkconnector-return-values"></a>
@@ -79,6 +89,9 @@ For more information about using `Fn::GetAtt`, see [`Fn::GetAtt`](https://docs.a
 
 `Arn`  <a name="sam-networkconnector-getatt-arn"></a>
 The Amazon Resource Name (ARN) of the network connector.
+
+`LatestVersionArn`  <a name="sam-networkconnector-getatt-latestversionarn"></a>
+The version-qualified ARN of the latest version of the network connector, for example `arn:aws:lambda:us-east-1:123456789012:network-connector:my-connector:1`. Use this value for the `EgressNetworkConnectorArn` property of an [AWS::Serverless::WebFunction](sam-resource-webfunction.md).
 
 `State`  <a name="sam-networkconnector-getatt-state"></a>
 The current state of the network connector. Valid values are `PENDING`, `ACTIVE`, `INACTIVE`, `FAILED`, `DELETING`, and `DELETE_FAILED`.
@@ -109,4 +122,35 @@ Resources:
         NetworkProtocol: IPv4
       Tags:
         Environment: Production
+```
+
+### Network connector for a Web Function
+<a name="sam-resource-networkconnector-example-webfunction"></a>
+
+The following example creates a network connector for Web Functions and uses it for a Web Function's outbound traffic.
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  MyWebFunctionConnector:
+    Type: AWS::Serverless::NetworkConnector
+    Properties:
+      ComputeTypes:
+        - WebFunction
+      VpcConfig:
+        SubnetIds:
+          - subnet-0abc123def4567890
+        SecurityGroupIds:
+          - sg-0abc1234abcde0001
+        NetworkProtocol: IPv4
+
+  MyWebFunction:
+    Type: AWS::Serverless::WebFunction
+    Properties:
+      Runtime: nodejs24.x
+      AuthType: IamAuth
+      CodeUri: s3://amzn-s3-demo-bucket/webfn.zip
+      EgressNetworkConnectorArn: !GetAtt MyWebFunctionConnector.LatestVersionArn
 ```

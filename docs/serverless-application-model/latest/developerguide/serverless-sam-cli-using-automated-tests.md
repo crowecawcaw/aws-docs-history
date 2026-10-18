@@ -5,7 +5,7 @@
 
 While you can use [Introduction to testing with sam local invoke](using-sam-cli-local-invoke.md) to manually test code, AWS SAM also lets you test your code using automated integration testing. Integration testing helps you detect issues early in the development cycle, improve the quality of your code, and save time while reducing costs.
 
-To author automated integration tests in AWS SAM, you first run tests against local Lambda functions before deploying to the AWS Cloud. The [Introduction to testing with sam local start-lambda](using-sam-cli-local-start-lambda.md) command starts a local endpoint that emulates the Lambda invoke endpoint. You can invoke it from your automated tests. Because this endpoint emulates the Lambda invoke endpoint, you can write tests once, and then run them (without any modifications) against the local Lambda function, or against a deployed Lambda function. You can also run the same tests against a deployed AWS SAM stack in your CI/CD pipeline. 
+To author automated integration tests in AWS SAM, you first run tests against local Lambda Event Functions before deploying to the AWS Cloud. The [Introduction to testing with sam local start-lambda](using-sam-cli-local-start-lambda.md) command starts a local endpoint that emulates the Lambda invoke endpoint. You can invoke it from your automated tests. Because this endpoint emulates the Lambda invoke endpoint, you can write tests once, and then run them (without any modifications) against the local Lambda function, or against a deployed Lambda function. You can also run the same tests against a deployed AWS SAM stack in your CI/CD pipeline. 
 
 This is how the process works:
 

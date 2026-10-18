@@ -8,7 +8,7 @@ After completing [Getting started](serverless-getting-started.md) and reading [H
 The AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam init` command provides options to initialize a new serverless application that consists of:
 + An AWS SAM template to define your infrastructure code.
 + A folder structure that organizes your application.
-+ Configuration for your AWS Lambda functions.
++ Configuration for your AWS Lambda Event Functions.
 
 To create an AWS SAM project, refer to the topics in this sections.
 

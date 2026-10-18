@@ -87,7 +87,7 @@ When you deploy a serverless application for the first time, use the `--guided` 
    ```
 
 1. Next, the AWS SAM CLI deploys your application to the AWS Cloud. During deployment, progress is displayed in your command prompt. The following are the major stages in deployment:
-   + For applications with AWS Lambda functions packaged as a .zip file archive, the AWS SAM CLI zips and uploads the package to an Amazon Simple Storage Service (Amazon S3) bucket. If necessary, the AWS SAM CLI will create a new bucket.
+   + For applications with AWS Lambda Event Functions packaged as a .zip file archive, the AWS SAM CLI zips and uploads the package to an Amazon Simple Storage Service (Amazon S3) bucket. If necessary, the AWS SAM CLI will create a new bucket.
    + For applications with Lambda functions package as a container image, the AWS SAM CLI uploads the image to Amazon Elastic Container Registry (Amazon ECR). If necessary, the AWS SAM CLI will create a new repository.
    + The AWS SAM CLI creates an AWS CloudFormation change set and deploys your application to CloudFormation as a stack.
    + The AWS SAM CLI modifies your deployed AWS SAM template with the new `CodeUri` value for your Lambda functions.
@@ -316,7 +316,7 @@ You can specify additional parameter values to configure when deploying. You do 
            Parameter DomainName [example]: {{ENTER}}
    ```
 
-### Configure code signing for your Lambda functions
+### Configure code signing for your Lambda Event Functions
 <a name="using-sam-cli-deploy-deploying-signing"></a>
 
 You can configure code signing for your Lambda functions at deployment. You do this by modifying your AWS SAM template and configuring code signing during deployment.
@@ -382,12 +382,12 @@ To troubleshoot the AWS SAM CLI, see [AWS SAM CLI troubleshooting](sam-cli-tro
 ## Examples
 <a name="using-sam-cli-deploy-examples"></a>
 
-### Deploy a Hello World application that contains a Lambda function packaged as a .zip file archive
+### Deploy a Hello World application that contains a Lambda Event Function packaged as a .zip file archive
 <a name="using-sam-cli-deploy-examples-example1"></a>
 
 For an example, see [Step 3: Deploy your application to the AWS Cloud](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-deploy) in the Hello World application tutorial.
 
-### Deploy a Hello World application that contains a Lambda function packaged as a container image
+### Deploy a Hello World application that contains a Lambda Event Function packaged as a container image
 <a name="using-sam-cli-deploy-examples-example2"></a>
 
 First, we use `sam init` to create our Hello World application. During the interactive flow, we choose the `Python3.9` runtime and `Image` package type.

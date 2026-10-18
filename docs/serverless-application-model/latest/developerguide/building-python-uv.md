@@ -1,6 +1,6 @@
 
 
-# Building Python Lambda functions with uv in AWS SAM
+# Building Python Lambda Event Functions with uv in AWS SAM
 <a name="building-python-uv"></a>
 
 
@@ -8,11 +8,11 @@
 | --- |
 | This feature is in preview release for AWS SAM and is subject to change. | 
 
-Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with uv, a fast Python package installer and resolver, to build your Python AWS Lambda functions.
+Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with uv, a fast Python package installer and resolver, to build your Python AWS Lambda Event Functions.
 
 **Topics**
 + [Prerequisites](#building-python-uv-prerequisites)
-+ [Configuring AWS SAM to use with Python Lambda functions and uv](#building-python-uv-configure)
++ [Configuring AWS SAM to use with Python Lambda Event Functions and uv](#building-python-uv-configure)
 + [Examples](#building-python-uv-examples)
 
 ## Prerequisites
@@ -54,7 +54,7 @@ Since this feature is in preview, you must opt in using one of the following met
    You can also enable this beta feature with "sam build --beta-features". [y/N]: {{y}}
    ```
 
-## Configuring AWS SAM to use with Python Lambda functions and uv
+## Configuring AWS SAM to use with Python Lambda Event Functions and uv
 <a name="building-python-uv-configure"></a>
 
 ### Step 1: Configure your AWS SAM template

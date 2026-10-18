@@ -3,7 +3,7 @@
 # AWS::Serverless::CapacityProvider
 <a name="sam-resource-capacityprovider"></a>
 
- Creates a capacity provider for AWS Lambda functions that enables running Lambda Managed Instances on customer-owned Amazon Elastic Compute Cloud instances. This resource is part of the Lambda Managed Instances feature, which provides cost optimization for large-scale Lambda workloads by utilizing Amazon EC2 pricing models. 
+ Creates a capacity provider for AWS Lambda Event Functions that enables running Lambda Managed Instances on customer-owned Amazon Elastic Compute Cloud instances. This resource is part of the Lambda Managed Instances feature, which provides cost optimization for large-scale Lambda workloads by utilizing Amazon EC2 pricing models. 
 
  The capacity provider manages the lifecycle of Amazon EC2 instances and provides the necessary infrastructure for Lambda functions to execute on customer-owned compute resources while maintaining the serverless programming model. 
 

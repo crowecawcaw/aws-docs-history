@@ -16,7 +16,7 @@ The sample **Hello World** application implements a basic API backend. It consis
 
 The following diagram shows the components of this application:
 
-![A diagram of a Lambda function that's invoked when you send a GET request to the API Gateway endpoint.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/gs-01.png)
+![A diagram of a Lambda Event Function that's invoked when you send a GET request to the API Gateway endpoint.](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/images/gs-01.png)
 
 
 **Topics**
@@ -471,7 +471,7 @@ In this step, you will send a GET request to your API endpoint and see your Lamb
 
 In this step, you use the AWS SAM CLI to invoke your Lambda function in the AWS Cloud.
 
-**To invoke your Lambda function in the cloud**
+**To invoke your Lambda Event Function in the cloud**
 
 1. Take note of your function’s `LogicalResourceId` from the previous step. It should be `HelloWorldFunction`.
 
@@ -647,7 +647,7 @@ You will do the following:
 
 1. Host your HTTP API endpoint locally and use it to invoke your Lambda function.
 
-**To invoke your Lambda function locally**
+**To invoke your Lambda Event Function locally**
 
 1. In your command line, from the `sam-app` project directory, run the following:
 

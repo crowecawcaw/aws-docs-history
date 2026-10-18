@@ -7,7 +7,7 @@ This page provides reference information for the AWS Serverless Application Mode
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 + For documentation on using the AWS SAM CLI `sam local start-api` subcommand, see [Introduction to testing with sam local start-api](using-sam-cli-local-start-api.md).
 
-The `sam local start-api` subcommand runs your AWS Lambda functions locally to test through a local HTTP server host.
+The `sam local start-api` subcommand runs your AWS Lambda Event Functions locally to test through a local HTTP server host.
 
 ## Usage
 <a name="ref-sam-cli-local-start-api-usage"></a>

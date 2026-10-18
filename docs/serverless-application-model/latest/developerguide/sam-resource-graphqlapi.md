@@ -304,10 +304,10 @@ export function response(ctx) {
 }
 ```
 
-### GraphQL API with a Lambda function as a data source
+### GraphQL API with a Lambda Event Function as a data source
 <a name="sam-resource-graphqlapi-examples-example2"></a>
 
-In this example, we create a GraphQL API that uses a Lambda function as a data source.
+In this example, we create a GraphQL API that uses a Lambda Event Function as a data source.
 
 **template.yaml**
 

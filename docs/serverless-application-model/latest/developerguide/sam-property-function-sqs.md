@@ -153,7 +153,7 @@ Events:
       BatchSize: 10
 ```
 
-### Lambda function with an SQS event that has scaling configured
+### Lambda Event Function with an SQS event that has scaling configured
 <a name="sam-property-function-sqs--examples--sqs-event-scaling"></a>
 
 ```

@@ -27,7 +27,7 @@ To declare this entity in your AWS Serverless Application Model (AWS SAM) templa
 <a name="sam-property-websocketapi-websocketapiauth-properties"></a>
 
  `AuthArn`   <a name="sam-websocketapiauth-autharn"></a>
-The ARN of the Lambda function to use for authorization. Required when `AuthType` is `CUSTOM`.  
+The ARN of the Lambda Event Function to use for authorization. Required when `AuthType` is `CUSTOM`.  
 *Type*: String  
 *Required*: Conditional  
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.

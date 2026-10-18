@@ -84,7 +84,7 @@ For developers who prefer an integrated development environment, the AWS Toolkit
 1. Install the "YAML" extension by Red Hat (required for SAM template CodeLens features)
 
 **Benefits of using VS Code with AWS SAM**
-+ Visual debugging: Set breakpoints and step through your Lambda functions locally
++ Visual debugging: Set breakpoints and step through your Lambda Event Functions locally
 + CodeLens integration: Build, deploy, and invoke functions directly from your SAM template
 + Integrated terminal: Access AWS SAM AWS CLI commands without leaving your editor
 + Template validation: Real-time validation and IntelliSense for SAM templates

@@ -5,7 +5,7 @@
 
 
 
-With this example application, you build on what you learned in the overview and the Quick Start guide, and install another example application. This application consists of a Lambda function that's invoked by a DynamoDB table event source. The Lambda function is very simple—it logs data that was passed in through the event source message.
+With this example application, you build on what you learned in the overview and the Quick Start guide, and install another example application. This application consists of a Lambda Event Function that's invoked by a DynamoDB table event source. The Lambda function is very simple—it logs data that was passed in through the event source message.
 
 This exercise shows you how to mimic event source messages that are passed to Lambda functions when they're invoked.
 

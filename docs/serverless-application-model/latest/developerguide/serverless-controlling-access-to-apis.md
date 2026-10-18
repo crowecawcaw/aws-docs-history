@@ -20,7 +20,7 @@ The following table summarizes the mechanisms that each resource type supports.
 | OAuth 2.0/JWT authorizers | ✓ |  | 
 
 \* You can use Amazon Cognito as a JSON Web Token (JWT) issuer with the `AWS::Serverless::HttpApi` resource type.
-+ **Lambda authorizers** – A Lambda authorizer (formerly known as a *custom authorizer*) is a Lambda function that you provide to control access to your API. When your API is called, this Lambda function is invoked with a request context or an authorization token that the client application provides. The Lambda function responds whether the caller is authorized to perform the requested operation.
++ **Lambda authorizers** – A Lambda authorizer (formerly known as a *custom authorizer*) is a Lambda Event Function that you provide to control access to your API. When your API is called, this Lambda function is invoked with a request context or an authorization token that the client application provides. The Lambda function responds whether the caller is authorized to perform the requested operation.
 
   Both the `AWS::Serverless::HttpApi` and `AWS::Serverless::Api` resource types support Lambda authorizers.
 

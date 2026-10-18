@@ -76,7 +76,7 @@ Enter Y to proceed with the command, or enter N to cancel:
 
 Provide options to customize what local changes are synced to the AWS Cloud. This can speed up the time it takes to see your local changes in the cloud for testing and validation.
 
-For example, provide the `--code` option to sync only code changes, such as AWS Lambda function code. During development, if you are focused specifically on Lambda code, this will get your changes into the cloud quickly for testing and validation. The following is an example:
+For example, provide the `--code` option to sync only code changes, such as AWS Lambda Event Function code. During development, if you are focused specifically on Lambda code, this will get your changes into the cloud quickly for testing and validation. The following is an example:
 
 ```
 $ sam sync --code --watch

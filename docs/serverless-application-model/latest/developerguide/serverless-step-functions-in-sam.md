@@ -3,7 +3,7 @@
 # Orchestrating AWS SAM resources with AWS Step Functions
 <a name="serverless-step-functions-in-sam"></a>
 
-You can use [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/) to orchestrate AWS Lambda functions and other AWS resources to form complex and robust workflows. Step Functions to tell your application when and under what conditions your AWS resources, like AWS Lambda functions, are used. This simplifies the process of forming complex and robust workflows. Using [AWS::Serverless::StateMachine](sam-resource-statemachine.md), you define the individual steps in your workflow, associate resources in each step, and then sequence these steps together. You also add transitions and conditions where they are needed. This simplifies the process of making a complex and robust workflow.
+You can use [AWS Step Functions](https://docs.aws.amazon.com/step-functions/latest/dg/) to orchestrate AWS Lambda Event Functions and other AWS resources to form complex and robust workflows. Step Functions to tell your application when and under what conditions your AWS resources, like AWS Lambda functions, are used. This simplifies the process of forming complex and robust workflows. Using [AWS::Serverless::StateMachine](sam-resource-statemachine.md), you define the individual steps in your workflow, associate resources in each step, and then sequence these steps together. You also add transitions and conditions where they are needed. This simplifies the process of making a complex and robust workflow.
 
 **Note**  
 To manage AWS SAM templates that contain Step Functions state machines, you must use version 0.52.0 or later of the AWS SAM CLI. To check which version you have, execute the command `sam --version`.

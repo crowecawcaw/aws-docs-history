@@ -63,7 +63,7 @@ The unique name for your resolver. In a GraphQL schema, your resolver name shoul
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn’t have an CloudFormation equivalent.
 
 `MaxBatchSize`  <a name="sam-graphqlapi-resolver-maxbatchsize"></a>
-The maximum number of resolver request inputs that will be sent to a single AWS Lambda function in a `BatchInvoke` operation.  
+The maximum number of resolver request inputs that will be sent to a single AWS Lambda Event Function in a `BatchInvoke` operation.  
 *Type*: Integer  
 *Required*: No  
 *CloudFormation compatibility*: This property is passed directly to the `[MaxBatchSize](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-maxbatchsize)` property of an `AWS::AppSync::Resolver` resource.

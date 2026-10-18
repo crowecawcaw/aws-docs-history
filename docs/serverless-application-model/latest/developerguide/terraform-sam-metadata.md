@@ -18,7 +18,7 @@ This page contains reference information for the **sam metadata resource** resou
 
 | Argument | Description | 
 | --- | --- | 
-| built\_output\_path | The path to your AWS Lambda function's built artifacts. | 
+| built\_output\_path | The path to your AWS Lambda Event Function's built artifacts. | 
 | docker\_build\_args | Decoded string of the Docker build arguments JSON object. This argument is optional. | 
 | docker\_context | The path to the directory containing the Docker image build context. | 
 | docker\_file | The path to the Docker file. This path is relative to the `docker_context` path.<br />This argument is optional. Default value is `Dockerfile`. | 
@@ -32,7 +32,7 @@ This page contains reference information for the **sam metadata resource** resou
 ## Examples
 <a name="terraform-sam-metadata-examples"></a>
 
-### sam metadata resource referencing a Lambda function using the ZIP package type
+### sam metadata resource referencing a Lambda Event Function using the ZIP package type
 <a name="terraform-sam-metadata-examples-example1"></a>
 
 ```
@@ -62,7 +62,7 @@ resource "null_resource" "sam_metadata_function_example" {
 }
 ```
 
-### sam metadata resource referencing a Lambda function using the image package type
+### sam metadata resource referencing a Lambda Event Function using the image package type
 <a name="terraform-sam-metadata-examples-example2"></a>
 
 ```

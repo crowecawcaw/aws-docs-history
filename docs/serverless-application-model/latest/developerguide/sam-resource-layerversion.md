@@ -3,7 +3,7 @@
 # AWS::Serverless::LayerVersion
 <a name="sam-resource-layerversion"></a>
 
-Creates a Lambda LayerVersion that contains library or runtime code needed by a Lambda Function.
+Creates a Lambda LayerVersion that contains library or runtime code needed by a Lambda Event Function.
 
 The [AWS::Serverless::LayerVersion](#sam-resource-layerversion) resource also supports the `Metadata` resource attribute, so you can instruct AWS SAM to build layers included in your application. For more information about building layers, see [Building Lambda layers in AWS SAM](building-layers.md).
 

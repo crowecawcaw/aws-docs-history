@@ -10,14 +10,14 @@ When you deploy your application to the AWS Cloud, AWS CloudFormation requires t
 1. Automatically updates your application template to reference the new file path.
 
 **Topics**
-+ [Demo: Use the AWS SAM CLI to upload Lambda function code](#deploy-upload-local-files-demo)
++ [Demo: Use the AWS SAM CLI to upload Lambda Event Function code](#deploy-upload-local-files-demo)
 + [Supported use cases](#deploy-upload-local-files-use)
 + [Learn more](#deploy-upload-local-files-learn)
 
-## Demo: Use the AWS SAM CLI to upload Lambda function code
+## Demo: Use the AWS SAM CLI to upload Lambda Event Function code
 <a name="deploy-upload-local-files-demo"></a>
 
-In this demo, we initialize the sample Hello World application using a .zip package type for our Lambda function. We use the AWS SAM CLI to automatically upload our Lambda function code to Amazon S3 and reference its new path in our application template.
+In this demo, we initialize the sample Hello World application using a .zip package type for our Lambda Event Function. We use the AWS SAM CLI to automatically upload our Lambda function code to Amazon S3 and reference its new path in our application template.
 
 First, we run `sam init` to initialize our Hello World application.
 

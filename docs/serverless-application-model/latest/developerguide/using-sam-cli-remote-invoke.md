@@ -5,7 +5,7 @@
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam remote invoke` command to interact with supported AWS resources in the AWS Cloud. You can use `sam remote invoke` to invoke the following resources:
 + **Amazon Kinesis Data Streams** – Send data records to Kinesis Data Streams applications.
-+ **AWS Lambda** – Invoke and pass events to your Lambda functions.
++ **AWS Lambda** – Invoke and pass events to your Lambda Event Functions.
 + **Amazon Simple Queue Service (Amazon SQS)** – Send messages to Amazon SQS queues.
 + **AWS Step Functions** – Invoke Step Functions state machines to start execution.
 
@@ -75,7 +75,7 @@ $ sam remote invoke {{KinesisStream}} --stack-name {{kinesis-example}} --event {
 
 1. Provide the data record as an event to send to your Kinesis Data Streams application. You can provide the event at the command line using the `--event` option, or from a file using `--event-file`. If you don’t provide an event, the AWS SAM CLI sends an empty event.
 
-### Using with Lambda functions
+### Using with Lambda Event Functions
 <a name="using-sam-cli-remote-invoke-use-lambda"></a>
 
 You can invoke a Lambda function in the cloud and pass an empty event or provide an event at the command line or from a file. The AWS SAM CLI will invoke your Lambda function and return its response. The following is an example:
@@ -90,20 +90,20 @@ REPORT RequestId: d5ef494b-5f45-4086-86fd-d7322fa1a1f9  Duration: 6.62 ms       
 {"statusCode":200,"body":"{\"message\":\"hello world\"}"}%
 ```
 
-**To invoke a Lambda function**
+**To invoke a Lambda Event Function**
 
 1. Provide a resource ID value as an argument for your Lambda function. For information on valid resource IDs, see [Resource ID](sam-cli-command-reference-remote-invoke.md#sam-cli-command-reference-remote-invoke-args-resource-id).
 
 1. Provide an event to send to your Lambda function. You can provide the event at the command line using the `--event` option, or from a file using `--event-file`. If you don’t provide an event, the AWS SAM CLI sends an empty event.
 
-#### Lambda functions configured with response streaming
+#### Lambda Event Functions configured with response streaming
 <a name="using-sam-cli-remote-invoke-invoke-stream"></a>
 
 The `sam remote invoke` command supports Lambda functions that are configured to stream responses. You can configure a Lambda function to stream responses using the `FunctionUrlConfig` property in your AWS SAM templates. When you use `sam remote invoke`, the AWS SAM CLI will automatically detect your Lambda configuration and invoke with response streaming.
 
-For an example, see [Invoke a Lambda function configured to stream responses](#using-sam-cli-remote-invoke-examples-lambda-stream).
+For an example, see [Invoke a Lambda Event Function configured to stream responses](#using-sam-cli-remote-invoke-examples-lambda-stream).
 
-#### Pass shareable test events to a Lambda function in the cloud
+#### Pass shareable test events to a Lambda Event Function in the cloud
 <a name="using-sam-cli-remote-invoke-shareable"></a>
 
 Shareable test events are test events that you can share with others in the same AWS account. To learn more, see [Shareable test events](https://docs.aws.amazon.com/lambda/latest/dg/testing-functions.html#creating-shareable-events) in the *AWS Lambda Developer Guide*.
@@ -118,7 +118,7 @@ You can use the AWS SAM CLI `sam remote test-event` command to access and manage
 
 To learn more, see [Introduction to cloud testing with sam remote test-event](using-sam-cli-remote-test-event.md).
 
-##### Pass a shareable test event to a Lambda function in the cloud
+##### Pass a shareable test event to a Lambda Event Function in the cloud
 <a name="using-sam-cli-remote-invoke-shareable-pass"></a>
 
 To pass a shareable test event from the EventBridge schema registry to your Lambda function in the cloud, use the `--test-event-name` option and provide the name of the shareable test event. The following is an example:
@@ -582,7 +582,7 @@ REPORT RequestId: 207a864b-e67c-4307-8478-365b004d4bcd  Duration: 1.27 ms       
 {"statusCode": 200, "body": "{\"message\": \"Hello\", \"received_event\": {}}"}%
 ```
 
-#### Invoke a Lambda function configured to stream responses
+#### Invoke a Lambda Event Function configured to stream responses
 <a name="using-sam-cli-remote-invoke-examples-lambda-stream"></a>
 
 In this example, we use the AWS SAM CLI to initialize a new serverless application that contains a Lambda function configured to stream its response. We deploy our application to the AWS Cloud and use the `sam remote invoke` to interact with our function in the cloud.

@@ -18,7 +18,7 @@ To provide feedback and submit feature requests, create a [GitHub Issue](https:/
 <a name="what-is-terraform-support"></a>
 
 Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) with your Terraform projects or Terraform Cloud to perform local debugging and testing of:
-+ AWS Lambda functions and layers.
++ AWS Lambda Event Functions and layers.
 + Amazon API Gateway APIs.
 
 For an introduction to Terraform, see [What is Terraform?](https://developer.hashicorp.com/terraform/intro) at the *HashiCorp Terraform website*.

@@ -3,7 +3,7 @@
 # Introduction to testing with sam local invoke
 <a name="using-sam-cli-local-invoke"></a>
 
-Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local invoke` subcommand to initiate a one-time invocation of an AWS Lambda function locally.
+Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local invoke` subcommand to initiate a one-time invocation of an AWS Lambda Event Function locally.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 + For a list of `sam local invoke` command options, see [sam local invoke](sam-cli-command-reference-sam-local-invoke.md).
 + For an example of using `sam local invoke` during a typical development workflow, see [Step 7: (Optional) Test your application locally](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test).
@@ -27,12 +27,12 @@ Before using `sam local invoke`, we recommend a basic understanding of the follo
 + [Introduction to building with AWS SAM](using-sam-cli-build.md).
 + [Introduction to deploying with AWS SAM](using-sam-cli-deploy.md).
 
-## Invoke a Lambda function locally
+## Invoke a Lambda Event Function locally
 <a name="using-sam-cli-local-invoke-use"></a>
 
 When you run `sam local invoke`, the AWS SAM CLI assumes that your current working directory is your project’s root directory. The AWS SAM CLI will first look for a `template.[yaml|yml]` file within a `.aws-sam` subfolder. If not found, the AWS SAM CLI will look for a `template.[yaml|yml]` file within your current working directory.
 
-**To invoke a Lambda function locally**
+**To invoke a Lambda Event Function locally**
 
 1. From the root directory of your project, run the following:
 
@@ -105,7 +105,7 @@ You can use these standard outputs to further automate your local development pr
 ## Options
 <a name="using-sam-cli-local-invoke-options"></a>
 
-### Pass custom events to invoke the Lambda function
+### Pass custom events to invoke the Lambda Event Function
 <a name="using-sam-cli-local-invoke-options-events"></a>
 
 To pass an event to the Lambda function, use the `--event` option. The following is an example:
@@ -116,7 +116,7 @@ $ sam local invoke --event {{events/s3.json S3JsonLoggerFunction}}
 
 You can create events with the `sam local generate-event` subcommand. To learn more, see [Introduction to testing with sam local generate-event](using-sam-cli-local-generate-event.md).
 
-### Pass environment variables when invoking your Lambda function
+### Pass environment variables when invoking your Lambda Event Function
 <a name="using-sam-cli-local-invoke-options-env"></a>
 
 If your Lambda function uses environment variables, you can pass them during local testing with the `--env-vars` option. This is a great way to test a Lambda function locally with services in your application that are already deployed in the cloud. The following is an example:
@@ -136,7 +136,7 @@ To invoke a function of a nested application or stack, provide the application o
 $ sam local invoke {{StackLogicalId/FunctionLogicalId}}
 ```
 
-### Test a Lambda function from your Terraform project
+### Test a Lambda Event Function from your Terraform project
 <a name="using-sam-cli-local-invoke-options-terraform"></a>
 
 Use the `--hook-name` option to locally test Lambda functions from your Terraform projects. To learn more, see [Using the AWS SAM CLI with Terraform for local debugging and testing](using-samcli-terraform.md).
@@ -157,7 +157,7 @@ Local testing is a great solution for quick development and testing before deplo
 ## Examples
 <a name="using-sam-cli-local-invoke-examples"></a>
 
-### Generate an Amazon API Gateway sample event and use it to invoke a Lambda function locally
+### Generate an Amazon API Gateway sample event and use it to invoke a Lambda Event Function locally
 <a name="using-sam-cli-local-invoke-examples-api"></a>
 
 First, we generate an API Gateway HTTP API event payload and save it to our `events` folder.
@@ -196,7 +196,7 @@ REPORT RequestId: 59535d0d-3d9e-493d-8c98-6264e8e961b8  Init Duration: 1.63 ms  
 {"statusCode": 200, "body": "{\"message\": \"value\"}"}%
 ```
 
-### Pass environment variables when invoking a Lambda function locally
+### Pass environment variables when invoking a Lambda Event Function locally
 <a name="using-sam-cli-local-invoke-examples-env"></a>
 
 This application has a Lambda function that uses an environment variable for an Amazon DynamoDB table name. The following is an example of the function defined in the AWS SAM template:

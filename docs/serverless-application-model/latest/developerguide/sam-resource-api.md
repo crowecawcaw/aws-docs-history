@@ -298,7 +298,7 @@ The root resource ID for a `RestApi` resource, such as `a0bc123d4e`.
 ### SimpleApiExample
 <a name="sam-resource-api--examples--simpleapiexample"></a>
 
-A Hello World AWS SAM template file that contains a Lambda Function with an API endpoint. This is a full AWS SAM template file for a working serverless application.
+A Hello World AWS SAM template file that contains a Lambda Event Function with an API endpoint. This is a full AWS SAM template file for a working serverless application.
 
 #### YAML
 <a name="sam-resource-api--examples--simpleapiexample--yaml"></a>

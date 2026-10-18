@@ -12,7 +12,7 @@ This section provides details on how you use sections in the AWS SAM template to
 
 AWS SAM templates are an extension of CloudFormation templates, with unique syntax types that use shorthand syntax with fewer lines of code than CloudFormation. This speeds up your development when building a serverless application. For more information, refer to [AWS SAM resources and properties](sam-specification-resources-and-properties.md). For the full reference for CloudFormation templates, see [CloudFormation Template Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html) in the *AWS CloudFormation User Guide*.
 
-When developing, you will often find it beneficial to break up your application code into separate files to better organize and manage your application. A basic example of this is using a separate file for your AWS Lambda function code rather than having this code in your AWS SAM template. Do this by organizing your Lambda function code in a subdirectory of your project and referencing its local path within your AWS Serverless Application Model (AWS SAM) template.
+When developing, you will often find it beneficial to break up your application code into separate files to better organize and manage your application. A basic example of this is using a separate file for your AWS Lambda Event Function code rather than having this code in your AWS SAM template. Do this by organizing your Lambda function code in a subdirectory of your project and referencing its local path within your AWS Serverless Application Model (AWS SAM) template.
 
 **Topics**
 + [AWS SAM template anatomy](sam-specification-template-anatomy.md)

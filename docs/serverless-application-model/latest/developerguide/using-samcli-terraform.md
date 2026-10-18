@@ -19,7 +19,7 @@ To provide feedback and submit feature requests, create a [GitHub Issue](https:/
 **Note**  
 To use the AWS SAM CLI to test locally, you must have Docker installed and configured. For instructions, see [Installing Docker to use with the AWS SAM CLI](install-docker.md).
 
-The following is an example of testing your Lambda function locally by passing in an event:
+The following is an example of testing your Lambda Event Function locally by passing in an event:
 
 ```
 $ sam local invoke --hook-name terraform {{hello_world_function}} -e {{events/event.json}} -
@@ -62,11 +62,11 @@ used sam build before running local commands, you will need to re-run sam build 
 
 To learn more about this command, see [Introduction to testing with sam local start-api](using-sam-cli-local-start-api.md).
 
-### Lambda functions that use Lambda authorizers
+### Lambda Event Functions that use Lambda authorizers
 <a name="using-sam-cli-terraform-local-start-api-authorizers"></a>
 
 For Lambda functions configured to use Lambda authorizers, the AWS SAM CLI will automatically invoke your Lambda authorizer before invoking your Lambda function endpoint.
-+ To learn more about this feature in the AWS SAM CLI, see [Lambda functions that use Lambda authorizers](using-sam-cli-local-start-api.md#using-sam-cli-local-start-api-authorizers).
++ To learn more about this feature in the AWS SAM CLI, see [Lambda Event Functions that use Lambda authorizers](using-sam-cli-local-start-api.md#using-sam-cli-local-start-api-authorizers).
 + For more information on using Lambda authorizers in Terraform, see [Resource: aws\_api\_gateway\_authorizer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_authorizer#example-usage) in the *Terraform registry*.
 
 ## Local testing with sam local start-lambda

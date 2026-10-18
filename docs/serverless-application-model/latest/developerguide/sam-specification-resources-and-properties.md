@@ -19,3 +19,4 @@ This section desribes the resource and property types that are specific to AWS S
 + [AWS::Serverless::NetworkConnector](sam-resource-networkconnector.md)
 + [AWS::Serverless::SimpleTable](sam-resource-simpletable.md)
 + [AWS::Serverless::StateMachine](sam-resource-statemachine.md)
++ [AWS::Serverless::WebFunction](sam-resource-webfunction.md)

@@ -32,7 +32,7 @@ Specifies whether an API key is required for this route.
 *CloudFormation compatibility*: This property is passed directly to the `[ApiKeyRequired](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html#cfn-apigatewayv2-route-apikeyrequired)` property of an `AWS::ApiGatewayV2::Route` resource.
 
  `FunctionArn`   <a name="sam-routeconfiguration-functionarn"></a>
-The ARN of the Lambda function that handles this route. AWS SAM creates an integration and the necessary permissions for API Gateway to invoke the function.  
+The ARN of the Lambda Event Function that handles this route. AWS SAM creates an integration and the necessary permissions for API Gateway to invoke the function.  
 *Type*: String  
 *Required*: Yes  
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.

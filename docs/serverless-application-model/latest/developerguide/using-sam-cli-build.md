@@ -9,7 +9,7 @@ Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `
 + For an example of using `sam build` during a typical development workflow, see [Step 2: Build your application](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-build).
 
 **Note**  
-Using `sam build` requires that you start with the basic components of a serverless application on your development machine. This includes an AWS SAM template, AWS Lambda function code, and any language-specific files and dependencies. To learn more, see [Create your application in AWS SAM](using-sam-cli-init.md).
+Using `sam build` requires that you start with the basic components of a serverless application on your development machine. This includes an AWS SAM template, AWS Lambda Event Function code, and any language-specific files and dependencies. To learn more, see [Create your application in AWS SAM](using-sam-cli-init.md).
 
 **Topics**
 + [Building applications with sam build](#using-sam-cli-build-apps)
@@ -31,7 +31,7 @@ Before using `sam build`, consider configuring the following:
 
    1. **Native runtime** – Author your Lambda functions in a supported Lambda runtime and build you functions to use a native Lambda runtime in the AWS Cloud.
 
-   1. **Custom runtime** – Author your Lambda functions using any programming language and build your runtime using a custom process defined in a makefile or third-party builder such as esbuild. To learn more, see [Building Lambda functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
+   1. **Custom runtime** – Author your Lambda functions using any programming language and build your runtime using a custom process defined in a makefile or third-party builder such as esbuild. To learn more, see [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
 
 1. **Lambda package type** – Lambda functions can be packaged in the following Lambda deployment package types:
 
@@ -57,7 +57,7 @@ These application settings can be configured when initializing an application us
    sam-app $ sam build {{<arguments>}} {{<options>}}
    ```
 **Note**  
-A commonly used option is `--use-container`. To learn more, see [Building a Lambda function inside of a provided container](#using-sam-cli-build-options-container).
+A commonly used option is `--use-container`. To learn more, see [Building a Lambda Event Function inside of a provided container](#using-sam-cli-build-options-container).
 
    The following is an example of the AWS SAM CLI output:
 
@@ -152,7 +152,7 @@ To build a resource of a nested application or stack, provide the application or
 $ sam build {{MyNestedStack/MyFunction}}
 ```
 
-### Building a Lambda function inside of a provided container
+### Building a Lambda Event Function inside of a provided container
 <a name="using-sam-cli-build-options-container"></a>
 
 The `--use-container` option downloads a container image and uses it to build your Lambda functions. The local container is then referenced in your `.aws-sam/build.toml` file.

@@ -4,7 +4,7 @@
 <a name="automating-updates-to-serverless-apps"></a>
 
 AWS Serverless Application Model (AWS SAM) comes built-in with [CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html) to provide gradual AWS Lambda deployments. With just a few lines of configuration, AWS SAM does the following for you:
-+ Deploys new versions of your Lambda function, and automatically creates aliases that point to the new version.
++ Deploys new versions of your Lambda Event Function, and automatically creates aliases that point to the new version.
 + Gradually shifts customer traffic to the new version until you're satisfied that it's working as expected. If an update doesn't work correctly, you can roll back the changes.
 + Defines pre-traffic and post-traffic test functions to verify that the newly deployed code is configured correctly and that your application operates as expected.
 + Automatically rolls back the deployment if CloudWatch alarms are triggered.
@@ -76,7 +76,7 @@ These revisions to the AWS SAM template do the following:
 
   For more information, see [SAM Reference to Safe Deployments](https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst). 
 
-## Gradually deploying a Lambda function for the first time
+## Gradually deploying a Lambda Event Function for the first time
 <a name="automating-updates-to-serverless-apps-first-time"></a>
 
  When deploying a Lambda function gradually, CodeDeploy requires a previously deployed function version to shift traffic from. Therefore, your first deployment should be accomplished in two steps: 
@@ -85,7 +85,7 @@ These revisions to the AWS SAM template do the following:
 
 Performing your first gradual deployment in two steps gives CodeDeploy a previous Lambda function version to shift traffic from.
 
-### Step 1: Deploy your Lambda function
+### Step 1: Deploy your Lambda Event Function
 <a name="automating-updates-to-serverless-apps-first-time-step1"></a>
 
 ```

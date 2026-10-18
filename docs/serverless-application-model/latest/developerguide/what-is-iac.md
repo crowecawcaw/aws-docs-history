@@ -17,7 +17,7 @@ AWS offers several IaC tools to help you build, deploy, and manage your cloud re
 Using [CloudFormation](https://aws.amazon.com/cloudformation/), you can model and provision your entire AWS infrastructure with YAML or JSON templates. CloudFormation handles resource creation, updates, and deletion automatically. When you deploy AWS SAM applications, CloudFormation processes the transformed templates to create and manage your resources.
 
 **AWS Serverless Application Model (AWS SAM)**  
-AWS SAM helps you build serverless applications with simplified syntax for defining serverless resources. You can use AWS SAM templates to provision Lambda functions, APIs, databases, and event sources using concise YAML syntax. AWS SAM transforms these templates into CloudFormation templates during deployment.  
+AWS SAM helps you build serverless applications with simplified syntax for defining serverless resources. You can use AWS SAM templates to provision Lambda Event Functions, APIs, databases, and event sources using concise YAML syntax. AWS SAM transforms these templates into CloudFormation templates during deployment.  
 While AWS SAM specializes in serverless applications, you can use any CloudFormation resource types in your AWS SAM templates. This gives you the flexibility to include non-serverless resources when needed.
 
 **AWS Cloud Development Kit (AWS CDK)**  

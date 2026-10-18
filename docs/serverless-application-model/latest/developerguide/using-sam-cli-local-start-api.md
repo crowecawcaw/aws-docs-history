@@ -3,7 +3,7 @@
 # Introduction to testing with sam local start-api
 <a name="using-sam-cli-local-start-api"></a>
 
-Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local start-api` subcommand to run your AWS Lambda functions locally and test through a local HTTP server host. This type of test is helpful for Lambda functions that are invoked by an Amazon API Gateway endpoint.
+Use the AWS Serverless Application Model Command Line Interface (AWS SAM CLI) `sam local start-api` subcommand to run your AWS Lambda Event Functions locally and test through a local HTTP server host. This type of test is helpful for Lambda functions that are invoked by an Amazon API Gateway endpoint.
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 + For a list of `sam local start-api` command options, see [sam local start-api](sam-cli-command-reference-sam-local-start-api.md).
 + For an example of using `sam local start-api` during a typical development workflow, see [Step 7: (Optional) Test your application locally](serverless-getting-started-hello-world.md#serverless-getting-started-hello-world-test).
@@ -66,7 +66,7 @@ When you run `sam local start-api`, the AWS SAM CLI assumes that your current w
    + If your application does have a `.aws-sam` directory, you need to run `sam build` to update your function. Then run `sam local start-api` again to host the function.
    + If your function uses a compiled language or if your project requires complex packaging support, run your own build solution to update your function. Then run `sam local start-api` again to host the function.
 
-### Lambda functions that use Lambda authorizers
+### Lambda Event Functions that use Lambda authorizers
 <a name="using-sam-cli-local-start-api-authorizers"></a>
 
 **Note**  
@@ -147,7 +147,7 @@ $ sam local start-api --warm-containers eager --no-watch
 
 With `--no-watch`, code and template changes are not detected automatically. Stop and rerun the command to pick up changes.
 
-### Specify a container image to use for your Lambda functions
+### Specify a container image to use for your Lambda Event Functions
 <a name="using-sam-cli-local-start-api-options-specify"></a>
 
 By default, the AWS SAM CLI uses Lambda base images from Amazon Elastic Container Registry (Amazon ECR) to invoke your functions locally. Use the `--invoke-image` option to reference a custom container image. The following is an example:
@@ -171,7 +171,7 @@ To specify a template for the AWS SAM CLI to reference, use the `--template` op
 $ sam local start-api --template {{myTemplate.yaml}}
 ```
 
-### Specify the host development environment of your Lambda function
+### Specify the host development environment of your Lambda Event Function
 <a name="using-sam-cli-local-start-api-options-dev"></a>
 
 By default, the `sam local start-api` subcommand creates an HTTP server using `localhost` with IP address `127.0.0.1`. You can customize these values if your local development environment is isolated from your local machine.

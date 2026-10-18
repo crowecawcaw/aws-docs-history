@@ -3,7 +3,7 @@
 # Increase efficiency using Lambda layers with AWS SAM
 <a name="serverless-sam-cli-layers"></a>
 
-Using AWS SAM, you can include layers in your serverless applications. AWS Lambda layers allow you to extract code from a Lambda function into a Lambda layer which can then be used across several Lambda functions. Doing this allows you to reduce the size of your deployment packages, separate core function logic from dependencies, and share dependencies across multiple functions. For more information about layers, see [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) in the *AWS Lambda Developer Guide*.
+Using AWS SAM, you can include layers in your serverless applications. AWS Lambda layers allow you to extract code from a Lambda Event Function into a Lambda layer which can then be used across several Lambda functions. Doing this allows you to reduce the size of your deployment packages, separate core function logic from dependencies, and share dependencies across multiple functions. For more information about layers, see [Lambda layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) in the *AWS Lambda Developer Guide*.
 
 This topic provides information about the following:
 + Including layers in your application

@@ -7,7 +7,7 @@ This page provides reference information for the AWS Serverless Application Mode
 + For an introduction to the AWS SAM CLI, see [What is the AWS SAM CLI?](what-is-sam-overview.md#what-is-sam-cli)
 + For documentation on using the AWS SAM CLI `sam remote test-event` command, see [Introduction to cloud testing with sam remote test-event](using-sam-cli-remote-test-event.md).
 
-The `sam remote test-event list` subcommand lists the existing shareable test events for a specific AWS Lambda function from the Amazon EventBridge schema registry.
+The `sam remote test-event list` subcommand lists the existing shareable test events for a specific AWS Lambda Event Function from the Amazon EventBridge schema registry.
 
 ## Usage
 <a name="sam-cli-command-reference-remote-test-event-list-usage"></a>

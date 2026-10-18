@@ -43,7 +43,7 @@ This section lists the use cases for publishing applications, along with the `Me
   + `HomePageUrl`
   + `SourceCodeUrl`
   + `SemanticVersion`
-  + The content of the AWS SAM template (for example, any event sources, resources, and Lambda function code)
+  + The content of the AWS SAM template (for example, any event sources, resources, and Lambda Event Function code)
 
    
 + **Creating an application version** – An application version is created if there is already an application in the AWS Serverless Application Repository with a matching name for an account *and* the SemanticVersion *is* changing.

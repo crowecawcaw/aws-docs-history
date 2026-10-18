@@ -116,7 +116,7 @@ If `true`, AWS SAM adds the `Tags` property to the `AWS::ApiGatewayV2::Stage` an
 *CloudFormation compatibility*: This property is unique to AWS SAM and doesn't have an CloudFormation equivalent.
 
  `Routes`   <a name="sam-websocketapi-routes"></a>
-The route configurations for this WebSocket API. Routes define how messages are routed to Lambda functions. Each route consists of a route key and a Lambda function ARN.  
+The route configurations for this WebSocket API. Routes define how messages are routed to Lambda Event Functions. Each route consists of a route key and a Lambda function ARN.  
 WebSocket APIs support three predefined routes: `$connect`, `$disconnect`, and `$default`. You can also define custom routes.  
 *Type*: [RouteConfiguration](sam-property-websocketapi-routeconfiguration.md)  
 *Required*: Yes  

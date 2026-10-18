@@ -9,7 +9,7 @@ This section provides guidance on common practices you can follow to test your a
 
 **Topics**
 + [Introduction to testing with the sam local command](using-sam-cli-local.md)
-+ [Locally invoke Lambda functions with AWS SAM](serverless-sam-cli-using-invoke.md)
++ [Locally invoke Lambda Event Functions with AWS SAM](serverless-sam-cli-using-invoke.md)
 + [Locally run API Gateway with AWS SAM](serverless-sam-cli-using-start-api.md)
 + [Introduction to cloud testing with sam remote test-event](using-sam-cli-remote-test-event.md)
 + [Introduction to testing in the cloud with sam remote invoke](using-sam-cli-remote-invoke.md)

@@ -106,7 +106,7 @@ Resources:
         DefaultAuthorizer: MyLambdaRequestAuth
 ```
 
-To override the default authorizer for your AWS Lambda function, you can specify `Authorizer` as `NONE`. The following is an example:
+To override the default authorizer for your AWS Lambda Event Function, you can specify `Authorizer` as `NONE`. The following is an example:
 
 ```
 AWSTemplateFormatVersion: '2010-09-09'

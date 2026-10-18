@@ -1,9 +1,9 @@
 
 
-# Building Lambda functions with custom runtimes in AWS SAM
+# Building Lambda Event Functions with custom runtimes in AWS SAM
 <a name="building-custom-runtimes"></a>
 
-You can use the `sam build` command to build custom runtimes required for your Lambda function. You declare your Lambda function to use a custom runtime by specifying `Runtime: provided` for the function.
+You can use the `sam build` command to build custom runtimes required for your Lambda Event Function. You declare your Lambda function to use a custom runtime by specifying `Runtime: provided` for the function.
 
 To build a custom runtime, declare the `Metadata` resource attribute with a `BuildMethod: makefile` entry. You provide a custom makefile, where you declare a build target of the form `build-{{function-logical-id}}` that contains the build commands for your runtime. Your makefile is responsible for compiling the custom runtime if necessary, and copying the build artifacts into the proper location required for subsequent steps in your workflow. The location of the makefile is specified by the `CodeUri` property of the function resource, and must be named `Makefile`.
 
@@ -14,7 +14,7 @@ To build a custom runtime, declare the `Metadata` resource attribute with a `Bui
 <a name="building-custom-runtimes-examples-rust"></a>
 
 **Note**  
-We recommend building Lambda functions with Cargo Lambda. To learn more, see [Building Rust Lambda functions with Cargo Lambda in AWS SAM](building-rust.md).
+We recommend building Lambda functions with Cargo Lambda. To learn more, see [Building Rust Lambda Event Functions with Cargo Lambda in AWS SAM](building-rust.md).
 
 The following AWS SAM template declares a function that uses a custom runtime for a Lambda function written in Rust, and instructs `sam build` to execute the commands for the `build-HelloRustFunction` build target.
 

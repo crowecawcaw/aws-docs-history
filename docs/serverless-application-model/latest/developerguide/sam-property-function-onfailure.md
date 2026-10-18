@@ -41,7 +41,7 @@ Type of the resource referenced in the destination. Supported types are `SQS`, `
 ### EventInvoke Configuration Example with SQS and Lambda destinations
 <a name="sam-property-function-onfailure--examples--eventinvoke-configuration-example-with-sqs-and-lambda-destinations"></a>
 
-In this example no Destination is given for the SQS OnSuccess configuration, so SAM implicitly creates a SQS queue and adds any necessary permissions. Also for this example, a Destination for a Lambda resource declared in the template file is specified in the OnFailure configuration, so SAM adds the necessary permissions to this Lambda function to call the destination Lambda function.
+In this example no Destination is given for the SQS OnSuccess configuration, so SAM implicitly creates a SQS queue and adds any necessary permissions. Also for this example, a Destination for a Lambda resource declared in the template file is specified in the OnFailure configuration, so SAM adds the necessary permissions to this Lambda Event Function to call the destination Lambda function.
 
 #### YAML
 <a name="sam-property-function-onfailure--examples--eventinvoke-configuration-example-with-sqs-and-lambda-destinations--yaml"></a>

@@ -325,7 +325,7 @@ Gives permission to send metrics to CloudWatch.
 ## CodePipelineLambdaExecutionPolicy
 <a name="code-pipeline-lambda-execution-policy"></a>
 
-Gives permission for a Lambda function invoked by AWS CodePipeline to report the status of the job.
+Gives permission for a Lambda Event Function invoked by AWS CodePipeline to report the status of the job.
 
 ```
 "Statement": [

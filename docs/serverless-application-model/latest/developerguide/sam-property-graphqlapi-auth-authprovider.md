@@ -24,7 +24,7 @@ UserPool: {{[UserPoolConfig](https://docs.aws.amazon.com/AWSCloudFormation/lates
 <a name="sam-property-graphqlapi-auth-authprovider-properties"></a>
 
 `LambdaAuthorizer`  <a name="sam-graphqlapi-auth-authprovider-lambdaauthorizer"></a>
-Specify the optional authorization configuration for your AWS Lambda function authorizer. You can configure this optional property when `Type` is specified as `AWS_LAMBDA`.  
+Specify the optional authorization configuration for your AWS Lambda Event Function authorizer. You can configure this optional property when `Type` is specified as `AWS_LAMBDA`.  
 *Type*: [ LambdaAuthorizerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-lambdaauthorizerconfig)  
 *Required*: No  
 *CloudFormation compatibility*: This property is passed directly to the `[ LambdaAuthorizerConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html)` property of an `AWS::AppSync::GraphQLApi` `[ AdditionalAuthenticationProvider](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html)` object.

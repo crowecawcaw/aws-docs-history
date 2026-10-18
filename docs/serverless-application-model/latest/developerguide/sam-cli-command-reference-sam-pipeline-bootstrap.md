@@ -52,7 +52,7 @@ The path and file name of the configuration file containing the default paramete
 Prompt to confirm the deployment of your resources.
 
 `--create-image-repository | --no-create-image-repository`  <a name="sam-cli-command-reference-sam-pipeline-bootstrap-options-create-image-repository"></a>
-Specify whether to create an Amazon ECR image repository if none is provided. The Amazon ECR repository holds the container images of Lambda functions, or layers having a package type of `Image`. The default is `--no-create-image-repository`.
+Specify whether to create an Amazon ECR image repository if none is provided. The Amazon ECR repository holds the container images of Lambda Event Functions, or layers having a package type of `Image`. The default is `--no-create-image-repository`.
 
 `--debug`  <a name="sam-cli-command-reference-sam-pipeline-bootstrap-options-debug"></a>
 Turns on debug logging and prints debug messages that the AWS SAM CLI generates, and to display timestamps.

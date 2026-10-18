@@ -17,7 +17,7 @@ The following table summarizes resource attribute support by AWS SAM, subject to
 
 **Notes:**
 
-1. For more information about using the `Metadata` resource attribute with the `AWS::Serverless::Function` resource type, see [Building Lambda functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
+1. For more information about using the `Metadata` resource attribute with the `AWS::Serverless::Function` resource type, see [Building Lambda Event Functions with custom runtimes in AWS SAM](building-custom-runtimes.md).
 
 1. For more information about using the `Metadata` resource attribute with the `AWS::Serverless::LayerVersion` resource type, see [Building Lambda layers in AWS SAM](building-layers.md).
 

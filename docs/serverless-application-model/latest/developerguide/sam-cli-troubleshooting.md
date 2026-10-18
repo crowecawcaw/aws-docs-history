@@ -32,7 +32,7 @@ This means that you've attempted to send a request to a domain that's not valid.
 ### Error: Can’t find exact resource information with given stack name
 <a name="sam-cli-troubleshoot-messages-exact-resource"></a>
 
-When running the `sam remote invoke` command on an application that contains a single Lambda function resource, you see the following error:
+When running the `sam remote invoke` command on an application that contains a single Lambda Event Function resource, you see the following error:
 
 ```
 Error: Can't find exact resource information with given {{<stack-name>}}. Please provide full resource ARN or --stack-name to resolve the ambiguity.

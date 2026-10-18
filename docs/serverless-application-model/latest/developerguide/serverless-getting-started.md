@@ -13,4 +13,4 @@ After installation is complete, you can optionally walk through the AWS SAM Hell
 + [AWS SAM prerequisites](prerequisites.md)
 + [Install the AWS SAM CLI](install-sam-cli.md)
 + [Tutorial: Deploy a Hello World application with AWS SAM](serverless-getting-started-hello-world.md)
-+ [Converting Lambda Functions to AWS SAM Applications](convert-lambda-to-sam.md)
++ [Converting Lambda Event Functions to AWS SAM Applications](convert-lambda-to-sam.md)

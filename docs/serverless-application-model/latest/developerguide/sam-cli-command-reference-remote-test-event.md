@@ -32,7 +32,7 @@ Delete a shareable test event from the EventBridge schema registry. For more ref
 Get a shareable test event from the EventBridge schema registry. For more reference information, see [sam remote test-event get](sam-cli-command-reference-remote-test-event-get.md).
 
 `list`  
-List existing shareable test events for an AWS Lambda function. For more reference information, see [sam remote test-event list](sam-cli-command-reference-remote-test-event-list.md).
+List existing shareable test events for an AWS Lambda Event Function. For more reference information, see [sam remote test-event list](sam-cli-command-reference-remote-test-event-list.md).
 
 `put`  
 Save an event from a local file to the EventBridge schema registry. For more reference information, see [sam remote test-event put](sam-cli-command-reference-remote-test-event-put.md).

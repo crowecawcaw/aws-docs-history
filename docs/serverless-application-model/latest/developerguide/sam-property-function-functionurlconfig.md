@@ -5,7 +5,7 @@
 
 Creates an AWS Lambda function URL with the specified configuration parameters. A Lambda function URL is an HTTPS endpoint that you can use to invoke your function.
 
-By default, the function URL that you create uses the `$LATEST` version of your Lambda function. If you specify an `AutoPublishAlias` for your Lambda function, the endpoint connects to the specified function alias.
+By default, the function URL that you create uses the `$LATEST` version of your Lambda Event Function. If you specify an `AutoPublishAlias` for your Lambda function, the endpoint connects to the specified function alias.
 
 For more information, see [Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) in the *AWS Lambda Developer Guide*.
 

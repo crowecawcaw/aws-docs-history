@@ -1,9 +1,9 @@
 
 
-# Building Node.js Lambda functions with esbuild in AWS SAM
+# Building Node.js Lambda Event Functions with esbuild in AWS SAM
 <a name="serverless-sam-cli-using-build-typescript"></a>
 
-To build and package Node.js AWS Lambda functions, you can use the AWS SAM CLI with the esbuild JavaScript bundler. The esbuild bundler supports Lambda functions that you write in TypeScript.
+To build and package Node.js AWS Lambda Event Functions, you can use the AWS SAM CLI with the esbuild JavaScript bundler. The esbuild bundler supports Lambda functions that you write in TypeScript.
 
 To build a Node.js Lambda function with esbuild, add a `Metadata` object to your `AWS:Serverless::Function` resource and specify `esbuild` for the `BuildMethod`. When you run the **sam build** command, AWS SAM uses esbuild to bundle your Lambda function code.
 
@@ -62,7 +62,7 @@ For more information, see [Sources content](https://esbuild.github.io/api/#sourc
 **Target**  
 Specifies the target ECMAScript version. The default value is `es2020`.
 
-## TypeScript Lambda function example
+## TypeScript Lambda Event Function example
 <a name="serverless-sam-cli-using-build-typescript-example"></a>
 
 The following example AWS SAM template snippet uses esbuild to create a Node.js Lambda function from TypeScript code in `hello-world/app.ts`.

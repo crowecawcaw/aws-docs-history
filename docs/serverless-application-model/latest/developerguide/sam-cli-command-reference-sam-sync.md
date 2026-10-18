@@ -86,7 +86,7 @@ Specifies whether to separate dependencies of individual functions into another 
 
 `--express | --no-express`  <a name="sam-cli-command-reference-sam-sync-options-express"></a>
 Specifies whether to use CloudFormation Express mode for infrastructure deployments. When active, stack operations complete once resource configuration is applied. Resources continue becoming ready in the background.  
-Express mode applies only to the infrastructure sync path. Code-only syncs (Lambda function updates, deployments) bypass CloudFormation and are unaffected by this option.  
+Express mode applies only to the infrastructure sync path. Code-only syncs (Lambda Event Function updates, deployments) bypass CloudFormation and are unaffected by this option.  
 The default value is `--no-express`.  
 **Upcoming default change**  
 The default changes to `--express` on September 1, 2026.

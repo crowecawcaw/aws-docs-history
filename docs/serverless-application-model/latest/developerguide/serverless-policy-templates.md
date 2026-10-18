@@ -3,7 +3,7 @@
 # AWS SAM policy templates
 <a name="serverless-policy-templates"></a>
 
-The AWS Serverless Application Model (AWS SAM) allows you to choose from a list of policy templates to scope the permissions of your Lambda functions and AWS Step Functions state machines to the resources that are used by your application.
+The AWS Serverless Application Model (AWS SAM) allows you to choose from a list of policy templates to scope the permissions of your Lambda Event Functions and AWS Step Functions state machines to the resources that are used by your application.
 
 AWS SAM applications in the AWS Serverless Application Repository that use policy templates don't require any special customer acknowledgments to deploy the application from the AWS Serverless Application Repository.
 

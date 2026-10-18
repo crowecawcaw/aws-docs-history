@@ -3,7 +3,7 @@
 # LambdaRequestAuthorizer
 <a name="sam-property-api-lambdarequestauthorizer"></a>
 
-Configure a Lambda Authorizer to control access to your API with a Lambda function.
+Configure a Lambda Authorizer to control access to your API with a Lambda Event Function.
 
 For more information and examples, see [Control API access with your AWS SAM template](serverless-controlling-access-to-apis.md).
 

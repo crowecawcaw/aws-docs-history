@@ -8,7 +8,7 @@ The object describing an `MQ` event source type. For more information, see [Usin
 AWS Serverless Application Model (AWS SAM) generates an [AWS::Lambda::EventSourceMapping](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html) resource when this event type is set.
 
 **Note**  
-To have an Amazon MQ queue in a virtual private cloud (VPC) that connects to a Lambda function in a public network, your function's execution role must include the following permissions:   
+To have an Amazon MQ queue in a virtual private cloud (VPC) that connects to a Lambda Event Function in a public network, your function's execution role must include the following permissions:   
 `ec2:CreateNetworkInterface`
 `ec2:DeleteNetworkInterface`
 `ec2:DescribeNetworkInterfaces`

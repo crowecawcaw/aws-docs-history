@@ -173,7 +173,7 @@ For more information about using the `Ref` function, see [`Ref`](https://docs.aw
 ### Simple HttpApi
 <a name="sam-resource-httpapi--examples--simple-httpapi"></a>
 
-The following example shows the minimum needed to set up an HTTP API endpoint backed by an Lambda function. This example uses the default HTTP API that AWS SAM creates.
+The following example shows the minimum needed to set up an HTTP API endpoint backed by an Lambda Event Function. This example uses the default HTTP API that AWS SAM creates.
 
 #### YAML
 <a name="sam-resource-httpapi--examples--simple-httpapi--yaml"></a>
