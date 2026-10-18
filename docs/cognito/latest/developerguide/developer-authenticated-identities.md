@@ -145,7 +145,7 @@ public class DeveloperAuthenticationProvider extends AWSAbstractCognitoDeveloper
 To use this identity provider, you have to pass it into `CognitoCachingCredentialsProvider`. Here's an example:
 
 ```
-DeveloperAuthenticationProvider developerProvider = new DeveloperAuthenticationProvider( null, "IDENTITYPOOLID", context, Regions.USEAST1);
+DeveloperAuthenticationProvider developerProvider = new DeveloperAuthenticationProvider( null, "IDENTITYPOOLID", Regions.USEAST1);
 CognitoCachingCredentialsProvider credentialsProvider = new CognitoCachingCredentialsProvider( context, developerProvider, Regions.USEAST1);
 ```
 
@@ -313,123 +313,6 @@ const credentials = fromCognitoIdentity({
 
 // Attach the provider to each service client that needs credentials.
 const client = new SomeServiceClient({ region, credentials });
-```
-
-### Unity
-<a name="implement-id-provider-1.unity"></a>
-
-To use developer-authenticated identities, you must extend `CognitoAWSCredentials` and override the `RefreshIdentity` method to retrieve the user identity id and token from your backend and return them. Following is a simple example of an identity provider that would contact a hypothetical backend at 'example.com':
-
-```
-using UnityEngine;
-using System.Collections;
-using Amazon.CognitoIdentity;
-using System.Collections.Generic;
-using ThirdParty.Json.LitJson;
-using System;
-using System.Threading;
-
-public class DeveloperAuthenticatedCredentials : CognitoAWSCredentials
-{
-    const string PROVIDER_NAME = "example.com";
-    const string IDENTITY_POOL = "IDENTITY_POOL_ID";
-    static readonly RegionEndpoint REGION = RegionEndpoint.USEast1;
-
-    private string login = null;
-
-    public DeveloperAuthenticatedCredentials(string loginAlias)
-        : base(IDENTITY_POOL, REGION)
-    {
-        login = loginAlias;
-    }
-
-    protected override IdentityState RefreshIdentity()
-    {
-        IdentityState state = null;
-        ManualResetEvent waitLock = new ManualResetEvent(false);
-        MainThreadDispatcher.ExecuteCoroutineOnMainThread(ContactProvider((s) =>
-        {
-            state = s;
-            waitLock.Set();
-        }));
-        waitLock.WaitOne();
-        return state;
-    }
-
-    IEnumerator ContactProvider(Action<IdentityState> callback)
-    {
-        WWW www = new WWW("http://example.com/?username="+login);
-        yield return www;
-        string response = www.text;
-
-        JsonData json = JsonMapper.ToObject(response);
-
-        //The backend has to send us back an Identity and a OpenID token
-        string identityId = json["IdentityId"].ToString();
-        string token = json["Token"].ToString();
-
-        IdentityState state = new IdentityState(identityId, PROVIDER_NAME, token, false);
-        callback(state);
-    }
-}
-```
-
-The code above uses a thread dispatcher object to call a coroutine. If you don't have a way to do this in your project, you can use the following script in your scenes:
-
-```
-using System;
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-
-public class MainThreadDispatcher : MonoBehaviour
-{
-    static Queue<IEnumerator> _coroutineQueue = new Queue<IEnumerator>();
-    static object _lock = new object();
-
-    public void Update()
-    {
-        while (_coroutineQueue.Count > 0)
-        {
-            StartCoroutine(_coroutineQueue.Dequeue());
-        }
-    }
-
-    public static void ExecuteCoroutineOnMainThread(IEnumerator coroutine)
-    {
-        lock (_lock) {
-            _coroutineQueue.Enqueue(coroutine);
-        }
-    }
-}
-```
-
-### Xamarin
-<a name="implement-id-provider-1.xamarin"></a>
-
-To use developer-authenticated identities, you must extend `CognitoAWSCredentials` and override the `RefreshIdentity` method to retrieve the user identity id and token from your backend and return them. Following is a basic example of an identity provider that would contact a hypothetical backend at 'example.com':
-
-```
-public class DeveloperAuthenticatedCredentials : CognitoAWSCredentials
-{
-    const string PROVIDER_NAME = "example.com";
-    const string IDENTITY_POOL = "IDENTITY_POOL_ID";
-    static readonly RegionEndpoint REGION = RegionEndpoint.USEast1;
-    private string login = null;
-
-    public DeveloperAuthenticatedCredentials(string loginAlias)
-        : base(IDENTITY_POOL, REGION)
-    {
-        login = loginAlias;
-    }
-
-    protected override async Task<IdentityState> RefreshIdentityAsync()
-    {
-        IdentityState state = null;
-        //get your identity and set the state
-        return state;
-    }
-}
 ```
 
 ## Updating the logins map (Android and iOS only)
@@ -707,8 +590,3 @@ When you transition from unauthenticated to authenticated, you should call `cred
 Your application might require supporting unauthenticated identities or authenticated identities using public providers (Login with Amazon, Sign in with Apple, Facebook, or Google) along with developer-authenticated identities. The essential difference between developer-authenticated identities and other identities (unauthenticated identities and authenticated identities using public provider) is the way the identityId and token are obtained. For other identities, the mobile application will interact directly with Amazon Cognito instead of contacting your authentication system. The mobile application should be able to support two distinct flows depending on the choice made by the app user. For this you will have to make some changes to the custom identity provider.
 
 The recommended way to do it in Unity is to extend your identity provider from AmazonCognitoEnhancedIdentityProvide instead of AbstractCognitoIdentityProvider, and call the parent RefreshAsync method instead of your own in case the user is not authenticated with your own backend. If the user is authenticated, you can use the same flow explained before.
-
-### Xamarin
-<a name="support-transition-between-providers-1.xamarin"></a>
-
-Your application might require supporting unauthenticated identities or authenticated identities using public providers (Login with Amazon, Sign in with Apple, Facebook, or Google) along with developer-authenticated identities. The essential difference between developer-authenticated identities and other identities (unauthenticated identities and authenticated identities using public provider) is the way the identityId and token are obtained. For other identities, the mobile application will interact directly with Amazon Cognito instead of contacting your authentication system. The mobile application should be able to support two distinct flows depending on the choice made by the app user. For this, you will have to make some changes to the custom identity provider.

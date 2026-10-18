@@ -131,8 +131,8 @@ public void onReceive(Context context, Intent intent) {
     String source = update.getSource();
     String identityPoolId = update.getIdentityPoolId();
     String identityId = update.getIdentityId();
-    String datasetName = update.getDatasetName;
-    long syncCount = update.getSyncCount;
+    String datasetName = update.getDatasetName();
+    long syncCount = update.getSyncCount();
 
     Dataset dataset = client.openOrCreateDataset(datasetName);
 

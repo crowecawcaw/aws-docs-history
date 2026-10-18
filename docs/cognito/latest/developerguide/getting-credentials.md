@@ -183,28 +183,5 @@ The [AWS SDK for Unity](https://docs.aws.amazon.com/mobile/sdkforunity/developer
  You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately if you're allowing unauthenticated users or after you've set the login tokens in the credentials provider if you're authenticating users: 
 
 ```
-credentials.GetIdentityIdAsync(delegate(AmazonCognitoIdentityResult<string> result) {
-    if (result.Exception != null) {
-        //Exception!
-    }
-    string identityId = result.Response;
-});
-```
-
-## Xamarin
-<a name="getting-credentials-1.xamarin"></a>
-
-You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow the steps below.
-
-The [AWS SDK for Xamarin](https://docs.aws.amazon.com/mobile/sdkforxamarin/developerguide/Welcome.html) is now part of the [SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/welcome.html). To get started with Amazon Cognito in the SDK for .NET, see [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-creds-provider.html) in the AWS SDK for .NET Developer Guide. Or see [Amplify Dev Center](https://docs.amplify.aws/) for options for building an app with AWS Amplify.
-
-**Note**  
- **Note:** If you created your identity pool before February 2015, you must reassociate your roles with your identity pool in order to use this constructor without the roles as parameters. To do so, open the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home), choose **Manage identity pools**, select your identity pool, choose **Edit identity Pool**, specify your authenticated and unauthenticated roles, and save the changes. 
-
-**Retrieving an Amazon Cognito identity**
-
- You can retrieve a unique Amazon Cognito identifier (identity ID) for your end user immediately if you're allowing unauthenticated users or after you've set the login tokens in the credentials provider if you're authenticating users: 
-
-```
-var identityId = await credentials.GetIdentityIdAsync();
+string identityId = await credentials.GetIdentityIdAsync();
 ```

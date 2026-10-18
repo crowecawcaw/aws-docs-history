@@ -8,9 +8,6 @@ Amazon Cognito identity pools work with Login with Amazon to provide federated a
 Set up Login with Amazon to work with Amazon Cognito in the [Developer Portal](https://developer.amazon.com/login-with-amazon). For more information, see [Setting Up Login with Amazon](https://developer.amazon.com/docs/login-with-amazon/faq.html#setting-up-login-with-amazon) in the Login with Amazon FAQ.
 
 **Note**  
-To integrate Login with Amazon into a Xamarin application, follow the [Xamarin Getting Started Guide](https://developer.xamarin.com/guides/cross-platform/getting_started/).
-
-**Note**  
 You can't natively integrate Login with Amazon on the Unity platform. Instead, use a web view and go through the browser sign-in flow.
 
 ## Setting up Login with Amazon

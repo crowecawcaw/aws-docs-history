@@ -83,15 +83,3 @@ AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, REGION);
 ```
 
  The credentials provider communicates with Amazon Cognito, retrieving both the unique identifier for authenticated and unauthenticated users as well as temporary, limited-privilege AWS credentials for the AWS Mobile SDK. The retrieved credentials are valid for one hour, and the provider refreshes them when they expire. 
-
-## Xamarin
-<a name="accessing-aws-services-1.xamarin"></a>
-
-The [AWS SDK for Xamarin](https://docs.aws.amazon.com/mobile/sdkforxamarin/developerguide/Welcome.html) is now part of the [SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/welcome.html). To get started with Amazon Cognito in the SDK for .NET, see [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-creds-provider.html) in the AWS SDK for .NET Developer Guide. Or see [Amplify Dev Center](https://docs.amplify.aws/) for options for building an app with AWS Amplify.
-
-```
-// create a service client that uses credentials provided by Cognito
-var client = new AmazonDynamoDBClient(credentials, REGION)
-```
-
- The credentials provider communicates with Amazon Cognito, retrieving both the unique identifier for authenticated and unauthenticated users as well as temporary, limited-privilege AWS credentials for the AWS Mobile SDK. The retrieved credentials are valid for one hour, and the provider refreshes them when they expire. 

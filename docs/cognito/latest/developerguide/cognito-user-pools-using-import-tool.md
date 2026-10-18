@@ -629,9 +629,6 @@ Your user pool must be configured to verify emails or phone numbers. For more in
 
 When you migrate users from an existing authentication system to Amazon Cognito, you can import their password hashes along with their user attributes. Your users can then sign in immediately with their existing passwords, without a password reset. After users sign in for the first time, Amazon Cognito transparently migrates their credentials to the native Amazon Cognito authentication system.
 
-**Important**  
-Password hash import is not available for all user pools at this time. Password hash import requires the modern Amazon Cognito infrastructure with enhanced capabilities and scalability. Some user pools are still on a previous infrastructure and AWS will upgrade them to the new infrastructure, which unlocks this feature. In the Amazon Cognito console, eligible user pools display the password hashing algorithm option when creating import jobs, and ineligible pools do not display this option. For more information, see [Amazon Cognito unlocks advanced capabilities with next-generation infrastructure](https://aws.amazon.com/blogs/security/amazon-cognito-unlocks-advanced-capabilities-with-next-generation-infrastructure/) in the AWS Security Blog.
-
 ### How password hash import works
 <a name="cognito-user-pools-import-password-hash-overview"></a>
 

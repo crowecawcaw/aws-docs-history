@@ -7,6 +7,9 @@
 If you're new to Amazon Cognito Sync, use [AWS AppSync](https://aws.amazon.com/appsync/). Like Amazon Cognito Sync, AWS AppSync is a service for synchronizing application data across devices.  
 It enables user data like app preferences or game state to be synchronized. It also extends these capabilities by allowing multiple users to synchronize and collaborate in real time on shared data.
 
+**Note**  
+The code examples in this section use the Amazon Cognito Sync client in the archived AWS Mobile SDK (for Android, iOS, Unity, and Xamarin/.NET). That Mobile SDK is no longer maintained and its packages are not available in current package repositories. The examples remain for existing customers who still integrate against that SDK. For new development, use [AWS AppSync](https://aws.amazon.com/appsync/).
+
 Amazon Cognito Sync is an AWS service and client library that enable cross-device syncing of application-related user data. You can use it to synchronize user profile data across mobile devices and web applications. The client libraries cache data locally so your app can read and write data regardless of device connectivity status. When the device is online, you can synchronize data, and if you set up push sync, notify other devices immediately that an update is available.
 
 ## Set up an identity pool in Amazon Cognito

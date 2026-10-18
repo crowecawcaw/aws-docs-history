@@ -50,7 +50,7 @@ Original issuers take the format `https://cognito-idp.{{us-east-1}}.amazonaws.co
 **Updated issuer**  
 Recommended for all user pools, including for multi-Region replication. Updated issuers host the same JWKS content in multiple Regions, resulting in improved resilience and efficiency.  
 Updated issuers take the format `https://issuer-cognito-idp.{{us-east-1}}.amazonaws.com/{{us-east-1_EXAMPLE}}`, where {{Region}} is the primary AWS Region of your user pool.  
-The updated issuer type is not currently compatible with Application Load Balancer authentication with Amazon Cognito ([Authenticate users using an Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html)) or Amazon API Gateway Amazon Cognito authorizers ([Control access to REST APIs using Amazon Cognito user pools as authorizer](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html)).
+The updated issuer type isn't compatible with the native Amazon Cognito integration for Application Load Balancer authentication (the `authenticate-cognito` action). To use an updated issuer with an Application Load Balancer, configure the generic OIDC integration (the `authenticate-oidc` action) instead, and provide your user pool's OIDC endpoints. For more information, see [Authenticate users using an Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/listener-authenticate-users.html).
 
 ### Prepare for changes to the discovery document
 <a name="user-pool-oidc-discovery-parse-safely"></a>

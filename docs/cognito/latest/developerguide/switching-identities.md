@@ -112,30 +112,3 @@ function userLoggedIn(providerName, token) {
 Because the `fromCognitoIdentityPool` provider is attached directly to each service client, switching from the unauthenticated to the authenticated role means creating a new provider with the `logins` map and passing it to any service clients that you create afterward. Unlike the AWS SDK for JavaScript v2, the v3 SDK doesn't use a global configuration object, so there are no shared credentials to reset.
 
 For more information about the `fromCognitoIdentityPool` provider, see [AWS SDK for JavaScript v3 credential providers](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/).
-
-## Unity
-<a name="switching-identities-1.unity"></a>
-
-Users can log in to your application as unauthenticated guests. Eventually they might decide to log in using one of the supported IdPs. Amazon Cognito makes sure that an old identity retains the same unique identifier as the new one, and that the profile data is merged automatically.
-
-You can subscribe to the `IdentityChangedEvent` to be notified of profile merges:
-
-```
-credentialsProvider.IdentityChangedEvent += delegate(object sender, CognitoAWSCredentials.IdentityChangedArgs e)
-{
-    // handle the change
-    Debug.log("Identity changed from " + e.OldIdentityId + " to " + e.NewIdentityId);
-};
-```
-
-## Xamarin
-<a name="switching-identities-1.xamarin"></a>
-
-Users can log in to your application as unauthenticated guests. Eventually they might decide to log in using one of the supported IdPs. Amazon Cognito makes sure that an old identity retains the same unique identifier as the new one, and that the profile data is merged automatically.
-
-```
-credentialsProvider.IdentityChangedEvent += delegate(object sender, CognitoAWSCredentials.IdentityChangedArgs e){
-    // handle the change
-    Console.WriteLine("Identity changed from " + e.OldIdentityId + " to " + e.NewIdentityId);
-};
-```

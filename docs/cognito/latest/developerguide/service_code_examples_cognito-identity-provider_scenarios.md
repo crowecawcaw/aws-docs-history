@@ -10,6 +10,7 @@ Scenarios target an intermediate level of experience to help you understand serv
 **Topics**
 + [Automatically confirm known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoConfirmUser_section.md)
 + [Automatically migrate known users with a Lambda function](cognito-identity-provider_example_cross_CognitoAutoMigrateUser_section.md)
++ [Client token and Terms discovery](cognito-identity-provider_example_cognito-identity-provider_Scenario_ClientTokenAndTerms_section.md)
 + [Getting started with user pools](cognito-identity-provider_example_cognito_identity_provider_GettingStarted_066_section.md)
 + [Sign up a user with a user pool that requires MFA](cognito-identity-provider_example_cognito-identity-provider_Scenario_SignUpUserWithMfa_section.md)
 + [Use Amazon Cognito identity pools](cognito-identity-provider_example_cross_CognitoFlows_section.md)
