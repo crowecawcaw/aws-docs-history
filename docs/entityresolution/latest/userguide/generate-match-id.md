@@ -137,6 +137,8 @@ For a complete list of supported programming languages, see the [See Also](https
       ]
    }
    ```
+**Note**  
+If a record can't be processed, it's returned in the `failedRecords` list with an `errorMessage`. An `errorMessage` of `Internal Server Error` indicates that an internal service-side problem occurred while generating the Match ID. You can safely retry these records.
 
    If the call is unsuccessful, you might receive one of these errors:
    + 403 - AccessDeniedException if you don't have sufficient access
