@@ -37,9 +37,9 @@ For more information about our support for IPv6, see the [CloudFront FAQ](https:
 ## IPv6 origin requests
 <a name="ipv6-origin-requests"></a>
 
-When you use a custom origin (excluding Amazon S3 and VPC origins), you can customize origin settings for your distribution to choose how CloudFront connects to your origin using IPv4 or IPv6 addresses. For custom origins (excluding Amazon S3 and VPC origins), you have the following connectivity options:
+When you use a custom origin (excluding Amazon S3), you can customize origin settings for your distribution. With these settings, you choose how CloudFront connects to your origin using IPv4 or IPv6 addresses. For custom origins (excluding Amazon S3), you have the following connectivity options:
 + **IPv4 only (default)** – This is the default configuration that CloudFront uses to connect to origins over IPv4.
-+ **IPv6 only** – Requires your origin domain to resolve to an IPv6 address. CloudFront will exclusively use IPv6 addresses for origin connections.
++ **IPv6 only (excluding Amazon S3 and VPC origins)** – Requires your origin domain to resolve to an IPv6 address. CloudFront exclusively uses IPv6 addresses for origin connections.
 + **Dual-stack** – Enables connections over IPv4 and IPv6. CloudFront automatically chooses IPv4 or IPv6 origin connectivity to prioritize performance and availability so that you can use CloudFront as an IPv6 and IPv4 dual-stack internet gateway for your web applications.
 
 Choose the option that aligns with your origin's network configuration and connectivity requirements. For more information, see [Designing DNS for IPv6](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/designing-dns-for-ipv6.html) and [IPv6 security and monitoring considerations](https://docs.aws.amazon.com/whitepapers/latest/ipv6-on-aws/ipv6-security-and-monitoring-considerations.html).

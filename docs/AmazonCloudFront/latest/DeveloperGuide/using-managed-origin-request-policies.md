@@ -83,7 +83,7 @@ This policy does ***not*** include the `Host` header from the viewer request, bu
 
 This policy also includes additional [CloudFront request headers](adding-cloudfront-headers.md) for HTTP protocol, HTTP version, TLS version, and all device type and viewer location headers.
 
-This policy is intended for use with Amazon API Gateway and AWS Lambda function URL origins. These origins expect the `Host` header to contain the origin domain name, not the domain name of the CloudFront distribution. Forwarding the `Host` header from the viewer request to these origins can prevent them from working.
+This policy is intended for use with Amazon API Gateway, AWS Lambda function URL, and Lambda Web Function origins. These origins expect the `Host` header to contain the origin domain name, not the domain name of the CloudFront distribution. Forwarding the `Host` header from the viewer request to these origins can prevent them from working.
 
 **Note**  
 When you use this managed origin request policy to remove the viewer's `Host` header, CloudFront adds a new `Host` header with the origin's domain name to the origin request.

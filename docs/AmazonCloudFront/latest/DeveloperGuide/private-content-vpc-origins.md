@@ -25,7 +25,7 @@ Before you create a VPC origin for your CloudFront distribution, you must comple
 
 Your VPC must include the following:
 + **Internet gateway** – You need to add an internet gateway to the VPC that has your VPC origin resources. The internet gateway is required to denote that the VPC can receive traffic from the internet. The internet gateway is not used for routing traffic to origins inside the subnet, and you don't need to update the routing policies.
-+ **Private subnet with at least one available IPv4 address** – CloudFront routes to your subnet by using a service-managed elastic network interface (ENI) that CloudFront creates after you define your VPC origin resource with CloudFront. You must have at least one available IPv4 address in your private subnet so that the ENI creation process can succeed. The IPv4 address can be private, and there is no additional cost for it.
++ **Private subnet with at least one available IPv4 address (and, for dual-stack support, at least one available IPv6 address)** – CloudFront routes to your subnet by using a service-managed elastic network interface (ENI) that CloudFront creates after you define your VPC origin resource. You must have at least one available IPv4 address (and, for dual-stack support, at least one available IPv6 address) in your private subnet so that the ENI creation process can succeed. These addresses can be private, and there is no additional cost for them.
 
 ### Origin Resources
 <a name="origin-resources"></a>
@@ -43,7 +43,7 @@ In the private subnet, launch an Application Load Balancer, a Network Load Balan
 Your VPC origin resources (Application Load Balancer, Network Load Balancer, or EC2 instance) must have a security group attached. When you create a VPC origin, CloudFront automatically creates a service-managed security group with the naming pattern `CloudFront-VPCOrigins-Service-SG`. This security group is fully managed by AWS, and should not be edited.
 
 To allow traffic from CloudFront to reach your VPC origin, update the security group attached to your origin resource (ALB, NLB, or EC2 instance) to allow inbound traffic using one of the following methods:
-+ **Option 1:** Allow traffic from the CloudFront managed prefix list. For more information, see [Use the CloudFront managed prefix list](LocationsOfEdgeServers.md#managed-prefix-list). This can be done before VPC origin created as well.
++ **Option 1:** Allow traffic from the CloudFront managed prefix list. For more information, see [Use the CloudFront managed prefix list](LocationsOfEdgeServers.md#managed-prefix-list). This can be done before the VPC origin is created as well. For an IPv4 VPC origin, use only `com.amazonaws.global.cloudfront.origin-facing`. For a dual-stack VPC origin, use both `com.amazonaws.global.cloudfront.origin-facing` and `com.amazonaws.global.ipv6.cloudfront.origin-facing`.
 + **Option 2:** Allow traffic from the CloudFront service-managed security group (`CloudFront-VPCOrigins-Service-SG`). This can be done only after the VPC origin is created and the service-managed security group is created. This configuration is further restrictive as it restricts the traffic only to your CloudFront distributions.
 
 **Important**  
@@ -69,6 +69,8 @@ The following procedure shows you how to create a VPC origin for your new CloudF
 1. Choose **VPC origins**, **Create VPC origin**.
 
 1. Fill out the required fields. For **Origin ARN**, select the ARN of your Application Load Balancer, Network Load Balancer, or EC2 instance. If you don’t see the ARN, you can copy your specific resource ARN and paste it here instead.
+
+1. Select the **Origin type**. The default is IPv4.
 
 1. Choose **Create VPC origin**.
 
@@ -96,6 +98,8 @@ Optionally, you could choose to add your VPC origin to your existing distributio
 1. Choose **VPC origins**, **Create VPC origin**.
 
 1. Fill out the required fields. For **Origin ARN**, select the ARN of your Application Load Balancer, Network Load Balancer, or EC2 instance. If you don’t see the ARN, you can copy your specific resource ARN and paste it here instead.
+
+1. Select the **Origin type**. The default is IPv4.
 
 1. Choose **Create VPC origin**.
 

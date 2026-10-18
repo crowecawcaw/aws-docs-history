@@ -5,6 +5,9 @@
 
 CloudFront provides *origin access control* (OAC) for restricting access to a Lambda function URL origin.
 
+**Note**  
+If you use a Lambda Web Function as your CloudFront origin, see [Restrict access to an AWS Lambda Web Function origin](private-content-restricting-access-to-lambda-web.md). Lambda Web Function origins require a different OAC configuration.
+
 **Topics**
 + [Create a new OAC](#create-oac-overview-lambda)
 + [Advanced settings for origin access control](#oac-advanced-settings-lambda)

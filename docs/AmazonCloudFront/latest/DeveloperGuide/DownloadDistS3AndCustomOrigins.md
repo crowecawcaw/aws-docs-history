@@ -16,6 +16,7 @@ You can use edge functions to dynamically select the appropriate origin for each
 + [Use an Application Load Balancer](#concept_elb_origin)
 + [Use a Network Load Balancer](#concept_nlb_origin)
 + [Use a Lambda function URL](#concept_lambda_function_url)
++ [Use an AWS Lambda Web Function](#concept_lambda_web_endpoint)
 + [Use Amazon EC2 (or another custom origin)](#concept_CustomOrigin)
 + [Use CloudFront origin groups](#concept_origin_groups)
 + [Use Amazon API Gateway](#use-api-gate-way-origin)
@@ -507,6 +508,30 @@ For more information about Lambda function URLs, see the following topics in the
 + [Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) – A general overview of the Lambda function URLs feature
 + [Invoking Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-invocation.html) – Includes details about the request and response payloads to use for coding your serverless web application
 + [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html) – Includes details about the Lambda auth types
+
+## Use an AWS Lambda Web Function
+<a name="concept_lambda_web_endpoint"></a>
+
+A Lambda Web Function is a web application that runs on AWS Lambda and provides its own HTTPS endpoint. The endpoint can be regional, which serves the Lambda Web Function from one AWS Region, or global, which serves it from multiple Regions. You can use a Lambda Web Function as the origin for a CloudFront distribution.
+
+If you serve a web application from a Lambda Web Function, you can add CloudFront to get the following benefits:
++ Speed up your application by caching responses closer to viewers, which also reduces the load on your Lambda Web Function
++ Use a custom domain name and your own TLS certificate for your web application
++ Route different URL paths to different Lambda Web Functions or other origins by using CloudFront cache behaviors
++ Block specific requests using CloudFront geographic restrictions or AWS WAF (or both)
++ Use AWS WAF with CloudFront to help protect your application from malicious bots, help prevent common application exploits, and enhance protection from DDoS attacks
++ Use origin access control (OAC) to make sure that viewers can access your Lambda Web Function only through CloudFront
+
+To use a Lambda Web Function as the origin for a CloudFront distribution, specify the hostname of its endpoint as the origin domain. CloudFront identifies the endpoint type from the hostname:
++ Regional endpoint (`HomeRegion` and `PerRegion` endpoint types) – The hostname ends in `.lambda-web.{{AWS-Region}}.on.aws`
++ Global endpoint (`MultiRegion` endpoint type) – The hostname ends in `.lambda-web.global.on.aws`
+
+To use origin access control (OAC) with a Lambda Web Function, the endpoint's auth type must be `IamAuth`. The Lambda Web Function's resource-based policy must also allow the `lambda:InvokeWebFunctionEndpoint` permission. CloudFront signs requests to regional endpoints with SigV4 and to global endpoints with SigV4a. For more information, see [Restrict access to an AWS Lambda Web Function origin](private-content-restricting-access-to-lambda-web.md).
+
+For more information about Lambda Web Functions, see the following topics in the *AWS Lambda Developer Guide*:
++ [AWS Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions.html) – A general overview of the Lambda Web Functions feature
++ [Lambda Web Function endpoints](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-endpoints.html) – Includes details about the regional and global endpoint types and their hostnames
++ [Endpoint access control](https://docs.aws.amazon.com/lambda/latest/dg/web-functions-endpoint-access-control.html) – Includes details about the endpoint auth types and how CloudFront requests are signed
 
 ## Use Amazon EC2 (or another custom origin)
 <a name="concept_CustomOrigin"></a>

@@ -13,6 +13,7 @@ To do this, configure CloudFront to send authenticated requests to your AWS orig
 + [Restrict access to an AWS Elemental MediaPackage v2 origin](private-content-restricting-access-to-mediapackage.md)
 + [Restrict access to an AWS Elemental MediaStore origin](private-content-restricting-access-to-mediastore.md)
 + [Restrict access to an AWS Lambda function URL origin](private-content-restricting-access-to-lambda.md)
++ [Restrict access to an AWS Lambda Web Function origin](private-content-restricting-access-to-lambda-web.md)
 + [Restrict access to an Amazon S3 origin](private-content-restricting-access-to-s3.md)
 + [Restrict access with VPC origins](private-content-vpc-origins.md)
 + [Restrict access to an Amazon S3 Multi-Region Access Point origin](private-content-restricting-access-to-s3-mrap.md)

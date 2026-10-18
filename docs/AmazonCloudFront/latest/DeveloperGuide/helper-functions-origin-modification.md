@@ -98,7 +98,7 @@ The AWS Region for Origin Shield. Specify the AWS Region that has the lowest lat
 When you enable CloudFront Origin Shield, you must specify the AWS Region for it. For a list of available AWS Regions and help choosing the best Region for your origin, see [Choose the AWS Region for Origin Shield](origin-shield.md#choose-origin-shield-region).
 
 **originAccessControlConfig (optional)**  
-The unique identifier of an origin access control (OAC) for this origin. This is only used when the origin supports a CloudFront OAC, such as Amazon S3, Lambda function URLs, MediaStore, and MediaPackage V2. If this is not provided, then the OAC settings from the assigned origin are used.  
+The unique identifier of an origin access control (OAC) for this origin. This is only used when the origin supports a CloudFront OAC, such as Amazon S3, Lambda function URLs, Lambda Web Functions, MediaStore, and MediaPackage V2. If this is not provided, then the OAC settings from the assigned origin are used.  
 This does not support the legacy origin access identity (OAI). For more information, see [Restrict access to an AWS origin](private-content-restricting-access-to-origin.md).    
 **enabled (required)**  
 Boolean expression to enable or disable OAC. Accepts a `true` or `false` value.  
@@ -109,9 +109,10 @@ This field can have one of the following values:
 + `never` – CloudFront doesn’t sign any origin requests. This value turns off origin access control for the origin.
 + `no-override` – If the viewer request doesn’t contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn’t sign the origin request and instead passes along the `Authorization` header from the viewer request.
 **Warning**  
-To pass along the `Authorization` header from the viewer request, you must add it to an origin request policy for all cache behaviors that use origins associated with this origin access control. For more information, see [Control origin requests with a policy](controlling-origin-requests.md).  
+To pass along the `Authorization` header from the viewer request, you must add it to an origin request policy for all cache behaviors that use origins associated with this origin access control. For more information, see [Control origin requests with a policy](controlling-origin-requests.md).
++ `always-amz-auth` – CloudFront signs all origin requests, but it doesn't replace the `Authorization` header from the viewer request. CloudFront adds its signature in a dedicated CloudFront header and passes the viewer's `Authorization` header to the origin unmodified. This value is required for Lambda Web Function origins and is not supported for any other origin type. For more information, see [Signing behavior](private-content-restricting-access-to-lambda-web.md#oac-signing-behavior-lambda-web).  
 **signingProtocol (required when enabled)**  
-The signing protocol of the OAC, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4`.  
+The signing protocol of the OAC, which determines how CloudFront signs (authenticates) requests. Specify `sigv4` for most origins. Specify `sigv4a` for an Amazon S3 Multi-Region Access Point origin or a global Lambda Web Function origin.  
 **originType (required when enabled)**  
 The type of origin for this OAC. Valid values include `s3`, `mediapackagev2`, `mediastore`, and `lambda`. 
 
