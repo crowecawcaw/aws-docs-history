@@ -11,7 +11,7 @@
 + [Using PyFlink](pyflink-for-flink.md)
 + [Using AWS Glue with Flink](glue-for-flink.md)
 + [Using Apache Hudi with Apache Flink](tutorial-hudi-for-flink.md)
-+ [Using cuDF Accelerator for Apache Spark with Amazon EMR on EKS](tutorial-spark-rapids.md)
++ [Using the cuDF Plugin for Apache Spark with Amazon EMR on EKS](tutorial-spark-cudf.md)
 + [Using Amazon Redshift integration for Apache Spark on Amazon EMR on EKS](emr-spark-redshift.md)
 + [Using Volcano as a custom scheduler for Apache Spark on Amazon EMR on EKS](tutorial-volcano.md)
 + [Using YuniKorn as a custom scheduler for Apache Spark on Amazon EMR on EKS](tutorial-yunikorn.md)

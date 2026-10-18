@@ -24,13 +24,13 @@ Other options you may want to consider when customizing Docker images are custom
 ## Step 1: Retrieve a base image from Amazon Elastic Container Registry (Amazon ECR)
 <a name="docker-custom-images-retrieve"></a>
 
-The base image contains the Amazon EMR runtime and connectors that are used to access other AWS services. For Amazon EMR 6.9.0 and higher, you can get the base images from the Amazon ECR Public Gallery. Browse the gallery to find the image link and pull the image to your local workspace. For example, for Amazon EMR 7.13.0 release, the following `docker pull` command gets you the lastest standard base image. You can replace `emr-7.13.0:latest` with `emr-7.13.0-spark-rapids:latest` to retrieve the image that has Nvidia RAPIDS accelerator. You can also replace `emr-7.13.0:latest` with `emr-7.13.0-java11:latest` to retrieve the image with Java 11 runtime.
+The base image contains the Amazon EMR runtime and connectors that are used to access other AWS services. For Amazon EMR 6.9.0 and higher, you can get the base images from the Amazon ECR Public Gallery. Browse the gallery to find the image link and pull the image to your local workspace. For example, for Amazon EMR 7.13.0 release, the following `docker pull` command gets you the latest standard base image. You can replace `emr-7.13.0:latest` with `emr-7.13.0-spark-rapids:latest` to retrieve the image that has the NVIDIA cuDF Plugin for Apache Spark. You can also replace `emr-7.13.0:latest` with `emr-7.13.0-java11:latest` to retrieve the image with Java 11 runtime.
 
 ```
 docker pull public.ecr.aws/emr-on-eks/spark/{{emr-7.13.0:latest}}
 ```
 
-If you would like to retrieve the base image for a Amazon EMR 6.9.0 or ealier releases, or if you prefer to retrieve from Amazon ECR registry accounts in each Region, use the following steps:
+If you would like to retrieve the base image for a Amazon EMR 6.9.0 or earlier releases, or if you prefer to retrieve from Amazon ECR registry accounts in each Region, use the following steps:
 
 1. Choose a base image URI. The image URI follows this format, `{{ECR-registry-account}}.dkr.ecr.{{Region}}.amazonaws.com/spark/{{container-image-tag}}`, as the following example demonstrates.
 

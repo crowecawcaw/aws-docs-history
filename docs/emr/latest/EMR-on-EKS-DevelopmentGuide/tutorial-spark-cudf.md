@@ -1,13 +1,13 @@
 
 
-# Using cuDF Accelerator for Apache Spark with Amazon EMR on EKS
-<a name="tutorial-spark-rapids"></a>
+# Using the cuDF Plugin for Apache Spark with Amazon EMR on EKS
+<a name="tutorial-spark-cudf"></a>
 
-With Amazon EMR on EKS, you can run jobs for the NVIDIA cuDF Accelerator for Apache Spark. This tutorial covers how to run Spark jobs using cuDF on EC2 graphics processing unit (GPU) instance types. The tutorial uses the following versions:
+With Amazon EMR on EKS, you can run jobs for the NVIDIA cuDF Plugin for Apache Spark. This tutorial covers how to run Spark jobs using cuDF on EC2 graphics processing unit (GPU) instance types. The tutorial uses the following versions:
 + Amazon EMR on EKS release version 6.9.0 and later
 + Apache Spark 3.x
 
-You can accelerate Spark with Amazon EC2 GPU instance types by using the NVIDIA [cuDF Accelerator for Apache Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html) plugin. When you use these technologies together, you accelerate your data science pipelines without having to make any code changes. This reduces the run time needed for data processing and model training. By getting more done in less time, you spend less on the cost of infrastructure.
+You can accelerate Spark with Amazon EC2 GPU instance types by using the NVIDIA [cuDF Plugin for Apache Spark](https://docs.nvidia.com/cudf-spark/latest/overview.html). When you use these technologies together, you accelerate your data science pipelines without having to make any code changes. This reduces the run time needed for data processing and model training. By getting more done in less time, you spend less on the cost of infrastructure.
 
 Before you begin, make sure you have the following resources. 
 + Amazon EMR on EKS virtual cluster
@@ -59,10 +59,10 @@ To configure your Amazon EKS cluster to add GPU-enabled node groups, perform the
    --execution-role-arn {{JOB_EXECUTION_ROLE}} \
    --release-label emr-6.9.0-spark-rapids-latest \
    --job-driver '{"sparkSubmitJobDriver": {"entryPoint": "local:///usr/lib/spark/examples/jars/spark-examples.jar","entryPointArguments":  ["10000"], "sparkSubmitParameters":"--class org.apache.spark.examples.SparkPi "}}' \
-   ---configuration-overrides '{"applicationConfiguration": [{"classification": "spark-defaults","properties": {"spark.executor.instances": "2","spark.executor.memory": "2G"}}],"monitoringConfiguration": {"cloudWatchMonitoringConfiguration": {"logGroupName": "{{LOG_GROUP _NAME}}"},"s3MonitoringConfiguration": {"logUri": "{{LOG_GROUP_STREAM}}"}}}'
+   --configuration-overrides '{"applicationConfiguration": [{"classification": "spark-defaults","properties": {"spark.executor.instances": "2","spark.executor.memory": "2G"}}],"monitoringConfiguration": {"cloudWatchMonitoringConfiguration": {"logGroupName": "{{LOG_GROUP_NAME}}"},"s3MonitoringConfiguration": {"logUri": "{{LOG_GROUP_STREAM}}"}}}'
    ```
 
-1. To validate that the Spark cuDF Accelerator is enabled, check the Spark driver logs. These logs are stored either in CloudWatch or in the S3 location you specify when you run the `start-job-run` command. The following example generally shows what the log lines look like:
+1. To confirm that your job uses the cuDF plugin, check the Spark driver logs. You find these logs in CloudWatch or in the S3 location that you specify when you run the `start-job-run` command. The following log lines show the plugin build information and the cuDF version that your job loaded:
 
    ```
    22/11/15 00:12:44 INFO RapidsPluginUtils: RAPIDS Accelerator build: {version=22.08.0-amzn-0, user=release, url=, date=2022-11-03T03:32:45Z, revision=, cudf_version=22.08.0, branch=}
@@ -82,7 +82,7 @@ To configure your Amazon EKS cluster to add GPU-enabled node groups, perform the
    --execution-role-arn {{JOB_EXECUTION_ROLE}} \
    --release-label emr-6.9.0-spark-rapids-latest \
    --job-driver '{"sparkSubmitJobDriver": {"entryPoint": "local:///usr/lib/spark/examples/jars/spark-examples.jar","entryPointArguments":  ["10000"], "sparkSubmitParameters":"--class org.apache.spark.examples.SparkPi "}}' \
-   ---configuration-overrides '{"applicationConfiguration": [{"classification": "spark-defaults","properties": {"spark.rapids.sql.explain":"ALL","spark.executor.instances": "2","spark.executor.memory": "2G"}}],"monitoringConfiguration": {"cloudWatchMonitoringConfiguration": {"logGroupName": "{{LOG_GROUP_NAME}}"},"s3MonitoringConfiguration": {"logUri": "{{LOG_GROUP_STREAM}}"}}}'
+   --configuration-overrides '{"applicationConfiguration": [{"classification": "spark-defaults","properties": {"spark.rapids.sql.explain":"ALL","spark.executor.instances": "2","spark.executor.memory": "2G"}}],"monitoringConfiguration": {"cloudWatchMonitoringConfiguration": {"logGroupName": "{{LOG_GROUP_NAME}}"},"s3MonitoringConfiguration": {"logUri": "{{LOG_GROUP_STREAM}}"}}}'
    ```
 
    The previous command is an example of a job that uses the GPU. Its output would look something like the example below. Refer to this key for help to understand the output:
