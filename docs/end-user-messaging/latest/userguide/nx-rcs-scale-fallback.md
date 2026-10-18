@@ -10,7 +10,7 @@ In addition to the global infrastructure, AWS End User Messaging offers several 
 ## SMS fallback
 <a name="nx-rcs-scale-fallback-how-it-works"></a>
 
-SMS fallback lets a single send reach recipients whether or not their device and carrier support RCS. AWS End User Messaging attempts RCS delivery first, and when the recipient cannot receive RCS, because the device or carrier does not support it or the message exceeds what RCS can deliver, the service delivers the message as SMS instead. You send once, and the service chooses the delivery path. A message that falls back is reported with the `RCS_FALLEN_BACK_TO_SMS` event and counted in the `RCSMessagesFallenBackToSMS` metric, so you can measure how often fallback occurs. For more information about tracking fallback, see [Monitoring](nx-rcs-scale-monitoring.md).
+SMS fallback lets a single send reach recipients whether or not their device and carrier support RCS. AWS End User Messaging attempts RCS delivery first, and when the recipient cannot receive RCS, because the device or carrier does not support it or the message exceeds what RCS can deliver, the service delivers the message as SMS instead. You send once, and the service chooses the delivery path. A message that falls back is reported with the `RCS_FALLEN_BACK_TO_SMS` event and counted in the `RCS.MessagesFallenBackToSMS` metric, so you can measure how often fallback occurs. For more information about tracking fallback, see [Monitoring](nx-rcs-scale-monitoring.md).
 
 AWS End User Messaging gives you two ways to set up fallback. You can let a phone pool handle it automatically, or you can define the exact fallback message on each send with a fallback configuration.
 

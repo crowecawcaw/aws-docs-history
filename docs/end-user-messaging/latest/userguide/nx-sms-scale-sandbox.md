@@ -39,11 +39,11 @@ If your account is in multiple AWS Regions, you must submit a support request fo
 
 1. Create a AWS Support case at [https://support.console.aws.amazon.com/support/home\#/case/create?issueType=service-limit-increase](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase).
 
-1. On the **Create case** page, select **Account and Billing**, and for **Service**, choose **Service Quotas**. For **Category**, choose the SMS or voice option, depending on your request.
+1. On the **Create case** page, for **Case type**, choose **Service limit increase**. For **Service**, choose **Service Limit Increase**. For **Category**, choose **AWS End User Messaging SMS (Pinpoint)** or **AWS End User Messaging Voice (Pinpoint)**, depending on your request.
 
-1. Under **Requests**, choose the AWS Region from which you will send messages, choose **General Limits** for the resource type, choose **SMS Production Access** for the quota, and enter 1 for the new quota value.
+1. Choose the AWS Region from which you will send messages. Choose **General Limits** for the resource type. Choose **SMS Production Access** for the **Limit Type**. Enter 1 for the **Limit Increase Value**.
 
-1. Under **Description**, for **Use case description**, provide a link to the site or app that will send messages, the type of messages you plan to send (one-time password, promotional, or transactional), the countries you plan to send to, your opt-in process, and the message template you plan to use.
+1. Complete the remaining fields: a link to the site or app that will send messages, the type of messages you plan to send (one-time password, promotional, or transactional), the AWS Region you will send messages from, the countries you plan to send to, how your customers opt in to receive messages, and the message template you plan to use.
 
 1. Choose **Submit**.
 
