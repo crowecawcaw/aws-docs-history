@@ -22,7 +22,7 @@ With the SAP All-on-AWS architecture, all systems and components of your SAP env
 + Implementation of a complete, new SAP environment on AWS 
 + Migration of a complete, existing SAP environment to AWS 
 
-Figure 3 depicts an SAP all-on-AWS architecture. The SAP environment running on AWS is integrated with on-premises systems and users via a VPN connection or a dedicated network connection via AWS Directs Connect. SAProuter is deployed in a public subnet and assigned a public IP address that is reachable from the internet to enable integration with the SAP OSS network via a secure network communications (SNC) connection. A [network address translation (NAT) gateway](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html) enables instances in the private subnet to connect to the internet or other AWS services, but prevents instances from receiving inbound traffic that is initiated by someone on the internet. For additional information, see the [Configuring Network and Connectivity](#overview-network-connectivity) section.
+Figure 3 depicts an SAP all-on-AWS architecture. The SAP environment running on AWS is integrated with on-premises systems and users via a VPN connection or a dedicated network connection via AWS Direct Connect. SAProuter is deployed in a public subnet and assigned a public IP address that is reachable from the internet to enable integration with the SAP OSS network via a secure network communications (SNC) connection. A [network address translation (NAT) gateway](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html) enables instances in the private subnet to connect to the internet or other AWS services, but prevents instances from receiving inbound traffic that is initiated by someone on the internet. For additional information, see the [Configuring Network and Connectivity](#overview-network-connectivity) section.
 
 ### Figure 3: SAP all-on-AWS architecture
 <a name="figure-3"></a>
@@ -38,7 +38,7 @@ With an SAP hybrid AWS architecture, some SAP systems and components are hosted 
 + Running non-production SAP landscapes (for example, DEV and QAS) on AWS, integrated with an SAP production landscape running on premises
 + Implementing a new SAP application on AWS and integrating it with an existing SAP on-premises environment
 
-Figure 4 depicts an SAP hybrid AWS architecture with SAP DEV and QAS landscapes and SAP test, training, and PoC systems running on AWS. These systems are integrated with SAP systems and users on the corporate network. Connectivity between the VPC and the corporate network is provided with either a VPN connection or an AWS Directs Connect connection. The existing SAProuter and SAP Solution Manager running on the corporate network are used to manage the SAP systems running within the VPC.
+Figure 4 depicts an SAP hybrid AWS architecture with SAP DEV and QAS landscapes and SAP test, training, and PoC systems running on AWS. These systems are integrated with SAP systems and users on the corporate network. Connectivity between the VPC and the corporate network is provided with either a VPN connection or an AWS Direct Connect connection. The existing SAProuter and SAP Solution Manager running on the corporate network are used to manage the SAP systems running within the VPC.
 
 ### Figure 4: SAP hybrid AWS architecture
 <a name="figure-4"></a>
@@ -83,7 +83,7 @@ Multiple options are available to provide network connectivity between your on-p
 #### Private Network Connection
 <a name="overview-private-network"></a>
 
- [AWS Directs Connect](https://aws.amazon.com/directconnect) makes it easy to establish a dedicated network connection from your premises to AWS. Using AWS Directs Connect, you can establish private connectivity between AWS and your data center, office, or co-location environment. In many cases, this can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections. For additional information, see the [AWS Directs Connect User Guide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html).
+ [AWS Direct Connect](https://aws.amazon.com/directconnect) makes it easy to establish a dedicated network connection from your premises to AWS. Using AWS Direct Connect, you can establish private connectivity between AWS and your data center, office, or co-location environment. In many cases, this can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than internet-based connections. For additional information, see the [AWS Direct Connect User Guide](https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html).
 
 Use cases: Recommended for customers who require greater bandwidth and lower latency than possible with a hardware VPN.
 
