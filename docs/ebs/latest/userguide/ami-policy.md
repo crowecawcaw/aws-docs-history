@@ -71,6 +71,8 @@ All schedules must have the same retention type. You can specify the retention t
       1. By default, AMIs created by the schedule are automatically tagged with the ID of the source instance. To prevent this automatic tagging from happening, for **Variable tags**, remove the `instance-id:$(instance-id)` tile.
 
       1. To specify additional tags to assign to AMIs created by this schedule, choose **Add tags**.
+**Variable tags and cross-Region copies**  
+You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies these tags only to the source AMI at the time the policy runs. Amazon Data Lifecycle Manager does not propagate them to cross-Region or cross-account copies, even when you enable **Copy tags from source**. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.
 
    1. Configure AMI deprecation.
 
@@ -91,6 +93,8 @@ All schedules must have the same retention type. You can specify the retention t
       + Whether to copy all tags or no tags from the source AMI.
 **Note**  
 Do not exceed the number of concurrent AMI copies per Region.
+**Variable tags and cross-Region copies**  
+Even when you choose to copy all tags, Amazon Data Lifecycle Manager does not propagate variable tags to the cross-Region copy. You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies them only to the source AMI at the time the policy runs. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.
 
    1. To add additional schedules, choose **Add another schedule**, which is located at the top of the screen. For each additional schedule, complete the fields as described previously in this topic.
 
@@ -243,6 +247,7 @@ The following **general considerations** apply to creating AMI lifecycle policie
 + If you create an age-based policy where the retention period is shorter than the creation frequency, Amazon Data Lifecycle Manager will always retain the last AMI until the next one is created. For example, if an age-based policy creates one AMI every month with a retention period of seven days, Amazon Data Lifecycle Manager will retain each AMI for one month, even though the retention period is seven days.
 + For count-based policies, Amazon Data Lifecycle Manager always creates AMIs according to the creation frequency before attempting to deregister the oldest AMI according to the retention policy.
 + It can take several hours to successfully deregister an AMI and to delete its associated backing snapshots. If Amazon Data Lifecycle Manager creates the next AMI before the previously created AMI is successfully deregistered, you could temporarily retain a number of AMIs that is greater than your retention count. 
++ You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies these tags only to the source AMI at the time the policy runs. Amazon Data Lifecycle Manager does not propagate them to cross-Region or cross-account copies, even when tag copying is enabled. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.
 
 The following considerations apply to **terminating instances targeted by a policy:**
 + If you terminate an instance that was targeted by a policy with a count-based retention schedule, the policy no longer manages the AMIs that it previously created from the terminated instance. You must manually deregister those earlier AMIs if they are no longer needed.

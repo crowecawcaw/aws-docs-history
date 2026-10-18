@@ -102,6 +102,8 @@ If you enable fast snapshot restore, cross-Region copy, or snapshot sharing, the
       1. To copy all of the user-defined tags from the source volume to the snapshots created by the schedule, select **Copy tags from source**.
 
       1. To specify additional tags to assign to snapshots created by this schedule, choose **Add tags**.
+**Variable tags and cross-Region copies**  
+You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies these tags only to the source snapshot at the time the policy runs. Amazon Data Lifecycle Manager does not propagate them to cross-Region or cross-account copies, even when you enable **Copy tags from source**. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.
 
    1. Configure pre and post scripts for application-consistent snapshots.
 
@@ -142,6 +144,8 @@ You are billed for each minute that fast snapshot restore is enabled for a snaps
 You must make sure that you do not exceed the number of concurrent snapshot copies per Region.
 
        If the policy creates snapshots on an Outpost, then you can't copy the snapshots to a Region or to another Outpost and the cross-Region copy settings are not available.
+**Variable tags and cross-Region copies**  
+Even when you choose to copy all tags, Amazon Data Lifecycle Manager does not propagate variable tags to the cross-Region copy. You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies them only to the source snapshot at the time the policy runs. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.
 
    1. Configure cross-account sharing.
 
@@ -501,6 +505,7 @@ The following **general considerations** apply to snapshot lifecycle policies:
 + If you create a policy that targets instances, and new volumes are attached to a target instance after the policy has been created, the newly-added volumes are included in the backup at the next policy run. All volumes attached to the instance at the time of the policy run are included.
 + If you create a policy with a custom cron-based schedule that is configured to create only one snapshot, the policy will not automatically delete that snapshot when the retention threshold is reached. You must manually delete the snapshot if it is no longer needed.
 + If you create an age-based policy where the retention period is shorter than the creation frequency, Amazon Data Lifecycle Manager will always retain the last snapshot until the next one is created. For example, if an age-based policy creates one snapshot every month with a retention period of seven days, Amazon Data Lifecycle Manager will retain each snapshot for one month, even though the retention period is seven days.
++ You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies these tags only to the source snapshot at the time the policy runs. Amazon Data Lifecycle Manager does not propagate them to cross-Region or cross-account copies, even when tag copying is enabled. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.
 
 The following considerations apply to **[snapshot archiving](snapshot-archive.md)**:
 + You can enable snapshot archiving only for snapshot policies that target volumes.

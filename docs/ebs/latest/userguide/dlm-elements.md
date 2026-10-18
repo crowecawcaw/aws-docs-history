@@ -91,3 +91,6 @@ Amazon Data Lifecycle Manager applies the following system tags to all snapshots
 You can also specify custom tags to be applied to snapshots and AMIs on creation. You can't use the `\` or `=` characters in a tag key.
 
 The target tags that Amazon Data Lifecycle Manager uses to associate volumes with a snapshot policy can optionally be applied to snapshots created by the policy. Similarly, the target tags that are used to associate instances with an AMI policy can optionally be applied to AMIs created by the policy.
+
+**Variable tags and cross-Region copies**  
+You specify variable tag values using the `$(instance-id)` or `$(timestamp)` syntax. Amazon Data Lifecycle Manager resolves and applies these tags only to the source snapshot or AMI at the time the policy runs. Amazon Data Lifecycle Manager does not propagate them to cross-Region or cross-account copies, even when tag copying is enabled. Amazon Data Lifecycle Manager copies only static user-defined tags to the destination.

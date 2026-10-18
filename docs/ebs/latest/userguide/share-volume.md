@@ -65,15 +65,15 @@ Use one of the following methods to share an Amazon EBS volume.
 
 Use the [create-resource-share](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/create-resource-share.html) command. Specify the volume ARN, the consuming account, and the permission ARN. To find the volume ARN, call [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html). The response includes the `VolumeArn` field for each volume.
 
-The following example creates a resource share that shares volume `vol-1234567890abcdef0` with account `222222222222`, and assigns the `AWSRAMPermissionEBSVolumeCopyAccess` managed permission:
+The following example creates a resource share that shares volume `vol-1234567890abcdef0` with account `444455556666`, and assigns the `AWSRAMPermissionEBSVolumeCopyAccess` managed permission:
 
 ```
 aws ram create-resource-share \
 --name {{my-volume-share}} \
---resource-arns {{arn:aws:ec2:us-east-1:111111111111:volume/vol-1234567890abcdef0}} \
---principals {{222222222222}} \
+--resource-arns {{arn:aws:ec2:us-east-1:111122223333:volume/vol-1234567890abcdef0}} \
+--principals {{444455556666}} \
 --permission-arns {{arn:aws:ram::aws:permission/AWSRAMPermissionEBSVolumeCopyAccess}} \
---region us-east-1
+--region {{us-east-1}}
 ```
 
 To share with the default permission (`AWSRAMDefaultPermissionEBSVolume`, describe only), omit the `--permission-arns` parameter:
@@ -81,10 +81,12 @@ To share with the default permission (`AWSRAMDefaultPermissionEBSVolume`, descri
 ```
 aws ram create-resource-share \
 --name {{my-volume-share}} \
---resource-arns {{arn:aws:ec2:us-east-1:111111111111:volume/vol-1234567890abcdef0}} \
---principals {{222222222222}} \
---region us-east-1
+--resource-arns {{arn:aws:ec2:us-east-1:111122223333:volume/vol-1234567890abcdef0}} \
+--principals {{444455556666}} \
+--region {{us-east-1}}
 ```
+
+The `--region` parameter is optional. If you omit it, the command uses the default AWS Region from your AWS CLI configuration.
 
 ------
 
@@ -115,12 +117,12 @@ Shared volumes display the sharing account ID in the **Owner ID** column.
 ------
 #### [ AWS CLI ]
 
-Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command with the `owner-id` filter to show volumes shared with you by a specific account.
+Use the [describe-volumes](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html) command with the `owner-id` filter to show volumes that a specific account shared with you. The `--region` parameter is optional; if you omit it, the command uses the default Region from your AWS CLI configuration.
 
 ```
 aws ec2 describe-volumes \
---filters Name=owner-id,Values={{111111111111}} \
---region us-east-1
+--filters Name=owner-id,Values={{111122223333}} \
+--region {{us-east-1}}
 ```
 
 Shared volumes include the `OwnerId` field in the response, which shows the sharing account ID.
