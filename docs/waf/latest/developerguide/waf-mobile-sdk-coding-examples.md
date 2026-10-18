@@ -214,3 +214,27 @@ connection.inputStream
 ```
 
 ------
+
+## Providing a custom device ID
+<a name="waf-mobile-sdk-coding-device-id-provider"></a>
+
+The following Android example shows a custom device ID provider and a `WAFConfiguration` that uses it. The `deviceIdProvider` setting requires version 2.1.0 or later of the AWS WAF Android SDK, which isn't available yet. For more information, see [AWS WAF mobile SDK specification](waf-mobile-sdk-specification.md).
+
+```
+import com.amazonaws.waf.mobilesdk.publicmodel.WAFDeviceIdProvider;
+import com.amazonaws.waf.mobilesdk.token.WAFConfiguration;
+
+public class MyAppDeviceIdProvider implements WAFDeviceIdProvider {
+    @Override
+    public String getDeviceId() {
+        String deviceId = "..."; // Replace with your app's stable, app-scoped device identifier
+        return deviceId;
+    }
+}
+
+WAFConfiguration configuration = WAFConfiguration.builder()
+    .applicationIntegrationURL(applicationIntegrationURL)
+    .domainName(DOMAIN_NAME)
+    .deviceIdProvider(new MyAppDeviceIdProvider())
+    .build();
+```

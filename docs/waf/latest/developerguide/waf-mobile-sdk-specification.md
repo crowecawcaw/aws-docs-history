@@ -38,6 +38,11 @@ Indicates whether you want the token provider to refresh the token in the backgr
 Required: No  
 Type: `Boolean`  
 Default value: `TRUE`  
+**`deviceIdProvider`**   
+Supplies the device ID that the AWS WAF Android SDK includes in the tokens that it acquires. This setting requires version 2.1.0 or later of the AWS WAF Android SDK, which isn't available yet. When a request's token carries a device ID, the Bot Control managed rule group adds a device ID label at the targeted protection level. For information about the device ID label and its values, see [Bot Control labels](aws-managed-rule-groups-bot.md#aws-managed-rule-groups-bot-labels-rg).  
+If you don't set this, the SDK uses its default device ID provider. The default provider reads `Settings.Secure.ANDROID_ID`. According to the Android documentation, reading this value doesn't require any special permissions. To control the device ID that the SDK sends, provide a custom provider that implements the `WAFDeviceIdProvider` interface. For an example, see [Providing a custom device ID](waf-mobile-sdk-coding-examples.md#waf-mobile-sdk-coding-device-id-provider).  
+Required: No  
+Type: `WAFDeviceIdProvider`  
 **`domainName`**   
 The domain to use in the token, which is used in token acquisition and cookie storage. For example, `example.com` or `aws.amazon.com`. This is usually the host domain of your resource that’s associated with the protection pack (web ACL), where you’ll be sending web requests. For the ACFP managed rule group, `AWSManagedRulesACFPRuleSet`, this will usually be a single domain that matches the domain in the account creation path that you provided in the rule group configuration. For the ATP managed rule group, `AWSManagedRulesATPRuleSet`, this will usually be a single domain that matches the domain in the login path that you provided in the rule group configuration.   
 Public suffixes aren't allowed. For example, you can't use `gov.au` or `co.uk` as the token domain.  

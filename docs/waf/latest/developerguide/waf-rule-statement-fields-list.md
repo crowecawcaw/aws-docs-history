@@ -124,7 +124,11 @@ The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of 
 You can obtain the JA3 fingerprint for a client's requests from the protection pack (web ACL) logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields for protection pack (web ACL) traffic](logging-fields.md).
 
 **Rule statement requirements**  
-You can inspect the JA3 fingerprint only inside a string match statement that's set to exactly match the string that you provide. Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration. For information about the string match statement, see [String match rule statement](waf-rule-statement-type-string-match.md).
+You can inspect the JA3 fingerprint in a string match, regex match, regex pattern set match, or size constraint statement. You can't inspect it in an SQL injection or cross-site scripting match statement.
+
+To match a single TLS configuration, provide the JA3 fingerprint string from the logs in a string match statement that's set to exactly match the string that you provide. For information about the string match statement, see [String match rule statement](waf-rule-statement-type-string-match.md).
+
+To match a group of TLS configurations with a single pattern, use a regex match statement or a regex pattern set match statement. For information about these statements, see [Regex match rule statement](waf-rule-statement-type-regex-match.md) and [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md).
 
 You must provide a fallback behavior for this rule statement. The fallback behavior is the match status that you want AWS WAF to assign to the web request if AWS WAF is unable to calculate the JA3 fingerprint. If you choose to match, AWS WAF treats the request as matching the rule statement and applies the rule action to the request. If you choose to not match, AWS WAF treats the request as not matching the rule statement.
 
@@ -144,7 +148,11 @@ The JA4 fingerprint is a 36-character hash derived from the TLS Client Hello of 
 You can obtain the JA4 fingerprint for a client's requests from the protection pack (web ACL) logs. If AWS WAF is able to calculate the fingerprint, it includes it in the logs. For information about the logging fields, see [Log fields for protection pack (web ACL) traffic](logging-fields.md).
 
 **Rule statement requirements**  
-You can inspect the JA4 fingerprint only inside a string match statement that's set to exactly match the string that you provide. Provide the JA4 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration. For information about the string match statement, see [String match rule statement](waf-rule-statement-type-string-match.md).
+You can inspect the JA4 fingerprint in a string match, regex match, regex pattern set match, or size constraint statement. You can't inspect it in an SQL injection or cross-site scripting match statement.
+
+To match a single TLS configuration, provide the JA4 fingerprint string from the logs in a string match statement that's set to exactly match the string that you provide. For information about the string match statement, see [String match rule statement](waf-rule-statement-type-string-match.md).
+
+To match a group of TLS configurations with a single pattern, use a regex match statement or a regex pattern set match statement. For information about these statements, see [Regex match rule statement](waf-rule-statement-type-regex-match.md) and [Regex pattern set match rule statement](waf-rule-statement-type-regex-pattern-set-match.md).
 
 You must provide a fallback behavior for this rule statement. The fallback behavior is the match status that you want AWS WAF to assign to the web request if AWS WAF is unable to calculate the JA4 fingerprint. If you choose to match, AWS WAF treats the request as matching the rule statement and applies the rule action to the request. If you choose to not match, AWS WAF treats the request as not matching the rule statement.
 

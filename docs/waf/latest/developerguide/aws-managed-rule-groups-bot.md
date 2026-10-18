@@ -131,6 +131,25 @@ Bot Control uses the IP address from the web request origin to help determine wh
     This label is added whenever a user has this type of extension installed, even if they're not actively using it. If you implement a label match rule for this, be aware of this possibility of false positives in your rule logic and action settings. For example, you might use a CAPTCHA action instead of Block or you might combine this label match with other label matches, to increase your confidence that automation is in use.
   + `awswaf:managed:aws:bot-control:signal:automated_browser` – Indicates that the request contains indicators that the client browser might be automated.
   + `awswaf:managed:aws:bot-control:targeted:signal:automated_browser` – Indicates that the request's AWS WAF token contains indicators that the client browser might be automated.
++ `awswaf:managed:aws:bot-control:token_provenance:ip_category_mismatch:{{<level>}}` – Indicates a change in the category of IP address between the request that acquired an AWS WAF token and the request that presents it. For example, a client might acquire a token from a data center IP address and then present it from a residential IP address. The level reflects how rarely legitimate clients make this kind of change: 
+  + `awswaf:managed:aws:bot-control:token_provenance:ip_category_mismatch:high` – A change that legitimate clients rarely make, such as a token acquired from a data center, proxy, or VPN IP address and presented from a residential or mobile IP address. 
+  + `awswaf:managed:aws:bot-control:token_provenance:ip_category_mismatch:medium` and `awswaf:managed:aws:bot-control:token_provenance:ip_category_mismatch:low` – Changes that have common legitimate causes, such as a residential client that turns on a VPN or proxy. 
+**Note**  
+AWS WAF adds these labels only at the targeted protection level, for version 7.0 and later of the rule group, and only for requests that present a token. AWS WAF doesn't evaluate token provenance for requests that are labeled `awswaf:managed:aws:bot-control:bot:verified`.   
+No rule in the Bot Control managed rule group acts on these labels. To block or challenge requests that have them, add a label match rule to your web ACL that runs after the Bot Control managed rule group. For more information, see [Label match rule statement](waf-rule-statement-type-label-match.md). 
++ `awswaf:managed:aws:bot-control:device_id:{{<device_id>}}` – Provides the device ID of the device that acquired the AWS WAF token. AWS WAF adds this label only at the targeted protection level, and only for requests whose token carries a device ID signal. A token carries a device ID signal only when it was acquired through the AWS WAF Android SDK version 2.1.0 or later. AWS WAF doesn't add a device ID label for requests without a token, for requests whose token was acquired through a web browser or the iOS SDK, or for requests that are labeled `awswaf:managed:aws:bot-control:bot:verified`. 
+**Note**  
+Version 2.1.0 of the AWS WAF Android SDK isn't available yet. Until it is, tokens don't carry a device ID signal, and AWS WAF doesn't add device ID labels. 
+
+  To use the device ID in your application, forward it to your backend as a request header by using dynamic label interpolation. Then read the header in your backend. For more information, see [Dynamic label interpolation](waf-dynamic-label-interpolation.md). 
+
+  Instead of a collected device ID, the device ID can have one of the following reserved values: 
+  + `awswaf:managed:aws:bot-control:device_id:Unavailable` – The AWS WAF Android SDK couldn't collect a device ID. The SDK reports `Unavailable` in the following cases: 
+    + The SDK is using the default device ID provider, and `Settings.Secure.ANDROID_ID` is null, blank, or matches the known bad ID `9774d56d682e549c` that some devices return. The known bad ID check runs only in the default provider. A custom provider that returns `9774d56d682e549c` sends it as a real device ID. 
+    + A custom device ID provider throws an exception, or returns a value that is null, blank, or reduced to nothing by the SDK's sanitization. 
+  + `awswaf:managed:aws:bot-control:device_id:invalid` – AWS WAF determined that the collected device ID is malformed, for example because it contains suspicious characters or exceeds the length requirement. AWS WAF invalidates the device ID and emits `invalid` in place of the collected value. 
+
+  To configure how the AWS WAF Android SDK collects the device ID, see [AWS WAF mobile SDK specification](waf-mobile-sdk-specification.md). If you use the default device ID provider and the device ID is often `Unavailable`, consider implementing a custom device ID provider so that you can add logging to improve visibility. 
 
 You can retrieve all labels for a rule group through the API by calling `DescribeManagedRuleGroup`. The labels are listed in the `AvailableLabels` property in the response. 
 
