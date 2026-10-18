@@ -115,6 +115,7 @@ When you create filters or sort findings using the API operations, you must spec
 | Region | region | 
 | Severity | severity<br />You can filter the finding types based on the severity level of the finding types. For more information about severity values, see [Severity levels of GuardDuty findings](guardduty_findings-severity.md). If you use `severity` with API, AWS CLI, or CloudFormation, it is assigned a numeric value. For more information, see [findingCriteria](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateFilter.html#guardduty-CreateFilter-request-findingCriteria) in the *Amazon GuardDuty API Reference*. | 
 | Finding type | type | 
+| Custom detection rule name | customDetectionRuleName<br />Present only on findings that a Runtime Monitoring Custom Detection Rule generated. For more information, see [Findings from Runtime Monitoring rules](guardduty_findings-summary.md#custom-detection-rules-finding-details-runtime). | 
 | Updated at | updatedAt | 
 | Access Key ID | resource.accessKeyDetails.accessKeyId | 
 | Principal ID | resource.accessKeyDetails.principalId | 

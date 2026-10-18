@@ -79,14 +79,14 @@ Perform the steps under [Tutorial: Get started with Slack](https://docs.aws.amaz
 
 After you [Create an Amazon SNS topic](#guardduty-set-up-sns-topic-eventbridge), the next step is to configure Amazon Q Developer for Chime.
 
-Perform the steps under [Tutorial: Get started with Amazon Chime](https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html.html) in the *Amazon Q Developer in chat applications Administrator Guide*.
+Perform the steps under [Tutorial: Get started with Amazon Chime](https://docs.aws.amazon.com/chatbot/latest/adminguide/chime-setup.html) in the *Amazon Q Developer in chat applications Administrator Guide*.
 
 ------
 
 ## Using Amazon EventBridge for GuardDuty findings
 <a name="eventbridge_events"></a>
 
-With EventBridge, you create rules to specify the events that you want to monitor. These rules also specify the target services and applications that can perform automated actions if these events occur. A [target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) is a destination (a resource or an endpoint) that EventBridge sends an event to when the event matches the event pattern defined in the rule. Each event is a JSON object that conforms to the EventBridge schema for AWS events and contains a JSON representation of a finding. You can tailor the rule to send only those events that meet a certain criteria. For more information, see [JSON Schema topic]. Because the findings data is structured as an [EventBridge event](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html), you can monitor, process, and act upon findings by using other applications, services, and tools.
+With EventBridge, you create rules to specify the events that you want to monitor. These rules also specify the target services and applications that can perform automated actions if these events occur. A [target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html) is a destination (a resource or an endpoint) that EventBridge sends an event to when the event matches the event pattern defined in the rule. Each event is a JSON object that conforms to the EventBridge schema for AWS events and contains a JSON representation of a finding. You can tailor the rule to send only those events that meet a certain criteria. For more information, see [Event schema](#guardduty_findings_eventbridge_format). Because the findings data is structured as an [EventBridge event](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html), you can monitor, process, and act upon findings by using other applications, services, and tools.
 
 In order to receive notifications about GuardDuty findings based on events, you must create an EventBridge rule and a target for GuardDuty. This rule enables EventBridge to send notifications for findings that GuardDuty generates to the target that is specified in the rule. 
 
@@ -321,10 +321,16 @@ Before you create this rule, create the Lambda function that you want the rule t
    1. Copy the following code and paste it into the **Template** field to format the email.
 
       ```
-      {"message":"You have a severity <severity> GuardDuty finding type <Finding_Type> in the <region> Region.\n\nFinding Description:\n<Finding_Description>.\n\nFor more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<region>#/findings?search=id%3D<Finding_ID>"}
+      {"message":"You have a severity <severity> GuardDuty finding type <Finding_Type> in the <region> Region.\n\nFinding Description:\n<Finding_Description>\n\nFor more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<region>#/findings?search=id%3D<Finding_ID>"}
       ```
 **Important**  
-Provide the template as a single-line JSON object with the message wrapped in a key such as `message`, as shown in the preceding example, and use `\n` to add line breaks. GuardDuty finding fields such as `description` can contain unescaped control characters, including newlines. If you provide the template as a bare quoted string, or place such a field into a multi-line template (one that uses separate quoted strings on separate lines), the substituted value can produce invalid JSON, which causes EventBridge to reject the event and fail to deliver the notification.
+Provide the template as a single-line JSON object, with the message wrapped in a key such as `message`, as shown in the preceding example. Use `\n` to add line breaks.  
+GuardDuty finding fields such as `description` can contain unescaped control characters, including newlines. Don't use either of the following template formats:  
+A bare quoted string
+A multi-line template that uses separate quoted strings on separate lines
+With these formats, the substituted value can produce invalid JSON. EventBridge then rejects the event and doesn't deliver the notification.
+**Note**  
+Email subscriptions receive the template output as is, so the email shows the `message` JSON object, and line breaks appear as `\n`. For formatted notifications, deliver the Amazon SNS topic to Amazon Q Developer in chat applications (Slack or Amazon Chime), or use an Lambda function as the target.
 
 1. On the **Configure tags** page, optionally enter one or more tags to assign to the rule. Then choose **Next**.
 
@@ -358,21 +364,21 @@ In this example, we're using a Lambda function as the target for the rule that t
 
    For this purpose, you can use any of the property values that are available in the JSON for GuardDuty findings. 
 
-1. To attach a Lambda function as a target for the rule that you created in step 1, run the following CloudWatch CLI command.
+1. To attach a Lambda function as a target for the rule that you created in step 1, run the following EventBridge CLI command.
 
    ```
-   aws events put-targets --rule {{your-target-name}} --targets Id=1,Arn=arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:{{your_function}}
+   aws events put-targets --rule {{your-rule-name}} --targets Id=1,Arn=arn:aws:lambda:{{us-east-1}}:{{111122223333}}:function:{{your-function}}
    ```
 
-   Make sure to replace `your-target-name` in the command above with your actual Lambda function for the GuardDuty events.
+   Make sure to replace `your-rule-name` with the name of the rule that you created in step 1, and `your-function` with your actual Lambda function for the GuardDuty events.
 
 1. To add the permissions required to invoke the target, run the following Lambda CLI command.
 
    ```
-   aws lambda add-permission --function-name {{your-target-name}} --statement-id 1 --action 'lambda:InvokeFunction' --principal events.amazonaws.com
+   aws lambda add-permission --function-name {{your-function}} --statement-id 1 --action 'lambda:InvokeFunction' --principal events.amazonaws.com --source-arn arn:aws:events:{{us-east-1}}:{{111122223333}}:rule/{{your-rule-name}}
    ```
 
-   Make sure to replace `your_function` in the command above with your actual Lambda function for the GuardDuty events.
+   Make sure to replace `your-function` with your actual Lambda function for the GuardDuty events, and `your-rule-name` with the name of the rule that you created in step 1. The `--source-arn` condition allows only this rule to invoke the function.
 
 ------
 

@@ -365,7 +365,7 @@ To check the email confirmation status, go to the SNS console and choose **Subsc
 
 1. Open the EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/).
 
-1. In the navigation pane, choose **Rules**.
+1. In the navigation pane, under **Buses**, choose **Rules**.
 
 1. Choose **Create rule**.
 
@@ -373,29 +373,29 @@ To check the email confirmation status, go to the SNS console and choose **Subsc
 
    A rule can't have the same name as another rule in the same Region and on the same event bus.
 
-1. For **Event bus**, choose **default**.
+1. For **Event bus**, ensure that **default** is selected and **Enable the rule on the selected event bus** is turned on.
 
 1. For **Rule type**, choose **Rule with an event pattern**.
 
 1. Choose **Next**.
 
-1. For **Event source**, choose **AWS events**.
+1. On the **Build event pattern** page, for **Event source**, choose **AWS events or EventBridge partner events**.
 
-1. For **Event pattern**, choose **Event pattern form**.
+1. In the **Event pattern** section, for **Creation method**, choose **Use pattern form**.
 
 1. For **Event source**, choose **AWS services**.
 
 1. For **AWS service**, choose **GuardDuty**.
 
-1. For **Event Type**, choose **GuardDuty Finding**.
+1. For **Event type**, choose **GuardDuty Finding**.
 
 1. Choose **Next**.
 
 1. For **Target types**, choose **AWS service**.
 
-1. For **Select a target**, choose **SNS topic**, and for **Topic**, choose the name of the SNS topic you created earlier.
+1. For **Select a target**, choose **SNS topic**. For **Target location**, choose **Target in this account**. For **Topic**, choose the name of the SNS topic you created earlier.
 
-1. In the **Additional settings** section, for **Configure target input**, choose **Input transformer**.
+1. Expand **Additional settings**. For **Configure target input**, choose **Input transformer**.
 
    Adding an input transformer formats the JSON finding data sent from GuardDuty into a human-readable message.
 
@@ -413,14 +413,19 @@ To check the email confirmation status, go to the SNS console and choose **Subsc
    }
    ```
 
-1. To format the email, for **Template**, paste the following code and make sure to replace the text in red with the values appropriate to your Region:
+1. To format the email, for **Template**, paste the following code. When EventBridge delivers each finding, the input transformer fills in the values in angle brackets, such as `<severity>` and `<Finding_ID>`, from the **Input path**, so you don't need to replace them.
 
    ```
-   "You have a severity <{{severity}}> GuardDuty finding type <{{Finding_Type}}> in the <{{region}}> region."
-   "Finding Description:"
-   "<{{Finding_Description}}>."
-   "For more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<{{region}}>#/findings?search=id%3D<{{Finding_ID}}>"
+   {"message":"You have a severity <severity> GuardDuty finding type <Finding_Type> in the <region> Region.\n\nFinding Description:\n<Finding_Description>\n\nFor more details open the GuardDuty console at https://console.aws.amazon.com/guardduty/home?region=<region>#/findings?search=id%3D<Finding_ID>"}
    ```
+**Important**  
+Provide the template as a single-line JSON object, with the message wrapped in a key such as `message`, as shown in the preceding example. Use `\n` to add line breaks.  
+GuardDuty finding fields such as `description` can contain unescaped control characters, including newlines. Don't use either of the following template formats:  
+A bare quoted string
+A multi-line template that uses separate quoted strings on separate lines
+With these formats, the substituted value can produce invalid JSON. EventBridge then rejects the event and doesn't deliver the notification.
+**Note**  
+Email subscriptions receive the template output as is, so the email shows the `message` JSON object, and line breaks appear as `\n`. For formatted notifications, deliver the Amazon SNS topic to Amazon Q Developer in chat applications (Slack or Amazon Chime), or use an Lambda function as the target.
 
 1. Choose **Confirm**.
 

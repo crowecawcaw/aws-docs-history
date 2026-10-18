@@ -24,7 +24,7 @@ The behavior of an associated rule when it matches activity. Every rule supports
 A rule configuration that the delegated GuardDuty administrator account applies to member accounts in an organization. GuardDuty creates the individual associations in each targeted account, including accounts that join later. For more information, see [Managing Custom Detection Rules in multiple-account environments](custom-detection-rules-multi-account.md).
 
 **Signal**  
-One observed occurrence of the activity that a rule detects. GuardDuty aggregates signals sharing a tactic, service, and technique into a single finding.
+One observed occurrence of the activity that a rule detects. GuardDuty aggregates related signals into a single finding. For more information, see [Finding aggregation](custom-detection-rules-how-it-works.md#custom-detection-rules-how-it-works-finding-aggregation).
 
 **Topics**
 + [How Custom Detection Rules work](custom-detection-rules-how-it-works.md)

@@ -330,7 +330,12 @@ The following table includes the network indicator values and their description.
 ## Custom Detection Rules finding details
 <a name="custom-detection-rules-finding-details"></a>
 
-Custom Detection Rules findings use the same `Service.Detection.Sequence` structure as [Attack sequence finding details](#guardduty-extended-threat-detection-attack-sequence-finding-details). The Actors, Endpoints, Resources, and Signals fields share the same schema. This section describes the differences specific to Custom Detection Rules findings.
+The details in a Custom Detection Rules finding depend on the data source of the rule that generated it.
+
+### Findings from AWS CloudTrail rules
+<a name="custom-detection-rules-finding-details-cloudtrail"></a>
+
+Findings from AWS CloudTrail rules use the same `Service.Detection.Sequence` structure as [Attack sequence finding details](#guardduty-extended-threat-detection-attack-sequence-finding-details). The Actors, Endpoints, Resources, and Signals fields share the same schema. The following details are specific to Custom Detection Rules.
 
 **Type**  
 The finding type follows the format `Tactic:Service/Technique`. For example, `Persistence:EC2/ExternalRemoteServices`.
@@ -346,6 +351,26 @@ Details about the AWS resources involved in the detected activity, when applicab
 
 **Endpoints**  
 Details about the network endpoints from which the activity originated. Includes the IP address, geographic location (city and country), and the autonomous system (AS) name and number.
+
+### Findings from Runtime Monitoring rules
+<a name="custom-detection-rules-finding-details-runtime"></a>
+
+Findings from Runtime Monitoring rules use the same structure as other Runtime Monitoring findings, including the runtime details of the process involved. For more information, see [Runtime Monitoring finding details](#runtime-monitoring-runtime-details). The following details are specific to Custom Detection Rules:
+
+**Type**  
+The finding type follows the format `Tactic:Runtime/Technique`. For example, `Persistence:Runtime/SuspiciousCommand`.
+
+**Rule**  
+The `CustomDetectionRuleName` field contains the name of the Custom Detection Rule that generated the finding.
+
+**Context**  
+The `Service.RuntimeDetails.Context` fields describe the matched activity. The fields that a finding includes depend on the rule:  
++ Rules that generate `SensitiveFileRead` and `SensitiveFileModified` findings include `FilePath` and `FileOperation`.
++ Most rules that generate `SuspiciousCommand` findings include `CommandLineExample`, and some also include `ServiceName`. Rules that detect activity on a specific file, such as changing file permissions, include `FilePath` instead, and `FileOperation` when it applies.
++ Rules that generate `SuspiciousTool` findings include `ToolName` and `ToolCategory`.
+
+**Resource**  
+Each finding covers a single resource, such as an instance, a task, or a container. For more information about how GuardDuty groups signals, see [Finding aggregation](custom-detection-rules-how-it-works.md#custom-detection-rules-how-it-works-finding-aggregation).
 
 ## RDS database (DB) user details
 <a name="rds-pro-db-user-details"></a>
