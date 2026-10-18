@@ -9,10 +9,10 @@ Configuration for a VPC egress network connector. Specifies the VPC subnets, sec
 <a name="API_NetworkConnectorVpcEgressConfiguration_Contents"></a>
 
  ** AssociatedComputeResourceTypes **   <a name="lambdacore-Type-NetworkConnectorVpcEgressConfiguration-AssociatedComputeResourceTypes"></a>
-The types of Lambda compute resources that can use this connector. Currently, only `MicroVm` is supported.  
+The types of Lambda compute resources that can use this connector. Valid values are `MicroVm` and `WebFunction`. Specify exactly one value.  
 Type: Array of strings  
 Array Members: Fixed number of 1 item.  
-Valid Values: `MicroVm`   
+Valid Values: `MicroVm | WebFunction`   
 Required: No
 
  ** NetworkProtocol **   <a name="lambdacore-Type-NetworkConnectorVpcEgressConfiguration-NetworkProtocol"></a>
@@ -22,9 +22,9 @@ Valid Values: `IPv4 | DualStack`
 Required: No
 
  ** SecurityGroupIds **   <a name="lambdacore-Type-NetworkConnectorVpcEgressConfiguration-SecurityGroupIds"></a>
-The IDs of the VPC security groups to attach to the ENIs. Specify 0 to 5 security groups. All security groups must be in the same VPC as the subnets.  
+The IDs of the VPC security groups to attach to the ENIs. All security groups must be in the same VPC as the subnets.  
 Type: Array of strings  
-Array Members: Minimum number of 0 items. Maximum number of 5 items.  
+Array Members: Minimum number of 0 items. Maximum number of 16 items.  
 Length Constraints: Minimum length of 0. Maximum length of 1024.  
 Pattern: `sg-[0-9a-zA-Z]*`   
 Required: No

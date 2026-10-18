@@ -8,4 +8,5 @@ The following actions are supported:
 +  [DeleteNetworkConnector](API_DeleteNetworkConnector.md) 
 +  [GetNetworkConnector](API_GetNetworkConnector.md) 
 +  [ListNetworkConnectors](API_ListNetworkConnectors.md) 
++  [ListNetworkConnectorVersions](API_ListNetworkConnectorVersions.md) 
 +  [UpdateNetworkConnector](API_UpdateNetworkConnector.md) 

@@ -5,7 +5,7 @@
 
 Creates a network connector that enables Lambda compute resources to route outbound traffic through your Amazon VPC. The network connector provisions elastic network interfaces (ENIs) in the subnets you specify, providing a managed network path to private resources such as databases, caches, and internal APIs.
 
-This operation is asynchronous. The network connector starts in `PENDING` state while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes). Use `GetNetworkConnector` to poll the connector state until it reaches `ACTIVE`. Once active, you can attach the connector to Lambda MicroVMs at run time using the `egressNetworkConnectors` parameter on `RunMicroVm`.
+This operation is asynchronous. The network connector starts in `PENDING` state while ENIs are provisioned in your VPC (provisioning typically takes up to 10 minutes). Use `GetNetworkConnector` to poll the connector state until it reaches `ACTIVE`. Once active, you can attach the connector to supported Lambda compute resources — such as MicroVMs and WebFunctions — at run time. For how to attach a connector, see the documentation for the specific compute type.
 
 This operation is idempotent when you provide a `ClientToken` — if you retry a request that completed successfully using the same client token, the operation returns the existing connector without creating a duplicate.
 
@@ -53,7 +53,7 @@ Required: Yes
 A unique name for the network connector within your account and Region. You can use the name to identify the connector in subsequent API calls.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)|[a-zA-Z0-9_-]{1,64}`   
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}`   
 Required: Yes
 
  ** [OperatorRole](#API_CreateNetworkConnector_RequestSyntax) **   <a name="lambdacore-CreateNetworkConnector-request-OperatorRole"></a>
@@ -85,7 +85,9 @@ Content-type: application/json
    "Id": "string",
    "Name": "string",
    "OperatorRole": "string",
-   "State": "string"
+   "State": "string",
+   "Version": number,
+   "VersionArn": "string"
 }
 ```
 
@@ -100,7 +102,7 @@ The following data is returned in JSON format by the service.
 The Amazon Resource Name (ARN) of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)` 
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
  ** [Configuration](#API_CreateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-CreateNetworkConnector-response-Configuration"></a>
 The network configuration of the connector, including VPC subnets and security groups.  
@@ -116,7 +118,7 @@ Length Constraints: Minimum length of 1. Maximum length of 140.
 The name of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)|[a-zA-Z0-9_-]{1,64}` 
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}` 
 
  ** [OperatorRole](#API_CreateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-CreateNetworkConnector-response-OperatorRole"></a>
 The ARN of the IAM role that Lambda uses to manage the underlying ENI resources for this connector.  
@@ -128,6 +130,17 @@ Pattern: `arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`
 The current state of the network connector.  
 Type: String  
 Valid Values: `PENDING | ACTIVE | INACTIVE | FAILED | DELETING | DELETE_FAILED` 
+
+ ** [Version](#API_CreateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-CreateNetworkConnector-response-Version"></a>
+The version number assigned to the connector. A newly created connector starts at version 1.  
+Type: Long  
+Valid Range: Minimum value of 1.
+
+ ** [VersionArn](#API_CreateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-CreateNetworkConnector-response-VersionArn"></a>
+The qualified ARN of the connector version created by this request, including the immutable version suffix.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
 ## Errors
 <a name="API_CreateNetworkConnector_Errors"></a>
@@ -141,7 +154,9 @@ The exception type.
 HTTP Status Code: 400
 
  ** NetworkConnectorLimitExceededException **   
-The account has reached the maximum number of network connectors allowed.    
+The request would exceed a network connector limit. For `CreateNetworkConnector`, the account has reached the maximum number of network connectors allowed. For `UpdateNetworkConnector`, the connector has reached the maximum number of versions allowed.    
+ ** message **   
+The account has reached the maximum number of network connectors allowed.  
  ** Type **   
 The exception type.
 HTTP Status Code: 400

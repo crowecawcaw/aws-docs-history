@@ -11,4 +11,5 @@ The order of each element in a data type structure is not guaranteed. Applicatio
 The following data types are supported:
 +  [NetworkConnectorConfiguration](API_NetworkConnectorConfiguration.md) 
 +  [NetworkConnectorSummary](API_NetworkConnectorSummary.md) 
++  [NetworkConnectorVersionSummary](API_NetworkConnectorVersionSummary.md) 
 +  [NetworkConnectorVpcEgressConfiguration](API_NetworkConnectorVpcEgressConfiguration.md) 

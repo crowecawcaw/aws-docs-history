@@ -5,7 +5,9 @@
 
 Initiates deletion of a network connector. The connector transitions to `DELETING` state while elastic network interfaces are cleaned up asynchronously. After deletion completes, subsequent calls to `GetNetworkConnector` return `ResourceNotFoundException`.
 
-This operation is idempotent — calling delete on a connector that is already deleting or has been deleted succeeds without error. You can delete connectors in `ACTIVE` or `FAILED` states. Before deleting a connector, ensure that no Lambda MicroVMs are using it, as they will lose VPC egress connectivity immediately.
+This operation is idempotent — calling delete on a connector that is already deleting or has been deleted succeeds without error. You can delete connectors in `ACTIVE` or `FAILED` states. Before deleting a connector, ensure that no Lambda compute resources are using it, as they will lose VPC egress connectivity immediately.
+
+Deleting with an unqualified identifier removes the connector and all of its versions. To remove a single historical version, supply its version-qualified ARN; the connector and its remaining versions are unaffected. You can't delete the latest version on its own — delete the connector to remove it.
 
 ## Request Syntax
 <a name="API_DeleteNetworkConnector_RequestSyntax"></a>
@@ -20,7 +22,7 @@ DELETE /2026-04-04/network-connectors/{{Identifier}} HTTP/1.1
 The request uses the following URI parameters.
 
  ** [Identifier](#API_DeleteNetworkConnector_RequestSyntax) **   <a name="lambdacore-DeleteNetworkConnector-request-uri-Identifier"></a>
-The identifier of the network connector to delete. You can specify the connector ID, name, or full ARN.  
+The identifier of the network connector to delete. Provide an unqualified ARN (or an ID or name) to delete the entire connector and all of its versions, or a version-qualified ARN — one that includes the immutable version suffix — to delete a specific historical version. You can't delete the latest version with a version-qualified identifier; delete the connector instead.  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
 Required: Yes
 
@@ -42,7 +44,9 @@ Content-type: application/json
    "Id": "string",
    "Name": "string",
    "OperatorRole": "string",
-   "State": "string"
+   "State": "string",
+   "Version": number,
+   "VersionArn": "string"
 }
 ```
 
@@ -57,7 +61,7 @@ The following data is returned in JSON format by the service.
 The Amazon Resource Name (ARN) of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)` 
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
  ** [Configuration](#API_DeleteNetworkConnector_ResponseSyntax) **   <a name="lambdacore-DeleteNetworkConnector-response-Configuration"></a>
 The network configuration of the connector, including VPC subnets and security groups.  
@@ -73,7 +77,7 @@ Length Constraints: Minimum length of 1. Maximum length of 140.
 The name of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)|[a-zA-Z0-9_-]{1,64}` 
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}` 
 
  ** [OperatorRole](#API_DeleteNetworkConnector_ResponseSyntax) **   <a name="lambdacore-DeleteNetworkConnector-response-OperatorRole"></a>
 The ARN of the IAM role that Lambda uses to manage the underlying ENI resources for this connector.  
@@ -85,6 +89,17 @@ Pattern: `arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`
 The current state of the network connector. The State field is typically `DELETING` after this call.  
 Type: String  
 Valid Values: `PENDING | ACTIVE | INACTIVE | FAILED | DELETING | DELETE_FAILED` 
+
+ ** [Version](#API_DeleteNetworkConnector_ResponseSyntax) **   <a name="lambdacore-DeleteNetworkConnector-response-Version"></a>
+The version number of the connector version affected by this request.  
+Type: Long  
+Valid Range: Minimum value of 1.
+
+ ** [VersionArn](#API_DeleteNetworkConnector_ResponseSyntax) **   <a name="lambdacore-DeleteNetworkConnector-response-VersionArn"></a>
+The qualified ARN of the connector version affected by this request, including the immutable version suffix.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
 ## Errors
 <a name="API_DeleteNetworkConnector_Errors"></a>

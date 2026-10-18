@@ -7,6 +7,8 @@ Updates the VPC configuration or operator role of an existing network connector.
 
 This operation is asynchronous. The connector remains in `ACTIVE` state during the update — existing workloads that reference this connector are not disrupted. Use `GetNetworkConnector` to monitor the `LastUpdateStatus` field, which transitions through `InProgress` to `Successful` or `Failed`. If the update fails, the `LastUpdateStatusReasonCode` field provides a specific error code for troubleshooting. This operation is idempotent when you provide a `ClientToken`.
 
+Each successful configuration change creates a new immutable version. A connector can have a limited number of versions; once that limit is reached, further updates fail with `NetworkConnectorLimitExceededException` until you delete older versions.
+
 ## Request Syntax
 <a name="API_UpdateNetworkConnector_RequestSyntax"></a>
 
@@ -63,7 +65,17 @@ HTTP/1.1 202
 Content-type: application/json
 
 {
-   "Id": "string"
+   "Arn": "string",
+   "Configuration": { ... },
+   "Id": "string",
+   "LastModified": "string",
+   "LastUpdateStatus": "string",
+   "LastUpdateStatusReason": "string",
+   "Name": "string",
+   "OperatorRole": "string",
+   "State": "string",
+   "Version": number,
+   "VersionArn": "string"
 }
 ```
 
@@ -74,10 +86,62 @@ If the action is successful, the service sends back an HTTP 202 response.
 
 The following data is returned in JSON format by the service.
 
+ ** [Arn](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-Arn"></a>
+The Amazon Resource Name (ARN) of the network connector.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
+
+ ** [Configuration](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-Configuration"></a>
+The network configuration of the connector, including VPC subnets and security groups.  
+Type: [NetworkConnectorConfiguration](API_NetworkConnectorConfiguration.md) object  
+ **Note: **This object is a Union. Only one member of this object can be specified or returned.
+
  ** [Id](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-Id"></a>
 The unique identifier of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.
+
+ ** [LastModified](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-LastModified"></a>
+The timestamp of this update.  
+Type: Timestamp
+
+ ** [LastUpdateStatus](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-LastUpdateStatus"></a>
+The status of this update operation (typically `InProgress` immediately after the call).  
+Type: String  
+Valid Values: `Successful | Failed | InProgress` 
+
+ ** [LastUpdateStatusReason](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-LastUpdateStatusReason"></a>
+A human-readable explanation of the update status.  
+Type: String
+
+ ** [Name](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-Name"></a>
+The name of the network connector.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}` 
+
+ ** [OperatorRole](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-OperatorRole"></a>
+The ARN of the IAM role that Lambda uses to manage the underlying ENI resources for this connector.  
+Type: String  
+Length Constraints: Minimum length of 0. Maximum length of 10000.  
+Pattern: `arn:(aws[a-zA-Z-]*)?:iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+` 
+
+ ** [State](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-State"></a>
+The current state of the network connector.  
+Type: String  
+Valid Values: `PENDING | ACTIVE | INACTIVE | FAILED | DELETING | DELETE_FAILED` 
+
+ ** [Version](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-Version"></a>
+The version number of the connector version resulting from this update. A configuration change creates a new, incremented version; a no-op update returns the current version number.  
+Type: Long  
+Valid Range: Minimum value of 1.
+
+ ** [VersionArn](#API_UpdateNetworkConnector_ResponseSyntax) **   <a name="lambdacore-UpdateNetworkConnector-response-VersionArn"></a>
+The qualified ARN of the connector version resulting from this update, including the immutable version suffix.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
 ## Errors
 <a name="API_UpdateNetworkConnector_Errors"></a>
@@ -86,6 +150,14 @@ For information about the errors that are common to all actions, see [Common Err
 
  ** InvalidParameterValueException **   
 One of the parameters in the request is not valid. Check the error message for details about which parameter failed validation.    
+ ** Type **   
+The exception type.
+HTTP Status Code: 400
+
+ ** NetworkConnectorLimitExceededException **   
+The request would exceed a network connector limit. For `CreateNetworkConnector`, the account has reached the maximum number of network connectors allowed. For `UpdateNetworkConnector`, the connector has reached the maximum number of versions allowed.    
+ ** message **   
+The account has reached the maximum number of network connectors allowed.  
  ** Type **   
 The exception type.
 HTTP Status Code: 400

@@ -12,7 +12,7 @@ Summary information about a network connector returned by `ListNetworkConnectors
 The ARN of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)`   
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)`   
 Required: Yes
 
  ** Id **   <a name="lambdacore-Type-NetworkConnectorSummary-Id"></a>
@@ -25,7 +25,7 @@ Required: Yes
 The name of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)|[a-zA-Z0-9_-]{1,64}`   
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}`   
 Required: Yes
 
  ** Type **   <a name="lambdacore-Type-NetworkConnectorSummary-Type"></a>
@@ -37,6 +37,19 @@ Required: Yes
  ** LastModified **   <a name="lambdacore-Type-NetworkConnectorSummary-LastModified"></a>
 The date and time when the connector was last modified.  
 Type: Timestamp  
+Required: No
+
+ ** LatestVersion **   <a name="lambdacore-Type-NetworkConnectorSummary-LatestVersion"></a>
+The version number of the connector's latest version. Each configuration update creates a new immutable version; this attribute exposes the most recent one.  
+Type: Long  
+Valid Range: Minimum value of 1.  
+Required: No
+
+ ** LatestVersionArn **   <a name="lambdacore-Type-NetworkConnectorSummary-LatestVersionArn"></a>
+The qualified ARN of the connector's latest version, including the immutable version suffix.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)`   
 Required: No
 
  ** State **   <a name="lambdacore-Type-NetworkConnectorSummary-State"></a>

@@ -20,7 +20,7 @@ GET /2026-04-04/network-connectors/{{Identifier}} HTTP/1.1
 The request uses the following URI parameters.
 
  ** [Identifier](#API_GetNetworkConnector_RequestSyntax) **   <a name="lambdacore-GetNetworkConnector-request-uri-Identifier"></a>
-The identifier of the network connector to retrieve. You can specify the connector ID, name, or full ARN.  
+The identifier of the network connector to retrieve. You can specify the connector ID, name, or ARN. Provide an unqualified ARN (or an ID or name) to retrieve the connector's latest version, or a version-qualified ARN — one that includes the immutable version suffix — to retrieve a specific historical version.  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
 Required: Yes
 
@@ -44,12 +44,15 @@ Content-type: application/json
    "LastUpdateStatus": "string",
    "LastUpdateStatusReason": "string",
    "LastUpdateStatusReasonCode": "string",
+   "LatestVersion": number,
+   "LatestVersionArn": "string",
    "Name": "string",
    "OperatorRole": "string",
    "State": "string",
    "StateReason": "string",
    "StateReasonCode": "string",
-   "Version": number
+   "Version": number,
+   "VersionArn": "string"
 }
 ```
 
@@ -64,7 +67,7 @@ The following data is returned in JSON format by the service.
 The Amazon Resource Name (ARN) of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)` 
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
  ** [Configuration](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-Configuration"></a>
 The network configuration of the connector, including VPC subnets and security groups.  
@@ -92,13 +95,24 @@ Type: String
  ** [LastUpdateStatusReasonCode](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-LastUpdateStatusReasonCode"></a>
 A machine-readable code indicating the reason for the last update status. Use this for programmatic error handling.  
 Type: String  
-Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SubnetOutOfIPAddresses` 
+Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses` 
+
+ ** [LatestVersion](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-LatestVersion"></a>
+The version number of the connector's latest active version. Each configuration update creates a new immutable version; this attribute exposes the most recent one. This field is returned only on a standard (unqualified) request.  
+Type: Long  
+Valid Range: Minimum value of 1.
+
+ ** [LatestVersionArn](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-LatestVersionArn"></a>
+The qualified ARN of the connector's latest active version, including the immutable version suffix. This field is returned only on a standard (unqualified) request; when you supply a version-qualified identifier it is not returned, and `VersionArn` is returned instead.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
  ** [Name](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-Name"></a>
 The name of the network connector.  
 Type: String  
 Length Constraints: Minimum length of 1. Maximum length of 140.  
-Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9]|[1-9][0-9]+)?)|[a-zA-Z0-9_-]{1,64}` 
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)|[a-zA-Z0-9_-]{1,64}` 
 
  ** [OperatorRole](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-OperatorRole"></a>
 The ARN of the IAM role that Lambda uses to manage the underlying ENI resources for this connector.  
@@ -118,12 +132,18 @@ Type: String
  ** [StateReasonCode](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-StateReasonCode"></a>
 A machine-readable code indicating the reason for the current state. Use this for programmatic error handling.  
 Type: String  
-Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SubnetOutOfIPAddresses` 
+Valid Values: `DisallowedByVpcEncryptionControl | Ec2RequestLimitExceeded | InsufficientRolePermissions | InternalError | InvalidSecurityGroup | InvalidSubnet | SecurityGroupsPerInterfaceLimitExceeded | SubnetOutOfIPAddresses` 
 
  ** [Version](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-Version"></a>
-The version number of the connector configuration, incremented on each update.  
+The version number of the network connector. On a standard (unqualified) request, this is the connector's current version; each configuration update increments it. When you supply a version-qualified identifier, this is the specific version you requested.  
 Type: Long  
-Valid Range: Minimum value of 0.
+Valid Range: Minimum value of 1.
+
+ ** [VersionArn](#API_GetNetworkConnector_ResponseSyntax) **   <a name="lambdacore-GetNetworkConnector-response-VersionArn"></a>
+The qualified ARN of the specific connector version returned by this request, including the immutable version suffix. This is populated only when you supply a version-qualified identifier. On a standard (unqualified) request, this field is not populated; the connector's latest active version is returned instead through the `LatestVersionArn` and `LatestVersion` fields described below.  
+Type: String  
+Length Constraints: Minimum length of 1. Maximum length of 140.  
+Pattern: `(arn:aws[a-zA-Z-]*:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\d{1}:\d{12}:network-connector:[a-zA-Z0-9-_]+(:[1-9][0-9]*)?)` 
 
 ## Errors
 <a name="API_GetNetworkConnector_Errors"></a>
