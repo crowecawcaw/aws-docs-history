@@ -312,9 +312,10 @@ No matter which type of directory you have, the following ports must be open on 
   + TCP 139 - Netlogon
   + TCP/UDP 389 - LDAP
   + TCP/UDP 445 - SMB
+  + TCP/UDP 464 - kpasswd
   + TCP/UDP 636 - LDAPS (LDAP over TLS/SSL)
   + TCP 1024-65535 - Dynamic ports for RPC
-  + TTCP 3268-3269 - Global Catalog
+  + TCP 3268-3269 - Global Catalog
 
   If any security or firewall software is installed on a WorkSpace that blocks any of these ports, the WorkSpace may not function correctly or may be unreachable.
 
