@@ -25,7 +25,7 @@ An Amazon VPC user must set up the VPC and identify subnets and security groups 
    + The IDs of the security groups for the subnets.
    + The elastic IP address to associate with the elastic network interfaces of the channel endpoints.
 
-1. Delivery via the VPC depends on appropriate setup for routing and DNS. of the VPC network. Provide the Amazon VPC user with these guidelines:
+1. Delivery via the VPC depends on appropriate setup for routing and DNS of the VPC network. Provide the Amazon VPC user with these guidelines:
    + If you expect addresses with a domain name to reach the VPC, or if you expect the VPC to reach addresses with a domain name, you must set up a DNS to resolve those domain names. This requirement applies equally to AWS services that might have domain names.
    + If any communication with the public internet is expected, you will need either a NAT or an Internet Gateway in your VPC.
    + Inside the VPC, you must configure routing tables, to allow communication between the subnets you intend to use.

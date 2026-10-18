@@ -8,7 +8,7 @@ You can edit an existing (saved) channel to change how it processes the input, a
 ## Editing a channel
 <a name="editing-a-channel"></a>
 
-You can edit any existing channel by editing, adding, or deleting output groups and outputs. you can also edit, add, or delete the channel's video, audio, and caption encodes.
+You can edit any existing channel by editing, adding, or deleting output groups and outputs. You can also edit, add, or delete the channel's video, audio, and caption encodes.
 
 The channel must be idle (not running).
 
