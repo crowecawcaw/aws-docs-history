@@ -22,39 +22,73 @@ The following shows an example `Task` state that submits an AWS Batch job and wa
         "JobQueue": "{{BATCH_QUEUE_ARN}}",
         "JobDefinition": "{{BATCH_JOB_DEFINITION_ARN}}",
         "ArrayProperties": {
-        "Size": 10
+            "Size": 10
         },
         "ContainerOverrides": {
-        "ResourceRequirements": [
-            {
-            "Type": "VCPU",
-            "Value": "4"
-            }
-        ]
+            "ResourceRequirements": [
+                {
+                    "Type": "VCPU",
+                    "Value": "4"
+                }
+            ]
         },
         "DependsOn": [
-        {
-            "JobId": "myJobId",
-            "Type": "SEQUENTIAL"
-        }
+            {
+                "JobId": "myJobId",
+                "Type": "SEQUENTIAL"
+            }
         ],
         "PropagateTags": true,
-        "Arguments": {
-        "Key1": "value1",
-        "Key2": 100
+        "Parameters": {
+            "Key1": "value1",
+            "Key2": "100"
         },
         "RetryStrategy": {
-        "Attempts": 1
+            "Attempts": 1
         },
         "Tags": {
-        "Tag": "{{TAG}}"
+            "Tag": "{{TAG}}"
         },
         "Timeout": {
-        "AttemptDurationSeconds": 10
+            "AttemptDurationSeconds": 10
         }
     }
 }
 ```
+
+## Run multi-container, Amazon EKS, and multi-node parallel jobs
+<a name="connect-batch-multicontainer"></a>
+
+With `batch:submitJob.sync`, jobs that use `ecsProperties` or `eksProperties` need the matching override in the `Task` state. Without the override, the `Task` state fails with `Batch.ClientException`.
+
+For `ecsProperties` jobs, use the following minimal override:
+
+```
+"EcsPropertiesOverride": {
+    "TaskProperties": [ {} ]
+}
+```
+
+For `eksProperties` jobs, use the following minimal override:
+
+```
+"EksPropertiesOverride": {
+    "PodProperties": {}
+}
+```
+
+**Important**  
+For these jobs and for multi-node parallel jobs, Step Functions detects completion only by calling `DescribeJobs`. These calls count toward your account's `DescribeJobs` quota. If AWS Batch throttles these calls, the `Task` state might stay in progress after the job finishes, until a later call succeeds.
+
+To report completion sooner, pass the task token to the job in `Parameters`. When the job finishes, call `SendTaskSuccess` or `SendTaskFailure` from the job with that token.
+
+```
+"Parameters": {
+    "TaskToken": "{% $states.context.Task.Token %}"
+}
+```
+
+In the job definition, reference the token in the container command as `Ref::TaskToken`. For more information, see [Run a Job (.sync)](connect-to-resource.md#connect-sync).
 
 ## Optimized AWS Batch APIs:
 <a name="connect-batch-api"></a>
