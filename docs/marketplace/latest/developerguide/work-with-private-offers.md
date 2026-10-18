@@ -7,6 +7,8 @@ The AWS Marketplace API Reference was restructured. For more information about t
 
 You can use the AWS Marketplace Catalog API to automate tasks for working with offers. 
 
+You can create offers with the Catalog API for AMI, container, SaaS, machine learning, professional services, and AWS Data Exchange data products. For the rules that apply to offers for professional services products, see [Create offers for professional services products](work-with-professional-services-products.md#proserv-offers).
+
 While the *product* describes what is being sold in AWS Marketplace, the *offer* describes the terms and rules of how a product is purchased and consumed. AWS Marketplace products can have multiple offers sold by different sellers. Each AWS Marketplace offer, however, can only be created for one product. An *offer* contains a collection of agreement terms between two parties. The accepted offer terms are translated into an agreement as proof of a transaction.
 
 There are two types of offers:

@@ -25,9 +25,10 @@ Each product type has a different product entity. An *entity* can be a product o
 | Container products | ContainerProduct@1.0 | 
 | Software as a service (SaaS) products | SaaSProduct@1.0 | 
 | Machine learning (ML) products | MachineLearningProduct@1.0 | 
+| Professional services products | ProfessionalServicesProduct@1.0 | 
 
 **Note**  
-Single-AMI with CloudFormation product types, AWS Data Exchange data products, and professional services products are not supported.
+Single-AMI with CloudFormation product types and AWS Data Exchange data products are not supported.
 
 The following topics assume you have access to the API and have completed any seller prerequisites, as described in [Access control for the AWS Marketplace Catalog API](catalog-api-access-control.md).
 
@@ -54,6 +55,7 @@ The following topics describe how to use the Catalog API to perform actions on y
 + [Work with container-based products using the AWS Marketplace APIs](work-with-container-products.md)
 + [Work with SaaS products using the AWS Marketplace APIs](work-with-saas-products.md)
 + [Work with machine learning products using AWS Marketplace APIs](work-with-ml-products.md)
++ [Work with professional services products using the AWS Marketplace APIs](work-with-professional-services-products.md)
 
 ## Create a product
 <a name="create-product"></a>
@@ -61,7 +63,7 @@ The following topics describe how to use the Catalog API to perform actions on y
 **Note**  
 This change type is only needed when you intend to create a brand new product entity in the AWS Marketplace catalog. It is not needed when updating existing products.
 
-You can use the Catalog API to create an AMI, container, machine learning, or SaaS product document with identifiers (product code and product ID) in AWS Marketplace. 
+You can use the Catalog API to create an AMI, container, machine learning, professional services, or SaaS product document with identifiers (product code and product ID) in AWS Marketplace. 
 
 You create a product in `Draft` state by calling the `StartChangeSet` API operation with the `CreateProduct` change type. 
 
@@ -94,7 +96,7 @@ Content-type: application/json
   { 
     "ChangeType":"CreateProduct",
     "Entity":{
-      "Type": "SaaSProduct@1.0" // choose from ["AmiProduct@1.0", "ContainerProduct@1.0", "SaaSProduct@1.0", "MachineLearningProduct@1.0"]
+      "Type": "SaaSProduct@1.0" // choose from ["AmiProduct@1.0", "ContainerProduct@1.0", "SaaSProduct@1.0", "MachineLearningProduct@1.0", "ProfessionalServicesProduct@1.0"]
      },
      "DetailsDocument": {
         "ProductTitle": "{{Test product title set in CreateProduct}}"
@@ -106,7 +108,7 @@ Content-type: application/json
 
 Provide information for the fields to add the `CreateProduct` change type. This change type can take in `ProductTitle` attribute, subject to the same restrictions as that sent into `UpdateInformation` change type.
 + `Entity` (object) (required) – The named type of object being created.
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0` or `SaaSProduct@1.0`. For more information, see [Identifier](catalog-apis.md#identifier). 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. For more information, see [Identifier](catalog-apis.md#identifier). 
 + `DetailsDocument` (object) (required) – It may be empty.
   + `ProductTitle` (optional) – The title for your product, max length is 72 characters. Note that you can also later set or update the product title via the `UpdateInformation` change type.
 
@@ -217,7 +219,7 @@ Content-type: application/json
 Provide information for the fields to add the `UpdateInformation` change type:
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`, or `SaaSProduct@1.0`. 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. 
 + `DetailsDocument` (object) (required) – The details of the request including the information that you want to update for your product. Each field is optional, but you must include at least one change to update.
   + `ProductTitle` (string) – The name of the product to be displayed to buyers.
   + `ShortDescription` (string) – The description of key aspects of the product to be displayed to buyers. This is usually 2–3 sentences.
@@ -413,7 +415,7 @@ Provide the following fields for the `AddDimensions` change type.
 
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0` or `SaaSProduct@1.0`. 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. 
 
 **Response Syntax**
 
@@ -543,7 +545,7 @@ Use the following fields with the `UpdateDimensions` change type:
   + `Name` (string) optional – DIsplay name for the dimension on the website and customer's bill.
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0` or `SaaSProduct@1.0`. 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. 
 
 **Response Syntax**
 
@@ -736,7 +738,7 @@ Content-type: application/json
 Use the following the fields with the `UpdateTargeting` change type. 
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `MachineLearningProduct@1.0`, or `SaaSProduct@1.0`. 
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `MachineLearningProduct@1.0`, `ProfessionalServicesProduct@1.0`, or `SaaSProduct@1.0`. 
 + `DetailsDocument` (object) (required) – The details required to run the ChangeSet.
   + `PositiveTargeting` (object) (optional) – Positive targeting defines the criteria which any buyer's profile should fulfill in order to be allowed to access the offer. This field is optional, but at least one targeting option should be provided when this field is present.
     + `BuyerAccounts` (array of strings) (optional) – List as an option to allow targeting based on AWS accounts (also known as, Private Offer). If the intention is to not target the offer to an AWS account, this field should be omitted.
@@ -776,7 +778,6 @@ The following errors are specific to `DescribeChangeSet` actions in the AWS Mark
 | --- | --- | 
 | INVALID\_PRODUCT\_VISIBILITY | Use an existing Public, Limited or Draft product. | 
 | INVALID\_AWS\_ACCOUNT\_IDS | Provide valid AWS account IDs. AWS accounts not found: [x, y, z]. | 
-| ValidationException | Professional services products do not have allowlists. Unlike other product types, professional services products in the limited state can be extended to any buyer without requiring an allowlist. | 
 
 ## Update product visibility
 <a name="update-visibility"></a>
@@ -864,7 +865,7 @@ Content-type: application/json
 Provide information for the fields to add the `UpdateVisibility` change type. 
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `SaaSProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`. For more information, see [Identifier](catalog-apis.md#identifier).
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `SaaSProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`, `ProfessionalServicesProduct@1.0`. For more information, see [Identifier](catalog-apis.md#identifier).
 + `DetailsDocument` (object) (required) – The details required to run the `ChangeSet`.
   + 
     + `TargetVisibility` – The intended new visibility of the product.
@@ -922,7 +923,7 @@ The following errors are specific to `UpdateVisibility` actions in the AWS Marke
 ## Publish a product
 <a name="release-product"></a>
 
-You can use the Catalog API to publish a `Draft` AMI, container, ML, or SaaS product into `Limited` state in AWS Marketplace. 
+You can use the Catalog API to publish a `Draft` AMI, container, ML, professional services, or SaaS product into `Limited` state in AWS Marketplace. 
 
 **Note**  
 For `AmiProduct@1.0` and `SaaSProduct@1.0`, the `ReleaseProduct` change type must be accompanied by `ReleaseOffer` change type on the corresponding draft public `Offer@1.0` entity created for this product.
@@ -955,7 +956,7 @@ Content-type: application/json
 Provide information for the fields to add to the `ReleaseProduct` change type. This change type does not take any parameter payload.
 + `Entity` (object) (required) – The named type of entity being created.
   + `Identifier` (string) (required) – Your product ID. For more information, see [Identifier](catalog-apis.md#identifier).
-  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `SaaSProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`. For more information, see [Identifier](catalog-apis.md#identifier).
+  + `Type` (string) (required) – The `Type` is based on the delivery method (product type) that your product will be using: `AmiProduct@1.0`, `SaaSProduct@1.0`, `ContainerProduct@1.0`, `MachineLearningProduct@1.0`, `ProfessionalServicesProduct@1.0`. For more information, see [Identifier](catalog-apis.md#identifier).
 + `DetailsDocument` (object) (required) - Must be an empty object. The change type `ReleaseProduct` doesn't accept any details.
 
 **Response Syntax**
@@ -992,7 +993,7 @@ The following errors are specific to `ReleaseProduct` actions in the AWS Marketp
 
 You must get the product ID for your product before you can modify it with AWS Marketplace Catalog API. There are two ways to find the product ID for server products:
 + Open the AWS Marketplace Management Portal and sign in with your seller account. From the **Products** menu, select **Server products**, then choose the product you are interested in. The product ID is listed in the **Product Summary** section.
-+ Use the [`ListEntities`](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html) action with the `EntityType` **AmiProduct** or **ContainerProduct**, **SaaSProduct**, **MachineLearningProduct**,or **DataProduct** to get a list of products, including their product IDs, via the Catalog API. `ListEntities` requires that you do not include the version of the entity type (for example, `AmiProduct@1.0`).
++ Use the [`ListEntities`](https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html) action with the `EntityType` **AmiProduct** or **ContainerProduct**, **SaaSProduct**, **MachineLearningProduct**, **ProfessionalServicesProduct**, or **DataProduct** to get a list of products, including their product IDs, via the Catalog API. `ListEntities` requires that you do not include the version of the entity type (for example, `AmiProduct@1.0`).
 
 **Note**  
 The product ID is only available after your product has been published and is visible to at least yourself in AWS Marketplace. When you first create your product, it can take several days to be reviewed and fully created. During this time, it will not have a product ID available. 
