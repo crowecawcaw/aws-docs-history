@@ -17,6 +17,8 @@ The environments, languages, and frameworks with a documented path for sending t
 | Amazon Bedrock AgentCore | AI agents | The runtime exports traces. | Traces | AgentCore starter toolkit, CDK (TypeScript, Python), Terraform, CloudFormation | [AI agents](./omni-send-ai-agent-telemetry.html#agentcore) | 
 | Azure VM | Applications | CloudWatch agent on the VM, credentials federated from the VM's managed identity. | Traces, metrics, logs | Azure setup script | [Applications](./omni-send-application-telemetry.html#azure-vm) | 
 | Azure Kubernetes Service | Applications | CloudWatch Observability Helm chart, credentials federated from workload identity. | Traces, metrics, logs | Helm, kubectl | [Applications](./omni-send-application-telemetry.html#azure-aks) | 
+| Google Compute Engine | Applications | CloudWatch agent on the instance, credentials federated from the instance's service account. | Traces, metrics, logs | Google Cloud setup script | [Applications](./omni-send-application-telemetry.html#google-compute-engine) | 
+| Google Kubernetes Engine | Applications | CloudWatch Observability Helm chart, credentials federated from the cluster's OIDC issuer. | Traces, metrics, logs | Helm, kubectl | [Applications](./omni-send-application-telemetry.html#google-kubernetes-engine) | 
 
 **Application languages and frameworks**
 
@@ -27,7 +29,8 @@ The environments, languages, and frameworks with a documented path for sending t
 | Node.js | @opentelemetry/auto-instrumentations-node register hook | Express, gRPC | [Step 4, Node.js tab](./omni-send-application-telemetry.html#node.js) | 
 | Java | OpenTelemetry Java agent (-javaagent) | Spring Boot, gRPC | [Step 4, Java tab](./omni-send-application-telemetry.html#java) | 
 | .NET | Automatic instrumentation profiler for ASP.NET Core and gRPC services; SDK in code for console applications | ASP.NET Core, gRPC | [Step 4, .NET tab](./omni-send-application-telemetry.html#.net) | 
-+ Any of these languages works in any application environment above. The listed frameworks are traced with no code changes; other libraries may be covered by the OpenTelemetry registry for the language.
+| Go | Go has no agent. Initialize the SDK in code and add library instrumentation, such as otelhttp or otelgrpc. | net/http, gRPC | [Step 4, Go tab](./omni-send-application-telemetry.html#go) | 
++ Any of these languages works in any environment in the Environments table. For Python, Node.js, Java, and .NET, the listed frameworks are traced without code changes. For Go, wrap them with the library instrumentation shown in Step 4 of [Send application telemetry](omni-send-application-telemetry.md). Other libraries may be covered by the OpenTelemetry registry for the language.
 
 **AI agent languages and frameworks**
 

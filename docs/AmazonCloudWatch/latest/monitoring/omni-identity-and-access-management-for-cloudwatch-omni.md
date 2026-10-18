@@ -71,7 +71,7 @@ The space operator role carries `CloudWatchOmniSpaceAccessPolicy` as its base po
 
 | Managed policy | What it grants | When it is attached | 
 | --- | --- | --- | 
-| CloudWatchOmniSpaceAccessPolicy | The space experience — space and access-grant management, telemetry queries, the context graph, alerts, dashboards, access profiles, views, threads, and integrations — together with evaluation management. It also carries the supporting permissions those need in other services, including CloudWatch Logs, AWS KMS, and Secrets Manager. | Always. This is the base policy. | 
+| CloudWatchOmniSpaceAccessPolicy | The space experience — space and access-grant management, telemetry queries, the context graph, alerts, dashboards, access profiles, views, threads, and integrations — together with evaluation management. It also carries the supporting permissions those need in other services, including CloudWatch Logs, AWS KMS, Secrets Manager, IAM Identity Center, and Amazon SNS. | Always. This is the base policy. | 
 | CloudWatchOmniModelInferencePolicy | Model inference only: invoking foundation models and inference profiles in Amazon Bedrock, including streaming responses, and invoking models served through Amazon Bedrock Mantle. It grants nothing else. | Only for spaces that use the prompt playground or run evaluations with custom evaluators. A view-only space does not receive it. | 
 
 Keeping inference in its own policy means that a space can set up and view its evaluation configuration without holding permission to invoke a model. Only running a model requires the second policy.
@@ -87,7 +87,7 @@ Setup uses several IAM roles, and CloudWatch Omni creates most of them for you. 
 
 | Role | Purpose | Created by | Required | 
 | --- | --- | --- | --- | 
-| CloudWatchOmniOperatorRole | The space operator role, which is the primary setup and data-access role. It carries the CloudWatch Omni actions along with the Amazon Bedrock, AWS KMS, AWS Config, Secrets Manager, CloudWatch Logs, and iam:PassRole permissions that setup and evaluation require. One role per account, shared by every space in it. In the API it is the dataAccessRoleArn parameter. | CloudWatch Omni, or you | Required | 
+| CloudWatchOmniSpaceAccessRole, or CloudWatchOmniOperatorRole for an organization domain | The space operator role, which is the primary setup and data-access role. It carries the CloudWatch Omni actions along with the Amazon Bedrock, AWS KMS, AWS Config, Secrets Manager, CloudWatch Logs, and iam:PassRole permissions that setup and evaluation require. In a single account, setup adds a numeric suffix to the role name. For an organization domain, one role per account is shared by every space in it. In the API it is the dataAccessRoleArn parameter. | CloudWatch Omni, or you | Required | 
 | CloudWatchOmniDomainAccessRole | Domain access. You pass its ARN when you create a domain for your organization. | You | Required for an organization domain | 
 | CloudWatchOmniIntegrationEnablementRole | Enabling telemetry integrations for your account. One role per member account. | CloudWatch Omni | Required for integrations | 
 | CloudWatchOmniDatasetIntegrationExecutionRole | Dataset integration. Assumed by logs.amazonaws.com, and restricted to dataset integrations in your own account. | CloudWatch Omni | Required for dataset integration | 

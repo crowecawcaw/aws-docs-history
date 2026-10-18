@@ -78,6 +78,8 @@ You can use AI coding agents through the Omni skills in the Agent Toolkit for AW
 
 
 **Where to go next**
+
+Continue with these related topics:
 + [Manage prompts](omni-agents-manage-prompts.md) — version your agent's prompts in the project and test changes before you ship them.
 + [Use Omni skills](omni-use-omni-skills.md) — work on your agent from the coding agent you already use, through the Omni skills in the Agent Toolkit for AWS.
 + [Send AI agent telemetry](omni-send-ai-agent-telemetry.md) — instrument your agent so its runs produce the traces the extension reads.

@@ -4,7 +4,7 @@
 <a name="CloudWatch_Synthetics_MultiLocation_Permissions"></a>
 
 To create and manage multilocation canaries, the IAM principal must have the standard CloudWatch Synthetics permissions (see [Required roles and permissions for CloudWatch canaries](CloudWatch_Synthetics_Canaries_Roles.md)) plus the following:
-+ `synthetics:ReplicateCanary`—Allows the CloudWatch Synthetics service to create, update, and delete replicas in replica Regions on your behalf. If your policy already includes `synthetics:*`, this permission is included and no additional action is required.
++ `synthetics:ReplicateCanary`—Allows the CloudWatch Synthetics service to create, update, and delete replicas in replica Regions on your behalf. If your policy already includes `synthetics:*`, this permission is included and no additional action is required. When you add, update, or remove replica locations, related activity appears in CloudTrail in each affected replica Region under the event name `ReplicateCanary`.
 
 **Condition keys for multilocation canaries**  
 You can use condition keys in IAM policies to control which Regions can be used as replica locations. The following condition keys are available:

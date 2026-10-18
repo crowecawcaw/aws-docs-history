@@ -214,6 +214,8 @@ First, you create an SNS topic, and then you publish a message directly to the t
 ## Schema of Amazon SNS notifications when alarms change state
 <a name="alarm-sns-schema"></a>
 
+When an alarm has tag propagation enabled, these notification schemas include an `AlarmTags` list and an `AlarmTagsStatus` field. For how to enable tag propagation and what the status values mean, see [Alarm tags in action payloads](alarm-tags-in-notifications.md).
+
 This section lists the schemas of the notifications sent to Amazon SNS topics when alarms change their state.
 
 **Schema when a metric alarm changes state**
@@ -252,7 +254,14 @@ This section lists the schemas of the notifications sent to Amazon SNS topics wh
     "Threshold": "number",
     "TreatMissingData": "string",
     "EvaluateLowSampleCountPercentile": "string or null"
-  }
+  },
+  "AlarmTags": [
+    {
+      "Key": "string",
+      "Value": "string"
+    }
+  ],
+  "AlarmTagsStatus": "string"
 }
 ```
 
@@ -273,7 +282,14 @@ This section lists the schemas of the notifications sent to Amazon SNS topics wh
   "InsufficientDataActions": [String],
   "OldStateValue": "string",
   "AlarmRule": "string",
-  "TriggeringChildren": [String]
+  "TriggeringChildren": [String],
+  "AlarmTags": [
+    {
+      "Key": "string",
+      "Value": "string"
+    }
+  ],
+  "AlarmTagsStatus": "string"
 }
 ```
 
@@ -303,6 +319,7 @@ This section lists the schemas of the notifications sent to Amazon SNS topics wh
       "Key": "string",
       "Value": "string"
     }
-  ]
+  ],
+  "AlarmTagsStatus": "string"
 }
 ```

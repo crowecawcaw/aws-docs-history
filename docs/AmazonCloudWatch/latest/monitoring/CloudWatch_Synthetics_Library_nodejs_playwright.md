@@ -7,12 +7,47 @@ The following sections contain information about the CloudWatch Synthetics runti
 
 The naming convention for these runtime versions is `syn-{{language}} -{{framework}}-{{majorversion}}.{{ minorversion}}`. 
 
-## syn-nodejs-playwright-8.0
-<a name="Synthetics_runtimeversion-syn-nodejs-playwright-8.0"></a>
-
 **Important**  
 Starting Synthetics `syn-nodejs-playwright-5.1` and later, Synthetics runtime uses the new namespace. Please migrate the canary script to use the new namespace. Legacy namespace will be deprecated in a future release.  
 @amzn/synthetics-playwright → @aws/synthetics-playwright
+
+## syn-nodejs-playwright-9.0
+<a name="Synthetics_runtimeversion-syn-nodejs-playwright-9.0"></a>
+
+**Major dependencies**:
++ AWS Lambda runtime Node.js 22.x
++ Playwright version 1.63.0
++ Playwright/test version 1.63.0
++ Chromium version 153.0.8010.36
++ Firefox version 155.0
+
+ **Changes in syn-nodejs-playwright-9.0** 
++ Upgrade `Chromium` to 153.0.8010.36 to address the following CVEs:
+  + CVE-2026-85046
+  + CVE-2026-87491
++ Upgrade `axios` to 1.18.0 to address the following CVEs:
+  + CVE-2026-67312
+  + CVE-2026-67313
+  + CVE-2026-67314
+  + CVE-2026-67315
+  + CVE-2026-67316
+  + CVE-2026-67317
+  + CVE-2026-67318
+  + CVE-2026-67319
+  + CVE-2026-67320
+  + CVE-2026-67321
+
+For more information, see the following:
++  [Playwright release notes](https://playwright.dev/docs/release-notes) on the Playwright website 
++  [Playwright API reference](https://playwright.dev/docs/api/class-playwright) on the Playwright website 
+
+## Previous runtime versions for Node.js and Playwright
+<a name="Previousversions-nodejs-playwright"></a>
+
+The following earlier runtime versions for Node.js and Playwright are still supported. 
+
+### syn-nodejs-playwright-8.0
+<a name="Synthetics_runtimeversion-syn-nodejs-playwright-8.0"></a>
 
 **Major dependencies**:
 + AWS Lambda runtime Node.js 22.x
@@ -36,15 +71,6 @@ Starting Synthetics `syn-nodejs-playwright-5.1` and later, Synthetics runtime us
   + CVE-2026-33901
   + CVE-2026-33905
   + CVE-2026-33908
-
-For more information, see the following:
-+  [Playwright release notes](https://playwright.dev/docs/release-notes) on the Playwright website 
-+  [Playwright API reference](https://playwright.dev/docs/api/class-playwright) on the Playwright website 
-
-## Previous runtime versions for Node.js and Playwright
-<a name="Previousversions-nodejs-playwright"></a>
-
-The following earlier runtime versions for Node.js and Playwright are still supported. 
 
 ### syn-nodejs-playwright-7.1
 <a name="Synthetics_runtimeversion-syn-nodejs-playwright-7.1"></a>

@@ -111,6 +111,8 @@ To add Lambda metrics to CloudWatch investigations:
 
 When you configure a Lambda function as an alarm action, CloudWatch delivers a JSON payload to the Lambda function when it invokes the function. This JSON payload serves as the event object for the function. You can extract data from this JSON object and use it in your function. The following is an example of an event object from a metric alarm.
 
+When the alarm has tag propagation enabled, the `alarmData` object also includes an `alarmTags` list of key-value objects and an `alarmTagsStatus` field. For information about how to enable this feature and what the status values mean, see [Alarm tags in action payloads](alarm-tags-in-notifications.md).
+
 ```
 {
   'source': 'aws.cloudwatch',
@@ -151,7 +153,11 @@ When you configure a Lambda function as an alarm action, CloudWatch delivers a J
           'returnData': True
         }
       ]
-    }
+    },
+    'alarmTags': [
+      { 'key': 'Environment', 'value': 'prod' }
+    ],
+    'alarmTagsStatus': 'SUCCESS'
   }
 }
 ```
@@ -186,7 +192,11 @@ The following is an example of an event object from a composite alarm.
       'actionsSuppressor': 'CompositeDemo.ActionsSuppressor',
       'actionsSuppressorWaitPeriod': 120,
       'actionsSuppressorExtensionPeriod': 180
-    }
+    },
+    'alarmTags': [
+      { 'key': 'Environment', 'value': 'prod' }
+    ],
+    'alarmTagsStatus': 'SUCCESS'
   }
 }
 ```
@@ -237,7 +247,11 @@ The following is an example of an event object from a log alarm.
       "okActions": [],
       "alarmActions": ["arn:aws:sns:us-east-1:123456789012:my-topic"],
       "insufficientDataActions": []
-    }
+    },
+    "alarmTags": [
+      { "key": "Environment", "value": "prod" }
+    ],
+    "alarmTagsStatus": "SUCCESS"
   }
 }
 ```

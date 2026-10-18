@@ -23,6 +23,8 @@ Both surfaces work against the same space, which is what makes the handoff work:
 
 Experiments and prompt management are available in the IDE extension only.
 
+The following diagram shows the full loop across both surfaces. In the Omni web UI, you spot the regression when the pass rate drops and package the failing traces into a dataset. In the IDE extension, you reproduce and fix the problem until the candidate beats the baseline, then save the winning prompt. You then redeploy and return to the web UI to confirm the pass rate recovers. Both surfaces work against the same space.
+
 ![Closing the loop on a regression. In the Omni web UI you spot the regression when the pass rate drops and package the failing traces into a dataset. That same dataset moves to the IDE extension, where you import it, reproduce and fix the problem until the candidate beats the baseline, and save the winning prompt. Redeploying returns you to the Omni web UI to verify the pass rate recovers. Both surfaces work against one space.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-agents-close-the-loop.png)
 
 

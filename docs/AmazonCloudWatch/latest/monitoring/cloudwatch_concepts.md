@@ -41,7 +41,7 @@ For more information, see [View available metrics](viewing_metrics_with_cloudwat
 
 Each metric data point must be associated with a time stamp. The time stamp can be up to two weeks in the past and up to two hours into the future. If you do not provide a time stamp, CloudWatch creates a time stamp for you based on the time the data point was received. 
 
-Time stamps are `dateTime` objects, with the complete date plus hours, minutes, and seconds (for example, 2016-10-31T23:59:59Z). For more information, see [dateTime](http://www.w3.org/TR/xmlschema-2/#dateTime). Although it is not required, we recommend that you use Coordinated Universal Time (UTC). When you retrieve statistics from CloudWatch, all times are in UTC.
+Time stamps are `dateTime` objects, with the complete date plus hours, minutes, and seconds (for example, 2016-10-31T23:59:59Z). For more information, see [dateTime](http://www.w3.org/TR/xmlschema-2/#dateTime). Although it is not required, we recommend that you use UTC. When you retrieve statistics from CloudWatch, all times are in UTC.
 
 CloudWatch alarms check metrics based on the current time in UTC. Custom metrics sent to CloudWatch with time stamps other than the current UTC time can cause alarms to display the **Insufficient Data** state or result in delayed alarms.
 

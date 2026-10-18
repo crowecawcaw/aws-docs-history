@@ -19,9 +19,12 @@ To connect:
 
 Back in Omni, the **Slack** card shows the connected integration: its ID and name. If your Slack workspace requires administrator approval for new apps, ask a workspace administrator to approve the request, then connect again.
 
-**What the Slack connection can do.** The authorization page lists the exact permissions requested. The connection lets Omni post and reply to messages, read the names of your workspace's public and bot-added private channels so it can offer them as destinations, receive messages that mention the Omni app, and hold direct-message conversations with the Omni app. It does not include your workspace's message history. A private channel appears in the channel list only after the Omni app has been added to it.
+**What the Slack connection can do.** The authorization page lists the exact permissions requested. The connection lets Omni post and reply to messages, read the names of your workspace's public and bot-added private channels so it can offer them as destinations, and receive messages that mention the Omni app. It does not include your workspace's message history. A private channel appears in the channel list only after the Omni app has been added to it.
 
 **Bring the Omni agent into Slack.** With the integration connected, your team can mention the Omni agent in a Slack channel and get answers there. Connecting the workspace is not enough: the `DefaultAccessProfileForAsyncWorkflows` access profile must also grant the agent permission to post to the integration. Without that grant, a mention is received but the agent cannot respond. For what the agent can do, see [Ask the Omni agent](omni-ask-the-omni-agent.md). For profiles and grants, see [Access profiles](omni-access-profiles.md).
+
+**Important**  
+Amazon CloudWatch uses generative AI to produce the agent's replies. A reply can be incomplete or wrong. Verify a finding before you act on it. AWS handles information in accordance with the [AWS Privacy Notice](https://aws.amazon.com/privacy/).
 
 On the connected **Slack** card, choose **Set up Omni permissions for Slack**. This opens the add-grant form already filled in for the `DefaultAccessProfileForAsyncWorkflows` profile, where you choose the channels the agent may post to. Give the profile a viewer grant as well, so the agent can read the resources it answers about.
 

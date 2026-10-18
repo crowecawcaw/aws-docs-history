@@ -425,15 +425,15 @@ If you chose the OpenTelemetry distribution, set `OTEL_NODE_ENABLED_INSTRUMENTAT
 
 With OpenInference, leave `OTEL_NODE_ENABLED_INSTRUMENTATIONS` unset. Install and initialize the OpenInference instrumentor before creating your agent, as shown in Step 1.
 
+------
+
 **Note**  
-You must attach the AWS managed policy [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the function's execution role so that the exporter can send traces to X-Ray.
+You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the function's execution role so that the exporter can send traces to X-Ray.
 
 **Important**  
 **Custom trace destination requires a resource policy.** If you set `OTEL_EXPORTER_OTLP_TRACES_HEADERS` to deliver spans to your own log group, you must also add an Amazon CloudWatch Logs resource policy. The policy must allow X-Ray (`xray.amazonaws.com`) to call `logs:PutLogEvents` on that log group. Use the same policy shown in [Enabling CloudWatch Transaction Search](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin-cw), with your log group's ARN in `Resource`. Without this policy, X-Ray cannot deliver spans to your log group.
 
 Continue to Step 3.
-
-------
 
 ## Amazon EC2
 <a name="omni-send-ai-agent-telemetry-amazon-ec2"></a>
@@ -474,15 +474,15 @@ OTEL_METRICS_EXPORTER=none
 ```
 + Node.js captures GenAI message content (model payloads and tool responses) by default; `AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT` is not required.
 
+------
+
 **Note**  
-You must attach the AWS managed policy [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the instance role so that the exporter can send traces to X-Ray.
+You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the instance role so that the exporter can send traces to X-Ray.
 
 **Important**  
 **Custom trace destination requires a resource policy.** If you set `OTEL_EXPORTER_OTLP_TRACES_HEADERS` to deliver spans to your own log group, you must also add an Amazon CloudWatch Logs resource policy. The policy must allow X-Ray (`xray.amazonaws.com`) to call `logs:PutLogEvents` on that log group. Use the same policy shown in [Enabling CloudWatch Transaction Search](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin-cw), with your log group's ARN in `Resource`. Without this policy, X-Ray cannot deliver spans to your log group.
 
 Continue to Step 3.
-
-------
 
 ## Amazon ECS
 <a name="omni-send-ai-agent-telemetry-amazon-ecs"></a>
@@ -526,7 +526,7 @@ OTEL_METRICS_EXPORTER=none
 + Node.js captures GenAI message content (model payloads and tool responses) by default; `AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT` is not required.
 
 **Note**  
-You must attach the AWS managed policy [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the task role so that the exporter can send traces to X-Ray.
+You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the task role so that the exporter can send traces to X-Ray.
 
 **Important**  
 **Custom trace destination requires a resource policy.** If you set `OTEL_EXPORTER_OTLP_TRACES_HEADERS` to deliver spans to your own log group, you must also add an Amazon CloudWatch Logs resource policy. The policy must allow X-Ray (`xray.amazonaws.com`) to call `logs:PutLogEvents` on that log group. Use the same policy shown in [Enabling CloudWatch Transaction Search](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin-cw), with your log group's ARN in `Resource`. Without this policy, X-Ray cannot deliver spans to your log group.
@@ -577,7 +577,7 @@ OTEL_METRICS_EXPORTER=none
 + The pod's service account must have a role through Pod Identity or IRSA; without one the SDK falls back to the node role, which usually lacks the permission below.
 
 **Note**  
-You must attach the AWS managed policy [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the pod's service account role so that the exporter can send traces to X-Ray.
+You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the pod's service account role so that the exporter can send traces to X-Ray.
 
 **Important**  
 **Custom trace destination requires a resource policy.** If you set `OTEL_EXPORTER_OTLP_TRACES_HEADERS` to deliver spans to your own log group, you must also add an Amazon CloudWatch Logs resource policy. The policy must allow X-Ray (`xray.amazonaws.com`) to call `logs:PutLogEvents` on that log group. Use the same policy shown in [Enabling CloudWatch Transaction Search](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html#observability-configure-builtin-cw), with your log group's ARN in `Resource`. Without this policy, X-Ray cannot deliver spans to your log group.
@@ -612,7 +612,7 @@ The following table lists common troubleshooting steps for missing or incomplete
 | No spans are created | Auto-instrumentation did not start. Verify that the distribution and required instrumentation packages are installed in the application's runtime environment and that the application uses the documented startup command. Instrumentation must initialize before the agent framework is imported. For Python, also check package-manager environments, development reloaders, and pre-fork workers. For Node.js, verify the CommonJS or ESM preload configuration and confirm that the instrumentation is not disabled. Do not create another tracer provider or exporter. Temporarily use OTEL\_TRACES\_EXPORTER=console,otlp for Python or OTEL\_LOG\_LEVEL=debug for Node.js to inspect startup. | 
 | HTTP spans appear, but agent, model, or tool spans do not | Verify that the framework and instrumentation versions are supported and that the corresponding instrumentation package is installed and enabled. Confirm that it is not listed in OTEL\_PYTHON\_DISABLED\_INSTRUMENTATIONS or OTEL\_NODE\_DISABLED\_INSTRUMENTATIONS. OpenInference startup code must run before the agent is created. | 
 | Duplicate agent, model, or tool spans appear | Two equivalent instrumentations may be active. The distribution attempts to detect equivalent instrumentation at startup. If detection fails, add the corresponding AWS instrumentation, such as aws\_langchain or aws\_openai\_agents, to OTEL\_NODE\_DISABLED\_INSTRUMENTATIONS. | 
-| Spans are created locally but do not reach CloudWatch | Verify OTEL\_TRACES\_EXPORTER, OTEL\_EXPORTER\_OTLP\_PROTOCOL, the OTLP endpoint, and OTEL\_EXPORTER\_OTLP\_TRACES\_HEADERS. Check exporter errors and network connectivity. On AWS Lambda, Amazon EC2, Amazon ECS, or Amazon EKS, verify that the compute role has [`AWSXrayWriteOnlyAccess`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html). On AgentCore, verify the execution-role permissions described in the AgentCore section. | 
+| Spans are created locally but do not reach CloudWatch | Verify OTEL\_TRACES\_EXPORTER, OTEL\_EXPORTER\_OTLP\_PROTOCOL, the OTLP endpoint, and OTEL\_EXPORTER\_OTLP\_TRACES\_HEADERS. Check exporter errors and network connectivity. On AWS Lambda, Amazon EC2, Amazon ECS, or Amazon EKS, verify that the compute role has [AWSXrayWriteOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html). On AgentCore, verify the execution-role permissions described in the AgentCore section. | 
 | The exporter returns 404 | OTEL\_EXPORTER\_OTLP\_ENDPOINT automatically appends /v1/traces. If the configured value already includes that path, use OTEL\_EXPORTER\_OTLP\_TRACES\_ENDPOINT instead so the path is not appended twice. | 
 | Only the AgentCore runtime invocation span appears | AgentCore telemetry is working, but application auto-instrumentation did not start. Follow the checks in the first row. For a custom image, start the application under opentelemetry-instrument or the Node.js register hook. AgentCore enables agent observability, and the distribution derives the OTLP trace-export settings; you do not need to set OTEL\_TRACES\_EXPORTER on the runtime resource. | 
 | Spans reach the log group but do not appear under Agent traces | Verify that Transaction Search is enabled and that the trace destination is CloudWatch Logs. Traces sent before Transaction Search was enabled are not searchable. After changing the destination, wait 10 minutes and invoke the agent again. | 

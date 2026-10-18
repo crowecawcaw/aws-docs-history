@@ -12,6 +12,8 @@ CloudWatch guarantees the delivery of alarm state change events to EventBridge.
 
 This section shows example events sent to EventBridge when an alarm's state changes. Select a tab to view different types of alarm state change events.
 
+When an alarm has tag propagation enabled, the event `detail` also includes an `alarmTags` object (a set of key-value pairs, which makes event pattern filtering easier) and an `alarmTagsStatus` field. For how to enable tag propagation and what the status values mean, see [Alarm tags in action payloads](alarm-tags-in-notifications.md).
+
 ------
 #### [ Single Metric Alarm ]
 
@@ -67,7 +69,12 @@ Events generated when a single metric alarm changes state. These events include 
             "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
             "muteWindowStart": "2026-01-01T10:00:00.000+0000",
             "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
-        }
+        },
+        "alarmTags": {
+            "Environment": "prod",
+            "Team": "cloudwatch"
+        },
+        "alarmTagsStatus": "SUCCESS"
     }
 }
 ```
@@ -147,7 +154,12 @@ Events generated when a metric math alarm changes state. These events include th
             "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
             "muteWindowStart": "2026-01-01T10:00:00.000+0000",
             "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
-        }
+        },
+        "alarmTags": {
+            "Environment": "prod",
+            "Team": "cloudwatch"
+        },
+        "alarmTagsStatus": "SUCCESS"
     }
 }
 ```
@@ -208,7 +220,12 @@ Events generated when an anomaly detection alarm changes state. These events inc
                 "label": "CPUUtilization (expected)",
                 "returnData": true
             }]
-        }
+        },
+        "alarmTags": {
+            "Environment": "prod",
+            "Team": "cloudwatch"
+        },
+        "alarmTagsStatus": "SUCCESS"
     }
 }
 ```
@@ -256,7 +273,12 @@ Events generated when a composite alarm changes state. These events include supp
             "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
             "muteWindowStart": "2026-01-01T10:00:00.000+0000",
             "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
-        }
+        },
+        "alarmTags": {
+            "Environment": "prod",
+            "Team": "cloudwatch"
+        },
+        "alarmTagsStatus": "SUCCESS"
     }
 }
 ```
@@ -308,7 +330,12 @@ Events generated when a composite alarm changes state. These events include supp
         "mutedByArn": "arn:aws:cloudwatch:us-east-1:1234567890:alarm-mute-rule:testMute",
         "muteWindowStart": "2026-01-01T10:00:00.000+0000",
         "muteWindowEnd": "2026-01-01T12:00:00.000+0000"
-    }
+    },
+    "alarmTags": {
+      "Environment": "prod",
+      "Team": "cloudwatch"
+    },
+    "alarmTagsStatus": "SUCCESS"
   }
 }
 ```
@@ -349,7 +376,12 @@ Events generated when a composite alarm changes state. These events include supp
         }
       ],
       "description": "Metrics Insights alarm for DynamoDB ConsumedWriteCapacity per TableName"
-    }
+    },
+    "alarmTags": {
+      "Environment": "prod",
+      "Team": "cloudwatch"
+    },
+    "alarmTagsStatus": "SUCCESS"
   }
 }
 ```
@@ -410,7 +442,12 @@ Events generated when a single-value log alarm (without a BY clause) changes sta
             "okActions": [],
             "alarmActions": ["arn:aws:sns:us-east-1:123456789012:my-topic"],
             "insufficientDataActions": []
-        }
+        },
+        "alarmTags": {
+            "Environment": "prod",
+            "Team": "cloudwatch"
+        },
+        "alarmTagsStatus": "SUCCESS"
     }
 }
 ```
@@ -470,7 +507,12 @@ Events generated when a contributor of a multi-contributor log alarm (with a BY 
             "okActions": [],
             "alarmActions": [],
             "insufficientDataActions": []
-        }
+        },
+        "alarmTags": {
+            "Environment": "prod",
+            "Team": "cloudwatch"
+        },
+        "alarmTagsStatus": "SUCCESS"
     }
 }
 ```

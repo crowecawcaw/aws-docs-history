@@ -11,9 +11,6 @@ Runtime versions with the same major version number are backward compatible.
 
 The Lambda code in a canary is configured to have a maximum memory of 1 GB. Each run of a canary times out after a configured timeout value. If no timeout value is specified for a canary, CloudWatch chooses a timeout value based on the canary's frequency. If you configure a timeout value, make it no shorter than 15 seconds to allow for Lambda cold starts and the time it takes to boot up the canary instrumentation.
 
-## syn-nodejs-puppeteer-17.0
-<a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-17.0"></a>
-
 **Important**  
 Starting Synthetics `syn-nodejs-puppeteer-13.1` and later, Synthetics runtime uses the new namespace. Please migrate the canary script to use new namespaces. Legacy namespaces will be deprecated in a future release.  
 Synthetics → @aws/synthetics-puppeteer
@@ -31,6 +28,43 @@ Synthetics runtime `syn-nodejs-puppeteer-11.0` and later versions support only t
  `stepDurationMetric` 
  `continueOnStepFailure/continueOnHttpStepFailure` 
  `stepsReport` 
+
+## syn-nodejs-puppeteer-18.0
+<a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-18.0"></a>
+
+**Major dependencies**:
++ Lambda runtime Node.js 22.x
++ Puppeteer-core version 25.11.0
++ Chromium version 153.0.8010.36
++ Firefox version 155.0.1
+
+ **Changes in syn-nodejs-puppeteer-18.0** 
++ Upgrade `Chromium` to 153.0.8010.36 to address the following CVEs:
+  + CVE-2026-85046
+  + CVE-2026-87491
++ Upgrade `axios` to 1.18.0 to address the following CVEs:
+  + CVE-2026-67312
+  + CVE-2026-67313
+  + CVE-2026-67314
+  + CVE-2026-67315
+  + CVE-2026-67316
+  + CVE-2026-67317
+  + CVE-2026-67318
+  + CVE-2026-67319
+  + CVE-2026-67320
+  + CVE-2026-67321
+
+For more information, see the following:
++  [Puppeteer changelog](https://pptr.dev/CHANGELOG) on the Puppeteer website 
++  [Puppeteer API reference](https://pptr.dev/api) on the Puppeteer website 
+
+## Previous runtime versions for Node.js and Puppeteer
+<a name="Previousversions-nodejs-puppeteer"></a>
+
+The following earlier runtime versions for Node.js and Puppeteer are still supported. 
+
+### syn-nodejs-puppeteer-17.0
+<a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-17.0"></a>
 
 **Major dependencies**:
 + Lambda runtime Node.js 22.x
@@ -55,15 +89,6 @@ Synthetics runtime `syn-nodejs-puppeteer-11.0` and later versions support only t
   + CVE-2026-33901
   + CVE-2026-33905
   + CVE-2026-33908
-
-For more information, see the following:
-+  [Puppeteer changelog](https://pptr.dev/CHANGELOG) on the Puppeteer website 
-+  [Puppeteer API reference](https://pptr.dev/api) on the Puppeteer website 
-
-## Previous runtime versions for Node.js and Puppeteer
-<a name="Previousversions-nodejs-puppeteer"></a>
-
-The following earlier runtime versions for Node.js and Puppeteer are still supported. 
 
 ### syn-nodejs-puppeteer-16.1
 <a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-16.1"></a>
@@ -156,8 +181,6 @@ The following earlier runtime versions for Node.js and Puppeteer are still suppo
 
 ### syn-nodejs-puppeteer-13.1
 <a name="CloudWatch_Synthetics_runtimeversion-nodejs-puppeteer-13.1"></a>
-
-`syn-nodejs-puppeteer-13.1` is the most recent Synthetics runtime for Node.js and Puppeteer. 
 
 **Major dependencies**:
 + Lambda runtime Node.js 22.x

@@ -7,12 +7,46 @@ The following section contains information about the CloudWatch Synthetics runti
 
 The naming convention for these runtime versions is `syn-{{language}} -{{majorversion}}.{{minorversion}}`.
 
-## syn-nodejs-5.2
-<a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.2"></a>
-
 **Important**  
 Starting Synthetics `syn-nodejs-3.1` and later, Synthetics runtime uses the new namespace. Please migrate the canary script to use the new namespace. Legacy namespace will be deprecated in a future release.  
 @amzn/synthetics-core → @aws/synthetics-core
+
+## syn-nodejs-5.3
+<a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.3"></a>
+
+**Major dependencies**:
++ AWS Lambda runtime Node.js 22.x
+
+ **Changes in syn-nodejs-5.3** 
++ Multi-check canary dependency fix – Fix a dependency conflict that could prevent multi-check canaries from starting.
++ Upgrade `fast-uri` to 3.1.8 to address the following CVEs:
+  + CVE-2026-16221
+  + CVE-2026-18446
+  + CVE-2026-75899
+  + CVE-2026-75931
+  + CVE-2026-75975
+  + CVE-2026-76172
++ Upgrade `protobufjs` to 7.6.6 to address the following CVE:
+  + CVE-2026-59877
++ Upgrade `axios` to 1.18.0 to address the following CVEs:
+  + CVE-2026-67312
+  + CVE-2026-67313
+  + CVE-2026-67314
+  + CVE-2026-67315
+  + CVE-2026-67316
+  + CVE-2026-67317
+  + CVE-2026-67318
+  + CVE-2026-67319
+  + CVE-2026-67320
+  + CVE-2026-67321
+
+## Previous runtime versions for Node.js
+<a name="Previousversions-nodejs"></a>
+
+The following earlier runtime versions for Node.js are still supported. 
+
+### syn-nodejs-5.2
+<a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.2"></a>
 
 **Major dependencies**:
 + AWS Lambda runtime Node.js 22.x
@@ -25,11 +59,6 @@ Starting Synthetics `syn-nodejs-3.1` and later, Synthetics runtime uses the new 
   + CVE-2026-1615
 + Upgrade `fast-xml-parser` to 5.9.3 to address the following CVEs:
   + CVE-2026-25896
-
-## Previous runtime versions for Node.js
-<a name="Previousversions-nodejs"></a>
-
-The following earlier runtime versions for Node.js are still supported. 
 
 ### syn-nodejs-5.1
 <a name="CloudWatch_Synthetics_runtimeversion-syn-nodejs-5.1"></a>

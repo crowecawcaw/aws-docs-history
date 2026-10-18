@@ -17,7 +17,7 @@ Sign-in must match. If your Omni domain uses IAM Identity Center, configure your
 
 Connect Omni to DevOps Agent
 
-Before you connect, a space administrator must attach the [AIDevOpsAgentFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AIDevOpsAgentFullAccess.html) managed policy to your space's operator role, `CloudWatchOmniOperatorRole`. See [Set up Omni](omni-set-up-omni.md).
+Before you connect, a space administrator must attach the [AIDevOpsAgentFullAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AIDevOpsAgentFullAccess.html) managed policy to your space's operator role. See [Set up Omni](omni-set-up-omni.md).
 
 1. In CloudWatch Omni, navigate to **Settings** → **Integrations** → **AWS DevOps Agent**. Choose **Select Space**.
 

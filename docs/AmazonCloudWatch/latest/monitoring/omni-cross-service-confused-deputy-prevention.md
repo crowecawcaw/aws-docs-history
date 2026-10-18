@@ -11,7 +11,7 @@ CloudWatch Omni assumes IAM roles in your account to read your telemetry, both d
 
 **Setup and data-access roles**
 
-The space operator role, `CloudWatchOmniOperatorRole`, trusts the CloudWatch Omni service principal `cloudwatch.amazonaws.com`. CloudWatch Omni creates this role and applies the following trust policy when you set up a space. If you supply your own role instead, give it the same trust policy.
+The space operator role trusts the CloudWatch Omni service principal `cloudwatch.amazonaws.com`. When you set up a space in a single account, CloudWatch Omni creates this role and applies the following trust policy. If you supply your own role instead, give it the same trust policy.
 
 ```
 {
@@ -20,13 +20,16 @@ The space operator role, `CloudWatchOmniOperatorRole`, trusts the CloudWatch Omn
     {
       "Effect": "Allow",
       "Principal": { "Service": "cloudwatch.amazonaws.com" },
-      "Action": ["sts:AssumeRole", "sts:TagSession", "sts:SetContext"]
+      "Action": ["sts:AssumeRole", "sts:TagSession", "sts:SetSourceIdentity", "sts:SetContext"],
+      "Condition": {
+        "StringEquals": { "aws:SourceAccount": "<YOUR_OWN_ACCOUNT_ID>" }
+      }
     }
   ]
 }
 ```
 
-Because this role is assumed only by the CloudWatch Omni service principal to issue credentials for a space in your own account, its trust policy does not carry an `aws:SourceAccount` or `aws:SourceArn` condition. The confused-deputy protection for the role that another AWS service assumes is described in the next section.
+The `aws:SourceAccount` condition limits CloudWatch Omni to assuming this role on behalf of your own account.
 
 **Dataset integration execution role**
 

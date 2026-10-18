@@ -3,7 +3,7 @@
 # Send application telemetry
 <a name="omni-send-application-telemetry"></a>
 
-Deploy the CloudWatch agent where your application runs on Amazon EC2, Amazon ECS, Amazon EKS, an Azure VM, or Azure Kubernetes Service, point the application's OpenTelemetry exporter at it, and confirm data arrives in your space. If the application is not instrumented yet, add OpenTelemetry for Python, Node.js, Java, or .NET in the last step. The agent receives OTLP from your application and forwards metrics, traces, and logs to CloudWatch.
+Deploy the CloudWatch agent where your application runs: Amazon EC2, Amazon ECS, Amazon EKS, an Azure VM, Azure Kubernetes Service, a Google Compute Engine instance, or Google Kubernetes Engine. Then point your application's OpenTelemetry exporter at the agent, and confirm that data arrives in your space. If your application is not instrumented yet, add OpenTelemetry for Python, Node.js, Java, .NET, or Go in the last step. The agent receives OpenTelemetry Protocol (OTLP) data from your application and forwards metrics, traces, and logs to CloudWatch.
 
 If you are monitoring an AI agent, see [Send AI agent telemetry](omni-send-ai-agent-telemetry.md). If your application runs on AWS Lambda, see [Send application telemetry from AWS Lambda](omni-send-application-telemetry-from-aws-lambda.md); Lambda has no collector to deploy.
 
@@ -16,8 +16,8 @@ Steps 1 and 2 show one environment at a time: expand the section for where your 
 
 **Prerequisites**
 + **Transaction Search is enabled** in the account and Region that receive traces. Traces sent before it is enabled are not searchable. See [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
-+ You can attach IAM policies to the role your compute uses: an instance role, a task role, the agent's service account role, or the federated role on Azure.
-+ For Step 4, your application's language is one of Python, Node.js, Java, or .NET. Frameworks with zero-code instrumentation are listed in [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md); others still work with the custom-instrumentation snippets.
++ You can attach IAM policies to the role your compute uses: an instance role, a task role, the agent's service account role, or the federated role on Azure or Google Cloud.
++ For Step 4, your application's language is one of Python, Node.js, Java, .NET, or Go. For more information about the frameworks with documented notes, see [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md). Other frameworks still work with the custom-instrumentation snippets.
 
 **Step 1: Deploy the CloudWatch agent (platform team or administrator)**
 
@@ -39,7 +39,7 @@ The instance role needs `CloudWatchAgentServerPolicy`, which covers metrics, log
 
 ```
 # 1. Connect (SSH, or Session Manager — no key or open port needed)
-aws ssm start-session --target <instanceId>
+aws ssm start-session --target {{instance-id}}
 
 # 2. Install the CloudWatch agent from Amazon S3
 curl -fsSL -o /tmp/amazon-cloudwatch-agent.rpm \
@@ -50,6 +50,8 @@ sudo rpm -Uvh /tmp/amazon-cloudwatch-agent.rpm
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl \
   -a fetch-config -c default:otel -s
 ```
+
+Replace `{{instance-id}}` with the ID of the Amazon EC2 instance you want to connect to.
 + Install version 1.300071.0 or later, the first with OTLP support. The agent is available from Amazon S3, Systems Manager, and Amazon ECR, but not from the Amazon Linux yum repository.
 + `default:otel` turns on the OTLP receiver plus host metrics and span metrics.
 
@@ -275,6 +277,20 @@ The complete procedure, including the OIDC federation and the Helm values, is in
 **Note**  
 Unlike the EKS add-on, the AKS Helm chart's OTLP receiver accepts cross-pod traffic by default; no `0.0.0.0` override is needed.
 
+## Google Compute Engine
+<a name="omni-send-application-telemetry-google-compute-engine"></a>
+
+On a Google Compute Engine instance, you federate the instance's service account to an IAM role and install the CloudWatch agent on the instance, then continue to Step 2. The agent sends telemetry with temporary AWS credentials instead of a stored key; your application sends OTLP to `localhost`.
+
+The complete procedure, including the service account federation, the IAM role trust policy, and the onboarding scripts, is in [Install the CloudWatch agent on Google Cloud](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Google-Cloud.html#install-CloudWatch-Agent-on-Google-Cloud-gce) in the Amazon CloudWatch User Guide. Follow the Google Compute Engine (GCE) section there, then return to Step 2.
+
+## Google Kubernetes Engine
+<a name="omni-send-application-telemetry-google-kubernetes-engine"></a>
+
+On Google Kubernetes Engine, you federate the cluster's OIDC issuer for the `cloudwatch-agent` service account to an IAM role and install the CloudWatch Observability Helm chart, then continue to Step 2. Pods send OTLP to the `cloudwatch-agent` Service over cluster DNS.
+
+The complete procedure, including the OIDC federation and the Helm values, is in [Install the CloudWatch agent on Google Cloud](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Google-Cloud.html#install-CloudWatch-Agent-on-Google-Cloud-gke) in the Amazon CloudWatch User Guide. Follow the Google Kubernetes Engine (GKE) section there, then return to Step 2.
+
 **Step 2: Point your application at the agent (developer)**
 
 Set these environment variables on the application, never on the agent: one agent serves many services and already enriches telemetry with infrastructure attributes. The endpoint and the place the variables live depend on your environment, and the port and protocol depend on your language; expand the same section you chose in Step 1, then choose your language.
@@ -285,7 +301,7 @@ Set these environment variables on the application, never on the agent: one agen
 On Amazon EC2, set these in the application's service unit or start script, for example `Environment=` lines in a systemd unit:
 
 ------
-#### [ Python, Java, .NET ]
+#### [ Python, Java, .NET, Go ]
 
 ```
 OTEL_SERVICE_NAME=<checkout-api>
@@ -316,7 +332,7 @@ OTEL_LOGS_EXPORTER=otlp
 On Amazon ECS, set these in the application container's `environment` block:
 
 ------
-#### [ Python, Java, .NET ]
+#### [ Python, Java, .NET, Go ]
 
 ```
 OTEL_SERVICE_NAME=<checkout-api>
@@ -347,7 +363,7 @@ OTEL_LOGS_EXPORTER=otlp
 On Amazon EKS, set these in the container's `env` block in the pod spec:
 
 ------
-#### [ Python, Java, .NET ]
+#### [ Python, Java, .NET, Go ]
 
 ```
 OTEL_SERVICE_NAME=<checkout-api>
@@ -378,7 +394,7 @@ OTEL_LOGS_EXPORTER=otlp
 On an Azure VM, set these in the application's service unit or start script:
 
 ------
-#### [ Python, Java, .NET ]
+#### [ Python, Java, .NET, Go ]
 
 ```
 OTEL_SERVICE_NAME=<checkout-api>
@@ -409,7 +425,69 @@ OTEL_LOGS_EXPORTER=otlp
 On Azure Kubernetes Service, set these in the container's `env` block in the pod spec:
 
 ------
-#### [ Python, Java, .NET ]
+#### [ Python, Java, .NET, Go ]
+
+```
+OTEL_SERVICE_NAME=<checkout-api>
+OTEL_RESOURCE_ATTRIBUTES=service.namespace=<checkout>
+OTEL_EXPORTER_OTLP_ENDPOINT=http://cloudwatch-agent.amazon-cloudwatch.svc.cluster.local:4318
+OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+OTEL_METRICS_EXPORTER=otlp
+OTEL_LOGS_EXPORTER=otlp
+```
+
+------
+#### [ Node.js ]
+
+```
+OTEL_SERVICE_NAME=<checkout-api>
+OTEL_RESOURCE_ATTRIBUTES=service.namespace=<checkout>
+OTEL_EXPORTER_OTLP_ENDPOINT=http://cloudwatch-agent.amazon-cloudwatch.svc.cluster.local:4317
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+OTEL_METRICS_EXPORTER=otlp
+OTEL_LOGS_EXPORTER=otlp
+```
+
+------
+
+## Google Compute Engine
+<a name="omni-send-application-telemetry-google-compute-engine-2"></a>
+
+On a Google Compute Engine instance, set these in the application's service unit or start script:
+
+------
+#### [ Python, Java, .NET, Go ]
+
+```
+OTEL_SERVICE_NAME=<checkout-api>
+OTEL_RESOURCE_ATTRIBUTES=service.namespace=<checkout>
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+OTEL_METRICS_EXPORTER=otlp
+OTEL_LOGS_EXPORTER=otlp
+```
+
+------
+#### [ Node.js ]
+
+```
+OTEL_SERVICE_NAME=<checkout-api>
+OTEL_RESOURCE_ATTRIBUTES=service.namespace=<checkout>
+OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+OTEL_EXPORTER_OTLP_PROTOCOL=grpc
+OTEL_METRICS_EXPORTER=otlp
+OTEL_LOGS_EXPORTER=otlp
+```
+
+------
+
+## Google Kubernetes Engine
+<a name="omni-send-application-telemetry-google-kubernetes-engine-2"></a>
+
+On Google Kubernetes Engine, set these in the container's `env` block in the pod spec:
+
+------
+#### [ Python, Java, .NET, Go ]
 
 ```
 OTEL_SERVICE_NAME=<checkout-api>
@@ -471,14 +549,24 @@ On an Azure VM, `amazon-cloudwatch-agent-ctl -a status` reports `running`. In yo
 On Azure Kubernetes Service, `kubectl -n amazon-cloudwatch get daemonset cloudwatch-agent` shows all pods ready. In your space, container metrics for the cluster appear within about five minutes.
 
 ------
+#### [ Google Compute Engine ]
+
+On a Google Compute Engine instance, `sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a status` reports `running`. In your space, host metrics for the instance appear within about five minutes.
+
+------
+#### [ Google Kubernetes Engine ]
+
+On Google Kubernetes Engine, `kubectl -n amazon-cloudwatch get daemonset cloudwatch-agent` shows all pods ready. In your space, container metrics for the cluster appear within about five minutes.
+
+------
 
 **Your application appears**
 
-If you run your own OpenTelemetry Collector instead of the CloudWatch agent, this is your check. If your application is not instrumented yet, do Step 4 first, then return to this check. Restart the application, then open your space. In **Application map**, the service appears under the `service.name` you set. In **Trace Explorer**, a trace for a recent request shows the entry span for your service with the resource attributes you set. Application logs are in `/aws/cwagent/otlp` on EC2, ECS, and Azure VMs, or `/aws/cwagent/<cluster>/otlp` on EKS and AKS. A custom metric is queryable with PromQL by its OpenTelemetry name, for example `sum({__name__="orders.placed"})`.
+If you run your own OpenTelemetry Collector instead of the CloudWatch agent, this is your check. If your application is not instrumented yet, do Step 4 first, then return to this check. Restart the application, then open your space. In **Application map**, the service appears under the `service.name` you set. In **Trace Explorer**, a trace for a recent request shows the entry span for your service with the resource attributes you set. Application logs are in `/aws/cwagent/otlp` on EC2, ECS, Azure VMs, and Compute Engine instances, or `/aws/cwagent/<cluster>/otlp` on EKS, AKS, and GKE. A custom metric is queryable with PromQL by its OpenTelemetry name, for example `sum({__name__="orders.placed"})`.
 
 **Step 4 (optional): Instrument your application with OpenTelemetry (developer)**
 
-Choose your language. The choice applies to every code sample below and is remembered on the other pages in this guide. Most HTTP frameworks, database clients, and messaging libraries are traced with no code changes; the table in each tab lists the frameworks with documented notes, and the OpenTelemetry registry lists the rest. For a framework not covered, the custom-instrumentation snippet still works.
+Choose your language. The choice applies to every code sample in this step and is remembered on the other pages in this guide. For Python, Node.js, Java, and .NET, most HTTP frameworks, database clients, and messaging libraries are traced without code changes. Go has no auto-instrumentation agent, so initialize the SDK in code and wrap your handlers with the library instrumentation for your framework. The table in each tab lists the frameworks with documented notes, and the OpenTelemetry registry lists the rest. For a framework not covered, the custom-instrumentation snippet still works.
 
 **Install the OpenTelemetry SDK**
 
@@ -525,8 +613,27 @@ dotnet add package OpenTelemetry.Instrumentation.Http
 ```
 
 ------
+#### [ Go ]
 
-**Add the CloudWatch plugin for OpenTelemetry with the SDK.** The plugin generates the request, error, and duration span metrics that power the service views (including the **Errors** metric), and it meters every span before sampling, so those metrics reflect all requests rather than the sampled subset. It is available for Python, Node.js, Java, and .NET. The following table lists the package names and links. The plugin needs a metrics pipeline to emit into. If your application exports traces but no metrics, the plugin stays inert and **Errors** remains unpopulated. Configure a metrics exporter alongside your trace exporter.
+```
+go get go.opentelemetry.io/otel \
+  go.opentelemetry.io/otel/sdk \
+  go.opentelemetry.io/otel/sdk/metric \
+  go.opentelemetry.io/otel/sdk/log \
+  go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp \
+  go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp \
+  go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp \
+  go.opentelemetry.io/contrib/bridges/otelslog \
+  github.com/aws-observability/cloudwatch-plugin-otel-go
+
+# Library instrumentation for your framework
+go get go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp                  # net/http
+go get go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc    # gRPC
+```
+
+------
+
+**Add the CloudWatch plugin for OpenTelemetry with the SDK.** The plugin generates the request, error, and duration span metrics that power the service views (including the **Errors** metric), and it meters every span before sampling, so those metrics reflect all requests rather than the sampled subset. It is available for Python, Node.js, Java, .NET, and Go. The following table lists the package names and links. The plugin needs a metrics pipeline to emit into. If your application exports traces but no metrics, the plugin stays inert and **Errors** remains unpopulated. Configure a metrics exporter alongside your trace exporter.
 
 If you instrument with the ADOT SDK instead and sample, your span metrics are computed from the sampled spans only.
 
@@ -537,10 +644,11 @@ If you instrument with the ADOT SDK instead and sample, your span metrics are co
 | Python | cloudwatch-plugin-otel | [Python plugin README](https://github.com/aws-observability/aws-otel-python-instrumentation/blob/main/cloudwatch-plugin-otel/README.md) | 
 | Node.js | @aws/cloudwatch-plugin-otel | [Node.js plugin README](https://github.com/aws-observability/aws-otel-js-instrumentation/blob/main/cloudwatch-plugin-otel/README.md) | 
 | .NET | AWS.OpenTelemetry.CloudWatchPluginOtel | [.NET plugin README](https://github.com/aws-observability/aws-otel-dotnet-instrumentation/blob/main/src/AWS.OpenTelemetry.CloudWatch.Plugin/README.md) | 
+| Go | github.com/aws-observability/cloudwatch-plugin-otel-go | [Go plugin README](https://github.com/aws-observability/cloudwatch-plugin-otel-go/blob/main/README.md) | 
 
 **Enable auto-instrumentation**
 
-Run the application under the auto-instrumentation agent for its language. Framework, HTTP, and database calls are traced with no code changes.
+Run your application under the auto-instrumentation agent for its language. Framework, HTTP, and database calls are traced without code changes. Go has no auto-instrumentation agent. For Go, initialize the SDK once at startup instead.
 
 ------
 #### [ Python ]
@@ -583,6 +691,82 @@ dotnet <MyService.dll>
 using var tracerProvider = Sdk.CreateTracerProviderBuilder().AddSource("checkout").AddOtlpExporter().Build();
 using var meterProvider  = Sdk.CreateMeterProviderBuilder().AddMeter("checkout").AddOtlpExporter().Build();
 ```
+
+------
+#### [ Go ]
+
+The following Go code example initializes the SDK once at startup. Save it in your application as `otel.go`.
+
+```
+package main
+
+import (
+    "context"
+    "log/slog"
+
+    "github.com/aws-observability/cloudwatch-plugin-otel-go/spanmetrics"
+    "go.opentelemetry.io/contrib/bridges/otelslog"
+    "go.opentelemetry.io/otel"
+    "go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
+    "go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
+    "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
+    sdklog "go.opentelemetry.io/otel/sdk/log"
+    sdkmetric "go.opentelemetry.io/otel/sdk/metric"
+    "go.opentelemetry.io/otel/sdk/resource"
+    sdktrace "go.opentelemetry.io/otel/sdk/trace"
+)
+
+func setupOTel(ctx context.Context) (func(context.Context) error, error) {
+    // service.name and service.namespace come from OTEL_SERVICE_NAME and OTEL_RESOURCE_ATTRIBUTES.
+    res, err := resource.New(ctx, resource.WithFromEnv())
+    if err != nil {
+        return nil, err
+    }
+
+    me, err := otlpmetrichttp.New(ctx)
+    if err != nil {
+        return nil, err
+    }
+    mp := sdkmetric.NewMeterProvider(
+        sdkmetric.WithReader(sdkmetric.NewPeriodicReader(me)),
+        sdkmetric.WithResource(res),
+    )
+    otel.SetMeterProvider(mp)
+
+    te, err := otlptracehttp.New(ctx)
+    if err != nil {
+        return nil, err
+    }
+    tp := sdktrace.NewTracerProvider(
+        sdktrace.WithResource(res),
+        // CloudWatch plugin: meter every span before sampling, into mp.
+        sdktrace.WithSampler(spanmetrics.NewAlwaysRecordSampler(spanmetrics.SamplerFromEnv())),
+        sdktrace.WithSpanProcessor(spanmetrics.NewSpanMetricsProcessor(mp)),
+        sdktrace.WithBatcher(te),
+    )
+    otel.SetTracerProvider(tp)
+
+    le, err := otlploghttp.New(ctx)
+    if err != nil {
+        return nil, err
+    }
+    lp := sdklog.NewLoggerProvider(
+        sdklog.WithProcessor(sdklog.NewBatchProcessor(le)),
+        sdklog.WithResource(res),
+    )
+    // Send the default slog logger's records through OpenTelemetry.
+    slog.SetDefault(slog.New(otelslog.NewHandler("checkout", otelslog.WithLoggerProvider(lp))))
+
+    return func(ctx context.Context) error {
+        _ = tp.Shutdown(ctx)
+        _ = mp.Shutdown(ctx)
+        return lp.Shutdown(ctx)
+    }, nil
+}
+```
++ Call `setupOTel(ctx)` at the start of `main()`, before you serve requests, and defer the returned function so the final spans, metrics, and logs are exported on shutdown.
++ The setup registers the CloudWatch plugin. `NewAlwaysRecordSampler` wraps the sampler that `OTEL_TRACES_SAMPLER` selects, and `NewSpanMetricsProcessor` records the span metrics into the meter provider, so create the meter provider before the tracer provider.
++ Log with the default `slog` logger's context methods, such as `slog.InfoContext`, so each record is exported and correlated with the active span. A logger that you create separately with `slog.New` is not connected to OpenTelemetry.
 
 ------
 
@@ -676,6 +860,42 @@ Orders.Add(1);
 | gRPC | Client instrumentation is a separate prerelease package (OpenTelemetry.Instrumentation.GrpcNetClient); .AddHttpClientInstrumentation() covers the HTTP transport meanwhile. | 
 
 ------
+#### [ Go ]
+
+```
+import (
+    "context"
+    "log/slog"
+
+    "go.opentelemetry.io/otel"
+    "go.opentelemetry.io/otel/attribute"
+    "go.opentelemetry.io/otel/trace"
+)
+
+var (
+    tracer    = otel.Tracer("checkout")
+    orders, _ = otel.Meter("checkout").Int64Counter("orders.placed")
+)
+
+func placeOrder(ctx context.Context, cart []Item) {
+    ctx, span := tracer.Start(ctx, "place_order", trace.WithSpanKind(trace.SpanKindServer))
+    defer span.End()
+    span.SetAttributes(attribute.Int("cart.items", len(cart)))
+    orders.Add(ctx, 1)
+    slog.InfoContext(ctx, "order placed", "cart.items", len(cart))
+}
+```
++ Pass the request's `context.Context` through your calls. Spans, metrics, and logs that use it are linked to the request's trace.
+
+The following table lists notes for the Go frameworks.
+
+
+| Framework | Notes | 
+| --- | --- | 
+| net/http | Wrap the handler with otelhttp.NewHandler(mux, "checkout"). Each request is traced as a server span. | 
+| gRPC | Create the server with grpc.NewServer(grpc.StatsHandler(otelgrpc.NewServerHandler())). Each call is traced as a server span. | 
+
+------
 
 Query custom metrics with PromQL by their OpenTelemetry name, for example `sum({__name__="orders.placed"})`. Restart the application and repeat Step 3.
 
@@ -685,12 +905,13 @@ Query custom metrics with PromQL by their OpenTelemetry name, for example `sum({
 | Symptom | Cause and fix | 
 | --- | --- | 
 | Logs and spans arrive, metrics do not | A metric attribute value is longer than 1024 characters; the CloudWatch OTLP metrics endpoint rejects the whole batch with HTTP 400. Trim the attribute. For Java, the usual cause is process.command\_args on a long classpath: set OTEL\_JAVA\_DISABLED\_RESOURCE\_PROVIDERS=io.opentelemetry.instrumentation.resources.ProcessResourceProvider. | 
-| Nothing arrives; the SDK logs connection errors | Port and protocol do not match: 4317 is gRPC and 4318 is HTTP. Set OTEL\_EXPORTER\_OTLP\_PROTOCOL to match the port. | 
+| Nothing arrives; the SDK logs connection errors | Port and protocol do not match: 4317 is gRPC and 4318 is HTTP. Set OTEL\_EXPORTER\_OTLP\_PROTOCOL to match the port. For Go, the exporter package sets the protocol, so use port 4318 with the OTLP/HTTP exporters. | 
 | Nothing arrives on ECS; the task hangs at startup | The application container depends on the agent with condition HEALTHY. Use START. | 
 | Nothing arrives on ECS; the agent logs AccessDenied or times out | The task role lacks CloudWatchAgentServerPolicy, or the task has no egress to the OTLP endpoints. Attach the policy; add a public IP, NAT gateway, or VPC endpoints. | 
 | Nothing arrives on EKS; no agent errors | The receiver is bound to localhost, or the agent service account has no credentials. Apply the 0.0.0.0 override; use Pod Identity or annotate the service account for IRSA, then restart the DaemonSet. | 
 | Nothing arrives from a new EC2 instance | The agent started before the instance profile reached the instance metadata service. Wait for the role in user data before fetch-config, or restart the agent. | 
 | Nothing arrives from an Azure VM or AKS | The federation is not complete: the IAM role trust policy does not match the identity, or the service account is not annotated. Recheck the federation steps in [Install the CloudWatch agent on Azure](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Azure.html). | 
+| Nothing arrives from a Compute Engine instance or GKE | The federation is not complete: the IAM role trust policy does not match the instance's service account unique ID or the cluster's OIDC issuer, or the instance has no service account attached. Recheck the federation steps in [Install the CloudWatch agent on Google Cloud](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Google-Cloud.html). | 
 | The service appears under the agent's name | OTEL\_SERVICE\_NAME is set on the agent, not the application. Move it to the application. | 
 | A Python service shows one process span and no route spans | opentelemetry-instrument wrapped python instead of the server. Wrap uvicorn or gunicorn. | 
 | Traces exist but are not searchable | Transaction Search was enabled after the traces were sent. Enable it, then send new traces. | 

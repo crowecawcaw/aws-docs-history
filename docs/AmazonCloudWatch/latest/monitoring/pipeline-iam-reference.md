@@ -13,7 +13,7 @@ The following table helps you identify which IAM sections apply to your use case
 | [Third-party integrations (API Pull)](data-sources.md#data-sources-third-party) | Pipeline pulls from vendor API using stored credentials | microsoft\_office365, okta\_sso, palo\_alto\_ngfw, and so on. | [API caller permissions](#api-caller-permissions) \+ [Third-party sources (API Pull)](#third-party-api-pull) \+ [Resource policies](#resource-policies) | 
 | [Third-party integrations (S3 delivery)](data-sources.md#data-sources-third-party) | Vendor delivers files to your S3 bucket | s3 | [API caller permissions](#api-caller-permissions) \+ [Third-party sources (S3 delivery)](#third-party-s3-delivery) \+ [Resource policies](#resource-policies) | 
 | [Custom data from S3](data-sources.md#data-sources-custom) | Your applications write to S3, pipeline reads from bucket | s3 | [API caller permissions](#api-caller-permissions) \+ [Custom data from S3](#custom-data-s3) \+ [Resource policies](#resource-policies) | 
-| [Custom data from CloudWatch Logs](data-sources.md#data-sources-custom) | Your applications log to a CloudWatch Logs log group | cloudwatch\_logs | [API caller permissions](#api-caller-permissions) \+ [Custom data from CloudWatch Logs](#custom-data-cloudwatch-logs) | 
+| [Custom and Syslog data from CloudWatch Logs](data-sources.md#data-sources-custom) | Your applications or the CloudWatch Logs Syslog service deliver logs to a log group | cloudwatch\_logs | [API caller permissions](#api-caller-permissions) \+ [Custom and Syslog data from CloudWatch Logs](#custom-data-cloudwatch-logs) | 
 | [Vended AWS service logs](data-sources.md#data-sources-aws-services) | AWS services deliver logs to CloudWatch Logs (VPC Flow Logs, Route 53) | cloudwatch\_logs | [API caller permissions](#api-caller-permissions) \+ [Vended AWS service logs](#vended-service-logs) | 
 | [CloudWatch Metrics (OTel)](data-sources.md#data-sources-metrics-otel) | AWS services emit metrics through OTLP | cloudwatch\_metrics | [Pipeline rule permissions for CloudWatch Metrics sources](#pipeline-rule-permissions-metrics) | 
 
@@ -414,10 +414,10 @@ This section applies to your own applications or infrastructure writing log file
 
 The IAM setup is identical to [Third-party sources (S3 delivery)](#third-party-s3-delivery). Use the same permission policy and trust policy. The pipeline reads from your bucket through SQS event notifications regardless of who wrote the data.
 
-### Custom data from CloudWatch Logs
+### Custom and Syslog data from CloudWatch Logs
 <a name="custom-data-cloudwatch-logs"></a>
 
-This section applies to your own applications logging to a CloudWatch Logs log group (for example, Lambda functions, ECS containers, or custom EC2 applications).
+This section applies to your own applications logging to a CloudWatch Logs log group (for example, Lambda functions, ECS containers, or custom EC2 applications) and to messages delivered through the CloudWatch Logs Syslog service.
 
 **Permission policy**
 
@@ -493,6 +493,9 @@ The IAM role for CloudWatch Logs sources requires both the trust policy (to allo
 
 **Note**  
 No resource policy is needed for CloudWatch Logs source pipelines.
+
+**Note**  
+CloudWatch Logs Syslog ingestion requires a separate resource policy to deliver messages to the source log group. For more information, see [Setting up syslog ingestion](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_Syslog_Setup.html).
 
 #### Complete IAM setup for CloudWatch Logs pipelines
 <a name="cloudwatch-logs-complete-setup"></a>
@@ -580,7 +583,7 @@ For production use, scope down `iam:PassRole` by using the condition keys shown 
 
 This section applies to AWS service logs delivered to CloudWatch Logs, such as VPC Flow Logs, Route 53 query logs, and other AWS vended log types.
 
-The IAM setup is identical to [Custom data from CloudWatch Logs](#custom-data-cloudwatch-logs). Use the same permission policy (`logs:processWithPipeline` scoped to the log group) and the same trust policy (`logs.amazonaws.com`).
+The IAM setup is identical to [Custom and Syslog data from CloudWatch Logs](#custom-data-cloudwatch-logs). Use the same permission policy (`logs:processWithPipeline` scoped to the log group) and the same trust policy (`logs.amazonaws.com`).
 
 Because this uses the `cloudwatch_logs` source type, the caller also needs `logs:PutPipelineRule` and `logs:DeletePipelineRule` permissions. See [Pipeline rule permissions (CloudWatch Logs sources only)](#pipeline-rule-permissions).
 
@@ -878,7 +881,7 @@ The source role trust policy requirement differs by source type.
 
 **Custom data from CloudWatch Logs and vended AWS service logs**
 
-For [Custom data from CloudWatch Logs](#custom-data-cloudwatch-logs) and [Vended AWS service logs](#vended-service-logs), the role already trusts `logs.amazonaws.com`, so no trust policy change is required. The following trust policy shows the existing configuration.
+For [Custom and Syslog data from CloudWatch Logs](#custom-data-cloudwatch-logs) and [Vended AWS service logs](#vended-service-logs), the role already trusts `logs.amazonaws.com`, so no trust policy change is required. The following trust policy shows the existing configuration.
 
 **Example Trust policy for CloudWatch Logs sources (no change required)**  
 

@@ -15,12 +15,8 @@ Enabling Omni does not change or disable anything in CloudWatch. Your existing m
 **Who does what**
 
 Organization domain setup involves two roles:
-
-
-| Role | What they do | 
-| --- | --- | 
-| Organization administrator | Creates the domain from the AWS Organizations management account. Chooses the domain name and configures the identity provider. | 
-| Account owner (member account) | Creates a space in their own account and Region. The space is automatically linked to the Organization domain. Each member account does this independently. | 
++ **Organization administrator** — Creates the domain from the AWS Organizations management account. Chooses the domain name and configures the identity provider.
++ **Account owner (member account)** — Creates a space in their own account and Region. The space is automatically linked to the Organization domain. Each member account does this independently.
 
 **Part 1: Create the domain (Organization administrator)**
 
@@ -110,14 +106,10 @@ On the first enablement, Omni backfills your space with up to 7 days of existing
 
 **IAM roles created during space setup**
 
-Space setup creates the following IAM roles in your account. Omni uses these roles to read and correlate your telemetry.
-
-
-| IAM role | Purpose | 
-| --- | --- | 
-| CloudWatchOmniOperatorRole | Assumed by Omni to manage your space, query telemetry, and configure integrations. | 
-| CloudWatchOmniDatasetIntegrationExecutionRole | Assumed by CloudWatch to make your telemetry available in Omni through the Dataset. | 
-| AgentCoreEvaluationRole | Assumed by Amazon Bedrock AgentCore to run online AI agent evaluations on your telemetry. This role is optional: during setup you keep the default role, choose an existing role, or opt out. See [Online evaluations](omni-agents-online-evaluations.md). | 
+Space setup creates the following IAM roles in your account. Omni uses these roles to read and correlate your telemetry:
++ `CloudWatchOmniOperatorRole` — Omni assumes this role to manage your space, query telemetry, and configure integrations.
++ `CloudWatchOmniDatasetIntegrationExecutionRole` — CloudWatch assumes this role to make your telemetry available in Omni through the Dataset.
++ `AgentCoreEvaluationRole` — Amazon Bedrock AgentCore assumes this role to run online AI agent evaluations on your telemetry. This role is optional: during setup you keep the default role, choose an existing role, or opt out. See [Online evaluations](omni-agents-online-evaluations.md).
 
 **Centralize telemetry across accounts and Regions**
 

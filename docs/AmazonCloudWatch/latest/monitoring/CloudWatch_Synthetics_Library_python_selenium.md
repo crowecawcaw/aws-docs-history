@@ -5,11 +5,33 @@
 
 The following sections contain information about the CloudWatch Synthetics runtime versions for Python and Selenium Webdriver. Selenium is an open-source browser automation tool. For more information about Selenium, see [ www.selenium.dev/](https://www.selenium.dev)
 
-For features and methods supported by Synthetics runtime on Selenium framework, see [Python and Selenium library classes and functions that apply to UI canaries only ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library_Python.html#CloudWatch_Synthetics_Library_Python_UIcanaries) and [Selenium API reference](https://www.selenium.dev/selenium/docs/api/py/api.html).
+For features and methods supported by Synthetics runtime on Selenium framework, see [Python and Selenium library classes and functions that apply to UI canaries only ](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library_Python.html#CloudWatch_Synthetics_Library_Python_UIcanaries).
 
 The naming convention for these runtime versions is `syn-{{language}} -{{framework}}-{{majorversion}}.{{ minorversion}}`.
 
-## syn-python-selenium-12.0
+## syn-python-selenium-13.0
+<a name="CloudWatch_Synthetics_runtimeversion-syn-python-selenium-13.0"></a>
+
+**Major dependencies**:
++ Python 3.12
++ Selenium 4.32.0
++ Chromium version 153.0.8010.36
+
+ **Changes in syn-python-selenium-13.0** 
++ Upgrade `Chromium` to 153.0.8010.36 to address the following CVEs:
+  + CVE-2026-85046
+  + CVE-2026-87491
+
+For more information, see the following:
++  [Selenium changelog](https://www.selenium.dev/blog/) on the Selenium website 
++  [Selenium API documentation](https://www.selenium.dev/selenium/docs/api/py/api.html) on the Selenium website 
+
+## Previous runtime versions for Python and Selenium
+<a name="Previousversions-python-selenium"></a>
+
+The following earlier runtime versions for Python and Selenium are still supported. 
+
+### syn-python-selenium-12.0
 <a name="CloudWatch_Synthetics_runtimeversion-syn-python-selenium-12.0"></a>
 
 **Major dependencies**:
@@ -20,15 +42,6 @@ The naming convention for these runtime versions is `syn-{{language}} -{{framewo
 **Changes in syn-python-selenium-12.0 ** 
 + Upgrade `Chromium` to 150.0.7871.24 to address the following CVEs:
   + CVE-2026-11645
-
-For more information, see the following:
-+  [Selenium changelog](https://www.selenium.dev/blog/) on the Selenium website 
-+  [Selenium API documentation](https://www.selenium.dev/selenium/docs/api/py/api.html) on the Selenium website 
-
-## Previous runtime versions for Python and Selenium
-<a name="Previousversions-python-selenium"></a>
-
-The following earlier runtime versions for Python and Selenium are still supported. 
 
 ### syn-python-selenium-11.1
 <a name="CloudWatch_Synthetics_runtimeversion-syn-python-selenium-11.1"></a>

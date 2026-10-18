@@ -189,7 +189,7 @@ The following sample key policy covers every way CloudWatch Omni uses your key: 
       "Sid": "AllowCallerDatasetForwarding",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/CloudWatchOmniDatasetIntegrationExecutionRole"
+        "AWS": "arn:aws:iam::111122223333:role/service-role/CloudWatchOmniDatasetIntegrationExecutionRole-1234567890123"
       },
       "Action": [
         "kms:GenerateDataKey",
@@ -208,7 +208,7 @@ The following sample key policy covers every way CloudWatch Omni uses your key: 
       "Sid": "AllowOperatorRoleDecrypt",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/CloudWatchOmniOperatorRole"
+        "AWS": "arn:aws:iam::111122223333:role/service-role/CloudWatchOmniSpaceAccessRole-1234567890123"
       },
       "Action": "kms:Decrypt",
       "Resource": "*",
@@ -222,7 +222,7 @@ The following sample key policy covers every way CloudWatch Omni uses your key: 
       "Sid": "AllowOperatorRoleIntelligenceDecrypt",
       "Effect": "Allow",
       "Principal": {
-        "AWS": "arn:aws:iam::111122223333:role/CloudWatchOmniOperatorRole"
+        "AWS": "arn:aws:iam::111122223333:role/service-role/CloudWatchOmniSpaceAccessRole-1234567890123"
       },
       "Action": "kms:Decrypt",
       "Resource": "*",
@@ -236,10 +236,12 @@ The following sample key policy covers every way CloudWatch Omni uses your key: 
 }
 ```
 
+The role ARNs in this sample use the form that setup creates in a single account: the `service-role/` path and a numeric suffix on the role name. Replace each one with the exact ARN of the role in your account, which you can copy from the IAM console. For an organization domain, the space operator role is `CloudWatchOmniOperatorRole` at the root path, with no suffix.
+
 What each group of statements is for:
 + **Root key administration** keeps your account able to manage the key. Do not remove it.
 + **The `cloudwatch.amazonaws.com` statements** let the service encrypt and read your space content, your Dataset, and the analysis material the service builds from your telemetry. The encryption-context and `aws:SourceArn` conditions restrict each statement so the key can be used only for CloudWatch Omni resources in your own account.
-+ **`AllowCallerDatasetForwarding`** lets the Dataset integration execution role write forwarded logs and traces into a Dataset encrypted with this key. If you created your own execution role, use its name here. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
++ **`AllowCallerDatasetForwarding`** lets the Dataset integration execution role write forwarded logs and traces into a Dataset encrypted with this key. If you created your own execution role, use its ARN here. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 + **The operator-role statements** let the space operator role read data encrypted under the key, only through CloudWatch (`kms:ViaService`).
 
 **Encryption in transit**

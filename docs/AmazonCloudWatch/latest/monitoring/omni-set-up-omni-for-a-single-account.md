@@ -72,14 +72,16 @@ On the first enablement, Omni backfills your space with up to 7 days of existing
 
 **IAM roles created during setup**
 
-Space setup creates the following IAM roles in your account. Omni uses these roles to read and correlate your telemetry.
+Space setup creates the following IAM roles in your account. Omni uses these roles to read and correlate your telemetry. Setup adds a numeric suffix to each role name.
 
 
 | IAM role | Purpose | 
 | --- | --- | 
-| CloudWatchOmniOperatorRole | Assumed by Omni to manage your space, query telemetry, and configure integrations. | 
+| CloudWatchOmniSpaceAccessRole | Assumed by Omni to manage your space, query telemetry, and configure integrations. | 
 | CloudWatchOmniDatasetIntegrationExecutionRole | Assumed by CloudWatch to make your telemetry available in Omni through the Dataset. | 
 | AgentCoreEvaluationRole | Assumed by Amazon Bedrock AgentCore to run online AI agent evaluations on your telemetry. This role is optional: during setup you keep the default role, choose an existing role, or opt out. See [Online evaluations](omni-agents-online-evaluations.md). | 
+
+For the trust policies of these roles, see [Cross-service confused deputy prevention](omni-cross-service-confused-deputy-prevention.md).
 
 **Configure encryption (optional)**
 

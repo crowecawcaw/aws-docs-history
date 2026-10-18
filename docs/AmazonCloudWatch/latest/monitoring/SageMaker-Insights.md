@@ -1,9 +1,9 @@
 
 
-# CloudWatch SageMaker AI Insights
+# SageMaker AI Insights
 <a name="SageMaker-Insights"></a>
 
-Use CloudWatch SageMaker AI Insights to monitor and troubleshoot SageMaker AI inference endpoints at scale. The dashboard displays curated metrics and visualizations across three views—**Performance**, **Capacity**, and **Reliability**—so you can quickly identify issues, optimize resource utilization, and make sure high availability across your endpoints.
+Use SageMaker AI Insights to monitor and troubleshoot SageMaker AI inference endpoints at scale. The dashboard displays curated metrics and visualizations across three views—**Performance**, **Capacity**, and **Reliability**—so you can quickly identify issues, optimize resource utilization, and make sure high availability across your endpoints.
 
 SageMaker AI Insights supports monitoring across endpoint types (single‐model endpoints and inference component (IC)‐based endpoints) and inference frameworks (vLLM, SGLang, TensorRT‐LLM).
 

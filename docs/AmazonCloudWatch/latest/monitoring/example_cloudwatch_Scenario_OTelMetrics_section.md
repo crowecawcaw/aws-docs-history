@@ -15,7 +15,7 @@ The following code examples show how to:
 
 **SDK for .NET (v4)**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv4/CloudWatch#code-examples). 
-Wrapper methods for the CloudWatch OpenTelemetry actions.  
+Wrapper code for the CloudWatch OpenTelemetry operations.  
 
 ```
 /// <summary>
@@ -312,7 +312,7 @@ public class CloudWatchOTelWrapper
 
 **SDK for Java 2.x**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/cloudwatch#code-examples). 
-A wrapper class for the CloudWatch OpenTelemetry SDK methods.  
+A wrapper class for the CloudWatch OpenTelemetry SDK operations.  
 
 ```
 import software.amazon.awssdk.services.cloudwatch.CloudWatchClient;
@@ -1097,8 +1097,8 @@ Configure an OpenTelemetry Collector to send the OTLP metrics that this example 
 #
 # Prerequisites
 #
-# * An OpenTelemetry Collector release that includes the sigv4authextension. The
-#   contrib distribution does. See
+# * An OpenTelemetry Collector release (version 0.47.0 or later) that includes the
+#   sigv4authextension. The contrib distribution does. See
 #   https://github.com/open-telemetry/opentelemetry-collector-releases/releases
 # * AWS credentials the collector can resolve. On Amazon EC2, attach the
 #   CloudWatchAgentServerPolicy managed policy to the instance role. On Amazon EKS,
@@ -1109,7 +1109,8 @@ Configure an OpenTelemetry Collector to send the OTLP metrics that this example 
 #
 #   otelcol-contrib --config otlp_collector_config.yaml
 #
-# Then point your instrumented application at http://localhost:4318.
+# Then point your instrumented application at the collector's OTLP HTTP endpoint on
+# port 4318.
 #
 # For more information, see
 # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPEndpoint.html
@@ -1192,7 +1193,7 @@ service:
 
 **SDK for Ruby**  
  There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/cloudwatch#code-examples). 
-Define methods that call the CloudWatch OpenTelemetry operations.  
+Define wrapper code that calls the CloudWatch OpenTelemetry operations.  
 
 ```
 # Turns on OTel enrichment for the account. Once enrichment is running, CloudWatch vended

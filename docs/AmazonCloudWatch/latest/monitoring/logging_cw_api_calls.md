@@ -205,10 +205,24 @@ The following log file entry shows that a user called the CloudWatch Logs `Creat
 ## CloudWatch data events in CloudTrail
 <a name="CloudWatch-data-plane-events"></a>
 
-CloudTrail can capture API activities related to the CloudWatch data plane operations on metrics [ GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html), [ GetMetricWidgetImage](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricWidgetImage.html), [ PutMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html), [ GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html), and [ ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) APIs.
+CloudTrail captures API activities for two groups of CloudWatch data plane operations. The first group is the metric data-plane APIs: [ GetMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html), [ GetMetricWidgetImage](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricWidgetImage.html), [ PutMetricData](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricData.html), [ GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html), and [ ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html). The second group is the Prometheus-compatible query APIs for Prometheus Query Language (PromQL): `QueryMetrics`, `GetSeries`, and `GetLabels`. For more information about these APIs, see [Prometheus-compatible APIs](CloudWatch-PromQL-APIs.md).
+
+CloudTrail logs each data event under one of two CloudWatch data resource types, as shown in the following table.
+
+
+| Data event | Data resource type | 
+| --- | --- | 
+| `GetMetricData` | `AWS::CloudWatch::Metric` | 
+| `GetMetricWidgetImage` | `AWS::CloudWatch::Metric` | 
+| `PutMetricData` | `AWS::CloudWatch::Metric` | 
+| `GetMetricStatistics` | `AWS::CloudWatch::Metric` | 
+| `ListMetrics` | `AWS::CloudWatch::Metric` | 
+| `QueryMetrics` | `AWS::CloudWatch::Dataset` | 
+| `GetSeries` | `AWS::CloudWatch::Dataset` | 
+| `GetLabels` | `AWS::CloudWatch::Dataset` | 
 
 **Note**  
-PromQL queries are not supported for CloudTrail data events. Only the CloudWatch APIs listed above can be logged as data events in CloudTrail.
+CloudTrail records `QueryMetrics`, `GetSeries`, and `GetLabels` query requests with `readOnly` set to `true` and an `eventSource` of `monitoring.amazonaws.com`. To log PromQL query requests, enable data events for the CloudWatch dataset resource type.
 
 [ Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events), also known as data plane operations, give you insight into the resource operations performed on or within a resource. Data events are often high-volume activities. 
 
@@ -220,7 +234,7 @@ You can log data events for the CloudWatch resource types by using the CloudTrai
 
 Data plane events can be filtered by resource type. Because there are additional costs for using data events in CloudTrail, filtering by resource allows you to have more control over what you log and pay for. 
 
-Using the information that CloudTrail collects, you can identify any of the metric APIs, the IP address of the requester, the requester's identity, and the date and time of the request. Logging the **GetMetricData**, **GetMetricWidgetImage**, **PutMetricData**, **GetMetricStatistics**, and **ListMetrics** APIs using CloudTrail helps you enable operational and risk auditing, governance, and compliance of your AWS account.
+Using the information that CloudTrail collects, you can identify the API request, the IP address of the requester, the requester's identity, and the date and time of the request. Logging these data events with CloudTrail helps you enable operational and risk auditing, governance, and compliance of your AWS account.
 
 **Note**  
 When you view the **GetMetricData** events in CloudTrail, you might see more calls than the calls that you initiated. This is because CloudWatch logs events to CloudTrail for **GetMetricData** actions that are initiated by internal components. For example, you'll see **GetMetricData** calls initiated by CloudWatch dashboards to refresh widget data, and **GetMetricData** calls initiated by a monitoring account to retrieve data from a source account, in cross-account observability. These internally-initiated calls don't incur CloudWatch charges, but they do count toward the number of events logged in CloudTrail, and CloudTrail charges according to the number of events logged.
@@ -370,6 +384,48 @@ The following is an example of a CloudTrail event for a **PutMetricData** operat
         "clientProvidedHostHeader": "monitoring.us-east-1.amazonaws.com"
       }
     }
+```
+
+The following is an example of a CloudTrail event for a **QueryMetrics** (PromQL) operation.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:user/janedoe",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "userName": "janedoe"
+    },
+    "eventTime": "2026-06-05T19:37:25Z",
+    "eventSource": "monitoring.amazonaws.com",
+    "eventName": "QueryMetrics",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "203.0.113.7",
+    "userAgent": "awscurl/0.36",
+    "requestParameters": {
+        "path": "/api/v1/query",
+        "query": "sum({\"http.server.active_requests\"})"
+    },
+    "responseElements": null,
+    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+    "readOnly": true,
+    "resources": [{
+        "type": "AWS::CloudWatch::Dataset"
+    }],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Data",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "monitoring.us-east-1.amazonaws.com"
+    }
+}
 ```
 
 ## Query generation information in CloudTrail
@@ -1032,6 +1088,9 @@ CloudWatch Synthetics supports logging the following actions as events in CloudT
 + [TagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html) 
 + [UntagResource](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UntagResource.html) 
 + [UpdateCanary](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_UpdateCanary.html) 
+
+**Note**  
+When you add, update, or remove replica locations for a multilocation canary, related activity appears in CloudTrail in each affected replica Region under the event name `ReplicateCanary`.
 
 ### Example: CloudWatch Synthetics log file entries
 <a name="understanding-CloudWatch-Synthetics-entries-in-CloudTrail"></a>

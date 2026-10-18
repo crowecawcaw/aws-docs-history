@@ -99,6 +99,13 @@ PromQL Alarm SNS notification for Contributor example:
 }
 ```
 
+## Alarm tags in action payloads
+<a name="alarm-tags-overview"></a>
+
+You can include a CloudWatch alarm's tags in the payloads it sends when the alarm changes state. Recipients can then route, filter, or add context by using tags such as team, environment, or cost center. This applies to Amazon SNS notifications, Lambda function invocations, and the alarm state change events that CloudWatch sends to EventBridge.
+
+To enable this, see [Alarm tags in action payloads](alarm-tags-in-notifications.md).
+
 ## Muting Alarm Actions
 <a name="mute-alarm-actions"></a>
 

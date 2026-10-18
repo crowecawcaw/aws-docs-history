@@ -99,7 +99,7 @@ This layer is available wherever you run the collector yourself, for example on 
 For log data in Amazon CloudWatch Logs, CloudWatch Logs data protection can detect and mask sensitive patterns, such as Social Security numbers and credit card numbers, as it is ingested. For more information, see [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html) in the *Amazon CloudWatch Logs User Guide*.
 
 **Important**  
-CloudWatch Logs data protection policies apply to log data in CloudWatch Logs. They do not apply to the telemetry in your space's CloudWatch Dataset. A masking policy you configured for your log groups does not carry over. To keep sensitive values out of your space, filter at capture time or at the collector.
+Log data that a CloudWatch Logs data protection policy masks stays masked in your space. It is forwarded to the CloudWatch Dataset in masked form, and Omni cannot unmask it. Unmasked values are available only in CloudWatch Logs, to principals with the `logs:Unmask` permission.
 
 **At read time: row-level data scope**
 

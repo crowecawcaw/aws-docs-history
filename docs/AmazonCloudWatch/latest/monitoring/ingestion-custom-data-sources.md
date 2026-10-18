@@ -11,6 +11,24 @@ You can create pipelines for custom data sources using the following approaches:
 
    For more information on data source name and type, see the [CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/data-source-discovery-management.html#how-to-get-started-data-sources).
 
+1. **CloudWatch Logs Syslog service** – Process Syslog messages delivered to a CloudWatch Logs log group. Before creating the pipeline, complete [Setting up syslog ingestion](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_Syslog_Setup.html) and verify that messages are arriving in the destination log group.
+
+   In the console, choose **CloudWatch Logs syslog service** and select RFC 5424, RFC 3164, Cisco, or F5. For API or AWS CLI configuration, use the `cloudwatch_logs` source with `syslog` as the data source name and the corresponding data source type: `rfc5424`, `rfc3164`, `cisco`, or `f5_bigip`.
+
+   ```
+   source:
+     cloudwatch_logs:
+       aws:
+         sts_role_arn: "arn:aws:iam::123456789012:role/MyCloudWatchLogsRole"
+       log_event_metadata:
+         data_source_name: "syslog"
+         data_source_type: "rfc5424"
+   ```
+
+   A pipeline matches one data source name and type. Create a separate pipeline for each Syslog format that you want to process. Syslog messages are parsed during ingestion, so pipeline processors are optional.
+
+   For the shared source parameter reference and restrictions, see [AWS service logs from CloudWatch Logs](aws-service-logs-from-cwl.md). For pipeline IAM requirements, see [Custom and Syslog data from CloudWatch Logs](pipeline-iam-reference.md#custom-data-cloudwatch-logs).
+
 1. **S3 Custom Sources** – Process arbitrary logs stored in S3 buckets by configuring source for the pipeline:
 
    ```

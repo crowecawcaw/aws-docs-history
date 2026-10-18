@@ -92,6 +92,7 @@ AWS Security Hub (distinct from Security Hub CSPM) provides its own set of third
 <a name="data-sources-custom"></a>
 
 For logs that are not covered by AWS service or third-party integrations, CloudWatch pipelines can process custom logs stored in CloudWatch Logs or Amazon S3 buckets. Custom sources accommodate unique organizational requirements:
++ **Syslog data** – Messages ingested through the CloudWatch Logs Syslog service
 + **Application-specific logs** – Custom application telemetry from Amazon EC2 instances with specialized logging formats
 + **File-based ingestion** – Amazon S3-based log files from legacy systems or batch processing workflows
 + **Serverless integration** – Lambda function logs and custom serverless application telemetry

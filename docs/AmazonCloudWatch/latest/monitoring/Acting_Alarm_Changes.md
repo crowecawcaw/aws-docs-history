@@ -17,3 +17,4 @@ For more information about alarm actions, see [Alarm actions](alarm-actions.md).
 + [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md)
 + [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md)
 + [Alarm events and EventBridge](cloudwatch-and-eventbridge.md)
++ [Alarm tags in action payloads](alarm-tags-in-notifications.md)
