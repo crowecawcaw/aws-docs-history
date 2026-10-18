@@ -12,13 +12,13 @@ A core set of vended metrics is emitted automatically, at 60-second granularity,
 
 Each node in your replication group collects telemetry from the cache engine and from the host that the node runs on, and emits it to CloudWatch as OpenTelemetry metrics. Metrics are emitted per node, and every datapoint carries attributes that identify the account, Region, Availability Zone, replication group, shard, and node that produced it.
 
-Vended metrics are emitted automatically, at 60-second granularity, as soon as the replication group is running. You do not need to configure anything, and they are not charged.
+Vended metrics are emitted automatically, at 60-second granularity, as soon as the replication group is running. You do not need to configure anything, and they are not charged. Querying vended metrics through the CloudWatch API, from Grafana, or from alarms incurs query charges. For more information, see [Querying your metrics](#otel-metrics.querying).
 
 Detailed metrics are emitted only while you select them. To begin emitting them, create a resource metrics configuration for the replication group and list the metrics you want. Those metrics are then emitted at 15-second granularity and charged by CloudWatch. Selecting a metric that is already vended raises its granularity from 60 seconds to 15 seconds, and it is charged while it remains selected. For more information, see [Turning on detailed monitoring](#otel-metrics.detailed-monitoring).
 
 To see which metrics are emitted automatically, see [OpenTelemetry metrics reference for Amazon ElastiCache](otel-metrics-reference.md).
 
-After the metrics reach CloudWatch, you work with them the same way as any other OpenTelemetry metrics in CloudWatch. You can query them with PromQL, explore them in Query Studio, create alarms, and build your own dashboards. For more information, see [Querying your metrics](#otel-metrics.querying).
+After the metrics reach CloudWatch, you work with them the same way as any other OpenTelemetry metrics in CloudWatch. You can view them in the prebuilt ElastiCache Insights dashboard, query them with PromQL, explore them in Query Studio, create alarms, and build your own dashboards. For information about the dashboard, see [Viewing metrics in the ElastiCache Insights dashboard](#otel-metrics.insights-dashboard). For information about querying, see [Querying your metrics](#otel-metrics.querying).
 
 ## Metric attributes
 <a name="otel-metrics.attributes"></a>
@@ -109,6 +109,8 @@ aws cloudwatch delete-resource-metrics-configuration \
     --resource-arn arn:aws:elasticache:us-east-1:123456789012:replicationgroup:my-cluster
 ```
 
+You can also create a configuration with the `AWS::CloudWatch::ResourceMetricsConfiguration` CloudFormation resource type. For more information, see [AWS::CloudWatch::ResourceMetricsConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudwatch-resourcemetricsconfiguration.html) in the *CloudFormation Template Reference Guide*.
+
 ### After you turn on detailed monitoring
 <a name="otel-metrics.detailed-monitoring.after-you-turn-on-detailed-monitoring"></a>
 
@@ -118,6 +120,25 @@ When you delete a replication group, its resource metrics configuration is delet
 
 **Note**  
 Charges are based on the volume of datapoints emitted for the metrics you select, not on the number of metrics you select. High-cardinality metrics that are broken down by an attribute, such as `valkey.command.calls`, emit a datapoint for each attribute value, so their cost depends on your workload. Metrics that you have not selected are not charged.
+
+## Viewing metrics in the ElastiCache Insights dashboard
+<a name="otel-metrics.insights-dashboard"></a>
+
+ElastiCache Insights is a prebuilt dashboard in the CloudWatch console that visualizes your OpenTelemetry metrics. You can use the dashboard as is. You can also copy the dashboard and modify it.
+
+**To open the ElastiCache Insights dashboard**
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).
+
+1. In the navigation pane, under **Infrastructure Monitoring**, choose **ElastiCache Insights**.
+
+To open the dashboard directly, go to [https://console.aws.amazon.com/cloudwatch/home\#dashboards/insights/elasticache](https://console.aws.amazon.com/cloudwatch/home#dashboards/insights/elasticache).
+
+You can also open the dashboard from the **Metrics** tab of a replication group in the ElastiCache console.
+
+Saving a copy as a custom dashboard lets you add or remove widgets, change the metrics and attributes that a widget displays, or combine ElastiCache metrics with metrics from other sources. Changes that you make to a copy do not affect the prebuilt dashboard. For more information, see [Using Amazon CloudWatch dashboards](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.html) in the *Amazon CloudWatch User Guide*.
+
+Using the ElastiCache Insights dashboard is free. If you save a copy, the copy is billed as a CloudWatch custom dashboard. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 ## Querying your metrics
 <a name="otel-metrics.querying"></a>
@@ -129,6 +150,9 @@ For more information, see the following topics in the *Amazon CloudWatch User Gu
 + [PromQL querying](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-PromQL-Querying.html)
 
 For information about querying from Amazon Managed Grafana, see [Query Amazon CloudWatch metrics using PromQL](https://docs.aws.amazon.com/grafana/latest/userguide/cloudwatch-promql.html) in the *Amazon Managed Grafana User Guide*.
+
+**Note**  
+Vended metrics are free to emit, but querying any metric, vended or detailed, can incur charges. PromQL queries executed through the AWS console (including CloudWatch dashboards and Query Studio) are free of charge. Queries executed through the CloudWatch API, including from Grafana, incur query charges based on the number of samples scanned. CloudWatch alarms that evaluate PromQL expressions are charged for the alarm and for the samples scanned on each evaluation. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 **Note**  
 Use a time range that contains multiple datapoints. A shorter range can return noisy data, or no data at all. We recommend a time range of at least `[5m]` for metrics emitted every 60 seconds, or at least `[1m]` for metrics emitted every 15 seconds.
@@ -354,3 +378,5 @@ CloudWatch PromQL supports many more functions and features than these examples 
 <a name="otel-metrics.pricing"></a>
 
 Vended metrics are emitted at no additional cost. Metrics that you select for detailed monitoring are billed by Amazon CloudWatch by the volume of datapoints emitted. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/).
+
+Querying metrics outside the console and evaluating alarms are charged separately. For more information, see [Querying your metrics](#otel-metrics.querying).
