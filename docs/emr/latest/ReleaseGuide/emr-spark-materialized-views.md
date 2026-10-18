@@ -18,6 +18,7 @@ When you create a materialized view using Spark on Amazon EMR, the view definiti
 + [Permissions for materialized views](#emr-spark-materialized-views-permissions)
 + [Monitoring materialized view operations](#emr-spark-materialized-views-monitoring)
 + [Example: Complete workflow](#emr-spark-materialized-views-example)
++ [System-managed materialized views](#emr-spark-materialized-views-system-managed)
 + [Considerations and limitations](#emr-spark-materialized-views-limitations)
 
 ## How materialized views work with Amazon EMR
@@ -26,7 +27,7 @@ When you create a materialized view using Spark on Amazon EMR, the view definiti
 Materialized views integrate with Amazon EMR through Apache Spark's Iceberg support. When you configure your Spark session to use the AWS Glue Data Catalog, you can create materialized views using standard SQL syntax. The Spark optimizer can automatically rewrite queries to use materialized views when they provide better performance, eliminating the need to manually modify application code.
 
 The AWS Glue Data Catalog handles all operational aspects of materialized view maintenance, including:
-+ Detecting changes in source tables using Apache Iceberg's metadata layer
++ Detecting changes in source tables. For Apache Iceberg source tables, change detection uses Apache Iceberg's metadata layer. For Apache Hive (non-Iceberg) source tables, change detection compares the ETags of the source data files against those recorded at the last refresh.
 + Scheduling and executing refresh operations using managed Spark compute
 + Determining whether to perform full or incremental refresh based on the data changes
 + Storing precomputed results in Apache Iceberg format for multi-engine access
@@ -39,7 +40,7 @@ You can query materialized views from Amazon EMR using the same Spark SQL interf
 To use materialized views with Amazon EMR, you need:
 + An AWS account
 + An Amazon EMR cluster running release 7.12.0 or later
-+ Source tables in Apache Iceberg format registered in the AWS Glue Data Catalog
++ Source tables registered in the AWS Glue Data Catalog. Apache Iceberg source tables are supported on Amazon EMR release 7.12.0 and later. Apache Hive (non-Iceberg) source tables with a PARQUET, ORC, CSV, or JSON provider are supported on Amazon EMR release 7.14.0 and later.
 + AWS Lake Formation permissions configured for source tables and target databases
 + An S3 Tables bucket or S3 general purpose bucket registered with AWS Lake Formation for storing materialized view data
 
@@ -112,6 +113,8 @@ The following configuration parameters control materialized view behavior:
 + `spark.sql.extensions` – Enables Iceberg Spark session extensions required for materialized view support.
 + `spark.sql.optimizer.answerQueriesWithMVs.enabled` – Enables automatic query rewrite to use materialized views. Set to true to activate this optimization.
 + `spark.sql.optimizer.incrementalMVRefresh.enabled` – Enables incremental refresh optimization. Set to true to process only changed data during refresh operations.
++ `spark.sql.materializedView.v1SourceTables.enabled` – Allows Apache Hive (non-Iceberg) tables with a PARQUET, ORC, CSV, or JSON provider in the AWS Glue Data Catalog to be used as source tables for a materialized view. Set to true to create materialized views over Hive source tables. Available on Amazon EMR release 7.14.0 and later.
++ `spark.sql.materializedView.v1ETagVersioning.enabled` – Set to true to detect changes in Apache Hive (non-Iceberg) source tables by comparing the ETags of the source data files. This is required to refresh a materialized view that references Hive source tables. Available on Amazon EMR release 7.14.0 and later.
 
 ## Creating materialized views
 <a name="emr-spark-materialized-views-create"></a>
@@ -183,14 +186,39 @@ When your source tables are in a different catalog than your materialized view, 
 
 ```
 CREATE MATERIALIZED VIEW s3t_catalog.analytics.customer_summary
-AS 
-SELECT 
-    customer_name, 
-    COUNT(*) as order_count, 
-    SUM(amount) as total_amount 
+AS
+SELECT
+    customer_name,
+    COUNT(*) as order_count,
+    SUM(amount) as total_amount
 FROM glue_catalog.sales.orders
 GROUP BY customer_name;
 ```
+
+### Creating a materialized view over Apache Hive source tables
+<a name="emr-spark-materialized-views-create-hive-sources"></a>
+
+Starting with Amazon EMR release 7.14.0, you can create a materialized view whose source tables are Apache Hive (non-Iceberg) tables, without first migrating those tables to Apache Iceberg. The materialized view itself is still stored as an Apache Iceberg table; only the source tables can be Hive. A single materialized view can reference a mix of Hive and Iceberg source tables.
+
+Hive source tables are supported when the table's provider is PARQUET, ORC, CSV, or JSON (created with `CREATE TABLE ... USING {{format}}`). A table with a `hive` provider (SerDe-based) is not supported, even if it stores Parquet data underneath. To check a table's provider, use `DESCRIBE EXTENDED {{table_name}}`.
+
+To use Hive source tables, set `spark.sql.materializedView.v1SourceTables.enabled` and `spark.sql.materializedView.v1ETagVersioning.enabled` to `true` in your Spark session. For more information, see [Configuration parameters](#emr-spark-materialized-views-configure-parameters).
+
+The following example creates a materialized view over a Hive source table:
+
+```
+CREATE MATERIALIZED VIEW s3t_catalog.analytics.customer_summary
+AS
+SELECT
+    customer_name,
+    COUNT(*) as order_count,
+    SUM(amount) as total_amount
+FROM spark_catalog.sales.orders
+GROUP BY customer_name;
+```
+
+**Note**  
+Hive source tables do not expose row-level change history, so incremental refresh is not available for a materialized view that references any Hive source table. Each refresh recomputes the entire materialized view. For more information, see [Refreshing materialized views](#emr-spark-materialized-views-refresh).
 
 ## Querying materialized views
 <a name="emr-spark-materialized-views-query"></a>
@@ -216,6 +244,8 @@ GROUP BY customer_name;
 ```
 
 The Spark optimizer automatically rewrites this query to use the customer\_orders materialized view instead of processing the base orders table, provided the materialized view is current.
+
+Starting with Amazon EMR release 8.1.0, automatic query rewrite can also rewrite queries over Apache Hive (non-Iceberg) source tables to use a matching materialized view. If the materialized view is stale, the optimizer does not rewrite the query and instead reads directly from the source tables, so a stale materialized view is never used to answer a query.
 
 ### Verifying automatic query rewrite
 <a name="emr-spark-materialized-views-query-verify"></a>
@@ -466,14 +496,69 @@ The following example demonstrates a complete workflow for creating and using a 
    SELECT * FROM customer_summary;
    ```
 
+## System-managed materialized views
+<a name="emr-spark-materialized-views-system-managed"></a>
+
+With a system-managed materialized view, only AWS Glue can write to the materialized view. AWS Glue writes both its data and its definition, and no other engine or user can modify it. This protects the materialized view from unintended changes, so you can share it as a trusted, consistent dataset. AWS Glue stores the materialized view as a standard Apache Iceberg table in an Amazon S3 Tables bucket within your account.
+
+System-managed materialized views are available with Amazon EMR release 7.14.0 and later, and with Amazon EMR release 8.1.0 and later. They are stored only in Amazon S3 Tables; Amazon S3 general purpose buckets are not supported.
+
+### Enabling system-managed materialized views
+<a name="emr-spark-materialized-views-system-managed-enable"></a>
+
+To create system-managed materialized views, set `spark.sql.mv.managed.enabled` to `true` in your Spark session, along with your Amazon S3 Tables catalog configuration:
+
+```
+spark-sql \
+  --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+  --conf spark.sql.catalog.s3t_catalog=org.apache.iceberg.spark.SparkCatalog \
+  --conf spark.sql.catalog.s3t_catalog.type=glue \
+  --conf spark.sql.catalog.s3t_catalog.glue.id=111122223333:s3tablescatalog/amzn-s3-demo-table-bucket \
+  --conf spark.sql.catalog.s3t_catalog.warehouse=s3://amzn-s3-demo-bucket/mv-warehouse \
+  --conf spark.sql.catalog.s3t_catalog.glue.region=us-east-1 \
+  --conf spark.sql.defaultCatalog=s3t_catalog \
+  --conf spark.sql.mv.managed.enabled=true
+```
+
+### Creating a system-managed materialized view
+<a name="emr-spark-materialized-views-system-managed-create"></a>
+
+Create the materialized view with the MANAGED keyword, in a session that has `spark.sql.mv.managed.enabled` set to `true`:
+
+```
+CREATE MANAGED MATERIALIZED VIEW s3t_catalog.analytics.customer_summary
+AS
+SELECT
+    customer_name,
+    COUNT(*) as order_count,
+    SUM(amount) as total_amount
+FROM glue_catalog.sales.orders
+GROUP BY customer_name;
+```
+
+AWS Glue computes and writes the materialized view for you; your Spark session does not write it directly. The CREATE MANAGED MATERIALIZED VIEW statement waits until AWS Glue finishes creating the materialized view before it returns, so it can take longer than creating a regular materialized view.
+
+### Write protection
+<a name="emr-spark-materialized-views-system-managed-write-protection"></a>
+
+Only AWS Glue writes the materialized view's data and its metadata, such as its schema and storage location. Any attempt to change these is rejected, whether it comes from another query engine, a direct AWS Glue `UpdateTable` call, or a direct write to the underlying Apache Iceberg table.
+
+You can still perform the following operations on a system-managed materialized view:
++ Refresh the materialized view. AWS Glue runs the refresh and writes the results for you.
++ Change the refresh schedule and table properties.
++ Drop the materialized view, if you have permission to drop it.
+
+Schema evolution is not supported for a system-managed materialized view. To change the materialized view's SQL definition, drop the materialized view and create it again.
+
 ## Considerations and limitations
 <a name="emr-spark-materialized-views-limitations"></a>
 
 Consider the following when using materialized views with Amazon EMR:
 + Materialized views require Amazon EMR release 7.12.0 or later.
-+ Source tables must be Apache Iceberg tables registered in the AWS Glue Data Catalog. Apache Hive, Apache Hudi, and Linux Foundation Delta Lake tables are not supported at launch.
++ Source tables must be registered in the AWS Glue Data Catalog. Apache Iceberg source tables are supported on Amazon EMR release 7.12.0 and later. Apache Hive (non-Iceberg) source tables are supported on Amazon EMR release 7.14.0 and later. Apache Hudi and Linux Foundation Delta Lake source tables are not supported.
 + Source tables must reside in the same AWS Region and AWS account as the materialized view.
-+ Materialized views cannot reference AWS Glue Data Catalog views, multi-dialect views, or other materialized views as source tables.
++ Materialized views cannot reference AWS Glue Data Catalog views or multi-dialect views as source tables.
++ A materialized view can reference another materialized view as a source table.
 + The view definer role must have full read access (SELECT or ALL permission) on all source tables without row, column, or cell filters applied.
 + Materialized views are eventually consistent with source tables. During the refresh window, queries may return stale data. Execute manual refresh for immediate consistency.
 + The minimum automatic refresh interval is one hour.

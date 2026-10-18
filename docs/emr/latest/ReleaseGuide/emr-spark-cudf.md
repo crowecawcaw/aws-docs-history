@@ -1,19 +1,19 @@
 
 
-# Use the Nvidia RAPIDS Accelerator for Apache Spark
-<a name="emr-spark-rapids"></a>
+# Use the NVIDIA cuDF Plugin for Apache Spark
+<a name="emr-spark-cudf"></a>
 
-With Amazon EMR release 6.2.0 and later, you can use the [RAPIDS Accelerator for Apache Spark](https://docs.nvidia.com/spark-rapids/user-guide/latest/overview.html) plugin by Nvidia to accelerate Spark using EC2 graphics processing unit (GPU) instance types. RAPIDS Accelerator will GPU-accelerate your Apache Spark 3.0 data science pipelines without code changes, and speed up data processing and model training while substantially lowering infrastructure costs.
+With Amazon EMR release 6.2.0 and later, you can use the [cuDF Plugin for Apache Spark](https://docs.nvidia.com/cudf-spark/latest/overview.html) by NVIDIA to accelerate Spark using EC2 graphics processing unit (GPU) instance types. cuDF will GPU-accelerate your Apache Spark 3.0\+ data science pipelines without code changes, and speed up data processing and model training while substantially lowering infrastructure costs.
 
-The following sections guide you through configuring your EMR cluster to use the Spark-RAPIDS Plugin for Spark.
+The following sections guide you through configuring your EMR cluster to use the cuDF plugin.
 
 ## Choose instance types
-<a name="emr-spark-rapids-instancetypes"></a>
+<a name="emr-spark-cudf-instancetypes"></a><a name="emr-spark-rapids-instancetypes"></a>
 
-To use the Nvidia Spark-RAPIDS plugin for Spark, the core and task instance groups must use EC2 GPU instance types that meet the [Hardware requirements](https://nvidia.github.io/spark-rapids/) of Spark-RAPIDS. To view a complete list of Amazon EMR supported GPU instance types, please see [Supported instance types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html) in the *Amazon EMR Management Guide*. Instance type for the primary instance group can be either GPU or non-GPU types, but ARM instance types aren't supported.
+To use the NVIDIA cuDF plugin for Spark, the core and task instance groups must use EC2 GPU instance types that meet the [hardware requirements](https://docs.nvidia.com/cudf-spark/latest/faq.html#what-hardware-is-supported) of the cuDF plugin. To view a complete list of Amazon EMR supported GPU instance types, please see [Supported instance types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html) in the *Amazon EMR Management Guide*. Instance type for the primary instance group can be either GPU or non-GPU types, but ARM instance types aren't supported.
 
 ## Set up application configurations for your cluster
-<a name="emr-spark-rapids-appconfig"></a>
+<a name="emr-spark-cudf-appconfig"></a><a name="emr-spark-rapids-appconfig"></a>
 
 **1. Enable Amazon EMR to install the plugins on your new cluster**
 
@@ -46,7 +46,7 @@ For details on how to use GPU on YARN, see [Using GPU on YARN](https://hadoop.ap
         "yarn.nodemanager.resource-plugins.gpu.allowed-gpu-devices":"auto",
         "yarn.nodemanager.resource-plugins.gpu.path-to-discovery-executables":"/usr/bin",
         "yarn.nodemanager.linux-container-executor.cgroups.mount":"true",
-        "yarn.nodemanager.linux-container-executor.cgroups.mount-path":"/spark-rapids-cgroup",
+        "yarn.nodemanager.linux-container-executor.cgroups.mount-path":"/spark-cudf-cgroup",
         "yarn.nodemanager.linux-container-executor.cgroups.hierarchy":"yarn",
         "yarn.nodemanager.container-executor.class":"org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor"
     }
@@ -65,7 +65,7 @@ For details on how to use GPU on YARN, see [Using GPU on YARN](https://hadoop.ap
         {
             "Classification":"cgroups",
             "Properties":{
-                "root":"/spark-rapids-cgroup",
+                "root":"/spark-cudf-cgroup",
                 "yarn-hierarchy":"yarn"
             }
         }
@@ -116,9 +116,9 @@ For details on how to use GPU on YARN, see [Using GPU on YARN](https://hadoop.ap
 
 ------
 
-**3. Configure Spark to use RAPIDS**
+**3. Configure Spark to use cuDF**
 
-Here are the required configurations to enable Spark to use RAPIDS plugin:
+Here are the required configurations to enable Spark to use cuDF plugin:
 
 ```
 {
@@ -131,7 +131,7 @@ Here are the required configurations to enable Spark to use RAPIDS plugin:
 }
 ```
 
-[XGBoost4J-Spark library](https://xgboost.readthedocs.io/en/latest/jvm/xgboost4j_spark_tutorial.html) in XGBoost documentation is also available when the Spark RAPIDS plugin is enabled on your cluster. You can use the following configuration to integrate XGBoost with you Spark job:
+[XGBoost4J-Spark library](https://xgboost.readthedocs.io/en/latest/jvm/xgboost4j_spark_tutorial.html) in XGBoost documentation is also available when the cuDF plugin is enabled on your cluster. You can use the following configuration to integrate XGBoost with you Spark job:
 
 ```
 {
@@ -142,7 +142,7 @@ Here are the required configurations to enable Spark to use RAPIDS plugin:
 }
 ```
 
-For additional Spark configurations that you can use to tune a GPU-accelerated EMR cluster, please refer to the [Rapids Accelerator for Apache Spark tuning guide](https://docs.nvidia.com/spark-rapids/user-guide/latest/tuning-guide.html) in Nvidia.github.io documentation.
+For additional Spark configurations that you can use to tune a GPU-accelerated EMR cluster, please refer to the [cuDF Plugin for Apache Spark tuning guide](https://docs.nvidia.com/cudf-spark/latest/tuning-guide.html) in the NVIDIA documentation.
 
 **4. Configure YARN Capacity Scheduler**
 
@@ -159,7 +159,7 @@ For additional Spark configurations that you can use to tune a GPU-accelerated E
 
 **5. Create a JSON file to include your configurations**
 
-You can create a JSON file that contains your configuration to use the RAPIDS plugin for your Spark cluster. You supply the file later when you launch your cluster.
+You can create a JSON file that contains your configuration to use the cuDF plugin for your Spark cluster. You supply the file later when you launch your cluster.
 
 You can store the file locally or on S3. For more information of how to supply application configurations for your clusters, see [Configure applications](emr-configure-apps.md).
 
@@ -186,7 +186,7 @@ Use the following sample files as templates to build your own configurations.
             "yarn.nodemanager.resource-plugins.gpu.allowed-gpu-devices":"auto",
             "yarn.nodemanager.resource-plugins.gpu.path-to-discovery-executables":"/usr/bin",
             "yarn.nodemanager.linux-container-executor.cgroups.mount":"true",
-            "yarn.nodemanager.linux-container-executor.cgroups.mount-path":"/spark-rapids-cgroup",
+            "yarn.nodemanager.linux-container-executor.cgroups.mount-path":"/spark-cudf-cgroup",
             "yarn.nodemanager.linux-container-executor.cgroups.hierarchy":"yarn",
             "yarn.nodemanager.container-executor.class":"org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor"
         }
@@ -206,7 +206,7 @@ Use the following sample files as templates to build your own configurations.
             {
                 "Classification":"cgroups",
                 "Properties":{
-                    "root":"/spark-rapids-cgroup",
+                    "root":"/spark-cudf-cgroup",
                     "yarn-hierarchy":"yarn"
                 }
             }
@@ -219,7 +219,6 @@ Use the following sample files as templates to build your own configurations.
             "spark.executor.resource.gpu.discoveryScript":"/usr/lib/spark/scripts/gpu/getGpusResources.sh",
             "spark.executor.extraLibraryPath":"/usr/local/cuda/targets/x86_64-linux/lib:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/compat/lib:/usr/local/cuda/lib:/usr/local/cuda/lib64:/usr/lib/hadoop/lib/native:/usr/lib/hadoop-lzo/lib/native:/docker/usr/lib/hadoop/lib/native:/docker/usr/lib/hadoop-lzo/lib/native",
             "spark.submit.pyFiles":"/usr/lib/spark/jars/xgboost4j-spark_3.0-1.4.2-0.3.0.jar",
-            "spark.rapids.sql.concurrentGpuTasks":"1",
             "spark.executor.resource.gpu.amount":"1",
             "spark.executor.cores":"2",
             "spark.task.cpus":"1",
@@ -317,8 +316,11 @@ Use the following sample files as templates to build your own configurations.
 
 ------
 
+**Note**  
+Amazon EMR releases 7.11.0 and later do not need the `spark.rapids.sql.concurrentGpuTasks` configuration, so the Amazon EMR 7.x example omits it. If you use an Amazon EMR release earlier than 7.11.0, add `"spark.rapids.sql.concurrentGpuTasks":"1"` to your `spark-defaults` configuration.
+
 ## Add a bootstrap action for your cluster
-<a name="emr-spark-rapids-bootstrap"></a>
+<a name="emr-spark-cudf-bootstrap"></a><a name="emr-spark-rapids-bootstrap"></a>
 
 For more information on how to supply bootstrap action scripts when you create your cluster, see [Bootstrap action basics](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html#bootstrapUses) in the *Amazon EMR Management Guide*.
 
@@ -335,9 +337,9 @@ To use YARN to manage GPU resources with Amazon EMR 7.x releases, you must manua
 #!/bin/bash
 set -ex
  
-sudo mkdir -p /spark-rapids-cgroup/devices
-sudo mount -t cgroup -o devices cgroupv1-devices /spark-rapids-cgroup/devices
-sudo chmod a+rwx -R /spark-rapids-cgroup
+sudo mkdir -p /spark-cudf-cgroup/devices
+sudo mount -t cgroup -o devices cgroupv1-devices /spark-cudf-cgroup/devices
+sudo chmod a+rwx -R /spark-cudf-cgroup
 ```
 
 ------
@@ -358,7 +360,7 @@ sudo chmod a+rwx -R /sys/fs/cgroup/devices
 ------
 
 ## Launch your cluster
-<a name="emr-spark-rapids-launchcluster"></a>
+<a name="emr-spark-cudf-launchcluster"></a><a name="emr-spark-rapids-launchcluster"></a>
 
 The last step is to launch your cluster with the cluster configurations mentioned above. Here's an example command to launch a cluster from the Amazon EMR CLI:
 
@@ -372,5 +374,5 @@ The last step is to launch your cluster with the cluster configurations mentione
                   InstanceGroupType=CORE,InstanceCount=1,InstanceType=g4dn.2xlarge \    
                   InstanceGroupType=TASK,InstanceCount=1,InstanceType=g4dn.2xlarge \
 --configurations file:///my-configurations.json \
---bootstrap-actions Name='My Spark Rapids Bootstrap action',Path=s3://amzn-s3-demo-bucket/my-bootstrap-action.sh
+--bootstrap-actions Name='My cuDF Bootstrap action',Path=s3://amzn-s3-demo-bucket/my-bootstrap-action.sh
 ```

@@ -61,7 +61,7 @@ For the version of components installed with Spark in this release, see [Release
 + [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md)
 + [Optimize Spark performance](emr-spark-performance.md)
 + [Spark Result Fragment Caching](emr-spark-fragment-result-caching.md)
-+ [Use the Nvidia RAPIDS Accelerator for Apache Spark](emr-spark-rapids.md)
++ [Use the NVIDIA cuDF Plugin for Apache Spark](emr-spark-cudf.md)
 + [Access the Spark shell](emr-spark-shell.md)
 + [Use Amazon SageMaker Spark for machine learning](emr-spark-sagemaker.md)
 + [Write a Spark application](emr-spark-application.md)

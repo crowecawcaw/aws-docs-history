@@ -24,7 +24,7 @@ Keep in mind the following application-specific considerations when you choose y
 | Application | Java configuration notes | 
 | --- | --- | 
 | Spark | To run Spark with a non-default Java version, you must configure both Spark and Hadoop. For examples, see [Override the JVM](#configuring-java8-override).+  Configure `JAVA_HOME` in `spark-env` to update the Java runtime of primary instance processes. For example, spark-submit, spark-shell, and Spark History Server. <br />+  Modify the Hadoop configuration to update the Java runtime of the Spark executors and the YARN `ApplicationMaster`  | 
-| Spark RAPIDS | You can run RAPIDS with the configured Java version for Spark. | 
+| Spark cuDF Plugin | You can run the cuDF plugin with the configured Java version for Spark. | 
 | Iceberg | You can run Iceberg with the configured Java version of the application that is using it. | 
 | Delta | You can run Delta with the configured Java version of the application that is using it. | 
 | Hudi | You can run Hudi with the configured Java version of the application that is using it. | 
