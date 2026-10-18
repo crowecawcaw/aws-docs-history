@@ -47,14 +47,7 @@ For a list of AWS Regions, see [ Aurora PostgreSQL Region availability](https://
 This release of Aurora PostgreSQL is compatible with PostgreSQL 18.6. For more information about the improvements in PostgreSQL 18.6, see [PostgreSQL release 18.6](https://www.postgresql.org/docs/18/release-18-6.html).
 
 **Topics**
-+ [Aurora PostgreSQL 18.6.1, October 9, 2026](#aurorapostgresql-versions-version186x-1861)
 + [Aurora PostgreSQL 18.6, September 29, 2026](#aurorapostgresql-versions-version186x-186)
-
-#### Aurora PostgreSQL 18.6.1, October 9, 2026
-<a name="aurorapostgresql-versions-version186x-1861"></a>
-
-**Critical stability enhancements**
-+ Fixed an issue where an Aurora PostgreSQL read replica of an RDS PostgreSQL instance could stop replicating and fail to restart after an UPDATE on a table page that VACUUM had marked all-visible.
 
 #### Aurora PostgreSQL 18.6, September 29, 2026
 <a name="aurorapostgresql-versions-version186x-186"></a>
@@ -129,9 +122,19 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.6. For more i
 This release of Aurora PostgreSQL is compatible with PostgreSQL 18.4. For more information about the improvements in PostgreSQL 18.4, see [PostgreSQL release 18.4](https://www.postgresql.org/docs/18/release-18-4.html).
 
 **Topics**
++ [Aurora PostgreSQL 18.4.3, October 9, 2026](#aurorapostgresql-versions-version184x-1843)
 + [Aurora PostgreSQL 18.4.2, September 14, 2026](#aurorapostgresql-versions-version184x-1842)
 + [Aurora PostgreSQL 18.4.1, August 21, 2026](#aurorapostgresql-versions-version1841x-1841)
 + [Aurora PostgreSQL 18.4, August 21, 2026](#aurorapostgresql-versions-version184x-184)
+
+#### Aurora PostgreSQL 18.4.3, October 9, 2026
+<a name="aurorapostgresql-versions-version184x-1843"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
+
+**General enhancements**
++ Fixed increased storage consumption by internal logging of the Aurora Storage Daemon.
 
 #### Aurora PostgreSQL 18.4.2, September 14, 2026
 <a name="aurorapostgresql-versions-version184x-1842"></a>
@@ -327,14 +330,7 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.3. For more i
 This release of Aurora PostgreSQL is compatible with PostgreSQL 17.11. For more information about the improvements in PostgreSQL 17.11, see [PostgreSQL release 17.11](https://www.postgresql.org/docs/17/release-17-11.html).
 
 **Topics**
-+ [Aurora PostgreSQL 17.11.1, October 9, 2026](#aurorapostgresql-versions-version1711x-17111)
 + [Aurora PostgreSQL 17.11, September 29, 2026](#aurorapostgresql-versions-version1711x-1711)
-
-#### Aurora PostgreSQL 17.11.1, October 9, 2026
-<a name="aurorapostgresql-versions-version1711x-17111"></a>
-
-**Critical stability enhancements**
-+ Fixed an issue where an Aurora PostgreSQL read replica of an RDS PostgreSQL instance could stop replicating and fail to restart after an UPDATE on a table page that VACUUM had marked all-visible.
 
 #### Aurora PostgreSQL 17.11, September 29, 2026
 <a name="aurorapostgresql-versions-version1711x-1711"></a>
@@ -405,9 +401,19 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.11. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 17.10. For more information about the improvements in PostgreSQL 17.10, see [PostgreSQL release 17.10](https://www.postgresql.org/docs/17/release-17-10.html).
 
 **Topics**
++ [Aurora PostgreSQL 17.10.3, October 9, 2026](#aurorapostgresql-versions-version1710x-17103)
 + [Aurora PostgreSQL 17.10.2, September 14, 2026](#aurorapostgresql-versions-version1710x-17102)
 + [Aurora PostgreSQL 17.10.1, August 21, 2026](#aurorapostgresql-versions-version17101x-17101)
 + [Aurora PostgreSQL 17.10, August 21, 2026](#aurorapostgresql-versions-version1710x-1710)
+
+#### Aurora PostgreSQL 17.10.3, October 9, 2026
+<a name="aurorapostgresql-versions-version1710x-17103"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
+
+**General enhancements**
++ Fixed increased storage consumption by internal logging of the Aurora Storage Daemon.
 
 #### Aurora PostgreSQL 17.10.2, September 14, 2026
 <a name="aurorapostgresql-versions-version1710x-17102"></a>
@@ -1368,9 +1374,19 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.15. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 16.14. For more information about the improvements in PostgreSQL 16.14, see [PostgreSQL release 16.14](https://www.postgresql.org/docs/16/release-16-14.html).
 
 **Topics**
++ [Aurora PostgreSQL 16.14.3, October 9, 2026](#aurorapostgresql-versions-version1614x-16143)
 + [Aurora PostgreSQL 16.14.2, September 14, 2026](#aurorapostgresql-versions-version1614x-16142)
 + [Aurora PostgreSQL 16.14.1, August 21, 2026](#aurorapostgresql-versions-version16141x-16141)
 + [Aurora PostgreSQL 16.14, August 21, 2026](#aurorapostgresql-versions-version1614x-1614)
+
+#### Aurora PostgreSQL 16.14.3, October 9, 2026
+<a name="aurorapostgresql-versions-version1614x-16143"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
+
+**General enhancements**
++ Fixed increased storage consumption by internal logging of the Aurora Storage Daemon.
 
 #### Aurora PostgreSQL 16.14.2, September 14, 2026
 <a name="aurorapostgresql-versions-version1614x-16142"></a>
@@ -2958,9 +2974,19 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.19. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 15.18. For more information about the improvements in PostgreSQL 15.18, see [PostgreSQL release 15.18](https://www.postgresql.org/docs/15/release-15-18.html).
 
 **Topics**
++ [Aurora PostgreSQL 15.18.3, October 9, 2026](#aurorapostgresql-versions-version1518x-15183)
 + [Aurora PostgreSQL 15.18.2, September 14, 2026](#aurorapostgresql-versions-version1518x-15182)
 + [Aurora PostgreSQL 15.18.1, August 21, 2026](#aurorapostgresql-versions-version15181x-15181)
 + [Aurora PostgreSQL 15.18, August 21, 2026](#aurorapostgresql-versions-version1518x-1518)
+
+#### Aurora PostgreSQL 15.18.3, October 9, 2026
+<a name="aurorapostgresql-versions-version1518x-15183"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
+
+**General enhancements**
++ Fixed increased storage consumption by internal logging of the Aurora Storage Daemon.
 
 #### Aurora PostgreSQL 15.18.2, September 14, 2026
 <a name="aurorapostgresql-versions-version1518x-15182"></a>
@@ -5104,9 +5130,19 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.24. For more 
 This release of Aurora PostgreSQL is compatible with PostgreSQL 14.23. For more information about the improvements in PostgreSQL 14.23, see [PostgreSQL release 14.23](https://www.postgresql.org/docs/14/release-14-23.html).
 
 **Topics**
++ [Aurora PostgreSQL 14.23.3, October 9, 2026](#aurorapostgresql-versions-version1423x-14233)
 + [Aurora PostgreSQL 14.23.2, September 14, 2026](#aurorapostgresql-versions-version1423x-14232)
 + [Aurora PostgreSQL 14.23.1, August 21, 2026](#aurorapostgresql-versions-version14231x-14231)
 + [Aurora PostgreSQL 14.23, August 21, 2026](#aurorapostgresql-versions-version1423x-1423)
+
+#### Aurora PostgreSQL 14.23.3, October 9, 2026
+<a name="aurorapostgresql-versions-version1423x-14233"></a>
+
+**Critical stability enhancements**
++ Fixed an issue in Aurora storage metadata that can cause a database to become unable to start up when hitting the maximum storage volume size.
+
+**General enhancements**
++ Fixed increased storage consumption by internal logging of the Aurora Storage Daemon.
 
 #### Aurora PostgreSQL 14.23.2, September 14, 2026
 <a name="aurorapostgresql-versions-version1423x-14232"></a>
