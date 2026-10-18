@@ -4,7 +4,7 @@
 <a name="vm-troubleshooting"></a>
 
 ## Incremental Backups / CBT issues and messages
-<a name="w2aac17c19c43c27b3"></a>
+<a name="w2aac17c19c43c29b3"></a>
 
 **Failure message:** `"The VMware Change Block Tracking (CBT) data was invalid during this backup, but the incremental backup was successfully completed with our proprietary change detection mechanism."`
 
@@ -28,7 +28,7 @@ The ESXi and hardware version requirements above are VMware's minimum requiremen
 If CBT is turned on (enabled) and the software and hardware are up to date, turn off the virtual machine and then turn it back on again. Ensure that CBT is turned on. Then, perform the backup again.
 
 ## VMware backup failure
-<a name="w2aac17c19c43c27b5"></a>
+<a name="w2aac17c19c43c29b5"></a>
 
 When a VMware backup fails, it may be related to one of the following:
 
@@ -73,7 +73,7 @@ When a VMware backup fails, it may be related to one of the following:
 To obtain more information about your hypervisor, such as errors and network configuration and connection, see [Editing a hypervisor configuration](working-with-hypervisors.md#edit-hypervisor) to configure the hypervisor to integrate with Amazon CloudWatch Logs.
 
 ## Backup failures from network connection issues
-<a name="w2aac17c19c43c27b7"></a>
+<a name="w2aac17c19c43c29b7"></a>
 
 **Failure message: **`"Failed to upload backup during data ingestion. Aborted backup job."` or `"Cloud network request timed out during data ingestion"`.
 
@@ -84,7 +84,7 @@ Required network bandwidth depends on several factors, including the size of the
 **Remedy:** Best practices and recommendations include having a minimum bandwidth of 100 Mbps upload bandwidth for on-premises VMs connected to AWS Backup. This is the minimum required for the gateway to function. Bandwidth below 100 Mbps prevents the gateway from completing any backup or restore job. With a large number of VMs, backup jobs might still fail due to timeout even with bandwidth above 100 Mbps. Consider increasing bandwidth based on the number of VMs and the size of data being backed up. Once the bandwidth is confirmed, retry the backup job.
 
 ## Aborted backup job
-<a name="w2aac17c19c43c27b9"></a>
+<a name="w2aac17c19c43c29b9"></a>
 
 **Failure message:** `"Failed to create backup during snapshot creation. Aborted backup job."`
 
@@ -93,7 +93,7 @@ Required network bandwidth depends on several factors, including the size of the
 **Remedy:** Check the configuration of your VMware host and review the it for issues. For additional information, see [Editing a hypervisor configuration](working-with-hypervisors.md#edit-hypervisor).
 
 ## No available gateways
-<a name="w2aac17c19c43c27c11"></a>
+<a name="w2aac17c19c43c29c11"></a>
 
 **Failure message:** `"No gateways available to work on job."`
 
@@ -102,7 +102,7 @@ Required network bandwidth depends on several factors, including the size of the
 For **remedies**, see the next section for steps on increasing number of gateways and steps to increase backup plan window time.
 
 ## VMware backup job failure
-<a name="w2aac17c19c43c27c13"></a>
+<a name="w2aac17c19c43c29c13"></a>
 
 **Failure message: **`"Abort signal detected"`
 
@@ -122,7 +122,7 @@ If a bandwidth rate limit is configured for the backup gateway, it can restrict 
 **Increase backup plan window time:** You can increase the **complete within duration** of the backup window in your backup plan. See [Backup plan options and configuration](plan-options-and-configuration.md) for more detail.
 
 ## Restore to EC2 fails due to missing ENA drivers
-<a name="w2aac17c19c43c27c15"></a>
+<a name="w2aac17c19c43c29c15"></a>
 
 **Failure message:** `"Restore failed because the instance type selected for restore requires that the VirtualMachine image have Elastic Network Adapter (ENA) drivers installed, but no ENA drivers were present in the backed up VM."`
 

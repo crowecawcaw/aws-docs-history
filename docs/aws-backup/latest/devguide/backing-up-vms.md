@@ -130,7 +130,7 @@ The IAM role trust relationship should be modified to add the backup-gateway.ama
 See [Editing the trust relationship for an existing role](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/edit_trust.html) in the *AWS Directory Service Administration Guide* for more detail.
 
 ### View VMware tag mappings
-<a name="w2aac17c19c43c23c15c23"></a>
+<a name="w2aac17c19c43c25c15c23"></a>
 
 In the [AWS Backup console](https://console.aws.amazon.com/backup/), click on **External Resources**, then click on **Hypervisors**, then click on the Hypervisor name link to view properties for the selected hypervisor. Under the summary pane, there are four tabs, the last of which is **VMware tag mappings**. Note if you do not yet have mappings, "No VMware tag mappings." will be displayed.
 
@@ -139,7 +139,7 @@ From here, you can sync the metadata of virtual machines discovered by the hyper
 In the console, to see which tags are applied to a selected virtual machine, click **Virtual machines**, then the virtual machine name, then **AWS tags** or **VMware tags**. You can view the tags associated with this virtual machine, and additionally you can manage the tags.
 
 ### Assign virtual machines to plan using VMware tag mappings
-<a name="w2aac17c19c43c23c15c31"></a>
+<a name="w2aac17c19c43c25c15c31"></a>
 
 To assign virtual machines to a backup plan using mapped tags, do the following:
 
@@ -156,7 +156,7 @@ To assign virtual machines to a backup plan using mapped tags, do the following:
 1. Click **Confirm**. This opens the **Assign resources** page with **Refine selection using tags** fields with values pre-populated.
 
 ### VMware tags using the AWS CLI
-<a name="w2aac17c19c43c23c15c37"></a>
+<a name="w2aac17c19c43c25c15c37"></a>
 
 AWS Backup uses the API call [`PutHypervisorPropertyMappings`](https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_PutHypervisorPropertyMappings.html) to map hypervisor entity properties in on-premise to properties in AWS.
 
@@ -197,7 +197,7 @@ aws backup-gateway get-hypervisor-property-mappings \
 ```
 
 ### Sync metadata of virtual machines discovered by the hypervisor in AWS using API, CLI, or SDK
-<a name="w2aac17c19c43c23c15c57"></a>
+<a name="w2aac17c19c43c25c15c57"></a>
 
 You can sync the metadata of virtual machines. When you do, the VMware tags present on the virtual machine that are part of the mappings will be synched. Also, AWS tags mapped to the VMware tags present on the virtual machine will be applied to the AWS Virtual Machine resource.
 

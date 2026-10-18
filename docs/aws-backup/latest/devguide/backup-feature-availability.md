@@ -129,8 +129,8 @@ Some Regions require account opt-in, as noted in the following table. Some featu
 | Asia Pacific (Tokyo) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Canada (Central) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Canada West (Calgary) | Required | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ |  | 
-| China (Beijing)2 | [AWS in China](https://www.amazonaws.cn/en/about-aws/china/) | ✓ | ✓ | ✓ |  |  |  |  | ✓ |  |  | 
-| China (Ningxia)2 | [AWS in China](https://www.amazonaws.cn/en/about-aws/china/) | ✓ | ✓ | ✓ |  |  |  |  | ✓ |  |  | 
+| China (Beijing)1 | [AWS in China](https://www.amazonaws.cn/en/about-aws/china/) | ✓ | ✓ | ✓ |  |  |  |  | ✓ |  |  | 
+| China (Ningxia)1 | [AWS in China](https://www.amazonaws.cn/en/about-aws/china/) | ✓ | ✓ | ✓ |  |  |  |  | ✓ |  |  | 
 | Europe (Frankfurt) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Europe (Ireland) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Europe (London) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
@@ -144,17 +144,15 @@ Some Regions require account opt-in, as noted in the following table. Some featu
 | Middle East (Bahrain) | Required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | 
 | Middle East (UAE) | Required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | 
 | South America (São Paulo) | Not required | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| AWS GovCloud (US-East) | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/) | ✓ | ✓ | ✓4 | ✓ |  |  | ✓ | ✓ | ✓ |  | 
-| AWS GovCloud (US-West) | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/) | ✓ | ✓ | ✓4 | ✓ |  |  | ✓ | ✓ | ✓ |  | 
+| AWS GovCloud (US-East) | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/) | ✓ | ✓ | ✓3 | ✓ |  |  | ✓ | ✓ | ✓ |  | 
+| AWS GovCloud (US-West) | [AWS GovCloud (US)](https://aws.amazon.com/govcloud-us/) | ✓ | ✓ | ✓3 | ✓ |  |  | ✓ | ✓ | ✓ |  | 
 | AWS European Sovereign Cloud (Germany) | [AWS European Sovereign Cloud (Germany)](https://aws.amazon.com/aws.eu/) |  |  |  |  |  |  |  | ✓ |  |  | 
 
-1Cross-Region and cross-account copy to a logically air-gapped vault is not currently available in Asia Pacific (Malaysia), Canada West (Calgary), Mexico (Central), Asia Pacific (Thailand), Asia Pacific (Taipei), Asia Pacific (New Zealand), China (Beijing), China (Ningxia), AWS GovCloud (US-East), or AWS GovCloud (US-West) Regions.
+1China (Beijing) and China (Ningxia) support cross-Region copy only between these two Regions. Cross-account backup copy and cross-account management are supported in both China Regions for accounts that belong to the same organization in AWS Organizations. AWS Backup does not support cross-Region copy between the China Regions and Regions outside the AWS China partition.
 
-2China (Beijing) and China (Ningxia) support cross-Region copy only between these two Regions. Cross-account backup copy and cross-account management are supported in both China Regions for accounts that belong to the same organization in AWS Organizations. AWS Backup does not support cross-Region copy between the China Regions and Regions outside the AWS China partition.
+2Jobs dashboard and AWS Backup Audit Manager organizational reporting, and Jobs dashboard aggregation are only available in Regions that support cross-account management and AWS Backup Audit Manager.
 
-3Jobs dashboard and AWS Backup Audit Manager organizational reporting, and Jobs dashboard aggregation are only available in Regions that support cross-account management and AWS Backup Audit Manager.
-
-4AWS GovCloud (US-East) and AWS GovCloud (US-West) support cross-Region copy from one of these two Regions to the other. Cross-Region copy is not supported from these Regions to other Regions, or from other Regions into these Regions.
+3AWS GovCloud (US-East) and AWS GovCloud (US-West) support cross-Region copy from one of these two Regions to the other. Cross-Region copy is not supported from these Regions to other Regions, or from other Regions into these Regions.
 
 ## Supported services by AWS Region
 <a name="supported-services-by-region"></a>
@@ -189,7 +187,7 @@ AWS Backup cannot be deployed or operated locally on AWS Outposts infrastructure
 | Asia Pacific (Malaysia) |  | ✓ | ✓ |  | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ | 
 | Asia Pacific (Melbourne) | ✓ | Windows; Lustre; ONTAP | ✓ |  | ✓ | ✓ |  |  | ✓ | ✓ | ✓ | ✓ | 
 | Asia Pacific (Mumbai) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
-| Asia Pacific (New Zealand) |  |  |  |  | ✓ | ✓ |  |  | ✓ |  | ✓ | ✓ | 
+| Asia Pacific (New Zealand) |  | ✓ |  |  | ✓ | ✓ |  |  | ✓ |  | ✓ | ✓ | 
 | Asia Pacific (Osaka) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Asia Pacific (Seoul) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Asia Pacific (Singapore) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ | ✓ | ✓ | ✓ | ✓ | 

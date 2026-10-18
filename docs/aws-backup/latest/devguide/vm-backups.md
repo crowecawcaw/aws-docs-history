@@ -25,6 +25,13 @@ AWS Backup can back up and restore virtual machines managed by a VMware vCenter.
 + RDM (raw disk mapping) disks or NVMe controllers and their disks
 + Independent-persistent and independent-non persistent disk modes
 
+## VM discovery requirements
+<a name="vm-discovery-requirements"></a>
+
+Backup gateway persists each virtual machine's vCenter folder path as an AWS tag on the discovered VM record. For a VM to be included in the hypervisor's VM list, every segment of its vCenter folder path must contain only characters valid in AWS tag values: letters, digits, spaces, and the following special characters: `_ . : / = + - @`.
+
+VMs in folders with other characters (such as parentheses `( )`, commas, or question marks) are excluded from discovery. The exclusion does not appear in the metadata-sync status or in error metrics. To include these VMs, rename the folder in vCenter to remove the unsupported characters, then wait for the next metadata sync.
+
 ## Backup consistency
 <a name="backup-consistency"></a>
 

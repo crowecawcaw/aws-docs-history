@@ -54,6 +54,8 @@ Before you begin an EKS restore job, review the following. If you are restoring 
 
 1. **User data in launch template**: When creating a node group using a launch template, do not specify `spec.cluster` in the user data section of the launch template. Amazon EKS automatically injects the cluster identity parameters (`apiServerEndpoint`, `certificateAuthority`, and `serviceIpv4Cidr`) and merges them with any additional configurations defined in the user data.
 
+1. **Amazon EKS Auto Mode and restored Amazon EBS volumes**: If the cluster has Amazon EKS Auto Mode enabled, Auto Mode only attaches an Amazon EBS volume whose `eks:eks-cluster-name` tag matches the cluster's name. AWS Backup does not update this tag on restored volumes, so pods referencing restored volumes might remain in `ContainerCreating` with `FailedAttachVolume` errors when restoring to a different cluster, even though the restore job succeeds. To resolve this, manually tag each restored Amazon EBS volume with the destination cluster's name with the following command: `aws ec2 create-tags --resources vol-123456abcdef --tags Key=eks:eks-cluster-name,Value=destination-cluster-name`
+
 **EKS Configurations**
 
 When you restore the composite Amazon AWS Backup, you choose the restore type and target destination. You can choose to restore to the source EKS cluster, an existing EKS cluster or create a new EKS cluster as the restore target. For new EKS clusters, you can choose to use the same existing infrastructure settings (for example, VPC, subnets) as the backed up cluster or configure new ones. AWS Backup is designed to perform a non-destructive restore that doesn't overwrite existing resources.

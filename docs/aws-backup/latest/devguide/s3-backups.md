@@ -64,6 +64,7 @@ The following points should be considered when you backup S3 resources:
   For more information, see [Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events) in the *CloudTrail User Guide*.
 + **Server access logging** – If you enable server access logging, you must have the logs delivered to a different target bucket. If you save these logs in the bucket that they log, there is an infinite loop. For more information, see [Enabling Amazon S3 server access logging](https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html).
 + **KMS encryption behavior during backups** – When backing up S3 objects encrypted with AWS KMS keys (SSE-KMS), AWS Backup calls `kms:Decrypt` against the source KMS key. This is because AWS Backup uses an independent encryption model for S3 backups. To achieve this, AWS Backup must first decrypt the data using the source KMS key, then re-encrypt it using the backup vault's KMS key. As a result, you will see `kms:Decrypt` calls against your source KMS key in CloudTrail logs during backup operations. For more information, see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html).
++ **Continuous backup integrity checks** – AWS Backup periodically runs integrity checks on S3 continuous backups to verify data consistency with your source bucket. If you use a custom IAM policy, ensure `s3:PutInventoryConfiguration` and `s3:GetInventoryConfiguration` permissions are included. See [S3 continuous backup integrity checks](#s3-continuous-backup-integrity-checks).
 
 ## Supported bucket types, quantities, and object sizes
 <a name="bucket-types-and-quotas"></a>
@@ -257,6 +258,31 @@ The `aws:backup:enabled` system tag does not count toward the 50 user-tag limit 
 
 Re-enable bucket-level Amazon EventBridge using the console or CLI steps above. S3 will resume publishing events, and the managed rule will resume forwarding them to AWS Backup. Changes made while Amazon EventBridge was disabled will not be retroactively captured. The existing continuous recovery point and prior backup history remain valid.
 
+## S3 continuous backup integrity checks
+<a name="s3-continuous-backup-integrity-checks"></a>
+
+With S3 continuous backups, AWS Backup tracks changes to your bucket through Amazon EventBridge events. To complement this event-driven approach, AWS Backup periodically runs an integrity check that compares your source bucket with your continuous backup data using Amazon S3 Inventory. If the integrity check identifies any discrepancies, AWS Backup reconciles them. No configuration or opt-in is required.
+
+If an object cannot be backed up during reconciliation – for example, due to a bucket policy or KMS key policy – AWS Backup follows the same notification path as regular backup operations. The object is identified again in the next integrity check run. To prevent repeated failures, resolve the access restriction. Objects in the S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes are not processed. When a continuous recovery point is reconciled, the next periodic snapshot taken from that recovery point also reflects the updated state.
+
+AWS Backup emits CloudTrail events when integrity checks start, complete, or fail. For the list of event names, see [Logging AWS Backup API calls with CloudTrail](logging-using-cloudtrail.md).
+
+If you use the AWS managed policy [AWSBackupServiceRolePolicyForS3Backup](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForS3Backup.html), no action is required. If you use a custom IAM policy for your backup role, add the `s3:PutInventoryConfiguration` and `s3:GetInventoryConfiguration` permissions.
+
+```
+{
+  "Sid": "S3InventoryPermissionsForIntegrityChecks",
+  "Effect": "Allow",
+  "Action": [
+    "s3:PutInventoryConfiguration",
+    "s3:GetInventoryConfiguration"
+  ],
+  "Resource": "arn:aws:s3:::*"
+}
+```
+
+There is no additional charge for the integrity check. Standard Amazon S3 charges apply for Amazon S3 Inventory reports generated during the process.
+
 ## Compare S3 backup types
 <a name="compare-s3-backup-types"></a>
 
@@ -267,6 +293,7 @@ Continuous backups only:
 + The tracked changes allow you to use PITR (point-in-time restore) for the retention period of the continuous backup. To perform a restore job, you choose the point in time to which you wish to restore.
 + The retention period of each continuous backup has a maximum of 35 days.
 + For backup plans you create through CLI, advanced backup settings for Amazon S3 (which include the option to include tags and ACLs in the backup) are turned on by default. You may exclude these in the backup options. See [Advanced Amazon S3 backup settings](#s3-advanced-backup-settings) for an example of the syntax.
++ Because continuous backups track changes through events rather than scanning the bucket, AWS Backup periodically runs integrity checks to verify data consistency with the source bucket. Periodic (snapshot) backups do not require this check because each snapshot performs a full bucket walk. See [S3 continuous backup integrity checks](#s3-continuous-backup-integrity-checks).
 
 Periodic (snapshot) backups only, scheduled or on-demand:
 + AWS Backup scans the entire S3 bucket, retrieves each object’s ACL and tags, and initiates a Head request for every object that was in the prior snapshot but was not found in the snapshot being created.
@@ -282,6 +309,7 @@ Continuous backups combined with periodic/snapshot backups:
 + Snapshots are taken directly from the continuous recovery point, eliminating the need to rescan a bucket to allow for faster processes.
 + Snapshots and continuous recovery points share data lineage; storage of data between snapshot and continuous recovery points is not duplicated.
 + When advanced Amazon S3 backup settings, such as including tags and ACLs in a backup, are changed for a `continuous` recovery point, AWS Backup stops that recovery point and creates a new one with the updated setting(s).
++ AWS Backup periodically runs integrity checks on continuous recovery points to verify data consistency with the source bucket. When a continuous recovery point is reconciled, the next periodic snapshot taken from that recovery point also reflects the updated state.
 
 When a continuous backup job is running for an S3 bucket, you can still initiate periodic (snapshot) backup jobs. However, the following behavior applies:
 + Snapshot backup jobs will use the same backup options (ACLs and object tags settings) as the existing continuous backup.

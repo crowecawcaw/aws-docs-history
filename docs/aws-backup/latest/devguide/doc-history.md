@@ -3,13 +3,14 @@
 # Document history for AWS Backup
 <a name="doc-history"></a>
 + **API version: **November 19, 2025
-+ **Latest documentation update: **September 24, 2026
++ **Latest documentation update: **October 13, 2026
 
 The following table lists all AWS Backup launches since the launch of the service in January 2019 to present. For notifications about updates to this documentation you can subscribe to the RSS feed above.
 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Amazon FSx support in Asia Pacific (New Zealand) | AWS Backup now supports Amazon FSx in Asia Pacific (New Zealand). For more information, see [Supported services by AWS Region](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#supported-services-by-region). | October 13, 2026 | 
 | Logically air-gapped vault support for FSx for ONTAP | Recovery points (backups) of FSx for ONTAP resources can now be copied to logically air-gapped vaults. For more information, see [Logically air-gapped vault](https://docs.aws.amazon.com/aws-backup/latest/devguide/logicallyairgappedvault.html) and [Feature availability by resource](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource). | September 28, 2026 | 
 | Aurora DSQL multi-Region backup and restore Regional expansion | Aurora DSQL multi-Region backup and restore support is now available in Asia Pacific (Hong Kong). For more information, see [Amazon Aurora DSQL backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-aurora.html). | September 24, 2026 | 
 | Expanded Amazon S3 bucket support | AWS Backup now supports protecting more than 1,000 Amazon S3 buckets per account by integrating with Amazon S3 Event Notifications with system-generated tags. See [Amazon S3 backups](https://docs.aws.amazon.com/aws-backup/latest/devguide/s3-backups.html) for more details. | September 1, 2026 | 

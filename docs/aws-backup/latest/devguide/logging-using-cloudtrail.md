@@ -40,6 +40,9 @@ AWS Backup generates these CloudTrail events when it performs backups, restores,
 + `BackupJobStarted`
 + `BackupSelectionDeletedDueToSLRDeletion`
 + `BackupTransitionedToCold`
++ `ContinuousRecoveryPointIntegrityCheckCompleted`
++ `ContinuousRecoveryPointIntegrityCheckFailed`
++ `ContinuousRecoveryPointIntegrityCheckStarted`
 + `CopyJobCompleted`
 + `CopyJobStarted`
 + `CreateRestoreAccessBackupVaultFailed`

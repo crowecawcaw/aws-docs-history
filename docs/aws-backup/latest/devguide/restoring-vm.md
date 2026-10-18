@@ -79,7 +79,10 @@ If role manager is enabled in your account, AWS Backup selects the default servi
 
 1. Choose **Restore backup**.
 
-1. *Optional*: Check when your restore job has the status `Completed`. In the left navigation menu, choose **Jobs**.<a name="restore-vm-ebs"></a>
+1. *Optional*: Check when your restore job has the status `Completed`. In the left navigation menu, choose **Jobs**.
+
+**Note**  
+Restoring to an Amazon EBS volume is a data-level (disk) restore. AWS Backup writes the selected disk's contents to a new Amazon EBS volume, but it does not perform the guest operating system conversion required to boot on Amazon EC2. An Amazon EBS volume restored from a VM recovery point is not bootable and cannot be used on its own to launch a working Amazon EC2 instance. To restore a virtual machine as a bootable Amazon EC2 instance, use the procedure to restore to an Amazon EC2 instance instead, which performs a full restore and prepares the instance to boot on Amazon EC2. Use a restore to Amazon EBS when you need to access or recover data from individual disks.<a name="restore-vm-ebs"></a>
 
 **To restore a virtual machine to an Amazon EBS volume**
 
@@ -95,7 +98,7 @@ If role manager is enabled in your account, AWS Backup selects the default servi
 
 1. Choose the **Restore location** as **Amazon EBS**.
 
-1. Under the **VM disk** dropdown menu, choose bootable volume to restore.
+1. Under the **VM disk** drop-down menu, choose the disk to restore. The restored Amazon EBS volume contains the data from this disk but is not bootable on Amazon EC2.
 
 1. Under **EBS Volume type**, choose the volume type.
 
@@ -182,7 +185,7 @@ RequireIMDSv2
 NetworkInterfaces
 ```
 
-AWS Backup supports both partial restores to Amazon EBS and full restores to Amazon EC2. For partial restores, use `ItemsToRestore` to specify which disk to restore to the specified EBS volume. When restoring to Amazon EC2, the parameter `ItemsToRestore` can be left blank because it is ignored and the full list of disks is restored.
+AWS Backup supports both partial restores to Amazon EBS and full restores to Amazon EC2. A restore to Amazon EBS is a data-level restore: it writes the selected disk contents to an Amazon EBS volume for data recovery, and the resulting volume is not bootable on Amazon EC2. A restore to Amazon EC2 is a full restore that also prepares the guest operating system to boot on Amazon EC2, producing a launchable instance. For partial restores, use `ItemsToRestore` to specify which disk to restore to the specified EBS volume. When restoring to Amazon EC2, the parameter `ItemsToRestore` can be left blank because it is ignored and the full list of disks is restored.
 
 You can specify the following metadata for a virtual machine restore to VMware, VMware Cloud on AWS, and VMware cloud on AWS Outpost:
 
