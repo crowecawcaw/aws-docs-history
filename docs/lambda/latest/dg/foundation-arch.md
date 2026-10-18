@@ -81,7 +81,7 @@ For more information about how to create a code environment for arm64 architectu
 
 You can configure the instruction set architecture for new and existing Lambda functions using the Lambda console, AWS SDKs, AWS Command Line Interface (AWS CLI), or CloudFormation. Follow these steps to change the instruction set architecture for an existing Lambda function from the console.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of the function that you want to configure the instruction set architecture for.
 

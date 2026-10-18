@@ -7,7 +7,7 @@ The Telemetry API enables your extensions to receive telemetry data directly fro
 
 Within the Lambda execution environment, you can subscribe your Lambda extensions to telemetry streams. After subscribing, Lambda automatically sends all telemetry data to your extensions. You then have the flexibility to process, filter, and dispatch the data to your preferred destination, such as an Amazon Simple Storage Service (Amazon S3) bucket or a third-party observability tools provider.
 
-The following diagram shows how the Extensions API and Telemetry API link extensions to Lambda from within the execution environment. Additionally, the Runtime API connects your runtime and function to Lambda.
+The following diagram shows how the Extensions API and Telemetry API link extensions to Lambda from within the execution environment. Additionally, the Runtime API connects your runtime and Event Function to Lambda.
 
 ![The Extensions, Telemetry, and Runtime APIs connecting to processes in the execution environment.](https://docs.aws.amazon.com/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
 
@@ -21,7 +21,7 @@ The `2025-01-29` schema version is backward compatible and can be used with both
 
 Extensions can use the Telemetry API to subscribe to three different telemetry streams:
 + **Platform telemetry** – Logs, metrics, and traces, which describe events and errors related to the execution environment runtime lifecycle, extension lifecycle, and function invocations.
-+ **Function logs** – Custom logs that the Lambda function code generates.
++ **Function logs** – Custom logs that the Lambda Event Function code generates.
 + **Extension logs** – Custom logs that the Lambda extension code generates.
 
 **Note**  
@@ -61,7 +61,7 @@ Here is each step in more detail:
 1. Get telemetry data from Lambda through the telemetry listener. You can do any custom processing of this data, such as dispatching the data to Amazon S3 or to an external observability service.
 
 **Note**  
-A Lambda function's execution environment can start and stop multiple times as part of its [lifecycle](runtimes-extensions-api.md#runtimes-extensions-api-lifecycle). In general, your extension code runs during function invocations, and also up to 2 seconds during the shutdown phase. We recommend batching the telemetry as it arrives to your listener. Then, use the `Invoke` and `Shutdown` lifecycle events to send each batch to their desired destinations.
+An Event Function's execution environment can start and stop multiple times as part of its [lifecycle](runtimes-extensions-api.md#runtimes-extensions-api-lifecycle). In general, your extension code runs during Event Function invocations, and also up to 2 seconds during the shutdown phase. We recommend batching the telemetry as it arrives to your listener. Then, use the `Invoke` and `Shutdown` lifecycle events to send each batch to their desired destinations.
 
 ## Registering your extension
 <a name="telemetry-api-registration"></a>
@@ -203,7 +203,7 @@ When setting up buffering, keep these points in mind:
      "record": "Hello World"
   }
   ```
-+ If the subscriber cannot process incoming telemetry fast enough, or if your function code generates very high log volume, Lambda might drop records to keep memory utilization bounded. When this occurs, Lambda sends a `platform.logsDropped` event.
++ If the subscriber cannot process incoming telemetry fast enough, or if your Event Function code generates very high log volume, Lambda might drop records to keep memory utilization bounded. When this occurs, Lambda sends a `platform.logsDropped` event.
 
 ## Sending a subscription request to the Telemetry API
 <a name="telemetry-api-subscription"></a>

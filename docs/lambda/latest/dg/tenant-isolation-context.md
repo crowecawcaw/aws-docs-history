@@ -1,9 +1,9 @@
 
 
-# Accessing tenant identifier in Lambda function code
+# Accessing tenant identifier in Lambda Event Function code
 <a name="tenant-isolation-context"></a>
 
-When your Lambda function has tenant isolation enabled, the tenant identifier used to invoke your function is made available within the context object passed to your function handler. You can use this identifier to implement tenant-specific logic, monitoring, and debugging capabilities.
+When your Lambda Event Function has tenant isolation enabled, the tenant identifier used to invoke your Event Function is made available within the context object passed to your Event Function handler. You can use this identifier to implement tenant-specific logic, monitoring, and debugging capabilities.
 
 **Topics**
 + [Accessing the tenant identifier](#tenant-isolation-context-access)
@@ -81,7 +81,7 @@ public class TenantHandler implements RequestHandler<Map<String, Object>, String
 ## Common usage patterns
 <a name="tenant-isolation-context-patterns"></a>
 
-Here are common ways to use the tenant identifier in your function code:
+Here are common ways to use the tenant identifier in your Event Function code:
 
 **Tenant-specific configuration**
 

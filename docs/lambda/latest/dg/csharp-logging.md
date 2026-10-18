@@ -1,9 +1,9 @@
 
 
-# Log and monitor C\# Lambda functions
+# Log and monitor C\# Lambda Event Functions
 <a name="csharp-logging"></a>
 
-AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
+AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
 **Topics**
 + [Creating a function that returns logs](#csharp-logging-output)
@@ -41,7 +41,7 @@ To give you more control over how your functions' logs are captured, processed, 
 + **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to CloudWatch, such as ERROR, DEBUG, or INFO
 + **Log group** - choose the CloudWatch log group your function sends logs to
 
-For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
+For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
 To use the log format and log level options with your .NET Lambda functions, see the guidance in the following sections.
 
@@ -397,14 +397,14 @@ Resources:
 ## Viewing logs in the Lambda console
 <a name="csharp-logging-console"></a>
 
-You can use the Lambda console to view log output after you invoke a Lambda function.
+You can use the Lambda console to view log output after you invoke a Lambda Event Function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 <a name="csharp-logging-cwconsole"></a>
 
-You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
+You can use the Amazon CloudWatch console to view logs for all Lambda Event Function invocations.
 
 **To view logs on the CloudWatch console**
 

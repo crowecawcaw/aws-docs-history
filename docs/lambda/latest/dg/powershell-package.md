@@ -1,11 +1,11 @@
 
 
-# Deploy PowerShell Lambda functions with .zip file archives
+# Deploy PowerShell Lambda Event Functions with .zip file archives
 <a name="powershell-package"></a>
 
 A deployment package for the PowerShell runtime contains your PowerShell script, PowerShell modules that are required for your PowerShell script, and the assemblies needed to host PowerShell Core.
 
-## Creating the Lambda function
+## Creating the Lambda Event Function
 <a name="powershell-package-create"></a>
 
 To get started writing and invoking a PowerShell script with Lambda, you can use the `New-AWSPowerShellLambda` cmdlet to create a starter script based on a template. You can use the `Publish-AWSPowerShellLambda` cmdlet to deploy your script to Lambda. Then you can test your script either through the command line or the Lambda console.

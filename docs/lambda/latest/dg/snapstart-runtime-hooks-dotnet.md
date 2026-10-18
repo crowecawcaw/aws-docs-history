@@ -3,7 +3,7 @@
 # Lambda SnapStart runtime hooks for .NET
 <a name="snapstart-runtime-hooks-dotnet"></a>
 
-You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes a function from a snapshot. .NET runtime hooks are available as part of the [Amazon.Lambda.Core](https://www.nuget.org/packages/Amazon.Lambda.Core) package (version 2.5.0 or later). This library provides two methods that you can use to define your runtime hooks:
+You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes an Event Function from a snapshot. .NET runtime hooks are available as part of the [Amazon.Lambda.Core](https://www.nuget.org/packages/Amazon.Lambda.Core) package (version 2.5.0 or later). This library provides two methods that you can use to define your runtime hooks:
 + `RegisterBeforeSnapshot()`: Code to run before snapshot creation
 + `RegisterAfterSnapshot()`: Code to run after resuming a function from a snapshot
 

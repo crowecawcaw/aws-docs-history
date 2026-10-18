@@ -3,7 +3,7 @@
 # Configure Lambda durable functions
 <a name="durable-configuration"></a>
 
-Durable execution settings control how long your AWS Lambda function can run, how long the service retains execution history, and which AWS KMS key encrypts your execution data. Configure these settings to enable durable execution for your function.
+Durable execution settings control how long a durable execution can run across all its invocations, how long AWS Lambda retains execution history, and which AWS KMS key encrypts your execution data. Configure these settings to enable durable execution for your function.
 
 ## Enable durable execution
 <a name="durable-config-settings"></a>

@@ -1,9 +1,9 @@
 
 
-# Deploying Lambda functions as .zip file archives
+# Deploying Lambda Event Functions as .zip file archives
 <a name="configuration-function-zip"></a>
 
-When you create a Lambda function, you package your function code into a deployment package. Lambda supports two types of deployment packages: container images and .zip file archives. The workflow to create a function depends on the deployment package type. To configure a function defined as a container image, see [Create a Lambda function using a container image](images-create.md).
+When you create a Lambda Event Function, you package your function code into a deployment package. Lambda supports two types of deployment packages: container images and .zip file archives. The workflow to create a function depends on the deployment package type. To configure a function defined as a container image, see [Create a Lambda Event Function using a container image](images-create.md).
 
 You can use the Lambda console and the Lambda API to create a function defined with a .zip file archive. You can also upload an updated .zip file to change the function code. 
 
@@ -30,9 +30,9 @@ When you create a function defined with a .zip file archive, you choose a code t
 
 **To create the function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch** or **Use a blueprint** to create your function. 
 
@@ -48,44 +48,44 @@ When you create a function defined with a .zip file archive, you choose a code t
 
 1. (Optional) Expand **Advanced settings**. You can choose a **Code signing configuration** for the function. You can also configure an (Amazon VPC) for the function to access.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 Lambda creates the new function. You can now use the console to add the function code and configure other function parameters and features. For code deployment instructions, see the handler page for the runtime your function uses. 
 
 ------
 #### [ Node.js ]
 
-[Deploy Node.js Lambda functions with .zip file archives](nodejs-package.md) 
+[Deploy Node.js Lambda Event Functions with .zip file archives](nodejs-package.md) 
 
 ------
 #### [ Python ]
 
- [Working with .zip file archives for Python Lambda functions](python-package.md) 
+ [Working with .zip file archives for Python Lambda Event Functions](python-package.md) 
 
 ------
 #### [ Ruby ]
 
- [Deploy Ruby Lambda functions with .zip file archives](ruby-package.md) 
+ [Deploy Ruby Lambda Event Functions with .zip file archives](ruby-package.md) 
 
 ------
 #### [ Java ]
 
- [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md) 
+ [Deploy Java Lambda Event Functions with .zip or JAR file archives](java-package.md) 
 
 ------
 #### [ Go ]
 
- [Deploy Go Lambda functions with .zip file archives](golang-package.md) 
+ [Deploy Go Lambda Event Functions with .zip file archives](golang-package.md) 
 
 ------
 #### [ C\# ]
 
- [Build and deploy C\# Lambda functions with .zip file archives](csharp-package.md) 
+ [Build and deploy C\# Lambda Event Functions with .zip file archives](csharp-package.md) 
 
 ------
 #### [ PowerShell ]
 
- [Deploy PowerShell Lambda functions with .zip file archives](powershell-package.md) 
+ [Deploy PowerShell Lambda Event Functions with .zip file archives](powershell-package.md) 
 
 ------
 
@@ -103,7 +103,7 @@ For scripting languages (Node.js, Python, and Ruby), you can edit your function 
 
 **To upload function code as a .zip archive**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function to update and choose the **Code** tab.
 
@@ -143,7 +143,7 @@ The Node.js 20, Python 3.12, Java 21, .NET 8, Ruby 3.3, and later base images ar
 
 **To change the runtime**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function to update and choose the **Code** tab.
 
@@ -170,7 +170,7 @@ However, if you provide your function code using a .zip file archive deployment 
 
 **To change the instruction set architecture**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function to update and choose the **Code** tab.
 
@@ -202,7 +202,7 @@ You can download the current unpublished (`$LATEST`) version of your function co
 
 **To download the function code .zip**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function you want to download the function code .zip for.
 

@@ -11,7 +11,7 @@ All Lambda event source types share the same [CreateEventSourceMapping](https://
 | BatchSize | N | 100 | Maximum: 10,000 | 
 | Enabled | N | true | none | 
 | FunctionName | Y | N/A  | none | 
-| FilterCriteria | N | N/A  | [Control which events Lambda sends to your function](invocation-eventfiltering.md) | 
+| FilterCriteria | N | N/A  | [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md) | 
 | MaximumBatchingWindowInSeconds | N | 500 ms | [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching) | 
 | Queues | N | N/A | The name of the Amazon MQ broker destination queue to consume. | 
 | SourceAccessConfigurations | N | N/A  | For ActiveMQ, BASIC\_AUTH credentials. For RabbitMQ, can contain both BASIC\_AUTH credentials and VIRTUAL\_HOST information. | 

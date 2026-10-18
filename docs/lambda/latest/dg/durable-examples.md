@@ -830,7 +830,7 @@ def lambda_handler(event, context: DurableContext):
 
 Each invocation creates a checkpoint in the orchestrator function. If the orchestrator is interrupted after the customer validation completes, it resumes from that checkpoint with the stored customer data, skipping the validation invocation. This prevents duplicate calls to downstream services and ensures consistent execution across interruptions.
 
-The invoked functions can be either durable or standard Lambda functions. If you invoke a durable function, it can have its own multi-step workflow with waits and checkpoints. The orchestrator simply waits for the complete durable execution to finish, receiving the final result.
+The invoked function can be any Lambda function, including a durable function with its own multi-step workflow, waits, and checkpoints. The calling function waits for the durable execution to finish and then receives the final result.
 
 **Note**  
 Cross-account invocations are not supported. All invoked functions must be in the same AWS account as the calling function.

@@ -1,14 +1,14 @@
 
 
-# Define Lambda function handler in Python
+# Define Lambda Event Function handler in Python
 <a name="python-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in Python, including naming conventions, valid handler signatures, and code best practices. This page also includes an example of a Python Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket.
+This page describes how to work with Lambda function handlers in Python, including naming conventions, valid handler signatures, and code best practices. This page also includes an example of a Python Lambda Event Function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket.
 
 **Topics**
-+ [Example Python Lambda function code](#python-handler-example)
++ [Example Python Lambda Event Function code](#python-handler-example)
 + [Handler naming conventions](#python-handler-naming)
 + [Using the Lambda event object](#python-handler-event)
 + [Accessing and using the Lambda context object](#python-handler-context)
@@ -16,14 +16,14 @@ This page describes how to work with Lambda function handlers in Python, includi
 + [Returning a value](#python-handler-return)
 + [Using the AWS SDK for Python (Boto3) in your handler](#python-handler-sdk)
 + [Accessing environment variables](#python-handler-env-vars)
-+ [Code best practices for Python Lambda functions](#python-handler-best-practices)
++ [Code best practices for Python Lambda Event Functions](#python-handler-best-practices)
 
-## Example Python Lambda function code
+## Example Python Lambda Event Function code
 <a name="python-handler-example"></a>
 
 The following example Python Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket:
 
-**Example Python Lambda function**  
+**Example Python Lambda Event Function**  
 
 ```
 import json
@@ -95,15 +95,15 @@ def lambda_handler(event, context):
 ```
 
 This file contains the following sections of code:
-+ `import` block: Use this block to include libraries that your Lambda function requires.
-+ Global initialization of SDK client and logger: Including initialization code outside of the handler takes advantage of [execution environment](lambda-runtime-environment.md) re-use to improve the performance of your function. See [Code best practices for Python Lambda functions](#python-handler-best-practices) to learn more.
++ `import` block: Use this block to include libraries that your function requires.
++ Global initialization of SDK client and logger: Including initialization code outside of the handler takes advantage of [execution environment](lambda-runtime-environment.md) re-use to improve the performance of your function. See [Code best practices for Python Lambda Event Functions](#python-handler-best-practices) to learn more.
 + `def upload_receipt_to_s3(bucket_name, key, receipt_content):` This is a helper function that's called by the main `lambda_handler` function.
 + `def lambda_handler(event, context):` This is the **main handler function** for your code, which contains your main application logic. When Lambda invokes your function handler, the [Lambda runtime](concepts-basics.md#gettingstarted-concepts-runtime) passes two arguments to the function, the [event object](#python-handler-event) that contains data for your function to process and the [context object](#python-handler-context) that contains information about the function invocation.
 
 ## Handler naming conventions
 <a name="python-handler-naming"></a>
 
-The function handler name defined at the time that you create a Lambda function is derived from:
+The function handler name defined at the time that you create a function is derived from:
 + The name of the file in which the Lambda handler function is located.
 + The name of the Python handler function.
 
@@ -113,7 +113,7 @@ If you create a function in the console using a different file name or function 
 
 **To change the function handler name (console)**
 
-1. Open the [Functions](https://console.aws.amazon.com/lambda/home#/functions) page of the Lambda console and choose your function.
+1. Open the [Event Functions](https://console.aws.amazon.com/lambda/home#/functions) page of the Lambda console and choose your function.
 
 1. Choose the **Code** tab.
 
@@ -126,7 +126,7 @@ If you create a function in the console using a different file name or function 
 ## Using the Lambda event object
 <a name="python-handler-event"></a>
 
-When Lambda invokes your function, it passes an [event object](concepts-basics.md#gettingstarted-concepts-event) argument to the function handler. JSON objects are the most common event format for Lambda functions. In the code example in the previous section, the function expects an input in the following format:
+When Lambda invokes your function, it passes an [event object](concepts-basics.md#gettingstarted-concepts-event) argument to the function handler. JSON objects are the most common event format for Lambda Event Functions. In the code example in the previous section, the function expects an input in the following format:
 
 ```
 {
@@ -163,7 +163,7 @@ The context object is a Python class that's defined in the [Lambda runtime inter
 request = context.aws_request_id
 ```
 
-To learn more about using the Lambda context object, and to see a complete list of the available methods and properties, see [Using the Lambda context object to retrieve Python function information](python-context.md).
+To learn more about using the Lambda context object, and to see a complete list of the available methods and properties, see [Using the Lambda context object to retrieve Python Event Function information](python-context.md).
 
 ## Valid handler signatures for Python handlers
 <a name="python-handler-signature"></a>
@@ -200,7 +200,7 @@ You can't use the Python `async` function type for your handler function.
 Optionally, a handler can return a value, which must be JSON serializable. Common return types include `dict`, `list`, `str`, `int`, `float`, and `bool`.
 
 What happens to the returned value depends on the [invocation type](lambda-invocation.md) and the [service](lambda-services.md) that invoked the function. For example:
-+ If you use the `RequestResponse` invocation type to [invoke a Lambda function synchronously](invocation-sync.md), Lambda returns the result of the Python function call to the client invoking the Lambda function (in the HTTP response to the invocation request, serialized into JSON). For example, AWS Lambda console uses the `RequestResponse` invocation type, so when you invoke the function on the console, the console displays the returned value.
++ If you use the `RequestResponse` invocation type to [invoke a function synchronously](invocation-sync.md), Lambda returns the result of the Python function call to the client invoking the function (in the HTTP response to the invocation request, serialized into JSON). For example, AWS Lambda console uses the `RequestResponse` invocation type, so when you invoke the function on the console, the console displays the returned value.
 + If the handler returns objects that can't be serialized by `json.dumps`, the runtime returns an error. An exception to this is if the handler returns a `bytes` object.
 + If the handler returns a `bytes` object, the runtime passes it through as-is as raw binary data without JSON serialization, using a content type of `application/unknown`.
 + If the handler returns `None`, as Python functions without a `return` statement implicitly do, the runtime returns `null`.
@@ -223,17 +223,17 @@ In Python 3.9 and later releases, Lambda includes the requestId of the invocatio
 ## Using the AWS SDK for Python (Boto3) in your handler
 <a name="python-handler-sdk"></a>
 
-Often, you'll use Lambda functions to interact with other AWS services and resources. The simplest way to interface with these resources is to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported) include a version of the SDK for Python (Boto3).
+Often, you'll use your functions to interact with other AWS services and resources. The simplest way to interface with these resources is to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported) include a version of the SDK for Python (Boto3).
 
 However, we strongly recommend that you include the SDK in your function's deployment package if your code needs to use it. Including the SDK in your deployment package gives you full control over your dependencies and reduces the risk of version misalignment issues with other libraries. See [Runtime dependencies in Python](python-package.md#python-package-dependencies) and [Backward compatibility](runtimes-update.md#runtime-update-compatibility) to learn more.
 
-To use the SDK for Python (Boto3) in your Lambda function, add the following statement to the import block at the beginning of your function code:
+To use the SDK for Python (Boto3) in your function, add the following statement to the import block at the beginning of your function code:
 
 ```
 import boto3
 ```
 
-Use the `pip install` command to add the `boto3` library to your function's deployment package. For detailed instructions on how to add dependencies to a .zip deployment package, see [Creating a .zip deployment package with dependencies](python-package.md#python-package-create-dependencies). To learn more about adding dependencies to Lambda functions deployed as container images, see [Creating an image from a base image](python-image.md#python-image-create) or [Creating an image from an alternative base image](python-image.md#python-alt-create).
+Use the `pip install` command to add the `boto3` library to your function's deployment package. For detailed instructions on how to add dependencies to a .zip deployment package, see [Creating a .zip deployment package with dependencies](python-package.md#python-package-create-dependencies). To learn more about adding dependencies to functions deployed as container images, see [Creating an image from a base image](python-image.md#python-image-create) or [Creating an image from an alternative base image](python-image.md#python-alt-create).
 
 When using `boto3` in your code, you don't need to provide any credentials to initialize a client. For example, in the example code, we use the following line of code to initialize an Amazon S3 client:
 
@@ -256,10 +256,10 @@ bucket_name = os.environ.get('RECEIPT_BUCKET')
 
 Don't forget to include an `import os` statement in the import block at the beginning of your code.
 
-## Code best practices for Python Lambda functions
+## Code best practices for Python Lambda Event Functions
 <a name="python-handler-best-practices"></a>
 
-Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
+Adhere to the guidelines in the following list to use best coding practices when building your functions:
 + **Separate the Lambda handler from your core logic.** This makes it easier to create a more unit-testable function. For example, in Python, this might look like: 
 
   ```
@@ -273,7 +273,7 @@ Adhere to the guidelines in the following list to use best coding practices when
   ```
 + **Control the dependencies in your function's deployment package.** The AWS Lambda execution environment contains a number of libraries. For the Node.js and Python runtimes, these include the AWS SDKs.
 
-  To enable the latest set of features and security updates, Lambda periodically updates these libraries. These updates might introduce subtle changes to the behavior of your Lambda function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package.
+  To enable the latest set of features and security updates, Lambda periodically updates these libraries. These updates might introduce subtle changes to the behavior of your function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package.
 + **Minimize the complexity of your dependencies.** Prefer simpler frameworks that load quickly on [execution environment](lambda-runtime-environment.md) startup.
 + **Minimize your deployment package size to its runtime necessities. ** This reduces the amount of time that it takes for your deployment package to be downloaded and unpacked ahead of invocation.
 

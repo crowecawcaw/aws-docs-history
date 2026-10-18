@@ -1,6 +1,6 @@
 
 
-# Enable internet access for VPC-connected Lambda functions
+# Enable internet access for VPC-connected Lambda Event Functions
 <a name="configuration-vpc-internet"></a>
 
 By default, Lambda functions run in a Lambda-managed VPC that has internet access. To access resources in a VPC in your account, you can add a VPC configuration to a function. This restricts the function to resources within that VPC, unless the VPC has internet access. This page explains how to provide internet access to VPC-connected Lambda functions.
@@ -54,9 +54,9 @@ The **Create VPC workflow** creates all VPC resources required for a Lambda func
 
 **To configure a VPC when you create a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Under **Basic information**, for **Function name**, enter a name for your function.
 
@@ -72,7 +72,7 @@ If you selected **Allow IPv6 traffic for dual-stack subnets**, all selected subn
 
 1. For **Security groups**, select a security group that allows outbound traffic.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 Lambda automatically creates an execution role with the [AWSLambdaVPCAccessExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.html) AWS managed policy. The permissions in this policy are required only to create elastic network interfaces for the VPC configuration, not to invoke your function. To apply least-privilege permissions, you can remove the **AWSLambdaVPCAccessExecutionRole** policy from your execution role after you create the function and VPC configuration. For more information, see [Required IAM permissions](configuration-vpc.md#configuration-vpc-permissions).
 
@@ -80,7 +80,7 @@ Lambda automatically creates an execution role with the [AWSLambdaVPCAccessExecu
 
 To add a VPC configuration to an existing function, the function's execution role must have [ permission to create and manage elastic network interfaces](configuration-vpc.md#configuration-vpc-permissions). The [AWSLambdaVPCAccessExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.html) AWS managed policy includes the required permissions. To apply least-privilege permissions, you can remove the **AWSLambdaVPCAccessExecutionRole** policy from your execution role after you create the VPC configuration.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 
@@ -387,9 +387,9 @@ Follow these steps to create an egress-only internet gateway and add it to your 
 
 **To configure a VPC when you create a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Under **Basic information**, for **Function name**, enter a name for your function.
 
@@ -405,7 +405,7 @@ If you selected **Allow IPv6 traffic for dual-stack subnets**, all selected subn
 
 1. For **Security groups**, select a security group that allows outbound traffic.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 Lambda automatically creates an execution role with the [AWSLambdaVPCAccessExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.html) AWS managed policy. The permissions in this policy are required only to create elastic network interfaces for the VPC configuration, not to invoke your function. To apply least-privilege permissions, you can remove the **AWSLambdaVPCAccessExecutionRole** policy from your execution role after you create the function and VPC configuration. For more information, see [Required IAM permissions](configuration-vpc.md#configuration-vpc-permissions).
 
@@ -413,7 +413,7 @@ Lambda automatically creates an execution role with the [AWSLambdaVPCAccessExecu
 
 To add a VPC configuration to an existing function, the function's execution role must have [ permission to create and manage elastic network interfaces](configuration-vpc.md#configuration-vpc-permissions). The [AWSLambdaVPCAccessExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaVPCAccessExecutionRole.html) AWS managed policy includes the required permissions. To apply least-privilege permissions, you can remove the **AWSLambdaVPCAccessExecutionRole** policy from your execution role after you create the VPC configuration.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 

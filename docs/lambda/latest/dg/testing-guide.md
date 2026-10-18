@@ -29,7 +29,7 @@
 
  Bugs and configuration problems cost less when caught early in the development cycle. Issues that go undetected until production take more effort and more people to fix. 
 
- A good serverless testing strategy improves software quality and speeds up iterations. It verifies that your Lambda functions and applications work as expected in the cloud. 
+ A good serverless testing strategy improves software quality and speeds up iterations. It verifies that your Lambda Event Functions and applications work as expected in the cloud. 
 
 ## What to test
 <a name="what-to-test"></a>
@@ -293,7 +293,7 @@ LocalStack is an AWS Cloud emulator that you can use to test serverless applicat
 
  The following examples provide cases to watch out for when testing locally with mocks and emulators: 
 
-### Example: Lambda function creates an S3 bucket
+### Example: Event Function creates an S3 bucket
 <a name="example-lam-function-creates-an-s3-bucket"></a>
 
  If a Lambda function's logic depends on creating an S3 bucket, a complete test should confirm that Amazon S3 was called and the bucket was successfully created.
@@ -302,7 +302,7 @@ LocalStack is an AWS Cloud emulator that you can use to test serverless applicat
 
  The mock and emulation setups test what the Lambda function does if it calls Amazon S3; however, those tests do not verify that the Lambda function, as configured, is capable of successfully creating the Amazon S3 bucket. You must make sure the role assigned to the function has an attached security policy that allows the function to perform the `s3:CreateBucket` action. If not, the function likely fails when deployed to a cloud environment. 
 
-### Example: Lambda function processes messages from an Amazon SQS queue
+### Example: Event Function processes messages from an Amazon SQS queue
 <a name="example-lam-function-processes-messages-from-an-sqs-queue"></a>
 
  If an Amazon SQS queue is the source of a Lambda function, a complete test should verify that the Lambda function is successfully invoked when a message is put in a queue. 

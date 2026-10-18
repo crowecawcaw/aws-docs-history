@@ -6,14 +6,14 @@
 ## Overview
 <a name="snapstart-custom-overview"></a>
 
-When using SnapStart with a [container image](images-create.md) function, the runtime needs to coordinate the function's lifecycle and invoke the before-snapshot and after-restore hooks during the appropriate lifecycle phases. These hooks let you run custom logic (such as refreshing credentials or re-seeding random number generators) at points in the snapshot-and-restore lifecycle. If you use a managed runtime where SnapStart is supported or the corresponding base images for those runtimes (Java version 11\+, Python version 3.12\+, and .NET version 8\+) Lambda coordinates the lifecycle for you. Register your hooks through the API described in [Implement code before or after Lambda function snapshots](snapstart-runtime-hooks.md).
+When using SnapStart with a [container image](images-create.md) function, the runtime needs to coordinate the function's lifecycle and invoke the before-snapshot and after-restore hooks during the appropriate lifecycle phases. These hooks let you run custom logic (such as refreshing credentials or re-seeding random number generators) at points in the snapshot-and-restore lifecycle. If you use a managed runtime where SnapStart is supported or the corresponding base images for those runtimes (Java version 11\+, Python version 3.12\+, and .NET version 8\+) Lambda coordinates the lifecycle for you. Register your hooks through the API described in [Implement code before or after Lambda Event Function snapshots](snapstart-runtime-hooks.md).
 
 If you use your own base container images, Runtime Interface Clients (RICs), or Lambda's base images for provided.al2023, Node.js, or Ruby, follow the steps on this page to use SnapStart.
 
 ## Prerequisites
 <a name="snapstart-custom-prerequisites"></a>
 
-When Lambda restores a function from a snapshot, any state defined during initialization, such as random number generators, unique IDs, and cached credentials, is shared across all execution environments restored from that snapshot. Before using SnapStart with your container-image based Lambda function, review [Handling uniqueness with Lambda SnapStart](snapstart-uniqueness.md) and ensure that the requirements outlined in [Use cryptographically secure pseudorandom number generators (CSPRNGs)](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-uniqueness.html#snapstart-csprng) are met.
+When Lambda restores a function from a snapshot, any state defined during initialization, such as random number generators, unique IDs, and cached credentials, is shared across all execution environments restored from that snapshot. Before using SnapStart with your container-image based Lambda Event Function, review [Handling uniqueness with Lambda SnapStart](snapstart-uniqueness.md) and ensure that the requirements outlined in [Use cryptographically secure pseudorandom number generators (CSPRNGs)](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-uniqueness.html#snapstart-csprng) are met.
 
 After validating that the requirements are met, choose one of the following two options:
 

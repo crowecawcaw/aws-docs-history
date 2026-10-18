@@ -18,7 +18,7 @@ SnapStart works best when used with function invocations at scale. Functions tha
 ### Java
 <a name="snapstart-tuning-java"></a>
 
-To maximize the benefits of SnapStart, we recommend that you preload dependencies and initialize resources that contribute to startup latency in your initialization code instead of in the function handler. This moves the latency associated with heavy class loading out of the invocation path, optimizing startup performance with SnapStart.
+To maximize the benefits of SnapStart, we recommend that you preload dependencies and initialize resources that contribute to startup latency in your initialization code instead of in the Event Function handler. This moves the latency associated with heavy class loading out of the invocation path, optimizing startup performance with SnapStart.
 
 If you can't preload dependencies or resources during initialization, then we recommend that you preload them with dummy invocations. To do this, update the function handler code, as shown in the following example from the [pet store function](https://github.com/awslabs/aws-serverless-java-container/tree/main/samples/spring/pet-store) on the AWS Labs GitHub repository.
 
@@ -73,7 +73,7 @@ To maximize the benefits of SnapStart, focus on efficient code organization and 
 + Initialize static resources or configurations before the handler is invoked.
 + Consider using a before-snapshot [runtime hook](snapstart-runtime-hooks-python.md) for resource-intensive tasks such as downloading external files, pre-loading frameworks like Django, or loading machine learning models.
 
-**Example — Optimize Python function for SnapStart**  
+**Example — Optimize Python Event Function for SnapStart**  
 
 ```
 # Import all dependencies outside of Lambda handler
@@ -101,7 +101,7 @@ def lambda_handler(event, context):
 ### .NET
 <a name="snapstart-tuning-dotnet"></a>
 
-To reduce just-in-time (JIT) compilation and assembly loading time, consider invoking your function handler from a `RegisterBeforeCheckpoint` [runtime hook](snapstart-runtime-hooks-dotnet.md). Because of how .NET tiered compilation works, you'll get optimal results by invoking the handler multiple times, as shown in the following example.
+To reduce just-in-time (JIT) compilation and assembly loading time, consider invoking your Event Function handler from a `RegisterBeforeCheckpoint` [runtime hook](snapstart-runtime-hooks-dotnet.md). Because of how .NET tiered compilation works, you'll get optimal results by invoking the handler multiple times, as shown in the following example.
 
 **Important**  
 Make sure that your dummy function invocation does not produce unintended side effects, such as initiating business transactions.
@@ -152,7 +152,7 @@ public class Function
 ## Networking best practices
 <a name="snapstart-networking"></a>
 
-The state of connections that your function establishes during the initialization phase isn't guaranteed when Lambda resumes your function from a snapshot. In most cases, network connections that an AWS SDK establishes automatically resume. For other connections, we recommend the following best practices.
+The state of connections that your Event Function establishes during the initialization phase isn't guaranteed when Lambda resumes your function from a snapshot. In most cases, network connections that an AWS SDK establishes automatically resume. For other connections, we recommend the following best practices.
 
 **Re-establish network connections**  
 Always re-establish your network connections when your function resumes from a snapshot. We recommend that you re-establish network connections in the function handler. Alternatively, you can use an after-restore [runtime hook](snapstart-runtime-hooks.md).
@@ -164,7 +164,7 @@ We recommend against using `hostname` to identify your execution environment as 
 We recommend that you avoid binding network connections to fixed source ports. Connections are re-established when a function resumes from a snapshot, and network connections that are bound to a fixed source port might fail.
 
 **Avoid using Java DNS cache**  
-Lambda functions already cache DNS responses. If you use another DNS cache with SnapStart, then you might experience connection timeouts when the function resumes from a snapshot.
+Lambda Event Functions already cache DNS responses. If you use another DNS cache with SnapStart, then you might experience connection timeouts when the function resumes from a snapshot.
 
 The `java.util.logging.Logger` class can indirectly enable the JVM DNS cache. To override the default settings, set [networkaddress.cache.ttl](https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/InetAddress.html#inetaddress-caching-heading) to 0 before initializing `logger`. Example:
 
@@ -179,6 +179,6 @@ public class MyHandler {
 }
 ```
 
-To prevent `UnknownHostException` failures in the Java 11 runtime, we recommend setting `networkaddress.cache.negative.ttl` to 0. In Java 17 and later runtimes, this step isn't necessary. You can set this property for a Lambda function with the `AWS_LAMBDA_JAVA_NETWORKADDRESS_CACHE_NEGATIVE_TTL=0` environment variable.
+To prevent `UnknownHostException` failures in the Java 11 runtime, we recommend setting `networkaddress.cache.negative.ttl` to 0. In Java 17 and later runtimes, this step isn't necessary. You can set this property for a Lambda Event Function with the `AWS_LAMBDA_JAVA_NETWORKADDRESS_CACHE_NEGATIVE_TTL=0` environment variable.
 
 Disabling the JVM DNS cache does not disable Lambda's managed DNS caching.

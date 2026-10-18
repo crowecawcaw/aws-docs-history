@@ -10,13 +10,13 @@ After you've configured active tracing, you can observe specific requests throug
 ![A diagram that shows two separate applications and their respective service maps in X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/images/sample-errorprocessor-servicemap.png)
 
 
-To toggle active tracing on your Lambda function with the console, follow these steps:
+To toggle active tracing on your Lambda Event Function with the console, follow these steps:
 
 **To turn on active tracing**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function.
+1. Choose an Event Function.
 
 1. Choose **Configuration** and then choose **Monitoring and operations tools**.
 
@@ -29,7 +29,7 @@ To toggle active tracing on your Lambda function with the console, follow these 
 **Pricing**  
 You can use X-Ray tracing for free each month up to a certain limit as part of the AWS Free Tier. Beyond that threshold, X-Ray charges for trace storage and retrieval. For more information, see [AWS X-Ray pricing](https://aws.amazon.com/xray/pricing/).
 
-Your function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
+Your Event Function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your Event Function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
 
 X-Ray doesn't trace all requests to your application. X-Ray applies a sampling algorithm to ensure that tracing is efficient, while still providing a representative sample of all requests. The sampling rate is 1 request per second and 5 percent of additional requests. You can't configure the X-Ray sampling rate for your functions.
 
@@ -46,7 +46,7 @@ The first node on the left represents the Lambda service, which receives the inv
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 The example trace shown here illustrates the old-style function segment. The differences between the old- and new-style segments are described in the following paragraphs.  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 
@@ -102,7 +102,7 @@ The first node on the left represents the Lambda service, which receives the inv
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 The example trace shown here illustrates the old-style function segment. The differences between the old- and new-style segments are described in the following paragraphs.  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 

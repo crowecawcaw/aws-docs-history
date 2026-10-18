@@ -1,22 +1,22 @@
 
 
-# Monitoring, debugging, and troubleshooting Lambda functions
+# Monitoring, debugging, and troubleshooting Lambda Event Functions
 <a name="lambda-monitoring"></a>
 
-AWS Lambda integrates with other AWS services to help you monitor and troubleshoot your Lambda functions. Lambda automatically monitors Lambda functions on your behalf and reports metrics through Amazon CloudWatch. To help you monitor your code when it runs, Lambda automatically tracks the number of requests, the invocation duration per request, and the number of requests that result in an error. 
+AWS Lambda integrates with other AWS services to help you monitor and troubleshoot your Lambda Event Functions. Lambda automatically monitors Event Functions on your behalf and reports metrics through Amazon CloudWatch. To help you monitor your code when it runs, Lambda automatically tracks the number of requests, the invocation duration per request, and the number of requests that result in an error. 
 
-You can use other AWS services to troubleshoot your Lambda functions. This section describes how to use these AWS services to monitor, trace, debug, and troubleshoot your Lambda functions and applications. For details about function logging and errors in each runtime, see individual runtime sections. Topics include [application monitoring](applications-console-monitoring.md), [Application Signals](monitoring-application-signals.md), and [logging Lambda API calls with CloudTrail](logging-using-cloudtrail.md).
+You can use other AWS services to troubleshoot your Lambda Event Functions. This section describes how to use these AWS services to monitor, trace, debug, and troubleshoot your Lambda Event Functions and applications. For details about Event Function logging and errors in each runtime, see individual runtime sections. Topics include [application monitoring](applications-console-monitoring.md), [Application Signals](monitoring-application-signals.md), and [logging Lambda API calls with CloudTrail](logging-using-cloudtrail.md).
 
 **Topics**
 + [Pricing](#monitoring-console-metrics-pricing)
 + [Using CloudWatch metrics with Lambda](monitoring-metrics.md)
-+ [Working with Lambda function logs](monitoring-logs.md)
++ [Working with Lambda Event Function logs](monitoring-logs.md)
 + [Logging AWS Lambda API calls using AWS CloudTrail](logging-using-cloudtrail.md)
-+ [Visualize Lambda function invocations using AWS X-Ray](services-xray.md)
-+ [Monitor function performance with Amazon CloudWatch Lambda Insights](monitoring-insights.md)
++ [Visualize Lambda Event Function invocations using AWS X-Ray](services-xray.md)
++ [Monitor Event Function performance with Amazon CloudWatch Lambda Insights](monitoring-insights.md)
 + [Monitoring Lambda applications](applications-console-monitoring.md)
 + [Monitor application performance with Amazon CloudWatch Application Signals](monitoring-application-signals.md)
-+ [Remotely debug Lambda functions with Visual Studio Code](debugging.md)
++ [Remotely debug Lambda Event Functions with Visual Studio Code](debugging.md)
 
 ## Pricing
 <a name="monitoring-console-metrics-pricing"></a>

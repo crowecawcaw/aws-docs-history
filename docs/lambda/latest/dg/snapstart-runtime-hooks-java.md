@@ -3,7 +3,7 @@
 # Lambda SnapStart runtime hooks for Java
 <a name="snapstart-runtime-hooks-java"></a>
 
-You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes a function from a snapshot. Runtime hooks are available as part of the open-source Coordinated Restore at Checkpoint (CRaC) project. CRaC is in development for the [Open Java Development Kit (OpenJDK)](https://wiki.openjdk.org/display/crac). For an example of how to use CRaC with a reference application, see the [CRaC](https://github.com/CRaC/docs/blob/master/STEP-BY-STEP.md) repository on GitHub. CRaC uses three main elements:
+You can use runtime hooks to implement code before Lambda creates a snapshot or after Lambda resumes an Event Function from a snapshot. Runtime hooks are available as part of the open-source Coordinated Restore at Checkpoint (CRaC) project. CRaC is in development for the [Open Java Development Kit (OpenJDK)](https://wiki.openjdk.org/display/crac). For an example of how to use CRaC with a reference application, see the [CRaC](https://github.com/CRaC/docs/blob/master/STEP-BY-STEP.md) repository on GitHub. CRaC uses three main elements:
 + `Resource` – An interface with two methods, `beforeCheckpoint()` and `afterRestore()`. Use these methods to implement the code that you want to run before a snapshot and after a restore.
 + `Context <R extends Resource>` – To receive notifications for checkpoints and restores, a `Resource` must be registered with a `Context`.
 + `Core` – The coordination service, which provides the default global `Context` through the static method `Core.getGlobalContext()`.
@@ -42,9 +42,9 @@ dependencies {
 ## Step 2: Update the Lambda handler
 <a name="runtime-hooks-java-update-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-For more information, see [Define Lambda function handler in Java](java-handler.md).
+For more information, see [Define Lambda Event Function handler in Java](java-handler.md).
 
 The following example handler shows how to run code before checkpointing (`beforeCheckpoint()`) and after restoring (`afterRestore()`). This handler also registers the `Resource` to the runtime-managed global `Context`.
 

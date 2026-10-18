@@ -5,7 +5,7 @@
 
 The durable execution SDK is the foundation for building durable functions. It provides primitives to checkpoint progress, handle retries, and manage execution flow. The SDK abstracts the complexity of checkpoint management and replay, letting you write sequential code that automatically becomes fault-tolerant.
 
-The SDK is available for JavaScript, TypeScript, Python, Java, and C\# (.NET). For complete API documentation, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](https://docs.aws.amazon.com/durable-execution/).
+The SDK is available for JavaScript, TypeScript, Python, Java, Go, and C\# (.NET). For complete API documentation, quickstart tutorials, and language-specific guides, see the [AWS Durable Execution SDK Developer Guide](https://docs.aws.amazon.com/durable-execution/).
 
 ## What the SDK does
 <a name="durable-sdk-what-it-does"></a>

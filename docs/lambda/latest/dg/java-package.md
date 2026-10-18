@@ -1,6 +1,6 @@
 
 
-# Deploy Java Lambda functions with .zip or JAR file archives
+# Deploy Java Lambda Event Functions with .zip or JAR file archives
 <a name="java-package"></a>
 
 Your AWS Lambda function's code consists of scripts or compiled programs and their dependencies. You use a *deployment package* to deploy your function code to Lambda. Lambda supports two types of deployment packages: container images and .zip file archives. 
@@ -30,7 +30,7 @@ The AWS CLI is an open-source tool that you can use to interact with AWS service
 
 AWS provides the following libraries for Java functions. These libraries are available through [Maven Central Repository](https://search.maven.org/search?q=g:com.amazonaws).
 + [com.amazonaws:aws-lambda-java-core](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-core) (required) – Defines handler method interfaces and the context object that the runtime passes to the handler. If you define your own input types, this is the only library that you need.
-+ [com.amazonaws:aws-lambda-java-events](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events) – Input types for events from services that invoke Lambda functions.
++ [com.amazonaws:aws-lambda-java-events](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-events) – Input types for events from services that invoke Lambda Event Functions.
 + [com.amazonaws:aws-lambda-java-log4j2](https://github.com/aws/aws-lambda-java-libs/tree/master/aws-lambda-java-log4j2) – An appender library for Apache Log4j 2 that you can use to add the request ID for the current invocation to your [function logs](java-logging.md).
 + [AWS SDK for Java 2.0](https://github.com/aws/aws-sdk-java-v2) – The official AWS SDK for the Java programming language.
 + [AWS Lambda Durable Execution SDK for Java](https://github.com/aws/aws-durable-execution-sdk-java) – Build reliable multi-step applications and AI workflows that checkpoint progress, automatically recover from failures, and pause execution. For more information, see [Lambda durable functions](durable-functions.md).
@@ -82,7 +82,7 @@ dependencies {
 To create a deployment package, compile your function code and dependencies into a single .zip file or Java Archive (JAR) file. For Gradle, [use the `Zip` build type](#java-package-gradle). For Apache Maven, [use the Maven Shade plugin](#java-package-maven). To upload your deployment package, use the Lambda console, the Lambda API, or AWS Serverless Application Model (AWS SAM).
 
 **Note**  
-To keep your deployment package size small, package your function's dependencies in layers. Layers enable you to manage your dependencies independently, can be used by multiple functions, and can be shared with other accounts. For more information, see [Managing Lambda dependencies with layers](chapter-layers.md).
+To keep your deployment package size small, package your function's dependencies in layers. Layers enable you to manage your dependencies independently, can be used by multiple functions, and can be shared with other accounts. For more information, see [Managing Lambda Event Function dependencies with layers](chapter-layers.md).
 
 ## Building a deployment package with Gradle
 <a name="java-package-gradle"></a>
@@ -130,7 +130,7 @@ find ./expanded/lib -name '*.jar' | xargs -n1 zipinfo -1 | grep '.*.class' | sor
 ## Using layers for dependencies
 <a name="java-package-layers"></a>
 
-You can package your function's dependencies in layers to keep your deployment package small and manage dependencies independently. For more information, see [Working with layers for Java Lambda functions](java-layers.md).
+You can package your function's dependencies in layers to keep your deployment package small and manage dependencies independently. For more information, see [Working with layers for Java Lambda Event Functions](java-layers.md).
 
 ## Building a deployment package with Maven
 <a name="java-package-maven"></a>
@@ -228,16 +228,16 @@ If you use the appender library (`aws-lambda-java-log4j2`), you must also config
 ## Uploading a deployment package with the Lambda console
 <a name="java-package-console"></a>
 
- To create a new function, you must first create the function in the console, then upload your .zip or JAR file. To update an existing function, open the page for your function, then follow the same procedure to add your updated .zip or JAR file. 
+ To create a new Event Function, you must first create the function in the console, then upload your .zip or JAR file. To update an existing function, open the page for your function, then follow the same procedure to add your updated .zip or JAR file. 
 
  If your deployment package file is less than 50MB, you can create or update a function by uploading the file directly from your local machine. For .zip or JAR files greater than 50MB, you must upload your package to an Amazon S3 bucket first. For instructions on how to upload a file to an Amazon S3 bucket using the AWS Management Console, see [Getting started with Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/GetStartedWithS3.html). To upload files using the AWS CLI, see [Move objects](https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html#using-s3-commands-managing-objects-move) in the *AWS CLI User Guide*. 
 
 **Note**  
 You cannot change the [deployment package type](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-PackageType) (.zip or container image) for an existing function. For example, you cannot convert a container image function to use a .zip file archive. You must create a new function.
 
-**To create a new function (console)**
+**To create a new Event Function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Function**.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -251,11 +251,11 @@ You cannot change the [deployment package type](https://docs.aws.amazon.com/lamb
 
 1. (Optional) Under **Permissions**, expand **Change default execution role**. You can create a new **Execution role** or use an existing one.
 
-1. Choose **Create function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
+1. Choose **Create Event Function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
 
 **To upload a .zip or JAR archive from your local machine (console)**
 
-1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload the .zip or JAR file for.
+1. In the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload the .zip or JAR file for.
 
 1. Select the **Code** tab.
 
@@ -273,7 +273,7 @@ You cannot change the [deployment package type](https://docs.aws.amazon.com/lamb
 
 **To upload a .zip or JAR archive from an Amazon S3 bucket (console)**
 
-1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload a new .zip or JAR file for.
+1. In the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload a new .zip or JAR file for.
 
 1. Select the **Code** tab.
 
@@ -375,7 +375,7 @@ aws cloudformation deploy --template-file out.yml --stack-name java-basic --capa
 For a complete working example, see the following sample applications:
 
 **Sample Lambda applications in Java**
-+ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
++ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java Event Function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
 + [java-basic](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic) – A collection of minimal Java functions with unit tests and variable logging configuration.
 + [java-events](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events) – A collection of Java functions that contain skeleton code for how to handle events from various services such as Amazon API Gateway, Amazon SQS, and Amazon Kinesis. These functions use the latest version of the [aws-lambda-java-events](#java-package) library (3.0.0 and newer). These examples do not require the AWS SDK as a dependency.
 + [s3-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java) – A Java function that processes notification events from Amazon S3 and uses the Java Class Library (JCL) to create thumbnails from uploaded image files.

@@ -3,10 +3,10 @@
 # Creating and managing Lambda function URLs
 <a name="urls-configuration"></a>
 
-A function URL is a dedicated HTTP(S) endpoint for your Lambda function. You can create and configure a function URL through the Lambda console or the Lambda API.
+A function URL is a dedicated HTTP(S) endpoint for your Lambda Event Function. You can create and configure a function URL through the Lambda console or the Lambda API.
 
 **Tip**  
-Lambda offers two ways to invoke your function through an HTTP endpoint: function URLs and Amazon API Gateway. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda function using an HTTP request](furls-http-invoke-decision.md).
+Lambda offers two ways to invoke your function through an HTTP endpoint: function URLs and Amazon API Gateway. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda Event Function using an HTTP request](furls-http-invoke-decision.md).
 
 When you create a function URL, Lambda automatically generates a unique URL endpoint for you. Once you create a function URL, its URL endpoint never changes. Function URL endpoints have the following format:
 
@@ -20,7 +20,7 @@ Function URLs are not supported in all AWS regions. To check availability, see [
 Function URLs are dual stack-enabled, supporting IPv4 and IPv6. After you configure a function URL for your function, you can invoke your function through its HTTP(S) endpoint by using a web browser, curl, Postman, or any HTTP client.
 
 **Note**  
-You can access your function URL through the public Internet only. While Lambda functions do support AWS PrivateLink, function URLs do not.
+You can access your function URL through the public Internet only. While Lambda Event Functions do support AWS PrivateLink, function URLs do not.
 
 Lambda function URLs use [resource-based policies](access-control-resource-based.md) for security and access control. Function URLs also support cross-origin resource sharing (CORS) configuration options.
 
@@ -39,7 +39,7 @@ The following section show how to create and manage a function URL using the Lam
 + [Control access to Lambda function URLs](urls-auth.md)
 + [Invoking Lambda function URLs](urls-invocation.md)
 + [Monitoring Lambda function URLs](urls-monitoring.md)
-+ [Select a method to invoke your Lambda function using an HTTP request](furls-http-invoke-decision.md)
++ [Select a method to invoke your Lambda Event Function using an HTTP request](furls-http-invoke-decision.md)
 + [Tutorial: Creating a webhook endpoint using a Lambda function URL](urls-webhook-tutorial.md)
 
 ## Creating a function URL (console)
@@ -50,9 +50,9 @@ Follow these steps to create a function URL using the console.
 ### To create a function URL for an existing function
 <a name="create-url-existing-function"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function that you want to create the function URL for.
+1. Choose the name of the Event Function that you want to create the function URL for.
 
 1. Choose the **Configuration** tab, and then choose **Function URL**.
 
@@ -69,9 +69,9 @@ This creates a function URL for the `$LATEST` unpublished version of your functi
 ### To create a function URL for an existing alias
 <a name="create-url-existing-alias"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function with the alias that you want to create the function URL for.
+1. Choose the name of the Event Function with the alias that you want to create the function URL for.
 
 1. Choose the **Aliases** tab, and then choose the name of the alias that you want to create the function URL for.
 
@@ -90,11 +90,11 @@ This creates a function URL for your function alias. The function URL appears in
 ### To create a new function with a function URL
 <a name="create-url-new-function"></a>
 
-**To create a new function with a function URL (console)**
+**To create a new Event Function with a function URL (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Under **Basic information**, do the following:
 
@@ -112,14 +112,14 @@ This creates a function URL for your function alias. The function URL appears in
 
 1. (Optional) Select **Configure cross-origin resource sharing (CORS)**. By selecting this option during function creation, your function URL allows requests from all origins by default. You can edit the CORS settings for your function URL after creating the function. For more information about CORS, see [Cross-origin resource sharing (CORS)](#urls-cors).
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 This creates a new function with a function URL for the `$LATEST` unpublished version of the function. The function URL appears in the **Function overview** section of the console.
 
 ## Creating a function URL (AWS CLI)
 <a name="create-url-cli"></a>
 
-To create a function URL for an existing Lambda function using the AWS Command Line Interface (AWS CLI), run the following command:
+To create a function URL for an existing Lambda Event Function using the AWS Command Line Interface (AWS CLI), run the following command:
 
 ```
 aws lambda create-function-url-config \
@@ -200,7 +200,7 @@ Properties:
     MaxAge: Integer
   ```
 + (Optional) `Qualifier` – The alias name.
-+ (Required) `TargetFunctionArn` – The name or Amazon Resource Name (ARN) of the Lambda function. Valid name formats include the following:
++ (Required) `TargetFunctionArn` – The name or Amazon Resource Name (ARN) of the Lambda Event Function. Valid name formats include the following:
   + **Function name** – `my-function`
   + **Function ARN** – `arn:aws:lambda:us-west-2:123456789012:function:my-function`
   + **Partial ARN** – `123456789012:function:my-function`
@@ -231,9 +231,9 @@ In general, we recommend configuring all CORS settings on the function URL, rath
 
 Throttling limits the rate at which your function processes requests. This is useful in many situations, such as preventing your function from overloading downstream resources, or handling a sudden surge in requests.
 
-You can throttle the rate of requests that your Lambda function processes through a function URL by configuring reserved concurrency. Reserved concurrency limits the number of maximum concurrent invocations for your function. Your function's maximum request rate per second (RPS) is equivalent to 10 times the configured reserved concurrency. For example, if you configure your function with a reserved concurrency of 100, then the maximum RPS is 1,000.
+You can throttle the rate of requests that your Lambda Event Function processes through a function URL by configuring reserved concurrency. Reserved concurrency limits the number of maximum concurrent invocations for your function. Your function's maximum request rate per second (RPS) is equivalent to 10 times the configured reserved concurrency. For example, if you configure your function with a reserved concurrency of 100, then the maximum RPS is 1,000.
 
-Whenever your function concurrency exceeds the reserved concurrency, your function URL returns an HTTP `429` status code. If your function receives a request that exceeds the 10x RPS maximum based on your configured reserved concurrency, you also receive an HTTP `429` error. For more information about reserved concurrency, see [Configuring reserved concurrency for a function](configuration-concurrency.md).
+Whenever your function concurrency exceeds the reserved concurrency, your function URL returns an HTTP `429` status code. If your function receives a request that exceeds the 10x RPS maximum based on your configured reserved concurrency, you also receive an HTTP `429` error. For more information about reserved concurrency, see [Configuring reserved concurrency for an Event Function](configuration-concurrency.md).
 
 ## Deactivating function URLs
 <a name="urls-deactivating"></a>
@@ -248,9 +248,9 @@ When you delete a function URL, you can't recover it. Creating a new function UR
 **Note**  
 If you delete a function URL with auth type `NONE`, Lambda doesn't automatically delete the associated resource-based policy. If you want to delete this policy, you must manually do so.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function.
+1. Choose the name of the Event Function.
 
 1. Choose the **Configuration** tab, and then choose **Function URL**.
 

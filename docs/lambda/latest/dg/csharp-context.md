@@ -1,6 +1,6 @@
 
 
-# Using the Lambda context object to retrieve C\# function information
+# Using the Lambda context object to retrieve C\# Event Function information
 <a name="csharp-context"></a>
 
 When Lambda runs your function, it passes a context object to the [handler](csharp-handler.md). This object provides properties with information about the invocation, function, and execution environment.

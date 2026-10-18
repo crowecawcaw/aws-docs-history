@@ -5,7 +5,7 @@
 
 A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 
-This section explains how to create and delete layers in Lambda. For more conceptual information about layers and why you might consider using them, see [Managing Lambda dependencies with layers](chapter-layers.md).
+This section explains how to create and delete layers in Lambda. For more conceptual information about layers and why you might consider using them, see [Managing Lambda Event Function dependencies with layers](chapter-layers.md).
 
 After you've [packaged your layer content](packaging-layers.md), the next step is to create the layer in Lambda. This section demonstrates how to create and delete layers using the Lambda console or the Lambda API only. To create a layer using AWS CloudFormation, see [Using AWS CloudFormation with layers](layers-cfn.md). To create a layer using the AWS Serverless Application Model (AWS SAM), see [Using AWS SAM with layers](layers-sam.md).
 
@@ -18,7 +18,7 @@ After you've [packaged your layer content](packaging-layers.md), the next step i
 
 To create a layer, you can either upload the .zip file archive from your local machine or from Amazon Simple Storage Service (Amazon S3). When uploading from Amazon S3, you can choose whether Lambda copies the code to Lambda-managed storage or references it directly from your S3 bucket. For more information, see [Self-managed S3 code storage](configuration-self-managed-storage.md).
 
-Lambda extracts the layer contents into the `/opt` directory when setting up the execution environment for the function.
+Lambda extracts the layer contents into the `/opt` directory when setting up the execution environment for the Lambda Event Function.
 
 Layers can have one or more [layer versions](chapter-layers.md#lambda-layer-versions). When you create a layer, Lambda sets the layer version to version 1. You can change the permissions on an existing layer version at any time. However, to update the code or make other configuration changes, you must create a new version of the layer.
 
@@ -65,7 +65,7 @@ To delete a layer version, use the [DeleteLayerVersion](https://docs.aws.amazon.
 aws lambda delete-layer-version --layer-name my-layer --version-number 1
 ```
 
-When you delete a layer version, you can no longer configure new functions to use it. However, any function that already references the deleted layer version continues to run with that layer content. Lambda never reuses version numbers for a layer name.
+When you delete a layer version, you can no longer configure new Event Functions to use it. However, any Event Function that already references the deleted layer version continues to run with that layer content. Lambda never reuses version numbers for a layer name.
 
 ### Storage quota impact of deleting layers
 <a name="layers-delete-storage"></a>
@@ -73,10 +73,10 @@ When you delete a layer version, you can no longer configure new functions to us
 The storage quota impact of deleting a layer version depends on the storage mode used by the layer and by the functions that reference it.
 
 Layer uses Lambda-managed storage (COPY)  
-When you delete a layer version that uses Lambda-managed storage, the layer code is removed from your account's Lambda-managed storage quota. However, any function that still references the deleted layer version continues to have access to the layer content. The layer content counts towards the function's deployment package size quota (250 MB unzipped) but no longer counts towards the account-level Lambda-managed storage quota.
+When you delete a layer version that uses Lambda-managed storage, the layer code is removed from your account's Lambda-managed storage quota. However, any Event Function that still references the deleted layer version continues to have access to the layer content. The layer content counts towards the Event Function's deployment package size quota (250 MB unzipped) but no longer counts towards the account-level Lambda-managed storage quota.
 
 Layer uses self-managed S3 storage (REFERENCE)  
-Layers that use [self-managed S3 code storage](configuration-self-managed-storage.md) do not consume Lambda-managed storage, so deleting them has no impact on your Lambda-managed storage quota. Functions that reference a deleted self-managed layer version continue to run normally. However, if you also delete the source object from your S3 bucket or revoke Lambda's access to it, you can no longer update function configuration with that layer.
+Layers that use [self-managed S3 code storage](configuration-self-managed-storage.md) do not consume Lambda-managed storage, so deleting them has no impact on your Lambda-managed storage quota. Event Functions that reference a deleted self-managed layer version continue to run normally. However, if you also delete the source object from your S3 bucket or revoke Lambda's access to it, you can no longer update Event Function configuration with that layer.
 
 **Note**  
-Deleting a layer version never deactivates functions that reference it. Functions remain `Active` regardless of whether the layer used Lambda-managed or self-managed S3 storage. The `Inactive` state only applies when Lambda loses access to a function's own source code stored in a self-managed S3 bucket.
+Deleting a layer version never deactivates Event Functions that reference it. Event Functions remain `Active` regardless of whether the layer used Lambda-managed or self-managed S3 storage. The `Inactive` state only applies when Lambda loses access to an Event Function's own source code stored in a self-managed S3 bucket.

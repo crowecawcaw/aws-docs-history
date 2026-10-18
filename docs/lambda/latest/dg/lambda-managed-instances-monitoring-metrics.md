@@ -53,7 +53,7 @@ Lambda Managed Instances emits granular throttle reason metrics that identify th
 + **MemoryThrottles** – The execution environment exhausted its allocated memory. This can be addressed by increasing your function's [memory allocation](configuration-memory.md) or by reducing [ExecutionEnvironmentMaxConcurrency](lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency) to lower per-environment load.
 + **DiskThrottles** – The execution environment exhausted its allocated disk space. This can be addressed by increasing your function's [ephemeral storage](configuration-ephemeral-storage.md) or by reducing [ExecutionEnvironmentMaxConcurrency](lambda-managed-instances-scaling.md#lambda-managed-instances-maximum-concurrency) to lower per-environment load.
 
-Lambda always emits the standard `Throttles` metric alongside these sub-metrics. Use these metrics to understand why your function is scaling and whether to adjust your maximum concurrency, function memory, vCPU allocation, or disk configuration. For the full list of Lambda metrics, see [Types of metrics for Lambda functions](monitoring-metrics-types.md).
+Lambda always emits the standard `Throttles` metric alongside these sub-metrics. Use these metrics to understand why your function is scaling and whether to adjust your maximum concurrency, function memory, vCPU allocation, or disk configuration. For the full list of Lambda metrics, see [Types of metrics for Lambda Event Functions](monitoring-metrics-types.md).
 
 ## Metric frequency and retention
 <a name="lambda-managed-instances-metric-frequency"></a>

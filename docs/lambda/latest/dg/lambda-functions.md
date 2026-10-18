@@ -1,9 +1,9 @@
 
 
-# Configuring AWS Lambda functions
+# Configuring AWS Lambda Event Functions
 <a name="lambda-functions"></a>
 
-Learn how to configure the core capabilities and options for your Lambda function using the Lambda API or console.
+Learn how to configure the core capabilities and options for your Lambda Event Function using the Lambda API or console.
 
 **[.zip file archives](configuration-function-zip.md) **  
 Create a Lambda function deployment package when you want to include dependencies, custom runtime layers, or any files beyond your function code. The deployment package is a .zip file archive containing your function code and dependencies.

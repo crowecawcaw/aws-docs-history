@@ -1,24 +1,24 @@
 
 
-# Visualize Lambda function invocations using AWS X-Ray
+# Visualize Lambda Event Function invocations using AWS X-Ray
 <a name="services-xray"></a>
 
-You can use AWS X-Ray to visualize the components of your application, identify performance bottlenecks, and troubleshoot requests that resulted in an error. Your Lambda functions send trace data to X-Ray, and X-Ray processes the data to generate a service map and searchable trace summaries.
+You can use AWS X-Ray to visualize the components of your application, identify performance bottlenecks, and troubleshoot requests that resulted in an error. Your Lambda Event Functions send trace data to X-Ray, and X-Ray processes the data to generate a service map and searchable trace summaries.
 
-Lambda supports two tracing modes for X-Ray: `Active` and `PassThrough`. With `Active` tracing, Lambda automatically creates trace segments for function invocations and sends them to X-Ray. `PassThrough` mode, on the other hand, simply propagates the tracing context to downstream services.
+Lambda supports two tracing modes for X-Ray: `Active` and `PassThrough`. With `Active` tracing, Lambda automatically creates trace segments for Event Function invocations and sends them to X-Ray. `PassThrough` mode, on the other hand, simply propagates the tracing context to downstream services.
 
-If you've enabled `Active` tracing for your function, Lambda automatically sends traces to X-Ray for sampled requests. Typically, an upstream service, such as Amazon API Gateway or an application hosted on Amazon EC2 that is instrumented with the X-Ray SDK, decides whether incoming requests should be traced, then adds that sampling decision as a tracing header. Lambda uses that header to decide to send traces or not. Traces from upstream message producers, such as Amazon SQS, are automatically linked to traces from downstream Lambda functions, creating an end-to-end view of the entire application. For more information, see [Tracing event-driven applications](https://docs.aws.amazon.com/xray/latest/devguide/xray-tracelinking.html) in the *AWS X-Ray Developer Guide*.
+If you've enabled `Active` tracing for your Event Function, Lambda automatically sends traces to X-Ray for sampled requests. Typically, an upstream service, such as Amazon API Gateway or an application hosted on Amazon EC2 that is instrumented with the X-Ray SDK, decides whether incoming requests should be traced, then adds that sampling decision as a tracing header. Lambda uses that header to decide to send traces or not. Traces from upstream message producers, such as Amazon SQS, are automatically linked to traces from downstream Lambda Event Functions, creating an end-to-end view of the entire application. For more information, see [Tracing event-driven applications](https://docs.aws.amazon.com/xray/latest/devguide/xray-tracelinking.html) in the *AWS X-Ray Developer Guide*.
 
 **Note**  
-X-Ray tracing is currently not supported for Lambda functions with Amazon Managed Streaming for Apache Kafka (Amazon MSK), self-managed Apache Kafka, Amazon MQ with ActiveMQ and RabbitMQ, or Amazon DocumentDB event source mappings.
+X-Ray tracing is currently not supported for Lambda Event Functions with Amazon Managed Streaming for Apache Kafka (Amazon MSK), self-managed Apache Kafka, Amazon MQ with ActiveMQ and RabbitMQ, or Amazon DocumentDB event source mappings.
 
-To toggle active tracing on your Lambda function with the console, follow these steps:
+To toggle active tracing on your Lambda Event Function with the console, follow these steps:
 
 **To turn on active tracing**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function.
+1. Choose an Event Function.
 
 1. Choose **Configuration** and then choose **Monitoring and operations tools**.
 
@@ -28,7 +28,7 @@ To toggle active tracing on your Lambda function with the console, follow these 
 
 1. Choose **Save**.
 
-Your function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
+Your Event Function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your Event Function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
 
 X-Ray doesn't trace all requests to your application. X-Ray applies a sampling algorithm to ensure that tracing is efficient, while still providing a representative sample of all requests. The sampling rate is 1 request per second and 5 percent of additional requests. You can't configure the X-Ray sampling rate for your functions.
 
@@ -40,14 +40,14 @@ In X-Ray, a *trace* records information about a request that is processed by one
 ![An X-Ray service map with a single function.](https://docs.aws.amazon.com/lambda/latest/dg/images/xray-servicemap-function.png)
 
 
-The first node on the left represents the Lambda service, which receives the invocation request. The second node represents your specific Lambda function.
+The first node on the left represents the Lambda service, which receives the invocation request. The second node represents your specific Lambda Event Function.
 
 The segment recorded for the Lambda service, `AWS::Lambda`, covers all the steps required to prepare the Lambda execution environment. This includes scheduling the MicroVM, creating or unfreezing an execution environment with the resources you have configured, as well as downloading your function code and all layers.
 
-The `AWS::Lambda::Function` segment is for the work done by the function.
+The `AWS::Lambda::Function` segment is for the work done by the Event Function.
 
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 This change affects the subsegments of the function segment. The following paragraphs describe both the old and new formats for these subsegments.  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 
@@ -77,10 +77,10 @@ An example trace using the old-style X-Ray structure is shown in the following d
 ![Diagram showing an example old-style X-Ray trace containing invocation segment.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 
 
-Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
+Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your Event Function had an issue.
 
 **Note**  
-Occasionally, you might notice a large gap between the function initialization and invocation phases in your X-Ray traces. For functions using [provisioned concurrency](provisioned-concurrency.md), this is because Lambda initializes your function instances well in advance of invocation. For functions using [unreserved (on-demand) concurrency](lambda-concurrency.md), Lambda might proactively initialize a function instance, even if there's no invocation. Visually, both of these cases show up as a time gap between the initialization and invocation phases.
+Occasionally, you might notice a large gap between the function initialization and invocation phases in your X-Ray traces. For functions using [provisioned concurrency](provisioned-concurrency.md), this is because Lambda initializes your function instances well in advance of invocation. For Event Functions using [unreserved (on-demand) concurrency](lambda-concurrency.md), Lambda might proactively initialize a function instance, even if there's no invocation. Visually, both of these cases show up as a time gap between the initialization and invocation phases.
 
 **New-style AWS X-Ray Lambda segment structure**  
 The new-style X-Ray structure for the `AWS::Lambda` segment looks like the following:
@@ -101,7 +101,7 @@ An example trace using the new-style X-Ray structure is shown in the following d
 ![Diagram showing an example new-style X-Ray trace without the invocation segment.](https://docs.aws.amazon.com/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v2.png)
 
 
-Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your function had an issue.
+Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda` and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service had an issue. If the `AWS::Lambda::Function` segment shows an error, your Event Function had an issue.
 
 See the following topics for a language-specific introduction to tracing in Lambda:
 + [Instrumenting Node.js code in AWS Lambda](nodejs-tracing.md)
@@ -118,15 +118,15 @@ For a full list of services that support active instrumentation, see [Supported 
 
 If you do not have `Active` tracing turned on, Lambda defaults to `PassThrough` tracing mode.
 
-In `PassThrough` mode, Lambda forwards the X-Ray tracing header to downstream services, but does not send traces automatically. This is true even if the tracing header contains a decision to sample the request. If the upstream service does not provide an X-Ray tracing header, Lambda generates a header and makes the decision not to sample. However, you can send your own traces by calling tracing libraries from your function code. 
+In `PassThrough` mode, Lambda forwards the X-Ray tracing header to downstream services, but does not send traces automatically. This is true even if the tracing header contains a decision to sample the request. If the upstream service does not provide an X-Ray tracing header, Lambda generates a header and makes the decision not to sample. However, you can send your own traces by calling tracing libraries from your Event Function code. 
 
 **Note**  
- Previously, Lambda would send traces automatically when upstream services, such as Amazon API Gateway, added a tracing header. By not sending traces automatically, Lambda gives you the control to trace the functions that are important to you. If your solution depends on this passive tracing behavior, switch to `Active` tracing. 
+ Previously, Lambda would send traces automatically when upstream services, such as Amazon API Gateway, added a tracing header. By not sending traces automatically, Lambda gives you the control to trace the Event Functions that are important to you. If your solution depends on this passive tracing behavior, switch to `Active` tracing. 
 
 ## Execution role permissions
 <a name="services-xray-permissions"></a>
 
-Lambda needs the following permissions to send trace data to X-Ray. Add them to your function's [execution role](lambda-intro-execution-role.md).
+Lambda needs the following permissions to send trace data to X-Ray. Add them to your Event Function's [execution role](lambda-intro-execution-role.md).
 + [xray:PutTraceSegments](https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html)
 + [xray:PutTelemetryRecords](https://docs.aws.amazon.com/xray/latest/api/API_PutTelemetryRecords.html)
 

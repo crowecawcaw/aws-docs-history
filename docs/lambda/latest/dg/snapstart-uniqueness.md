@@ -10,14 +10,14 @@ We recommend the following best practices to help you maintain uniqueness in you
 ## Avoid saving state that depends on uniqueness during initialization
 <a name="snapstart-caching-unique"></a>
 
-During the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib) of your function, avoid caching data that's intended to be unique, such as generating a unique ID for logging or setting seeds for random functions. Instead, we recommend that you generate unique data or set seeds for random functions inside your function handler—or use a [runtime hook](snapstart-runtime-hooks.md).
+During the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib) of your Event Function, avoid caching data that's intended to be unique, such as generating a unique ID for logging or setting seeds for random functions. Instead, we recommend that you generate unique data or set seeds for random functions inside your function handler—or use a [runtime hook](snapstart-runtime-hooks.md).
 
-The following examples demonstrate how to generate a UUID in the function handler.
+The following examples demonstrate how to generate a UUID in the Event Function handler.
 
 ------
 #### [ Java ]
 
-**Example – Generating a unique ID in function handler**  
+**Example – Generating a unique ID in Event Function handler**  
 
 ```
 import java.util.UUID;
@@ -36,7 +36,7 @@ import java.util.UUID;
 ------
 #### [ Python ]
 
-**Example – Generating a unique ID in function handler**  
+**Example – Generating a unique ID in Event Function handler**  
 
 ```
 import json
@@ -60,7 +60,7 @@ def lambda_handler(event, context):
 ------
 #### [ .NET ]
 
-**Example – Generating a unique ID in function handler**  
+**Example – Generating a unique ID in Event Function handler**  
 
 ```
 namespace Example;
@@ -114,7 +114,7 @@ When you package your function as a container image, your base image determines 
 ### Minimum supported library versions
 <a name="snapstart-csprng-minimum-versions"></a>
 
-AWS cryptography libraries automatically maintain randomness with SnapStart beginning with the minimum versions specified in the following table. If you use these libraries with your Lambda functions, make sure that you use the following minimum versions or later versions:
+AWS cryptography libraries automatically maintain randomness with SnapStart beginning with the minimum versions specified in the following table. If you use these libraries with your Lambda Event Functions, make sure that you use the following minimum versions or later versions:
 
 
 
@@ -123,7 +123,7 @@ AWS cryptography libraries automatically maintain randomness with SnapStart begi
 | AWS libcrypto (AWS-LC) | 1.16.0 | 1.30.0 | 
 | AWS libcrypto FIPS | 2.0.13 | 2.0.13 | 
 
-If you package the preceding cryptographic libraries with your Lambda functions as transitive dependencies through the following libraries, make sure that you use the following minimum versions or later versions:
+If you package the preceding cryptographic libraries with your Lambda Event Functions as transitive dependencies through the following libraries, make sure that you use the following minimum versions or later versions:
 
 
 

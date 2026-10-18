@@ -1,9 +1,9 @@
 
 
-# Deploy Rust Lambda functions with .zip file archives
+# Deploy Rust Lambda Event Functions with .zip file archives
 <a name="rust-package"></a>
 
-This page describes how to compile your Rust function, and then deploy the compiled binary to AWS Lambda using [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html). It also shows how to deploy the compiled binary with the AWS Command Line Interface and the AWS Serverless Application Model CLI.
+This page describes how to compile your Rust Event Function, and then deploy the compiled binary to AWS Lambda using [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html). It also shows how to deploy the compiled binary with the AWS Command Line Interface and the AWS Serverless Application Model CLI.
 
 **Topics**
 + [Prerequisites](#rust-package-prerequisites)

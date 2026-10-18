@@ -3,10 +3,10 @@
 # Process Amazon S3 event notifications with Lambda
 <a name="with-s3"></a>
 
-You can use Lambda to process [event notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html) from Amazon Simple Storage Service. Amazon S3 can send an event to a Lambda function when an object is created or deleted. You configure notification settings on a bucket, and grant Amazon S3 permission to invoke a function on the function's resource-based permissions policy.
+You can use Lambda to process [event notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/NotificationHowTo.html) from Amazon Simple Storage Service. Amazon S3 can send an event to a Lambda Event Function when an object is created or deleted. You configure notification settings on a bucket, and grant Amazon S3 permission to invoke a function on the function's resource-based permissions policy.
 
 **Warning**  
-If your Lambda function uses the same bucket that triggers it, it could cause the function to run in a loop. For example, if the bucket triggers a function each time an object is uploaded, and the function uploads an object to the bucket, then the function indirectly triggers itself. To avoid this, use two buckets, or configure the trigger to only apply to a prefix used for incoming objects.
+If your Lambda Event Function uses the same bucket that triggers it, it could cause the function to run in a loop. For example, if the bucket triggers a function each time an object is uploaded, and the function uploads an object to the bucket, then the function indirectly triggers itself. To avoid this, use two buckets, or configure the trigger to only apply to a prefix used for incoming objects.
 
 Amazon S3 invokes your function [asynchronously](invocation-async.md) with an event that contains details about the object. The following example shows an event that Amazon S3 sent when a deployment package was uploaded to Amazon S3.
 
@@ -58,5 +58,5 @@ To invoke your function, Amazon S3 needs permission from the function's [resourc
 If your function uses the AWS SDK to manage Amazon S3 resources, it also needs Amazon S3 permissions in its [execution role](lambda-intro-execution-role.md). 
 
 **Topics**
-+ [Tutorial: Using an Amazon S3 trigger to invoke a Lambda function](with-s3-example.md)
++ [Tutorial: Using an Amazon S3 trigger to invoke a Lambda Event Function](with-s3-example.md)
 + [Tutorial: Using an Amazon S3 trigger to create thumbnail images](with-s3-tutorial.md)

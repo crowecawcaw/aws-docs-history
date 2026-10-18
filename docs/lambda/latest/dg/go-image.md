@@ -1,9 +1,9 @@
 
 
-# Deploy Go Lambda functions with container images
+# Deploy Go Lambda Event Functions with container images
 <a name="go-image"></a>
 
-There are two ways to build a container image for a Go Lambda function:
+There are two ways to build a container image for a Go Lambda Event Function:
 + [Using an AWS OS-only base image](#go-image-provided)
 
   Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only base image](images-create.md#runtimes-images-provided) to build Go images for Lambda. To make the image compatible with Lambda, you must include the `aws-lambda-go/lambda` package in the image.

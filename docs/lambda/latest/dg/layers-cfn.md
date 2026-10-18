@@ -3,15 +3,15 @@
 # Using AWS CloudFormation with layers
 <a name="layers-cfn"></a>
 
-You can use CloudFormation to create a layer and associate the layer with your Lambda function. The following example template creates a layer named `my-lambda-layer` and attaches the layer to the Lambda function using the **Layers** property.
+You can use CloudFormation to create a layer and associate the layer with your Lambda Event Function. The following example template creates a layer named `my-lambda-layer` and attaches the layer to the Event Function using the **Layers** property.
 
 In this example, the template specifies the Amazon Resource Name (ARN) of an existing IAM [execution role](lambda-intro-execution-role.md). You can also create a new execution role in the template using the CloudFormation [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html) resource.
 
-Your function doesn't need any special permissions to use layers.
+Your Event Function doesn't need any special permissions to use layers.
 
 ```
 ---
-Description: CloudFormation Template for Lambda Function with Lambda Layer
+Description: CloudFormation Template for Lambda Event Function with Lambda Layer
 Resources:
   MyLambdaLayer:
     Type: AWS::Lambda::LayerVersion

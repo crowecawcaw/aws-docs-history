@@ -3,7 +3,7 @@
 # Process Amazon DocumentDB events with Lambda
 <a name="with-documentdb"></a>
 
-You can use a Lambda function to process events in an [Amazon DocumentDB (with MongoDB compatibility) change stream](https://docs.aws.amazon.com/documentdb/latest/developerguide/change_streams.html) by configuring an Amazon DocumentDB cluster as an event source. Then, you can automate event-driven workloads by invoking your Lambda function each time that data changes with your Amazon DocumentDB cluster.
+You can use a Lambda Event Function to process events in an [Amazon DocumentDB (with MongoDB compatibility) change stream](https://docs.aws.amazon.com/documentdb/latest/developerguide/change_streams.html) by configuring an Amazon DocumentDB cluster as an event source. Then, you can automate event-driven workloads by invoking your Lambda Event Function each time that data changes with your Amazon DocumentDB cluster.
 
 **Note**  
 Lambda supports version 4.0 and 5.0 of Amazon DocumentDB only. Lambda doesn't support version 3.6.  
@@ -70,7 +70,7 @@ For more information about the events in this example and their shapes, see [Cha
 ## Prerequisites and permissions
 <a name="docdb-prereqs"></a>
 
-Before you can use Amazon DocumentDB as an event source for your Lambda function, note the following prerequisites. You must:
+Before you can use Amazon DocumentDB as an event source for your Lambda Event Function, note the following prerequisites. You must:
 + **Have an existing Amazon DocumentDB cluster in the same AWS account and AWS Region as your function.** If you don't have an existing cluster, you can create one by following the steps in [Get Started with Amazon DocumentDB](https://docs.aws.amazon.com/documentdb/latest/developerguide/get-started-guide.html) in the *Amazon DocumentDB Developer Guide*. Alternatively, the first set of steps in [Tutorial: Using AWS Lambda with Amazon DocumentDB Streams](with-documentdb-tutorial.md) guide you through creating an Amazon DocumentDB cluster with all the necessary prerequisites.
 + **Allow Lambda to access the Amazon Virtual Private Cloud (Amazon VPC) resources associated with your Amazon DocumentDB cluster.** For more information, see [Configure network security](#docdb-network).
 + **Enable TLS on your Amazon DocumentDB cluster.** This is the default setting. If you disable TLS, then Lambda cannot communicate with your cluster.
@@ -100,14 +100,14 @@ Before you can use Amazon DocumentDB as an event source for your Lambda function
 + **Keep the size of Amazon DocumentDB change stream events that you send to Lambda under 6 MB.** Lambda supports payload sizes of up to 6 MB. If your change stream tries to send Lambda an event larger than 6 MB, then Lambda drops the message and emits the `OversizedRecordCount` metric. Lambda emits all metrics on a best-effort basis.
 
 **Note**  
-While Lambda functions typically have a maximum timeout limit of 15 minutes, event source mappings for Amazon MSK, self-managed Apache Kafka, Amazon DocumentDB, and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes. This constraint ensures that the event source mapping can properly handle function errors and retries.
+While Lambda Event Functions typically have a maximum timeout limit of 15 minutes, event source mappings for Amazon MSK, self-managed Apache Kafka, Amazon DocumentDB, and Amazon MQ for ActiveMQ and RabbitMQ only support functions with maximum timeout limits of 14 minutes. This constraint ensures that the event source mapping can properly handle function errors and retries.
 
 ## Configure network security
 <a name="docdb-network"></a>
 
 To give Lambda full access to Amazon DocumentDB through your event source mapping, either your cluster must use a public endpoint (public IP address), or you must provide access to the Amazon VPC you created the cluster in.
 
-When you use Amazon DocumentDB with Lambda, create [AWS PrivateLink VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) that provide your function access to the resources in your Amazon VPC.
+When you use Amazon DocumentDB with Lambda, create [AWS PrivateLink VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) that provide your Event Function access to the resources in your Amazon VPC.
 
 **Note**  
 AWS PrivateLink VPC endpoints are required for functions with event source mappings that use the default (on-demand) mode for event pollers. If your event source mapping uses [ provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode), you don't need to configure AWS PrivateLink VPC endpoints.
@@ -117,12 +117,12 @@ Create an endpoint to provide access to the following resources:
 +  AWS STS — Create an endpoint for the AWS STS in order for a service principal to assume a role on your behalf. 
 +  Secrets Manager — If your cluster uses Secrets Manager to store credentials, create an endpoint for Secrets Manager. 
 
-Alternatively, configure a NAT gateway on each public subnet in the Amazon VPC. For more information, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md).
+Alternatively, configure a NAT gateway on each public subnet in the Amazon VPC. For more information, see [Enable internet access for VPC-connected Lambda Event Functions](configuration-vpc-internet.md).
 
 When you create an event source mapping for Amazon DocumentDB, Lambda checks whether Elastic Network Interfaces (ENIs) are already present for the subnets and security groups configured for your Amazon VPC. If Lambda finds existing ENIs, it attempts to re-use them. Otherwise, Lambda creates new ENIs to connect to the event source and invoke your function.
 
 **Note**  
-Lambda functions always run inside VPCs owned by the Lambda service. Your function's VPC configuration does not affect the event source mapping. Only the networking configuration of the event source's determines how Lambda connects to your event source.
+Lambda Event Functions always run inside VPCs owned by the Lambda service. Your function's VPC configuration does not affect the event source mapping. Only the networking configuration of the event source's determines how Lambda connects to your event source.
 
 Configure the security groups for the Amazon VPC containing your cluster. By default, Amazon DocumentDB uses the following ports: `27017`.
 + Inbound rules – Allow all traffic on the default broker port for the security group associated with your event source. Alternatively, you can use a self-referencing security group rule to allow access from instances within the same security group.
@@ -152,7 +152,7 @@ If your cluster uses authentication, you can also restrict the endpoint policy f
 
 When you use Amazon VPC endpoints, AWS routes your API calls to invoke your function using the endpoint's Elastic Network Interface (ENI). The Lambda service principal needs to call `lambda:InvokeFunction` on any roles and functions that use those ENIs.
 
-By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice is to restrict these policies to perform the needed actions using that endpoint. To ensure that your event source mapping is able to invoke your Lambda function, the VPC endpoint policy must allow the Lambda service principal to call `sts:AssumeRole` and `lambda:InvokeFunction`. Restricting your VPC endpoint policies to allow only API calls originating within your organization prevents the event source mapping from functioning properly, so `"Resource": "*"` is required in these policies.
+By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice is to restrict these policies to perform the needed actions using that endpoint. To ensure that your event source mapping is able to invoke your Lambda Event Function, the VPC endpoint policy must allow the Lambda service principal to call `sts:AssumeRole` and `lambda:InvokeFunction`. Restricting your VPC endpoint policies to allow only API calls originating within your organization prevents the event source mapping from functioning properly, so `"Resource": "*"` is required in these policies.
 
 The following example VPC endpoint policies show how to grant the required access to the Lambda service principal for the AWS STS and Lambda endpoints.
 
@@ -197,11 +197,11 @@ The following example VPC endpoint policies show how to grant the required acces
 ## Creating an Amazon DocumentDB event source mapping (console)
 <a name="docdb-configuration"></a>
 
-For a Lambda function to read from an Amazon DocumentDB cluster's change stream, create an [event source mapping](invocation-eventsourcemapping.md). This section describes how to do this from the Lambda console. For AWS SDK and AWS CLI instructions, see [Creating an Amazon DocumentDB event source mapping (SDK or CLI)](#docdb-api).
+For a Lambda Event Function to read from an Amazon DocumentDB cluster's change stream, create an [event source mapping](invocation-eventsourcemapping.md). This section describes how to do this from the Lambda console. For AWS SDK and AWS CLI instructions, see [Creating an Amazon DocumentDB event source mapping (SDK or CLI)](#docdb-api).
 
 **To create an Amazon DocumentDB event source mapping (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 

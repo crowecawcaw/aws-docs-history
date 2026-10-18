@@ -68,7 +68,7 @@ This section details the types of `Event` objects that the Lambda Telemetry API 
 ### `platform.initStart`
 <a name="platform-initStart"></a>
 
-A `platform.initStart` event indicates that the function initialization phase has started. A `platform.initStart` `Event` object has the following shape:
+A `platform.initStart` event indicates that the Event Function initialization phase has started. A `platform.initStart` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -109,7 +109,7 @@ The following is an example `Event` of type `platform.initStart`:
 ### `platform.initRuntimeDone`
 <a name="platform-initRuntimeDone"></a>
 
-A `platform.initRuntimeDone` event indicates that the function initialization phase has completed. A `platform.initRuntimeDone` `Event` object has the following shape:
+A `platform.initRuntimeDone` event indicates that the Event Function initialization phase has completed. A `platform.initRuntimeDone` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -147,7 +147,7 @@ The following is an example `Event` of type `platform.initRuntimeDone`:
 ### `platform.initReport`
 <a name="platform-initReport"></a>
 
-A `platform.initReport` event contains an overall report of the function initialization phase. A `platform.initReport` `Event` object has the following shape:
+A `platform.initReport` event contains an overall report of the Event Function initialization phase. A `platform.initReport` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -191,7 +191,7 @@ The following is an example `Event` of type `platform.initReport`:
 ### `platform.start`
 <a name="platform-start"></a>
 
-A `platform.start` event indicates that the function invocation phase has started. A `platform.start` `Event` object has the following shape:
+A `platform.start` event indicates that the Event Function invocation phase has started. A `platform.start` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -226,7 +226,7 @@ The following is an example `Event` of type `platform.start`:
 ### `platform.runtimeDone`
 <a name="platform-runtimeDone"></a>
 
-A `platform.runtimeDone` event indicates that the function invocation phase has completed. A `platform.runtimeDone` `Event` object has the following shape:
+A `platform.runtimeDone` event indicates that the Event Function invocation phase has completed. A `platform.runtimeDone` `Event` object has the following shape:
 
 **Lambda Managed Instances**  
 The `platform.runtimeDone` event is not supported for Lambda Managed Instances. Extensions running on Managed Instances do not receive this event because extensions cannot subscribe to the `INVOKE` event on Managed Instances. Due to the concurrent execution model where multiple invocations can be processed simultaneously, extensions cannot perform post-invoke processing for individual invocations as they traditionally do on Lambda (default) functions.  
@@ -279,7 +279,7 @@ The following is an example `Event` of type `platform.runtimeDone`:
 ### `platform.report`
 <a name="platform-report"></a>
 
-A `platform.report` event contains an overall report of the function invoke phase. A `platform.report` `Event` object has the following shape:
+A `platform.report` event contains an overall report of the Event Function invoke phase. A `platform.report` `Event` object has the following shape:
 
 **Lambda Managed Instances**  
 The `platform.report` event for Lambda Managed Instances has different metrics and spans compared to Lambda (default) functions. For Managed Instances:  
@@ -322,7 +322,7 @@ The following is an example `Event` of type `platform.report`:
 ### `platform.restoreStart`
 <a name="platform-restoreStart"></a>
 
-A `platform.restoreStart` event indicates that a function environment restoration event started. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [SnapStart](snapstart.md). A `platform.restoreStart` `Event` object has the following shape:
+A `platform.restoreStart` event indicates that an Event Function environment restoration event started. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [SnapStart](snapstart.md). A `platform.restoreStart` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -359,7 +359,7 @@ The following is an example `Event` of type `platform.restoreStart`:
 ### `platform.restoreRuntimeDone`
 <a name="platform-restoreRuntimeDone"></a>
 
-A `platform.restoreRuntimeDone` event indicates that a function environment restoration event completed. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [SnapStart](snapstart.md). A `platform.restoreRuntimeDone` `Event` object has the following shape:
+A `platform.restoreRuntimeDone` event indicates that an Event Function environment restoration event completed. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [SnapStart](snapstart.md). A `platform.restoreRuntimeDone` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -395,7 +395,7 @@ The following is an example `Event` of type `platform.restoreRuntimeDone`:
 ### `platform.restoreReport`
 <a name="platform-restoreReport"></a>
 
-A `platform.restoreReport` event contains an overall report of a function restoration event. A `platform.restoreReport` `Event` object has the following shape:
+A `platform.restoreReport` event contains an overall report of an Event Function restoration event. A `platform.restoreReport` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -497,7 +497,7 @@ The following is an example `Event` of type `platform.telemetrySubscription`:
 ### `platform.logsDropped`
 <a name="platform-logsDropped"></a>
 
-A `platform.logsDropped` event contains information about dropped events. Lambda emits the `platform.logsDropped` event when a function outputs logs at too high a rate for Lambda to process them. When Lambda can't send logs to CloudWatch or to the extension subscribed to Telemetry API at the rate the function produces them, it drops logs to prevent the function's execution from slowing down. A `platform.logsDropped` `Event` object has the following shape:
+A `platform.logsDropped` event contains information about dropped events. Lambda emits the `platform.logsDropped` event when an Event Function outputs logs at too high a rate for Lambda to process them. When Lambda can't send logs to CloudWatch or to the extension subscribed to Telemetry API at the rate the Event Function produces them, it drops logs to prevent the Event Function's execution from slowing down. A `platform.logsDropped` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -528,7 +528,7 @@ The following is an example `Event` of type `platform.logsDropped`:
 ### `function`
 <a name="telemetry-api-function"></a>
 
-A `function` event contains logs from the function code. A `function` `Event` object has the following shape:
+A `function` event contains logs from the Event Function code. A `function` `Event` object has the following shape:
 
 ```
 Event: Object
@@ -537,7 +537,7 @@ Event: Object
 - record: {}
 ```
 
-The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md)
+The format of the `record` field depends on whether your Event Function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md)
 
 The following is an example `Event` of type `function` where the log format is plain text:
 
@@ -565,7 +565,7 @@ The following is an example `Event` of type `function` where the log format is J
 ```
 
 **Note**  
-If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version `2025-01-29`.
+If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your Event Function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version `2025-01-29`.
 
 ### `extension`
 <a name="telemetry-api-extension"></a>
@@ -579,7 +579,7 @@ Event: Object
 - record: {}
 ```
 
-The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md)
+The format of the `record` field depends on whether your Event Function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md)
 
 The following is an example `Event` of type `extension` where the log format is plain text:
 
@@ -607,7 +607,7 @@ The following is an example `Event` of type `extension` where the log format is 
 ```
 
 **Note**  
-If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version `2025-01-29`.
+If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your Event Function's logging format is configured as JSON. For Lambda Managed Instances, you must use schema version `2025-01-29`.
 
 ## Shared object types
 <a name="telemetry-api-objects"></a>
@@ -617,7 +617,7 @@ This section details the types of shared objects that the Lambda Telemetry API s
 ### `InitPhase`
 <a name="InitPhase"></a>
 
-A string enum that describes the phase when the initialization step occurs. In most cases, Lambda runs the function initialization code during the `init` phase. However, in some error cases, Lambda may re-run the function initialization code during the `invoke` phase. (This is called a *suppressed init*.)
+A string enum that describes the phase when the initialization step occurs. In most cases, Lambda runs the Event Function initialization code during the `init` phase. However, in some error cases, Lambda may re-run the Event Function initialization code during the `invoke` phase. (This is called a *suppressed init*.)
 + **Type** – `String`
 + **Valid values** – `init`\|`invoke`\|`snap-start`
 
@@ -729,9 +729,9 @@ The following is an example `RuntimeDoneMetrics` object:
 An object that contains details about a span. A span represents a unit of work or operation in a trace. For more information about spans, see [Span](https://opentelemetry.io/docs/reference/specification/trace/api/#span) on the **Tracing API** page of the OpenTelemetry Docs website.
 
 Lambda supports the following spans for the `platform.RuntimeDone` event:
-+ The `responseLatency` span describes how long it took your Lambda function to start sending the response.
-+ The `responseDuration` span describes how long it took your Lambda function to finish sending the entire response.
-+ The `runtimeOverhead` span describes how long it took the Lambda runtime to signal that it is ready to process the next function invoke. This is how long the runtime took to call the [next invocation](runtimes-api.md#runtimes-api-next) API to get the next event after returning your function response.
++ The `responseLatency` span describes how long it took your Lambda Event Function to start sending the response.
++ The `responseDuration` span describes how long it took your Lambda Event Function to finish sending the entire response.
++ The `runtimeOverhead` span describes how long it took the Lambda runtime to signal that it is ready to process the next Event Function invoke. This is how long the runtime took to call the [next invocation](runtimes-api.md#runtimes-api-next) API to get the next event after returning your Event Function response.
 
 The following is an example `responseLatency` span object:
 

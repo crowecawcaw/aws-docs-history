@@ -1,6 +1,6 @@
 
 
-# Compile .NET Lambda function code to a native runtime format
+# Compile .NET Lambda Event Function code to a native runtime format
 <a name="dotnet-native-aot"></a>
 
 .NET 8 supports native ahead-of-time (AOT) compilation. With native AOT, you can compile your Lambda function code to a native runtime format, which removes the need to compile .NET code at runtime. Native AOT compilation can reduce the cold start time for Lambda functions that you write in .NET. For more information, see [Introducing the .NET 8 runtime for AWS Lambda](https://aws.amazon.com/blogs/compute/introducing-the-net-8-runtime-for-aws-lambda/) on the AWS Compute Blog.
@@ -53,7 +53,7 @@ dotnet new install Amazon.Lambda.Templates
 
 Both the .NET Global CLI and the AWS Serverless Application Model (AWS SAM) provide getting started templates for building applications using native AOT. To build your first native AOT Lambda function, carry out the steps in the following instructions.
 
-**To initialize and deploy a native AOT compiled Lambda function**
+**To initialize and deploy a native AOT compiled Lambda Event Function**
 
 1. Initialize a new project using the native AOT template and then navigate into the directory containing the created `.cs` and `.csproj` files. In this example, we name our function `NativeAotSample`.
 

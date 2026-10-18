@@ -171,11 +171,11 @@ You can now delete the resources that you created for this tutorial, unless you 
 
 1. Enter the name of the role in the text input field and choose **Delete**.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

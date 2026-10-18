@@ -1,6 +1,6 @@
 
 
-# Using the Lambda context object to retrieve Java function information
+# Using the Lambda context object to retrieve Java Event Function information
 <a name="java-context"></a>
 
 When Lambda runs your function, it passes a context object to the [handler](java-handler.md). This object provides methods and properties that provide information about the invocation, function, and execution environment.
@@ -104,7 +104,7 @@ public class TestContext implements Context{
 }
 ```
 
-For more information on logging, see [Log and monitor Java Lambda functions](java-logging.md).
+For more information on logging, see [Log and monitor Java Lambda Event Functions](java-logging.md).
 
 ## Context in sample applications
 <a name="java-context-samples"></a>
@@ -112,7 +112,7 @@ For more information on logging, see [Log and monitor Java Lambda functions](jav
 The GitHub repository for this guide includes sample applications that demonstrate the use of the context object. Each sample application includes scripts for easy deployment and cleanup, an AWS Serverless Application Model (AWS SAM) template, and supporting resources.
 
 **Sample Lambda applications in Java**
-+ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
++ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java Event Function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
 + [java-basic](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic) – A collection of minimal Java functions with unit tests and variable logging configuration.
 + [java-events](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events) – A collection of Java functions that contain skeleton code for how to handle events from various services such as Amazon API Gateway, Amazon SQS, and Amazon Kinesis. These functions use the latest version of the [aws-lambda-java-events](java-package.md) library (3.0.0 and newer). These examples do not require the AWS SDK as a dependency.
 + [s3-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java) – A Java function that processes notification events from Amazon S3 and uses the Java Class Library (JCL) to create thumbnails from uploaded image files.

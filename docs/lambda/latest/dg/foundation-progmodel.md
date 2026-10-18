@@ -3,7 +3,7 @@
 # Understanding the Lambda programming model
 <a name="foundation-progmodel"></a>
 
-Lambda offers two programming models: standard functions that run up to 15 minutes, and Durable Functions that can run up to one year. While both share core concepts, Durable Functions add capabilities for long-running, stateful workflows.
+Lambda Event Functions run for up to 15 minutes per invocation by default. Asynchronous and event source mapping (ESM) invocations on Lambda Managed Instances can run for up to 90 minutes. Durable Functions can run for up to one year. While both share core concepts, Durable Functions add capabilities for long-running, stateful workflows.
 
 Lambda provides a programming model that is common to all of the runtimes. The programming model defines the interface between your code and the Lambda system. You tell Lambda the entry point to your function by defining a *handler* in the function configuration. The runtime passes in objects to the handler that contain the invocation *event* and the *context*, such as the function name and request ID.
 
@@ -35,10 +35,10 @@ Lambda scales your function by running additional instances of it as demand incr
 + Use local storage and class-level objects to increase performance, but keep to a minimum the size of your deployment package and the amount of data that you transfer onto the execution environment.
 
 For a hands-on introduction to the programming model in your preferred programming language, see the following chapters.
-+ [Building Lambda functions with Node.js](lambda-nodejs.md)
-+ [Building Lambda functions with Python](lambda-python.md)
-+ [Building Lambda functions with Ruby](lambda-ruby.md)
-+ [Building Lambda functions with Java](lambda-java.md)
-+ [Building Lambda functions with Go](lambda-golang.md)
-+ [Building Lambda functions with C\#](lambda-csharp.md)
-+ [Building Lambda functions with PowerShell](lambda-powershell.md)
++ [Building Lambda Event Functions with Node.js](lambda-nodejs.md)
++ [Building Lambda Event Functions with Python](lambda-python.md)
++ [Building Lambda Event Functions with Ruby](lambda-ruby.md)
++ [Building Lambda Event Functions with Java](lambda-java.md)
++ [Building Lambda Event Functions with Go](lambda-golang.md)
++ [Building Lambda Event Functions with C\#](lambda-csharp.md)
++ [Building Lambda Event Functions with PowerShell](lambda-powershell.md)

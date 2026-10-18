@@ -3,32 +3,32 @@
 # Tutorial: Using Lambda with API Gateway
 <a name="services-apigateway-tutorial"></a>
 
-In this tutorial, you create a REST API through which you invoke a Lambda function using an HTTP request. Your Lambda function performs create, read, update, and delete (CRUD) operations on a DynamoDB table. This function is provided here for demonstration, but you learn to configure an API Gateway REST API that can invoke any Lambda function.
+In this tutorial, you create a REST API through which you invoke a Lambda Event Function using an HTTP request. Your Lambda Event Function performs create, read, update, and delete (CRUD) operations on a DynamoDB table. This function is provided here for demonstration, but you learn to configure an API Gateway REST API that can invoke any Lambda Event Function.
 
 ![Services and resources used in this tutorial.](https://docs.aws.amazon.com/lambda/latest/dg/images/APIG_tut_resources.png)
 
 
-Using API Gateway provides users with a secure HTTP endpoint to invoke your Lambda function and can help manage large volumes of calls to your function by throttling traffic and automatically validating and authorizing API calls. API Gateway also provides flexible security controls using AWS Identity and Access Management (IAM) and Amazon Cognito. This is useful for use cases where advance authorization is required for calls to your application.
+Using API Gateway provides users with a secure HTTP endpoint to invoke your Lambda Event Function and can help manage large volumes of calls to your function by throttling traffic and automatically validating and authorizing API calls. API Gateway also provides flexible security controls using AWS Identity and Access Management (IAM) and Amazon Cognito. This is useful for use cases where advance authorization is required for calls to your application.
 
 **Tip**  
-Lambda offers two ways to invoke your function through an HTTP endpoint: API Gateway and Lambda function URLs. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda function using an HTTP request](apig-http-invoke-decision.md).
+Lambda offers two ways to invoke your function through an HTTP endpoint: API Gateway and Lambda function URLs. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda Event Function using an HTTP request](apig-http-invoke-decision.md).
 
 To complete this tutorial, you go through the following stages:
 
-1. Create and configure a Lambda function in Python or Node.js to perform operations on a DynamoDB table.
+1. Create and configure a Lambda Event Function in Python or Node.js to perform operations on a DynamoDB table.
 
-1. Create a REST API in API Gateway to connect to your Lambda function.
+1. Create a REST API in API Gateway to connect to your Lambda Event Function.
 
-1. Create a DynamoDB table and test it with your Lambda function in the console.
+1. Create a DynamoDB table and test it with your Lambda Event Function in the console.
 
 1. Deploy your API and test the full setup using curl in a terminal.
 
-By completing these stages, you learn how to use API Gateway to create an HTTP endpoint that can securely invoke a Lambda function at any scale. You also learn how to deploy your API, and how to test it in the console and by sending an HTTP request using a terminal.
+By completing these stages, you learn how to use API Gateway to create an HTTP endpoint that can securely invoke a Lambda Event Function at any scale. You also learn how to deploy your API, and how to test it in the console and by sending an HTTP request using a terminal.
 
 ## Create a permissions policy
 <a name="services-apigateway-tutorial-policy"></a>
 
-Before you can create an [execution role](lambda-intro-execution-role.md) for your Lambda function, you first need to create a permissions policy to give your function permission to access the required AWS resources. For this tutorial, the policy allows Lambda to perform CRUD operations on a DynamoDB table and write to Amazon CloudWatch Logs.
+Before you can create an [execution role](lambda-intro-execution-role.md) for your Lambda Event Function, you first need to create a permissions policy to give your function permission to access the required AWS resources. For this tutorial, the policy allows Lambda to perform CRUD operations on a DynamoDB table and write to Amazon CloudWatch Logs.
 
 **To create the policy**
 
@@ -87,7 +87,7 @@ Before you can create an [execution role](lambda-intro-execution-role.md) for yo
 ## Create an execution role
 <a name="services-apigateway-tutorial-role"></a>
 
-An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Access Management (IAM) role that grants a Lambda function permission to access AWS services and resources. To enable your function to perform operations on a DynamoDB table, you attach the permissions policy you created in the previous step.
+An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Access Management (IAM) role that grants a Lambda Event Function permission to access AWS services and resources. To enable your function to perform operations on a DynamoDB table, you attach the permissions policy you created in the previous step.
 
 **To create an execution role and attach your custom permissions policy**
 
@@ -105,10 +105,10 @@ An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Acces
 
 1. Under **Role details**, for the **Role name**, enter **lambda-apigateway-role**, then choose **Create role**.
 
-## Create the Lambda function
+## Create the Lambda Event Function
 <a name="services-apigateway-tutorial-function"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Function**.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -120,7 +120,7 @@ An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Acces
 
 1. Choose **Use an existing role**, and then select the **lambda-apigateway-role** role that you created earlier.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. In the **Code source** pane, replace the default code with the following Node.js or Python code.
 
@@ -246,7 +246,7 @@ In this example, the name of the DynamoDB table is defined as a variable in your
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
 ![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
-## Test the function
+## Test the Event Function
 <a name="services-apigateway-tutorial-test-function"></a>
 
 Before integrating your function with API Gateway, confirm that you have deployed the function successfully. Use the Lambda console to send a test event to your function.
@@ -254,7 +254,7 @@ Before integrating your function with API Gateway, confirm that you have deploye
 1. On the Lambda console page for your function, choose the **Test** tab.  
 ![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
 
-1. Scroll down to the **Event JSON** section and replace the default event with the following. This event matches the structure expected by the Lambda function.
+1. Scroll down to the **Event JSON** section and replace the default event with the following. This event matches the structure expected by the Lambda Event Function.
 
    ```
    {
@@ -280,7 +280,7 @@ Before integrating your function with API Gateway, confirm that you have deploye
 ## Create a REST API using API Gateway
 <a name="services-apigateway-tutorial-api"></a>
 
-In this step, you create the API Gateway REST API you use to invoke your Lambda function.
+In this step, you create the API Gateway REST API you use to invoke your Lambda Event Function.
 
 **To create the API**
 
@@ -310,10 +310,10 @@ To add an HTTP method to your API, you first need to create a resource for that 
 ## Create an HTTP POST method
 <a name="services-apigateway-tutorial-method"></a>
 
-In this step, you create a method (`POST`) for your `DynamoDBManager` resource. You link this `POST` method to your Lambda function so that when the method receives an HTTP request, API Gateway invokes your Lambda function.
+In this step, you create a method (`POST`) for your `DynamoDBManager` resource. You link this `POST` method to your Lambda Event Function so that when the method receives an HTTP request, API Gateway invokes your Lambda Event Function.
 
 **Note**  
- For the purpose of this tutorial, one HTTP method (`POST`) is used to invoke a single Lambda function which carries out all of the operations on your DynamoDB table. In a real application, best practice is to use a different Lambda function and HTTP method for each operation. For more information, see [The Lambda monolith](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/monolith) in Serverless Land. 
+ For the purpose of this tutorial, one HTTP method (`POST`) is used to invoke a single Lambda Event Function which carries out all of the operations on your DynamoDB table. In a real application, best practice is to use a different Lambda Event Function and HTTP method for each operation. For more information, see [The Lambda monolith](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/monolith) in Serverless Land. 
 
 **To create the POST method**
 
@@ -330,7 +330,7 @@ In this step, you create a method (`POST`) for your `DynamoDBManager` resource. 
 ## Create a DynamoDB table
 <a name="services-apigateway-tutorial-table"></a>
 
-Create an empty DynamoDB table that your Lambda function performs CRUD operations on.
+Create an empty DynamoDB table that your Lambda Event Function performs CRUD operations on.
 
 **To create the DynamoDB table**
 
@@ -351,7 +351,7 @@ Create an empty DynamoDB table that your Lambda function performs CRUD operation
 ## Test the integration of API Gateway, Lambda, and DynamoDB
 <a name="services-apigateway-tutorial-test-setup"></a>
 
-You're now ready to test the integration of your API Gateway API method with your Lambda function and your DynamoDB table. Using the API Gateway console, you send requests directly to your `POST` method using the console's test function. In this step, you first use a `create` operation to add a new item to your DynamoDB table, then you use an `update` operation to modify the item.
+You're now ready to test the integration of your API Gateway API method with your Lambda Event Function and your DynamoDB table. Using the API Gateway console, you send requests directly to your `POST` method using the console's test function. In this step, you first use a `create` operation to add a new item to your DynamoDB table, then you use an `update` operation to modify the item.
 
 **Test 1: To create a new item in your DynamoDB table**
 
@@ -438,10 +438,10 @@ For a client to call the API, you must create a deployment and an associated sta
 
 1. In the **Stage details** pane, copy the **Invoke URL**. You use this in the next step to invoke your function using an HTTP request.
 
-## Use curl to invoke your function using HTTP requests
+## Use curl to invoke your Event Function using HTTP requests
 <a name="services-apigateway-tutorial-invoke-function"></a>
 
-You can now invoke your Lambda function by issuing an HTTP request to your API. In this step, you create a new item in your DynamoDB table and then perform read, update, and delete operations on that item.
+You can now invoke your Lambda Event Function by issuing an HTTP request to your API. In this step, you create a new item in your DynamoDB table and then perform read, update, and delete operations on that item.
 
 **To create an item in your DynamoDB table using curl**
 
@@ -589,11 +589,11 @@ You can now invoke your Lambda function by issuing an HTTP request to your API. 
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

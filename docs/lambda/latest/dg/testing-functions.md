@@ -1,23 +1,23 @@
 
 
-# Testing Lambda functions in the console
+# Testing Lambda Event Functions in the console
 <a name="testing-functions"></a>
 
-You can test your Lambda function in the console by invoking your function with a test event. A *test event* is a JSON input to your function. If your function doesn't require input, the event can be an empty document `({})`.
+You can test your Lambda Event Functions in the console by invoking your function with a test event. A *test event* is a JSON input to your Event Function. If your function doesn't require input, the event can be an empty document `({})`.
 
 When you run a test in the console, Lambda synchronously invokes your function with the test event. The function runtime converts the event JSON into an object and passes it to your code's handler method for processing.
 
 **Create a test event**  
 Before you can test in the console, you need to create a private or shareable test event.
 
-## Invoking functions with test events
+## Invoking Event Functions with test events
 <a name="invoke-with-event"></a>
 
-**To test a function**
+**To test an Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function that you want to test.
+1. Choose the name of the Event Function that you want to test.
 
 1. Choose the **Test** tab.
 
@@ -29,20 +29,20 @@ Before you can test in the console, you need to create a private or shareable te
 
 1. To review the test results, under **Execution result**, expand **Details**.
 
-To invoke your function without saving your test event, choose **Test** before saving. This creates an unsaved test event that Lambda preserves only for the duration of the session.
+To invoke your Event Function without saving your test event, choose **Test** before saving. This creates an unsaved test event that Lambda preserves only for the duration of the session.
 
 For the Node.js, Python, and Ruby runtimes, you can also access your existing saved and unsaved test events on the **Code** tab. Use the **TEST EVENTS** section to create, edit, and run tests.
 
 ## Creating private test events
 <a name="creating-private-events"></a>
 
-Private test events are available only to the event creator, and they require no additional permissions to use. You can create and save up to 10 private test events per function.
+Private test events are available only to the event creator, and they require no additional permissions to use. You can create and save up to 10 private test events per Event Function.
 
 **To create a private test event**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function that you want to test.
+1. Choose the name of the Event Function that you want to test.
 
 1. Choose the **Test** tab.
 
@@ -63,7 +63,7 @@ For the Node.js, Python, and Ruby runtimes, you can also create test events on t
 ## Creating shareable test events
 <a name="creating-shareable-events"></a>
 
-Shareable test events are test events that you can share with other users in the same AWS account. You can edit other users' shareable test events and invoke your function with them.
+Shareable test events are test events that you can share with other users in the same AWS account. You can edit other users' shareable test events and invoke your Event Function with them.
 
 Lambda saves shareable test events as schemas in an [Amazon EventBridge (CloudWatch Events) schema registry](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-schema-registry.html) named `lambda-testevent-schemas`. As Lambda uses this registry to store and call shareable test events you create, we recommend that you do not edit this registry or create a registry using the `lambda-testevent-schemas` name.
 
@@ -84,9 +84,9 @@ If you cannot create, edit, or see shareable test events, check that your accoun
 
 **To create a shareable test event**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function that you want to test.
+1. Choose the name of the Event Function that you want to test.
 
 1. Choose the **Test** tab.
 
@@ -110,4 +110,4 @@ You can use AWS SAM to invoke shareable test events. See [sam remote test-event]
 
 When you delete shareable test events, Lambda removes them from the `lambda-testevent-schemas` registry. If you remove the last shareable test event from the registry, Lambda deletes the registry.
 
-If you delete the function, Lambda does not delete any associated shareable test event schemas. You must clean up these resources manually from the [EventBridge (CloudWatch Events) console](https://console.aws.amazon.com/events).
+If you delete the Event Function, Lambda does not delete any associated shareable test event schemas. You must clean up these resources manually from the [EventBridge (CloudWatch Events) console](https://console.aws.amazon.com/events).

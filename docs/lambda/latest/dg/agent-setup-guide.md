@@ -76,8 +76,8 @@ npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverle
 <a name="agent-setup-kiro-powers"></a>
 
 Install the following Kiro powers that provide specialized contexts and tools to the Kiro agents on-demand:
-+ **Serverless Application Model (SAM)** — install through [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-sam).
-+ **Lambda Managed Instances** — install through [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-lambda-managed-instances).
++ **Serverless Application Model (SAM)** – install through [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-sam).
++ **Lambda Managed Instances** – install through [Kiro powers link](https://kiro.dev/launch/powers/add/?name=aws-lambda-managed-instances).
 
 ## GitHub Copilot
 <a name="agent-setup-github-copilot"></a>
@@ -124,21 +124,27 @@ npx skills add https://github.com/aws/agent-toolkit-for-aws --skill aws-serverle
 ## Install additional Lambda skills
 <a name="agent-setup-additional-lambda-skills"></a>
 
-The Agent Toolkit for AWS includes specialized serverless skills that give your AI agents knowledge of Lambda capabilities. Install these skills using any agent such as Claude Code, Cursor, Kiro CLI, GitHub Copilot, Codex, Devin Desktop, OpenCode or any other agents compatible with open-source [agent skills](https://agentskills.io/specification) format to enable your agent to help you build, deploy, and manage workloads using Lambda MicroVMs, Lambda Managed Instances, and Lambda durable functions.
+The Agent Toolkit for AWS includes specialized serverless skills that give your AI agents knowledge of Lambda capabilities. Install these skills using any agent such as Claude Code, Cursor, Kiro CLI, GitHub Copilot, Codex, Devin Desktop, OpenCode or any other agents compatible with open-source [agent skills](https://agentskills.io/specification) format to enable your agent to help you build, deploy, and manage workloads using Lambda Web Functions, Lambda MicroVMs, Lambda Managed Instances, and Lambda durable functions.
 
-1. **Lambda MicroVMs skill** — Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI-generated code in isolated, stateful execution environments.
+1. **Lambda Web Functions skill** – Lambda Web Functions let you run web applications and API backends as HTTP servers, where your Node.js code handles requests directly using frameworks such as Express, Fastify, or Hono, with Lambda providing an HTTPS endpoint, automatic scaling (including to zero), and multi-Region replication.
+
+   ```
+   npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-web-functions --yes --global
+   ```
+
+1. **Lambda MicroVMs skill** – Lambda MicroVMs is a serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI-generated code in isolated, stateful execution environments.
 
    ```
    npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-microvms --yes --global
    ```
 
-1. **Lambda Managed Instances skill** — With Lambda Managed Instances, you can run Lambda functions on your Amazon EC2 instances while maintaining Lambda's operational simplicity, giving you access to specialized compute configurations and cost efficiency through Amazon EC2 pricing advantages without managing infrastructure.
+1. **Lambda Managed Instances skill** – With Lambda Managed Instances, you can run Lambda functions on your Amazon EC2 instances while maintaining Lambda's operational simplicity, giving you access to specialized compute configurations and cost efficiency through Amazon EC2 pricing advantages without managing infrastructure.
 
    ```
    npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-managed-instances --yes --global
    ```
 
-1. **Lambda durable functions skill** — Lambda durable functions enable you to build fault-tolerant, long-running applications that can checkpoint progress, automatically recover from failures, and suspend execution for up to one year when waiting on long-running tasks like human-in-the-loop processes.
+1. **Lambda durable functions skill** – Lambda durable functions enable you to build fault-tolerant, long-running applications that can checkpoint progress, automatically recover from failures, and suspend execution for up to one year when waiting on long-running tasks like human-in-the-loop processes.
 
    ```
    npx skills add https://github.com/aws/agent-toolkit-for-aws/tree/main/skills/specialized-skills/serverless-skills/aws-lambda-durable-functions --yes --global

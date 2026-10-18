@@ -3,16 +3,16 @@
 # Configuring Lambda runtime management settings
 <a name="runtime-management-configure-settings"></a>
 
-You can configure runtime management settings using the Lambda console or the AWS Command Line Interface (AWS CLI).
+You can configure runtime management settings for your Lambda Event Functions using the Lambda console or the AWS Command Line Interface (AWS CLI).
 
 **Note**  
 You can configure runtime management settings separately for each [function version](configuration-versions.md).
 
 **To configure how Lambda updates your runtime version (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of a function.
+1. Choose the name of an Event Function.
 
 1. On the **Code** tab, under **Runtime settings**, choose **Edit runtime management configuration**.
 

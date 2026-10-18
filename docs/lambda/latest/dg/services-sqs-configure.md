@@ -13,7 +13,7 @@ To process Amazon SQS messages with Lambda, configure your queue with the approp
 ## Configuring a queue to use with Lambda
 <a name="events-sqs-queueconfig"></a>
 
-If you don't already have an existing Amazon SQS queue, [create one](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.html) to serve as an event source for your Lambda function. The Lambda function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md).
+If you don't already have an existing Amazon SQS queue, [create one](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.html) to serve as an event source for your Lambda Event Function. The Lambda Event Function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md).
 
 To allow your function time to process each batch of records, set the source queue's [ visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) to at least six times the [configuration timeout](configuration-timeout.md) on your function. The extra time allows Lambda to retry if your function is throttled while processing a previous batch.
 
@@ -35,13 +35,13 @@ Optionally, if you're using an encrypted queue, you also need to add the followi
 ## Creating an SQS event source mapping
 <a name="events-sqs-eventsource"></a>
 
-Create an event source mapping to tell Lambda to send items from your queue to a Lambda function. You can create multiple event source mappings to process items from multiple queues with a single function. When Lambda invokes the target function, the event can contain multiple items, up to a configurable maximum *batch size*.
+Create an event source mapping to tell Lambda to send items from your queue to a Lambda Event Function. You can create multiple event source mappings to process items from multiple queues with a single function. When Lambda invokes the target function, the event can contain multiple items, up to a configurable maximum *batch size*.
 
 To configure your function to read from Amazon SQS, attach the [ AWSLambdaSQSQueueExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaSQSQueueExecutionRole.html) AWS managed policy to your execution role. Then, create an **SQS** event source mapping from the console using the following steps.
 
 **To add permissions and create a trigger**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 
@@ -65,7 +65,7 @@ To configure your function to read from Amazon SQS, attach the [ AWSLambdaSQSQue
 Lambda supports the following configuration options for Amazon SQS event sources:
 
 **SQS queue**  
-The Amazon SQS queue to read records from. The Lambda function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md).
+The Amazon SQS queue to read records from. The Lambda Event Function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md).
 
 **Enable trigger**  
 The status of the event source mapping. **Enable trigger** is selected by default.
@@ -77,13 +77,13 @@ Lambda passes all of the records in the batch to the function in a single call, 
 
 **Batch window**  
 The maximum amount of time to gather records before invoking the function, in seconds. This applies only to standard queues.  
-If you're using a batch window greater than 0 seconds, you must account for the increased processing time in your queue's [ visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html). We recommend setting your queue's visibility timeout to six times your [function timeout](configuration-timeout.md), plus the value of `MaximumBatchingWindowInSeconds`. This allows time for your Lambda function to process each batch of events and to retry in the event of a throttling error.  
+If you're using a batch window greater than 0 seconds, you must account for the increased processing time in your queue's [ visibility timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html). We recommend setting your queue's visibility timeout to six times your [Event Function timeout](configuration-timeout.md), plus the value of `MaximumBatchingWindowInSeconds`. This allows time for your Lambda Event Function to process each batch of events and to retry in the event of a throttling error.  
 When messages become available, Lambda starts processing messages in batches. Lambda starts processing five batches at a time with five concurrent invocations of your function. If messages are still available, Lambda adds up to 300 concurrent invokes of your function a minute, up to a maximum of 1,250 concurrent invokes.  
-When using provisioned mode, each event poller can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrent invokes per minute to provide low-latency processing of your Amazon SQS events. You control scaling and concurrency through these minimum and maximum event poller settings. To learn more about function scaling and concurrency, see [Understanding Lambda function scaling](lambda-concurrency.md).  
-To process more messages, you can optimize your Lambda function for higher throughput. For more information, see [ Understanding how AWS Lambda scales with Amazon SQS standard queues](https://aws.amazon.com/blogs/compute/understanding-how-aws-lambda-scales-when-subscribed-to-amazon-sqs-queues/#:~:text=If there are more messages,messages from the SQS queue.).
+When using provisioned mode, each event poller can handle up to 1 MB/s of throughput, up to 10 concurrent invokes, or up to 10 Amazon SQS polling API calls per second. Lambda scales the number of event pollers between your configured minimum and maximum, quickly adding up to 1,000 concurrent invokes per minute to provide low-latency processing of your Amazon SQS events. You control scaling and concurrency through these minimum and maximum event poller settings. To learn more about Event Function scaling and concurrency, see [Understanding Lambda Event Function scaling](lambda-concurrency.md).  
+To process more messages, you can optimize your Lambda Event Function for higher throughput. For more information, see [ Understanding how AWS Lambda scales with Amazon SQS standard queues](https://aws.amazon.com/blogs/compute/understanding-how-aws-lambda-scales-when-subscribed-to-amazon-sqs-queues/#:~:text=If there are more messages,messages from the SQS queue.).
 
 **Filter criteria**  
-Add filter criteria to control which events Lambda sends to your function for processing. For more information, see [Control which events Lambda sends to your function](invocation-eventfiltering.md).
+Add filter criteria to control which events Lambda sends to your function for processing. For more information, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
 **Maximum concurrency**  
 The maximum number of concurrent functions that the event source can invoke. Cannot be used with Provisioned Mode enabled. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](services-sqs-scaling.md#events-sqs-max-concurrency).

@@ -1,9 +1,9 @@
 
 
-# Deploying Lambda functions with AWS CDK
+# Deploying Event Functions with AWS CDK
 <a name="lambda-cdk-tutorial"></a>
 
-The AWS Cloud Development Kit (AWS CDK) is an infrastructure as code (IaC) framework that you can use to define AWS cloud infrastructure by using a programming language of your choosing. To define your own cloud infrastructure, you first write an app (in one of the CDK's supported languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template and deploy your resources to your AWS account. Follow the steps in this topic to deploy a Lambda function that returns an event from an Amazon API Gateway endpoint.
+The AWS Cloud Development Kit (AWS CDK) is an infrastructure as code (IaC) framework that you can use to define AWS cloud infrastructure by using a programming language of your choosing. To define your own cloud infrastructure, you first write an app (in one of the CDK's supported languages) that contains one or more stacks. Then, you synthesize it to an CloudFormation template and deploy your resources to your AWS account. Follow the steps in this topic to deploy a Lambda Event Function that returns an event from an Amazon API Gateway endpoint.
 
 The AWS Construct Library, included with the CDK, provides modules that you can use to model the resources that AWS services provide. For popular services, the library provides curated constructs with smart defaults and best practices. You can use the [aws\_lambda](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_lambda-readme.html) module to define your function and supporting resources with just a few lines of code. 
 
@@ -267,7 +267,7 @@ namespace HelloLambda
 
 ------
 
-## Step 3: Create the Lambda function code
+## Step 3: Create the Event Function code
 <a name="lambda-cdk-step-3"></a>
 
 1. From the root of your project (`hello-lambda`), create the `/lib/lambda-handler` directory for the Lambda function code. This directory is specified in the `code` property of your AWS CDK stack.

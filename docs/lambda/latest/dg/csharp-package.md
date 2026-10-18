@@ -1,11 +1,11 @@
 
 
-# Build and deploy C\# Lambda functions with .zip file archives
+# Build and deploy C\# Lambda Event Functions with .zip file archives
 <a name="csharp-package"></a>
 
 A .NET deployment package (.zip file archive) contains your function's compiled assembly along with all of its assembly dependencies. The package also contains a `{{proj}}.deps.json` file. This signals to the .NET runtime all of your function's dependencies and a `{{proj}}.runtimeconfig.json` file, which is used to configure the runtime.
 
-To deploy individual Lambda functions, you can use the `Amazon.Lambda.Tools` .NET Lambda Global CLI. Using the `dotnet lambda deploy-function` command automatically creates a .zip deployment package and deploys it to Lambda. However, we recommend that you use frameworks like the AWS Serverless Application Model (AWS SAM) or the AWS Cloud Development Kit (AWS CDK) to deploy your .NET applications to AWS.
+To deploy individual Lambda Event Functions, you can use the `Amazon.Lambda.Tools` .NET Lambda Global CLI. Using the `dotnet lambda deploy-function` command automatically creates a .zip deployment package and deploys it to Lambda. However, we recommend that you use frameworks like the AWS Serverless Application Model (AWS SAM) or the AWS Cloud Development Kit (AWS CDK) to deploy your .NET applications to AWS.
 
 Serverless applications usually comprise a combination of Lambda functions and other managed AWS services working together to perform a particular business task. AWS SAM and AWS CDK simplify building and deploying Lambda functions with other AWS services at scale. The [AWS SAM template specification](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification.html) provides a simple and clean syntax to describe Lambda functions, APIs, permissions, configurations, and other AWS resources that make up your serverless application. With the [AWS CDK](https://docs.aws.amazon.com/cdk/v2/guide/home.html) you define cloud infrastructure as code to help you build reliable, scalable, cost-effective applications in the cloud using modern programming languages and frameworks like .NET. Both the AWS CDK and the AWS SAM use the .NET Lambda Global CLI to package your functions.
 
@@ -15,6 +15,6 @@ You can find instructions for building and deploying .NET Lambda functions using
 
 **Topics**
 + [Using the .NET Lambda Global CLI](csharp-package-cli.md)
-+ [Deploy C\# Lambda functions using AWS SAM](csharp-package-sam.md)
-+ [Deploy C\# Lambda functions using AWS CDK](csharp-package-cdk.md)
++ [Deploy C\# Lambda Event Functions using AWS SAM](csharp-package-sam.md)
++ [Deploy C\# Lambda Event Functions using AWS CDK](csharp-package-cdk.md)
 + [Deploy ASP.NET applications](csharp-package-asp.md)

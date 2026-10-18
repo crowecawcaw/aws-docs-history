@@ -5,15 +5,15 @@
 
 This topic describes how to use Lambda with a self-managed Kafka cluster. In AWS terminology, a self-managed cluster includes non-AWS hosted Kafka clusters. For example, you can host your Kafka cluster with a cloud provider such as [Confluent Cloud](https://www.confluent.io/confluent-cloud/) or [Redpanda](https://www.redpanda.com/).
 
-This chapter explains how to use a self-managed Apache Kafka cluster as an event source for your Lambda function. The general process for integrating self-managed Apache Kafka with Lambda involves the following steps:
+This chapter explains how to use a self-managed Apache Kafka cluster as an event source for your Lambda Event Function. The general process for integrating self-managed Apache Kafka with Lambda involves the following steps:
 
 1. **[Cluster and network setup](with-kafka-cluster-network.md)** – First, set up your self-managed Apache Kafka cluster with the correct networking configuration to allow Lambda to access your cluster.
 
 1. **[Event source mapping setup](with-kafka-configure.md)** – Then, create the [event source mapping](invocation-eventsourcemapping.md) resource that Lambda needs to securely connect your Apache Kafka cluster to your function.
 
-1. **[Function and permissions setup](with-kafka-permissions.md)** – Finally, ensure that your function is correctly set up, and has the necessary permissions in its [execution role](lambda-intro-execution-role.md).
+1. **[Event Function and permissions setup](with-kafka-permissions.md)** – Finally, ensure that your function is correctly set up, and has the necessary permissions in its [execution role](lambda-intro-execution-role.md).
 
-Apache Kafka as an event source operates similarly to using Amazon Simple Queue Service (Amazon SQS) or Amazon Kinesis. Lambda internally polls for new messages from the event source and then synchronously invokes the target Lambda function. Lambda reads the messages in batches and provides these to your function as an event payload. The maximum batch size is configurable (the default is 100 messages). For more information, see [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching).
+Apache Kafka as an event source operates similarly to using Amazon Simple Queue Service (Amazon SQS) or Amazon Kinesis. Lambda internally polls for new messages from the event source and then synchronously invokes the target Lambda Event Function. Lambda reads the messages in batches and provides these to your function as an event payload. The maximum batch size is configurable (the default is 100 messages). For more information, see [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching).
 
 To optimize the throughput of your self-managed Apache Kafka event source mapping, configure provisioned mode. In provisioned mode, you can define the minimum and maximum number of event pollers allocated to your event source mapping. This can improve the ability of your event source mapping to handle unexpected message spikes. For more information, see [provisioned mode](kafka-scaling-modes.md#kafka-provisioned-mode).
 
@@ -33,7 +33,7 @@ For an example of how to use self-managed Kafka as an event source, see [Using s
 ## Example event
 <a name="smaa-sample-event"></a>
 
-Lambda sends the batch of messages in the event parameter when it invokes your Lambda function. The event payload contains an array of messages. Each array item contains details of the Kafka topic and Kafka partition identifier, together with a timestamp and a base64-encoded message.
+Lambda sends the batch of messages in the event parameter when it invokes your Lambda Event Function. The event payload contains an array of messages. Each array item contains details of the Kafka topic and Kafka partition identifier, together with a timestamp and a base64-encoded message.
 
 ```
 {

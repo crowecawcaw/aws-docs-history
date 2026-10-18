@@ -1,9 +1,9 @@
 
 
-# Log and monitor Node.js Lambda functions
+# Log and monitor Node.js Lambda Event Functions
 <a name="nodejs-logging"></a>
 
-AWS Lambda automatically monitors Lambda functions on your behalf and sends logs to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
+AWS Lambda automatically monitors Lambda Event Functions on your behalf and sends logs to Amazon CloudWatch. Your function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation to the log stream, and relays logs and other output from your function's code. For more information, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
 This page describes how to produce log output from your Lambda function's code, and access logs using the AWS Command Line Interface, the Lambda console, or the CloudWatch console.
 
@@ -81,7 +81,7 @@ To give you more control over how your functions' logs are captured, processed, 
 + **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch, such as ERROR, DEBUG, or INFO
 + **Log group** - choose the CloudWatch log group your function sends logs to
 
-For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
+For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
 To use the log format and log level options with your Node.js Lambda functions, see the guidance in the following sections.
 
@@ -98,7 +98,7 @@ Depending on the logging method that your function uses, this JSON object may al
 
 If your code already uses another logging library, such as Powertools for AWS Lambda, to produce JSON structured logs, you don't need to make any changes. Lambda doesn't double-encode any logs that are already JSON encoded, so your function's application logs continue to be captured as before.
 
-For more information about using the Powertools for AWS Lambda logging package to create JSON structured logs in the Node.js runtime, see [Log and monitor TypeScript Lambda functions](typescript-logging.md).
+For more information about using the Powertools for AWS Lambda logging package to create JSON structured logs in the Node.js runtime, see [Log and monitor TypeScript Lambda Event Functions](typescript-logging.md).
 
 #### Example JSON formatted log outputs
 <a name="nodejs-logging-examples"></a>
@@ -264,8 +264,8 @@ process.stdout.write(JSON.stringify(
 <a name="nodejs-logging-advanced-level"></a>
 
 For AWS Lambda to filter your application logs according to their log level, your function must use JSON formatted logs. You can achieve this in two ways:
-+ Create log outputs using the standard console methods and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON logs with Node.js](#nodejs-logging-advanced-JSON). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
-+ Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the level of the log output. For example, you can use Powertools for AWS Lambda to generate JSON structured log outputs from your code. See [Log and monitor TypeScript Lambda functions](typescript-logging.md) to learn more about using Powertools with the Node.js runtime.
++ Create log outputs using the standard console methods and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON logs with Node.js](#nodejs-logging-advanced-JSON). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
++ Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the level of the log output. For example, you can use Powertools for AWS Lambda to generate JSON structured log outputs from your code. See [Log and monitor TypeScript Lambda Event Functions](typescript-logging.md) to learn more about using Powertools with the Node.js runtime.
 
   For Lambda to filter your function's logs, you must also include a `"timestamp"` key value pair in your JSON log output. The time must be specified in valid [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format. If you don't supply a valid timestamp, Lambda assigns the log the level INFO and adds a timestamp for you.
 
@@ -286,14 +286,14 @@ Lambda sends logs of the selected level and lower to CloudWatch. For example, if
 ## Viewing logs in the Lambda console
 <a name="nodejs-logging-console"></a>
 
-You can use the Lambda console to view log output after you invoke a Lambda function.
+You can use the Lambda console to view log output after you invoke a Lambda Event Function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 <a name="nodejs-logging-cwconsole"></a>
 
-You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
+You can use the Amazon CloudWatch console to view logs for all Lambda Event Function invocations.
 
 **To view logs on the CloudWatch console**
 

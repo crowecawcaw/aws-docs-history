@@ -1,15 +1,15 @@
 
 
-# Define Lambda function handlers in Rust
+# Define Lambda Event Function handlers in Rust
 <a name="rust-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in Rust, including project initialization, naming conventions, and best practices. This page also includes an example of a Rust Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (S3) bucket. For more information about how to deploy your function after writing it, see [Deploy Rust Lambda functions with .zip file archives](rust-package.md).
+This page describes how to work with Lambda Event Function handlers in Rust, including project initialization, naming conventions, and best practices. This page also includes an example of a Rust Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (S3) bucket. For more information about how to deploy your function after writing it, see [Deploy Rust Lambda Event Functions with .zip file archives](rust-package.md).
 
 **Topics**
 + [Setting up your Rust handler project](#rust-handler-setup)
-+ [Example Rust Lambda function code](#rust-example-code)
++ [Example Rust Lambda Event Function code](#rust-example-code)
 + [Valid class definitions for Rust handlers](#rust-handler-signatures)
 + [Handler naming conventions](#rust-example-naming)
 + [Defining and accessing the input event object](#rust-handler-input)
@@ -17,12 +17,12 @@ This page describes how to work with Lambda function handlers in Rust, including
 + [Using the AWS SDK for Rust in your handler](#rust-example-sdk-usage)
 + [Accessing environment variables](#rust-example-envvars)
 + [Using shared state](#rust-shared-state)
-+ [Code best practices for Rust Lambda functions](#rust-best-practices)
++ [Code best practices for Rust Lambda Event Functions](#rust-best-practices)
 
 ## Setting up your Rust handler project
 <a name="rust-handler-setup"></a>
 
-When working with Lambda functions in Rust, the process involves writing your code, compiling it, and deploying the compiled artifacts to Lambda. The simplest way to set up a Lambda handler project in Rust is to use the [AWS Lambda Runtime for Rust](https://github.com/aws/aws-lambda-rust-runtime). Despite its name, the AWS Lambda Runtime for Rust is not a managed runtime in the same sense as it is in Lambda for Python, Java, or Node.js. Instead, the AWS Lambda Runtime for Rust is a crate (`lambda_runtime`) that supports writing Lambda functions in Rust and interfacing with AWS Lambda's execution environment.
+When working with Lambda Event Functions in Rust, the process involves writing your code, compiling it, and deploying the compiled artifacts to Lambda. The simplest way to set up a Lambda handler project in Rust is to use the [AWS Lambda Runtime for Rust](https://github.com/aws/aws-lambda-rust-runtime). Despite its name, the AWS Lambda Runtime for Rust is not a managed runtime in the same sense as it is in Lambda for Python, Java, or Node.js. Instead, the AWS Lambda Runtime for Rust is a crate (`lambda_runtime`) that supports writing Lambda functions in Rust and interfacing with AWS Lambda's execution environment.
 
 Use the following command to install [Cargo Lambda](https://www.cargo-lambda.info/guide/what-is-cargo-lambda.html), a third-party open-source extension to the Cargo command-line tool that simplifies building and deploying Rust Lambda functions:
 
@@ -48,12 +48,12 @@ cd example-rust
 
 This command generates a `generic_handler.rs` file and a `main.rs` file in the `src` directory. The `generic_handler.rs` can be used to customize a generic event handler. The `main.rs` file contains your main application logic. The `Cargo.toml` file contains metadata about your package and lists its external dependencies.
 
-## Example Rust Lambda function code
+## Example Rust Lambda Event Function code
 <a name="rust-example-code"></a>
 
 The following example Rust Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-**Example `main.rs` Lambda function**  
+**Example `main.rs` Lambda Event Function**  
 
 ```
 use aws_sdk_s3::{Client, primitives::ByteStream};
@@ -202,7 +202,7 @@ For smaller applications, such as in this example, you can use a single `main.rs
 ## Defining and accessing the input event object
 <a name="rust-handler-input"></a>
 
-JSON is the most common and standard input format for Lambda functions. In this example, the function expects an input similar to the following:
+JSON is the most common and standard input format for Lambda Event Functions. In this example, the function expects an input similar to the following:
 
 ```
 {
@@ -269,7 +269,7 @@ async fn function_handler(event: LambdaEvent<Value>) -> Result<String, Error> {
 }
 ```
 
-For more information about the context object, see [Using the Lambda context object to retrieve Rust function information](rust-context.md).
+For more information about the context object, see [Using the Lambda context object to retrieve Rust Event Function information](rust-context.md).
 
 ## Using the AWS SDK for Rust in your handler
 <a name="rust-example-sdk-usage"></a>
@@ -335,7 +335,7 @@ async fn main() -> Result<(), Error> {
     .await
 ```
 
-## Code best practices for Rust Lambda functions
+## Code best practices for Rust Lambda Event Functions
 <a name="rust-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:

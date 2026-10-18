@@ -1,14 +1,14 @@
 
 
-# Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda function
+# Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda Event Function
 <a name="services-msk-tutorial"></a>
 
 In this tutorial, you perform the following:
-+ Create a Lambda function in the same AWS account as an existing Amazon MSK cluster.
++ Create a Lambda Event Function in the same AWS account as an existing Amazon MSK cluster.
 + Configure networking and authentication for Lambda to communicate with Amazon MSK.
-+ Set up a Lambda Amazon MSK event source mapping, which runs your Lambda function when events show up in the topic.
++ Set up a Lambda Amazon MSK event source mapping, which runs your function when events show up in the topic.
 
-After you are finished with these steps, when events are sent to Amazon MSK, you can set up a Lambda function to process those events automatically with your own custom Lambda code.
+After you are finished with these steps, when events are sent to Amazon MSK, you can set up a function to process those events automatically with your own custom Lambda code.
 
  **What can you do with this feature?** 
 
@@ -16,7 +16,7 @@ After you are finished with these steps, when events are sent to Amazon MSK, you
 
 Consider the following scenario: Your company hosts a web application where your customers can view information about live events, such as sports games. Information updates from the game are provided to your team through a Kafka topic on Amazon MSK. You want to design a solution that consumes updates from the MSK topic to provide an updated view of the live event to customers inside an application you develop. You have decided on the following design approach: Your client applications communicate with a serverless backend hosted in AWS. Clients connect over websocket sessions using the Amazon API Gateway WebSocket API.
 
-In this solution, you need a component that reads MSK events, performs some custom logic to prepare those events for the application layer and then forwards that information to the API Gateway API. You can implement this component with AWS Lambda, by providing your custom logic in a Lambda function, then calling it with a AWS Lambda Amazon MSK event source mapping.
+In this solution, you need a component that reads MSK events, performs some custom logic to prepare those events for the application layer and then forwards that information to the API Gateway API. You can implement this component with AWS Lambda, by providing your custom logic in a function, then calling it with a AWS Lambda Amazon MSK event source mapping.
 
 For more information about implementing solutions using the Amazon API Gateway WebSocket API, see [WebSocket API tutorials](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-chat-app.html) in the API Gateway documentation.
 
@@ -28,7 +28,7 @@ An AWS account with the following preconfigured resources:
 **To fulfill these prerequisites, we recommend following [Getting started using Amazon MSK](https://docs.aws.amazon.com/msk/latest/developerguide/getting-started.html) in the Amazon MSK documentation.**
 + An Amazon MSK cluster. See [Create an Amazon MSK cluster](https://docs.aws.amazon.com/msk/latest/developerguide/create-cluster.html) in *Getting started using Amazon MSK*.
 + The following configuration:
-  + Ensure **IAM role-based authentication** is **Enabled** in your cluster security settings. This improves your security by limiting your Lambda function to only access the Amazon MSK resources needed. This is enabled by default on new Amazon MSK clusters.
+  + Ensure **IAM role-based authentication** is **Enabled** in your cluster security settings. This improves your security by limiting your Lambda Event Function to only access the Amazon MSK resources needed. This is enabled by default on new Amazon MSK clusters.
   + Ensure **Public access** is off in your cluster networking settings. Restricting your Amazon MSK cluster's access to the internet improves your security by limiting how many intermediaries handle your data. This is enabled by default on new Amazon MSK clusters.
 + A Kafka topic in your Amazon MSK cluster to use for this solution. See [Create a topic](https://docs.aws.amazon.com/msk/latest/developerguide/create-topic.html) in *Getting started using Amazon MSK*.
 + A Kafka admin host set up to retrieve information from your Kafka cluster and send Kafka events to your topic for testing, such as an Amazon EC2 instance with the Kafka admin CLI and Amazon MSK IAM library installed. See [Create a client machine](https://docs.aws.amazon.com/msk/latest/developerguide/create-client-machine.html) in *Getting started using Amazon MSK*.
@@ -39,11 +39,11 @@ Once you have set up these resources, gather the following information from your
 + The security groups associated with your Amazon MSK cluster. You can find this information in the Amazon MSK console. In the following steps, refer to these as your {{clusterSecurityGroups}}.
 + The id of the Amazon VPC containing your Amazon MSK cluster. You can find this information by identifying subnets associated with your Amazon MSK cluster in the Amazon MSK console, then identifying the Amazon VPC associated with the subnet in the Amazon VPC Console.
 + The name of the Kafka topic used in your solution. You can find this information by calling your Amazon MSK cluster with the Kafka `topics` CLI from your Kafka admin host. For more information about the topics CLI, see [Adding and removing topics](https://kafka.apache.org/documentation/#basic_ops_add_topic) in the Kafka documentation.
-+ The name of a consumer group for your Kafka topic, suitable for use by your Lambda function. This group can be created automatically by Lambda, so you don't need to create it with the Kafka CLI. If you do need to manage your consumer groups, to learn more about the consumer-groups CLI, see [Managing Consumer Groups](https://kafka.apache.org/documentation/#basic_ops_consumer_group) in the Kafka documentation.
++ The name of a consumer group for your Kafka topic, suitable for use by your Lambda Event Function. This group can be created automatically by Lambda, so you don't need to create it with the Kafka CLI. If you do need to manage your consumer groups, to learn more about the consumer-groups CLI, see [Managing Consumer Groups](https://kafka.apache.org/documentation/#basic_ops_consumer_group) in the Kafka documentation.
 
 The following permissions in your AWS account:
-+ Permission to create and manage a Lambda function.
-+ Permission to create IAM policies and associate them with your Lambda function.
++ Permission to create and manage a function.
++ Permission to create IAM policies and associate them with your function.
 + Permission to create Amazon VPC endpoints and alter networking configuration in the Amazon VPC hosting your Amazon MSK cluster.
 
 ### Install the AWS Command Line Interface
@@ -61,9 +61,9 @@ In Windows, some Bash CLI commands that you commonly use with Lambda (such as `z
 
  Use AWS PrivateLink to connect Lambda and Amazon MSK. You can do so by creating interface Amazon VPC endpoints in the Amazon VPC console. For more information about networking configuration, see [Configuring your Amazon MSK cluster and Amazon VPC network for Lambda](with-msk-cluster-network.md). 
 
-When a Amazon MSK event source mapping runs on the behalf of a Lambda function, it assumes the Lambda function's execution role. This IAM role authorizes the mapping to access resources secured by IAM, such as your Amazon MSK cluster. Although the components share an execution role, the Amazon MSK mapping and your Lambda function have separate connectivity requirements for their respective tasks, as shown in the following diagram.
+When a Amazon MSK event source mapping runs on the behalf of a Lambda Event Function, it assumes the function's execution role. This IAM role authorizes the mapping to access resources secured by IAM, such as your Amazon MSK cluster. Although the components share an execution role, the Amazon MSK mapping and your function have separate connectivity requirements for their respective tasks, as shown in the following diagram.
 
-![A Lambda function polls a cluster and communicates with Lambda using AWS STS.](https://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_network.png)
+![A Lambda Event Function polls a cluster and communicates with Lambda using AWS STS.](https://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_network.png)
 
 
 Your event source mapping belongs to your Amazon MSK cluster security group. In this networking step, create Amazon VPC endpoints from your Amazon MSK cluster VPC to connect the event source mapping to the Lambda and STS services. Secure these endpoints to accept traffic from your Amazon MSK cluster security group. Then, adjust the Amazon MSK cluster security groups to allow the event source mapping to communicate with the Amazon MSK cluster.
@@ -83,7 +83,7 @@ Your event source mapping belongs to your Amazon MSK cluster security group. In 
 1.  Create an endpoint connecting the Lambda service to the Amazon VPC containing your Amazon MSK cluster. Follow the procedure in [Create an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html).
 
    **Create an interface endpoint with the following information:**
-   + For **Service name**, select `com.amazonaws.{{regionName}}.lambda`, where {{regionName}} hosts your Lambda function.
+   + For **Service name**, select `com.amazonaws.{{regionName}}.lambda`, where {{regionName}} hosts your function.
    + For **VPC**, select the Amazon VPC containing your Amazon MSK cluster.
    + For **Security groups**, select {{endpointSecurityGroup}}, which you created earlier.
    + For **Subnets**, select the subnets that host your Amazon MSK cluster.
@@ -248,16 +248,16 @@ Now that you have appropriate IAM policies, create a role and attach them to it.
 
 1. For **Role name**, enter {{lambdaAuthRole}} and then choose **Create role**.
 
-For more information, see [Defining Lambda function permissions with an execution role](lambda-intro-execution-role.md).
+For more information, see [Defining Lambda Event Function permissions with an execution role](lambda-intro-execution-role.md).
 
-## Create a Lambda function to read from your Amazon MSK topic
+## Create a Lambda Event Function to read from your Amazon MSK topic
 <a name="w2aac15c59c25c15c35c25"></a>
 
-Create a Lambda function configured to use your IAM role. You can create your Lambda function using the console.
+Create a Lambda Event Function configured to use your IAM role. You can create your function using the console.
 
-**To create a Lambda function using your auth configuration**
+**To create a function using your auth configuration**
 
-1.  Open the Lambda console and select **Create function** from the header. 
+1.  Open the Lambda console and select **Create Event Function** from the header. 
 
 1. Select **Author from scratch**.
 
@@ -271,18 +271,18 @@ Create a Lambda function configured to use your IAM role. You can create your La
 
 1. For **Existing role**, select {{lambdaAuthRole}}.
 
-In a production environment, you usually need to add further policies to the execution role for your Lambda function to meaningfully process your Amazon MSK events. For more information on adding policies to your role, see [Add or remove identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policies-console) in the IAM documentation.
+In a production environment, you usually need to add further policies to the execution role for your Lambda Event Function to meaningfully process your Amazon MSK events. For more information on adding policies to your role, see [Add or remove identity permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policies-console) in the IAM documentation.
 
-## Create an event source mapping to your Lambda function
+## Create an event source mapping to your Lambda Event Function
 <a name="w2aac15c59c25c15c35c27"></a>
 
 Your Amazon MSK event source mapping provides the Lambda service the information necessary to invoke your Lambda when appropriate Amazon MSK events occur. You can create a Amazon MSK mapping using the console. Create a Lambda trigger, then the event source mapping is automatically set up.
 
 **To create a Lambda trigger (and event source mapping)**
 
-1. Navigate to your Lambda function's overview page.
+1. Navigate to your Lambda Event Function's overview page.
 
-1. In the function overview section, choose **Add trigger** on the bottom left.
+1. In the Event Function overview section, choose **Add trigger** on the bottom left.
 
 1. In the **Select a source** dropdown, select **Amazon MSK**.
 
@@ -296,12 +296,12 @@ Your Amazon MSK event source mapping provides the Lambda service the information
 
 1. For **Consumer group ID**, provide the id of your Kafka consumer group.
 
-## Update your Lambda function to read your streaming data
+## Update your Lambda Event Function to read your streaming data
 <a name="w2aac15c59c25c15c35c29"></a>
 
- Lambda provides information about Kafka events through the event method parameter. For an example structure of a Amazon MSK event, see [Example event](with-msk.md#msk-sample-event). After you understand how to interpret Lambda forwarded Amazon MSK events, you can alter your Lambda function code to use the information they provide. 
+ Lambda provides information about Kafka events through the event method parameter. For an example structure of a Amazon MSK event, see [Example event](with-msk.md#msk-sample-event). After you understand how to interpret Lambda forwarded Amazon MSK events, you can alter your Lambda Event Function code to use the information they provide. 
 
- Provide the following code to your Lambda function to log the contents of a Lambda Amazon MSK event for testing purposes: 
+ Provide the following code to your Lambda Event Function to log the contents of a Lambda Amazon MSK event for testing purposes: 
 
 ------
 #### [ .NET ]
@@ -660,7 +660,7 @@ You can provide function code to your Lambda using the console.
 
 **To update function code using the console code editor**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
 
 1. Select the **Code** tab.
 
@@ -669,16 +669,16 @@ You can provide function code to your Lambda using the console.
 1. In the **DEPLOY** section, choose **Deploy** to update your function's code:  
 ![Deploy button in the Lambda console code editor](https://docs.aws.amazon.com/lambda/latest/dg/images/getting-started-tutorial/deploy-console.png)
 
-## Test your Lambda function to verify it is connected to your Amazon MSK topic
+## Test your Lambda Event Function to verify it is connected to your Amazon MSK topic
 <a name="w2aac15c59c25c15c35c31"></a>
 
 You can now verify whether or not your Lambda is being invoked by the event source by inspecting CloudWatch event logs.
 
-**To verify whether your Lambda function is being invoked**
+**To verify whether your Lambda Event Function is being invoked**
 
 1. Use your Kafka admin host to generate Kafka events using the `kafka-console-producer` CLI. For more information, see [Write some events into the topic](https://kafka.apache.org/documentation/#quickstart_send) in the Kafka documentation. Send enough events to fill up the batch defined by batch size for your event source mapping defined in the previous step, or Lambda waits for more information to invoke.
 
-1. If your function runs, Lambda writes what happened to CloudWatch. In the console, navigate to your Lambda function's detail page.
+1. If your function runs, Lambda writes what happened to CloudWatch. In the console, navigate to your Lambda Event Function's detail page.
 
 1. Select the **Configuration** tab.
 
@@ -686,5 +686,5 @@ You can now verify whether or not your Lambda is being invoked by the event sour
 
 1. Identify the **CloudWatch log group** under **Logging configuration**. The log group should start with `/aws/lambda`. Choose the link to the log group.
 
-1. In the CloudWatch console, inspect the **Log events** for the log events Lambda has sent to the log stream. Identify if there are log events containing the message from your Kafka event, as in the following image. If there are, you have successfully connected a Lambda function to Amazon MSK with a Lambda event source mapping.  
+1. In the CloudWatch console, inspect the **Log events** for the log events Lambda has sent to the log stream. Identify if there are log events containing the message from your Kafka event, as in the following image. If there are, you have successfully connected a Lambda Event Function to Amazon MSK with a Lambda event source mapping.  
 ![A log event in CloudWatch showing event information extracted by the provided code.](https://docs.aws.amazon.com/lambda/latest/dg/images/msk_tut_log.png)

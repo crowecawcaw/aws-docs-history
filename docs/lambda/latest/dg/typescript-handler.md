@@ -1,15 +1,15 @@
 
 
-# Define Lambda function handler in TypeScript
+# Define Lambda Event Function handler in TypeScript
 <a name="typescript-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in TypeScript, including options for project setup, naming conventions, and best practices. This page also includes an example of a TypeScript Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy transpiled TypeScript code in Lambda with .zip file archives](typescript-package.md) or [Deploy transpiled TypeScript code in Lambda with container images](typescript-image.md).
+This page describes how to work with Lambda Event Function handlers in TypeScript, including options for project setup, naming conventions, and best practices. This page also includes an example of a TypeScript Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy transpiled TypeScript code in Lambda with .zip file archives](typescript-package.md) or [Deploy transpiled TypeScript code in Lambda with container images](typescript-image.md).
 
 **Topics**
 + [Setting up your TypeScript project](#typescript-handler-setup)
-+ [Example TypeScript Lambda function code](#typescript-example-code)
++ [Example TypeScript Lambda Event Function code](#typescript-example-code)
 + [CommonJS and ES Modules](#typescript-commonjs-es-modules)
 + [Node.js initialization](#typescript-initialization)
 + [Handler naming conventions](#typescript-handler-naming)
@@ -18,7 +18,7 @@ This page describes how to work with Lambda function handlers in TypeScript, inc
 + [Using the SDK for JavaScript v3 in your handler](#typescript-example-sdk-usage)
 + [Accessing environment variables](#typescript-example-envvars)
 + [Using global state](#typescript-handler-state)
-+ [Code best practices for TypeScript Lambda functions](#typescript-best-practices)
++ [Code best practices for TypeScript Lambda Event Functions](#typescript-best-practices)
 
 ## Setting up your TypeScript project
 <a name="typescript-handler-setup"></a>
@@ -49,7 +49,7 @@ A typical TypeScript Lambda function project follows this general structure:
   └── node_modules/ - Installed dependencies
 ```
 
-## Example TypeScript Lambda function code
+## Example TypeScript Lambda Event Function code
 <a name="typescript-example-code"></a>
 
 The following example Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket. This example defines a custom event type (`OrderEvent`). To learn how to import type definitions for AWS event sources, see [Type definitions for Lambda](lambda-typescript.md#typescript-type-definitions).
@@ -57,7 +57,7 @@ The following example Lambda function code takes in information about an order, 
 **Note**  
 This example uses an ES module handler. Lambda supports both ES module and CommonJS handlers. For more information, see [CommonJS and ES Modules](nodejs-handler.md#nodejs-commonjs-es-modules).
 
-**Example index.ts Lambda function**  
+**Example index.ts Lambda Event Function**  
 
 ```
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
@@ -167,7 +167,7 @@ If you create a function in the console using a different file name or function 
 ## Defining and accessing the input event object
 <a name="typescript-example-input"></a>
 
-JSON is the most common and standard input format for Lambda functions. In this example, the function expects an input similar to the following:
+JSON is the most common and standard input format for Lambda Event Functions. In this example, the function expects an input similar to the following:
 
 ```
 {
@@ -215,7 +215,7 @@ The examples in this section use the `S3Event` type. However, you can use any ot
 
 The `async` keyword marks a function as asynchronous, and the `await` keyword pauses the execution of the function until a `Promise` is resolved. The handler accepts the following arguments:
 + `event`: Contains the input data passed to your function.
-+ `context`: Contains information about the invocation, function, and execution environment. For more information, see [Using the Lambda context object to retrieve TypeScript function information](typescript-context.md).
++ `context`: Contains information about the invocation, function, and execution environment. For more information, see [Using the Lambda context object to retrieve TypeScript Event Function information](typescript-context.md).
 
 Here are the valid signatures for the async/await pattern:
 
@@ -341,7 +341,7 @@ Lambda runs your static code during the [initialization phase](lambda-runtime-en
 
 In the example code, the S3 client initialization code is outside the handler. The runtime initializes the client before the function handles its first event, and the client remains available for reuse across all invocations.
 
-## Code best practices for TypeScript Lambda functions
+## Code best practices for TypeScript Lambda Event Functions
 <a name="typescript-best-practices"></a>
 
 Follow these guidelines when building Lambda functions:

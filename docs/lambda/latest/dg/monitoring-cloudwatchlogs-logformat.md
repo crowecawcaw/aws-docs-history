@@ -3,19 +3,19 @@
 # Configuring JSON and plain text log formats
 <a name="monitoring-cloudwatchlogs-logformat"></a>
 
-Capturing your log outputs as JSON key value pairs makes it easier to search and filter when debugging your functions. With JSON formatted logs, you can also add tags and contextual information to your logs. This can help you to perform automated analysis of large volumes of log data. Unless your development workflow relies on existing tooling that consumes Lambda logs in plain text, we recommend that you select JSON for your log format.
+Capturing your log outputs as JSON key value pairs makes it easier to search and filter when debugging your Event Functions. With JSON formatted logs, you can also add tags and contextual information to your logs. This can help you to perform automated analysis of large volumes of log data. Unless your development workflow relies on existing tooling that consumes Lambda logs in plain text, we recommend that you select JSON for your log format.
 
 **Lambda Managed Instances**  
 Lambda Managed Instances only support JSON log format. When you create a Managed Instances function, Lambda automatically configures the log format to JSON and you cannot change it to plain text. For more information about Managed Instances, see [Lambda Managed Instances](lambda-managed-instances.md).
 
-For all Lambda managed runtimes, you can choose whether your function's system logs are sent to CloudWatch Logs in unstructured plain text or JSON format. System logs are the logs that Lambda generates and are sometimes known as platform event logs.
+For all Lambda managed runtimes, you can choose whether your Event Function's system logs are sent to CloudWatch Logs in unstructured plain text or JSON format. System logs are the logs that Lambda generates and are sometimes known as platform event logs.
 
-For [supported runtimes](#monitoring-cloudwatchlogs-logformat-supported), when you use one of the supported built-in logging methods, Lambda can also output your function's application logs (the logs your function code generates) in structured JSON format. When you configure your function's log format for these runtimes, the configuration you choose applies to both system and application logs.
+For [supported runtimes](#monitoring-cloudwatchlogs-logformat-supported), when you use one of the supported built-in logging methods, Lambda can also output your Event Function's application logs (the logs your Event Function code generates) in structured JSON format. When you configure your Event Function's log format for these runtimes, the configuration you choose applies to both system and application logs.
 
-For supported runtimes, if your function uses a supported logging library or method, you don't need to make any changes to your existing code for Lambda to capture logs in structured JSON.
+For supported runtimes, if your Event Function uses a supported logging library or method, you don't need to make any changes to your existing code for Lambda to capture logs in structured JSON.
 
 **Note**  
-Using JSON log formatting adds additional metadata and encodes log messages as JSON objects containing a series of key value pairs. Because of this, the size of your function's log messages can increase.
+Using JSON log formatting adds additional metadata and encodes log messages as JSON objects containing a series of key value pairs. Because of this, the size of your Event Function's log messages can increase.
 
 ## Supported runtimes and logging methods
 <a name="monitoring-cloudwatchlogs-logformat-supported"></a>
@@ -32,13 +32,13 @@ Using JSON log formatting adds additional metadata and encodes log messages as J
 | Ruby | Ruby 4.0 and later | 
 | Rust | n/a | 
 
-For Lambda to send your function's application logs to CloudWatch in structured JSON format, your function must use the following built-in logging tools to output logs:
-+ **Java**: The `LambdaLogger` logger or Log4j2. For more information, see [Log and monitor Java Lambda functions](java-logging.md).
-+ **.NET**: The `ILambdaLogger` instance on the context object. For more information, see [Log and monitor C\# Lambda functions](csharp-logging.md).
-+ **Node.js** - The console methods `console.trace`, `console.debug`, `console.log`, `console.info`, `console.error`, and `console.warn`. For more information, see [Log and monitor Node.js Lambda functions](nodejs-logging.md).
-+ **Python**: The standard Python `logging` library. For more information, see [Log and monitor Python Lambda functions](python-logging.md).
-+ **Ruby**: The standard Ruby `Logger` library. For more information, see [Log and monitor Ruby Lambda functions](ruby-logging.md).
-+ **Rust**: The `tracing` crate. For more information, see [Log and monitor Rust Lambda functions](rust-logging.md).
+For Lambda to send your Event Function's application logs to CloudWatch in structured JSON format, your Event Function must use the following built-in logging tools to output logs:
++ **Java**: The `LambdaLogger` logger or Log4j2. For more information, see [Log and monitor Java Lambda Event Functions](java-logging.md).
++ **.NET**: The `ILambdaLogger` instance on the context object. For more information, see [Log and monitor C\# Lambda Event Functions](csharp-logging.md).
++ **Node.js** - The console methods `console.trace`, `console.debug`, `console.log`, `console.info`, `console.error`, and `console.warn`. For more information, see [Log and monitor Node.js Lambda Event Functions](nodejs-logging.md).
++ **Python**: The standard Python `logging` library. For more information, see [Log and monitor Python Lambda Event Functions](python-logging.md).
++ **Ruby**: The standard Ruby `Logger` library. For more information, see [Log and monitor Ruby Lambda Event Functions](ruby-logging.md).
++ **Rust**: The `tracing` crate. For more information, see [Log and monitor Rust Lambda Event Functions](rust-logging.md).
 
 For other managed Lambda runtimes, Lambda currently only natively supports capturing system logs in structured JSON format. However, you can still capture application logs in structured JSON format in any runtime by using logging tools such as Powertools for AWS Lambda that output JSON formatted log outputs.
 
@@ -47,12 +47,12 @@ For other managed Lambda runtimes, Lambda currently only natively supports captu
 
 Currently, the default log format for all Lambda runtimes is plain text. For Lambda Managed Instances, the log format is always JSON and cannot be changed.
 
-If you're already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you don't need to change your code if you select JSON log formatting. Lambda doesn't double-encode any logs that are already JSON encoded, so your function's application logs continue to be captured as before.
+If you're already using logging libraries like Powertools for AWS Lambda to generate your Event Function logs in JSON structured format, you don't need to change your code if you select JSON log formatting. Lambda doesn't double-encode any logs that are already JSON encoded, so your Event Function's application logs continue to be captured as before.
 
 ## JSON format for system logs
 <a name="monitoring-cloudwatchlogs-JSON-system"></a>
 
-When you configure your function's log format as JSON, each system log item (platform event) is captured as a JSON object that contains key value pairs with the following keys:
+When you configure your Event Function's log format as JSON, each system log item (platform event) is captured as a JSON object that contains key value pairs with the following keys:
 + `"time"` - the time the log message was generated
 + `"type"` - the type of event being logged
 + `"record"` - the contents of the log output
@@ -88,13 +88,13 @@ The [Accessing real-time telemetry data for extensions using the Telemetry API](
 ## JSON format for application logs
 <a name="monitoring-cloudwatchlogs-JSON-application"></a>
 
-When you configure your function's log format as JSON, application log outputs written using supported logging libraries and methods are captured as a JSON object that contains key value pairs with the following keys.
+When you configure your Event Function's log format as JSON, application log outputs written using supported logging libraries and methods are captured as a JSON object that contains key value pairs with the following keys.
 + `"timestamp"` - the time the log message was generated
 + `"level"` - the log level assigned to the message
 + `"message"` - the contents of the log message
-+ `"requestId"` (Python, .NET, and Node.js) or `"AWSrequestId"` (Java) - the unique request ID for the function invocation
++ `"requestId"` (Python, .NET, and Node.js) or `"AWSrequestId"` (Java) - the unique request ID for the Event Function invocation
 
-Depending on the runtime and logging method that your function uses, this JSON object might also contain additional key pairs. For example, in Node.js, if your function uses `console` methods to log error objects using multiple arguments, The JSON object contains extra key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`. To learn more about JSON formatted logs in different Lambda runtimes, see [Log and monitor Python Lambda functions](python-logging.md), [Log and monitor Node.js Lambda functions](nodejs-logging.md), and [Log and monitor Java Lambda functions](java-logging.md).
+Depending on the runtime and logging method that your function uses, this JSON object might also contain additional key pairs. For example, in Node.js, if your function uses `console` methods to log error objects using multiple arguments, The JSON object contains extra key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`. To learn more about JSON formatted logs in different Lambda runtimes, see [Log and monitor Python Lambda Event Functions](python-logging.md), [Log and monitor Node.js Lambda Event Functions](nodejs-logging.md), and [Log and monitor Java Lambda Event Functions](java-logging.md).
 
 **Note**  
 The key Lambda uses for the timestamp value is different for system logs and application logs. For system logs, Lambda uses the key `"time"` to maintain consistency with Telemetry API. For application logs, Lambda follows the conventions of the supported runtimes and uses `"timestamp"`.
@@ -118,30 +118,30 @@ For comparison, the following two examples show the same log output in both plai
 }
 ```
 
-## Setting your function's log format
+## Setting your Event Function's log format
 <a name="monitoring-cloudwatchlogs-set-format"></a>
 
-To configure the log format for your function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You can also configure a function's log format using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) and [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html) Lambda API commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html) resource, and the CloudFormation [AWS::Lambda::Function](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html) resource.
+To configure the log format for your Event Function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You can also configure an Event Function's log format using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) and [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html) Lambda API commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html) resource, and the CloudFormation [AWS::Lambda::Function](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html) resource.
 
-Changing your function's log format doesn't affect existing logs stored in CloudWatch Logs. Only new logs use the updated format.
+Changing your Event Function's log format doesn't affect existing logs stored in CloudWatch Logs. Only new logs use the updated format.
 
-If you change your function's log format to JSON and do not set log level, then Lambda automatically sets your function's application log level and system log level to INFO. This means that Lambda sends only log outputs of level INFO and lower to CloudWatch Logs. To learn more about application and system log-level filtering see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md) 
+If you change your Event Function's log format to JSON and do not set log level, then Lambda automatically sets your Event Function's application log level and system log level to INFO. This means that Lambda sends only log outputs of level INFO and lower to CloudWatch Logs. To learn more about application and system log-level filtering see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md) 
 
 **Note**  
-For Python runtimes, when your function's log format is set to plain text, the default log-level setting is WARN. This means that Lambda only sends log outputs of level WARN and lower to CloudWatch Logs. Changing your function's log format to JSON changes this default behavior. To learn more about logging in Python, see [Log and monitor Python Lambda functions](python-logging.md).
+For Python runtimes, when your Event Function's log format is set to plain text, the default log-level setting is WARN. This means that Lambda only sends log outputs of level WARN and lower to CloudWatch Logs. Changing your Event Function's log format to JSON changes this default behavior. To learn more about logging in Python, see [Log and monitor Python Lambda Event Functions](python-logging.md).
 
-For Node.js functions that emit embedded metric format (EMF) logs, changing your function's log format to JSON could result in CloudWatch being unable to recognize your metrics.
+For Node.js functions that emit embedded metric format (EMF) logs, changing your Event Function's log format to JSON could result in CloudWatch being unable to recognize your metrics.
 
 **Important**  
-If your function uses Powertools for AWS Lambda (TypeScript) or the open-sourced EMF client libraries to emit EMF logs, update your [Powertools](https://github.com/aws-powertools/powertools-lambda-typescript) and [EMF](https://www.npmjs.com/package/aws-embedded-metrics) libraries to the latest versions to ensure that CloudWatch can continue to parse your logs correctly. If you switch to the JSON log format, we also recommend that you carry out testing to ensure compatibility with your function's embedded metrics. For further advice about node.js functions that emit EMF logs, see [Using embedded metric format (EMF) client libraries with structured JSON logs](nodejs-logging.md#nodejs-logging-advanced-emf).
+If your Event Function uses Powertools for AWS Lambda (TypeScript) or the open-sourced EMF client libraries to emit EMF logs, update your [Powertools](https://github.com/aws-powertools/powertools-lambda-typescript) and [EMF](https://www.npmjs.com/package/aws-embedded-metrics) libraries to the latest versions to ensure that CloudWatch can continue to parse your logs correctly. If you switch to the JSON log format, we also recommend that you carry out testing to ensure compatibility with your Event Function's embedded metrics. For further advice about node.js functions that emit EMF logs, see [Using embedded metric format (EMF) client libraries with structured JSON logs](nodejs-logging.md#nodejs-logging-advanced-emf).
 
-**To configure a function's log format (console)**
+**To configure an Event Function's log format (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function
+1. Choose an Event Function
 
-1. On the function configuration page, choose **Monitoring and operations tools**.
+1. On the Event Function configuration page, choose **Monitoring and operations tools**.
 
 1. In the **Logging configuration** pane, choose **Edit**.
 

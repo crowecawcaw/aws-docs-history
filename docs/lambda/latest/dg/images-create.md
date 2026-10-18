@@ -1,6 +1,6 @@
 
 
-# Create a Lambda function using a container image
+# Create a Lambda Event Function using a container image
 <a name="images-create"></a>
 
 Your AWS Lambda function's code consists of scripts or compiled programs and their dependencies. You use a *deployment package* to deploy your function code to Lambda. Lambda supports two types of deployment packages: container images and .zip file archives. 
@@ -241,4 +241,4 @@ If a function is not invoked for multiple weeks, Lambda reclaims its optimized v
 
 Lambda periodically fetches the associated container image from the Amazon ECR repository. If the corresponding container image no longer exists on Amazon ECR or permissions are revoked, the function enters the `Failed` state, and Lambda returns a failure for any function invocations.
 
-You can use the Lambda API to get information about a function's state. For more information, see [Lambda function states](functions-states.md).
+You can use the Lambda API to get information about a function's state. For more information, see [Lambda Event Function states](functions-states.md).

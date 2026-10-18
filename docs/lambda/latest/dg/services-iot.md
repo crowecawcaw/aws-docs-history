@@ -5,9 +5,9 @@
 
 AWS IoT provides secure communication between internet-connected devices (such as sensors) and the AWS Cloud. This makes it possible for you to collect, store, and analyze telemetry data from multiple devices.
 
-You can create AWS IoT rules for your devices to interact with AWS services. The AWS IoT [Rules Engine](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) provides a SQL-based language to select data from message payloads and send the data to other services, such as Amazon S3, Amazon DynamoDB, and AWS Lambda. You define a rule to invoke a Lambda function when you want to invoke another AWS service or a third-party service. 
+You can create AWS IoT rules for your devices to interact with AWS services. The AWS IoT [Rules Engine](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html) provides a SQL-based language to select data from message payloads and send the data to other services, such as Amazon S3, Amazon DynamoDB, and AWS Lambda. You define a rule to invoke a Lambda Event Function when you want to invoke another AWS service or a third-party service. 
 
-When an incoming IoT message triggers the rule, AWS IoT invokes your Lambda function [asynchronously](invocation-async.md) and passes data from the IoT message to the function. 
+When an incoming IoT message triggers the rule, AWS IoT invokes your Lambda Event Function [asynchronously](invocation-async.md) and passes data from the IoT message to the function. 
 
 The following example shows a moisture reading from a greenhouse sensor. The **row** and **pos** values identify the location of the sensor. This example event is based on the greenhouse type in the [AWS IoT Rules tutorials](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules-tutorial.html). 
 
@@ -23,10 +23,10 @@ The following example shows a moisture reading from a greenhouse sensor. The **r
 
 For asynchronous invocation, Lambda queues the message and [retries](invocation-retries.md) if your function returns an error. Configure your function with a [destination](invocation-async-retain-records.md#invocation-async-destinations) to retain events that your function could not process.
 
-You need to grant permission for the AWS IoT service to invoke your Lambda function. Use the `add-permission` command to add a permission statement to your function's resource-based policy.
+You need to grant permission for the AWS IoT service to invoke your Lambda Event Function. Use the `add-permission` command to add a permission statement to your function's resource-based policy.
 
 **Important**  
-If you add a permission for an AWS IoT principal without providing the `source-arn` or `source-account`, any AWS account that creates a rule with your AWS Lambda action can activate rules to invoke your AWS Lambda function from AWS IoT. For more information, see [AWS Lambda permissions](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
+If you add a permission for an AWS IoT principal without providing the `source-arn` or `source-account`, any AWS account that creates a rule with your AWS Lambda action can activate rules to invoke your AWS Lambda Event Function from AWS IoT. For more information, see [AWS Lambda permissions](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
 
 ```
 aws lambda add-permission --function-name {{my-function}} \

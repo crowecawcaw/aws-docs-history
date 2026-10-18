@@ -1,9 +1,9 @@
 
 
-# Granting users access to a Lambda function
+# Granting users access to an Event Function
 <a name="permissions-user-function"></a>
 
-Use [identity-based policies](access-control-identity-based.md) to allow users, user groups, or roles to perform operations on Lambda functions. 
+Use [identity-based policies](access-control-identity-based.md) to allow users, user groups, or roles to perform operations on Lambda Event Functions. 
 
 **Note**  
 For a function defined as a container image, the user permission to access the image must be configured in Amazon Elastic Container Registry (Amazon ECR). For an example, see [Amazon ECR repository policies](images-create.md#configuration-images-permissions).

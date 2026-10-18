@@ -1,6 +1,6 @@
 
 
-# Granting Lambda function access to AWS services
+# Granting Event Function access to AWS services
 <a name="permissions-function-services"></a>
 
 When you [use an AWS service to invoke your function](lambda-services.md), you grant permission in a statement on a resource-based policy. You can apply the statement to the entire function, or limit the statement to a single version or alias.

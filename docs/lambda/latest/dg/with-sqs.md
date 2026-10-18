@@ -4,9 +4,9 @@
 <a name="with-sqs"></a>
 
 **Note**  
-If you want to send data to a target other than a Lambda function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
+If you want to send data to a target other than a Lambda Event Function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
 
-You can use a Lambda function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue. Lambda supports both [ standard queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html) and [ first-in, first-out (FIFO) queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) for [event source mappings](invocation-eventsourcemapping.md). You can also use provisioned mode to allocate dedicated polling resources for your Amazon SQS event source mappings. The Lambda function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md).
+You can use a Lambda Event Function to process messages in an Amazon Simple Queue Service (Amazon SQS) queue. Lambda supports both [ standard queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html) and [ first-in, first-out (FIFO) queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html) for [event source mappings](invocation-eventsourcemapping.md). You can also use provisioned mode to allocate dedicated polling resources for your Amazon SQS event source mappings. The Lambda Event Function and the Amazon SQS queue must be in the same AWS Region, although they can be in [different AWS accounts](with-sqs-cross-account-example.md).
 
 For an example function that processes Amazon SQS messages, see [Tutorial: Using Lambda with Amazon SQS](with-sqs-example.md). For cross-account processing, see [Tutorial: Using a cross-account Amazon SQS queue as an event source](with-sqs-cross-account-example.md). For a complete list of configuration options, see [Lambda parameters for Amazon SQS event source mappings](services-sqs-parameters.md).
 
@@ -36,7 +36,7 @@ When Lambda receives a batch, the messages stay in the queue but are hidden for 
 **Warning**  
 Lambda event source mappings process each event at least once, and duplicate processing of records can occur. To avoid potential issues related to duplicate events, we strongly recommend that you make your function code idempotent. To learn more, see [How do I make my Lambda function idempotent](https://repost.aws/knowledge-center/lambda-function-idempotent) in the AWS Knowledge Center.
 
-To prevent Lambda from processing a message multiple times, you can either configure your event source mapping to include [batch item failures](services-sqs-errorhandling.md#services-sqs-batchfailurereporting) in your function response, or you can use the [DeleteMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) API to remove messages from the queue as your Lambda function successfully processes them.
+To prevent Lambda from processing a message multiple times, you can either configure your event source mapping to include [batch item failures](services-sqs-errorhandling.md#services-sqs-batchfailurereporting) in your function response, or you can use the [DeleteMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessage.html) API to remove messages from the queue as your Lambda Event Function successfully processes them.
 
 For more information about configuration parameters that Lambda supports for SQS event source mappings, see [Creating an SQS event source mapping](services-sqs-configure.md#events-sqs-eventsource).
 
@@ -52,7 +52,7 @@ Each event poller in provisioned mode can handle up to 1 MB/s of throughput, up 
 ### Determining required event pollers
 <a name="sqs-determining-event-pollers"></a>
 
-To estimate the number of event pollers required to ensure optimal message processing performance when using provisioned mode for SQS ESM, gather the following metrics for your application: peak SQS events per second requiring low-latency processing, average SQS event payload size, average Lambda function duration, and configured batch size.
+To estimate the number of event pollers required to ensure optimal message processing performance when using provisioned mode for SQS ESM, gather the following metrics for your application: peak SQS events per second requiring low-latency processing, average SQS event payload size, average Lambda Event Function duration, and configured batch size.
 
 First you can estimate the number of SQS events per second (EPS) supported by an event poller for your workload using the following formula:
 
@@ -82,7 +82,7 @@ You can configure provisioned mode for your Amazon SQS event source mapping usin
 
 **To configure provisioned mode for an existing Amazon SQS event source mapping (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function with the Amazon SQS event source mapping that you want to configure provisioned mode for.
 

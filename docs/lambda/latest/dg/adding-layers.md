@@ -1,26 +1,26 @@
 
 
-# Adding layers to functions
+# Adding layers to Event Functions
 <a name="adding-layers"></a>
 
 A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 
-This section explains how to add a layer to a Lambda function. For more conceptual information about layers and why you might consider using them, see [Managing Lambda dependencies with layers](chapter-layers.md).
+This section explains how to add a layer to a Lambda Event Function. For more conceptual information about layers and why you might consider using them, see [Managing Lambda Event Function dependencies with layers](chapter-layers.md).
 
-Before you can configure a Lambda function to use a layer, you must:
+Before you can configure an Event Function to use a layer, you must:
 + [Package your layer content](packaging-layers.md)
 + [Create a layer in Lambda](creating-deleting-layers.md)
-+ Make sure that you have permission to call the [GetLayerVersion](https://docs.aws.amazon.com/lambda/latest/api/API_GetLayerVersion.html) API on the layer version. For functions in your AWS account, you must have this permission in your [user policy](access-control-identity-based.md). To use a layer in another account, the owner of that account must grant your account permission in a [resource-based policy](access-control-resource-based.md). For examples, see [Granting Lambda layer access to other accounts](permissions-layer-cross-account.md).
++ Make sure that you have permission to call the [GetLayerVersion](https://docs.aws.amazon.com/lambda/latest/api/API_GetLayerVersion.html) API on the layer version. For Event Functions in your AWS account, you must have this permission in your [user policy](access-control-identity-based.md). To use a layer in another account, the owner of that account must grant your account permission in a [resource-based policy](access-control-resource-based.md). For examples, see [Granting Lambda layer access to other accounts](permissions-layer-cross-account.md).
 
-You can add up to five layers to a Lambda function. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size quota of 250 MB. For more information, see [Lambda quotas](gettingstarted-limits.md).
+You can add up to five layers to an Event Function. The total unzipped size of the Event Function and all layers cannot exceed the unzipped deployment package size quota of 250 MB. For more information, see [Lambda quotas](gettingstarted-limits.md).
 
-Your functions can continue to use any layer version that you've already added, even after that layer version has been deleted, or after your permission to access the layer is revoked. However, you cannot create a new function that uses a deleted layer version.
+Your Event Functions can continue to use any layer version that you've already added, even after that layer version has been deleted, or after your permission to access the layer is revoked. However, you cannot create a new Event Function that uses a deleted layer version.
 
-**To add a layer to a function**
+**To add a layer to an Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the function.
+1. Choose the Event Function.
 
 1. Scroll down to the **Layers** section, and then choose **Add a layer**.
 
@@ -36,11 +36,11 @@ Your functions can continue to use any layer version that you've already added, 
 
 The order in which you add the layers is the order in which Lambda merges the layer content into the execution environment. You can change the layer merge order using the console.
 
-**To update layer merge order for your function (console)**
+**To update layer merge order for your Event Function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the function to configure.
+1. Choose the Event Function to configure.
 
 1. Under **Layers**, choose **Edit**
 
@@ -50,9 +50,9 @@ The order in which you add the layers is the order in which Lambda merges the la
 
 1. Choose **Save**.
 
-Layers are versioned. The content of each layer version is immutable. The owner of a layer can release new layer versions to provide updated content. You can use the console to update the layer version attached to your functions.
+Layers are versioned. The content of each layer version is immutable. The owner of a layer can release new layer versions to provide updated content. You can use the console to update the layer version attached to your Event Functions.
 
-**To update layer versions for your function (console)**
+**To update layer versions for your Event Function (console)**
 
 1. Open the [Layers page](https://console.aws.amazon.com/lambda/home#/layers) of the Lambda console.
 
@@ -60,18 +60,18 @@ Layers are versioned. The content of each layer version is immutable. The owner 
 
 1. Choose the **Functions using this version** tab.
 
-1. Choose the functions you want to modify, then choose **Edit**.
+1. Choose the Event Functions you want to modify, then choose **Edit**.
 
 1. For **Layer version**, choose the layer version to change to.
 
 1. Choose **Update functions**.
 
-You cannot update function layer versions across AWS accounts.
+You cannot update Event Function layer versions across AWS accounts.
 
 ## Finding layer information
 <a name="finding-layer-information"></a>
 
-To find layers in your account that are compatible with your function's runtime, use the [ListLayers](https://docs.aws.amazon.com/lambda/latest/api/API_ListLayers.html) API. For example, you can use the following [list-layers](https://docs.aws.amazon.com/cli/latest/reference/lambda/list-layers.html) AWS Command Line Interface (CLI) command:
+To find layers in your account that are compatible with your Event Function's runtime, use the [ListLayers](https://docs.aws.amazon.com/lambda/latest/api/API_ListLayers.html) API. For example, you can use the following [list-layers](https://docs.aws.amazon.com/cli/latest/reference/lambda/list-layers.html) AWS Command Line Interface (CLI) command:
 
 ```
 aws lambda list-layers --compatible-runtime python3.14

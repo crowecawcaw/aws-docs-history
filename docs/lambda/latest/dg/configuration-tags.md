@@ -1,6 +1,6 @@
 
 
-# Using tags on Lambda functions
+# Using tags on Lambda Event Functions
 <a name="configuration-tags"></a>
 
 You can tag functions to organize and manage your resources. Tags are free-form key-value pairs associated with your resources that are supported across AWS services. For more information about use cases for tags, see [Common tagging strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html#tag-strategies) in the *Tagging AWS Resources and Tag Editor Guide*. 
@@ -18,7 +18,7 @@ You can also use tags to control access to your functions with attribute-based a
 <a name="fxn-tags-required-permissions"></a>
 
 To allow an AWS Identity and Access Management (IAM) identity (user, group, or role) to read or set tags on a resource, grant it the corresponding permissions:
-+ **lambda:ListTags**–When a resource has tags, grant this permission to anyone who needs to call `ListTags` on it. For tagged functions, this permission is also necessary for `GetFunction`.
++ **lambda:ListTags**–When a resource has tags, grant this permission to anyone who needs to call `ListTags` on it. For tagged Event Functions, this permission is also necessary for `GetFunction`.
 + **lambda:TagResource**–Grant this permission to anyone who needs to call `TagResource` or perform a tag on create.
 
 Optionally, consider granting the **lambda:UntagResource** permission as well to allow `UntagResource` calls to the resource.
@@ -32,23 +32,23 @@ You can use the Lambda console to create functions that have tags, add tags to e
 
 **To add tags when you create a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch** or **Container image**. 
 
-1. Under **Basic information**, set up your function. For more information about configuring functions, see [Configuring AWS Lambda functions](lambda-functions.md). 
+1. Under **Basic information**, set up your function. For more information about configuring functions, see [Configuring AWS Lambda Event Functions](lambda-functions.md). 
 
 1. Expand **Advanced settings**, and then select **Enable tags**.
 
 1. Choose **Add new tag**, and then enter a **Key** and an optional **Value**. To add more tags, repeat this step.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 **To add tags to an existing function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 
@@ -62,7 +62,7 @@ You can use the Lambda console to create functions that have tags, add tags to e
 
 **To filter functions with tags**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the search box to see a list of function properties and tag keys.
 

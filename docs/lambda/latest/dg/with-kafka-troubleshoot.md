@@ -209,7 +209,7 @@ The following is an example ESM system-level log after enabling [Logging Config]
 ## Event source mapping errors
 <a name="services-event-errors"></a>
 
-When you add your Apache Kafka cluster as an [event source](invocation-eventsourcemapping.md) for your Lambda function, if your function encounters an error, your Kafka consumer stops processing records. Consumers of a topic partition are those that subscribe to, read, and process your records. Your other Kafka consumers can continue processing records, provided they don't encounter the same error.
+When you add your Apache Kafka cluster as an [event source](invocation-eventsourcemapping.md) for your Lambda Event Function, if your function encounters an error, your Kafka consumer stops processing records. Consumers of a topic partition are those that subscribe to, read, and process your records. Your other Kafka consumers can continue processing records, provided they don't encounter the same error.
 
 To determine the cause of a stopped consumer, check the `StateTransitionReason` field in the response of `EventSourceMapping`. The following list describes the event source errors that you can receive:
 

@@ -1,18 +1,18 @@
 
 
-# Invoking a Lambda function using an Amazon API Gateway endpoint
+# Invoking a Lambda Event Function using an Amazon API Gateway endpoint
 <a name="services-apigateway"></a>
 
-You can create a web API with an HTTP endpoint for your Lambda function by using Amazon API Gateway. API Gateway provides tools for creating and documenting web APIs that route HTTP requests to Lambda functions. You can secure access to your API with authentication and authorization controls. Your APIs can serve traffic over the internet or can be accessible only within your VPC.
+You can create a web API with an HTTP endpoint for your Lambda Event Function by using Amazon API Gateway. API Gateway provides tools for creating and documenting web APIs that route HTTP requests to Lambda Event Functions. You can secure access to your API with authentication and authorization controls. Your APIs can serve traffic over the internet or can be accessible only within your VPC.
 
 **Tip**  
-Lambda offers two ways to invoke your function through an HTTP endpoint: API Gateway and Lambda function URLs. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda function using an HTTP request](apig-http-invoke-decision.md).
+Lambda offers two ways to invoke your function through an HTTP endpoint: API Gateway and Lambda function URLs. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda Event Function using an HTTP request](apig-http-invoke-decision.md).
 
-Resources in your API define one or more methods, such as GET or POST. Methods have an integration that routes requests to a Lambda function or another integration type. You can define each resource and method individually, or use special resource and method types to match all requests that fit a pattern. A [proxy resource](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html) catches all paths beneath a resource. The `ANY` method catches all HTTP methods.
+Resources in your API define one or more methods, such as GET or POST. Methods have an integration that routes requests to a Lambda Event Function or another integration type. You can define each resource and method individually, or use special resource and method types to match all requests that fit a pattern. A [proxy resource](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html) catches all paths beneath a resource. The `ANY` method catches all HTTP methods.
 
 **Topics**
 + [Choosing an API type](#services-apigateway-apitypes)
-+ [Adding an endpoint to your Lambda function](#apigateway-add)
++ [Adding an endpoint to your Lambda Event Function](#apigateway-add)
 + [Proxy integration](#apigateway-proxy)
 + [Event format](#apigateway-example-event)
 + [Response format](#apigateway-types-transforms)
@@ -21,12 +21,12 @@ Resources in your API define one or more methods, such as GET or POST. Methods h
 + [The event handler from Powertools for AWS Lambda](#services-apigateway-powertools)
 + [Tutorial: Using Lambda with API Gateway](services-apigateway-tutorial.md)
 + [Handling Lambda errors with an API Gateway API](services-apigateway-errors.md)
-+ [Select a method to invoke your Lambda function using an HTTP request](apig-http-invoke-decision.md)
++ [Select a method to invoke your Lambda Event Function using an HTTP request](apig-http-invoke-decision.md)
 
 ## Choosing an API type
 <a name="services-apigateway-apitypes"></a>
 
-API Gateway supports three types of APIs that invoke Lambda functions:
+API Gateway supports three types of APIs that invoke Lambda Event Functions:
 + [HTTP API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html): A lightweight, low-latency RESTful API.
 + [REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-rest-api.html): A customizable, feature-rich RESTful API.
 + [WebSocket API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html): A web API that maintains persistent connections with clients for full-duplex communication.
@@ -53,12 +53,12 @@ HTTP APIs support a simplified event format (version 2.0). For an example of an 
 
 For more information, see [Create AWS Lambda proxy integrations for HTTP APIs in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html).
 
-## Adding an endpoint to your Lambda function
+## Adding an endpoint to your Lambda Event Function
 <a name="apigateway-add"></a>
 
-**To add a public endpoint to your Lambda function**
+**To add a public endpoint to your Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 
@@ -87,7 +87,7 @@ API Gateway APIs are comprised of stages, resources, methods, and integrations. 
 + `/dev/{proxy+}` – Any route in the `dev` stage.
 + `/` – (HTTP APIs) The default stage and root resource.
 
-A Lambda integration maps a path and HTTP method combination to a Lambda function. You can configure API Gateway to pass the body of the HTTP request as-is (custom integration), or to encapsulate the request body in a document that includes all of the request information including headers, resource, path, and method.
+A Lambda integration maps a path and HTTP method combination to a Lambda Event Function. You can configure API Gateway to pass the body of the HTTP request as-is (custom integration), or to encapsulate the request body in a document that includes all of the request information including headers, resource, path, and method.
 
 For more information, see [Lambda proxy integrations in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html).
 
@@ -218,7 +218,7 @@ The [API Gateway with Node.js](https://github.com/awsdocs/aws-lambda-developer-g
 ## The event handler from Powertools for AWS Lambda
 <a name="services-apigateway-powertools"></a>
 
-The event handler from the Powertools for AWS Lambda toolkit provides routing, middleware, CORS configuration, OpenAPI spec generation, request validation, error handling, and other useful features when writing Lambda functions invoked by an API Gateway endpoint (HTTP or REST). The event handler utility is available for Python and TypeScript/JavaScript. For more information, see [Event Handler REST API](https://docs.aws.amazon.com/powertools/python/latest/core/event_handler/api_gateway/) in the *Powertools for AWS Lambda (Python) documentation* and [Event Handler HTTP API](https://docs.aws.amazon.com/powertools/typescript/latest/features/event-handler/http/) in the *Powertools for AWS Lambda (TypeScript) documentation*.
+The event handler from the Powertools for AWS Lambda toolkit provides routing, middleware, CORS configuration, OpenAPI spec generation, request validation, error handling, and other useful features when writing Lambda Event Functions invoked by an API Gateway endpoint (HTTP or REST). The event handler utility is available for Python and TypeScript/JavaScript. For more information, see [Event Handler REST API](https://docs.aws.amazon.com/powertools/python/latest/core/event_handler/api_gateway/) in the *Powertools for AWS Lambda (Python) documentation* and [Event Handler HTTP API](https://docs.aws.amazon.com/powertools/typescript/latest/features/event-handler/http/) in the *Powertools for AWS Lambda (TypeScript) documentation*.
 
 ### Python
 <a name="services-apigateway-powertools-python"></a>

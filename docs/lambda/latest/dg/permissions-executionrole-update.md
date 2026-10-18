@@ -16,7 +16,7 @@ To view a function's execution role, use the Lambda console.
 
 **To view a function's execution role (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 
@@ -35,7 +35,7 @@ To update a function's execution role, you can use the Lambda console.
 
 **To update a function's execution role (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 

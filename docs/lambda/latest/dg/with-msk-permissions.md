@@ -3,7 +3,7 @@
 # Configuring Lambda permissions for Amazon MSK event source mappings
 <a name="with-msk-permissions"></a>
 
-To access the Amazon MSK cluster, your function and event source mapping need permissions to perform various Amazon MSK API actions. Add these permissions to the function's [execution role](lambda-intro-execution-role.md). If your users need access, add the required permissions to the identity policy for the user or role.
+To access the Amazon MSK cluster, your Event Function and event source mapping need permissions to perform various Amazon MSK API actions. Add these permissions to the function's [execution role](lambda-intro-execution-role.md). If your users need access, add the required permissions to the identity policy for the user or role.
 
 The [AWSLambdaMSKExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaMSKExecutionRole.html) managed policy contains the minimum required permissions for Amazon MSK Lambda event source mappings. To simplify the permissions process, you can:
 + Attach the [AWSLambdaMSKExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaMSKExecutionRole.html) managed policy to your execution role.
@@ -16,7 +16,7 @@ The [AWSLambdaMSKExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/l
 ## Required permissions
 <a name="msk-required-permissions"></a>
 
-Your Lambda function execution role must have the following required permissions for Amazon MSK event source mappings. These permissions are included in the [AWSLambdaMSKExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaMSKExecutionRole.html) managed policy.
+Your Lambda Event Function execution role must have the following required permissions for Amazon MSK event source mappings. These permissions are included in the [AWSLambdaMSKExecutionRole](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSLambdaMSKExecutionRole.html) managed policy.
 
 ### CloudWatch Logs permissions
 <a name="msk-basic-permissions"></a>
@@ -50,7 +50,7 @@ The following permissions allow Lambda to create and manage network interfaces w
 ## Optional permissions
 <a name="msk-optional-permissions"></a>
 
- Your Lambda function might also need permissions to: 
+ Your Lambda Event Function might also need permissions to: 
 + Access cross-account Amazon MSK clusters. For cross-account event source mappings, you need [kafka:DescribeVpcConnection](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connection-arn.html) in the execution role. An IAM principal creating a cross-account event source mapping needs [kafka:ListVpcConnections](https://docs.aws.amazon.com/msk/1.0/apireference/vpc-connections.html).
 + Access your SCRAM secret, if you're using [SASL/SCRAM authentication](msk-cluster-auth.md#msk-sasl-scram). With this, your function can use a username and password to connect to Kafka.
 + Describe your Secrets Manager secret, if you're using SASL/SCRAM or [mTLS authentication](msk-cluster-auth.md#msk-mtls). With this permission, your function can retrieve the credentials or certificates needed for secure connections.

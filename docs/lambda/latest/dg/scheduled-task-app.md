@@ -534,9 +534,9 @@ For this example, follow the console instructions to learn how to configure each
 
 First, create a function containing basic starter code. You then replace this code with your own function code by either copying and pasting the code directly in the Lambda code editor, or by uploading your code as a `.zip` package. For this task, we recommend copying and pasting the code.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -548,7 +548,7 @@ First, create a function containing basic starter code. You then replace this co
 
    1. For **Architecture**, choose **x86\_64**.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. After your function is created, you can configure your function with the provided function code.
 
@@ -569,7 +569,7 @@ First, create a function containing basic starter code. You then replace this co
 
 **To configure the log format (console)**
 
-You can configure Lambda functions to output logs in either unstructured text or JSON format. We recommend that you use JSON format for logs to make it easier to search and filter log data. To learn more about Lambda log configuration options, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
+You can configure Lambda functions to output logs in either unstructured text or JSON format. We recommend that you use JSON format for logs to make it easier to search and filter log data. To learn more about Lambda log configuration options, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
 1. Select the **Configuration** tab for your function.
 
@@ -615,7 +615,7 @@ To give your function the permissions it needs to read and delete DynamoDB items
 
 **To set up EventBridge Scheduler as a trigger (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose your function (`ScheduledDBMaintenance`).
 
@@ -683,7 +683,7 @@ To give your function the permissions it needs to read and delete DynamoDB items
 
 **To run the application using the AWS Management Console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose your function (`ScheduledDBMaintenance`).
 

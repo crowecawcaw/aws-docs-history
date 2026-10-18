@@ -1,6 +1,6 @@
 
 
-# Control which events Lambda sends to your function
+# Control which events Lambda sends to your Event Function
 <a name="invocation-eventfiltering"></a>
 
 You can use event filtering to control which records from a stream or queue Lambda sends to your function. For example, you can add a filter so that your function only processes Amazon SQS messages containing certain data parameters. Event filtering works only with certain event source mappings. You can add filters to event source mappings for the following AWS services:
@@ -126,7 +126,7 @@ For added clarity, here is the value of the filter's `Pattern` expanded in plain
 How Lambda handles records that don't meet your filter criteria depends on the event source.
 + For **Amazon SQS**, if a message doesn't satisfy your filter criteria, Lambda automatically removes the message from the queue. You don't have to manually delete these messages in Amazon SQS.
 + For **Kinesis** and **DynamoDB**, after your filter criteria evaluates a record, the streams iterator advances past this record. If the record doesn't satisfy your filter criteria, you don't have to manually delete the record from your event source. After the retention period, Kinesis and DynamoDB automatically delete these old records. If you want records to be deleted sooner, see [Changing the Data Retention Period](https://docs.aws.amazon.com/streams/latest/dev/kinesis-extended-retention.html).
-+ For **Amazon MSK**, **self-managed Apache Kafka**, and **Amazon MQ** messages, Lambda drops messages that don't match all fields included in the filter. For Amazon MSK and self-managed Apache Kafka, Lambda commits offsets for matched and unmatched messages after successfully invoking the function. For Amazon MQ, Lambda acknowledges matched messages after successfully invoking the function, and acknowledges unmatched messages when filtering them.
++ For **Amazon MSK**, **self-managed Apache Kafka**, and **Amazon MQ** messages, Lambda drops messages that don't match all fields included in the filter. For Amazon MSK and self-managed Apache Kafka, Lambda commits offsets for matched and unmatched messages after successfully invoking the Event Function. For Amazon MQ, Lambda acknowledges matched messages after successfully invoking the function, and acknowledges unmatched messages when filtering them.
 
 ## Filter rule syntax
 <a name="filtering-syntax"></a>
@@ -179,9 +179,9 @@ Follow these steps to create a new event source mapping with filter criteria usi
 
 **To create a new event source mapping with filter criteria (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of a function to create an event source mapping for.
+1. Choose the name of an Event Function to create an event source mapping for.
 
 1. Under **Function overview**, choose **Add trigger**.
 
@@ -299,7 +299,7 @@ You can specify your own KMS key through the console, API/CLI, or CloudFormation
 
 **To encrypt filter criteria with a customer-owned KMS key (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose **Add trigger**. If you already have an existing trigger, choose the **Configuration** tab, and then choose ** Triggers**. Select the existing trigger, and choose **Edit**.
 

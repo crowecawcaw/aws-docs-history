@@ -1,18 +1,18 @@
 
 
-# Lambda function states
+# Lambda Event Function states
 <a name="functions-states"></a>
 
-Lambda includes a [State](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html#lambda-GetFunctionConfiguration-response-State) field in the function configuration for all functions to indicate when your function is ready to invoke. `State` provides information about the current status of the function, including whether you can successfully invoke the function. Function states do not change the behavior of function invocations or how your function runs the code.
+Lambda includes a [State](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html#lambda-GetFunctionConfiguration-response-State) field in the function configuration for all Event Functions to indicate when your function is ready to invoke. `State` provides information about the current status of the function, including whether you can successfully invoke the function. Event Function states do not change the behavior of function invocations or how your function runs the code.
 
 **Note**  
-Function state definitions differ slightly for [SnapStart](snapstart.md) functions. For more information, see [Lambda SnapStart and function states](snapstart-activate.md#snapstart-function-states).
+Event Function state definitions differ slightly for [SnapStart](snapstart.md) functions. For more information, see [Lambda SnapStart and Event Function states](snapstart-activate.md#snapstart-function-states).
 
 In many cases, a DynamoDB table is an ideal way to retain state between invocations since it provides low-latency data access and can scale with the Lambda service. You can also store data in [ Amazon EFS for Lambda](https://aws.amazon.com/blogs/compute/using-amazon-efs-for-aws-lambda-in-your-serverless-applications/) if you are using this service, and this provides low-latency access to file system storage.
 
-Function states include:
+Event Function states include:
 + `Pending` – After Lambda creates the function, it sets the state to pending. While in pending state, Lambda attempts to create or configure resources for the function, such as VPC or EFS resources. Lambda does not invoke a function during pending state. Any invocations or other API actions that operate on the function fail.
-+ `Active` – Your function transitions to active state after Lambda completes resource configuration and provisioning. Functions can only be successfully invoked while active.
++ `Active` – Your function transitions to active state after Lambda completes resource configuration and provisioning. Event Functions can only be successfully invoked while active.
 + `Failed` – Indicates that resource configuration or provisioning encountered an error. When function creation fails, Lambda sets the function state to failed, and you must delete and recreate the function.
 + `Inactive` – A function becomes inactive when it has been idle long enough for Lambda to reclaim the external resources that were configured for it. When you try to invoke a function that is inactive, the invocation fails and Lambda sets the function to pending state until the function resources are recreated. If Lambda fails to recreate the resources, the function returns to the inactive state. You might need to resolve any errors and redeploy your function to restore it to the active state.
 
@@ -39,10 +39,10 @@ The following operations fail while function creation is pending:
 + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html)
 + [PublishVersion](https://docs.aws.amazon.com/lambda/latest/api/API_PublishVersion.html)
 
-## Function states during updates
+## Event Function states during updates
 <a name="functions-states-updating"></a>
 
-Lambda has two operations for updating functions:
+Lambda has two operations for updating Event Functions:
 + [UpdateFunctionCode](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionCode.html): Updates the function's deployment package
 + [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html): Updates the function's configuration
 

@@ -3,7 +3,7 @@
 # Event source mappings with durable functions
 <a name="durable-invoking-esm"></a>
 
-Durable functions work with all Lambda event source mappings. Configure event source mappings for durable functions the same way you configure them for standard functions. Event source mappings automatically poll event sources like Amazon SQS, Kinesis, and DynamoDB Streams, and invoke your function with batches of records.
+Durable functions work with all Lambda event source mappings. Configure event source mappings for durable functions the same way you configure them for other functions. Event source mappings automatically poll event sources like Amazon SQS, Kinesis, and DynamoDB Streams, and invoke your function with batches of records.
 
 Event source mappings are useful for durable functions that process streams or queues with complex, multi-step workflows. For example, you can create a durable function that processes Amazon SQS messages with retries, external API calls, and human approvals.
 
@@ -17,7 +17,7 @@ Event source mappings invoke durable functions synchronously, waiting for the co
 
 When durable functions are invoked by event source mappings, the total durable execution duration cannot exceed the maximum function timeout: 15 minutes for functions running on the default (on-demand) capacity mode, or up to 90 minutes for functions running on [Lambda Managed Instances](lambda-managed-instances.md) (except Amazon MQ and Amazon DocumentDB event source mappings, which remain limited to 15 minutes). This limit applies to the entire durable execution from start to completion, not just individual function invocations.
 
-This limit is separate from the per-invocation Lambda function timeout, though both share the same maximum (15 minutes by default, or up to 90 minutes on Lambda Managed Instances for asynchronous and event source mapping invocations). The function timeout controls how long each individual invocation can run, while the durable execution timeout controls the total elapsed time from execution start to completion.
+The function timeout limits each invocation. The durable execution timeout limits the total time from execution start to completion. With event source mappings, both have the same maximum: 15 minutes by default, or 90 minutes on Lambda Managed Instances.
 
 **Example scenarios:**
 + **Valid (any capacity mode):** A durable function processes an Amazon SQS message with three steps, each taking 2 minutes, then waits 5 minutes before completing a final step. Total execution time: 11 minutes. This works on both capacity modes because it is under the 15-minute default limit.
@@ -30,7 +30,7 @@ Configure your durable execution timeout within the applicable limit when using 
 ## Configuring event source mappings
 <a name="durable-esm-configuration"></a>
 
-Configure event source mappings for durable functions using the Lambda console, AWS CLI, or AWS SDKs. All standard event source mapping properties apply to durable functions:
+Configure event source mappings for durable functions using the Lambda console, AWS CLI, or AWS SDKs. All event source mapping properties, such as batch size and batching window, apply to durable functions:
 
 ```
 aws lambda create-event-source-mapping \
@@ -40,7 +40,7 @@ aws lambda create-event-source-mapping \
   --maximum-batching-window-in-seconds 5
 ```
 
-Remember to use a qualified ARN (with version number or alias) when configuring event source mappings for durable functions.
+Use a qualified ARN with a version number, alias, or `$LATEST` when you configure an event source mapping for a durable function.
 
 ## Error handling with event source mappings
 <a name="durable-esm-error-handling"></a>
@@ -70,7 +70,7 @@ The intermediary function pattern uses three components:
 
 1. **Event source mapping:** Polls the event source (Amazon SQS, Kinesis, DynamoDB Streams) and invokes the intermediary function synchronously with batches of records.
 
-1. **Intermediary function:** A standard Lambda function that receives events from the event source mapping, validates and transforms the data if needed, and invokes the durable function asynchronously. This function completes quickly (typically under 1 second) and returns control to the event source mapping.
+1. **Intermediary function:** A Lambda function without durable execution that receives events from the event source mapping, validates and transforms the data if needed, and invokes the durable function asynchronously. This function completes quickly (typically under 1 second) and returns control to the event source mapping.
 
 1. **Durable function:** Processes the event with complex, multi-step logic that can run for extended periods. Invoked asynchronously, so it's not constrained by the event source mapping execution-duration limit.
 

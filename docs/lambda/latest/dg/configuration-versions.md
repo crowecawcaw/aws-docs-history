@@ -1,6 +1,6 @@
 
 
-# Manage Lambda function versions
+# Manage Lambda Event Function versions
 <a name="configuration-versions"></a>
 
 You can use versions to manage the deployment of your functions. For example, you can publish a new version of a function for beta testing without affecting users of the stable production version. Lambda creates a new version of your function each time that you publish the function. The new version is a copy of the unpublished version of the function. The unpublished version is named `$LATEST`.
@@ -31,7 +31,7 @@ You can create a function version using the Lambda console.
 
 **To create a new function version**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function and then choose the **Versions** tab.
 
@@ -117,4 +117,4 @@ Operational settings such as [reserved concurrency](configuration-concurrency.md
 
 You can use a [resource-based policy](access-control-resource-based.md) or an [identity-based policy](access-control-identity-based.md) to grant access to your function. The scope of the permission depends on whether you apply the policy to a function or to one version of a function. For more information about function resource names in policies, see [Fine-tuning the Resources and Conditions sections of policies](lambda-api-permissions-ref.md). 
 
-You can simplify the management of event sources and AWS Identity and Access Management (IAM) policies by using function aliases. For more information, see [Create an alias for a Lambda function](configuration-aliases.md).
+You can simplify the management of event sources and AWS Identity and Access Management (IAM) policies by using function aliases. For more information, see [Create an alias for a Lambda Event Function](configuration-aliases.md).

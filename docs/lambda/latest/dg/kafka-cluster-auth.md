@@ -15,7 +15,7 @@ Lambda also supports SASL/PLAIN authentication. Because this mechanism uses clea
 For SASL authentication, you store the sign-in credentials as a secret in AWS Secrets Manager. For more information about using Secrets Manager, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) in the *AWS Secrets Manager User Guide*.
 
 **Important**  
-To use Secrets Manager for authentication, secrets must be stored in the same AWS region as your Lambda function.
+To use Secrets Manager for authentication, secrets must be stored in the same AWS region as your Lambda Event Function.
 
 ## Mutual TLS authentication
 <a name="smaa-auth-mtls"></a>

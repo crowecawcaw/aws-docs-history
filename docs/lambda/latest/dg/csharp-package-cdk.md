@@ -1,6 +1,6 @@
 
 
-# Deploy C\# Lambda functions using AWS CDK
+# Deploy C\# Lambda Event Functions using AWS CDK
 <a name="csharp-package-cdk"></a>
 
 The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework for defining cloud infrastructure as code with modern programming languages and frameworks like .NET. AWS CDK projects are executed to generate CloudFormation templates which are then used to deploy your code.

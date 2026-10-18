@@ -194,6 +194,26 @@ A connector must be in `ACTIVE` state before you can reference it in `run-microv
 | DELETING | Connector is being deleted; ENIs are being cleaned up. | 
 | DELETE\_FAILED | Deletion failed. | 
 
+### Network connector versioning
+<a name="microvms-networking-connectors-versioning"></a>
+
+Versioning applies to VPC egress network connectors (connector type `VPC_EGRESS`). A VPC egress connector is versioned: each successful `update-network-connector` call creates a new version, and earlier versions remain available.
+
+When you run a MicroVM, you reference a VPC egress connector by ARN in `--egress-network-connectors`. You can use either form:
++ **Unqualified ARN** – resolves to the latest version of the connector. A MicroVM picks up configuration changes automatically. `arn:aws:lambda:{{us-east-1}}:{{123456789012}}:network-connector:{{nc-id}}`
++ **Qualified ARN** – pins the MicroVM to a specific version. Use this to hold a MicroVM on a known configuration for testing, troubleshooting, or rollback. `arn:aws:lambda:{{us-east-1}}:{{123456789012}}:network-connector:{{nc-id}}:{{version-number}}`
+
+A MicroVM moves to a new version only when you change the ARN it references, so you can adopt new versions on your own schedule.
+
+Example `run-microvm` call pinning a specific connector version:
+
+```
+aws lambda-microvms run-microvm \
+  --image-identifier {{arn:aws:lambda:us-east-1:123456789012:microvm-image:my-microvm-image}} \
+  --egress-network-connectors {{arn:aws:lambda:us-east-1:123456789012:network-connector:nc-id:version-number}} \
+  --idle-policy '{"maxIdleDurationSeconds":900,"suspendedDurationSeconds":1800,"autoResumeEnabled":false}'
+```
+
 ### Running a MicroVM with a network connector
 <a name="microvms-networking-connectors-run"></a>
 

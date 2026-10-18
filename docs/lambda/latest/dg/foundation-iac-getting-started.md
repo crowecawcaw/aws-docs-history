@@ -1,6 +1,6 @@
 
 
-# Using Lambda functions in AWS SAM and Infrastructure Composer
+# Using Event Functions in AWS SAM and Infrastructure Composer
 <a name="foundation-iac-getting-started"></a>
 
 In this tutorial, you can get started using IaC with Lambda by creating an AWS SAM template from an existing Lambda function and then building out a serverless application in Infrastructure Composer by adding other AWS resources.
@@ -18,22 +18,22 @@ To complete this tutorial, you'll carry out the following steps:
 
 In this tutorial, you use Infrastructure Composer's [local sync](https://docs.aws.amazon.com/application-composer/latest/dg/reference-features-local-sync.html) feature to save your template and code files to your local build machine. To use this feature, you need a browser that supports the File System Access API, which allows web applications to read, write, and save files in your local file system . We recommend using either Google Chrome or Microsoft Edge. For more information about the File System Access API, see [What is the File System Access API?](https://docs.aws.amazon.com/application-composer/latest/dg/reference-fsa.html#reference-fsa-api)
 
-## Create a Lambda function
+## Create an Event Function
 <a name="foundation-iac-create-function"></a>
 
 In this first step, you create a Lambda function you can use to complete the rest of the tutorial. To keep things simple, you use the Lambda console to create a basic 'Hello world' function using the Python 3.11 runtime.
 
-**To create a 'Hello world' Lambda function using the console**
+**To create a 'Hello world' Event Function using the console**
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda).
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Leave **Author from scratch** selected, and under **Basic information**, enter **LambdaIaCDemo** for **Function name**.
 
 1. For **Runtime**, select **Python 3.11**.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 ## View the AWS SAM template for your function
 <a name="foundation-iac-view-template"></a>
@@ -42,7 +42,7 @@ Before you export your function configuration to Infrastructure Composer, use th
 
 **To view the AWS SAM template for your function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function you just created (`LambdaIaCDemo`).
 

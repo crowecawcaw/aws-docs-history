@@ -1,9 +1,9 @@
 
 
-# Building Lambda functions with Ruby
+# Building Lambda Event Functions with Ruby
 <a name="lambda-ruby"></a>
 
-You can run Ruby code in AWS Lambda. Lambda provides [runtimes](lambda-runtimes.md) for Ruby that run your code to process events. Your code runs in an environment that includes the AWS SDK for Ruby, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Ruby runtimes, see [Runtime-included SDK versions](#ruby-sdk-included).
+You can run Ruby code in AWS Lambda Event Functions. Lambda provides [runtimes](lambda-runtimes.md) for Ruby that run your code to process events. Your code runs in an environment that includes the AWS SDK for Ruby, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Ruby runtimes, see [Runtime-included SDK versions](#ruby-sdk-included).
 
 Lambda supports the following Ruby runtimes.
 
@@ -14,21 +14,21 @@ Lambda supports the following Ruby runtimes.
 | Ruby 3.4 | `ruby3.4` | Amazon Linux 2023 |  Mar 31, 2028  |  Apr 30, 2028  |  May 31, 2028  | 
 | Ruby 3.3 | `ruby3.3` | Amazon Linux 2023 |  Mar 31, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
-**To create a Ruby function**
+**To create a Ruby Event Function**
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda).
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Configure the following settings:
    + **Function name**: Enter a name for the function.
    + **Runtime**: Choose **Ruby 4.0**.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
-The console creates a Lambda function with a single source file named `lambda_function.rb`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.
+The console creates a Lambda Event Function with a single source file named `lambda_function.rb`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.
 
-The `lambda_function.rb` file exports a function named `lambda_handler` that takes an event object and a context object. This is the [handler function](ruby-handler.md) that Lambda calls when the function is invoked. The Ruby function runtime gets invocation events from Lambda and passes them to the handler. In the function configuration, the handler value is `lambda_function.lambda_handler`.
+The `lambda_function.rb` file exports a function named `lambda_handler` that takes an event object and a context object. This is the [handler function](ruby-handler.md) that Lambda calls when the function is invoked. The Ruby Event Function runtime gets invocation events from Lambda and passes them to the handler. In the function configuration, the handler value is `lambda_function.lambda_handler`.
 
 When you save your function code, the Lambda console creates a .zip file archive deployment package. When you develop your function code outside of the console (using an IDE) you need to [create a deployment package](ruby-package.md) to upload your code to the Lambda function.
 
@@ -39,18 +39,18 @@ Your Lambda function comes with a CloudWatch Logs log group. The function runtim
 **Topics**
 + [Runtime-included SDK versions](#ruby-sdk-included)
 + [Enabling Yet Another Ruby JIT (YJIT)](#ruby-yjit)
-+ [Define Lambda function handler in Ruby](ruby-handler.md)
-+ [Deploy Ruby Lambda functions with .zip file archives](ruby-package.md)
-+ [Deploy Ruby Lambda functions with container images](ruby-image.md)
-+ [Working with layers for Ruby Lambda functions](ruby-layers.md)
-+ [Using the Lambda context object to retrieve Ruby function information](ruby-context.md)
-+ [Log and monitor Ruby Lambda functions](ruby-logging.md)
++ [Define Lambda Event Function handler in Ruby](ruby-handler.md)
++ [Deploy Ruby Lambda Event Functions with .zip file archives](ruby-package.md)
++ [Deploy Ruby Lambda Event Functions with container images](ruby-image.md)
++ [Working with layers for Ruby Lambda Event Functions](ruby-layers.md)
++ [Using the Lambda context object to retrieve Ruby Event Function information](ruby-context.md)
++ [Log and monitor Ruby Lambda Event Functions](ruby-logging.md)
 + [Instrumenting Ruby code in AWS Lambda](ruby-tracing.md)
 
 ## Runtime-included SDK versions
 <a name="ruby-sdk-included"></a>
 
-The version of the AWS SDK included in the Ruby runtime depends on the runtime version and your AWS Region. The AWS SDK for Ruby is designed to be modular and is separated by AWS service. To find the version number of a particular service gem included in the runtime you're using, create a Lambda function with code in the following format. Replace `aws-sdk-s3` and `Aws::S3`with the name of the service gems your code uses.
+The version of the AWS SDK included in the Ruby runtime depends on the runtime version and your AWS Region. The AWS SDK for Ruby is designed to be modular and is separated by AWS service. To find the version number of a particular service gem included in the runtime you're using, create a Lambda Event Function with code in the following format. Replace `aws-sdk-s3` and `Aws::S3`with the name of the service gems your code uses.
 
 ```
 require 'aws-sdk-s3'

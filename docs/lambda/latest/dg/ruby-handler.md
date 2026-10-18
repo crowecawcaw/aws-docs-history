@@ -1,13 +1,13 @@
 
 
-# Define Lambda function handler in Ruby
+# Define Lambda Event Function handler in Ruby
 <a name="ruby-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
 **Topics**
 + [Ruby handler basics](#ruby-handler-basics)
-+ [Code best practices for Ruby Lambda functions](#ruby-best-practices)
++ [Code best practices for Ruby Lambda Event Functions](#ruby-best-practices)
 
 ## Ruby handler basics
 <a name="ruby-handler-basics"></a>
@@ -48,7 +48,7 @@ The function handler is executed every time your Lambda function is invoked. Sta
 
 Each instance of your function can process multiple invocation events, but it only processes one event at a time. The number of instances processing an event at any given time is your function's *concurrency*. For more information about the Lambda execution environment, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md).
 
-## Code best practices for Ruby Lambda functions
+## Code best practices for Ruby Lambda Event Functions
 <a name="ruby-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:

@@ -1,12 +1,12 @@
 
 
-# Sending Lambda function logs to Firehose
+# Sending Lambda Event Function logs to Firehose
 <a name="logging-with-firehose"></a>
 
-The Lambda console now offers the option to send function logs to Firehose. This enables real-time streaming of your logs to various destinations supported by Firehose, including third-party analytics tools and custom endpoints.
+The Lambda console now offers the option to send Event Function logs to Firehose. This enables real-time streaming of your logs to various destinations supported by Firehose, including third-party analytics tools and custom endpoints.
 
 **Note**  
-You can configure Lambda function logs to be sent to Firehose using the Lambda console, AWS CLI, AWS CloudFormation, and all AWS SDKs.
+You can configure Lambda Event Function logs to be sent to Firehose using the Lambda console, AWS CLI, AWS CloudFormation, and all AWS SDKs.
 
 ## Pricing
 <a name="logging-firehose-pricing"></a>
@@ -16,20 +16,20 @@ For details on pricing, see [Amazon CloudWatch pricing](https://aws.amazon.com/c
 ## Required permissions for Firehose log destination
 <a name="logging-firehose-permissions"></a>
 
-When using the Lambda console to configure Firehose as your function's log destination, you need:
+When using the Lambda console to configure Firehose as your Event Function's log destination, you need:
 
 1. The [required IAM permissions](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs.html#monitoring-cloudwatchlogs-prereqs) to use CloudWatch Logs with Lambda.
 
 1. To [set up subscription filters with Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/SubscriptionFilters.html#FirehoseExample). This filter defines which log events are delivered to your Firehose stream.
 
-## Sending Lambda function logs to Firehose
+## Sending Lambda Event Function logs to Firehose
 <a name="logging-firehose-setup"></a>
 
-In the Lambda console, you can send function logs directly to Firehose after creating a new function. To do this, complete these steps:
+In the Lambda console, you can send Event Function logs directly to Firehose after creating a new Event Function. To do this, complete these steps:
 
 1. Sign in to the AWS Management Console and open the Lambda console.
 
-1. Choose your function's name.
+1. Choose your Event Function's name.
 
 1. Choose the **Configuration** tab.
 

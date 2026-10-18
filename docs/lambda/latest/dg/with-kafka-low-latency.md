@@ -24,7 +24,7 @@ In provisioned mode for Kafka event source mapping, you can fine-tune the throug
 
 To determine the optimal poller configuration for your application, consider your peak ingestion rate and processing requirements. Let's look at a simplified example:
 
-With a batch size of 20 records and an average target function duration of 50ms, each poller can handle 2,000 records per second subject to 5 MB/s limit. This is calculated as: (20 records × 1000ms/50ms) × 5 concurrent Lambda invocations. Therefore, if your desired peak ingestion rate is 20,000 records per second, you would need at least 10 event pollers.
+With a batch size of 20 records and an average target Event Function duration of 50ms, each poller can handle 2,000 records per second subject to 5 MB/s limit. This is calculated as: (20 records × 1000ms/50ms) × 5 concurrent Lambda invocations. Therefore, if your desired peak ingestion rate is 20,000 records per second, you would need at least 10 event pollers.
 
 **Note**  
 We recommend to provision additional event pollers as buffer to avoid consistently operating at maximum capacity.

@@ -18,11 +18,11 @@ There are a few differences with the [CloudWatch log stream](monitoring-cloudwat
   + `Billed Restore Duration`: The time it takes for Lambda to load the runtime and run any after-restore [runtime hooks](snapstart-runtime-hooks.md).
 
 **Note**  
-As with all Lambda functions, duration charges apply to code that runs in the function handler. For SnapStart functions, duration charges also apply to initialization code that's declared outside of the handler, the time it takes for the runtime to load, and any code that runs in a [runtime hook](snapstart-runtime-hooks.md).
+As with all Lambda Event Functions, duration charges apply to code that runs in the function handler. For SnapStart functions, duration charges also apply to initialization code that's declared outside of the handler, the time it takes for the runtime to load, and any code that runs in a [runtime hook](snapstart-runtime-hooks.md).
 
 The cold start duration is the sum of `Restore Duration` \+ `Duration`.
 
-The following example is a Lambda Insights query that returns the latency percentiles for SnapStart functions. For more information about Lambda Insights queries, see [Example workflow using queries to troubleshoot a function](monitoring-insights.md#monitoring-insights-queries).
+The following example is a Lambda Insights query that returns the latency percentiles for SnapStart functions. For more information about Lambda Insights queries, see [Example workflow using queries to troubleshoot an Event Function](monitoring-insights.md#monitoring-insights-queries).
 
 ```
 filter @type = "REPORT"

@@ -3,7 +3,7 @@
 # Deploy transpiled TypeScript code in Lambda with container images
 <a name="typescript-image"></a>
 
-You can deploy your TypeScript code to an AWS Lambda function as a Node.js [container image](images-create.md). AWS provides [base images](nodejs-image.md#nodejs-image-base) for Node.js to help you build the container image. These base images are preloaded with a language runtime and other components that are required to run the image on Lambda. AWS provides a Dockerfile for each of the base images to help with building your container image.
+You can deploy your TypeScript code to an AWS Lambda Event Function as a Node.js [container image](images-create.md). AWS provides [base images](nodejs-image.md#nodejs-image-base) for Node.js to help you build the container image. These base images are preloaded with a language runtime and other components that are required to run the image on Lambda. AWS provides a Dockerfile for each of the base images to help with building your container image.
 
 If you use a community or private enterprise base image, you must [add the Node.js runtime interface client (RIC)](nodejs-image.md#nodejs-image-clients) to the base image to make it compatible with Lambda.
 

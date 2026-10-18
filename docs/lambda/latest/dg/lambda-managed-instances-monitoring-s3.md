@@ -20,7 +20,7 @@ To send capacity provider system logs to Amazon S3, create a CloudWatch Logs sub
 
 By default, your capacity provider's log group is named `/aws/lambda/capacity-provider/{{<capacity-provider-name>}}`. Use this log group when creating the subscription filter.
 
-For instructions on setting up a subscription filter for Amazon S3, including IAM role creation and bucket permissions, see [Sending Lambda function logs to Amazon S3](logging-with-s3.md).
+For instructions on setting up a subscription filter for Amazon S3, including IAM role creation and bucket permissions, see [Sending Lambda Event Function logs to Amazon S3](logging-with-s3.md).
 
 ## Cross-account logging
 <a name="lambda-managed-instances-s3-cross-account"></a>

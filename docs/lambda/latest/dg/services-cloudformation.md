@@ -3,7 +3,7 @@
 # Using AWS Lambda with CloudFormation
 <a name="services-cloudformation"></a>
 
-In an AWS CloudFormation template, you can specify a Lambda function as the target of a custom resource. Use custom resources to process parameters, retrieve configuration values, or call other AWS services during stack lifecycle events.
+In an AWS CloudFormation template, you can specify a Lambda Event Function as the target of a custom resource. Use custom resources to process parameters, retrieve configuration values, or call other AWS services during stack lifecycle events.
 
 The following example invokes a function that's defined elsewhere in the template.
 
@@ -21,7 +21,7 @@ Resources:
 
 The service token is the Amazon Resource Name (ARN) of the function that CloudFormation invokes when you create, update, or delete the stack. You can also include additional properties like `FunctionName`, which CloudFormation passes to your function as is.
 
-CloudFormation invokes your Lambda function [asynchronously](invocation-async.md) with an event that includes a callback URL.
+CloudFormation invokes your Lambda Event Function [asynchronously](invocation-async.md) with an event that includes a callback URL.
 
 **Example – CloudFormation message event**  
 

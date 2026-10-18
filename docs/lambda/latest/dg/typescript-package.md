@@ -13,7 +13,7 @@ AWS SAM and AWS CDK simplify building and deploying TypeScript functions. The [A
 ## Using AWS SAM to deploy TypeScript code to Lambda
 <a name="aws-sam-ts"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World TypeScript application using the AWS SAM. This application implements a basic API backend. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function is invoked. The function returns a `hello world` message.
+Follow the steps below to download, build, and deploy a sample Hello World TypeScript application using the AWS SAM. This application implements a basic API backend. It consists of an Amazon API Gateway endpoint and a Lambda Event Function. When you send a GET request to the API Gateway endpoint, the Lambda function is invoked. The function returns a `hello world` message.
 
 **Note**  
 AWS SAM uses esbuild to create Node.js Lambda functions from TypeScript code. esbuild support is currently in public preview. During public preview, esbuild support might be subject to backwards incompatible changes.

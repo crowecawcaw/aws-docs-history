@@ -1,9 +1,9 @@
 
 
-# Invoke a Lambda function synchronously
+# Invoke a Lambda Event Function synchronously
 <a name="invocation-sync"></a>
 
-When you invoke a function synchronously, Lambda runs the function and waits for a response. When the function completes, Lambda returns the response from the function's code with additional data, such as the version of the function that was invoked. To invoke a function synchronously with the AWS CLI, use the `invoke` command.
+When you invoke a Lambda Event Function synchronously, Lambda runs the function and waits for a response. When the function completes, Lambda returns the response from the function's code with additional data, such as the version of the function that was invoked. To invoke a function synchronously with the AWS CLI, use the `invoke` command.
 
 ```
 aws lambda invoke --function-name {{my-function}} \
@@ -22,22 +22,22 @@ You should see the following output:
 }
 ```
 
-The following diagram shows clients invoking a Lambda function synchronously. Lambda sends the events directly to the function and sends the function's response back to the invoker.
+The following diagram shows clients invoking a Lambda Event Function synchronously. Lambda sends the events directly to the function and sends the function's response back to the invoker.
 
 ![Clients invoke a function synchronously and wait for a response.](https://docs.aws.amazon.com/lambda/latest/dg/images/invocation-sync.png)
 
 
-The `payload` is a string that contains an event in JSON format. The name of the file where the AWS CLI writes the response from the function is `response.json`. If the function returns an object or error, the response body is the object or error in JSON format. If the function exits without error, the response body is `null`.
+The `payload` is a string that contains an event in JSON format. The name of the file where the AWS CLI writes the response from the function is `response.json`. If the Event Function returns an object or error, the response body is the object or error in JSON format. If the function exits without error, the response body is `null`.
 
 **Note**  
-Lambda does not wait for external extensions to complete before sending the response. External extensions run as independent processes in the execution environment and continue to run after the function invocation is complete. For more information, see [Augment Lambda functions using Lambda extensions](lambda-extensions.md).
+Lambda does not wait for external extensions to complete before sending the response. External extensions run as independent processes in the execution environment and continue to run after the function invocation is complete. For more information, see [Augment Lambda Event Functions using Lambda extensions](lambda-extensions.md).
 
 The output from the command, which is displayed in the terminal, includes information from headers in the response from Lambda. This includes the version that processed the event (useful when you use [aliases](configuration-aliases.md)), and the status code returned by Lambda. If Lambda was able to run the function, the status code is 200, even if the function returned an error.
 
 **Note**  
-For functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.
+For Event Functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.
 
-If Lambda isn't able to run the function, the error is displayed in the output.
+If Lambda isn't able to run the Event Function, the error is displayed in the output.
 
 ```
 aws lambda invoke --function-name {{my-function}} \
@@ -92,4 +92,4 @@ The `base64` utility is available on Linux, macOS, and [Ubuntu on Windows](https
 
 For more information about the `Invoke` API, including a full list of parameters, headers, and errors, see [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html).
 
-When you invoke a function directly, you can check the response for errors and retry. The AWS CLI and AWS SDK also automatically retry on client timeouts, throttling, and service errors. For more information, see [Understanding retry behavior in Lambda](invocation-retries.md).
+When you invoke an Event Function directly, you can check the response for errors and retry. The AWS CLI and AWS SDK also automatically retry on client timeouts, throttling, and service errors. For more information, see [Understanding retry behavior in Lambda Event Functions](invocation-retries.md).

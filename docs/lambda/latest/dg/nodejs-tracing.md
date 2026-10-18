@@ -33,7 +33,7 @@ For Node.js runtimes, you can add the **AWS managed Lambda layer for ADOT Javasc
 ## Using the X-Ray SDK to instrument your Node.js functions
 <a name="nodejs-xray-sdk"></a>
 
-To record details about calls that your Lambda function makes to other resources in your application, you can also use the AWS X-Ray SDK for Node.js. To get the SDK, add the `aws-xray-sdk-core` package to your application's dependencies.
+To record details about calls that your Lambda Event Function makes to other resources in your application, you can also use the AWS X-Ray SDK for Node.js. To get the SDK, add the `aws-xray-sdk-core` package to your application's dependencies.
 
 **Example [blank-nodejs/package.json](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-nodejs/package.json)**  
 
@@ -90,13 +90,13 @@ After you add the correct dependencies and make the necessary code changes, acti
 ## Activating tracing with the Lambda console
 <a name="nodejs-tracing-console"></a>
 
-To toggle active tracing on your Lambda function with the console, follow these steps:
+To toggle active tracing on your Lambda Event Function with the console, follow these steps:
 
 **To turn on active tracing**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function.
+1. Choose an Event Function.
 
 1. Choose **Configuration** and then choose **Monitoring and operations tools**.
 
@@ -156,7 +156,7 @@ Resources:
 ## Interpreting an X-Ray trace
 <a name="nodejs-tracing-interpretation"></a>
 
-Your function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
+Your Event Function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your Event Function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
 
 After you've configured active tracing, you can observe specific requests through your application. The [ X-Ray service graph](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html#xray-concepts-servicegraph) shows information about your application and all its components. The following example shows an application with two functions. The primary function processes events and sometimes returns errors. The second function at the top processes errors that appear in the first's log group and uses the AWS SDK to call X-Ray, Amazon Simple Storage Service (Amazon S3), and Amazon CloudWatch Logs.
 
@@ -178,7 +178,7 @@ The first node on the left represents the Lambda service, which receives the inv
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 The example trace shown here illustrates the old-style function segment. The differences between the old- and new-style segments are described in the following paragraphs.  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 

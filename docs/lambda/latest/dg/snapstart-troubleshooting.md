@@ -1,6 +1,6 @@
 
 
-# Troubleshooting SnapStart errors for Lambda functions
+# Troubleshooting SnapStart errors for Lambda Event Functions
 <a name="snapstart-troubleshooting"></a>
 
 This page addresses common issues that occur when using Lambda SnapStart, including snapshot creation errors, timeout errors, and internal service errors.
@@ -8,7 +8,7 @@ This page addresses common issues that occur when using Lambda SnapStart, includ
 ## SnapStartNotReadyException
 <a name="snapstartnotreadyexception"></a>
 
-**Error:** An error occurred (SnapStartNotReadyException) when calling the Invoke20150331 operation: Lambda is initializing your function. It will be ready to invoke once your function state becomes ACTIVE.
+**Error:** An error occurred (SnapStartNotReadyException) when calling the Invoke20150331 operation: Lambda is initializing your Event Function. It will be ready to invoke once your function state becomes ACTIVE.
 
 ### Common causes
 <a name="snapstartnotreadyexception-cause"></a>
@@ -69,7 +69,7 @@ This error occurs when you use the [AWS Systems Manager Parameter Store and AWS 
 ### Resolution
 <a name="snapstart-401-unauthorized-resolution"></a>
 
-To fix this error, use the AWS SDK credential provider chain to retrieve the session token instead of reading the `AWS_SESSION_TOKEN` environment variable directly. Set the `X-Aws-Parameters-Secrets-Token` header to the token returned by the provider chain. The credential provider chain returns the correct session token in all initialization modes, including SnapStart. For example code, see [Use Secrets Manager secrets in Lambda functions](with-secrets-manager.md).
+To fix this error, use the AWS SDK credential provider chain to retrieve the session token instead of reading the `AWS_SESSION_TOKEN` environment variable directly. Set the `X-Aws-Parameters-Secrets-Token` header to the token returned by the provider chain. The credential provider chain returns the correct session token in all initialization modes, including SnapStart. For example code, see [Use Secrets Manager secrets in Lambda Event Functions](with-secrets-manager.md).
 
 ## UnknownHostException (Java)
 <a name="snapstart-dns-caching"></a>
@@ -79,12 +79,12 @@ To fix this error, use the AWS SDK credential provider chain to retrieve the ses
 ### Common cause
 <a name="snapstart-dns-caching-cause"></a>
 
-Lambda functions already cache DNS responses. If you use another DNS cache with SnapStart, then you might experience connection timeouts when the function resumes from a snapshot.
+Lambda Event Functions already cache DNS responses. If you use another DNS cache with SnapStart, then you might experience connection timeouts when the function resumes from a snapshot.
 
 ### Resolution
 <a name="snapstart-dns-caching-resolution"></a>
 
-To prevent `UnknownHostException` failures in the Java 11 runtime, we recommend setting `networkaddress.cache.negative.ttl` to 0. In Java 17 and later runtimes, this step isn't necessary. You can set this property for a Lambda function with the `AWS_LAMBDA_JAVA_NETWORKADDRESS_CACHE_NEGATIVE_TTL=0` environment variable.
+To prevent `UnknownHostException` failures in the Java 11 runtime, we recommend setting `networkaddress.cache.negative.ttl` to 0. In Java 17 and later runtimes, this step isn't necessary. You can set this property for a Lambda Event Function with the `AWS_LAMBDA_JAVA_NETWORKADDRESS_CACHE_NEGATIVE_TTL=0` environment variable.
 
 ## Snapshot creation failures
 <a name="snapstart-creation-failure"></a>

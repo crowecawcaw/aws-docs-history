@@ -29,8 +29,8 @@ Lambda emits the following metrics for durable executions:
 | DurableExecutionSucceeded | Number of durable executions that completed successfully | 
 | DurableExecutionFailed | Number of durable executions that completed with a failure | 
 | DurableExecutionTimedOut | Number of durable executions that exceeded their configured execution timeout | 
-| DurableExecutionOperations | Cumulative number of operations performed within a durable execution (max: 3,000) | 
-| DurableExecutionStorageWrittenBytes | Cumulative amount of data in bytes persisted by a durable execution (max: 100 MB) | 
+| DurableExecutionOperations | Cumulative number of operations performed within a durable execution | 
+| DurableExecutionStorageWrittenBytes | Cumulative amount of data in bytes persisted by a durable execution | 
 
 ### CloudWatch metrics
 <a name="durable-monitoring-standard-metrics"></a>

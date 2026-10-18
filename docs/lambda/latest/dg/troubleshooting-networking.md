@@ -3,7 +3,7 @@
 # Troubleshoot networking issues in Lambda
 <a name="troubleshooting-networking"></a>
 
-By default, Lambda runs your functions in an internal virtual private cloud (VPC) with connectivity to AWS services and the internet. To access local network resources, you can [configure your function to connect to a VPC in your account](configuration-vpc.md). When you use this feature, you manage the function's internet access and network connectivity with Amazon Virtual Private Cloud (Amazon VPC) resources.
+By default, Lambda runs your functions in an internal virtual private cloud (VPC) with connectivity to AWS services and the internet. To access local network resources, you can [configure your function to connect to a VPC in your account](configuration-vpc.md). When you use this feature, you manage the Lambda Event Function's internet access and network connectivity with Amazon Virtual Private Cloud (Amazon VPC) resources.
 
 Network connectivity errors can result from issues with your VPC's routing configuration, security group rules, AWS Identity and Access Management (IAM) role permissions, or network address translation (NAT), or from the availability of resources such as IP addresses or network interfaces. Depending on the issue, you might see a specific error or timeout if a request can't reach its destination.
 
@@ -26,7 +26,7 @@ Network connectivity errors can result from issues with your VPC's routing confi
 
 **Error:** *ReadTimeoutError: Read timed out. (read timeout=15)*
 
-When you connect a function to a VPC, all outbound requests go through the VPC. To connect to the internet, configure your VPC to send outbound traffic from the function's subnet to a NAT gateway in a public subnet. For more information and sample VPC configurations, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md).
+When you connect a function to a VPC, all outbound requests go through the VPC. To connect to the internet, configure your VPC to send outbound traffic from the function's subnet to a NAT gateway in a public subnet. For more information and sample VPC configurations, see [Enable internet access for VPC-connected Lambda Event Functions](configuration-vpc-internet.md).
 
 If some of your TCP connections are timing out, see [VPC: TCP or UDP connection intermittently fails](#troubleshooting-networking-tcp-udp) if your subnet is using a network access control list (NACL). Otherwise, this is likely due to packet fragmentation. Lambda functions cannot handle incoming fragmented TCP requests, since Lambda does not support IP fragmentation for TCP or ICMP.
 

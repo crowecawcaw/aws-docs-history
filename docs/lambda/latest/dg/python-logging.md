@@ -1,9 +1,9 @@
 
 
-# Log and monitor Python Lambda functions
+# Log and monitor Python Lambda Event Functions
 <a name="python-logging"></a>
 
-AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
+AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
 To output logs from your function code, you can use the built-in [`logging`](https://docs.python.org/3/library/logging.html) module. For more detailed entries, you can use any logging library that writes to `stdout` or `stderr`.
 
@@ -101,9 +101,9 @@ To give you more control over how your functions' logs are captured, processed, 
 + **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to Amazon CloudWatch, such as ERROR, DEBUG, or INFO
 + **Log group** - choose the CloudWatch log group your function sends logs to
 
-For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
+For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
-To learn more about using the log format and log level options with your Python Lambda functions, see the guidance in the following sections.
+To learn more about using the log format and log level options with your Python functions, see the guidance in the following sections.
 
 ### Using structured JSON logs with Python
 <a name="python-logging-JSON"></a>
@@ -252,7 +252,7 @@ def lambda_handler(event, context):
 By configuring log-level filtering, you can choose to send only logs of a certain logging level or lower to CloudWatch Logs. To learn how to configure log-level filtering for your function, see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md).
 
 For AWS Lambda to filter your application logs according to their log level, your function must use JSON formatted logs. You can achieve this in two ways:
-+ Create log outputs using the standard Python `logging` library and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON logs with Python](#python-logging-JSON). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
++ Create log outputs using the standard Python `logging` library and configure your function to use JSON log formatting. AWS Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON logs with Python](#python-logging-JSON). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 + Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the level of the log output. For example, you can use Powertools for AWS Lambda to generate JSON structured log outputs from your code.
 
   You can also use a print statement to output a JSON object containing a log level identifier. The following print statement produces a JSON formatted output where the log level is set to INFO. AWS Lambda sends the JSON object to CloudWatch Logs if your function's logging level is set to INFO, DEBUG, or TRACE.
@@ -266,14 +266,14 @@ For Lambda to filter your function's logs, you must also include a `"timestamp"`
 ## Viewing logs in Lambda console
 <a name="python-logging-console"></a>
 
-You can use the Lambda console to view log output after you invoke a Lambda function.
+You can use the Lambda console to view log output after you invoke a Lambda Event Function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in CloudWatch console
 <a name="python-logging-cwconsole"></a>
 
-You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
+You can use the Amazon CloudWatch console to view logs for all Lambda Event Function invocations.
 
 **To view logs on the CloudWatch console**
 
@@ -410,7 +410,7 @@ Log groups aren't deleted automatically when you delete a function. To avoid sto
 ## Using Powertools for AWS Lambda (Python) and AWS SAM for structured logging
 <a name="python-logging-sam"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for Python](https://docs.aws.amazon.com/powertools/python/latest/) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
+Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for Python](https://docs.aws.amazon.com/powertools/python/latest/) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda Event Function. When you send a GET request to the API Gateway endpoint, the function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
 
 **Prerequisites**
 
@@ -571,7 +571,7 @@ Resources:
 ## Using Powertools for AWS Lambda (Python) and AWS CDK for structured logging
 <a name="python-logging-powertools-cdk"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for AWS Lambda (Python)](https://docs.aws.amazon.com/powertools/python/latest/) modules using the AWS CDK. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a hello world message.
+Follow the steps below to download, build, and deploy a sample Hello World Python application with integrated [Powertools for AWS Lambda (Python)](https://docs.aws.amazon.com/powertools/python/latest/) modules using the AWS CDK. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda Event Function. When you send a GET request to the API Gateway endpoint, the function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a hello world message.
 
 **Prerequisites**
 
@@ -609,7 +609,7 @@ To complete the steps in this section, you must have the following:
    cd lambda_function
    ```
 
-1. Create a file **app.py** and add the following code to the file. This is the code for the Lambda function.
+1. Create a file **app.py** and add the following code to the file. This is the code for the function.
 
    ```
    from aws_lambda_powertools.event_handler import APIGatewayRestResolver
@@ -655,7 +655,7 @@ To complete the steps in this section, you must have the following:
    cd hello_world
    ```
 
-1. Open **hello\_world\_stack.py** and add the following code to the file. This contains the [Lambda Constructor](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_lambda.html), which creates the Lambda function, configures environment variables for Powertools and sets log retention to one week, and the [ ApiGatewayv1 Constructor](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_apigateway.html), which creates the REST API.
+1. Open **hello\_world\_stack.py** and add the following code to the file. This contains the [Lambda Constructor](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_lambda.html), which creates the function, configures environment variables for Powertools and sets log retention to one week, and the [ ApiGatewayv1 Constructor](https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_apigateway.html), which creates the REST API.
 
    ```
    from aws_cdk import (

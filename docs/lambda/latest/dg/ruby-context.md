@@ -1,6 +1,6 @@
 
 
-# Using the Lambda context object to retrieve Ruby function information
+# Using the Lambda context object to retrieve Ruby Event Function information
 <a name="ruby-context"></a>
 
 When Lambda runs your function, it passes a context object to the [handler](ruby-handler.md). This object provides methods and properties that provide information about the invocation, function, and execution environment.

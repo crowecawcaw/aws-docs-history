@@ -8,7 +8,7 @@
 
 You can use the Lambda console to create a Managed Instance function that runs on Amazon EC2 instances managed by a capacity provider.
 
-**Important:** Before creating a Managed Instance function, you must first create a capacity provider. These functions require a capacity provider to define the Amazon EC2 infrastructure that runs your functions.
+**Important:** Before creating a Managed Instance function, you must first create a capacity provider. These Lambda Event Functions require a capacity provider to define the Amazon EC2 infrastructure that runs your functions.
 
 **To create a Lambda Managed Instance function (console)**
 

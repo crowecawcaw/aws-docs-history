@@ -11,7 +11,7 @@ All Lambda event source types share the same [CreateEventSourceMapping](https://
 | BatchSize | N | 100 | Maximum: 10,000 | 
 | DestinationConfig | N | N/A | [Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources](kafka-on-failure.md) | 
 | Enabled | N | True |  | 
-| FilterCriteria | N | N/A | [Control which events Lambda sends to your function](invocation-eventfiltering.md) | 
+| FilterCriteria | N | N/A | [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md) | 
 | FunctionName | Y | N/A |  | 
 | KMSKeyArn | N | N/A | [Encryption of filter criteria](invocation-eventfiltering.md#filter-criteria-encryption) | 
 | MaximumBatchingWindowInSeconds | N | 500 ms | [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching) | 

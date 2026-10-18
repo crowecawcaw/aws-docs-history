@@ -3,7 +3,7 @@
 # Configuring your self-managed Apache Kafka cluster and network for Lambda
 <a name="with-kafka-cluster-network"></a>
 
-To connect your Lambda function to your self-managed Apache Kafka cluster, you need to correctly configure your cluster and the network it resides in. This page describes how to configure your cluster and network. If your cluster and network are already configured properly, see [Configuring self-managed Apache Kafka event sources for Lambda](with-kafka-configure.md) to configure the event source mapping.
+To connect your Lambda Event Function to your self-managed Apache Kafka cluster, you need to correctly configure your cluster and the network it resides in. This page describes how to configure your cluster and network. If your cluster and network are already configured properly, see [Configuring self-managed Apache Kafka event sources for Lambda](with-kafka-configure.md) to configure the event source mapping.
 
 **Topics**
 + [Self-managed Apache Kafka cluster setup](#kafka-cluster-setup)
@@ -19,7 +19,7 @@ You can host your self-managed Apache Kafka cluster with cloud providers such as
 
 To give Lambda full access to self-managed Apache Kafka through your event source mapping, either your cluster must use a public endpoint (public IP address), or you must provide access to the Amazon VPC you created the cluster in.
 
-When you use self-managed Apache Kafka with Lambda, create [AWS PrivateLink VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) that provide your function access to the resources in your Amazon VPC.
+When you use self-managed Apache Kafka with Lambda, create [AWS PrivateLink VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) that provide your Event Function access to the resources in your Amazon VPC.
 
 **Note**  
 AWS PrivateLink VPC endpoints are required for functions with event source mappings that use the default (on-demand) mode for event pollers. If your event source mapping uses [ provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode), you don't need to configure AWS PrivateLink VPC endpoints.
@@ -29,12 +29,12 @@ Create an endpoint to provide access to the following resources:
 +  AWS STS — Create an endpoint for the AWS STS in order for a service principal to assume a role on your behalf. 
 +  Secrets Manager — If your cluster uses Secrets Manager to store credentials, create an endpoint for Secrets Manager. 
 
-Alternatively, configure a NAT gateway on each public subnet in the Amazon VPC. For more information, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md).
+Alternatively, configure a NAT gateway on each public subnet in the Amazon VPC. For more information, see [Enable internet access for VPC-connected Lambda Event Functions](configuration-vpc-internet.md).
 
 When you create an event source mapping for self-managed Apache Kafka, Lambda checks whether Elastic Network Interfaces (ENIs) are already present for the subnets and security groups configured for your Amazon VPC. If Lambda finds existing ENIs, it attempts to re-use them. Otherwise, Lambda creates new ENIs to connect to the event source and invoke your function.
 
 **Note**  
-Lambda functions always run inside VPCs owned by the Lambda service. Your function's VPC configuration does not affect the event source mapping. Only the networking configuration of the event source's determines how Lambda connects to your event source.
+Lambda Event Functions always run inside VPCs owned by the Lambda service. Your function's VPC configuration does not affect the event source mapping. Only the networking configuration of the event source's determines how Lambda connects to your event source.
 
 Configure the security groups for the Amazon VPC containing your cluster. By default, self-managed Apache Kafka uses the following ports: `9092`.
 + Inbound rules – Allow all traffic on the default broker port for the security group associated with your event source. Alternatively, you can use a self-referencing security group rule to allow access from instances within the same security group.
@@ -64,7 +64,7 @@ If your cluster uses authentication, you can also restrict the endpoint policy f
 
 When you use Amazon VPC endpoints, AWS routes your API calls to invoke your function using the endpoint's Elastic Network Interface (ENI). The Lambda service principal needs to call `lambda:InvokeFunction` on any roles and functions that use those ENIs.
 
-By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice is to restrict these policies to perform the needed actions using that endpoint. To ensure that your event source mapping is able to invoke your Lambda function, the VPC endpoint policy must allow the Lambda service principal to call `sts:AssumeRole` and `lambda:InvokeFunction`. Restricting your VPC endpoint policies to allow only API calls originating within your organization prevents the event source mapping from functioning properly, so `"Resource": "*"` is required in these policies.
+By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice is to restrict these policies to perform the needed actions using that endpoint. To ensure that your event source mapping is able to invoke your Lambda Event Function, the VPC endpoint policy must allow the Lambda service principal to call `sts:AssumeRole` and `lambda:InvokeFunction`. Restricting your VPC endpoint policies to allow only API calls originating within your organization prevents the event source mapping from functioning properly, so `"Resource": "*"` is required in these policies.
 
 The following example VPC endpoint policies show how to grant the required access to the Lambda service principal for the AWS STS and Lambda endpoints.
 

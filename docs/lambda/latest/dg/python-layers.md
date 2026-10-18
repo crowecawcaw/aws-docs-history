@@ -1,6 +1,6 @@
 
 
-# Working with layers for Python Lambda functions
+# Working with layers for Python Lambda Event Functions
 <a name="python-layers"></a>
 
 Use [Lambda layers](chapter-layers.md) to package code and dependencies that you want to reuse across multiple functions. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. Creating a layer involves three general steps:
@@ -21,7 +21,7 @@ Use [Lambda layers](chapter-layers.md) to package code and dependencies that you
 <a name="python-layers-package"></a>
 
 To create a layer, bundle your packages into a .zip file archive that meets the following requirements:
-+ Build the layer using the same Python version that you plan to use for the Lambda function. For example, if you build your layer using Python 3.14, use the Python 3.14 runtime for your function.
++ Build the layer using the same Python version that you plan to use for the function. For example, if you build your layer using Python 3.14, use the Python 3.14 runtime for your function.
 + Your .zip file must include a `python` directory at the root level.
 + The packages in your layer must be compatible with Linux. Lambda functions run on Amazon Linux.
 
@@ -278,7 +278,7 @@ The **cli-binary-format** option is required if you're using AWS CLI version 2. 
 
 **To add a layer to a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function.
 

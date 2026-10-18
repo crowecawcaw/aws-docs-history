@@ -3,7 +3,7 @@
 # Core concepts
 <a name="lambda-managed-instances-core-concepts"></a>
 
-Lambda Managed Instances introduces several core concepts that differ from traditional Lambda functions. Understanding these concepts is essential for effectively deploying and managing your functions on EC2 infrastructure.
+Lambda Managed Instances introduces several core concepts that differ from traditional Lambda functions. Understanding these concepts is essential for effectively deploying and managing your Lambda Event Functions on EC2 infrastructure.
 
 **Capacity providers** form the foundation of Lambda Managed Instances. A capacity provider defines the compute infrastructure where your functions execute, including VPC configuration, instance requirements, and scaling policies. Capacity providers also serve as the security boundary for your functions, meaning all functions assigned to the same capacity provider must be mutually trusted.
 

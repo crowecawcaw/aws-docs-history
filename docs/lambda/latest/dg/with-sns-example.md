@@ -3,18 +3,18 @@
 # Tutorial: Using AWS Lambda with Amazon Simple Notification Service
 <a name="with-sns-example"></a>
 
-In this tutorial, you use a Lambda function in one AWS account to subscribe to an Amazon Simple Notification Service (Amazon SNS) topic in a separate AWS account. When you publish messages to your Amazon SNS topic, your Lambda function reads the contents of the message and outputs it to Amazon CloudWatch Logs. To complete this tutorial, you use the AWS Command Line Interface (AWS CLI).
+In this tutorial, you use a Lambda Event Function in one AWS account to subscribe to an Amazon Simple Notification Service (Amazon SNS) topic in a separate AWS account. When you publish messages to your Amazon SNS topic, your Lambda Event Function reads the contents of the message and outputs it to Amazon CloudWatch Logs. To complete this tutorial, you use the AWS Command Line Interface (AWS CLI).
 
-![An Amazon SNS topic connected to a Lambda function connected to a CloudWatch Logs log group.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_resources.png)
+![An Amazon SNS topic connected to a Lambda Event Function connected to a CloudWatch Logs log group.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_resources.png)
 
 
 To complete this tutorial, you perform the following steps:
 + In **account A**, create an Amazon SNS topic.
-+ In **account B**, create a Lambda function that reads messages from the topic.
++ In **account B**, create a Lambda Event Function that reads messages from the topic.
 + In **account B**, create a subscription to the topic.
-+ Publish messages to the Amazon SNS topic in **account A** and confirm that the Lambda function in **account B** outputs them to CloudWatch Logs.
++ Publish messages to the Amazon SNS topic in **account A** and confirm that the Lambda Event Function in **account B** outputs them to CloudWatch Logs.
 
-By completing these steps, you learn how to configure an Amazon SNS topic to invoke a Lambda function. You also learn how to create an AWS Identity and Access Management (IAM) policy that gives permission for a resource in another AWS account to invoke Lambda.
+By completing these steps, you learn how to configure an Amazon SNS topic to invoke a Lambda Event Function. You also learn how to create an AWS Identity and Access Management (IAM) policy that gives permission for a resource in another AWS account to invoke Lambda.
 
 In the tutorial, you use two separate AWS accounts. The AWS CLI commands illustrate this by using two named profiles called `accountA` and `accountB`, each configured for use with a different AWS account. To learn how to configure the AWS CLI to use different profiles, see [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in the *AWS Command Line Interface User Guide for Version 2*. Be sure to configure the same default AWS Region for both profiles.
 
@@ -54,7 +54,7 @@ In Windows, some Bash CLI commands that you commonly use with Lambda (such as `z
   }
   ```
 
-  Make a note of the Amazon Resource Name (ARN) of your topic. You'll need it later in the tutorial when you add permissions to your Lambda function to subscribe to the topic.
+  Make a note of the Amazon Resource Name (ARN) of your topic. You'll need it later in the tutorial when you add permissions to your Lambda Event Function to subscribe to the topic.
 
 ## Create a function execution role (account B)
 <a name="with-sns-example-create-iam-role"></a>
@@ -62,7 +62,7 @@ In Windows, some Bash CLI commands that you commonly use with Lambda (such as `z
 ![Next step: Create the execution role.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_steps_2.png)
 
 
-An execution role is an IAM role that grants a Lambda function permission to access AWS services and resources. Before you create your function in **account B**, you create a role that gives the function basic permissions to write logs to CloudWatch Logs. We'll add the permissions to read from your Amazon SNS topic in a later step.
+An execution role is an IAM role that grants a Lambda Event Function permission to access AWS services and resources. Before you create your function in **account B**, you create a role that gives the function basic permissions to write logs to CloudWatch Logs. We'll add the permissions to read from your Amazon SNS topic in a later step.
 
 **To create an execution role**
 
@@ -88,13 +88,13 @@ An execution role is an IAM role that grants a Lambda function permission to acc
 
    1. Choose **Create role**.
 
-## Create a Lambda function (account B)
+## Create a Lambda Event Function (account B)
 <a name="with-sns-example-create-test-function"></a>
 
 ![Next step: Create the function.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_steps_3.png)
 
 
-Create a Lambda function that processes your Amazon SNS messages. The function code logs the message contents of each record to Amazon CloudWatch Logs.
+Create a Lambda Event Function that processes your Amazon SNS messages. The function code logs the message contents of each record to Amazon CloudWatch Logs.
 
 This tutorial uses the Node.js 24 runtime, but we've also provided example code in other runtime languages. You can select the tab in the following box to see code for the runtime you're interested in. The JavaScript code you'll use in this step is in the first example shown in the **JavaScript** tab.
 
@@ -438,7 +438,7 @@ async fn main() -> Result<(), Error> {
 
 ------
 
-**To create the function**
+**To create the Event Function**
 
 1. Create a directory for the project, and then switch to that directory.
 
@@ -455,7 +455,7 @@ async fn main() -> Result<(), Error> {
    zip function.zip index.js
    ```
 
-1. Run the following AWS CLI command to create your Lambda function in **account B**.
+1. Run the following AWS CLI command to create your Lambda Event Function in **account B**.
 
    ```
    aws lambda create-function --function-name Function-With-SNS \
@@ -482,7 +482,7 @@ async fn main() -> Result<(), Error> {
 
 1. Record the Amazon Resource Name (ARN) of your function. You'll need it later in the tutorial when you add permissions to allow Amazon SNS to invoke your function.
 
-## Add permissions to function (account B)
+## Add permissions to Event Function (account B)
 <a name="with-sns-create-function-permissions"></a>
 
 ![Next step: Add permissions to function.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_steps_4.png)
@@ -490,7 +490,7 @@ async fn main() -> Result<(), Error> {
 
 For Amazon SNS to invoke your function, you need to grant it permission in a statement on a [resource-based policy](access-control-resource-based.md). You add this statement using the AWS CLI `add-permission` command.
 
-**To grant Amazon SNS permission to invoke your function**
+**To grant Amazon SNS permission to invoke your Event Function**
 + In **account B**, run the following AWS CLI command using the ARN for your Amazon SNS topic you recorded earlier.
 
   ```
@@ -522,7 +522,7 @@ If the account with the Amazon SNS topic is hosted in an [opt-in AWS Region](htt
 ![Next step: Grant cross-account permission.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_steps_5.png)
 
 
-For your Lambda function in **account B** to subscribe to the Amazon SNS topic you created in **account A**, you need to grant permission for **account B** to subscribe to your topic. You grant this permission using the AWS CLI `add-permission` command. 
+For your Lambda Event Function in **account B** to subscribe to the Amazon SNS topic you created in **account A**, you need to grant permission for **account B** to subscribe to your topic. You grant this permission using the AWS CLI `add-permission` command. 
 
 **To grant permission for account B to subscribe to the topic**
 + In **account A**, run the following AWS CLI command. Use the ARN for the Amazon SNS topic you recorded earlier.
@@ -539,10 +539,10 @@ For your Lambda function in **account B** to subscribe to the Amazon SNS topic y
 ![Next step: Create a subscription.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_steps_6.png)
 
 
-In **account B**, you now subscribe your Lambda function to the Amazon SNS topic you created at the beginning of the tutorial in **account A**. When a message is sent to this topic (`sns-topic-for-lambda`), Amazon SNS invokes your Lambda function `Function-With-SNS` in **account B**. 
+In **account B**, you now subscribe your Lambda Event Function to the Amazon SNS topic you created at the beginning of the tutorial in **account A**. When a message is sent to this topic (`sns-topic-for-lambda`), Amazon SNS invokes your Lambda Event Function `Function-With-SNS` in **account B**. 
 
 **To create a subscription**
-+ In **account B**, run the following AWS CLI command. Use your default region you created your topic in and the ARNs for your topic and Lambda function.
++ In **account B**, run the following AWS CLI command. Use your default region you created your topic in and the ARNs for your topic and Lambda Event Function.
 
   ```
   aws sns subscribe --protocol lambda \
@@ -566,9 +566,9 @@ In **account B**, you now subscribe your Lambda function to the Amazon SNS topic
 ![Next step: Publish messages.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-sns-tutorial/sns_tut_steps_7.png)
 
 
-Now that your Lambda function in **account B** is subscribed to your Amazon SNS topic in **account A**, it's time to test your setup by publishing messages to your topic. To confirm that Amazon SNS has invoked your Lambda function, you use CloudWatch Logs to view your function's output.
+Now that your Lambda Event Function in **account B** is subscribed to your Amazon SNS topic in **account A**, it's time to test your setup by publishing messages to your topic. To confirm that Amazon SNS has invoked your Lambda Event Function, you use CloudWatch Logs to view your function's output.
 
-**To publish a message to your topic and view your function's output**
+**To publish a message to your topic and view your Event Function's output**
 
 1. Enter `Hello World` into a text file and save it as `message.txt`.
 
@@ -580,7 +580,7 @@ Now that your Lambda function in **account B** is subscribed to your Amazon SNS 
        --profile accountA
    ```
 
-   This returns a message ID with a unique identifier, indicating that Amazon SNS has accepted the message. Amazon SNS then attempts to deliver the message to the topic's subscribers. To confirm that Amazon SNS has invoked your Lambda function, use CloudWatch Logs to view your function's output:
+   This returns a message ID with a unique identifier, indicating that Amazon SNS has accepted the message. Amazon SNS then attempts to deliver the message to the topic's subscribers. To confirm that Amazon SNS has invoked your Lambda Event Function, use CloudWatch Logs to view your function's output:
 
 1. In **account B**, open the [Log groups](https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups) page of the Amazon CloudWatch console.
 
@@ -614,7 +614,7 @@ In **Account A**, clean up your Amazon SNS topic.
 
 1. Choose **Delete**.
 
-In **Account B**, clean up your execution role, Lambda function, and Amazon SNS subscription.
+In **Account B**, clean up your execution role, Lambda Event Function, and Amazon SNS subscription.
 
 **To delete the execution role**
 
@@ -626,11 +626,11 @@ In **Account B**, clean up your execution role, Lambda function, and Amazon SNS 
 
 1. Enter the name of the role in the text input field and choose **Delete**.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

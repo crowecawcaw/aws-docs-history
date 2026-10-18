@@ -3,18 +3,18 @@
 # Use Lambda recursive loop detection to prevent infinite loops
 <a name="invocation-recursion"></a>
 
-When you configure a Lambda function to output to the same service or resource that invokes the function, it's possible to create an infinite recursive loop. For example, a Lambda function might write a message to an Amazon Simple Queue Service (Amazon SQS) queue, which then invokes the same function. This invocation causes the function to write another message to the queue, which in turn invokes the function again.
+When you configure a Lambda Event Function to output to the same service or resource that invokes the function, it's possible to create an infinite recursive loop. For example, a Lambda Event Function might write a message to an Amazon Simple Queue Service (Amazon SQS) queue, which then invokes the same function. This invocation causes the function to write another message to the queue, which in turn invokes the function again.
 
 Unintentional recursive loops can result in unexpected charges being billed to your AWS account. Loops can also cause Lambda to [scale](lambda-concurrency.md) and use all of your account's available concurrency. To help reduce the impact of unintentional loops, Lambda detects certain types of recursive loops shortly after they occur.
 
-By default, when Lambda detects a recursive loop, it stops your function being invoked and notifies you. If your design intentionally uses recursive patterns, you can a change a function's default configuration to allow it to be invoked recursively. See [Allowing a Lambda function to run in a recursive loop](#invocation-recursion-disable) for more information.
+By default, when Lambda detects a recursive loop, it stops your function being invoked and notifies you. If your design intentionally uses recursive patterns, you can a change a function's default configuration to allow it to be invoked recursively. See [Allowing a Lambda Event Function to run in a recursive loop](#invocation-recursion-disable) for more information.
 
 **Topics**
 + [Understanding recursive loop detection](#invocation-recursion-concepts)
 + [Supported AWS services and SDKs](#invocation-recursion-supported)
 + [Recursive loop notifications](#invocation-recursion-monitoring)
 + [Responding to recursive loop detection notifications](#invocation-recursion-responding)
-+ [Allowing a Lambda function to run in a recursive loop](#invocation-recursion-disable)
++ [Allowing a Lambda Event Function to run in a recursive loop](#invocation-recursion-disable)
 + [Supported Regions for Lambda recursive loop detection](#invocation-recursion-regions)
 
 ## Understanding recursive loop detection
@@ -22,38 +22,38 @@ By default, when Lambda detects a recursive loop, it stops your function being i
 
 Recursive loop detection in Lambda works by tracking events. Lambda is an event-driven compute service that runs your function code when certain events occur. For example, when an item is added to an Amazon SQS queue or Amazon Simple Notification Service (Amazon SNS) topic. Lambda passes events to your function as JSON objects, which contain information about the change in the system state. When an event causes your function to run, this is called an *invocation*.
 
-To detect recursive loops, Lambda uses [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html) tracing headers. When [AWS services that support recursive loop detection](#invocation-recursion-supportedservices) send events to Lambda, those events are automatically annotated with metadata. When your Lambda function writes one of these events to another supported AWS service using a [supported version of an AWS SDK](#invocation-recursion-supportedsdks), it updates this metadata. The updated metadata includes a count of the number of times that the event has invoked the function.
+To detect recursive loops, Lambda uses [AWS X-Ray](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html) tracing headers. When [AWS services that support recursive loop detection](#invocation-recursion-supportedservices) send events to Lambda, those events are automatically annotated with metadata. When your Lambda Event Function writes one of these events to another supported AWS service using a [supported version of an AWS SDK](#invocation-recursion-supportedsdks), it updates this metadata. The updated metadata includes a count of the number of times that the event has invoked the function.
 
 **Note**  
 You don't need to enable X-Ray active tracing for this feature to work. Recursive loop detection is turned on by default for all AWS customers. There is no charge to use the feature.
 
-A *chain of requests* is a sequence of Lambda invocations caused by the same triggering event. For example, imagine that an Amazon SQS queue invokes your Lambda function. Your Lambda function then sends the processed event back to the same Amazon SQS queue, which invokes your function again. In this example, each invocation of your function falls in the same chain of requests.
+A *chain of requests* is a sequence of Lambda invocations caused by the same triggering event. For example, imagine that an Amazon SQS queue invokes your Lambda Event Function. Your Lambda Event Function then sends the processed event back to the same Amazon SQS queue, which invokes your function again. In this example, each invocation of your function falls in the same chain of requests.
 
 If your function is invoked approximately 16 times in the same chain of requests, then Lambda automatically stops the next function invocation in that request chain and notifies you. If your function is configured with multiple triggers, then invocations from other triggers aren't affected.
 
 **Note**  
 Even when the `maxReceiveCount` setting on the source queue's redrive policy is higher than 16, Lambda recursion protection does not prevent Amazon SQS from retrying the message after a recursive loop is detected and terminated. When Lambda detects a recursive loop and drops subsequent invocations, it returns a `RecursiveInvocationException` to the event source mapping. This increments the `receiveCount` value on the message. Lambda continues to retry the message, and continues to block function invocations, until Amazon SQS determines that the `maxReceiveCount` is exceeded and sends the message to the configured dead-letter queue.
 
-If you have an [on-failure destination](invocation-async-retain-records.md#invocation-async-destinations) or [dead-letter queue](invocation-async-retain-records.md#invocation-dlq) configured for your function, then Lambda also sends the event from the stopped invocation to your destination or dead-letter queue. When configuring a destination or dead-letter queue for your function, be sure not to use an event trigger or event source mapping that your function also uses. If you send events to the same resource that invokes your function, then you can create another recursive loop and this loop is also terminated. If you opt out of recursion loop detection, this loop is not terminated.
+If you have an [on-failure destination](invocation-async-retain-records.md#invocation-async-destinations) or [dead-letter queue](invocation-async-retain-records.md#invocation-dlq) configured for your Event Function, then Lambda also sends the event from the stopped invocation to your destination or dead-letter queue. When configuring a destination or dead-letter queue for your function, be sure not to use an event trigger or event source mapping that your function also uses. If you send events to the same resource that invokes your function, then you can create another recursive loop and this loop is also terminated. If you opt out of recursion loop detection, this loop is not terminated.
 
 ## Supported AWS services and SDKs
 <a name="invocation-recursion-supported"></a>
 
-Lambda can detect only recursive loops that include certain supported AWS services. For recursive loops to be detected, your function must also use one of the supported AWS SDKs.
+Lambda can detect only recursive loops that include certain supported AWS services. For recursive loops to be detected, your Event Function must also use one of the supported AWS SDKs.
 
 ### Supported AWS services
 <a name="invocation-recursion-supportedservices"></a>
 
-Lambda currently detects recursive loops between your functions, Amazon SQS, Amazon S3, Amazon SNS, and Amazon EventBridge Custom event buses. Lambda also detects loops comprised only of Lambda functions, which might invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
+Lambda currently detects recursive loops between your functions, Amazon SQS, Amazon S3, Amazon SNS, and Amazon EventBridge Custom event buses. Lambda also detects loops comprised only of Lambda Event Functions, which might invoke each other synchronously or asynchronously. The following diagrams show some examples of loops that Lambda can detect:
 
 ![Diagrams of recursive loops between a Lambda function, Amazon SNS, Amazon S3, and an Amazon SQS queue.](https://docs.aws.amazon.com/lambda/latest/dg/images/RunawayWorkloadDetected_v3.png)
 
 
 When another AWS service such as Amazon DynamoDB forms part of the loop, Lambda can't currently detect and stop it.
 
-Because Lambda currently detects only recursive loops involving Amazon SQS, Amazon S3, Amazon SNS, and Amazon EventBridge Custom event buses, it's still possible that loops involving other AWS services can result in unintended usage of your Lambda functions.
+Because Lambda currently detects only recursive loops involving Amazon SQS, Amazon S3, Amazon SNS, and Amazon EventBridge Custom event buses, it's still possible that loops involving other AWS services can result in unintended usage of your Lambda Event Function.
 
-To guard against unexpected charges being billed to your AWS account, we recommend that you configure [Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) to alert you to unusual usage patterns. For example, you can configure CloudWatch to notify you about spikes in Lambda function concurrency or invocations. You can also configure a [billing alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) to notify you when spending in your account exceeds a threshold that you specify. Or, you can use [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html) to alert you to unusual billing patterns.
+To guard against unexpected charges being billed to your AWS account, we recommend that you configure [Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) to alert you to unusual usage patterns. For example, you can configure CloudWatch to notify you about spikes in Lambda Event Functions concurrency or invocations. You can also configure a [billing alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html) to notify you when spending in your account exceeds a threshold that you specify. Or, you can use [AWS Cost Anomaly Detection](https://docs.aws.amazon.com/cost-management/latest/userguide/manage-ad.html) to alert you to unusual billing patterns.
 
 ### Supported AWS SDKs
 <a name="invocation-recursion-supportedsdks"></a>
@@ -73,7 +73,7 @@ For Lambda to detect recursive loops, your function must use one of the followin
 | PHP | 3.232.0 | 
 | Go | V2 SDK 1.57.0 | 
 
-Some Lambda runtimes such as Python and Node.js include a version of the AWS SDK. If the SDK version included in your function's runtime is lower than the minimum required, then you can add a supported version of the SDK to your function's deployment package. You can also add a supported SDK version to your function using a [Lambda layer](chapter-layers.md). For a list of the SDKs included with each Lambda runtime, see [Lambda runtimes](lambda-runtimes.md).
+Some Lambda runtimes such as Python and Node.js include a version of the AWS SDK. If the SDK version included in your function's runtime is lower than the minimum required, then you can add a supported version of the SDK to your function's deployment package. You can also add a supported SDK version to your function using a [Lambda layer](chapter-layers.md). For a list of the SDKs included with each Lambda runtime, see [Lambda Event Function runtimes](lambda-runtimes.md).
 
 ## Recursive loop notifications
 <a name="invocation-recursion-monitoring"></a>
@@ -88,7 +88,7 @@ When Lambda stops a recursive invocation, the Health Dashboard displays a notifi
 ### Email alerts
 <a name="invocation-recursion-email"></a>
 
-When Lambda first stops a recursive invocation of your function, it sends you an email alert. Lambda sends a maximum of one email every 24 hours for each function in your AWS account. After Lambda sends an email notification, you won't receive any more emails for that function for another 24 hours, even if Lambda stops further recursive invocations of the function. Note that it can take up to 3.5 hours after Lambda stops a recursive invocation before you receive this email alert.
+When Lambda first stops a recursive invocation of your Event Function, it sends you an email alert. Lambda sends a maximum of one email every 24 hours for each function in your AWS account. After Lambda sends an email notification, you won't receive any more emails for that function for another 24 hours, even if Lambda stops further recursive invocations of the function. Note that it can take up to 3.5 hours after Lambda stops a recursive invocation before you receive this email alert.
 
 Lambda sends recursive loop email alerts to your AWS account's primary account contact and alternate operations contact. For information about viewing or updating the email addresses in your account, see [Updating contact information](https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html) in the *AWS General Reference*.
 
@@ -100,33 +100,33 @@ The [CloudWatch metric](monitoring-metrics-types.md) `RecursiveInvocationsDroppe
 ## Responding to recursive loop detection notifications
 <a name="invocation-recursion-responding"></a>
 
-When your function is invoked more than approximately 16 times by the same triggering event, Lambda stops the next function invocation for that event to break the recursive loop. To prevent a reoccurrence of a recursive loop that Lambda has broken, do the following: 
+When your Event Function is invoked more than approximately 16 times by the same triggering event, Lambda stops the next function invocation for that event to break the recursive loop. To prevent a reoccurrence of a recursive loop that Lambda has broken, do the following: 
 + Reduce your function's available [concurrency](lambda-concurrency.md) to zero, which throttles all future invocations.
 + Remove or disable the trigger or event source mapping that's invoking your function.
 + Identify and fix code defects that write events back to the AWS resource that's invoking your function. A common source of defects occurs when you use variables to define a function's event source and target. Check that you're not using the same value for both variables.
 
-Additionally, if the event source for your Lambda function is an Amazon SQS queue, then consider [configuring a dead-letter queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-dead-letter-queue.html) on the source queue.
+Additionally, if the event source for your Lambda Event Function is an Amazon SQS queue, then consider [configuring a dead-letter queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-dead-letter-queue.html) on the source queue.
 
 **Note**  
-Make sure that you configure the dead-letter queue on the source queue, not on the Lambda function. The dead-letter queue that you configure on a function is used for the function's [asynchronous invocation queue](invocation-async.md), not for event source queues.
+Make sure that you configure the dead-letter queue on the source queue, not on the Lambda Event Function. The dead-letter queue that you configure on a function is used for the function's [asynchronous invocation queue](invocation-async.md), not for event source queues.
 
 If the event source is an Amazon SNS topic, then consider adding an [on-failure destination](invocation-async-retain-records.md#invocation-async-destinations) for your function.
 
-**To reduce your function's available concurrency to zero (console)**
+**To reduce your Event Function's available concurrency to zero (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of your function.
+1. Choose the name of your Event Function.
 
 1. Choose **Throttle**.
 
 1. In the **Throttle your function** dialog box, choose **Confirm**.
 
-**To remove a trigger or event source mapping for your function (console)**
+**To remove a trigger or event source mapping for your Event Function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of your function.
+1. Choose the name of your Event Function.
 
 1. Choose the **Configuration** tab, then choose **Triggers**.
 
@@ -134,7 +134,7 @@ If the event source is an Amazon SNS topic, then consider adding an [on-failure 
 
 1. In the **Delete triggers** dialog box, choose **Delete**.
 
-**To disable an event source mapping for your function (AWS CLI)**
+**To disable an event source mapping for your Event Function (AWS CLI)**
 
 1. To find the UUID for the event source mapping that you want to disable, run the AWS Command Line Interface (AWS CLI) [list-event-source-mappings](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/list-event-source-mappings.html) command.
 
@@ -149,10 +149,10 @@ If the event source is an Amazon SNS topic, then consider adding an [on-failure 
    --uuid {{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}} --no-enabled
    ```
 
-## Allowing a Lambda function to run in a recursive loop
+## Allowing a Lambda Event Function to run in a recursive loop
 <a name="invocation-recursion-disable"></a>
 
-If your design intentionally uses a recursive loop, you can configure a Lambda function to allow it to be invoked recursively. We recommend that you avoid using recursive loops in your design. Implementation errors can lead to recursive invocations using all of your AWS account's available concurrency and to unexpected charges being billed to your account.
+If your design intentionally uses a recursive loop, you can configure a Lambda Event Function to allow it to be invoked recursively. We recommend that you avoid using recursive loops in your design. Implementation errors can lead to recursive invocations using all of your AWS account's available concurrency and to unexpected charges being billed to your account.
 
 **Important**  
 If you use recursive loops, treat them with caution. Implement best practice guard rails to minimize the risks of implementation errors. To learn more about best practices for using recursive patterns, see [Recursive patterns that cause run-away Lambda functions](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway) in Serverless Land.
@@ -166,11 +166,11 @@ Note that when you configure a function to allow recursive loops, the [CloudWatc
 ------
 #### [ Console ]
 
-**To allow a function to run in a recursive loop (console)**
+**To allow an Event Function to run in a recursive loop (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of your function to open the function detail page.
+1. Choose the name of your Event Function to open the function detail page.
 
 1. Choose the **Configuration** tab, then choose **Concurrency and recursion detection**.
 
@@ -191,16 +191,16 @@ aws lambda put-function-recursion-config --function-name {{yourFunctionName}} --
 
 ------
 
-You can change your function's configuration back to the default setting so that Lambda terminates recursive loops when it detects them. Edit your function's configuration using the Lambda console or the AWS CLI.
+You can change your Event Function's configuration back to the default setting so that Lambda terminates recursive loops when it detects them. Edit your function's configuration using the Lambda console or the AWS CLI.
 
 ------
 #### [ Console ]
 
-**To configure a function so that recursive loops are terminated (console)**
+**To configure an Event Function so that recursive loops are terminated (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of your function to open the function detail page.
+1. Choose the name of your Event Function to open the function detail page.
 
 1. Choose the **Configuration** tab, then choose **Concurrency and recursion detection**.
 

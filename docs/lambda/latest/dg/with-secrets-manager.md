@@ -1,9 +1,9 @@
 
 
-# Use Secrets Manager secrets in Lambda functions
+# Use Secrets Manager secrets in Lambda Event Functions
 <a name="with-secrets-manager"></a>
 
-AWS Secrets Manager helps you manage credentials, API keys, and other secrets that your Lambda functions need. You have two main approaches for retrieving secrets in your Lambda functions, both offering better performance and lower costs compared to retrieving secrets directly using the AWS SDK:
+AWS Secrets Manager helps you manage credentials, API keys, and other secrets that your Lambda Event Functions need. You have two main approaches for retrieving secrets in your Lambda Event Functions, both offering better performance and lower costs compared to retrieving secrets directly using the AWS SDK:
 + **AWS parameters and secrets Lambda extension** - A runtime-agnostic solution that provides a simple HTTP interface for retrieving secrets
 + **Powertools for AWS Lambda parameters utility** - A code-integrated solution that supports multiple providers (Secrets Manager, Parameter Store, AppConfig) with built-in transformations
 
@@ -39,7 +39,7 @@ Common scenarios for using Secrets Manager with Lambda include:
 
 The AWS parameters and secrets Lambda extension uses a simple HTTP interface compatible with any Lambda runtime. By default, it caches secrets for 300 seconds (5 minutes) and can hold up to 1,000 secrets. You can [customize these settings with environment variables](#lambda-secrets-manager-env-vars).
 
-### Use Secrets Manager in a Lambda function
+### Use Secrets Manager in a Lambda Event Function
 <a name="lambda-secrets-manager-setup"></a>
 
 This section assumes that you already have a Secrets Manager secret. To create a secret, see [Create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html).
@@ -52,7 +52,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 ------
 #### [ Python ]
 
-**To create a Python function**
+**To create a Python Event Function**
 
 1. Create and navigate to a new project directory. Example:
 
@@ -127,7 +127,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 ------
 #### [ Node.js ]
 
-**To create a Node.js function**
+**To create a Node.js Event Function**
 
 1. Create and navigate to a new project directory. Example:
 
@@ -206,7 +206,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 ------
 #### [ Java ]
 
-**To create a Java function**
+**To create a Java Event Function**
 
 1. Create a Maven project:
 
@@ -362,12 +362,12 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 ------
 
-#### Create the function
+#### Create the Event Function
 <a name="lambda-secrets-manager-create"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Select **Author from scratch**.
 
@@ -375,7 +375,7 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 1. Choose your preferred **Runtime**.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 **To upload the deployment package**
 
@@ -443,10 +443,10 @@ Choose your preferred runtime and follow the steps to create a function that ret
 
 1. Choose **Create policy**.
 
-#### Test the function
+#### Test the Event Function
 <a name="lambda-secrets-manager-test"></a>
 
-**To test the function**
+**To test the Event Function**
 
 1. Return to the Lambda console.
 

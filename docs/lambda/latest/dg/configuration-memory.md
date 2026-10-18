@@ -1,6 +1,6 @@
 
 
-# Configure Lambda function memory
+# Configure Lambda Event Function memory
 <a name="configuration-memory"></a>
 
 Lambda allocates CPU power in proportion to the amount of memory configured. *Memory* is the amount of memory available to your Lambda function at runtime. You can increase or decrease the memory and CPU power allocated to your function using the **Memory** setting. You can configure memory between 128 MB and 10,240 MB in 1-MB increments. At 1,769 MB, a function has the equivalent of one vCPU (one vCPU-second of credits per second).
@@ -32,7 +32,7 @@ You can configure the memory of your function in the Lambda console.
 
 **To update the memory of a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 

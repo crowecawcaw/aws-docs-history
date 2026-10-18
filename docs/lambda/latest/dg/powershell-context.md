@@ -1,6 +1,6 @@
 
 
-# Using the Lambda context object to retrieve PowerShell function information
+# Using the Lambda context object to retrieve PowerShell Event Function information
 <a name="powershell-context"></a>
 
 When Lambda runs your function, it passes context information by making a `$LambdaContext` variable available to the [handler](powershell-handler.md). This variable provides methods and properties with information about the invocation, function, and execution environment.

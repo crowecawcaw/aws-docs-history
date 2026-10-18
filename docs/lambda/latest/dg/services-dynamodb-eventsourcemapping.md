@@ -3,7 +3,7 @@
 # Process DynamoDB records with Lambda
 <a name="services-dynamodb-eventsourcemapping"></a>
 
-Create an event source mapping to tell Lambda to send records from your stream to a Lambda function. You can create multiple event source mappings to process the same data with multiple Lambda functions, or to process items from multiple streams with a single function.
+Create an event source mapping to tell Lambda to send records from your stream to a Lambda Event Function. You can create multiple event source mappings to process the same data with multiple Lambda Event Functions, or to process items from multiple streams with a single function.
 
 You can configure event source mappings to process records from a stream in a different AWS account. To learn more, see [Creating a cross-account event source mapping](#services-dynamodb-eventsourcemapping-cross-account).
 
@@ -11,7 +11,7 @@ To configure your function to read from DynamoDB Streams, attach the [AWSLambdaD
 
 **To add permissions and create a trigger**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 
@@ -58,11 +58,11 @@ To manage the event source configuration later, choose the trigger in the design
 ## Creating a cross-account event source mapping
 <a name="services-dynamodb-eventsourcemapping-cross-account"></a>
 
-Amazon DynamoDB now supports [resource-based policies](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html). With this capability, you can process data from a DynamoDB stream in one AWS account with a Lambda function in another account.
+Amazon DynamoDB now supports [resource-based policies](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html). With this capability, you can process data from a DynamoDB stream in one AWS account with a Lambda Event Function in another account.
 
-To create an event source mapping for your Lambda function using a DynamoDB stream in a different AWS account, you must configure the stream using a resource-based policy to give your Lambda function permission to read records. To learn how to configure your stream for cross-account access, see [Share access with cross-account Lambda functions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-cross-account-access.html#rbac-analyze-cross-account-lambda-access) in the *Amazon DynamoDB Developer Guide*.
+To create an event source mapping for your Lambda Event Function using a DynamoDB stream in a different AWS account, you must configure the stream using a resource-based policy to give your Lambda Event Function permission to read records. To learn how to configure your stream for cross-account access, see [Share access with cross-account Lambda functions](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-cross-account-access.html#rbac-analyze-cross-account-lambda-access) in the *Amazon DynamoDB Developer Guide*.
 
-Once you have configured your stream with a resource-based policy that gives your Lambda function the required permissions, create the event source mapping with your cross-account stream ARN. You can find the stream ARN under the table's **Exports and streams** tab in the cross-account DynamoDB console. 
+Once you have configured your stream with a resource-based policy that gives your Lambda Event Function the required permissions, create the event source mapping with your cross-account stream ARN. You can find the stream ARN under the table's **Exports and streams** tab in the cross-account DynamoDB console. 
 
 When using the Lambda console, paste the stream ARN directly into the DynamoDB table input field in the event source mapping creation page.
 

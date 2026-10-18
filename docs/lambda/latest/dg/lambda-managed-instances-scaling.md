@@ -64,7 +64,7 @@ Set the maximum concurrency per execution environment.
 + **Increase concurrency:** If your function invocations use very little CPU, you can increase maximum concurrency up to a maximum of 64 per vCPU
 + **Decrease concurrency:** If your application consumes a large amount of memory and very little CPU, you can reduce your maximum concurrency
 
-**Important:** Since Lambda Managed Instances are meant for multi-concurrent applications, execution environments with very low concurrency might experience throttles when scaling. When invocations arrive at an execution environment that has reached its concurrency limit, Lambda routes those invocations elsewhere and scales out new execution environments to handle the load. To identify which resource constraint is causing throttles, monitor the throttle reason metrics (`ConcurrencyThrottles`, `CPUThrottles`, `MemoryThrottles`, and `DiskThrottles`) described in [Types of metrics for Lambda functions](monitoring-metrics-types.md).
+**Important:** Since Lambda Managed Instances are meant for multi-concurrent applications, execution environments with very low concurrency might experience throttles when scaling. When invocations arrive at an execution environment that has reached its concurrency limit, Lambda routes those invocations elsewhere and scales out new execution environments to handle the load. To identify which resource constraint is causing throttles, monitor the throttle reason metrics (`ConcurrencyThrottles`, `CPUThrottles`, `MemoryThrottles`, and `DiskThrottles`) described in [Types of metrics for Lambda Event Functions](monitoring-metrics-types.md).
 
 #### 3. Execution environments per function
 <a name="lambda-managed-instances-execution-environments-per-function"></a>

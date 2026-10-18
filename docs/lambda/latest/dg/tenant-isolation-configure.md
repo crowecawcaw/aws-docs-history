@@ -1,9 +1,9 @@
 
 
-# Enabling tenant isolation for Lambda functions
+# Enabling tenant isolation for Lambda Event Functions
 <a name="tenant-isolation-configure"></a>
 
-To activate tenant isolation mode, create a new Lambda function. You cannot enable tenant isolation on existing functions.
+To activate tenant isolation mode, create a new Lambda Event Function. You cannot enable tenant isolation on existing Event Functions.
 
 **Topics**
 + [Enabling tenant isolation (console)](#tenant-isolation-console)
@@ -14,11 +14,11 @@ To activate tenant isolation mode, create a new Lambda function. You cannot enab
 ## Enabling tenant isolation (console)
 <a name="tenant-isolation-console"></a>
 
-**To create a Lambda function using the console**
+**To create a Lambda Event Function using the console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Select **Author from scratch**.
 
@@ -28,14 +28,14 @@ To activate tenant isolation mode, create a new Lambda function. You cannot enab
 
 1. Under additional configurations, **Tenant isolation mode**, select **Enable**.
 
-1. Review your settings, and choose **Create function**.
+1. Review your settings, and choose **Create Event Function**.
 
 ## Enabling tenant isolation (AWS CLI)
 <a name="tenant-isolation-cli"></a>
 
-**Create function with tenant isolation**
+**Create Event Function with tenant isolation**
 
-When creating a new function using the CLI, add the `--tenancy-config '{"TenantIsolationMode": "PER_TENANT"}'` option to your [create-function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html) request. Example:
+When creating a new Event Function using the CLI, add the `--tenancy-config '{"TenantIsolationMode": "PER_TENANT"}'` option to your [create-function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html) request. Example:
 
 ```
 aws lambda create-function \
@@ -52,9 +52,9 @@ aws lambda create-function \
 
 **To enable tenant isolation using the Lambda API**
 
-1. Create a new function with tenant isolation enabled by using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) API action with the `TenancyConfig` parameter.
+1. Create a new Event Function with tenant isolation enabled by using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) API action with the `TenancyConfig` parameter.
 
-1. Confirm that tenant isolation is enabled for the function by using the [GetFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html) action. If the response shows that `TenantIsolationMode` is `PER_TENANT`, then tenant isolation is enabled for the function:
+1. Confirm that tenant isolation is enabled for the Event Function by using the [GetFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunctionConfiguration.html) action. If the response shows that `TenantIsolationMode` is `PER_TENANT`, then tenant isolation is enabled for the Event Function:
 
    ```
    "TenancyConfig": { 
@@ -62,12 +62,12 @@ aws lambda create-function \
         }
    ```
 
-Invoke the function version with the [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) action. For more information, see [Invoking Lambda functions with tenant isolation](tenant-isolation-invoke.md).
+Invoke the function version with the [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) action. For more information, see [Invoking Lambda Event Functions with tenant isolation](tenant-isolation-invoke.md).
 
 ## Enabling tenant isolation (CloudFormation)
 <a name="tenant-isolation-cfn"></a>
 
-The following CloudFormation template creates a new Lambda function with tenant isolation enabled:
+The following CloudFormation template creates a new Lambda Event Function with tenant isolation enabled:
 
 ```
 MyLambdaFunction:

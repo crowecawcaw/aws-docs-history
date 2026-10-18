@@ -1,9 +1,9 @@
 
 
-# Building Lambda functions with Rust
+# Building Lambda Event Functions with Rust
 <a name="lambda-rust"></a>
 
-Because Rust compiles to native code, you don't need a dedicated runtime to run Rust code on Lambda. Instead, use the [Rust runtime client](https://github.com/aws/aws-lambda-rust-runtime) to build your project locally, and then deploy it to Lambda using an [OS-only runtime](runtimes-provided.md). When you use an OS-only runtime, Lambda automatically keeps the operating system up to date with the latest patches. For information about working with HTTP events, see [Processing HTTP events with Rust](rust-http-events.md). For information about using layers with Rust, see [Working with layers for Rust Lambda functions](rust-layers.md).
+Because Rust compiles to native code, you don't need a dedicated runtime to run Rust code as a Lambda Event Function. Instead, use the [Rust runtime client](https://github.com/aws/aws-lambda-rust-runtime) to build your project locally, and then deploy it to Lambda using an [OS-only runtime](runtimes-provided.md). When you use an OS-only runtime, Lambda automatically keeps the operating system up to date with the latest patches. For information about working with HTTP events, see [Processing HTTP events with Rust](rust-http-events.md). For information about using layers with Rust, see [Working with layers for Rust Lambda Event Functions](rust-layers.md).
 
 **Tools and libraries for Rust**
 + [AWS SDK for Rust](https://docs.aws.amazon.com/sdk-for-rust/latest/dg/getting-started.html): The AWS SDK for Rust provides Rust APIs to interact with Amazon Web Services infrastructure services.
@@ -25,9 +25,9 @@ Because Rust compiles to native code, you don't need a dedicated runtime to run 
 + [Lambda Logs Amazon Data Firehose Extension](https://github.com/aws/aws-lambda-rust-runtime/blob/main/examples/extension-logs-kinesis-firehose): A Rust extension that shows how to send Lambda logs to Firehose.
 
 **Topics**
-+ [Define Lambda function handlers in Rust](rust-handler.md)
-+ [Using the Lambda context object to retrieve Rust function information](rust-context.md)
++ [Define Lambda Event Function handlers in Rust](rust-handler.md)
++ [Using the Lambda context object to retrieve Rust Event Function information](rust-context.md)
 + [Processing HTTP events with Rust](rust-http-events.md)
-+ [Deploy Rust Lambda functions with .zip file archives](rust-package.md)
-+ [Working with layers for Rust Lambda functions](rust-layers.md)
-+ [Log and monitor Rust Lambda functions](rust-logging.md)
++ [Deploy Rust Lambda Event Functions with .zip file archives](rust-package.md)
++ [Working with layers for Rust Lambda Event Functions](rust-layers.md)
++ [Log and monitor Rust Lambda Event Functions](rust-logging.md)

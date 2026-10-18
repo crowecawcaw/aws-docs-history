@@ -1,11 +1,11 @@
 
 
-# Invoke a Lambda function on a schedule
+# Invoke a Lambda Event Function on a schedule
 <a name="with-eventbridge-scheduler"></a>
 
 [Amazon EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/what-is-scheduler.html) is a serverless scheduler that you can use to create, run, and manage tasks from one central, managed service. With EventBridge Scheduler, you can create schedules using cron and rate expressions for recurring patterns, or configure one-time invocations. You can set up flexible time windows for delivery, define retry limits, and set the maximum retention time for unprocessed events.
 
-When you set up EventBridge Scheduler with Lambda, EventBridge Scheduler invokes your Lambda function asynchronously. You can create a schedule from the Lambda console (using the Add trigger flow), the EventBridge Scheduler console, the AWS CLI, or CloudFormation. This page explains how to use EventBridge Scheduler to invoke a Lambda function on a schedule.
+When you set up EventBridge Scheduler with Lambda, EventBridge Scheduler invokes your Lambda Event Function asynchronously. You can create a schedule from the Lambda console (using the Add trigger flow), the EventBridge Scheduler console, the AWS CLI, or CloudFormation. This page explains how to use EventBridge Scheduler to invoke a Lambda Event Function on a schedule.
 
 ## Set up the execution role
 <a name="using-eventbridge-scheduler-execution-role"></a>
@@ -21,7 +21,7 @@ Use the **Add trigger** flow in the Lambda console to create an EventBridge Sche
 
 **To create a Scheduler trigger using the Lambda console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function you want to schedule.
 

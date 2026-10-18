@@ -1,15 +1,15 @@
 
 
-# Define Lambda function handler in Java
+# Define Lambda Event Function handler in Java
 <a name="java-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in Java, including options for project setup, naming conventions, and best practices. This page also includes an example of a Java Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md) or [Deploy Java Lambda functions with container images](java-image.md).
+This page describes how to work with Lambda Event Function handlers in Java, including options for project setup, naming conventions, and best practices. This page also includes an example of a Java Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Java Lambda Event Functions with .zip or JAR file archives](java-package.md) or [Deploy Java Lambda Event Functions with container images](java-image.md).
 
 **Topics**
 + [Setting up your Java handler project](#java-handler-setup)
-+ [Example Java Lambda function code](#java-example-code)
++ [Example Java Lambda Event Function code](#java-example-code)
 + [Valid class definitions for Java handlers](#java-handler-signatures)
 + [Handler naming conventions](#java-example-naming)
 + [Defining and accessing the input event object](#java-handler-input)
@@ -17,7 +17,7 @@ This page describes how to work with Lambda function handlers in Java, including
 + [Using the AWS SDK for Java v2 in your handler](#java-example-sdk-usage)
 + [Accessing environment variables](#java-example-envvars)
 + [Using global state](#java-handler-state)
-+ [Code best practices for Java Lambda functions](#java-best-practices)
++ [Code best practices for Java Lambda Event Functions](#java-best-practices)
 
 ## Setting up your Java handler project
 <a name="java-handler-setup"></a>
@@ -41,12 +41,12 @@ You can use either Maven or Gradle to build your project and manage dependencies
 
 The main handler logic for your function resides in a Java file under the `src/main/java/example` directory. In the example on this page, we name this file `OrderHandler.java`. Apart from this file, you can include additional Java classes as needed. When deploying your function to Lambda, make sure you specify the Java class that contains the main handler method that Lambda should invoke during an invocation.
 
-## Example Java Lambda function code
+## Example Java Lambda Event Function code
 <a name="java-example-code"></a>
 
 The following example Java 21 Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-**Example `OrderHandler.java` Lambda function**  
+**Example `OrderHandler.java` Lambda Event Function**  
 
 ```
 package example;
@@ -350,7 +350,7 @@ If you make calls to other services using the AWS SDK, the context object is req
 context.getLogger().log("Failed to process order: " + e.getMessage());
 ```
 
-Outside of logging, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve Java function information](java-context.md).
+Outside of logging, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve Java Event Function information](java-context.md).
 
 ## Using the AWS SDK for Java v2 in your handler
 <a name="java-example-sdk-usage"></a>
@@ -424,7 +424,7 @@ Lambda runs your static code and the class constructor during the [initializatio
 
 In the example code, the S3 client initialization code is outside the main handler method. The runtime initializes the client before the function handles its first event, and the client remains available for reuse across all invocations.
 
-## Code best practices for Java Lambda functions
+## Code best practices for Java Lambda Event Functions
 <a name="java-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
@@ -460,4 +460,4 @@ To avoid potential data leaks across invocations, don’t use the execution envi
     var logger = org.apache.logging.log4j.LogManager.getLogger(MyHandler.class);
   }
   ```
-+ **Reduce the time it takes Lambda to unpack deployment packages** authored in Java by putting your dependency `.jar` files in a separate /lib directory. This is faster than putting all your function's code in a single jar with a large number of `.class` files. See [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md) for instructions.
++ **Reduce the time it takes Lambda to unpack deployment packages** authored in Java by putting your dependency `.jar` files in a separate /lib directory. This is faster than putting all your function's code in a single jar with a large number of `.class` files. See [Deploy Java Lambda Event Functions with .zip or JAR file archives](java-package.md) for instructions.

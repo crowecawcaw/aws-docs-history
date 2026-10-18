@@ -30,7 +30,7 @@ The X-Ray and Powertools for AWS Lambda SDKs are part of a tightly integrated in
 ## Using Powertools for AWS Lambda (Java) and AWS SAM for tracing
 <a name="java-tracing-sam"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
+Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda Event Function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
 
 **Prerequisites**
 
@@ -127,7 +127,7 @@ For **HelloWorldFunction may not have authorization defined, Is this okay?**, ma
 ## Using Powertools for AWS Lambda (Java) and the AWS CDK for tracing
 <a name="java-tracing-cdk"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java) modules using the AWS CDK. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a hello world message.
+Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java) modules using the AWS CDK. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda Event Function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a hello world message.
 
 **Prerequisites**
 
@@ -374,7 +374,7 @@ To complete the steps in this section, you must have the following:
    }
    ```
 
-1. Open `HelloWorldStack.java` from the `hello-world\src\main\java\com\myorg` directory and replace the existing code with the following code. This code uses [Lambda Constructor](https://docs.aws.amazon.com/cdk/api/v1/java/aws_cdk.aws_lambda.html)and the [ApiGatewayv2 Constructor](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigatewayv2-readme.html) to create a REST API and a Lambda function.
+1. Open `HelloWorldStack.java` from the `hello-world\src\main\java\com\myorg` directory and replace the existing code with the following code. This code uses [Lambda Constructor](https://docs.aws.amazon.com/cdk/api/v1/java/aws_cdk.aws_lambda.html)and the [ApiGatewayv2 Constructor](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_apigatewayv2-readme.html) to create a REST API and a Lambda Event Function.
 
    ```
    package com.myorg;
@@ -643,13 +643,13 @@ After you add the correct dependencies and make the necessary code changes, acti
 ## Activating tracing with the Lambda console
 <a name="java-tracing-console"></a>
 
-To toggle active tracing on your Lambda function with the console, follow these steps:
+To toggle active tracing on your Lambda Event Function with the console, follow these steps:
 
 **To turn on active tracing**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function.
+1. Choose an Event Function.
 
 1. Choose **Configuration** and then choose **Monitoring and operations tools**.
 
@@ -709,7 +709,7 @@ Resources:
 ## Interpreting an X-Ray trace
 <a name="java-tracing-interpretation"></a>
 
-Your function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
+Your Event Function needs permission to upload trace data to X-Ray. When you activate tracing in the Lambda console, Lambda adds the required permissions to your Event Function's [execution role](lambda-intro-execution-role.md). Otherwise, add the [AWSXRayDaemonWriteAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess) policy to the execution role.
 
 After you've configured active tracing, you can observe specific requests through your application. The [ X-Ray service graph](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html#xray-concepts-servicegraph) shows information about your application and all its components. The following example shows an application with two functions. The primary function processes events and sometimes returns errors. The second function at the top processes errors that appear in the first's log group and uses the AWS SDK to call X-Ray, Amazon Simple Storage Service (Amazon S3), and Amazon CloudWatch Logs.
 
@@ -731,7 +731,7 @@ The first node on the left represents the Lambda service, which receives the inv
 This example expands the `AWS::Lambda::Function` segment to show its three subsegments.
 
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 The example trace shown here illustrates the old-style function segment. The differences between the old- and new-style segments are described in the following paragraphs.  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 
@@ -789,7 +789,7 @@ Creating a layer for dependencies requires build configuration changes to genera
 The GitHub repository for this guide includes sample applications that demonstrate the use of X-Ray tracing. Each sample application includes scripts for easy deployment and cleanup, an AWS SAM template, and supporting resources.
 
 **Sample Lambda applications in Java**
-+ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
++ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java Event Function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
 + [java-basic](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic) – A collection of minimal Java functions with unit tests and variable logging configuration.
 + [java-events](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events) – A collection of Java functions that contain skeleton code for how to handle events from various services such as Amazon API Gateway, Amazon SQS, and Amazon Kinesis. These functions use the latest version of the [aws-lambda-java-events](java-package.md) library (3.0.0 and newer). These examples do not require the AWS SDK as a dependency.
 + [s3-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java) – A Java function that processes notification events from Amazon S3 and uses the Java Class Library (JCL) to create thumbnails from uploaded image files.

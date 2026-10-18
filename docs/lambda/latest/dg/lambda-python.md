@@ -1,9 +1,9 @@
 
 
-# Building Lambda functions with Python
+# Building Lambda Event Functions with Python
 <a name="lambda-python"></a>
 
-You can run Python code in AWS Lambda. Lambda provides [runtimes](lambda-runtimes.md) for Python that run your code to process events. Your code runs in an environment that includes the SDK for Python (Boto3), with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Python runtimes, see [Runtime-included SDK versions](#python-sdk-included).
+You can run Python code in AWS Lambda Event Functions. Lambda provides [runtimes](lambda-runtimes.md) for Python that run your code to process events. Your code runs in an environment that includes the SDK for Python (Boto3), with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Python runtimes, see [Runtime-included SDK versions](#python-sdk-included).
 
 Lambda supports the following Python runtimes.
 
@@ -17,42 +17,42 @@ Lambda supports the following Python runtimes.
 | Python 3.11 | `python3.11` | Amazon Linux 2 |  Jun 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 | Python 3.10 | `python3.10` | Amazon Linux 2 |  Oct 31, 2026  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
-**To create a Python function**
+**To create a Python Event Function**
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda).
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Configure the following settings:
    + **Function name**: Enter a name for the function.
    + **Runtime**: Choose **Python 3.14**.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
-The console creates a Lambda function with a single source file named `lambda_function`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.
+The console creates a Lambda Event Function with a single source file named `lambda_function`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.
 
 Your Lambda function comes with a CloudWatch Logs log group. The function runtime sends details about each invocation to CloudWatch Logs. It relays any [logs that your function outputs](python-logging.md) during invocation. If your function returns an error, Lambda formats the error and returns it to the invoker.
 
-For guidance on testing your Python functions, see [AWS Lambda function testing in Python](python-testing.md).
+For guidance on testing your Python functions, see [AWS Lambda Event Function testing in Python](python-testing.md).
 
 **Topics**
 + [Runtime-included SDK versions](#python-sdk-included)
 + [Disabled Python features](#python-disabled-features)
 + [Response format](#python-response-format)
 + [Graceful shutdown for extensions](#python-graceful-shutdown)
-+ [Define Lambda function handler in Python](python-handler.md)
-+ [Working with .zip file archives for Python Lambda functions](python-package.md)
-+ [Deploy Python Lambda functions with container images](python-image.md)
-+ [Working with layers for Python Lambda functions](python-layers.md)
-+ [Using the Lambda context object to retrieve Python function information](python-context.md)
-+ [Log and monitor Python Lambda functions](python-logging.md)
-+ [AWS Lambda function testing in Python](python-testing.md)
++ [Define Lambda Event Function handler in Python](python-handler.md)
++ [Working with .zip file archives for Python Lambda Event Functions](python-package.md)
++ [Deploy Python Lambda Event Functions with container images](python-image.md)
++ [Working with layers for Python Lambda Event Functions](python-layers.md)
++ [Using the Lambda context object to retrieve Python Event Function information](python-context.md)
++ [Log and monitor Python Lambda Event Functions](python-logging.md)
++ [AWS Lambda Event Function testing in Python](python-testing.md)
 + [Instrumenting Python code in AWS Lambda](python-tracing.md)
 
 ## Runtime-included SDK versions
 <a name="python-sdk-included"></a>
 
-The version of the AWS SDK included in the Python runtime depends on the runtime version and your AWS Region. To find the version of the SDK included in the runtime you're using, create a Lambda function with the following code.
+The version of the AWS SDK included in the Python runtime depends on the runtime version and your AWS Region. To find the version of the SDK included in the runtime you're using, create a function with the following code.
 
 ```
 import boto3
@@ -86,6 +86,6 @@ When you upgrade to Python 3.12 or later Python runtimes, you might need to adju
 ## Graceful shutdown for extensions
 <a name="python-graceful-shutdown"></a>
 
-Python 3.12 and later Python runtimes offer improved graceful shutdown capabilities for functions with [external extensions](lambda-extensions.md). When Lambda shuts down an execution environment, it sends a `SIGTERM` signal to the runtime and then a `SHUTDOWN` event to each registered external extension. You can catch the `SIGTERM` signal in your Lambda function and clean up resources such as database connections that were created by the function.
+Python 3.12 and later Python runtimes offer improved graceful shutdown capabilities for functions with [external extensions](lambda-extensions.md). When Lambda shuts down an execution environment, it sends a `SIGTERM` signal to the runtime and then a `SHUTDOWN` event to each registered external extension. You can catch the `SIGTERM` signal in your function and clean up resources such as database connections that were created by the function.
 
 To learn more about the execution environment lifecycle, see [Understanding the Lambda execution environment lifecycle](lambda-runtime-environment.md). For examples of how to use graceful shutdown with extensions, see the [AWS Samples GitHub repository](https://github.com/aws-samples/graceful-shutdown-with-aws-lambda).

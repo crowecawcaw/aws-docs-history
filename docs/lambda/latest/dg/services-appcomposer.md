@@ -5,12 +5,12 @@
 
 AWS Infrastructure Composer is a visual builder for desiging modern applications on AWS. You design your application architecture by dragging, grouping, and connecting AWS services in a visual canvas. Infrastructure Composer creates infrastructure as code (IaC) templates from your design that you can deploy using [AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) or [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html).
 
-## Exporting a Lambda function to Infrastructure Composer
+## Exporting a Lambda Event Function to Infrastructure Composer
 <a name="services-appcomposer-export"></a>
 
-You can get started using Infrastructure Composer by creating a new project based on the configuration of an existing Lambda function using the Lambda console. To export your function's configuration and code to Infrastructure Composer to create a new project, do the following:
+You can get started using Infrastructure Composer by creating a new project based on the configuration of an existing Lambda Event Function using the Lambda console. To export your function's configuration and code to Infrastructure Composer to create a new project, do the following:
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Select the function you want to use as a basis for your Infrastructure Composer project.
 
@@ -69,6 +69,6 @@ If you are unable to export your function's configuration to Infrastructure Comp
 ## Other resources
 <a name="w2aac15c59c35b7"></a>
 
-For a more detailed tutorial on how to design a serverless application in Infrastructure Composer based on an existing Lambda function, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md).
+For a more detailed tutorial on how to design a serverless application in Infrastructure Composer based on an existing Lambda Event Function, see [Using Lambda with infrastructure as code (IaC)](foundation-iac.md).
 
 To use Infrastructure Composer and AWS SAM to design and deploy a complete serverless application using Lambda, you can also follow the [AWS Infrastructure Composer tutorial](https://catalog.workshops.aws/serverless-patterns/en-US/dive-deeper/module1a) in the [AWS Serverless Patterns Workshop](https://catalog.workshops.aws/serverless-patterns/en-US).

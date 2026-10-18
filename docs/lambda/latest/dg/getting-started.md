@@ -26,9 +26,9 @@ Your function also prints the calculated area, along with the name of its CloudW
 
 **To create a Hello world Lambda function with the console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Select **Author from scratch**.
 
@@ -36,7 +36,7 @@ Your function also prints the calculated area, along with the name of its CloudW
 
 1. For **Runtime**, choose either **Node.js 24** or **Python 3.14**.
 
-1. Leave **architecture** set to **x86\_64**, and then choose **Create function**.
+1. Leave **architecture** set to **x86\_64**, and then choose **Create Event Function**.
 
 In addition to a simple function that returns the message `Hello from Lambda!`, Lambda also creates an [execution role](lambda-intro-execution-role.md) for your function. An execution role is an AWS Identity and Access Management (IAM) role that grants a Lambda function permission to access AWS services and resources. For your function, the role that Lambda creates grants basic permissions to write to CloudWatch Logs.
 
@@ -86,7 +86,7 @@ Before you move to the next step, let's take a moment to look at the function co
 
   When you created your Hello world function using the console, Lambda automatically set the name of the handler method for your function to `handler`. Be sure not to edit the name of this Node.js function. If you do, Lambda won't be able to run your code when you invoke your function.
 
-  To learn more about the Lambda handler in Node.js, see [Define Lambda function handler in Node.js](nodejs-handler.md).
+  To learn more about the Lambda handler in Node.js, see [Define Lambda Event Function handler in Node.js](nodejs-handler.md).
 + The Lambda event object:
 
   The function `handler` takes two arguments, `event` and `context`. An *event* in Lambda is a JSON formatted document that contains data for your function to process.
@@ -100,12 +100,12 @@ Before you move to the next step, let's take a moment to look at the function co
 
   You can use the context object to output information about your function's invocation for monitoring purposes. In this example, your function uses the `logGroupName` parameter to output the name of its CloudWatch log group.
 
-  To learn more about the Lambda context object in Node.js, see [Using the Lambda context object to retrieve Node.js function information](nodejs-context.md).
+  To learn more about the Lambda context object in Node.js, see [Using the Lambda context object to retrieve Node.js Event Function information](nodejs-context.md).
 + Logging in Lambda:
 
   With Node.js, you can use console methods like `console.log` and `console.error` to send information to your function's log. The example code uses `console.log` statements to output the calculated area and the name of the function's CloudWatch Logs group. You can also use any logging library that writes to `stdout` or `stderr`. 
 
-  To learn more, see [Log and monitor Node.js Lambda functions](nodejs-logging.md). To learn about logging in other runtimes, see the 'Building with' pages for the runtimes you're interested in.
+  To learn more, see [Log and monitor Node.js Lambda Event Functions](nodejs-logging.md). To learn about logging in other runtimes, see the 'Building with' pages for the runtimes you're interested in.
 
 ------
 #### [ Python ]
@@ -157,7 +157,7 @@ Before you move to the next step, let's take a moment to look at the function co
 
   When you created your Hello world function using the console, Lambda automatically set the name of the handler method for your function to `lambda_handler`. Be sure not to edit the name of this Python function. If you do, Lambda won't be able to run your code when you invoke your function.
 
-  To learn more about the Lambda handler in Python, see [Define Lambda function handler in Python](python-handler.md).
+  To learn more about the Lambda handler in Python, see [Define Lambda Event Function handler in Python](python-handler.md).
 + The Lambda event object:
 
   The function `lambda_handler` takes two arguments, `event` and `context`. An *event* in Lambda is a JSON formatted document that contains data for your function to process.
@@ -171,12 +171,12 @@ Before you move to the next step, let's take a moment to look at the function co
 
   You can use the context object to output information about your function's invocation for monitoring purposes. In this example, your function uses the `log_group_name` parameter to output the name of its CloudWatch log group.
 
-  To learn more about the Lambda context object in Python, see [Using the Lambda context object to retrieve Python function information](python-context.md).
+  To learn more about the Lambda context object in Python, see [Using the Lambda context object to retrieve Python Event Function information](python-context.md).
 + Logging in Lambda:
 
   With Python, you can use either a `print` statement or a Python logging library to send information to your function's log. To illustrate the difference in what's captured, the example code uses both methods. In a production application, we recommend that you use a logging library.
 
-  To learn more, see [Log and monitor Python Lambda functions](python-logging.md). To learn about logging in other runtimes, see the 'Building with' pages for the runtimes you're interested in.
+  To learn more, see [Log and monitor Python Lambda Event Functions](python-logging.md). To learn about logging in other runtimes, see the 'Building with' pages for the runtimes you're interested in.
 
 ------
 
@@ -300,11 +300,11 @@ When you invoke your function outside of the Lambda console, you must use CloudW
 
 When you're finished working with the example function, delete it. You can also delete the log group that stores the function's logs, and the [execution role](lambda-intro-execution-role.md) that the console created.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 
@@ -339,7 +339,7 @@ Now that you've created and tested a simple Lambda function using the console, t
 ------
 #### [ Node.js ]
 
-  [Deploy Node.js Lambda functions with .zip file archives](nodejs-package.md)
+  [Deploy Node.js Lambda Event Functions with .zip file archives](nodejs-package.md)
 
 ------
 #### [ Typescript ]
@@ -349,30 +349,30 @@ Now that you've created and tested a simple Lambda function using the console, t
 ------
 #### [ Python ]
 
-  [Working with .zip file archives for Python Lambda functions](python-package.md)
+  [Working with .zip file archives for Python Lambda Event Functions](python-package.md)
 
 ------
 #### [ Ruby ]
 
-  [Deploy Ruby Lambda functions with .zip file archives](ruby-package.md)
+  [Deploy Ruby Lambda Event Functions with .zip file archives](ruby-package.md)
 
 ------
 #### [ Java ]
 
-  [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md)
+  [Deploy Java Lambda Event Functions with .zip or JAR file archives](java-package.md)
 
 ------
 #### [ Go ]
 
-  [Deploy Go Lambda functions with .zip file archives](golang-package.md)
+  [Deploy Go Lambda Event Functions with .zip file archives](golang-package.md)
 
 ------
 #### [ C\# ]
 
-  [Build and deploy C\# Lambda functions with .zip file archives](csharp-package.md)
+  [Build and deploy C\# Lambda Event Functions with .zip file archives](csharp-package.md)
 
 ------
-+ To learn how to invoke a Lambda function using another AWS service, see [Tutorial: Using an Amazon S3 trigger to invoke a Lambda function](with-s3-example.md).
++ To learn how to invoke a Lambda function using another AWS service, see [Tutorial: Using an Amazon S3 trigger to invoke a Lambda Event Function](with-s3-example.md).
 + Choose one of the following tutorials for more complex examples of using Lambda with other AWS services.
   + [Tutorial: Using Lambda with API Gateway](services-apigateway-tutorial.md): Create an Amazon API Gateway REST API that invokes a Lambda function.
   + [Using a Lambda function to access an Amazon RDS database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-lambda-tutorial.html): Use a Lambda function to write data to an Amazon Relational Database Service (Amazon RDS) database through RDS Proxy.

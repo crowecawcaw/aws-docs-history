@@ -3,13 +3,13 @@
 # Invoking Lambda with events from other AWS services
 <a name="lambda-services"></a>
 
-Some AWS services can directly invoke Lambda functions using *triggers*. These services push events to Lambda, and the function is invoked immediately when the specified event occurs. Triggers are suitable for discrete events and real-time processing. When you [create a trigger using the Lambda console](#lambda-invocation-trigger), the console interacts with the corresponding AWS service to configure the event notification on that service. The trigger is actually stored and managed by the service that generates the events, not by Lambda.
+Some AWS services can directly invoke Lambda Event Functions using *triggers*. These services push events to Lambda, and the function is invoked immediately when the specified event occurs. Triggers are suitable for discrete events and real-time processing. When you [create a trigger using the Lambda console](#lambda-invocation-trigger), the console interacts with the corresponding AWS service to configure the event notification on that service. The trigger is actually stored and managed by the service that generates the events, not by Lambda.
 
 The events are data structured in JSON format. The JSON structure varies depending on the service that generates it and the event type, but they all contain the data that the function needs to process the event.
 
 In addition to event-driven invocations, you can use Lambda with [Amazon EC2](services-ec2.md), [self-managed Apache Kafka](with-kafka-esm.md), and [Kubernetes](with-kubernetes.md).
 
-A function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger. Lambda converts the event document into an object and passes it to your function handler.
+An Event Function can have multiple triggers. Each trigger acts as a client invoking your function independently, and each event that Lambda passes to your function has data from only one trigger. Lambda converts the event document into an object and passes it to your function handler.
 
 Depending on the service, the event-driven invocation can be [synchronous](invocation-sync.md) or [asynchronous](invocation-async.md).
 + For synchronous invocation, the service that generates the event waits for the response from your function. That service defines the data that the function needs to return in the response. The service controls the error strategy, such as whether to retry on errors.
@@ -18,11 +18,11 @@ Depending on the service, the event-driven invocation can be [synchronous](invoc
 ## Creating a trigger
 <a name="lambda-invocation-trigger"></a>
 
-The easiest way to create a trigger is to use the Lambda console. When you create a trigger using the console, Lambda automatically adds the required permissions to the function's [resource-based policy](access-control-resource-based.md).
+The easiest way to create a trigger is to use the Lambda console. When you create a trigger using the console, Lambda automatically adds the required permissions to the Event Function's [resource-based policy](access-control-resource-based.md).
 
 **To create a trigger using the Lambda console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Select the function you want to create a trigger for.
 
@@ -32,10 +32,10 @@ The easiest way to create a trigger is to use the Lambda console. When you creat
 
 1. Fill out the options in the **Trigger configuration** pane and choose **Add**. Depending on the AWS service you choose to invoke your function, the trigger configuration options are different.
 
-## Services that can invoke Lambda functions
+## Services that can invoke Lambda Event Functions
 <a name="listing-of-services-and-links-to-more-information"></a>
 
-The following table lists services that can invoke Lambda functions.
+The following table lists services that can invoke Lambda Event Functions.
 
 
 

@@ -3,7 +3,7 @@
 # Tutorial: Building a custom runtime
 <a name="runtimes-walkthrough"></a>
 
-In this tutorial, you create a Lambda function with a custom runtime. You start by including the runtime in the function's deployment package. Then you migrate it to a layer that you manage independently from the function. Finally, you share the runtime layer with the world by updating its resource-based permissions policy.
+In this tutorial, you create a Lambda Event Function with a custom runtime. You start by including the runtime in the function's deployment package. Then you migrate it to a layer that you manage independently from the function. Finally, you share the runtime layer with the world by updating its resource-based permissions policy.
 
 ## Prerequisites
 <a name="runtimes-walkthrough-prereqs"></a>
@@ -47,7 +47,7 @@ You need an IAM role to create a Lambda function. The role needs permission to s
 ## Create a function
 <a name="runtimes-walkthrough-function"></a>
 
-Create a Lambda function with a custom runtime. This example includes two files: a runtime `bootstrap` file and a function handler. Both are implemented in Bash.
+Create a Lambda Event Function with a custom runtime. This example includes two files: a runtime `bootstrap` file and a function handler. Both are implemented in Bash.
 
 1. Create a directory for the project, and then switch to that directory.
 
@@ -163,7 +163,7 @@ Runtimes have additional responsibilities, including error handling, and providi
 ## Create a layer
 <a name="runtimes-walkthrough-layer"></a>
 
-To separate the runtime code from the function code, create a layer that only contains the runtime. Layers let you develop your function's dependencies independently, and can reduce storage usage when you use the same layer with multiple functions. For more information, see [Managing Lambda dependencies with layers](chapter-layers.md).
+To separate the runtime code from the function code, create a layer that only contains the runtime. Layers let you develop your function's dependencies independently, and can reduce storage usage when you use the same layer with multiple functions. For more information, see [Managing Lambda Event Function dependencies with layers](chapter-layers.md).
 
 1. Create a .zip file that contains the `bootstrap` file.
 

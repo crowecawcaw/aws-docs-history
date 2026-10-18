@@ -83,7 +83,7 @@ def add_encrypted_suffix(original_key):
 ```
 
 **Note**  
-In this example code, a password for the encrypted file (`my-secret-password`) is hardcoded into the function code. In a production application, don't include sensitive information like passwords in your function code. Instead, [create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) and then [use the AWS Parameters and Secrets Lambda extension](with-secrets-manager.md) to retrieve your credentials in your Lambda function.
+In this example code, a password for the encrypted file (`my-secret-password`) is hardcoded into the function code. In a production application, don't include sensitive information like passwords in your function code. Instead, [create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) and then [use the AWS Parameters and Secrets Lambda extension](with-secrets-manager.md) to retrieve your credentials in your Lambda Event Function.
 
 The python function code contains three functions - the [handler function](python-handler.md) that Lambda runs when your function is invoked, and two separate function named `add_encrypted_suffix` and `encrypt_pdf` that the handler calls to perform the PDF encryption.
 
@@ -268,7 +268,7 @@ To create your function, you create a *deployment package* containing your funct
 
     In Windows, use your preferred zip tool to create the `lambda_function.zip` file. Make sure that your `lambda_function.py` file and the folders containing your dependencies are all at the root of the .zip file.
 
-You can also create your deployment package using a Python virtual environment. See [Working with .zip file archives for Python Lambda functions](python-package.md)
+You can also create your deployment package using a Python virtual environment. See [Working with .zip file archives for Python Lambda Event Functions](python-package.md)
 
 #### Create the Lambda function
 <a name="file-processing-app-deploy-manual-createfunction"></a>
@@ -284,12 +284,12 @@ To create your Lambda function using the console, you first create a basic funct
 
 To ensure that your function doesn't time out when encrypting large PDF files, you configure the function's memory and timeout settings. You also set the function's log format to JSON. Configuring JSON formatted logs is necessary when using the provided test script so it can read the function's invocation status from CloudWatch Logs to confirm successful invocation.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Make sure you're working in the same AWS Region you created your S3 bucket in. You can change your region using the drop-down list at the top of the screen.  
 ![Image showing drop down region menu in Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -309,7 +309,7 @@ To ensure that your function doesn't time out when encrypting large PDF files, y
 
    1. Under **Existing role**, select your role (`LambdaS3Role`).
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 **To upload the function code (console)**
 
@@ -374,7 +374,7 @@ This procedure configures the S3 bucket to invoke your function every time that 
 
 **To configure the Amazon S3 trigger (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose your function (`EncryptPDF`).
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose your function (`EncryptPDF`).
 
 1. Choose **Add trigger**.
 

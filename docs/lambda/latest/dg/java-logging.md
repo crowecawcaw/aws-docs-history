@@ -1,9 +1,9 @@
 
 
-# Log and monitor Java Lambda functions
+# Log and monitor Java Lambda Event Functions
 <a name="java-logging"></a>
 
-AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
+AWS Lambda automatically monitors Lambda functions and sends log entries to Amazon CloudWatch. Your Lambda function comes with a CloudWatch Logs log group and a log stream for each instance of your function. The Lambda runtime environment sends details about each invocation and other output from your function's code to the log stream. For more information about CloudWatch Logs, see [Sending Lambda Event Function logs to CloudWatch Logs](monitoring-cloudwatchlogs.md).
 
 To output logs from your function code, you can use methods on [java.lang.System](https://docs.oracle.com/javase/8/docs/api/java/lang/System.html), or any logging module that writes to stdout or stderr.
 
@@ -101,7 +101,7 @@ To give you more control over how your functions' logs are captured, processed, 
 + **Log level** - for logs in JSON format, choose the detail level of the logs Lambda sends to CloudWatch, such as ERROR, DEBUG, or INFO
 + **Log group** - choose the CloudWatch log group your function sends logs to
 
-For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
+For more information about these logging options, and instructions on how to configure your function to use them, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 
 To use the log format and log level options with your Java Lambda functions, see the guidance in the following sections.
 
@@ -146,7 +146,7 @@ If your code already uses another logging library to produce JSON structured log
 <a name="java-logging-advanced-levels"></a>
 
 For AWS Lambda to filter your application logs according to their log level, your function must use JSON formatted logs. You can achieve this in two ways:
-+ Create log outputs using the standard `LambdaLogger` and configure your function to use JSON log formatting. Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON log format with Java](#java-logging-advanced-JSON). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
++ Create log outputs using the standard `LambdaLogger` and configure your function to use JSON log formatting. Lambda then filters your log outputs using the "level" key value pair in the JSON object described in [Using structured JSON log format with Java](#java-logging-advanced-JSON). To learn how to configure your function's log format, see [Configuring advanced logging controls for Lambda Event Functions](monitoring-logs.md#monitoring-cloudwatchlogs-advanced).
 + Use another logging library or method to create JSON structured logs in your code that include a "level" key value pair defining the level of the log output. You can use any logging library that can write JSON logs to `stdout` or `stderr`. For example, you can use Powertools for AWS Lambda or the Log4j2 package to generate JSON structured log outputs from your code. See [Using Powertools for AWS Lambda (Java) and AWS SAM for structured logging](#java-logging-sam) and [Implementing advanced logging with Log4j2 and SLF4J](#java-logging-log4j2) to learn more.
 
 When you configure your function to use log-level filtering, you must select from the following options for the level of logs you want Lambda to send to CloudWatch Logs:
@@ -295,7 +295,7 @@ When you run your code locally for tests, the context object with the Lambda log
 ## Using Powertools for AWS Lambda (Java) and AWS SAM for structured logging
 <a name="java-logging-sam"></a>
 
-Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java/latest/) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
+Follow the steps below to download, build, and deploy a sample Hello World Java application with integrated [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java/latest/) modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda Event Function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message.
 
 **Prerequisites**
 
@@ -436,14 +436,14 @@ Resources:
 ## Viewing logs in the Lambda console
 <a name="java-logging-console"></a>
 
-You can use the Lambda console to view log output after you invoke a Lambda function.
+You can use the Lambda console to view log output after you invoke a Lambda Event Function.
 
 If your code can be tested from the embedded **Code** editor, you find logs in the **execution results**. When you use the console test feature to invoke a function, you find **Log output** in the **Details** section.
 
 ## Viewing logs in the CloudWatch console
 <a name="java-logging-cwconsole"></a>
 
-You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
+You can use the Amazon CloudWatch console to view logs for all Lambda Event Function invocations.
 
 **To view logs on the CloudWatch console**
 
@@ -573,7 +573,7 @@ Log groups aren't deleted automatically when you delete a function. To avoid sto
 The GitHub repository for this guide includes sample applications that demonstrate the use of various logging configurations. Each sample application includes scripts for easy deployment and cleanup, an AWS SAM template, and supporting resources.
 
 **Sample Lambda applications in Java**
-+ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
++ [example-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/example-java) – A Java Event Function that demonstrates how you can use Lambda to process orders. This function illustrates how to define and deserialize a custom input event object, use the AWS SDK, and output logging.
 + [java-basic](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-basic) – A collection of minimal Java functions with unit tests and variable logging configuration.
 + [java-events](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/java-events) – A collection of Java functions that contain skeleton code for how to handle events from various services such as Amazon API Gateway, Amazon SQS, and Amazon Kinesis. These functions use the latest version of the [aws-lambda-java-events](java-package.md) library (3.0.0 and newer). These examples do not require the AWS SDK as a dependency.
 + [s3-java](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/s3-java) – A Java function that processes notification events from Amazon S3 and uses the Java Class Library (JCL) to create thumbnails from uploaded image files.

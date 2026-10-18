@@ -3,7 +3,7 @@
 # Using event filtering with an Amazon SQS event source
 <a name="with-sqs-filtering"></a>
 
-You can use event filtering to control which records from a stream or queue Lambda sends to your function. For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md).
+You can use event filtering to control which records from a stream or queue Lambda sends to your Event Function. For general information about how event filtering works, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
 This section focuses on event filtering for Amazon SQS event sources.
 
@@ -113,7 +113,7 @@ FilterCriteria:
 
 ------
 
-Suppose you want your function to process only those records where `RecordNumber` is greater than 9999. The `FilterCriteria` object would be as follows.
+Suppose you want your Event Function to process only those records where `RecordNumber` is greater than 9999. The `FilterCriteria` object would be as follows.
 
 ```
 {

@@ -68,7 +68,7 @@ This abstraction helps you focus on the integration aspects of your application,
 ## Implement statelessness in functions
 <a name="statelessness-functions"></a>
 
-For standard Lambda functions, you should assume that the environment exists only for a single invocation. The function should initialize any required state when it is first started. For example, your function might require fetching data from a DynamoDB table. It should commit any permanent data changes to a durable store such as Amazon S3, DynamoDB, or Amazon SQS before exiting. It should not rely on any existing data structures or temporary files, or any internal state that would be managed by multiple invocations.
+For Lambda functions, you should assume that the environment exists only for a single invocation. The function should initialize any required state when it is first started. For example, your function might require fetching data from a DynamoDB table. It should commit any permanent data changes to a durable store such as Amazon S3, DynamoDB, or Amazon SQS before exiting. It should not rely on any existing data structures or temporary files, or any internal state that would be managed by multiple invocations.
 
 To initialize database connections and libraries, or load state, you can take advantage of [static initialization](lambda-runtime-environment.md#static-initialization). Since execution environments are reused where possible to improve performance, you can amortize the time taken to initialize these resources over multiple invocations. However, you should not store any variables or data used in the function within this global scope.
 
@@ -84,11 +84,11 @@ Any global-scope constants that change infrequently should be implemented as env
 
 Many traditional systems are designed to run periodically and process batches of transactions that have built up over time. For example, a banking application might run every hour to process ATM transactions into central ledgers. In Lambda-based applications, the custom processing should be triggered by every event, allowing the service to scale up concurrency as needed, to provide near-real time processing of transactions.
 
-While standard Lambda functions are limited to 15 minutes of execution time, Durable Functions can run for up to one year, making them suitable for longer-running processing needs. However, you should still prefer event-driven processing over batch processing when possible.
+By default, a function invocation can run for up to 15 minutes. On Lambda Managed Instances, asynchronous and event source mapping (ESM) invocations can run for up to 90 minutes. For longer-running processing, durable functions checkpoint progress across multiple invocations. When invoked asynchronously, a durable execution can run for up to one year. However, you should still prefer event-driven processing over batch processing when possible.
 
-While you can run [cron](https://en.wikipedia.org/wiki/Cron) tasks in serverless applications [by using scheduled expressions](https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html) for rules in Amazon EventBridge, these should be used sparingly or as a last-resort. In any scheduled task that processes a batch, there is the potential for the volume of transactions to grow beyond what can be processed within the 15-minute Lambda duration limit. If the limitations of external systems force you to use a scheduler, you should generally schedule for the shortest reasonable recurring time period.
+While you can run [cron](https://en.wikipedia.org/wiki/Cron) tasks in serverless applications [by using scheduled expressions](https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html) for rules in Amazon EventBridge, these should be used sparingly or as a last-resort. In any scheduled task that processes a batch, there is the potential for the volume of transactions to grow beyond what can be processed within the Lambda duration limit. If the limitations of external systems force you to use a scheduler, you should generally schedule for the shortest reasonable recurring time period.
 
-For example, it's not best practice to use a batch process that triggers a Lambda function to fetch a list of new Amazon S3 objects. This is because the service might receive more new objects in between batches than can be processed within a 15-minute Lambda function.
+For example, it's not best practice to use a batch process that triggers a Lambda function to fetch a list of new Amazon S3 objects. This is because the service might receive more new objects in between batches than can be processed within the Lambda duration limit.
 
 ![Diagram showing an Amazon S3 bucket polling pattern that creates unnecessary load on the system.](https://docs.aws.amazon.com/lambda/latest/dg/images/event-driven-architectures-figure-10.png)
 
@@ -101,7 +101,7 @@ Instead, Amazon S3 should invoke the Lambda function each time a new object is p
 ## Choose an orchestration option for complex workflows
 <a name="orchestration"></a>
 
-Workflows that involve branching logic, different types of failure models, and retry logic typically use an orchestrator to keep track of the state of the overall execution. Don't build ad-hoc orchestration in standard Lambda functions. This results in tight coupling, complex routing code, and no automatic state recovery.
+Workflows that involve branching logic, different types of failure models, and retry logic typically use an orchestrator to keep track of the state of the overall execution. Don't build ad-hoc orchestration in Lambda functions. This results in tight coupling, complex routing code, and no automatic state recovery.
 
 Instead, use one of these purpose-built orchestration options:
 + **[Lambda durable functions](durable-functions.md):** Application-centric orchestration using standard programming languages with automatic checkpointing, built-in retry, and execution recovery. Ideal for developers who prefer keeping workflow logic in code alongside business logic within Lambda.

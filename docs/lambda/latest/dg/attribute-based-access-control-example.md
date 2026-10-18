@@ -8,7 +8,7 @@ The following steps demonstrate one way to set up permissions for functions usin
 **Topics**
 + [Prerequisites](#abac-prerequisites)
 + [Step 1: Require tags on new functions](#require-tag-on-create)
-+ [Step 2: Allow actions based on tags attached to a Lambda function and IAM principal](#restrict-actions-function-tags)
++ [Step 2: Allow actions based on tags attached to an Event Function and IAM principal](#restrict-actions-function-tags)
 + [Step 3: Grant list permissions](#abac-list-permissions)
 + [Step 4: Grant IAM permissions](#abac-iam-permissions)
 + [Step 5: Create the IAM role](#abac-create-role)
@@ -19,7 +19,7 @@ The following steps demonstrate one way to set up permissions for functions usin
 ## Prerequisites
 <a name="abac-prerequisites"></a>
 
-Make sure that you have a [Lambda execution role](lambda-intro-execution-role.md). You'll use this role when you grant IAM permissions and when you create a Lambda function.
+Make sure that you have a [Lambda execution role](lambda-intro-execution-role.md). You'll use this role when you grant IAM permissions and when you create an Event Function.
 
 ## Step 1: Require tags on new functions
 <a name="require-tag-on-create"></a>
@@ -54,7 +54,7 @@ When using ABAC with Lambda, it's a best practice to require that all functions 
   }
 ```
 
-## Step 2: Allow actions based on tags attached to a Lambda function and IAM principal
+## Step 2: Allow actions based on tags attached to an Event Function and IAM principal
 <a name="restrict-actions-function-tags"></a>
 
 Create a second IAM policy using the [aws:ResourceTag/tag-key](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-resourcetag) condition key to require the principal's tag to match the tag that's attached to the function. The following example policy allows principals with the `project` tag to invoke functions with the `project` tag. If a function has any other tags, the action is denied.
@@ -215,11 +215,11 @@ With this authorization strategy, you can control access without creating new po
 
 1. Choose **Delete user**.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

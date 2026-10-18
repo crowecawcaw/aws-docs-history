@@ -3,7 +3,7 @@
 # Capacity providers
 <a name="lambda-managed-instances-capacity-providers"></a>
 
-A capacity provider is the foundation for running Lambda Managed Instances. It acts as the security boundary for your functions and defines the compute resources that Lambda provisions and manages on your behalf.
+A capacity provider is the foundation for running Lambda Managed Instances. It acts as the security boundary for your Lambda Event Functions and defines the compute resources that Lambda provisions and manages on your behalf.
 
 When you create a capacity provider, you specify:
 + **VPC configuration** - The subnets and security groups where instances run

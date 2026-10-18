@@ -3,9 +3,9 @@
 # Tutorial: Using AWS Lambda with Amazon DocumentDB Streams
 <a name="with-documentdb-tutorial"></a>
 
- In this tutorial, you create a basic Lambda function that consumes events from an Amazon DocumentDB (with MongoDB compatibility) change stream. To complete this tutorial, you go through the following stages: 
+ In this tutorial, you create a basic Lambda Event Function that consumes events from an Amazon DocumentDB (with MongoDB compatibility) change stream. To complete this tutorial, you go through the following stages: 
 + Set up your Amazon DocumentDB cluster, connect to it, and activate change streams on it.
-+ Create your Lambda function, and configure your Amazon DocumentDB cluster as an event source for your function.
++ Create your Lambda Event Function, and configure your Amazon DocumentDB cluster as an event source for your function.
 + Test the setup by inserting items into your Amazon DocumentDB database.
 
 ## Create the Amazon DocumentDB cluster
@@ -145,7 +145,7 @@ Next, create [interface VPC endpoints](https://docs.aws.amazon.com/vpc/latest/pr
 ## Create the execution role
 <a name="docdb-create-the-execution-role"></a>
 
- In the next set of steps, you'll create your Lambda function. First, you need to create the execution role that gives your function permission to access your cluster. You do this by creating an IAM policy first, then attaching this policy to an IAM role. 
+ In the next set of steps, you'll create your Lambda Event Function. First, you need to create the execution role that gives your function permission to access your cluster. You do this by creating an IAM policy first, then attaching this policy to an IAM role. 
 
 **To create IAM policy**
 
@@ -223,18 +223,18 @@ Next, create [interface VPC endpoints](https://docs.aws.amazon.com/vpc/latest/pr
 
 1. Choose **Create role**.
 
-## Create the Lambda function
+## Create the Lambda Event Function
 <a name="docdb-create-the-lambda-function"></a>
 
 This tutorial uses the Python 3.14 runtime, but we've also provided example code files for other runtimes. You can select the tab in the following box to see the code for the runtime you're interested in.
 
 The code receives an Amazon DocumentDB event input and processes the message that it contains.
 
-**To create the Lambda function**
+**To create the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch**
 
@@ -252,9 +252,9 @@ The code receives an Amazon DocumentDB event input and processes the message tha
 
    1. Select the `AWSDocumentDBLambdaExecutionRole` you created earlier.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
-**To deploy the function code**
+**To deploy the Event Function code**
 
 1. Choose the **Python** tab in the following box and copy the code.
 
@@ -729,11 +729,11 @@ Consuming a Amazon DocumentDB event with Lambda using Rust.
 ## Create the Lambda event source mapping
 <a name="docdb-create-the-lambda-event-source-mapping"></a>
 
- Create the event source mapping that associates your Amazon DocumentDB change stream with your Lambda function. After you create this event source mapping, AWS Lambda immediately starts polling the stream. 
+ Create the event source mapping that associates your Amazon DocumentDB change stream with your Lambda Event Function. After you create this event source mapping, AWS Lambda immediately starts polling the stream. 
 
 **To create the event source mapping**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) in the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) in the Lambda console.
 
 1. Choose the `ProcessDocumentDBRecords` function you created earlier.
 
@@ -756,7 +756,7 @@ Consuming a Amazon DocumentDB event with Lambda using Rust.
 
 1. Choose **Add**. Creating your event source mapping can take a few minutes.
 
-## Test your function
+## Test your Event Function
 <a name="docdb-test-insert"></a>
 
 Wait for the event source mapping to reach the **Enabled** state. This can take several minutes. Then, test the end-to-end setup by inserting, updating, and deleting database records. Before you begin:
@@ -830,11 +830,11 @@ If you don't see any database events in your function's CloudWatch logs, check t
 
  You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account. 
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

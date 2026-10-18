@@ -20,7 +20,7 @@ Using language-specific environment variables is the preferred way to set startu
 ## Wrapper scripts
 <a name="runtime-wrapper"></a>
 
-You can create a *wrapper script* to customize the runtime startup behavior of your Lambda function. With a wrapper script, you can set configuration parameters that cannot be set through language-specific environment variables.
+You can create a *wrapper script* to customize the runtime startup behavior of your Lambda Event Function. With a wrapper script, you can set configuration parameters that cannot be set through language-specific environment variables.
 
 **Note**  
 Invocations might fail if the wrapper script does not successfully start the runtime process.
@@ -86,17 +86,17 @@ In the following example, you create a wrapper script to start the Python interp
 
 1. [Create a layer](creating-deleting-layers.md#layers-create) using the .zip package.
 
-1. Create a function using the Lambda console.
+1. Create an Event Function using the Lambda console.
 
    1. Open the [Lambda console](https://console.aws.amazon.com/lambda).
 
-   1. Choose **Create function**.
+   1. Choose **Create Event Function**.
 
    1. Enter a **Function name**.
 
    1. For **Runtime**, choose the **Latest supported** Python runtime.
 
-   1. Choose **Create function**.
+   1. Choose **Create Event Function**.
 
 1. Add the layer to your function.
 

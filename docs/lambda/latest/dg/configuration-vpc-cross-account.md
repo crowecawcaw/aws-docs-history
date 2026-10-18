@@ -1,6 +1,6 @@
 
 
-# Giving Lambda functions access to a resource in an Amazon VPC in another account
+# Giving Lambda Event Functions access to a resource in an Amazon VPC in another account
 <a name="configuration-vpc-cross-account"></a>
 
 You can give your AWS Lambda function access to a resource in a Amazon VPC in Amazon Virtual Private Cloud managed by another account, without exposing either VPC to the internet. With this access pattern, you can share data with other organizations using AWS. Using this access pattern, you can share data between VPCs with a greater level of security and performance than over the internet. Configure your Lambda function to use a Amazon VPC peering connection to access these resources.
@@ -54,7 +54,7 @@ Attach [AWSLambdaVPCAccessExecutionRole](https://docs.aws.amazon.com/aws-managed
 
 **To grant VPC permissions to your function's execution role**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of your function.
 
@@ -76,7 +76,7 @@ Attach [AWSLambdaVPCAccessExecutionRole](https://docs.aws.amazon.com/aws-managed
 
 **To attach your function to your Amazon VPC**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of your function.
 

@@ -1,15 +1,15 @@
 
 
-# Define Lambda function handlers in Go
+# Define Lambda Event Function handlers in Go
 <a name="golang-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in Go, including project setup, naming conventions, and best practices. This page also includes an example of a Go Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Go Lambda functions with .zip file archives](golang-package.md) or [Deploy Go Lambda functions with container images](go-image.md).
+This page describes how to work with Lambda Event Function handlers in Go, including project setup, naming conventions, and best practices. This page also includes an example of a Go Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Go Lambda Event Functions with .zip file archives](golang-package.md) or [Deploy Go Lambda Event Functions with container images](go-image.md).
 
 **Topics**
 + [Setting up your Go handler project](#golang-handler-setup)
-+ [Example Go Lambda function code](#golang-example-code)
++ [Example Go Lambda Event Function code](#golang-example-code)
 + [Handler naming conventions](#golang-handler-naming)
 + [Defining and accessing the input event object](#golang-example-input)
 + [Accessing and using the Lambda context object](#golang-example-context)
@@ -17,7 +17,7 @@ This page describes how to work with Lambda function handlers in Go, including p
 + [Using the AWS SDK for Go v2 in your handler](#golang-example-sdk-usage)
 + [Accessing environment variables](#golang-example-envvars)
 + [Using global state](#golang-handler-state)
-+ [Code best practices for Go Lambda functions](#go-best-practices)
++ [Code best practices for Go Lambda Event Functions](#go-best-practices)
 
 ## Setting up your Go handler project
 <a name="golang-handler-setup"></a>
@@ -38,12 +38,12 @@ go get github.com/aws/aws-lambda-go
 
 Your function code should live in a Go file. In the following example, we name this file `main.go`. In this file, you implement your core function logic in a handler method, as well as a `main()` function that calls this handler.
 
-## Example Go Lambda function code
+## Example Go Lambda Event Function code
 <a name="golang-example-code"></a>
 
 The following example Go Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-**Example `main.go` Lambda function**  
+**Example `main.go` Lambda Event Function**  
 
 ```
 package main
@@ -217,7 +217,7 @@ SDK calls themselves might require the context object as an input. For example, 
     })
 ```
 
-Outside of AWS SDK requests, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve Go function information](golang-context.md).
+Outside of AWS SDK requests, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve Go Event Function information](golang-context.md).
 
 ## Valid handler signatures for Go handlers
 <a name="golang-handler-signatures"></a>
@@ -348,7 +348,7 @@ In your handler code, you can reference any [environment variables](configuratio
 
 To avoid creating new resources every time you invoke your function, you can declare and modify global variables outside of your Lambda function's handler code. You define these global variables in a `var` block or statement. In addition, your handler can declare an `init()` function that is executed during the [initialization phase](lambda-runtime-environment.md#runtimes-lifecycle-ib). The `init` method behaves the same in AWS Lambda as it does in standard Go programs.
 
-## Code best practices for Go Lambda functions
+## Code best practices for Go Lambda Event Functions
 <a name="go-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:

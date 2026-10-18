@@ -1,9 +1,9 @@
 
 
-# Building a custom runtime for AWS Lambda
+# Building a custom runtime for AWS Lambda Event Functions
 <a name="runtimes-custom"></a>
 
-You can implement an AWS Lambda runtime in any programming language. A runtime is a program that runs a Lambda function's handler method when the function is invoked. You can include the runtime in your function's deployment package or distribute it in a [layer](chapter-layers.md). When you create the Lambda function, choose an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family).
+You can implement an AWS Lambda runtime in any programming language. A runtime is a program that runs a Lambda Event Function's handler method when the function is invoked. You can include the runtime in your function's deployment package or distribute it in a [layer](chapter-layers.md). When you create the function, choose an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family).
 
 **Note**  
 Creating a custom runtime is an advanced use case. If you're looking for information about compiling to a native binary or using a third-party off-the-shelf runtime, see [When to use Lambda's OS-only runtimes](runtimes-provided.md).
@@ -87,12 +87,12 @@ To attach trailing headers, the runtime must set the `Trailer` header value at t
 ## Building custom runtimes for Lambda Managed Instances
 <a name="runtimes-custom-managed-instances"></a>
 
-Lambda Managed Instances use the same runtime API as Lambda (default) functions. However, there are key differences in how custom runtimes must be implemented to support the concurrent execution model of Managed Instances.
+Lambda Managed Instances use the same runtime API as functions that use the Lambda default capacity provider. However, there are key differences in how custom runtimes must be implemented to support the concurrent execution model of Managed Instances.
 
 ### Concurrent request handling
 <a name="runtimes-custom-managed-instances-concurrency"></a>
 
-The primary difference when building custom runtimes for Managed Instances is support for concurrent invocations. Unlike Lambda (default) functions where the runtime processes one invocation at a time, Managed Instances can process multiple invocations simultaneously within a single execution environment.
+The primary difference when building custom runtimes for Managed Instances is support for concurrent invocations. Unlike functions that use the Lambda default capacity provider, where the runtime processes one invocation at a time, Managed Instances can process multiple invocations simultaneously within a single execution environment.
 
 Your custom runtime must:
 + **Support concurrent `/next` requests** – The runtime can make multiple simultaneous calls to the [next invocation](runtimes-api.md#runtimes-api-next) API, up to the limit specified by the `AWS_LAMBDA_MAX_CONCURRENCY` environment variable.

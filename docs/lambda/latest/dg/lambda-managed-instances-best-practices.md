@@ -6,7 +6,7 @@
 ## Capacity provider configuration
 <a name="lambda-managed-instances-bp-capacity-provider"></a>
 
-**Separate capacity providers by trust level.** Create different capacity providers for workloads with different security requirements. All functions assigned to the same capacity provider must be mutually trusted, as capacity providers serve as the security boundary.
+**Separate capacity providers by trust level.** Create different capacity providers for workloads with different security requirements. All Lambda Event Functions assigned to the same capacity provider must be mutually trusted, because capacity providers serve as the security boundary.
 
 **Use descriptive names.** Name capacity providers to clearly indicate their intended use and trust level (for example, `production-trusted`, `dev-sandbox`). This helps teams understand the purpose and security posture of each capacity provider.
 

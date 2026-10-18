@@ -3,13 +3,13 @@
 # Activating and managing Lambda SnapStart
 <a name="snapstart-activate"></a>
 
-To use SnapStart, activate SnapStart on a new or existing Lambda function. Then, publish and invoke a function version.
+To use SnapStart, activate SnapStart on a new or existing Lambda Event Function. Then, publish and invoke a function version.
 
 **Topics**
 + [Activating SnapStart (console)](#snapshot-console)
 + [Activating SnapStart (AWS CLI)](#snapshot-cli)
 + [Activating SnapStart (API)](#snapshot-api)
-+ [Lambda SnapStart and function states](#snapstart-function-states)
++ [Lambda SnapStart and Event Function states](#snapstart-function-states)
 + [Updating a snapshot](#update-snapshot)
 + [Using SnapStart with AWS SDKs](#snapstart-credentials)
 + [Using SnapStart with CloudFormation, AWS SAM, and AWS CDK](#snapstart-cfn-sam)
@@ -18,11 +18,11 @@ To use SnapStart, activate SnapStart on a new or existing Lambda function. Then,
 ## Activating SnapStart (console)
 <a name="snapshot-console"></a>
 
-**To activate SnapStart for a function**
+**To activate SnapStart for an Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of a function.
+1. Choose the name of an Event Function.
 
 1. Choose **Configuration**, and then choose **General configuration**.
 
@@ -39,7 +39,7 @@ To use SnapStart, activate SnapStart on a new or existing Lambda function. Then,
 ## Activating SnapStart (AWS CLI)
 <a name="snapshot-cli"></a>
 
-**To activate SnapStart for an existing function**
+**To activate SnapStart for an existing Event Function**
 
 1. Update the function configuration by running the [update-function-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html) command with the **--snap-start** option.
 
@@ -85,7 +85,7 @@ To use SnapStart, activate SnapStart on a new or existing Lambda function. Then,
 
    The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html#cli-configure-options-list) in the *AWS Command Line Interface User Guide for Version 2*.
 
-**To activate SnapStart when you create a new function**
+**To activate SnapStart when you create a new Event Function**
 
 1. Create a function by running the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html) command with the **--snap-start** option. For **--role**, specify the Amazon Resource Name (ARN) of your [execution role](lambda-intro-execution-role.md).
 **Note**  
@@ -143,8 +143,8 @@ If you are using SnapStart with an container image function that uses base image
 **To activate SnapStart**
 
 1. Do one of the following:
-   + Create a new function with SnapStart activated by using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) API action with the [SnapStart](https://docs.aws.amazon.com/lambda/latest/api/API_SnapStart.html) parameter.
-   + Activate SnapStart for an existing function by using the [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html) action with the [SnapStart](https://docs.aws.amazon.com/lambda/latest/api/API_SnapStart.html) parameter.
+   + Create a new Event Function with SnapStart activated by using the [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) API action with the [SnapStart](https://docs.aws.amazon.com/lambda/latest/api/API_SnapStart.html) parameter.
+   + Activate SnapStart for an existing Event Function by using the [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html) action with the [SnapStart](https://docs.aws.amazon.com/lambda/latest/api/API_SnapStart.html) parameter.
 
 1. Publish a function version with the [PublishVersion](https://docs.aws.amazon.com/lambda/latest/api/API_PublishVersion.html) action. Lambda initializes your code, creates a snapshot of the initialized execution environment, and then caches the snapshot for low-latency access.
 
@@ -160,7 +160,7 @@ If you are using SnapStart with an container image function that uses base image
 
 1. Invoke the function version with the [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) action.
 
-## Lambda SnapStart and function states
+## Lambda SnapStart and Event Function states
 <a name="snapstart-function-states"></a>
 
 The following function states can occur when you use SnapStart.

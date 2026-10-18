@@ -3,16 +3,16 @@
 # Tutorial: Using an Amazon S3 trigger to create thumbnail images
 <a name="with-s3-tutorial"></a>
 
-In this tutorial, you create and configure a Lambda function that resizes images added to an Amazon Simple Storage Service (Amazon S3) bucket. When you add an image file to your bucket, Amazon S3 invokes your Lambda function. The function then creates a thumbnail version of the image and outputs it to a different Amazon S3 bucket.
+In this tutorial, you create and configure a Lambda Event Function that resizes images added to an Amazon Simple Storage Service (Amazon S3) bucket. When you add an image file to your bucket, Amazon S3 invokes your Lambda Event Function. The function then creates a thumbnail version of the image and outputs it to a different Amazon S3 bucket.
 
-![Data flow between an S3 bucket, a Lambda function, and another S3 bucket.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_resources.png)
+![Data flow between an S3 bucket, a Lambda Event Function, and another S3 bucket.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_resources.png)
 
 
 To complete this tutorial, you carry out the following steps:
 
 1. Create source and destination Amazon S3 buckets and upload a sample image.
 
-1. Create a Lambda function that resizes an image and outputs a thumbnail to an Amazon S3 bucket.
+1. Create a Lambda Event Function that resizes an image and outputs a thumbnail to an Amazon S3 bucket.
 
 1. Configure a Lambda trigger that invokes your function when objects are uploaded to your source bucket.
 
@@ -28,11 +28,11 @@ If you're looking for a simpler example to learn how to configure an Amazon S3 t
 + [Upload a test image to your source bucket](#with-s3-tutorial-test-image)
 + [Create a permissions policy](#with-s3-tutorial-create-policy)
 + [Create an execution role](#with-s3-tutorial-create-execution-role)
-+ [Create the function deployment package](#with-s3-tutorial-create-function-package)
-+ [Create the Lambda function](#with-s3-tutorial-create-function-createfunction)
-+ [Configure Amazon S3 to invoke the function](#with-s3-tutorial-configure-s3-trigger)
-+ [Test your Lambda function with a dummy event](#with-s3-tutorial-dummy-test)
-+ [Test your function using the Amazon S3 trigger](#with-s3-tutorial-test-s3)
++ [Create the Event Function deployment package](#with-s3-tutorial-create-function-package)
++ [Create the Lambda Event Function](#with-s3-tutorial-create-function-createfunction)
++ [Configure Amazon S3 to invoke the Event Function](#with-s3-tutorial-configure-s3-trigger)
++ [Test your Lambda Event Function with a dummy event](#with-s3-tutorial-dummy-test)
++ [Test your Event Function using the Amazon S3 trigger](#with-s3-tutorial-test-s3)
 + [Clean up your resources](#s3-tutorial-cleanup)
 
 ## Prerequisites
@@ -40,7 +40,7 @@ If you're looking for a simpler example to learn how to configure an Amazon S3 t
 
 If you want to use the AWS CLI to complete the tutorial, install the [latest version of the AWS Command Line Interface]().
 
-For your Lambda function code, you can use Python or Node.js. Install the language support tools and a package manager for the language that you want to use. 
+For your Lambda Event Function code, you can use Python or Node.js. Install the language support tools and a package manager for the language that you want to use. 
 
 ### Install the AWS Command Line Interface
 <a name="install_aws_cli"></a>
@@ -67,7 +67,7 @@ First create two Amazon S3 buckets. The first bucket is the source bucket you up
 
 1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3) and select the **General purpose buckets** page.
 
-1. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen. Later in the tutorial, you must create your Lambda function in the same Region.  
+1. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen. Later in the tutorial, you must create your Lambda Event Function in the same Region.  
 ![Image showing drop down region menu in S3 console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
 1. Choose **Create bucket**.
@@ -94,7 +94,7 @@ First create two Amazon S3 buckets. The first bucket is the source bucket you up
    --create-bucket-configuration LocationConstraint={{us-east-1}}
    ```
 
-   Later in the tutorial, you must create your Lambda function in the same AWS Region as your source bucket, so make a note of the region you chose.
+   Later in the tutorial, you must create your Lambda Event Function in the same AWS Region as your source bucket, so make a note of the region you chose.
 
 1. Run the following command to create your destination bucket. For the bucket name, you must use `amzn-s3-demo-source-bucket-resized`, where `amzn-s3-demo-source-bucket` is the name of the source bucket you created in step 1. For `region` and `LocationConstraint`, choose the same AWS Region you used to create your source bucket.
 
@@ -111,7 +111,7 @@ First create two Amazon S3 buckets. The first bucket is the source bucket you up
 ![Next step: Upload a test object.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps2.png)
 
 
-Later in the tutorial, you'll test your Lambda function by invoking it using the AWS CLI or the Lambda console. To confirm that your function is operating correctly, your source bucket needs to contain a test image. This image can be any JPG or PNG file you choose.
+Later in the tutorial, you'll test your Lambda Event Function by invoking it using the AWS CLI or the Lambda console. To confirm that your function is operating correctly, your source bucket needs to contain a test image. This image can be any JPG or PNG file you choose.
 
 ------
 #### [ AWS Management Console ]
@@ -146,7 +146,7 @@ Later in the tutorial, you'll test your Lambda function by invoking it using the
 ![Next step: Create a permissions policy.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps3.png)
 
 
-The first step in creating your Lambda function is to create a permissions policy. This policy gives your function the permissions it needs to access other AWS resources. For this tutorial, the policy gives Lambda read and write permissions for Amazon S3 buckets and allows it to write to Amazon CloudWatch Logs.
+The first step in creating your Lambda Event Function is to create a permissions policy. This policy gives your function the permissions it needs to access other AWS resources. For this tutorial, the policy gives Lambda read and write permissions for Amazon S3 buckets and allows it to write to Amazon CloudWatch Logs.
 
 ------
 #### [ AWS Management Console ]
@@ -250,7 +250,7 @@ The first step in creating your Lambda function is to create a permissions polic
 ![Next step: Create an execution role.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps4.png)
 
 
-An execution role is an IAM role that grants a Lambda function permission to access AWS services and resources. To give your function read and write access to an Amazon S3 bucket, you attach the permissions policy you created in the previous step.
+An execution role is an IAM role that grants a Lambda Event Function permission to access AWS services and resources. To give your function read and write access to an Amazon S3 bucket, you attach the permissions policy you created in the previous step.
 
 ------
 #### [ AWS Management Console ]
@@ -314,7 +314,7 @@ An execution role is an IAM role that grants a Lambda function permission to acc
 
 ------
 
-## Create the function deployment package
+## Create the Event Function deployment package
 <a name="with-s3-tutorial-create-function-package"></a>
 
 ![Next step: Create the deployment package.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps5.png)
@@ -527,31 +527,31 @@ To create your function, you create a *deployment package* containing your funct
 
     In Windows, use your preferred zip tool to create the `lambda_function.zip` file. Make sure that your `lambda_function.py` file and the folders containing your dependencies are all at the root of the .zip file.
 
-You can also create your deployment package using a Python virtual environment. See [Working with .zip file archives for Python Lambda functions](python-package.md)
+You can also create your deployment package using a Python virtual environment. See [Working with .zip file archives for Python Lambda Event Functions](python-package.md)
 
 ------
 
-## Create the Lambda function
+## Create the Lambda Event Function
 <a name="with-s3-tutorial-create-function-createfunction"></a>
 
 ![Next step: Create the function.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps6.png)
 
 
-You can create your Lambda function using either the AWS CLI or the Lambda console. Follow the instructions for your chosen language to create the function.
+You can create your Lambda Event Function using either the AWS CLI or the Lambda console. Follow the instructions for your chosen language to create the function.
 
 ------
 #### [ AWS Management Console ]
 
-**To create the function (console)**
+**To create the Event Function (console)**
 
-To create your Lambda function using the console, you first create a basic function containing some 'Hello world' code. You then replace this code with your own function code by uploading the.zip or JAR file you created in the previous step.
+To create your Lambda Event Function using the console, you first create a basic function containing some 'Hello world' code. You then replace this code with your own function code by uploading the.zip or JAR file you created in the previous step.
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Make sure you're working in the same AWS Region you created your Amazon S3 bucket in. You can change your region using the drop-down list at the top of the screen.  
 ![Image showing drop down region menu in Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -569,9 +569,9 @@ To create your Lambda function using the console, you first create a basic funct
 
    1. Select the `LambdaS3Role` you created earlier.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
-**To upload the function code (console)**
+**To upload the Event Function code (console)**
 
 1. In the **Code source** pane, choose **Upload from**.
 
@@ -586,7 +586,7 @@ To create your Lambda function using the console, you first create a basic funct
 ------
 #### [ AWS CLI ]
 
-**To create the function (AWS CLI)**
+**To create the Event Function (AWS CLI)**
 + Run the CLI command for the language you chose. For the `role` parameter, make sure to replace `123456789012` with your own AWS account ID. For the `region` parameter, replace `us-east-1` with the region you created your Amazon S3 buckets in.
   + For **Node.js**, run the following command from the directory containing your `function.zip` file.
 
@@ -607,23 +607,23 @@ To create your Lambda function using the console, you first create a basic funct
 
 ------
 
-## Configure Amazon S3 to invoke the function
+## Configure Amazon S3 to invoke the Event Function
 <a name="with-s3-tutorial-configure-s3-trigger"></a>
 
 ![Next step: Create the Amazon S3 trigger.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps7.png)
 
 
-For your Lambda function to run when you upload an image to your source bucket, you need to configure a trigger for your function. You can configure the Amazon S3 trigger using either the console or the AWS CLI.
+For your Lambda Event Function to run when you upload an image to your source bucket, you need to configure a trigger for your function. You can configure the Amazon S3 trigger using either the console or the AWS CLI.
 
 **Important**  
-This procedure configures the Amazon S3 bucket to invoke your function every time that an object is created in the bucket. Be sure to configure this only on the source bucket. If your Lambda function creates objects in the same bucket that invokes it, your function can be [invoked continuously in a loop](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway). This can result in un expected charges being billed to your AWS account.
+This procedure configures the Amazon S3 bucket to invoke your function every time that an object is created in the bucket. Be sure to configure this only on the source bucket. If your Lambda Event Function creates objects in the same bucket that invokes it, your function can be [invoked continuously in a loop](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/recursive-runaway). This can result in un expected charges being billed to your AWS account.
 
 ------
 #### [ AWS Management Console ]
 
 **To configure the Amazon S3 trigger (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose your function (`CreateThumbnail`).
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose your function (`CreateThumbnail`).
 
 1. Choose **Add trigger**.
 
@@ -657,7 +657,7 @@ This procedure configures the Amazon S3 bucket to invoke your function every tim
 **Note**  
 Although Amazon S3 bucket names are globally unique, when using resource-based policies it is best practice to specify that the bucket must belong to your account. This is because if you delete a bucket, it is possible for another AWS account to create a bucket with the same Amazon Resource Name (ARN).
 
-1. Save the following JSON in a file named `notification.json`. When applied to your source bucket, this JSON configures the bucket to send a notification to your Lambda function every time a new object is added. Replace the AWS account number and AWS Region in the Lambda function ARN with your own account number and region.
+1. Save the following JSON in a file named `notification.json`. When applied to your source bucket, this JSON configures the bucket to send a notification to your Lambda Event Function every time a new object is added. Replace the AWS account number and AWS Region in the Lambda Event Function ARN with your own account number and region.
 
    ```
    {
@@ -682,20 +682,20 @@ Although Amazon S3 bucket names are globally unique, when using resource-based p
 
 ------
 
-## Test your Lambda function with a dummy event
+## Test your Lambda Event Function with a dummy event
 <a name="with-s3-tutorial-dummy-test"></a>
 
 ![Next step: Create a dummy event.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps8.png)
 
 
-Before you test your whole setup by adding an image file to your Amazon S3 source bucket, you test that your Lambda function is working correctly by invoking it with a dummy event. An event in Lambda is a JSON-formatted document that contains data for your function to process. When your function is invoked by Amazon S3, the event sent to your function contains information such as the bucket name, bucket ARN, and object key.
+Before you test your whole setup by adding an image file to your Amazon S3 source bucket, you test that your Lambda Event Function is working correctly by invoking it with a dummy event. An event in Lambda is a JSON-formatted document that contains data for your function to process. When your function is invoked by Amazon S3, the event sent to your function contains information such as the bucket name, bucket ARN, and object key.
 
 ------
 #### [ AWS Management Console ]
 
-**To test your Lambda function with a dummy event (console)**
+**To test your Lambda Event Function with a dummy event (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose your function (`CreateThumbnail`).
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose your function (`CreateThumbnail`).
 
 1. Choose the **Test** tab.
 
@@ -766,7 +766,7 @@ Before you test your whole setup by adding an image file to your Amazon S3 sourc
 ------
 #### [ AWS CLI ]
 
-**To test your Lambda function with a dummy event (AWS CLI)**
+**To test your Lambda Event Function with a dummy event (AWS CLI)**
 
 1. Save the following JSON in a file named `dummyS3Event.json`. Replace the values for the following parameters with your own values:
    + For `awsRegion`, replace `us-east-1` with the AWS Region you created your Amazon S3 buckets in.
@@ -814,7 +814,7 @@ Before you test your whole setup by adding an image file to your Amazon S3 sourc
    }
    ```
 
-1. From the directory you saved your `dummyS3Event.json` file in, invoke the function by running the following CLI command. This command invokes your Lambda function synchronously by specifying `RequestResponse` as the value of the invocation-type parameter. To learn more about synchronous and asynchronous invocation, see [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
+1. From the directory you saved your `dummyS3Event.json` file in, invoke the function by running the following CLI command. This command invokes your Lambda Event Function synchronously by specifying `RequestResponse` as the value of the invocation-type parameter. To learn more about synchronous and asynchronous invocation, see [Invoking Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html).
 
    ```
    aws lambda invoke --function-name CreateThumbnail \
@@ -848,18 +848,18 @@ Before you test your whole setup by adding an image file to your Amazon S3 sourc
 
 ------
 
-## Test your function using the Amazon S3 trigger
+## Test your Event Function using the Amazon S3 trigger
 <a name="with-s3-tutorial-test-s3"></a>
 
 ![Next step: Test the function.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-tutorial/s3thumb_tut_steps9.png)
 
 
-Now that you've confirmed your Lambda function is operating correctly, you're ready to test your complete setup by adding an image file to your Amazon S3 source bucket. When you add your image to the source bucket, your Lambda function should be automatically invoked. Your function creates a resized version of the file and stores it in your target bucket.
+Now that you've confirmed your Lambda Event Function is operating correctly, you're ready to test your complete setup by adding an image file to your Amazon S3 source bucket. When you add your image to the source bucket, your Lambda Event Function should be automatically invoked. Your function creates a resized version of the file and stores it in your target bucket.
 
 ------
 #### [ AWS Management Console ]
 
-**To test your Lambda function using the Amazon S3 trigger (console)**
+**To test your Lambda Event Function using the Amazon S3 trigger (console)**
 
 1. To upload an image to your Amazon S3 bucket, do the following:
 
@@ -875,12 +875,12 @@ Now that you've confirmed your Lambda function is operating correctly, you're re
 
    1. Navigate back to the [Buckets](https://console.aws.amazon.com/s3/buckets) page of the Amazon S3 console and choose your destination bucket.
 
-   1. In the **Objects** pane, you should now see two resized image files, one from each test of your Lambda function. To download your resized image, select the file, then choose **Download**.
+   1. In the **Objects** pane, you should now see two resized image files, one from each test of your Lambda Event Function. To download your resized image, select the file, then choose **Download**.
 
 ------
 #### [ AWS CLI ]
 
-**To test your Lambda function using the Amazon S3 trigger (AWS CLI)**
+**To test your Lambda Event Function using the Amazon S3 trigger (AWS CLI)**
 
 1. From the directory containing the image you want to upload, run the following CLI command. Replace the `--bucket` parameter with the name of your source bucket. For the `--key` and `--body` parameters, use the filename of your test image. Your test image can be any .jpg or .png file.
 
@@ -924,11 +924,11 @@ Now that you've confirmed your Lambda function is operating correctly, you're re
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

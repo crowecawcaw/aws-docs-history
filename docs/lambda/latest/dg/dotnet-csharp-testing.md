@@ -1,6 +1,6 @@
 
 
-# AWS Lambda function testing in C\#
+# AWS Lambda Event Function testing in C\#
 <a name="dotnet-csharp-testing"></a>
 
 **Note**  
@@ -31,7 +31,7 @@ See the [Testing functions](testing-guide.md) chapter for a complete introductio
 
  Testing in the cloud is valuable for all phases of testing, including unit tests, integration tests, and end-to-end tests. You run tests against code deployed in the cloud and interacting with cloud-based services. This approach provides the **most accurate** measure of quality of your code. 
 
- A convenient way to debug your Lambda function in the cloud is through the console with a test event. A *test event* is a JSON input to your function. If your function does not require input, the event can be an empty JSON document `({})`. The console provides sample events for a variety of service integrations. After creating an event in the console, you can share it with your team to make testing easier and consistent. 
+ A convenient way to debug your Lambda Event Function in the cloud is through the console with a test event. A *test event* is a JSON input to your function. If your function does not require input, the event can be an empty JSON document `({})`. The console provides sample events for a variety of service integrations. After creating an event in the console, you can share it with your team to make testing easier and consistent. 
 
 **Note**  
 [Testing a function in the console](testing-functions.md) is a quick way to get started, but automating your test cycles ensures application quality and development speed. 

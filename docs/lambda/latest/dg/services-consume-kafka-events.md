@@ -3,7 +3,7 @@
 # Using schema registries with Kafka event sources in Lambda
 <a name="services-consume-kafka-events"></a>
 
- Schema registries help you define and manage data stream schemas. A schema defines the structure and format of a data record. In the context of Kafka event source mappings, you can configure a schema registry to validate the structure and format of Kafka messages against predefined schemas before they reach your Lambda function. This adds a layer of data governance to your application and you can efficiently manage data formats, ensure schema compliance, and optimize costs through event filtering. 
+ Schema registries help you define and manage data stream schemas. A schema defines the structure and format of a data record. In the context of Kafka event source mappings, you can configure a schema registry to validate the structure and format of Kafka messages against predefined schemas before they reach your Lambda Event Function. This adds a layer of data governance to your application and you can efficiently manage data formats, ensure schema compliance, and optimize costs through event filtering. 
 
  This feature works with all programming languages, but consider these important points: 
 + Powertools for Lambda provides specific support for Java, Python, and TypeScript, maintaining consistency with existing Kafka development patterns and allowing direct access to business objects without custom deserialization code
@@ -16,7 +16,7 @@
 + [Configuring a Kafka schema registry](#services-consume-kafka-events-config)
 + [Filtering for Avro and Protobuf](#services-consume-kafka-events-filtering)
 + [Payload formats and deserialization behavior](#services-consume-kafka-events-payload)
-+ [Working with deserialized data in Lambda functions](#services-consume-kafka-events-payload-examples)
++ [Working with deserialized data in Lambda Event Functions](#services-consume-kafka-events-payload-examples)
 + [Authentication methods for your schema registry](#services-consume-kafka-events-auth)
 + [Error handling and troubleshooting for schema registry issues](#services-consume-kafka-events-troubleshooting)
 
@@ -59,7 +59,7 @@
 
 **To add a Kafka schema registry configuration to your event source mapping (console)**
 
-1. Open the [Function page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose **Configuration**.
 
@@ -203,7 +203,7 @@ aws lambda update-event-source-mapping \
 ## Filtering for Avro and Protobuf
 <a name="services-consume-kafka-events-filtering"></a>
 
- When using Avro or Protobuf formats with a schema registry, you can apply event filtering to your Lambda function. The filter patterns are applied to the deserialized classic JSON representation of your data after schema validation. For example, with an Avro schema defining product details including price, you can filter messages based on the price value: 
+ When using Avro or Protobuf formats with a schema registry, you can apply event filtering to your Lambda Event Function. The filter patterns are applied to the deserialized classic JSON representation of your data after schema validation. For example, with an Avro schema defining product details including price, you can filter messages based on the price value: 
 
 **Note**  
  When being deserialized, Avro is converted to standard JSON, which means it cannot be directly converted back to an Avro object. If you need to convert to an Avro object, use the SOURCE format instead.   
@@ -396,12 +396,12 @@ The following sections describe these formats in detail and provide example payl
 
  Choosing `SOURCE` for `EventRecordFormat` is recommended if you're using Avro-generated or Protobuf-generated objects, especially with Java functions. This is because Java is strongly typed, and requires specific deserializers for Avro and Protobuf formats. In your function code, you can use your preferred Avro or Protobuf library to deserialize the data. 
 
-## Working with deserialized data in Lambda functions
+## Working with deserialized data in Lambda Event Functions
 <a name="services-consume-kafka-events-payload-examples"></a>
 
 Powertools for AWS Lambda helps you deserialize Kafka records in your function code based on the format you use. This utility simplifies working with Kafka records by handling data conversion and providing ready-to-use objects.
 
- To use Powertools for AWS Lambda in your function, you need to add Powertools for AWS Lambda either as a layer or include it as a dependency when building your Lambda function. For setup instructions and more information, see the Powertools for AWS Lambda documentation for your preferred language: 
+ To use Powertools for AWS Lambda in your function, you need to add Powertools for AWS Lambda either as a layer or include it as a dependency when building your Lambda Event Function. For setup instructions and more information, see the Powertools for AWS Lambda documentation for your preferred language: 
 + [Powertools for AWS Lambda (Java)](https://docs.aws.amazon.com/powertools/java/latest/utilities/kafka/)
 + [Powertools for AWS Lambda (Python)](https://docs.aws.amazon.com/powertools/python/latest/utilities/kafka/)
 + [Powertools for AWS Lambda (TypeScript)](https://docs.aws.amazon.com/powertools/typescript/latest/features/kafka/)
@@ -542,7 +542,7 @@ using AWS.Lambda.Powertools.Kafka.Avro;
 using AWS.Lambda.Powertools.Logging;
 using Com.Example;
 
-// Assembly attribute to enable the Lambda function's Kafka event to be converted into a .NET class.
+// Assembly attribute to enable the Lambda Event Function's Kafka event to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(PowertoolsKafkaAvroSerializer))]
 
 namespace ProtoBufClassLibrary;
@@ -945,11 +945,11 @@ Confluent Schema Registry access denied
 
 Cross-account AWS Glue Schema Registry  
 **Error message:** `Cross-account Glue Schema Registry ARN not supported.`  
-**Resolution:** Use a AWS Glue Schema Registry that's in the same AWS account as your Lambda function.
+**Resolution:** Use a AWS Glue Schema Registry that's in the same AWS account as your Lambda Event Function.
 
 Cross-region AWS Glue Schema Registry  
 **Error message:** `Cross-region Glue Schema Registry ARN not supported.`  
-**Resolution:** Use a AWS Glue Schema Registry that's in the same region as your Lambda function.
+**Resolution:** Use a AWS Glue Schema Registry that's in the same region as your Lambda Event Function.
 
 Secret access issues  
 **Error message:** `Lambda received InvalidRequestException from Secrets Manager.`  

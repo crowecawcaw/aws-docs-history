@@ -3,10 +3,10 @@
 # Invoking Lambda function URLs
 <a name="urls-invocation"></a>
 
-A function URL is a dedicated HTTP(S) endpoint for your Lambda function. You can create and configure a function URL through the Lambda console or the Lambda API.
+A function URL is a dedicated HTTP(S) endpoint for your Lambda Event Function. You can create and configure a function URL through the Lambda console or the Lambda API.
 
 **Tip**  
-Lambda offers two ways to invoke your function through an HTTP endpoint: function URLs and Amazon API Gateway. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda function using an HTTP request](furls-http-invoke-decision.md).
+Lambda offers two ways to invoke your function through an HTTP endpoint: function URLs and Amazon API Gateway. If you're not sure which is the best method for your use case, see [Select a method to invoke your Lambda Event Function using an HTTP request](furls-http-invoke-decision.md).
 
 When you create a function URL, Lambda automatically generates a unique URL endpoint for you. Once you create a function URL, its URL endpoint never changes. Function URL endpoints have the following format:
 
@@ -182,26 +182,26 @@ The valid `statusCode` are within the range of 100 to 599.
 + `body` is the function response.
 + `isBase64Encoded` is `false`.
 
-The following examples show how the output of your Lambda function maps to the response payload, and how the response payload maps to the final HTTP response. When the client invokes your function URL, they see the HTTP response.
+The following examples show how the output of your Lambda Event Function maps to the response payload, and how the response payload maps to the final HTTP response. When the client invokes your function URL, they see the HTTP response.
 
 **Example output for a string response**
 
 
-| Lambda function output | Interpreted response output | HTTP response (what the client sees) | 
+| Lambda Event Function output | Interpreted response output | HTTP response (what the client sees) | 
 | --- | --- | --- | 
 |  <pre>"Hello, world!"</pre>  |  <pre>{<br />  "statusCode": 200,<br />  "body": "Hello, world!",<br />  "headers": {<br />    "content-type": "application/json"<br />  },<br />  "isBase64Encoded": false<br />}</pre>  |  <pre>HTTP/2 200<br />date: Wed, 08 Sep 2021 18:02:24 GMT<br />content-type: application/json<br />content-length: 15<br /><br />"Hello, world!"</pre>  | 
 
 **Example output for a JSON response**
 
 
-| Lambda function output | Interpreted response output | HTTP response (what the client sees) | 
+| Lambda Event Function output | Interpreted response output | HTTP response (what the client sees) | 
 | --- | --- | --- | 
 |  <pre>{<br />  "message": "Hello, world!"<br />}</pre>  |  <pre>{<br />  "statusCode": 200,<br />  "body": {<br />    "message": "Hello, world!"<br />  },<br />  "headers": {<br />    "content-type": "application/json"<br />  },<br />  "isBase64Encoded": false<br />}</pre>  |  <pre>HTTP/2 200<br />date: Wed, 08 Sep 2021 18:02:24 GMT<br />content-type: application/json<br />content-length: 34<br /><br />{<br />  "message": "Hello, world!"<br />}</pre>  | 
 
 **Example output for a custom response**
 
 
-| Lambda function output | Interpreted response output | HTTP response (what the client sees) | 
+| Lambda Event Function output | Interpreted response output | HTTP response (what the client sees) | 
 | --- | --- | --- | 
 |  <pre>{<br />   "statusCode": 201,<br />    "headers": {<br />        "Content-Type": "application/json",<br />        "My-Custom-Header": "Custom Value"<br />    },<br />    "body": JSON.stringify({<br />        "message": "Hello, world!"<br />    }),<br />    "isBase64Encoded": false<br />}</pre>  |  <pre>{<br />   "statusCode": 201,<br />    "headers": {<br />        "Content-Type": "application/json",<br />        "My-Custom-Header": "Custom Value"<br />    },<br />    "body": JSON.stringify({<br />        "message": "Hello, world!"<br />    }),<br />    "isBase64Encoded": false<br />}</pre>  |  <pre>HTTP/2 201<br />date: Wed, 08 Sep 2021 18:02:24 GMT<br />content-type: application/json<br />content-length: 27<br />my-custom-header: Custom Value<br /><br />{<br />  "message": "Hello, world!"<br />}</pre>  | 
 
@@ -211,6 +211,6 @@ The following examples show how the output of your Lambda function maps to the r
 To return cookies from your function, don't manually add `set-cookie` headers. Instead, include the cookies in your response payload object. Lambda automatically interprets this and adds them as `set-cookie` headers in your HTTP response, as in the following example.
 
 
-| Lambda function output | HTTP response (what the client sees) | 
+| Lambda Event Function output | HTTP response (what the client sees) | 
 | --- | --- | 
 |  <pre>{<br />   "statusCode": 201,<br />    "headers": {<br />        "Content-Type": "application/json",<br />        "My-Custom-Header": "Custom Value"<br />    },<br />    "body": JSON.stringify({<br />        "message": "Hello, world!"<br />    }),<br />    "cookies": [<br />        "Cookie_1=Value1; Expires=21 Oct 2021 07:48 GMT",<br />        "Cookie_2=Value2; Max-Age=78000"<br />    ],<br />    "isBase64Encoded": false<br />}</pre>  |  <pre>HTTP/2 201<br />date: Wed, 08 Sep 2021 18:02:24 GMT<br />content-type: application/json<br />content-length: 27<br />my-custom-header: Custom Value<br />set-cookie: Cookie_1=Value2; Expires=21 Oct 2021 07:48 GMT<br />set-cookie: Cookie_2=Value2; Max-Age=78000<br /><br />{<br />  "message": "Hello, world!"<br />}</pre>  | 

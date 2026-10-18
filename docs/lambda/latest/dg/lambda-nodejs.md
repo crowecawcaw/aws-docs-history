@@ -1,9 +1,9 @@
 
 
-# Building Lambda functions with Node.js
+# Building Lambda Event Functions with Node.js
 <a name="lambda-nodejs"></a>
 
-You can run JavaScript code with Node.js in AWS Lambda. Lambda provides [runtimes](lambda-runtimes.md) for Node.js that run your code to process events. Your code runs in an environment that includes the AWS SDK for JavaScript, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Node.js runtimes, see [Runtime-included SDK versions](#nodejs-sdk-included).
+You can run JavaScript code with Node.js in AWS Lambda Event Functions. Lambda provides [runtimes](lambda-runtimes.md) for Node.js that run your code to process events. Your code runs in an environment that includes the AWS SDK for JavaScript, with credentials from an AWS Identity and Access Management (IAM) role that you manage. To learn more about the SDK versions included with the Node.js runtimes, see [Runtime-included SDK versions](#nodejs-sdk-included).
 
 Lambda supports the following Node.js runtimes.<a name="nodejs-supported-runtimes"></a>
 
@@ -12,21 +12,21 @@ Lambda supports the following Node.js runtimes.<a name="nodejs-supported-runtime
 | --- | --- | --- | --- | --- | --- | 
 | Node.js 26 | `nodejs26.x` | Amazon Linux 2023 |  Not scheduled  |  Not scheduled  |  Not scheduled  | 
 | Node.js 24 | `nodejs24.x` | Amazon Linux 2023 |  Apr 30, 2028  |  Jun 1, 2028  |  Jul 1, 2028  | 
-| Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  Apr 30, 2027  |  Jun 1, 2027  |  Jul 1, 2027  | 
+| Node.js 22 | `nodejs22.x` | Amazon Linux 2023 |  Apr 30, 2027  |  Jul 29, 2027  |  Aug 31, 2027  | 
 
-**To create a Node.js function**
+**To create a Node.js Event Function**
 
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda).
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Configure the following settings:
    + **Function name**: Enter a name for the function.
    + **Runtime**: Choose **Node.js 24.x**.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
-The console creates a Lambda function with a single source file named `index.mjs`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.
+The console creates a Lambda Event Function with a single source file named `index.mjs`. You can edit this file and add more files in the built-in code editor. In the **DEPLOY** section, choose **Deploy** to update your function's code. Then, to run your code, choose **Create test event** in the **TEST EVENTS** section.
 
 The `index.mjs` file exports a function named `handler` that takes an event object and a context object. This is the [handler function](nodejs-handler.md) that Lambda calls when the function is invoked. The Node.js function runtime gets invocation events from Lambda and passes them to the handler. In the function configuration, the handler value is `index.handler`.
 
@@ -41,18 +41,18 @@ Your Lambda function comes with a CloudWatch Logs log group. The function runtim
 + [Using keep-alive for TCP connections](#nodejs-keep-alive)
 + [CA certificate loading](#nodejs-certificate-loading)
 + [Experimental Node.js features](#nodejs-experimental-features)
-+ [Define Lambda function handler in Node.js](nodejs-handler.md)
-+ [Deploy Node.js Lambda functions with .zip file archives](nodejs-package.md)
-+ [Deploy Node.js Lambda functions with container images](nodejs-image.md)
-+ [Working with layers for Node.js Lambda functions](nodejs-layers.md)
-+ [Using the Lambda context object to retrieve Node.js function information](nodejs-context.md)
-+ [Log and monitor Node.js Lambda functions](nodejs-logging.md)
++ [Define Lambda Event Function handler in Node.js](nodejs-handler.md)
++ [Deploy Node.js Lambda Event Functions with .zip file archives](nodejs-package.md)
++ [Deploy Node.js Lambda Event Functions with container images](nodejs-image.md)
++ [Working with layers for Node.js Lambda Event Functions](nodejs-layers.md)
++ [Using the Lambda context object to retrieve Node.js Event Function information](nodejs-context.md)
++ [Log and monitor Node.js Lambda Event Functions](nodejs-logging.md)
 + [Instrumenting Node.js code in AWS Lambda](nodejs-tracing.md)
 
 ## Runtime-included SDK versions
 <a name="nodejs-sdk-included"></a>
 
-All [supported Lambda Node.js runtimes](#nodejs-supported-runtimes) include a specific minor version of the AWS SDK for JavaScript v3, not the [latest version](https://github.com/aws/aws-sdk-js-v3/releases). The specific minor version that's included in the runtime depends on the runtime version and your AWS Region. To find the specific version of the SDK included in the runtime that you're using, create a Lambda function with the following code.
+All [supported Lambda Node.js runtimes](#nodejs-supported-runtimes) include a specific minor version of the AWS SDK for JavaScript v3, not the [latest version](https://github.com/aws/aws-sdk-js-v3/releases). The specific minor version that's included in the runtime depends on the runtime version and your AWS Region. To find the specific version of the SDK included in the runtime that you're using, create a Lambda Event Function with the following code.
 
 **Example index.mjs**  
 

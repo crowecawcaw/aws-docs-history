@@ -3,7 +3,7 @@
 # Self-managed S3 code storage
 <a name="configuration-self-managed-storage"></a>
 
-By default, when you create or update a Lambda function or layer from a .zip file archive, Lambda stores a copy of your code in Lambda-managed storage. Each AWS account has a 300 GB quota for Lambda-managed storage per Region.
+By default, when you create or update a Lambda Event Function or layer from a .zip file archive, Lambda stores a copy of your code in Lambda-managed storage. Each AWS account has a 300 GB quota for Lambda-managed storage per Region.
 
 With self-managed S3 code storage, you can configure Lambda to reference your code directly from an S3 bucket in your account. Lambda does not store a copy of your code, so the code does not count against your Lambda-managed storage quota. Lambda accesses your code directly from your S3 bucket.
 
@@ -86,7 +86,7 @@ When you update a function from an S3 location in the Lambda console, you can ch
 
 **To update a function to use Reference mode (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function to update and choose the **Code** tab.
 

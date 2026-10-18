@@ -1,6 +1,6 @@
 
 
-# Configure Lambda function timeout
+# Configure Lambda Event Function timeout
 <a name="configuration-timeout"></a>
 
 Lambda runs your code for a set amount of time before timing out. *Timeout* is the maximum amount of time in seconds that a Lambda function can run. The default value for this setting is 3 seconds, but you can adjust this in increments of 1 second up to a maximum value of 900 seconds (15 minutes).
@@ -32,7 +32,7 @@ You can configure function timeout in the Lambda console.
 
 **To modify the timeout for a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 

@@ -6,7 +6,7 @@
 For securing your environment variables, you can use server-side encryption to protect your data at rest and client-side encryption to protect your data in transit.
 
 **Note**  
-To increase database security, we recommend that you use AWS Secrets Manager instead of environment variables to store database credentials. For more information, see [Use Secrets Manager secrets in Lambda functions](with-secrets-manager.md).
+To increase database security, we recommend that you use AWS Secrets Manager instead of environment variables to store database credentials. For more information, see [Use Secrets Manager secrets in Lambda Event Functions](with-secrets-manager.md).
 
 **Security at rest**  
 Lambda always provides server-side encryption at rest with an AWS KMS key. By default, Lambda uses an AWS managed key. If this default behavior suits your workflow, you don't need to set up anything else. Lambda creates the AWS managed key in your account and manages the permissions for you. AWS doesn't charge you to use this key.
@@ -24,7 +24,7 @@ For additional security, you can enable helpers for encryption in transit, which
 
 1. Using the Lambda console, navigate to the **Edit environment variables** page.
 
-   1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+   1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
    1. Choose a function.
 

@@ -3,7 +3,7 @@
 # Using event filtering with a DynamoDB event source
 <a name="with-ddb-filtering"></a>
 
-You can use event filtering to control which records from a stream or queue Lambda sends to your function. For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md).
+You can use event filtering to control which records from a stream or queue Lambda sends to your Event Function. For general information about how event filtering works, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
 This section focuses on event filtering for DynamoDB event sources.
 
@@ -56,7 +56,7 @@ To filter based on the key and attribute values in your DynamoDB table, use the 
 ### Filtering with table keys
 <a name="filtering-ddb-keys"></a>
 
-Suppose you want your function to process only those records where the primary key `CustomerName` is "AnyCompany Industries." The `FilterCriteria` object would be as follows.
+Suppose you want your Event Function to process only those records where the primary key `CustomerName` is "AnyCompany Industries." The `FilterCriteria` object would be as follows.
 
 ```
 {

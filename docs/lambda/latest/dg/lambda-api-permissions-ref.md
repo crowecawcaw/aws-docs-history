@@ -94,7 +94,7 @@ For more information on resources and conditions for Lambda and other AWS servic
 ## Referencing functions in the Resource section of policies
 <a name="function-resources"></a>
 
-You reference a Lambda function in a policy statement using an Amazon Resource Name (ARN). The format of a function ARN depends on whether you are referencing the whole function (unqualified) or a function [version](configuration-versions.md) or [alias](configuration-aliases.md) (qualified). 
+You reference a Lambda Event Function in a policy statement using an Amazon Resource Name (ARN). The format of a function ARN depends on whether you are referencing the whole function (unqualified) or a function [version](configuration-versions.md) or [alias](configuration-aliases.md) (qualified). 
 
 When making Lambda API calls, users can specify a version or alias by passing a version ARN or alias ARN in the [GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html) `FunctionName` parameter, or by setting a value in the [GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html) `Qualifier` parameter. Lambda makes authorization decisions by comparing the resource element in the IAM policy with both the `FunctionName` and `Qualifier` passed in API calls. If there is a mismatch, Lambda denies the request.
 

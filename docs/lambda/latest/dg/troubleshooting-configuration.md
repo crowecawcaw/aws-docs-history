@@ -3,7 +3,7 @@
 # Troubleshoot configuration issues in Lambda
 <a name="troubleshooting-configuration"></a>
 
-Your function configuration settings can have an impact on the overall performance and behavior of your Lambda function. These might not cause actual function errors, but can cause unexpected timeouts and results.
+Your function configuration settings can have an impact on the overall performance and behavior of your Lambda Event Function. These might not cause actual function errors, but can cause unexpected timeouts and results.
 
 The following topics provide troubleshooting advice for common issues that you might encounter related to Lambda function configuration settings.
 

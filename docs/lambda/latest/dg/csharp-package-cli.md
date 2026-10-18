@@ -89,7 +89,7 @@ Under the `src/myDotnetFunction` directory, examine the following files:
     "function-timeout" : 30,
     "function-handler" : "myDotnetFunction::myDotnetFunction.Function::FunctionHandler"
   ```
-+ **Function.cs**: Your Lambda handler function code. It's a C\# template that includes the default `Amazon.Lambda.Core` library and a default `LambdaSerializer` attribute. For more information on serialization requirements and options, see [Serialization in C\# Lambda functions](csharp-handler.md#csharp-handler-serializer). It also includes a sample function that you can edit to apply your Lambda function code.
++ **Function.cs**: Your Lambda handler function code. It's a C\# template that includes the default `Amazon.Lambda.Core` library and a default `LambdaSerializer` attribute. For more information on serialization requirements and options, see [Serialization in C\# Lambda Event Functions](csharp-handler.md#csharp-handler-serializer). It also includes a sample function that you can edit to apply your Lambda function code.
 
   ```
   using Amazon.Lambda.Core;
@@ -190,7 +190,7 @@ To deploy your code to Lambda as a .zip deployment package, run the following co
 dotnet lambda deploy-function {{myDotnetFunction}}
 ```
 
-During the deployment, the wizard asks you to select a [Defining Lambda function permissions with an execution role](lambda-intro-execution-role.md). For this example, select the `lambda_basic_role`.
+During the deployment, the wizard asks you to select a [Defining Lambda Event Function permissions with an execution role](lambda-intro-execution-role.md). For this example, select the `lambda_basic_role`.
 
 After you have deployed your function, you can test it in the cloud using the `dotnet lambda invoke-function` command. For the example code in the `lambda.EmptyFunction` template, you can test your function by passing in a string using the `--payload` option.
 

@@ -1,32 +1,32 @@
 
 
-# Define Lambda function handler in C\#
+# Define Lambda Event Function handler in C\#
 <a name="csharp-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in C\# to work with the .NET managed runtime, including options for project setup, naming conventions, and best practices. This page also includes an example of a C\# Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (S3) bucket. For information about how to deploy your function after writing it, see [Build and deploy C\# Lambda functions with .zip file archives](csharp-package.md) or [Deploy .NET Lambda functions with container images](csharp-image.md).
+This page describes how to work with Lambda Event Function handlers in C\# to work with the .NET managed runtime, including options for project setup, naming conventions, and best practices. This page also includes an example of a C\# Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (S3) bucket. For information about how to deploy your function after writing it, see [Build and deploy C\# Lambda Event Functions with .zip file archives](csharp-package.md) or [Deploy .NET Lambda Event Functions with container images](csharp-image.md).
 
 **Topics**
 + [Setting up your C\# handler project](#csharp-handler-setup)
-+ [Example C\# Lambda function code](#csharp-example-code)
++ [Example C\# Lambda Event Function code](#csharp-example-code)
 + [Class library handlers](#csharp-class-library-handlers)
 + [Executable assembly handlers](#csharp-executable-assembly-handlers)
 + [Valid handler signatures for C\# functions](#csharp-handler-signatures)
 + [Handler naming conventions](#csharp-handler-naming)
-+ [Serialization in C\# Lambda functions](#csharp-handler-serializer)
++ [Serialization in C\# Lambda Event Functions](#csharp-handler-serializer)
 + [File-based functions](#csharp-file-based-functions)
 + [Accessing and using the Lambda context object](#csharp-example-context)
 + [Using the SDK for .NET v3 in your handler](#csharp-example-sdk-usage)
 + [Accessing environment variables](#csharp-example-envvars)
 + [Using global state](#csharp-handler-state)
 + [Simplify function code with the Lambda Annotations framework](#csharp-handler-annotations)
-+ [Code best practices for C\# Lambda functions](#csharp-best-practices)
++ [Code best practices for C\# Lambda Event Functions](#csharp-best-practices)
 
 ## Setting up your C\# handler project
 <a name="csharp-handler-setup"></a>
 
-When working with Lambda functions in C\#, the process involves writing your code, then deploying your code to Lambda. There are two different execution models for deploying Lambda functions in .NET: the class library approach and the executable assembly approach.
+When working with Lambda Event Functions in C\#, the process involves writing your code, then deploying your code to Lambda. There are two different execution models for deploying Lambda functions in .NET: the class library approach and the executable assembly approach.
 
 In the class library approach, you package your function code as a .NET assembly (`.dll`) and deploy it to Lambda with the .NET managed runtime (`dotnet8`). For the handler name, Lambda expects a string in the format `AssemblyName::Namespace.Classname::Methodname`. During the function's initialization phase, your function's class is initialized, and any code in the constructor is run.
 
@@ -56,12 +56,12 @@ This command generates the following file structure:
 
 In this file structure, the main handler logic for your function resides in the `Function.cs` file.
 
-## Example C\# Lambda function code
+## Example C\# Lambda Event Function code
 <a name="csharp-example-code"></a>
 
 The following example C\# Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-**Example `Function.cs` Lambda function**  
+**Example `Function.cs` Lambda Event Function**  
 
 ```
 using System;
@@ -195,7 +195,7 @@ public class CLASSNAME {
 }
 ```
 
-When you create a Lambda function, you need to provide Lambda with information about your function's handler in the form of a string in the [Handler field](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-Handler). This tells Lambda which method in your code to run when your function is invoked. In C\#, for class library handlers, the format of the handler string is `ASSEMBLY::TYPE::METHOD`, where:
+When you create a Lambda Event Function, you need to provide Lambda with information about your function's handler in the form of a string in the [Handler field](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html#lambda-CreateFunction-request-Handler). This tells Lambda which method in your code to run when your function is invoked. In C\#, for class library handlers, the format of the handler string is `ASSEMBLY::TYPE::METHOD`, where:
 + `ASSEMBLY` is the name of the .NET assembly file for your application. If you're using the `Amazon.Lambda.Tools` CLI to build your application and you don't set the assembly name using the `AssemblyName` property in the `.csproj` file, then `ASSEMBLY` is simply the name of your `.csproj` file.
 + `TYPE` is the full name of the handler type, which is `NAMESPACE.CLASSNAME`.
 + `METHOD` is the name of the main handler method in your code, which is `METHODNAME`.
@@ -260,10 +260,10 @@ Lambda handlers in C\# don't have strict naming restrictions. However, you must 
 
 Although you can use any name for your handler, function names in C\# are generally in PascalCase. Also, although the file name doesn't need to match the class name or handler name, it's generally a best practice to use a filename like `OrderHandler.cs` if your class name is `OrderHandler`. For example, you can modify the file name in this example from `Function.cs` to `OrderHandler.cs`.
 
-## Serialization in C\# Lambda functions
+## Serialization in C\# Lambda Event Functions
 <a name="csharp-handler-serializer"></a>
 
-JSON is the most common and standard input format for Lambda functions. In this example, the function expects an input similar to the following:
+JSON is the most common and standard input format for Lambda Event Functions. In this example, the function expects an input similar to the following:
 
 ```
 {
@@ -354,7 +354,7 @@ If you want to use native [ahead-of-time compilation (AOT)](dotnet-native-aot.md
 ## File-based functions
 <a name="csharp-file-based-functions"></a>
 
-Introduced in .NET 10, file-based apps enable you to build .NET applications from a single `.cs` file, without a `.csproj` file or directory structure. Lambda supports file-based functions, starting with .NET 10. They offer a streamlined, lightweight way to build Lambda functions in C\#.
+Introduced in .NET 10, file-based apps enable you to build .NET applications from a single `.cs` file, without a `.csproj` file or directory structure. Lambda supports file-based functions, starting with .NET 10. They offer a streamlined, lightweight way to build Lambda Event Functions in C\#.
 
 The fastest way to get started creating a C\# file-based Lambda function is to use the `Amazon.Lambda.Templates` package. To install the package, run the following command:
 
@@ -370,7 +370,7 @@ dotnet new lambda.FileBased -n MyLambdaFunction
 
 File-based functions use [executable assembly handlers](#csharp-executable-assembly-handlers). You must therefore include the `Amazon.Lambda.RuntimeSupport` NuGet package and use the `LambdaBootstrapBuilder.Create` method to register the .NET handler function for the event type and start the .NET Lambda runtime client.
 
-File-based functions use .NET Native AOT by default, which requires source-generated serialization. You can disable Native AOT by specifying `#:property PublishAot=false` in your source file. For more information on using Native AOT in Lambda, see [Compile .NET Lambda function code to a native runtime format](dotnet-native-aot.md).
+File-based functions use .NET Native AOT by default, which requires source-generated serialization. You can disable Native AOT by specifying `#:property PublishAot=false` in your source file. For more information on using Native AOT in Lambda, see [Compile .NET Lambda Event Function code to a native runtime format](dotnet-native-aot.md).
 
 ## Accessing and using the Lambda context object
 <a name="csharp-example-context"></a>
@@ -391,7 +391,7 @@ The context object is useful for producing function logs to Amazon CloudWatch. Y
 context.Logger.LogError($"Failed to process order: {ex.Message}");
 ```
 
-Outside of logging, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve C\# function information](csharp-context.md).
+Outside of logging, you can also use the context object for function monitoring. For more information about the context object, see [Using the Lambda context object to retrieve C\# Event Function information](csharp-context.md).
 
 ## Using the SDK for .NET v3 in your handler
 <a name="csharp-example-sdk-usage"></a>
@@ -514,7 +514,7 @@ public class Function
 }
 ```
 
-## Code best practices for C\# Lambda functions
+## Code best practices for C\# Lambda Event Functions
 <a name="csharp-best-practices"></a>
 
 Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:

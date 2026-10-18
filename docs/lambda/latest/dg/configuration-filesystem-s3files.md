@@ -99,11 +99,11 @@ The following example policy grants your function's execution role permissions t
 A function connects to a file system over the local network in a VPC. The subnets that your function connects to can be the same subnets that contain mount points for your file system, or subnets in the same Availability Zone that can route NFS traffic (port 2049) to the file system.
 
 **Note**  
-If your function is not already connected to a VPC, see [Giving Lambda functions access to resources in an Amazon VPC](configuration-vpc.md).
+If your function is not already connected to a VPC, see [Giving Lambda Event Functions access to resources in an Amazon VPC](configuration-vpc.md).
 
 **To configure S3 Files access**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 

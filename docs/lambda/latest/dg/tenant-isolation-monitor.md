@@ -1,6 +1,6 @@
 
 
-# Monitoring Lambda functions with tenant isolation
+# Monitoring Lambda Event Functions with tenant isolation
 <a name="tenant-isolation-monitor"></a>
 
 You can monitor your tenant-isolated Lambda functions using Amazon CloudWatch, AWS X-Ray, and by accessing real-time telemetry data for extensions [using the Telemetry API](telemetry-api.md).

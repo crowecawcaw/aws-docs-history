@@ -8,7 +8,7 @@ In this tutorial, you create a Lambda function URL to implement a webhook endpoi
 With Lambda, webhooks can be implemented using either Lambda function URLs or API Gateway. Function URLs are a good choice for simple webhooks that don't require features like advanced authorization or request validation.
 
 **Tip**  
-If you're not sure which solution is best for your particular use case, see [Select a method to invoke your Lambda function using an HTTP request](furls-http-invoke-decision.md).
+If you're not sure which solution is best for your particular use case, see [Select a method to invoke your Lambda Event Function using an HTTP request](furls-http-invoke-decision.md).
 
 ## Prerequisites
 <a name="urls-webhook-tutorial-prereqs"></a>
@@ -17,10 +17,10 @@ To complete this tutorial, you must have either Python (version 3.8 or later) or
 
 To test the endpoint using an HTTP request, the tutorial uses [curl](https://curl.se/), a command line tool you can use to transfer data using various network protocols. Refer to the [curl documentation](https://curl.se/docs/install.html) to learn how to install the tool if you don't already have it.
 
-## Create the Lambda function
+## Create the Lambda Event Function
 <a name="urls-webhook-tutorial-function"></a>
 
-First create the Lambda function that runs when an HTTP request is sent to your webhook endpoint. In this example, the sending application sends an update whenever a payment is submitted and indicates in the body of the HTTP request whether the payment was successful. The Lambda function parses the request and takes action according to the status of the payment. In this example, the code just prints the order ID for the payment, but in a real application, you might add the order to a database or send a notification.
+First create the Lambda Event Function that runs when an HTTP request is sent to your webhook endpoint. In this example, the sending application sends an update whenever a payment is submitted and indicates in the body of the HTTP request whether the payment was successful. The Lambda Event Function parses the request and takes action according to the status of the payment. In this example, the code just prints the order ID for the payment, but in a real application, you might add the order to a database or send a notification.
 
 The function also implements the most common authentication method used for webhooks, hash-based message authentication (HMAC). With this method, both the sending and receiving applications share a secret key. The sending application uses a hashing algorithm to generate a unique signature using this key together with the message content, and includes the signature in the webhook request as an HTTP header. The receiving application then repeats this step, generating the signature using the secret key, and compares the resulting value with the signature sent in the request header. If the result matches, the request is considered legitimate. 
 
@@ -29,13 +29,13 @@ Create the function using the Lambda console with either the Python or Node.js r
 ------
 #### [ Python ]
 
-**Create the Lambda function**
+**Create the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Create a basic 'Hello world' function by doing the following:
 
-   1. Choose **Create function**.
+   1. Choose **Create Event Function**.
 
    1. Select **Author from scratch**.
 
@@ -43,7 +43,7 @@ Create the function using the Lambda console with either the Python or Node.js r
 
    1. For **Runtime**, select **python3.14**.
 
-   1. Choose **Create function**.
+   1. Choose **Create Event Function**.
 
 1. In the **Code source** pane, replace the existing code by copying and pasting the following:
 
@@ -147,13 +147,13 @@ Create the function using the Lambda console with either the Python or Node.js r
 ------
 #### [ Node.js ]
 
-**Create the Lambda function**
+**Create the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Create a basic 'Hello world' function by doing the following:
 
-   1. Choose **Create function**.
+   1. Choose **Create Event Function**.
 
    1. Select **Author from scratch**.
 
@@ -161,7 +161,7 @@ Create the function using the Lambda console with either the Python or Node.js r
 
    1. For **Runtime**, select **nodejs24.x**.
 
-   1. Choose **Create function**.
+   1. Choose **Create Event Function**.
 
 1. In the **Code source** pane, replace the existing code by copying and pasting the following:
 
@@ -276,7 +276,7 @@ Create the function using the Lambda console with either the Python or Node.js r
 ## Create the secret key
 <a name="urls-webhook-tutorial-key"></a>
 
-For the Lambda function to authenticate the webhook request, it uses a secret key which it shares with the calling application. In this example, the key is stored in an environment variable. In a production application, don't include sensitive information like passwords in your function code. Instead, [create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) and then [use the AWS Parameters and Secrets Lambda extension](with-secrets-manager.md) to retrieve your credentials in your Lambda function.
+For the Lambda Event Function to authenticate the webhook request, it uses a secret key which it shares with the calling application. In this example, the key is stored in an environment variable. In a production application, don't include sensitive information like passwords in your function code. Instead, [create an AWS Secrets Manager secret](https://docs.aws.amazon.com/secretsmanager/latest/userguide/create_secret.html) and then [use the AWS Parameters and Secrets Lambda extension](with-secrets-manager.md) to retrieve your credentials in your Lambda Event Function.
 
 **Create and store the webhook secret key**
 
@@ -327,7 +327,7 @@ Create an endpoint for your webhook using a Lambda function URL. Beacuse you use
 
 **Create the function URL endpoint**
 
-1. In the **Configuration** tab for your function, select **Function URL**.
+1. In the **Configuration** tab for your Event Function, select **Function URL**.
 
 1. Choose **Create function URL**.
 
@@ -337,12 +337,12 @@ Create an endpoint for your webhook using a Lambda function URL. Beacuse you use
 
 The endpoint for the function URL you just created is displayed in the **Function URL** pane. Copy the endpoint to use later in the tutorial.
 
-## Test the function in the console
+## Test the Event Function in the console
 <a name="urls-webhook-tutorial-test-console"></a>
 
-Before using an HTTP request to invoke your function using the URL endpoint, test it in the console to confirm your code is working as expected.
+Before using an HTTP request to invoke your Event Function using the URL endpoint, test it in the console to confirm your code is working as expected.
 
-To verify the function in the console, you first calculate a webhook signature using the secret you generated earlier in the tutorial with the following test JSON payload:
+To verify the Event Function in the console, you first calculate a webhook signature using the secret you generated earlier in the tutorial with the following test JSON payload:
 
 ```
 {
@@ -415,9 +415,9 @@ Use either of the following Python or Node.js code examples to calculate the web
 
 You can now test your function code using a test HTTP request in the console.
 
-**Test the function in the console**
+**Test the Event Function in the console**
 
-1. Select the **Code** tab for your function.
+1. Select the **Code** tab for your Event Function.
 
 1. In the **TEST EVENTS** section, choose **Create new test event**
 
@@ -485,12 +485,12 @@ You can now test your function code using a test HTTP request in the console.
 
 ------
 
-## Test the function using an HTTP request
+## Test the Event Function using an HTTP request
 <a name="urls-webhook-tutorial-test-curl"></a>
 
 Use the curl command line tool to test your webhook endpoint.
 
-**Test the function using HTTP requests**
+**Test the Event Function using HTTP requests**
 
 1. In a terminal or shell program, run the following curl command. Replace the URL with the value for your own function URL endpoint and replace the webhook signature with the signature you calculated using your own secret key.
 
@@ -553,17 +553,17 @@ Use the curl command line tool to test your webhook endpoint.
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 
 1. Type **confirm** in the text input field and choose **Delete**.
 
-When you created the Lambda function in the console, Lambda also created an [execution role](lambda-intro-execution-role.md) for your function.
+When you created the Lambda Event Function in the console, Lambda also created an [execution role](lambda-intro-execution-role.md) for your function.
 
 **To delete the execution role**
 

@@ -5,13 +5,13 @@
 
 You can tag event source mappings to organize and manage your resources. Tags are free-form key-value pairs associated with your resources that are supported across AWS services. For more information about use cases for tags, see [Common tagging strategies](https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html#tag-strategies) in the *Tagging AWS Resources and Tag Editor Guide*. 
 
-Event source mappings are associated with functions, which can have their own tags. Event source mappings do not automatically inherit tags from functions. You can use the AWS Lambda API to view and update tags. You can also view and update tags while managing a specific event source mapping in the Lambda console, including those using Provisioned Mode for Amazon SQS.
+Event source mappings are associated with Event Functions, which can have their own tags. Event source mappings do not automatically inherit tags from functions. You can use the AWS Lambda API to view and update tags. You can also view and update tags while managing a specific event source mapping in the Lambda console, including those using Provisioned Mode for Amazon SQS.
 
 ## Permissions required for working with tags
 <a name="esm-tags-required-permissions"></a>
 
 To allow an AWS Identity and Access Management (IAM) identity (user, group, or role) to read or set tags on a resource, grant it the corresponding permissions:
-+ **lambda:ListTags**–When a resource has tags, grant this permission to anyone who needs to call `ListTags` on it. For tagged functions, this permission is also necessary for `GetFunction`.
++ **lambda:ListTags**–When a resource has tags, grant this permission to anyone who needs to call `ListTags` on it. For tagged Event Functions, this permission is also necessary for `GetFunction`.
 + **lambda:TagResource**–Grant this permission to anyone who needs to call `TagResource` or perform a tag on create.
 
 Optionally, consider granting the **lambda:UntagResource** permission as well to allow `UntagResource` calls to the resource.
@@ -24,16 +24,16 @@ For more information, see [Identity-based IAM policies for Lambda](access-contro
 You can use the Lambda console to create event source mappings that have tags, add tags to existing event source mappings, and filter event source mappings by tag, including those configured in Provisioned Mode for Amazon SQS.
 
 When you add a trigger for supported stream and queue-based services using the Lambda console, Lambda automatically creates an event source mapping. For more information about these event sources, see [How Lambda processes records from stream and queue-based event sources](invocation-eventsourcemapping.md). To create an event source mapping in the console, you need the following prerequisites:
-+ A function.
++ An Event Function.
 + An event source from an affected service.
 
 You can add the tags as part of the same user interface you use to create or update triggers.
 
 **To add a tag when you create a event source mapping**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of your function.
+1. Choose the name of your Event Function.
 
 1. Under **Function overview**, choose **Add trigger**.
 

@@ -1,14 +1,14 @@
 
 
-# Invoking durable Lambda functions
+# Invoking Lambda durable functions
 <a name="durable-invoking"></a>
 
-Durable Lambda functions support the same invocation methods as standard Lambda functions. You can invoke durable functions synchronously, asynchronously, or through event source mappings. The invocation process is identical to standard functions, but durable functions provide additional capabilities for long-running executions and automatic state management.
+Durable Lambda functions support the same invocation methods as other Lambda functions. You can invoke durable functions synchronously, asynchronously, or through event source mappings. The invocation process is identical to other functions, but durable functions provide additional capabilities for long-running executions and automatic state management.
 
 ## Invocation methods
 <a name="durable-invoking-methods"></a>
 
-**Synchronous invocation:** Invoke a durable function and wait for the response. Synchronous invocations are limited by the Lambda to 15 minutes (or less, depending on the configured function and execution timeout). Use synchronous invocation when you need immediate results or when integrating with APIs and services that expect a response. You can use wait operations for efficient computation without disrupting the caller—the invocation waits for the entire durable execution to complete. For idempotent execution starts, use the execution name parameter as described in [Idempotency](durable-execution-idempotency.md).
+**Synchronous invocation:** Invoke a durable function and wait for the response. Synchronous invocations are limited to 15 minutes, or less if the function timeout or execution timeout is lower. Use synchronous invocation when you need immediate results or when integrating with APIs and services that expect a response. You can use wait operations for efficient computation without disrupting the caller—the invocation waits for the entire durable execution to complete. For idempotent execution starts, use the execution name parameter as described in [Idempotency](durable-execution-idempotency.md).
 
 ```
 aws lambda invoke \
@@ -99,7 +99,7 @@ For synchronous invocations, the caller waits for the entire durable execution t
 ## Invoking from application code
 <a name="durable-invoking-with-sdk"></a>
 
-Use the AWS SDKs to invoke durable functions from your application code. The invocation process is identical to standard functions:
+Use the AWS SDKs to invoke durable functions from your application code, with the same `Invoke` API you use for any Lambda function. Include a version number, alias, or `$LATEST` in the function name:
 
 ------
 #### [ TypeScript ]
@@ -155,7 +155,7 @@ client.invoke(
 ## Chained invocations
 <a name="durable-invoking-chained"></a>
 
-Durable functions can invoke other durable and non-durable functions using the `invoke` operation from `DurableContext`. This creates a chained invocation where the calling function waits (suspends) for the invoked function to complete:
+Durable functions can invoke any Lambda function, including another durable function, using the `invoke` operation from `DurableContext`. This creates a chained invocation where the calling function suspends until the invoked function completes:
 
 ------
 #### [ TypeScript ]

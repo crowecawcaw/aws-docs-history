@@ -6,7 +6,7 @@
 Issues in Lambda that relate to an [event source mapping](invocation-eventsourcemapping.md) can be more complex because they involve debugging across multiple services. Moreover, event source behavior can differ based on the exact event source used. This section lists common issues that involve event source mappings, and provides guidance on how to identify and troubleshoot them.
 
 **Note**  
-This section uses an Amazon SQS event source for illustration, but the principles apply to other event source mappings that queue messages for Lambda functions.
+This section uses an Amazon SQS event source for illustration, but the principles apply to other event source mappings that queue messages for Lambda Event Functions.
 
 ## Identifying and managing throttling
 <a name="esm-throttling"></a>
@@ -62,6 +62,6 @@ Here, the **Error count** metric drops to zero and the **Success rate** metric r
 If an event producer consistently generates messages for an SQS queue faster than a Lambda function can process them, backpressure occurs. In this case, SQS monitoring should show the age of the oldest message growing linearly, along with the approximate number of messages visible. You can detect backpressure in queues using CloudWatch alarms.
 
 The steps to resolve backpressure depend on your workload. If the primary goal is to increase processing capability and throughput by the Lambda function, you have a few options:
-+ If your function is reaching your account's concurrency quota, request an increase through the [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) console.
++ Request an increase through the [Service Quotas](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) console if your function is reaching your account's concurrency quota.
 + Enable provisioned mode to scale the event source mapping to higher concurrency. For more information, see [Using provisioned mode with Amazon SQS event source mappings](with-sqs.md#sqs-provisioned-mode).
 + Increase the batch size of the function, so more messages are processed by each invocation.

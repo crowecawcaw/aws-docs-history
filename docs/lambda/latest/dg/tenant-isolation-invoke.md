@@ -1,11 +1,11 @@
 
 
-# Invoking Lambda functions with tenant isolation
+# Invoking Lambda Event Functions with tenant isolation
 <a name="tenant-isolation-invoke"></a>
 
-When invoking a function that has tenant isolation enabled, you must provide a `tenant-id` parameter. This parameter ensures that your function invocation is processed in an execution environment dedicated to that specific tenant.
+When invoking an Event Function that has tenant isolation enabled, you must provide a `tenant-id` parameter. This parameter ensures that your Event Function invocation is processed in an execution environment dedicated to that specific tenant.
 
-## Invoking functions with tenant isolation (AWS CLI)
+## Invoking Event Functions with tenant isolation (AWS CLI)
 <a name="tenant-isolation-invoke-cli"></a>
 
 **Synchronous invocation**
@@ -31,7 +31,7 @@ aws lambda invoke \
     response.json
 ```
 
-## Invoking functions with tenant isolation (API)
+## Invoking Event Functions with tenant isolation (API)
 <a name="tenant-isolation-invoke-api"></a>
 
 When using the [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) API action directly, include the tenant identifier using the `X-Amzn-Tenant-Id` parameter in your request.
@@ -51,13 +51,13 @@ X-Amz-Tenant-Id: {{blue}}
 }
 ```
 
-## Invoking functions with tenant isolation (API Gateway)
+## Invoking Event Functions with tenant isolation (API Gateway)
 <a name="tenant-isolation-invoke-apigateway"></a>
 
-When using API Gateway REST APIs to trigger tenant-isolated Lambda functions, you must configure API Gateway to map client request properties to the `X-Amz-Tenant-Id` header that Lambda expects. API Gateway uses Lambda's [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) API action, which requires the tenant ID to be passed using the `X-Amz-Tenant-Id` HTTP header. You can configure API Gateway to inject this HTTP header into the Lambda invocation request with a value obtained from client request properties such as HTTP headers, query parameters, or path parameters. You must first map the client request property before you can override the `X-Amz-Tenant-Id` header.
+When using API Gateway REST APIs to trigger tenant-isolated Lambda Event Functions, you must configure API Gateway to map client request properties to the `X-Amz-Tenant-Id` header that Lambda expects. API Gateway uses Lambda's [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) API action, which requires the tenant ID to be passed using the `X-Amz-Tenant-Id` HTTP header. You can configure API Gateway to inject this HTTP header into the Lambda invocation request with a value obtained from client request properties such as HTTP headers, query parameters, or path parameters. You must first map the client request property before you can override the `X-Amz-Tenant-Id` header.
 
 **Note**  
-You cannot use HTTP APIs to invoke tenant-isolated Lambda functions because it is not possible to override the `X-Amz-Tenant-Id` header.
+You cannot use HTTP APIs to invoke tenant-isolated Lambda Event Functions because it is not possible to override the `X-Amz-Tenant-Id` header.
 
 **Using request headers**
 
@@ -91,10 +91,10 @@ Host: {{your-api-id}}.execute-api.{{us-east-1}}.amazonaws.com
 
 Configure the method to enable the query parameter and map it to the integration header.
 
-## Invoking functions with tenant isolation (SDK)
+## Invoking Event Functions with tenant isolation (SDK)
 <a name="tenant-isolation-invoke-sdk"></a>
 
-When using AWS SDKs to invoke tenant-isolated functions, include the tenant identifier in your invocation request.
+When using AWS SDKs to invoke tenant-isolated Event Functions, include the tenant identifier in your invocation request.
 
 ------
 #### [ Python ]

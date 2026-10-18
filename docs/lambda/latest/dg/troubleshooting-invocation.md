@@ -3,7 +3,7 @@
 # Troubleshoot invocation issues in Lambda
 <a name="troubleshooting-invocation"></a>
 
-When you invoke a Lambda function, Lambda validates the request and checks for scaling capacity before sending the event to your function or, for asynchronous invocation, to the event queue. Invocation errors can be caused by issues with request parameters, event structure, function settings, user permissions, resource permissions, or limits.
+When you invoke a Lambda Event Function, Lambda validates the request and checks for scaling capacity before sending the event to your function or, for asynchronous invocation, to the event queue. Invocation errors can be caused by issues with request parameters, event structure, function settings, user permissions, resource permissions, or limits.
 
 If you invoke your function directly, you see any invocation errors in the response from Lambda. If you invoke your function asynchronously with an event source mapping or through another service, you might find errors in logs, a dead-letter queue, or a failed-event destination. Error handling options and retry behavior vary depending on how you invoke your function and on the type of error.
 
@@ -70,7 +70,7 @@ This error typically occurs when the root of your deployment package doesn't con
 
 When you connect a function to a virtual private cloud (VPC) at the time of creation, the function enters a `Pending` state while Lambda creates elastic network interfaces. During this time, you can't invoke or modify your function. If you connect your function to a VPC after creation, you can invoke it while the update is pending, but you can't modify its code or configuration.
 
-For more information, see [Lambda function states](functions-states.md) .
+For more information, see [Lambda Event Function states](functions-states.md) .
 
 ## Lambda: Function is stuck in Pending
 <a name="troubleshooting-invocation-pending"></a>

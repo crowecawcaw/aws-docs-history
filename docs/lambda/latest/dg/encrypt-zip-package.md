@@ -99,9 +99,9 @@ For functions and layers that use [self-managed S3 code storage](configuration-s
 
 **To add customer managed key encryption when you create a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch** or **Container image**. 
 
@@ -115,13 +115,13 @@ For functions and layers that use [self-managed S3 code storage](configuration-s
 
 1. Choose a customer managed key.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 To remove customer managed key encryption, or to use a different key, you must upload the .zip deployment package again.
 
 **To add customer managed key encryption to an existing function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function.
 

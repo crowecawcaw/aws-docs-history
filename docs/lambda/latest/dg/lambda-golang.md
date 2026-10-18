@@ -1,21 +1,21 @@
 
 
-# Building Lambda functions with Go
+# Building Lambda Event Functions with Go
 <a name="lambda-golang"></a>
 
-Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go functions to Lambda.
+Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
 
-For information about using layers with Go, see [Working with layers for Go Lambda functions](golang-layers.md).
+For information about using layers with Go, see [Working with layers for Go Lambda Event Functions](golang-layers.md).
 
 **Topics**
 + [Go runtime support](#golang-al1)
 + [Tools and libraries](#golang-libraries)
-+ [Define Lambda function handlers in Go](golang-handler.md)
-+ [Using the Lambda context object to retrieve Go function information](golang-context.md)
-+ [Deploy Go Lambda functions with .zip file archives](golang-package.md)
-+ [Deploy Go Lambda functions with container images](go-image.md)
-+ [Working with layers for Go Lambda functions](golang-layers.md)
-+ [Log and monitor Go Lambda functions](golang-logging.md)
++ [Define Lambda Event Function handlers in Go](golang-handler.md)
++ [Using the Lambda context object to retrieve Go Event Function information](golang-context.md)
++ [Deploy Go Lambda Event Functions with .zip file archives](golang-package.md)
++ [Deploy Go Lambda Event Functions with container images](go-image.md)
++ [Working with layers for Go Lambda Event Functions](golang-layers.md)
++ [Log and monitor Go Lambda Event Functions](golang-logging.md)
 + [Instrumenting Go code in AWS Lambda](golang-tracing.md)
 
 ## Go runtime support

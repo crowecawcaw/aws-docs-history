@@ -3,7 +3,7 @@
 # Understanding the shared responsibility model for Lambda runtime management
 <a name="runtime-management-shared"></a>
 
-Lambda is responsible for curating and publishing security updates for all supported managed runtimes and container images. Responsibility for updating existing functions to use the latest runtime version varies depending on which runtime update mode you use.
+Lambda is responsible for curating and publishing security updates for all supported managed runtimes and container images. Responsibility for updating existing Event Functions to use the latest runtime version varies depending on which runtime update mode you use.
 
 Lambda is responsible for applying runtime updates to all functions configured to use the **Auto** runtime update mode.
 

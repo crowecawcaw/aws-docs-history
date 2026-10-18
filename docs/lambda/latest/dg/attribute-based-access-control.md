@@ -8,7 +8,7 @@ With [attribute-based access control (ABAC)](https://docs.aws.amazon.com/IAM/lat
 You can use ABAC to [grant least privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege) without specifying an Amazon Resource Name (ARN) or ARN pattern in the IAM policy. Instead, you can specify a tag in the [condition element](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) of an IAM policy to control access. Scaling is easier with ABAC because you don't have to update your IAM policies when you create new resources. Instead, add tags to the new resources to control access.
 
 In Lambda, tags work on the following resources:
-+ Functions–For more information on tagging functions see, [Using tags on Lambda functions](configuration-tags.md).
++ Functions–For more information on tagging functions see, [Using tags on Lambda Event Functions](configuration-tags.md).
 + Code signing configurations–For more information on tagging code signing configurations, see [Using tags on code signing configurations](tags-csc.md).
 + Event source mappings–For more information on tagging event source mappings, see [Using tags on event source mappings](tags-esm.md).
 

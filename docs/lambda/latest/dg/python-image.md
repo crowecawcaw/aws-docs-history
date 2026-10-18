@@ -1,9 +1,9 @@
 
 
-# Deploy Python Lambda functions with container images
+# Deploy Python Lambda Event Functions with container images
 <a name="python-image"></a>
 
-There are three ways to build a container image for a Python Lambda function:
+There are three ways to build a container image for a Python Lambda Event Function:
 + [Using an AWS base image for Python](#python-image-instructions)
 
   The [AWS base images](images-create.md#runtimes-images-lp) are preloaded with a language runtime, a runtime interface client to manage the interaction between Lambda and your function code, and a runtime interface emulator for local testing.
@@ -57,7 +57,7 @@ Other steps in the search path depend on which version of the Lambda base image 
 + **Python 3.11 and later**: Runtime-included libraries and pip-installed libraries are installed in the `/var/lang/lib/python3.11/site-packages` directory. This directory has precedence over `/var/runtime` in the search path. You can override the SDK by using pip to install a newer version. You can use pip to verify that the runtime-included SDK and its dependencies are compatible with any packages that you install.
 + **Python 3.8-3.10**: Runtime-included libraries are installed in the `/var/runtime` directory. Pip-installed libraries are installed in the `/var/lang/lib/python3.x/site-packages` directory. The `/var/runtime` directory has precedence over `/var/lang/lib/python3.x/site-packages` in the search path.
 
-You can see the full search path for your Lambda function by adding the following code snippet.
+You can see the full search path for your function by adding the following code snippet.
 
 ```
 import sys

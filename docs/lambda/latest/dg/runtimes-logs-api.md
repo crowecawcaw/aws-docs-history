@@ -7,9 +7,9 @@
 The Lambda Telemetry API supersedes the Lambda Logs API. **While the Logs API remains fully functional, we recommend using only the Telemetry API going forward.** You can subscribe your extension to a telemetry stream using either the Telemetry API or the Logs API. After subscribing using one of these APIs, any attempt to subscribe using the other API returns an error.
 
 **Lambda Managed Instances do not support Logs API**  
-Lambda Managed Instances do not support the Logs API. If you are using Managed Instance functions, use the [Telemetry API](telemetry-api.md) instead. The Telemetry API provides enhanced capabilities for collecting and processing telemetry data from your Lambda functions.
+Lambda Managed Instances do not support the Logs API. If you are using Managed Instance functions, use the [Telemetry API](telemetry-api.md) instead. The Telemetry API provides enhanced capabilities for collecting and processing telemetry data from your Lambda Event Functions.
 
-Lambda automatically captures runtime logs and streams them to Amazon CloudWatch. This log stream contains the logs that your function code and extensions generate, and also the logs that Lambda generates as part of the function invocation.
+Lambda automatically captures runtime logs and streams them to Amazon CloudWatch. This log stream contains the logs that your Event Function code and extensions generate, and also the logs that Lambda generates as part of the Event Function invocation.
 
 [Lambda extensions](runtimes-extensions-api.md) can use the Lambda Runtime Logs API to subscribe to log streams directly from within the Lambda [execution environment](lambda-runtime-environment.md). Lambda streams the logs to the extension, and the extension can then process, filter, and send the logs to any preferred destination.
 
@@ -17,7 +17,7 @@ Lambda automatically captures runtime logs and streams them to Amazon CloudWatch
 
 
 The Logs API allows extensions to subscribe to three different logs streams:
-+ Function logs that the Lambda function generates and writes to `stdout` or `stderr`.
++ Function logs that the Lambda Event Function generates and writes to `stdout` or `stderr`.
 + Extension logs that extension code generates.
 + Lambda platform logs, which record events and errors related to invocations and extensions.
 
@@ -188,7 +188,7 @@ HTTP/1.1 400 OK
 <a name="runtimes-logs-api-msg"></a>
 
 The Logs API allows extensions to subscribe to three different logs streams:
-+ Function – Logs that the Lambda function generates and writes to `stdout` or `stderr`.
++ Function – Logs that the Lambda Event Function generates and writes to `stdout` or `stderr`.
 + Extension – Logs that extension code generates.
 + Platform – Logs that the runtime platform generates, which record events and errors related to invocations and extensions.
 
@@ -200,7 +200,7 @@ The Logs API allows extensions to subscribe to three different logs streams:
 ### Function logs
 <a name="runtimes-logs-api-msg-function"></a>
 
-The Lambda function and internal extensions generate function logs and write them to `stdout` or `stderr`.
+The Lambda Event Function and internal extensions generate function logs and write them to `stdout` or `stderr`.
 
 The following example shows the format of a function log message. { "time": "2020-08-20T12:31:32.123Z", "type": "function", "record": "ERROR encountered. Stack trace:\\n\\my-function (line 10)\\n" } 
 
@@ -291,7 +291,7 @@ The platform fault log captures runtime or execution environment errors. The fol
 ```
 
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 One of the log outputs affected by this change is the platform fault log `"record"` field. The following examples show illustrative `"record"` fields in the old and new formats. The new style of fault log contains a more concise message  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 
@@ -376,7 +376,7 @@ The **platform.restoreReport** log message shows how long the `Restore` phase la
 #### Platform `runtimeDone` messages
 <a name="runtimes-logs-api-ref-done"></a>
 
-If you set the schema version to "2021-03-18" in the subscribe request, Lambda sends a `platform.runtimeDone` message after the function invocation completes either successfully or with an error. The extension can use this message to stop all the telemetry collection for this function invocation.
+If you set the schema version to "2021-03-18" in the subscribe request, Lambda sends a `platform.runtimeDone` message after the Event Function invocation completes either successfully or with an error. The extension can use this message to stop all the telemetry collection for this Event Function invocation.
 
 The OpenAPI specification for the Log event type in schema version **2021-03-18** is available here: [schema-2021-03-18.zip](samples/schema-2021-03-18.zip)
 

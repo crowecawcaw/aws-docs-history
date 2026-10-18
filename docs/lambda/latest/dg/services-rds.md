@@ -3,24 +3,24 @@
 # Using AWS Lambda with Amazon RDS
 <a name="services-rds"></a>
 
-You can connect a Lambda function to an Amazon Relational Database Service (Amazon RDS) database directly and through an Amazon RDS Proxy. Direct connections are useful in simple scenarios, and proxies are recommended for production. A database proxy manages a pool of shared database connections which enables your function to reach high concurrency levels without exhausting database connections.
+You can connect a Lambda Event Function to an Amazon Relational Database Service (Amazon RDS) database directly and through an Amazon RDS Proxy. Direct connections are useful in simple scenarios, and proxies are recommended for production. A database proxy manages a pool of shared database connections which enables your function to reach high concurrency levels without exhausting database connections.
 
 To help determine whether to use Amazon RDS or DynamoDB for your workload, see [Select a database service for your Lambda-based applications](ddb-rds-database-decision.md).
 
-We recommend using Amazon RDS Proxy for Lambda functions that make frequent short database connections, or open and close large numbers of database connections. For more information, see [ Automatically connecting a Lambda function and a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/lambda-rds-connect.html) in the Amazon Relational Database Service Developer Guide.
+We recommend using Amazon RDS Proxy for Lambda Event Functions that make frequent short database connections, or open and close large numbers of database connections. For more information, see [ Automatically connecting a Lambda function and a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/lambda-rds-connect.html) in the Amazon Relational Database Service Developer Guide.
 
 **Tip**  
-To quickly connect a Lambda function to an Amazon RDS database, you can use the in-console guided wizard. To open the wizard, do the following:  
-Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+To quickly connect a Lambda Event Function to an Amazon RDS database, you can use the in-console guided wizard. To open the wizard, do the following:  
+Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 Select the function you want to connect a database to.
 On the **Configuration** tab, select **RDS databases**.
 Choose **Connect to RDS database**.
 After you've connected your function to a database, you can create a proxy by choosing **Add proxy**.
 
-## Configuring your function to work with RDS resources
+## Configuring your Event Function to work with RDS resources
 <a name="rds-configuration"></a>
 
-In the Lambda console, you can provision, and configure, Amazon RDS database instances and proxy resources. You can do this by navigating to **RDS databases** under the **Configuration** tab. Alternatively, you can also create and configure connections to Lambda functions in the Amazon RDS console. When configuring an RDS database instance to use with Lambda, note the following criteria:
+In the Lambda console, you can provision, and configure, Amazon RDS database instances and proxy resources. You can do this by navigating to **RDS databases** under the **Configuration** tab. Alternatively, you can also create and configure connections to Lambda Event Functions in the Amazon RDS console. When configuring an RDS database instance to use with Lambda, note the following criteria:
 + To connect to a database, your function must be in the same Amazon VPC where your database runs.
 + You can use Amazon RDS databases with MySQL, MariaDB, PostgreSQL, or Microsoft SQL Server engines.
 + You can also use Aurora DB clusters with MySQL or PostgreSQL engines.
@@ -118,7 +118,7 @@ Amazon RDS charges an hourly rate for proxies based on the database instance siz
 ### SSL/TLS requirements for Amazon RDS connections
 <a name="rds-lambda-certificates"></a>
 
-To make secure SSL/TLS connections to an Amazon RDS database instance, your Lambda function must verify the database server's identity using a trusted certificate. Lambda handles these certificates differently depending on your deployment package type:
+To make secure SSL/TLS connections to an Amazon RDS database instance, your Lambda Event Function must verify the database server's identity using a trusted certificate. Lambda handles these certificates differently depending on your deployment package type:
 + [.zip file archives](configuration-function-zip.md): Certificate handling varies by runtime:
   + **Node.js 18 and earlier**: Lambda automatically includes CA certificates and RDS certificates.
   + **Node.js 20 and later**: Lambda no longer loads additional CA certificates by default. Set the `NODE_EXTRA_CA_CERTS` environment variable to `/var/runtime/ca-cert.pem`.
@@ -259,10 +259,10 @@ conn = Mysql2::Client.new(
 
 ------
 
-## Connecting to an Amazon RDS database in a Lambda function
+## Connecting to an Amazon RDS database in a Lambda Event Function
 <a name="rds-connection"></a>
 
-The following code examples shows how to implement a Lambda function that connects to an Amazon RDS database. The function makes a simple database request and returns the result.
+The following code examples shows how to implement a Lambda Event Function that connects to an Amazon RDS database. The function makes a simple database request and returns the result.
 
 **Note**  
 These code examples are valid for [.zip deployment packages](configuration-function-zip.md) only. If you're deploying your function using a [container image,](images-create.md) you must specify the Amazon RDS certificate file in your function code, as explained in the [preceding section](#oci-certificate).
@@ -1014,7 +1014,7 @@ async fn handler(_event: LambdaEvent<Value>) -> Result<Value, Error> {
 ## Processing event notifications from Amazon RDS
 <a name="rds-events"></a>
 
-You can use Lambda to process event notifications from an Amazon RDS database. Amazon RDS sends notifications to an Amazon Simple Notification Service (Amazon SNS) topic, which you can configure to invoke a Lambda function. Amazon SNS wraps the message from Amazon RDS in its own event document and sends it to your function.
+You can use Lambda to process event notifications from an Amazon RDS database. Amazon RDS sends notifications to an Amazon Simple Notification Service (Amazon SNS) topic, which you can configure to invoke a Lambda Event Function. Amazon SNS wraps the message from Amazon RDS in its own event document and sends it to your function.
 
 For more information about configuring an Amazon RDS database to send notifications, see [Using Amazon RDS event notifications](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html). 
 
@@ -1047,4 +1047,4 @@ For more information about configuring an Amazon RDS database to send notificati
 
 ## Complete Lambda and Amazon RDS tutorial
 <a name="rds-database-samples"></a>
-+ [ Using a Lambda function to access an Amazon RDS database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-lambda-tutorial.html) – From the Amazon RDS User Guide, learn how to use a Lambda function to write data to an Amazon RDS database through an Amazon RDS Proxy. Your Lambda function reads records from an Amazon SQS queue and write new items to a table in your database whenever a message is added.
++ [ Using a Lambda function to access an Amazon RDS database](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-lambda-tutorial.html) – From the Amazon RDS User Guide, learn how to use a Lambda Event Function to write data to an Amazon RDS database through an Amazon RDS Proxy. Your Lambda Event Function reads records from an Amazon SQS queue and write new items to a table in your database whenever a message is added.

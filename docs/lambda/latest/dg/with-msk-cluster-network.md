@@ -3,7 +3,7 @@
 # Configuring your Amazon MSK cluster and Amazon VPC network for Lambda
 <a name="with-msk-cluster-network"></a>
 
-To connect your AWS Lambda function to your Amazon MSK cluster, you need to correctly configure your cluster and the [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) it resides in. This page describes how to configure your cluster and VPC. If your cluster and VPC are already configured properly, see [Configuring Amazon MSK event sources for Lambda](with-msk-configure.md) to configure the event source mapping.
+To connect your AWS Lambda Event Function to your Amazon MSK cluster, you need to correctly configure your cluster and the [Amazon Virtual Private Cloud (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) it resides in. This page describes how to configure your cluster and VPC. If your cluster and VPC are already configured properly, see [Configuring Amazon MSK event sources for Lambda](with-msk-configure.md) to configure the event source mapping.
 
 **Topics**
 + [Overview of network configuration requirements for Lambda and MSK integrations](#msk-network-requirements)
@@ -13,25 +13,25 @@ To connect your AWS Lambda function to your Amazon MSK cluster, you need to corr
 ## Overview of network configuration requirements for Lambda and MSK integrations
 <a name="msk-network-requirements"></a>
 
-The networking configuration required for a Lambda and MSK integration depends on the network architecture of your application. There are three main resources involved in this integration: the Amazon MSK cluster, the Lambda function, and the Lambda event source mapping. Each of these resources resides in a different VPC:
+The networking configuration required for a Lambda and MSK integration depends on the network architecture of your application. There are three main resources involved in this integration: the Amazon MSK cluster, the Lambda Event Function, and the Lambda event source mapping. Each of these resources resides in a different VPC:
 + Your Amazon MSK cluster typically resides in a private subnet of a VPC that you manage.
-+ Your Lambda function resides in an AWS-managed VPC owned by Lambda.
++ Your Lambda Event Function resides in an AWS-managed VPC owned by Lambda.
 + Your Lambda event source mapping resides in another AWS-managed VPC owned by Lambda, separate from the VPC that contains your function.
 
-The [event source mapping](invocation-eventsourcemapping.md) is the intermediary resource between the MSK cluster and the Lambda function. The event source mapping has two primary jobs. First, it polls your MSK cluster for new messages. Then, it invokes your Lambda function with those messages. Since these three resources are in different VPCs, both the poll and invoke operations require cross-VPC network calls.
+The [event source mapping](invocation-eventsourcemapping.md) is the intermediary resource between the MSK cluster and the Lambda Event Function. The event source mapping has two primary jobs. First, it polls your MSK cluster for new messages. Then, it invokes your Lambda Event Function with those messages. Since these three resources are in different VPCs, both the poll and invoke operations require cross-VPC network calls.
 
 The network configuration requirements for your event source mapping depends on whether it uses [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode) or on-demand mode, as shown in the following diagram:
 
 ![Comparison of network calls for on-demand versus provisioned mode Kafka ESMs.](https://docs.aws.amazon.com/lambda/latest/dg/images/MSK-esm-network-overview.png)
 
 
-The way that the Lambda event source mapping polls your MSK cluster for new messages is the same in both modes. To establish a connection between your event source mapping and your MSK cluster, Lambda creates a [hyperplane ENI](configuration-vpc.md#configuration-vpc-enis) (or reuses an existing one, if available) in your private subnet to establish a secure connection. As illustrated in the diagram, this hyperplane ENI uses the subnet and security group configuration of your MSK cluster, not your Lambda function.
+The way that the Lambda event source mapping polls your MSK cluster for new messages is the same in both modes. To establish a connection between your event source mapping and your MSK cluster, Lambda creates a [hyperplane ENI](configuration-vpc.md#configuration-vpc-enis) (or reuses an existing one, if available) in your private subnet to establish a secure connection. As illustrated in the diagram, this hyperplane ENI uses the subnet and security group configuration of your MSK cluster, not your Lambda Event Function.
 
 After polling the message from the cluster, the way Lambda invokes your function is different in each mode:
 + In provisioned mode, Lambda automatically handles the connection between the event source mapping VPC and the function VPC. So, you don't need any additional networking components to successfully invoke your function.
 + In on-demand mode, your Lambda event source mapping invokes your function by using a path through your customer-managed VPC. Because of this, you need to configure either a [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the public subnet of your VPC, or [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) endpoints in the private subnet of the VPC that provide access to Lambda, [AWS Security Token Service (STS)](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html), and optionally, [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Correctly configuring either one of these options allows a connection between your VPC and the Lambda-managed runtime VPC, which is necessary to invoke your function.
 
-A NAT gateway allows resources in your private subnet to access the public internet. Using this configuration means your traffic traverses the internet before invoking the Lambda function. AWS PrivateLink endpoints allow private subnets to securely connect to AWS services or other private VPC resources without traversing the public internet. See [Configuring a NAT gateway for an MSK event source](#msk-nat-gateway) or [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink) for details on how to configure these resources.
+A NAT gateway allows resources in your private subnet to access the public internet. Using this configuration means your traffic traverses the internet before invoking the Lambda Event Function. AWS PrivateLink endpoints allow private subnets to securely connect to AWS services or other private VPC resources without traversing the public internet. See [Configuring a NAT gateway for an MSK event source](#msk-nat-gateway) or [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink) for details on how to configure these resources.
 
 So far, we've assumed that your MSK cluster resides in a private subnet within your VPC, which is the more common case. However, even if your MSK cluster is in a public subnet within your VPC, you must configure AWS PrivateLink endpoints to enable a secure connection. The following table summarizes the networking configuration requirements based on how you configure your MSK cluster and Lambda event source mapping:
 
@@ -51,7 +51,7 @@ In addition, the security groups associated with your MSK cluster must allow tra
 ## Configuring a NAT gateway for an MSK event source
 <a name="msk-nat-gateway"></a>
 
-You can configure a NAT gateway to allow your event source mapping to poll messages from your cluster, and invoke the function by using a path through your VPC. This is required only if your event source mapping uses on-demand mode, and your cluster resides within a private subnet of your VPC. If your cluster resides in a public subnet of your VPC, or your event source mapping uses provisioned mode, you don't need to configure a NAT gateway.
+You can configure a NAT gateway to allow your event source mapping to poll messages from your cluster, and invoke the Event Function by using a path through your VPC. This is required only if your event source mapping uses on-demand mode, and your cluster resides within a private subnet of your VPC. If your cluster resides in a public subnet of your VPC, or your event source mapping uses provisioned mode, you don't need to configure a NAT gateway.
 
 A [NAT gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) allows resources in a private subnet to access the public internet. If you need private connectivity to Lambda, see [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink) instead.
 

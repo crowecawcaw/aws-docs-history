@@ -6,15 +6,15 @@
 To create an event source mapping, you can use the Lambda console, the [AWS Command Line Interface (CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), or an [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/).
 
 **Note**  
-When you create the event source mapping, Lambda creates a [ hyperplane ENI](configuration-vpc.md#configuration-vpc-enis) in the private subnet that contains your MSK cluster, allowing Lambda to establish a secure connection. This hyperplane ENI allows uses the subnet and security group configuration of your MSK cluster, not your Lambda function.
+When you create the event source mapping, Lambda creates a [ hyperplane ENI](configuration-vpc.md#configuration-vpc-enis) in the private subnet that contains your MSK cluster, allowing Lambda to establish a secure connection. This hyperplane ENI allows uses the subnet and security group configuration of your MSK cluster, not your Lambda Event Function.
 
-The following console steps add an Amazon MSK cluster as a trigger for your Lambda function. Under the hood, this creates an event source mapping resource.
+The following console steps add an Amazon MSK cluster as a trigger for your Lambda Event Function. Under the hood, this creates an event source mapping resource.
 
-**To add an Amazon MSK trigger to your Lambda function (console)**
+**To add an Amazon MSK trigger to your Lambda Event Function (console)**
 
-1. Open the [Function page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the Lambda function you want to add an Amazon MSK trigger to.
+1. Choose the name of the Lambda Event Function you want to add an Amazon MSK trigger to.
 
 1. Under **Function overview**, choose **Add trigger**.
 
@@ -55,7 +55,7 @@ The following console steps add an Amazon MSK cluster as a trigger for your Lamb
 
 1. To create the trigger, choose **Add**.
 
-You can also create the event source mapping using the AWS CLI with the [ create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) command. The following example creates an event source mapping to map the Lambda function `my-msk-function` to the `AWSKafkaTopic` topic, starting from the `LATEST` message. This command also uses the [SourceAccessConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html) object to instruct Lambda to use [SASL/SCRAM](msk-cluster-auth.md#msk-sasl-scram) authentication when connecting to the cluster.
+You can also create the event source mapping using the AWS CLI with the [ create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) command. The following example creates an event source mapping to map the Lambda Event Function `my-msk-function` to the `AWSKafkaTopic` topic, starting from the `LATEST` message. This command also uses the [SourceAccessConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_SourceAccessConfiguration.html) object to instruct Lambda to use [SASL/SCRAM](msk-cluster-auth.md#msk-sasl-scram) authentication when connecting to the cluster.
 
 ```
 aws lambda create-event-source-mapping \

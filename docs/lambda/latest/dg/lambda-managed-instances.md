@@ -3,7 +3,7 @@
 # Lambda Managed Instances
 <a name="lambda-managed-instances"></a>
 
-With Lambda Managed Instances, you can run Lambda functions on your current-generation Amazon EC2 instances, including Graviton4, network-optimized instances, and other specialized compute options, without managing instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances.
+With Lambda Managed Instances, you can run Lambda Event Functions on your current-generation Amazon EC2 instances, including Graviton4, network-optimized instances, and other specialized compute options. You don't need to manage instance lifecycles, operating system and language runtime patching, routing, load balancing, or scaling policies. With Lambda Managed Instances, you benefit from EC2 pricing advantages, including EC2 Savings Plans and Reserved Instances. Lambda Managed Instances currently support only Lambda Event Functions.
 
 For a list of supported instance types, go to the [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/#:~:text=EPU%20pricing%20applies.-,Management%20Fees,-Pricing%20Example%3A%20High) page and select your AWS Region.
 

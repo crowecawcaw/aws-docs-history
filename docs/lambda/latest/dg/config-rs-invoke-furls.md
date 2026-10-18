@@ -17,7 +17,7 @@ You can still invoke your function without response streaming by directly callin
 
 **To set the invoke mode of a function URL (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of the function that you want to set the invoke mode for.
 

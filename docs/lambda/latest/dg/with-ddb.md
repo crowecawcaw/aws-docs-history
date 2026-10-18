@@ -4,9 +4,9 @@
 <a name="with-ddb"></a>
 
 **Note**  
-If you want to send data to a target other than a Lambda function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
+If you want to send data to a target other than a Lambda Event Function or enrich the data before sending it, see [ Amazon EventBridge Pipes](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html).
 
-You can use an AWS Lambda function to process records in an [Amazon DynamoDB stream](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html). With DynamoDB Streams, you can trigger a Lambda function to perform additional work each time a DynamoDB table is updated.
+You can use an AWS Lambda Event Function to process records in an [Amazon DynamoDB stream](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html). With DynamoDB Streams, you can trigger a Lambda Event Function to perform additional work each time a DynamoDB table is updated.
 
 When processing DynamoDB streams, you need to implement partial batch response logic to prevent successfully processed records from being retried when some records in a batch fail. The [Batch Processor utility](https://docs.aws.amazon.com/powertools/python/latest/utilities/batch/) from Powertools for AWS Lambda is available in Python, TypeScript, .NET, and Java and simplifies this implementation by automatically handling partial batch response logic, reducing development time and improving reliability.
 
@@ -33,7 +33,7 @@ By default, Lambda invokes your function as soon as records are available. If th
 **Warning**  
 Lambda event source mappings process each event at least once, and duplicate processing of records can occur. To avoid potential issues related to duplicate events, we strongly recommend that you make your function code idempotent. To learn more, see [How do I make my Lambda function idempotent](https://repost.aws/knowledge-center/lambda-function-idempotent) in the AWS Knowledge Center.
 
-Lambda doesn't wait for any configured [extensions](lambda-extensions.md) to complete before sending the next batch for processing. In other words, your extensions may continue to run as Lambda processes the next batch of records. This can cause throttling issues if you breach any of your account's [concurrency](lambda-concurrency.md) settings or limits. To detect whether this is a potential issue, monitor your functions and check whether you're seeing higher [concurrency metrics](monitoring-concurrency.md#general-concurrency-metrics) than expected for your event source mapping. Due to short times in between invokes, Lambda may briefly report higher concurrency usage than the number of shards. This can be true even for Lambda functions without extensions.
+Lambda doesn't wait for any configured [extensions](lambda-extensions.md) to complete before sending the next batch for processing. In other words, your extensions may continue to run as Lambda processes the next batch of records. This can cause throttling issues if you breach any of your account's [concurrency](lambda-concurrency.md) settings or limits. To detect whether this is a potential issue, monitor your functions and check whether you're seeing higher [concurrency metrics](monitoring-concurrency.md#general-concurrency-metrics) than expected for your event source mapping. Due to short times in between invokes, Lambda may briefly report higher concurrency usage than the number of shards. This can be true even for Lambda Event Functions without extensions.
 
 Configure the [ ParallelizationFactor](https://docs.aws.amazon.com/lambda/latest/api/API_CreateEventSourceMapping.html#lambda-CreateEventSourceMapping-request-ParallelizationFactor) setting to process one shard of a DynamoDB stream with more than one Lambda invocation simultaneously. You can specify the number of concurrent batches that Lambda polls from a shard by using a parallelization factor from 1 (default) to 10. For example, when you set `ParallelizationFactor` to 2, you can have 200 concurrent Lambda invocations at maximum to process 100 DynamoDB stream shards (though in practice, you might see different values for the `ConcurrentExecutions` metric). This helps scale up the processing throughput when the data volume is volatile and the [IteratorAge](monitoring-metrics-types.md#performance-metrics) is high. With `ParallelizationFactor`, Lambda runs multiple concurrent batches per shard and groups the records in each shard by partition key. Within a shard, records that share a partition key go to the same concurrent batch and are processed in order. Records with different partition keys can be processed concurrently. DynamoDB Streams guarantees ordering per item (partition key and sort key). As a result, the stream records for any single item always appear in the order the item was modified.
 
@@ -49,7 +49,7 @@ This behavior means that if you specify `LATEST` as the starting position for th
 ## Simultaneous readers of a shard in DynamoDB Streams
 <a name="events-dynamodb-simultaneous-readers"></a>
 
-For single-Region tables that are not global tables, you can design for up to two Lambda functions to read from the same DynamoDB Streams shard at the same time. Exceeding this limit can result in request throttling. For global tables, we recommend you limit the number of simultaneous functions to one to avoid request throttling.
+For single-Region tables that are not global tables, you can design for up to two Lambda Event Functions to read from the same DynamoDB Streams shard at the same time. Exceeding this limit can result in request throttling. For global tables, we recommend you limit the number of simultaneous functions to one to avoid request throttling.
 
 ## Example event
 <a name="events-sample-dynamodb"></a>

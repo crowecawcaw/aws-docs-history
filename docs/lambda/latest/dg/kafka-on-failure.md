@@ -3,9 +3,9 @@
 # Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources
 <a name="kafka-on-failure"></a>
 
-To retain records of failed event source mapping invocations, add a destination to your function's event source mapping. Each record sent to the destination is a JSON document containing metadata about the failed invocation. For Amazon S3 destinations, Lambda also sends the entire invocation record along with the metadata. You can configure any Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka as a destination.
+To retain records of failed event source mapping invocations, add a destination to your Event Function's event source mapping. Each record sent to the destination is a JSON document containing metadata about the failed invocation. For Amazon S3 destinations, Lambda also sends the entire invocation record along with the metadata. You can configure any Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, or Kafka as a destination.
 
-With Amazon S3 destinations, you can use the [Amazon S3 Event Notifications](https://docs.aws.amazon.com/) feature to receive notifications when objects are uploaded to your destination S3 bucket. You can also configure S3 Event Notifications to invoke another Lambda function to perform automated processing on failed batches.
+With Amazon S3 destinations, you can use the [Amazon S3 Event Notifications](https://docs.aws.amazon.com/) feature to receive notifications when objects are uploaded to your destination S3 bucket. You can also configure S3 Event Notifications to invoke another Lambda Event Function to perform automated processing on failed batches.
 
 Your execution role must have permissions for the destination:
 + **For an SQS destination:** [sqs:SendMessage](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html)
@@ -18,16 +18,16 @@ You can configure a Kafka topic as an on-failure destination for your Kafka even
 You must deploy a VPC endpoint for your on-failure destination service inside your Kafka cluster VPC.
 
 Additionally, if you configured a KMS key on your destination, Lambda needs the following permissions depending on the destination type:
-+ If you've enabled encryption with your own KMS key for an S3 destination, [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) is required. If the KMS key and S3 bucket destination are in a different account from your Lambda function and execution role, configure the KMS key to trust the execution role to allow kms:GenerateDataKey.
-+ If you've enabled encryption with your own KMS key for SQS destination, [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) and [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) are required. If the KMS key and SQS queue destination are in a different account from your Lambda function and execution role, configure the KMS key to trust the execution role to allow kms:Decrypt, kms:GenerateDataKey, [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html), and [kms:ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html).
-+ If you've enabled encryption with your own KMS key for SNS destination, [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) and [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) are required. If the KMS key and SNS topic destination are in a different account from your Lambda function and execution role, configure the KMS key to trust the execution role to allow kms:Decrypt, kms:GenerateDataKey, [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html), and [kms:ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html).
++ If you've enabled encryption with your own KMS key for an S3 destination, [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) is required. If the KMS key and S3 bucket destination are in a different account from your Lambda Event Function and execution role, configure the KMS key to trust the execution role to allow kms:GenerateDataKey.
++ If you've enabled encryption with your own KMS key for SQS destination, [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) and [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) are required. If the KMS key and SQS queue destination are in a different account from your Lambda Event Function and execution role, configure the KMS key to trust the execution role to allow kms:Decrypt, kms:GenerateDataKey, [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html), and [kms:ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html).
++ If you've enabled encryption with your own KMS key for SNS destination, [kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) and [kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html) are required. If the KMS key and SNS topic destination are in a different account from your Lambda Event Function and execution role, configure the KMS key to trust the execution role to allow kms:Decrypt, kms:GenerateDataKey, [kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html), and [kms:ReEncrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html).
 
 ## Configuring on-failure destinations for a Kafka event source mapping
 <a name="kafka-onfailure-destination"></a>
 
 To configure an on-failure destination using the console, follow these steps:
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 
@@ -76,7 +76,7 @@ aws lambda update-event-source-mapping \
 Deleting an S3 bucket that's configured as a destination without removing the destination from your function's configuration can create a security risk. If another user knows your destination bucket's name, they can recreate the bucket in their AWS account. Records of failed invocations will be sent to their bucket, potentially exposing data from your function.
 
 **Warning**  
-To ensure that invocation records from your function can't be sent to an S3 bucket in another AWS account, add a condition to your function's execution role that limits `s3:PutObject` permissions to buckets in your account. 
+To ensure that invocation records from your Event Function can't be sent to an S3 bucket in another AWS account, add a condition to your function's execution role that limits `s3:PutObject` permissions to buckets in your account. 
 
 The following example shows an IAM policy that limits your function's `s3:PutObject` permissions to buckets in your account. This policy also gives Lambda the `s3:ListBucket` permission it needs to use an S3 bucket as a destination.
 
@@ -112,9 +112,9 @@ To add a permissions policy to your function's execution role using the AWS Mana
 
 **To add a permissions policy to a function's execution role (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the Lambda function whose execution role you want to modify.
+1. Select the Lambda Event Function whose execution role you want to modify.
 
 1. In the **Configuration** tab, select **Permissions**.
 
@@ -135,7 +135,7 @@ To add a permissions policy to your function's execution role using the AWS Mana
 ------
 #### [ AWS CLI ]
 
-**To add a permissions policy to a function's execution role (CLI)**
+**To add a permissions policy to an Event Function's execution role (CLI)**
 
 1. Create a JSON policy document with the required permissions and save it in a local directory.
 

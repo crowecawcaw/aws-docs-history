@@ -3,7 +3,7 @@
 # Tutorial: Using a cross-account Amazon SQS queue as an event source
 <a name="with-sqs-cross-account-example"></a>
 
-In this tutorial, you create a Lambda function that consumes messages from an Amazon Simple Queue Service (Amazon SQS) queue in a different AWS account. This tutorial involves two AWS accounts: **Account A** refers to the account that contains your Lambda function, and **Account B** refers to the account that contains the Amazon SQS queue.
+In this tutorial, you create a Lambda Event Function that consumes messages from an Amazon Simple Queue Service (Amazon SQS) queue in a different AWS account. This tutorial involves two AWS accounts: **Account A** refers to the account that contains your Lambda Event Function, and **Account B** refers to the account that contains the Amazon SQS queue.
 
 ## Prerequisites
 <a name="with-sqs-cross-account-prepare"></a>
@@ -36,10 +36,10 @@ In **Account A**, create an [execution role](lambda-intro-execution-role.md) tha
 
 The **AWSLambdaSQSQueueExecutionRole** policy has the permissions that the function needs to read items from Amazon SQS and to write logs to Amazon CloudWatch Logs.
 
-## Create the function (Account A)
+## Create the Event Function (Account A)
 <a name="with-sqs-cross-account-create-function"></a>
 
-In **Account A**, create a Lambda function that processes your Amazon SQS messages. The Lambda function and the Amazon SQS queue must be in the same AWS Region.
+In **Account A**, create a Lambda Event Function that processes your Amazon SQS messages. The Lambda Event Function and the Amazon SQS queue must be in the same AWS Region.
 
 The following Node.js code example writes each message to a log in CloudWatch Logs.
 
@@ -55,7 +55,7 @@ export const handler = async function(event, context) {
 }
 ```
 
-**To create the function**
+**To create the Event Function**
 **Note**  
 Following these steps creates a Node.js function. For other languages, the steps are similar, but some details are different.
 
@@ -75,10 +75,10 @@ Following these steps creates a Node.js function. For other languages, the steps
    --role {{arn:aws:iam::111122223333:role/cross-account-lambda-sqs-role}}
    ```
 
-## Test the function (Account A)
+## Test the Event Function (Account A)
 <a name="with-sqs-cross-account-create-test-function"></a>
 
-In **Account A**, test your Lambda function manually using the `invoke` AWS CLI command and a sample Amazon SQS event.
+In **Account A**, test your Lambda Event Function manually using the `invoke` AWS CLI command and a sample Amazon SQS event.
 
 If the handler returns normally without exceptions, Lambda considers the message to be successfully processed and begins reading new messages in the queue. After successfully processing a message, Lambda automatically deletes it from the queue. If the handler throws an exception, Lambda considers the batch of messages not successfully processed, and Lambda invokes the function with the same batch of messages.
 
@@ -107,7 +107,7 @@ If the handler returns normally without exceptions, Lambda considers the message
    }
    ```
 
-   The preceding JSON simulates an event that Amazon SQS might send to your Lambda function, where `"body"` contains the actual message from the queue.
+   The preceding JSON simulates an event that Amazon SQS might send to your Lambda Event Function, where `"body"` contains the actual message from the queue.
 
 1. Run the following `invoke` AWS CLI command.
 
@@ -124,7 +124,7 @@ If the handler returns normally without exceptions, Lambda considers the message
 ## Create an Amazon SQS queue (Account B)
 <a name="with-sqs-cross-account-configure-sqs"></a>
 
-In **Account B**, create an Amazon SQS queue that the Lambda function in **Account A** can use as an event source. The Lambda function and the Amazon SQS queue must be in the same AWS Region.
+In **Account B**, create an Amazon SQS queue that the Lambda Event Function in **Account A** can use as an event source. The Lambda Event Function and the Amazon SQS queue must be in the same AWS Region.
 
 **To create a queue**
 
@@ -169,12 +169,12 @@ In **Account B**, create an Amazon SQS queue that the Lambda function in **Accou
 
      This policy grants the Lambda execution role in **Account A** permissions to consume messages from this Amazon SQS queue.
 
-1. After creating the queue, record its Amazon Resource Name (ARN). You need this in the next step when you associate the queue with your Lambda function.
+1. After creating the queue, record its Amazon Resource Name (ARN). You need this in the next step when you associate the queue with your Lambda Event Function.
 
 ## Configure the event source (Account A)
 <a name="with-sqs-cross-account-event-source"></a>
 
-In **Account A**, create an event source mapping between the Amazon SQS queue in **Account B** and your Lambda function by running the following `create-event-source-mapping` AWS CLI command. Replace `arn:aws:sqs:us-east-1:444455556666:LambdaCrossAccountQueue` with the ARN of the Amazon SQS queue that you created in the previous step.
+In **Account A**, create an event source mapping between the Amazon SQS queue in **Account B** and your Lambda Event Function by running the following `create-event-source-mapping` AWS CLI command. Replace `arn:aws:sqs:us-east-1:444455556666:LambdaCrossAccountQueue` with the ARN of the Amazon SQS queue that you created in the previous step.
 
 ```
 aws lambda create-event-source-mapping --function-name CrossAccountSQSExample --batch-size 10 \
@@ -203,14 +203,14 @@ You can now test the setup as follows:
 
 1. Choose **Send message**.
 
-Your Lambda function in **Account A** should receive the message. Lambda continues to poll the queue for updates. When there is a new message, Lambda invokes your function with this new event data from the queue. Your function runs and creates logs in Amazon CloudWatch. You can view the logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
+Your Lambda Event Function in **Account A** should receive the message. Lambda continues to poll the queue for updates. When there is a new message, Lambda invokes your function with this new event data from the queue. Your function runs and creates logs in Amazon CloudWatch. You can view the logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
 
 ## Clean up your resources
 <a name="cleanup"></a>
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-In **Account A**, clean up your execution role and Lambda function.
+In **Account A**, clean up your execution role and Lambda Event Function.
 
 **To delete the execution role**
 
@@ -222,11 +222,11 @@ In **Account A**, clean up your execution role and Lambda function.
 
 1. Enter the name of the role in the text input field and choose **Delete**.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

@@ -1,18 +1,18 @@
 
 
-# Retrieve data about Lambda functions that use a deprecated runtime
+# Retrieve data about Lambda Event Functions that use a deprecated runtime
 <a name="runtimes-list-deprecated"></a>
 
-When a Lambda runtime is approaching deprecation, Lambda alerts you through email and provides notifications in the Health Dashboard and Trusted Advisor. These emails and notifications list the $LATEST versions of functions using the runtime. To list all of your function versions that use a particular runtime, you can use the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs.
+When a Lambda runtime is approaching deprecation, Lambda alerts you through email and provides notifications in the Health Dashboard and Trusted Advisor. These emails and notifications list the $LATEST versions of functions using the runtime. To list all of your Event Function versions that use a particular runtime, you can use the AWS Command Line Interface (AWS CLI) or one of the AWS SDKs.
 
 If you have a large number of functions which use a runtime that is due to be deprecated, you can also use the AWS CLI or AWS SDKs to help you prioritize updates to your most commonly invoked functions.
 
-Refer to the following sections to learn how to use the AWS CLI and AWS SDKs to gather data about functions that use a particular runtime.
+Refer to the following sections to learn how to use the AWS CLI and AWS SDKs to gather data about Event Functions that use a particular runtime.
 
 ## Listing function versions that use a particular runtime
 <a name="runtimes-list-deprecated-versions"></a>
 
-To use the AWS CLI to list all of your function versions that use a particular runtime, run the following command. Replace `RUNTIME_IDENTIFIER` with the name of the runtime that's being deprecated and choose your own AWS Region. To list only $LATEST function versions, omit `--function-version ALL` from the command.
+To list all versions of your Lambda Event Functions that use a particular runtime, run the following AWS CLI command. This command doesn't return Lambda Web Functions. Replace `RUNTIME_IDENTIFIER` with the name of the runtime that's being deprecated and choose your own AWS Region. To list only $LATEST function versions, omit `--function-version ALL` from the command.
 
 ```
 aws lambda list-functions --function-version ALL --region {{us-east-1}} --output text --query "Functions[?Runtime=='{{RUNTIME_IDENTIFIER}}'].FunctionArn" 
@@ -21,7 +21,7 @@ aws lambda list-functions --function-version ALL --region {{us-east-1}} --output
 **Tip**  
 The example command lists functions in the `us-east-1` region for a particular AWS account You'll need to repeat this command for each region in which your account has functions and for each of your AWS accounts.
 
-You can also list functions that use a particular runtime using one of the AWS SDKs. The following example code uses the V3 AWS SDK for JavaScript and the AWS SDK for Python (Boto3) to return a list of the function ARNs for functions using a particular runtime. The example code also returns the CloudWatch log group for each of the listed functions. You can use this log group to find the last invocation date for the function. See the following section [Identifying most commonly and most recently invoked functions](#runtimes-list-deprecated-statistics) for more information.
+You can also list Event Functions that use a particular runtime using one of the AWS SDKs. The following example code uses the V3 AWS SDK for JavaScript and the AWS SDK for Python (Boto3) to return a list of the function ARNs for functions using a particular runtime. The example code also returns the CloudWatch log group for each of the listed functions. You can use this log group to find the last invocation date for the function. See the following section [Identifying most commonly and most recently invoked functions](#runtimes-list-deprecated-statistics) for more information.
 
 ------
 #### [ Node.js ]
@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
 To learn more about using an AWS SDK to list your functions using the [ListFunctions](https://docs.aws.amazon.com/lambda/latest/api/API_ListFunctions.html) action, see the [SDK documentation](https://aws.amazon.com/developer/tools/) for your preferred programming language.
 
-You can also use the AWS Config Advanced queries feature to list all your functions that use an affected runtime. This query only returns function $LATEST versions, but you can aggregate queries to list function across all regions and multiple AWS accounts with a single command. To learn more, see [Querying the Current Configuration State of AWS Auto Scaling Resources](https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html) in the *AWS Config Developer Guide*.
+You can also use the AWS Config Advanced queries feature to list all your Lambda Event Functions that use an affected runtime. AWS Config doesn't return Lambda Web Functions. This query only returns function $LATEST versions, but you can aggregate queries to list function across all regions and multiple AWS accounts with a single command. To learn more, see [Querying the Current Configuration State of AWS Auto Scaling Resources](https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html) in the *AWS Config Developer Guide*.
 
 ## Identifying most commonly and most recently invoked functions
 <a name="runtimes-list-deprecated-statistics"></a>
@@ -104,7 +104,7 @@ If you have only a few functions, you can use the CloudWatch Logs console to gat
 
 To see the number of recent function invocations, you can also use the CloudWatch metrics information shown in the Lambda console. To view this information, do the following:
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Select the function you want to see invocation statistics for.
 

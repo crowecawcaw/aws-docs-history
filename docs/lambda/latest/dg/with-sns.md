@@ -1,9 +1,9 @@
 
 
-# Invoking Lambda functions with Amazon SNS notifications
+# Invoking Lambda Event Functions with Amazon SNS notifications
 <a name="with-sns"></a>
 
-You can use a Lambda function to process Amazon Simple Notification Service (Amazon SNS) notifications. Amazon SNS supports Lambda functions as a target for messages sent to a topic. You can subscribe your function to topics in the same account or in other AWS accounts. For a detailed walkthrough, see [Tutorial: Using AWS Lambda with Amazon Simple Notification Service](with-sns-example.md).
+You can use a Lambda Event Function to process Amazon Simple Notification Service (Amazon SNS) notifications. Amazon SNS supports Lambda Event Functions as a target for messages sent to a topic. You can subscribe your function to topics in the same account or in other AWS accounts. For a detailed walkthrough, see [Tutorial: Using AWS Lambda with Amazon Simple Notification Service](with-sns-example.md).
 
 Lambda supports SNS triggers for standard SNS topics only. FIFO topics aren't supported.
 
@@ -15,23 +15,23 @@ Lambda asynchronous invocations process each event at least once, and duplicate 
 ## Idempotency utility from Powertools for AWS Lambda
 <a name="services-sns-powertools-idempotency"></a>
 
-The idempotency utility from Powertools for AWS Lambda makes your Lambda functions idempotent. It is available for Python, TypeScript, Java, and .NET. For more information, see [Idempotency utility](https://docs.aws.amazon.com/powertools/python/latest/utilities/idempotency/) in the *Powertools for AWS Lambda (Python) documentation*, [Idempotency Utility](https://docs.aws.amazon.com/powertools/typescript/2.1.1/utilities/idempotency/) in the *Powertools for AWS Lambda (TypeScript) documentation*, [Idempotency Utility](https://docs.aws.amazon.com/powertools/java/latest/utilities/idempotency/) in the *Powertools for AWS Lambda (Java) documentation*, and [Idempotency Utility](https://docs.aws.amazon.com/powertools/dotnet/utilities/idempotency/) in the *Powertools for AWS Lambda (.NET) documentation*.
+The idempotency utility from Powertools for AWS Lambda makes your Lambda Event Functions idempotent. It is available for Python, TypeScript, Java, and .NET. For more information, see [Idempotency utility](https://docs.aws.amazon.com/powertools/python/latest/utilities/idempotency/) in the *Powertools for AWS Lambda (Python) documentation*, [Idempotency Utility](https://docs.aws.amazon.com/powertools/typescript/2.1.1/utilities/idempotency/) in the *Powertools for AWS Lambda (TypeScript) documentation*, [Idempotency Utility](https://docs.aws.amazon.com/powertools/java/latest/utilities/idempotency/) in the *Powertools for AWS Lambda (Java) documentation*, and [Idempotency Utility](https://docs.aws.amazon.com/powertools/dotnet/utilities/idempotency/) in the *Powertools for AWS Lambda (.NET) documentation*.
 
 **Topics**
 + [Idempotency utility from Powertools for AWS Lambda](#services-sns-powertools-idempotency)
-+ [Adding an Amazon SNS topic trigger for a Lambda function using the console](#sns-trigger-console)
-+ [Manually adding an Amazon SNS topic trigger for a Lambda function](#sns-trigger-manual)
++ [Adding an Amazon SNS topic trigger for a Lambda Event Function using the console](#sns-trigger-console)
++ [Manually adding an Amazon SNS topic trigger for a Lambda Event Function](#sns-trigger-manual)
 + [Sample SNS event shape](#sns-sample-event)
 + [Tutorial: Using AWS Lambda with Amazon Simple Notification Service](with-sns-example.md)
 
-## Adding an Amazon SNS topic trigger for a Lambda function using the console
+## Adding an Amazon SNS topic trigger for a Lambda Event Function using the console
 <a name="sns-trigger-console"></a>
 
-To add an SNS topic as a trigger for a Lambda function, the easiest way is to use the Lambda console. When you add the trigger through the console, Lambda automatically sets up the necessary permissions and subscriptions to start receiving events from the SNS topic.
+To add an SNS topic as a trigger for a Lambda Event Function, the easiest way is to use the Lambda console. When you add the trigger through the console, Lambda automatically sets up the necessary permissions and subscriptions to start receiving events from the SNS topic.
 
-**To add an SNS topic as a trigger for a Lambda function (console)**
+**To add an SNS topic as a trigger for a Lambda Event Function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of a function you want to add the trigger for.
 
@@ -43,16 +43,16 @@ To add an SNS topic as a trigger for a Lambda function, the easiest way is to us
 
 1. For **SNS topic**, choose the SNS topic to subscribe to.
 
-## Manually adding an Amazon SNS topic trigger for a Lambda function
+## Manually adding an Amazon SNS topic trigger for a Lambda Event Function
 <a name="sns-trigger-manual"></a>
 
-To set up an SNS trigger for a Lambda function manually, you need to complete the following steps:
+To set up an SNS trigger for a Lambda Event Function manually, you need to complete the following steps:
 + Define a resource-based policy for your function to allow SNS to invoke it.
-+ Subscribe your Lambda function to the Amazon SNS topic.
++ Subscribe your Lambda Event Function to the Amazon SNS topic.
 **Note**  
-If your SNS topic and your Lambda function are in different AWS accounts, you also need to grant extra permissions to allow cross-account subscriptions to the SNS topic. For more information, see [Grant cross-account permission for Amazon SNS subscription](with-sns-example.md#with-sns-subscription-grant-permission).
+If your SNS topic and your Lambda Event Function are in different AWS accounts, you also need to grant extra permissions to allow cross-account subscriptions to the SNS topic. For more information, see [Grant cross-account permission for Amazon SNS subscription](with-sns-example.md#with-sns-subscription-grant-permission).
 
-You can use the AWS Command Line Interface (AWS CLI) to complete both of these steps. First, to define a resource-based policy for a Lambda function that allows SNS invocations, use the following AWS CLI command. Be sure to replace the value of `--function-name` with your Lambda function name, and the value of `--source-arn` with your SNS topic ARN.
+You can use the AWS Command Line Interface (AWS CLI) to complete both of these steps. First, to define a resource-based policy for a Lambda Event Function that allows SNS invocations, use the following AWS CLI command. Be sure to replace the value of `--function-name` with your Lambda Event Function name, and the value of `--source-arn` with your SNS topic ARN.
 
 ```
 aws lambda add-permission --function-name {{example-function}} \
@@ -61,7 +61,7 @@ aws lambda add-permission --function-name {{example-function}} \
     --principal sns.amazonaws.com
 ```
 
-To subscribe your function to the SNS topic, use the following AWS CLI command. Replace the value of `--topic-arn` with your SNS topic ARN, and the value of `--notification-endpoint` with your Lambda function ARN.
+To subscribe your function to the SNS topic, use the following AWS CLI command. Replace the value of `--topic-arn` with your SNS topic ARN, and the value of `--notification-endpoint` with your Lambda Event Function ARN.
 
 ```
 aws sns subscribe --protocol lambda \

@@ -13,7 +13,7 @@ All Lambda event source types share the same [CreateEventSourceMapping](https://
 | DestinationConfig | N | N/A | Standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records | 
 | Enabled | N | true | none | 
 | EventSourceArn | Y | N/A | ARN of the data stream or a stream consumer | 
-| FilterCriteria | N | N/A | [Control which events Lambda sends to your function](invocation-eventfiltering.md) | 
+| FilterCriteria | N | N/A | [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md) | 
 | FunctionName | Y | N/A | none | 
 | FunctionResponseTypes | N | N/A | To let your function report specific failures in a batch, include the value `ReportBatchItemFailures` in `FunctionResponseTypes`. For more information, see [Configuring partial batch response with DynamoDB and Lambda](services-ddb-batchfailurereporting.md). | 
 | MaximumBatchingWindowInSeconds | N | 0 | none | 

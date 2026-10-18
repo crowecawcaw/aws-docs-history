@@ -4,7 +4,7 @@
 <a name="gettingstarted-limits"></a>
 
 **Important**  
-New AWS accounts have reduced concurrency and memory quotas for Lambda Functions and Lambda MicroVMs. AWS raises these quotas automatically based on your usage.
+New AWS accounts have reduced concurrency and memory quotas for Lambda Functions and Lambda MicroVMs, and reduced vCPU and request rate quotas for Lambda Web Functions. AWS raises these quotas automatically based on your usage.
 
 AWS Lambda is designed to scale rapidly to meet demand, allowing your functions to scale up to serve traffic in your application. Lambda is designed for short-lived compute tasks that do not retain or rely upon state between invocations. Code can run for up to 15 minutes in a single invocation (up to 90 minutes for Lambda Managed Instances functions invoked asynchronously or through any event source mapping except Amazon MQ and Amazon DocumentDB) and a single function can use up to 10,240 MB of memory.
 
@@ -23,6 +23,7 @@ The following sections list default quotas and limits in Lambda by category.
 + [Lambda API requests](#api-requests)
 + [Durable functions](#durable-functions-quotas)
 + [Lambda MicroVMs](#microvms-quotas)
++ [Lambda Web Functions](#web-functions-quotas)
 + [Other services](#quotas-other-services)
 
 ## Compute and storage
@@ -38,7 +39,7 @@ Lambda sets quotas for the amount of compute and storage resources that you can 
 | Storage for functions defined as container images. These images are stored in Amazon ECR. | See [Amazon ECR service quotas](https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html). |   | 
 | [Elastic network interfaces per virtual private cloud (VPC)](configuration-vpc.md) This quota is shared with other services, such as Amazon Elastic File System (Amazon EFS). See [Amazon VPC quotas](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html).  | 3,000 | Thousands | 
 
-For details on concurrency and how Lambda scales your function concurrency in response to traffic, see [Understanding Lambda function scaling](lambda-concurrency.md).
+For details on concurrency and how Lambda scales your function concurrency in response to traffic, see [Understanding Lambda Event Function scaling](lambda-concurrency.md).
 
 ## Function configuration, deployment, and execution
 <a name="function-configuration-deployment-and-execution"></a>
@@ -76,8 +77,8 @@ The following quotas are associated with Lambda API requests.
 
 | Resource | Quota | 
 | --- | --- | 
-| Invocation requests per function per Region (synchronous) | Each instance of your execution environment can serve up to 10 requests per second. In other words, the total invocation limit is 10 times your concurrency limit. See [Understanding Lambda function scaling](lambda-concurrency.md). | 
-| Invocation requests per function per Region (asynchronous) | Each instance of your execution environment can serve an unlimited number of requests. In other words, the total invocation limit is based only on concurrency available to your function. See [Understanding Lambda function scaling](lambda-concurrency.md). | 
+| Invocation requests per function per Region (synchronous) | Each instance of your execution environment can serve up to 10 requests per second. In other words, the total invocation limit is 10 times your concurrency limit. See [Understanding Lambda Event Function scaling](lambda-concurrency.md). | 
+| Invocation requests per function per Region (asynchronous) | Each instance of your execution environment can serve an unlimited number of requests. In other words, the total invocation limit is based only on concurrency available to your function. See [Understanding Lambda Event Function scaling](lambda-concurrency.md). | 
 | Invocation requests per function version or alias (requests per second) | 10 x allocated [provisioned concurrency](configuration-concurrency.md) This quota applies only to functions that use provisioned concurrency.  | 
 | [GetFunction](https://docs.aws.amazon.com/lambda/latest/api/API_GetFunction.html) API requests | 100 requests per second. Cannot be increased. | 
 | [GetPolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetPolicy.html) API requests | 15 requests per second. Cannot be increased. | 
@@ -92,9 +93,10 @@ The following quotas apply to [durable functions](durable-functions.md). Quotas 
 | Resource | Default quota | 
 | --- | --- | 
 | Maximum running durable executions | 5,000,000 per Region.<br />10,000,000 in US East (N. Virginia), US West (Oregon), and Europe (Ireland).<br />This is a soft limit that can be increased. | 
-| Maximum number of durable operations per durable execution | 3,000<br />Cannot be increased. For more information, see [Available durable operations](durable-execution-sdk.md#durable-sdk-operations). | 
+| Maximum number of durable operations per durable execution | 30,000<br />Cannot be increased. For more information, see [Available durable operations](durable-execution-sdk.md#durable-sdk-operations). | 
 | Durable execution storage written in megabytes | 100 MB<br />Cannot be increased. Cumulative payload size persisted by durable functions per execution. For more information, see [persisted data per durable operation](durable-execution-sdk.md#durable-operations-checkpoint-consumption). | 
-| Function invocation rate to initiate durable executions | 300 requests per second. | 
+| Maximum payload size per durable operation | 1 MB<br />Cannot be increased. Applies to checkpoint and callback payloads. | 
+| Function invocation rate to initiate durable executions | 3,000 requests per second.<br />6,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [CheckpointDurableExecution](https://docs.aws.amazon.com/lambda/latest/api/API_CheckpointDurableExecution.html) API requests | 10,000 requests per second.<br />20,000 requests per second in US East (N. Virginia), US West (Oregon), and Europe (Ireland). | 
 | [GetDurableExecution](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecution.html) API requests | 30 requests per second. | 
 | [GetDurableExecutionHistory](https://docs.aws.amazon.com/lambda/latest/api/API_GetDurableExecutionHistory.html) API requests | 15 requests per second. | 
@@ -157,6 +159,88 @@ Lambda MicroVMs support the ARM64 (AWS Graviton) architecture.
 
 **Note**  
 TPS = transactions per second. These rate limits are per account, per Region. Retry throttled requests using exponential backoff with jitter.
+
+## Lambda Web Functions
+<a name="web-functions-quotas"></a>
+
+With AWS Lambda Web Functions, you run web applications and API backends as serverless HTTP servers. Quotas are the maximum values for Web Functions resources and settings. Examples include the number of endpoints per Web Function, the memory of an execution environment, and the requests per second for your account. Knowing them before you deploy helps you design your application and size its endpoint scaling settings to fit. Most quotas have default values that work for typical workloads and can't be changed. You can request increases for the adjustable account quotas, which can vary by account.
+
+Web Function quotas apply at the following scopes:
++ **Per Web Function** – Endpoints and revisions.
++ **Per endpoint** – Maximum environments, rate limit, and the number of revisions that share traffic.
++ **Per revision** – Deployment package size, environment variable size, and request timeout.
++ **Per execution environment** – vCPUs, memory, concurrent requests, `/tmp` directory size, file descriptors, processes and threads, and initialization timeout.
++ **Per request** – Request header size.
++ **Per account, in each AWS Region** – Requests per second and Arm64 vCPUs.
+
+**Note**  
+To see the account quota values that apply to your account in a Region, call `GetWebAccountSettings`. To monitor usage against these quotas, see [Regional usage and throttling metrics](web-functions-monitoring-metrics.md#web-functions-monitoring-metrics-usage).
+
+### Web Function, revision, and execution environment quotas
+<a name="web-functions-quotas-execution"></a>
+
+The following table lists the quotas for each Web Function, revision, execution environment, and request.
+
+
+| Resource | Default quota | Adjustable | 
+| --- | --- | --- | 
+| Endpoints per Web Function | 10 | No | 
+| Revisions per Web Function | 50 (automatic cleanup target). The count can temporarily exceed 50. See [Revision limits and automatic cleanup](web-functions-revisions.md#web-functions-revisions-limits). | No | 
+| Deployment package size | 512 MB (unzipped) | No | 
+| Environment variable size | 32 KB | No | 
+| Request header size | 128 KiB | No | 
+| /tmp directory size | 512 MB | No | 
+| vCPUs per execution environment | 2 | No | 
+| Memory per execution environment | 2 GB | No | 
+| Concurrent requests per environment (maxConcurrencyPerEnvironment) | 64 (range 1–128). See [Dynamic per-environment concurrency limit](web-functions-scaling.md#web-functions-scaling-dynamic-concurrency). | No | 
+| Request timeout | 30 seconds (range 3–900) | No | 
+| Initialization timeout (time for your server to start listening) | 10 seconds | No | 
+| File descriptors per execution environment | 1,024 | No | 
+| Processes and threads per execution environment | 1,024 | No | 
+
+### Endpoint quotas
+<a name="web-functions-quotas-endpoint"></a>
+
+The following table lists the endpoint quotas.
+
+
+| Resource | Default quota | Adjustable | 
+| --- | --- | --- | 
+| Maximum environments per endpoint (scalingConfig.maxEnvironments) | Optional. Not set by default. Valid values 2–10,000. Enforced in each Region. The account vCPU quota can limit the endpoint to fewer execution environments. | No | 
+| Rate limit per endpoint (throttleConfig.rateLimit) | Optional. Not set by default. Valid values are 0, 100–1,000 in steps of 100, and 2,000–10,000 in steps of 1,000 requests per second. Lambda enforces this limit separately in each Region. A value of 0 blocks all traffic. When not set, the per-endpoint quota of 10,000 requests per second applies. | No | 
+| Maximum revisions per endpoint (revision weights) | 2 | No | 
+| Revision weight range | 1–100 | No | 
+
+### Account quotas
+<a name="web-functions-quotas-account"></a>
+
+The following table lists the account quotas, which apply in each AWS Region.
+
+
+| Resource | Default quota | Adjustable | 
+| --- | --- | --- | 
+| Requests per second per account | 100,000 | Yes | 
+| Arm64 vCPUs for execution environments, per account, per Region | 2,000. Each execution environment uses 2 vCPUs. | Yes | 
+
+### Networking constraints
+<a name="web-functions-quotas-networking"></a>
+
+The following constraints apply to Web Function networking.
+
+
+| Item | Constraint | 
+| --- | --- | 
+| Egress network connectors per revision | 0 or 1 | 
+| Connector reference | Version-qualified ARN | 
+| Connector account and Region | Same as the Web Function | 
+| Connector compute resource type | Exactly one; use WebFunction | 
+| Changing a revision's connector | Create a new revision | 
+| Revisions routed by one endpoint | 1 or 2 | 
+| Endpoint types that support egress network connectors | HomeRegion only | 
+| Automatic deployment | LatestRevision or Disabled for HomeRegion; Disabled only for MultiRegion and PerRegion | 
+| Endpoint type and Region set | Fixed at endpoint creation | 
+| Direct public egress | IPv4 only | 
+| Private endpoint access with AWS PrivateLink | Not available | 
 
 ## Other services
 <a name="quotas-other-services"></a>

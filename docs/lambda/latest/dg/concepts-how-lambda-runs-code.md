@@ -10,7 +10,7 @@ When you write a Lambda function, you are creating code that runs in a unique se
 
 Programming model functions as a common set of rules for how Lambda works with your code, regardless of whether you're writing in Python, Java, or any other supported language. The programming model includes your runtime and handler.
 
-**For standard functions:**
+**For functions without durable execution:**
 
 1. Lambda receives an event.
 

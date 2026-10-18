@@ -163,7 +163,7 @@ You configure the customer managed key for durable execution data through the `K
 
 **To configure a customer managed key on an existing durable function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a durable function.
 

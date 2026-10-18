@@ -3,7 +3,7 @@
 # Filtering events from Amazon MSK and self-managed Apache Kafka event sources
 <a name="kafka-filtering"></a>
 
-You can use event filtering to control which records from a stream or queue Lambda sends to your function. For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md).
+You can use event filtering to control which records from a stream or queue Lambda sends to your Event Function. For general information about how event filtering works, see [Control which events Lambda sends to your Event Function](invocation-eventfiltering.md).
 
 **Note**  
 Amazon MSK and self-managed Apache Kafka event source mappings only support filtering on the `value` key.

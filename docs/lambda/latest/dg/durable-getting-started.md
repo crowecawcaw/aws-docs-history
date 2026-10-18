@@ -26,9 +26,9 @@ Your function also demonstrates a wait operation, pausing execution for a short 
 
 **To create a durable function with the console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Select **Author from scratch**.
 
@@ -279,11 +279,11 @@ When you use the logger from the `DurableContext` (such as `context.logger` or `
 
 When you're finished working with the example durable function, delete it. You can also delete the log group that stores the function's logs, and the [execution role](lambda-intro-execution-role.md) that the console created.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

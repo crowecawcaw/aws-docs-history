@@ -5,7 +5,7 @@
 
 To create an event source mapping, you can use the Lambda console, the [AWS Command Line Interface (CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), or an [AWS SDK](https://aws.amazon.com/getting-started/tools-sdks/).
 
-The following console steps add a self-managed Apache Kafka cluster as a trigger for your Lambda function. Under the hood, this creates an event source mapping resource.
+The following console steps add a self-managed Apache Kafka cluster as a trigger for your Lambda Event Function. Under the hood, this creates an event source mapping resource.
 
 ## Prerequisites
 <a name="kafka-esm-prereqs"></a>
@@ -15,13 +15,13 @@ The following console steps add a self-managed Apache Kafka cluster as a trigger
 ## Adding a self-managed Kafka cluster (console)
 <a name="kafka-esm-console"></a>
 
-Follow these steps to add your self-managed Apache Kafka cluster and a Kafka topic as a trigger for your Lambda function.
+Follow these steps to add your self-managed Apache Kafka cluster and a Kafka topic as a trigger for your Lambda Event Function.
 
-**To add an Apache Kafka trigger to your Lambda function (console)**
+**To add an Apache Kafka trigger to your Lambda Event Function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of your Lambda function.
+1. Choose the name of your Lambda Event Function.
 
 1. Under **Function overview**, choose **Add trigger**.
 
@@ -72,12 +72,12 @@ Follow these steps to add your self-managed Apache Kafka cluster and a Kafka top
 ## Adding a self-managed Kafka cluster (AWS CLI)
 <a name="kafka-esm-cli"></a>
 
-Use the following example AWS CLI commands to create and view a self-managed Apache Kafka trigger for your Lambda function.
+Use the following example AWS CLI commands to create and view a self-managed Apache Kafka trigger for your Lambda Event Function.
 
 ### Using SASL/SCRAM
 <a name="kafka-esm-cli-create"></a>
 
-If Kafka users access your Kafka brokers over the internet, specify the Secrets Manager secret that you created for SASL/SCRAM authentication. The following example uses the [create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) AWS CLI command to map a Lambda function named `my-kafka-function` to a Kafka topic named `AWSKafkaTopic`.
+If Kafka users access your Kafka brokers over the internet, specify the Secrets Manager secret that you created for SASL/SCRAM authentication. The following example uses the [create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) AWS CLI command to map a Lambda Event Function named `my-kafka-function` to a Kafka topic named `AWSKafkaTopic`.
 
 ```
 aws lambda create-event-source-mapping \ 
@@ -90,7 +90,7 @@ aws lambda create-event-source-mapping \
 ### Using a VPC
 <a name="kafka-esm-cli-create-vpc"></a>
 
-If only Kafka users within your VPC access your Kafka brokers, you must specify your VPC, subnets, and VPC security group. The following example uses the [create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) AWS CLI command to map a Lambda function named `my-kafka-function` to a Kafka topic named `AWSKafkaTopic`.
+If only Kafka users within your VPC access your Kafka brokers, you must specify your VPC, subnets, and VPC security group. The following example uses the [create-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-event-source-mapping.html) AWS CLI command to map a Lambda Event Function named `my-kafka-function` to a Kafka topic named `AWSKafkaTopic`.
 
 ```
 aws lambda create-event-source-mapping \ 

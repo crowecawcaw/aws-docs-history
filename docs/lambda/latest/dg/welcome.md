@@ -5,33 +5,37 @@
 
 AWS Lambda is a serverless compute service. With Lambda, you can run code without provisioning or managing servers. Lambda automatically manages the underlying infrastructure – including server maintenance, capacity provisioning, scaling, and patching – so you can focus on your application logic.
 
-Lambda provides two compute primitives, each designed for different workload patterns:
-+ **[Lambda Functions](lambda-functions-chapter.md)** – Run code in response to events or API calls without managing servers. You write a handler function, connect it to a trigger (API Gateway, Amazon S3, Amazon SQS, EventBridge, and 200\+ other AWS services), and Lambda executes it. Each invocation runs independently with no shared state, scaling horizontally to match demand. Lambda manages execution environments, scaling, routing, and fault tolerance.
+Lambda provides three compute primitives, each designed for different workload patterns:
++ **[Lambda Event Functions](lambda-functions-chapter.md)** – Run code in response to events or API calls without managing servers. You write a handler function, connect it to a trigger (API Gateway, Amazon S3, Amazon SQS, EventBridge, and 200\+ other AWS services), and Lambda executes it. Each invocation runs independently with no shared state, scaling horizontally to match demand. Lambda manages execution environments, scaling, routing, and fault tolerance.
++ **[Lambda Web Functions](web-functions.md)** – Run web applications and API backends as HTTP servers. Your Node.js code listens on a port and handles HTTP requests directly, using web frameworks such as Express, Hono, or React Router without adapters. Each execution environment serves multiple concurrent requests. Lambda provides an HTTPS endpoint, scales your application based on traffic (including to zero), and can replicate it across AWS Regions.
 + **[Lambda MicroVMs](lambda-microvms-guide.md)** – Isolated compute environments with near-instant startup and a total lifespan of up to 8 hours (including both running and suspended time). Designed for workloads needing a dedicated compute environment for each individual user or job. Lambda manages isolation, capacity, and networking. Your application uses Lambda MicroVMs APIs and HTTPS endpoints to connect each user/job to their compute environment.
+
+**Note**  
+**Event Functions** is the name for the original Lambda function type that runs your code in response to events and API calls. The name distinguishes this function type from [Lambda Web Functions](web-functions.md) and [Lambda MicroVMs](lambda-microvms-guide.md), and the Lambda console labels it **Event function**. The underlying resource is unchanged: the API operations (such as `CreateFunction` and `Invoke`), the AWS SDKs, the AWS CLI, the `AWS::Lambda::Function` resource type, and ARNs continue to use *function*, so you don't need to change any code, infrastructure templates, or IAM permissions.
 
 For pricing information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/).
 
-## How Lambda Functions and Lambda MicroVMs compare
+## How Lambda compute primitives compare
 <a name="lambda-comparison"></a>
 
-Lambda Functions and Lambda MicroVMs share a common serverless foundation:
+Lambda Event Functions, Lambda Web Functions, and Lambda MicroVMs share a common serverless foundation:
 + **No server management** – AWS manages underlying infrastructure, instance patching, and capacity.
 + **Pay-per-use billing** – No upfront commitments. You pay only for the resources used.
-+ **Managed networking** – Both provide service-managed inbound and outbound network access.
++ **Managed networking** – All three provide service-managed inbound and outbound network access.
 + **Firecracker virtualization** – VM-level isolation between workloads.
 
 While they share this foundation, they serve different use cases:
 
 
-|  | **[Lambda Functions](lambda-functions-chapter.md)** | **[Lambda MicroVMs](lambda-microvms-guide.md)** | 
-| --- | --- | --- | 
-| Best for | Request-response or event-driven workloads (APIs, data processing, automation) | Persistent environments running user or AI-produced untrusted code | 
-| Programming model | Function handler invoked in a supported runtime | Any application – run your own binaries, listen on ports, use Linux OS capabilities | 
-| Duration | Up to 15 minutes per invocation; multi-step workflows lasting up to a year with Lambda Durable Functions | Up to 8 hours total lifespan (running \+ suspended); suspend and resume across sessions | 
-| Runtime environment | Service-provided language runtimes; support for customer-provided runtimes | Customer-provided MicroVM images | 
-| Inbound Networking | Direct invocations or event-source integrations with AWS services; support for response streaming | Inbound access to any port using OSI Layer 7 protocols | 
-| Concurrency | One request per execution environment at a time | Multiple concurrent connections per MicroVM | 
-| Environment State | Execution environments can be reused (warm starts), but state might not persist across invocations | Memory and disk state preserved on suspend; restored on resume | 
-| Scaling | Automatic – Lambda creates and destroys execution environments in response to traffic | Developer-controlled – you create, suspend, resume, and terminate MicroVMs through the API | 
-| Lifecycle | Fully managed by Lambda | Developer-controlled; optional idle policies for automatic suspend-resume | 
-| Pricing | Per-request \+ GB-seconds of execution time | Per-second of compute while running \+ snapshot storage while suspended | 
+|  | **[Lambda Event Functions](lambda-functions-chapter.md)** | **[Lambda Web Functions](web-functions.md)** | **[Lambda MicroVMs](lambda-microvms-guide.md)** | 
+| --- | --- | --- | --- | 
+| Best for | Request-response or event-driven workloads (APIs, data processing, automation) | Web applications and API backends that serve HTTP traffic directly | Persistent environments running user or AI-produced untrusted code | 
+| Programming model | Function handler invoked in a supported runtime | HTTP server that listens on a port, using standard web frameworks | Any application – run your own binaries, listen on ports, use Linux OS capabilities | 
+| Duration | Up to 15 minutes per invocation by default; up to 90 minutes per asynchronous or event source mapping invocation on Lambda Managed Instances; multi-step workflows lasting up to a year with Lambda Durable Functions | Up to 15 minutes per HTTP request (default 30 seconds) | Up to 8 hours per session; suspend and resume across sessions | 
+| Runtime environment | Service-provided language runtimes; support for customer-provided runtimes | Service-provided Node.js runtimes | Customer-provided MicroVM images | 
+| Inbound Networking | Direct invocations or event-source integrations with AWS services | Service-provided HTTPS endpoint with TLS; optional latency-based routing across AWS Regions | Inbound access to any port using OSI Layer 7 protocols | 
+| Concurrency | One request per execution environment at a time by default; multiple concurrent requests per execution environment for Lambda Managed Instances | Multiple concurrent requests per execution environment | Multiple concurrent connections per MicroVM | 
+| Environment State | Execution environments can be reused (warm starts), but state might not persist across invocations | Execution environments can be reused (warm starts), but state might not persist across invocations | Memory and disk state preserved on suspend; restored on resume | 
+| Scaling | Automatic – Lambda creates and destroys execution environments in response to traffic | Automatic – Lambda creates and destroys execution environments in response to traffic, scaling to zero when idle | Developer-controlled – you create, suspend, resume, and terminate MicroVMs through the API | 
+| Lifecycle | Fully managed by Lambda | Fully managed by Lambda | Developer-controlled; optional idle policies for automatic suspend-resume | 
+| Pricing | Per-request \+ GB-seconds of execution time | Per request, plus active CPU time (billed in 1 ms increments) and memory for each execution environment's lifetime | Per-second of compute while running \+ snapshot storage while suspended | 

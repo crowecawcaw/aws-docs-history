@@ -1,12 +1,12 @@
 
 
-# Sending Lambda function logs to Amazon S3
+# Sending Lambda Event Function logs to Amazon S3
 <a name="logging-with-s3"></a>
 
-You can configure your Lambda function to send logs directly to Amazon S3 using the Lambda console. This feature provides a cost-effective solution for long-term log storage and enables powerful analysis options using services like Athena.
+You can configure your Lambda Event Function to send logs directly to Amazon S3 using the Lambda console. This feature provides a cost-effective solution for long-term log storage and enables powerful analysis options using services like Athena.
 
 **Note**  
-You can configure Lambda function logs to be sent to Amazon S3 using the Lambda console, AWS CLI, AWS CloudFormation, and all AWS SDKs.
+You can configure Lambda Event Function logs to be sent to Amazon S3 using the Lambda console, AWS CLI, AWS CloudFormation, and all AWS SDKs.
 
 ## Pricing
 <a name="logging-s3-pricing"></a>
@@ -16,13 +16,13 @@ For details on pricing, see [Amazon CloudWatch pricing](https://aws.amazon.com/c
 ## Required permissions for Amazon S3 log destination
 <a name="logging-s3-permissions"></a>
 
-When using the Lambda console to configure Amazon S3 as your function's log destination, you need:
+When using the Lambda console to configure Amazon S3 as your Event Function's log destination, you need:
 
 1. The [required IAM permissions](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs.html#monitoring-cloudwatchlogs-prereqs) to use CloudWatch Logs with Lambda.
 
-1. To [Set up a CloudWatch Logs subscriptions filter to send Lambda function logs to Amazon S3](#using-cwl-subscription-filter-lambda-s3). This filter defines which log events are delivered to your Amazon S3 bucket.
+1. To [Set up a CloudWatch Logs subscriptions filter to send Lambda Event Function logs to Amazon S3](#using-cwl-subscription-filter-lambda-s3). This filter defines which log events are delivered to your Amazon S3 bucket.
 
-## Set up a CloudWatch Logs subscriptions filter to send Lambda function logs to Amazon S3
+## Set up a CloudWatch Logs subscriptions filter to send Lambda Event Function logs to Amazon S3
 <a name="using-cwl-subscription-filter-lambda-s3"></a>
 
 To send logs from CloudWatch Logs to Amazon S3, you need to create a subscription filter. This filter defines which log events are delivered to your Amazon S3 bucket. Your Amazon S3 bucket must be in the same Region as your log group.
@@ -136,14 +136,14 @@ To send logs from CloudWatch Logs to Amazon S3, you need to create a subscriptio
    --region REGION_NAME
    ```
 
-## Sending Lambda function logs to Amazon S3
+## Sending Lambda Event Function logs to Amazon S3
 <a name="logging-s3-setup"></a>
 
-In the Lambda console, you can send function logs directly to Amazon S3 after creating a new function. To do this, complete these steps:
+In the Lambda console, you can send Event Function logs directly to Amazon S3 after creating a new Event Function. To do this, complete these steps:
 
 1. Sign in to the AWS Management Console and open the Lambda console.
 
-1. Choose your function's name.
+1. Choose your Event Function's name.
 
 1. Choose the **Configuration** tab.
 
@@ -161,7 +161,7 @@ In the Lambda console, you can send function logs directly to Amazon S3 after cr
 **Note**  
 If choosing an existing log group for an Amazon S3 destination, ensure the log group you choose is a `Delivery` log group type.
 
-   1. Choose an Amazon S3 bucket to be the destination for your function logs.
+   1. Choose an Amazon S3 bucket to be the destination for your Event Function logs.
 
    1. The CloudWatch `Delivery` log group appears.
 

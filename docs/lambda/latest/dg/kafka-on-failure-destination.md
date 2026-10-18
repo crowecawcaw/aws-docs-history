@@ -32,7 +32,7 @@ You can configure a Kafka topic as an on-failure destination when creating or up
 
 **To configure a Kafka topic as an on-failure destination (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose your function name.
 

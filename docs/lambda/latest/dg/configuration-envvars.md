@@ -6,7 +6,7 @@
 You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that is stored in a function's version-specific configuration. The Lambda runtime makes environment variables available to your code and sets additional environment variables that contain information about the function and invocation request.
 
 **Note**  
-To increase security, we recommend that you use AWS Secrets Manager instead of environment variables to store database credentials and other sensitive information like API keys or authorization tokens. For more information, see [Use Secrets Manager secrets in Lambda functions](with-secrets-manager.md).
+To increase security, we recommend that you use AWS Secrets Manager instead of environment variables to store database credentials and other sensitive information like API keys or authorization tokens. For more information, see [Use Secrets Manager secrets in Lambda Event Functions](with-secrets-manager.md).
 
 Environment variables are not evaluated before the function invocation. Any value you define is considered a literal string and not expanded. Perform the variable evaluation in your function code.
 
@@ -24,7 +24,7 @@ You create an environment variable for your function by defining a key and a val
 
 **To set environment variables in the Lambda console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 
@@ -324,7 +324,7 @@ The following additional environment variables aren't reserved and can be extend
 + `GEM_PATH` – ([Ruby](lambda-ruby.md)) The Ruby library path (`$LAMBDA_TASK_ROOT/vendor/bundle/ruby/3.3.0:/opt/ruby/gems/3.3.0`).
 + `AWS_XRAY_CONTEXT_MISSING` – For X-Ray tracing, Lambda sets this to `LOG_ERROR` to avoid throwing runtime errors from the X-Ray SDK.
 + `AWS_XRAY_DAEMON_ADDRESS` – For X-Ray tracing, the IP address and port of the X-Ray daemon.
-+ `AWS_LAMBDA_DOTNET_PREJIT` – ([.NET](lambda-csharp.md)) Set this variable to enable or disable .NET specific runtime optimizations. Values include `always`, `never`, and `provisioned-concurrency`. For more information, see [Configuring provisioned concurrency for a function](provisioned-concurrency.md).
++ `AWS_LAMBDA_DOTNET_PREJIT` – ([.NET](lambda-csharp.md)) Set this variable to enable or disable .NET specific runtime optimizations. Values include `always`, `never`, and `provisioned-concurrency`. For more information, see [Configuring provisioned concurrency for an Event Function](provisioned-concurrency.md).
 + `TZ` – The environment's time zone (`:UTC`). The execution environment uses NTP to synchronize the system clock.
 
 The sample values shown reflect the latest runtimes. The presence of specific variables or their values can vary on earlier runtimes.

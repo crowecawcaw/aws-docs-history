@@ -41,7 +41,7 @@ The following table lists the Lambda resource type for which you can log data ev
 | --- | --- | --- | 
 | Lambda |  AWS::Lambda::Function  | [Invoke](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html) | 
 
-You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. The following example is the JSON view of a data event configuration that logs events for a specific function only. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
+You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. The following example is the JSON view of a data event configuration that logs events for a specific Event Function only. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
 ```
 [
@@ -149,16 +149,16 @@ The `serviceEventDetails` entity in the `LambdaESMDisabled` event message contai
 The resource specified in the request does not exist.
 
 **`FUNCTION_NOT_FOUND`**  
-The function attached to the event source does not exist.
+The Event Function attached to the event source does not exist.
 
 **`REGION_NAME_NOT_VALID`**  
-A Region name provided to the event source or function is invalid.
+A Region name provided to the event source or Event Function is invalid.
 
 **`AUTHORIZATION_ERROR`**  
 Permissions have not been set, or are misconfigured.
 
 **`FUNCTION_IN_FAILED_STATE`**  
-The function code does not compile, has encountered an unrecoverable exception, or a bad deployment has occurred.
+The Event Function code does not compile, has encountered an unrecoverable exception, or a bad deployment has occurred.
 
 ## Lambda event examples
 <a name="cloudtrail-event-examples"></a>

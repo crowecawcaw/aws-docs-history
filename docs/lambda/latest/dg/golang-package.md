@@ -1,6 +1,6 @@
 
 
-# Deploy Go Lambda functions with .zip file archives
+# Deploy Go Lambda Event Functions with .zip file archives
 <a name="golang-package"></a>
 
 Your AWS Lambda function's code consists of scripts or compiled programs and their dependencies. You use a *deployment package* to deploy your function code to Lambda. Lambda supports two types of deployment packages: container images and .zip file archives. 
@@ -12,7 +12,7 @@ Note that Lambda uses POSIX file permissions, so you might need to [ set permiss
 **Topics**
 + [Creating a .zip file on macOS and Linux](#golang-package-mac-linux)
 + [Creating a .zip file on Windows](#golang-package-windows)
-+ [Creating and updating Go Lambda functions using .zip files](#golang-package-create-function)
++ [Creating and updating Go Lambda Event Functions using .zip files](#golang-package-create-function)
 
 ## Creating a .zip file on macOS and Linux
 <a name="golang-package-mac-linux"></a>
@@ -28,7 +28,7 @@ If your function uses the AWS SDK for Go, download the standard set of SDK modul
 ### Using the provided runtime family
 <a name="golang-package-mac-linux-al2"></a>
 
-Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go functions to Lambda.
+Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
 
 **To create a .zip deployment package (macOS/Linux)**
 
@@ -97,7 +97,7 @@ If your function uses the AWS SDK for Go, download the standard set of SDK modul
 ### Using the provided runtime family
 <a name="golang-package-windows-al2"></a>
 
-Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go functions to Lambda.
+Go is implemented differently than other managed runtimes. Because Go compiles natively to an executable binary, it doesn't require a dedicated language runtime. Use an [OS-only runtime](runtimes-provided.md) (the `provided` runtime family) to deploy Go Event Functions to Lambda.
 
 **To create a .zip deployment package (Windows)**
 
@@ -178,7 +178,7 @@ Go is implemented differently than other managed runtimes. Because Go compiles n
    --zip-file fileb://myFunction.zip
    ```
 
-## Creating and updating Go Lambda functions using .zip files
+## Creating and updating Go Lambda Event Functions using .zip files
 <a name="golang-package-create-function"></a>
 
  After you have created your .zip deployment package, you can use it to create a new Lambda function or update an existing one. You can deploy your .zip package using the Lambda console, the AWS Command Line Interface, and the Lambda API. You can also create and update Lambda functions using AWS Serverless Application Model (AWS SAM) and CloudFormation. 
@@ -210,7 +210,7 @@ You cannot convert an existing container image function to use a .zip archive. Y
 
 **To create a new function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Function**.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -222,11 +222,11 @@ You cannot convert an existing container image function to use a .zip archive. Y
 
 1. (Optional) Under **Permissions**, expand **Change default execution role**. You can create a new **Execution role** or use an existing one.
 
-1. Choose **Create function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
+1. Choose **Create Event Function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
 
 **To upload a .zip archive from your local machine (console)**
 
-1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload the .zip file for.
+1. In the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload the .zip file for.
 
 1. Select the **Code** tab.
 
@@ -244,7 +244,7 @@ You cannot convert an existing container image function to use a .zip archive. Y
 
 **To upload a .zip archive from an Amazon S3 bucket (console)**
 
-1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload a new .zip file for.
+1. In the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload a new .zip file for.
 
 1. Select the **Code** tab.
 

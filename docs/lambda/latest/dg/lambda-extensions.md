@@ -1,15 +1,15 @@
 
 
-# Augment Lambda functions using Lambda extensions
+# Augment Lambda Event Functions using Lambda extensions
 <a name="lambda-extensions"></a>
 
-You can use Lambda extensions to augment your Lambda functions. For example, use Lambda extensions to integrate functions with your preferred monitoring, observability, security, and governance tools. You can choose from a broad set of tools that [AWS Lambda Partners](https://aws.amazon.com/lambda/partners/) provides, or you can [create your own Lambda extensions](runtimes-extensions-api.md).
+You can use Lambda extensions to augment your Lambda Event Functions. For example, use Lambda extensions to integrate Event Functions with your preferred monitoring, observability, security, and governance tools. You can choose from a broad set of tools that [AWS Lambda Partners](https://aws.amazon.com/lambda/partners/) provides, or you can [create your own Lambda extensions](runtimes-extensions-api.md).
 
-Lambda supports external and internal extensions. An external extension runs as an independent process in the execution environment and continues to run after the function invocation is fully processed. Because extensions run as separate processes, you can write them in a different language than the function. All [Lambda runtimes](lambda-runtimes.md) support extensions.
+Lambda supports external and internal extensions. An external extension runs as an independent process in the execution environment and continues to run after the Event Function invocation is fully processed. Because extensions run as separate processes, you can write them in a different language than the Event Function. All [Lambda Event Function runtimes](lambda-runtimes.md) support extensions.
 
-An internal extension runs as part of the runtime process. Your function accesses internal extensions by using wrapper scripts or in-process mechanisms such as `JAVA_TOOL_OPTIONS`. For more information, see [Modifying the runtime environment](runtimes-modify.md).
+An internal extension runs as part of the runtime process. Your Event Function accesses internal extensions by using wrapper scripts or in-process mechanisms such as `JAVA_TOOL_OPTIONS`. For more information, see [Modifying the runtime environment](runtimes-modify.md).
 
-You can add extensions to a function using the Lambda console, the AWS Command Line Interface (AWS CLI), or infrastructure as code (IaC) services and tools such as CloudFormation, AWS Serverless Application Model (AWS SAM), and Terraform.
+You can add extensions to an Event Function using the Lambda console, the AWS Command Line Interface (AWS CLI), or infrastructure as code (IaC) services and tools such as CloudFormation, AWS Serverless Application Model (AWS SAM), and Terraform.
 
 You are charged for the execution time that the extension consumes (in 1 ms increments). There is no cost to install your own extensions. For more pricing information for extensions, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/). For pricing information for partner extensions, see those partners' websites. See [AWS Lambda extensions partners](extensions-api-partners.md) for a list of official partner extensions.
 
@@ -25,7 +25,7 @@ You are charged for the execution time that the extension consumes (in 1 ms incr
 ## Execution environment
 <a name="using-extensions-env"></a>
 
-Lambda invokes your function in an [execution environment](lambda-runtime-environment.md), which provides a secure and isolated runtime environment. The execution environment manages the resources required to run your function and provides lifecycle support for the function's runtime and extensions.
+Lambda invokes your Event Function in an [execution environment](lambda-runtime-environment.md), which provides a secure and isolated runtime environment. The execution environment manages the resources required to run your Event Function and provides lifecycle support for the Event Function's runtime and extensions.
 
 The lifecycle of the execution environment includes the following phases:
 + `Init`: In this phase, Lambda creates or unfreezes an execution environment with the configured resources, downloads the code for the function and all layers, initializes any extensions, initializes the runtime, and then runs the function’s initialization code (the code outside the main handler). The `Init` phase happens either during the first invocation, or in advance of function invocations if you have enabled [provisioned concurrency](provisioned-concurrency.md).
@@ -42,13 +42,13 @@ During the `Init` phase, Lambda extracts layers containing extensions into the `
 ## Impact on performance and resources
 <a name="using-extensions-reg"></a>
 
-The size of your function's extensions counts towards the deployment package size limit. For a .zip file archive, the total unzipped size of the function and all extensions cannot exceed the unzipped deployment package size limit of 250 MB.
+The size of your Event Function's extensions counts towards the deployment package size limit. For a .zip file archive, the total unzipped size of the Event Function and all extensions cannot exceed the unzipped deployment package size limit of 250 MB.
 
-Extensions can impact the performance of your function because they share function resources such as CPU, memory, and storage. For example, if an extension performs compute-intensive operations, you might see your function's execution duration increase.
+Extensions can impact the performance of your Event Function because they share Event Function resources such as CPU, memory, and storage. For example, if an extension performs compute-intensive operations, you might see your Event Function's execution duration increase.
 
-Each extension must complete its initialization before Lambda invokes the function. Therefore, an extension that consumes significant initialization time can increase the latency of the function invocation.
+Each extension must complete its initialization before Lambda invokes the Event Function. Therefore, an extension that consumes significant initialization time can increase the latency of the Event Function invocation.
 
-To measure the extra time that the extension takes after the function execution, you can use the `PostRuntimeExtensionsDuration` [function metric](monitoring-metrics.md). To measure the increase in memory used, you can use the `MaxMemoryUsed` metric. To understand the impact of a specific extension, you can run different versions of your functions side by side.
+To measure the extra time that the extension takes after the Event Function execution, you can use the `PostRuntimeExtensionsDuration` [function metric](monitoring-metrics.md). To measure the increase in memory used, you can use the `MaxMemoryUsed` metric. To understand the impact of a specific extension, you can run different versions of your Event Functions side by side.
 
 **Note**  
 `MaxMemoryUsed` metric is one of the [Metrics collected by Lambda Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-metrics.html) and not a Lambda native metric.
@@ -56,6 +56,6 @@ To measure the extra time that the extension takes after the function execution,
 ## Permissions
 <a name="using-extensions-permissions"></a>
 
-Extensions have access to the same resources as functions. Because extensions are executed within the same environment as the function, permissions are shared between the function and the extension.
+Extensions have access to the same resources as Event Functions. Because extensions are executed within the same environment as the Event Function, permissions are shared between the Event Function and the extension.
 
-For a .zip file archive, you can create an CloudFormation template to simplify the task of attaching the same extension configuration—including AWS Identity and Access Management (IAM) permissions—to multiple functions.
+For a .zip file archive, you can create an CloudFormation template to simplify the task of attaching the same extension configuration—including AWS Identity and Access Management (IAM) permissions—to multiple Event Functions.

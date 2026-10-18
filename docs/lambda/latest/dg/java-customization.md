@@ -1,9 +1,9 @@
 
 
-# Customize Java runtime startup behavior for Lambda functions
+# Customize Java runtime startup behavior for Lambda Event Functions
 <a name="java-customization"></a>
 
-This page describes settings specific to Java functions in AWS Lambda. You can use these settings to customize Java runtime startup behavior. This can reduce overall function latency and improve overall function performance, without having to modify any code.
+This page describes settings specific to Java Event Functions in AWS Lambda. You can use these settings to customize Java runtime startup behavior. This can reduce overall function latency and improve overall function performance, without having to modify any code.
 
 **Topics**
 + [Understanding the `JAVA_TOOL_OPTIONS` environment variable](#java-tool-options)
@@ -30,7 +30,7 @@ This improves performance for SnapStart and Provisioned concurrency without incu
 
 **To customize tiered compilation settings (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) in the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) in the Lambda console.
 
 1. Choose a Java function that you want to customize tiered compilation for.
 

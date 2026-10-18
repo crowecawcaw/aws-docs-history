@@ -3,7 +3,7 @@
 # Troubleshoot Amazon MQ event source mapping errors
 <a name="services-mq-errors"></a>
 
-When a Lambda function encounters an unrecoverable error, your Amazon MQ consumer stops processing records. Any other consumers can continue processing, provided that they do not encounter the same error. To determine the potential cause of a stopped consumer, check the `StateTransitionReason` field in the return details of your `EventSourceMapping` for one of the following codes:
+When a Lambda Event Function encounters an unrecoverable error, your Amazon MQ consumer stops processing records. Any other consumers can continue processing, provided that they do not encounter the same error. To determine the potential cause of a stopped consumer, check the `StateTransitionReason` field in the return details of your `EventSourceMapping` for one of the following codes:
 
 **`ESM_CONFIG_NOT_VALID`**  
 The event source mapping configuration is not valid.

@@ -3,7 +3,7 @@
 # Managing Lambda workflows and events
 <a name="workflow-event-management"></a>
 
-When building serverless applications with Lambda, you often need ways to orchestrate function execution and handle events. AWS provides several approaches for coordinating Lambda functions:
+When building serverless applications with Lambda, you often need ways to orchestrate function execution and handle events. AWS provides several approaches for coordinating Lambda Event Functions:
 + [Lambda durable functions](durable-functions.md) for code-first workflow orchestration within Lambda
 + AWS Step Functions for visual workflow orchestration across multiple services
 + Amazon EventBridge Scheduler and Amazon EventBridge for event-driven architectures and scheduling
@@ -17,7 +17,7 @@ Lambda durable functions provide a code-first approach to workflow orchestration
 
 Durable functions are ideal when you need:
 + **Use standard programming languages:** Define workflows using familiar programming languages like JavaScript and Python
-+ **Long-running processes:** Execute workflows that can run for up to one year, far beyond the 15-minute limit of standard Lambda functions
++ **Long-running processes:** Execute workflows that can run for up to one year, far beyond the default 15-minute invocation limit
 + **Simplified development:** Keep workflow logic and business logic in the same codebase for easier maintenance and testing
 + **Cost-effective waiting:** Pause execution during wait states without consuming compute resources
 + **Built-in state management:** Automatic checkpointing and state persistence without external storage configuration
@@ -67,4 +67,4 @@ These services provide several key capabilities for working with Lambda function
 + Configure one-time function invocations at specific dates and times
 + Define flexible time windows and retry policies for scheduled invocations
 
-For more information, see [Invoke a Lambda function on a schedule](with-eventbridge-scheduler.md).
+For more information, see [Invoke a Lambda Event Function on a schedule](with-eventbridge-scheduler.md).

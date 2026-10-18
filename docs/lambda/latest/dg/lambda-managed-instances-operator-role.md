@@ -5,7 +5,7 @@
 
 When you use Lambda Managed Instances, Lambda needs permissions to manage compute capacity in your account. The operator role provides these permissions through IAM policies that allow Lambda to manage EC2 instances in the capacity provider.
 
-Lambda assumes the operator role when performing these management operations, similar to how Lambda assumes an execution role when your function runs.
+Lambda assumes the operator role when performing these management operations, similar to how Lambda assumes an execution role when your Lambda Event Function runs.
 
 ## Creating an operator role
 <a name="lambda-managed-instances-creating-operator-role"></a>

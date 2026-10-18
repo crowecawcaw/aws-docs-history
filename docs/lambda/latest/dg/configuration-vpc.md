@@ -1,6 +1,6 @@
 
 
-# Giving Lambda functions access to resources in an Amazon VPC
+# Giving Lambda Event Functions access to resources in an Amazon VPC
 <a name="configuration-vpc"></a>
 
 With Amazon Virtual Private Cloud (Amazon VPC), you can create private networks in your AWS account to host resources such as Amazon Elastic Compute Cloud (Amazon EC2) instances, Amazon Relational Database Service (Amazon RDS) instances, and Amazon ElastiCache instances. You can give your Lambda function access to resources hosted in an Amazon VPC by attaching your function to the VPC through the private subnets that contain the resources. Follow the instructions in the following sections to attach a Lambda function to an Amazon VPC using the Lambda console, the AWS Command Line Interface (AWS CLI), or AWS SAM.
@@ -58,7 +58,7 @@ Lambda functions can't connect directly to a VPC with [ dedicated instance tenan
 
 **To attach a function to an Amazon VPC when you create it**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create function**.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Event Function**.
 
 1. Under **Basic information**, for **Function name**, enter a name for your function.
 
@@ -72,13 +72,13 @@ Lambda functions can't connect directly to a VPC with [ dedicated instance tenan
 
    1. Choose the subnets and security groups to create the network interface for. If you selected **Allow IPv6 traffic for dual-stack subnets**, all selected subnets must have an IPv4 CIDR block and an IPv6 CIDR block.
 **Note**  
-To access private resources, connect your function to private subnets. If your function needs internet access, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md). Connecting a function to a public subnet doesn't give it internet access or a public IP address. 
+To access private resources, connect your function to private subnets. If your function needs internet access, see [Enable internet access for VPC-connected Lambda Event Functions](configuration-vpc-internet.md). Connecting a function to a public subnet doesn't give it internet access or a public IP address. 
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 **To attach an existing function to an Amazon VPC**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
 
 1. Choose the **Configuration** tab, then choose **VPC**.
 
@@ -90,7 +90,7 @@ To access private resources, connect your function to private subnets. If your f
 
 1. Choose the subnets and security groups to create the network interface for. If you selected **Allow IPv6 traffic for dual-stack subnets**, all selected subnets must have an IPv4 CIDR block and an IPv6 CIDR block.
 **Note**  
-To access private resources, connect your function to private subnets. If your function needs internet access, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md). Connecting a function to a public subnet doesn't give it internet access or a public IP address. 
+To access private resources, connect your function to private subnets. If your function needs internet access, see [Enable internet access for VPC-connected Lambda Event Functions](configuration-vpc-internet.md). Connecting a function to a public subnet doesn't give it internet access or a public IP address. 
 
 1. Choose **Save**.
 
@@ -182,7 +182,7 @@ To access private resources, connect your function to private subnets. If your f
 ## Internet access when attached to a VPC
 <a name="configuration-vpc-internet-access"></a>
 
-By default, Lambda functions have access to the public internet. When you attach your function to a VPC, it can only access resources available within that VPC. To give your function access to the internet, you also need to configure the VPC to have internet access. To learn more, see [Enable internet access for VPC-connected Lambda functions](configuration-vpc-internet.md).
+By default, Lambda functions have access to the public internet. When you attach your function to a VPC, it can only access resources available within that VPC. To give your function access to the internet, you also need to configure the VPC to have internet access. To learn more, see [Enable internet access for VPC-connected Lambda Event Functions](configuration-vpc-internet.md).
 
 ## IPv6 support
 <a name="configuration-vpc-ipv6"></a>
@@ -510,4 +510,4 @@ In the following tutorials, you connect a Lambda function to resources in your V
 + [Tutorial: Using a Lambda function to access Amazon RDS in an Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-lambda-tutorial.html)
 + [Tutorial: Configuring a Lambda function to access Amazon ElastiCache in an Amazon VPC](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/LambdaRedis.html)
 
-To connect your function to resources in a VPC that belongs to another AWS account, see [Giving Lambda functions access to a resource in an Amazon VPC in another account](configuration-vpc-cross-account.md).
+To connect your function to resources in a VPC that belongs to another AWS account, see [Giving Lambda Event Functions access to a resource in an Amazon VPC in another account](configuration-vpc-cross-account.md).

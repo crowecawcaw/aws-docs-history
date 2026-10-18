@@ -5,7 +5,7 @@
 
 A Lambda layer is a .zip file archive that contains supplementary code or data. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. 
 
-This section explains how to properly package your layer content. For more conceptual information about layers and why you might consider using them, see [Managing Lambda dependencies with layers](chapter-layers.md).
+This section explains how to properly package your layer content. For more conceptual information about layers and why you might consider using them, see [Managing Lambda Event Function dependencies with layers](chapter-layers.md).
 
 The first step to creating a layer is to bundle all of your layer content into a .zip file archive. Because Lambda functions run on [Amazon Linux](https://docs.aws.amazon.com/linux/al2023/ug/what-is-amazon-linux.html), your layer content must be able to compile and build in a Linux environment.
 
@@ -114,11 +114,11 @@ jq.zip
 ------
 
 For language-specific instructions on packaging, creating, and adding a layer, refer to the following pages:
-+ **Node.js** – [Working with layers for Node.js Lambda functions](nodejs-layers.md)
-+ **Python** – [Working with layers for Python Lambda functions](python-layers.md)
-+ **Ruby** – [Working with layers for Ruby Lambda functions](ruby-layers.md)
-+ **Java** – [Working with layers for Java Lambda functions](java-layers.md)
++ **Node.js** – [Working with layers for Node.js Lambda Event Functions](nodejs-layers.md)
++ **Python** – [Working with layers for Python Lambda Event Functions](python-layers.md)
++ **Ruby** – [Working with layers for Ruby Lambda Event Functions](ruby-layers.md)
++ **Java** – [Working with layers for Java Lambda Event Functions](java-layers.md)
 
-We recommend **against** using layers to manage dependencies for Lambda functions written in Go and Rust. This is because Lambda functions written in these languages compile into a single executable, which you provide to Lambda when you deploy your function. This executable contains your compiled function code, along with all of its dependencies. Using layers not only complicates this process, but also leads to increased cold start times because your functions need to manually load extra assemblies into memory during the init phase.
+We recommend **against** using layers to manage dependencies for Lambda Event Functions written in Go and Rust. This is because Lambda Event Functions written in these languages compile into a single executable, which you provide to Lambda when you deploy your Event Function. This executable contains your compiled Event Function code, along with all of its dependencies. Using layers not only complicates this process, but also leads to increased cold start times because your Event Functions need to manually load extra assemblies into memory during the init phase.
 
-To use external dependencies with Go and Rust Lambda functions, include them directly in your deployment package.
+To use external dependencies with Go and Rust Lambda Event Functions, include them directly in your deployment package.

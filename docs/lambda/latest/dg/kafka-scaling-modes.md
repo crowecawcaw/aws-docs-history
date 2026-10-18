@@ -14,7 +14,7 @@ When you initially create the Kafka event source, Lambda allocates a default num
 
 In one-minute intervals, Lambda evaluates the offset lag of all the partitions in the topic. If the offset lag is too high, the partition is receiving messages faster than Lambda can process them. If necessary, Lambda adds or removes event pollers from the topic. This autoscaling process of adding or removing event pollers occurs within three minutes of evaluation.
 
-If your target Lambda function is throttled, Lambda reduces the number of event pollers. This action reduces the workload on the function by reducing the number of messages that event pollers can retrieve and send to the function.
+If your target Lambda Event Function is throttled, Lambda reduces the number of event pollers. This action reduces the workload on the function by reducing the number of messages that event pollers can retrieve and send to the function.
 
 ## Provisioned mode
 <a name="kafka-provisioned-mode"></a>
@@ -34,7 +34,7 @@ You can configure provisioned mode for your Kafka event source mapping using the
 
 **To configure provisioned mode for an existing event source mapping (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function with the event source mapping you want to configure provisioned mode for.
 
@@ -109,7 +109,7 @@ When you configure the `PollerGroupName` parameter with the same value for multi
 #### To configure ESM grouping (console)
 <a name="kafka-esm-grouping-console-cost"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose your function.
 

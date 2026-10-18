@@ -3,13 +3,13 @@
 # Tutorial: Using Lambda with Kinesis Data Streams
 <a name="with-kinesis-example"></a>
 
-In this tutorial, you create a Lambda function to consume events from a Amazon Kinesis data stream. 
+In this tutorial, you create a Lambda Event Function to consume events from a Amazon Kinesis data stream. 
 
 1. Custom app writes records to the stream.
 
-1. AWS Lambda polls the stream and, when it detects new records in the stream, invokes your Lambda function.
+1. AWS Lambda polls the stream and, when it detects new records in the stream, invokes your Lambda Event Function.
 
-1. AWS Lambda runs the Lambda function by assuming the execution role you specified at the time you created the Lambda function.
+1. AWS Lambda runs the Lambda Event Function by assuming the execution role you specified at the time you created the Lambda Event Function.
 
 ## Prerequisites
 <a name="with-kinesis-prepare"></a>
@@ -42,10 +42,10 @@ Create the [execution role](lambda-intro-execution-role.md) that gives your func
 
 The **AWSLambdaKinesisExecutionRole** policy has the permissions that the function needs to read items from Kinesis and write logs to CloudWatch Logs.
 
-## Create the function
+## Create the Event Function
 <a name="with-kinesis-example-create-function"></a>
 
-Create a Lambda function that processes your Kinesis messages. The function code logs the event ID and event data of the Kinesis record to CloudWatch Logs.
+Create a Lambda Event Function that processes your Kinesis messages. The function code logs the event ID and event data of the Kinesis record to CloudWatch Logs.
 
 This tutorial uses the Node.js 24 runtime, but we've also provided example code in other runtime languages. You can select the tab in the following box to see code for the runtime you're interested in. The JavaScript code you'll use in this step is in the first example shown in the **JavaScript** tab.
 
@@ -445,7 +445,7 @@ async fn main() -> Result<(), Error> {
 
 ------
 
-**To create the function**
+**To create the Event Function**
 
 1. Create a directory for the project, and then switch to that directory.
 
@@ -462,7 +462,7 @@ async fn main() -> Result<(), Error> {
    zip function.zip index.js
    ```
 
-1. Create a Lambda function with the `create-function` command.
+1. Create a Lambda Event Function with the `create-function` command.
 
    ```
    aws lambda create-function --function-name ProcessKinesisRecords \
@@ -470,12 +470,12 @@ async fn main() -> Result<(), Error> {
    --role arn:aws:iam::{{111122223333}}:role/lambda-kinesis-role
    ```
 
-## Test the Lambda function
+## Test the Lambda Event Function
 <a name="walkthrough-kinesis-events-adminuser-create-test-function-upload-zip-test-manual-invoke"></a>
 
-Invoke your Lambda function manually using the `invoke` AWS Lambda CLI command and a sample Kinesis event.
+Invoke your Lambda Event Function manually using the `invoke` AWS Lambda CLI command and a sample Kinesis event.
 
-**To test the Lambda function**
+**To test the Lambda Event Function**
 
 1. Copy the following JSON into a file and save it as `input.txt`. 
 
@@ -562,7 +562,7 @@ You should see the following output:
 }
 ```
 
-You use the stream ARN in the next step to associate the stream with your Lambda function.
+You use the stream ARN in the next step to associate the stream with your Lambda Event Function.
 
 ## Add an event source in AWS Lambda
 <a name="with-kinesis-example-configure-event-source-add-event-source"></a>
@@ -594,7 +594,7 @@ aws kinesis put-record --stream-name lambda-stream --partition-key 1 \
 --data "Hello, this is a test."
 ```
 
-Lambda uses the execution role to read records from the stream. Then it invokes your Lambda function, passing in batches of records. The function decodes data from each record and logs it, sending the output to CloudWatch Logs. View the logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
+Lambda uses the execution role to read records from the stream. Then it invokes your Lambda Event Function, passing in batches of records. The function decodes data from each record and logs it, sending the output to CloudWatch Logs. View the logs in the [CloudWatch console](https://console.aws.amazon.com/cloudwatch).
 
 ## Clean up your resources
 <a name="cleanup"></a>
@@ -611,11 +611,11 @@ You can now delete the resources that you created for this tutorial, unless you 
 
 1. Enter the name of the role in the text input field and choose **Delete**.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

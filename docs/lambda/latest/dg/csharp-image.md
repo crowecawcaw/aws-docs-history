@@ -1,9 +1,9 @@
 
 
-# Deploy .NET Lambda functions with container images
+# Deploy .NET Lambda Event Functions with container images
 <a name="csharp-image"></a>
 
-There are three ways to build a container image for a .NET Lambda function:
+There are three ways to build a container image for a .NET Lambda Event Function:
 + [Using an AWS base image for .NET](#csharp-image-instructions)
 
   The [AWS base images](images-create.md#runtimes-images-lp) are preloaded with a language runtime, a runtime interface client to manage the interaction between Lambda and your function code, and a runtime interface emulator for local testing.
@@ -68,7 +68,7 @@ In the following steps, you use [Amazon.Lambda.Templates](https://github.com/aws
 
    The project files are stored in the `{{MyFunction}}/src/{{MyFunction}}` directory:
    + **aws-lambda-tools-defaults.json**: Specifies the command line options for deploying your Lambda function.
-   + **Function.cs**: Your Lambda handler function code. This is a C\# template that includes the default `Amazon.Lambda.Core` library and a default `LambdaSerializer` attribute. For more information about serialization requirements and options, see [Serialization in C\# Lambda functions](csharp-handler.md#csharp-handler-serializer). You can use the provided code for testing, or replace it with your own.
+   + **Function.cs**: Your Lambda handler function code. This is a C\# template that includes the default `Amazon.Lambda.Core` library and a default `LambdaSerializer` attribute. For more information about serialization requirements and options, see [Serialization in C\# Lambda Event Functions](csharp-handler.md#csharp-handler-serializer). You can use the provided code for testing, or replace it with your own.
    + **MyFunction.csproj**: A .NET [project file](https://learn.microsoft.com/en-us/dotnet/core/project-sdk/overview#project-files), which lists the files and assemblies that comprise your application.
    + **Dockerfile**: You can use the provided Dockerfile for testing, or replace it with your own. If you use your own, make sure to:
      + Set the `FROM` property to the [URI of the base image](https://gallery.ecr.aws/lambda/dotnet). The base image and the `TargetFramework` in the `MyFunction.csproj` file must both use the same .NET version. For example, to use .NET 9:

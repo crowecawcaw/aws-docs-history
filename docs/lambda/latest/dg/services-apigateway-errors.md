@@ -3,7 +3,7 @@
 # Handling Lambda errors with an API Gateway API
 <a name="services-apigateway-errors"></a>
 
-API Gateway treats all invocation and function errors as internal errors. If the Lambda API rejects the invocation request, API Gateway returns a 500 error code. If the function runs but returns an error, or returns a response in the wrong format, API Gateway returns a 502. In both cases, the body of the response from API Gateway is `{"message": "Internal server error"}`.
+API Gateway treats all invocation and Event Function errors as internal errors. If the Lambda API rejects the invocation request, API Gateway returns a 500 error code. If the Event Function runs but returns an error, or returns a response in the wrong format, API Gateway returns a 502. In both cases, the body of the response from API Gateway is `{"message": "Internal server error"}`.
 
 **Note**  
 API Gateway does not retry any Lambda invocations. If Lambda returns an error, API Gateway returns an error response to the client.

@@ -3,16 +3,16 @@
 # Process Amazon Kinesis Data Streams records with Lambda
 <a name="services-kinesis-create"></a>
 
-To process Amazon Kinesis Data Streams records with Lambda, create a Lambda event source mapping. You can map a Lambda function to a standard iterator or enhanced fan-out consumer. For more information, see [Polling and batching streams](with-kinesis.md#kinesis-polling-and-batching).
+To process Amazon Kinesis Data Streams records with Lambda, create a Lambda event source mapping. You can map a Lambda Event Function to a standard iterator or enhanced fan-out consumer. For more information, see [Polling and batching streams](with-kinesis.md#kinesis-polling-and-batching).
 
 ## Create an Kinesis event source mapping
 <a name="services-kinesis-eventsourcemapping"></a>
 
-To invoke your Lambda function with records from your data stream, create an [event source mapping](invocation-eventsourcemapping.md). You can create multiple event source mappings to process the same data with multiple Lambda functions, or to process items from multiple data streams with a single function. When processing items from multiple streams, each batch contains records from only a single shard or stream.
+To invoke your Lambda Event Function with records from your data stream, create an [event source mapping](invocation-eventsourcemapping.md). You can create multiple event source mappings to process the same data with multiple Lambda Event Functions, or to process items from multiple data streams with a single function. When processing items from multiple streams, each batch contains records from only a single shard or stream.
 
 You can configure event source mappings to process records from a stream in a different AWS account. To learn more, see [Creating a cross-account event source mapping](#services-kinesis-eventsourcemapping-cross-account).
 
-Before you create an event source mapping, you need to give your Lambda function permission to read from a Kinesis data stream. Lambda needs the following permissions to manage resources related to your Kinesis data stream:
+Before you create an event source mapping, you need to give your Lambda Event Function permission to read from a Kinesis data stream. Lambda needs the following permissions to manage resources related to your Kinesis data stream:
 + [kinesis:DescribeStream](https://docs.aws.amazon.com/lambda/latest/api/API_DescribeStream.html)
 + [kinesis:DescribeStreamSummary](https://docs.aws.amazon.com/lambda/latest/api/API_DescribeStreamSummary.html)
 + [kinesis:GetRecords](https://docs.aws.amazon.com/lambda/latest/api/API_GetRecords.html)
@@ -29,9 +29,9 @@ Lambda makes `kinesis:GetRecords` and `kinesis:GetShardIterator` API calls when 
 ------
 #### [ AWS Management Console ]
 
-**To add Kinesis permissions to your function**
+**To add Kinesis permissions to your Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
 
 1. In the **Configuration** tab, select **Permissions**.
 
@@ -46,7 +46,7 @@ Lambda makes `kinesis:GetRecords` and `kinesis:GetShardIterator` API calls when 
 ------
 #### [ AWS CLI ]
 
-**To add Kinesis permissions to your function**
+**To add Kinesis permissions to your Event Function**
 + Run the following CLI command to add the `AWSLambdaKinesisExecutionRole` policy to your function's execution role:
 
   ```
@@ -58,7 +58,7 @@ Lambda makes `kinesis:GetRecords` and `kinesis:GetShardIterator` API calls when 
 ------
 #### [ AWS SAM ]
 
-**To add Kinesis permissions to your function**
+**To add Kinesis permissions to your Event Function**
 + In your function's definition, add the `Policies` property as shown in the following example:
 
   ```
@@ -82,7 +82,7 @@ After configuring the required permissions, create the event source mapping.
 
 **To create the Kinesis event source mapping**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
 
 1. In the **Function overview** pane, choose **Add trigger**.
 
@@ -158,10 +158,10 @@ This behavior means that if you specify `LATEST` as the starting position for th
 ## Creating a cross-account event source mapping
 <a name="services-kinesis-eventsourcemapping-cross-account"></a>
 
-Amazon Kinesis Data Streams supports [resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html). Because of this, you can process data ingested into a stream in one AWS account with a Lambda function in another account.
+Amazon Kinesis Data Streams supports [resource-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_identity-vs-resource.html). Because of this, you can process data ingested into a stream in one AWS account with a Lambda Event Function in another account.
 
-To create an event source mapping for your Lambda function using a Kinesis stream in a different AWS account, you must configure the stream using a resource-based policy to give your Lambda function permission to read items. To learn how to configure your stream to allow cross-account access, see [Sharing access with cross-account AWS Lambda functions](https://docs.aws.amazon.com/streams/latest/dev/resource-based-policy-examples.html#Resource-based-policy-examples-lambda) in the *Amazon Kinesis Streams Developer guide*.
+To create an event source mapping for your Lambda Event Function using a Kinesis stream in a different AWS account, you must configure the stream using a resource-based policy to give your Lambda Event Function permission to read items. To learn how to configure your stream to allow cross-account access, see [Sharing access with cross-account AWS Lambda functions](https://docs.aws.amazon.com/streams/latest/dev/resource-based-policy-examples.html#Resource-based-policy-examples-lambda) in the *Amazon Kinesis Streams Developer guide*.
 
-Once you've configured your stream with a resource-based policy that gives your Lambda function the required permissions, create the event source mapping using any of the methods described in the previous section.
+Once you've configured your stream with a resource-based policy that gives your Lambda Event Function the required permissions, create the event source mapping using any of the methods described in the previous section.
 
 If you choose to create your event source mapping using the Lambda console, paste the ARN of your stream directly into the input field. If you want to specify a consumer for your stream, pasting the ARN of the consumer automatically populates the stream field.

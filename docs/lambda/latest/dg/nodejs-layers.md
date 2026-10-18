@@ -1,6 +1,6 @@
 
 
-# Working with layers for Node.js Lambda functions
+# Working with layers for Node.js Lambda Event Functions
 <a name="nodejs-layers"></a>
 
 Use [Lambda layers](chapter-layers.md) to package code and dependencies that you want to reuse across multiple functions. Layers usually contain library dependencies, a [custom runtime](runtimes-custom.md), or configuration files. Creating a layer involves three general steps:
@@ -274,7 +274,7 @@ The **cli-binary-format** option is required if you're using AWS CLI version 2. 
 
 **To add a layer to a function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the function.
 

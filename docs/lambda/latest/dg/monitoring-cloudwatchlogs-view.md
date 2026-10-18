@@ -1,14 +1,14 @@
 
 
-# Viewing CloudWatch logs for Lambda functions
+# Viewing CloudWatch logs for Lambda Event Functions
 <a name="monitoring-cloudwatchlogs-view"></a>
 
-You can view Amazon CloudWatch logs for your Lambda function using the Lambda console, the CloudWatch console, or the AWS Command Line Interface (AWS CLI). Follow the instructions in the following sections to access your function's logs.
+You can view Amazon CloudWatch logs for your Lambda Event Function using the Lambda console, the CloudWatch console, or the AWS Command Line Interface (AWS CLI). Follow the instructions in the following sections to access your Event Function's logs.
 
-## Stream function logs with CloudWatch Logs Live Tail
+## Stream Event Function logs with CloudWatch Logs Live Tail
 <a name="monitoring-live-tail"></a>
 
-Amazon CloudWatch Logs Live Tail helps you quickly troubleshoot your functions by displaying a streaming list of new log events directly in the Lambda console. You can view and filter ingested logs from your Lambda functions in real time, helping you to detect and resolve issues quickly.
+Amazon CloudWatch Logs Live Tail helps you quickly troubleshoot your Event Functions by displaying a streaming list of new log events directly in the Lambda console. You can view and filter ingested logs from your Lambda Event Functions in real time, helping you to detect and resolve issues quickly.
 
 **Note**  
 Live Tail sessions incur costs by session usage time, per minute. For more information about pricing, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
@@ -18,7 +18,7 @@ Live Tail sessions incur costs by session usage time, per minute. For more infor
 
 There are several differences between CloudWatch Logs Live Tail and the [LogType: Tail](https://docs.aws.amazon.com/lambda/latest/api/API_Invoke.html#lambda-Invoke-request-LogType) option in the Lambda API (`--log-type Tail` in the AWS CLI):
 + `--log-type Tail` returns only the first 4 KB of the invocation logs. Live Tail does not share this limit, and can receive up to 500 log events per second.
-+ `--log-type Tail` captures and sends the logs with the response, which can impact the function's response latency. Live Tail does not affect function response latency.
++ `--log-type Tail` captures and sends the logs with the response, which can impact the Event Function's response latency. Live Tail does not affect Event Function response latency.
 + `--log-type Tail` supports synchronous invocations only. Live Tail works for both synchronous and asynchronous invocations.
 
 **Note**  
@@ -35,15 +35,15 @@ The following permissions are required to start and stop CloudWatch Logs Live Ta
 ### Start a Live Tail session in the Lambda console
 <a name="live-tail-console"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose the name of the function.
+1. Choose the name of the Event Function.
 
 1. Choose the **Test** tab.
 
 1. In the **Test event** pane, choose **CloudWatch Logs Live Tail**.
 
-1. For **Select log groups**, the function's log group is selected by default. You can select up to five log groups at a time.
+1. For **Select log groups**, the Event Function's log group is selected by default. You can select up to five log groups at a time.
 
 1. (Optional) To display only log events that contain certain words or other strings, enter the word or string in the **Add filter pattern** box. The filters field is case-sensitive. You can include multiple terms and pattern operators in this field, including regular expressions (regex). For more information about pattern syntax, see [Filter pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html). in the *Amazon CloudWatch Logs User Guide*.
 
@@ -53,12 +53,12 @@ The following permissions are required to start and stop CloudWatch Logs Live Ta
 **Note**  
 The Live Tail session automatically stops after 15 minutes of inactivity or when the Lambda console session times out.
 
-## Access function logs using the console
+## Access Event Function logs using the console
 <a name="monitoring-cloudwatchlogs-console"></a>
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select a function.
+1. Select an Event Function.
 
 1. Choose the **Monitor** tab.
 
@@ -67,23 +67,23 @@ The Live Tail session automatically stops after 15 minutes of inactivity or when
 1. Scroll down and choose the **Log stream** for the function invocations you want to look at.  
 ![List of log streams for a Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/log-stream.png)
 
-Each instance of a Lambda function has a dedicated log stream. If a function scales up, each concurrent instance has its own log stream. Each time a new execution environment is created in response to an invocation, this generates a new log stream. The naming convention for log streams is:
+Each instance of a Lambda Event Function has a dedicated log stream. If an Event Function scales up, each concurrent instance has its own log stream. Each time a new execution environment is created in response to an invocation, this generates a new log stream. The naming convention for log streams is:
 
 ```
 YYYY/MM/DD[Function version][Execution environment GUID]
 ```
 
-A single execution environment writes to the same log stream during its lifetime. The log stream contains messages from that execution environment and also any output from your Lambda function's code. Every message is timestamped, including your custom logs. Even if your function does not log any output from your code, there are three minimal log statements generated per invocation (START, END and REPORT):
+A single execution environment writes to the same log stream during its lifetime. The log stream contains messages from that execution environment and also any output from your Lambda Event Function's code. Every message is timestamped, including your custom logs. Even if your Event Function does not log any output from your code, there are three minimal log statements generated per invocation (START, END and REPORT):
 
-![CloudWatch log stream showing START, END, and REPORT lines for a Lambda function invocation.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-3.png)
+![CloudWatch log stream showing START, END, and REPORT lines for a Lambda Event Function invocation.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-3.png)
 
 
 These logs show:
-+  **RequestId** – this is a unique ID generated per request. If the Lambda function retries a request, this ID does not change and appears in the logs for each subsequent retry.
++  **RequestId** – this is a unique ID generated per request. If the Lambda Event Function retries a request, this ID does not change and appears in the logs for each subsequent retry.
 +  **Start/End** – these bookmark a single invocation, so every log line between these belongs to the same invocation.
 +  **Duration** – the total invocation time for the handler function, excluding `INIT` code.
 +  **Billed Duration** – applies rounding logic for billing purposes.
-+  **Memory Size** – the amount of memory allocated to the function.
++  **Memory Size** – the amount of memory allocated to the Event Function.
 +  **Max Memory Used** – the maximum amount of memory used during the invocation.
 +  **Init Duration** – the time taken to run the `INIT` section of code, outside of the main handler.
 
@@ -201,7 +201,7 @@ You should see the following output:
 
 With CloudWatch Logs Insights, you can search and analyze log data using a specialized [query syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html). It performs queries over multiple log groups and provides powerful filtering using [glob](https://en.wikipedia.org/wiki/Glob_(programming)) and [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) pattern matching.
 
-You can take advantage of these capabilities by implementing structured logging in your Lambda functions. Structured logging organizes your logs into a pre-defined format, making it easier to query for. Using log levels is an important first step in generating filter-friendly logs that separate informational messages from warnings or errors. For example, consider the following Node.js code:
+You can take advantage of these capabilities by implementing structured logging in your Lambda Event Functions. Structured logging organizes your logs into a pre-defined format, making it easier to query for. Using log levels is an important first step in generating filter-friendly logs that separate informational messages from warnings or errors. For example, consider the following Node.js code:
 
 ```
 exports.handler = async (event) => {
@@ -248,14 +248,14 @@ This query might produce the following result:
 ![CloudWatch Logs Insights query results filtered by JSON fields showing matching log entries.](https://docs.aws.amazon.com/lambda/latest/dg/images/monitoring-observability-figure-12.png)
 
 
-The discovered fields in JSON are automatically populated in the *Discovered fields* menu on the right side. Standard fields emitted by the Lambda service are prefixed with '@', and you can query on these fields in the same way. Lambda logs always include the fields @timestamp, @logStream, @message, @requestId, @duration, @billedDuration, @type, @maxMemoryUsed, @memorySize. If X-Ray is enabled for a function, logs also include @xrayTraceId and @xraySegmentId.
+The discovered fields in JSON are automatically populated in the *Discovered fields* menu on the right side. Standard fields emitted by the Lambda service are prefixed with '@', and you can query on these fields in the same way. Lambda logs always include the fields @timestamp, @logStream, @message, @requestId, @duration, @billedDuration, @type, @maxMemoryUsed, @memorySize. If X-Ray is enabled for an Event Function, logs also include @xrayTraceId and @xraySegmentId.
 
-When an AWS event source such as Amazon S3, Amazon SQS, or Amazon EventBridge invokes your function, the entire event is provided to the function as a JSON object input. By logging this event in the first line of the function, you can then query on any of the nested fields using CloudWatch Logs Insights.
+When an AWS event source such as Amazon S3, Amazon SQS, or Amazon EventBridge invokes your Event Function, the entire event is provided to the Event Function as a JSON object input. By logging this event in the first line of the Event Function, you can then query on any of the nested fields using CloudWatch Logs Insights.
 
 ### Useful Insights queries
 <a name="useful-logs-queries"></a>
 
-The following table shows example Insights queries that can be useful for monitoring Lambda functions.
+The following table shows example Insights queries that can be useful for monitoring Lambda Event Functions.
 
 
 | Description | Example query syntax | 

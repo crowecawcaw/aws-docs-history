@@ -6,13 +6,13 @@
 **Note**  
 Starting in October 2025, new function URLs will require both `lambda:InvokeFunctionUrl` and `lambda:InvokeFunction` permissions.
 
-You can control access to your Lambda function URLs using the [AuthType](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunctionUrlConfig.html#lambda-CreateFunctionUrlConfig-request-AuthType) parameter combined with [resource-based policies](access-control-resource-based.md) attached to your specific function. The configuration of these two components determines who can invoke or perform other administrative actions on your function URL.
+You can control access to your Lambda function URLs using the [AuthType](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunctionUrlConfig.html#lambda-CreateFunctionUrlConfig-request-AuthType) parameter combined with [resource-based policies](access-control-resource-based.md) attached to your specific Event Function. The configuration of these two components determines who can invoke or perform other administrative actions on your function URL.
 
 The `AuthType` parameter determines how Lambda authenticates or authorizes requests to your function URL. When you configure your function URL, you must specify one of the following `AuthType` options:
 + `AWS_IAM` – Lambda uses AWS Identity and Access Management (IAM) to authenticate and authorize requests based on the IAM principal's identity policy and the function's resource-based policy. Choose this option if you want only authenticated users and roles to invoke your function using the function URL.
 + `NONE` – Lambda doesn't perform any authentication before invoking your function. However, your function's resource-based policy is always in effect and must grant public access before your function URL can receive requests. Choose this option to allow public, unauthenticated access to your function URL.
 
-For additional insights into security, you can use AWS Identity and Access Management Access Analyzer to get a comprehensive analysis of external access to your function URL. IAM Access Analyzer also monitors for new or updated permissions on your Lambda functions to help you identify permissions that grant public and cross-account access. You can use IAM Access Analyzer at no charge. To get started with IAM Access Analyzer, see [Using AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
+For additional insights into security, you can use AWS Identity and Access Management Access Analyzer to get a comprehensive analysis of external access to your function URL. IAM Access Analyzer also monitors for new or updated permissions on your Lambda Event Functions to help you identify permissions that grant public and cross-account access. You can use IAM Access Analyzer at no charge. To get started with IAM Access Analyzer, see [Using AWS IAM Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 
 This page contains examples of resource-based policies for both auth types, and how to create these policies using the [AddPermission](https://docs.aws.amazon.com/lambda/latest/api/API_AddPermission.html) API operation or the Lambda console. For information about how to invoke your function URL after you've set up permissions, see [Invoking Lambda function URLs](urls-invocation.md).
 
@@ -73,7 +73,7 @@ You can create this resource-based policy through the console using the followin
 
 **To grant URL invocation permissions to another account (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose the name of the function that you want to grant URL invocation permissions for.
 
@@ -191,7 +191,7 @@ If a function's resource-based policy doesn't grant `lambda:invokeFunctionUrl` a
 <a name="urls-governance"></a>
 
 In addition to function URL invocation permissions, you can also control access on actions used to configure function URLs. Lambda supports the following IAM policy actions for function URLs:
-+ `lambda:InvokeFunctionUrl` – Invoke a Lambda function using the function URL.
++ `lambda:InvokeFunctionUrl` – Invoke a Lambda Event Function using the function URL.
 + `lambda:CreateFunctionUrlConfig` – Create a function URL and set its `AuthType`.
 + `lambda:UpdateFunctionUrlConfig` – Update a function URL configuration and its `AuthType`.
 + `lambda:GetFunctionUrlConfig` – View the details of a function URL.
@@ -226,7 +226,7 @@ For fine-grained access control over your function URLs, use condition context k
 + `lambda:FunctionUrlAuthType` – Defines an enum value describing the auth type that your function URL uses. The value can be either `AWS_IAM` or `NONE`.
 + `lambda:InvokedViaFunctionUrl` – Restricts the `lambda:InvokeFunction` action to calls made through the function URL. This ensures that the function can only be invoked using the function URL and not through other invocation methods. For examples of resource-based policies that use the `lambda:InvokedViaFunctionUrl` context key, see the examples in [Using the `AWS_IAM` auth type](#urls-auth-iam) and [Using the `NONE` auth type](#urls-auth-none).
 
-You can use these context keys in policies associated with your function. For example, you might want to restrict who can make configuration changes to your function URLs. To deny all `UpdateFunctionUrlConfig` requests to any function with URL auth type `NONE`, you can define the following policy:
+You can use these context keys in policies associated with your Event Function. For example, you might want to restrict who can make configuration changes to your function URLs. To deny all `UpdateFunctionUrlConfig` requests to any function with URL auth type `NONE`, you can define the following policy:
 
 **Example function URL policy with explicit deny**    
 ****  

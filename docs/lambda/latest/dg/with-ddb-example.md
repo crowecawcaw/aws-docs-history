@@ -3,7 +3,7 @@
 # Tutorial: Using AWS Lambda with Amazon DynamoDB streams
 <a name="with-ddb-example"></a>
 
- In this tutorial, you create a Lambda function to consume events from an Amazon DynamoDB stream.
+ In this tutorial, you create a Lambda Event Function to consume events from an Amazon DynamoDB stream.
 
 ## Prerequisites
 <a name="with-ddb-prepare"></a>
@@ -36,10 +36,10 @@ Create the [execution role](lambda-intro-execution-role.md) that gives your func
 
 The **AWSLambdaDynamoDBExecutionRole** has the permissions that the function needs to read items from DynamoDB and write logs to CloudWatch Logs.
 
-## Create the function
+## Create the Event Function
 <a name="with-ddb-example-create-function"></a>
 
-Create a Lambda function that processes your DynamoDB events. The function code writes some of the incoming event data to CloudWatch Logs.
+Create a Lambda Event Function that processes your DynamoDB events. The function code writes some of the incoming event data to CloudWatch Logs.
 
 ------
 #### [ .NET ]
@@ -372,7 +372,7 @@ async fn main() -> Result<(), Error> {
 
 ------
 
-**To create the function**
+**To create the Event Function**
 
 1. Copy the sample code into a file named `example.js`.
 
@@ -382,7 +382,7 @@ async fn main() -> Result<(), Error> {
    zip function.zip example.js
    ```
 
-1. Create a Lambda function with the `create-function` command.
+1. Create a Lambda Event Function with the `create-function` command.
 
    ```
    aws lambda create-function --function-name ProcessDynamoDBRecords \
@@ -390,10 +390,10 @@ async fn main() -> Result<(), Error> {
        --role arn:aws:iam::{{111122223333}}:role/lambda-dynamodb-role
    ```
 
-## Test the Lambda function
+## Test the Lambda Event Function
 <a name="with-dbb-invoke-manually"></a>
 
-In this step, you invoke your Lambda function manually using the `invoke` AWS Lambda CLI command and the following sample DynamoDB event. Copy the following into a file named `input.txt`.
+In this step, you invoke your Lambda Event Function manually using the `invoke` AWS Lambda CLI command and the following sample DynamoDB event. Copy the following into a file named `input.txt`.
 
 **Example input.txt**  
 
@@ -537,12 +537,12 @@ Create an Amazon DynamoDB table with a stream enabled.
 
 1. Choose **Turn on stream**.
 
-Write down the stream ARN. You need this in the next step when you associate the stream with your Lambda function. For more information on enabling streams, see [Capturing table activity with DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html).
+Write down the stream ARN. You need this in the next step when you associate the stream with your Lambda Event Function. For more information on enabling streams, see [Capturing table activity with DynamoDB Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html).
 
 ## Add an event source in AWS Lambda
 <a name="with-ddb-attach-notification-configuration"></a>
 
-Create an event source mapping in AWS Lambda. This event source mapping associates the DynamoDB stream with your Lambda function. After you create this event source mapping, AWS Lambda starts polling the stream.
+Create an event source mapping in AWS Lambda. This event source mapping associates the DynamoDB stream with your Lambda Event Function. After you create this event source mapping, AWS Lambda starts polling the stream.
 
 Run the following AWS CLI `create-event-source-mapping` command. After the command runs, note down the UUID. You'll need this UUID to refer to the event source mapping in any commands, for example, when deleting the event source mapping.
 
@@ -551,7 +551,7 @@ aws lambda create-event-source-mapping --function-name ProcessDynamoDBRecords \
     --batch-size 100 --starting-position LATEST --event-source {{DynamoDB-stream-arn}}
 ```
 
- This creates a mapping between the specified DynamoDB stream and the Lambda function. You can associate a DynamoDB stream with multiple Lambda functions, and associate the same Lambda function with multiple streams. However, the Lambda functions share the read throughput for the stream they share. 
+ This creates a mapping between the specified DynamoDB stream and the Lambda Event Function. You can associate a DynamoDB stream with multiple Lambda Event Functions, and associate the same Lambda Event Function with multiple streams. However, the Lambda Event Functions share the read throughput for the stream they share. 
 
 You can get the list of event source mappings by running the following command.
 
@@ -559,7 +559,7 @@ You can get the list of event source mappings by running the following command.
 aws lambda list-event-source-mappings
 ```
 
-The list returns all of the event source mappings you created, and for each mapping it shows the `LastProcessingResult`, among other things. This field is used to provide an informative message if there are any problems. Values such as `No records processed` (indicates that AWS Lambda has not started polling or that there are no records in the stream) and `OK` (indicates AWS Lambda successfully read records from the stream and invoked your Lambda function) indicate that there are no issues. If there are issues, you receive an error message.
+The list returns all of the event source mappings you created, and for each mapping it shows the `LastProcessingResult`, among other things. This field is used to provide an informative message if there are any problems. Values such as `No records processed` (indicates that AWS Lambda has not started polling or that there are no records in the stream) and `OK` (indicates AWS Lambda successfully read records from the stream and invoked your Lambda Event Function) indicate that there are no issues. If there are issues, you receive an error message.
 
 If you have a lot of event source mappings, use the function name parameter to narrow down the results.
 
@@ -570,11 +570,11 @@ aws lambda list-event-source-mappings --function-name ProcessDynamoDBRecords
 ## Test the setup
 <a name="with-ddb-final-integration-test-no-iam"></a>
 
-Test the end-to-end experience. As you perform table updates, DynamoDB writes event records to the stream. As AWS Lambda polls the stream, it detects new records in the stream and invokes your Lambda function on your behalf by passing events to the function. 
+Test the end-to-end experience. As you perform table updates, DynamoDB writes event records to the stream. As AWS Lambda polls the stream, it detects new records in the stream and invokes your Lambda Event Function on your behalf by passing events to the function. 
 
 1. In the DynamoDB console, add, update, and delete items to the table. DynamoDB writes records of these actions to the stream.
 
-1. AWS Lambda polls the stream and when it detects updates to the stream, it invokes your Lambda function by passing in the event data it finds in the stream.
+1. AWS Lambda polls the stream and when it detects updates to the stream, it invokes your Lambda Event Function by passing in the event data it finds in the stream.
 
 1. Your function runs and creates logs in Amazon CloudWatch. You can verify the logs reported in the Amazon CloudWatch console.
 
@@ -588,11 +588,11 @@ This tutorial showed you the basics of processing DynamoDB stream events with La
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

@@ -1,11 +1,11 @@
 
 
-# Building Lambda functions with C\#
+# Building Lambda Event Functions with C\#
 <a name="lambda-csharp"></a>
 
-You can run your .NET application in Lambda using the managed .NET 8 runtime, a custom runtime, or a container image. After your application code is compiled, you can deploy it to Lambda either as a .zip file or a container image. Lambda provides the following runtimes for .NET languages:
+You can run your .NET application as a Lambda Event Function using the managed .NET 8 runtime, a custom runtime, or a container image. After your application code is compiled, you can deploy it to Lambda either as a .zip file or a container image. Lambda provides the following runtimes for .NET languages:
 
-For information about using .NET layers, see [Working with layers for .NET Lambda functions](dotnet-layers.md). For guidance on testing your C\# functions, see [AWS Lambda function testing in C\#](dotnet-csharp-testing.md).
+For information about using .NET layers, see [Working with layers for .NET Lambda Event Functions](dotnet-layers.md). For guidance on testing your C\# functions, see [AWS Lambda Event Function testing in C\#](dotnet-csharp-testing.md).
 
 
 | Name | Identifier | Operating system | Deprecation date | Block function create | Block function update | 
@@ -17,7 +17,7 @@ For information about using .NET layers, see [Working with layers for .NET Lambd
 ## Setting up your .NET development environment
 <a name="csharp-dev-env"></a>
 
-To develop and build your Lambda functions, you can use any of the commonly available .NET integrated development environments (IDEs), including Microsoft Visual Studio, Visual Studio Code, and JetBrains Rider. To simplify your development experience, AWS provides a set of .NET project templates, as well as the `Amazon.Lambda.Tools` command line interface (CLI).
+To develop and build your Lambda Event Functions, you can use any of the commonly available .NET integrated development environments (IDEs), including Microsoft Visual Studio, Visual Studio Code, and JetBrains Rider. To simplify your development experience, AWS provides a set of .NET project templates, as well as the `Amazon.Lambda.Tools` command line interface (CLI).
 
 Run the following .NET CLI commands to install these project templates and command line tools.
 

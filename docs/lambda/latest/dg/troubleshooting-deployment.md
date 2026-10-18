@@ -3,7 +3,7 @@
 # Troubleshoot deployment issues in Lambda
 <a name="troubleshooting-deployment"></a>
 
-When you update your function, Lambda deploys the change by launching new instances of the function with the updated code or settings. Deployment errors prevent the new version from being used and can arise from issues with your deployment package, code, permissions, or tools.
+When you update your Lambda Event Function, Lambda deploys the change by launching new instances of the function with the updated code or settings. Deployment errors prevent the new version from being used and can arise from issues with your deployment package, code, permissions, or tools.
 
 When you deploy updates to your function directly with the Lambda API or with a client such as the AWS CLI, you can see errors from Lambda directly in the output. If you use services like AWS CloudFormation, AWS CodeDeploy, or AWS CodePipeline, look for the response from Lambda in the logs or event stream for that service.
 
@@ -98,13 +98,13 @@ The name of the file or class in your function's handler configuration doesn't m
 The name of the handler method in your function's handler configuration doesn't match your code. Each runtime defines a naming convention for handlers, such as {{filename}}.{{methodname}}. The handler is the method in your function's code that the runtime runs when your function is invoked.
 
 For some languages, Lambda provides a library with an interface that expects a handler method to have a specific name. For details about handler naming for each language, see the following topics.
-+ [Building Lambda functions with Node.js](lambda-nodejs.md)
-+ [Building Lambda functions with Python](lambda-python.md)
-+ [Building Lambda functions with Ruby](lambda-ruby.md)
-+ [Building Lambda functions with Java](lambda-java.md)
-+ [Building Lambda functions with Go](lambda-golang.md)
-+ [Building Lambda functions with C\#](lambda-csharp.md)
-+ [Building Lambda functions with PowerShell](lambda-powershell.md)
++ [Building Lambda Event Functions with Node.js](lambda-nodejs.md)
++ [Building Lambda Event Functions with Python](lambda-python.md)
++ [Building Lambda Event Functions with Ruby](lambda-ruby.md)
++ [Building Lambda Event Functions with Java](lambda-java.md)
++ [Building Lambda Event Functions with Go](lambda-golang.md)
++ [Building Lambda Event Functions with C\#](lambda-csharp.md)
++ [Building Lambda Event Functions with PowerShell](lambda-powershell.md)
 
 ## General: Lambda code storage limit exceeded
 <a name="troubleshooting-deployment-CodeStorageExceeded"></a>

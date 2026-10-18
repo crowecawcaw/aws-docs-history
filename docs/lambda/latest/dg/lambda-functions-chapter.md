@@ -1,29 +1,37 @@
 
 
-# AWS Lambda Functions
+# AWS Lambda Event Functions (formerly Lambda functions)
 <a name="lambda-functions-chapter"></a>
 
 **Tip**  
 Join Serverless experts for free hands-on workshops to learn how to build Serverless applications with best practices. [Sign up for free serverless workshops](https://aws-experience.com/amer/smb/events/series/Get-Hands-On-With-Serverless?trk=188abe3e-9f94-4e84-aefb-398d944ad567%26sc_channel%3del) on the AWS Experience website.
 
-AWS Lambda is a compute service that runs code without the need to manage servers. Your code runs, scaling up and down automatically, with pay-per-use pricing. To get started, see [Create your first function](getting-started.md). For information about [best practices](best-practices.md), [programming languages](lambda-programming-languages.md), [tenant isolation](tenant-isolation.md), and [tools for development and deployment](tools-to-develop-deploy-manage.md), see the related topics below.
+AWS Lambda Event Functions, formerly called Lambda functions, run your code in response to events from sources such as Amazon Simple Storage Service (Amazon S3), Amazon Simple Queue Service (Amazon SQS), and EventBridge, without the need to manage servers. A function receives an event, runs your handler, and returns a response. Functions scale up and down automatically with pay-per-use pricing. To get started, see [Create your first function](getting-started.md). For information about [best practices](best-practices.md), [programming languages](lambda-programming-languages.md), [tenant isolation](tenant-isolation.md), and [tools for development and deployment](tools-to-develop-deploy-manage.md), see the related topics below.
 
-You can use Lambda for:
-+ **File processing**: Process files automatically when uploaded to Amazon Simple Storage Service. See [file processing examples](example-apps.md#examples-apps-file) for details.
-+ **Long-running workflows:** Use [durable Lambda functions](durable-functions.md) to build stateful, multi-step workflows that can run for up to one year. Perfect for order processing, approval workflows, human-in-the-loop processes, and complex data pipelines that need to remember their progress.
-+ **Database operations and integration examples**: Respond to database changes and automate data workflows. See [database examples](example-apps.md#examples-apps-database) for details.
-+ **Scheduled and periodic tasks**: Run automated operations on a regular schedule using EventBridge. See [scheduled task examples](example-apps.md#examples-apps-scheduled) for details.
-+ **Stream processing**: Process real-time data streams for analytics and monitoring. See [Kinesis Data Streams](with-kinesis.md) for details.
-+ **Web applications**: Build scalable web apps that automatically adjust to demand.
-+ **Mobile backends**: Create secure API backends for mobile and web applications.
-+ **IoT backends**: Handle web, mobile, IoT, and third-party API requests. See [IoT](services-iot.md) for details.
+**Note**  
+**Event Functions** is the name for the original Lambda function type, and the Lambda console labels it **Event function**. The underlying resource is unchanged: the API operations (such as `CreateFunction` and `Invoke`), the AWS SDKs, the AWS CLI, and the `AWS::Lambda::Function` resource type still use *function*, so you don't need to change any code or configuration.
 
 For pricing information, see [AWS Lambda Pricing](https://aws.amazon.com/lambda/pricing/).
 
-## Functions and durable functions
+## When to use Event Functions
+<a name="lambda-functions-use-cases"></a>
+
+You can use Event Functions for:
++ **File processing**: Process files automatically when uploaded to Amazon Simple Storage Service. See [file processing examples](example-apps.md#examples-apps-file) for details.
++ **Long-running workflows**: Build stateful, multi-step workflows that can run for up to one year. See [durable Lambda functions](durable-functions.md) for details.
++ **Database operations and integration examples**: Respond to database changes and automate data workflows. See [database examples](example-apps.md#examples-apps-database) for details.
++ **Scheduled and periodic tasks**: Run automated operations on a regular schedule using EventBridge. See [scheduled task examples](example-apps.md#examples-apps-scheduled) for details.
++ **Stream processing**: Process real-time data streams for analytics and monitoring. See [Kinesis Data Streams](with-kinesis.md) for details.
++ **Web applications**: Handle web and API requests through Amazon API Gateway, Application Load Balancer, or [Lambda function URLs](urls-configuration.md). By default, each execution environment handles one request at a time. On Lambda Managed Instances, an execution environment handles multiple requests concurrently.
++ **Mobile backends**: Create secure API backends for mobile and web applications.
++ **IoT backends**: Handle web, mobile, IoT, and third-party API requests. See [IoT](services-iot.md) for details.
+
+To serve HTTP traffic directly from a standard web server, use Lambda Web Functions. For more information, see [AWS Lambda Web Functions](web-functions.md).
+
+## Event Functions and durable functions
 <a name="whatis-function-types"></a>
 
-[Lambda functions](#lambda-functions-chapter) run for up to 15 minutes and are ideal for event-driven tasks like processing API requests, handling file uploads, or responding to database changes. [Durable functions](durable-functions.md) extend this model for workloads that need to run longer and survive interruptions. They can execute for up to one year, automatically checkpointing their progress so they resume reliably after failures. Use durable functions when you need multi-step workflows, human-in-the-loop approvals, or coordination across services over extended periods.
+[Lambda functions](#lambda-functions-chapter) run for up to 15 minutes per invocation by default and are ideal for event-driven tasks like processing API requests, handling file uploads, or responding to database changes. On Lambda Managed Instances, functions can run for up to 90 minutes for asynchronous and event source mapping (ESM) invocations. [Durable functions](durable-functions.md) extend this model for workloads that need to run longer and survive interruptions. They automatically checkpoint their progress so they resume reliably after failures, and they can run for up to one year when invoked asynchronously. Use durable functions when you need multi-step workflows, human-in-the-loop approvals, or coordination across services over extended periods.
 
 ## How Lambda works
 <a name="how-lambda-works"></a>
@@ -54,7 +62,7 @@ To learn how to build **serverless solutions**, check out the [Serverless Develo
 
 **Scale and perform reliably:**
 + [Concurrency and scaling controls](lambda-concurrency.md) precisely manage application responsiveness and resource utilization during traffic spikes.
-+ [SnapStart](snapstart.md) significantly reduce cold start times. Lambda SnapStart can provide as low as sub-second startup performance, typically with no changes to your function code.
++ [SnapStart](snapstart.md) significantly reduce cold start times. Lambda SnapStart can provide as low as sub-second startup performance, typically with no changes to your Event Function code.
 + [Response streaming](configuration-response-streaming.md) optimize function performance by delivering large payloads incrementally for real-time processing.
 + [Container images](images-create.md) package functions with complex dependencies using container workflows.
 
@@ -69,27 +77,3 @@ To learn how to build **serverless solutions**, check out the [Serverless Develo
 + For information on how Lambda works, see [How Lambda works](concepts-basics.md).
 + To start using Lambda, see [Create your first Lambda function](getting-started.md).
 + For a list of example applications, see [Getting started with example applications and patterns](example-apps.md).
-
-## Security in AWS Lambda
-<a name="lambda-security"></a>
-
-Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that is built to meet the requirements of the most security-sensitive organizations.
-
-Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) describes this as security *of* the cloud and security *in* the cloud:
-+ **Security of the cloud** – AWS is responsible for protecting the infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS compliance programs](https://aws.amazon.com/compliance/programs/). To learn about the compliance programs that apply to AWS Lambda, see [AWS services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/).
-+ **Security in the cloud** – Your responsibility is determined by the AWS service that you use. You are also responsible for other factors including the sensitivity of your data, your company's requirements, and applicable laws and regulations. 
-
-This documentation helps you understand how to apply the shared responsibility model when using Lambda. The following topics show you how to configure Lambda to meet your security and compliance objectives. You also learn how to use other AWS services that help you to monitor and secure your Lambda resources. Topics include [compliance validation](security-compliance.md), [data protection](security-dataprotection.md), [identity and access management](security-iam.md), [interface VPC endpoints](security-public-endpoints.md), and [resilience](security-resilience.md).
-
-For more information about applying security principles to Lambda applications, see [Security](https://serverlessland.com/content/service/lambda/guides/aws-lambda-operator-guide/security-ops) in Serverless Land.
-
-**Topics**
-+ [Data protection in AWS Lambda](security-dataprotection.md)
-+ [Using service-linked roles for Lambda](using-service-linked-roles.md)
-+ [Identity and Access Management for AWS Lambda](security-iam.md)
-+ [Create a governance strategy for Lambda functions and layers](governance-concepts.md)
-+ [Compliance validation for AWS Lambda](security-compliance.md)
-+ [Resilience in AWS Lambda](security-resilience.md)
-+ [Infrastructure security in AWS Lambda](security-infrastructure.md)
-+ [Securing workloads with public endpoints](security-public-endpoints.md)
-+ [Using code signing to verify code integrity with Lambda](configuration-codesigning.md)

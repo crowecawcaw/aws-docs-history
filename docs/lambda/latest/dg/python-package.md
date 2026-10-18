@@ -1,9 +1,9 @@
 
 
-# Working with .zip file archives for Python Lambda functions
+# Working with .zip file archives for Python Lambda Event Functions
 <a name="python-package"></a>
 
- Your AWS Lambda function’s code comprises a .py file containing your function’s handler code, together with any additional packages and modules your code depends on. To deploy this function code to Lambda, you use a *deployment package*. This package may either be a .zip file archive or a container image. For more information about using container images with Python, see [Deploy Python Lambda functions with container images](https://docs.aws.amazon.com/lambda/latest/dg/python-image.html). 
+ Your AWS Lambda function’s code comprises a .py file containing your function’s handler code, together with any additional packages and modules your code depends on. To deploy this function code to Lambda, you use a *deployment package*. This package may either be a .zip file archive or a container image. For more information about using container images with Python, see [Deploy Python Lambda Event Functions with container images](https://docs.aws.amazon.com/lambda/latest/dg/python-image.html). 
 
  To create your deployment package as .zip file archive, you can use your command-line tool’s built-in .zip file archive utility, or any other .zip file utility such as [7zip](https://www.7-zip.org/download.html). The examples shown in the following sections assume you’re using a command-line `zip` tool in a Linux or MacOS environment. To use the same commands in Windows, you can [install the Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) to get a Windows-integrated version of Ubuntu and Bash. 
 
@@ -16,12 +16,12 @@
 + [Dependency search path and runtime-included libraries](#python-package-searchpath)
 + [Using \_\_pycache\_\_ folders](#python-package-pycache)
 + [Creating .zip deployment packages with native libraries](#python-package-native-libraries)
-+ [Creating and updating Python Lambda functions using .zip files](#python-package-create-update)
++ [Creating and updating Python Lambda Event Functions using .zip files](#python-package-create-update)
 
 ## Runtime dependencies in Python
 <a name="python-package-dependencies"></a>
 
-For Lambda functions that use the Python runtime, a dependency can be any Python package or module. When you deploy your function using a .zip archive, you can either add these dependencies to your .zip file with your function code or use a [Lambda layer](chapter-layers.md). A layer is a separate .zip file that can contain additional code and other content. To learn more about using Lambda layers in Python, see [Working with layers for Python Lambda functions](python-layers.md).
+For Lambda Event Functions that use the Python runtime, a dependency can be any Python package or module. When you deploy your function using a .zip archive, you can either add these dependencies to your .zip file with your function code or use a [Lambda layer](chapter-layers.md). A layer is a separate .zip file that can contain additional code and other content. To learn more about using Lambda layers in Python, see [Working with layers for Python Lambda Event Functions](python-layers.md).
 
 The Lambda Python runtimes include the AWS SDK for Python (Boto3) and its dependencies. Lambda provides the SDK in the runtime for deployment scenarios where you are unable to add your own dependencies. These scenarios include creating functions in the console using the built-in code editor or using inline functions in AWS Serverless Application Model (AWS SAM) or CloudFormation templates.
 
@@ -32,14 +32,14 @@ To maintain full control over your dependencies and to avoid possible version mi
 
 To find out which version of the SDK for Python (Boto3) is included in the runtime you're using, see [Runtime-included SDK versions](lambda-python.md#python-sdk-included).
 
- Under the [AWS shared responsibility model](https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/shared-responsibility-model.html), you are responsible for the management of any dependencies in your functions' deployment packages. This includes applying updates and security patches. To update dependencies in your function's deployment package, first create a new .zip file and then upload it to Lambda. See [Creating a .zip deployment package with dependencies](#python-package-create-dependencies) and [Creating and updating Python Lambda functions using .zip files](#python-package-create-update) for more information.
+ Under the [AWS shared responsibility model](https://docs.aws.amazon.com/whitepapers/latest/aws-risk-and-compliance/shared-responsibility-model.html), you are responsible for the management of any dependencies in your functions' deployment packages. This includes applying updates and security patches. To update dependencies in your function's deployment package, first create a new .zip file and then upload it to Lambda. See [Creating a .zip deployment package with dependencies](#python-package-create-dependencies) and [Creating and updating Python Lambda Event Functions using .zip files](#python-package-create-update) for more information.
 
 ## Creating a .zip deployment package with no dependencies
 <a name="python-package-create-no-dependencies"></a>
 
  If your function code has no dependencies, your .zip file contains only the .py file with your function's handler code. Use your preferred zip utility to create a .zip file with your .py file at the root. If the .py file is not at the root of your .zip file, Lambda won't be able to run your code. 
 
- To learn how to deploy your .zip file to create a new Lambda function or update an existing one, see [Creating and updating Python Lambda functions using .zip files](#python-package-create-update). 
+ To learn how to deploy your .zip file to create a new function or update an existing one, see [Creating and updating Python Lambda Event Functions using .zip files](#python-package-create-update). 
 
 ## Creating a .zip deployment package with dependencies
 <a name="python-package-create-dependencies"></a>
@@ -156,7 +156,7 @@ To find out which version of the SDK for Python (Boto3) is included in the runti
 **Note**  
 In the Python 3.11 managed runtime and base image, the AWS SDK and its dependencies are installed in the `/var/lang/lib/python3.11/site-packages` directory.
 
- You can see the full search path for your Lambda function by adding the following code snippet. 
+ You can see the full search path for your function by adding the following code snippet. 
 
 ```
 import sys
@@ -201,7 +201,7 @@ from common import boto3
 
  To download a wheel that's compatible with Lambda, you use the pip `--platform` option. 
 
- If your Lambda function uses the **x86\_64** instruction set architecture, run the following `pip install` command to install a compatible wheel in your `package` directory. Replace `--python 3.x` with the version of the Python runtime you are using. 
+ If your function uses the **x86\_64** instruction set architecture, run the following `pip install` command to install a compatible wheel in your `package` directory. Replace `--python 3.x` with the version of the Python runtime you are using. 
 
 ```
 pip install \
@@ -232,7 +232,7 @@ pip install \
 
  To learn how to launch and connect to an Amazon EC2 Linux instance, see [Get started with Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) in the *Amazon EC2 User Guide*. 
 
-## Creating and updating Python Lambda functions using .zip files
+## Creating and updating Python Lambda Event Functions using .zip files
 <a name="python-package-create-update"></a>
 
  After you have created your .zip deployment package, you can use it to create a new Lambda function or update an existing one. You can deploy your .zip package using the Lambda console, the AWS Command Line Interface, and the Lambda API. You can also create and update Lambda functions using AWS Serverless Application Model (AWS SAM) and CloudFormation. 
@@ -264,7 +264,7 @@ You cannot change the [deployment package type](https://docs.aws.amazon.com/lamb
 
 **To create a new function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Function**.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and choose **Create Event Function**.
 
 1. Choose **Author from scratch**.
 
@@ -278,11 +278,11 @@ You cannot change the [deployment package type](https://docs.aws.amazon.com/lamb
 
 1. (Optional) Under **Permissions**, expand **Change default execution role**. You can create a new **Execution role** or use an existing one.
 
-1. Choose **Create function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
+1. Choose **Create Event Function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
 
 **To upload a .zip archive from your local machine (console)**
 
-1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload the .zip file for.
+1. In the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload the .zip file for.
 
 1. Select the **Code** tab.
 
@@ -300,7 +300,7 @@ You cannot change the [deployment package type](https://docs.aws.amazon.com/lamb
 
 **To upload a .zip archive from an Amazon S3 bucket (console)**
 
-1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload a new .zip file for.
+1. In the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console, choose the function you want to upload a new .zip file for.
 
 1. Select the **Code** tab.
 
@@ -321,7 +321,7 @@ Function code for functions with container image deployment packages cannot be e
 
 **To update function code using the console code editor**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console and select your function.
 
 1. Select the **Code** tab.
 

@@ -23,7 +23,7 @@ Lambda uses a simple probabilistic model to distribute the traffic between the t
 **Note**  
 Verify that the function has at least two published versions. To create additional versions, follow the instructions in [Creating function versions](configuration-versions.md#configuration-versions-config).
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 
@@ -93,7 +93,7 @@ When you configure traffic weights between two function versions, there are two 
 
   `START RequestId: 1dh194d3759ed-4v8b-a7b4-1e541f60235f Version: {{2}}` 
 
-  For alias invocations, Lambda uses the `ExecutedVersion` dimension to filter the metric data by the invoked version. For more information, see [Viewing metrics for Lambda functions](monitoring-metrics-view.md).
+  For alias invocations, Lambda uses the `ExecutedVersion` dimension to filter the metric data by the invoked version. For more information, see [Viewing metrics for Lambda Event Functions](monitoring-metrics-view.md).
 + **Response payload (synchronous invocations)** – Responses to synchronous function invocations include an `x-amz-executed-version` header to indicate which function version has been invoked.
 
 ## Create a rolling deployment with weighted aliases

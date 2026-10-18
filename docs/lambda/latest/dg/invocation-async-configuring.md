@@ -7,16 +7,16 @@ Use the following settings to configure how Lambda handles errors and retries fo
 + [MaximumEventAgeInSeconds](https://docs.aws.amazon.com/lambda/latest/api/API_PutFunctionEventInvokeConfig.html#lambda-PutFunctionEventInvokeConfig-request-MaximumEventAgeInSeconds): The maximum amount of time, in seconds, that Lambda keeps an event in the asynchronous event queue before discarding it.
 + [MaximumRetryAttempts](https://docs.aws.amazon.com/lambda/latest/api/API_PutFunctionEventInvokeConfig.html#lambda-PutFunctionEventInvokeConfig-request-MaximumRetryAttempts): The maximum number of times that Lambda retries events when the function returns an error.
 
-Use the Lambda console or AWS CLI to configure error handling settings on a function, a version, or an alias.
+Use the Lambda console or AWS CLI to configure error handling settings on an Event Function, a version, or an alias.
 
 ------
 #### [ Console ]
 
 **To configure error handling**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function.
+1. Choose an Event Function.
 
 1. Choose **Configuration** and then choose **Asynchronous invocation**.
 
@@ -31,7 +31,7 @@ Use the Lambda console or AWS CLI to configure error handling settings on a func
 ------
 #### [ AWS CLI ]
 
-To configure asynchronous invocation with the AWS CLI, use the [put-function-event-invoke-config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/put-function-event-invoke-config.html) command. The following example configures a function with a maximum event age of 1 hour and no retries.
+To configure asynchronous invocation with the AWS CLI, use the [put-function-event-invoke-config](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/put-function-event-invoke-config.html) command. The following example configures an Event Function with a maximum event age of 1 hour and no retries.
 
 ```
 aws lambda put-function-event-invoke-config \ 

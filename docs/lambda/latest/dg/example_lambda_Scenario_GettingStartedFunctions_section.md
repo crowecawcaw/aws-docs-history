@@ -5164,11 +5164,11 @@ struct ExampleCommand: ParsableCommand {
     /// Perform the example's tasks.
     func basics() async throws {
         let iamClient = try await IAMClient(
-            config: IAMClient.IAMClientConfiguration(region: region)
+            config: IAMClient.IAMClientConfig(region: region)
         )
 
         let lambdaClient = try await LambdaClient(
-            config: LambdaClient.LambdaClientConfiguration(region: region)
+            config: LambdaClient.LambdaClientConfig(region: region)
         )
 
         /// The IAM role to use for the example.

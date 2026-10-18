@@ -1,24 +1,24 @@
 
 
-# Tutorial: Using an Amazon S3 trigger to invoke a Lambda function
+# Tutorial: Using an Amazon S3 trigger to invoke a Lambda Event Function
 <a name="with-s3-example"></a>
 
-In this tutorial, you use the console to create a Lambda function and configure a trigger for an Amazon Simple Storage Service (Amazon S3) bucket. Every time that you add an object to your Amazon S3 bucket, your function runs and outputs the object type to Amazon CloudWatch Logs.
+In this tutorial, you use the console to create a Lambda Event Function and configure a trigger for an Amazon Simple Storage Service (Amazon S3) bucket. Every time that you add an object to your Amazon S3 bucket, your function runs and outputs the object type to Amazon CloudWatch Logs.
 
-![Data flow between an S3 bucket, a Lambda function, and CloudWatch Logs.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3_tut_config.png)
+![Data flow between an S3 bucket, a Lambda Event Function, and CloudWatch Logs.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3_tut_config.png)
 
 
 This tutorial demonstrates how to:
 
 1. Create an Amazon S3 bucket.
 
-1. Create a Lambda function that returns the object type of objects in an Amazon S3 bucket.
+1. Create a Lambda Event Function that returns the object type of objects in an Amazon S3 bucket.
 
 1. Configure a Lambda trigger that invokes your function when objects are uploaded to your bucket.
 
 1. Test your function, first with a dummy event, and then using the trigger.
 
-By completing these steps, you'll learn how to configure a Lambda function to run whenever objects are added to or deleted from an Amazon S3 bucket. You can complete this tutorial using only the AWS Management Console.
+By completing these steps, you'll learn how to configure a Lambda Event Function to run whenever objects are added to or deleted from an Amazon S3 bucket. You can complete this tutorial using only the AWS Management Console.
 
 ## Create an Amazon S3 bucket
 <a name="with-s3-example-create-bucket"></a>
@@ -30,7 +30,7 @@ By completing these steps, you'll learn how to configure a Lambda function to ru
 
 1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3) and select the **General purpose buckets** page.
 
-1. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen. Later in the tutorial, you must create your Lambda function in the same Region.  
+1. Select the AWS Region closest to your geographical location. You can change your region using the drop-down list at the top of the screen. Later in the tutorial, you must create your Lambda Event Function in the same Region.  
 ![Image showing drop down region menu in S3 console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
 1. Choose **Create bucket**.
@@ -59,7 +59,7 @@ By completing these steps, you'll learn how to configure a Lambda function to ru
 
 1. Choose **Open**, then choose **Upload**.
 
-Later in the tutorial, you'll test your Lambda function using this object.
+Later in the tutorial, you'll test your Lambda Event Function using this object.
 
 ## Create a permissions policy
 <a name="with-s3-example-create-policy"></a>
@@ -122,7 +122,7 @@ Create a permissions policy that allows Lambda to get objects from an Amazon S3 
 ![Next step: Create the execution role.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3trigger_tut_steps4.png)
 
 
-An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Access Management (IAM) role that grants a Lambda function permission to access AWS services and resources. In this step, create an execution role using the permissions policy that you created in the previous step.
+An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Access Management (IAM) role that grants a Lambda Event Function permission to access AWS services and resources. In this step, create an execution role using the permissions policy that you created in the previous step.
 
 **To create an execution role and attach your custom permissions policy**
 
@@ -140,22 +140,22 @@ An [execution role](lambda-intro-execution-role.md) is an AWS Identity and Acces
 
 1. Under **Role details**, for the **Role name**, enter **lambda-s3-trigger-role**, then choose **Create role**.
 
-## Create the Lambda function
+## Create the Lambda Event Function
 <a name="with-s3-example-create-function"></a>
 
-![Next step: Create the Lambda function.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3trigger_tut_steps5.png)
+![Next step: Create the Lambda Event Function.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3trigger_tut_steps5.png)
 
 
-Create a Lambda function in the console using the Python 3.14 runtime.
+Create a Lambda Event Function in the console using the Python 3.14 runtime.
 
-**To create the Lambda function**
+**To create the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Make sure you're working in the same AWS Region you created your Amazon S3 bucket in. You can change your Region using the drop-down list at the top of the screen.  
 ![Image showing drop down region menu in Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
 1. Choose **Author from scratch**
 
@@ -173,9 +173,9 @@ Create a Lambda function in the console using the Python 3.14 runtime.
 
    1. Select the `lambda-s3-trigger-role` you created earlier.
 
-1. Choose **Create function**.
+1. Choose **Create Event Function**.
 
-## Deploy the function code
+## Deploy the Event Function code
 <a name="with-s3-example-deploy-code"></a>
 
 ![Next step: Deploy the function code.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3trigger_tut_steps6.png)
@@ -183,9 +183,9 @@ Create a Lambda function in the console using the Python 3.14 runtime.
 
 This tutorial uses the Python 3.14 runtime, but we've also provided example code files for other runtimes. You can select the tab in the following box to see the code for the runtime you're interested in.
 
-The Lambda function retrieves the key name of the uploaded object and the name of the bucket from the `event` parameter it receives from Amazon S3. The function then uses the [get\_object](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html) method from the AWS SDK for Python (Boto3) to retrieve the object's metadata, including the content type (MIME type) of the uploaded object.
+The Lambda Event Function retrieves the key name of the uploaded object and the name of the bucket from the `event` parameter it receives from Amazon S3. The function then uses the [get\_object](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/client/get_object.html) method from the AWS SDK for Python (Boto3) to retrieve the object's metadata, including the content type (MIME type) of the uploaded object.
 
-**To deploy the function code**
+**To deploy the Event Function code**
 
 1. Choose the **Python** tab in the following box and copy the code.
 
@@ -645,21 +645,21 @@ Consuming an S3 event with Lambda using Rust.
 1. Choose **Add**.
 
 **Note**  
-When you create an Amazon S3 trigger for a Lambda function using the Lambda console, Amazon S3 configures an [event notification](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html) on the bucket you specify. Before configuring this event notification, Amazon S3 performs a series of checks to confirm that the event destination exists and has the required IAM policies. Amazon S3 also performs these tests on any other event notifications configured for that bucket.  
+When you create an Amazon S3 trigger for a Lambda Event Function using the Lambda console, Amazon S3 configures an [event notification](https://docs.aws.amazon.com/AmazonS3/latest/userguide/EventNotifications.html) on the bucket you specify. Before configuring this event notification, Amazon S3 performs a series of checks to confirm that the event destination exists and has the required IAM policies. Amazon S3 also performs these tests on any other event notifications configured for that bucket.  
 Because of this check, if the bucket has previously configured event destinations for resources that no longer exist, or for resources that don't have the required permissions policies, Amazon S3 won't be able to create the new event notification. You'll see the following error message indicating that your trigger couldn't be created:  
 
 ```
 An error occurred when creating the trigger: Unable to validate the following destination configurations.
 ```
-You can see this error if you previously configured a trigger for another Lambda function using the same bucket, and you have since deleted the function or modified its permissions policies.
+You can see this error if you previously configured a trigger for another Lambda Event Function using the same bucket, and you have since deleted the function or modified its permissions policies.
 
-## Test your Lambda function with a dummy event
+## Test your Lambda Event Function with a dummy event
 <a name="with-s3-example-test-dummy-event"></a>
 
 ![Tutorial workflow diagram showing you are in the testing step testing with a dummy event.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3trigger_tut_steps8.png)
 
 
-**To test the Lambda function with a dummy event**
+**To test the Lambda Event Function with a dummy event**
 
 1. In the Lambda console page for your function, choose the **Test** tab.  
 ![Lambda console Test tab.](https://docs.aws.amazon.com/lambda/latest/dg/images/test-tab.png)
@@ -733,13 +733,13 @@ You can see this error if you previously configured a trigger for another Lambda
    12b3cae7-5f4e-415e-93e6-416b8f8b66e6
    ```
 
-### Test the Lambda function with the Amazon S3 trigger
+### Test the Lambda Event Function with the Amazon S3 trigger
 <a name="with-s3-example-test-s3-trigger"></a>
 
 ![Tutorial workflow diagram showing you are in the testing step testing using the S3 trigger.](https://docs.aws.amazon.com/lambda/latest/dg/images/services-s3-example/s3trigger_tut_steps9.png)
 
 
-To test your function with the configured trigger, upload an object to your Amazon S3 bucket using the console. To verify that your Lambda function ran as expected, use CloudWatch Logs to view your function's output.
+To test your function with the configured trigger, upload an object to your Amazon S3 bucket using the console. To verify that your Lambda Event Function ran as expected, use CloudWatch Logs to view your function's output.
 
 **To upload an object to your Amazon S3 bucket**
 
@@ -751,11 +751,11 @@ To test your function with the configured trigger, upload an object to your Amaz
 
 1. Choose **Open**, then choose **Upload**.
 
-**To verify the function invocation using CloudWatch Logs**
+**To verify the Event Function invocation using CloudWatch Logs**
 
 1. Open the [CloudWatch](https://console.aws.amazon.com/cloudwatch/home) console.
 
-1. Make sure you're working in the same AWS Region you created your Lambda function in. You can change your Region using the drop-down list at the top of the screen.  
+1. Make sure you're working in the same AWS Region you created your Lambda Event Function in. You can change your Region using the drop-down list at the top of the screen.  
 ![Image showing drop down region menu in Lambda console.](https://docs.aws.amazon.com/lambda/latest/dg/images/console_region_select.png)
 
 1. Choose **Logs**, then choose **Log groups**.
@@ -775,11 +775,11 @@ To test your function with the configured trigger, upload an object to your Amaz
 
 You can now delete the resources that you created for this tutorial, unless you want to retain them. By deleting AWS resources that you're no longer using, you prevent unnecessary charges to your AWS account.
 
-**To delete the Lambda function**
+**To delete the Lambda Event Function**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Select the function that you created.
+1. Select the Event Function that you created.
 
 1. Choose **Actions**, **Delete**.
 

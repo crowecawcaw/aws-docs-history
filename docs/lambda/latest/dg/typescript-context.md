@@ -1,9 +1,9 @@
 
 
-# Using the Lambda context object to retrieve TypeScript function information
+# Using the Lambda context object to retrieve TypeScript Event Function information
 <a name="typescript-context"></a>
 
-When Lambda runs your function, it passes a context object to the [handler](typescript-handler.md). This object provides methods and properties that provide information about the invocation, function, and execution environment.
+When Lambda runs your Event Function, it passes a context object to the [handler](typescript-handler.md). This object provides methods and properties that provide information about the invocation, function, and execution environment.
 
 To enable type checking for the context object, you must add the [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda) package as a development dependency and import the `Context` type. For more information, see [Type definitions for Lambda](lambda-typescript.md#typescript-type-definitions).
 

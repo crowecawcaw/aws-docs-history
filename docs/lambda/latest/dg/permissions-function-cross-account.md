@@ -1,6 +1,6 @@
 
 
-# Granting Lambda function access to other accounts
+# Granting Event Function access to other accounts
 <a name="permissions-function-cross-account"></a>
 
 To share a function with another AWS account, add a cross-account permissions statement to the function's [resource-based policy](access-control-resource-based.md). We recommend using `put-resource-policy` to create a full JSON policy. With `put-resource-policy`, you can specify multiple principals, add conditions, and create deny statements. You can also use `add-permission` for simple use cases.

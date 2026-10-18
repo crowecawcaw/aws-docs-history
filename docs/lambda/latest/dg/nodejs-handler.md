@@ -1,15 +1,15 @@
 
 
-# Define Lambda function handler in Node.js
+# Define Lambda Event Function handler in Node.js
 <a name="nodejs-handler"></a>
 
-The Lambda function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
+The Lambda Event Function *handler* is the method in your function code that processes events. When your function is invoked, Lambda runs the handler method. Your function runs until the handler returns a response, exits, or times out.
 
-This page describes how to work with Lambda function handlers in Node.js, including options for project setup, naming conventions, and best practices. This page also includes an example of a Node.js Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Node.js Lambda functions with .zip file archives](nodejs-package.md) or [Deploy Node.js Lambda functions with container images](nodejs-image.md).
+This page describes how to work with Lambda Event Function handlers in Node.js, including options for project setup, naming conventions, and best practices. This page also includes an example of a Node.js Lambda function that takes in information about an order, produces a text file receipt, and puts this file in an Amazon Simple Storage Service (Amazon S3) bucket. For information about how to deploy your function after writing it, see [Deploy Node.js Lambda Event Functions with .zip file archives](nodejs-package.md) or [Deploy Node.js Lambda Event Functions with container images](nodejs-image.md).
 
 **Topics**
 + [Setting up your Node.js handler project](#nodejs-handler-setup)
-+ [Example Node.js Lambda function code](#nodejs-example-code)
++ [Example Node.js Lambda Event Function code](#nodejs-example-code)
 + [CommonJS and ES Modules](#nodejs-commonjs-es-modules)
 + [Node.js initialization](#nodejs-initialization)
 + [Handler naming conventions](#nodejs-handler-naming)
@@ -18,7 +18,7 @@ This page describes how to work with Lambda function handlers in Node.js, includ
 + [Using the SDK for JavaScript v3 in your handler](#nodejs-example-sdk-usage)
 + [Accessing environment variables](#nodejs-example-envvars)
 + [Using global state](#nodejs-handler-state)
-+ [Code best practices for Node.js Lambda functions](#nodejs-best-practices)
++ [Code best practices for Node.js Lambda Event Functions](#nodejs-best-practices)
 
 ## Setting up your Node.js handler project
 <a name="nodejs-handler-setup"></a>
@@ -45,12 +45,12 @@ A typical Node.js Lambda function project follows this general structure:
   └── node_modules/ — Installed dependencies
 ```
 
-## Example Node.js Lambda function code
+## Example Node.js Lambda Event Function code
 <a name="nodejs-example-code"></a>
 
 The following example Lambda function code takes in information about an order, produces a text file receipt, and puts this file in an Amazon S3 bucket.
 
-**Example index.mjs Lambda function**  
+**Example index.mjs Lambda Event Function**  
 
 ```
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
@@ -244,7 +244,7 @@ We recommend that you use [async/await](https://docs.aws.amazon.com/sdk-for-java
 
 The `async` keyword marks a function as asynchronous, and the `await` keyword pauses the execution of the function until a `Promise` is resolved. The handler accepts the following arguments:
 + `event`: Contains the input data passed to your function.
-+ `context`: Contains information about the invocation, function, and execution environment. For more information, see [Using the Lambda context object to retrieve Node.js function information](nodejs-context.md).
++ `context`: Contains information about the invocation, function, and execution environment. For more information, see [Using the Lambda context object to retrieve Node.js Event Function information](nodejs-context.md).
 
 Here are the valid signatures for the async/await pattern:
 
@@ -278,7 +278,7 @@ Lambda supports response streaming with Node.js. Response streaming function han
 export const handler = awslambda.streamifyResponse(async (event, responseStream, context) => { });
 ```
 
-For more information, see [Response streaming for Lambda functions](configuration-response-streaming.md).
+For more information, see [Response streaming for Lambda Event Functions](configuration-response-streaming.md).
 
 ### Callback-based function handlers
 <a name="nodejs-handler-callback"></a>
@@ -365,7 +365,7 @@ Lambda runs your static code during the [initialization phase](lambda-runtime-en
 
 In the example code, the S3 client initialization code is outside the handler. The runtime initializes the client before the function handles its first event, and the client remains available for reuse across all invocations.
 
-## Code best practices for Node.js Lambda functions
+## Code best practices for Node.js Lambda Event Functions
 <a name="nodejs-best-practices"></a>
 
 Follow these guidelines when building Lambda functions:

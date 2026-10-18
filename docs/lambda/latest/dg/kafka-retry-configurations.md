@@ -9,7 +9,7 @@ You can configure how Lambda handles errors and retries for your Kafka event sou
 <a name="kafka-retry-options"></a>
 
 The following retry configurations are available for both Amazon MSK and self-managed Kafka event sources:
-+ **Maximum retry attempts** – The maximum number of times Lambda retries when your function returns an error. This doesn't count the initial invocation attempt. The default is -1 (infinite). When you configure both infinite retries and an [on-failure destination](kafka-on-failure-destination.md), Lambda automatically applies a maximum of 10 retry attempts.
++ **Maximum retry attempts** – The maximum number of times Lambda retries when your Event Function returns an error. This doesn't count the initial invocation attempt. The default is -1 (infinite). When you configure both infinite retries and an [on-failure destination](kafka-on-failure-destination.md), Lambda automatically applies a maximum of 10 retry attempts.
 + **Maximum record age** – The maximum age of a record that Lambda sends to your function. The default is -1 (infinite).
 + **Split batch on error** – When your function returns an error, split the batch into two smaller batches and retry each separately. This helps isolate problematic records.
 + **Partial batch response** – Allow your function to return information about which records in a batch failed processing, so Lambda can retry only the failed records.
@@ -21,7 +21,7 @@ You can configure retry behavior when creating or updating a Kafka event source 
 
 **To configure retry behavior for a Kafka event source (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose your function name.
 
@@ -119,7 +119,7 @@ To report batch errors, use this JSON schema:
 **Important**  
 If you return an empty valid JSON or null, the event source mapping considers a batch as successfully processed. Any invalid topic-partition\_number or offset returned that was not present in the invoked event is treated as failure and the entire batch is retried.
 
-The following code examples show how to implement partial batch response for Lambda functions that receive events from Kafka sources. The function reports the batch item failures in the response, signaling to Lambda to retry those messages later.
+The following code examples show how to implement partial batch response for Lambda Event Functions that receive events from Kafka sources. The function reports the batch item failures in the response, signaling to Lambda to retry those messages later.
 
 Here is a Python Lambda handler implementation that shows this approach:
 

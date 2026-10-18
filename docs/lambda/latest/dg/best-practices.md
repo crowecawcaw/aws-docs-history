@@ -1,19 +1,19 @@
 
 
-# Best practices for working with AWS Lambda functions
+# Best practices for working with AWS Lambda Event Functions
 <a name="best-practices"></a>
 
 The following are recommended best practices for using AWS Lambda:
 
 **Topics**
-+ [Function code](#function-code)
-+ [Function configuration](#function-configuration)
-+ [Function scalability](#function-scalability)
++ [Event Function code](#function-code)
++ [Event Function configuration](#function-configuration)
++ [Event Function scalability](#function-scalability)
 + [Metrics and alarms](#alarming-metrics)
 + [Working with streams](#stream-events)
 + [Security best practices](#security-best-practices)
 
-## Function code
+## Event Function code
 <a name="function-code"></a>
 
 **Take advantage of execution environment reuse to improve the performance of your function.** Initialize SDK clients and database connections outside of the function handler, and cache static assets locally in the `/tmp` directory. Subsequent invocations processed by the same instance of your function can reuse these resources. This saves cost by reducing function run time.
@@ -38,19 +38,19 @@ You can use Powertools for AWS Lambda to make functions idempotent. For more inf
 [.NET - Idempotency utility](https://docs.aws.amazon.com/powertools/dotnet/utilities/idempotency/)
 
 For language-specific code best practices, refer to the following sections:
-+ [Code best practices for Node.js Lambda functions](nodejs-handler.md#nodejs-best-practices)
-+ [Code best practices for TypeScript Lambda functions](typescript-handler.md#typescript-best-practices)
-+ [Code best practices for Python Lambda functions](python-handler.md#python-handler-best-practices)
-+ [Code best practices for Ruby Lambda functions](ruby-handler.md#ruby-best-practices)
-+ [Code best practices for Java Lambda functions](java-handler.md#java-best-practices)
-+ [Code best practices for Go Lambda functions](golang-handler.md#go-best-practices)
-+ [Code best practices for C\# Lambda functions](csharp-handler.md#csharp-best-practices)
-+ [Code best practices for Rust Lambda functions](rust-handler.md#rust-best-practices)
++ [Code best practices for Node.js Lambda Event Functions](nodejs-handler.md#nodejs-best-practices)
++ [Code best practices for TypeScript Lambda Event Functions](typescript-handler.md#typescript-best-practices)
++ [Code best practices for Python Lambda Event Functions](python-handler.md#python-handler-best-practices)
++ [Code best practices for Ruby Lambda Event Functions](ruby-handler.md#ruby-best-practices)
++ [Code best practices for Java Lambda Event Functions](java-handler.md#java-best-practices)
++ [Code best practices for Go Lambda Event Functions](golang-handler.md#go-best-practices)
++ [Code best practices for C\# Lambda Event Functions](csharp-handler.md#csharp-best-practices)
++ [Code best practices for Rust Lambda Event Functions](rust-handler.md#rust-best-practices)
 
-## Function configuration
+## Event Function configuration
 <a name="function-configuration"></a>
 
-**Performance testing your Lambda function** is a crucial part in ensuring you pick the optimum memory size configuration. Any increase in memory size triggers an equivalent increase in CPU available to your function. The memory usage for your function is determined per-invoke and can be viewed in [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchLogs.html). On each invoke a `REPORT:` entry is made, as shown below: 
+**Performance testing your Lambda Event Function** is a crucial part in ensuring you pick the optimum memory size configuration. Any increase in memory size triggers an equivalent increase in CPU available to your function. The memory usage for your function is determined per-invoke and can be viewed in [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatchLogs.html). On each invoke a `REPORT:` entry is made, as shown below: 
 
 ```
 REPORT RequestId: 3604209a-e9a3-11e6-939a-754dd98c7be3	Duration: 12.34 ms	Billed Duration: 100 ms Memory Size: 128 MB	Max Memory Used: 18 MB
@@ -62,22 +62,22 @@ By analyzing the `Max Memory Used:` field, you can determine if your function ne
 
 To optimize function performance, we also recommend deploying libraries that can use Advanced Vector Extensions 2 (AVX2). With this, you can process demanding workloads, including machine learning inferencing, media processing, high performance computing (HPC), scientific simulations, and financial modeling. For more information, see [ Creating faster AWS Lambda functions with AVX2](https://aws.amazon.com/blogs/compute/creating-faster-aws-lambda-functions-with-avx2/).
 
-**Load test your Lambda function** to determine an optimum timeout value. It is important to analyze how long your function runs so that you can better determine any problems with a dependency service that might increase the concurrency of the function beyond what you expect. This is especially important when your Lambda function makes network calls to resources that might not handle Lambda's scaling. For more information about load testing your application, see [ Distributed Load Testing on AWS](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/).
+**Load test your Lambda Event Function** to determine an optimum timeout value. It is important to analyze how long your function runs so that you can better determine any problems with a dependency service that might increase the concurrency of the function beyond what you expect. This is especially important when your Lambda Event Function makes network calls to resources that might not handle Lambda's scaling. For more information about load testing your application, see [ Distributed Load Testing on AWS](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/).
 
-**Use most-restrictive permissions when setting IAM policies.** Understand the resources and operations your Lambda function needs, and limit the execution role to these permissions. For more information, see [Managing permissions in AWS Lambda](lambda-permissions.md). 
+**Use most-restrictive permissions when setting IAM policies.** Understand the resources and operations your Lambda Event Function needs, and limit the execution role to these permissions. For more information, see [Managing permissions in AWS Lambda](lambda-permissions.md). 
 
 **Be familiar with [Lambda quotas](gettingstarted-limits.md).** Payload size, file descriptors and /tmp space are often overlooked when determining runtime resource limits. 
 
-**Delete Lambda functions that you are no longer using.** By doing so, the unused functions won't needlessly count against your deployment package size limit.
+**Delete Lambda Event Functions that you are no longer using.** By doing so, the unused functions won't needlessly count against your deployment package size limit.
 
 **If you are using Amazon Simple Queue Service** as an event source, make sure the value of the function's expected invocation time does not exceed the [Visibility Timeout](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html) value on the queue. This applies both to [CreateFunction](https://docs.aws.amazon.com/lambda/latest/api/API_CreateFunction.html) and [UpdateFunctionConfiguration](https://docs.aws.amazon.com/lambda/latest/api/API_UpdateFunctionConfiguration.html).
 + In the case of **CreateFunction**, AWS Lambda fails the function creation process.
 + In the case of **UpdateFunctionConfiguration**, it could result in duplicate invocations of the function.
 
-## Function scalability
+## Event Function scalability
 <a name="function-scalability"></a>
 
-**Be familiar with your upstream and downstream throughput constraints.** While Lambda functions scale seamlessly with load, upstream and downstream dependencies might not have the same throughput capabilities. If you need to limit how high your function can scale, you can [configure reserved concurrency](configuration-concurrency.md) on your function.
+**Be familiar with your upstream and downstream throughput constraints.** While Lambda Event Functions scale seamlessly with load, upstream and downstream dependencies might not have the same throughput capabilities. If you need to limit how high your function can scale, you can [configure reserved concurrency](configuration-concurrency.md) on your function.
 
 **Build in throttle tolerance.** If your synchronous function experiences throttling due to traffic exceeding Lambda's scaling rate, you can use the following strategies to improve throttle tolerance:
 + **Use [ timeouts, retries, and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/)**. Implementing these strategies smooth out retried invocations, and helps ensure Lambda can scale up within seconds to minimize end-user throttling.
@@ -86,7 +86,7 @@ To optimize function performance, we also recommend deploying libraries that can
 ## Metrics and alarms
 <a name="alarming-metrics"></a>
 
-**Use [Using CloudWatch metrics with Lambda](monitoring-metrics.md) and [ CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)** instead of creating or updating a metric from within your Lambda function code. It's a much more efficient way to track the health of your Lambda functions, allowing you to catch issues early in the development process. For instance, you can configure an alarm based on the expected duration of your Lambda function invocation to address any bottlenecks or latencies attributable to your function code.
+**Use [Using CloudWatch metrics with Lambda](monitoring-metrics.md) and [ CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)** instead of creating or updating a metric from within your Lambda Event Function code. It's a much more efficient way to track the health of your Lambda Event Functions, allowing you to catch issues early in the development process. For instance, you can configure an alarm based on the expected duration of your Lambda Event Function invocation to address any bottlenecks or latencies attributable to your function code.
 
 **Emit custom metrics asynchronously using Embedded Metric Format (EMF).** Instead of making synchronous API calls to CloudWatch, use EMF to emit metrics through your function's logs. This approach reduces latency and improves performance.
 
@@ -121,7 +121,7 @@ You can use Powertools for AWS Lambda for batch processing. For more information
 
 **Increase Kinesis stream processing throughput by adding shards.** A Kinesis stream is composed of one or more shards. The rate at which Lambda can read data from Kinesis scales linearly with the number of shards.
 
-Increasing the number of shards directly increases the number of maximum concurrent Lambda function invocations and can increase your Kinesis stream processing throughput. For more information about the relationship between shards and function invocations, see [Polling and batching streams](with-kinesis.md#kinesis-polling-and-batching). If you are increasing the number of shards in a Kinesis stream, make sure you have picked a good partition key (see [Partition Keys](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key)) for your data, so that related records end up on the same shards and your data is well distributed. 
+Increasing the number of shards directly increases the number of maximum concurrent Lambda Event Function invocations and can increase your Kinesis stream processing throughput. For more information about the relationship between shards and function invocations, see [Polling and batching streams](with-kinesis.md#kinesis-polling-and-batching). If you are increasing the number of shards in a Kinesis stream, make sure you have picked a good partition key (see [Partition Keys](https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key)) for your data, so that related records end up on the same shards and your data is well distributed. 
 
 **Use [Amazon CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html)** on IteratorAge to determine if your Kinesis stream is being processed. For example, configure a CloudWatch alarm with a maximum setting to 30000 (30 seconds).
 
@@ -130,4 +130,4 @@ Increasing the number of shards directly increases the number of maximum concurr
 
 **Monitor your usage of AWS Lambda as it relates to security best practices by using AWS Security Hub CSPM.** Security Hub CSPM uses security controls to evaluate resource configurations and security standards to help you comply with various compliance frameworks. For more information about using Security Hub CSPM to evaluate Lambda resources, see [AWS Lambda controls](https://docs.aws.amazon.com/securityhub/latest/userguide/lambda-controls.html) in the AWS Security Hub CSPM User Guide.
 
-**Monitor Lambda network activity logs using Amazon GuardDuty Lambda Protection.** GuardDuty Lambda protection helps you identify potential security threats when Lambda functions are invoked in your AWS account. For example, if one of your functions queries an IP address that is associated with cryptocurrency-related activity. GuardDuty monitors the network activity logs that are generated when a Lambda function is invoked. To learn more, see [Lambda protection](https://docs.aws.amazon.com/guardduty/latest/ug/lambda-protection.html) in the *Amazon GuardDuty User Guide*.
+**Monitor Lambda network activity logs using Amazon GuardDuty Lambda Protection.** GuardDuty Lambda protection helps you identify potential security threats when Lambda Event Functions are invoked in your AWS account. For example, if one of your functions queries an IP address that is associated with cryptocurrency-related activity. GuardDuty monitors the network activity logs that are generated when a Lambda Event Function is invoked. To learn more, see [Lambda protection](https://docs.aws.amazon.com/guardduty/latest/ug/lambda-protection.html) in the *Amazon GuardDuty User Guide*.

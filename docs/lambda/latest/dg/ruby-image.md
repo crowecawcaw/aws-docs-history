@@ -1,9 +1,9 @@
 
 
-# Deploy Ruby Lambda functions with container images
+# Deploy Ruby Lambda Event Functions with container images
 <a name="ruby-image"></a>
 
-There are three ways to build a container image for a Ruby Lambda function:
+There are three ways to build a container image for a Ruby Lambda Event Function:
 + [Using an AWS base image for Ruby](#ruby-image-instructions)
 
   The [AWS base images](images-create.md#runtimes-images-lp) are preloaded with a language runtime, a runtime interface client to manage the interaction between Lambda and your function code, and a runtime interface emulator for local testing.

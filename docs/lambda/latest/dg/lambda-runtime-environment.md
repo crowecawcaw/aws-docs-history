@@ -3,7 +3,7 @@
 # Understanding the Lambda execution environment lifecycle
 <a name="lambda-runtime-environment"></a>
 
-Lambda execution environments support both standard functions (up to 15 minutes) and Durable Functions (up to one year). While both share the same basic lifecycle, Durable Functions add state management capabilities for long-running workflows.
+Lambda execution environments run function invocations for up to 15 minutes by default, and durable functions can run for up to one year. Durable functions share the same basic lifecycle and add state management capabilities for long-running workflows.
 
  Lambda invokes your function in an execution environment, which provides a secure and isolated runtime environment. The execution environment manages the resources required to run your function. The execution environment also provides lifecycle support for the function's runtime and any [external extensions](lambda-extensions.md) associated with your function. 
 
@@ -145,7 +145,7 @@ In the previous diagram:
 
   Note that the Lambda reset does not clear the `/tmp` directory content before the next init phase. This behavior is consistent with the regular shutdown phase.
 **Note**  
-AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda functions in your AWS account.  
+AWS is currently implementing changes to the Lambda service. Due to these changes, you may see minor differences between the structure and content of system log messages and trace segments emitted by different Lambda Event Functions in your AWS account.  
 If your function's system log configuration is set to plain text, this change affects the log messages captured in CloudWatch Logs when your function experiences an invoke failure. The following examples show log outputs in both old and new formats.  
 These changes will be implemented during the coming weeks, and all functions in all AWS Regions except the China and GovCloud regions will transition to use the new-format log messages and trace segments.
 

@@ -22,7 +22,7 @@ The runtime interface clients used by Lambda's managed runtimes and container ba
 + [C\+\+ Runtime Interface Client](https://github.com/awslabs/aws-lambda-cpp) (experimental)
 + [Lambda Base Images](https://github.com/aws/aws-lambda-base-images)
 
-For more information about using these clients to build custom runtimes, see [Building a custom runtime for AWS Lambda](runtimes-custom.md).
+For more information about using these clients to build custom runtimes, see [Building a custom runtime for AWS Lambda Event Functions](runtimes-custom.md).
 
 ## Event libraries
 <a name="open-source-event-libraries"></a>
@@ -42,9 +42,9 @@ For interpreted languages like Node.js, Python, and Ruby, events can be parsed d
 ## Container base images
 <a name="open-source-container-base-images"></a>
 
-AWS provides open source container base images that you can use as a starting point for building container images for your Lambda functions. These base images include the runtime interface client and other components needed to run your functions in the Lambda execution environment.
+AWS provides open source container base images that you can use as a starting point for building container images for your Lambda Event Functions. These base images include the runtime interface client and other components needed to run your functions in the Lambda execution environment.
 
-For more information about the available base images and how to use them, see the [AWS Lambda Base Images](https://github.com/aws/aws-lambda-base-images) repository and [Create a Lambda function using a container image](images-create.md).
+For more information about the available base images and how to use them, see the [AWS Lambda Base Images](https://github.com/aws/aws-lambda-base-images) repository and [Create a Lambda Event Function using a container image](images-create.md).
 
 ## Development tools
 <a name="open-source-development-tools"></a>

@@ -1,11 +1,11 @@
 
 
-# Process Amazon EC2 lifecycle events with a Lambda function
+# Process Amazon EC2 lifecycle events with a Lambda Event Function
 <a name="services-ec2"></a>
 
-You can use AWS Lambda to process lifecycle events from Amazon Elastic Compute Cloud and manage Amazon EC2 resources. Amazon EC2 sends events to [Amazon EventBridge (CloudWatch Events)](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) for [lifecycle events](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html) such as when an instance changes state, when an Amazon Elastic Block Store volume snapshot completes, or when a Spot Instance is scheduled to be terminated. You configure EventBridge (CloudWatch Events) to forward those events to a Lambda function for processing.
+You can use AWS Lambda to process lifecycle events from Amazon Elastic Compute Cloud and manage Amazon EC2 resources. Amazon EC2 sends events to [Amazon EventBridge (CloudWatch Events)](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html) for [lifecycle events](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html) such as when an instance changes state, when an Amazon Elastic Block Store volume snapshot completes, or when a Spot Instance is scheduled to be terminated. You configure EventBridge (CloudWatch Events) to forward those events to a Lambda Event Function for processing.
 
-EventBridge (CloudWatch Events) invokes your Lambda function asynchronously with the event document from Amazon EC2.
+EventBridge (CloudWatch Events) invokes your Lambda Event Function asynchronously with the event document from Amazon EC2.
 
 **Example instance lifecycle event**  
 
@@ -28,7 +28,7 @@ EventBridge (CloudWatch Events) invokes your Lambda function asynchronously with
 }
 ```
 
-For details on configuring events, see [Invoke a Lambda function on a schedule](with-eventbridge-scheduler.md). For an example function that processes Amazon EBS snapshot notifications, see [EventBridge Scheduler for Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-cloud-watch-events.html).
+For details on configuring events, see [Invoke a Lambda Event Function on a schedule](with-eventbridge-scheduler.md). For an example function that processes Amazon EBS snapshot notifications, see [EventBridge Scheduler for Amazon EBS](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-cloud-watch-events.html).
 
 You can also use the AWS SDK to manage instances and other resources with the Amazon EC2 API.
 

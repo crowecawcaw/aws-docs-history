@@ -3,7 +3,7 @@
 # Troubleshoot execution issues in Lambda
 <a name="troubleshooting-execution"></a>
 
-When the Lambda runtime runs your function code, the event might be processed on an instance of the function that's been processing events for some time, or it might require a new instance to be initialized. Errors can occur during function initialization, when your handler code processes the event, or when your function returns (or fails to return) a response.
+When the Lambda runtime runs your function code, the event might be processed on an instance of the Lambda Event Function that's been processing events for some time, or it might require a new instance to be initialized. Errors can occur during function initialization, when your handler code processes the event, or when your function returns (or fails to return) a response.
 
 Function execution errors can be caused by issues with your code, function configuration, downstream resources, or permissions. If you invoke your function directly, you see function errors in the response from Lambda. If you invoke your function asynchronously, with an event source mapping, or through another service, you might find errors in logs, a dead-letter queue, or an on-failure destination. Error handling options and retry behavior vary depending on how you invoke your function and on the type of error.
 
@@ -31,7 +31,7 @@ When your function code or the Lambda runtime return an error, the status code i
 
 **Issue:** *Difficulty troubleshooting complex Lambda function behavior in the actual AWS environment*
 
-Lambda provides a remote debugging feature through the AWS Toolkit for Visual Studio Code. For set up and general instructions, see [Remotely debug Lambda functions with Visual Studio Code](debugging.md).
+Lambda provides a remote debugging feature through the AWS Toolkit for Visual Studio Code. For set up and general instructions, see [Remotely debug Lambda Event Functions with Visual Studio Code](debugging.md).
 
 For detailed instructions on troubleshooting, advanced use cases, and region availability, see [Remote debugging Lambda functions](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/lambda-remote-debug.html) in the AWS Toolkit for Visual Studio Code User Guide.
 
@@ -157,7 +157,7 @@ Many libraries, including the AWS SDK, operate asynchronously. When you make a n
 
 To wait for the promise to resolve into a response, use the `await` keyword. This blocks your handler code from executing until the promise is resolved into an object that contains the response. If you don't need to use the data from the response in your code, you can return the promise directly to the runtime.
 
-Some libraries don't return promises but can be wrapped in code that does. For more information, see [Define Lambda function handler in Node.js](nodejs-handler.md).
+Some libraries don't return promises but can be wrapped in code that does. For more information, see [Define Lambda Event Function handler in Node.js](nodejs-handler.md).
 
 ## Lambda: Running an unintended function version or alias
 <a name="unintended-function"></a>
@@ -218,37 +218,37 @@ To use a newer version of the AWS SDK, or to lock your functions to a specific v
 ------
 #### [ Node.js ]
 
-[Deploy Node.js Lambda functions with .zip file archives](nodejs-package.md) 
+[Deploy Node.js Lambda Event Functions with .zip file archives](nodejs-package.md) 
 
 ------
 #### [ Python ]
 
- [Working with .zip file archives for Python Lambda functions](python-package.md) 
+ [Working with .zip file archives for Python Lambda Event Functions](python-package.md) 
 
 ------
 #### [ Ruby ]
 
- [Deploy Ruby Lambda functions with .zip file archives](ruby-package.md) 
+ [Deploy Ruby Lambda Event Functions with .zip file archives](ruby-package.md) 
 
 ------
 #### [ Java ]
 
- [Deploy Java Lambda functions with .zip or JAR file archives](java-package.md) 
+ [Deploy Java Lambda Event Functions with .zip or JAR file archives](java-package.md) 
 
 ------
 #### [ Go ]
 
- [Deploy Go Lambda functions with .zip file archives](golang-package.md) 
+ [Deploy Go Lambda Event Functions with .zip file archives](golang-package.md) 
 
 ------
 #### [ C\# ]
 
- [Build and deploy C\# Lambda functions with .zip file archives](csharp-package.md) 
+ [Build and deploy C\# Lambda Event Functions with .zip file archives](csharp-package.md) 
 
 ------
 #### [ PowerShell ]
 
- [Deploy PowerShell Lambda functions with .zip file archives](powershell-package.md) 
+ [Deploy PowerShell Lambda Event Functions with .zip file archives](powershell-package.md) 
 
 ------
 
@@ -257,7 +257,7 @@ To use a newer version of the AWS SDK, or to lock your functions to a specific v
 
 **Issue:** (Python) *Some libraries don't load correctly from the deployment package*
 
-Libraries with extension modules written in C or C\+\+ must be compiled in an environment with the same processor architecture as Lambda (Amazon Linux). For more information, see [Working with .zip file archives for Python Lambda functions](python-package.md).
+Libraries with extension modules written in C or C\+\+ must be compiled in an environment with the same processor architecture as Lambda (Amazon Linux). For more information, see [Working with .zip file archives for Python Lambda Event Functions](python-package.md).
 
 ## Java: Your function takes longer to process events after updating to Java 17 from Java 11
 <a name="troubleshooting-execution-java-perf"></a>

@@ -1,6 +1,6 @@
 
 
-# Create an alias for a Lambda function
+# Create an alias for a Lambda Event Function
 <a name="configuration-aliases"></a>
 
 You can create aliases for your Lambda function. A Lambda alias is a pointer to a function version that you can update. The function's users can access the function version using the alias Amazon Resource Name (ARN). When you deploy a new version, you can update the alias to use the new version, or split traffic between two versions. For more information about using aliases in your applications, see [Using Lambda aliases in event sources and permissions policies](using-aliases.md).
@@ -10,7 +10,7 @@ You can create aliases for your Lambda function. A Lambda alias is a pointer to 
 
 **To create an alias using the console**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose a function.
 

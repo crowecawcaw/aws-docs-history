@@ -6,15 +6,15 @@
 ## Configuring extensions (.zip file archive)
 <a name="using-extensions-config"></a>
 
-You can add an extension to your function as a [Lambda layer](chapter-layers.md). Using layers, you can share extensions across your organization or to the entire community of Lambda developers. You can add one or more extensions to a layer. You can register up to 10 extensions for a function.
+You can add an extension to your Lambda Event Function as a [Lambda layer](chapter-layers.md). Using layers, you can share extensions across your organization or to the entire community of Lambda developers. You can add one or more extensions to a layer. You can register up to 10 extensions for an Event Function.
 
-You add the extension to your function using the same method as you would for any layer. For more information, see [Managing Lambda dependencies with layers](chapter-layers.md).
+You add the extension to your Event Function using the same method as you would for any layer. For more information, see [Managing Lambda Event Function dependencies with layers](chapter-layers.md).
 
-**Add an extension to your function (console)**
+**Add an extension to your Event Function (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
-1. Choose a function.
+1. Choose an Event Function.
 
 1. Choose the **Code** tab if it is not already selected.
 
@@ -29,14 +29,14 @@ You add the extension to your function using the same method as you would for an
 ## Using extensions in container images
 <a name="invocation-extensions-images"></a>
 
-You can add extensions to your [container image](images-create.md). The ENTRYPOINT container image setting specifies the main process for the function. Configure the ENTRYPOINT setting in the Dockerfile, or as an override in the function configuration. 
+You can add extensions to your [container image](images-create.md). The ENTRYPOINT container image setting specifies the main process for the Event Function. Configure the ENTRYPOINT setting in the Dockerfile, or as an override in the Event Function configuration. 
 
 You can run multiple processes within a container. Lambda manages the lifecycle of the main process and any additional processes. Lambda uses the [Extensions API](runtimes-extensions-api.md) to manage the extension lifecycle. 
 
 ### Example: Adding an external extension
 <a name="extensions-images-ex1"></a>
 
-An external extension runs in a separate process from the Lambda function. Lambda starts a process for each extension in the `/opt/extensions/` directory. Lambda uses the Extensions API to manage the extension lifecycle. After the function has run to completion, Lambda sends a `Shutdown` event to each external extension.
+An external extension runs in a separate process from the Lambda Event Function. Lambda starts a process for each extension in the `/opt/extensions/` directory. Lambda uses the Extensions API to manage the extension lifecycle. After the Event Function has run to completion, Lambda sends a `Shutdown` event to each external extension.
 
 **Example of adding an external extension to a Python base image**  
 

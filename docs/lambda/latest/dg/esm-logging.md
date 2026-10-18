@@ -14,7 +14,7 @@ For event source mapping with logging config, you can also check the system logs
 
 When you set the logging config with log level in your event source mapping, the Lambda event poller sends out corresponding logs (event source mapping system logs).
 
-The event source mapping reuses the same [log destination](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-logs.html#configuring-log-destinations) with your Lambda function. Make sure the execution role of your Lambda function has the necessary logging permissions.
+The event source mapping reuses the same [log destination](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-logs.html#configuring-log-destinations) with your Lambda Event Function. Make sure the execution role of your Lambda Event Function has the necessary logging permissions.
 
 The event source mapping will have its own log stream, with date and event source mapping UUID as the log stream name, like `2020/01/01/12345678-1234-1234-1234-12345678901`.
 
@@ -39,7 +39,7 @@ You can set the logging configure when creating or updating a Kafka event source
 
 **To configure the logging (console)**
 
-1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
+1. Open the [Event Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console.
 
 1. Choose your function name.
 

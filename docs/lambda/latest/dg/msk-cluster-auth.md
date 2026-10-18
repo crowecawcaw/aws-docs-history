@@ -103,7 +103,7 @@ For more information about mTLS for Amazon MSK, and instructions on how to gener
 ## IAM authentication
 <a name="msk-iam-auth"></a>
 
-You can use AWS Identity and Access Management (IAM) to authenticate the identity of clients that connect to the MSK cluster. With IAM auth, Lambda relies on the permissions in your function's [execution role](lambda-intro-execution-role.md) to connect to the cluster, retrieve records, and perform other required actions. For a sample policy that contains the necessary permissions, see [ Create authorization policies for the IAM role](https://docs.aws.amazon.com/msk/latest/developerguide/create-iam-access-control-policies.html) in the *Amazon Managed Streaming for Apache Kafka Developer Guide*.
+You can use AWS Identity and Access Management (IAM) to authenticate the identity of clients that connect to the MSK cluster. With IAM auth, Lambda relies on the permissions in your Event Function's [execution role](lambda-intro-execution-role.md) to connect to the cluster, retrieve records, and perform other required actions. For a sample policy that contains the necessary permissions, see [ Create authorization policies for the IAM role](https://docs.aws.amazon.com/msk/latest/developerguide/create-iam-access-control-policies.html) in the *Amazon Managed Streaming for Apache Kafka Developer Guide*.
 
 If IAM auth is active on your MSK cluster, and you don't provide a secret, Lambda automatically defaults to using IAM auth.
 
