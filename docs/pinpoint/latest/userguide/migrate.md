@@ -16,11 +16,92 @@ If you are using Amazon Pinpoint engagement features (endpoints, segments, campa
 Amazon Pinpoint communication channels (SMS, MMS, push, WhatsApp, and text to voice messaging capabilities) were renamed in Q3 2024 as [AWS End User Messaging](https://aws.amazon.com/end-user-messaging), and will continue to serve developer needs for message delivery with customers. Use of APIs related to SMS, Voice, Mobile Push, OTP and Phone Number Validate will not be affected by this change. If you are using Amazon Pinpoint to send email, we recommend you migrate to [Amazon Simple Email Service](https://aws.amazon.com/ses) (SES). If you are using email deliverability dashboard in Amazon Pinpoint, we now offer email deliverability dashboard functionality in [Amazon Simple Email Service Virtual Deliverability Manager](https://docs.aws.amazon.com/ses/latest/dg/vdm-global-deliverability.html).
 
 **Topics**
++ [Message sending and analytics after end of support](#message-sending-and-analytics-after-eos)
 + [Choosing the right migration path](#choosing-migration-path)
 + [Migration steps: Transition features for Amazon Pinpoint engagement](#migration-steps)
 + [Offboarding steps: Export data to 3rd party](#offboarding-steps)
 + [Summary](#migration-summary)
 + [Additional resources](#migration-additional-resources)
+
+## Message sending and analytics after end of support
+<a name="message-sending-and-analytics-after-eos"></a>
+
+**Important**  
+The end-of-support change affects the Amazon Pinpoint **engagement** features. These features are endpoints, segments, campaigns, journeys, and analytics dashboards. Several **message-sending** and **analytics-delivery** capabilities continue to operate after October 30, 2026, as described in the following sections.
+
+The following tables summarize which capabilities continue to operate after October 30, 2026. For capabilities that need more explanation, see the notes that follow the tables.
+
+The following table lists the messaging capabilities and their status.
+
+
+| Capability | After October 30, 2026 | 
+| --- | --- | 
+| Push (GCM, APNS, Baidu, and so on) | Supported for all accounts | 
+| Push message templates | Supported for all accounts | 
+| OTP (SendOTPMessage, VerifyOTPMessage) | Supported for all accounts | 
+| Phone number validate | Supported for all accounts | 
+| SMS, voice, and email sending | Supported only for existing customers; no new customers are being accepted | 
+| SMS, voice, and email templates | Supported, including creating, updating, and deleting templates | 
+| SendMessages | Supported for the channels that remain available to your account | 
+
+The following table lists the delivery and observability capabilities and their status.
+
+
+| Capability | After October 30, 2026 | 
+| --- | --- | 
+| Sent Messages Event delivery to your Amazon Kinesis / AWS Data Firehose | Continues | 
+| Sent Messages Metric delivery to your Amazon CloudWatch | Continues | 
+
+The following table lists the capabilities that are not supported.
+
+
+| Capability | After October 30, 2026 | 
+| --- | --- | 
+| SendUsersMessages | Not supported | 
+| In-app messaging | Not supported | 
+| Sending to a stored endpoint ID | Not supported | 
+| Analytics / KPI APIs | Not supported | 
+| Recommenders | Not supported | 
+
+### Push notifications and push templates
+<a name="eos-push"></a>
+
+Push notifications and push message templates continue to be supported for all accounts after October 30, 2026. Your apps, projects, and channel configurations stay the same. AWS End User Messaging provides a console experience for managing push message templates.
+
+### OTP and phone number validation
+<a name="eos-otp"></a>
+
+One-time password (OTP) and phone number validation continue for all accounts, including accounts that are new to these APIs. Sending an OTP message does not require you to register a channel.
+
+### SMS, voice, and email sending
+<a name="eos-sms-voice-email"></a>
+
+SMS, voice, and email sending continues for existing customers. As described in the end-of-support announcement, Amazon Pinpoint stopped accepting new customers on May 20, 2025. If your account was signed up for the service before that date, you can continue to send messages.
+
+To start sending on a new SMS or voice channel, use [AWS End User Messaging](https://aws.amazon.com/end-user-messaging). To start sending on a new email channel, use [Amazon Simple Email Service](https://aws.amazon.com/ses).
+
+**Note**  
+AWS End User Messaging and Amazon Simple Email Service are the long-term homes for these channels. We recommend planning your migration to those services.
+
+### Message templates for SMS, voice, and email
+<a name="eos-templates"></a>
+
+Message templates for SMS, voice, and email continue to be supported. You can continue to create, update, and delete these templates after the end-of-support date.
+
+### SendMessages and SendUsersMessages
+<a name="eos-sendmessages"></a>
+
+`SendMessages` continues to operate for whichever channels remain available to your account. For the list of channels, see the preceding table. `SendUsersMessages` is not supported, because it depends on the endpoint registry that is part of the engagement platform being retired. Sending to a stored endpoint ID is also not supported for any channel.
+
+### Event and metric delivery
+<a name="eos-event-metric-delivery"></a>
+
+Event and metric delivery to your Amazon Kinesis, AWS Data Firehose, and Amazon CloudWatch destinations continues so you can keep observing message outcomes. This delivery continues for messages sent through the direct-send APIs (`SendMessages` and `SendOTPMessage`). The analytics and KPI APIs (for example, the date-range KPI operations) are not available after October 30, 2026 — export any historical KPI data you need before that date, as described in [Offboarding steps: Export data to 3rd party](#offboarding-steps).
+
+### In-app messaging and recommenders
+<a name="eos-not-supported"></a>
+
+In-app messaging and recommenders are not supported after the end-of-support date.
 
 ## Choosing the right migration path
 <a name="choosing-migration-path"></a>
