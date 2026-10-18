@@ -73,7 +73,7 @@ You receive [email notifications](https://docs.aws.amazon.com/marketplace/latest
 + Upon an agreement amendment or replacement
 
 **Note**  
-All existing Amazon Simple Notification Service (Amazon SNS) notifications for SaaS also work for FDA. For FDAs, both Amazon SNS topics are initiated on the agreement start date (and not agreement sign date). For more information, see [Amazon SNS notifications for SaaS products](saas-notification.md). 
+If you registered your seller account on or before July 15, 2026, all Amazon Simple Notification Service (Amazon SNS) notifications for SaaS also work for FDA. For FDAs, both Amazon SNS topics are initiated on the agreement start date (and not agreement sign date). For more information, see [Amazon SNS notifications for SaaS products](saas-notification.md). 
 
 ## Using future dated agreements with reselling for Channel Partner private offers
 <a name="seller-using-future-dated-agreements-with-reselling"></a>

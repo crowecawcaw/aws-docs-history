@@ -15,33 +15,32 @@ The registration token resolves to a specific subscribed customer and each gener
 ## Configuring your SaaS product to accept new buyers
 <a name="configuring-your-saas-application-to-accept-new-customers"></a>
 
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+
 You're responsible for correctly configuring your SaaS software to accept new customers and meter them appropriately. The following process outlines one recommended way of identifying, implementing, and metering a new customer's access to your software:
 
 1. When a customer visits your product page on the AWS Marketplace website, they choose to subscribe to your product.
 
 1. The customer’s AWS account is subscribed to your product. This means subscription and metering records sent from your product become part of the customer’s AWS bill.
 
-1. A registration token is generated for the customer that contains their AWS account ID, customer identiﬁer, and your product code.
+1. A registration token is generated for the customer that contains their AWS account ID, LicenseArn, and your product code.
 
-1. The customer is redirected to your software's registration landing page. This page must be able to accept the token with the customer’s identiﬁer.
+1. The customer is redirected to your software's registration landing page. This page must be able to accept the token.
 
 1. The customer’s browser sends a `POST` request to your software's registration landing page URL. The request contains one `POST` parameter, `x-amzn-marketplace-token`, containing the customer’s registration token. From the perspective of your registration website, the customer has submitted a form with this parameter. The registration token is an opaque string. If the offer type is a free trial, a second parameter, `x-amzn-marketplace-offer-type` with the value `free-trial`, will be added to the request.
 
-1. To redeem this registration token for a customer AWS account ID, customer identifier, and product code, your website must call [ResolveCustomer](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_ResolveCustomer.html) on the AWS Marketplace Metering Service. For an example of a `ResolveCustomer` call, see [`ResolveCustomer` code example](saas-code-examples.md#saas-resolvecustomer-example). The customer identiﬁer isn't the customer’s AWS account ID, but it's universal between products and should be saved to an internal source as part of your customer records. The product code is a unique string for your SaaS product that AWS provides to you. Each AWS product has one unique product code, which is assigned to you during registration.
+1. To redeem this registration token for your customer's AWS account ID, LicenseArn, and product code, your website must call [ResolveCustomer](https://docs.aws.amazon.com/marketplacemetering/latest/APIReference/API_ResolveCustomer.html) on the AWS Marketplace Metering Service. For an example of a `ResolveCustomer` call, see [`ResolveCustomer` code example](saas-code-examples.md#saas-resolvecustomer-example). Use the LicenseArn to differentiate between different entitlements that a buyer might have from subscribing to multiple distinct offers for the same product. The product code is a unique string for your SaaS product that AWS provides to you. Each AWS product has one unique product code, which is assigned to you during registration.
 **Note**  
 For new SaaS product integrations, the `CustomerIdentifier` field is not populated in the `ResolveCustomer` API response. New integrations must use `CustomerAWSAccountId` and `LicenseArn` for customer identification.
 
 1.  The customer is instructed to either create an account in your product or sign in to an existing account.
 **Note**  
-If setting up or linking to an existing customer account in your product requires a manual process by your team, you can use a contact-us form to collect the customer's contact information. After collecting their contact information and resolving their AWS account ID and unique customer identifier (as obtained in step 6), display a notification message for the customer. In the notification, state that their account is being set up and request that they wait for you to contact them. Provide the customer with the expected turnaround time and your contact information. Also send an email message to the customer with the same details.
+If setting up or linking to an existing customer account in your product requires a manual process by your team, you can use a contact-us form to collect the customer's contact information. After collecting their contact information and resolving their AWS account ID, LicenseArn, and product code (as obtained in step 6), display a notification message for the customer. In the notification, state that their account is being set up and request that they wait for you to contact them. Provide the customer with the expected turnaround time and your contact information. Also send an email message to the customer with the same details.
 
 1.  The customer is now signed in to your website using credentials speciﬁc to that SaaS product. In your accounts database, you can have an entry for each customer. Your accounts database must have a column for the AWS account ID. Verify that no other accounts in your system share the AWS account ID. 
 
-1. 
-**Important**  
-SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
-
-   During your seller registration process, you configure Amazon EventBridge rules to receive events that notify you when customers subscribe or unsubscribe to your product. These are Amazon EventBridge events in JSON format that inform you of customer actions:
+1. During your seller registration process, you configure Amazon EventBridge rules to receive events that notify you when customers subscribe or unsubscribe to your product. These are Amazon EventBridge events in JSON format that inform you of customer actions:
    + Entitlement notification – For products with pricing models that include a contract, you are notified when buyers create a new contract, upgrade it, renew it, or it expires. Your accounts database must have an extra column for the subscription state. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
    + Subscription notification – For products with any pricing model, including contracts and subscriptions, you are notified when a buyer subscribes or unsubscribes to a product. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
 

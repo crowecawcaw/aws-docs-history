@@ -8,11 +8,9 @@ AWS Marketplace is introducing support for Concurrent Agreements, enabling multi
 
 Integrating your product with AWS Marketplace is one step in [Creating a SaaS product in AWS Marketplace](saas-create-product.md). To integrate your software as a service (SaaS) subscription product with AWS Marketplace, you must write code and demonstrate that it can respond successfully to several customer scenarios. The following sections show you how to integrate your SaaS subscription model with AWS Marketplace.
 
-**Important**  
 This guide is for *Pay-As-You-Go (PAYG)* SaaS products. If you are implementing a *contract-based* SaaS product, use [Integrating your SaaS contract-based product with AWS Marketplace](saas-integrate-contract-with-pay.md) instead. PAYG products do not use entitlement SNS topics or the GetEntitlements API.
 
-**Note**  
-Before you begin, make sure you've chosen the right pricing model for your software-as-a-service (SaaS) product in AWS Marketplace. For more information, see [Planning your SaaS product](saas-prepare.md). 
+Before you begin, make sure you've chosen the right pricing model for your software-as-a-service (SaaS) product in AWS Marketplace. For more information, see [Planning your SaaS product](saas-prepare.md).
 
 **Topics**
 + [Scenario: Your service validates new customers](#saas-subscription-validate-customer)
@@ -46,6 +44,9 @@ We recommend that you use AWS CloudTrail to monitor activity to ensure that bill
 
 ## Scenario: Monitor changes to user subscriptions
 <a name="saas-subscription-monitor-changes"></a>
+
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
 
 Set up an Amazon Simple Queue Service (Amazon SQS) queue, and subscribe to your product's Amazon SNS topic. Your SNS topic information was included in the email message that you received from the AWS Marketplace Seller Operations team when you created your product. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md). By subscribing to your SNS topic, you receive notifications about changes to customer subscriptions, including providing or revoking access for specific customers.
 

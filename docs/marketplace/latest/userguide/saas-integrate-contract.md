@@ -41,8 +41,8 @@ When a customer makes a request to your service, you must respond to the followi
 ## Scenario: Monitor changes to user subscriptions
 <a name="saas-contract-monitor-changes"></a>
 
-**Important**  
-SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
 
 Set up an Amazon Simple Queue Service (Amazon SQS) queue as a target for your Amazon EventBridge rules to receive events about changes to customer entitlements. Your Amazon EventBridge event configuration was provided when you created your product. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md). By configuring Amazon EventBridge rules, you receive events about changes to customer entitlements, including providing or revoking access for specific customers.
 

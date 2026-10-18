@@ -52,7 +52,7 @@ To preview the verification screens before you begin, view the [interactive Japa
 
 **To complete Japan verification**
 
-1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Marketplace settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
 
 1. Choose the **Know Your Customer (KYC)** tab, and then locate **Japan Know Your Customer (KYC)**.
 
@@ -104,7 +104,7 @@ Follow these steps to complete Step 1 of the KYC process in AWS Marketplace:
 For accepted document types, templates, and formatting requirements referenced throughout these steps, see the [Templates and best practices for completing the KYC process](#kyc-best-practices) section at the end of this page.  
 You will be asked to review and accept the [AWS Marketplace EMEA Agreement](https://d1.awsstatic.com/onedam/marketing-channels/website/aws/en_US/legal/approved/amazon-payments-europe-aws-marketplace-emea-agreement.pdf) during this process. We recommend reviewing it before you begin.
 
-1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Marketplace settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home) and choose **Settings**.
 
 1. In the **Account summary** section, confirm that the **Country** that is shown is correct.
 **Note**  
@@ -164,7 +164,7 @@ Ensure all submitted documents are signed by a legal representative, are on lett
 
 The status of your KYC compliance will be reviewed (typically within 24 hours). You will be notified through an email message after the review is complete.
 
-You can return to the **Marketplace settings** tab to view the status of your KYC compliance on the **Account summary** card. For more information about your KYC status, choose the **Know Your Customer (KYC)** tab under the **Account summary** card. It will display **Under review** until the review has been completed.
+You can return to the **Settings** tab to view the status of your KYC compliance on the **Account summary** card. For more information about your KYC status, choose the **Know Your Customer (KYC)** tab under the **Account summary** card. It will display **Under review** until the review has been completed.
 
 **Important**  
 After your KYC is verified, you must provide a bank statement on the **Payment information** tab before you can receive disbursements through Amazon Payments Europe.

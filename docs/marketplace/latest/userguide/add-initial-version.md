@@ -37,9 +37,11 @@
 
 1.  Under **Recommended instance types**, select the recommended instance types for your product. 
 
-   For *model packages*, you'll select recommended instance types for both batch transform and real-time inference.
+   For *model packages*, select recommended instance types for both batch transform and real-time inference.
 
-   For *algorithm packages*, you'll select the recommended instance type for training jobs.
+   For *algorithm packages*, also select the recommended instance type for training jobs.
+
+   Buyers see these instance types marked as **Recommended** in the pricing table on the product detail page. You can change them after you publish the version. For more information, see [Changing the recommended instance types](ml-manage-product-version.md#ml-recommended-instance-types).
 **Note**  
  The instance types available to select are limited to those supported by your model or algorithm package. These supported instance types were determined when you initially created your resources in Amazon SageMaker AI. This ensures that your product is only associated with hardware configurations that can effectively run your machine learning solution. 
 

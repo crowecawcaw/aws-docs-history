@@ -53,6 +53,9 @@ We recommend that you use AWS CloudTrail to monitor activity to ensure that bill
 ## Scenario: Monitor changes to user entitlements
 <a name="saas-contract-with-pay-monitor-changes"></a>
 
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+
 Set up an Amazon Simple Queue Service (Amazon SQS) queue, and subscribe to your product's Amazon SNS topics—there are two SNS topics, one for entitlement changes and one for subscription changes. Your topic information was included in the email message that you received from the AWS Marketplace Seller Operations team when you created your product. For more information, see [Creating a SaaS product in AWS Marketplace](saas-create-product.md). By subscribing to your SNS topics, you receive notifications about changes to customer subscriptions, including providing or revoking access for specific customers.
 
 **Note**  

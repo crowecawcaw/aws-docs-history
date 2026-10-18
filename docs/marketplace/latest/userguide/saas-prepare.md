@@ -32,6 +32,9 @@ After you plan your integration, you must test the integration with your product
 ## Plan your Amazon SNS integration
 <a name="saas-plan-sns"></a>
 
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+
 There are two Amazon Simple Notification Service (Amazon SNS) topics that you can subscribe to for your SaaS product. For more information, see [SaaS notifications](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-notification.html). These messages can help you programmatically handle changes to subscriptions and contracts initiated by AWS or by your customers. Amazon SNS notifications can be programmatic triggers enabling customers to register for a new account on your product registration website. They can also deny customers with expired subscriptions from accessing your product. You have options for how your customers receive notifications depending on how you program the handling of these notifications.
 
 ## Plan how customers will access your product

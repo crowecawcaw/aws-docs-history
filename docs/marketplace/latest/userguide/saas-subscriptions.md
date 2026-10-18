@@ -21,8 +21,8 @@ Before you can publish a SaaS product with subscription pricing, you must do the
 ## When a SaaS subscription ends
 <a name="saas-subscription-ends"></a>
 
-**Important**  
-SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
 
  A customer can unsubscribe from your SaaS subscription product through the AWS Management Console. Key points of the SaaS subscription ending process include the following: 
 

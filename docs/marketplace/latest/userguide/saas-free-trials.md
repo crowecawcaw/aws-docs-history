@@ -9,7 +9,7 @@ Each AWS account can only use a free trial for a SaaS product once. The free usa
 
 **Note**  
 If you use the Seller Data Delivery Service (SDDS), you receive an [Agreement details trial report](https://docs.aws.amazon.com/marketplace/latest/userguide/supplementary-reports.html) in your Amazon Simple Storage Service bucket. The report includes agreement details such as the subscriber name and ID, offer ID, and agreement start and end dates.
-Sellers also receive [Amazon Simple Notification Service (Amazon SNS) notifications](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-notification.html) when new subscriptions are created. Amazon SNS notifications include an `isFreeTrialTermPresent` flag to identify free trial agreements.
+Sellers also receive [Amazon EventBridge events](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-eventbridge-integration.html) when new subscriptions are created. To check whether an agreement is a free trial, use the `DescribeAgreement` API. If you registered your seller account on or before July 15, 2026, you can also receive [Amazon SNS notifications](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-notification.html), which include an `isFreeTrialTermPresent` flag.
 Also, customers who subscribe to your free trial are redirected to your registration URL with an additional token, `x-amzn-marketplace-offer-type=free-trial`. You can use the token to create a unique registration experience for the customers who use your free trials.
 
 ## Creating a SaaS free trial offer

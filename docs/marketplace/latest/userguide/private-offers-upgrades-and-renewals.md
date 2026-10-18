@@ -66,7 +66,7 @@ If the buyer accepts the public or private offer upgrade or renewal, the new agr
 If the buyer doesn't accept the public or private offer upgrade or renewal before it expires, the original agreement will continue unchanged.
 
 **Note**  
-For [Amazon SNS notifications for SaaS products](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-notification.html#saas-sns-subscription-message-body), a `subscribe-success` message is sent with the new `offer-identifier` when the buyer accepts the amendment.
+For [Amazon SNS notifications for SaaS products](https://docs.aws.amazon.com/marketplace/latest/userguide/saas-notification.html#saas-sns-subscription-message-body), which are available to sellers who registered their seller account on or before July 15, 2026, a `subscribe-success` message is sent with the new `offer-identifier` when the buyer accepts the amendment.
 
 ## Reporting for upgrades, renewals, and amendments
 <a name="private-offers-upgrades-and-renewals-reporting"></a>

@@ -3,8 +3,10 @@
 # Amazon SNS notifications for SaaS products
 <a name="saas-notification"></a>
 
-**Important**  
-SNS notifications for AWS Marketplace SaaS products are being replaced with Amazon EventBridge notifications. If you have existing SaaS products integrated with SNS, they will continue to function. New listings will eventually transition to using Amazon EventBridge instead of SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+**Amazon SNS notifications aren't available to new sellers**  
+If you registered your seller account after July 15, 2026, use Amazon EventBridge to receive events. If you registered on or before that date, you can continue to use Amazon SNS. For more information, see [Managing SaaS subscription events with Amazon EventBridge](saas-eventbridge-integration.md).
+
+If you use Amazon SNS notifications, plan to migrate to EventBridge. New notifications are available only in EventBridge.
 
 To receive notifications, you subscribe to the Amazon Simple Notification Service (Amazon SNS) topics for AWS Marketplace provided to you during product creation. The topics provide notifications about changes to customers’ subscriptions and contract entitlements for your products. This enables you to know when to provide and revoke access for specific customers. 
 

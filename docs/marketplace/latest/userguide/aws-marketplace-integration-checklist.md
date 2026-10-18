@@ -14,8 +14,8 @@ Before your software as a service (SaaS) product becomes available to buyers in 
 | Product  | Completed the product request form in the AWS Marketplace Management Portal.  | 
 | Product  | Provided AWS account IDs for testing in the Notes tab of the Create product wizard in the AMMP. | 
 | Product  | Provided a URL of the EULA in .txt format in the Build tab.  | 
-| Product  | Received your product code and Amazon SNS topic information from AWS Marketplace.  | 
-| Product  | Subscribed to the Amazon SNS topic and created an Amazon SQS queue to subscribe to the Amazon SNS topic.  | 
+| Product  | Received your product code from AWS Marketplace.  | 
+| Product  | Created an Amazon EventBridge rule for AWS Marketplace events with an Amazon SQS queue as the target. If you registered your seller account on or before July 15, 2026, you can instead subscribe an Amazon SQS queue to your Amazon SNS topic.  | 
 | Billing Solution  | Validated you can send metering records to the BatchMeterUsage operation each hour for licenses across each customer for SaaS subscriptions products. Can send metering records for additional usage by each customer for SaaS contracts products.  | 
 | Billing Solution  | Validated you can verify customer entitlements from the AWS Marketplace Entitlement Service for SaaS contracts products.  | 
 | Billing Solution  | Validated that the costs appear as expected on bills generated for test accounts.  | 
