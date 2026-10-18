@@ -5,15 +5,21 @@
 
 AWS Transform assessments help you evaluate the cost, feasibility, and business value of migrating on-premises infrastructure to AWS. Using agentic AI, AWS Transform generates a data-driven total cost of ownership (TCO) business case in minutes from a server inventory, finding the best-fit AWS services for your workloads and producing pricing options, licensing analysis, and actionable next steps. From there, you refine the business case through natural language chat—adding missing inventory, adjusting on-premises costs, modeling alternative AWS services, changing assumptions, and exploring what-if scenarios—without re-running the full assessment.
 
-You can use migration assessments to:
-+ Get cost estimates for compute, databases, storage, analytics, and end user computing workloads on AWS
-+ Receive automated right-sizing recommendations
-+ Assess business value and sustainability impact
-+ Compare multiple migration scenarios side by side
-+ Refine assessments interactively through chat
-+ Generate executive presentations and detailed reports
+If you are new to migration assessments, see [Quick start guide for migration assessments](transform-app-assessments-quick-start.md) for guidance on collecting inventory data, running an assessment, and which prompts to use.
 
-Assessment results can also help you understand whether you qualify for AWS programs and incentives, such as the AWS Migration Acceleration Program (MAP).
+## Why perform a migration assessment
+<a name="transform-app-assessments-why"></a>
+
+A migration assessment turns a server inventory into numbers you can act on. It shows what your estate costs to run today, what it would cost on AWS, and what to do next. Migrations can stall when these questions go unanswered. An assessment is usually the first step in a migration.
+
+A migration assessment helps you do the following:
++ **Understand what you have on premises** – you get one inventory of your servers, operating systems, databases, and storage. It often includes workloads that no single team tracks. The assessment also flags gaps in your data, which shows you where your records are thin.
++ **Define migration scope** – decide which servers and applications to migrate, which to retire, and which to defer, and see the cost of each choice.
++ **Uncover what your estate really costs** – hardware, licenses, data center space, support, and network. Licenses cover both your hypervisor and operating systems and your databases. Teams often spread these costs across separate budgets.
++ **Find savings** – you can right-size over-provisioned servers, move to AWS Graviton, cut license costs, and compare On-Demand pricing against Reserved Instance terms.
++ **Align stakeholders on next steps** – you get one total cost of ownership (TCO) business case, plus a business value analysis and reports. Your finance, infrastructure, and application teams can all work from them. The results also show whether you qualify for AWS programs, such as the AWS Migration Acceleration Program (MAP).
+
+You refine an assessment through chat. This means you can start with the data you have today, get a directional business case, and improve it as better data arrives.
 
 ## Prerequisites
 <a name="transform-app-assessments-prerequisites"></a>
@@ -49,7 +55,9 @@ After you review results, you can create additional scenarios, compare scenarios
 ## Uploading inventory data
 <a name="transform-app-assessments-upload-inventory"></a>
 
-AWS Transform accepts inventory data from a broad set of sources, so you can work with the data you already have rather than running a new collection. The following table lists the supported data formats.
+AWS Transform can work with the data you already have, rather than requiring a new collection. It recognizes the common discovery and inventory formats, and falls back to a flexible parser for files that it does not recognize. If you have a file that contains inventory data, upload it and review what AWS Transform finds, because a flexible parse is best-effort.
+
+The following table gives examples of commonly used sources. It is not an exhaustive list.
 
 
 | Data source | Description | 
@@ -59,11 +67,11 @@ AWS Transform accepts inventory data from a broad set of sources, so you can wor
 | CMDB data | Configuration management database exports | 
 | Migration Evaluator | Quick Insights file from the AWS Migration Evaluator console | 
 | MPA format | AWS Migration Portfolio Assessment (MPA) import file | 
-| NetApp Data Infrastructure Insights (DII) | Exports from NetApp Data Infrastructure Insights | 
+| NetApp Data Infrastructure Insights (DII) | Detailed storage discovery data from NetApp Data Infrastructure Insights, covering capacity, IOPS, and throughput for both host-attached and array-level storage. Use it for storage assessments, where it gives AWS Transform more to work with than the storage fields in a server inventory. | 
 | Partner discovery tools | Exports from AWS partner and third-party discovery tools, including ModelizeIT, Cloudamize, Matilda Cloud, and Device42 | 
 | AWS Transform data template | Microsoft Excel file created from the AWS Transform Assessment Data template | 
 
-AWS Transform automatically identifies the file format during ingestion. The ingestion process validates your data, accepts partial data when some fields are missing, and supports incremental uploads. You can upload additional files at any time to supplement your inventory.
+AWS Transform identifies the format during ingestion. The ingestion process validates your data and accepts partial data when some fields are missing. It also supports incremental uploads, so you can upload additional files at any time to supplement your inventory. You can add or correct details through chat.
 
 ## Reviewing discovery results
 <a name="transform-app-assessments-review-discovery"></a>

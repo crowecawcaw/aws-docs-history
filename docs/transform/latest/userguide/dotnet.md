@@ -16,12 +16,13 @@ AWS Transform is available in multiple experiences, including a [web application
 The scope of the .NET agent is .NET-to-.NET code transformation. If your transformation needs include non-.NET languages and frameworks, such as Web Forms to React, use [AWS Transform custom](https://docs.aws.amazon.com/transform/latest/userguide/custom.html).
 
 AWS Transform for .NET has these capabilities:
++ Connect to source control systems (Azure Repos, Bitbucket, GitHub, GitLab)
++ Assess .NET repositories for modernization and provide a customizable modernization plan
 + Modernize legacy .NET Framework applications to modern cross-platform .NET
 + Update modern .NET applications to later versions
-+ Integrate with source control platforms (Azure Repos, Bitbucket, GitHub, GitLab)
-+ Produce assessment reports and customizable modernization plan before transformation
-+ Produce transformation reports and next steps guidance after transformation
-+ Validate transformed code with local builds and unit test porting
++ Convert Azure cloud-native application code to use AWS equivalents for popular services
++ Validate transformed code with local build verification and unit test execution
++ Produce a transformation report and next steps guidance after transformation
 
 ## Supported versions and project types
 <a name="supported-versions"></a>
@@ -33,9 +34,8 @@ The .NET agent can transform the following versions, languages, and project type
 | --- |--- |
 | Transform from | .NET Framework 3.5, .NET Core 3.1, .NET 5.x\+ through .NET 10 | 
 | Transform to | .NET 8, .NET 10, .NET Standard (class libraries) | 
-| Languages | C\#, VB.NET (preview feature) | 
-| Supported project types | Class libraries, Console apps, ASP.NET (MVC, Web API, Web Forms), Unit test projects (NUnit, xUnit, MSTest), Windows Communication Foundation (WCF) services | 
-| Preview project types | Desktop (WinForms, WPF), mobile (Xamarin), ASMX web service | 
+| Languages | C\#, VB.NET | 
+| Supported project types | Class libraries, Console apps, ASP.NET (MVC, Web API, Web Forms), Unit test projects (NUnit, xUnit, MSTest), Windows Communication Foundation (WCF) services, Desktop (WinForms, WPF), Mobile (Xamarin), ASMX web service | 
 
 ## Limitations
 <a name="limitations"></a>
@@ -43,7 +43,6 @@ The .NET agent can transform the following versions, languages, and project type
 For more information on quotas and limitations for AWS Transform, see [Quotas for AWS Transform](transform-limits.md).
 
 AWS Transform does not transform the following:
-+ Blazor UI components
 + Win32 DLLs that don't have core compatible libraries
 + Repositories that do not contain any .NET solutions.
 + Web site projects without a project file (must be converted to a Web application).

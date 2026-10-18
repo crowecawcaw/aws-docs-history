@@ -196,11 +196,11 @@ Your mapping strategy determines your IP assignment options. MAP supports static
 
 You have two network configuration choices for your migration:
 
-**Network range selection**
+For **network range selection**, choose one of the following options:
 + **Keep Existing Ranges (IP Address Ranges Retention):** Keep original IP address ranges during migration. Ideal for migrations where you move applications to AWS without modification (lift-and-shift), especially with legacy applications that have hard-coded IP dependencies or existing firewall rules.
 + **Update to new IP ranges (CIDR update):** You can modify each VPC CIDR range during migration, and AWS Transform automatically propagates changes to subnets, route tables, and security groups.
 
-**IP address assignment**
+For **IP address assignment**, choose one of the following options:
 + **Fixed IP addresses (Static):** AWS Transform assigns static IPs based on the CIDR. This is best for applications that require predictable network behavior, DNS management, or IP-based access control. IPs persist across instance restarts through Elastic Network Interfaces (ENIs), which are virtual network cards attached to your instances.
 + **Dynamic IP assignment (AWS DHCP):** Automatically assign IPs from subnet pools at instance launch. Optimal for applications that are designed to run in the cloud and auto-scaling workloads. Reduces operational overhead but requires applications to use DNS or service discovery.
 

@@ -3,7 +3,11 @@
 # Connect to source code
 <a name="dotnet-web-connect-source-code"></a>
 
-After [Create a .NET modernization job](dotnet-web-create-job.md), on the **Job Plan** tab, the left pane of the AWS Transform window lists the phases of the transformation job. The first phase is *Connect source code*. In this phase, you connect to your source code. You can connect to a source code repository or provide code in a zip file. You have 4 options for connecting to source code:
+After [Create a .NET modernization job](dotnet-web-create-job.md), on the **Job Plan** tab, the left pane of the AWS Transform window lists the phases of the transformation job. The first phase is *Connect source code*. In this phase, you connect to your source code.
+
+Before you begin, make sure that you have an AWS account with permissions to create the source code connection. Depending on the connection method that you choose, you also need access to AWS CodeConnections, a personal access token (PAT) stored in AWS Secrets Manager, or an Amazon S3 bucket in the same AWS Region as your transformation job. Creating a connector requires approval by an AWS administrator.
+
+You can connect to a source code repository or provide code in a zip file. You have 4 options for connecting to source code:
 + [**Code Connection**](#dotnet-connect-codeconnections): Connect to source code repository using AWS CodeConnections (GitHub, GitLab, Bitbucket, Azure DevOps).
 + [**PAT**](#connect-with-pat): Connect to source code repository using a Personal Access Token stored in AWS Secrets Manager.
 + [**S3**](#s3-source-code): Provide an Amazon S3 URI to a code archive zip file (for example, `s3://my-bucket/repos.zip`).

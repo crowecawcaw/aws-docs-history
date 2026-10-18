@@ -8,7 +8,7 @@
 + **Operating System** – Amazon Linux 2023
 + **RAM** – We recommend allocating at least 16 GB
 + **CPU** – We recommend allocating at least 4 cores
-+ **Disks** – 35 GB minimum (included in the VHD). For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md).
++ **Disks** – 100 GB minimum (included in the VHD). For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md).
 + **Hyper-V requirements** – See [Hyper-V host requirements for running AL2023 on Hyper-V](https://docs.aws.amazon.com/linux/al2023/ug/hyperv-supported-configurations.html#hyperv-host-requirements)
 
 ## Deploy the Hyper-V VHD

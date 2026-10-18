@@ -110,6 +110,7 @@ The `--type` flag specifies the kind of analysis to run:
 + `security` – Static application security testing (SAST) for insecure coding patterns in source code.
 + `agentic-readiness` – Readiness of your repositories for AI agents (frameworks, APIs, documentation).
 + `modernization-readiness` – Modernization opportunities across your infrastructure, application, data, security, and operations dimensions.
++ `custom` – Issues described by one of your own transformation definitions. Requires `--transformation-name`.
 
 ```
 atx ct analysis run --type {{type}} --source {{name}} [--repo {{source}}::{{repo}}] [--wait]
@@ -128,13 +129,21 @@ To label a run so it's easy to find later, pass `--display-name "{{name}}"` on `
 ### Custom analysis
 <a name="ct-custom-analysis"></a>
 
+A **custom analysis** runs one of your own transformation definitions against your repositories to look for the issues you care about. To run one:
+
+1. Write a transformation definition that describes what to look for and how to report it. See [Write a transformation definition for analysis](custom.md#custom-analysis-definitions).
+
+1. Publish it with the `analysis` category. See [Transformation definition categories](custom.md#custom-transformation-categories).
+
+1. Run it with `--type custom` and `--transformation-name`, locally, remotely, or on a schedule.
+
 ```
 atx ct analysis run --type custom --transformation-name {{name}} --source {{source}} --repo {{source}}::{{repo}} --wait
 ```
 
 Configuration with `-g` flag: key-value, JSON, or file path.
 
-List TDs: `atx custom def list`
+If the command fails because the transformation definition was not found, check the name with `atx custom def list`. Transformation definitions are specific to an AWS account and Region. If it fails because of the transformation definition's category, publish it again with `--category analysis`.
 
 ## Managing findings
 <a name="ct-managing-findings"></a>
@@ -167,7 +176,7 @@ Re-analysis marks resolved findings as obsolete. Cannot be re-opened. Retained f
 ## Creating remediations
 <a name="ct-creating-remediations"></a>
 
-Three modes: findings-based, TD override, direct TD.
+Three modes: findings-based, TD override, direct TD. With `--transformation-name`, use one of your own transformation definitions with the `remediation` category, or an AWS managed transformation (see [Transformation definition categories](custom.md#custom-transformation-categories)).
 
 ```
 atx ct remediation create --ids {{id1}},{{id2}} --name "{{name}}"

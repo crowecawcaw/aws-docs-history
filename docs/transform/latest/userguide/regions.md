@@ -15,14 +15,19 @@ Your data might be processed in a different Region from the Region where you use
 
 You can create AWS Transform workspaces in the following AWS Regions. These Regions are enabled by default - you don't need to enable them before use. For more information, see [Regions that are enabled by default](https://docs.aws.amazon.com/glossary/latest/reference/glos-chap.html#regionthat). 
 + US East (N. Virginia)
-+ Europe (Frankfurt)
 + Asia Pacific (Mumbai)
++ Asia Pacific (Seoul)
++ Asia Pacific (Singapore) - Migration capabilities only
 + Asia Pacific (Sydney)
 + Asia Pacific (Tokyo)
-+ Europe (London)
-+ Asia Pacific (Seoul)
 + Canada (Central)
-+ South America (São Paulo) - Mainframe modernization agents only
++ Europe (Frankfurt)
++ Europe (London)
++ South America (São Paulo) - Mainframe modernization capabilities only
++ AWS GovCloud (US-West) - Migration capabilities only
+
+**Note**  
+AWS GovCloud (US-West) is available only when you use AWS Transform in the AWS GovCloud (US) partition.
 
 The workspace in which you create a job determines the AWS Region of the job. To create a job in a different Region, you must use a different workspace that is in your desired Region.
 

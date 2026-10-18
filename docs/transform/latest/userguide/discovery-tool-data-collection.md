@@ -95,6 +95,17 @@ Choose which data modules to include in the export. You can export all modules o
 
 If you don't select any modules, the discovery tool exports all available data.
 
+#### Understanding the export summary
+<a name="discovery-tool-export-summary"></a>
+
+Every export ZIP includes an `export_summary.json` file at its root that records the result of the export. Use it to confirm that an export completed, or to find what went wrong when it did not. The file includes the following:
++ `overall_status` – `complete` when all requested data was exported, `partial` when data was exported but some records were skipped or a module reported errors, or `failed` when no data was exported because of errors.
++ `start_date` and `end_date` – the date range that the export covered.
++ `modules` – one entry for each exported data type (for example, server inventory, performance metrics, storage, and network connections), each with its own status, counts of what was exported, and a list of any errors.
++ `errors` – entries for data that could not be exported, each identifying the affected server, the date, and the reason.
+
+If `overall_status` is `partial` or `failed`, review each module's status and its errors to see which servers or data types were affected and why.
+
 ### Data points collected
 <a name="discovery-tool-data-points"></a>
 
@@ -416,29 +427,66 @@ The SQL Server collection module gathers SQL Server information from Windows ser
 
 A SQL Server component is a specific service or feature instance installed as part of a SQL Server deployment on a Windows server. The discovery tool collects Database Engine, Analysis Services, Reporting Services, and Integration Services.
 
+**SQL Server direct database collection**
+
+When you configure SQL Server database credentials, the discovery tool connects directly to each SQL Server instance and collects additional data that is not available through Windows credentials alone.
+
+This additional data helps you assess your SQL Server instances for migration planning and right-sizing:
++ **Database count** – The number of user databases on the instance.
++ **Always On AG (Y/N)** – Whether the instance participates in an Always On availability group. Requires SQL Server 2012 or later.
++ **Availability group name** – The name of the Always On availability group, if the instance participates in one. Requires SQL Server 2012 or later.
++ **Cluster role** – The instance's role in a high-availability configuration (`PRIMARY`, `SECONDARY`, `RESOLVING`, or `STANDALONE`). Requires SQL Server 2012 or later. Cluster role reflects Always On availability group membership only. A failover cluster instance that is not in an availability group shows `STANDALONE`. To identify failover cluster instances, check the Is Clustered field (`Cluster/Oracle RAC (Y/N)` in the MPA file).
++ **Read-only replica** – Whether the instance is a readable secondary replica. Requires SQL Server 2012 or later.
+
+**Note**  
+Edition is also collected by the Windows-level path and already appears in the MPA export as "Source Engine Edition". The five fields listed above are the database-level additions that require a direct SQL Server connection.
+
+**When database credentials are configured**
+
+When you configure SQL Server credentials and a connection succeeds, the direct database path runs for that round instead of the Windows-level path. The five additional fields are collected alongside the standard Windows-level service inventory from an earlier or later round.
+
+**Windows-level fallback**
+
+If you have not configured SQL Server database credentials, or if an auto-connect credential fails to connect to the instance (for example, wrong password or network error), the discovery tool collects SQL Server information using your Windows credentials. It discovers installed SQL Server services, versions, and configuration without direct database access. For these servers, the five database-level fields are blank in the export.
+
+If you assign a SQL Server credential to a specific server (for example, through CSV import), the discovery tool uses only that credential for that server and does not fall back to Windows-level detection if the connection fails. The server shows an error status on the **Discovered inventory** page.
+
+**Note**  
+The five database-level fields (Database Count, Always On AG (Y/N), Availability Group Name, Cluster Role, and Read-Only Replica) appear only in `sql_server_data_full.csv` inside the export ZIP file. They are not included in the MPA files. Servers collected through Windows-level detection have these fields blank.
+
+**Note**  
+SQL Server database connections in this release are unencrypted. Ensure that your network environment is appropriately secured when enabling SQL Server database credentials.
+
+For information about required permissions and how to configure SQL Server database credentials, see [Configure SQL Server database access](discovery-tool-configure.md#discovery-tool-sql-server-access).
+
 #### SQL Server data collection
 <a name="discovery-tool-database-data"></a>
 
 The SQL Server collection module gathers SQL Server component information. This table describes key data points collected:
 
 
-| Name | Type | Category | Sample value | 
-| --- | --- | --- | --- | 
-| Engine Type | String | Component | sql\_server | 
-| Is Engine Component | Boolean | Component | Y | 
-| Status | String | Service | Running, Stopped, StartPending | 
-| Version | String | Service | 2015.131.5026.0 | 
-| Edition | String | Service | Developer Edition (64-bit) | 
-| SQL Service Name | String | Service | MsDtsServer130, Mssql | 
-| SQL Service Type | String | Service | SQL Server service, Integration Services service | 
-| Instance Name | String | Instance | MSSQLSERVER | 
-| Display Name | String | Service | SQL Server (MSSQLSERVER2017) | 
-| Start Mode | String | Service | Automatic, Manual, Disabled | 
-| Service Account Name | String | Service | NT Service/MsDtsServer130 | 
-| Is Clustered | Boolean | Configuration | N | 
+| Name | Type | Category | Sample value | Source | 
+| --- | --- | --- | --- | --- | 
+| Engine Type | String | Component | sql\_server | WinRM | 
+| Is Engine Component | Boolean | Component | Y | WinRM | 
+| Status | String | Service | Running, Stopped, StartPending | WinRM, SQL | 
+| Version | String | Service | 2015.131.5026.0 | WinRM, SQL | 
+| Edition | String | Service | Developer Edition (64-bit) | WinRM, SQL | 
+| SQL Service Name | String | Service | MsDtsServer130, Mssql | WinRM, SQL | 
+| SQL Service Type | String | Service | SQL Server service, Integration Services service | WinRM, SQL | 
+| Instance Name | String | Instance | MSSQLSERVER | WinRM, SQL | 
+| Display Name | String | Service | SQL Server (MSSQLSERVER2017) | WinRM | 
+| Start Mode | String | Service | Automatic, Manual, Disabled | WinRM | 
+| Service Account Name | String | Service | NT Service/MsDtsServer130 | WinRM | 
+| Is Clustered | Boolean | Configuration | N | WinRM, SQL | 
+| Database Count | Integer | Database | 5 | SQL | 
+| Always On AG (Y/N) | String | High Availability | Y | SQL (2012\+) | 
+| Availability Group Name | String | High Availability | AG-Production | SQL (2012\+) | 
+| Cluster Role | String | High Availability | PRIMARY, SECONDARY, RESOLVING, STANDALONE | SQL (2012\+) | 
+| Read-Only Replica (Y/N) | String | High Availability | N | SQL (2012\+) | 
 
 **Note**  
-Full format includes all service types. MPA format includes only database engine components. Not all fields are available depending on the SQL service type and configuration.
+WinRM = collected over WinRM without database credentials. SQL = requires SQL Server database credentials. (2012\+) = also requires SQL Server 2012 or later; applies only to the Always On AG (Y/N), Availability Group Name, Cluster Role, and Read-Only Replica fields. Full format includes all service types. MPA format includes only database engine components and does not include SQL-only fields.
 
 ### Oracle Database collection
 <a name="discovery-tool-oracle-collection"></a>
@@ -472,25 +520,25 @@ One row per CDB instance. This table describes the CDB data points collected:
 | --- | --- | --- | --- | --- | 
 | Instance Name | String | Identity | "ORCL" | SQL, OS | 
 | Host Name | String | Identity | "oracledb01.example.com" | SQL, OS | 
-| DB Name | String | Identity | "ORCL" | SQL only | 
-| DB Unique Name | String | Identity | "ORCL\_PRIMARY" | SQL only | 
-| DBID | Integer | Identity | 1234567890 | SQL only | 
+| DB Name | String | Identity | "ORCL" | SQL | 
+| DB Unique Name | String | Identity | "ORCL\_PRIMARY" | SQL | 
+| DBID | Integer | Identity | 1234567890 | SQL | 
 | Version | String | Version | "19.0.0.0" | SQL, OS | 
-| Version Full | String | Version | "19.21.0.0.0" | SQL only | 
+| Version Full | String | Version | "19.21.0.0.0" | SQL | 
 | Edition | String | Version | "Enterprise Edition" | SQL, OS | 
-| Database Type | String | Configuration | "SINGLE" | SQL only | 
-| Database Role | String | Configuration | "PRIMARY" | SQL only | 
-| Open Mode | String | Configuration | "READ WRITE" | SQL only | 
-| Log Mode | String | Configuration | "ARCHIVELOG" | SQL only | 
-| Platform | String | Configuration | "Linux x86 64-bit" | SQL only | 
-| CDB Flag | String | Configuration | "YES" | SQL only | 
-| Is RAC | String | Topology | "YES" or "NO" | SQL only | 
-| Is Data Guard Standby | String | Topology | "YES" or "NO" | SQL only | 
-| Protection Mode | String | Topology | "MAXIMUM PERFORMANCE" | SQL only | 
-| Data Guard Broker | String | Topology | "ENABLED" | SQL only | 
-| NLS Characterset | String | Configuration | "AL32UTF8" | SQL only | 
-| PDB Count | Integer | Sizing | 3 | SQL only | 
-| Flashback On | String | Configuration | "YES" | SQL only | 
+| Database Type | String | Configuration | "SINGLE" | SQL | 
+| Database Role | String | Configuration | "PRIMARY" | SQL | 
+| Open Mode | String | Configuration | "READ WRITE" | SQL | 
+| Log Mode | String | Configuration | "ARCHIVELOG" | SQL | 
+| Platform | String | Configuration | "Linux x86 64-bit" | SQL | 
+| CDB Flag | String | Configuration | "YES" | SQL | 
+| Is RAC | String | Topology | "YES" or "NO" | SQL | 
+| Is Data Guard Standby | String | Topology | "YES" or "NO" | SQL | 
+| Protection Mode | String | Topology | "MAXIMUM PERFORMANCE" | SQL | 
+| Data Guard Broker | String | Topology | "ENABLED" | SQL | 
+| NLS Characterset | String | Configuration | "AL32UTF8" | SQL | 
+| PDB Count | Integer | Sizing | 3 | SQL | 
+| Flashback On | String | Configuration | "YES" | SQL | 
 | Detection Path | String | Metadata | "phase2" or "phase1b" | SQL, OS | 
 
 #### PDB data (oracle\_data\_pdbs\_full.csv)
@@ -504,17 +552,17 @@ PDB data requires Oracle database credentials (SQL connection). OS-level fallbac
 
 | Name | Type | Category | Sample value | Source | 
 | --- | --- | --- | --- | --- | 
-| CDB Instance Name | String | Identity | "ORCL" | SQL only | 
-| PDB Name | String | Identity | "APPPDB1" | SQL only | 
-| Open Mode | String | Status | "READ WRITE" | SQL only | 
-| Lifecycle Status | String | Status | "NORMAL" | SQL only | 
-| Tablespace Count | Integer | Sizing | 5 | SQL only | 
-| Datafile Count | Integer | Sizing | 12 | SQL only | 
-| Total Size Bytes | Integer | Sizing | 5368709120 | SQL only | 
-| User Schema Count | Integer | Sizing | 8 | SQL only | 
-| DB Link Count | Integer | Connectivity | 2 | SQL only | 
-| Components Installed | String | Configuration | "APEX;JVM;XML" | SQL only | 
-| Encrypted Tablespace Count | Integer | Security | 1 | SQL only | 
+| CDB Instance Name | String | Identity | "ORCL" | SQL | 
+| PDB Name | String | Identity | "APPPDB1" | SQL | 
+| Open Mode | String | Status | "READ WRITE" | SQL | 
+| Lifecycle Status | String | Status | "NORMAL" | SQL | 
+| Tablespace Count | Integer | Sizing | 5 | SQL | 
+| Datafile Count | Integer | Sizing | 12 | SQL | 
+| Total Size Bytes | Integer | Sizing | 5368709120 | SQL | 
+| User Schema Count | Integer | Sizing | 8 | SQL | 
+| DB Link Count | Integer | Connectivity | 2 | SQL | 
+| Components Installed | String | Configuration | "APEX;JVM;XML" | SQL | 
+| Encrypted Tablespace Count | Integer | Security | 1 | SQL | 
 
 #### Feature usage data (oracle\_data\_features\_full.csv)
 <a name="discovery-tool-oracle-features-data"></a>
@@ -527,12 +575,12 @@ Feature usage data requires Oracle database credentials (SQL connection). OS-lev
 
 | Name | Type | Category | Sample value | Source | 
 | --- | --- | --- | --- | --- | 
-| CDB Instance Name | String | Identity | "ORCL" | SQL only | 
-| Name | String | Feature | "Partitioning (user)" | SQL only | 
-| Detected Usages | Integer | Usage | 42 | SQL only | 
-| Currently Used | String | Usage | "TRUE" | SQL only | 
-| First Usage Date | DateTime | Usage | "2024-01-15T00:00:00" | SQL only | 
-| Last Usage Date | DateTime | Usage | "2026-06-01T00:00:00" | SQL only | 
+| CDB Instance Name | String | Identity | "ORCL" | SQL | 
+| Name | String | Feature | "Partitioning (user)" | SQL | 
+| Detected Usages | Integer | Usage | 42 | SQL | 
+| Currently Used | String | Usage | "TRUE" | SQL | 
+| First Usage Date | DateTime | Usage | "2024-01-15T00:00:00" | SQL | 
+| Last Usage Date | DateTime | Usage | "2026-06-01T00:00:00" | SQL | 
 
 #### Options data (oracle\_data\_options\_full.csv)
 <a name="discovery-tool-oracle-options-data"></a>
@@ -545,10 +593,10 @@ Options data requires Oracle database credentials (SQL connection). OS-level fal
 
 | Name | Type | Category | Sample value | Source | 
 | --- | --- | --- | --- | --- | 
-| CDB Instance Name | String | Identity | "ORCL" | SQL only | 
-| Option Name | String | Option | "Advanced Analytics" | SQL only | 
-| Is Installed | String | Option | "TRUE" | SQL only | 
-| Container ID | Integer | Option | 0 | SQL only | 
+| CDB Instance Name | String | Identity | "ORCL" | SQL | 
+| Option Name | String | Option | "Advanced Analytics" | SQL | 
+| Is Installed | String | Option | "TRUE" | SQL | 
+| Container ID | Integer | Option | 0 | SQL | 
 
 #### Components data (oracle\_data\_components\_full.csv)
 <a name="discovery-tool-oracle-components-data"></a>
@@ -561,10 +609,10 @@ Components data requires Oracle database credentials (SQL connection). OS-level 
 
 | Name | Type | Category | Sample value | Source | 
 | --- | --- | --- | --- | --- | 
-| CDB Instance Name | String | Identity | "ORCL" | SQL only | 
-| PDB Name | String | Identity | "APPPDB1" | SQL only | 
-| Component ID | String | Component | "APEX" | SQL only | 
-| Component Name | String | Component | "Oracle Application Express" | SQL only | 
-| Version | String | Component | "22.1.0.15.0" | SQL only | 
-| Status | String | Component | "VALID" | SQL only | 
-| Schema | String | Component | "APEX\_220100" | SQL only | 
+| CDB Instance Name | String | Identity | "ORCL" | SQL | 
+| PDB Name | String | Identity | "APPPDB1" | SQL | 
+| Component ID | String | Component | "APEX" | SQL | 
+| Component Name | String | Component | "Oracle Application Express" | SQL | 
+| Version | String | Component | "22.1.0.15.0" | SQL | 
+| Status | String | Component | "VALID" | SQL | 
+| Schema | String | Component | "APEX\_220100" | SQL | 

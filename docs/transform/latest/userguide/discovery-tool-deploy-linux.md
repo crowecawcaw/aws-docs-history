@@ -9,7 +9,7 @@ The discovery tool is available as a standalone Linux installer for deployment o
 <a name="discovery-tool-linux-server-specs"></a>
 + **RAM** – We recommend allocating at least 16 GB
 + **CPU** – We recommend allocating at least 4 cores
-+ **Disks** – 35 GB minimum. For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md).
++ **Disks** – Provide enough free disk space for the installation and your collected data. For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md).
 
 ## Supported distributions for the installer host
 <a name="discovery-tool-linux-supported-distros"></a>

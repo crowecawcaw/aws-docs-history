@@ -53,6 +53,12 @@ The discovery tool VM comes with a default login password "password" for user "d
 + The discovery tool does not access Diagnostics Pack or Tuning Pack views, so no additional Oracle license is required.
 + Rotate the Oracle service account password regularly and update the credential in the discovery tool.
 
+**SQL Server database credentials**
++ Use a dedicated SQL Server login with only the minimum required grants: `VIEW SERVER STATE`, `VIEW ANY DEFINITION`, and `VIEW ANY DATABASE`. Do not use `sysadmin` or other elevated roles.
++ The discovery tool performs only read operations and never writes to SQL Server.
++ SQL Server direct database connections in this release are unencrypted. Ensure that your network environment is appropriately secured.
++ Rotate the SQL Server login password regularly and update the credential in the discovery tool.
+
 ## Credential storage
 <a name="credential-storage-security"></a>
 

@@ -17,7 +17,7 @@ We recommend starting with the Kiro Power or agent plugin. The agent skill orche
 <a name="ct-key-capabilities"></a>
 
 AWS Transform continuous modernization provides the following capabilities:
-+ **Tech Debt Analysis** — Scan repositories for outdated dependencies, security vulnerabilities, code quality issues, and modernization opportunities. Run quick metadata scans across package manifests or comprehensive code-level analysis. Define custom analysis criteria using transformation definitions tailored to your environment.
++ **Tech Debt Analysis** — Scan repositories for outdated dependencies, security vulnerabilities, code quality issues, and modernization opportunities. Run quick agent-driven scans across package manifests or comprehensive code-level analysis. Define custom analysis criteria using transformation definitions tailored to your environment.
 + **Autonomous Remediation** — Generate validated pull requests at scale. Each finding can be auto-remediated using its associated transformation definition. Remediation creates branches and opens PRs/MRs automatically across GitHub, GitLab, and Bitbucket.
 + **Reporting** — Generate HTML reports showing findings by severity, repository, and analysis type. Track remediation progress and finding resolution over time.
 + **Continuous Monitoring** — Schedule recurring analyses to continuously monitor your portfolio for new issues. Run them on AWS Transform-managed infrastructure with no setup, or on a provisioned Amazon EC2 or Batch stack using Amazon EventBridge Scheduler. Configure daily, weekly, or monthly cadences.
@@ -30,12 +30,12 @@ AWS Transform continuous modernization supports the following analysis types to 
 
 | Type | Description | 
 | --- | --- | 
-| rapid-techdebt-analysis | Fast metadata-only scan of package manifests (pom.xml, package.json, requirements.txt) to identify stale versions and outdated dependencies. Does not analyze source code. | 
+| rapid-techdebt-analysis | Fast scan of package manifests (pom.xml, package.json, requirements.txt) using the AWS Transform agent to identify stale versions and outdated dependencies. Does not analyze source code. | 
 | tech-debt-comprehensive | Deep code-level technical debt analysis using the AWS Transform agent. Examines source code to identify debt patterns, code quality issues, architecture concerns, and improvement opportunities. | 
 | security | Static application security testing (SAST) using the AWS Security Agent. Scans source code for insecure coding patterns such as SQL injection, hardcoded secrets, and unsafe deserialization. Requires one-time infrastructure setup. | 
 | agentic-readiness | AI and agent integration readiness assessment. Scores 56 criteria across five categories: Infrastructure & Platform, Application Architecture, Data Foundations, Identity/Security/Governance, and Operations & Observability. | 
 | modernization-readiness | Cloud modernization opportunity assessment. Evaluates readiness across infrastructure, application, data, security, and operations dimensions. Identifies candidates for containerization, serverless migration, and platform upgrades. | 
-| custom | Run any transformation definition (TD) as an analysis. Use this type to define your own analysis criteria or to run AWS managed transforms not covered by the built-in types. | 
+| custom | Run one of your own transformation definitions as an analysis where each issue described is reported as a finding, which can link to an AWS managed transformation that fixes it. | 
 
 ## Understanding key concepts
 <a name="ct-key-concepts"></a>
@@ -62,7 +62,7 @@ An analysis is a scan of one or more repositories using a specific analysis type
 ### Findings
 <a name="ct-concept-findings"></a>
 
-Findings are the results of analysis. Each finding includes severity (high, medium, or low), status (open, dismissed, or obsolete), and the fix transform that can remediate it (if auto-fixable). New findings start as open. Users can dismiss findings with a reason. Re-analysis marks resolved findings as obsolete automatically.
+Findings are the results of analysis. Each finding includes severity (high, medium, or low), status (open, dismissed, or obsolete), and the fix transform that can remediate it (if auto-fixable). New findings start as open, and users can dismiss them with a reason. Re-analysis marks resolved findings as obsolete automatically.
 
 ### Remediations
 <a name="ct-concept-remediations"></a>
@@ -72,7 +72,11 @@ Remediations apply transformation definitions to fix findings. Three modes: find
 ### Transformation definitions
 <a name="ct-concept-transformation-definitions"></a>
 
-A transformation definition contains the instructions and knowledge needed to perform a specific code transformation. Continuous modernization uses transformation definitions for custom analysis (`--type custom --transformation-name {{name}}`) and remediation (`--transformation-name {{name}}`). List available transformation definitions with `atx custom def list`.
+A transformation definition contains the instructions and knowledge needed to perform a specific code transformation. There are two kinds:
++ **AWS managed transformation definitions** are pre-built and vetted by AWS, and are ready to use without any setup. Their names start with `AWS/`, for example `AWS/java-version-upgrade`. Findings link to them as the fix.
++ **Custom transformation definitions** are ones you create and publish to the transformation registry in your AWS account. Use them to look for your own issues with a custom analysis, or to make your own changes with a remediation.
+
+A transformation definition's **category** determines where it can be used: custom analysis runs transformation definitions with the `analysis` category, and remediation runs transformation definitions with the `remediation` category or AWS managed transformations. For more information, see [Transformation definition categories](custom.md#custom-transformation-categories).
 
 ## How AWS Transform continuous modernization works
 <a name="ct-how-it-works"></a>

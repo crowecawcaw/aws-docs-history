@@ -55,11 +55,67 @@ Before you set up the connector, understand the account roles involved in your m
 ### Using a delegated administrator account
 <a name="transform-vmware-cta-delegated-admin"></a>
 
-For multi-account migrations, AWS recommends that you use a Delegated Administrator (DA) account rather than the organization management account directly. A DA account follows the principle of least privilege by limiting the scope of permissions required for migration operations. The DA account must be registered as delegated administrator for both MGN and CloudFormation StackSets in your AWS Organization.
+For multi-account migrations, you can also use a Delegated Administrator (DA) account instead of the organization management account. A DA account follows the principle of least privilege by limiting the scope of permissions required for migration operations.
+
+**For building landing zone:**
+
+To make an account a delegated administrator for AWS Organizations, save the following policy as `organizations-delegation-policy.json` and run the following command from the management account. Replace {{connector-account-id}} with the account that you intend to connect.
+
+```
+{
+  "Version": "2012-10-17", 		 	 	 
+  "Statement": [
+    {
+      "Sid": "AllowAWSTransformOrganizationsRead",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "<connector-account-id>"
+      },
+      "Action": [
+        "organizations:ListRoots",
+        "organizations:DescribeOrganization",
+        "organizations:DescribeAccount",
+        "organizations:DescribeOrganizationalUnit",
+        "organizations:DescribePolicy",
+        "organizations:ListAccountsForParent",
+        "organizations:ListOrganizationalUnitsForParent",
+        "organizations:ListParents",
+        "organizations:ListTagsForResource"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+```
+aws organizations put-resource-policy --content file://organizations-delegation-policy.json
+```
+
+**Important**  
+This command replaces any existing delegation policy. If your organization already has a delegation policy, add this statement to it instead. To view the current policy, run `aws organizations describe-resource-policy`.
+
+#### For network and server migration using a delegated administrator
+<a name="transform-vmware-cta-delegated-admin-migration"></a>
+
+If your plan also includes network migration and server migration, and you use a DA account rather than the management account, you must also register the DA account as a delegated administrator for MGN and CloudFormation StackSets. Run the following commands from the management account. Replace {{DA-account-id}} with your DA account ID.
+
+```
+aws organizations register-delegated-administrator \
+  --account-id <DA-account-id> \
+  --service-principal mgn.amazonaws.com
+
+aws organizations register-delegated-administrator \
+  --account-id <DA-account-id> \
+  --service-principal member.org.stacksets.cloudformation.amazonaws.com
+```
+
+**Note**  
+You can enable trusted access for MGN and CloudFormation StackSets only from the management account. You can register up to five accounts as delegated administrators.
 
 The key difference between the two options is:
 + **Management account** – Can enable trusted access for MGN and CloudFormation StackSets across the organization. AWS Transform calls CloudFormation StackSets APIs with `CallAs: SELF`.
-+ **Delegated Administrator account** – Cannot enable trusted access directly (that must be done from the management account), but can manage MGN source servers, launch instances, and deploy CloudFormation StackSets across member accounts. AWS Transform calls CloudFormation StackSets APIs with `CallAs: DELEGATED_ADMIN`.
++ **Delegated Administrator account** – Can manage MGN source servers, launch instances, and deploy CloudFormation StackSets across member accounts. AWS Transform calls CloudFormation StackSets APIs with `CallAs: DELEGATED_ADMIN`.
 
 For more information, see [Delegated administrator for MGN](https://docs.aws.amazon.com/mgn/latest/ug/mgn-delegated-admin.html) in the *MGN User Guide*.
 

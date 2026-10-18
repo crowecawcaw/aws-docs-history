@@ -38,6 +38,7 @@ Your data continues to be stored only in the Region where the request originated
 | Europe (London) (eu-west-2) | Europe (Frankfurt) (eu-central-1)<br />Europe (Stockholm) (eu-north-1)<br />Europe (Milan) (eu-south-1)<br />Europe (Spain) (eu-south-2)<br />Europe (Ireland) (eu-west-1)<br />Europe (London) (eu-west-2)<br />Europe (Paris) (eu-west-3) | 
 | Canada (Central) (ca-central-1) | All commercial regions | 
 | South America (São Paulo) (sa-east-1) | All commercial regions | 
+| Asia Pacific (Singapore) (ap-southeast-1) | All commercial regions | 
 
 For a complete list of Regions where you can use AWS Transform, see [Supported Regions for AWS Transform](regions.md).
 
@@ -58,6 +59,7 @@ When you ask a general question about AWS Transform services, transformation wor
 | Asia Pacific (Mumbai) (ap-south-1) | Europe (Frankfurt) (eu-central-1) | 
 | Canada (Central) (ca-central-1) | Europe (Frankfurt) (eu-central-1) | 
 | South America (São Paulo) (sa-east-1) | Europe (Frankfurt) (eu-central-1) | 
+| Asia Pacific (Singapore) (ap-southeast-1) | Europe (Frankfurt) (eu-central-1) | 
 
 This setting is enabled by default. An account administrator can modify this setting. Disabling this feature results in the loss of access to features that require AWS Transform to retrieve knowledge from other regions. This might result in less accurate responses. 
 

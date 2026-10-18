@@ -10,8 +10,8 @@ The following table shows the recommended disk size for each environment size, b
 
 | Environment | Servers | Network collection | Recommended volume | 
 | --- | --- | --- | --- | 
-| Any size | Any | Disabled | 35 GB (default) | 
-| Small | Fewer than 500 | Enabled | 50 GB | 
+| Any size | Any | Disabled | 100 GB (the appliance default) | 
+| Small | Fewer than 500 | Enabled | 100 GB (the appliance default) | 
 | Medium | 500–2,000 | Enabled, no private addresses | 100 GB | 
 | Medium | 500–2,000 | Enabled, private addresses on | 150–200 GB | 
 | Large | 2,000 or more | Enabled | 200 GB | 

@@ -75,6 +75,124 @@ When publishing a transformation, the directory must contain only `SKILL.md` and
 **Note**  
 CLI version 2.0 and later uses the skills format. Existing transformation definitions are automatically handled by the CLI.
 
+### Transformation definition categories
+<a name="custom-transformation-categories"></a>
+
+A transformation definition can have a **category** that says how it is used:
++ `analysis` – Reads code and reports findings. Continuous modernization runs these transformation definitions as a custom analysis.
++ `remediation` – Changes code. Continuous modernization uses these transformation definitions to remediate findings.
+
+Set the category with the `--category` option of `atx custom def publish` or `atx custom def save-draft`:
+
+```
+atx custom def publish -n <transformation-name> --description "Description" --sd <directory> --category analysis
+atx custom def publish -n <transformation-name> --description "Description" --sd <directory> --category remediation
+atx custom def list    # The Category column shows each transformation definition's category
+```
+
+AWS Transform uses the category to decide where a transformation definition can be used.
+
+
+| Use | Allowed transformation definitions | 
+| --- | --- | 
+| Custom analysis (--type custom) | Your own transformation definitions with the analysis category | 
+| Remediation with --transformation-name | Your own transformation definitions with the remediation category, or AWS managed transformations | 
+
+Before submitting a custom analysis, schedule, or remediation, AWS Transform checks the transformation definition's category.
+
+To change a transformation definition's category, publish it again with a different `--category` value. If you publish a new version without `--category`, the new version keeps the category of the previous version.
+
+For how to run an `analysis` transformation definition, see [Custom analysis](ct-working-with.md#ct-custom-analysis).
+
+**Note**  
+A category is different from a resource tag. To manage resource tags, see [Tag Commands](custom-command-reference.md#custom-tag-commands).
+
+#### Write a transformation definition for analysis
+<a name="custom-analysis-definitions"></a>
+
+To get useful findings, write the transformation definition so that it describes what to look for, how to classify each issue, and what not to do. We recommend the following sections in `SKILL.md`.
+
+
+| Section | What to include | 
+| --- | --- | 
+| Introduction | One or two sentences that state what the analysis finds. State that it is read-only and must not modify any files. | 
+| Entry criteria | When the analysis applies, for example "The repository contains a pom.xml or build.gradle file." | 
+| Scope | The files and directories to inspect, and the ones to skip, such as build output and vendored dependencies. | 
+| What to report | The specific patterns or conditions that count as an issue. Ask for one finding per issue, with the file path and line number. | 
+| Categories | A small, fixed set of category values, and which issues belong in each. | 
+| Severity criteria | What makes an issue high, medium, or low. | 
+| Exit criteria | How the agent knows it is done: every in-scope file was inspected, every finding has a file, category, and severity, and no file was changed. Also state what to report when nothing is found. | 
+
+The following example finds Java projects that still target a Java version earlier than 17.
+
+```
+---
+name: java-version-detector
+description: Report where a repository still targets a Java version earlier than 17, in build files, Dockerfiles, toolchain files, and CI workflows. Analysis only - no code is modified.
+---
+
+# Java Version Detector
+
+Find where the repository targets a Java version earlier than Java 17. This is a
+read-only analysis: report findings, and do not modify any files.
+
+## Entry Criteria
+
+The repository contains a Java build file (`pom.xml`, `build.gradle`,
+`build.gradle.kts`, or `gradle.properties`), or a file that selects a JDK
+(`.java-version`, `.tool-versions`, `.sdkmanrc`, a `Dockerfile`, or a file under
+`.github/workflows/`).
+
+## Scope
+
+- Inspect build files, toolchain files, Dockerfiles, and CI workflow files.
+- Skip build output (`build/`, `target/`) and vendored dependencies.
+
+## What to Report
+
+Report one finding for each place that selects a Java version earlier than 17:
+
+1. A compile target, such as `maven.compiler.source`, `maven.compiler.release`,
+   `java.version`, `sourceCompatibility`, or a Gradle toolchain `languageVersion`.
+2. A Dockerfile base image that ships a JDK or JRE earlier than 17, such as
+   `openjdk:8` or `amazoncorretto:11`.
+3. A CI job or toolchain file that selects a JDK earlier than 17.
+
+For each finding, include the file path, the line number, and the version you found.
+
+## Categories
+
+- `outdated-compile-target` - a build file compiles for an old Java version
+- `outdated-runtime-image` - a Dockerfile uses an old JDK or JRE image
+- `outdated-ci-jdk` - a CI workflow or toolchain file selects an old JDK
+
+## Severity Criteria
+
+- **high** - the project compiles for Java 8 or earlier
+- **medium** - the project compiles for Java 9 through 16
+- **low** - only the runtime image or CI uses an old JDK, and the compile target is 17 or later
+
+## Exit Criteria
+
+1. Every in-scope file has been inspected.
+2. Every finding has a file path, line number, category, and severity from the lists above.
+3. No file in the repository has been modified.
+4. If nothing is found, state that the repository targets Java 17 or later.
+```
+
+When this transformation definition runs against a project whose `pom.xml` sets `<source>1.8</source>`, it produces a `high` severity finding in the `outdated-compile-target` category, with `AWS/java-version-upgrade` as its fix.
+
+**Tips for writing analysis transformation definitions**
++ **Keep it read-only.** State explicitly that the analysis must not modify files. Fixing issues is the job of a remediation.
++ **Be specific about what counts as an issue.** Name the files, settings, and patterns to look for. Vague instructions produce inconsistent findings.
++ **Ask for one finding per issue.** Each finding should point to a specific file and line so that it can be reviewed and remediated individually.
++ **Define severity and categories in the transformation definition.** The agent uses your criteria to classify each finding.
++ **Keep the scope focused.** A custom analysis reports only what its transformation definition describes. To find many kinds of issues, write separate transformation definitions or use the built-in analysis types.
++ **Say what to do when nothing is found.** A repository that has no issues correctly produces zero findings.
++ **Include the finding instructions in the transformation definition.** If you pass configuration with `-g` or `--configuration` when you run the analysis, AWS Transform uses your configuration instead of its default instructions. Keeping the "What to Report" section in `SKILL.md` makes the transformation definition produce findings either way.
+
+Test the transformation definition on a repository that you know contains the issue before you publish it. Save it as a draft with `atx custom def save-draft`, or run it locally with `atx ct analysis run` (see [Custom analysis](ct-working-with.md#ct-custom-analysis)).
+
 ### Transformation Registry
 <a name="custom-transformation-registry"></a>
 

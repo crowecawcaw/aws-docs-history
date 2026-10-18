@@ -8,7 +8,7 @@
 + **Operating System** – Amazon Linux 2023
 + **RAM** – 16 GB
 + **CPU** – 4 cores
-+ **Disks** – 35 GB minimum (default). For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md).
++ **Disks** – 100 GB minimum (default, thin-provisioned so it still imports onto small datastores). For larger inventories, see [Disk sizing and management](discovery-tool-disk-sizing.md).
 + **VMware requirements** – See [VMware host requirements for running AL2023 on VMware](https://docs.aws.amazon.com/linux/al2023/ug/vmware-supported-configurations.html#vmware-host-requirements)
 
 ## Deploy the VMware OVA

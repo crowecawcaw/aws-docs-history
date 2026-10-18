@@ -3,6 +3,11 @@
 # Troubleshooting
 <a name="discovery-tool-troubleshooting"></a>
 
+## Incomplete or failed export
+<a name="discovery-tool-export-troubleshooting"></a>
+
+If an export does not include all the data you expect, open the `export_summary.json` file in the export ZIP and check `overall_status` and each module's errors to identify which servers or data types were affected and why. For a description of the file, see [Understanding the export summary](discovery-tool-data-collection.md#discovery-tool-export-summary).
+
 ## Verifying discovery tool connectivity to vCenter
 <a name="discovery-tool-vcenter-connectivity"></a>
 

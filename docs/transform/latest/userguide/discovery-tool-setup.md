@@ -7,7 +7,7 @@
 <a name="discovery-tool-prerequisites"></a>
 
 The following are the prerequisites for using the AWS Transform discovery tool:
-+ The tool requires 4 vCPU, 16 GB of RAM, and a hard disk of at least 35 GB. 35 GB is the default; larger inventories require more disk. For guidance, see [Disk sizing and management](discovery-tool-disk-sizing.md).
++ The tool requires 4 vCPU and 16 GB of RAM. The OVA and VHD appliance images default to a 100 GB disk; larger inventories require more disk. For guidance, see [Disk sizing and management](discovery-tool-disk-sizing.md).
 + The tool collects data by using a centralized approach. Servers in scope must allow inbound connectivity from the discovery tool VM (default ports, custom port configuration is supported):
   + Linux – SSH TCP/22
   + Windows – TCP/5985 for HTTP, TCP/5986 for HTTPS
@@ -33,7 +33,7 @@ The following are the prerequisites for using the AWS Transform discovery tool:
   ```
 + Servers must be reachable from the discovery tool VM. Default ports: SSH port 22 for Linux, WinRM port 5985/5986 for Windows. Custom ports are supported.
 + A supported Linux distribution: Amazon Linux 2, Amazon Linux 2023, RHEL 8–9, Rocky Linux 8–9, AlmaLinux 9, Ubuntu 20.04–24.04, Debian 10–12, or SLES 15 SP5.
-+ Minimum 4 vCPU, 16 GB RAM, 35 GB available disk space.
++ Minimum 4 vCPU and 16 GB RAM. Provide enough free disk space for the installation and your collected data; larger inventories require more disk. For guidance, see [Disk sizing and management](discovery-tool-disk-sizing.md).
 + Port 5000 must be available (not in use by another service).
 + systemd is required for service management.
 + The discovery tool VM must have network access to your target infrastructure. Default ports: vCenter on port 443, Hyper-V hosts on port 5985/5986, servers on port 22. Custom ports are supported for SSH, WinRM, and SNMP.

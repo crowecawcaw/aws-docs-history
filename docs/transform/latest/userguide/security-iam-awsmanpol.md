@@ -21,6 +21,8 @@ View details about updates to AWS managed policies for AWS Transform since March
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| [AWSTransformServerMigrationAgentPolicy](#security-iam-awsmanpol-AWSTransformServerMigrationAgentPolicy) – Updated policy | Added permission for AWS Transform MGN to assume the `AWSTransformRehostSharingRole_{{account-id}}` role in other accounts in your organization on your behalf. This lets MGN run multi-account server migration operations in member accounts. | October 11, 2026 | 
+| [AWSTransformLandingZoneAgentPolicy](#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy) – Updated policy | Updated the read-only AWS Organizations permissions that describe accounts, OUs, and policies, list the OU hierarchy, and list tags. These permissions now apply to resources in your organization (`aws:ResourceOrgID`) instead of only to resources in the calling account (`aws:ResourceAccount`). With this change, you can use the policy in a delegated administrator account to read your organization structure. | October 6, 2026 | 
 | [AWSTransformApplicationDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationDeploymentPolicy) – Updated policy | Added permissions to add and remove CloudFormation stack tags during stack create and update operations. | September 11, 2026 | 
 | [AWSTransformApplicationECSDeploymentPolicy](#security-iam-awsmanpol-AWSTransformApplicationECSDeploymentPolicy) – Updated policy | Added permissions to add and remove CloudFormation stack tags during stack create and update operations. | September 11, 2026 | 
 | [AWSTransformLandingZoneAgentPolicy](#security-iam-awsmanpol-AWSTransformLandingZoneAgentPolicy) – New policy | Added a new AWS managed policy that grants the permissions needed to set up AWS landing zones, including account provisioning, organizational governance, and AWS Control Tower configuration. | September 3, 2026 | 
@@ -223,12 +225,12 @@ This policy grants the permissions needed to set up AWS landing zones, including
 
 This policy includes the following permissions:
 + **AWS Control Tower** – Allows listing and describing landing zones, baselines, enabled baselines, enabled controls, and the status of baseline and control operations. Permits enabling controls and baselines and tagging Control Tower resources.
-+ **AWS Organizations** – Allows describing the organization, accounts, organizational units (OUs), and policies, and listing roots, parents, and the OU hierarchy. Permits creating accounts and OUs, moving accounts between OUs, and tagging organization resources. Creating, updating, and attaching service control policies is allowed only when the call is made through AWS Control Tower.
++ **AWS Organizations** – Allows describing the organization, accounts, organizational units (OUs), and policies, and listing roots, parents, and the OU hierarchy. These read permissions apply to all resources in your organization, so they also work from a delegated administrator account. Permits creating accounts and OUs, moving accounts between OUs, and tagging organization resources. Creating, updating, and attaching service control policies is allowed only when the call is made through AWS Control Tower.
 + **CloudFormation** – Allows creating, updating, tagging, and describing landing zone stacks with names that start with `AtxLz`, reading stack events and templates, and creating, describing, listing, and executing change sets. Deleting stacks is not permitted.
 + **AWS Service Catalog** – Allows creating, updating, deleting, and listing provisioning artifacts for products in your account, which AWS Control Tower uses to provision accounts.
 + **Amazon S3** – Allows creating and managing the `transform-vmware-landing-zone-*` bucket and its objects, including bucket policy, tagging, encryption configuration, and multipart uploads.
 
-The policy implements least-privilege access through resource name prefixes (`AtxLz*` and `transform-vmware-landing-zone-*`), tag-based conditions on `CreatedBy: AWSTransform` and the workspace ID, the `aws:ResourceAccount` condition, an `aws:RequestedRegion` condition that restricts operations to your target AWS Region, and an `aws:CalledVia` condition that limits service control policy changes to calls made by AWS Control Tower.
+The policy implements least-privilege access through resource name prefixes (`AtxLz*` and `transform-vmware-landing-zone-*`), tag-based conditions on `CreatedBy: AWSTransform` and the workspace ID, the `aws:ResourceAccount` condition, and an `aws:RequestedRegion` condition that restricts operations to your target AWS Region. Certain AWS Organizations read-only operations, including describing accounts, organizational units, and policies, listing the organizational hierarchy, and listing resource tags, are permitted for resources within the same AWS Organization using the `aws:ResourceOrgID` condition instead of restricting access to the principal's account. The `aws:CalledVia` condition limits service control policy changes to calls made by AWS Control Tower.
 
  **Permissions details** 
 
@@ -299,9 +301,9 @@ This policy includes the following permissions:
 + **Service Quotas** – Allows reading the VPC quota for security groups per network interface through MGN.
 + **AWS Secrets Manager** – Allows listing secrets to discover the credentials used for source server discovery.
 + **AWS Organizations** – Allows listing accounts to discover the accounts in your organization.
-+ **AWS STS** – Allows assuming the `AWSTransformRehostSharingRole_{{management-or-delegated-admin-account-id}}` role in other accounts in your organization for multi-account migrations.
++ **AWS STS** – Allows assuming the `AWSTransformRehostSharingRole_{{management-or-delegated-admin-account-id}}` role in other accounts in your organization for multi-account migrations. Through MGN, also allows MGN to assume the same role in member accounts of your organization, using an external ID of `{{account-id}}:AWSTransform`.
 
-The policy implements least-privilege access through resource-level permissions, tag-based conditions on `CreatedBy`, `AWSApplicationMigrationServiceManaged`, and the workspace ID, the `aws:ResourceAccount` and `aws:ResourceOrgID` conditions, an `aws:RequestedRegion` condition that restricts operations to your target AWS Region, `aws:CalledVia` conditions that limit most Amazon EC2, Amazon FSx, and Systems Manager actions to calls made by MGN, and an external ID that includes your workspace ID for cross-account role assumption.
+The policy implements least-privilege access through resource-level permissions, tag-based conditions on `CreatedBy`, `AWSApplicationMigrationServiceManaged`, and the workspace ID, the `aws:ResourceAccount` and `aws:ResourceOrgID` conditions, an `aws:RequestedRegion` condition that restricts operations to your target AWS Region, `aws:CalledVia` conditions that limit most Amazon EC2, Amazon FSx, Systems Manager, and AWS STS actions to calls made by MGN, and external IDs that include your account ID or workspace ID for cross-account role assumption.
 
  **Permissions details** 
 

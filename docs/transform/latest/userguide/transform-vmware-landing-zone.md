@@ -6,49 +6,81 @@
 AWS Transform guides you through designing and deploying an AWS landing zone as part of your migration project. A landing zone is a multi-account AWS environment that serves as the foundation for your workloads. It puts organizational boundaries, governance controls, and account structure in place before any workloads arrive. AWS Transform analyzes your migration inventory and business requirements. Based on this analysis, it recommends an Organizational Unit (OU) and account structure, applies recommended Service Control Policies (SCPs), and generates and deploys the infrastructure as code (IaC). What typically takes weeks of manual planning and configuration, AWS Transform can complete in a single conversation.
 
 The landing zone agent automates two phases:
-+ **Foundation setup** – Establish the core landing zone structure: AWS Control Tower, foundational OUs, and core accounts.
++ **Foundation setup** – Establish the core landing zone structure: [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html), foundational OUs, and core accounts.
 + **Workload account design** – Design and create workload OUs and accounts based on your migration waves, business units, and environment separation requirements.
 
 AWS Transform supports both greenfield environments (no existing landing zone) and brownfield environments (existing OUs and accounts already deployed). In brownfield scenarios, AWS Transform detects your existing organization structure and recommends only the changes needed to fill gaps against AWS best practices. You don't have to start from scratch or perform a manual gap analysis.
 
+AWS Transform supports two operational modes based on your connector configuration and preferences:
++ **Full deployment mode** – AWS Transform analyzes your organization, generates recommendations, creates Infrastructure as Code (IaC) artifacts, and deploys the landing zone infrastructure directly to your AWS Organization.
++ **IaC-only mode** – AWS Transform analyzes your organization, generates recommendations, and produces IaC artifacts for your review and deployment through your own pipeline. The agent does not deploy infrastructure directly. This mode is useful if you have existing deployment pipelines (such as AWS Landing Zone Accelerator, Terraform, or custom CI/CD) or prefer to manage landing zone changes through your internal change management process. For more information, see [Generate landing zone IaC without deployment](transform-vmware-lz-iac-only-flow.md).
+
 ## Connector setup
 <a name="transform-vmware-lz-connector-setup"></a>
 
-Before the agent can provision resources, you connect it to your organization management account. The landing zone agent requires a target AWS account connector with permissions to:
-+ Set up [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html)
-+ Create [organizational units and accounts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html)
-+ Configure [Service Control Policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
+Before the agent can proceed, you connect it to your organization's Management Account or Delegated Administrator account. The connector type determines your operational mode, available capabilities, and the permissions you grant to AWS Transform:
 
-When you approve the connector request, you grant AWS Transform permissions to:
-+ Provision and manage landing zone infrastructure in the target AWS account and Region. This includes permissions for the following items, restricted to resources tagged with `CreatedBy:AWSTransform` and by `ATWorkspace:{workspace-id}` where applicable:
-  + S3 bucket operations (create, read, write, delete) for buckets starting with `transform-vmware-landing-zone-`
-  + CloudFormation stack deployments and change set management for landing zone stacks
-  + AWS Control Tower operations (managing landing zones, enabling baselines and controls)
-  + [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) management (creating and managing organizational units, creating accounts, and moving accounts)
-  + Service control policy (SCP) management through AWS Control Tower
-  + [AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) provisioning artifact management
 
-When you create the connector, you specify a target AWS Region. This Region should be the same as your home Control Tower Region. For more information about Control Tower Regions, see [How AWS Regions work with AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html).
+| Connector Type | Capabilities and Workflow | 
+| --- | --- | 
+| Management Account | Provides full deployment capabilities. AWS Transform analyzes your organization, generates recommendations, creates Infrastructure as Code artifacts, and deploys landing zone infrastructure directly to your AWS Organization. You choose whether AWS Transform deploys automatically or only generates IaC artifacts for your review.<br />Use this option when you want AWS Transform to provision landing zone infrastructure directly, or when you want to generate IaC artifacts while retaining the option for direct deployment.<br />**Permissions** – When you approve the connector request, you grant AWS Transform permissions to provision and manage landing zone infrastructure in the target AWS account and Region. Where applicable, permissions are restricted to resources tagged with `CreatedBy:AWSTransform` and `ATWorkspace:{workspace-id}`. This includes:+  [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html) operations (setting up and managing landing zones, enabling baselines and controls) <br />+  [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html) management (creating and managing organizational units, creating accounts, and moving accounts) <br />+  [Service Control Policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) management through AWS Control Tower <br />+  CloudFormation stack deployments and change set management for landing zone stacks <br />+  [AWS Service Catalog](https://docs.aws.amazon.com/servicecatalog/latest/adminguide/introduction.html) provisioning artifact management <br />+  S3 bucket operations (create, read, write, delete) for buckets starting with `transform-vmware-landing-zone-`  | 
+| Delegated Administrator (DA) Account | [Provides IaC-only mode](transform-vmware-lz-iac-only-flow.md). AWS Transform analyzes your organization, generates recommendations, and produces Infrastructure as Code artifacts that you can download and deploy through your own pipeline. Direct deployment is not available with DA connectors due to AWS Control Tower's technical limitation that Delegated Admin accounts cannot provision AWS Control Tower landing zones.<br />Use this option when:+  Your security or governance policies restrict programmatic access to the Management Account <br />+  You have an established Delegated Administrator account for AWS Organizations operations <br />+  You prefer to deploy landing zone infrastructure through your own deployment pipeline (AWS Landing Zone Accelerator, Terraform, CloudFormation, CDK, or custom CI/CD) <br />If you require direct deployment capability, you can reconfigure your connector to target the Management Account.<br />**Permissions** – In IaC-only mode, permissions are limited to read and describe operations on the AWS Organization to support analysis and gap assessment.<br />To create a Delegated Administrator account, [follow the instructions to create a delegated administrator](transform-vmware-connect-target-account.md#transform-vmware-cta-delegated-admin). | 
 
-At the start of the landing zone setup, AWS Transform retrieves your connector configuration and presents the AWS Organization management account ID and target Region for confirmation. For more information, see [AWS Transform Connectors](transform-user-connectors.md).
+When you create the connector, you specify a target AWS Region. This is the Region where Control Tower is enabled, and it serves as your Control Tower home Region. For more information about Control Tower Regions, see [How AWS Regions work with AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html).
+
+At the start of the landing zone setup, AWS Transform retrieves your connector configuration and presents the AWS Organization management account ID and target Region for confirmation. AWS Transform also detects your connector type and operational mode, informing you whether you are proceeding with full deployment or IaC-only capabilities. For more information, see [AWS Transform Connectors](transform-user-connectors.md).
 
 **Important**  
 **IAM Identity Center Region dependency** – AWS Transform requires AWS IAM Identity Center. Your connector Region must match both your AWS Control Tower home Region *and* your IAM Identity Center Region. If IAM Identity Center is already configured in your organization and the connector targets a different Region, AWS Control Tower initialization fails. For more information, see [Considerations for IAM Identity Center customers](https://docs.aws.amazon.com/controltower/latest/userguide/getting-started-prereqs.html) in the AWS Control Tower User Guide.
 
+**Note**  
+**Delegated Admin connectors and Control Tower initialization:** If you use a Delegated Administrator account connector, AWS Transform operates in IaC-only mode. If Control Tower has not yet been initialized in your organization, AWS Transform generates IaC artifacts to initialize Control Tower, which you can review and deploy through your pipeline.
+
 ## Foundation setup
 <a name="transform-vmware-lz-foundation-setup"></a>
 
-The foundation setup phase establishes the core landing zone infrastructure using [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html). When AWS Control Tower sets up a landing zone, it automatically provisions a set of managed resources in your management account that form the governance foundation for your entire AWS Organization:
-+ **Root** – The top-level parent that contains all OUs in your landing zone.
-+ **Security OU** – Created automatically by Control Tower. It contains two shared accounts:
-  + **Log Archive account** – Centralized, immutable logging for all AWS API activity and resource changes across your organization.
-  + **Audit account** – Read-only access to all accounts for security and compliance review.
+### Foundation discovery and planning
+<a name="transform-vmware-lz-foundation-discovery"></a>
 
-  These accounts cannot be renamed or replaced after initial setup.
-+ **Mandatory controls (guardrails)** – Control Tower automatically applies preventive and detective controls across your organization to enforce baseline governance policies. These cannot be disabled.
-+ **IAM Identity Center directory** – Control Tower creates a cloud-native directory with preconfigured groups and single sign-on access for your landing zone users. For more information, see [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+At the start of foundation setup, AWS Transform performs discovery to understand your current organizational state and determines the best approach for your landing zone. The agent asks you the following key questions:
++ **Does your organization already have AWS Control Tower deployed?** AWS Transform checks if Control Tower is initialized in your organization. If Control Tower is already running, AWS Transform analyzes the existing landing zone configuration.
++ **What foundation approach do you want to use?** If Control Tower is not yet deployed, AWS Transform offers you two options:
+  + **Control Tower-based landing zone:** AWS Transform deploys AWS Control Tower as the foundation for your landing zone. This provides the most comprehensive governance with managed controls, mandatory guardrails, and automated OU and account management. This is the recommended approach for most organizations.
+  + **Organizations-only landing zone:** AWS Transform creates a landing zone using only AWS Organizations without deploying Control Tower. This gives you foundational OU structure and account organization but does not include Control Tower's managed controls and automated guardrails. Choose this option if your organization has specific requirements that prevent Control Tower deployment.
 
-Control Tower uses [CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy and manage these resources consistently across all accounts and Regions in your organization. Don't modify or delete Control Tower managed resources outside of supported methods. Doing so can cause your landing zone to enter an unknown state.
+Based on your responses, AWS Transform tailors the foundation setup workflow and recommendations to match your chosen approach. For Control Tower-based landing zones, the full governance foundation is deployed. For Organizations-only landing zones, AWS Transform focuses on OU structure, account organization, and manual SCP configuration.
+
+### Foundation setup
+<a name="transform-vmware-lz-foundation-structure"></a>
+
+The foundation setup phase establishes the core landing zone infrastructure using [AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/what-is-control-tower.html). The landing zone agent builds the full foundation OU structure. Part of it is the AWS Control Tower baseline, which Control Tower provisions automatically in your management account. AWS Transform adds the rest based on AWS best practices. You can customize the structure before creation.
+
+The following table shows the foundation structure and where each component comes from:
+
+
+| Component | Type | Source | Purpose | 
+| --- | --- | --- | --- | 
+| Root | Root | AWS Control Tower baseline | The top-level parent that contains all OUs in your landing zone. | 
+| Security | OU | AWS Control Tower baseline | Centralized audit logging and monitoring. Isolating these services in dedicated accounts is designed to help keep your audit trail separate from workload teams. | 
+|   Audit | Account | AWS Control Tower baseline | Read-only access to all accounts for security and compliance review. | 
+|   Log Archive | Account | AWS Control Tower baseline | Centralized, immutable logging for all AWS API activity and resource changes across your organization. | 
+| Infrastructure | OU | AWS best practice addition | Parent OU for shared infrastructure that supports your entire organization. | 
+|   Network | OU | AWS best practice addition | Shared networking infrastructure, including Transit Gateway, VPN, and DNS. Centralizing these services helps reduce duplication and gives your network team a single place to manage connectivity across all accounts. | 
+|   Shared Services | OU | AWS best practice addition | Common services used across the organization, such as identity, logging, and monitoring solutions that support multiple workload accounts. | 
+| Sandbox | OU | AWS best practice addition | Developer experimentation with spending limits and restricted access, without risking production resources. | 
+|   Sandbox | Account | AWS best practice addition | The account developers use for experimentation. | 
+| Workloads | OU | AWS best practice addition | Parent OU for your application workloads. It's created empty. Workload OUs and accounts, such as Production, Non-Production, and optionally Regulated, are designed in the next phase based on your migration requirements. For more information, see [Workload account design](#transform-vmware-lz-workload-design). | 
+
+In addition to the Security OU and its accounts, the AWS Control Tower baseline includes the following governance resources:
++ **Mandatory controls (guardrails)** – Preventive and detective controls applied across your organization to enforce baseline governance policies. These cannot be disabled.
++ **IAM Identity Center directory** – A cloud-native directory with preconfigured groups and single sign-on access for your landing zone users. For more information, see [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html).
+
+**Note**  
+The Security OU with the [Audit and Log Archive accounts](https://docs.aws.amazon.com/controltower/latest/userguide/accounts.html) is created as part of the AWS Control Tower setup. These accounts cannot be renamed or replaced after initial setup. AWS Transform creates the best practice additions separately after you confirm the structure.
+
+Control Tower uses [CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy and manage its baseline resources consistently across all accounts and Regions in your organization. Don't modify or delete Control Tower managed resources outside of supported methods. Doing so can cause your landing zone to enter an unknown state.
+
+In brownfield scenarios, AWS Transform compares your existing foundation against this structure and reports only the gaps. For example: "Your foundation has Security and Infrastructure OUs but no Sandbox OU."
 
 ### Account email convention
 <a name="transform-vmware-lz-email-convention"></a>
@@ -64,24 +96,6 @@ You provide a prefix (for example, `aws-admin`) and a domain (for example, `acme
 
 In brownfield scenarios, AWS Transform inspects existing account emails to infer the plus-addressing convention already in use and offers to continue with the same pattern.
 
-### Recommended foundation structure
-<a name="transform-vmware-lz-foundation-structure"></a>
-
-Based on AWS best practices, AWS Transform recommends the following foundation OU structure. You can customize it before creation.
-
-
-| OU | Purpose | Accounts | 
-| --- | --- | --- | 
-| Security | Centralized audit logging and monitoring. Isolating these services in dedicated accounts is designed to help keep your audit trail separate from workload teams. | Audit, Log Archive | 
-| Infrastructure | Shared networking (Transit Gateway, VPN), DNS, and common services. Centralizing these is recommended to help reduce duplication and give your network team a single place to manage connectivity. | None (created empty) | 
-| Sandbox | Developer experimentation with spending limits and restricted access. Recommended to give developers a space to experiment without risking production resources. | Sandbox | 
-| Workloads | Contains Production, Non-Production, and optionally Regulated sub-OUs. Workload accounts are designed in the next phase based on your migration requirements. | None (created empty) | 
-
-**Note**  
-The Security OU with [Audit and Log Archive accounts](https://docs.aws.amazon.com/controltower/latest/userguide/accounts.html) is created as part of the Control Tower foundation setup. The Infrastructure, Sandbox, and Workloads OUs are created separately after you confirm the structure.
-
-In brownfield scenarios, AWS Transform compares your existing foundation against this recommended structure and reports only the gaps. For example: "Your foundation has Security and Infrastructure OUs but no Sandbox OU."
-
 ### Service Control Policies (SCPs)
 <a name="transform-vmware-lz-scps"></a>
 
@@ -95,6 +109,9 @@ SCPs can be applied to the Infrastructure, Sandbox, and Workloads OUs. The Secur
 The Security OU is a foundation OU managed by Control Tower. You cannot add accounts, SCPs, or any resources to it through the landing zone agent.
 
 In brownfield scenarios, AWS Transform checks which SCPs are already applied and only recommends ones that would fill gaps.
+
+**Note**  
+**Delegated Administrator account limitation in brownfield scenarios:** When using a Delegated Administrator account connector in a brownfield environment where AWS Control Tower landing zone is already implemented, AWS Transform cannot view or modify existing SCPs managed by Control Tower. This is because Delegated Administrator accounts have limited permissions for SCP operations on Control Tower-managed policies. You can still generate IaC artifacts for new SCPs that you want to apply outside of Control Tower's management scope, but existing Control Tower SCPs will remain unchanged. If you need to modify Control Tower-managed SCPs, reconfigure your connector to target the Management Account.
 
 ### Foundation deployment
 <a name="transform-vmware-lz-foundation-deployment"></a>

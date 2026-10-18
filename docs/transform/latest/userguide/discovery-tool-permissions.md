@@ -108,6 +108,11 @@ Local Administrator is recommended because SQL Server discovery queries multiple
 **Note**  
 SQL Server collection is Windows-only. The discovery tool skips Linux servers for SQL Server discovery.
 
+### SQL Server direct database collection (optional)
+<a name="discovery-tool-permissions-windows-db-direct"></a>
+
+SQL Server direct database collection requires a dedicated login with specific server-scoped grants. For setup instructions and the required grants, see [Configure SQL Server database access](discovery-tool-configure.md#discovery-tool-sql-server-access).
+
 ## Oracle Database (SQL)
 <a name="discovery-tool-permissions-oracle"></a>
 
@@ -153,6 +158,7 @@ Network collection uses different protocols depending on the server's operating 
 | Windows OS metrics — full data | WinRM user | Local Administrator | 
 | Windows OS metrics — basic data | WinRM user | Remote Management Users \+ WMI read access to root\\cimv2 | 
 | SQL Server database discovery | WinRM user | Local Administrator | 
+| SQL Server direct database collection (optional) | SQL Server login | VIEW SERVER STATE, VIEW ANY DEFINITION, VIEW ANY DATABASE | 
 | Oracle database discovery (SQL) | Oracle service account | SELECT\_CATALOG\_ROLE (read-only, no DBA or SYSDBA) | 
 | Network collection — Linux (SSH) | SSH user | Passwordless sudo for process-level data; regular user for connection data only | 
 | Network collection — Linux (SNMP) | SNMP community string or USM user | Read access to TCP and Host Resources MIBs | 
