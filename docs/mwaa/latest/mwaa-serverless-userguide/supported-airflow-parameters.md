@@ -21,10 +21,22 @@
 | Parameter | Validation Rule | Default Value | 
 | --- | --- | --- | 
 | dag\_id | Must be a valid, non-empty string |  | 
-| schedule | Must be a valid CRON expression format |  | 
+| schedule | Must be one of the following:+ An Apache Airflow cron expression or schedule preset.<br />+ A direct Amazon EventBridge `rate()` expression.<br />+ A direct Amazon EventBridge `cron()` expression. |  | 
 | start\_date | Must be in the future |  | 
 | end\_date | Must be after or equal to start\_date |  | 
 | max\_active\_runs | Must be smaller than account limit. Please refer to [Quotas for Amazon MWAA Serverless](mwaa-serverless-quotas.md) | 16 | 
+
+ The following YAML example defines a workflow that runs every 5 minutes by using a direct Amazon EventBridge rate expression for the `schedule` parameter. 
+
+```
+rate_schedule_test:
+  dag_id: rate_schedule_test
+  schedule: rate(5 minutes)
+  tasks:
+    hello:
+      operator: airflow.providers.standard.operators.bash.BashOperator
+      bash_command: echo "rate schedule fired at $(date -u)"
+```
 
 ## Task level parameters that Amazon MWAA Serverless will validate
 <a name="task-object-attributes-validation"></a>
