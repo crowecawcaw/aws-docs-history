@@ -9,3 +9,4 @@ To learn about connecting ticketing and chat integrations, see the following:
 + [Connecting PagerDuty](connecting-to-ticketing-and-chat-connecting-pagerduty.md)
 + [Connecting ServiceNow](connecting-to-ticketing-and-chat-connecting-servicenow.md)
 + [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.md)
++ [Connecting Microsoft Teams](connecting-to-ticketing-and-chat-connecting-microsoft-teams.md)

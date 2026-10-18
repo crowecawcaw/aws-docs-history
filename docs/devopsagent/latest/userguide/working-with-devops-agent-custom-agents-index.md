@@ -7,6 +7,8 @@ Custom agents are user-defined AI agents that automate operational tasks specifi
 
 Custom agents execute autonomously, using the MCP tools and skills available in your Agent Space. You can run them on demand or on a schedule to perform recurring operational work such as generating reports, auditing configurations, analyzing trends, or executing multi-step workflows across your connected tools.
 
+Custom agents appear in the **Custom agents** section of the **Agents** page, alongside the **Managed agents** section. Custom agents are the agents you build and configure for your own workflows, whereas managed agents are the ones AWS DevOps Agent provides and maintains for you. For the managed agents, including the learning agent, see [Managed agents](working-with-devops-agent-managed-agents.md).
+
 ## Key concepts
 <a name="key-concepts"></a>
 

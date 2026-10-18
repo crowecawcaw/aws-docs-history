@@ -3,7 +3,7 @@
 # Release readiness code reviews
 <a name="release-management-release-readiness-code-review"></a>
 
-Release readiness code reviews evaluate your code changes for cross-repository dependency risks, internal standards compliance, and access-control correctness. It also performs automated verification testing – it builds, runs, and tests your code changes – in a verification environment managed by the AWS DevOps Agent.
+Release readiness code reviews evaluate your code changes for cross-repository dependency risks, internal standards compliance, and access-control correctness. It also performs automatic verification testing – it builds, runs, and tests your code changes – in a verification environment managed by the AWS DevOps Agent.
 
 ## Getting started
 <a name="getting-started"></a>
@@ -17,12 +17,9 @@ Code review and automated testing capabilities must be enabled on your connected
 
 The **Code Review and Automated Testing** section in your pipeline provider integration settings provides two per-repository capabilities:
 + **Auto trigger change review** — When enabled, DevOps Agent automatically runs a release readiness code review each time a pull request or merge request is opened or updated. Review findings appear as inline comments on the PR/MR.
-+ **Automated verification testing** — When enabled, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automated verification testing](#automated-verification-testing).
++ **Automatic verification testing** — When enabled, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](#automatic-verification-testing).
 
 You can enable or disable each capability independently per repository, allowing you to use change reviews without verification testing or vice versa.
-
-The section also includes:
-+ **Runtime role** (optional) — Choose the IAM role that DevOps Agent assumes to run automated capabilities on your selected repositories. This role is used when accessing internal services during builds, such as private package registries or artifact stores. For more information, see [Step 2](#step-2-configure-private-vpc-access-for-the-verification-testing-environment-optional).
 
 **For GitHub:** Navigate to the **Code Review and Automated Testing** section in your GitHub integration settings and enable the capabilities for each repository. Both capabilities are enabled by default when you connect repositories. For detailed instructions, see [Configuring Code Review and Automated Testing](connecting-to-cicd-pipelines-connecting-github.md).
 
@@ -43,31 +40,49 @@ Trigger filters aren't fixed at setup time — you can return to the connection 
 
 For instructions on configuring trigger filters in GitHub, see [Advanced settings: trigger filters](connecting-to-cicd-pipelines-connecting-github.md). For instructions on configuring trigger filters in GitLab, see [Advanced settings: trigger filters](connecting-to-cicd-pipelines-connecting-gitlab.md).
 
-### Step 2: Configure private VPC access for the verification testing environment (optional)
-<a name="step-2-configure-private-vpc-access-for-the-verification-testing-environment-optional"></a>
+### Step 2: Configure Release Management environments for private VPC access (optional)
+<a name="step-2-configure-release-management-environments-for-private-vpc-access-optional"></a>
 
-Release readiness code reviews can perform automated verification testing by building, running, and testing your code changes in a verification environment (see [Automated verification testing](#automated-verification-testing)). If your code build process requires artifacts from internal systems — such as private image repositories (for example, Artifactory, Docker Hub Enterprise), internal build artifact stores, or dependent code repositories — you need to give the verification testing environment access to a VPC that can reach those service endpoints.
+Release readiness code reviews can perform automatic verification testing by building, running, and testing your code changes in a verification environment (see [Automatic verification testing](#automatic-verification-testing)). If your code build process requires artifacts from internal systems — such as private image repositories (for example, Artifactory, Docker Hub Enterprise), internal build artifact stores, or dependent code repositories — you need to give the verification testing environment access to a VPC that can reach those service endpoints.
 
-By default, the verification testing environment does not have network access to your internal systems. To enable access, create a private connection and associate it with your pipeline provider ([GitHub](connecting-to-cicd-pipelines-connecting-github.md) or [GitLab](connecting-to-cicd-pipelines-connecting-gitlab.md)). The verification testing environment uses the VPC associated with that private connection by creating and managing an ENI inside the VPC, giving the build environment network access to your internal services.
+By default, the verification testing environment does not have network access to your internal systems. To enable access, create a Release Management environment in your Agent Space. The environment stores the private connection and runtime role that the verification testing environment uses to reach private resources. Then associate the environment with each GitHub repository or GitLab project that requires private access.
+
+The verification testing environment creates and manages an elastic network interface (ENI) inside the VPC associated with the private connection. The runtime role provides the permissions required to create and manage the ENI.
 
 **Note**  
 ** Integrating with VPCs in your account routes network traffic through your internal routes, following any network restrictions in place.
 
-To configure private VPC access for verification testing:
+You can create an environment before connecting a repository or project, or create one from the GitHub or GitLab association flow.
 
-1. Create a private connection that targets the VPC where your internal build services are reachable. For instructions, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
+1. Create a private connection that can reach the VPC, subnet, and security group for your internal build services. For instructions, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
 
 1. Open the AWS DevOps Agent console and navigate to your Agent Space.
 
-1. Go to the **Capabilities** tab and select your pipeline provider (GitHub or GitLab).
+1. Start creating the environment using one of the following options:
+   + To create the environment before connecting a repository or project, choose the **Environments** tab, and then choose **Add environment**.
+   + To create the environment while connecting a repository or project, choose the **Capabilities** tab and add or edit the GitHub or GitLab connection. In **Code Review and Automated Testing**, enable **Automatic verification testing**. Then open **Advanced settings**, expand the repository or project, and choose **Create environment** under **Verification environment**. The environment configuration opens in a new browser tab.
 
-1. In the **Code Review and Automated Testing** section, associate the private connection with your pipeline provider by selecting it from the available connections.
+1. Enter an **Environment name** and select the **Private connection** that reaches your internal build services.
 
-1. For the **Runtime role**, select an IAM role that DevOps Agent will assume when accessing internal services during builds. This role must have permission to access AWS Secrets Manager in the same AWS account as your Agent Space. We recommend using a different role from your primary agent role.
+1. Under **Configure runtime role**, choose how to configure the IAM role for the environment. You can have the console create a role, select an existing role, or follow the instructions to create one manually. If you use an existing or manually created role, make sure that it trusts AWS DevOps Agent and has the `AIDevOpsReleaseManagementVPCPolicy` AWS managed policy attached.
 
-1. Choose **Save** to apply your configuration.
+1. Choose **Save** to create the environment.
 
-Once associated, the verification testing environment will provision an ENI in the private connection's VPC, giving it direct network access to your internal services during code review builds.
+After creating an environment, associate it with the GitHub repositories or GitLab projects that use automatic verification testing:
+
+1. Return to the GitHub or GitLab connection. If you created the environment from the **Environments** tab, choose the **Capabilities** tab and add or edit the connection.
+
+1. In **Code Review and Automated Testing**, enable **Automatic verification testing** for each repository or project that requires the environment.
+
+1. Open **Advanced settings** and expand the repository or project. If you created the environment from the association flow, refresh the environment list.
+
+1. For **Verification environment**, select the Release Management environment that contains the required private connection and runtime role.
+
+1. Choose **Save**.
+
+The **Verification environment** field is available only when **Automatic verification testing** is enabled. Each repository or project can use one environment. For provider-specific instructions, see [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md) or [Connecting GitLab](connecting-to-cicd-pipelines-connecting-gitlab.md).
+
+You can create multiple environments when repositories require access to different VPCs.
 
 ## Performing a code review
 <a name="performing-a-code-review"></a>
@@ -122,8 +137,8 @@ Because anyone can open a pull request against a public repository — including
 
 If you use a public repository, you can still run release readiness code reviews by requesting them through DevOps Agent chat or through coding agent integrations (Kiro Power, Claude Code plugin, or AWS Transform custom).
 
-## Automated verification testing
-<a name="automated-verification-testing"></a>
+## Automatic verification testing
+<a name="automatic-verification-testing"></a>
 
 When a release readiness risk assessment is triggered, DevOps Agent creates an AWS-managed verification environment and clones your code into it. The environment runs on dedicated compute resources with network restrictions that limit access to trusted services for build, artifact storage, and retrieval.
 

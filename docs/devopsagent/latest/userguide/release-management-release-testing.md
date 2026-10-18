@@ -15,7 +15,7 @@ When triggered, the release testing agent:
 
 1. **Generates a test plan** — Creates a test plan based on code changes or a test intent provided by the user. When triggered from a pull request or branch, the plan targets affected functionality. When triggered manually or from chat, you can provide a test intent describing what to validate. The plan covers functional correctness, integration behavior, and user-facing scenarios.
 
-1. **Executes tests against a running application** — Given a target URL (web application or API endpoint), the agent explores the application and executes the generated tests. For web applications, this includes browser-based UI interaction and visual inspection. For APIs, this includes direct HTTP endpoint testing, schema validation, and error handling verification.
+1. **Executes tests against a running application** — Given a target URL (web application or API endpoint), the agent explores the application and executes the generated tests. The target can be accessible over the public internet or through a private VPC configured in a Release Management environment. For web applications, this includes browser-based UI interaction and visual inspection. For APIs, this includes direct HTTP endpoint testing, schema validation, and error handling verification.
 
 1. **Reports findings** — Results are returned with specific failures, affected functionality, reproduction steps, and recommended fixes.
 
@@ -43,10 +43,31 @@ To create a test profile:
    + **Name** — A descriptive name for the test profile (for example, "MyApp Staging")
    + **Target URL** — The URL of a staging or test deployment of your application. The agent sends real HTTP traffic including write operations (POST, PUT, DELETE). Do not use production URLs unless you understand and accept the risk of data modification.
    + **Test type** — Select either **UI testing** (browser-based testing with visual interactions) or **API testing** (direct HTTP endpoint testing)
+   + **Application is in a VPC** — Turn this on if the target URL is reachable only through a private VPC. Select the correct Release Management environment. Scope the environment's security group to the target application's IP and port only. The agent can reach any host that the security group permits. If you need to create an environment, follow the instructions in [Configure a Release Management environment for private applications](#configure-a-release-management-environment-for-private-applications).
 
 1. Choose **Add test profile** to save.
 
-**Note:** The application must be accessible over the public internet. Private network endpoints are not currently supported.
+### Configure a Release Management environment for private applications
+<a name="configure-a-release-management-environment-for-private-applications"></a>
+
+If your application is in a VPC and is not accessible over the public internet, create a Release Management environment before creating the test profile:
+
+1. Create a private connection that can reach the VPC, subnet, and security group for your application. For instructions, see [Connecting to privately hosted tools](configuring-integrations-and-knowledge-connecting-to-privately-hosted-tools.md).
+
+1. In the AWS DevOps Agent console, navigate to your Agent Space.
+
+1. Choose the **Environments** tab, and then choose **Add environment**.
+
+1. Enter an **Environment name** and select the **Private connection** that reaches your application.
+
+1. Under **Configure runtime role**, choose how to configure the IAM role for the environment. You can have the console create a role, select an existing role, or follow the instructions to create one manually. If you use an existing or manually created role, make sure that it trusts AWS DevOps Agent and has the `AIDevOpsReleaseManagementVPCPolicy` AWS managed policy attached.
+
+1. Choose **Save**.
+
+Only valid Release Management environments that contain a private connection are available when you create a VPC test profile.
+
+**Important**  
+** During testing, the agent may navigate beyond the target URL to subdomains and linked endpoints it discovers, and its behavior can be non-deterministic. It can reach any host allowed by the security group on the environment's private connection. Scope that security group to the target application's IP and port only. This prevents the agent from reaching databases, admin interfaces, or other services in the same VPC.
 
 ## Testing applications that require authentication
 <a name="testing-applications-that-require-authentication"></a>

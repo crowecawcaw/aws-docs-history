@@ -42,12 +42,12 @@ The MCP endpoint URL varies depending on your Datadog site. To identify your sit
 
 | Datadog Site | Site Domain | MCP Endpoint URL | 
 | --- | --- | --- | 
-| US1 (default) | datadoghq.com | https://mcp.datadoghq.com/api/unstable/mcp-server/mcp | 
-| US3 | us3.datadoghq.com | https://mcp.us3.datadoghq.com/api/unstable/mcp-server/mcp | 
-| US5 | us5.datadoghq.com | https://mcp.us5.datadoghq.com/api/unstable/mcp-server/mcp | 
-| EU1 | datadoghq.eu | https://mcp.datadoghq.eu/api/unstable/mcp-server/mcp | 
-| AP1 | ap1.datadoghq.com | https://mcp.ap1.datadoghq.com/api/unstable/mcp-server/mcp | 
-| AP2 | ap2.datadoghq.com | https://mcp.ap2.datadoghq.com/api/unstable/mcp-server/mcp | 
+| US1 (default) | datadoghq.com | https://mcp.datadoghq.com/v1/mcp | 
+| US3 | us3.datadoghq.com | https://mcp.us3.datadoghq.com/v1/mcp | 
+| US5 | us5.datadoghq.com | https://mcp.us5.datadoghq.com/v1/mcp | 
+| EU1 | datadoghq.eu | https://mcp.datadoghq.eu/v1/mcp | 
+| AP1 | ap1.datadoghq.com | https://mcp.ap1.datadoghq.com/v1/mcp | 
+| AP2 | ap2.datadoghq.com | https://mcp.ap2.datadoghq.com/v1/mcp | 
 
 #### Authorization
 <a name="authorization"></a>

@@ -42,7 +42,7 @@ All metrics include the following dimension.
 
 | Dimension | Description | 
 | --- | --- | 
-| AgentSpaceUUID | The unique identifier of the agent space. To aggregate metrics across all agent spaces in your account, use CloudWatch math expressions or omit the dimension filter. | 
+| AgentSpaceUUID | The unique identifier of the agent space. Use a CloudWatch metric math expression to aggregate a metric across all agent spaces in your account. A query without this dimension returns no data points. | 
 
 ### Metrics reference
 <a name="metrics-reference"></a>
@@ -50,10 +50,11 @@ All metrics include the following dimension.
 
 | Metric name | Description | Unit | Publishing frequency | Useful statistics | 
 | --- | --- | --- | --- | --- | 
-| ConsumedChatRequests | The number of chat requests that an agent space consumed. To get the total count for your account, use the SUM statistic across all AgentSpaceUUID dimensions. | Count | Every 5 minutes | Sum, Average | 
+| ConsumedOnDemandTime | The time that an agent space used for on-demand chat sessions and custom agent runs. To get the total for your account, use the SUM statistic across all AgentSpaceUUID dimensions. | Seconds | Every 5 minutes | Sum, Average, Maximum | 
+| ConsumedChatRequests | The number of chat requests that an agent space consumed for Chat with investigation. On-demand chat sessions do not count toward this metric. They emit ConsumedOnDemandTime instead. To get the total count for your account, use the SUM statistic across all AgentSpaceUUID dimensions. | Count | Every 5 minutes | Sum, Average | 
 | ConsumedInvestigationTime | The time spent running investigations in an agent space. | Seconds | Every 5 minutes | Sum, Average, Maximum | 
 | ConsumedEvaluationTime | The time spent running evaluations in an agent space. | Seconds | Every 5 minutes | Sum, Average, Maximum | 
-| TopologyCompletionCount | The number of topology processing completions. AWS DevOps Agent emits this metric when a topology finishes processing, whether from initial creation during onboarding, a manual update, or a scheduled daily refresh. | Count | Event-driven (emitted on each completion) | Sum, SampleCount | 
+| TopologyCompletionCount | The number of topology processing completions. AWS DevOps Agent emits this metric when a topology finishes processing, whether from initial creation during onboarding, a manual update, or a scheduled daily refresh. Each data point has the value 1. | None | Event-driven (emitted on each completion) | Sum, SampleCount | 
 
 ### Viewing metrics in the CloudWatch console
 <a name="viewing-metrics-in-the-cloudwatch-console"></a>
@@ -67,7 +68,15 @@ All metrics include the following dimension.
 1. Choose **By AgentSpace** to view metrics for your agent spaces.
 
 **Note**  
-** You can create CloudWatch alarms on these metrics to receive notifications when usage exceeds a threshold. For example, create an alarm on `ConsumedChatRequests` to monitor chat request consumption.
+** You can create CloudWatch alarms on these metrics to receive notifications when usage exceeds a threshold. For example, you can get a notification when on-demand chat usage in an agent space exceeds 10 hours in one day.
+
+For that example, create an alarm on `ConsumedOnDemandTime`. Use the `Sum` statistic, a period of `1 day`, and a threshold of `36000` seconds.
+
+To alarm on your account total, use a metric math expression that sums the metric across all `AgentSpaceUUID` dimensions. Set the threshold to match your expected usage.
+
+For more information about alarms and metric math, see the following topics in the *Amazon CloudWatch User Guide*:
++ [Create a CloudWatch alarm based on a static threshold](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ConsoleAlarms.html)
++ [Math expressions with metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html)
 
 ## Prerequisites
 <a name="prerequisites"></a>

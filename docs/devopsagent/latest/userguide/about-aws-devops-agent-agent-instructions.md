@@ -3,14 +3,16 @@
 # Agent instructions
 <a name="about-aws-devops-agent-agent-instructions"></a>
 
-Use agent instructions to provide always-on guidance that AWS DevOps Agent applies to every session. A session is a single conversation or investigation with an agent. On the **Knowledge** page in your Agent Space Operator Web App, choose the **Instructions** tab to set instructions that apply to all agents, or set instructions for a specific managed agent such as Chat or Incident triage. These instructions are stored as an AGENTS.md file. Unlike [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md), which load on demand when the agent matches a skill description to the current task, agent instructions are always present from the start of every session, regardless of what the agent is working on.
+Use agent instructions to provide always-on guidance that AWS DevOps Agent applies to every session. A session is a single conversation or investigation with an agent.
+
+Unlike [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md), which load on demand when the agent matches a skill description to the current task, agent instructions are always present from the start of every session, regardless of what the agent is working on.
+
+You set agent instructions from each [Managed agents](working-with-devops-agent-managed-agents.md) on the **Agents** page in your [What is a DevOps Agent Web App?](about-aws-devops-agent-what-is-a-devops-agent-web-app.md). There you set both the shared global instructions that apply to every agent and the instructions specific to that agent. Instructions are stored as an AGENTS.md file.
 
 ## What are agent instructions
 <a name="what-are-agent-instructions"></a>
 
 Agent instructions provide unconditional, always-on guidance for your agents. At the start of every session, the agent service retrieves the instructions configured for your Agent Space and injects their content directly into the agent system prompt. The agent does not decide whether to load them; they are always present.
-
-Each agent session receives instructions from both the global instructions and the relevant agent-specific instructions, for example, Chat.
 
 Agent instructions are stored as AGENTS.md files and differ from [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md) in several important ways:
 
@@ -21,7 +23,7 @@ Agent instructions are stored as AGENTS.md files and differ from [DevOps Agent S
 | Content format | Markdown or ZIP bundle | Markdown only | 
 | Resource files | Supported | Not supported | 
 | Context injection | On demand (agent decides via skill description matching) | Always (unconditional, every session) | 
-| Uniqueness | Multiple per Agent Space | One per agent (one for global instructions, one per managed agent) | 
+| Uniqueness | Multiple per Agent Space | One global set plus one set per managed agent | 
 
 Agent instructions have no name or description field. The underlying AGENTS.md file contains only markdown with no frontmatter, no ZIP bundle support, and no resource files.
 
@@ -61,13 +63,14 @@ The managed agents available for agent-specific instructions are:
 + **Evaluation** - Agent performance scoring and policy compliance checks.
 + **Grader** – Quality assessment of a completed investigation. This is the agent behind a Review. For more information, see [Reviewing investigations](working-with-devops-agent-reviewing-investigations.md).
 + **Release testing** – Automated UI and API testing against deployed web applications and REST APIs.
++ **Learning** - Produces and refreshes managed knowledge by reviewing your agent space's past investigations, pipelines, and dependencies. It covers skills, monitor memories, and topology understanding.
 
 ## Content size guidance
 <a name="content-size-guidance"></a>
 
 Every time you start a conversation or investigation, the agent reads your entire instructions before doing anything else. The agent has a fixed amount of working memory per session, and your instructions use some of it. The larger the file, the less room remains for your questions, investigations, the logs the agent reads, and its own reasoning. Shorter, focused instructions give the agent more capacity to solve your problem.
-+ **Hard limit:** 25 KB
-+ **Recommended size:** 120 lines (recommended for most configurations)
+
+**Note:** The hard limit is 25 KB. A recommended size of about 120 lines works well for most configurations.
 
 Focus your instructions on guidance that must be present in every session. For specialized investigation procedures that apply only to specific tasks, consider using [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md) instead.
 
@@ -97,38 +100,42 @@ The following example shows well-formed agent instructions with investigation gu
 
 Before setting agent instructions, you must have an Agent Space. For more information, see [Creating an Agent Space](getting-started-with-aws-devops-agent-creating-an-agent-space.md).
 
+**Important:** Agent instructions have moved from the **Knowledge** page to the **Agents** page. The **Instructions** tab on the **Knowledge** page no longer lists the agents; it shows a notice pointing to the **Agents** page.
+
 Each agent has exactly one set of instructions. When you save new content, it overwrites the existing content for that agent.
+
+Set instructions from each managed agent's page on the **Agents** page. Open a managed agent to see its **Agent definition** tab, which contains two sets of instructions:
++ **Global instructions (AGENTS.md)** - Shared across all managed agents. Every agent session in your Agent Space receives this content in addition to its own agent-specific instructions. Because a change here affects every agent, saving global instructions asks you to confirm first.
++ **Agent instructions (AGENTS.md)** - Owned by the managed agent whose page you are on. Only sessions of that agent receive this content.
 
 **To set global instructions (applies to all agents):**
 
-1. Navigate to the **Knowledge** page in your Agent Space Operator Web App.
+1. Navigate to the **Agents** page in your Agent Space Operator Web App and find the **Managed agents** section.
 
-1. Choose the **Instructions** tab.
+1. Choose a managed agent to open its page.
 
-1. Choose **View** next to **All agents**.
+1. On the **Agent definition** tab, edit the **Global instructions (AGENTS.md)** section.
 
-1. Enter your markdown instructions in the editor.
+1. Choose **Save** and confirm. The global instructions apply to all agent types in your Agent Space.
 
-1. Choose **Save**.
+The updated global instructions take effect for every agent session that starts after you save.
 
 **To set instructions for a specific agent:**
 
-1. Navigate to the **Knowledge** page in your Agent Space Operator Web App.
+1. On the **Agents** page, open the managed agent from the **Managed agents** section.
 
-1. Choose the **Instructions** tab.
-
-1. Choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, **Incident UI**, **Evaluation**, **Grader**, or **Release testing**.
-
-1. Enter your markdown instructions in the editor.
+1. On the **Agent definition** tab, edit the **Agent instructions (AGENTS.md)** section for that agent.
 
 1. Choose **Save**.
+
+Only that agent's sessions receive this content.
 
 ## Managing agent instructions
 <a name="managing-agent-instructions"></a>
 
 AWS DevOps Agent provides management capabilities for agent instructions through the Operator Web App.
 
-**Viewing instructions:** Navigate to the **Knowledge** page, choose the **Instructions** tab, and choose **View** next to **All agents** or the specific managed agent. The editor shows the current content. Use the **Preview** tab to see the rendered markdown or the **Code** tab to see the raw markdown.
+**Viewing instructions:** Open the managed agent's page from the **Agents** page and go to the **Agent definition** tab. Each instructions section shows the current content. Use the **Preview** view to see the rendered markdown or the **Code** view to see the raw markdown.
 
 **Editing instructions:** Open the agent as described above, modify the content in the editor, and choose **Save**.
 

@@ -159,17 +159,20 @@ AWS DevOps Agent supports several integration types, each with its own security 
 + **Native bidirectional integrations** – Built-in integrations that can send data to the agent and receive updates from the agent. This uses the vendor’s authentication methods
 + **MCP servers** – Remote Model Context Protocol servers that use OAuth 2.0 authentication flows and API keys to securely communicate with external systems.
 + **Webhook triggers** – Investigation triggers from remote services such as tickets or observability systems. Webhooks use either Hash-based Message Authentication Code (HMAC) signatures or an API key (bearer token) for security.
-+ **Outbound communication** – Integrations like Slack and ticketing systems receive updates from the agent. Slack also supports bidirectional communication in private channels, where you can mention the app to start and continue conversations with the agent. For more information about connecting Slack, see [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.html).
++ **Outbound communication** – Integrations like Slack, Microsoft Teams, and ticketing systems receive updates from the agent. Slack also supports bidirectional communication in private channels, where you can mention the app to start and continue conversations with the agent. For more information, see [Connecting Slack](connecting-to-ticketing-and-chat-connecting-slack.html) and [Connecting Microsoft Teams](connecting-to-ticketing-and-chat-connecting-microsoft-teams.html).
 
 ### Registration providers
 <a name="registration-providers"></a>
 
 Some external tools are authenticated at the account level and shared among all Agent Spaces in the account. When you register these tools, you authenticate once at the account level, and then each Agent Space can connect to specific resources within that registered connection.
 
+Connecting an Agent Space to a resource within a registered connection is an Agent Space operation. For example, if you have permission to modify an Agent Space, you can associate a Slack or Microsoft Teams channel by entering its channel ID or channel link. You don't need to be a member of that channel. To control who can create associations, manage Agent Space permissions through AWS Identity and Access Management (IAM) policies. For more information about the IAM actions that control associations, see [DevOps Agent IAM permissions](aws-devops-agent-security-devops-agent-iam-permissions.html).
+
 The following tools use account-level registration:
 + **GitHub** – Uses OAuth flow for authentication. After registering GitHub at the account level, each Agent Space can connect to specific repositories within your GitHub organization.
 + **Dynatrace** – Uses OAuth token authentication. After registering Dynatrace at the account level, each Agent Space can connect to specific Dynatrace environments or monitoring configurations.
 + **Slack** – Uses OAuth token authentication. After registering Slack at the account level, each Agent Space can connect to specific Slack channels channels.
++ **Microsoft Teams** – Uses Microsoft Entra ID administrator consent and OAuth authentication. After registering Microsoft Teams at the account level, each Agent Space can connect to specific Teams channels.
 + **Datadog** – Uses MCP with OAuth flow for authentication. After registering Datadog at the account level, each Agent Space can connect to specific Datadog monitoring resources.
 + **New Relic** – Uses API key authentication. After registering New Relic at the account level, each Agent Space can connect to specific New Relic monitoring configurations.
 + **Splunk** – Uses bearer token authentication. After registering Splunk at the account level, each Agent Space can connect to specific Splunk data sources.

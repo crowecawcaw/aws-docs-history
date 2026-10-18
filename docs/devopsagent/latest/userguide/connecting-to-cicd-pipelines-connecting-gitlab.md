@@ -96,9 +96,9 @@ When you select projects in the GitLab connection step, they are automatically a
 The Code Review and Automated Testing configuration includes:
 + **Capabilities** — Choose code review and automated testing capabilities for each project. The section provides two per-project settings:
   + **Auto trigger change review** — When enabled for a project, DevOps Agent automatically runs a [Release readiness code reviews](release-management-release-readiness-code-review.md) each time a merge request is opened or updated. Review findings appear as inline comments on the merge request. This is enabled by default for all connected projects.
-  + **Automated verification testing** — When enabled for a project, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automated verification testing](release-management-release-readiness-code-review.md). This is enabled by default for all connected projects.
+  + **Automatic verification testing** — When enabled for a project, DevOps Agent builds, runs, and tests your code changes in a managed verification environment during code reviews. This provides functional validation beyond static analysis. For more information, see [Automatic verification testing](release-management-release-readiness-code-review.md). This is enabled by default for all connected projects.
 + **Project list** — Shows all projects you selected during the connection step. Use the search field to filter projects by name. Each project has independent checkboxes for both capabilities.
-+ **Runtime role** (optional) — Choose the IAM role that DevOps Agent assumes to run automated capabilities on your selected projects. This role is used when accessing internal services needed during builds, such as private package registries and artifact storage systems. We recommend using a different role from your primary agent role.
++ **Verification environment** (optional) — In **Advanced settings**, associate each project with a Release Management environment when automatic verification testing requires access to private resources in your VPC. The environment contains the private connection and runtime role that the verification testing environment uses.
 
 To configure automated reviews:
 
@@ -106,13 +106,37 @@ To configure automated reviews:
 
 1. For each project, enable or disable the **Auto trigger change review** capability depending on whether you want automatic merge request reviews.
 
-1. For each project, enable or disable the **Automated verification testing** capability depending on whether you want [automated verification testing](release-management-release-readiness-code-review.md) in a managed verification environment.
+1. For each project, enable or disable the **Automatic verification testing** capability depending on whether you want verification testing in a managed environment.
 
-1. Optionally, select an IAM role from the **Runtime role** dropdown that DevOps Agent will assume when running automated capabilities on your selected projects.
+1. If automatic verification testing requires private VPC access, open **Advanced settings** and select a verification environment for the project. For more information, see [Associating a Release Management environment](#associating-a-release-management-environment).
 
 1. Choose **Save** to apply your configuration.
 
-Once configured, any new merge request in a project with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automated verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md).
+Once configured, any new merge request in a project with **Auto trigger change review** enabled will automatically trigger a release readiness code review. If **Automatic verification testing** is also enabled, the review includes functional validation in a verification environment. For more information about code reviews, see [Release readiness code reviews](release-management-release-readiness-code-review.md).
+
+### Associating a Release Management environment
+<a name="associating-a-release-management-environment"></a>
+
+You use a Release Management environment to give automatic verification testing access to private build dependencies and services through your VPC. You can associate one environment with each project.
+
+Before you begin, create the environment on the **Environments** tab of your Agent Space. For instructions, see [Step 2: Configure Release Management environments for private VPC access (optional)](release-management-release-readiness-code-review.md).
+
+To associate an environment:
+
+1. In **Code Review and Automated Testing**, enable **Automatic verification testing** for the project.
+
+1. Open **Advanced settings** and expand the project.
+
+1. For **Verification environment**, select an existing environment.
+
+1. (Optional) If an environment does not exist, choose **Create environment**. The environment configuration opens in a new browser tab. After creating it, return to the GitLab connection, refresh the environment list, and select the new environment.
+
+1. Choose **Save**.
+
+The **Verification environment** field appears only for projects with **Automatic verification testing** enabled. To use a different VPC for a project, create another environment and associate it with that project.
+
+**Note**  
+** A private connection selected when registering GitLab Self-Managed allows DevOps Agent to reach the GitLab instance. A private connection in a Release Management environment allows the code-review verification testing environment to reach private resources needed to build and test your code. Configure each connection for its respective purpose.
 
 ### Advanced settings: trigger filters
 <a name="advanced-settings-trigger-filters"></a>
