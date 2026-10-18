@@ -3,7 +3,7 @@
 # What is the AWS for SAP MCP Server?
 <a name="introduction"></a>
 
-With AWS for SAP MCP Server ("MCP Server"), running on Amazon Bedrock AgentCore ("AgentCore"), you can give your AI agents structured, protocol-driven access to SAP S/4HANA and SAP ECC OData (Open Data Protocol) V2 and V4 services through the Model Context Protocol (MCP). The MCP Server surfaces SAP operations as discoverable MCP tools, providing you with a secure, standardized interface for AI-driven SAP interactions.
+With AWS for SAP MCP Server ("MCP Server"), running on Amazon Bedrock AgentCore ("AgentCore"), you can give your AI agents structured, protocol-driven access to SAP S/4HANA, SAP ECC, and SAP SuccessFactors OData (Open Data Protocol) V2 and V4 services through the Model Context Protocol (MCP). The MCP Server surfaces SAP operations as discoverable MCP tools, providing you with a secure, standardized interface for AI-driven SAP interactions.
 
 ## Key capabilities
 <a name="key-capabilities"></a>
@@ -32,7 +32,7 @@ The following diagram shows the AWS for SAP MCP Server architecture:
 ![Architecture diagram showing AI agents communicating through Streamable HTTP through Amazon Bedrock AgentCore Runtime to SAP systems for service discovery and CRUD operations](https://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/images/Component_Architecture2.png)
 
 
-The following is a sample architecture pattern showing how you can use the AWS for SAP MCP Server with [SAP Business Technology Platform (SAP BTP)](https://www.sap.com/products/technology-platform/use-cases/api-management.html) API Management. We recommend enabling your SAP OData APIs through the SAP BTP API Management layer. The AWS for SAP MCP Server connects to those APIs securely over HTTPS with OAuth 2.0 authentication. Data transmitted to these API endpoints is encrypted in transit by using TLS.
+The following is a sample architecture pattern showing how you can use the AWS for SAP MCP Server with SAP ECC or SAP S/4HANA via [SAP Business Technology Platform (SAP BTP)](https://www.sap.com/products/technology-platform/use-cases/api-management.html) API Management. We recommend enabling your SAP OData APIs through the SAP BTP API Management layer. The AWS for SAP MCP Server connects to those APIs securely over HTTPS with OAuth 2.0 authentication. Data transmitted to these API endpoints is encrypted in transit by using TLS.
 
 ![Architecture diagram showing AI agents communicating through Streamable HTTP through Amazon Bedrock AgentCore Runtime to SAP systems through SAP BTP API Management](https://docs.aws.amazon.com/mcp-sap/latest/awsforsapmcp/images/Component_Architecture3.png)
 

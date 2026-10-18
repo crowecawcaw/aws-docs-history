@@ -64,9 +64,9 @@ Example: `aws-for-sap-mcp-server`
 
 | Parameter | Parameter Label | Description | Example | 
 | --- | --- | --- | --- | 
+|  `SapSystemType`  | SAP System Type | The SAP system that the MCP Server connects to. Valid values: `S4HANA`, `ECC`, `SUCCESSFACTORS`. Default: `S4HANA`. |  `SUCCESSFACTORS`  | 
 |  `SapBaseUrl`  | SAP Base OData Endpoint | The URL structure must match the default value in the following format. Use the OData path only if you want to use the SAP standard catalog for discovery. For more information, see [Service discovery configuration](#deploy-service-discovery). |  `https://<your-domain>/sap/opu/odata/sap/`  | 
-|  `SapSystemType`  | SAP System Type | The type of SAP system. Valid values: `S4HANA`, `ECC`. |  `S4HANA`  | 
-|  `SapClientNumber`  | SAP Client Number | The client ID of the SAP system. `default` uses the default client associated with the SAP system. |  `default`  | 
+|  `SapClientNumber`  | SAP Client Number | The client ID of the SAP system. `default` uses the default client associated with the SAP system; we recommend explicitly specifying the client number. Not applicable to `SUCCESSFACTORS`. |  `default`  | 
 |  `McpServerODataVersion`  | OData Version | OData version to use against the SAP standard catalog. `V2` (default) or `V4`. Ignored if `McpServerUseSapCatalog` is set to `false`. See [Service discovery configuration](#deploy-service-discovery) for prefix-filter requirements. |  `V2`  | 
 
  **Outbound authentication configuration** 
@@ -131,6 +131,9 @@ Control which operations the MCP Server is permitted to perform against your SAP
 |  `McpServerAllowedServicePrefixes`  | Allowed Service Prefixes | Comma-separated list of service prefixes for allowlisting (for example, `API_`, `ZUI_`). Use `*` to allow all services. Leave as `None` to use the MCP Server default. Works on V2 or V4. If `McpServerODataVersion` is `V4`, you must set this or `McpServerAllowedGroupPrefixes`. Mutually exclusive with `McpServerAllowedGroupPrefixes`. |  `None`  | 
 |  `McpServerAllowedGroupPrefixes`  | Allowed Group Prefixes | Comma-separated list of group prefixes for allowlisting (for example, `UI_`, `API_`). Leave as `None` to use the MCP Server default. Requires `McpServerODataVersion=V4`. Mutually exclusive with `McpServerAllowedServicePrefixes`. |  `None`  | 
 
+**Note**  
+When `SapSystemType=SUCCESSFACTORS`, the SAP standard catalog is not supported. You must set `McpServerUseSapCatalog=false` and provide a custom catalog through `McpServerCustomCatalogBucketUri`. See [Custom catalog configuration](configuration-reference.md#custom-catalog-config) for `catalog.json` details.
+
  **Network configuration** 
 
 
@@ -172,19 +175,20 @@ Choose **Next**.
 **Note**  
 If the stack reaches `ROLLBACK_COMPLETE`, check the Events tab for the root cause error, correct the parameter values, and redeploy.
 
-## Example: Basic Authentication Deployment
+## Example: Basic Authentication Deployment (SAP SuccessFactors)
 <a name="deploy-basic-auth"></a>
 
-The following command deploys the AWS for SAP MCP Server with Basic Authentication. Replace the placeholder values with your actual configuration:
+The MCP Server connects to SAP SuccessFactors with Basic Authentication only. The following command deploys the AWS for SAP MCP Server against SuccessFactors. SuccessFactors does not use `SapClientNumber`, and the SAP standard catalog is not supported, so `McpServerUseSapCatalog` must be `false` and a custom catalog must be supplied through `McpServerCustomCatalogBucketUri`. Replace the placeholder values with your actual configuration:
 
 ```
 aws cloudformation create-stack \
   --stack-name <your-stack-name> \
-  --template-urlhttps://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
+  --template-url https://awsforsap-mcp-server-setup-<region>.s3.<region>.amazonaws.com/cfn-launch-template/latest/AwsForSapMcpServerStack.template.json \
   --capabilities CAPABILITY_IAM CAPABILITY_NAMED_IAM \
   --parameters \
     ParameterKey=UniqueId,ParameterValue=<your-unique-id> \
-    ParameterKey=SapBaseUrl,ParameterValue=<your-sap-base-url> \
+    ParameterKey=SapSystemType,ParameterValue=SUCCESSFACTORS \
+    ParameterKey=SapBaseUrl,ParameterValue=<your-successfactors-base-url> \
     ParameterKey=AuthFlow,ParameterValue=BASIC \
     ParameterKey=SapCredentialsSecret,ParameterValue=<your-secret-name> \
     ParameterKey=McpServerLogLevel,ParameterValue=INFO \
@@ -193,6 +197,9 @@ aws cloudformation create-stack \
     ParameterKey=McpServerCreateEnabled,ParameterValue=false \
     ParameterKey=McpServerUpdateEnabled,ParameterValue=false \
     ParameterKey=McpServerDeleteEnabled,ParameterValue=false \
+    ParameterKey=McpServerUseSapCatalog,ParameterValue=false \
+    ParameterKey=McpServerCustomCatalogBucketUri,ParameterValue=s3://awsforsap-mcp-server-<your-catalog-bucket> \
+    ParameterKey=McpServerCustomCatalogODataVersion,ParameterValue=V2 \
     ParameterKey=McpServerVpcSecurityGroup,ParameterValue="sg-1234567" \
     ParameterKey=McpServerNetworkSubnets,ParameterValue="subnet-1234567"
 ```

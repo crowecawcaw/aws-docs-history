@@ -25,6 +25,9 @@ The CloudFormation template supports two inbound authentication options:
 
 You can choose from the following authentication flows to connect to SAP systems. You select the authentication flow through the CloudFormation template.
 
+**Note**  
+The MCP Server connects to SAP SuccessFactors with Basic Authentication only.
+
 ### Choosing your outbound authentication setup
 <a name="choosing-outbound-auth"></a>
 

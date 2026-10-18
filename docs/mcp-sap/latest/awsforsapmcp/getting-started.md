@@ -32,11 +32,25 @@ The AWS for SAP MCP Server can be deployed via a CloudFormation template (see [D
 
 ## SAP Prerequisites
 <a name="sap-prerequisites"></a>
-+ SAP S/4HANA or SAP ERP Central Component (ECC) system with OData (Open Data Protocol) enabled. For more information about SAP Gateway and OData support, see [SAP documentation](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/88/889a8cbf6046378e274d6d9cd04e4d/content.htm?no_cache=true).
-+ SAP OData Service Activation via [OData Service in SAP Gateway Hub](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm).
-+ Enable the OData API to use service type `WEB_API`. This setting is recommended and applies only to SAP S/4HANA.
-+ The OData Service Catalog of the SAP system must be available for service discovery. Required only when using the standard catalog. The MCP Server uses the SAP Gateway service `IWFND/CATALOGSERVICE;v=2` for OData V2, and `IWFND/CATALOG/version` for OData V4 (version `0002` on SAP S/4HANA, `0001` on SAP ECC).
+
+The MCP Server supports SAP S/4HANA, SAP ERP Central Component (ECC), and SAP SuccessFactors. The following items apply to every supported SAP system:
++ An SAP S/4HANA, SAP ERP Central Component (ECC), or SAP SuccessFactors system with OData (Open Data Protocol) enabled. For SAP S/4HANA and ECC, see the [SAP Gateway documentation](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/88/889a8cbf6046378e274d6d9cd04e4d/content.htm?no_cache=true) for details on OData support. For SAP SuccessFactors, see the [SAP SuccessFactors APIs reference](https://help.sap.com/docs/successfactors-platform/sap-successfactors-api-reference-guide-odata-v2/about-sap-successfactors-apis).
 + Valid SAP credentials (System User / OAuth) for your chosen authentication flow.
+
+### SAP S/4HANA
+<a name="sap-s4hana-prerequisites"></a>
++ SAP OData Service Activation via [OData Service in SAP Gateway Hub](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm).
++ Enable the OData API to use service type `WEB_API`.
++ The OData Service Catalog of the SAP system must be available for service discovery. Required only when using the standard catalog. The MCP Server uses the SAP Gateway service `IWFND/CATALOGSERVICE;v=2` for OData V2, and `IWFND/CATALOG/version` (version `0002`) for OData V4.
+
+### SAP ERP Central Component (ECC)
+<a name="sap-ecc-prerequisites"></a>
++ SAP OData Service Activation via [OData Service in SAP Gateway Hub](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/1b/023c1cad774eeb8b85b25c86d94f87/frameset.htm).
++ The OData Service Catalog of the SAP system must be available for service discovery. Required only when using the standard catalog. The MCP Server uses the SAP Gateway service `IWFND/CATALOGSERVICE;v=2` for OData V2, and `IWFND/CATALOG/version` (version `0001`) for OData V4.
+
+### SAP SuccessFactors
+<a name="sap-successfactors-prerequisites"></a>
++ SAP SuccessFactors does not expose a standard catalog. Provide a custom catalog instead (see [Custom catalog configuration](configuration-reference.md#custom-catalog-config)).
 
 ## Network Prerequisites
 <a name="network-prerequisites"></a>

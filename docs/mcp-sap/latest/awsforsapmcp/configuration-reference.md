@@ -45,8 +45,8 @@ The following variables have default values and can be overridden to customize s
 |  `MCP_SERVER_NAME`  |  `SAP-MCP-Server`  | Name of the MCP server instance. | 
 |  `MCP_SERVER_LOG_LEVEL`  |  `INFO`  | Log verbosity. One of `DEBUG`, `INFO`, `WARNING`, `ERROR`. | 
 |  `MCP_SERVER_REGION`  |  `$AWS_REGION` or `us-west-2`  |  AWS Region for AWS Secrets Manager, Amazon S3, and AgentCore Identity calls. (When deploying with the CFN template, this value is automatically set to the deployment region `$AWS_REGION`. For custom automation workflows, this parameter must be explicitly set in AgentCore to avoid deployment failures.) | 
-|  `MCP_SERVER_SAP_SYSTEM`  |  `S4HANA`  | SAP system type. One of `S4HANA`, `ECC`. | 
-|  `MCP_SERVER_SAP_CLIENT_NUMBER`  | None | The client ID of the SAP system. Leave unset (or `default`) to use the SAP system’s default client. | 
+|  `MCP_SERVER_SAP_SYSTEM`  |  `S4HANA`  | SAP system type. One of `S4HANA`, `ECC`, `SUCCESSFACTORS`. | 
+|  `MCP_SERVER_SAP_CLIENT_NUMBER`  | None | The client ID of the SAP system. Leave unset (or `default`) to use the SAP system’s default client; we recommend explicitly specifying the client number. Not applicable to `SUCCESSFACTORS`. | 
 |  `MCP_SERVER_READ_ENABLED`  |  `true`  | Enable read tools (`find_sap_services`, `get_metadata`, `odata_read`, `odata_count`). | 
 |  `MCP_SERVER_WRITE_ENABLED`  |  `false`  | Master switch for all write tools. Must be `true` before any per-operation flag takes effect. | 
 |  `MCP_SERVER_CREATE_ENABLED`  |  `false`  | Enable the `odata_create` tool. Requires `WRITE_ENABLED=true`. | 
@@ -138,6 +138,33 @@ Each entry also supports two optional fields:
       "ServiceName": "API_SALES_ORDER_SRV",
       "ServiceUrl": "https://my-sap-system.example.com/sap/opu/odata4/sap/api_salesorder/srvd_a2x/sap/api_salesorder/0001/",
       "ODataVersion": "V4"
+    }
+  ]
+}
+```
+
+ **Example catalog.json (SAP SuccessFactors):** 
+
+SAP SuccessFactors uses the custom catalog exclusively because it does not expose the SAP standard catalog endpoint. The example below targets OData V2 services on a SuccessFactors tenant; set `McpServerCustomCatalogODataVersion=V2` when using it, or `V4`/`MIXED` with the matching `ODataVersion` field on each entry.
+
+```
+{
+  "SapServices": [
+    {
+      "Description": "SuccessFactors Employee Central employment data",
+      "ServiceUrl": "https://my-tenant.successfactors.com/odata/v2/EmpEmployment"
+    },
+    {
+      "Description": "SuccessFactors Recruiting candidate data",
+      "ServiceUrl": "https://my-tenant.successfactors.com/odata/v2/Candidate"
+    },
+    {
+      "Description": "SuccessFactors Employee Central timesheet entries",
+      "ServiceUrl": "https://my-tenant.successfactors.com/odata/v2/EmployeeTimeSheet"
+    },
+    {
+      "Description": "SuccessFactors payroll run results",
+      "ServiceUrl": "https://my-tenant.successfactors.com/odata/v2/EmployeePayrollRunResults"
     }
   ]
 }
