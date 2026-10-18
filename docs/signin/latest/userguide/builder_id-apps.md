@@ -22,8 +22,8 @@ Amazon Q Developer is a generative AI-powered conversational assistant that can 
 **AWS Startups**  
 Use your AWS Builder ID to join [AWS Startups](https://aws.amazon.com/startups) where you can use learning content, tools, resources, and support to grow your startup with AWS.
 
-**AWS Training and Certification**  
-You can use your AWS Builder ID to access [AWS Training and Certification](https://www.aws.training/) where you can build your AWS Cloud skills with [AWS Skill Builder](https://skillbuilder.aws/), learn from AWS experts, and validate your cloud expertise with an industry-recognized credential.
+**AWS Skill Builder**  
+You can use your AWS Builder ID to access [AWS Skill Builder](https://skillbuilder.aws/) where you can build your AWS Cloud skills, learn from AWS experts, and validate your cloud expertise with an industry-recognized credential.
 
 **Kiro**  
 [Kiro](https://kiro.dev/) is an agentic IDE that helps you go from prototype to production with spec-driven development. From simple to complex tasks, Kiro works alongside you to turn prompts into detailed specs, then into working code, docs, and tests. With Kiro, what you build is exactly what you want and is ready to share with your team. Kiro’s agents help you solve challenging problems and automate tasks like generating documentation and unit tests. With Kiro, you can build beyond prototypes while being in the driver’s seat every step of the way.
