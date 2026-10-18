@@ -10,6 +10,15 @@ You can set up AWS WA Agent entirely through the AWS CLI or SDK instead of the c
 **Note**  
 Before using the API, create the execution role and access roles as described in [Step 3: Configure permissions and integrations](agent-getting-started.md#agent-permissions-integrations) and [Step 6: Create access roles in your workload accounts](agent-getting-started.md#agent-access-roles). The API does not create IAM roles for you.
 
+## (Optional) API quickstart using the AWS MCP Server
+<a name="agent-api-mcp"></a>
+
+Instead of running the `aws wellarchitected` CLI commands shown in the following steps yourself, you can have an AI agent run the same operations through the AWS MCP Server. The AWS MCP Server is a managed MCP endpoint that can run AWS API calls using your existing IAM credentials.
+
+The AWS WA Agent API operations that the agent invokes through the server are the same ones you run from the CLI, such as `create-agent-profile`, `create-agent-goal`, `create-agent-context`, and `get-agent-profile`. Because the server calls the AWS APIs under your credentials, the same IAM permissions required for the CLI apply, and all calls are logged in CloudTrail.
+
+To set up and connect the server, see [AWS MCP Server](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/mcp-server.html).
+
 ## Step 1: Create an agent profile
 <a name="agent-api-create-profile"></a>
 

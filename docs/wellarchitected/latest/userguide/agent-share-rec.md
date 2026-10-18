@@ -9,15 +9,25 @@ Share specific recommendations with other AWS accounts or team members to collab
 
 You can share recommendations in two ways:
 
-**From the dashboard**  
+**From the dashboard:**
+
 In **All recommendations**, select the radio button next to a recommendation and choose **Share**. Enter the email addresses of your intended recipients and choose **Share** to send.
 
-**From the recommendation detail page**  
-Choose **Actions**, then **Share recommendation** to share with other AWS accounts.
+**From the recommendation detail page:**
+
+You can also share recommendations from within the detail page that opens when you click a recommendation.
 
 **To share a recommendation**
 
-1. Enter a comma-separated list of AWS account IDs to share with (up to 100 accounts).
+1.  Click the title of the specific recommendation you want to share. 
+
+1.  Choose **Actions** in the top right corner of the recommendation detail dialog, then **Share Recommendation** to share with other AWS accounts. 
+
+1.  Choose whether to share the recommendation with **All affected accounts** or **Custom accounts**. 
+
+1.  If you selected **All affected accounts**, select the radio buttons next to each account you want to share the recommendation with. 
+
+1. If you selected **Custom accounts**, enter a comma-separated list of AWS account IDs to share with (up to 100 accounts).
 
 1. Choose an access level: **Read only** or **Read/write**.
 

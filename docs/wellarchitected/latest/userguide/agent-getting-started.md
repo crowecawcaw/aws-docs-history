@@ -27,8 +27,16 @@ This page describes the console-based setup. To set up AWS WA Agent using the AW
 **Note**  
  Without Cost Explorer enabled, AWS WA Agent estimates costs from public AWS pricing. 
 + You have the IAM permissions required to create a AWS WA Agent profile, including permissions to create IAM roles (`iam:CreateRole`, `iam:AttachRolePolicy`, `iam:PassRole`) and AWS WA Agent actions (`wellarchitected:CreateAgentProfile`). For more information about the AWS WA Agent access model, see [AWS Well-Architected Agent access model](security-iam-agent.md).
++ If your account is a member (linked) account in AWS Organizations, confirm that any service control policies (SCPs) attached to your account or its parent organizational units (OUs) allow both the AWS WA Agent actions in the `wellarchitected:*` namespace and the actions in the [`WellArchitectedAgentResourceScanning`](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/WellArchitectedAgentResourceScanning.html) managed policy. The access roles use this policy to scan resources in your workload accounts. SCPs are organization-level guardrails that can block access even when your IAM permissions allow it. An SCP must allow these actions at every level between your account and the organization root.
+
+  If the SCP does not allow the `wellarchitected:*` actions, you cannot create an agent profile or use the agent from the account. If the SCP does not allow the resource-scanning actions, you can create a profile, but AWS WA Agent cannot view your resources, and recommendation generation returns empty applications.
+
+  If you cannot edit SCPs, contact your organization's management-account administrator. For more information, see [Service control policies (SCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html).
 + You have identified the AWS account IDs that you want AWS WA Agent to analyze (maximum 100 accounts).
 + You have defined your business goals and selected the optimization pillars you want to focus on.
+
+**Important**  
+AWS WA Agent requires an active AWS Support plan at Business\+ or higher in every account within the monitoring boundary, not only the account that owns the profile. If a monitored account has only a Basic or Developer plan, AWS WA Agent cannot call AWS Trusted Advisor APIs for that account. As a result, AWS WA Agent limits that account's recommendations to Application-level recommendations (beta). This often affects customers who do not use AWS Organizations, or who subscribe to Business\+ without auto-enrollment, so their other accounts do not receive the plan automatically.
 
 ## Step 1: Create an agent profile
 <a name="agent-create-profile"></a>

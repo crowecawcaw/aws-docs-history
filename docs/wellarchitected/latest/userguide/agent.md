@@ -43,6 +43,7 @@ AWS WA Agent analyzes your infrastructure across four optimization pillars: cost
 <a name="agent-intro-accessing"></a>
 + **AWS Well-Architected console:** AWS WA Agent is available from the AWS Well-Architected console. For a step-by-step walkthrough of setting up your first agent profile using the console, see [Getting started with AWS Well-Architected Agent](agent-getting-started.md).
 + **APIs:** Programmatic access is available through the `wellarchitected` service namespace. For a CLI-based setup walkthrough, see [API quickstart](agent-api-quickstart.md). For available operations, see [API actions](wa-api-actions.md). For complete API documentation, see the [AWS Well-Architected API Reference](https://docs.aws.amazon.com/wellarchitected/latest/APIReference/Welcome.html).
++ **AWS MCP Server:** An AI agent configured with the AWS MCP Server can run the AWS WA Agent `wellarchitected` API operations through your IAM credentials, as an alternative to running AWS CLI commands directly. For more detail, see [(Optional) API quickstart using the AWS MCP Server](agent-api-quickstart.md#agent-api-mcp). To set up and connect the server, see [AWS MCP Server](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/mcp-server.html).
 
 ## Availability
 <a name="agent-intro-availability"></a>
