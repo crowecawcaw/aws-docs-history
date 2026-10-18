@@ -8,7 +8,7 @@ You manage access to EventBridge resources such as [rules](eb-rules.md) or [even
 ## EventBridge resources
 <a name="eb-arn-format"></a>
 
-EventBridge resources and subresources have unique Amazon Resource Names (ARNs) associated with them. You use ARNs in EventBridge to create event patterns. For more information about ARNs, see [Amazon Resource Names (ARN) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
+EventBridge resources and subresources have unique Amazon Resource Names (ARNs). You use ARNs in EventBridge to create event patterns. For more information about ARNs, see [Amazon Resource Names (ARN) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*.
 
 
 
@@ -20,14 +20,21 @@ Most services in AWS treat a colon (`:`) or a forward slash (`/`) as the same ch
 The following table shows the resources in EventBridge.
 
 
+**EventBridge resource types and ARN formats**  
+
 | Resource Type | ARN Format | 
 | --- | --- | 
 | Archive | `arn:aws:events:{{region}}:{{account}}:archive/{{archive-name}}` | 
 | Replay | `arn:aws:events:{{region}}:{{account}}:replay/{{replay-name}}` | 
 | Rule | `arn:aws:events:{{region}}:{{account}}:rule{{/[event-bus-name]}}/{{rule-name}}` | 
 | Event bus | `arn:aws:events:{{region}}:{{account}}:event-bus/{{event-bus-name}}` | 
+| API destination | `arn:aws:events:{{region}}:{{account}}:api-destination/{{api-destination-name}}` | 
+| Connection | `arn:aws:events:{{region}}:{{account}}:connection/{{connection-name}}` | 
 | All EventBridge resources | `arn:aws:events:*` | 
 | All EventBridge resources owned by the specified account in the specified Region | `arn:aws:events:{{region}}:{{account}}:*` | 
+
+**Note**  
+For API responses that include an API destination or connection ARN, EventBridge returns an ARN with a service-generated identifier after the resource name. When you specify one of these resources in the `Resource` element of an IAM policy, omit the service-generated identifier. Use the ARN format shown in the preceding table. For API operations that identify the resource by name, an ARN that includes the identifier does not match the resource ARN. EventBridge uses the resource ARN for authorization.
 
 The following example shows how to indicate a specific rule ({{myRule}}) in your statement using its ARN.
 
@@ -35,7 +42,7 @@ The following example shows how to indicate a specific rule ({{myRule}}) in your
 "Resource": "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{myRule}}"
 ```
 
-To specify all rules that belong to a specific account by using the asterisk (\*) wildcard as follows.
+To specify all rules that belong to a specific account, use the asterisk (\*) wildcard as follows:
 
 ```
 "Resource": "arn:aws:events:{{us-east-1}}:{{123456789012}}:rule/{{*}}"
@@ -58,7 +65,7 @@ To specify multiple resources or `PutTargets` in a single statement, separate th
 
 An account owns the resources in the account, no matter who creates the resources. The resource owner is the account of the *[principal entity](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html)*, the account root user, an IAM user or role that authenticates the request to create the resource. The following examples illustrate how this works:
 + If you use the root user credentials of your account to create a rule, your account is the owner of the EventBridge resource.
-+ If you create an user in your account and grant permissions to create EventBridge resources to that user, the user can create EventBridge resources. However, your account, which the user belongs to, owns the EventBridge resources.
++ If you create a user in your account and grant permissions to create EventBridge resources to that user, the user can create EventBridge resources. However, your account, which the user belongs to, owns the EventBridge resources.
 + If you create an IAM role in your account with permissions to create EventBridge resources, anyone who can assume the role can create EventBridge resources. Your account, which the role belongs to, owns the EventBridge resources.
 
 ## Managing access to resources
@@ -95,7 +102,7 @@ You can create specific IAM policies to restrict the calls and resources that us
 ### Resource-based policies (IAM policies)
 <a name="eb-resource-based-policies-overview"></a>
 
-When a rule runs in EventBridge, all of the [targets](eb-targets.md) associated with the rule are invoked, which means invoking the AWS Lambda functions, publishing to the Amazon SNS topics, or relaying the event to the Amazon Kinesis streams. To make API calls on the resources that you own, EventBridge needs the appropriate permission. For Lambda, Amazon SNS, and Amazon SQS resources, EventBridge uses resource-based policies. For Kinesis streams, EventBridge uses IAM roles.
+When a rule runs in EventBridge, all of the [targets](eb-targets.md) associated with the rule are invoked. This means EventBridge invokes the AWS Lambda functions, publishes to the Amazon SNS topics, or relays the event to the Amazon Kinesis streams. To make API calls on the resources that you own, EventBridge needs the appropriate permission. For Lambda, Amazon SNS, and Amazon SQS resources, EventBridge uses resource-based policies. For Kinesis streams, EventBridge uses IAM roles.
 
 For more information about how to create IAM roles and to explore example resource-based policy statements for EventBridge, see [Using resource-based policies for Amazon EventBridge](eb-use-resource-based.md).
 

@@ -25,6 +25,8 @@ cron(fields)
 ```
 
 
+**Cron expression fields**  
+
 | **Field** | **Values** | **Wildcards** | 
 | --- | --- | --- | 
 | Minutes | 0-59 | , - \* / | 
@@ -54,6 +56,8 @@ If you use a '\#' character, you can define only one expression in the day-of-we
 You can use the following sample cron strings when creating a rule with schedule.
 
 
+**Cron expression examples**  
+
 | Minutes | Hours | Day of month | Month | Day of week | Year | Meaning | 
 | --- | --- | --- | --- | --- | --- | --- | 
 | 0 | 10 | \* | \* | ? | \* | Run at 10:00 am (UTC\+0) every day | 
@@ -63,7 +67,7 @@ You can use the following sample cron strings when creating a rule with schedule
 | 0/15 | \* | \* | \* | ? | \* | Run every 15 minutes | 
 | 0/10 | \* | ? | \* | MON-FRI | \* | Run every 10 minutes Monday through Friday | 
 | 0/5 | 8-17 | ? | \* | MON-FRI | \* | Run every 5 minutes Monday through Friday between 8:00 am and 5:55 pm (UTC\+0) | 
-| 0/30 | 20-2 | ? | \* | MON-FRI | \* | Run every 30 minutes Monday through Friday between 10:00 pm on the starting day to 2:00 am on the following day (UTC)<br />Run from 12:00 am to 2:00 am on Monday morning (UTC). | 
+| 0/30 | 20-2 | ? | \* | MON-FRI | \* | Run every 30 minutes Monday through Friday between 8:00 pm on the starting day to 2:00 am on the following day (UTC)<br />Run from 12:00 am to 2:00 am on Monday morning (UTC). | 
 
 
 

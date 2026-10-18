@@ -21,7 +21,19 @@ You can also create your own custom IAM policies to allow permissions for EventB
 
 EventBridge targets typically require IAM roles that grant permission to EventBridge to invoke the target. The following are some examples for various AWS services and targets. For others, use the EventBridge console to create a Rule and create a new Role which will be created with a policy with well-scoped permissions preconfigured. 
 
-Amazon SQS, Amazon SNS, and Lambda targets support both IAM execution roles and resource-based policies. CloudWatch Logs and EventBridge bus targets do not use roles, and permissions to EventBridge must be granted via a resource policy. API Gateway targets can use either resource policies or IAM roles.
+Configuring the correct permissions for each target type matters: without the appropriate IAM role or resource-based policy, EventBridge cannot invoke the target and event delivery fails. Because the required permission model differs by target type, review the requirements for your target before you create a rule. For step-by-step guidance on creating the resource-based policies that several target types rely on, see [Using resource-based policies for Amazon EventBridge](eb-use-resource-based.md); to create the IAM roles that EventBridge assumes, see [Creating a Role to Delegate Permissions to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*.
+
+Permission requirements vary by target type:
+
+
+**EventBridge target permission requirements**  
+
+| Target type | Permission requirement | 
+| --- | --- | 
+| Amazon SQS, Amazon SNS, and Lambda | Supports both IAM execution roles and resource-based policies. | 
+| CloudWatch Logs | Does not use roles; instead, permissions must be granted with a resource-based policy. | 
+| EventBridge event bus | EventBridge event bus targets must have an IAM role that grants `events:PutEvents` on the target event bus. When the target event bus is in another account, the target bus's resource-based policy must allow the sender account. | 
+| API Gateway | Can use either resource-based policies or IAM roles. | 
 
 ### API destinations
 <a name="eb-target-permissions-apid"></a>

@@ -3,10 +3,11 @@
 # Sharing a Custom Event Bus with other accounts
 <a name="eb-custom-bus-sharing"></a>
 
-To let another account publish to your bus, attach subscribers to it, or attach event sources to it, share the bus with AWS Resource Access Manager (AWS RAM) and choose one of the four managed permissions. For example, share the `orders` bus with account `444455556666` using `AWSRAMEventBridgeEventBusV2SubscribeOnly`, and that account can create subscribers on it. Write a resource policy on the bus instead when you need an explicit `Deny`, a condition key, or a grant that no managed permission expresses. The other account still needs the same actions in its own identity policies, because both sides must allow.
+To let another account publish to your bus, attach subscribers to it, or attach event sources to it, share the bus with AWS Resource Access Manager (AWS RAM). Then choose one of the four managed permissions. For example, share the `orders` bus with account `444455556666` using `AWSRAMEventBridgeEventBusV2SubscribeOnly`, and that account can create subscribers on it. Write a resource policy on the bus instead when you need an explicit `Deny`, a condition key, or a grant that no managed permission expresses. The other account still needs the same actions in its own identity policies, because both sides must allow.
 
 ## Prerequisites for sharing a bus
 <a name="eb-custom-bus-access-ram-prereq"></a>
++ You are familiar with IAM identity-based and resource-based policies, because sharing a bus requires matching permissions on both the bus and the consumer's identity.
 + You must own the bus. A consumer account cannot share a bus onward.
 + To share with accounts in your organization without an invitation, enable sharing with AWS Organizations in AWS RAM. To share with an account outside your organization, the account must accept the resource share invitation before it can use the bus.
 + The bus and the consumer's subscribers are in the same Region and partition. A consumer publishes to the bus and creates subscribers on it in the bus's Region.
@@ -14,7 +15,7 @@ To let another account publish to your bus, attach subscribers to it, or attach 
 ## Sharing a bus
 <a name="eb-custom-bus-access-ram"></a>
 
-We recommend AWS RAM over a resource policy that you write yourself. AWS RAM gives you one place to see and to revoke what you have shared, it works with AWS Organizations, and it writes the bus's `AWS_RAM` resource policy for you. Create a resource share that names the bus ARN, the consumer accounts or organizational units, and one of the four AWS managed permissions for the bus resource type, each at `arn:aws:ram::aws:permission/{{name}}`.
+We recommend AWS RAM over a resource policy that you write yourself. With AWS RAM, you have one place to see and revoke what you have shared. AWS RAM also works with AWS Organizations and writes the bus's `AWS_RAM` resource policy for you. Create a resource share that names the bus ARN, the consumer accounts or organizational units, and one of the four AWS managed permissions for the bus resource type, each at `arn:aws:ram::aws:permission/{{name}}`.
 
 The following table lists what the consumer account can do with each managed permission.
 
@@ -39,7 +40,7 @@ To grant less than a managed permission, or to add a condition key, author an AW
 ## Unsharing a bus
 <a name="eb-custom-bus-access-ram-unshare"></a>
 
-To stop sharing, remove the bus or the principal from the resource share, or delete the share. EventBridge authorizes a subscriber or event source when it is created, so a subscriber the consumer created while the share was active keeps delivering after you unshare. To stop it, revoke it with `RevokeResource`; see [Revoking a subscriber or an event source](eb-custom-bus-access-revoke.md). The consumer can no longer publish or create new subscribers once the share is gone.
+To stop sharing, remove the bus or the principal from the resource share, or delete the share. EventBridge authorizes a subscriber or event source when it is created, so a subscriber the consumer created while the share was active keeps delivering after you unshare. To stop it, revoke it with `RevokeResource`. For more information about revoking a subscriber or an event source, see [Revoking a subscriber or an event source](eb-custom-bus-access-revoke.md). The consumer can no longer publish or create new subscribers once the share is gone.
 
 ## Working with a bus that is shared with you
 <a name="eb-custom-bus-access-consumer"></a>
@@ -49,12 +50,14 @@ A bus shared with your account appears in your `ListEventBuses` results with the
 ## Billing and metering
 <a name="eb-custom-bus-access-ram-billing"></a>
 
-Sharing a bus has no charge of its own. Publishing, delivery, and retention are billed as described on the [Amazon EventBridge pricing](https://aws.amazon.com/eventbridge/pricing/) page. The bus owner can see delivery volume per consumer account in the `EventsDelivered` and `EgressBytes` metrics with the `SubscriberAccount` dimension; see [Observability for the Custom Event Bus: metrics, logs, and CloudTrail](eb-custom-bus-observability.md).
+Sharing a bus has no charge of its own. Publishing, delivery, and retention are billed as described on the [Amazon EventBridge pricing](https://aws.amazon.com/eventbridge/pricing/) page. The bus owner can see delivery volume per consumer account in the `EventsDelivered` and `EgressBytes` metrics with the `SubscriberAccount` dimension. For more information about observability, see [Observability for the Custom Event Bus: metrics, logs, and CloudTrail](eb-custom-bus-observability.md).
 
 ## Write a custom resource policy
 <a name="eb-custom-bus-access-policy"></a>
 
-An event bus is the only Custom Event Bus resource that takes a resource policy; EventBridge rejects any other resource ARN. A bus holds two named policies. `default` is the one you write, in full IAM policy language including `Deny`. `AWS_RAM` is written only by AWS RAM and reflects your resource shares. EventBridge evaluates both when it authorizes a caller from another account, and an explicit `Deny` in either overrides an `Allow` in the other. When a cross-account caller is denied and the policy you wrote appears to allow them, read the other policy.
+An event bus is the only Custom Event Bus resource that takes a resource policy; EventBridge rejects any other resource ARN. A bus holds two named policies. The `default` policy is the one you write, in full IAM policy language, including `Deny` statements. `AWS_RAM` is written only by AWS RAM and reflects your resource shares.
+
+EventBridge evaluates both when it authorizes a caller from another account, and an explicit `Deny` in either overrides an `Allow` in the other. When a cross-account caller is denied and the policy you wrote appears to allow them, read the other policy.
 
 The following `default` policy on the `orders` bus lets account `444455556666` attach subscribers and read the bus, and nothing else.
 
@@ -83,4 +86,4 @@ EventBridge rejects a `default` policy that would grant public access, with `Pub
 ## Events that arrive without a publish call
 <a name="eb-custom-bus-access-forwarded"></a>
 
-Events also arrive on a bus without a direct `PutEvents` or `PutRawEvents` call: from an event source, or from a rule or a subscriber on another bus whose target is this bus. An event source is authorized once, when you create it, and nothing is checked again as events arrive, so a bus policy cannot filter that traffic afterwards. See [Event sources for a Custom Event Bus](eb-custom-bus-event-sources.md). A rule or subscriber that you point at a bus yourself is authorized at ingestion, under the role you supplied, once for every event. EventBridge chooses the action per event: `events:PutEvents` for a genuine AWS service or partner event, and `events:PutRawEvents` for an event you originated. You cannot choose the action used, so a forwarder carrying both kinds of events through one path must be granted both actions, in the role's identity policy and in the destination bus's resource policy. Granting only one denies half the stream.
+Events also arrive on a bus without a direct `PutEvents` or `PutRawEvents` call: from an event source, or from a rule or a subscriber on another bus whose target is this bus. EventBridge authorizes an event source once, when you create it. It checks nothing again as events arrive, so a bus policy cannot filter that traffic afterwards. For more information about event sources, see [Event sources for a Custom Event Bus](eb-custom-bus-event-sources.md). A rule or subscriber that you point at a bus yourself is authorized at ingestion, under the role you supplied, once for every event. EventBridge chooses the action per event: `events:PutEvents` for a genuine AWS service or partner event, and `events:PutRawEvents` for an event you originated. You cannot choose the action used. A forwarder carrying both kinds of events through one path must be granted both actions, in the role's identity policy and in the destination bus's resource policy. Granting only one denies half the stream.
