@@ -10,10 +10,11 @@ Endpoint policies must be written in JSON format. For more information, see [ Co
 ## Example: VPC endpoint policy for AWS IoT Managed Integrations actions
 <a name="vpc-endpoints-policy-example1"></a>
 
-The following is an example of an endpoint policy for AWS IoT Managed Integrations. This policy allows users connecting to AWS IoT Managed Integrations through the VPC endpoint to access destinations but denies access to credential lockers.
+The following is an example of a VPC endpoint policy for AWS IoT Managed Integrations. This policy allows users connecting to AWS IoT Managed Integrations through the VPC endpoint to access destinations but denies access to credential lockers.
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
@@ -34,7 +35,6 @@ The following is an example of an endpoint policy for AWS IoT Managed Integratio
                 "iotmanagedintegrations:ListCredentialLockers",
                 "iotmanagedintegrations:GetCredentialLocker",
                 "iotmanagedintegrations:CreateCredentialLocker",
-                "iotmanagedintegrations:UpdateCredentialLocker",
                 "iotmanagedintegrations:DeleteCredentialLocker"
             ],
             "Resource": "*"
@@ -46,10 +46,11 @@ The following is an example of an endpoint policy for AWS IoT Managed Integratio
 ## Example: VPC endpoint policy that restricts access to a specific IAM role
 <a name="vpc-endpoints-policy-example2"></a>
 
-The following VPC endpoint policy allows access to AWS IoT Managed Integrations only for IAM principals that have the specified IAM role in their trust chain. All other IAM principals are denied access.
+The following example of a VPC endpoint policy allows access to AWS IoT Managed Integrations only for IAM principals that have the specified IAM role (`IoTManagedIntegrationsVPCRole`) in their trust chain. All other IAM principals are denied access.
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
