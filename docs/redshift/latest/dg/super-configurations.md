@@ -69,7 +69,7 @@ Alternatively, you can configure `enable_case_sensitive_identifier` to TRUE and 
 
 When you use the JSON\_PARSE function to parse JSON strings into SUPER values, certain restrictions apply: 
 + The same attribute name cannot appear in the same object, but can appear in a nested object. The `json_parse_dedup_attributes` configuration option allows JSON\_PARSE to keep only the last occurrence of duplicate attributes instead of returning an error. 
-+ Individual string literals in SUPER object have a size limit of 16,000,000 bytes. The `json_parse_truncate_strings` configuration option allows JSON\_PARSE() to automatically truncate strings that are longer than this limit without returning an error. This behavior affects string values only and not attribute names.
++ When you set the `enable_large_strings_opt_in` parameter to `Yes`, each individual string literal in a SUPER object has a size limit of 16,000,000 bytes. When you don't enable this parameter, the limit is 65,535 bytes. The `json_parse_truncate_strings` configuration option directs JSON\_PARSE() to truncate strings that are longer than this limit automatically, without returning an error. This behavior affects string values only and not attribute names.
 
 For more information about the JSON\_PARSE function, see [JSON\_PARSE function](JSON_PARSE.md).
 

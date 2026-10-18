@@ -58,6 +58,10 @@ Amazon Redshift automatically runs ANALYZE on tables that you create with the fo
 
 You don't need to run the ANALYZE command on these tables when they are first created. If you modify them, you should analyze them in the same way as other tables.
 
+You can run ANALYZE on a materialized view to update the statistics that the query planner uses. Amazon Redshift analyzes the materialized view's underlying table and analyzes all of its columns. The following aren't supported when you analyze a materialized view:
++ Specifying a column list (analyzing only specific columns)
++ ANALYZE COMPRESSION
+
 ### Analyze threshold
 <a name="r_ANALYZE-threshold"></a>
 

@@ -19,6 +19,10 @@ Amazon Redshift has two strategies for refreshing a materialized view:
 + If an incremental refresh isn't possible, then Amazon Redshift performs a full refresh. A *full refresh* reruns the underlying SQL statement, replacing all of the data in the materialized view.
 + Amazon Redshift automatically chooses the refresh method for a materialized view depending on the SELECT query used to define the materialized view. 
 
+Amazon Redshift performs a full recompute instead of an incremental refresh in the following additional cases:
++ A vacuum operation on a base table ran with the FORCE option, or reclaimed rows under low-disk-space conditions, while the materialized view was not up to date. For more information about the FORCE option, see [VACUUM](r_VACUUM_command.md).
++ The materialized view has not been refreshed for an extended period. To keep vacuum operations on base tables effective, Amazon Redshift marks stale materialized views that have not been refreshed recently for full recompute.
+
 ## Nested materialized views
 <a name="materialized-view-refresh-nested"></a>
 

@@ -25,7 +25,7 @@ TABLE PROPERTIES ('format-version'='3'
     [, 'compression_type'='{{compression_value}}']);
 ```
 
-Example:
+The following SQL example creates an Iceberg v3 table with two columns that have default values:
 
 ```
 CREATE TABLE my_schema.orders (
@@ -57,12 +57,14 @@ Before upgrading to Iceberg v3, review the [Limitations](#iceberg-v3-limitations
 
 ## Limitations
 <a name="iceberg-v3-limitations"></a>
+
+Iceberg v3 has the following limitations:
 + You can use Iceberg v3 only on Amazon Redshift Serverless clusters (except the 4 RPU one) and on provisioned clusters that use RG instance types.
 + You can't read or write complex types (struct, list, map, variant) in Iceberg v3 tables.
 + You can't use the following data types in Iceberg v3 tables: struct, list, map, variant, geometry, geography, binary, uuid, time, timestamp\_ns, timestamptz\_ns, and unknown.
 + You can't use Iceberg v3 tables that contain equality deletes.
 + You can't create materialized views on Iceberg v3 tables.
-+ After upgrading a table to v3, Iceberg's `timestamptz` type maps to the Amazon Redshift TIMESTAMPTZ type instead of TIMESTAMP (used in v2). As a result, your queries return timestamps that include timezone information.
++ After upgrading a table to v3, Iceberg's `timestamptz` type maps to the Amazon Redshift TIMESTAMPTZ type instead of TIMESTAMP (used in v2). As a result, your queries return timestamps that include time zone information.
 
 ## Default column values
 <a name="iceberg-v3-default-values"></a>
@@ -172,6 +174,8 @@ Row lineage is automatically populated by Amazon Redshift on all write operation
 
 ### Limitations
 <a name="iceberg-v3-row-lineage-limitations"></a>
+
+Row lineage has the following limitations:
 + Row lineage columns are not included in SELECT \*.
 + Row lineage is not supported for Iceberg v2 or earlier tables.
 + Pre-upgrade data in v2-to-v3 upgraded tables returns NULL for both pseudo-columns until the first write operation after the upgrade.
@@ -192,6 +196,8 @@ When reading an Iceberg v3 table, Amazon Redshift automatically applies deletion
 
 ### Benefits over positional delete files
 <a name="iceberg-v3-deletion-vectors-benefits"></a>
+
+Deletion vectors provide the following benefits over positional delete files:
 + Deletion vectors are more compact than positional delete files.
 + A single deletion vector per data file avoids the accumulation of many small delete files.
 + Subsequent deletes on the same data file produce a new deletion vector that merges the previous deletions with the newly deleted positions, maintaining a single deletion vector per data file.
@@ -204,5 +210,7 @@ After upgrading a table from Iceberg v2 to v3, existing v2 positional delete fil
 
 ### Limitations
 <a name="iceberg-v3-deletion-vectors-limitations"></a>
+
+Deletion vectors have the following limitations:
 + Deletion vectors are not supported for Iceberg v2 or earlier tables.
 + Iceberg v3 tables cannot fall back to positional delete files for new write operations. This means Iceberg v3 tables can read existing positional delete files, but no new positional delete files can be added. Instead, Iceberg v3 tables can only add new deletes using deletion vectors.

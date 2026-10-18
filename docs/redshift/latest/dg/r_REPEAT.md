@@ -59,7 +59,7 @@ ORDER BY 1,2;
 +-------+--------+
 ```
 
-The following example demonstrates generating strings up to 16,000,000 bytes:
+When you set the `enable_large_strings_opt_in` parameter to `Yes`, you can generate strings up to 16,000,000 bytes. The following example shows this behavior.
 
 ```
 SELECT 

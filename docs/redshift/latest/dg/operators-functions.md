@@ -180,7 +180,7 @@ For more information on object functions, see [Object functions](Object_Function
 
 To use string functions with string literals in the SUPER data type, you must convert the string literal to string type before applying the functions. Functions return null if the input is not a string literal.
 
-[String functions](String_functions_header.md) now support up to 16,000,000 bytes.
+When you set the `enable_large_strings_opt_in` parameter to `Yes`, [String functions](String_functions_header.md) support up to 16,000,000 bytes.
 
 The following example uses SUBSTRING to extract the preview of a string with size 5,000,000 bytes stored in a SUPER JSON object
 

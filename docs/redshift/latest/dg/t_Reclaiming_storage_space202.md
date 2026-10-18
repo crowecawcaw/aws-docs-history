@@ -48,6 +48,7 @@ When you perform a delete, the rows are marked for deletion, but not removed. Am
 + [Vacuum threshold](#vacuum-sort-threshold)
 + [Vacuum types](#vacuum-types)
 + [Minimizing vacuum times](vacuum-managing-vacuum-times.md)
++ [Vacuum and materialized views](#vacuum-and-materialized-views)
 
 ## VACUUM frequency
 <a name="vacuum-frequency"></a>
@@ -78,3 +79,8 @@ By default, VACUUM skips the sort phase for any table where more than 95 percent
 <a name="vacuum-types"></a>
 
 For information about different vacuum types, see [VACUUM](r_VACUUM_command.md).
+
+## Vacuum and materialized views
+<a name="vacuum-and-materialized-views"></a>
+
+If a table has dependent local materialized views that are eligible for incremental refresh and are not up to date, VACUUM retains the deleted rows that those materialized views still need. VACUUM reports this with an INFO message. To remove all deleted rows regardless of materialized view state, use the FORCE option. The dependent materialized views are then fully recomputed on their next refresh. For more information, see the usage notes for [VACUUM](r_VACUUM_command.md).

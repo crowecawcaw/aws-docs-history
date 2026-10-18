@@ -19,6 +19,7 @@ You can use configurations to help customize your environment. With Amazon Redsh
 + [downcase\_delimited\_identifier](r_downcase_delimited_identifier.md)
 + [enable\_case\_sensitive\_identifier](r_enable_case_sensitive_identifier.md)
 + [enable\_case\_sensitive\_super\_attribute](r_enable_case_sensitive_super_attribute.md)
++ [enable\_large\_strings\_opt\_in](r_enable_large_strings_opt_in.md)
 + [enable\_numeric\_rounding](r_enable_numeric_rounding.md)
 + [enable\_result\_cache\_for\_session](r_enable_result_cache_for_session.md)
 + [enable\_vacuum\_boost](r_enable_vacuum_boost.md)

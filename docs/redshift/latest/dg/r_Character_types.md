@@ -36,7 +36,7 @@ The CREATE TABLE syntax supports the MAX keyword for character data types. For e
 create table test(col1 varchar(max));
 ```
 For CHAR, MAX defines the column width as 4096 bytes.  
-For VARCHAR, MAX defines the column width as 65,535 bytes in CREATE TABLE statements. For in-memory operations, VARCHAR(MAX) supports up to 16,000,000 bytes.
+For VARCHAR, MAX defines the column width as 65,535 bytes in CREATE TABLE statements. When you set the `enable_large_strings_opt_in` parameter to `Yes`, VARCHAR(MAX) supports up to 16,000,000 bytes for in-memory operations. These operations include CAST expressions, views, user-defined functions, and stored procedures. For more information about the `enable_large_strings_opt_in` parameter, see [enable\_large\_strings\_opt\_in](r_enable_large_strings_opt_in.md).
 
 ## CHAR or CHARACTER
 <a name="r_Character_types-char-or-character"></a>
@@ -60,7 +60,7 @@ varchar(120)
 
 If you use the VARCHAR data type without a length specifier in a CREATE TABLE statement, the default length is 256.
 
-[String functions](String_functions_header.md) now support up to 16,000,000 bytes. For example, CONCAT function output was previously limited to 65535 bytes, but now supports up to 16,000,000 bytes.
+When you set the `enable_large_strings_opt_in` parameter to `Yes`, [String functions](String_functions_header.md) support up to 16,000,000 bytes. For example, the CONCAT function supports output up to 16,000,000 bytes.
 
 ```
 SELECT LEN(CONCAT(REPEAT('A', 5000000), REPEAT('B', 5000000))) AS total_length;

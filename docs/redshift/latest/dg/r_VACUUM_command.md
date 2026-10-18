@@ -37,7 +37,7 @@ Following are required privileges for VACUUM:
 
 ```
 VACUUM [ FULL | SORT ONLY | DELETE ONLY | REINDEX | RECLUSTER ]
-[ [ table_name ] [ TO threshold PERCENT ] [ BOOST ] ]
+[ [ table_name ] [ TO threshold PERCENT ] [ BOOST ] [ FORCE ] ]
 ```
 
 ## Parameters
@@ -74,7 +74,7 @@ Sorts the portions of the table that are unsorted. Portions of the table that ar
 VACUUM RECLUSTER isn't supported on tables with interleaved sort keys and tables with ALL distribution style.
 
  *table\_name*   
-The name of a table to vacuum. If you don't specify a table name, the vacuum operation applies to all tables in the current database. You can specify any permanent or temporary user-created table. The command isn't meaningful for other objects, such as views and system tables.  
+The name of a table or materialized view to vacuum. If you don't specify a table name, the vacuum operation applies to all tables in the current database. You can specify any permanent or temporary user-created table, or a materialized view. The command isn't meaningful for other objects, such as regular views, late binding views, and system tables.  
  If you include the TO *threshold* PERCENT parameter, a table name is required.
 
  TO *threshold* PERCENT   
@@ -90,6 +90,10 @@ Consider the following when using the BOOST option:
 + When BOOST is specified, the *table\_name* value is required. 
 + BOOST isn't supported with REINDEX. 
 + BOOST is ignored with DELETE ONLY. 
+
+FORCE  <a name="vacuum-force"></a>
+Reclaims disk space so that all rows marked for deletion are removed, even when materialized views defined on the table have not yet been refreshed to include recent changes. When you specify FORCE, Amazon Redshift first marks each dependent materialized view that is not up to date for full recompute, and then vacuums the table without retaining rows on their behalf. Each affected materialized view is fully recomputed on its next refresh instead of being refreshed incrementally.  
+You can specify FORCE with the default VACUUM, VACUUM FULL, VACUUM DELETE ONLY, and VACUUM REINDEX. You can't specify FORCE with VACUUM SORT ONLY or VACUUM RECLUSTER, and you can't specify FORCE for a database-wide vacuum.
 
 ## Usage notes
 <a name="r_VACUUM_usage_notes"></a>
@@ -120,6 +124,24 @@ Amazon Redshift supports running multiple vacuum transactions concurrently acros
 + Depending on the mode of the vacuum transaction, start with two concurrent vacuum operations, and add more depending on their run time and system load. Just like other heavy queries issued by users, vacuum operations may begin queueing if you run too many concurrently when Amazon Redshift reaches system resource limits. 
 + Run multiple Vacuum BOOST operations carefully. Running Vacuum with the BOOST option contends for system resources, which might affect query performance. Run the VACUUM BOOST when the load on the system is light, such as during maintenance operations.
 + If you don't specify a table name, the vacuum operation applies to all tables in the current database. These vacuum opearations still run sequentially.
+
+### Vacuum and materialized views
+<a name="r_VACUUM_command-materialized-views"></a>
+
+When a table has dependent materialized views that support incremental refresh and are not up to date, VACUUM preserves the rows that those materialized views still need to refresh incrementally. In that case, VACUUM returns a message similar to the following:
+
+```
+INFO: VACUUM reclaimed deleted rows up to xid 12345 as MVs on base table sales are not up to date
+HINT: Use VACUUM sales FORCE to reclaim all deleted rows; dependent materialized views will be recomputed on their next refresh. Alternatively, refresh the stale dependent materialized views first and then run VACUUM.
+```
+
+To reclaim all deleted rows, do one of the following:
++ Refresh the dependent materialized views, and then run VACUUM again. This keeps subsequent materialized view refreshes incremental.
++ Run VACUUM with the FORCE option. This reclaims all deleted rows immediately, but each dependent materialized view that was not up to date is fully recomputed on its next refresh.
+
+Rows preserved on behalf of materialized views remain in the table until a subsequent vacuum can remove them. On tables with materialized views that are refreshed infrequently, this can increase table size, scan times, and backup size. Amazon Redshift bounds this effect in two ways. First, Amazon Redshift automatically marks for recompute any stale materialized view that has not been refreshed for an extended period, which releases the constraint on vacuum. Second, under low-disk-space conditions, Amazon Redshift automatically reclaims the space after marking the dependent materialized views for recompute. This applies only to local materialized views. It doesn't apply to materialized views defined on datashare tables.
+
+You can run VACUUM on a materialized view. Amazon Redshift performs the operation on the materialized view's underlying table. You can use the following vacuum types on a materialized view: VACUUM, VACUUM FULL, VACUUM DELETE ONLY, and VACUUM SORT ONLY. VACUUM REINDEX and VACUUM RECLUSTER are not supported on materialized views.
 
 ## Examples
 <a name="r_VACUUM_command-examples"></a>
@@ -176,4 +198,10 @@ Recluster and then vacuum the LISTING table with the BOOST option.
 
 ```
 vacuum recluster listing boost;
+```
+
+The following example reclaims all deleted rows in the SALES table, including rows still needed by dependent materialized views.
+
+```
+vacuum sales force;
 ```

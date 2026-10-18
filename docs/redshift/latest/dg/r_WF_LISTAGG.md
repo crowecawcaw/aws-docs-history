@@ -43,7 +43,7 @@ DISTINCT
 ## Returns
 <a name="r_WF_LISTAGG-data-types"></a>
 
-If the result set is larger than 16,000,000 bytes, then LISTAGG returns the following error:
+When you set the `enable_large_strings_opt_in` parameter to `Yes`, LISTAGG can produce results up to 16,000,000 bytes. If the result exceeds this limit, LISTAGG returns the following error. When you don't enable this parameter, the limit is 65,535 bytes.
 
 ```
 Invalid operation: Result size exceeds LISTAGG limit
@@ -149,7 +149,7 @@ order by buyerid;
 +---------+-------------------------+
 ```
 
-The following example demonstrates LISTAGG support with concatenated results up to 16,000,000 bytes:
+When you set the `enable_large_strings_opt_in` parameter to `Yes`, the following example demonstrates LISTAGG support with concatenated results up to 16,000,000 bytes:
 
 ```
 CREATE TABLE large_data (
