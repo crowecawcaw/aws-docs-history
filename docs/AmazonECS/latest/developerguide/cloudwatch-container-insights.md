@@ -16,4 +16,5 @@ We recommend that you use Container Insights with enhanced observability instead
 The events that you can view are the ones that Amazon ECS sends to Amazon EventBridge. For more information, see [Amazon ECS events](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_cwe_events.html).
 
 **Important**  
-Metrics collected by CloudWatch Container Insights are charged as custom metrics. For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+Beginning October 1, 2026, you aren't billed for the `RunningTaskCount` metric in CloudWatch Container Insights, regardless of the number of Amazon ECS services or clusters in your account.  
+Other metrics collected by CloudWatch Container Insights are charged as custom metrics. For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).

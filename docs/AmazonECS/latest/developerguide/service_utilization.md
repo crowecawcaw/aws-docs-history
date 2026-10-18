@@ -52,15 +52,31 @@ In this example, the CPU utilization will only go above 100% when the CPU units 
 
 The service level EBS filesystem utilization is measured as the total amount of the EBS filesystem in use by the tasks that belong to the service, divided by the total amount of EBS filesystem storage that is allocated for all tasks that belong to the service.
 
+## Service LIVE task count
+<a name="cw_live_task_count"></a>
+
+With the `LiveTaskCount` metric, you get a complete view of the tasks in your service that are actively running and generating metrics. It counts the tasks in the `ACTIVATING`, `RUNNING`, and `DEACTIVATING` states, including tasks that are running but transitioning to a stopped state, such as tasks that are draining connections during a scale-in event.
+
+This behavior makes the metric well suited for auto scaling alarms and capacity monitoring, because a task that is still serving traffic while it drains is still counted.
+
+`LiveTaskCount` is available at no cost. For more information, see [Amazon ECS CloudWatch metrics](available-metrics.md).
+
 ## Service `RUNNING` task count
 <a name="cw_running_task_count"></a>
 
 You can use CloudWatch metrics to view the number of tasks in your services that are in the `RUNNING` state. For example, you can set a CloudWatch alarm for this metric to alert you if the number of running tasks in your service falls below a specified value.
 
+The `RunningTaskCount` metric counts the tasks whose current state and desired state are both `RUNNING`. This makes it a health and stability signal for your service. It doesn't count tasks that are still running while they transition to a stopped state. To count those tasks as well, use `LiveTaskCount`. For more information, see [Service LIVE task count](#cw_live_task_count).
+
 ### Service `RUNNING` task count in Amazon ECS CloudWatch Container Insights
 <a name="cw_running_task_count_cwci"></a>
 
-A "Number of Running Tasks" (`RunningTaskCount`) metric is available per cluster and per service when you use Amazon ECS CloudWatch Container Insights. You can use Container Insights for all new clusters created by opting in to the `containerInsights` account setting, on individual clusters by turning on the cluster settings during cluster creation, or on existing clusters by using the UpdateClusterSettings API. Metrics collected by CloudWatch Container Insights are charged as custom metrics. For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
+A "Number of Running Tasks" (`RunningTaskCount`) metric is available per cluster and per service when you use Amazon ECS CloudWatch Container Insights. You can use Container Insights for all new clusters created by opting in to the `containerInsights` account setting, on individual clusters by turning on the cluster settings during cluster creation, or on existing clusters by using the UpdateClusterSettings API.
+
+**Note**  
+Beginning October 1, 2026, you aren't billed for the `RunningTaskCount` metric in CloudWatch Container Insights, regardless of the number of Amazon ECS services or clusters in your account.
+
+Other metrics collected by CloudWatch Container Insights are charged as custom metrics. For more information about CloudWatch pricing, see [CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 To view this metric, see [Amazon ECS Container Insights Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-view-metrics.html) in the *Amazon CloudWatch User Guide*.
 

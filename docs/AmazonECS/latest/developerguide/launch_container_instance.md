@@ -139,14 +139,23 @@ If you do not launch your container instance with the proper IAM permissions, yo
     #!/bin/bash
     echo ECS_CLUSTER={{your_cluster_name}} >> /etc/ecs/ecs.config
     ```
-  + If you have an `ecs.config` file in Amazon S3 and have enabled Amazon S3 read-only access to your container instance role, choose the **Advanced Details** list. Then, paste the following script into the **User data** field, replacing {{your\_bucket\_name}} with the name of your bucket to install the AWS CLI and write your configuration file at launch time. 
+  + If you have an `ecs.config` file in Amazon S3 and have enabled Amazon S3 read-only access to your container instance role, choose the **Advanced Details** list. Then, paste the following script into the **User data** field. Replace `{{your-cluster-name}}` with your cluster name. Replace `{{amzn-s3-demo-bucket}}` with your bucket name.
 **Note**  
 For more information about this configuration, see [Storing Amazon ECS container instance configuration in Amazon S3](ecs-config-s3.md).
 
     ```
-    #!/bin/bash
+    #!/bin/bash -e
+    # Shut down after a user data failure.
+    # Set InstanceInitiatedShutdownBehavior=terminate in the launch template to terminate the instance.
+    trap 'status=$?; if [ "$status" -ne 0 ]; then shutdown -h now; fi' EXIT
+    
+    # Set the cluster before any command that can fail.
+    echo ECS_CLUSTER={{your-cluster-name}} >> /etc/ecs/ecs.config
     yum install -y aws-cli
-    aws s3 cp s3://{{your_bucket_name}}/ecs.config /etc/ecs/ecs.config
+    aws s3 cp s3://{{amzn-s3-demo-bucket}}/ecs.config /tmp/ecs.config
+    sed -i '/^ECS_CLUSTER=/d' /tmp/ecs.config
+    echo ECS_CLUSTER={{your-cluster-name}} >> /tmp/ecs.config
+    install -m 0644 /tmp/ecs.config /etc/ecs/ecs.config
     ```
   + Specify tags for your container instance using the `ECS_CONTAINER_INSTANCE_TAGS` configuration parameter. This creates tags that are associated with Amazon ECS only, they cannot be listed using the Amazon EC2 API.
 **Important**  

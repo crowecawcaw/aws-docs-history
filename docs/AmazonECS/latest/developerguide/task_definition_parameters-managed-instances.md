@@ -996,7 +996,7 @@ The FireLens configuration for the container. This is used to specify and config
 `options`  
 Type: String to string map  
 Required: No  
-The key/value map of options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is `"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::{{amzn-s3-demo-bucket}}/fluent.conf|filepath"}`. For more information, see [Example Amazon ECS task definition: Route logs to FireLens](firelens-taskdef.md).  
+The key/value map of options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is `"options":{"enable-ecs-log-metadata":"true|false","config-file-type":"file","config-file-value":"filepath"}`. For more information, see [Example Amazon ECS task definition: Route logs to FireLens](firelens-taskdef.md).  
 `type`  
 Type: String  
 Required: Yes  

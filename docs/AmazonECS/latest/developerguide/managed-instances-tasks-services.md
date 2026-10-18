@@ -41,6 +41,7 @@ The following task definition parameters are valid in Amazon ECS Managed Instanc
 + `resourceRequirement` - `InferenceAccelerator` is not supported.
 + `operatingSystemFamily` - Amazon ECS Managed Instances use `LINUX`.
 + `volumes` - When using bind mounts with a `sourcePath`, the path must point to a writable directory on the host. Portions of the Amazon ECS Managed Instance filesystem are read-only. Writable directories include `/var` and `/tmp`. For more information, see [Use bind mounts with Amazon ECS](bind-mounts.md).
++ `firelensConfiguration` - Configures the FireLens log router. The `s3` configuration file type isn't supported; use the `file` type. For more information, see [Example Amazon ECS task definition: Route logs to FireLens](firelens-taskdef.md).
 
 To ensure that your task definition validates for use with Amazon ECS Managed Instances, you can specify the following when you register the task definition: 
 + In the AWS Management Console, for the **Requires Compatibilities** field, specify `MANAGED_INSTANCES`.

@@ -103,7 +103,7 @@ Your FireLens configuration must contain the following options to specify a cust
 
 `config-file-type`  
 The source location of the custom configuration file. The available options are `s3` or `file`.  
-Tasks that are hosted on AWS Fargate only support the `file` configuration file type. However, you can use configuration files hosted in Amazon S3 on AWS Fargate by using the AWS for Fluent Bit init container. For more information, see [Init process for Fluent Bit on ECS, multi-config support](https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md) on GitHub.
+Tasks that are hosted on AWS Fargate or Amazon ECS Managed Instances only support the `file` configuration file type. You can still use configuration files hosted in Amazon S3 with these launch types. To do this, use the AWS for Fluent Bit init container. For more information, see [Init process for Fluent Bit on ECS, multi-config support](https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md) on GitHub.
 
 `config-file-value`  
 The source for the custom configuration file. If the `s3` config file type is used, the config file value is the full ARN of the Amazon S3 bucket and file. If the `file` config file type is used, the config file value is the full path of the configuration file that exists either in the container image or on a volume that's mounted in the container.  
@@ -136,4 +136,4 @@ The following shows the syntax required when specifying a custom configuration.
 ```
 
 **Note**  
-Tasks hosted on AWS Fargate only support the `file` configuration file type. However, you can use configuration files hosted in Amazon S3 on AWS Fargate by using the AWS for Fluent Bit init container. For more information, see [Init process for Fluent Bit on ECS, multi-config support](https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md) on GitHub.
+Tasks that are hosted on AWS Fargate or Amazon ECS Managed Instances only support the `file` configuration file type. You can still use configuration files hosted in Amazon S3 with these launch types. To do this, use the AWS for Fluent Bit init container. For more information, see [Init process for Fluent Bit on ECS, multi-config support](https://github.com/aws/aws-for-fluent-bit/blob/mainline/use_cases/init-process-for-fluent-bit/README.md) on GitHub.
