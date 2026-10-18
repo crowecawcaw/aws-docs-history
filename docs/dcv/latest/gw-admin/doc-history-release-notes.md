@@ -15,6 +15,7 @@ This page provides the release notes and document history for Amazon DCV Connect
 This section provides an overview of the major updates, feature releases, and bug fixes for Amazon DCV Connection Gateway. All the updates are organized by release date. We update the documentation frequently to address the feedback that you send us.
 
 **Topics**
++ [2026.0-932— October 13, 2026](#gw-2026-0-932)
 + [2025.0-886— April 1, 2026](#gw-2025-0-886)
 + [2025.0-870— October 22, 2025](#gw-2025-0-870)
 + [2024.0-848— May 16, 2025](#gw-2024-0-848)
@@ -30,6 +31,15 @@ This section provides an overview of the major updates, feature releases, and bu
 + [2022.0-322— March 23, 2022](#gw-2022-0-322)
 + [2022.0-310— February 23, 2022](#gw-2022-0-310)
 + [2021.3-251— December 20, 2021](#gw-2021-3-251)
+
+### 2026.0-932— October 13, 2026
+<a name="gw-2026-0-932"></a>
+
+
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+| 932 |  +  Improved CPU-based connection throttling. Short load spikes no longer cause connections to be rejected. <br />+  The default for `ciphers-tls` now includes all the cipher suites supported by the Connection Gateway. An unsupported cipher suite in `ciphers-tls` is now a configuration error instead of being silently ignored. <br />+  Security and performance improvements.   | 
 
 ### 2025.0-886— April 1, 2026
 <a name="gw-2025-0-886"></a>
