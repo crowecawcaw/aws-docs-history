@@ -39,6 +39,7 @@ If you use the AWS Private CA API or AWS CLI to issue a private certificate, the
 **Considerations when creating certificates**
 + In compliance with [RFC 5280](https://datatracker.ietf.org/doc/html/rfc5280), the length of the domain name (technically, the Common Name) that you provide cannot exceed 64 octets (characters), including periods. To add a longer domain name, specify it in the Subject Alternative Name field, which supports names up to 253 octets in length. 
 + If you are using AWS CLI version 1.6.3 or later, use the prefix `fileb://` when specifying base64-encoded input files such as CSRs. This ensures that AWS Private CA parses the data correctly.
++ To set the certificate's `Not Before` date, add `--validity-not-before Value={{seconds}},Type=ABSOLUTE` to the command, where {{seconds}} is the date and time in seconds since the Unix epoch. If you omit this option, AWS Private CA sets the `Not Before` date to 60 minutes before the issuance time. For more information about certificate validity periods, see [Choose validity periods](ca-lifecycle.md#ca-validity-period).
 
 The following OpenSSL command generates a CSR and a private key for a certificate:
 
