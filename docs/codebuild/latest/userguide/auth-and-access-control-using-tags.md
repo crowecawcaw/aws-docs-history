@@ -59,7 +59,7 @@ The following policy denies users permission to the `CreateProject` action if th
       ],
       "Resource": "*",
       "Condition": {
-        "ForAnyValue:StringEquals": {
+        "ForAnyValue:StringEqualsIgnoreCase": {
           "aws:TagKeys": ["Environment"]
         }
       }
