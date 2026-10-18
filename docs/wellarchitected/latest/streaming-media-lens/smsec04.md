@@ -20,18 +20,6 @@ Ingest endpoints accept content from providers and encoding devices. They need t
 + High-value content travels over private connectivity rather than the public internet.
 + Physical media transfers use hardware encryption with chain-of-custody controls.
 
-## Maturity levels
-<a name="smsec04-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Ingest endpoints are open to any source with no IP restriction or encryption requirement. | 
-| 2 | Emerging | Basic IP allowlists exist but are not regularly audited. TLS is used inconsistently across ingest paths. | 
-| 3 | Defined | All ingest traffic is encrypted with current TLS versions. ACLs restrict access to known providers and are reviewed on a schedule. | 
-| 4 | Proactive | High-value content uses private connectivity. ACL changes are automated through provider onboarding and offboarding workflows. | 
-| 5 | Optimized | Physical media transfers use hardware encryption with chain-of-custody verification. Stale ACL entries are detected and removed automatically. | 
-
 ## Common issues to watch for
 <a name="smsec04-issues"></a>
 + Ingest endpoints accepting connections from any IP address.

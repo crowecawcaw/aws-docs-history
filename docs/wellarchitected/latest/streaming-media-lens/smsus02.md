@@ -18,18 +18,6 @@ Streaming demand varies by orders of magnitude across the day and across events.
 + Scaling responds to both predictable patterns and unexpected demand spikes.
 + Utilization is tracked and idle capacity is treated as waste to be reduced.
 
-## Maturity levels
-<a name="smsus02-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Static provisioning at peak capacity. No demand-responsive scaling. Single bit rate delivered to all viewers. | 
-| 2 | Emerging | Basic auto-scaling in place for some components. Adaptive bit rate streaming adopted but the ladder isn't tuned to the audience. | 
-| 3 | Defined | Scaling policies respond to concurrency metrics. Deferrable work is scheduled off-peak. Utilization is tracked. | 
-| 4 | Proactive | Predictive scaling pre-warms for known events. Adaptive bit rate is matched to measured device and network profiles. Idle capacity is flagged and reduced. | 
-| 5 | Optimized | Capacity tracks demand in near real time across all components. Batch work is placed during lower-carbon-intensity windows. Utilization targets are continuously refined. | 
-
 ## Common issues to watch for
 <a name="smsus02-issues"></a>
 + Fixed provisioning based on a worst-case assumption that is never revisited.

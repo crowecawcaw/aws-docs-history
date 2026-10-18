@@ -18,18 +18,6 @@ Authentication and authorization systems control who can access content and how.
 + Access tokens are short-lived and scoped to the session.
 + Identity is federated from a central provider rather than managed per-application.
 
-## Maturity levels
-<a name="smsec01-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Content is accessible through static or long-lived URLs with no viewer authentication. Origins are publicly reachable. | 
-| 2 | Emerging | Basic authentication exists but tokens are long-lived and broadly scoped. Origin access control is inconsistent. | 
-| 3 | Defined | A central identity provider issues short-lived, session-scoped tokens. Origin Access Control restricts origins to authorized CDNs. | 
-| 4 | Proactive | Access policies enforce least privilege per subscription tier and geography. Token lifetimes are tuned to session length and automatically revoked on anomaly. | 
-| 5 | Optimized | Ongoing validation of access patterns feeds back into policy refinement. Federated identity across all distribution paths with automated drift detection. | 
-
 ## Common issues to watch for
 <a name="smsec01-issues"></a>
 + Relying on obscured URLs instead of identity verification.

@@ -18,18 +18,6 @@ High-value content requires protection through Digital Rights Management (DRM) a
 + Architecture supports multiple DRM systems where device coverage requires it.
 + Protection decisions are revisited as content agreements and supported devices change.
 
-## Maturity levels
-<a name="smsec06-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Content is delivered unencrypted or with basic encryption. No DRM system is in place and keys are managed one-time. | 
-| 2 | Emerging | A single DRM system is deployed based on familiarity. Key management is separate from content but protection requirements are undocumented. | 
-| 3 | Defined | Content protection requirements are defined with legal and business stakeholders. Multiple DRM systems cover required device targets with keys in a dedicated management service. | 
-| 4 | Proactive | Protection schemes are reviewed when licensing agreements or supported devices change. Device coverage gaps are identified and addressed systematically. | 
-| 5 | Optimized | Protection decisions are data-driven, informed by device analytics and contractual changes. Architecture adapts to new DRM requirements without re-engineering. | 
-
 ## Common issues to watch for
 <a name="smsec06-issues"></a>
 + DRM implemented without consulting legal on contractual requirements.

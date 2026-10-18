@@ -17,18 +17,6 @@ Live workflow resource cost is governed by event duration and concurrent audienc
 + Pipeline redundancy is applied where availability justifies it, not uniformly.
 + Supporting components scale to observed concurrency rather than a peak assumption.
 
-## Maturity levels
-<a name="smsus04-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Channels run continuously. All events use the same latency tier and full pipeline redundancy regardless of need. | 
-| 2 | Emerging | Channels are started and stopped manually around events. Latency tier is considered but not systematically chosen per event. | 
-| 3 | Defined | Channel lifecycle is automated against an event calendar. Latency and redundancy tiers are documented per event type. | 
-| 4 | Proactive | Supporting components scale to observed concurrency. Channel run-hours and redundant pipeline-hours are tracked per event. | 
-| 5 | Optimized | Resource use per event is reviewed and refined continuously. Latency and redundancy decisions are re-evaluated as the event portfolio changes. | 
-
 ## Common issues to watch for
 <a name="smsus04-issues"></a>
 + Channels left running continuously between events.

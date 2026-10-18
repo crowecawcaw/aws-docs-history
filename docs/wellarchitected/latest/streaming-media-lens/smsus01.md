@@ -18,18 +18,6 @@ Region selection determines the baseline environmental cost of a streaming servi
 + Placement decisions are reviewed against measured per-region carbon data on a regular cadence.
 + Latency-sensitive delivery and latency-tolerant batch work are placed independently based on their different proximity requirements.
 
-## Maturity levels
-<a name="smsus01-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Regions selected on cost or latency alone. No awareness of carbon intensity in placement decisions. | 
-| 2 | Emerging | Carbon intensity data is consulted for new deployments but existing placements are not revisited. | 
-| 3 | Defined | Carbon intensity is a documented selection criterion. Latency-tolerant batch is placed independently from delivery. | 
-| 4 | Proactive | Placement is reviewed against per-region carbon data on a regular cadence. Multi-region footprint is justified by documented requirements. | 
-| 5 | Optimized | Workloads shift dynamically or are re-evaluated as regional energy mixes change. Carbon data drives ongoing placement refinement. | 
-
 ## Common issues to watch for
 <a name="smsus01-issues"></a>
 + Selecting regions on cost and latency alone with no visibility into carbon intensity.

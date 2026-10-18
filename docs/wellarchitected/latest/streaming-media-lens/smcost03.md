@@ -17,18 +17,6 @@ Encoding decisions directly determine delivery cost. Lower bit rate at equivalen
 + Encoder settings vary by content type and viewing context rather than applied uniformly.
 + Variable bit rate modes spend bits where complexity demands them and save where it doesn't.
 
-## Maturity levels
-<a name="smcost03-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | A single bit rate ladder and CBR profile are applied to all content. No objective quality measurement exists. | 
-| 2 | Emerging | VMAF or PSNR scores are collected for some content but don't influence encoding decisions. VBR is used selectively. | 
-| 3 | Defined | Encoding profiles are differentiated by content type. Quality metrics are measured alongside cost for every encoding change. | 
-| 4 | Proactive | Content-aware encoding adjusts settings per title or scene complexity. VBR is the default, with bit rate caps informed by quality targets. | 
-| 5 | Optimized | Per-title or per-shot encoding runs automatically, continuously tuning bit rate ladders against quality thresholds and delivery cost data. | 
-
 ## Common issues to watch for
 <a name="smcost03-issues"></a>
 + Fixed high bit rate without measuring whether the quality justifies the cost.

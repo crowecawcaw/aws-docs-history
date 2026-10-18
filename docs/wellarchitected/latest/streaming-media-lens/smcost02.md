@@ -19,18 +19,6 @@ Processing costs scale with encoding volume, instance selection, and utilization
 + Consistent live encoding workloads use reservations rather than on-demand pricing.
 + Instance types are benchmarked against actual workloads rather than selected by default.
 
-## Maturity levels
-<a name="smcost02-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Processing runs on default instance types with no cost or utilization measurement. Jobs execute sequentially. | 
-| 2 | Emerging | Basic cost-per-job tracking exists. Some parallel processing is used but instance selection is still one-time. | 
-| 3 | Defined | Real-time-factor and cost baselines are established per job type. Instance types are benchmarked and selected based on workload characteristics. | 
-| 4 | Proactive | Spot capacity is used for interruptible workloads. Reservations cover predictable live channels. Parallel execution is standard for VOD pipelines. | 
-| 5 | Optimized | Processing cost is continuously optimized through automated instance selection, dynamic spot/on-demand mixing, and reservation coverage reviews tied to usage trends. | 
-
 ## Common issues to watch for
 <a name="smcost02-issues"></a>
 + No real-time-factor or utilization tracking for processing tasks.

@@ -17,18 +17,6 @@ Streaming workflows cross multiple teams (encoding, delivery, client, and operat
 + Responsibilities for each workflow stage are documented and assigned.
 + Decision-making processes account for the cross-team nature of streaming delivery.
 
-## Maturity levels
-<a name="smops01-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Ownership of streaming workflow stages is informal. Trade-off decisions happen one-time with no documented rationale. | 
-| 2 | Emerging | Some ownership is assigned per team, but cross-team decisions still lack a consistent process. | 
-| 3 | Defined | RACI matrices exist for all workflow stages. Trade-off decisions follow a documented process with stakeholder input. | 
-| 4 | Proactive | Cross-team governance reviews architecture decisions regularly and adjusts ownership as the system evolves. | 
-| 5 | Optimized | Decision-making processes are continuously refined based on incident retrospectives and delivery outcomes. | 
-
 ## Common issues to watch for
 <a name="smops01-issues"></a>
 + No documented ownership for decisions that span encoding, delivery, and client teams.

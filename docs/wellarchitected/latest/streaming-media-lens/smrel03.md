@@ -17,18 +17,6 @@ Content distribution is the final step before viewers. Failures here directly ca
 + Cache warming prepares edge locations ahead of high-demand live events.
 + Multi-CDN or multi-origin strategies provide fallback when a single path fails.
 
-## Maturity levels
-<a name="smrel03-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | The organization serves content from a single origin with one CDN. Origin failures or CDN outages directly cause viewer-facing playback errors. | 
-| 2 | Emerging | A secondary origin exists but failover is DNS-based with long TTLs. Cache warming is one-time and applied only to the largest events. | 
-| 3 | Defined | Health-check-driven origin failover is automatic. Origin shielding reduces backend load and cache warming is standard practice for scheduled live events. | 
-| 4 | Proactive | Multi-CDN routing shifts traffic away from degraded paths in real time. Cache warming strategies account for geographic audience distribution and predicted concurrency. | 
-| 5 | Optimized | Distribution reliability is measured from origin to player across all stages. The organization uses viewer-side telemetry to detect and remediate distribution issues before they affect experience at scale. | 
-
 ## Common issues to watch for
 <a name="smrel03-issues"></a>
 + Single origin without failover or health-check-based routing.

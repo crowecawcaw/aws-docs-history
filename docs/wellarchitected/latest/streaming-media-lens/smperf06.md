@@ -18,18 +18,6 @@ Live streaming latency affects viewer engagement, especially for interactive con
 + Ultra-low-latency delivery is reserved for interactive use cases where sub-second matters.
 + Graceful fallback to standard latency is available for unsupported clients or degraded networks.
 
-## Maturity levels
-<a name="smperf06-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Latency isn't measured or targeted. Default segment durations and player buffer settings are used without tuning. | 
-| 2 | Emerging | The team has reduced segment length in one layer but has not coordinated changes across encoder, CDN, and player. No fallback exists for unsupported clients. | 
-| 3 | Defined | Latency targets are set per use case, optimization spans all layers, and a fallback path exists for clients that can't support low-latency protocols. | 
-| 4 | Proactive | Glass-to-glass latency is measured across all stages, protocol selection matches the interactivity requirement, and ultra-low-latency is reserved for use cases that need it. | 
-| 5 | Optimized | Latency budgets are allocated per layer and tracked continuously. The system adapts segment size and buffer targets dynamically based on network conditions while maintaining graceful degradation. | 
-
 ## Common issues to watch for
 <a name="smperf06-issues"></a>
 + Reducing segment length without matching changes in other layers.

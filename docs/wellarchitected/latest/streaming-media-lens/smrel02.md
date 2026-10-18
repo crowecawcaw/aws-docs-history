@@ -17,18 +17,6 @@ Processing transforms ingested content into distribution formats. Failures in en
 + Quality is validated between processing stages.
 + Failed jobs are captured and retried or escalated rather than silently dropped.
 
-## Maturity levels
-<a name="smrel02-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | The organization runs a single encoding pipeline with no failover. Failed jobs are lost or require manual re-submission. | 
-| 2 | Emerging | A secondary pipeline exists for critical content but failover is manual. Dead letter queues capture some failures, though retry logic is inconsistent. | 
-| 3 | Defined | Dual-pipeline encoding is standard for live processing. Workflows are idempotent and failed jobs route to dead letter queues with automated retry. | 
-| 4 | Proactive | Quality validation gates exist between processing stages and automatically reject degraded output. Processing capacity scales ahead of predicted demand. | 
-| 5 | Optimized | Processing reliability metrics drive ongoing improvement. The organization uses failure pattern analysis to reduce recurring issues and optimizes pipeline allocation in real time. | 
-
 ## Common issues to watch for
 <a name="smrel02-issues"></a>
 + Single-pipeline encoding with no failover for live processing.

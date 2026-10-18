@@ -18,18 +18,6 @@ CDN configuration and cache strategy determine whether viewers are served from n
 + Origin shield collapses redundant requests from multiple edge locations.
 + Invalidation is targeted rather than full-distribution.
 
-## Maturity levels
-<a name="smperf03-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | A CDN is in place but cache-control headers are defaults. Cache hit ratio isn't measured. | 
-| 2 | Emerging | Bandwidth is tracked, but cache hit ratio isn't broken out per content type. Invalidation is full-distribution when issues arise. | 
-| 3 | Defined | Cache-control headers are tuned per content type (manifests compared to segments compared to VOD), cache hit ratio is monitored, and origin shield is configured. | 
-| 4 | Proactive | Cache hit ratio is tracked per content type with alerts on regression. Invalidation is path-targeted and automated for known failure scenarios. | 
-| 5 | Optimized | Cache strategy is continuously refined from real traffic patterns, origin load is minimal, and invalidation is surgical with no measurable viewer impact. | 
-
 ## Common issues to watch for
 <a name="smperf03-issues"></a>
 + Tracking bandwidth but not cache hit ratio.

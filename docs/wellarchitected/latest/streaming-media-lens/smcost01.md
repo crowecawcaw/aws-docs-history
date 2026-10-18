@@ -18,18 +18,6 @@ Storage and data transfer often represent the largest cost components. A strateg
 + Just-in-time packaging removes the need for pre-packaged format variants for content that doesn't justify them.
 + Lifecycle policies vary by content type rather than applying a single retention rule uniformly.
 
-## Maturity levels
-<a name="smcost01-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | All assets remain in a single storage class with no lifecycle policies. Edge caching is absent or unconfigured. | 
-| 2 | Emerging | Basic lifecycle rules exist but apply uniformly. A CDN is in place though cache-hit ratios are not monitored. | 
-| 3 | Defined | Lifecycle policies vary by content type and measured access frequency. Cache-hit ratios are tracked and tuned. | 
-| 4 | Proactive | Just-in-time packaging replaces pre-packaged variants for long-tail content. Storage tier transitions are automated based on access pattern analytics. | 
-| 5 | Optimized | Ongoing cost feedback loops adjust lifecycle rules, cache behavior, and packaging strategy automatically as access patterns shift. | 
-
 ## Common issues to watch for
 <a name="smcost01-issues"></a>
 + A single storage class for all assets regardless of access frequency.

@@ -17,18 +17,6 @@ Source quality and transport reliability constrain what the entire downstream pi
 + Contribution uses reliable UDP-based transport protocols with redundant paths.
 + Transport metrics (round-trip time, packet loss, jitter) are monitored in real time with auto-failover.
 
-## Maturity levels
-<a name="smperf02-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Sources are accepted as-is from providers with no quality requirements or transport monitoring. | 
-| 2 | Emerging | Basic bit rate monitoring exists, but transport metrics like loss and jitter are not tracked. Contribution uses RTMP without redundancy. | 
-| 3 | Defined | Quality requirements are specified for source providers, reliable UDP-based protocols are in use, and redundant paths exist for critical feeds. | 
-| 4 | Proactive | Transport metrics (RTT, loss, and jitter) are monitored in real time with automated failover between redundant paths. | 
-| 5 | Optimized | Source quality is continuously validated against SLAs, bonded contribution adapts dynamically, and failover is exercised regularly with no viewer impact. | 
-
 ## Common issues to watch for
 <a name="smperf02-issues"></a>
 + Accepting whatever a provider delivers without specifying quality requirements.

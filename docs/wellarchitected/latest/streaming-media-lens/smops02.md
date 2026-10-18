@@ -20,18 +20,6 @@ Streaming workflows are distributed systems spanning ingest, processing, origin,
 + Logs from all components are aggregated and correlated for cross-workflow troubleshooting.
 + Application code is instrumented with contextual telemetry for rapid diagnosis.
 
-## Maturity levels
-<a name="smops02-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Basic infrastructure metrics exist but coverage is inconsistent. No defined SLOs or alerting thresholds. | 
-| 2 | Emerging | KPIs are defined for some layers. Logs exist per component but are not correlated across the pipeline. | 
-| 3 | Defined | SLOs are established for each layer with alerts tied to thresholds. Logs are aggregated and searchable across components. | 
-| 4 | Proactive | Client-side telemetry is integrated with server-side metrics for full-path visibility. Anomaly detection surfaces issues before viewers report them. | 
-| 5 | Optimized | Observability is built into every component from design. Instrumentation is continuously tuned based on incident patterns and evolving architecture. | 
-
 ## Common issues to watch for
 <a name="smops02-issues"></a>
 + Metrics defined but not tied to alerting thresholds or SLOs.

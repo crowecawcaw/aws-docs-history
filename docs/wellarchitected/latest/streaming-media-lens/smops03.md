@@ -20,18 +20,6 @@ Large-scale events involve sudden spikes in viewership that stress every compone
 + Incident response procedures and war room operations are established before the event begins.
 + Specialized support is engaged for business-critical events.
 
-## Maturity levels
-<a name="smops03-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Events are handled reactively. No capacity planning or load testing occurs beforehand. | 
-| 2 | Emerging | Basic capacity estimates exist for major events, but load testing isn't performed and war room procedures are improvised. | 
-| 3 | Defined | Capacity planning uses historical data and peak projections. Load tests run before major events and war room roles are pre-assigned. | 
-| 4 | Proactive | All events above a defined threshold trigger a standard readiness process including load tests, pre-scaled infrastructure, and rehearsed incident response. | 
-| 5 | Optimized | Event preparation is continuously improved through post-event analysis. Automated scaling validates capacity assumptions and specialized support is engaged based on risk tiers. | 
-
 ## Common issues to watch for
 <a name="smops03-issues"></a>
 + Capacity planned for the average case rather than the peak, with no headroom for spikes.

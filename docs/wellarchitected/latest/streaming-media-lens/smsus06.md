@@ -17,18 +17,6 @@ Every transfer carries energy and often triggers duplicate processing downstream
 + Intermediate file movement between stages is minimized.
 + Hot metadata is served from memory rather than queried on every request.
 
-## Maturity levels
-<a name="smsus06-maturity"></a>
-
-
-| Level | Name | What it looks like | 
-| --- | --- | --- | 
-| 1 | Initial | Content served directly from origin on every request. Processing spread across regions without considering transfer cost. No cache hit ratio tracking. | 
-| 2 | Emerging | CDN in place but cache hit ratio isn't monitored or tuned. Processing stays within a region for some workflows. | 
-| 3 | Defined | Cache behaviors tuned per content type. Origin shield collapses repeated requests. Processing pipelines colocate within a single Region where resilience allows. | 
-| 4 | Proactive | Cache hit ratio, cross-region transfer, and origin egress tracked and reviewed regularly. Incremental updates replace full-asset re-fetches where applicable. | 
-| 5 | Optimized | Data movement metrics are reviewed alongside carbon data. Caching and processing colocation decisions adapt as the architecture evolves. | 
-
 ## Common issues to watch for
 <a name="smsus06-issues"></a>
 + Serving directly from origin on every request instead of caching at the edge.
