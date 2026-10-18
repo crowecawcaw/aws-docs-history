@@ -72,7 +72,7 @@ You can't use your own key with SSE when you enable WAL with Amazon EMR. For mor
 The following mechanisms work together to encrypt local disks when you enable local disk encryption using an Amazon EMR security configuration.
 
 ### Open-source HDFS encryption
-<a name="w2aac32c19c13c11c23b5"></a>
+<a name="w2aac34c19c13c11c23b5"></a>
 
 HDFS exchanges data between cluster instances during distributed processing. It also reads from and writes data to instance store volumes and the EBS volumes attached to instances. The following open-source Hadoop encryption options are activated when you enable local disk encryption:
 + [Secure Hadoop RPC](https://hadoop.apache.org/docs/r2.7.2/hadoop-project-dist/hadoop-common/SecureMode.html#Data_Encryption_on_RPC) is set to `Privacy`, which uses Simple Authentication Security Layer (SASL). 
@@ -82,12 +82,12 @@ HDFS exchanges data between cluster instances during distributed processing. It 
 You can activate additional Apache Hadoop encryption by enabling in-transit encryption. For more information, see [Encryption in transit](#emr-encryption-intransit). These encryption settings do not activate HDFS transparent encryption, which you can configure manually. For more information, see [Transparent encryption in HDFS on Amazon EMR](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-encryption-tdehdfs.html) in the *Amazon EMR Release Guide*.
 
 ### Instance store encryption
-<a name="w2aac32c19c13c11c23b7"></a>
+<a name="w2aac34c19c13c11c23b7"></a>
 
 For EC2 instance types that use NVMe-based SSDs as the instance store volume, NVMe encryption is used regardless of Amazon EMR encryption settings. For more information, see [NVMe SSD volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes) in the *Amazon EC2 User Guide*. For other instance store volumes, Amazon EMR uses LUKS to encrypt the instance store volume when local disk encryption is enabled regardless of whether EBS volumes are encrypted using EBS encryption or LUKS.
 
 ### EBS volume encryption
-<a name="w2aac32c19c13c11c23b9"></a>
+<a name="w2aac34c19c13c11c23b9"></a>
 
 If you create a cluster in a Region where Amazon EC2 encryption of EBS volumes is enabled by default for your account, EBS volumes are encrypted even if local disk encryption is not enabled. For more information, see [Encryption by default](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default) in the *Amazon EC2 User Guide*. With local disk encryption enabled in a security configuration, the Amazon EMR settings take precedence over the Amazon EC2 encryption-by-default settings for cluster EC2 instances.
 

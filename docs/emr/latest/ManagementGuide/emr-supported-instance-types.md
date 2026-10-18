@@ -166,6 +166,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** m8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -182,6 +190,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -325,6 +343,24 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** f2.6xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -364,6 +400,12 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** g6e.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
+  - **Instance type:** g7.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
   - **Instance type:** gr6.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** gr6.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** p2.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.10.0, emr-6.0.0, emr-7.0.0
@@ -514,6 +556,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7iz.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7iz.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7iz.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** r8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -530,6 +580,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -784,6 +844,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.6.0, emr-5.0.1, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.6.0, emr-5.0.1, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.6.0, emr-5.0.1, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** m8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -800,6 +868,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -943,6 +1021,24 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g3.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.18.0, emr-6.0.0, emr-7.0.0
@@ -979,6 +1075,12 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** g6e.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
+  - **Instance type:** g7.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
   - **Instance type:** gr6.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** gr6.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** p2.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.10.0, emr-6.0.0, emr-7.0.0
@@ -1129,6 +1231,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7iz.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.1, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7iz.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.1, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7iz.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.1, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** r8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -1145,6 +1255,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -1467,6 +1587,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g3.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.18.0, emr-6.0.0, emr-7.0.0
@@ -1573,6 +1701,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x2idn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x2idn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x2idn.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
@@ -1753,6 +1891,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** m8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -1769,6 +1915,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -1912,6 +2068,24 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** f2.6xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -1951,6 +2125,12 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** g6e.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
+  - **Instance type:** g7.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
   - **Instance type:** gr6.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** gr6.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** p2.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.10.0, emr-6.0.0, emr-7.0.0
@@ -2101,6 +2281,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7iz.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7iz.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7iz.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** r8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -2117,6 +2305,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -3772,6 +3970,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
   - **Instance type:** c7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
   - **Instance type:** c7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g6.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
@@ -3828,6 +4034,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x2idn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
   - **Instance type:** x2idn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
   - **Instance type:** x2idn.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.0.0
@@ -3978,6 +4194,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -4772,6 +4998,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -5000,6 +5236,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -5179,6 +5425,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -5291,6 +5547,24 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** c7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** c7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g3.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.18.0, emr-6.0.0, emr-7.0.0
@@ -5432,6 +5706,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -5638,6 +5922,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -5758,6 +6052,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** f2.6xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -5931,6 +6233,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** r8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -6143,6 +6455,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.2.0, emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** m8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -6159,6 +6479,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -6497,6 +6827,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -6678,6 +7018,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.8.2, emr-5.0.2, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.8.2, emr-5.0.2, emr-6.0.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-4.8.2, emr-5.0.2, emr-6.0.0, emr-7.0.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.13.0, emr-6.0.0, emr-7.0.0
@@ -6903,6 +7253,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.2, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.2, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.2, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -7826,6 +8186,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g3.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.18.0, emr-6.0.0, emr-7.0.0
@@ -8027,6 +8395,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -9217,6 +9595,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.3, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.3, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.3, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x2idn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
@@ -9601,6 +9989,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.0, emr-6.7.0, emr-7.0.0
   - **Instance type:** m7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.0, emr-6.7.0, emr-7.0.0
   - **Instance type:** m7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.0, emr-6.7.0, emr-7.0.0
+  - **Instance type:** m8a.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8a.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** m8g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** m8g.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -9617,6 +10013,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** m8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** m8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** m8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** m8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Compute Optimized****
   - **Instance type:** c5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.0, emr-6.7.0, emr-7.0.0
@@ -9704,6 +10110,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** c8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** c8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g6.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
@@ -9722,6 +10138,12 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** g6e.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
   - **Instance type:** g6e.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.5.0
+  - **Instance type:** g7.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
+  - **Instance type:** g7.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.12.0
   - **Instance type:** gr6.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
   - **Instance type:** gr6.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-7.2.0
 
@@ -9805,6 +10227,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r8gd.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
   - **Instance type:** r8gd.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.1.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x2idn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x2idn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x2idn.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
@@ -10117,6 +10549,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.5.3, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.5.3, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.5.3, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x2idn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
@@ -10370,6 +10812,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c8g.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c8g.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c8g.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g4dn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.30.0, emr-6.0.0, emr-7.0.0
@@ -10998,6 +11448,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c6in.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c6in.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
   - **Instance type:** c6in.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Accelerated Computing****
   - **Instance type:** g5.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
@@ -11407,6 +11865,16 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** r7i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
   - **Instance type:** r7i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.0.0, emr-6.0.0, emr-7.0.0
+  - **Instance type:** r8i.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** r8i.96xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
   - **Instance type:** x1.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1.32xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.9.0, emr-7.0.0
   - **Instance type:** x1e.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.1, emr-6.10.0, emr-7.0.0
@@ -11564,6 +12032,14 @@ The following tables list the Amazon EC2 instance types that Amazon EMR supports
   - **Instance type:** c7i-flex.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.1.0
   - **Instance type:** c7i-flex.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.1.0
   - **Instance type:** c7i-flex.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.1.0
+  - **Instance type:** c8gn.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.2xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.4xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.8xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.12xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.16xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.24xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
+  - **Instance type:** c8gn.48xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.15.0, emr-7.9.0
 
 - ****Memory Optimized****
   - **Instance type:** r6g.xlarge / **Minimum supported Amazon EMR version (5.x, 6.x, 7.x):** emr-5.36.2, emr-6.11.1, emr-7.1.0

@@ -15,10 +15,10 @@ Sometimes, clusters fail or are slow to process data. The following sections lis
 + [Streaming Amazon EMR cluster errors](emr-troubleshoot-error-streaming.md)
 + [Amazon EMR: Custom JAR cluster errors](emr-troubleshoot-error-custom-jar.md)
 + [Amazon EMR AWS GovCloud (US-West) errors](emr-troubleshoot-error-govcloud.md)
-+ [Find a missing cluster](#w2aac38c21c47)
++ [Find a missing cluster](#w2aac40c21c47)
 
 ## Find a missing cluster
-<a name="w2aac38c21c47"></a>
+<a name="w2aac40c21c47"></a>
 
 If your cluster is missing from the console list or `ListClusters` API, check the following:
 + Confirm that the cluster age from time of completion is less than two months. Amazon EMR preserves metadata information for completed clusters for two months at no charge. You can't delete completed clusters from the console — instead, Amazon EMR purges completed clusters automatically after two months.

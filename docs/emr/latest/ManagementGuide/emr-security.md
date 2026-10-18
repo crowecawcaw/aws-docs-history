@@ -10,7 +10,7 @@ Security and compliance is a responsibility you share with AWS. This shared resp
 This documentation helps you understand how to apply the shared responsibility model when using Amazon EMR. The topics in this chapter show you how to configure Amazon EMR and use other AWS services to meet your security and compliance objectives.
 
 ## Network and infrastructure security
-<a name="w2aac32b9"></a>
+<a name="w2aac34b9"></a>
 
 As a managed service, Amazon EMR is protected by the AWS global network security procedures that are described in the [Amazon Web Services: Overview of security processes](https://d0.awsstatic.com/whitepapers/Security/AWS_Security_Whitepaper.pdf) whitepaper. AWS network and infrastructure protection services give you fine-grained protections at both the host and network-level boundaries. Amazon EMR supports AWS services and application features that address your network protection and compliance requirements.
 + **Amazon EC2 security groups** act as a virtual firewall for Amazon EMR cluster instances, limiting inbound and outbound network traffic. For more information, see [ Control network traffic with security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-groups.html).
@@ -18,7 +18,7 @@ As a managed service, Amazon EMR is protected by the AWS global network security
 + **Secure Shell (SSH)** helps provide a secure way for users to connect to the command line on cluster instances. You can also use SSH to view web interfaces that applications host on the master node of a cluster. For more information, see [ Use an EC2 key pair for SSH credentials](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-ssh.html) and [ Connect to a cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node.html).
 
 ## Updates to the default Amazon Linux AMI for Amazon EMR
-<a name="w2aac32c11"></a>
+<a name="w2aac34c11"></a>
 
 **Important**  
 EMR clusters that run Amazon Linux or Amazon Linux 2 Amazon Machine Images (AMIs) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot. This is the same behavior as other Amazon EC2 instances that run the default Amazon Linux AMI. If new Amazon Linux software updates that require a reboot (such as kernel, NVIDIA, and CUDA updates) become available after an Amazon EMR release becomes available, EMR cluster instances that run the default AMI do not automatically download and install those updates. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html).
@@ -26,7 +26,7 @@ EMR clusters that run Amazon Linux or Amazon Linux 2 Amazon Machine Images (AMIs
 Depending on the security posture of your application and the length of time that a cluster runs, you may choose to periodically reboot your cluster to apply security updates, or create a bootstrap action to customize package installation and updates. You may also choose to test and then install select security updates on running cluster instances. For more information, see [Using the default Amazon Linux AMI for Amazon EMR](emr-default-ami.md). Note that your networking configuration must allow for HTTP and HTTPS egress to Linux repositories in Amazon S3, otherwise security updates will not succeed.
 
 ## AWS Identity and Access Management with Amazon EMR
-<a name="w2aac32c13"></a>
+<a name="w2aac34c13"></a>
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access to AWS resources. IAM administrators control who can be *authenticated* (signed in) and *authorized* (have permissions) to use Amazon EMR resources. IAM identities include users, groups, and roles. An IAM role is similar to an IAM user, but is not associated with a specific person, and is intended to be assumable by any user who needs permissions. For more information, see [AWS Identity and Access Management for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html). Amazon EMR uses multiple IAM roles to help you implement access controls for Amazon EMR clusters. IAM is an AWS service that you can use with no additional charge.
 + **IAM role for Amazon EMR (EMR role)** – controls how Amazon EMR service is able to access other AWS services on your behalf, such as provisioning Amazon EC2 instances when the Amazon EMR cluster launches. For more information, see [Configure IAM service roles for Amazon EMR permissions to AWS services and resources](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles.html).
@@ -41,7 +41,7 @@ Workforce identities refer to users who build or operate workloads in AWS. Amazo
   **Kerberos** is a network authentication protocol designed to provide strong authentication for client/server applications by using secret-key cryptography. When you use Kerberos, Amazon EMR configures Kerberos for the applications, components, and subsystems that it installs on the cluster so that they are authenticated with each other. To access a cluster with Kerberos configured, a kerberos principal must be present in the Kerberos Domain Controller (KDC). For more information, see [enabling support for Kerberos with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html).
 
 ### Single-tenant and multi-tenant clusters
-<a name="w2aac32c13c11"></a>
+<a name="w2aac34c13c11"></a>
 
 A cluster is by default configured for a single tenancy with the EC2 Instance profile as the IAM identity. In a single-tenant cluster, every job has full and complete access to the cluster and access to all AWS services and resources is done on the basis of the EC2 instance profile. In a multi-tenant cluster, tenants are isolated from each other and the tenants don't have full and complete access to the clusters and EC2 Instances of the cluster. The identity on multi-tenant clusters is either the runtime roles or the workforce identifies. In a multi-tenant cluster, you can also enable support for fine-grained access control (FGAC) via AWS Lake Formation or Apache Ranger. A cluster that has runtime roles or FGAC enabled, access to the EC2 Instance profile is also disable via iptables.
 
@@ -49,12 +49,12 @@ A cluster is by default configured for a single tenancy with the EC2 Instance pr
 Any users who have access to a single-tenant cluster can install any software on the Linux operating system (OS), change or remove software components installed by Amazon EMR and impact the EC2 Instances that are part of the cluster. If you want to ensure that users can't install or change configurations of an Amazon EMR cluster, we recommend that you enable multi-tenancy for the cluster. You can enable multi-tenancy on a cluster by enabling support for runtime role, AWS IAM identity center, Kerberos, or LDAP.
 
 ## Data protection
-<a name="w2aac32c15"></a>
+<a name="w2aac34c15"></a>
 
 With AWS, you control your data by using AWS services and tools to determine how the data is secured and who has access to it. Services such as AWS Identity and Access Management (IAM) let you securely manage access to AWS services and resources. AWS CloudTrail enables detection and auditing. Amazon EMR makes it easy for you to encrypt data at rest in Amazon S3 by using keys either managed by AWS or fully managed by you. Amazon EMR also support enabling encryption for data in transit. For more information, see [encrypt data at rest and in transit](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption.html).
 
 ### Data Access Control
-<a name="w2aac32c15b5"></a>
+<a name="w2aac34c15b5"></a>
 
 With data access control, you can control what data an IAM identity or a workforce identity can access. Amazon EMR supports the following access controls:
 + **IAM identity-based policies** – manage permissions for IAM roles that you use with Amazon EMR. IAM policies can be combined with tagging to control access on a cluster-by-cluster basis. For more information, see [AWS Identity and Access Management for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-access-iam.html).

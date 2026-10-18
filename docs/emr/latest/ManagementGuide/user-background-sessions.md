@@ -9,7 +9,7 @@ User background sessions enable long-running analytics and machine learning work
 User background session settings only affect Spark workloads launched through SageMaker Unified Studio. Changes to this setting apply to new Livy sessions—existing active sessions remain unaffected.
 
 ## Configure user background sessions
-<a name="w2aac32c29c15b7"></a>
+<a name="w2aac34c29c15b7"></a>
 
 User background sessions must be enabled at two levels for proper functionality:
 
@@ -18,7 +18,7 @@ User background sessions must be enabled at two levels for proper functionality:
 1. **EMR cluster level** (configured by EMR cluster administrators)
 
 ### Enable user background sessions for Amazon EMR
-<a name="w2aac32c29c15b7b7"></a>
+<a name="w2aac34c29c15b7b7"></a>
 
 To enable user background sessions for you must set the `userBackgroundSessionsEnabled` parameter to `true` in the `identityCenterConfiguration` when creating EMR security configuration.
 
