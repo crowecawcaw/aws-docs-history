@@ -460,10 +460,17 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sagemaker:CreateReservedCapacity](#list_sagemaker-action-CreateReservedCapacity)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
   - **IAM action:**  [sagemaker:CreateTrainingPlan](#list_sagemaker-action-CreateTrainingPlan)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
+- **   CreateTrainingSession  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [sagemaker:CreateTrainingSession](#list_sagemaker-action-CreateTrainingSession)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com, training-session.sagemaker.amazonaws.com / **Access level:** Write
+
 - **   CreateTransformJob  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:AddTags](#list_sagemaker-action-AddTags)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
   - **IAM action:**  [sagemaker:CreateTransformJob](#list_sagemaker-action-CreateTransformJob)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** sagemaker.amazonaws.com / **Access level:** Write
 
 - **   CreateTrial  **
   - **SDK client:** sagemaker
@@ -865,6 +872,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DeleteTrainingJob  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DeleteTrainingJob](#list_sagemaker-action-DeleteTrainingJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteTrainingSession  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DeleteTrainingSession](#list_sagemaker-action-DeleteTrainingSession) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -1362,6 +1376,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   DescribeTrainingPlanExtensionHistory  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:DescribeTrainingPlanExtensionHistory](#list_sagemaker-action-DescribeTrainingPlanExtensionHistory) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   DescribeTrainingSession  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:DescribeTrainingSession](#list_sagemaker-action-DescribeTrainingSession) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -2030,6 +2051,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListTrainingSessions  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:ListTrainingSessions](#list_sagemaker-action-ListTrainingSessions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListTransformJobs  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:ListTransformJobs](#list_sagemaker-action-ListTransformJobs) 
@@ -2290,6 +2318,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   StopTrainingJob  **
   - **SDK client:** sagemaker
   - **IAM action:**  [sagemaker:StopTrainingJob](#list_sagemaker-action-StopTrainingJob) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   StopTrainingSession  **
+  - **SDK client:** sagemaker
+  - **IAM action:**  [sagemaker:StopTrainingSession](#list_sagemaker-action-StopTrainingSession) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -2722,12 +2757,50 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **IAM action:**  [sagemaker:CallWithBearerToken](#list_sagemaker-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
   - **IAM action:**  [sagemaker:UpdateReward](#list_sagemaker-action-UpdateReward)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
 
+- **   ExecuteSamplingOperation  **
+  - **SDK client:** sagemakertrainingsessionruntime
+  - **IAM action:**  [sagemaker:ExecuteSamplingOperation](#list_sagemaker-action-ExecuteSamplingOperation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   ExecuteTrainingOperation  **
+  - **SDK client:** sagemakertrainingsessionruntime
+  - **IAM action:**  [sagemaker:ExecuteTrainingOperation](#list_sagemaker-action-ExecuteTrainingOperation) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetSamplingOperationResult  **
+  - **SDK client:** sagemakertrainingsessionruntime
+  - **IAM action:**  [sagemaker:GetSamplingOperationResult](#list_sagemaker-action-GetSamplingOperationResult) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetTrainingOperationResult  **
+  - **SDK client:** sagemakertrainingsessionruntime
+  - **IAM action:**  [sagemaker:GetTrainingOperationResult](#list_sagemaker-action-GetTrainingOperationResult) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   SampleTrainingSession  **
+  - **SDK client:** sagemakertrainingsessionruntime
+  - **IAM action:**  [sagemaker:CallWithBearerToken](#list_sagemaker-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [sagemaker:SampleTrainingSession](#list_sagemaker-action-SampleTrainingSession)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
+- **   SampleTrainingSessionWithResponseStream  **
+  - **SDK client:** sagemakertrainingsessionruntime
+  - **IAM action:**  [sagemaker:CallWithBearerToken](#list_sagemaker-action-CallWithBearerToken)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [sagemaker:SampleTrainingSessionWithResponseStream](#list_sagemaker-action-SampleTrainingSessionWithResponseStream)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+
 
 
 ## Actions defined by Amazon SageMaker
 <a name="list_sagemaker-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 
@@ -3301,6 +3374,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
+- **   [CreateTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingSession.html)  **
+  - **Description:** Grants permission to create a SageMaker training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:RequestTag/${TagKey}](#list_sagemaker-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_sagemaker-aws_TagKeys)<br />[sagemaker:OutputKmsKeyArn](#list_sagemaker-sagemaker_OutputKmsKeyArn)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)<br />[sagemaker:VpcSecurityGroupIds](#list_sagemaker-sagemaker_VpcSecurityGroupIds)<br />[sagemaker:VpcSubnets](#list_sagemaker-sagemaker_VpcSubnets)
+  - **Access level:** Write
+
 - **   [CreateTransformJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTransformJob.html)  **
   - **Description:** Grants permission to start a transform job. After the results are obtained, Amazon SageMaker saves them to an Amazon S3 location that you specify
   - **Resource types (\*required):** [transform-job\*](#list_sagemaker-resource-transform-job)
@@ -3757,6 +3836,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [DeleteTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTrainingJob.html)  **
   - **Description:** Grants permission to delete a training job
   - **Resource types (\*required):** [training-job\*](#list_sagemaker-resource-training-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [DeleteTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteTrainingSession.html)  **
+  - **Description:** Grants permission to delete a SageMaker training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -4228,6 +4313,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [DescribeTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTrainingSession.html)  **
+  - **Description:** Grants permission to return information about a SageMaker training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [DescribeTransformJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeTransformJob.html)  **
   - **Description:** Grants permission to return information about a transform job
   - **Resource types (\*required):** [transform-job\*](#list_sagemaker-resource-transform-job)
@@ -4289,6 +4380,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Write
 
+- **   [ExecuteSamplingOperation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExecuteSamplingOperation.html)  **
+  - **Description:** Grants permission to execute a sampling operation against a training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [ExecuteTrainingOperation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExecuteTrainingOperation.html)  **
+  - **Description:** Grants permission to execute a training operation against a training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
 - **   [ExtendTrainingPlan](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ExtendTrainingPlan.html)  **
   - **Description:** Grants permission to extend an existing training plan by purchasing an extension offering
   - **Resource types (\*required):** 
@@ -4337,6 +4440,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** Read
 
+- **   [GetSamplingOperationResult](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetSamplingOperationResult.html)  **
+  - **Description:** Grants permission to get the result of a sampling operation for a training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetScalingConfigurationRecommendation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetScalingConfigurationRecommendation.html)  **
   - **Description:** Grants permission to get a scaling policy configuration recommendation
   - **Resource types (\*required):** [inference-recommendations-job\*](#list_sagemaker-resource-inference-recommendations-job)
@@ -4347,6 +4456,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to get search suggestions when provided with a keyword
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [GetTrainingOperationResult](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_GetTrainingOperationResult.html)  **
+  - **Description:** Grants permission to get the result of a training operation for a training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [ImportHubContent](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ImportHubContent.html)  **
@@ -4944,6 +5059,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
+- **   [ListTrainingSessions](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrainingSessions.html)  **
+  - **Description:** Grants permission to list SageMaker training sessions
+  - **Resource types (\*required):** 
+  - **Condition keys:**  
+  - **Access level:** List
+
 - **   [ListTransformJobs](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTransformJobs.html)  **
   - **Description:** Grants permission to list transform jobs
   - **Resource types (\*required):** 
@@ -5031,6 +5152,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [Sample](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Sample.html)  **
   - **Description:** Grants permission to invoke a sample request against a job
   - **Resource types (\*required):** [job\*](#list_sagemaker-resource-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SampleTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SampleTrainingSession.html)  **
+  - **Description:** Grants permission to invoke a synchronous sample request against a training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [SampleTrainingSessionWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_SampleTrainingSessionWithResponseStream.html)  **
+  - **Description:** Grants permission to invoke a streaming sample request against a training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -5235,6 +5368,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
 - **   [StopTrainingJob](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopTrainingJob.html)  **
   - **Description:** Grants permission to stop a training job. To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal, which delays job termination for 120 seconds
   - **Resource types (\*required):** [training-job\*](#list_sagemaker-resource-training-job)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
+  - **Access level:** Write
+
+- **   [StopTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopTrainingSession.html)  **
+  - **Description:** Grants permission to stop a SageMaker training session
+  - **Resource types (\*required):** [training-session\*](#list_sagemaker-resource-training-session)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_)
   - **Access level:** Write
 
@@ -5707,6 +5846,7 @@ The following resource types are defined by this service and can be used in the 
 |  [studio-lifecycle-config](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-lcc.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:studio-lifecycle-config/${StudioLifecycleConfigName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [training-job](https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works-training.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:training-job/${TrainingJobName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [training-plan](https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:training-plan/${TrainingPlanName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
+|  [training-session](https://docs.aws.amazon.com/sagemaker/latest/dg/API_TrainingSession.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:training-session/${SessionName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [transform-job](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TransformJob.html.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:transform-job/${TransformJobName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [user-profile](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-entity-status.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:user-profile/${DomainId}/${UserProfileName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 
 |  [workforce](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html)  | arn:${Partition}:sagemaker:${Region}:${Account}:workforce/${WorkforceName} | [aws:ResourceTag/${TagKey}](#list_sagemaker-aws_ResourceTag___TagKey_)<br />[sagemaker:ResourceTag/${TagKey}](#list_sagemaker-sagemaker_ResourceTag___TagKey_) | 

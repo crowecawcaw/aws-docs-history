@@ -940,7 +940,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 ## Actions defined by AWS Partner Central
 <a name="list_partner-central-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 
@@ -1235,6 +1235,18 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_partner-central-aws_ResourceTag___TagKey_)<br />[partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Read
 
+- **   [GetPartnerCentralContentDocument](API_content_GetPartnerCentralContentDocument.html)  **
+  - **Description:** Grants permission to retrieve a content document in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
+- **   [GetPartnerCentralContentMetadata](API_content_GetPartnerCentralContentMetadata.html)  **
+  - **Description:** Grants permission to retrieve content metadata in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** Read
+
 - **   [GetPartnerDashboard](${UserGuideDocPage}controlling-access-in-aws-partner-central.html)  **
   - **Description:** Grants permission to retrieve partner dashboard information in AWS Partner Central
   - **Resource types (\*required):** [Dashboard\*](#list_partner-central-resource-Dashboard)
@@ -1421,6 +1433,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** List
 
+- **   [ListPartnerCentralContent](API_content_ListPartnerCentralContent.html)  **
+  - **Description:** Grants permission to list content in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
+
 - **   [ListPartners](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_ListPartners.html)  **
   - **Description:** Grants permission to list partners in AWS Partner Central
   - **Resource types (\*required):** 
@@ -1522,6 +1540,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Resource types (\*required):** [engagement-invitation\*](#list_partner-central-resource-engagement-invitation)
   - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
   - **Access level:** Write
+
+- **   [SearchPartnerCentralContent](API_content_SearchPartnerCentralContent.html)  **
+  - **Description:** Grants permission to search content in AWS Partner Central
+  - **Resource types (\*required):** 
+  - **Condition keys:** [partnercentral:Catalog](#list_partner-central-partnercentral_Catalog)
+  - **Access level:** List
 
 - **   [SendEmailVerificationCode](https://docs.aws.amazon.com/partner-central/latest/APIReference/API_account_SendEmailVerificationCode.html)  **
   - **Description:** Grants permission to send email verification codes in AWS Partner Central

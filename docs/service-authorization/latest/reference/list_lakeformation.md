@@ -25,6 +25,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 
 
+- **   AttachRLSPolicy  **
+  - **IAM action:**  [lakeformation:AttachRLSPolicy](#list_lakeformation-action-AttachRLSPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
+
 - **   BatchGrantPermissions  **
   - **IAM action:**  [lakeformation:BatchGrantPermissions](#list_lakeformation-action-BatchGrantPermissions) 
   - **Condition key:** 
@@ -61,6 +67,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateRLSPolicy  **
+  - **IAM action:**  [lakeformation:CreateRLSPolicy](#list_lakeformation-action-CreateRLSPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DeleteDataCellsFilter  **
   - **IAM action:**  [lakeformation:DeleteDataCellsFilter](#list_lakeformation-action-DeleteDataCellsFilter) 
   - **Condition key:** 
@@ -85,11 +97,23 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   DeleteRLSPolicy  **
+  - **IAM action:**  [lakeformation:DeleteRLSPolicy](#list_lakeformation-action-DeleteRLSPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   DescribeLakeFormationIdentityCenterConfiguration  **
   - **IAM action:**  [lakeformation:DescribeLakeFormationIdentityCenterConfiguration](#list_lakeformation-action-DescribeLakeFormationIdentityCenterConfiguration) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
+
+- **   DetachRLSPolicy  **
+  - **IAM action:**  [lakeformation:DetachRLSPolicy](#list_lakeformation-action-DetachRLSPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Permissions management, Write
 
 - **   GetDataCellsFilter  **
   - **IAM action:**  [lakeformation:GetDataCellsFilter](#list_lakeformation-action-GetDataCellsFilter) 
@@ -129,6 +153,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   GetQueryStatistics  **
   - **IAM action:**  [lakeformation:GetQueryStatistics](#list_lakeformation-action-GetQueryStatistics) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetRLSPolicy  **
+  - **IAM action:**  [lakeformation:GetRLSPolicy](#list_lakeformation-action-GetRLSPolicy) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -175,6 +205,18 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListRLSPolicies  **
+  - **IAM action:**  [lakeformation:ListRLSPolicies](#list_lakeformation-action-ListRLSPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListRLSPolicyAttachments  **
+  - **IAM action:**  [lakeformation:ListRLSPolicyAttachments](#list_lakeformation-action-ListRLSPolicyAttachments) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   PutDataLakeSettings  **
   - **IAM action:**  [lakeformation:PutDataLakeSettings](#list_lakeformation-action-PutDataLakeSettings) 
   - **Condition key:** 
@@ -205,18 +247,25 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   UpdateRLSPolicy  **
+  - **IAM action:**  [lakeformation:UpdateRLSPolicy](#list_lakeformation-action-UpdateRLSPolicy) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 
 
 ## Actions defined by AWS Lake Formation
 <a name="list_lakeformation-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 
 | Actions | Description | Resource types (\*required) | Condition keys | Access level | 
 | --- | --- | --- | --- | --- | 
 |   [AddLFTagsToResource](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_AddLFTagsToResource.html)  | Grants permission to attach Lake Formation tags to catalog resources |  |   | Tagging, Write | 
+|   [AttachRLSPolicy](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_AttachRLSPolicy.html)  | Grants permission to attach a Lake Formation row-level security policy to a resource for one or more principals |  |   | Permissions management, Write | 
 |   [BatchGrantPermissions](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_BatchGrantPermissions.html)  | Grants permission to data lake permissions to one or more principals in a batch |  |   | Permissions management, Write | 
 |   [BatchRevokePermissions](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_BatchRevokePermissions.html)  | Grants permission to revoke data lake permissions from one or more principals in a batch |  |   | Permissions management, Write | 
 |   [CancelTransaction](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_CancelTransaction.html)  | Grants permission to cancel the given transaction |  |   | Write | 
@@ -226,16 +275,19 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [CreateLFTagExpression](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_CreateLFTagExpression.html)  | Grants permission to create a Lake Formation tag expression |  |   | Write | 
 |   [CreateLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_CreateLakeFormationIdentityCenterConfiguration.html)  | Grants permission to create an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources |  |   | Write | 
 |   [CreateLakeFormationOptIn](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_CreateLakeFormationOptIn.html)  | Grants permission to enforce Lake Formation permissions for the given databases, tables, and principals |  |   | Write | 
+|   [CreateRLSPolicy](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_CreateRLSPolicy.html)  | Grants permission to create a Lake Formation row-level security policy |  |   | Write | 
 |   [DeleteDataCellsFilter](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteDataCellsFilter.html)  | Grants permission to delete a Lake Formation data cell filter |  |   | Write | 
 |   [DeleteLFTag](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteLFTag.html)  | Grants permission to delete a Lake Formation tag |  |   | Write | 
 |   [DeleteLFTagExpression](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteLFTagExpression.html)  | Grants permission to delete a Lake Formation expression |  |   | Write | 
 |   [DeleteLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteLakeFormationIdentityCenterConfiguration.html)  | Grants permission to delete an IAM Identity Center connection with Lake Formation |  |   | Write | 
 |   [DeleteLakeFormationOptIn](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteLakeFormationOptIn.html)  | Grants permission to remove the Lake Formation permissions enforcement of the given databases, tables, and principals |  |   | Write | 
 |   [DeleteObjectsOnCancel](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteObjectsOnCancel.html)  | Grants permission to delete the specified objects if the transaction is canceled |  |   | Write | 
+|   [DeleteRLSPolicy](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeleteRLSPolicy.html)  | Grants permission to delete a Lake Formation row-level security policy |  |   | Write | 
 |   [DeregisterResource](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DeregisterResource.html)  | Grants permission to deregister a registered location |  |   | Write | 
 |   [DescribeLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DescribeLakeFormationIdentityCenterConfiguration.html)  | Grants permission to describe the IAM Identity Center connection with Lake Formation |  |   | Read | 
 |   [DescribeResource](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DescribeResource.html)  | Grants permission to describe a registered location |  |   | Read | 
 |   [DescribeTransaction](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DescribeTransaction.html)  | Grants permission to get status of the given transaction |  |   | Read | 
+|   [DetachRLSPolicy](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_DetachRLSPolicy.html)  | Grants permission to detach a Lake Formation row-level security policy from a resource for one or more principals |  |   | Permissions management, Write | 
 |   [ExtendTransaction](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ExtendTransaction.html)  | Grants permission to extend the timeout of the given transaction |  |   | Write | 
 |   [GetDataAccess](https://docs.aws.amazon.com/lake-formation/latest/dg/access-control-underlying-data.html)  | Grants permission to virtual data lake access |  | [lakeformation:EnabledOnlyForMetaDataAccess](#list_lakeformation-lakeformation_EnabledOnlyForMetaDataAccess) | Write | 
 |   [GetDataCellsFilter](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetDataCellsFilter.html)  | Grants permission to retrieve a Lake Formation data cell filter |  |   | Read | 
@@ -246,6 +298,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [GetLFTagExpression](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetLFTagExpression.html)  | Grants permission to retrieve a Lake Formation tag expression |  |   | Read | 
 |   [GetQueryState](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetQueryState.html)  | Grants permission to retrieve the state of the given query |  |   | Read | 
 |   [GetQueryStatistics](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetQueryStatistics.html)  | Grants permission to retrieve the statistics for the given query |  |   | Read | 
+|   [GetRLSPolicy](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetRLSPolicy.html)  | Grants permission to retrieve a Lake Formation row-level security policy |  |   | Read | 
 |   [GetResourceLFTags](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetResourceLFTags.html)  | Grants permission to retrieve lakeformation tags on a catalog resource |  |   | Read | 
 |   [GetTableObjects](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetTableObjects.html)  | Grants permission to retrieve objects from a table |  |   | Read | 
 |   [GetTemporaryGluePartitionCredentials](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_GetTemporaryGluePartitionCredentials.html)  | Grants permission to get temporary credentials to access Glue partition data through Lake Formation |  |   | Read | 
@@ -258,6 +311,8 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [ListLFTags](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListLFTags.html)  | Grants permission to list Lake Formation tags |  |   | Read | 
 |   [ListLakeFormationOptIns](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListLakeFormationOptIns.html)  | Grants permission to retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions |  |   | List | 
 |   [ListPermissions](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListPermissions.html)  | Grants permission to list permissions filtered by principal or resource |  |   | List | 
+|   [ListRLSPolicies](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListRLSPolicies.html)  | Grants permission to list Lake Formation row-level security policies |  |   | List | 
+|   [ListRLSPolicyAttachments](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListRLSPolicyAttachments.html)  | Grants permission to list the resource and principal attachments of Lake Formation row-level security policies |  |   | List | 
 |   [ListResources](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListResources.html)  | Grants permission to List registered locations |  |   | List | 
 |   [ListTableStorageOptimizers](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListTableStorageOptimizers.html)  | Grants permission to list all the storage optimizers for the Governed table |  |   | List | 
 |   [ListTransactions](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_ListTransactions.html)  | Grants permission to list all transactions in the system |  |   | List | 
@@ -274,6 +329,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [UpdateLFTag](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateLFTag.html)  | Grants permission to update a Lake Formation tag |  |   | Write | 
 |   [UpdateLFTagExpression](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateLFTagExpression.html)  | Grants permission to update a Lake Formation expression |  |   | Write | 
 |   [UpdateLakeFormationIdentityCenterConfiguration](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateLakeFormationIdentityCenterConfiguration.html)  | Grants permission to update the IAM Identity Center connection parameters |  |   | Write | 
+|   [UpdateRLSPolicy](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateRLSPolicy.html)  | Grants permission to update the filter expression of a Lake Formation row-level security policy |  |   | Write | 
 |   [UpdateResource](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateResource.html)  | Grants permission to update a registered location |  |   | Write | 
 |   [UpdateTableObjects](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateTableObjects.html)  | Grants permission to add or delete the specified objects to or from a table |  |   | Write | 
 |   [UpdateTableStorageOptimizer](https://docs.aws.amazon.com/lake-formation/latest/APIReference/API_UpdateTableStorageOptimizer.html)  | Grants permission to update the configuration of the storage optimizer for the Governed table |  |   | Write | 

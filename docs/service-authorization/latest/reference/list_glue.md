@@ -54,6 +54,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   BatchGetDataQualityResultV2  **
+  - **IAM action:**  [glue:GetDataQualityResult](#list_glue-action-GetDataQualityResult) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   BatchGetDataQualityRulesetEvaluationRun  **
   - **IAM action:**  [glue:GetDataQualityRulesetEvaluationRun](#list_glue-action-GetDataQualityRulesetEvaluationRun) 
   - **Condition key:** 
@@ -635,6 +641,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetDataQualityResultV2  **
+  - **IAM action:**  [glue:GetDataQualityResult](#list_glue-action-GetDataQualityResult) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetDataQualityRuleRecommendationRun  **
   - **IAM action:**  [glue:GetDataQualityRuleRecommendationRun](#list_glue-action-GetDataQualityRuleRecommendationRun) 
   - **Condition key:** 
@@ -985,6 +997,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** List
 
+- **   ListDataQualityResultsV2  **
+  - **IAM action:**  [glue:ListDataQualityResults](#list_glue-action-ListDataQualityResults) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListDataQualityRuleRecommendationRuns  **
   - **IAM action:**  [glue:ListDataQualityRuleRecommendationRuns](#list_glue-action-ListDataQualityRuleRecommendationRuns) 
   - **Condition key:** 
@@ -1101,6 +1119,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
 
 - **   ModifyIntegration  **
   - **IAM action:**  [glue:ModifyIntegration](#list_glue-action-ModifyIntegration) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   PublishDataQualityResultV2  **
+  - **IAM action:**  [glue:PublishDataQuality](#list_glue-action-PublishDataQuality) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Write
@@ -1464,7 +1488,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 ## Actions defined by AWS Glue
 <a name="list_glue-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 

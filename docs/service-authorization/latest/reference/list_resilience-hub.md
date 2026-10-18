@@ -590,6 +590,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   GetDependencyInsights  **
+  - **SDK client:** resiliencehubv2
+  - **IAM action:**  [resiliencehub:GetDependencyInsights](#list_resilience-hub-action-GetDependencyInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetFailureModeFinding  **
   - **SDK client:** resiliencehubv2
   - **IAM action:**  [resiliencehub:GetFailureModeFinding](#list_resilience-hub-action-GetFailureModeFinding) 
@@ -696,6 +703,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
 - **   ListPolicies  **
   - **SDK client:** resiliencehubv2
   - **IAM action:**  [resiliencehub:ListPolicies](#list_resilience-hub-action-ListPolicies) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListPolicyEvents  **
+  - **SDK client:** resiliencehubv2
+  - **IAM action:**  [resiliencehub:ListPolicyEvents](#list_resilience-hub-action-ListPolicyEvents) 
   - **Condition key:** 
   - **Possible value(s):** 
   - **Access level:** Read
@@ -840,6 +854,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   StartDependencyInsights  **
+  - **SDK client:** resiliencehubv2
+  - **IAM action:**  [resiliencehub:StartDependencyInsights](#list_resilience-hub-action-StartDependencyInsights) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 - **   StartFailureModeAssessment  **
   - **SDK client:** resiliencehubv2
   - **IAM action:**  [resiliencehub:StartFailureModeAssessment](#list_resilience-hub-action-StartFailureModeAssessment) 
@@ -939,7 +960,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 ## Actions defined by AWS Resilience Hub
 <a name="list_resilience-hub-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 
@@ -1221,6 +1242,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
+- **   [GetDependencyInsights](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_GetDependencyInsights.html)  **
+  - **Description:** Grants permission to retrieve dependency insights for a service
+  - **Resource types (\*required):** [service\*](#list_resilience-hub-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
+  - **Access level:** Read
+
 - **   [GetFailureModeFinding](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_GetFailureModeFinding.html)  **
   - **Description:** Grants permission to retrieve a failure mode finding
   - **Resource types (\*required):** [service\*](#list_resilience-hub-resource-service)
@@ -1399,6 +1426,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to list resilience policies
   - **Resource types (\*required):** 
   - **Condition keys:**  
+  - **Access level:** Read
+
+- **   [ListPolicyEvents](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_ListPolicyEvents.html)  **
+  - **Description:** Grants permission to list events for a resilience policy
+  - **Resource types (\*required):** [policy\*](#list_resilience-hub-resource-policy)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
 - **   [ListRecommendationTemplates](https://docs.aws.amazon.com/resilience-hub/latest/APIReference/API_ListRecommendationTemplates.html)  **
@@ -1602,6 +1635,12 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Description:** Grants permission to create application assessment
   - **Resource types (\*required):** [application\*](#list_resilience-hub-resource-application)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_resilience-hub-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_resilience-hub-aws_TagKeys)
+  - **Access level:** Write
+
+- **   [StartDependencyInsights](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_StartDependencyInsights.html)  **
+  - **Description:** Grants permission to start generating dependency insights for a service
+  - **Resource types (\*required):** [service\*](#list_resilience-hub-resource-service)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_resilience-hub-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
 - **   [StartFailureModeAssessment](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_StartFailureModeAssessment.html)  **

@@ -109,6 +109,12 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetDomainPrices  **
+  - **IAM action:**  [route53domains:GetDomainPrices](#list_route53domains-action-GetDomainPrices) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
 - **   GetDomainSuggestions  **
   - **IAM action:**  [route53domains:GetDomainSuggestions](#list_route53domains-action-GetDomainSuggestions) 
   - **Condition key:** 
@@ -232,7 +238,7 @@ The following table maps API operations to the IAM actions they authorize. Only 
 ## Actions defined by Amazon Route 53 Domains
 <a name="list_route53domains-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 
@@ -252,6 +258,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
 |   [EnableDomainTransferLock](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_EnableDomainTransferLock.html)  | Grants permission to set the transfer lock on the domain (specifically the clientTransferProhibited status) to prevent domain transfers |  |   | Write | 
 |   [GetContactReachabilityStatus](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetContactReachabilityStatus.html)  | Grants permission to get information about whether the registrant contact has responded for operations that require confirmation that the email address for the registrant contact is valid, such as registering a new domain |  |   | Read | 
 |   [GetDomainDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetDomainDetail.html)  | Grants permission to get detailed information about a domain |  |   | Read | 
+|   [GetDomainPrices](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetDomainPrices.html)  | Grants permission to get the prices of operations for the given domain name |  |   | Read | 
 |   [GetDomainSuggestions](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetDomainSuggestions.html)  | Grants permission to get a list of suggested domain names given a string, which can either be a domain name or simply a word or phrase (without spaces) |  |   | Read | 
 |   [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)  | Grants permission to get the current status of an operation that is not completed |  |   | Read | 
 |   [ListDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListDomains.html)  | Grants permission to list all the domain names registered with Amazon Route 53 for the current AWS account |  |   | List | 

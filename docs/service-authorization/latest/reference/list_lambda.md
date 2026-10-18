@@ -658,6 +658,13 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   ListNetworkConnectorVersions  **
+  - **SDK client:** lambda-core
+  - **IAM action:**  [lambda:ListNetworkConnectorVersions](#list_lambda-action-ListNetworkConnectorVersions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
 - **   ListNetworkConnectors  **
   - **SDK client:** lambda-core
   - **IAM action:**  [lambda:ListNetworkConnectors](#list_lambda-action-ListNetworkConnectors) 
@@ -836,6 +843,57 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Write
 
+- **   CreateWebFunction  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:CreateWebFunction](#list_lambda-action-CreateWebFunction)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [lambda:PassNetworkConnector](#list_lambda-action-PassNetworkConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [lambda:TagResource](#list_lambda-action-TagResource)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Tagging, Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** lambda.amazonaws.com / **Access level:** Write
+
+- **   CreateWebFunctionEndpoint  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:CreateWebFunctionEndpoint](#list_lambda-action-CreateWebFunctionEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   CreateWebFunctionRevision  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:CreateWebFunctionRevision](#list_lambda-action-CreateWebFunctionRevision)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [lambda:PassNetworkConnector](#list_lambda-action-PassNetworkConnector)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Write
+  - **IAM action:**  [iam:PassRole](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html)  / **Condition key:** iam:PassedToService / **Possible value(s):** lambda.amazonaws.com / **Access level:** Write
+
+- **   DeleteResourcePolicy  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:DeleteResourcePolicy](#list_lambda-action-DeleteResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [lambda:RemovePermission](#list_lambda-action-RemovePermission)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+
+- **   DeleteWebFunction  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:DeleteWebFunction](#list_lambda-action-DeleteWebFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWebFunctionEndpoint  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:DeleteWebFunctionEndpoint](#list_lambda-action-DeleteWebFunctionEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   DeleteWebFunctionRevision  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:DeleteWebFunctionRevision](#list_lambda-action-DeleteWebFunctionRevision) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
+- **   GetResourcePolicy  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:GetPolicy](#list_lambda-action-GetPolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+  - **IAM action:**  [lambda:GetResourcePolicy](#list_lambda-action-GetResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Read
+
 - **   GetWebAccountSettings  **
   - **SDK client:** lambda-web
   - **IAM action:**  [lambda:GetWebAccountSettings](#list_lambda-action-GetWebAccountSettings) 
@@ -843,12 +901,88 @@ The following table maps API operations to the IAM actions they authorize. Only 
   - **Possible value(s):** 
   - **Access level:** Read
 
+- **   GetWebFunction  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:GetWebFunction](#list_lambda-action-GetWebFunction) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWebFunctionEndpoint  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:GetWebFunctionEndpoint](#list_lambda-action-GetWebFunctionEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   GetWebFunctionRevision  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:GetWebFunctionRevision](#list_lambda-action-GetWebFunctionRevision) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListTags  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:ListTags](#list_lambda-action-ListTags) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Read
+
+- **   ListWebFunctionEndpoints  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:ListWebFunctionEndpoints](#list_lambda-action-ListWebFunctionEndpoints) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWebFunctionRevisions  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:ListWebFunctionRevisions](#list_lambda-action-ListWebFunctionRevisions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   ListWebFunctions  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:ListWebFunctions](#list_lambda-action-ListWebFunctions) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** List
+
+- **   PutResourcePolicy  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:AddPermission](#list_lambda-action-AddPermission)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [lambda:PutResourcePolicy](#list_lambda-action-PutResourcePolicy)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+  - **IAM action:**  [lambda:RemovePermission](#list_lambda-action-RemovePermission)  / **Condition key:**  / **Possible value(s):**  / **Access level:** Permissions management, Write
+
+- **   TagResource  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:TagResource](#list_lambda-action-TagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UntagResource  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:UntagResource](#list_lambda-action-UntagResource) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Tagging, Write
+
+- **   UpdateWebFunctionEndpoint  **
+  - **SDK client:** lambda-web
+  - **IAM action:**  [lambda:UpdateWebFunctionEndpoint](#list_lambda-action-UpdateWebFunctionEndpoint) 
+  - **Condition key:** 
+  - **Possible value(s):** 
+  - **Access level:** Write
+
 
 
 ## Actions defined by AWS Lambda
 <a name="list_lambda-actions-as-permissions"></a>
 
-You can specify the following actions in the `Action` element of an IAM policy statement. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
+You can specify the following actions in the `Action` element of an IAM policy statement. For each action, the table lists the resource types and condition keys supported by that action. Use policies to grant permissions to perform an operation in AWS. When you use an action in a policy, you usually allow or deny access to the API operation or CLI command with the same name. However, in some cases, a single action controls access to more than one operation. Alternatively, some operations require several different actions.
 
 
 
@@ -925,7 +1059,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [CreateNetworkConnector](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateNetworkConnector.html)  **
+- **   [CreateNetworkConnector](https://docs.aws.amazon.com/lambda/latest/lambda-core/API_CreateNetworkConnector.html)  **
   - **Description:** Grants permission to create an AWS Lambda network connector
   - **Resource types (\*required):** [networkConnector\*](#list_lambda-resource-networkConnector)
   - **Condition keys:** [aws:RequestTag/${TagKey}](#list_lambda-aws_RequestTag___TagKey_)<br />[aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)<br />[aws:TagKeys](#list_lambda-aws_TagKeys)<br />[lambda:SecurityGroupIds](#list_lambda-lambda_SecurityGroupIds)<br />[lambda:SubnetIds](#list_lambda-lambda_SubnetIds)
@@ -1021,7 +1155,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [DeleteNetworkConnector](https://docs.aws.amazon.com/lambda/latest/dg/API_DeleteNetworkConnector.html)  **
+- **   [DeleteNetworkConnector](https://docs.aws.amazon.com/lambda/latest/lambda-core/API_DeleteNetworkConnector.html)  **
   - **Description:** Grants permission to delete an AWS Lambda network connector
   - **Resource types (\*required):** [networkConnector\*](#list_lambda-resource-networkConnector)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
@@ -1189,7 +1323,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
   - **Access level:** Read
 
-- **   [GetNetworkConnector](https://docs.aws.amazon.com/lambda/latest/dg/API_GetNetworkConnector.html)  **
+- **   [GetNetworkConnector](https://docs.aws.amazon.com/lambda/latest/lambda-core/API_GetNetworkConnector.html)  **
   - **Description:** Grants permission to view details about an AWS Lambda network connector
   - **Resource types (\*required):** [networkConnector\*](#list_lambda-resource-networkConnector)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
@@ -1363,7 +1497,13 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:**  
   - **Access level:** List
 
-- **   [ListNetworkConnectors](https://docs.aws.amazon.com/lambda/latest/dg/API_ListNetworkConnectors.html)  **
+- **   [ListNetworkConnectorVersions](https://docs.aws.amazon.com/lambda/latest/lambda-core/API_ListNetworkConnectorVersions.html)  **
+  - **Description:** Grants permission to retrieve a list of versions of an AWS Lambda network connector
+  - **Resource types (\*required):** [networkConnector\*](#list_lambda-resource-networkConnector)
+  - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
+  - **Access level:** List
+
+- **   [ListNetworkConnectors](https://docs.aws.amazon.com/lambda/latest/lambda-core/API_ListNetworkConnectors.html)  **
   - **Description:** Grants permission to retrieve a list of AWS Lambda network connectors
   - **Resource types (\*required):** 
   - **Condition keys:**  
@@ -1618,7 +1758,7 @@ You can specify the following actions in the `Action` element of an IAM policy s
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
   - **Access level:** Write
 
-- **   [UpdateNetworkConnector](https://docs.aws.amazon.com/lambda/latest/dg/API_UpdateNetworkConnector.html)  **
+- **   [UpdateNetworkConnector](https://docs.aws.amazon.com/lambda/latest/lambda-core/API_UpdateNetworkConnector.html)  **
   - **Description:** Grants permission to update an AWS Lambda network connector
   - **Resource types (\*required):** [networkConnector\*](#list_lambda-resource-networkConnector)
   - **Condition keys:** [aws:ResourceTag/${TagKey}](#list_lambda-aws_ResourceTag___TagKey_)
