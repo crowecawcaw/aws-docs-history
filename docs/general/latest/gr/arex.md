@@ -73,5 +73,3 @@ The following quotas are the defaults for Resource Explorer.
 | --- | --- | 
 | Maximum Search operations per second | 5 | 
 | Maximum non-Search operations per second | 3 | 
-| Maximum Search operations in aggregator Region per month | 10,000 | 
-| Maximum Search operations in local Regions per month | 500 | 

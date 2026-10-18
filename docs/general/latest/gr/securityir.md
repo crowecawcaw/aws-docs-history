@@ -59,6 +59,7 @@ The following are the service endpoints and service quotas for this service.
 | Throttle rate limit for GetCase | Each supported Region: 5 per second | No | The maximum number of GetCase requests you can make per second per account, in the current region | 
 | Throttle rate limit for GetCaseAttachmentDownloadUrl | Each supported Region: 1 per second | No | The maximum number of GetCaseAttachmentDownloadUrl requests you can make per second per account, in the current region | 
 | Throttle rate limit for GetCaseAttachmentUploadUrl | Each supported Region: 1 per second | No | The maximum number of GetCaseAttachmentUploadUrl requests you can make per second per account, in the current region | 
+| Throttle rate limit for GetFindingMetrics | Each supported Region: 5 per second | No | The maximum number of GetFindingMetrics requests you can make per second per account, in the current region | 
 | Throttle rate limit for GetMembership | Each supported Region: 5 per second | No | The maximum number of GetMembership requests you can make per second per account, in the current region | 
 | Throttle rate limit for ListCaseEdits | Each supported Region: 5 per second | No | The maximum number of ListCaseEdits requests you can make per second per account, in the current region | 
 | Throttle rate limit for ListCases | Each supported Region: 5 per second | No | The maximum number of ListCases requests you can make per second per account, in the current region | 

@@ -21,6 +21,7 @@ Red Hat OpenShift Service on AWS (ROSA) currently does not support programmatic 
 | Asia Pacific (Jakarta) | ap-southeast-3 | Yes | Yes | 
 | Asia Pacific (Melbourne) | ap-southeast-4 | Yes | Yes | 
 | Asia Pacific (Mumbai) | ap-south-1 | Yes | Yes | 
+| Asia Pacific (New Zealand) | ap-southeast-6 | Yes | Yes | 
 | Asia Pacific (Osaka) | ap-northeast-3 | Yes | Yes | 
 | Asia Pacific (Seoul) | ap-northeast-2 | Yes | Yes | 
 | Asia Pacific (Singapore) | ap-southeast-1 | Yes | Yes | 
