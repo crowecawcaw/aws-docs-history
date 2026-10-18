@@ -116,9 +116,7 @@ Save the following JSON as `permissions-policy.json`. Replace the placeholder va
             "Effect": "Allow",
             "Action": [
                 "kinesis:PutRecord",
-                "kinesis:PutRecords",
-                "kinesis:DescribeStreamSummary",
-                "kinesis:ListShards"
+                "kinesis:PutRecords"
             ],
             "Resource": "arn:aws:kinesis:{{region}}:{{your-account-id}}:stream/{{my-cdc-stream}}"
         },
@@ -202,7 +200,7 @@ CREATE TABLE IF NOT EXISTS test_cdc (
 INSERT INTO test_cdc VALUES (1, 'hello cdc');
 ```
 
-Read from the Kinesis data stream to verify that the CDC record arrived. Because Aurora DSQL uses randomized partition keys, the record can land on any shard. The following script checks the shards on the stream. CDC records can take a few seconds to arrive because of replication lag—if the output is empty, wait a moment and re-run the script.
+Read from the Kinesis data stream to verify that the CDC record arrived. Because Aurora DSQL uses randomized partition keys, the record can land on any shard. The following script reads each shard on the stream up to the latest record, and requires `jq`. Replace {{my-cdc-stream}} and {{region}} with your values. CDC records can take a few seconds to arrive because of replication lag—if the output doesn't include your record, wait a moment and re-run the script.
 
 ```
 for SHARD_ID in $(aws kinesis list-shards \
@@ -217,10 +215,15 @@ for SHARD_ID in $(aws kinesis list-shards \
     --region {{region}} \
     --query 'ShardIterator' --output text)
 
-  aws kinesis get-records \
-    --shard-iterator "$SHARD_ITERATOR" \
-    --region {{region}} \
-    --query 'Records[].Data' --output text
+  while [ -n "$SHARD_ITERATOR" ]; do
+    RESPONSE=$(aws kinesis get-records \
+      --shard-iterator "$SHARD_ITERATOR" \
+      --region {{region}} \
+      --output json) || break
+    echo "$RESPONSE" | jq -r '.Records[].Data'
+    [ "$(echo "$RESPONSE" | jq '.MillisBehindLatest')" = 0 ] && break
+    SHARD_ITERATOR=$(echo "$RESPONSE" | jq -r '.NextShardIterator // empty')
+  done
 done
 ```
 
@@ -233,7 +236,7 @@ Each record's `Data` field contains a JSON payload. When you use the AWS CLI, th
     "before": null,
     "after": {"id": 1, "message": "hello cdc"},
     "source": {
-        "version": "1.0",
+        "version": "1.1",
         "ts_ms": 1705318200000,
         "ts_ns": 1705318200000000000,
         "txId": "ffthunp5stx6ffs2vyfqoatmfu",
@@ -243,7 +246,11 @@ Each record's `Data` field contains a JSON payload. When you use the AWS CLI, th
         "cluster": "{{cluster-id}}"
     },
     "ts_ms": 1705318200125,
-    "ts_ns": 1705318200125483291
+    "ts_ns": 1705318200125483291,
+    "transaction": {
+        "total_records": 1,
+        "record_id": "8f14e45fceea167a5a36dedd4bea2543"
+    }
 }
 ```
 
@@ -374,6 +381,8 @@ def process_record(payload: dict) -> bool:
     """Return True if the record is new, False if it's a duplicate or stale.
 
     Skip fragment records; reassemble them into a full image before calling this.
+    For a chunked record, put each reassembled image in the matching
+    payload["before"] or payload["after"] field.
     """
     if payload.get("type") == "fragment":
         return False  # Fragments are reassembled upstream, not deduplicated here.
@@ -382,8 +391,10 @@ def process_record(payload: dict) -> bool:
     ts_ns = source["ts_ns"]
 
     # For inserts/updates the row is in "after"; for deletes it's in "before".
-    row = payload.get("after") or payload.get("before") or {}
-    pk = tuple(row.get(col) for col in PK_COLUMNS)
+    row = payload.get("after") or payload.get("before")
+    if row is None:
+        raise ValueError("Record has no row image")
+    pk = tuple(row[col] for col in PK_COLUMNS)
 
     prev_ts = high_water.get(pk, -1)
     if ts_ns <= prev_ts:

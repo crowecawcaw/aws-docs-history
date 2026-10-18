@@ -10,13 +10,14 @@ With Amazon Aurora DSQL, you only pay for what you use with no upfront costs. Th
 + [DPU component metering explained](#billing-dpu-components)
 + [Multi-Region billing](#billing-multiregion-write-dpu)
 + [Monitoring DPU usage with CloudWatch](#billing-cloudwatch-monitoring)
++ [Finding high-load queries with Aurora DSQL Database Insights](#billing-db-insights)
 + [Using EXPLAIN ANALYZE VERBOSE for cost awareness](#billing-explain-analyze)
 + [Cost estimation best practices](#billing-best-practices)
 
 ## How metering works
 <a name="billing-how-metering-works"></a>
 
-Unlike traditional databases that charge for provisioned capacity, Aurora DSQL charges only for actual work performed. Aurora DSQL meters two primary components: database activity, measured in Distributed Processing Units (DPUs), and storage, measured in GiB-month.
+Aurora DSQL charges only for work performed, including work done by transactions that are aborted or fail. Aurora DSQL meters two primary components: database activity, measured in Distributed Processing Units (DPUs), and storage, measured in GiB-month.
 
 DPUs measure how much work the system does to run your SQL workload and are comprised of three components for single-Region clusters: Compute DPUs, Read DPUs, and Write DPUs. Multi-Region clusters incur an additional MultiRegion Write DPU component. For more information about Multi-Region billing, see [Multi-Region billing](#billing-multiregion-write-dpu). Clusters with change data capture (CDC) enabled incur an additional Stream DPU component. For more information about CDC billing, see [Stream DPU](#billing-stream-dpu).
 
@@ -400,17 +401,41 @@ For a complete list of Aurora DSQL metrics and monitoring capabilities, see [Mon
 | TotalTransactions | Total transactions executed | 
 | ReadOnlyTransactions | Read-only transactions executed | 
 | QueryTimeouts | Queries that exceeded time limit | 
-| OccConflicts | Transactions aborted due to OCC conflicts | 
+| OccConflicts | Transactions aborted due to OCC conflicts. Aurora DSQL bills for the work done by these transactions. | 
 | BytesWritten | Raw bytes written to storage | 
 | BytesRead | Raw bytes read from storage | 
+
+## Finding high-load queries with Aurora DSQL Database Insights
+<a name="billing-db-insights"></a>
+
+CloudWatch DPU metrics show how many DPUs a cluster uses, but not which SQL statements use them. Aurora DSQL Database Insights breaks down database load by SQL statement and by wait event. Use it to see which statements account for the most load on your cluster. You can use Database Insights on every cluster with no setup and at no additional cost. For more information, see [Monitoring Aurora DSQL clusters with Aurora DSQL Database Insights](dsql-db-insights.md).
+
+Keep the following in mind when you use Database Insights to understand your costs:
++ **Compare with typical usage:** When DPU usage rises, compare the top SQL statements for that time range with those from a period of typical usage. Statements that are new to the list, or that account for a larger share of the load, are the first ones to investigate.
++ **Load measures session time:** Database load is the average number of active sessions (AAS), where an active session is one with an open transaction. A statement's load grows with how often it runs and with how long each run takes. A statement that takes milliseconds but runs many times per second can add more load than one that takes seconds but runs rarely.
++ **Wait events show where time goes:** A wait event shows what sessions spend time on, such as CPU or storage reads, but not why. For example, a well-indexed statement that runs often can spend most of its time in storage read wait events.
++ **Attribute load to workloads:** On a shared cluster, use Prometheus Query Language (PromQL) to break down load by IAM role or by application name. To see load by application, set an application name in your connection parameters.
+
+To see a statement's execution plan and how many DPUs one run uses, run the statement with `EXPLAIN ANALYZE VERBOSE`. For details, see [Using EXPLAIN ANALYZE VERBOSE for cost awareness](#billing-explain-analyze).
 
 ## Using EXPLAIN ANALYZE VERBOSE for cost awareness
 <a name="billing-explain-analyze"></a>
 
-Aurora DSQL extends `EXPLAIN ANALYZE VERBOSE` to include a statement-level DPU usage estimate at the end of the output. This provides immediate visibility into query cost, helping you identify workload cost drivers, tune query performance, and better forecast resource usage.
+After you find a statement to investigate, use `EXPLAIN ANALYZE VERBOSE` to examine it in detail. Aurora DSQL extends `EXPLAIN ANALYZE VERBOSE` to include a statement-level DPU usage estimate at the end of the output. This provides immediate visibility into query cost, helping you identify workload cost drivers, tune query performance, and better forecast resource usage.
+
+Database Insights shows SQL text with placeholders instead of literal values. To run a statement that you found in Database Insights, replace the placeholders with values that are typical for your workload. The amount of data that a statement reads can depend on these values.
 
 **Note**  
 You must use `EXPLAIN ANALYZE VERBOSE` (with VERBOSE) to see DPU estimates. A plain `EXPLAIN ANALYZE` without VERBOSE does not show DPU information.
+
+**Warning**  
+`EXPLAIN ANALYZE VERBOSE` runs the statement that it explains. To examine an `INSERT`, `UPDATE`, or `DELETE` statement without changing your data, run it in a transaction and then roll back the transaction. Replace `{{write-statement}}` with the statement that you want to examine.  
+
+```
+BEGIN;
+EXPLAIN ANALYZE VERBOSE {{write-statement}};
+ROLLBACK;
+```
 
 ### Example 1: SELECT query
 <a name="billing-explain-analyze-select"></a>
@@ -488,6 +513,7 @@ Keep the following best practices in mind when using DPU data from `EXPLAIN ANAL
 ## Cost estimation best practices
 <a name="billing-best-practices"></a>
 + **Monitor before optimizing:** Use CloudWatch metrics to understand your current usage pattern before making optimization decisions. For details, see [Monitoring DPU usage with CloudWatch](#billing-cloudwatch-monitoring).
-+ **Focus on transaction efficiency:** Since minimums apply at the transaction level, batch related operations together to amortize minimum charges.
-+ **Use EXPLAIN ANALYZE VERBOSE during development:** Run `EXPLAIN ANALYZE VERBOSE` on critical queries during development to understand their cost characteristics. When running a proof of concept to evaluate costs, test against tables with representative data volumes and distributions — estimates based on empty or sparsely populated tables will not reflect production costs. For details, see [Using EXPLAIN ANALYZE VERBOSE for cost awareness](#billing-explain-analyze).
++ **Find the statements that drive load:** Use Aurora DSQL Database Insights to find the statements that account for the most load, and to see which statements changed when usage rose. For details, see [Finding high-load queries with Aurora DSQL Database Insights](#billing-db-insights).
++ **Examine specific statements with EXPLAIN ANALYZE VERBOSE:** Run `EXPLAIN ANALYZE VERBOSE` on the statements that Database Insights identifies, and on critical queries during development, to understand their cost characteristics. When running a proof of concept to evaluate costs, test against tables with representative data volumes and distributions — estimates based on empty or sparsely populated tables will not reflect production costs. For details, see [Using EXPLAIN ANALYZE VERBOSE for cost awareness](#billing-explain-analyze).
++ **Focus on transaction efficiency:** Because minimums apply at the transaction level, batch related operations together to amortize minimum charges.
 + **Set CloudWatch alarms:** Create alarms on DPU metrics to get notified of unexpected usage spikes.

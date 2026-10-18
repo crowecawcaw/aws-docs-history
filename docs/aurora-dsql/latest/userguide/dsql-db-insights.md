@@ -117,11 +117,13 @@ The following examples work in Query Studio, where the active workspace already 
 **Note**  
 All examples include an `@resource.aws.auroradsql.cluster_id` label filter to scope results to a single cluster. Replace {{cluster-id}} with your cluster identifier. If you have only one cluster, you can omit this filter or use the Query Studio UI filters instead. To discover all of the labels available on the metric in your environment, run `{"db.active_sessions.avg"}` as a series query and inspect the label set on each returned series.
 
+Each `db.active_sessions.avg` time series represents the average active sessions (AAS) for one unique set of metric labels. When you group results by a subset of those labels, use `sum by` to add the AAS values for all time series in each group.
+
 **Database load by wait event**  
-Returns the average number of active sessions grouped by wait event – the same AAS-by-wait-event view available in the Database Insights DB Load chart, but accessible programmatically.
+Returns average active sessions (AAS) grouped by wait event – the same AAS-by-wait-event view available in the Database Insights DB Load chart, but accessible programmatically.
 
 ```
-avg by ("db.wait.event") (
+sum by ("db.wait.event") (
   {
     "db.active_sessions.avg",
     "@resource.aws.auroradsql.cluster_id"="{{cluster-id}}"
@@ -129,14 +131,14 @@ avg by ("db.wait.event") (
 )
 ```
 
-The result has one series per distinct `db.wait.event` value, each carrying the average AAS contribution of that wait state.
+The result has one series per distinct `db.wait.event` value, showing the total AAS for that wait event.
 
 **Top SQL by average active sessions**  
-Ranks SQL statements by their average contribution to database load. This is the PromQL equivalent of the Database Insights **Top SQL** view.
+Ranks SQL statements by their total AAS contribution to database load. This is the PromQL equivalent of the Database Insights **Top SQL** view.
 
 ```
 topk(5,
-  avg by ("db.query.normalized_text") (
+  sum by ("db.query.normalized_text") (
     {
       "db.active_sessions.avg",
       "@resource.aws.auroradsql.cluster_id"="{{cluster-id}}"
@@ -145,11 +147,13 @@ topk(5,
 )
 ```
 
+The nested `sum by` expression combines all time series for the same normalized SQL text before `topk` ranks the statements.
+
 To see the top SQL statement and wait event combinations by their contribution to load, add `db.wait.event` to the grouping clause. Because this ranks every combination together, the results can include several wait events for the same high-contributing statement:
 
 ```
 topk(5,
-  avg by ("db.query.normalized_text", "db.wait.event") (
+  sum by ("db.query.normalized_text", "db.wait.event") (
     {
       "db.active_sessions.avg",
       "@resource.aws.auroradsql.cluster_id"="{{cluster-id}}"

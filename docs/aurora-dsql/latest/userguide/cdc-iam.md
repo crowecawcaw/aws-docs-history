@@ -34,6 +34,12 @@ The IAM principal that calls the CDC stream API operations needs permissions for
             ]
         },
         {
+            "Sid": "TagStreams",
+            "Effect": "Allow",
+            "Action": "dsql:TagResource",
+            "Resource": "arn:aws:dsql:{{region}}:{{your-account-id}}:cluster/{{cluster-id}}/stream/*"
+        },
+        {
             "Sid": "PassServiceRole",
             "Effect": "Allow",
             "Action": "iam:PassRole",
@@ -48,7 +54,9 @@ The IAM principal that calls the CDC stream API operations needs permissions for
 }
 ```
 
-The `Resource` element includes both the cluster ARN (required by `CreateStream` and `ListStreams`) and the stream ARN pattern (required by `GetStream` and `DeleteStream`).
+The `Resource` element includes both the cluster ARN (required by `CreateStream` and `ListStreams`) and the stream ARN pattern (required by `GetStream` and `DeleteStream`). The `TagStreams` statement is required only if you pass tags to `CreateStream`.
+
+If the cluster uses an AWS KMS customer managed key, `CreateStream` also requires `kms:Decrypt` on that key.
 
 For a full list of permissions required for each operation, see [CreateStream](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateStream.html), [GetStream](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_GetStream.html), [DeleteStream](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_DeleteStream.html), and [ListStreams](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_ListStreams.html) in the [Amazon Aurora DSQL API Reference](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/CHAP_api_reference.html).
 
@@ -106,9 +114,7 @@ The permissions policy grants the service role access to write records to your K
             "Effect": "Allow",
             "Action": [
                 "kinesis:PutRecord",
-                "kinesis:PutRecords",
-                "kinesis:DescribeStreamSummary",
-                "kinesis:ListShards"
+                "kinesis:PutRecords"
             ],
             "Resource": "arn:aws:kinesis:{{region}}:{{your-account-id}}:stream/{{kinesis-stream-name}}"
         },

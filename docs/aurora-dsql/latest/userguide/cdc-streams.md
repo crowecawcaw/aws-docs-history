@@ -45,7 +45,7 @@ CDC streams use a bring-your-own-target model. You create and manage the Kinesis
 
 Aurora DSQL produces one CDC record for each row with a net change at commit time. For details about how Aurora DSQL compacts multiple operations on the same row, see [Write-set compaction](cdc-record-format.md#cdc-write-set-compaction).
 
-Aurora DSQL guarantees at-least-once delivery for every record it produces. Aurora DSQL can deliver the same record more than one time, so design your app to handle duplicates. You can identify a duplicate by comparing `source.ts_ns` and the primary key values—a duplicate has the same values as the original delivery.
+Aurora DSQL guarantees at-least-once delivery for every record it produces. Aurora DSQL can deliver the same record more than one time, so design your app to handle duplicates. For full and chunked main records with a `transaction` object, identify duplicate deliveries by comparing `source.txId` and `transaction.record_id`. For fragment records, compare `chunk_id` and `index`.
 
 ### Ordering
 <a name="cdc-ordering"></a>
@@ -53,7 +53,7 @@ Aurora DSQL guarantees at-least-once delivery for every record it produces. Auro
 CDC streams use `UNORDERED` mode. In practice, records arrive in approximate commit order because Aurora DSQL reads and publishes changes sequentially. However, Aurora DSQL doesn't guarantee strict ordering. Specifically:
 + Aurora DSQL can deliver records from different transactions in any order.
 + Records for the same primary key from different transactions can arrive out of commit order.
-+ Records from a single transaction can interleave with records from other transactions. Use the `source.txId` field to group records by transaction when your workflow requires it.
++ Records from a single transaction can interleave with records from other transactions. Use the `source.txId` field to group records by transaction when your workflow requires it. For records that include a `transaction` object, you have received records for all rows with a net change in the transaction when the number of unique `transaction.record_id` values equals `transaction.total_records`. If the transaction includes a chunked main record, wait for and reassemble its fragments before processing the transaction.
 
 Each CDC record includes a `source.ts_ns` field that contains the transaction commit timestamp in nanoseconds. Use this field to establish commit order on the receiving side.
 
@@ -63,13 +63,13 @@ Each CDC record includes a `source.ts_ns` field that contains the transaction co
 Because records can arrive out of commit order and can appear more than one time, your app must account for both conditions.
 
 **Important**  
-Define a primary key on all tables that participate in CDC. Without a primary key, your app can't deduplicate records or correlate deletes with the affected row.
+Define a primary key on all tables that participate in CDC. Without a primary key, your app can't reliably correlate deletes or out-of-order changes with the affected row. The `transaction` object identifies duplicate deliveries but doesn't identify the affected row.
 
 **Last-writer-wins (materialized views, caches)**  
 Track the highest `source.ts_ns` value per primary key. Discard any record with a `source.ts_ns` less than or equal to the tracked value. This filters both duplicates and out-of-order records, keeping the most recent state for each key. When you process a delete (`op: "d"`), store a tombstone for the primary key that preserves the `source.ts_ns` value instead of removing the entry. The tombstone ensures that an insert or update with an earlier `source.ts_ns` that arrives after the delete doesn't incorrectly restore the row.
 
 **Every-change processing (audit logging, event sourcing)**  
-Remove duplicates by comparing `source.ts_ns` combined with the primary key values. Buffer incoming records and sort by `source.ts_ns` before processing to reconstruct commit order. CDC delivers only the final state of each row per committed transaction (after [Write-set compaction](cdc-record-format.md#cdc-write-set-compaction)). If your audit workflow requires a record for every SQL statement, perform each statement in its own transaction.
+For records that include a `transaction` object, group records by `source.txId` and remove duplicates by comparing `transaction.record_id`. You have received records for all rows with a net change in the transaction when the number of unique record identifiers equals `transaction.total_records`. Reassemble any chunked records before processing the transaction. Use `source.ts_ns` as the commit-order key, but don't treat receipt of all changed rows as a watermark that all earlier transactions have arrived. CDC delivers only the final state of each row per committed transaction (after [Write-set compaction](cdc-record-format.md#cdc-write-set-compaction)). If your audit workflow requires a record for every SQL statement, perform each statement in its own transaction.
 
 ## Multi-Region CDC stream configuration
 <a name="cdc-multi-region"></a>

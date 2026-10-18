@@ -56,7 +56,7 @@ The following example shows a CDC record for an `INSERT` operation:
     "before": null,
     "after": {"order_id": 1001, "item_id": 42, "quantity": 5, "price": "29.99"},
     "source": {
-        "version": "1.0",
+        "version": "1.1",
         "ts_ms": 1705318200000,
         "ts_ns": 1705318200000000000,
         "txId": "ffthunp5stx6ffs2vyfqoatmfu",
@@ -66,7 +66,11 @@ The following example shows a CDC record for an `INSERT` operation:
         "cluster": "kmabugltfmjdaj2siqr2qbxgju"
     },
     "ts_ms": 1705318200125,
-    "ts_ns": 1705318200125483291
+    "ts_ns": 1705318200125483291,
+    "transaction": {
+        "total_records": 1,
+        "record_id": "8f14e45fceea167a5a36dedd4bea2543"
+    }
 }
 ```
 
@@ -80,7 +84,7 @@ The following example shows a CDC record for an `UPDATE` operation:
     "before": null,
     "after": {"order_id": 1001, "item_id": 42, "quantity": 10, "price": "29.99"},
     "source": {
-        "version": "1.0",
+        "version": "1.1",
         "ts_ms": 1705318300000,
         "ts_ns": 1705318300000000000,
         "txId": "qvtiesgmd55cvlfukm3dfuotji",
@@ -90,7 +94,11 @@ The following example shows a CDC record for an `UPDATE` operation:
         "cluster": "kmabugltfmjdaj2siqr2qbxgju"
     },
     "ts_ms": 1705318300125,
-    "ts_ns": 1705318300125483291
+    "ts_ns": 1705318300125483291,
+    "transaction": {
+        "total_records": 1,
+        "record_id": "c9f0f895fb98ab9159f51fd0297e236d"
+    }
 }
 ```
 
@@ -104,7 +112,7 @@ For a `DELETE` on a table with a primary key, the `before` field contains the pr
     "before": {"order_id": 1001, "item_id": 42},
     "after": null,
     "source": {
-        "version": "1.0",
+        "version": "1.1",
         "ts_ms": 1705318400000,
         "ts_ns": 1705318400000000000,
         "txId": "xyzabc123def456ghi789jklmno",
@@ -114,7 +122,11 @@ For a `DELETE` on a table with a primary key, the `before` field contains the pr
         "cluster": "kmabugltfmjdaj2siqr2qbxgju"
     },
     "ts_ms": 1705318400125,
-    "ts_ns": 1705318400125483291
+    "ts_ns": 1705318400125483291,
+    "transaction": {
+        "total_records": 1,
+        "record_id": "45c48cce2e2d7fbdea1afc51c7c6ad26"
+    }
 }
 ```
 
@@ -129,7 +141,7 @@ For a `DELETE` on a table with a primary key, the `before` field contains the pr
 | before | For deletes on tables with a primary key, contains the primary key values of the deleted row. Aurora DSQL sets this field to null for inserts, updates, and deletes on tables without a primary key. | 
 | after | The full row state after the change, including all columns. Aurora DSQL sets this field to null for deletes. | 
 | chunked | Present only when type is chunked. Contains reassembly metadata for the before image, the after image, or both. Aurora DSQL omits the chunked image from the top-level before or after field and places it under chunked instead. For details, see [Handling oversized records](#cdc-oversized-records). | 
-| source.version | The CDC envelope format version. The current version is 1.0. For information about compatible changes between versions, see [CDC envelope versioning](#cdc-envelope-versioning). | 
+| source.version | The CDC envelope format version. Beginning with version 1.1, records include metadata about rows changed by a transaction. For information about compatible changes between versions, see [CDC envelope versioning](#cdc-envelope-versioning). | 
 | source.ts\_ms | The transaction commit timestamp in milliseconds since the Unix epoch, Coordinated Universal Time (UTC). | 
 | source.ts\_ns | Transaction commit timestamp in nanoseconds, UTC. The highest precision timestamp available. Use this field to establish a total order of transactions. | 
 | source.txId | A unique transaction identifier, encoded as base32. All records from the same transaction share the same txId value. Use this field to group records that belong to the same transaction. | 
@@ -137,6 +149,9 @@ For a `DELETE` on a table with a primary key, the `before` field contains the pr
 | source.table | The table name. | 
 | source.db | The database name. Always postgres for Aurora DSQL. | 
 | source.cluster | The Aurora DSQL cluster identifier. | 
+| transaction | Metadata about rows changed by a transaction. Beginning with version 1.1, full and chunked main records include this object. Fragment records don't include it. | 
+| transaction.total\_records | The number of rows with a net change across all user tables in the transaction after write-set compaction. The same value appears on every changed-row record from the transaction. For an oversized record, the chunked main record represents one changed row; its fragment records aren't included in the total. | 
+| transaction.record\_id | An opaque identifier for this changed-row record within the transaction. The identifier is stable across retries. Use it with source.txId to identify duplicate deliveries. Don't parse the identifier or depend on its format. | 
 | ts\_ms | The time at which the CDC system processed the record, in milliseconds, UTC. The difference between ts\_ms and source.ts\_ms is a measure of replication lag. | 
 | ts\_ns | The time at which the CDC system processed the record, in nanoseconds, UTC. | 
 
@@ -179,9 +194,9 @@ The row didn't exist before the transaction and doesn't exist after (for example
 ## Handling oversized records
 <a name="cdc-oversized-records"></a>
 
-When a CDC record's serialized JSON exceeds 9 MiB, Aurora DSQL splits the `before` and/or `after` images, delivering multiple Kinesis records. Each record contains a top-level `type` field that indicates its structure: `full` for a complete record, `chunked` for a main record that references fragments, and `fragment` for an individual piece of a chunked image. The `op`, `source`, `ts_ms`, and `ts_ns` fields on a chunked main record behave the same as on a full record. Records that fit in a single Kinesis record have `type` set to `full` and don't require any extra handling.
+When a CDC record's serialized JSON exceeds 9 MiB, Aurora DSQL splits the `before` and/or `after` images, delivering multiple Kinesis records. Each record contains a top-level `type` field that indicates its structure: `full` for a complete record, `chunked` for a main record that references fragments, and `fragment` for an individual piece of a chunked image. The `op`, `source`, `transaction`, `ts_ms`, and `ts_ns` fields on a chunked main record behave the same as on a full record. Records that fit in a single Kinesis record have `type` set to `full` and don't require any extra handling.
 
-A `chunk_id` is stable across retries. If Aurora DSQL redelivers a fragment, it carries the same `chunk_id` as the original delivery, so your app can continue buffering under the same identifier without handling partial sets from previous attempts.
+A `chunk_id` is stable across retries. If Aurora DSQL redelivers a fragment, it carries the same `chunk_id` as the original delivery, so your app can continue buffering under the same identifier without handling partial sets from previous attempts. Identify duplicate fragment deliveries by comparing `chunk_id` and `index`.
 
 **Main record**  
 A chunked main record replaces the top-level `before` or `after` field for the split image with a `chunked` object that describes how to reassemble it. Each entry under `chunked` has a `chunk_id` (the identifier that links fragments to this record), `total_fragments` (the number of fragments that make up that image), and `crc32c` (a CRC32C checksum, as a decimal string, over the reassembled image text). If one image is inline and the other is chunked, the inline image still appears at the top level as either a value or `null`.
@@ -193,7 +208,7 @@ A chunked main record replaces the top-level `before` or `after` field for the s
     "before": null,
     "after": null,
     "source": {
-        "version": "1.0",
+        "version": "1.1",
         "ts_ms": 1705318200000,
         "ts_ns": 1705318200000000000,
         "txId": "ffthunp5stx6ffs2vyfqoatmfu",
@@ -210,12 +225,16 @@ A chunked main record replaces the top-level `before` or `after` field for the s
         }
     },
     "ts_ms": 1705318200125,
-    "ts_ns": 1705318200125483291
+    "ts_ns": 1705318200125483291,
+    "transaction": {
+        "total_records": 1,
+        "record_id": "8f14e45fceea167a5a36dedd4bea2543"
+    }
 }
 ```
 
 **Fragment record**  
-Each fragment is its own Kinesis record with `type` set to `fragment` and three fields: `chunk_id` matches the value in the corresponding `chunked.before.chunk_id` or `chunked.after.chunk_id` on the main record, `index` is the zero-based position of the fragment within the image, and `data` is a segment of the image's JSON text split on UTF-8 character boundaries (each fragment's `data` value is a valid UTF-8 string on its own). Because Aurora DSQL CDC uses `UNORDERED` mode and randomized partition keys, fragments and the main record can arrive on different shards and in any order. To read all fragments, consume all shards on the Kinesis data stream. For more information about delivery ordering, see [Ordering](cdc-streams.md#cdc-ordering).
+Each fragment is its own Kinesis record with `type` set to `fragment` and three fields: `chunk_id` matches the value in the corresponding `chunked.before.chunk_id` or `chunked.after.chunk_id` on the main record, `index` is the zero-based position of the fragment within the image, and `data` is a segment of the image's JSON text split on UTF-8 character boundaries (each fragment's `data` value is a valid UTF-8 string on its own). Fragment records don't include `source` or `transaction` metadata. Because Aurora DSQL CDC uses `UNORDERED` mode and randomized partition keys, fragments and the main record can arrive on different shards and in any order. To read all fragments, consume all shards on the Kinesis data stream. For more information about delivery ordering, see [Ordering](cdc-streams.md#cdc-ordering).
 
 ```
 {
@@ -226,7 +245,7 @@ Each fragment is its own Kinesis record with `type` set to `fragment` and three 
 }
 ```
 
-To reassemble an oversized image, buffer each record with `type` `fragment` by its `chunk_id`. When you receive a main record with `type` `chunked`, wait until you have `total_fragments` fragments for each `chunk_id` referenced under `chunked.before` or `chunked.after`, sort the fragments by `index` ascending, and concatenate the `data` strings. The concatenated result is the original `before` or `after` object as JSON text—parse it to access the column values. To verify delivery integrity, compute CRC32C over the concatenated string and compare the result to `chunked.before.crc32c` or `chunked.after.crc32c`.
+To reassemble an oversized image, buffer each record with `type` `fragment` by its `chunk_id`. When you receive a main record with `type` `chunked`, wait until you have `total_fragments` fragments for each `chunk_id` referenced under `chunked.before` or `chunked.after`, sort the fragments by `index` ascending, and concatenate the `data` strings. The concatenated result is the original `before` or `after` object as JSON text—parse it to access the column values. To verify delivery integrity, compute CRC32C over the concatenated string and compare the result to `chunked.before.crc32c` or `chunked.after.crc32c`. A transaction that includes a chunked main record isn't ready to process until you have reassembled every image that the main record references.
 
 ## Data type serialization
 <a name="cdc-data-types"></a>
