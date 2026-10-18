@@ -37,94 +37,114 @@ The following instructions are for installing the agent on 64-bit x86 hosts. To 
    + Amazon Linux 2
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.801-1.el7.{{x86_64}}.rpm
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.801-1.el7.{{x86_64}}.rpm
      ```
    + Amazon Linux 2023
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.amzn2023.{{x86_64}}.rpm
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-1.amzn2023.{{x86_64}}.rpm
      ```
    + RHEL 8.x and Rocky Linux 8.x
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.el8.{{x86_64}}.rpm
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-1.el8.{{x86_64}}.rpm
      ```
    + CentOS 9.x, RHEL 9.x, and Rocky Linux 9.x
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.el9.{{x86_64}}.rpm
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-1.el9.{{x86_64}}.rpm
+     ```
+   + RHEL 10 and Rocky Linux 10
+
+     ```
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-1.el10.{{x86_64}}.rpm
      ```
    + Ubuntu 20.04
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent_2025.0.888-1_{{amd64}}.ubuntu2004.deb
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2004.deb
      ```
    + Ubuntu 22.04
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent_2025.0.888-1_{{amd64}}.ubuntu2204.deb
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2204.deb
      ```
    + Ubuntu 24.04
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent_2025.0.888-1_{{amd64}}.ubuntu2404.deb
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2404.deb
+     ```
+   + Ubuntu 26.04
+
+     ```
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2604.deb
      ```
    + SUSE Linux Enterprise 12
 
      ```
-     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.sles12.x86_64.rpm
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-1.sles12.x86_64.rpm
      ```
    + SUSE Linux Enterprise 15
 
      ```
-     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.sles15.x86_64.rpm
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-1.sles15.x86_64.rpm
      ```
 
 1. Install the package.
    + Amazon Linux 2
 
      ```
-     $  sudo yum install -y ./nice-dcv-session-manager-agent-2025.0.888-1.el7.{{x86_64}}.rpm
+     $  sudo yum install -y ./nice-dcv-session-manager-agent-2026.0.916-1.el7.{{x86_64}}.rpm
      ```
    + Amazon Linux 2023
 
      ```
-     $  sudo yum install -y ./nice-dcv-session-manager-agent-2025.0.888-1.amzn2023.{{x86_64}}.rpm
+     $  sudo yum install -y ./nice-dcv-session-manager-agent-2026.0.916-1.amzn2023.{{x86_64}}.rpm
      ```
    + RHEL 8.x and Rocky Linux 8.x
 
      ```
-     $  sudo yum install -y ./nice-dcv-session-manager-agent-2025.0.888-1.el8.{{x86_64}}.rpm
+     $  sudo yum install -y ./nice-dcv-session-manager-agent-2026.0.916-1.el8.{{x86_64}}.rpm
      ```
    + CentOS 9.x, RHEL 9.x, and Rocky Linux 9.x
 
      ```
-     $  sudo yum install -y ./nice-dcv-session-manager-agent-2025.0.888-1.el9.{{x86_64}}.rpm
+     $  sudo yum install -y ./nice-dcv-session-manager-agent-2026.0.916-1.el9.{{x86_64}}.rpm
+     ```
+   + RHEL 10 and Rocky Linux 10
+
+     ```
+     $  sudo yum install -y ./nice-dcv-session-manager-agent-2026.0.916-1.el10.{{x86_64}}.rpm
      ```
    + Ubuntu 20.04
 
      ```
-     $  sudo apt install ./nice-dcv-session-manager-agent_2025.0.888-1_{{amd64}}.ubuntu2004.deb
+     $  sudo apt install ./nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2004.deb
      ```
    + Ubuntu 22.04
 
      ```
-     $  sudo apt install ./nice-dcv-session-manager-agent_2025.0.888-1_{{amd64}}.ubuntu2204.deb
+     $  sudo apt install ./nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2204.deb
      ```
    + Ubuntu 24.04
 
      ```
-     $  sudo apt install ./nice-dcv-session-manager-agent_2025.0.888-1_{{amd64}}.ubuntu2404.deb
+     $  sudo apt install ./nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2404.deb
+     ```
+   + Ubuntu 26.04
+
+     ```
+     $  sudo apt install ./nice-dcv-session-manager-agent_2026.0.916-1_{{amd64}}.ubuntu2604.deb
      ```
    + SUSE Linux Enterprise 12
 
      ```
-     $ sudo zypper install ./nice-dcv-session-manager-agent-2025.0.888-1.sles12.x86_64.rpm
+     $ sudo zypper install ./nice-dcv-session-manager-agent-2026.0.916-1.sles12.x86_64.rpm
      ```
    + SUSE Linux Enterprise 15
 
      ```
-     $ sudo zypper install ./nice-dcv-session-manager-agent-2025.0.888-1.sles15.x86_64.rpm
+     $ sudo zypper install ./nice-dcv-session-manager-agent-2026.0.916-1.sles15.x86_64.rpm
      ```
 
 1. Place a copy of the broker's self-signed certificate (that you copied in the previous step) in the ` /etc/dcv-session-manager-agent/` directory on the agent.
@@ -155,7 +175,7 @@ If the broker is running on an Amazon EC2 instance, for `broker_host` you must s
 
 **To install the agent on a Windows host**
 
-1. Download the [ agent installer](https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-x64-Release-2025.0-888.msi).
+1. Download the [ agent installer](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-x64-Release-2026.0-916.msi).
 
 1. Run the installer. On the Welcome screen, choose **Next**.
 
@@ -195,17 +215,17 @@ If the broker is running on an Amazon EC2 instance, for `broker_host` you must s
 
 **To install the agent on a macOS host**
 
-1. Download the [ agent installer](https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-macos-arm64.pkg) or use the command line:
+1. Download the [ agent installer](https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-macos-arm64.pkg) or use the command line:
 
    ```
-   $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-macos-arm64.pkg
+   $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerAgents/nice-dcv-session-manager-agent-2026.0.916-macos-arm64.pkg
    ```
 
 1. Install the package. You can use either the command line or via agent installer:
    + Command line:
 
      ```
-     $ sudo installer -pkg ./nice-dcv-session-manager-agent-2025.0.888-macos-arm64.pkg -target /
+     $ sudo installer -pkg ./nice-dcv-session-manager-agent-2026.0.916-macos-arm64.pkg -target /
      ```
    + Agent installer: Double-click the `.pkg` file and follow the installation wizard.
 

@@ -45,6 +45,7 @@ The following table lists the parameters in the broker configuration file.
 | broker-to-broker-distributed-memory-max-size-mb | No | 4096 | Specifies the maximum amount of off -heap memory to be used by a single broker to store Amazon DCV session data. | 
 | broker-to-broker-key-store-file | Yes |  | Specifies the key store used for TLS broker connections. | 
 | broker-to-broker-key-store-pass | Yes |  | Specifies the key store pass. | 
+| broker-to-broker-tls-strict | No | false | Enables or disables TLS peer certificate verification for broker-to-broker connections. When set to true, each broker validates the certificate presented by other brokers against the configured broker-to-broker-key-store-file, so that only trusted brokers can join the fleet. When set to false, peer certificate verification is not performed. | 
 | enable-cloud-watch-metrics | No | false | Enables or disables Amazon CloudWatch metrics. If you enable CloudWatch Metrics, you might need to specify a value for cloud-watch-region. | 
 | cloud-watch-region | No | Only required if enable-cloud-watch-metrics is set to true. If the broker is installed on an Amazon EC2 instance, the region is retrieved from the IMDS. | The AWS region where the CloudWatch metrics are posted.  | 
 | max-api-requests-per-second | No | 1000 | Specifies the maximum number of requests that the broker api can process each second before being throttled. | 

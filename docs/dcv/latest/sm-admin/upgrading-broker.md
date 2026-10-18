@@ -19,54 +19,84 @@ Amazon DCV Session Manager brokers pass API requests to their relevant agents. T
    + Amazon Linux 2 and RHEL 7.x
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el7.noarch.rpm
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1.el7.noarch.rpm
      ```
    + RHEL 8.x and Rocky Linux 8.x
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el8.noarch.rpm
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1.el8.noarch.rpm
+     ```
+   + CentOS 9.x, RHEL 9.x, and Rocky Linux 9.x
+
+     ```
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1.el9.noarch.rpm
+     ```
+   + RHEL 10 and Rocky Linux 10
+
+     ```
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1.el10.noarch.rpm
      ```
    + Ubuntu 20.04
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2004.deb
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2004.deb
      ```
    + Ubuntu 22.04
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2204.deb
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2204.deb
      ```
    + Ubuntu 24.04
 
      ```
-     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2404.deb
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2404.deb
+     ```
+   + Ubuntu 26.04
+
+     ```
+     $  wget https://d1uj6qtbmh3dt5.cloudfront.net/2026.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2604.deb
      ```
 
 1. Install the package.
    + Amazon Linux 2 and RHEL 7.x
 
      ```
-     $  sudo yum install -y nice-dcv-session-manager-broker-2025.0.539-1.el7.noarch.rpm
+     $  sudo yum install -y nice-dcv-session-manager-broker-2026.0.570-1.el7.noarch.rpm
      ```
    + RHEL 8.x and Rocky Linux 8.x
 
      ```
-     $  sudo yum install -y nice-dcv-session-manager-broker-2025.0.539-1.el8.noarch.rpm
+     $  sudo yum install -y nice-dcv-session-manager-broker-2026.0.570-1.el8.noarch.rpm
+     ```
+   + CentOS 9.x, RHEL 9.x, and Rocky Linux 9.x
+
+     ```
+     $  sudo yum install -y nice-dcv-session-manager-broker-2026.0.570-1.el9.noarch.rpm
+     ```
+   + RHEL 10 and Rocky Linux 10
+
+     ```
+     $  sudo yum install -y nice-dcv-session-manager-broker-2026.0.570-1.el10.noarch.rpm
      ```
    + Ubuntu 20.04
 
      ```
-     $  sudo apt install -y nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2004.deb
+     $  sudo apt install -y nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2004.deb
      ```
    + Ubuntu 22.04
 
      ```
-     $  sudo apt install -y nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2204.deb
+     $  sudo apt install -y nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2204.deb
      ```
    + Ubuntu 24.04
 
      ```
-     $  sudo apt install -y nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2404.deb
+     $  sudo apt install -y nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2404.deb
+     ```
+   + Ubuntu 26.04
+
+     ```
+     $  sudo apt install -y nice-dcv-session-manager-broker-2026.0.570-1_all.ubuntu2604.deb
      ```
 
 1. Start the broker service and ensure that it starts automatically every time the instance starts.
