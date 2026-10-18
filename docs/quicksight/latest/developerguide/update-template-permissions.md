@@ -29,6 +29,6 @@ aws quicksight update-template-permissions
 
 ------
 
-If your region has already been configured with the CLI, it does not need to be included in an argument.
+If your Region has already been configured with the CLI, it does not need to be included in an argument.
 
 For more information on the `UpdateTemplatePermissions` operation, see [UpdateTemplatePermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateTemplatePermissions.html) in the * Quick Sight API Reference*.

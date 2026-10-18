@@ -3,7 +3,7 @@
 # Quick and interface VPC endpoints (AWS PrivateLink)
 <a name="vpc-interface-endpoints"></a>
 
-You can establish a private connection between your VPC and Quick by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access the Quick website and APIs without leaving the Amazon network. Instances in your VPC don't need public IP addresses to communicate with Quick website and APIs, but still need access to certain domains other than Quick so that static assets, reports, and other files can be downloaded. For a list of domains that Quick needs to access, see [Domains accessed by Quick](#vpc-interface-endpoints-supported-domains).
+You can establish a private connection between your VPC and Quick by creating an *interface VPC endpoint*. Interface endpoints are powered by [AWS PrivateLink](https://aws.amazon.com/privatelink), a technology that enables you to privately access the Quick website and APIs without leaving the Amazon network. Instances in your VPC don't need public IP addresses to communicate with Quick website and APIs. However, instances still need access to certain domains other than Quick so that static assets, reports, and other files can be downloaded. For a list of domains that Quick needs to access, see [Domains accessed by Quick](#vpc-interface-endpoints-supported-domains).
 
 Each interface endpoint is represented by one or more [Elastic Network Interfaces](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html) in your subnets. 
 
@@ -12,12 +12,12 @@ For more information, see [Interface VPC endpoints (AWS PrivateLink)](https://do
 ## Considerations for Quick VPC endpoints
 <a name="vpc-endpoint-considerations"></a>
 
-Before you set up an interface VPC endpoint for Quick, ensure that you review [Interface endpoint properties and limitations](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-interface-limitations) in the *Amazon VPC User Guide*. 
+Before you set up an interface VPC endpoint for Quick, make sure that you review [Interface endpoint properties and limitations](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html#vpce-interface-limitations) in the *Amazon VPC User Guide*. 
 
 The following considerations apply to VPC endpoint restrictions in Quick:
 + Quick supports data sources from AWS services including Amazon S3, Amazon Redshift, and Athena. Quick needs access to the resources from your AWS accounts to retrieve this data. If you want traffic to other AWS services to be routed through the VPC endpoint, you need to create VPC endpoint connections for each service that your Quick account is configured to. For more information about connecting to a VPC connection with Quick, see [Connecting to a VPC with Quick](https://docs.aws.amazon.com/quicksight/latest/user/working-with-aws-vpc.html).
 + IP and VPC endpoint rules precede all other rules in Quick. If you have embedded dashboards or visuals that are visible to the public (anyone on the internet) and restrict traffic to the Quick website through a VPC endpoint, public dashboards can only be shared through the VPC endpoint. For more information on public embedding, see [Turning on public access to visuals and dashboards with a 1-click embed code](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-1-click-public.html).
-+ Quick Website VPC endpoints are not available in China regions & Govcloud.
++ Quick Website VPC endpoints are not available in the China Regions and AWS GovCloud (US).
 
 ## Creating an interface VPC endpoint for Quick Website
 <a name="vpc-endpoint-create"></a>
@@ -76,7 +76,7 @@ The following is an example of an endpoint policy for Quick. When attached to an
 
 ------
 
-Policies for the Quick website must have the values of the `Principal`, `Action`, and `Resource` fields set to `"*"`. A condition may be specified only against the `aws:PrincipalAccount` or the `aws:OrgId attributes`. These conditions are evaluated on all requests to the Quick website and API calls after the user signs in.
+Policies for the Quick website must have the values of the `Principal`, `Action`, and `Resource` fields set to `"*"`. A condition can be specified only against the `aws:PrincipalAccount` or the `aws:OrgId attributes`. These conditions are evaluated on all requests to the Quick website and API calls after the user signs in.
 
 ## Creating an interface VPC endpoint for Quick APIs
 <a name="vpc-endpoint-create-apis"></a>
@@ -91,8 +91,8 @@ When you create a VPC endpoint for Quick APIs, the private DNS resolution automa
 
 For more information about VPC endpoints for the AWS Management Console, see [Required VPC endpoints and DNS configuration](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/required-endpoints-dns-configuration.html).
 
-**APIs listed in the [CLI reference](https://docs.aws.amazon.com/cli/latest/reference/quicksight/) are supported via interface VPC endpoint Quick APIs except the ones listed below:**  
-
+**APIs not supported through interface VPC endpoints**  
+All Quick APIs listed in the [CLI reference](https://docs.aws.amazon.com/cli/latest/reference/quicksight/) are supported through interface VPC endpoints except the following:
 
 
 | API Name | 
@@ -176,7 +176,7 @@ aws quicksight update-ip-restriction \
 ## Domains accessed by Quick
 <a name="vpc-interface-endpoints-supported-domains"></a>
 
-The table below lists all URLs that are accessed by Quick from your browser. Make sure that you have established connectivity for all of domains listed in the table.
+The following table lists all URLs that are accessed by Quick from your browser. Make sure that you have established connectivity for all domains that are listed in the table.
 
 
 | URL | Reason | Has VPC endpoint support? | 

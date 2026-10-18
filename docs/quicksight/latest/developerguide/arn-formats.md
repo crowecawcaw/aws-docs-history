@@ -32,7 +32,7 @@ Some resource ARNs can include a path, variable, or wildcard.
 
 You can use wildcard characters (`*` and `?`) within any ARN segment. An asterisk (`*`) represents any combination of zero or more characters, and a question mark (`?`) represents any single character. You can use multiple `*` or `?` characters in each segment. If you're using the ARN for permissions, avoid using `*` wildcards if possible, to limit access to only the required elements. Following are some examples of using paths, wildcards, and variables.
 
-For the following example, we use an S3 ARN. You might use this when you give permissions to S3 in an IAM policy. This S3 ARN shows a path and file are specified.
+The following example uses an S3 ARN. You might use this when you give permissions to S3 in an IAM policy. This S3 ARN shows a path and file are specified.
 
 **Note**  
 The term key name is used to describe what looks like a path and file after `bucketname/`. These are called key names because a bucket doesn't actually contain folder structures like those used in your computer's file system. Instead the slash (`/`) is a delimiter that helps to make the organization of the bucket more intuitive. In this case, the bucket name is `amzn-s3-demo-bucket`, and the key name is `developers/design_info.doc`.

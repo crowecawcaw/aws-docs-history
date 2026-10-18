@@ -20,7 +20,7 @@ Following, you can find a list of the common client errors that all operations c
 
 | Error code | Description | 
 | --- | --- | 
-| AuthFailure | The provided credentials couldn't be validated. You might not be authorized to carry out the request. Ensure that your account is authorized to use the Quick Sight service and that your credit card details are correct. Also ensure that you're using the correct access keys. | 
+| AuthFailure | The provided credentials couldn't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Quick Sight service and that your credit card details are correct. Also make sure that you're using the correct access keys. | 
 | Blocked | Your account is currently blocked. Contact [Support](https://support.aws.amazon.com/#/contacts/aws-account-verification) if you have questions. | 
 | DryRunOperation | The user has the required permissions, so the request would have succeeded, but the DryRun parameter was used. | 
 | IdempotentParameterMismatch | The request uses the same client token as a previous, but nonidentical request. Don't reuse a client token with different requests, unless the requests are identical. | 
@@ -31,16 +31,16 @@ Following, you can find a list of the common client errors that all operations c
 | InvalidPaginationToken | The specified pagination token isn't valid or is expired. | 
 | InvalidParameter | A parameter specified in a request isn't valid, is unsupported, or can't be used. The returned message provides an explanation of the error value.  | 
 | InvalidParameterCombination | A value that indicates an incorrect combination of parameters, or a missing parameter.  | 
-| InvalidParameterValue | A value specified in a parameter isn't valid, is unsupported, or can't be used. Ensure that you specify a resource by using its full ID. The returned message provides an explanation of the error value. | 
+| InvalidParameterValue | A value specified in a parameter isn't valid, is unsupported, or can't be used. Make sure that you specify a resource by using its full ID. The returned message provides an explanation of the error value. | 
 | InvalidQueryParameter | The AWS query string is malformed or doesn't adhere to AWS standards. | 
 | MalformedQueryString | The query string contains a syntax error. | 
 | MissingAction | The request is missing an action or a required parameter. | 
 | MissingAuthenticationToken | The request must contain either a valid (registered) AWS access key ID or X.509 certificate. | 
-| MissingParameter | The request is missing a required parameter. Ensure that you have supplied all the required parameters for the request, for example the resource ID. | 
-| OptInRequired | You aren't authorized to use the requested service. Ensure that you have subscribed to the service you are trying to use. If you are new to AWS, your account might take some time to be activated while your credit card details are being verified. | 
+| MissingParameter | The request is missing a required parameter. Make sure that you have supplied all the required parameters for the request, for example the resource ID. | 
+| OptInRequired | You aren't authorized to use the requested service. Make sure that you have subscribed to the service you are trying to use. If you are new to AWS, your account might take some time to be activated while your credit card details are being verified. | 
 | PendingVerification | Your account is pending verification. Until the verification process is complete, you might not be able to carry out requests with this account. If you have questions, contact [AWS Support](https://console.aws.amazon.com/support/home#/).  | 
 | RequestExpired | The request reached the service more than 15 minutes after the date stamp on the request or the request expiration date (such as for presigned URLs). Or the date stamp on the request is more than 15 minutes in the future. If you're using temporary security credentials, this error can also occur if the credentials have expired. For more information, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) in the IAM User Guide. | 
-| UnauthorizedOperation | You aren't authorized to perform this operation. Check your IAM policies, and ensure that you are using the correct access keys.  | 
+| UnauthorizedOperation | You aren't authorized to perform this operation. Check your IAM policies, and make sure that you are using the correct access keys.  | 
 | UnknownParameter | An unknown or unrecognized parameter was supplied. Requests that can cause this error include supplying a misspelled parameter or a parameter that isn't supported for the specified API version. | 
 | UnsupportedInstanceAttribute | The specified attribute can't be modified. | 
 | <a name="UnsupportedOperation"></a> UnsupportedOperation  | The specified request includes an unsupported operation. The returned message provides details of the unsupported operation. | 
@@ -55,7 +55,7 @@ Following, you can find a list of client errors that are specific to Quick Sight
 
 | Error code | Description | 
 | --- | --- | 
-| AccessDeniedException | You don't have access to this. The provided credentials can't be validated. You might not be authorized to carry out the request. Ensure that your account is authorized to use the Amazon Quick Sight service and that your policies have the correct permissions. Also, ensure that you are using the correct access keys. | 
+| AccessDeniedException | You don't have access to this. The provided credentials can't be validated. You might not be authorized to carry out the request. Make sure that your account is authorized to use the Amazon Quick Sight service and that your policies have the correct permissions. Also, make sure that you are using the correct access keys. | 
 | DomainNotWhiteListedException | The domain specified isn't on the allow list. Make sure that all domains for embedded dashboards are added to the approved list by an Amazon Quick Sight administrator. | 
 | IdentityTypeNotSupportedException | The identity type specified isn't supported. Supported identity types include: IAM and QUICKSIGHT. | 
 | InvalidNextTokenException | The NextToken value isn't valid. | 
@@ -75,11 +75,11 @@ There are a number of reasons that you might encounter an error while performing
 + **Specify the AWS account ID and namespace** – Make sure that the relevant AWS account ID is provided with each request. The namespace must be set to `default`.
 + **Allow for eventual consistency** – Some errors are caused because a previous request hasn't yet propagated through the system. 
 + **Use a sleep interval between request rates** – Quick Sight API requests are throttled to help maintain the performance of the service. If your requests have been throttled, you get an error.
-+ **Use the full ID of the resource** – When specifying a resource, ensure that you use its full ID, and not its user-supplied name or description. 
-+ **Check your services** – Ensure that you have signed up for all the services you are attempting to use. You can check which services you're signed up for by going to the **My Account** section of the [AWS home page](http://aws.amazon.com).
-+ **Check your permissions** – Ensure that you have the required permissions to carry out the request. 
++ **Use the full ID of the resource** – When specifying a resource, make sure that you use its full ID, and not its user-supplied name or description. 
++ **Check your services** – Make sure that you have signed up for all the services you are attempting to use. You can check which services you're signed up for by going to the **My Account** section of the [AWS home page](http://aws.amazon.com).
++ **Check your permissions** – Make sure that you have the required permissions to carry out the request. 
 + **Check your VPC** – Some resources can't be shared between virtual private clouds (VPCs), for example security groups. 
-+ **Check your credentials** – Ensure that you provide your access keys when you are making requests and that you have entered the credentials correctly. Also, if you have more than one account, ensure that you are using the correct credentials for a particular account. If the provided credentials are incorrect, you might get the following error: `Client.AuthFailure`.
++ **Check your credentials** – Make sure that you provide your access keys when you are making requests and that you have entered the credentials correctly. Also, if you have more than one account, make sure that you are using the correct credentials for a particular account. If the provided credentials are incorrect, you might get the following error: `Client.AuthFailure`.
 
 ## Server errors
 <a name="qs-api-errors-table-server"></a>

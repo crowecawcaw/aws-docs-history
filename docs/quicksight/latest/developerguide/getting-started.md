@@ -11,4 +11,3 @@ Use the topics in this section to get started with the Quick Sight API and SDKs.
 + [Prerequisites](getting-started-prerequisites.md)
 + [Make Quick Sight API requests](getting-started-making-api-requests.md)
 + [Use CLI skeleton files](cli-skeletons.md)
-+ [Use the Quick Sight Dev Portal](getting-started-dev-portal.md)

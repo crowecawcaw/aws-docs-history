@@ -29,6 +29,6 @@ aws quicksight update-dashboard-permisisons
 
 ------
 
-If your region has already been configured with the CLI, it does not need to be included in an argument.
+If your Region has already been configured with the CLI, it does not need to be included in an argument.
 
 For more information about the `UpdateDashboardPermissions` API operation, see [UpdateDashboardPermissions](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPermissions.html) in the *Amazon Quick Sight API Reference*.

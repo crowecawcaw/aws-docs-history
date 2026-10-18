@@ -11,7 +11,7 @@ If you plan to access Quick Sight through its API, make sure you're familiar wit
 
 We recommend visiting the AWS [Getting Started Resource Center](https://aws.amazon.com/getting-started/tools-sdks/) for a tour of what AWS SDKs and toolkits have to offer. 
 
-Although you can use a terminal and your favorite text editor, you might benefit from the more visual UI experience you get in an integrated development environment (IDE). We provide a list of IDEs in the AWS Getting Started Resource Center in the [IDE and IDE Toolkits](https://aws.amazon.com/getting-started/tools-sdks/#IDE_and_IDE_Toolkits) section. This site provides AWS toolkits that you can download for your preferred IDE. Some IDEs also offer tutorials to help you learn more about programming languages. 
+Although you can use a terminal and your favorite text editor, you might benefit from the more visual UI experience you get in an integrated development environment (IDE). The following list of IDEs is available in the AWS Getting Started Resource Center in the [IDE and IDE Toolkits](https://aws.amazon.com/getting-started/tools-sdks/#IDE_and_IDE_Toolkits) section. This site provides AWS toolkits that you can download for your preferred IDE. Some IDEs also offer tutorials to help you learn more about programming languages. 
 
 Before you can call the Quick Sight API operations, make sure that you have the `quicksight:{{operation-name}}` permission in an IAM policy attached to your IAM identity. For example, to call `list-users`, you need the permission `quicksight:ListUsers`. The same pattern applies to all operations.
 
@@ -105,7 +105,7 @@ Use the following procedure to set up a Java app that interacts with Quick Sight
 
 1. Create an Quick Sight client. 
 
-   You can use a default public endpoint that the client can communicate with, or you can reference the endpoint explicitly. There are multiple ways to provide your AWS credentials. In the following example, we provide a direct, simple approach. 
+   You can use a default public endpoint that the client can communicate with, or you can reference the endpoint explicitly. There are multiple ways to provide your AWS credentials. The following example provides a direct, simple approach. 
 
    The following client method is used to make all the API calls that follow.
 
@@ -130,7 +130,7 @@ Use the following procedure to set up a Java app that interacts with Quick Sight
    	}
    ```
 
-1. Use the client that you just created to list all the users in our Quick Sight account. 
+1. Use the client that you just created to list all the users in your Quick Sight account. 
 
    Provide the AWS account ID that you used to subscribe to Quick Sight. This ID must match the AWS account ID of the caller's identity. Cross-account calls aren't supported at this time. Also, make sure that the required parameter `namespace` is set to {{`default`}}. 
 
@@ -247,7 +247,7 @@ Use the following procedure to interact with Quick Sight using C\#.NET. This exa
 
 1. Create a new **Console app** project in Visual Studio.
 
-1. Under your solution, locate app **Dependencies**, then open the context (right-click) menu and choose **Add Packages**.
+1. Under your solution, locate app **Dependencies**, then open the context menu and choose **Add Packages**.
 
 1. In the sources list, choose **Configure Sources**.
 

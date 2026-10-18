@@ -20,6 +20,6 @@ If your `region` has already been configured within the CLI, it doesn't need to 
 
 ------
 
-If your region has already been configured with the CLI, it does not need to be included in an argument.
+If your Region has already been configured with the CLI, it does not need to be included in an argument.
 
 For more information about the `SearchDashboards` API operation, see [SearchDashboards](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_SearchDashboards.html) in the *Amazon Quick Sight API Reference*.

@@ -7,7 +7,9 @@ Use Quick Sight key management APIs to list and update customer managed keys (CM
 
 **Permissons**
 
-Before you begin, create or update an IAM role that contains a user permission to access and use all CMKs that are registered to your Quick Sight account. At minimum, the IAM policy must contain the `kms:CreateGrant`, `quicksight:UpdateKeyRegistration`, and `quicksight:DescribeKeyRegistration` permissions. To see a list of IAM policy examples that can be used to grant different degrees of access to the CMKs in a account, see [IAM identity-based policies for Amazon Quick Sight: using the admin key management console](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html#security_iam_id-based-policy-examples-admin-key-management-console).
+Before you begin, create or update an IAM role that contains a user permission to access and use all CMKs that are registered to your Quick Sight account. At minimum, the IAM policy must contain the `kms:CreateGrant`, `quicksight:UpdateKeyRegistration`, and `quicksight:DescribeKeyRegistration` permissions.
+
+For a list of IAM policy examples that grant different degrees of access to the CMKs in a Quick Sight account, see [IAM identity-based policies for Amazon Quick Sight: using the admin key management console](https://docs.aws.amazon.com/quicksight/latest/user/iam-policy-examples.html#security_iam_id-based-policy-examples-admin-key-management-console).
 
 ## CMK API Examples
 <a name="cmk-operations-examples"></a>

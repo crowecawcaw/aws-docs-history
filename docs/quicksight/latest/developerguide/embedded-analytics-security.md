@@ -13,7 +13,7 @@ By default, Quick Sight only allows users who have access to content in the cons
 ## Quick Sight manages where you see content
 <a name="embedded-analytics-security-where-content-is-seen"></a>
 
-Quick Sight offers a variety of solutions to control where embedding can take place. To ensure embedding is only done intentionally, Quick Sight will only embed on domains that are allow-listed. You can add static domains to your allow-list through the Quick Sight console, or you can dynamically add a domain at runtime. Additionally, you can limit access to your organization's Quick Sight account to a predefined list of Internet Protocol (IP) address ranges.
+Quick Sight offers a variety of solutions to control where embedding can take place. To make sure that embedding is only done intentionally, Quick Sight will only embed on domains that are allow-listed. You can add static domains to your allow-list through the Quick Sight console, or you can dynamically add a domain at runtime. Additionally, you can limit access to your organization's Quick Sight account to a predefined list of Internet Protocol (IP) address ranges.
 
 ## Quick Sight manages what you see
 <a name="embedded-analytics-security-what-you-see"></a>

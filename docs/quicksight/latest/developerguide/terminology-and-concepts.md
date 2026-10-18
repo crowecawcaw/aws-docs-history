@@ -7,7 +7,7 @@ Following, you can find a list of terms and concepts used to describe Amazon Qui
 
 **Anonymous Quick Sight user** – A temporary Quick Sight user identity that virtually belongs to a namespace and that you can use only with embedding. You can use tag-based rules to implement row-level security for such users.
 
-**Caller identity** – The identity of the IAM user making an API request. The identity of the caller is determined by Quick Sight using the signature attached to the request. Through the use of our provided SDK clients, no manual steps are necessary to generate the signature or attach it to the requests. However, you can do it manually if you want to. 
+**Caller identity** – The identity of the IAM user making an API request. The identity of the caller is determined by Quick Sight using the signature attached to the request. With the provided SDK clients, you don't need to take manual steps to generate the signature or attach it to the requests. However, you can do it manually if you want to. 
 
 **Invoker identity** – In addition to the caller identity, but not as a replacement for it, you can assume a caller's identity through the IAM `AssumeRole` API operation when making calls to Quick Sight. AWS approves callers through their invoker’s identity. This approval means that you can avoid having to explicitly add multiple accounts belonging to the same Quick Sight subscription. 
 

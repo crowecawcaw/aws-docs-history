@@ -3,9 +3,11 @@
 # Embed assets with Quick Sight
 <a name="embedded-analytics"></a>
 
-Quick Sight Embedded Analytics allows users to integrate business analytics into their own applications and web portals. This empowers end users to gain deeper and faster insights through the embedded assets to allow for for easier in-depth analysis of your data. Use Quick Sight embedded analytics to provide critical business insights from your Software as a Service (SaaS) product, scale and modernize your enterprise's application on the cloud, and leverage Generative Business Intelligence (BI) to enable end users to use natural language and discover actionable insights.
+With Quick Sight Embedded Analytics, you can integrate business analytics into your own applications and web portals. This empowers end users to gain deeper and faster insights through the embedded assets for easier in-depth analysis of your data.
 
-Businesses can embed rich data visuals, interactive dashboards, and advanced ML-powered analytics in minutes. You can embed the full dashboard-building experience within a portal or application, including the Quick Sight home page, search, and data experiences. This allows you to provide ad-hoc data exploration and author capabilities to your application's power users who want to explore usage data, create specific views as dashboards, and share their creations with other users or groups in their organization.
+Use Quick Sight embedded analytics to provide critical business insights from your Software as a Service (SaaS) product, scale and modernize your enterprise's application on the cloud, and leverage Generative Business Intelligence (BI) to enable end users to use natural language and discover actionable insights.
+
+Businesses can embed rich data visuals, interactive dashboards, and advanced ML-powered analytics in minutes. You can embed the full dashboard-building experience within a portal or application, including the Quick Sight home page, search, and data experiences. With embedded analytics, your application's power users can explore usage data, create specific views as dashboards, and share their creations with other users or groups in their organization.
 
 Specialized expertise is not required for your team to develop, maintain, and evolve the analytics components for your applications. Teams can easily manage and scale your analytics servers, manage complex data engineering pipelines and infrastructure as your applications' popularity grows.
 
@@ -27,7 +29,7 @@ The list below describes 9 ways embedded analytics can be used to transform your
 
 1. **Save development time and resources by using enterprise-ready interactive dashboards and visuals**
 
-   Embedded analytics saves valuable engineering time by providing enterprise-ready dashboards and visuals that can be used right away. Once they ae embedded, you can use these embedded dashboards to analyze data and derive actionable insights.
+   Embedded analytics saves valuable engineering time by providing enterprise-ready dashboards and visuals that can be used right away. After they are embedded, you can use these embedded dashboards to analyze data and derive actionable insights.
 
 1. **Supports highly advanced analytics**
 
@@ -55,7 +57,7 @@ The list below describes 9 ways embedded analytics can be used to transform your
 
 1. **Distribute up to date and extensive customer facing reports directly from your application**
 
-   You can schedule automated delivery of reports to ensure that stakeholders receive timely updates without the need to access your application.
+   You can schedule automated delivery of reports to make sure that stakeholders receive timely updates without the need to access your application.
 
 ## What to consider when using embedded analytics
 <a name="decisions-to-make-with-embedded-analytics"></a>
@@ -72,7 +74,7 @@ Review the considerations below before you get started with Quick Sight embedded
 
 1. **How unique do you want your embedded experience to be?**
 
-   Embedded Analytics supports extensive customization features to ensure that the data visualization experience matches your brand. You can customize Quick Sight to match the style of your brand, create custom controls from your application that interact with embedded content, and update your application based on events that happen in the embedded experience.
+   Embedded Analytics supports extensive customization features to make sure that the data visualization experience matches your brand. You can customize Quick Sight to match the style of your brand, create custom controls from your application that interact with embedded content, and update your application based on events that happen in the embedded experience.
 
 1. **What type of application do you want to embed into?**
 

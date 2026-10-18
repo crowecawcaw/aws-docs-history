@@ -14,6 +14,7 @@ Asset bundle import and export operations support the following asset types:
 + Restricted folders
 + Refresh schedules
 + Themes
++ Topics
 + VPC connections
 
 The following data sources and dataset types aren't supported by the asset bundle APIs.

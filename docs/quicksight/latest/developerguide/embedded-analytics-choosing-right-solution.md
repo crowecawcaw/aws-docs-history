@@ -3,7 +3,7 @@
 # Choose the right embedding solution
 <a name="embedded-analytics-choosing-right-solution"></a>
 
-Quick Sight offers multiple options and mechanisms of embedding. You can embed a visual, a dashboard, the complete Quick Sight console, or the natural language component Q in your application. Furthermore, based on your organizations authentication setup, you can choose between anonymous and registered user embedding. All of these options are possible when you onboard the Quick Sight [Embedding APIs](https://docs.aws.amazon.com/quicksight/latest/APIReference/embedding-Quick Sight.html).
+Quick Sight offers multiple options and mechanisms of embedding. You can embed a visual, a dashboard, the complete Quick Sight console, or the natural language component Q in your application. Furthermore, based on your organizations authentication setup, you can choose between anonymous and registered user embedding. All of these options are possible when you onboard the Quick Sight [Embedding APIs](https://docs.aws.amazon.com/quicksight/latest/APIReference/embedding-quicksight.html).
 
 ## Anonymous user embedding
 <a name="embedded-analytics-dev-anonymous-user-embedding"></a>
