@@ -4,16 +4,20 @@
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
-# Capture network traffic on a managed node using kubectl and S3
+# Capture network traffic on an EKS Auto Mode node using kubectl and Amazon S3
 <a name="auto-get-tcpdump"></a>
 
-Learn how to capture network traffic on an Amazon EKS managed node that has the node monitoring agent. The agent runs tcpdump on the node, compresses capture files, and uploads them to your S3 bucket.
+Learn how to capture network traffic on an Amazon EKS Auto Mode node. The EKS node monitoring agent runs `tcpdump` on the node, compresses capture files, and uploads them to your S3 bucket.
+
+**Important**  
+Packet capture requires the `tcpdump` binary to be present in the environment that the EKS node monitoring agent runs in. This is currently the case only on EKS Auto Mode nodes, where the agent runs as part of the node image.  
+When you install the agent as an EKS add-on or with Helm on other compute types, such as EKS managed node groups or self-managed nodes, the agent runs in a container that doesn’t include `tcpdump`. The capture fails immediately, and the capture status reports a `reason` of `Failure` with the message `failed to start tcpdump: exec: "tcpdump": executable file not found in $PATH`.
 
 ## Prerequisites
 <a name="_prerequisites"></a>
 
 Make sure you have the following:
-+ An existing Amazon EKS Auto Mode cluster with the node monitoring agent. For more information, see [Detect node health issues and enable automatic node repair](node-health.md).
++ An existing Amazon EKS Auto Mode cluster. EKS Auto Mode includes the EKS node monitoring agent. For more information, see [Detect node health issues and enable automatic node repair](node-health.md).
 + The `kubectl` command-line tool installed and configured to communicate with your cluster.
 + The AWS CLI installed and logged in with sufficient permissions to create S3 buckets and objects.
 + A recent version of Python 3 installed.
@@ -62,7 +66,7 @@ Use the `start-capture.py` script from the [node monitoring agent repository](ht
    python3 start-capture.py --bucket {{<bucket-name>}} --node {{<node-name>}} --dry-run
    ```
 
-   The script requires Python 3 with `boto3` and `pyyaml` installed, and `kubectl` configured for your cluster.
+   The script requires Python 3 with `boto3` and `pyyaml` installed, and `kubectl` configured for your cluster. The script applies the resource to your current `kubectl` context, so if you work with more than one cluster, confirm your context first with `kubectl config current-context`.
 
    The script generates a `NodeDiagnostic` resource like the following. This example is provided for reference; note that the `upload` fields require pre-signed S3 POST credentials that are generated programmatically by the script.
 
@@ -70,7 +74,7 @@ Use the `start-capture.py` script from the [node monitoring agent repository](ht
    apiVersion: eks.amazonaws.com/v1alpha1
    kind: NodeDiagnostic
    metadata:
-     name: {{<node-name>}}                    # Required: node instance ID
+     name: {{<node-name>}}                    # Required: node name as shown by kubectl get nodes
    spec:
      packetCapture:
        duration: "30s"                       # Required: capture duration (max 1h)
@@ -113,11 +117,20 @@ Once the status shows `Success`, download the capture files from S3.
 aws s3 cp s3://{{<bucket-name>}}/captures/ ./captures/ --recursive
 ```
 
-The files are gzip-compressed pcap format. Decompress and analyze with tcpdump or Wireshark:
+The EKS node monitoring agent uploads each capture under a prefix that includes the `captureID`, so the downloaded files are nested rather than sitting directly in `./captures/`. The resulting layout is as follows.
 
 ```
-gunzip captures/*.gz
-tcpdump -r captures/capture.pcap0000 -n
+captures/{{<node-name>}}/{{<captureID>}}/capture.pcap0000.gz
+```
+
+The files are gzip-compressed pcap format. Decompress and analyze them with tcpdump or Wireshark. Because of the nesting, use a recursive pattern rather than a flat one.
+
+```
+# Decompress every capture file that was downloaded
+find captures -name '*.gz' -exec gunzip {} +
+
+# Read one capture file
+tcpdump -r captures/{{<node-name>}}/{{<captureID>}}/capture.pcap0000 -n
 ```
 
 ## Step 5: Clean up

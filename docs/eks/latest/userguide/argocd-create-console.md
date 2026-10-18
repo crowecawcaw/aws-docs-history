@@ -17,6 +17,8 @@ Create an Argo CD capability on your Amazon EKS cluster using the AWS Management
 ## Create the Argo CD capability
 <a name="_create_the_argo_cd_capability"></a>
 
+This console procedure uses `argocd` as the primary Argo CD namespace. For information about the primary namespace and additional resource namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
+
 1. Open the Amazon EKS console at https://console.aws.amazon.com/eks/home\#/clusters.
 
 1. Select your cluster name to open the cluster detail page.

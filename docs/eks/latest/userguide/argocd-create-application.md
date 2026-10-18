@@ -53,6 +53,41 @@ View the Application status:
 kubectl get application guestbook -n argocd
 ```
 
+## Create an Application in an additional namespace
+<a name="_create_an_application_in_an_additional_namespace"></a>
+
+You can create Applications outside the primary Argo CD namespace. Before you create the Application, complete the following configuration:
++ Add the namespace to `application.namespaces` in the `argocd-cmd-params-cm` ConfigMap. For instructions on configuring resource namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
++ Add the namespace to `spec.sourceNamespaces` in the `AppProject` that the Application uses. Create the `AppProject` in the primary Argo CD namespace. For instructions on configuring the AppProject, see [Working with Argo CD Projects](argocd-projects.md).
+
+The following example creates an Application in the `team-a-gitops` namespace that uses the `team-a` project:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: team-a-gitops
+spec:
+  project: team-a
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    name: in-cluster
+    namespace: guestbook
+```
+
+Apply and view the Application in its source namespace:
+
+```
+kubectl apply -f application.yaml
+kubectl get application guestbook -n team-a-gitops
+```
+
+When you use the Argo CD CLI or UI, identify an Application in an additional namespace as `<namespace>/<application-name>`. For example, use `argocd app get team-a-gitops/guestbook`. The namespace that contains the Application is independent of `spec.destination.namespace`, which specifies where Argo CD deploys the workload.
+
 ## Source configuration
 <a name="_source_configuration"></a>
 
@@ -155,6 +190,76 @@ spec:
     kustomize:
       namePrefix: prod-
 ```
+
+## Push hydrated manifests with the source hydrator
+<a name="argocd-source-hydrator"></a>
+
+The source hydrator renders your manifests (for example, from Helm charts or Kustomize overlays). It pushes the rendered output to a Git branch before syncing it to the cluster. This implements the rendered manifests pattern: the exact manifests applied to your clusters are stored and auditable in Git.
+
+To turn on the source hydrator, add `hydrator.enabled: "true"` to the `data` section of the `argocd-cmd-params-cm` ConfigMap in the primary Argo CD namespace. Keep any existing keys in the ConfigMap.
+
+```
+data:
+  hydrator.enabled: "true"
+```
+
+To use the source hydrator, Argo CD needs write access to the repository that receives the rendered manifests:
++ For AWS CodeCommit repositories, the Capability Role needs `codecommit:GitPush` in addition to `codecommit:GitPull` (see [Configure Argo CD permissions](argocd-permissions.md)).
++ For all repository types, create a Repository secret labeled `argocd.argoproj.io/secret-type: repository-write`.
+
+In the Application’s `AppProject`, make sure that `spec.sourceRepos` permits the repository used for hydration. For instructions on configuring source repositories in an AppProject, see [Working with Argo CD Projects](argocd-projects.md).
+
+Argo CD uses separate credentials for pushing and pulling to provide better isolation. For Git providers that use stored credentials, such as GitHub or GitLab, create separate pull and write Repository Secrets. The write Secret must contain credentials with write access to the repository.
+
+ **Example – Hydrate a Helm chart from AWS CodeCommit** 
+
+For AWS CodeCommit, the Capability Role provides pull credentials when it has `codecommit:GitPull` permission. You don’t need a pull Repository Secret. Create a write Repository Secret to identify the repository that receives the hydrated output. The Secret doesn’t contain stored credentials because authentication uses the Capability Role. In the following examples, replace `region` with your AWS Region and `repository-name` with your CodeCommit repository name.
+
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: my-repo-push
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository-write
+stringData:
+  type: git
+  url: https://git-codecommit.{{region}}.amazonaws.com/v1/repos/{{repository-name}}
+  project: default
+```
+
+**Important**  
+The `syncSource.path` field must point to a subdirectory. Hydrating to the repository root is not supported.
+
+Create an Application with `spec.sourceHydrator` instead of `spec.source`:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd
+spec:
+  project: default
+  sourceHydrator:
+    drySource:
+      repoURL: https://git-codecommit.{{region}}.amazonaws.com/v1/repos/{{repository-name}}
+      targetRevision: main
+      path: charts/my-app
+    syncSource:
+      targetBranch: environments/production
+      path: my-app-hydrated
+  destination:
+    name: prod-cluster
+    namespace: my-app
+```
+
+Argo CD renders the manifests from `drySource`, commits the rendered output to the `environments/production` branch under the `my-app-hydrated` directory, and syncs the cluster from that branch.
+
+(Optional) To stage rendered manifests for review before they sync (for example, through a pull request), add `hydrateTo.targetBranch`. Argo CD then pushes rendered manifests to the staging branch and syncs only from `syncSource.targetBranch`.
+
+For more information about hydrator behavior, commit message templates, and additional options, see [Source Hydrator on the Argo CD documentation website](https://argo-cd.readthedocs.io/en/v3.4.6/user-guide/source-hydrator/).
 
 ## Sync policies
 <a name="_sync_policies"></a>
@@ -382,11 +487,11 @@ Rollback to a previous revision using the Argo CD UI, the Argo CD CLI, or by upd
 Using the Argo CD CLI:
 
 ```
-argocd app rollback argocd/my-app <revision-id>
+argocd app rollback my-app <revision-id>
 ```
 
 **Note**  
-When using the Argo CD CLI with the managed capability, specify applications with the namespace prefix: `namespace/appname`.
+For an Application in the primary Argo CD namespace, the namespace prefix is optional. For an Application in an additional namespace, use `<namespace>/<application-name>`.
 
 For more information, see [argocd app rollback](https://argo-cd.readthedocs.io/en/stable/user-guide/commands/argocd_app_rollback/) in the Argo CD documentation.
 

@@ -42,11 +42,12 @@ At a high level, deploying an inference workload on Amazon EKS involves the foll
 
 | Step | Description | 
 | --- | --- | 
-|  **Set up the cluster**  | Create an EKS cluster with GPU-enabled nodes, monitoring, and storage. See [Cluster setup](ml-cluster-setup.md) in the AI/ML on EKS docs. | 
-|  **Store model weights**  | Download model weights from a model registry (such as Hugging Face) and store them in Amazon S3 for fast model loading during cold-start or scale-up events. | 
-|  **Deploy the model server**  | Create a Kubernetes Deployment that runs a model server (such as vLLM) on GPU nodes. The model server streams weights from S3 into GPU memory and exposes an OpenAI-compatible API. | 
-|  **Expose the inference endpoint**  | Create a Kubernetes Service to provide a stable network endpoint. Use port-forwarding for testing or a load balancer such as AWS Application Load Balancer (ALB) for production traffic. | 
-|  **Monitor and scale**  | Use Prometheus metrics (request rate, token throughput, latency, KV cache utilization) to monitor performance and configure autoscaling. | 
+|  **Set up the cluster**  | Create an EKS cluster with monitoring and storage. See [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md). | 
+|  **Create the GPU NodePool**  | Create a GPU NodePool that dynamically provisions GPU-enabled nodes, and validate it with a test Pod. See [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md). | 
+|  **Store model weights**  | Download model weights from a model registry (such as Hugging Face) and store them in Amazon S3 for fast model loading during cold-start or scale-up events. See [Load & Serve Models on Amazon EKS](ml-inference-load-serve-model.md). | 
+|  **Deploy the model server**  | Create a Kubernetes Deployment that runs a model server (such as vLLM) on GPU nodes. The model server streams weights from S3 into GPU memory and exposes an OpenAI-compatible API. See [Load & Serve Models on Amazon EKS](ml-inference-load-serve-model.md). | 
+|  **Expose the inference endpoint**  | Create a Kubernetes Service to provide a stable network endpoint. Use port-forwarding for testing or a load balancer such as AWS Application Load Balancer (ALB) for production traffic. See [Load & Serve Models on Amazon EKS](ml-inference-load-serve-model.md). | 
+|  **Monitor and scale**  | Use Prometheus metrics (request rate, token throughput, latency, KV cache utilization) to monitor performance and configure autoscaling. See [Autoscale AI model inference on GPUs with Amazon EKS](ml-inference-autoscaling.md). | 
 
 ## Inference performance metrics
 <a name="_inference_performance_metrics"></a>
@@ -76,7 +77,7 @@ Large inference containers (8-15 GB) and model weights (10-100\+ GB) can cause s
 ## What you’ll deploy
 <a name="_what_youll_deploy"></a>
 
-The [Load & Serve Model](ml-inference-load-serve-model.md) walkthrough guides you through deploying an end-to-end inference application:
+The [Load & Serve Models](ml-inference-load-serve-model.md) walkthrough guides you through deploying an end-to-end inference application:
 
 1.  **Download model weights** — A Kubernetes Job downloads the Ministral-3-8B-Instruct model from Hugging Face and uploads it to your S3 bucket.
 
@@ -86,4 +87,4 @@ The [Load & Serve Model](ml-inference-load-serve-model.md) walkthrough guides yo
 
 1.  **Deploy a chat frontend** — Open WebUI provides a browser-based chat interface connected to the vLLM endpoint.
 
-The walkthrough uses the cluster infrastructure from the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section and works with both EKS Auto Mode and self-managed Karpenter paths.
+The walkthrough uses the cluster infrastructure from the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section and the GPU NodePool from the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section, and works with both EKS Auto Mode and self-managed Karpenter paths.

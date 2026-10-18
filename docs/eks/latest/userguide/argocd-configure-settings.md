@@ -7,16 +7,14 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Configure Argo CD settings
 <a name="argocd-configure-settings"></a>
 
-The EKS Capability for Argo CD provides a fully managed Argo CD experience. Upstream Argo CD offers many optional settings and features, and the capability supports a subset of them. For supported settings, you configure them the same way as upstream Argo CD, through the `argocd-cm` ConfigMap in your cluster. The capability reads the supported fields from that ConfigMap and applies them to the managed Argo CD instance.
-
-The following sections describe how to configure the `argocd-cm` ConfigMap for supported settings.
+The EKS Capability for Argo CD provides a fully managed Argo CD experience. Upstream Argo CD offers many optional settings and features, and the capability supports a subset of them. For general settings, use the `argocd-cm` ConfigMap. Use the `argocd-cmd-params-cm` ConfigMap to turn on the source hydrator with `hydrator.enabled` and configure additional Application and ApplicationSet source namespaces. The capability reads supported fields from these ConfigMaps in your cluster and applies them to the managed Argo CD instance.
 
 ## Prerequisites
 <a name="_prerequisites"></a>
 
 Before you configure Argo CD settings, you must have:
 + An EKS cluster with the Argo CD capability created (see [Create an Argo CD capability](create-argocd-capability.md))
-+ The namespace configured for Argo CD in the capability (by default, the `argocd` namespace)
++ The primary Argo CD namespace (by default, the `argocd` namespace)
 + The `kubectl` CLI configured to communicate with your cluster
 
 ## Configure the argocd-cm ConfigMap
@@ -26,7 +24,7 @@ To configure supported Argo CD settings, create a ConfigMap named `argocd-cm` in
 
 Create the ConfigMap with the following requirements:
 + Name the ConfigMap `argocd-cm`.
-+ Create it in the namespace configured for Argo CD in the capability (the namespace you set in the Argo CD configuration when you created the capability). By default, this is the `argocd` namespace.
++ Create it in the primary Argo CD namespace. By default, this is the `argocd` namespace.
 + Apply the label `app.kubernetes.io/part-of: argocd`. This label is required, matching upstream Argo CD behavior.
 + Use the same field format and keys as upstream Argo CD.
 
@@ -50,13 +48,48 @@ A ConfigMap is not a secure store. Do not put secrets, credentials, or other sen
 ## How the capability applies your settings
 <a name="_how_the_capability_applies_your_settings"></a>
 
-You configure Argo CD by creating an `argocd-cm` ConfigMap in your own cluster. The capability applies the supported settings from your ConfigMap to the managed Argo CD instance. It applies only supported settings, and ignores any other field or feature that you set. Any setting that isn’t listed in [Supported settings](#argocd-supported-settings) is unsupported and has no effect.
+You configure Argo CD by creating an `argocd-cm` ConfigMap in your own cluster. The capability applies the supported settings from your ConfigMap to the managed Argo CD instance. It applies only supported `argocd-cm` settings, and ignores any other field or feature that you set. Any `argocd-cm` setting that isn’t listed in [Supported settings](#argocd-supported-settings) is unsupported and has no effect.
 
 The capability validates the values that you set. If a value is invalid or malformed, the capability ignores that value and keeps running with its default configuration for that setting. A mistake in your ConfigMap doesn’t break your managed Argo CD instance.
 
 **Note**  
 The capability applies the configuration from the `argocd-cm` ConfigMap in your cluster. Any principal with write access to this ConfigMap can change the configuration of your managed Argo CD instance. Your cluster’s Kubernetes role-based access control (RBAC) governs access to the ConfigMap, not the IAM permissions that control the capability resource. As a security best practice, grant permission to modify objects in the Argo CD namespace only to trusted users and service accounts. Because Kubernetes RBAC scopes permissions by resource type, you can still grant the access that other users need. For example, you can allow developers to create and manage Applications but not modify ConfigMaps. This prevents them from changing the `argocd-cm` configuration.  
 For more information about the shared responsibility model, Kubernetes RBAC, and namespace isolation for the Argo CD capability, see [Security considerations for EKS Capabilities](capabilities-security.md). To control access within Argo CD, see [Configure Argo CD permissions](argocd-permissions.md).
+
+## Configure namespaces for Applications and ApplicationSets
+<a name="argocd-configure-resource-namespaces"></a>
+
+The **primary Argo CD namespace** is the `namespace` value in the capability’s `configuration.argoCd` configuration. If you omit this value, EKS uses `argocd`. You can’t change the primary namespace after you create the capability. By default, the capability manages `Application` and `ApplicationSet` resources only in this namespace. You can enable additional namespaces for these resources.
+
+Create an `argocd-cmd-params-cm` ConfigMap in the primary Argo CD namespace. This is a separate ConfigMap from the `argocd-cm` ConfigMap that you use for the settings in [Supported settings](#argocd-supported-settings). The following example enables both resource types in two team namespaces:
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argocd-cmd-params-cm
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: argocd
+data:
+  application.namespaces: "team-a-gitops,team-b-gitops"
+  applicationsetcontroller.namespaces: "team-a-gitops,team-b-gitops"
+```
+
+The keys have the following effects:
++  `application.namespaces` specifies additional namespaces where the capability manages `Application` resources.
++  `applicationsetcontroller.namespaces` specifies additional namespaces where the capability manages `ApplicationSet` resources. Include every namespace from this key in `application.namespaces`, because an ApplicationSet creates its Applications in the same namespace as the ApplicationSet.
+
+The primary Argo CD namespace is always enabled, so don’t include it in either value. Each value is a comma-separated list with a maximum of 50 entries. An entry can be a Kubernetes namespace name or a shell-style glob pattern, such as `team-*-gitops`. Entries can contain lowercase letters, numbers, hyphens, and asterisks, and can be up to 63 characters long. An entry can’t start or end with a hyphen. Regular expressions aren’t supported. The capability ignores invalid and duplicate entries and literal entries for the primary namespace. You can’t use `default`, `kube-node-lease`, `kube-public`, or `kube-system` as resource namespaces. These Kubernetes system namespaces remain excluded when a glob pattern matches them. Use specific namespace names or narrow patterns so that a pattern doesn’t unintentionally include other namespaces.
+
+To verify a namespace, wait up to 10 minutes after a configuration change. For an existing Application, run `argocd app get <namespace>/<application-name>`. For an existing ApplicationSet, run `argocd appset get <namespace>/<applicationset-name>`. A successful response confirms that Argo CD can access the resource in that namespace. If the ApplicationSet command returns `namespace '<namespace>' is not permitted`, the namespace isn’t effective. For Kubernetes status and controller log checks, see [Application or ApplicationSet in an additional namespace isn’t reconciled](argocd-troubleshooting.md#argocd-troubleshooting-additional-namespace).
+
+**Important**  
+This configuration controls the namespaces that contain `Application` and `ApplicationSet` custom resources. It doesn’t control the destination namespaces where those resources deploy workloads. `AppProject` resources, Argo CD ConfigMaps, and repository and cluster Secrets must remain in the primary Argo CD namespace. For each additional namespace, also add that namespace to the `spec.sourceNamespaces` field of an appropriate `AppProject`. For more information, see [Working with Argo CD Projects](argocd-projects.md).
+
+ApplicationSets in additional namespaces don’t support the Plugin (`plugin`), Pull Request (`pullRequest`), or Source Code Management (SCM) Provider (`scmProvider`) generators. To use one of these generators, create the ApplicationSet in the primary Argo CD namespace.
+
+The managed capability configures the required Kubernetes permissions and restarts the affected Argo CD components for you. Don’t apply the upstream Argo CD `ClusterRole` or `ClusterRoleBinding` manifests, and don’t restart managed workloads. If you remove a namespace from the ConfigMap, the capability stops managing `Application` or `ApplicationSet` resources in that namespace. However, it doesn’t delete those resources or their deployed workloads.
 
 ## Supported settings
 <a name="argocd-supported-settings"></a>
@@ -197,9 +230,9 @@ If health evaluation is temporarily unavailable, the capability reports affected
 
 After you apply or update the `argocd-cm` ConfigMap, confirm that the health check is active:
 
-1. In the Argo CD UI, choose an Application that includes a Custom Resource of a kind that you defined a health check for. Confirm that the resource reports the health status your script returns. Alternatively, run `argocd app get {{<application-name>}} ` and review the health status of the resource.
+1. In the Argo CD UI, choose an Application that includes a Custom Resource of a kind that you defined a health check for. Confirm that the resource reports the health status your script returns. Alternatively, for an Application in the primary Argo CD namespace, run `argocd app get {{<application-name>}} ` and review the health status of the resource. For an Application in an additional namespace, use `argocd app get {{<namespace>/<application-name>}} `.
 
 1. If the resource does not report the expected health, verify the following:
-   + The ConfigMap is named `argocd-cm` and is in the namespace configured for Argo CD in the capability.
+   + The ConfigMap is named `argocd-cm` and is in the primary Argo CD namespace.
    + The ConfigMap has the required `app.kubernetes.io/part-of: argocd` label.
    + The health check key uses the correct `<group>_<kind>` for the resource type.

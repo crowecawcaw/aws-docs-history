@@ -10,16 +10,14 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 **Tip**  
  [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
-This section walks you through the steps to create the infrastructure required to run training or inference workloads on Amazon EKS by using Terraform. The steps include creating an EKS cluster, GPU-enabled nodes with EKS Auto Mode or Karpenter, a monitoring stack with Prometheus and Grafana, and Amazon S3 storage for model weights.
+This section walks you through the steps to create the infrastructure required to run training or inference workloads on Amazon EKS by using Terraform. The steps include creating an EKS cluster with EKS Auto Mode or Karpenter for node auto-scaling, load balancing for in-cluster endpoints, a monitoring stack with Prometheus and Grafana, and Amazon S3 storage for model weights. You create the GPU NodePool that provisions GPU-enabled nodes in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 
 See the documentation for [EKS Auto Mode](https://docs.aws.amazon.com/eks/latest/userguide/automode.html) and [Karpenter](https://karpenter.sh/docs/) for more information on how those features provision and auto-scale EC2 instances in EKS clusters.
 
- **High-level architecture and workflow** 
+The following diagram shows the AWS high-level architecture for this section’s setup. Inside your AWS account, the EKS cluster uses a NodeClass and NodePool to provision an On-Demand Capacity Reservation (ODCR) G instance and a Spot or On-Demand G instance. In the monitoring stack, Prometheus remote writes metrics to Amazon Managed Service for Prometheus, and Grafana reads them. An Amazon S3 bucket stores model weights. The NodeClass and NodePool are shown for context; you create them in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 
-![High-level architecture showing an <shared id=](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-tf-architecture.png)
+![The EKS cluster, monitoring stack, and Amazon S3 bucket.](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-tf-architecture.png)
 
-
-The diagram shows the AWS high-level architecture for this section’s setup.
 
 ## Prerequisites
 <a name="cluster-setup-tf-prerequisites"></a>
@@ -27,9 +25,26 @@ The diagram shows the AWS high-level architecture for this section’s setup.
 **Important**  
 The resources you create in this tutorial, including EKS clusters, GPU instances, Application Load Balancers, and Amazon Managed Service for Prometheus, incur charges. Delete resources when you finish to avoid ongoing charges.
 + Terraform >= 1.15.0. For setup instructions, see [Installing Terraform](https://developer.hashicorp.com/terraform/install).
-+  `kubectl` >= 1.36. For setup instructions, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
++  `kubectl` >= 1.37. For setup instructions, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
 +  AWS CLI >= 2.27. For setup instructions, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
 +  `jq`. For setup instructions, see [Download jq](https://jqlang.github.io/jq/download/).
++  `git`, to clone the sample repository.
++ At least one unused VPC in your AWS Region’s quota. The Terraform code always creates its own VPC, and the default quota is 5 VPCs per Region.
+
+Check how many VPCs the Region already has against your quota:
+
+```
+aws ec2 describe-vpcs --region [.replaceable]`region-code` --query 'length(Vpcs)'
+
+aws service-quotas get-service-quota \
+  --service-code vpc \
+  --quota-code L-F678F1CE \
+  --query 'Quota.Value' \
+  --region [.replaceable]`region-code`
+```
+
+**Important**  
+If the Region is already at its VPC quota, the apply fails partway through with `VpcLimitExceeded` after it has already created IAM roles, KMS keys, the S3 bucket, and the AMP workspace. Run `terraform destroy` to remove those resources before you retry in another Region, or request a quota increase. For more information, see [Requesting a quota increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html).
 
 Verify your tool versions:
 
@@ -40,35 +55,74 @@ kubectl version --client
 jq --version
 ```
 
-## Step 1: Download and deploy the Terraform code
-<a name="cluster-setup-tf-deploy"></a>
-
 This walkthrough uses the Terraform code in the [sample-eks-docs](https://github.com/aws-samples/sample-eks-docs) AWS Samples GitHub repository. Clone the repository into a working directory:
 
 ```
-git clone git@github.com:aws-samples/sample-eks-docs.git
+git clone https://github.com/aws-samples/sample-eks-docs.git
 cd sample-eks-docs/ai-ml/set-up-cluster
 ```
 
-The repository has the following structure under the `ai-ml/set-up-cluster/` directory you just changed into:
+The repository has the following structure under the `ai-ml/set-up-cluster/` directory you changed into:
 
 ```
 set-up-cluster/
 ├── scripts/
 │   └── cleanup.sh
 └── terraform/
+    ├── README.md
     ├── auto-mode/
+    │   ├── helm-values/
+    │   └── nodepools/
     └── karpenter/
+        ├── helm-values/
+        └── nodepools/
 ```
 
-The repository provides two deployment paths. Choose only one and use it throughout the guide.
+## Understand the Terraform code
+<a name="cluster-setup-tf-code-layout"></a>
+
+The `terraform/auto-mode/` and `terraform/karpenter/` directories are each a self-contained root module. They create the same infrastructure, but differ in how much of it they manage explicitly: EKS Auto Mode provides node auto-scaling, the ALB controller, and GPU drivers as managed capabilities, whereas the Karpenter variant installs those components itself.
+
+Each directory contains the following files. Review them before you apply, so you know what the module creates in your account.
+
+
+| File | What it creates | 
+| --- | --- | 
+|  `main.tf`, `versions.tf`, `variables.tf`, `outputs.tf`  | Provider configuration, input variables, and the outputs printed after an apply. | 
+|  `vpc.tf`  | The VPC, subnets, and subnet tags the ALB and EKS require. | 
+|  `eks.tf`  | The EKS cluster, its add-ons, and (on the Karpenter path) the `system` managed node group. | 
+|  `monitoring.tf`  | The Amazon Managed Service for Prometheus workspace, the kube-prometheus-stack Helm release, the NVIDIA DCGM Exporter, and the EKS Pod Identity associations they use. Chart values live in `helm-values/`. | 
+|  `s3.tf`  | The model weights S3 bucket, the `model-storage-sa` ServiceAccount, and its Pod Identity association. | 
+|  `storage-class.tf`  | The default `gp3` `StorageClass`. | 
+|  `nodepools.tf`  | GPU NodePools, selected by `var.nodepools`. On the Karpenter path, also the always-on `general-purpose` NodePool for non-GPU workloads. Manifests live in `nodepools/`. | 
+|  `karpenter.tf`, `nvidia-device-plugin.tf`, `alb-controller.tf`, `fsx-subnet.tf`  | Karpenter path only. EKS Auto Mode covers this functionality natively, so it has `alb-ingress-class.tf` in place of `alb-controller.tf` and no Karpenter or device plugin installs. | 
+|  `efa-device-plugin.tf`, `mpi-operator.tf`, `fsx-lustre.tf`  | Optional add-ons for distributed training, disabled by default. See the following table. | 
+
+### What a default apply creates
+<a name="cluster-setup-tf-code-defaults"></a>
+
+Several components are controlled by input variables. With no `-var` overrides, `terraform apply` creates the cluster, the monitoring stack, and the S3 bucket, and does not create any GPU capacity:
+
+
+| Variable | Default | Effect | 
+| --- | --- | --- | 
+|  `nodepools`  |  `{}`  | No GPU NodePools, so no GPU nodes and no GPU charges. You enable a strategy in [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md). | 
+|  `enable_amazon_prometheus`  |  `true`  | Creates the AMP workspace and wires Prometheus remote-write to it. | 
+|  `enable_dcgm_exporter`  |  `true`  | Installs the NVIDIA DCGM Exporter. Its Pods stay at zero until GPU nodes join the cluster. | 
+|  `enable_efa`  |  `false`  | Skips the EFA Kubernetes device plugin and the MPI Operator. | 
+|  `enable_fsx`  |  `false`  | Skips the FSx for Lustre file system, CSI driver, and static `PersistentVolume`. | 
+|  `my_cidr`  |  `0.0.0.0/0`  | Source CIDR allowed to reach the Grafana ALB. Override this, as described in the following warning. | 
+
+Other variables set versions and names, including `region` (`us-east-2`), `cluster_name` (`ai-eks-docs`), and `kubernetes_version`. For the full list with descriptions, see `variables.tf` in your chosen directory. For usage examples beyond this guide, see the [README](https://github.com/aws-samples/sample-eks-docs/blob/main/ai-ml/set-up-cluster/terraform/README.md) on GitHub in the `terraform/` directory.
+
+## Step 1: Deploy Terraform to create the EKS cluster, load balancing, monitoring, and S3 bucket
+<a name="cluster-setup-tf-deploy"></a>
+
+A single `terraform apply` creates all of the infrastructure for this section: the EKS cluster, load balancing, the monitoring stack, and the Amazon S3 bucket for model weights.
+
+The repository provides two deployment paths. **Choose only one and use it throughout the guide**.
 +  **EKS Auto Mode** (`terraform/auto-mode/`) — In addition to the core [networking, storage, and load balancing add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#addon-consider-auto), EKS Auto Mode includes and manages the following capabilities for training and inference workloads: EKS node monitoring agent, automatic node repair, [SOCI](https://github.com/awslabs/soci-snapshotter) snapshotter for fast container pulls, and GPU readiness for the default NodeClass. The NVIDIA device plugin is included in the Bottlerocket accelerated AMI that EKS Auto Mode uses for GPU-enabled nodes.
 +  **Self-managed Karpenter** (`terraform/karpenter/`) — On an EKS cluster without EKS Auto Mode, the Terraform code installs and configures the components required for training and inference workloads. This includes networking add-ons (VPC CNI, CoreDNS, kube-proxy), Karpenter, the EKS node monitoring agent, the NVIDIA device plugin, and SOCI snapshotter for fast container pulls.
-
-**Important**  
-Pick either EKS Auto Mode or self-managed Karpenter and use it throughout the guide. Switching mid-stream requires destroying the cluster and starting over.
-
- **EKS cluster options: EKS Auto Mode and self-managed Karpenter** 
 
 ![Side-by-side comparison of the two cluster options: an EKS Auto Mode cluster with a NodePool, and an EKS standard cluster with self-managed Karpenter, CoreDNS, VPC CNI, NVIDIA device plugin, EKS Pod Identity agent, Node Monitoring Agent, kube-proxy, and a NodeClass and NodePool](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-cluster-options.png)
 
@@ -82,14 +136,14 @@ terraform apply -var "my_cidr=${MY_CIDR}"
 ```
 Treat source-IP allowlisting as a minimum safeguard, not a complete one. Also change the default Grafana admin password after first login. For a stronger posture, change the `alb.ingress.kubernetes.io/scheme` to `internal` (reachable only from within your VPC or a connected VPN) and add a TLS certificate.
 
-### Deploy the cluster
-<a name="_deploy_the_cluster"></a>
-
 Change into the directory for your chosen path, initialize Terraform, and apply:
 
-Both variants default to the `us-east-2` region. To deploy in a different region, add `-var "region={{region-code}}"` to the `terraform apply` command in the following step, where {{region-code}} is the AWS Region you want to deploy in.
+To deploy in a different Region, add `-var "region={{region-code}}"` to the `terraform apply` command that follows, where {{region-code}} is the AWS Region you want to deploy in.
 
-The Terraform code uses all available Availability Zones in the target region, excluding `use1-az3`, `usw1-az2`, and `cac1-az3` because [Amazon EKS does not support control plane placement in those zones](https://repost.aws/knowledge-center/eks-cluster-creation-errors).
+The Terraform code uses all available Availability Zones in the target Region, excluding `use1-az3`, `usw1-az2`, and `cac1-az3` because [Amazon EKS does not support control plane placement in those zones](https://repost.aws/knowledge-center/eks-cluster-creation-errors).
+
+**Important**  
+Run `terraform apply` directly, as shown in the following steps. Do not save a plan with `terraform plan -out` and apply the saved plan file. The Kubernetes, Helm, and kubectl providers authenticate with a token from the `aws_eks_cluster_auth` data source, and a saved plan freezes that token at plan time. By the time you apply the plan, the token has expired, and every Helm release and Kubernetes object fails with `Unauthorized` or `the server has asked for the client to provide credentials` after the cluster itself is already created.
 
 ------
 #### [ EKS Auto Mode ]
@@ -111,7 +165,7 @@ terraform init
 terraform apply
 ```
 
-This command takes about 15 minutes. It creates an EKS cluster with a managed node group dedicated to hosting add-ons and the Karpenter controller. Terraform installs Karpenter with the Spot interruption queue enabled and the `NodeRepair` and `StaticCapacity` feature gates turned on. It also installs the NVIDIA device plugin, the AWS Load Balancer Controller, and the monitoring stack.
+This command takes about 30 minutes. It creates an EKS cluster with a managed node group dedicated to hosting add-ons and the Karpenter controller. Terraform installs Karpenter with the Spot interruption queue enabled and the `NodeRepair` and `StaticCapacity` feature gates turned on. It also installs the NVIDIA device plugin, the AWS Load Balancer Controller, and the monitoring stack.
 
 ------
 
@@ -127,13 +181,15 @@ Outputs:
 
 cluster_name         = "ai-eks-docs"
 configure_kubectl    = "aws eks update-kubeconfig --region us-east-2 --name ai-eks-docs --alias ai-eks-docs"
-configure_model_bucket = "export MODEL_BUCKET=ai-eks-docs-models-20250612abc1"
-model_bucket         = "ai-eks-docs-models-20250612abc1"
-node_iam_role_name   = "ai-eks-docs-eks-auto-20250612..."
+configure_model_bucket = "export MODEL_BUCKET=ai-eks-docs-models-20260612084512345600000004"
+model_bucket         = "ai-eks-docs-models-20260612084512345600000004"
+node_iam_role_name   = "ai-eks-docs-eks-auto-20260612..."
 region               = "us-east-2"
 ```
 
 The `configure_kubectl` output is a ready-to-run command that points `kubectl` at the cluster. The `model_bucket` output contains the S3 bucket name for model weights. The `node_iam_role_name` output shows the IAM role that nodes use.
+
+The preceding resource count is for the EKS Auto Mode path. The self-managed Karpenter path creates roughly 115 resources, because it provisions Karpenter, its interruption queue and event rules, the `system` managed node group, the AWS Load Balancer Controller, and the NVIDIA device plugin itself. The count also differs in Regions with a different number of Availability Zones, because the code creates a subnet, a route table, and their associations per zone.
 
 ### Configure kubectl
 <a name="_configure_kubectl"></a>
@@ -176,16 +232,20 @@ In EKS Auto Mode, the VPC CNI, kube-proxy, and CoreDNS run as managed components
 kubectl get pods --all-namespaces
 ```
 
-Expected output includes Karpenter, CoreDNS, kube-proxy, aws-node (VPC CNI), the EKS Pod Identity Agent, the EKS node monitoring agent, and the NVIDIA device plugin:
+Expected output includes Karpenter, CoreDNS, kube-proxy, aws-node (VPC CNI), the Amazon EBS CSI driver, the EKS Pod Identity Agent, the EKS node monitoring agent, the AWS Load Balancer Controller, and the NVIDIA device plugin:
 
 ```
 NAMESPACE     NAME                                                              READY   STATUS    RESTARTS   AGE
+kube-system   aws-load-balancer-controller-56c454df76-bbt9h                     1/1     Running   0          5m
+kube-system   aws-load-balancer-controller-56c454df76-drdp6                     1/1     Running   0          5m
 kube-system   aws-node-bzdcz                                                    2/2     Running   0          5m
 kube-system   aws-node-vkbhb                                                    2/2     Running   0          5m
 kube-system   coredns-7dbb8998cf-9b9wk                                          1/1     Running   0          5m
 kube-system   coredns-7dbb8998cf-pwtjd                                          1/1     Running   0          5m
 kube-system   ebs-csi-controller-748f54b69-8h7jv                                6/6     Running   0          5m
 kube-system   ebs-csi-controller-748f54b69-v2mv8                                6/6     Running   0          5m
+kube-system   ebs-csi-node-ks8vq                                                3/3     Running   0          5m
+kube-system   ebs-csi-node-ps9g8                                                3/3     Running   0          5m
 kube-system   eks-node-monitoring-agent-5qw4l                                   1/1     Running   0          5m
 kube-system   eks-node-monitoring-agent-7lrtm                                   1/1     Running   0          5m
 kube-system   eks-pod-identity-agent-ddvlv                                      1/1     Running   0          5m
@@ -221,360 +281,10 @@ nvidia-device-plugin   0         0         0       0            0           amiF
 
 ------
 
-## Step 2: Create dynamic GPU NodePool
-<a name="cluster-setup-tf-create-gpu-nodepool"></a>
-
-GPU NodePools are opt-in. By default, `terraform apply` creates the cluster and monitoring stack with no GPU capacity and no GPU billing. To provision GPU nodes, pass the `nodepools` variable with a strategy name.
-
-Enable the `spot-ondemand` strategy, which provisions G-family GPU instances with a generation greater than 4, using Spot capacity with On-Demand as a fallback:
-
-```
-terraform apply -var 'nodepools={"spot-ondemand"={}}'
-```
-
-This command applies the NodePool and NodeClass templates from the `nodepools/spot-ondemand/` directory. Both paths use the same NodePool API, but they differ in the NodeClass the NodePool references.
-
-------
-#### [ EKS Auto Mode ]
-
-The NodePool references the managed `default` NodeClass, which already selects the Bottlerocket accelerated AMI, the NVIDIA drivers, the NVIDIA device plugin, and SOCI parallel pull. The `spot-ondemand` strategy ships no NodeClass of its own on this path.
-
-Validate the NodePool:
-
-```
-kubectl get nodepools,nodeclasses
-```
-
-Expected output. The `gpu-inf` NodePool joins the built-in `general-purpose` and `system` NodePools, and all three reference the managed `default` NodeClass:
-
-```
-NAME                                    NODECLASS   NODES   READY   AGE
-nodepool.karpenter.sh/general-purpose   default     0       True    12m
-nodepool.karpenter.sh/gpu-inf           default     0       True    20s
-nodepool.karpenter.sh/system            default     1       True    12m
-
-NAME                                  ROLE                       READY   AGE
-nodeclass.eks.amazonaws.com/default   ai-eks-docs-eks-auto-...   True    12m
-```
-
-------
-#### [ Self-managed Karpenter ]
-
-Terraform applies a custom `gpu-inf` `EC2NodeClass` alongside the NodePool. The `EC2NodeClass` pins the EKS-optimized AL2023 AMI alias, enables SOCI through the `FastImagePull` feature gate, and sets `instanceStorePolicy: RAID0` to move the containerd image cache onto local NVMe.
-
-Validate the NodePool and EC2NodeClass:
-
-```
-kubectl get nodepools,ec2nodeclasses
-```
-
-Expected output. The `gpu-inf` pair joins the `general-purpose` NodePool and EC2NodeClass that Terraform creates for non-GPU workloads:
-
-```
-NAME                                    NODECLASS         NODES   READY   AGE
-nodepool.karpenter.sh/general-purpose   general-purpose   1       True    14m
-nodepool.karpenter.sh/gpu-inf           gpu-inf           0       True    25s
-
-NAME                                             READY   AGE
-ec2nodeclass.karpenter.k8s.aws/general-purpose   True    14m
-ec2nodeclass.karpenter.k8s.aws/gpu-inf           True    25s
-```
-
-------
-
-Both paths show `0` nodes for `gpu-inf` until a GPU workload is scheduled. EKS Auto Mode and Karpenter only launch nodes when pending Pods require them.
-
-## Step 3: Test with a sample Pod
-<a name="cluster-setup-tf-test-with-a-sample-pod"></a>
-
-Test your GPU NodePool setup with an `nvidia-smi` Pod:
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nvidia-smi
-  labels:
-    guide: ai-eks-docs
-spec:
-  restartPolicy: OnFailure
-  tolerations:
-    - key: "nvidia.com/gpu"
-      operator: "Exists"
-      effect: "NoSchedule"
-  containers:
-    - name: nvidia-smi
-      image: public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
-      command: ["nvidia-smi"]
-      resources:
-        limits:
-          nvidia.com/gpu: 1
-EOF
-```
-
-Verify the Pod is scheduled and completed successfully:
-
-```
-kubectl get pods nvidia-smi
-```
-
-Expected output:
-
-```
-NAME         READY   STATUS      RESTARTS   AGE
-nvidia-smi   0/1     Completed   0          67s
-```
-
-The `STATUS: Completed` means the `nvidia-smi` command ran and exited. Check the Pod logs to see the GPU detected by the node:
-
-```
-kubectl logs nvidia-smi
-```
-
-Expected output:
-
-```
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |
-+-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA L4                      On  |   00000000:31:00.0 Off |                    0 |
-| N/A   41C    P8             13W /   72W |       0MiB /  23034MiB |      0%      Default |
-|                                         |                        |                  N/A |
-+-----------------------------------------+------------------------+----------------------+
-```
-
-The output shows the GPU model, driver version, CUDA version, and available memory. In this example, Karpenter provisioned a G6 instance which has an NVIDIA L4 GPU with 24 GB of memory. The GPU model and memory vary depending on the instance type Karpenter selects. G5 instances have NVIDIA A10G GPUs (24 GB), G6 instances have NVIDIA L4 GPUs (24 GB), and G6e instances have NVIDIA L40S GPUs (48 GB).
-
-To understand how Karpenter and the Kubernetes scheduler coordinated to provision a node and place the Pod, check the Pod’s lifecycle events:
-
-```
-kubectl describe pod nvidia-smi
-```
-
-Expected output:
-
-```
-Events:
-  Type     Reason            Age   From                   Message
-  ----     ------            ----  ----                   -------
-  Warning  FailedScheduling  75s   default-scheduler      0/2 nodes are available: 2 node(s) had untolerated taint(s).
-  Normal   Nominated         74s   eks-auto-mode/compute  Pod should schedule on: nodeclaim/gpu-inf-z6q75
-  Normal   Scheduled         35s   default-scheduler      Successfully assigned default/nvidia-smi to i-0eb897a8302551589
-  Normal   Pulling           27s   kubelet                spec.containers{nvidia-smi}: Pulling image "public.ecr.aws/amazonlinux/amazonlinux:2023-minimal"
-  Normal   Pulled            22s   kubelet                spec.containers{nvidia-smi}: Successfully pulled image "public.ecr.aws/amazonlinux/amazonlinux:2023-minimal" in 5.625s (5.626s including waiting). Image size: 37440620 bytes.
-  Normal   Created           22s   kubelet                spec.containers{nvidia-smi}: Container created
-  Normal   Started           21s   kubelet                spec.containers{nvidia-smi}: Container started
-```
-
-These events show the Pod scheduling sequence: the Pod initially fails to schedule because no GPU nodes exist (`FailedScheduling`), Karpenter nominates a new NodeClaim (`Nominated`), the scheduler assigns the Pod once the node is ready (`Scheduled`), and then the container image is pulled and started. EKS Auto Mode has SOCI (Seekable OCI) parallel pull installed and configured by default on G, P, and Trn instances, and the self-managed Karpenter path configures it explicitly through the `FastImagePull` feature gate.
-
-**Note**  
-On a self-managed Karpenter cluster, the `Nominated` event shows `karpenter/compute` instead of `eks-auto-mode/compute`.
-
-A NodeClaim is a request Karpenter creates to provision a specific node. It shows the instance type, capacity type, AZ, and whether the node is ready:
-
-```
-kubectl get nodeclaims
-```
-
-Expected output:
-
-```
-NAME            TYPE        CAPACITY   ZONE         NODE                  READY   AGE
-gpu-inf-z6q75   g6.xlarge   spot       us-east-2a   i-0eb897a8302551589   True    5m
-```
-
-The instance type and AZ vary. Any G-family instance with a generation greater than 4 is eligible.
-
-**Tip**  
-If no node appears, check for Insufficient Capacity Errors:  
-
-```
-kubectl get events | grep InsufficientCapacityError
-```
-Karpenter caches unavailable offerings for 3 minutes. Widening the allowed instance types and AZs in your NodePool increases the chances of landing capacity.
-
-**Note**  
-Spot instances launched by Karpenter do not appear in the EC2 Spot Requests console. Karpenter uses the EC2 [`CreateFleet`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) API with `type: instant`. The instances appear in the EC2 Instances console with a `spot` lifecycle.
-
-## Step 4: Add reserved capacity to the NodePool (optional)
-<a name="cluster-setup-tf-attach-odcr"></a>
-
-While the GPU NodePool from Step 2 provisions Spot or On-Demand instances dynamically, some use cases require guaranteed capacity. You can create an On-Demand Capacity Reservation (ODCR) to ensure GPU capacity is available when needed.
-
-With Terraform, a single command creates the ODCR, a custom NodeClass that references the reservation by tag, and updates the NodePool to include `reserved` as a capacity type. Terraform tags the ODCR with `nodepool=reserved-spot-ondemand` and the NodeClass selects it by that tag.
-
-**Warning**  
-The following command creates an ODCR that bills immediately and continues billing until you destroy it with `terraform destroy` or the cleanup script, whether or not nodes are running on it.
-
-Use defaults (`g6e.4xlarge`, 1 instance, first cluster AZ):
-
-```
-terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={}}}'
-```
-
-Pick the instance type, count, and AZ:
-
-```
-terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={instance_type="g6e.2xlarge",instance_count=1,az="us-east-2a"}}}'
-```
-
-The `reservation` object supports the following fields:
-+  `instance_type` — The GPU instance type to reserve. Default: `g6e.4xlarge`.
-+  `instance_count` — The number of instances to reserve. Default: `1`.
-+  `az` — The Availability Zone for the reservation. Default: `""` (uses the first cluster AZ).
-
-**Important**  
-The `spot-ondemand` and `reserved-spot-ondemand` strategies are mutually exclusive. You can enable at most one in the `nodepools` variable. If you previously used `spot-ondemand` in Step 2, the `reserved-spot-ondemand` command replaces it because both manage the same `gpu-inf` NodePool.
-
-If you get an `InsufficientInstanceCapacity` error, the reservation cannot be fulfilled in the specified AZ. Cancel the Terraform operation (Ctrl\+C), then re-run with a different `az` value:
-
-```
-terraform apply -var 'nodepools={"reserved-spot-ondemand"={reservation={instance_type="g6e.4xlarge",az="us-east-2b"}}}'
-```
-
-After applying, Terraform updates the NodePool to include `reserved`, `spot`, and `on-demand` in the capacity-type requirements. Karpenter treats `reserved` as the most cost-efficient option and launches it first. Once the reservation is full, it falls back to Spot or On-Demand.
-
-On the EKS Auto Mode path, Terraform creates a custom `gpu-inf` NodeClass (because the bundled `default` NodeClass is read-only) that references the ODCR by tag through `capacityReservationSelectorTerms`. On the self-managed Karpenter path, Terraform re-applies the `gpu-inf` EC2NodeClass with `capacityReservationSelectorTerms` added and updates the NodePool to include `reserved`.
-
-Verify the ODCR was created:
-
-```
-aws ec2 describe-capacity-reservations \
-  --filters "Name=state,Values=active" "Name=tag:nodepool,Values=reserved-spot-ondemand" \
-  --query 'CapacityReservations[0].{Id:CapacityReservationId,State:State,InstanceType:InstanceType,AvailableCount:AvailableInstanceCount}' \
-  --output table \
-  --region $(terraform output -raw region)
-```
-
-Verify the NodeClass references the ODCR:
-
-------
-#### [ EKS Auto Mode ]
-
-```
-kubectl get nodeclasses gpu-inf -o yaml | grep 'id: cr-.*'
-```
-
-Expected output:
-
-```
-        id: cr-xxxxxxxxxxxxxxxxx
-```
-
-------
-#### [ Self-managed Karpenter ]
-
-```
-kubectl get ec2nodeclasses gpu-inf -o yaml | grep 'id: cr-.*'
-```
-
-Expected output:
-
-```
-        id: cr-xxxxxxxxxxxxxxxxx
-```
-
-------
-
-Verify the NodePool is ready:
-
-```
-kubectl get nodepools gpu-inf
-```
-
-Expected output:
-
-```
-NAME      NODECLASS   NODES   READY   AGE
-gpu-inf   gpu-inf     0       True    30s
-```
-
-### Verify that reserved capacity is used first, with Spot fallback
-<a name="cluster-setup-tf-step4-validate"></a>
-
-After applying the changes, validate that Karpenter prioritizes reserved capacity and falls back to Spot or On-Demand. Deploy a 2-replica Deployment that requests 1 GPU per Pod. The ODCR is for 1 instance (1 GPU), so the first Pod triggers Karpenter to launch a reserved node. The second Pod cannot fit on the reserved node and triggers Karpenter to launch another node from Spot or On-Demand capacity.
-
-```
-cat << 'EOF' | kubectl apply -f -
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: gpu-overflow-test
-  labels:
-    guide: ai-eks-docs
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: gpu-overflow-test
-  template:
-    metadata:
-      labels:
-        app: gpu-overflow-test
-        guide: ai-eks-docs
-    spec:
-      tolerations:
-        - key: nvidia.com/gpu
-          operator: Exists
-          effect: NoSchedule
-      containers:
-        - name: nvidia-smi
-          image: public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
-          command: ["sh", "-c", "nvidia-smi && sleep infinity"]
-          resources:
-            limits:
-              nvidia.com/gpu: 1
-EOF
-```
-
-Unlike the `nvidia-smi` test Pod from Step 3 which ran and exited, this Deployment keeps the Pods running (`sleep infinity`) so they hold the GPU and prevent the node from being consolidated.
-
-Verify the Pods scheduled on different nodes:
-
-```
-kubectl get pods -l app=gpu-overflow-test -o wide
-```
-
-Expected output:
-
-```
-NAME                                 READY   STATUS    RESTARTS   AGE     IP            NODE                  NOMINATED NODE   READINESS GATES
-gpu-overflow-test-55d55ff5b9-dvg52   1/1     Running   0          4m42s   10.0.75.210   i-08741a36089ff2088   <none>           <none>
-gpu-overflow-test-55d55ff5b9-hw4m9   1/1     Running   0          4m43s   10.0.82.49    i-0f50cdbacb2017202   <none>           <none>
-```
-
-Check the NodeClaims to see the capacity types:
-
-```
-kubectl get nodeclaims
-```
-
-Expected output:
-
-```
-NAME            TYPE          CAPACITY   ZONE         NODE                  READY   AGE
-gpu-inf-vw99m   g6e.4xlarge   reserved   us-east-2c   i-0f50cdbacb2017202   True    6m
-gpu-inf-s65s6   g6.xlarge     spot       us-east-2b   i-08741a36089ff2088   True    5m59s
-```
-
-The reserved node launched first, followed by a Spot or On-Demand node once the reservation was full.
-
-Clean up the test deployment:
-
-```
-kubectl delete deployment gpu-overflow-test
-```
-
-## Monitoring
+## Step 2: Verify the monitoring stack
 <a name="cluster-setup-tf-monitoring"></a>
 
-Terraform already provisioned the full monitoring stack during `terraform apply` in Step 1. The stack includes an Amazon Managed Service for Prometheus (AMP) workspace, IAM policies and EKS Pod Identity Associations for Prometheus remote-write and Grafana query access, the kube-prometheus-stack Helm chart (Prometheus, Grafana, kube-state-metrics, node-exporter), and the NVIDIA DCGM Exporter for GPU metrics.
+Terraform already provisioned the full monitoring stack during the `terraform apply` in [Step 1](#cluster-setup-tf-deploy). The stack includes an Amazon Managed Service for Prometheus (AMP) workspace, IAM policies and EKS Pod Identity Associations for Prometheus remote-write and Grafana query access, the kube-prometheus-stack Helm chart (Prometheus, Grafana, kube-state-metrics, node-exporter), and the NVIDIA DCGM Exporter for GPU metrics.
 
 This section covers verification of the deployed monitoring components.
 
@@ -643,21 +353,21 @@ Verify the DCGM exporter DaemonSet:
 kubectl get daemonset dcgm-exporter -n monitoring
 ```
 
-Once a GPU node is running (from Step 2 or Step 4), you should see one or more ready Pods. To validate DCGM metrics, navigate to **Drilldown > Metrics** in Grafana and search for `DCGM_`.
+After a GPU node starts running (which you trigger by creating the GPU NodePool in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section), you should see one or more ready Pods. To validate DCGM metrics, navigate to **Drilldown > Metrics** in Grafana and search for `DCGM_`. The search returns the GPU metrics the exporter collects, including `DCGM_FI_DEV_ECC_SBE_VOL_TOTAL` for single-bit ECC errors, `DCGM_FI_DEV_ENC_UTIL` for encoder utilization, and `DCGM_FI_DEV_FB_FREE` and `DCGM_FI_DEV_FB_USED` for free and used framebuffer memory. Any results mean Prometheus is scraping the exporter and writing to Amazon Managed Service for Prometheus.
 
  **Validate DCGM metrics in Grafana** 
 
 ![Grafana Drilldown Metrics page filtered by DCGM_ showing GPU metrics including DCGM_FI_DEV_ECC_SBE_VOL_TOTAL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, and DCGM_FI_DEV_FB_USED](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-metrics-validate.png)
 
 
-To view the dashboard, navigate to **Dashboards > GPU Monitoring > NVIDIA DCGM Exporter Dashboard**.
+To view the pre-provisioned GPU dashboard, navigate to **Dashboards > GPU Monitoring > NVIDIA DCGM Exporter Dashboard**. The dashboard has panels for GPU Utilization, GPU Avg Temp, GPU Framebuffer Mem Used, and GPU Power Total. Non-zero values in those panels confirm the full path is working, from the exporter on the GPU node through Prometheus to Amazon Managed Service for Prometheus. An idle GPU node reports 0% utilization and 0 MiB framebuffer memory used, but still reports a temperature and power draw.
 
  **NVIDIA DCGM Exporter Dashboard in Grafana** 
 
 ![Grafana NVIDIA DCGM Exporter Dashboard showing GPU Utilization, GPU Avg Temp, GPU Framebuffer Mem Used, and GPU Power Total panels](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-dashboard.png)
 
 
-## Model weights S3 bucket
+## Step 3: Verify the model weights S3 bucket
 <a name="cluster-setup-tf-model-bucket"></a>
 
 Terraform already created an Amazon S3 bucket for storing model weights, a `model-storage-sa` ServiceAccount in the `default` namespace, an IAM policy scoped to the bucket, and an EKS Pod Identity Association that links them. Workload Pods that set `serviceAccountName: model-storage-sa` can read from and write to the bucket.
@@ -682,7 +392,7 @@ Expected output:
 
 ```
 {
-    "BucketArn": "arn:aws:s3:::ai-eks-docs-models-20250612abc1",
+    "BucketArn": "arn:aws:s3:::ai-eks-docs-models-20260612084512345600000004",
     "BucketRegion": "us-east-2",
     "AccessPointAlias": false
 }
@@ -732,27 +442,29 @@ kubectl wait --for=jsonpath='{.status.phase}'=Succeeded pod/s3-test --timeout=30
 kubectl logs s3-test
 ```
 
+**Note**  
+On the self-managed Karpenter path, this Pod usually waits for a new node. The `system` managed node group is tainted for cluster-critical add-ons, so the Pod stays `Pending` until Karpenter launches a node from the `general-purpose` NodePool, which takes two to three minutes. If `kubectl wait` times out, check `kubectl describe pod s3-test` for a `Nominated` event and run the `wait` command again.
+
 Expected output:
 
 ```
 === Caller Identity ===
 {
-    "UserId": "AROA...:eks-ai-eks-docs-model-s-...",
+    "UserId": "AROA...:eks-ai-eks-doc-s3-test-...",
     "Account": "123456789012",
-    "Arn": "arn:aws:sts::123456789012:assumed-role/ai-eks-docs-models-.../eks-ai-eks-docs-..."
+    "Arn": "arn:aws:sts::123456789012:assumed-role/ai-eks-docs-models-.../eks-ai-eks-doc-s3-test-..."
 }
 
 === S3 Write Test ===
-upload: - to s3://ai-eks-docs-models-20250612abc1/test.txt
 
 === S3 List Test ===
 2026-07-15 12:00:00         19 test.txt
 
 === S3 Delete Test ===
-delete: s3://ai-eks-docs-models-20250612abc1/test.txt
+delete: s3://ai-eks-docs-models-20260612084512345600000004/test.txt
 ```
 
-The caller identity confirms the Pod assumed the model storage role through EKS Pod Identity. The S3 commands confirm read and write access.
+The caller identity confirms the Pod assumed the model storage role through EKS Pod Identity. The S3 commands confirm read and write access. The write test prints no output of its own, because the AWS CLI suppresses its `upload:` progress line when the source is standard input; the object listed by the next command is the proof that the write succeeded.
 
 Clean up the test Pod:
 
@@ -763,7 +475,7 @@ kubectl delete pod s3-test
 ## Next steps
 <a name="cluster-setup-tf-next-steps"></a>
 
-With your cluster ready, you can proceed to [Load & Serve Model](ml-inference-load-serve-model.md) to deploy a large language model and interact with the inference endpoint.
+With your cluster ready, continue to [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) to create a GPU NodePool that dynamically provisions GPU-enabled nodes for your workloads.
 
 ## Cleanup
 <a name="cluster-setup-tf-cleanup"></a>
@@ -771,29 +483,15 @@ With your cluster ready, you can proceed to [Load & Serve Model](ml-inference-lo
 **Tip**  
 If you plan to continue with the next sections of this guide, skip the full cleanup. Only run it when you are done.
 
-Delete the test workloads so no Pods are holding GPU nodes:
+### Destroy the cluster and all Terraform-managed resources
+<a name="cluster-setup-tf-cleanup-destroy"></a>
+
+Delete the test workloads from the GPU NodePool walkthrough first, so no Pod holds a GPU node while the nodes drain:
 
 ```
 kubectl delete pod nvidia-smi --ignore-not-found
 kubectl delete deployment gpu-overflow-test --ignore-not-found
 ```
-
-### Cancel the Capacity Reservation without destroying the cluster
-<a name="cluster-setup-tf-cleanup-cancel-reservation"></a>
-
-If you only want to release the ODCR and fall back to Spot and On-Demand capacity, switch the `nodepools` variable back to the `spot-ondemand` strategy:
-
-```
-terraform apply -var 'nodepools={"spot-ondemand"={}}'
-```
-
-This drops `reserved` from the NodePool capacity-type requirements and destroys the ODCR, and leaves the cluster, monitoring stack, and S3 bucket in place.
-
-**Important**  
-Cancelling a reservation does not terminate instances already running on it. Those instances keep running at standard On-Demand rates until they are terminated. Delete the GPU workloads first, as shown previously, so the reserved node drains before the reservation is released.
-
-### Destroy the cluster and all Terraform-managed resources
-<a name="cluster-setup-tf-cleanup-destroy"></a>
 
 Drain the Karpenter-managed nodes before destroying, so no in-flight node lifecycle blocks the destroy. Delete any PodDisruptionBudgets that would prevent a drain, then delete the NodeClaims:
 
@@ -802,17 +500,50 @@ kubectl delete pdb -A --all --ignore-not-found
 kubectl delete nodeclaim --all --wait=true --timeout=900s
 ```
 
-Then destroy everything Terraform created, including the EKS cluster, the VPC, the monitoring stack, the NodePools and NodeClasses, the S3 model bucket, and any ODCR:
+Next, delete the Grafana `Ingress` and wait for its load balancer to disappear. The AWS Load Balancer Controller creates that load balancer and its security groups in response to the `Ingress`, so Terraform does not track them. If they still exist when Terraform reaches the VPC, their network interfaces hold the public subnets, which stalls the destroy on the subnets, internet gateway, and VPC:
+
+```
+kubectl delete ingress kube-prometheus-stack-grafana -n monitoring --ignore-not-found
+
+aws elbv2 describe-load-balancers \
+  --region [.replaceable]`region-code` \
+  --query "LoadBalancers[?LoadBalancerName=='grafana-ai-eks-docs'].LoadBalancerArn" \
+  --output text
+```
+
+The load balancer name is `grafana-ai-eks-docs` even if you overrode `cluster_name`. The `alb.ingress.kubernetes.io/load-balancer-name` annotation in `helm-values/kube-prometheus.yml` sets it to that literal value, and Terraform does not template it from `cluster_name`. If you changed that annotation, query for the name you set instead.
+
+Wait until the second command returns an empty result, then destroy everything Terraform created, including the EKS cluster, the VPC, the monitoring stack, the NodePools and NodeClasses, the S3 model bucket, and any ODCR:
 
 ```
 terraform destroy
 ```
 
+**Note**  
+A destroy can report `Error: Error uninstalling release …​ context deadline exceeded` for the `kube-prometheus-stack` or `karpenter-crd` Helm release and leave the cluster and VPC in place. Run `terraform destroy` again with the same `-var` overrides; the second run picks up where the first stopped.
+
+**Important**  
+Pass `terraform destroy` the same `-var` overrides you passed to `terraform apply`, including `region` and `nodepools`. Variables are not persisted between commands, so a `destroy` that omits them falls back to the defaults, targets a different Region than the one you deployed to, and cannot find your resources.
+
 **Warning**  
 The model weights S3 bucket is created with `force_destroy = true`, so `terraform destroy` deletes the bucket along with any model weights you uploaded to it. Copy anything you want to keep to another location first.
 
 **Note**  
-The repository also ships a `scripts/cleanup.sh` helper that runs the preceding drain and destroy steps and then sweeps any orphaned EBS volumes tagged with the cluster name. Run it from inside the `terraform/<mode>/` directory you applied from, and pass `--auto-approve` to skip the Terraform confirmation prompt.
+The repository also ships a `scripts/cleanup.sh` helper that deletes the PodDisruptionBudgets, NodeClaims, NodePools, and NodeClasses and then runs `terraform destroy`. Run it from inside the `terraform/<mode>/` directory you applied from, and pass `--auto-approve` to skip the Terraform confirmation prompt. Read the script first, and if it does not delete the `Ingress` resources, delete the Grafana `Ingress` yourself as shown previously.
+
+If the destroy stalls on `module.vpc.aws_vpc.this[0]` for more than a few minutes, a security group that the AWS Load Balancer Controller created is still in the VPC. The controller tags every security group it creates with `elbv2.k8s.aws/cluster`, so list only those, and then delete them:
+
+```
+aws ec2 describe-security-groups \
+  --region [.replaceable]`region-code` \
+  --filters "Name=tag:elbv2.k8s.aws/cluster,Values=[.replaceable]`cluster-name`" \
+  --query 'SecurityGroups[].[GroupId,GroupName]' \
+  --output text
+
+aws ec2 delete-security-group --region [.replaceable]`region-code` --group-id [.replaceable]`sg-id`
+```
+
+The groups this returns are named `k8s-traffic-{{cluster-name}}- ` and `k8s-{{namespace-prefix}}-{{ingress-prefix}}-`. Delete only these. The cluster and node security groups in the same VPC belong to Terraform, which deletes them itself once nothing holds them.
 
 ### Verify the reservation is gone
 <a name="cluster-setup-tf-cleanup-verify"></a>
@@ -823,7 +554,42 @@ Confirm no active Capacity Reservation remains for the cluster:
 aws ec2 describe-capacity-reservations \
   --filters "Name=state,Values=active" "Name=tag:nodepool,Values=reserved-spot-ondemand" \
   --query 'CapacityReservations[].CapacityReservationId' \
+  --output text \
+  --region [.replaceable]`region-code`
+```
+
+An empty result means no reservation is active and no further charges apply. Run the command against the Region you deployed to, because `terraform destroy` has already removed the `region` output by this point.
+
+**Important**  
+If you ever interrupted a `terraform apply` while it was creating the ODCR, Terraform never recorded the reservation in its state and `terraform destroy` cannot remove it. Drop the `tag:nodepool` filter to list every active reservation in the Region, then cancel any that belong to this walkthrough with `aws ec2 cancel-capacity-reservation --capacity-reservation-id {{cr-1234567890abcdef0}} `.
+
+### Verify no cluster resources remain
+<a name="cluster-setup-tf-cleanup-verify-all"></a>
+
+Confirm the cluster, its nodes, its VPC, and the model bucket are gone. Run each command against the Region you deployed to, replacing {{cluster-name}} with the value of `cluster_name` you deployed with, which defaults to `ai-eks-docs`:
+
+```
+aws eks list-clusters --region [.replaceable]`region-code`
+
+aws ec2 describe-instances \
+  --region [.replaceable]`region-code` \
+  --filters "Name=tag:PartOf,Values=[.replaceable]`cluster-name`" \
+            "Name=instance-state-name,Values=pending,running,stopping,stopped" \
+  --query 'Reservations[].Instances[].InstanceId' \
+  --output text
+
+aws ec2 describe-vpcs \
+  --region [.replaceable]`region-code` \
+  --filters "Name=tag:PartOf,Values=[.replaceable]`cluster-name`" \
+  --query 'Vpcs[].VpcId' \
+  --output text
+
+aws s3api list-buckets \
+  --query "Buckets[?starts_with(Name, '[.replaceable]`cluster-name`-models-')].Name" \
   --output text
 ```
 
-An empty result means no reservation is active and no further charges apply.
+Each command should return an empty result, other than any unrelated clusters in your account. Terraform tags every resource it creates with `PartOf` set to the cluster name, so these filters find anything left behind.
+
+**Important**  
+If you overrode `cluster_name` and these commands still use the default, they return an empty result even when resources remain, which looks like a successful cleanup while the resources keep billing. Confirm the name you deployed with before you rely on the output.

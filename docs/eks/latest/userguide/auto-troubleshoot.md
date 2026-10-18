@@ -10,8 +10,8 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 With EKS Auto Mode, AWS assumes more responsibility for EC2 Instances in your AWS account. EKS assumes responsibility for the container runtime on nodes, the operating system on the nodes, and certain controllers. This includes a block storage controller, a load balancing controller, and a compute controller.
 
 You must use AWS and Kubernetes APIs to troubleshoot nodes. You can:
-+ Use a Kubernetes `NodeDiagnostic` resource to retrieve node logs by using the [Node monitoring agent](#auto-node-monitoring-agent). For more steps, see [Retrieve node logs for a managed node using kubectl and S3](auto-get-logs.md).
-+ Use a Kubernetes `NodeDiagnostic` resource to capture network traffic on a node. For more steps, see [Capture network traffic on a managed node using kubectl and S3](auto-get-tcpdump.md).
++ Use a Kubernetes `NodeDiagnostic` resource to retrieve node logs by using the [Node monitoring agent](#auto-node-monitoring-agent). For more steps, see [Retrieve node logs using kubectl and Amazon S3](auto-get-logs.md).
++ Use a Kubernetes `NodeDiagnostic` resource to capture network traffic on a node. For more steps, see [Capture network traffic on an EKS Auto Mode node using kubectl and Amazon S3](auto-get-tcpdump.md).
 + Use the AWS EC2 CLI command `get-console-output` to retrieve console output from nodes. For more steps, see [Get console output from an EC2 managed instance by using the AWS EC2 CLI](#auto-node-console).
 + Use Kubernetes *debugging containers* to retrieve node logs. For more steps, see [Get node logs by using *debug containers* and the `kubectl` CLI](#auto-node-debug-logs).
 
@@ -66,7 +66,7 @@ First, you need to determine the EC2 Instance ID of the instance associated with
 ## Get node logs by using *debug containers* and the `kubectl` CLI
 <a name="auto-node-debug-logs"></a>
 
-The recommended way of retrieving logs from an EKS Auto Mode node is to use a `NodeDiagnostic` resource. For these steps, see [Retrieve node logs for a managed node using kubectl and S3](auto-get-logs.md).
+The recommended way of retrieving logs from an EKS Auto Mode node is to use a `NodeDiagnostic` resource. For these steps, see [Retrieve node logs using kubectl and Amazon S3](auto-get-logs.md).
 
 However, you can stream logs live from an instance by using the `kubectl debug node` command. This command launches a new Pod on the node that you want to debug which you can then interactively use.
 

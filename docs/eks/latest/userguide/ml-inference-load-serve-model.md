@@ -20,7 +20,7 @@ The walkthrough uses the following tools:
 This section uses the [Ministral-3-8B-Instruct-2512 model](https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512), but you can deploy any AI model that vLLM supports. For a list of supported models, see [Supported models](https://docs.vllm.ai/en/latest/models/supported_models/#text-generation) in the vLLM documentation.
 
 **Important**  
-Use the cluster you created in the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section. The instructions in this walkthrough work for both EKS Auto Mode and self-managed Karpenter.
+Use the cluster you created in the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section, with the GPU NodePool from the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section. The instructions in this walkthrough work for both EKS Auto Mode and self-managed Karpenter.
 
 ![Architecture diagram showing LLM inference workflow with vLLM on Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-inference-load-serve-model-arch.png)
 
@@ -38,7 +38,11 @@ When you complete these steps, you have a vLLM inference endpoint that you can u
 ## Prerequisites
 <a name="_prerequisites"></a>
 
-Complete the steps in the [Cluster setup section](ml-cluster-setup.md).
+Complete the following sections first:
+
+1.  [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) — creates the cluster, monitoring stack, and model weights S3 bucket.
+
+1.  [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) — creates the GPU NodePool that provisions the GPU nodes this walkthrough schedules vLLM on.
 
 If you opened a new terminal, set the cluster name and region you used in the [Cluster Setup via CLI](ml-cluster-setup-cli.md) section:
 

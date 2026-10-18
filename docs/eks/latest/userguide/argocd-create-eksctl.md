@@ -111,7 +111,7 @@ Wait until the state shows `available` before proceeding.
 ## Step 3: Create an eksctl configuration file
 <a name="_step_3_create_an_eksctl_configuration_file"></a>
 
-Create a file named `argocd-capability.yaml` with the following content. Replace the placeholder values with your cluster’s name, cluster’s region, IAM role ARN, Identity Center instance ARN, Identity Center region, and user ID:
+Create a file named `argocd-capability.yaml` with the following content. Replace the placeholder values with your cluster’s name, cluster’s region, IAM role ARN, Identity Center instance ARN, Identity Center region, and user ID. The example sets the primary Argo CD namespace to `argocd`. For information about the primary namespace and additional resource namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
 
 ```
 apiVersion: eksctl.io/v1alpha5
@@ -128,6 +128,7 @@ capabilities:
     deletePropagationPolicy: RETAIN
     configuration:
       argocd:
+        namespace: argocd
         awsIdc:
           idcInstanceArn: {{arn:aws:sso:::instance/ssoins-123abc}}
           idcRegion: {{idc-region-code}}
@@ -161,6 +162,7 @@ capabilities:
         vpcEndpointId: {{vpce-xxxxxxxx}}
     configuration:
       argocd:
+        namespace: argocd
         awsIdc:
           idcInstanceArn: {{arn:aws:sso:::instance/ssoins-123abc}}
           idcRegion: {{idc-region-code}}

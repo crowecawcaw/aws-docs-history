@@ -501,18 +501,26 @@ This policy is designed to support comprehensive AWS resource management through
 
  **ARN** – ` arn:aws:eks::aws:cluster-access-policy/AmazonEKSArgoCDClusterPolicy` 
 
-This policy grants cluster-level permissions necessary for the Argo CD capability to discover resources and manage cluster-scoped objects. The policy includes the following permissions:
+This policy grants cluster-level permissions necessary for the Argo CD capability to discover resources, manage cluster-scoped objects, and manage Applications and ApplicationSets across the cluster. The policy includes the following permissions:
 
 Namespace Management:
-+ Create, read, update, and delete namespaces for application namespace management.
++ Create, get, update, patch, and delete namespaces for application namespace management.
 
 Custom Resource Definition Management:
-+ Manage Argo CD-specific CRDs (Applications, AppProjects, ApplicationSets).
++ Create CRDs.
++ Manage the Argo CD Application, ApplicationSet, and AppProject CRDs.
+
+Event Management:
++ Read, create, and patch events for application lifecycle tracking.
+
+Argo CD Resource Management:
++ Full access to Applications and ApplicationSets across the cluster.
++ Manage finalizers and status for Applications and ApplicationSets.
 
 API Discovery:
 + Read access to Kubernetes API endpoints for resource discovery.
 
-This policy is designed to support cluster-level Argo CD operations including namespace management and CRD installation. Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the Argo CD capability is created.
+The Application and ApplicationSet permissions are cluster-wide for every Argo CD capability. Argo CD reconciles these resources only in the primary namespace and the additional namespaces that you enable. For instructions on configuring resource namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces). Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the Argo CD capability is created. Amazon EKS applies changes to this access policy automatically to existing capabilities. You don’t need to re-associate the policy or recreate the capability.
 
 
 | Kubernetes API groups | Kubernetes nonResourceURLs | Kubernetes resources | Kubernetes verbs (permissions) | 
@@ -520,6 +528,8 @@ This policy is designed to support cluster-level Argo CD operations including na
 |  |  |  `namespaces`  |  `create`, `get`, `update`, `patch`, `delete`  | 
 |  `apiextensions.k8s.io`  |  |  `customresourcedefinitions`  |  `create`  | 
 |  `apiextensions.k8s.io`  |  |  `customresourcedefinitions` (Argo CD CRDs only) |  `get`, `update`, `patch`, `delete`  | 
+|  |  |  `events`  |  `get`, `list`, `watch`, `patch`, `create`  | 
+|  `argoproj.io`  |  |  `applications`, `applications/finalizers`, `applications/status`, `applicationsets`, `applicationsets/finalizers`, `applicationsets/status`  |  `*`  | 
 |  |  `/api`, `/api/*`, `/apis`, `/apis/*`  |  |  `get`  | 
 
 ## AmazonEKSArgoCDPolicy
@@ -527,30 +537,25 @@ This policy is designed to support cluster-level Argo CD operations including na
 
  **ARN** – ` arn:aws:eks::aws:cluster-access-policy/AmazonEKSArgoCDPolicy` 
 
-This policy grants namespace-level permissions necessary for the Argo CD capability to deploy and manage applications. The policy includes the following permissions:
+This policy grants namespace-level permissions for Argo CD configuration and credentials in the primary Argo CD namespace. The policy includes the following permissions:
 
 Secret Management:
 + Full access to secrets for Git credentials and cluster secrets.
 
 ConfigMap Access:
-+ Read access to ConfigMaps to send warnings if customers try to use unsupported Argo CD ConfigMaps.
++ Read access to ConfigMaps.
 
-Event Management:
-+ Read and create events for application lifecycle tracking.
+AppProject Management:
++ Full access to AppProjects, including their finalizers and status.
 
-Argo CD Resource Management:
-+ Full access to Applications, ApplicationSets, and AppProjects.
-+ Manage finalizers and status for Argo CD resources.
-
-This policy is designed to support namespace-level Argo CD operations including application deployment and management. Amazon EKS automatically creates an access entry with this access policy for the capability IAM role that you supply when the Argo CD capability is created, scoped to the Argo CD namespace.
+The cluster-scoped `AmazonEKSArgoCDClusterPolicy` provides the Application, ApplicationSet, and Event permissions. Amazon EKS automatically creates an access entry with `AmazonEKSArgoCDPolicy` for the capability IAM role that you supply when the Argo CD capability is created, scoped to the primary Argo CD namespace.
 
 
 | Kubernetes API groups | Kubernetes resources | Kubernetes verbs (permissions) | 
 | --- | --- | --- | 
 |  |  `secrets`  |  `*`  | 
 |  |  `configmaps`  |  `get`, `list`, `watch`  | 
-|  |  `events`  |  `get`, `list`, `watch`, `patch`, `create`  | 
-|  `argoproj.io`  |  `applications`, `applications/finalizers`, `applications/status`, `applicationsets`, `applicationsets/finalizers`, `applicationsets/status`, `appprojects`, `appprojects/finalizers`, `appprojects/status`  |  `*`  | 
+|  `argoproj.io`  |  `appprojects`, `appprojects/finalizers`, `appprojects/status`  |  `*`  | 
 
 ## AmazonEKSKROPolicy
 <a name="_amazonekskropolicy"></a>
@@ -591,6 +596,7 @@ View details about updates to access policies, since they were introduced. For a
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| Update Argo CD access policy permissions | Move the `events`, `applications`, and `applicationsets` permissions from `AmazonEKSArgoCDPolicy` to `AmazonEKSArgoCDClusterPolicy`. The update applies automatically to existing Argo CD capabilities; no action is required. | September 24, 2026 | 
 | Add policies for EKS Capabilities | Publish `AmazonEKSACKPolicy`, `AmazonEKSArgoCDClusterPolicy`, `AmazonEKSArgoCDPolicy`, and `AmazonEKSKROPolicy` for managing EKS Capabilities | November 22, 2025 | 
 | Add `AmazonEKSSecretReaderPolicy`  | Add a new policy for read-only access to secrets | November 6, 2025 | 
 | Add policy for EKS Cluster Insights | Publish `AmazonEKSClusterInsightsPolicy`  | December 2, 2024 | 

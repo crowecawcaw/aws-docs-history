@@ -81,6 +81,8 @@ Required Capability Role permissions:
 }
 ```
 
+To push rendered manifests to an AWS CodeCommit repository with the source hydrator, the Capability Role also needs `codecommit:GitPush`, and the repository needs a secret labeled `argocd.argoproj.io/secret-type: repository-write`. For instructions on pushing rendered manifests, see [Push hydrated manifests with the source hydrator](argocd-create-application.md#argocd-source-hydrator).
+
 ### CodeConnections
 <a name="_codeconnections"></a>
 

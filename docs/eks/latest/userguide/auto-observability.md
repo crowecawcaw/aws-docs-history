@@ -11,3 +11,4 @@ Use this chapter to learn about observability options for Amazon EKS Auto Mode c
 
 **Topics**
 + [Access AWS-Managed Component Logs For EKS Auto](auto-managed-component-logs.md)
++ [Monitor the EKS Auto Mode runtime](auto-runtime-monitoring.md)

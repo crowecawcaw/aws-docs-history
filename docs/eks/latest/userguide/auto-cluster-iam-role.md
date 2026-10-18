@@ -19,7 +19,11 @@ Before you can create Amazon EKS clusters, you must create an IAM role with the 
 ## Custom AWS tags for EKS Auto resources
 <a name="tag-prop"></a>
 
-By default, the managed policies related to EKS Auto Mode do not permit applying user defined tags to Auto Mode provisioned AWS resources. If you want to apply user defined tags to AWS resources, you must attach additional permissions to the Cluster IAM Role with sufficient permissions to create and modify tags on AWS resources. Below is an example of a policy that will allow unrestricted tagging access:
+By default, the managed policies related to EKS Auto Mode do not permit applying user defined tags to Auto Mode provisioned AWS resources. If you want to apply user defined tags to AWS resources, you must attach additional permissions to the Cluster IAM Role with sufficient permissions to create and modify tags on AWS resources.
+
+To change or remove user defined tags after a resource is created, the policy must also allow modifying and deleting tags on existing resources. Otherwise, these updates fail with an authorization error.
+
+The following example policy allows tagging when EKS Auto Mode creates resources, and allows adding, updating, and removing tags on existing EC2 and Elastic Load Balancing resources that are tagged with the cluster name:
 
 ### View custom tag policy example
 <a name="auto-tag-policy"></a>
@@ -118,6 +122,22 @@ By default, the managed policies related to EKS Auto Mode do not permit applying
             "Condition": {
                 "StringEquals": {
                     "aws:RequestTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
+                }
+            }
+        },
+        {
+            "Sid": "ModifyTagsOnClusterResources",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:CreateTags",
+                "ec2:DeleteTags",
+                "elasticloadbalancing:AddTags",
+                "elasticloadbalancing:RemoveTags"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:ResourceTag/eks:eks-cluster-name": "${aws:PrincipalTag/eks:eks-cluster-name}"
                 }
             }
         }

@@ -10,23 +10,37 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 **Tip**  
  [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
 
-This section walks you through the steps to create the infrastructure required to run training or inference workloads on Amazon EKS via CLI commands. The steps include creating an EKS cluster, GPU-enabled nodes with EKS Auto Mode or Karpenter, a monitoring stack with Prometheus and Grafana, and Amazon S3 storage for model weights.
+This section walks you through the steps to create the infrastructure required to run training or inference workloads on Amazon EKS by using CLI commands. The steps include creating an EKS cluster with EKS Auto Mode or Karpenter for node auto-scaling, load balancing for in-cluster endpoints, a monitoring stack with Prometheus and Grafana, and Amazon S3 storage for model weights. You create the GPU NodePool that provisions GPU-enabled nodes in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 
 See the documentation for [EKS Auto Mode](https://docs.aws.amazon.com/eks/latest/userguide/automode.html) and [Karpenter](https://karpenter.sh/docs/) for more information on how those features provision and auto-scale EC2 instances in EKS clusters.
 
- **High-level architecture and workflow** 
+The following diagram shows the AWS high-level architecture for this section’s setup. Inside your AWS account, the EKS cluster uses a NodeClass and NodePool to provision an On-Demand Capacity Reservation (ODCR) G instance and a Spot or On-Demand G instance. The NodeClass and NodePool are shown for context; you create them in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 
-![High-level architecture showing the EKS cluster with Karpenter NodeClass and NodePool, the Grafana and Prometheus monitoring stack writing to Amazon Managed Service for Prometheus, an Amazon S3 bucket for model weights, and the numbered workflow steps](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-architecture.png)
+In the monitoring stack, Prometheus remote writes metrics to Amazon Managed Service for Prometheus, and Grafana reads them. An Amazon S3 bucket stores model weights.
+
+The numbered steps in the following diagram and its legend indicate the order in which you complete the configuration:
+
+1.  [Create the EKS cluster](#cluster-setup-cli-create) 
+
+1.  [Set up load balancing](#cluster-setup-cli-loadbalancing) 
+
+1.  [Create the monitoring stack](#cluster-setup-cli-monitoring) 
+
+1.  [Create the S3 bucket](#cluster-setup-cli-model-bucket) 
+
+![Architecture diagram of the EKS cluster, ALB, monitoring stack, and S3 bucket.](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-architecture-cli.png)
 
 
-The diagram shows the AWS high-level architecture for this section’s setup. The numbered steps on the right indicate the order in which you complete the configuration in the steps below.
+**Note**  
+The components you install here that target GPU nodes are DaemonSets, so they report zero Pods until GPU nodes join the cluster. This includes the NVIDIA device plugin on the self-managed Karpenter path and the NVIDIA DCGM Exporter in the monitoring stack. After you create the GPU NodePool and a GPU node joins the cluster, Kubernetes schedules these DaemonSets onto it automatically. GPU metrics and the GPU dashboards in Grafana stay empty until then.  
+Skip to [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) if you already have a cluster running with all of the necessary components.
 
 ## Prerequisites
 <a name="cluster-setup-cli-prerequisites"></a>
 
 **Important**  
 The resources you create in this tutorial, including EKS clusters, GPU instances, Application Load Balancers, and Amazon Managed Service for Prometheus, incur charges. Delete resources when you finish to avoid ongoing charges.
-+  `kubectl` >= 1.36. For setup instructions, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
++  `kubectl` >= 1.37. For setup instructions, see [Set up `kubectl` and `eksctl`](install-kubectl.md).
 +  AWS CLI >= 2.27. For setup instructions, see [Installing](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html).
 + Helm >= 3.14. For setup instructions, see [Setup Helm](helm.md).
 +  `jq`. For setup instructions, see [Download jq](https://jqlang.github.io/jq/download/).
@@ -43,12 +57,15 @@ If you are on a version older than 0.227.0, follow the [eksctl installation guid
 ## Set environment variables
 <a name="cluster-setup-cli-set-environment-variables"></a>
 
-Keep the following cluster name and AWS Region consistent throughout these steps. Changing it may cause subsequent commands to target the wrong EKS cluster.
+Keep the following cluster name and AWS Region consistent throughout these steps. Changing it might cause subsequent commands to target the wrong EKS cluster.
 
 ```
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
+
+**Important**  
+Use a cluster name that no other cluster in the Region is already using, including a cluster from a previous run of this guide or from [Set up Amazon EKS cluster for AI/ML workloads using Terraform](ml-cluster-setup-tf.md), which uses the same default name. On the self-managed Karpenter path, the cluster name is also the value of the `karpenter.sh/discovery` tag that Karpenter uses to find subnets and security groups. If a second cluster, or an incompletely deleted one, carries the same tag, Karpenter selects subnets and security groups from both VPCs and every node launch fails with an `InvalidParameter` error that reports that a security group and a subnet belong to different networks.
 
 Using all available AZs improves fault tolerance and increases the chances of obtaining GPU capacity:
 
@@ -69,26 +86,21 @@ Expected output:
 us-east-2a,us-east-2b,us-east-2c
 ```
 
-The AZs in the output will vary per region. This example shows the available AZs for `us-east-2` region.
+The AZs in the output vary per Region. This example shows the available AZs for the `us-east-2` Region.
 
-## Create cluster and GPU NodePool
-<a name="cluster-setup-cli-create-cluster-and-gpu-nodepool"></a>
+## Step 1: Create the cluster
+<a name="cluster-setup-cli-create"></a>
 
-This section provides two paths for creating your EKS cluster and GPU-enabled nodes, shown in the following diagram. Choose only one option throughout the guide.
+This section provides two paths for creating your EKS cluster, shown in the following diagram. Choose only one option throughout the guide.
 +  **EKS Auto Mode** — In addition to the core [networking, storage, and load balancing add-ons](https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html#addon-consider-auto), EKS Auto Mode includes and manages the following capabilities for training and inference workloads: EKS node monitoring agent, automatic node repair, [SOCI](https://github.com/awslabs/soci-snapshotter) snapshotter for fast container pulls, and GPU readiness for the default NodeClass. The NVIDIA device plugin is included in the Bottlerocket accelerated AMI that EKS Auto Mode uses for GPU-enabled nodes.
 +  **Self-managed Karpenter** — On an EKS cluster without EKS Auto Mode, you are responsible for installing and configuring the components required for training and inference workloads. This includes networking add-ons (VPC CNI, CoreDNS, kube-proxy), Karpenter, the EKS node monitoring agent, the NVIDIA device plugin, and SOCI snapshotter for fast container pulls.
-
- **EKS cluster options: EKS Auto Mode and self-managed Karpenter** 
 
 ![Side-by-side comparison of the two cluster options: an EKS Auto Mode cluster with a NodePool, and an EKS standard cluster with self-managed Karpenter, CoreDNS, VPC CNI, NVIDIA device plugin, EKS Pod Identity agent, Node Monitoring Agent, kube-proxy, and a NodeClass and NodePool](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-cluster-options.png)
 
 
-In each of the following steps, choose a path (EKS Auto Mode, Karpenter) and follow it throughout. After completing the steps for your chosen path, you’ll have an EKS cluster with a GPU NodePool ready to schedule GPU workloads.
+In each of the following steps, choose a path (EKS Auto Mode, Karpenter) and follow it throughout. After completing the steps for your chosen path, you’ll have an EKS cluster ready for GPU workloads. You create the GPU NodePool that schedules GPU workloads in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 
-## Step 1: Create cluster
-<a name="cluster-setup-cli-create-cluster"></a>
-
-Start by creating your EKS cluster and installing the cluster components needed for GPU workloads.
+<a name="cluster-setup-cli-create-cluster"></a>Start by creating your EKS cluster and installing the cluster components needed for GPU workloads.
 
 With EKS Auto Mode, a single `eksctl create cluster --enable-auto-mode` command provisions an EKS cluster that’s ready for GPU workloads.
 
@@ -104,7 +116,7 @@ eksctl create cluster \
   --name=$CLUSTER_NAME \
   --region=$AWS_REGION \
   --enable-auto-mode \
-  --version=1.36 \
+  --version=1.37 \
   --zones=$AZS
 ```
 
@@ -158,7 +170,7 @@ aws ecr-public get-login-password --region us-east-1 \
   | helm registry login --username AWS --password-stdin public.ecr.aws
 ```
 
-Public ECR is a global service hosted in `us-east-1`. Use `--region us-east-1` here regardless of which region your EKS cluster is in.
+Public ECR is a global service hosted in `us-east-1`. Use `--region us-east-1` here regardless of which Region your EKS cluster is in.
 
 Expected output: `Login Succeeded` 
 
@@ -167,7 +179,7 @@ Expected output: `Login Succeeded`
 Store your Karpenter version in an environment variable for later use. For the latest Karpenter versions, see the [Karpenter releases](https://github.com/aws/karpenter-provider-aws/releases) on GitHub.
 
 ```
-export KARPENTER_VERSION=1.14.0
+export KARPENTER_VERSION=1.15.0
 ```
 
 **Example Cluster config YAML**  
@@ -180,7 +192,7 @@ kind: ClusterConfig
 metadata:
   name: ${CLUSTER_NAME}
   region: ${AWS_REGION}
-  version: "1.36"
+  version: "1.37"
   tags:
     karpenter.sh/discovery: ${CLUSTER_NAME}
 
@@ -222,7 +234,7 @@ Create the cluster with the config file:
 eksctl create cluster -f /tmp/cluster-karpenter.yaml
 ```
 
-This command takes about 15 minutes. It creates an EKS cluster with a managed node group dedicated to hosting add-ons and the Karpenter controller. Karpenter is installed with the Spot interruption queue enabled so it can handle Spot interruption and rebalance recommendations. The `autoModeConfig.enabled: false` setting makes it explicit that this cluster does not use EKS Auto Mode, so the Karpenter components installed in this path are responsible for node management.
+This command takes about 25 minutes. It creates an EKS cluster with a managed node group dedicated to hosting add-ons and the Karpenter controller. Karpenter is installed with the Spot interruption queue enabled so it can handle Spot interruption and rebalance recommendations. The `autoModeConfig.enabled: false` setting makes it explicit that this cluster does not use EKS Auto Mode, so the Karpenter components installed in this path are responsible for node management.
 
 The cluster also gets the [EKS Pod Identity Agent](https://docs.aws.amazon.com/eks/latest/userguide/pod-identities.html), the [EKS node monitoring agent](https://docs.aws.amazon.com/eks/latest/userguide/node-health.html), and the Amazon EBS CSI driver installed as EKS add-ons. EKS Pod Identity is used later in the guide. The EKS node monitoring agent runs on every node and reads kernel logs to set node conditions such as `AcceleratedHardwareReady`, `KernelReady`, and `NetworkingReady`, which Karpenter automatic node repair uses to decide when to replace an unhealthy node.
 
@@ -232,24 +244,28 @@ Verify the cluster is operational:
 kubectl get pods --all-namespaces
 ```
 
-Expected output includes Karpenter, CoreDNS, kube-proxy, aws-node (VPC CNI), the EKS Pod Identity Agent, and the EKS node monitoring agent.
+Expected output includes Karpenter, CoreDNS, kube-proxy, aws-node (VPC CNI), the Amazon EBS CSI driver, the EKS Pod Identity Agent, and the EKS node monitoring agent.
 
 ```
-NAMESPACE     NAME                              READY   STATUS    RESTARTS   AGE
-karpenter     karpenter-567547464c-s6vkx        1/1     Running   0          3m40s
-karpenter     karpenter-567547464c-x7gmw        1/1     Running   0          3m40s
-kube-system   aws-node-b6gf2                    2/2     Running   0          12m
-kube-system   aws-node-lcphh                    2/2     Running   0          12m
-kube-system   coredns-7d4dcbf4fb-ccvrr          1/1     Running   0          16m
-kube-system   coredns-7d4dcbf4fb-qbhk2          1/1     Running   0          16m
-kube-system   eks-node-monitoring-agent-h79vm   1/1     Running   0          9m45s
-kube-system   eks-node-monitoring-agent-tf4dw   1/1     Running   0          9m45s
-kube-system   eks-pod-identity-agent-5jbtc      1/1     Running   0          12m
-kube-system   eks-pod-identity-agent-rwcrc      1/1     Running   0          12m
-kube-system   kube-proxy-p4bmq                  1/1     Running   0          12m
-kube-system   kube-proxy-v5nwr                  1/1     Running   0          12m
-kube-system   metrics-server-5b966ff79c-hr58p   1/1     Running   0          9m22s
-kube-system   metrics-server-5b966ff79c-szs2d   1/1     Running   0          9m22s
+NAMESPACE     NAME                                  READY   STATUS    RESTARTS   AGE
+karpenter     karpenter-567547464c-s6vkx            1/1     Running   0          3m40s
+karpenter     karpenter-567547464c-x7gmw            1/1     Running   0          3m40s
+kube-system   aws-node-b6gf2                        2/2     Running   0          12m
+kube-system   aws-node-lcphh                        2/2     Running   0          12m
+kube-system   coredns-7d4dcbf4fb-ccvrr              1/1     Running   0          16m
+kube-system   coredns-7d4dcbf4fb-qbhk2              1/1     Running   0          16m
+kube-system   ebs-csi-controller-86bd88d684-6jdb9   6/6     Running   0          10m
+kube-system   ebs-csi-controller-86bd88d684-6qc9z   6/6     Running   0          10m
+kube-system   ebs-csi-node-jvl22                    3/3     Running   0          10m
+kube-system   ebs-csi-node-qsp58                    3/3     Running   0          10m
+kube-system   eks-node-monitoring-agent-h79vm       1/1     Running   0          9m45s
+kube-system   eks-node-monitoring-agent-tf4dw       1/1     Running   0          9m45s
+kube-system   eks-pod-identity-agent-5jbtc          1/1     Running   0          12m
+kube-system   eks-pod-identity-agent-rwcrc          1/1     Running   0          12m
+kube-system   kube-proxy-p4bmq                      1/1     Running   0          12m
+kube-system   kube-proxy-v5nwr                      1/1     Running   0          12m
+kube-system   metrics-server-5b966ff79c-hr58p       1/1     Running   0          9m22s
+kube-system   metrics-server-5b966ff79c-szs2d       1/1     Running   0          9m22s
 ```
 
  **Enable Karpenter feature gates** 
@@ -275,7 +291,7 @@ kubectl rollout status deployment/karpenter -n karpenter
 
  **Install NVIDIA device plugin** 
 
-The EKS-optimized AL2023 AMI does not include the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) (unlike the Bottlerocket AMI used by EKS Auto Mode). Install it via Helm to make GPU resources usable with Pods on the cluster.
+The EKS-optimized AL2023 AMI does not include the [NVIDIA device plugin](https://github.com/NVIDIA/k8s-device-plugin) (unlike the Bottlerocket AMI used by EKS Auto Mode). Install it by using Helm to make GPU resources usable with Pods on the cluster.
 
 ```
 helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
@@ -303,7 +319,9 @@ helm install nvidia-device-plugin nvdp/nvidia-device-plugin \
 ```
 +  `mofedEnabled: false`: disables the check for Mellanox OFED (InfiniBand), which AWS does not use
 +  `nodeSelector.amiFamily: al2023`: scopes the DaemonSet to AL2023 nodes only (Bottlerocket already has the plugin built in)
-+  `gfd.enabled: true`: enables GPU Feature Discovery labels (`nvidia.com/gpu.product`, `nvidia.com/gpu.memory`, etc.)
++  `gfd.enabled: true`: enables GPU Feature Discovery labels (`nvidia.com/gpu.product`, `nvidia.com/gpu.memory`, and others)
+
+Because `gfd.enabled` is `true`, the chart also deploys Node Feature Discovery in `kube-system`. This includes a master, a garbage collector, and a worker on every node. These `nvidia-device-plugin-node-feature-discovery-*` Pods appear alongside the device plugin DaemonSet. They apply the GPU labels after a GPU node joins.
 
 Verify the NVIDIA device plugin is installed. The expectation is that there are zero device plugin Pods until a GPU NodePool with the matching label is provisioned.
 
@@ -318,7 +336,7 @@ NAME                   DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE
 nvidia-device-plugin   0         0         0       0            0           amiFamily=al2023   2m5s
 ```
 
-Next, create a general-purpose NodePool. The `system` managed node group runs the add-ons and controllers. Add a general-purpose Karpenter `NodePool` so non-GPU workloads can scale on demand without landing on the `system` nodes. The GPU `NodePool` is created later in [Step 2](#cluster-setup-cli-create-gpu-nodepool).
+Next, create a general-purpose NodePool. The `system` managed node group runs the add-ons and controllers. Add a general-purpose Karpenter `NodePool`, so non-GPU workloads can scale on demand without landing on the `system` nodes. Creating this NodePool does not launch any nodes by itself: Karpenter provisions CPU nodes from it only when Pods need capacity that the `system` managed node group can’t provide. You create the GPU `NodePool` in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section.
 
 <a name="cluster-setup-cli-step1-karpenter-general-nodepool-yaml"></a> **General-purpose EC2NodeClass and NodePool YAML** 
 
@@ -371,7 +389,7 @@ spec:
 EOF
 ```
 
-This NodePool has no taints, so any Pod that does not tolerate the GPU taint can schedule on it.
+This NodePool has no taints, so any Pod that does not tolerate the GPU taint can schedule on it. It selects the `c`, `m`, and `r` instance families, which are CPU-only, so it never provisions GPU nodes.
 
  **Create the default StorageClass** 
 
@@ -400,15 +418,12 @@ This command creates a `gp3` `StorageClass` and marks it as the cluster default 
 **Warning**  
 For both the EKS Auto Mode and self-managed Karpenter paths, automatic node repair behaves the same way for nodes provisioned by NodePools. Automatic node repair in EKS Auto Mode and Karpenter is a *forceful* disruption method that bypasses PodDisruptionBudgets, the `karpenter.sh/do-not-disrupt` annotation, and `terminationGracePeriod`. Automatic node repair waits 10 minutes before replacing a node with the `AcceleratedHardwareReady` condition set to `False` and 30 minutes for [other repair conditions](https://docs.aws.amazon.com/eks/latest/userguide/node-repair.html).
 
-### Set up load balancing
+## Step 2: Set up load balancing
 <a name="cluster-setup-cli-loadbalancing"></a>
 
 Later steps in this guide expose Grafana (and, in the inference walkthrough, a model endpoint) through an AWS Application Load Balancer (ALB). Set up the load balancing prerequisites now so those sections can create an `Ingress` without further setup.
 
 The ALB is placed in your VPC subnets based on AWS resource tags. Public subnets used for internet-facing load balancers must be tagged `kubernetes.io/role/elb` = `1`, and private subnets used for internal load balancers must be tagged `kubernetes.io/role/internal-elb` = `1`. Because you created this cluster with `eksctl`, those tags already exist on the subnets `eksctl` created. If you bring your own VPC or imported subnets, tag them manually. For details, see [Tag subnets for EKS Auto Mode](tag-subnets-auto.md).
-
-#### Create the load balancer IngressClass
-<a name="_create_the_load_balancer_ingressclass"></a>
 
 The rest of the setup differs by path. EKS Auto Mode includes a built-in ALB controller, so you create an `IngressClass` yourself. Self-managed Karpenter requires installing the AWS Load Balancer Controller with Helm, and the Helm chart creates the `IngressClass` for you.
 
@@ -449,9 +464,12 @@ aws iam create-policy \
   --policy-document file://iam_policy.json
 ```
 
+**Note**  
+IAM policy names are unique per AWS account, not per cluster or Region. If a cluster in your account already runs the AWS Load Balancer Controller, this command returns `EntityAlreadyExists`. That error is safe to ignore. The next step references the policy by name, so the existing policy is used. Treat the error as a failure only if you need the latest permissions. In that case, add a new policy version with `aws iam create-policy-version --set-as-default`.
+
  **Create the Pod Identity association** 
 
-The cluster already installs the `eks-pod-identity-agent` add-on in [Step 1](#cluster-setup-cli-create-cluster), so EKS Pod Identity is available. Create a Pod Identity association that binds the IAM policy to the controller’s service account:
+The cluster already installs the `eks-pod-identity-agent` add-on when you [create the EKS cluster](#cluster-setup-cli-create), so EKS Pod Identity is available. Create a Pod Identity association that binds the IAM policy to the controller’s service account:
 
 ```
 eksctl create podidentityassociation \
@@ -522,585 +540,12 @@ alb    ingress.k8s.aws/alb   <none>       22s
 
 Both paths now have an `alb` `IngressClass`. The Grafana and inference sections reference `ingressClassName: alb` and set the ALB scheme, source-IP allowlist, and other behavior through per-`Ingress` annotations.
 
-## Step 2: Create dynamic GPU NodePool
-<a name="cluster-setup-cli-create-gpu-nodepool"></a>
-
-Define a NodePool that dynamically provisions G-family GPU instances with a generation greater than 4, using Spot capacity with On-Demand as a fallback. The EKS Auto Mode and Karpenter paths both use the same NodePool API with the only difference being the NodeClass it points to. In EKS Auto Mode, the bundled `default` NodeClass already selects the right AMI and configures SOCI parallel pull, so the NodePool is the only object you create. In self-managed Karpenter, you also need a custom `EC2NodeClass` that pins the AMI and tunes SOCI. Because the two paths use different AMIs, the instance constraints differ between them, as noted in each path.
-
-------
-#### [ EKS Auto Mode ]
-
-**Important**  
-This path uses the EKS-optimized Bottlerocket NVIDIA AMI, which does not include a driver version that supports the `g7` instance family (`g7` requires NVIDIA driver version 595 or later). Therefore, the NodePool in this path excludes the `g7` family. Other generation-7 instances, such as `g7e`, run on NVIDIA driver 580 and are supported. If you need `g7` support, use the self-managed Karpenter path with the EKS-optimized AL2023 NVIDIA AMI. For more information, see [EKS-optimized NVIDIA AMIs](ml-eks-optimized-ami.md#eks-amis-nvidia).
-
-In EKS Auto Mode, the bundled `default` NodeClass automatically selects the Bottlerocket AMI for GPU instances, which includes pre-installed NVIDIA drivers, the NVIDIA device plugin, and SOCI parallel pull. You just need to apply a NodePool that references the `default` NodeClass:
-
-```
-cat << 'EOF' | kubectl apply -f -
-apiVersion: karpenter.sh/v1
-kind: NodePool
-metadata:
-  name: gpu-inf
-spec:
-  template:
-    metadata:
-      labels:
-        guide: ai-eks-docs
-    spec:
-      nodeClassRef:
-        group: eks.amazonaws.com
-        kind: NodeClass
-        name: default
-      taints:
-        - key: nvidia.com/gpu
-          effect: NoSchedule
-      requirements:
-        - key: karpenter.sh/capacity-type
-          operator: In
-          values: ["spot", "on-demand"]
-        - key: eks.amazonaws.com/instance-category
-          operator: In
-          values: ["g"]
-        - key: eks.amazonaws.com/instance-generation
-          operator: Gt
-          values: ["4"]
-        - key: eks.amazonaws.com/instance-family
-          operator: NotIn
-          values: ["g7"]
-        - key: kubernetes.io/arch
-          operator: In
-          values: ["amd64"]
-  limits:
-    cpu: 1000
-    memory: 5000Gi
-EOF
-```
-
-This NodePool provisions G-family GPU instances with a generation greater than 4, excluding the `g7` family (for example, [G5](https://aws.amazon.com/ec2/instance-types/g5/), [G6e](https://aws.amazon.com/ec2/instance-types/g6e/), and G7e). EKS Auto Mode chooses an instance type within these constraints.
-
-------
-#### [ Self-managed Karpenter ]
-
-Self-managed Karpenter does not include a default NodeClass. You first create an `EC2NodeClass` that pins the EKS-optimized NVIDIA AL2023 AMI alias, enables SOCI via the `FastImagePull` feature gate, and configures `instanceStorePolicy: RAID0` to move the containerd image cache to local NVMe. Then you create the NodePool that references it.
-
- **Create the EC2NodeClass** 
-
-**Example**  
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: karpenter.k8s.aws/v1
-kind: EC2NodeClass
-metadata:
-  name: gpu-inf
-  labels:
-    guide: ai-eks-docs
-spec:
-  role: "eksctl-KarpenterNodeRole-${CLUSTER_NAME}"
-  amiSelectorTerms:
-    - alias: al2023@latest
-  subnetSelectorTerms:
-    - tags:
-        karpenter.sh/discovery: ${CLUSTER_NAME}
-  securityGroupSelectorTerms:
-    - tags:
-        karpenter.sh/discovery: ${CLUSTER_NAME}
-  tags:
-    karpenter.sh/discovery: ${CLUSTER_NAME}
-  instanceStorePolicy: RAID0
-  userData: |
-    apiVersion: node.eks.aws/v1alpha1
-    kind: NodeConfig
-    spec:
-      featureGates:
-        FastImagePull: true
-EOF
-```
-
- `instanceStorePolicy: RAID0` assembles local NVMe disks into a RAID-0 array. The `al2023@latest` AMI alias resolves to the EKS-optimized AL2023 AMI. When Karpenter launches a GPU instance type, it automatically selects the AL2023\_x86\_64\_NVIDIA accelerated variant, which includes the NVIDIA driver pre-installed.
-
-The `FastImagePull` feature gate enables SOCI snapshotter parallel pull mode, which downloads and unpacks image layers concurrently. This matches the EKS Auto Mode behavior on G, P, and Trn instance families.
-
-For more SOCI tuning options (concurrent downloads per image, chunk size, etc.), see the [Karpenter SOCI blueprint](https://github.com/aws-samples/karpenter-blueprints/tree/main/blueprints/soci-snapshotter).
-
-Validate the EC2NodeClass:
-
-```
-kubectl get ec2nodeclass gpu-inf
-```
-
-Expected output: `READY True`. If `False`, run `kubectl describe ec2nodeclass gpu-inf` and check conditions for missing subnet or security group tags.
-
- **Create the GPU NodePool** 
-
-**Example**  
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: karpenter.sh/v1
-kind: NodePool
-metadata:
-  name: gpu-inf
-spec:
-  template:
-    metadata:
-      labels:
-        guide: ai-eks-docs
-        amiFamily: al2023
-    spec:
-      nodeClassRef:
-        group: karpenter.k8s.aws
-        kind: EC2NodeClass
-        name: gpu-inf
-      taints:
-        - key: nvidia.com/gpu
-          effect: NoSchedule
-      requirements:
-        - key: karpenter.sh/capacity-type
-          operator: In
-          values: ["spot", "on-demand"]
-        - key: karpenter.k8s.aws/instance-category
-          operator: In
-          values: ["g"]
-        - key: karpenter.k8s.aws/instance-generation
-          operator: Gt
-          values: ["4"]
-        - key: kubernetes.io/arch
-          operator: In
-          values: ["amd64"]
-  limits:
-    cpu: 1000
-    memory: 5000Gi
-EOF
-```
-
-The `amiFamily: al2023` label on the node template is what the NVIDIA device plugin DaemonSet uses to select these nodes. Karpenter chooses an instance type within these constraints. The `nvidia.com/gpu:NoSchedule` taint ensures only GPU-eligible Pods are scheduled on these nodes.
-
-------
-
-Unlike the EKS Auto Mode path, this NodePool does not cap the instance generation, because the EKS-optimized AL2023 NVIDIA AMI includes a driver version that supports `g7` instances. The EKS AL2023 AMI currently uses NVIDIA driver 580 on all EC2 instances except `g7`, which uses NVIDIA driver 595. For more information, see [EKS-optimized NVIDIA AMIs](ml-eks-optimized-ami.md#eks-amis-nvidia).
-
-Validate the NodePool was created:
-
-```
-kubectl get nodepool gpu-inf
-```
-
-Expected output:
-
-```
-NAME      NODECLASS   NODES   READY   AGE
-gpu-inf   default     0       True    8s
-```
-
-On the self-managed Karpenter path, the NODECLASS column shows `gpu-inf` instead of `default`.
-
-## Step 3: Test with a sample Pod
-<a name="cluster-setup-cli-test-with-a-sample-pod"></a>
-
-Test your GPU NodePool setup with an `nvidia-smi` Pod.
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: v1
-kind: Pod
-metadata:
-  name: nvidia-smi
-  labels:
-    guide: ai-eks-docs
-spec:
-  tolerations:
-    - key: "nvidia.com/gpu"
-      operator: "Exists"
-      effect: "NoSchedule"
-  containers:
-    - name: nvidia-smi
-      image: public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
-      command: ["nvidia-smi"]
-      resources:
-        limits:
-          nvidia.com/gpu: 1
-  restartPolicy: OnFailure
-EOF
-```
-
-Verify the Pod is scheduled and completed successfully.
-
-```
-kubectl get pods
-```
-
-Expected output:
-
-```
-NAME         READY   STATUS      RESTARTS   AGE
-nvidia-smi   0/1     Completed   0          67s
-```
-
-The STATUS: Completed means the nvidia-smi command ran and exited. Check the Pod logs to see the GPU detected by the node.
-
-```
-kubectl logs nvidia-smi
-```
-
-Expected output:
-
-```
-+-----------------------------------------------------------------------------------------+
-| NVIDIA-SMI 580.159.03             Driver Version: 580.159.03     CUDA Version: 13.0     |
-+-----------------------------------------+------------------------+----------------------+
-| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
-|                                         |                        |               MIG M. |
-|=========================================+========================+======================|
-|   0  NVIDIA L4                      On  |   00000000:35:00.0 Off |                    0 |
-| N/A   42C    P8             16W /   72W |       0MiB /  23034MiB |      0%      Default |
-|                                         |                        |                  N/A |
-+-----------------------------------------+------------------------+----------------------+
-```
-
-The output shows the GPU model, driver version, CUDA version, and available memory. In this example, Karpenter provisioned a G6 instance which has an NVIDIA L4 GPU with 24 GB of memory. The 42C is the current GPU temperature and P8 is a low-power idle state, which is expected because no workload is using the GPU. The 16W / 72W shows current power draw compared to max power capacity, and 0MiB / 23034MiB shows current GPU memory used compared to total available. Since the Pod just ran nvidia-smi and exited, no workload is using the GPU so memory is at 0 and power is at idle. The NVIDIA GPU driver version (580.159.03) comes from the Bottlerocket AMI, while the CUDA version (13.0) comes from the container image. The GPU model and memory will vary depending on the instance type Karpenter selects. G5 instances have NVIDIA A10G GPUs (24 GB), G6 instances have NVIDIA L4 GPUs (24 GB), and G6e instances have NVIDIA L40S GPUs (48 GB).
-
-To understand how Karpenter and the Kubernetes scheduler coordinated to provision a node and place the Pod, check the Pod’s lifecycle events:
-
-```
-kubectl describe po nvidia-smi
-```
-
-Expected output:
-
-```
-Events:
-  Type     Reason                  Age   From                   Message
-  ----     ------                  ----  ----                   -------
-  Warning  FailedScheduling        60s   default-scheduler      0/2 nodes are available: 2 node(s) had untolerated taint(s). no new claims to deallocate, preemption: 0/2 nodes are available: 2 Preemption is not helpful for scheduling.
-  Normal   Nominated               59s   eks-auto-mode/compute  Pod should schedule on: nodeclaim/gpu-inf-vxcnj
-  Normal   Scheduled               24s   default-scheduler      Successfully assigned default/nvidia-smi to i-0fb17a09bc4203164
-  Warning  FailedCreatePodSandBox  21s   kubelet                Failed to create pod sandbox: rpc error: code = Unknown desc = failed to setup network for sandbox "7f85e25b220c8fb245187758dbbbc8efb3d40f3e49e13054404880daf4c3b2f0": plugin type="aws-cni" name="aws-cni" failed (add): add cmd: failed to setup network policy
-  Normal   Pulling                  7s   kubelet                spec.containers{nvidia-smi}: Pulling image "public.ecr.aws/amazonlinux/amazonlinux:2023-minimal"
-  Normal   Pulled                   5s   kubelet                spec.containers{nvidia-smi}: Successfully pulled image "public.ecr.aws/amazonlinux/amazonlinux:2023-minimal" in 1.237s (1.237s including waiting). Image size: 37442701 bytes.
-  Normal   Created                  5s   kubelet                spec.containers{nvidia-smi}: Container created
-  Normal   Started                  5s   kubelet                spec.containers{nvidia-smi}: Container started
-```
-
-These events show the Pod scheduling sequence: the Pod initially fails to schedule because no GPU nodes exist (FailedScheduling), Karpenter nominates a new NodeClaim (Nominated), the scheduler assigns the Pod once the node is ready (Scheduled), and then the container image is pulled and started. EKS Auto Mode comes with SOCI (Seekable OCI) parallel pull installed and configured out of the box on G, P, and Trn instances. Notice because of SOCI parallel pull, the container image was pulled from ECR in under 2 seconds (1.237s).
-
-A NodeClaim is a request Karpenter creates to provision a specific node. It shows the instance type, capacity type, AZ, and whether the node is ready.
-
-```
-kubectl get nodeclaims
-```
-
-Expected NodeClaim output:
-
-```
-NAME            TYPE         CAPACITY   ZONE         NODE                  READY   AGE
-gpu-inf-vxcnj   g6.4xlarge   spot       us-east-2c   i-0fb17a09bc4203164   True    51s
-```
-
-The instance type and Availability Zone vary. Any G-family instance that satisfies your NodePool’s generation constraint is eligible: greater than 4 for both paths, with the `g7` family excluded on the EKS Auto Mode path.
-
-The `FailedCreatePodSandBox` warning in `kubectl describe pod nvidia-smi` is transient and expected. The VPC CNI initializes asynchronously after the node joins, and the kubelet retries automatically. If the Pod stays in `ContainerCreating`, check node events with `kubectl describe node <node-name>`.
-
-**Tip**  
-If no node appears, check for Insufficient Capacity Errors:  
-
-```
-kubectl get events | grep InsufficientCapacityError
-```
-Karpenter caches unavailable offerings for 3 minutes. Widening the allowed instance types and AZs in your NodePool increases the chances of landing capacity.
-
-**Note**  
-Spot instances launched by Karpenter will not appear in the EC2 Spot Requests console. Karpenter uses the EC2 [`CreateFleet`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet.html) API with `type: instant`. The instances appear in the EC2 Instances console with a `spot` lifecycle.
-
-## Step 4: Add reserved capacity to the NodePool (optional)
-<a name="cluster-setup-cli-attach-odcr"></a>
-
-To use reserved capacity first with Spot/On-Demand fallback, create an On-Demand Capacity Reservation (ODCR) and attach it to your NodeClass, then update the dynamic NodePool from Step 2 to also allow `reserved` capacity. The reservation API call is the same for both paths; the NodeClass attachment differs because EKS Auto Mode and self-managed Karpenter use different NodeClass kinds.
-
-**Warning**  
-The following command results in a charge for the reserved instance type until you cancel it with `aws ec2 cancel-capacity-reservation --capacity-reservation-id <id>`.
-
-Create the capacity reservation:
-
-```
-CR_AZ="us-east-2a"
-INSTANCE_TYPE="g6e.4xlarge"
-
-aws ec2 create-capacity-reservation \
-  --instance-type $INSTANCE_TYPE \
-  --instance-platform Linux/UNIX \
-  --availability-zone "$CR_AZ" \
-  --instance-count 1 \
-  --instance-match-criteria open \
-  --end-date-type unlimited
-```
-
-If you get an `InsufficientInstanceCapacity` error, change `CR_AZ` to a different AZ and retry.
-
-Look up the capacity reservation ID and store it in a shell variable for the following steps:
-
-```
-CAPACITY_RESERVATION_ID=$(aws ec2 describe-capacity-reservations \
-  --filters "Name=state,Values=active" "Name=instance-type,Values=${INSTANCE_TYPE}" \
-  --query 'CapacityReservations[0].CapacityReservationId' \
-  --output text \
-  --region ${AWS_REGION})
-echo "Capacity reservation ID: ${CAPACITY_RESERVATION_ID}"
-```
-
-Then apply the NodeClass and NodePool changes for your path:
-
-------
-#### [ EKS Auto Mode ]
-
-In EKS Auto Mode, the bundled `default` NodeClass is read-only, so create a custom NodeClass that references the reservation, then update the NodePool to point at the NodeClass and add `reserved` capacity to the `capacity-type` list.
-
-**Example Custom NodeClass YAML**  
-
-```
-NODE_ROLE=$(kubectl get nodeclass default -o jsonpath='{.spec.role}')
-
-cat << EOF | kubectl apply -f -
-apiVersion: eks.amazonaws.com/v1
-kind: NodeClass
-metadata:
-  name: gpu-inf
-  labels:
-    guide: ai-eks-docs
-spec:
-  role: "$NODE_ROLE"
-  subnetSelectorTerms:
-    - tags:
-        alpha.eksctl.io/cluster-name: "$CLUSTER_NAME"
-        kubernetes.io/role/internal-elb: "1"
-  securityGroupSelectorTerms:
-    - tags:
-        aws:eks:cluster-name: "$CLUSTER_NAME"
-  capacityReservationSelectorTerms:
-    - id: "$CAPACITY_RESERVATION_ID"
-EOF
-```
-
-The `kubernetes.io/role/internal-elb: "1"` tag ensures nodes launch in private subnets only.
-
-Update the NodePool to use the ODCR-backed NodeClass and include `reserved` as a capacity type:
-
-**Example Updated NodePool YAML**  
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: karpenter.sh/v1
-kind: NodePool
-metadata:
-  name: gpu-inf
-spec:
-  template:
-    metadata:
-      labels:
-        guide: ai-eks-docs
-    spec:
-      nodeClassRef:
-        group: eks.amazonaws.com
-        kind: NodeClass
-        name: gpu-inf
-      taints:
-        - key: nvidia.com/gpu
-          effect: NoSchedule
-      requirements:
-        - key: karpenter.sh/capacity-type
-          operator: In
-          values: ["spot", "on-demand", "reserved"]
-        - key: eks.amazonaws.com/instance-category
-          operator: In
-          values: ["g"]
-        - key: eks.amazonaws.com/instance-generation
-          operator: Gt
-          values: ["4"]
-        - key: eks.amazonaws.com/instance-family
-          operator: NotIn
-          values: ["g7"]
-        - key: kubernetes.io/arch
-          operator: In
-          values: ["amd64"]
-  limits:
-    cpu: 1000
-    memory: 5000Gi
-EOF
-```
-
-------
-#### [ Self-managed Karpenter ]
-
-For self-managed Karpenter, re-apply the `EC2NodeClass` you created in Step 2 with `capacityReservationSelectorTerms` added. The field name and shape match the EKS Auto Mode `NodeClass` shown in the other tab.
-
-**Example Updated EC2NodeClass YAML**  
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: karpenter.k8s.aws/v1
-kind: EC2NodeClass
-metadata:
-  name: gpu-inf
-  labels:
-    guide: ai-eks-docs
-spec:
-  role: "eksctl-KarpenterNodeRole-${CLUSTER_NAME}"
-  amiSelectorTerms:
-    - alias: al2023@latest
-  subnetSelectorTerms:
-    - tags:
-        karpenter.sh/discovery: ${CLUSTER_NAME}
-  securityGroupSelectorTerms:
-    - tags:
-        karpenter.sh/discovery: ${CLUSTER_NAME}
-  tags:
-    karpenter.sh/discovery: ${CLUSTER_NAME}
-  instanceStorePolicy: RAID0
-  capacityReservationSelectorTerms:
-    - id: "$CAPACITY_RESERVATION_ID"
-  userData: |
-    apiVersion: node.eks.aws/v1alpha1
-    kind: NodeConfig
-    spec:
-      featureGates:
-        FastImagePull: true
-EOF
-```
-
-The only change from Step 2 is the new `capacityReservationSelectorTerms` field. All other fields remain the same.
-
-Update the NodePool to include `reserved` as a capacity type:
-
-**Example Updated NodePool YAML**  
-
-```
-cat << EOF | kubectl apply -f -
-apiVersion: karpenter.sh/v1
-kind: NodePool
-metadata:
-  name: gpu-inf
-spec:
-  template:
-    metadata:
-      labels:
-        guide: ai-eks-docs
-        amiFamily: al2023
-    spec:
-      nodeClassRef:
-        group: karpenter.k8s.aws
-        kind: EC2NodeClass
-        name: gpu-inf
-      taints:
-        - key: nvidia.com/gpu
-          effect: NoSchedule
-      requirements:
-        - key: karpenter.sh/capacity-type
-          operator: In
-          values: ["spot", "on-demand", "reserved"]
-        - key: karpenter.k8s.aws/instance-category
-          operator: In
-          values: ["g"]
-        - key: karpenter.k8s.aws/instance-generation
-          operator: Gt
-          values: ["4"]
-        - key: kubernetes.io/arch
-          operator: In
-          values: ["amd64"]
-  limits:
-    cpu: 1000
-    memory: 5000Gi
-EOF
-```
-
-------
-
-Karpenter treats `reserved` as the most cost-efficient option and launches it first. Once the reservation is full, it falls back to Spot or On-Demand.
-
-### Verify reserved priority and Spot fallback
-<a name="cluster-setup-cli-step4-validate"></a>
-
-After applying the changes, validate that Karpenter prioritizes reserved capacity and falls back to Spot or On-Demand. Deploy a 2-replica Deployment that requests 1 GPU per Pod. The ODCR is for 1 instance, so the first Pod triggers Karpenter to launch a reserved node. The second Pod cannot fit on the reserved node and triggers Karpenter to launch another node from Spot or On-Demand capacity.
-
-```
-cat << 'EOF' | kubectl apply -f -
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: gpu-overflow-test
-  labels:
-    guide: ai-eks-docs
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: gpu-overflow-test
-  template:
-    metadata:
-      labels:
-        app: gpu-overflow-test
-        guide: ai-eks-docs
-    spec:
-      tolerations:
-        - key: nvidia.com/gpu
-          operator: Exists
-          effect: NoSchedule
-      containers:
-        - name: nvidia-smi
-          image: public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
-          command: ["sh", "-c", "nvidia-smi && sleep infinity"]
-          resources:
-            limits:
-              nvidia.com/gpu: 1
-EOF
-```
-
-Unlike the `nvidia-smi` test Pod from Step 3 which ran and exited, this Deployment keeps the Pods running (`sleep infinity`) so they hold the GPU and don’t release the node.
-
-Verify the Pods scheduled on different nodes:
-
-```
-kubectl get pods -l app=gpu-overflow-test -o wide
-```
-
-Expected output:
-
-```
-NAME                                 READY   STATUS    RESTARTS   AGE     IP                NODE                  NOMINATED NODE   READINESS GATES
-gpu-overflow-test-59b97944fb-lq56c   1/1     Running   0          2m42s   192.168.186.240   i-057692590480155da   <none>           <none>
-gpu-overflow-test-59b97944fb-z4zcx   1/1     Running   0          2m42s   192.168.130.64    i-0521ecd1849fa0578   <none>           <none>
-```
-
-The two pods are running, each on a different node.
-
-Check the NodeClaims to see the capacity types:
-
-```
-kubectl get nodeclaims
-```
-
-Expected output:
-
-```
-NAME            TYPE          CAPACITY    ZONE         NODE                  READY   AGE
-gpu-inf-shg5w   g6e.xlarge    reserved    us-east-2a   i-0ea91fdeef65b8cb6   True    2m2s
-gpu-inf-ssnqf   g6e.2xlarge   spot        us-east-2b   i-00ccf7ce65cf3f6ca   True    112s
-```
-
-The reserved node launched first, followed by a Spot or On-Demand node once the reservation was full.
-
-Clean up the test deployment:
-
-```
-kubectl delete deployment gpu-overflow-test
-```
-
-## Monitoring
+## Step 3: Create the monitoring stack
 <a name="cluster-setup-cli-monitoring"></a>
 
 Install a monitoring stack that collects cluster, node, and GPU metrics into Amazon Managed Service for Prometheus (AMP), and visualize them with Grafana. The kube-prometheus-stack Helm chart deploys Prometheus to scrape and remote-write metrics to AMP, plus a self-managed Grafana for dashboards. The NVIDIA DCGM Exporter adds GPU-specific metrics (utilization, memory, temperature, power, NVLink, tensor activity).
 
-Prometheus, Grafana, and the operator land on non-GPU nodes by default because GPU nodes carry the `nvidia.com/gpu:NoSchedule` taint. Node-exporter and the DCGM Exporter both run on GPU nodes so we can scrape host and GPU metrics fleet-wide.
+Prometheus, Grafana, and the operator land on non-GPU nodes by default because GPU nodes carry the `nvidia.com/gpu:NoSchedule` taint. Node-exporter and the DCGM Exporter both tolerate that taint, so they scrape host and GPU metrics fleet-wide after GPU nodes join the cluster.
 
 If you opened a new terminal, set the cluster name and region:
 
@@ -1161,11 +606,10 @@ AMP_POLICY_ARN=$(aws iam create-policy \
 echo "AMP Policy ARN: ${AMP_POLICY_ARN}"
 ```
 
-Create the monitoring namespace and the service accounts for Prometheus and Grafana:
+Create the monitoring namespace and the service account for Grafana. The kube-prometheus-stack chart creates the Prometheus service account when you install it:
 
 ```
 kubectl create namespace monitoring
-kubectl create serviceaccount amp-iamproxy-ingest-service-account -n monitoring
 kubectl create serviceaccount grafana-sa -n monitoring
 ```
 
@@ -1237,7 +681,7 @@ prometheus-adapter:
 
 prometheus:
   serviceAccount:
-    create: false
+    create: true
     name: amp-iamproxy-ingest-service-account
   prometheusSpec:
     serviceAccountName: amp-iamproxy-ingest-service-account
@@ -1370,7 +814,7 @@ Validate the variables were populated correctly:
 grep -E "url:|region:" /tmp/kube-prometheus-values.yaml
 ```
 
-You should see the full AMP endpoint URL (starting with `https://aps-workspaces…​`) and your region. If either is empty, re-export the variables and recreate the file.
+You should see the full AMP endpoint URL (starting with `https://aps-workspaces…​`) and your Region. If either is empty, re-export the variables and recreate the file.
 
 Install the chart:
 
@@ -1397,6 +841,8 @@ kube-prometheus-stack-prometheus-node-exporter-t9q7s       1/1     Running   0  
 kube-prometheus-stack-prometheus-node-exporter-x6vfb       1/1     Running   0          4m
 prometheus-kube-prometheus-stack-prometheus-0              2/2     Running   0          4m
 ```
+
+The number of `prometheus-node-exporter` Pods matches the number of nodes in your cluster, because it runs as a DaemonSet. Expect one more than the preceding output shows if the monitoring workloads caused EKS Auto Mode to launch an additional node.
 
 The stack deploys the following components:
 +  **Prometheus** (StatefulSet): scrapes metrics and remote-writes them to AMP
@@ -1559,7 +1005,15 @@ customMetrics: |
 EOF
 ```
 
-The `customMetrics` field overrides the DCGM exporter’s default metric set with an extended one that includes NVLink bandwidth, tensor activity, PCIe throughput, ECC errors, and thermal throttling. For inference workloads these help you understand whether the GPU compute units are fully utilized, whether the GPU is idle between requests due to low batch sizes, whether data transfer between CPU and GPU is a bottleneck, whether thermal throttling is causing latency spikes, and how much GPU memory headroom remains for larger batches.
+The `customMetrics` field overrides the DCGM exporter’s default metric set with an extended one that includes NVLink bandwidth, tensor activity, PCIe throughput, ECC errors, and thermal throttling. For inference workloads these help you understand whether the GPU compute units are fully utilized, whether the GPU is idle between requests because of low batch sizes, whether data transfer between CPU and GPU is a bottleneck, whether thermal throttling is causing latency spikes, and how much GPU memory headroom remains for larger batches.
+
+**Note**  
+The metric list covers GPUs across instance families, so it includes metrics that a given GPU does not expose. Once the exporter runs on a GPU node, its logs report each one it skips with a `metric not enabled` warning:  
+
+```
+level=WARN msg="Skipping line 27 ('DCGM_FI_PROF_NVLINK_TX_BYTES'): metric not enabled"
+```
+For example, an NVIDIA L4 GPU on a G6 instance has no NVLink, so the NVLink metrics are skipped. These warnings are expected and the remaining metrics are still collected.
 
 Install the DCGM exporter:
 
@@ -1569,29 +1023,38 @@ helm install dcgm-exporter gpu-helm-charts/dcgm-exporter \
   -f /tmp/dcgm-exporter-values.yaml
 ```
 
-The `tolerations` allow the exporter to run on the GPU-tainted nodes you provisioned in Step 2. The `serviceMonitor` with the `release: kube-prometheus-stack` label ensures Prometheus discovers and scrapes it automatically.
+The `tolerations` allow the exporter to run on the GPU-tainted nodes provisioned by the GPU NodePool you create in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section. The `serviceMonitor` with the `release: kube-prometheus-stack` label ensures Prometheus discovers and scrapes it automatically.
 
-Verify the DCGM exporter DaemonSet:
+Verify the DCGM exporter DaemonSet. Because the exporter selects GPU nodes and none exist yet, the expectation is that there are zero DCGM exporter Pods:
 
 ```
 kubectl get daemonset dcgm-exporter -n monitoring
 ```
 
-Once a GPU node is running, you should see one ready Pod. To validate DCGM metrics, navigate to **Drilldown > Metrics** in Grafana and search for `DCGM_`.
+Expected output:
+
+```
+NAME            DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR                                        AGE
+dcgm-exporter   0         0         0       0            0           eks.amazonaws.com/instance-gpu-manufacturer=nvidia   30s
+```
+
+On the self-managed Karpenter path, the `NODE SELECTOR` column shows `karpenter.k8s.aws/instance-gpu-manufacturer=nvidia` instead.
+
+After you create the GPU NodePool in the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section and a GPU node joins the cluster, the DaemonSet schedules one Pod onto that node automatically. You can then validate DCGM metrics by navigating to **Drilldown > Metrics** in Grafana and searching for `DCGM_`. The search returns the GPU metrics the exporter collects, including `DCGM_FI_DEV_ECC_SBE_VOL_TOTAL` for single-bit ECC errors, `DCGM_FI_DEV_ENC_UTIL` for encoder utilization, and `DCGM_FI_DEV_FB_FREE` and `DCGM_FI_DEV_FB_USED` for free and used framebuffer memory. Any results mean Prometheus is scraping the exporter and writing to Amazon Managed Service for Prometheus.
 
  **Validate DCGM metrics in Grafana** 
 
 ![Grafana Drilldown Metrics page filtered by DCGM_ showing GPU metrics including DCGM_FI_DEV_ECC_SBE_VOL_TOTAL, DCGM_FI_DEV_ENC_UTIL, DCGM_FI_DEV_FB_FREE, and DCGM_FI_DEV_FB_USED](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-metrics-validate.png)
 
 
-To view the dashboard, navigate to **Dashboards > GPU Monitoring > NVIDIA DCGM Exporter Dashboard**.
+Once GPU nodes are running, the pre-provisioned GPU dashboard is also populated. To view it, navigate to **Dashboards > GPU Monitoring > NVIDIA DCGM Exporter Dashboard**. The dashboard has panels for GPU Utilization, GPU Avg Temp, GPU Framebuffer Mem Used, and GPU Power Total. Non-zero values in those panels confirm the full path is working, from the exporter on the GPU node through Prometheus to Amazon Managed Service for Prometheus. An idle GPU node reports 0% utilization and 0 MiB framebuffer memory used, but still reports a temperature and power draw.
 
  **NVIDIA DCGM Exporter Dashboard in Grafana** 
 
 ![Grafana NVIDIA DCGM Exporter Dashboard showing GPU Utilization, GPU Avg Temp, GPU Framebuffer Mem Used, and GPU Power Total panels](https://docs.aws.amazon.com/eks/latest/userguide/images/ml-cluster-setup-cli-dcgm-dashboard.png)
 
 
-## Model weights S3 bucket
+## Step 4: Create S3 bucket for model weights
 <a name="cluster-setup-cli-model-bucket"></a>
 
 Create an Amazon S3 bucket for storing model weights and configure an EKS Pod Identity Association so workload pods can read and write to it.
@@ -1710,13 +1173,12 @@ Expected output:
 ```
 === Caller Identity ===
 {
-    "UserId": "AROA...:eks-ai-eks-docs-model-s-...",
+    "UserId": "AROA...:eks-ai-eks-doc-s3-test-...",
     "Account": "123456789012",
-    "Arn": "arn:aws:sts::123456789012:assumed-role/ai-eks-docs-model-storage-role/eks-ai-eks-docs-model-s-..."
+    "Arn": "arn:aws:sts::123456789012:assumed-role/ai-eks-docs-model-storage-role/eks-ai-eks-doc-s3-test-..."
 }
 
 === S3 Write Test ===
-upload: - to s3://ai-eks-docs-models-01234567/test.txt
 
 === S3 List Test ===
 2026-05-04 12:00:00         19 test.txt
@@ -1725,7 +1187,7 @@ upload: - to s3://ai-eks-docs-models-01234567/test.txt
 delete: s3://ai-eks-docs-models-01234567/test.txt
 ```
 
-The caller identity confirms the Pod assumed the `${CLUSTER_NAME}-model-storage-role` role via EKS Pod Identity. The S3 commands confirm read and write access.
+The caller identity confirms the Pod assumed the `${CLUSTER_NAME}-model-storage-role` role through EKS Pod Identity. The S3 commands confirm read and write access. The write test prints no output of its own, because the AWS CLI suppresses its `upload:` progress line when the source is standard input; the object listed by the next command is the proof that the write succeeded.
 
 Clean up the test Pod:
 
@@ -1736,7 +1198,7 @@ kubectl delete pod s3-test
 ## Next steps
 <a name="cluster-setup-cli-next-steps"></a>
 
-With your cluster ready, you can proceed to [Load & Serve Model](ml-inference-load-serve-model.md) to deploy a large language model and interact with the inference endpoint.
+With your cluster ready, continue to [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md), in the [Run AI/ML inference workloads on Amazon EKS](ml-inference.md) section, to create a GPU NodePool that dynamically provisions GPU-enabled nodes for your workloads.
 
 ## Cleanup
 <a name="cluster-setup-cli-cleanup"></a>
@@ -1744,39 +1206,13 @@ With your cluster ready, you can proceed to [Load & Serve Model](ml-inference-lo
 **Tip**  
 If you plan to continue with the next sections of this guide, skip the full cleanup. Only run it when you are done.
 
+**Important**  
+If you created a GPU NodePool, run [Clean up the GPU NodePool](ml-inference-gpu-nodepool-cli.md#gpu-nodepool-cli-cleanup) first. Deleting the cluster does not cancel an On-Demand Capacity Reservation (ODCR), which keeps billing until you cancel it explicitly.
+
 ```
 export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
-
-```
-kubectl delete pod nvidia-smi --ignore-not-found
-kubectl delete deployment gpu-overflow-test --ignore-not-found
-```
-
-### Cancel the Capacity Reservation
-<a name="cluster-setup-cli-cleanup-cancel-reservation"></a>
-
-If you created an ODCR, cancel it first. Look up the reservation ID:
-
-```
-INSTANCE_TYPE="g6e.4xlarge"
-CAPACITY_RESERVATION_ID=$(aws ec2 describe-capacity-reservations \
-  --filters "Name=state,Values=active" "Name=instance-type,Values=${INSTANCE_TYPE}" \
-  --query 'CapacityReservations[0].CapacityReservationId' \
-  --output text \
-  --region ${AWS_REGION})
-echo "Capacity reservation ID: ${CAPACITY_RESERVATION_ID}"
-```
-
-Cancel the reservation:
-
-```
-aws ec2 cancel-capacity-reservation --capacity-reservation-id ${CAPACITY_RESERVATION_ID}
-```
-
-**Important**  
-Cancelling a reservation does not terminate running instances. They continue at standard On-Demand rates until terminated. Delete the deployment first to drain the reserved node before cancelling.
 
 ### Clean up monitoring
 <a name="cluster-setup-cli-cleanup-monitoring"></a>
@@ -1902,12 +1338,91 @@ Delete the Kubernetes ServiceAccount:
 kubectl delete serviceaccount model-storage-sa
 ```
 
-### Delete the Remaining Resources and the Cluster
+### Delete the remaining resources and the cluster
 <a name="cluster-setup-cli-cleanup-delete-resources"></a>
 
+On the self-managed Karpenter path, first delete every Karpenter `NodePool` and `EC2NodeClass`, including the `general-purpose` pair from Step 1. Then wait for the nodes to drain.
+
+Karpenter creates an EC2 instance profile for each `EC2NodeClass` and removes it when you delete that `EC2NodeClass`. If an `EC2NodeClass` still exists when `eksctl` removes Karpenter, nothing is left to delete the instance profile. The stack that owns the Karpenter node IAM role then cannot be deleted:
+
 ```
-kubectl delete nodepool gpu-inf --ignore-not-found
-kubectl delete nodeclass gpu-inf --ignore-not-found
-kubectl delete ec2nodeclass gpu-inf --ignore-not-found
+kubectl delete nodepool --all
+kubectl delete ec2nodeclass --all
+kubectl get nodeclaims
+```
+
+Wait until `kubectl get nodeclaims` returns `No resources found`, then delete the cluster:
+
+```
 eksctl delete cluster --name=$CLUSTER_NAME --region=$AWS_REGION
 ```
+
+ `eksctl` deletes the cluster AWS CloudFormation stack asynchronously. The command prints `all cluster resources were deleted` and returns before deletion finishes, so wait a few minutes and then confirm the cluster, its nodes, and its stack are gone:
+
+```
+aws eks list-clusters --region $AWS_REGION
+
+aws ec2 describe-instances \
+  --region $AWS_REGION \
+  --filters "Name=tag:eks:cluster-name,Values=${CLUSTER_NAME}" \
+            "Name=instance-state-name,Values=pending,running,stopping,stopped" \
+  --query 'Reservations[].Instances[].InstanceId' \
+  --output text
+
+aws cloudformation describe-stacks \
+  --region $AWS_REGION \
+  --stack-name eksctl-${CLUSTER_NAME}-cluster \
+  --query 'Stacks[0].StackStatus' \
+  --output text
+```
+
+The cluster name should be absent from the first command’s output, the second command should return nothing, and the third should report that the stack does not exist.
+
+If a stack reports `DELETE_FAILED`, list the resources that blocked deletion, remove them, and delete the stack again. The following command prints the reason for each failure, for either of the two stacks that can fail here:
+
+```
+aws cloudformation describe-stack-events \
+  --region $AWS_REGION \
+  --stack-name [.replaceable]`stack-name` \
+  --query "StackEvents[?ResourceStatus=='DELETE_FAILED'].[LogicalResourceId,ResourceStatusReason]" \
+  --output text
+```
+
+Two failures are common on the self-managed Karpenter path:
++  `eksctl-{{cluster-name}}-karpenter` fails with `KarpenterNodeRole …​ Cannot delete entity, must remove roles from instance profile first`. An instance profile that Karpenter created still references the node role, which happens when an `EC2NodeClass` outlived Karpenter. Detach and delete the instance profile, then delete the stack again:
+
+  ```
+  aws iam list-instance-profiles-for-role \
+    --role-name eksctl-KarpenterNodeRole-${CLUSTER_NAME} \
+    --query 'InstanceProfiles[].InstanceProfileName' \
+    --output text
+  
+  aws iam remove-role-from-instance-profile \
+    --instance-profile-name [.replaceable]`instance-profile-name` \
+    --role-name eksctl-KarpenterNodeRole-${CLUSTER_NAME}
+  
+  aws iam delete-instance-profile --instance-profile-name [.replaceable]`instance-profile-name`
+  
+  aws cloudformation delete-stack --region $AWS_REGION --stack-name eksctl-${CLUSTER_NAME}-karpenter
+  ```
++  `eksctl-{{cluster-name}}-cluster` fails on `ControlPlaneSecurityGroup`, `ClusterSharedNodeSecurityGroup`, or the private subnets. Each reports a dependent object error. The EKS-managed cluster security group `eks-cluster-sg-{{cluster-name}}-*` can outlive the control plane and hold the subnets. Confirm no network interfaces remain in the VPC, delete that security group, and delete the stack again:
+
+  ```
+  aws ec2 describe-security-groups \
+    --region $AWS_REGION \
+    --filters "Name=group-name,Values=eks-cluster-sg-${CLUSTER_NAME}-*" \
+    --query 'SecurityGroups[].[GroupId,VpcId]' \
+    --output text
+  
+  aws ec2 describe-network-interfaces \
+    --region $AWS_REGION \
+    --filters "Name=vpc-id,Values=[.replaceable]`vpc-id`" \
+    --query 'NetworkInterfaces[].NetworkInterfaceId' \
+    --output text
+  
+  aws ec2 delete-security-group --region $AWS_REGION --group-id [.replaceable]`sg-id`
+  
+  aws cloudformation delete-stack --region $AWS_REGION --stack-name eksctl-${CLUSTER_NAME}-cluster
+  ```
+
+  Deletion can take several more minutes after you remove the blocking resource, because AWS CloudFormation retries the dependent subnets and security groups.

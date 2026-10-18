@@ -7,7 +7,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Configure Argo CD permissions
 <a name="argocd-permissions"></a>
 
-The Argo CD managed capability integrates with AWS Identity Center for authentication and uses built-in RBAC roles for authorization. This topic explains how to configure permissions for users and teams.
+The Argo CD managed capability integrates with AWS Identity Center for authentication and uses role-based access control (RBAC) for authorization. This topic explains how to configure permissions for users and teams.
 
 ## How permissions work with Argo CD
 <a name="_how_permissions_work_with_argo_cd"></a>
@@ -221,27 +221,29 @@ spec:
 ### Source namespaces
 <a name="_source_namespaces"></a>
 
-When using the EKS Argo CD capability, the `spec.sourceNamespaces` field is required in AppProject definitions. This field specifies which namespace can contain Applications or ApplicationSets that reference this project.
+When using the EKS Argo CD capability, the `spec.sourceNamespaces` field is required in AppProject definitions. This field specifies which namespaces can contain Applications or ApplicationSets that reference the project.
+
+You can authorize team-specific source namespaces. First enable each namespace in the `argocd-cmd-params-cm` ConfigMap, and then include it in `spec.sourceNamespaces`. For instructions on configuring additional namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
 
 **Important**  
-The EKS Argo CD capability only supports a single namespace for Applications and ApplicationSets—the namespace you specified when creating the capability (typically `argocd`). This differs from open source Argo CD which supports multiple namespaces.
+Keep AppProject resources in the capability’s primary Argo CD namespace. For least-privilege team isolation, use a separate custom AppProject for each trust boundary instead of adding team namespaces to the broadly permissive `default` project.
 
  **AppProject configuration** 
 
-All AppProjects must include the capability’s configured namespace in `sourceNamespaces`:
+The following example permits resources in the primary `argocd` namespace and the additional `team-a-gitops` namespace to use the `team-a` project:
 
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: team-a-project
+  name: team-a
   namespace: argocd
 spec:
   description: Applications for Team A
 
-  # Required: Specify the capability's configured namespace (configuration.argoCd.namespace)
   sourceNamespaces:
-    - argocd  # Must match your capability's namespace configuration
+    - argocd
+    - team-a-gitops
 
   # Source repositories this project can deploy from
   sourceRepos:
@@ -254,7 +256,7 @@ spec:
 ```
 
 **Note**  
-If you omit the capability’s namespace from `sourceNamespaces`, Applications or ApplicationSets in that namespace cannot reference this project, resulting in deployment failures.
+If you omit an additional namespace from `sourceNamespaces`, Applications and ApplicationSets in that namespace can’t use the project, so Argo CD doesn’t reconcile them. For namespace-specific Argo CD RBAC, use the object format `<project>/<namespace>/<name>`, such as `team-a/team-a-gitops/*`.
 
  **Assign users to projects**:
 
@@ -262,7 +264,7 @@ Project roles grant EDITOR and VIEWER users access to project resources (Applica
 
 ADMIN users have access to all Applications without needing project roles.
 
- **Example: Granting Application access to team members** 
+ **Example: Granting Application access to team members in an additional namespace** 
 
 ```
 apiVersion: argoproj.io/v1alpha1
@@ -275,13 +277,14 @@ spec:
 
   sourceNamespaces:
   - argocd
+  - team-a-gitops
 
   # Project roles grant Application-level access
   roles:
   - name: developer
     description: Team A developers - can manage Applications
     policies:
-    - p, proj:team-a:developer, applications, *, team-a/*, allow
+    - p, proj:team-a:developer, applications, *, team-a/team-a-gitops/*, allow
     - p, proj:team-a:developer, clusters, get, *, allow  # See cluster names in UI
     groups:
     - 686103e0-f051-7068-b225-e6392b959d9e  # Identity Center group ID
@@ -289,7 +292,7 @@ spec:
   - name: viewer
     description: Team A viewers - read-only Application access
     policies:
-    - p, proj:team-a:viewer, applications, get, team-a/*, allow
+    - p, proj:team-a:viewer, applications, get, team-a/team-a-gitops/*, allow
     - p, proj:team-a:viewer, clusters, get, *, allow  # See cluster names in UI
     groups:
     - 786203e0-f051-7068-b225-e6392b959d9f  # Identity Center group ID
@@ -300,20 +303,20 @@ Include `clusters, get, *, allow` in project roles to allow users to see cluster
 
  **Understanding project role policies**:
 
-The policy format is: `p, proj:<project>:<role>, <resource>, <action>, <object>, <allow/deny>` 
+The policy format is: `p, proj:<project>:<role>, <resource>, <action>, <object>, <allow/deny>`. For Applications and ApplicationSets in an additional namespace, use `<project>/<namespace>/<name>` for `<object>`. For resources in the primary Argo CD namespace, use the backward-compatible `<project>/<name>` format.
 
  **Resource policies**:
-+  `applications, , team-a/, allow` - Full access to all Applications in the team-a project
-+  `applications, get, team-a/*, allow` - Read-only access to Applications
-+  `applications, sync, team-a/*, allow` - Can sync Applications but not create/delete
-+  `applications, delete, team-a/*, allow` - Can delete Applications (use with caution)
-+  `applicationsets, , team-a/, allow` - Full access to ApplicationSets
++  `applications, , team-a/team-a-gitops/, allow` - Full access to Applications in `team-a-gitops` that use the `team-a` project
++  `applications, get, team-a/team-a-gitops/*, allow` - Read-only access to Applications in `team-a-gitops` 
++  `applications, sync, team-a/team-a-gitops/*, allow` - Can sync Applications in `team-a-gitops` but not create or delete them
++  `applications, delete, team-a/team-a-gitops/*, allow` - Can delete Applications in `team-a-gitops` (use with caution)
++  `applicationsets, , team-a/team-a-gitops/, allow` - Full access to ApplicationSets in `team-a-gitops` 
 +  `repositories, *, *, allow` - Access to repository credentials
 +  `clusters, *, *, allow` - Access to cluster credentials
 
  **Capability policies**:
-+  `logs, , team-a/, allow` - Access to application logs
-+  `exec, , team-a/, allow` - Exec access to application pods
++  `logs, , team-a/team-a-gitops/, allow` - Access to application logs in `team-a-gitops` 
++  `exec, , team-a/team-a-gitops/, allow` - Exec access to application pods in `team-a-gitops` 
 
 **Note**  
 EDITOR users can create project roles to grant themselves and others permissions within projects they can update. This allows team leads to control access to project-scoped resources for their team without requiring ADMIN intervention.
@@ -414,6 +417,8 @@ To use AWS services directly in Application resources (without creating Reposito
 
  **CodeCommit repositories**:
 
+In the following policy, replace `region`, `account-id`, and `repository-name` with your values.
+
 ```
 {
   "Version": "2012-10-17",		 	 	 
@@ -428,6 +433,26 @@ To use AWS services directly in Application resources (without creating Reposito
   ]
 }
 ```
+
+If you use the source hydrator to push rendered manifests to an AWS CodeCommit repository, also allow `codecommit:GitPush`. In the following policy, replace `region`, `account-id`, and `repository-name` with your values.
+
+```
+{
+  "Version": "2012-10-17",		 	 	 
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "codecommit:GitPull",
+        "codecommit:GitPush"
+      ],
+      "Resource": "arn:aws:codecommit:region:account-id:repository-name"
+    }
+  ]
+}
+```
+
+For instructions on using the source hydrator, see [Push hydrated manifests with the source hydrator](argocd-create-application.md#argocd-source-hydrator).
 
  **CodeConnections (GitHub, GitLab, Bitbucket)**:
 

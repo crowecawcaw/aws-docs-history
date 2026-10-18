@@ -51,8 +51,7 @@ spec:
   # Source namespaces (required for EKS capability)
   sourceNamespaces:
     - argocd
-    - team-a-dev
-    - team-a-prod
+    - team-a-gitops
 
   # Destination clusters and namespaces
   destinations:
@@ -101,48 +100,34 @@ You can use wildcards and negation patterns (`!` prefix) to allow or deny specif
 ### Source namespaces
 <a name="_source_namespaces"></a>
 
-When using the EKS Argo CD capability, the `spec.sourceNamespaces` field is **required** in your custom AppProject definition. This field specifies which namespaces can contain Applications or ApplicationSets that reference this project:
+When using the EKS Argo CD capability, the `spec.sourceNamespaces` field is **required** in your custom AppProject definition. This field controls which namespaces can contain Applications or ApplicationSets that reference the project. Create AppProject resources in the primary Argo CD namespace, even when the Applications and ApplicationSets are in additional namespaces.
 
 **Important**  
-This is a required field for EKS Argo CD capability, which differs from OSS Argo CD where this field is optional.
+For an additional namespace to work, you must enable it globally in the `argocd-cmd-params-cm` ConfigMap and allow it in the AppProject’s `spec.sourceNamespaces` field. For instructions on configuring namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
 
 #### Default AppProject behavior
 <a name="_default_appproject_behavior"></a>
 
-The `default` AppProject automatically includes the `argocd` namespace in `sourceNamespaces`. If you need to create Applications or ApplicationSets in additional namespaces, modify the `sourceNamespaces` field to add those namespaces:
-
-```
-apiVersion: argoproj.io/v1alpha1
-kind: AppProject
-metadata:
-  name: default
-  namespace: argocd
-spec:
-  sourceNamespaces:
-    - argocd           # Already included by default
-    - team-a-apps      # Add additional namespaces as needed
-    - team-b-apps
-```
+The `default` AppProject is broadly permissive and automatically works for resources in the primary Argo CD namespace. Don’t add team-controlled additional namespaces to the `default` project. Instead, create a custom AppProject for each team or trust boundary and restrict its source repositories, destinations, and resource types.
 
 #### Custom AppProject configuration
 <a name="_custom_appproject_configuration"></a>
 
-When creating a custom AppProject, you must manually include the `argocd` system namespace and any other namespaces where you plan to create Applications or ApplicationSets:
+The following example keeps the AppProject in the primary `argocd` namespace and permits Applications and ApplicationSets from `team-a-gitops`:
 
 ```
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: team-a-project
+  name: team-a
   namespace: argocd
 spec:
   description: Applications for Team A
 
-  # Required: Manually specify all namespaces
+  # Required: Include the primary namespace and each permitted source namespace
   sourceNamespaces:
-    - argocd           # ArgoCD system namespace (required)
-    - team-a-dev       # Custom namespace for dev Applications
-    - team-a-prod      # Custom namespace for prod Applications
+    - argocd
+    - team-a-gitops
 
   # Source repositories this project can deploy from
   sourceRepos:
@@ -151,11 +136,11 @@ spec:
   # Destination restrictions
   destinations:
     - namespace: 'team-a-*'
-      server: arn:aws:eks:us-west-2:111122223333:cluster/my-cluster  # Use cluster ARN from: aws eks describe-cluster
+      server: arn:aws:eks:us-west-2:111122223333:cluster/my-cluster
 ```
 
 **Note**  
-If you omit a namespace from `sourceNamespaces`, Applications or ApplicationSets created in that namespace will not be able to reference this project, resulting in deployment failures.
+If you omit an additional namespace from `sourceNamespaces`, Applications and ApplicationSets in that namespace can’t use the project, so Argo CD doesn’t reconcile them. The source namespace is where the Argo CD custom resource is stored; it is independent of the workload destination namespace in `spec.destination`.
 
 ### Destination restrictions
 <a name="_destination_restrictions"></a>

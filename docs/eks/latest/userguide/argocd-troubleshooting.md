@@ -71,6 +71,60 @@ kubectl describe application {{my-app}} -n argocd
 kubectl get application {{my-app}} -n argocd -o jsonpath='{.status.health}'
 ```
 
+## Application or ApplicationSet in an additional namespace isn’t reconciled
+<a name="argocd-troubleshooting-additional-namespace"></a>
+
+If an Application or ApplicationSet in an additional namespace isn’t reconciled, check the namespace configuration and AppProject authorization.
+
+Use the following checklist:
++  **Check the namespace ConfigMap**: Confirm that `argocd-cmd-params-cm` exists in the primary Argo CD namespace and contains the additional namespace. For an Application, check `application.namespaces`. For an ApplicationSet, check both `application.namespaces` and `applicationsetcontroller.namespaces`.
+
+  ```
+  kubectl get configmap argocd-cmd-params-cm \
+    -n {{primary-namespace}} -o yaml
+  ```
++  **Validate the entry**: Namespace entries can contain lowercase letters, numbers, hyphens, and asterisks, and can be up to 63 characters long. An entry can’t start or end with a hyphen. The capability ignores invalid and duplicate entries and the primary namespace. You can’t use `default`, `kube-node-lease`, `kube-public`, or `kube-system` as resource namespaces. Regular expressions aren’t supported. For all configuration rules, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
++  **Check the AppProject**: Confirm that the referenced AppProject is in the primary Argo CD namespace and that its `spec.sourceNamespaces` includes the additional namespace or a matching pattern.
++  **Wait for the configuration to apply**: Allow up to 10 minutes after changing `argocd-cmd-params-cm`.
++  **Check reconciliation**: Query each resource by its namespace-qualified name. For an Application, also check whether `status.reconciledAt` is populated.
+
+  ```
+  kubectl get application {{application-name}} \
+    -n {{additional-namespace}} \
+    -o jsonpath='{.status.reconciledAt}'
+  
+  argocd app get \
+    {{additional-namespace}}/{{application-name}}
+  
+  argocd appset get \
+    {{additional-namespace}}/{{applicationset-name}}
+  ```
+
+  A successful Argo CD command confirms that Argo CD can access the resource in the additional namespace. The Application command can return a permission error for multiple reasons, including a missing Application or insufficient Argo CD role-based access control (RBAC) permissions, so use the resource status or controller logs to identify the cause. If the ApplicationSet command returns `namespace '<namespace>' is not permitted`, the namespace isn’t effective.
++  **Check controller logs**: If you deliver controller logs to CloudWatch Logs, query the corresponding log type. For an Application, query `EKS_CAPABILITY_ARGOCD_APPLICATION_LOGS` by its name and source namespace.
+
+  ```
+  fields @timestamp, message, error
+  | filter application = "application-name"
+  | filter `app-namespace` = "additional-namespace"
+  | sort @timestamp desc
+  | limit 100
+  ```
+
+  For an ApplicationSet, query `EKS_CAPABILITY_ARGOCD_APPLICATIONSET_LOGS`.
+
+  ```
+  fields @timestamp, message, error
+  | filter applicationSet = "applicationset-name"
+  | filter `appSet-namespace` = "additional-namespace"
+  | sort @timestamp desc
+  | limit 100
+  ```
+
+  A matching log record confirms that the corresponding controller is processing the resource in that namespace. The absence of matching records doesn’t prove that the namespace is unavailable; verify that log delivery is enabled for the corresponding log type and that the query covers activity after the configuration change. For log delivery instructions, see [Access EKS Capabilities controller logs](capabilities-controller-logs.md).
+
+If these checks don’t explain the issue, open an AWS Support case. Include the `argocd-cmd-params-cm` data, AppProject `sourceNamespaces`, resource namespace and status, and the time of the latest configuration change.
+
 ## Applications stuck in "Progressing" state
 <a name="_applications_stuck_in_progressing_state"></a>
 

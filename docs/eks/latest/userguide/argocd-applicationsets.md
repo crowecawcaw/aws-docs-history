@@ -32,6 +32,59 @@ Common generators for EKS deployments:
 
 For complete generator reference, see [ApplicationSet Documentation](https://argo-cd.readthedocs.io/en/stable/user-guide/application-set/).
 
+## Create an ApplicationSet in an additional namespace
+<a name="_create_an_applicationset_in_an_additional_namespace"></a>
+
+You can create ApplicationSets outside the primary Argo CD namespace. Keep the `AppProject` in the primary Argo CD namespace. Before you create an ApplicationSet in an additional namespace:
++ Add the namespace to both `applicationsetcontroller.namespaces` and `application.namespaces` in the `argocd-cmd-params-cm` ConfigMap.
++ Add the namespace to `spec.sourceNamespaces` in every `AppProject` that the generated Applications can use.
+
+For instructions on configuring resource namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces). For instructions on configuring AppProject source namespaces, see [Working with Argo CD Projects](argocd-projects.md).
+
+An ApplicationSet creates its Applications in the same namespace as the ApplicationSet. If you enable only `applicationsetcontroller.namespaces`, the application controller doesn’t manage the generated Applications.
+
+**Important**  
+ApplicationSets in additional namespaces don’t support the Plugin (`plugin`), Pull Request (`pullRequest`), or Source Code Management (SCM) Provider (`scmProvider`) generators. To use one of these generators, create the ApplicationSet in the primary Argo CD namespace.
+
+The following example shows an ApplicationSet that you create in `team-a-gitops`. The generated Applications are also created in `team-a-gitops` and use the `team-a` project:
+
+```
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: guestbook-environments
+  namespace: team-a-gitops
+spec:
+  generators:
+  - list:
+      elements:
+      - environment: dev
+      - environment: prod
+  template:
+    metadata:
+      name: 'guestbook-{{environment}}'
+    spec:
+      project: team-a
+      source:
+        repoURL: https://github.com/argoproj/argocd-example-apps
+        targetRevision: HEAD
+        path: guestbook
+      destination:
+        name: in-cluster
+        namespace: 'guestbook-{{environment}}'
+```
+
+Apply and view the ApplicationSet and its generated Applications in the source namespace:
+
+```
+kubectl apply -f applicationset.yaml
+kubectl get applicationset guestbook-environments -n team-a-gitops
+kubectl get applications -n team-a-gitops \
+  -l argocd.argoproj.io/application-set-name=guestbook-environments
+```
+
+When you use the Argo CD CLI, identify an ApplicationSet in an additional namespace as `<namespace>/<applicationset-name>`. For example, use `argocd appset get team-a-gitops/guestbook-environments`.
+
 ## List generator
 <a name="_list_generator"></a>
 

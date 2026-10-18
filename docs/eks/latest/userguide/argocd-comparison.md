@@ -22,26 +22,29 @@ The EKS Capability for Argo CD is based on upstream Argo CD but differs in how i
 
  **Direct AWS service integration**: The capability provides direct integration with AWS services through the Capability Role’s IAM permissions. You can reference CodeCommit repositories, ECR Helm charts, and CodeConnections directly in Application resources without creating Repository configurations. This simplifies authentication and eliminates the need to manage separate credentials for AWS services. See [Configure repository access](argocd-configure-repositories.md) for details.
 
- **Namespace support**: The capability requires you to specify a single namespace where Argo CD Application, ApplicationSet, and AppProject custom resources must be created.
+ **Source hydrator**: Upstream Argo CD disables the source hydrator by default. To use it with the capability, add `hydrator.enabled: "true"` to `argocd-cmd-params-cm`, and then configure `spec.sourceHydrator` in your Application. The source hydrator renders manifests (for example, from Helm charts or Kustomize overlays) and pushes the rendered output to Git before syncing to the cluster. For instructions on using the source hydrator, see [Push hydrated manifests with the source hydrator](argocd-create-application.md#argocd-source-hydrator).
+
+ **Namespace support**: You specify a primary Argo CD namespace when you create the capability. AppProject resources, Argo CD configuration, and repository and cluster credentials remain in this namespace. You can configure additional namespaces for Application and ApplicationSet resources by using the `argocd-cmd-params-cm` ConfigMap. For instructions on configuring additional namespaces, see [Configure namespaces for Applications and ApplicationSets](argocd-configure-settings.md#argocd-configure-resource-namespaces).
 
 **Note**  
-This namespace restriction only applies to Argo CD’s own custom resources (Application, ApplicationSet, AppProject). Your application workloads can be deployed to any namespace in any target cluster. For example, if you create the capability with namespace `argocd`, all Application CRs must be created in the `argocd` namespace, but those Applications can deploy workloads to `default`, `production`, `staging`, or any other namespace.
+The namespace that contains an Application or ApplicationSet is separate from the destination namespace where the generated workload runs. For example, an Application stored in `team-a-gitops` can deploy workloads to `default`, `production`, `staging`, or another namespace in a target cluster.
 
 **Note**  
-The managed capability has specific requirements for CLI usage and AppProject configuration:  
-When using the Argo CD CLI, specify applications with the namespace prefix: `argocd app sync namespace/appname` 
-AppProject resources must specify `.spec.sourceNamespaces` to define which namespaces the project can watch for Applications (typically set to the namespace you specified when creating the capability)
-Resource tracking annotations use the format: `namespace_appname:group/kind:namespace/name` 
+The managed capability has specific requirements for CLI usage, AppProject configuration, resource tracking, and ApplicationSet generators:  
+When using the Argo CD CLI, specify resources outside the primary namespace with a namespace prefix, such as `argocd app sync team-a-gitops/my-app`.
+AppProject resources must specify `.spec.sourceNamespaces` to allow Applications and ApplicationSets from each additional namespace.
+Resource tracking annotations use the format: `namespace_appname:group/kind:namespace/name`.
+ApplicationSets in additional namespaces don’t support the Plugin (`plugin`), Pull Request (`pullRequest`), or Source Code Management (SCM) Provider (`scmProvider`) generators. To use one of these generators, create the ApplicationSet in the primary Argo CD namespace.
 
  **Unsupported features**: The following features are not available in the managed capability:
 + Config Management Plugins (CMPs) for custom manifest generation
 + Notifications controller
 + Custom SSO providers (only AWS Identity Center is supported, including third-party federated identity through AWS Identity Center)
 + UI extensions and custom banners
-+ Direct access to `argocd-params` and most configuration ConfigMaps (a subset of `argocd-cm` fields is supported. See [Configure Argo CD settings](argocd-configure-settings.md))
++ Argo CD configuration ConfigMaps and keys other than the supported `argocd-cm` fields and the `hydrator.enabled`, `application.namespaces`, and `applicationsetcontroller.namespaces` keys in `argocd-cmd-params-cm`. See [Configure Argo CD settings](argocd-configure-settings.md).
 + Modifying the sync timeout (fixed at 120 seconds)
 
- **Compatibility**: Applications and ApplicationSets work identically to upstream Argo CD with no changes to your manifests. The capability uses the same Kubernetes APIs and CRDs, so tools like `kubectl` work the same way. The capability fully supports Applications and ApplicationSets, GitOps workflows with automatic sync, multi-cluster deployments, sync policies (automated, prune, self-heal), sync waves and hooks, health assessment for standard Kubernetes resources, rollback capabilities, Git repository sources (HTTPS and SSH), Helm, Kustomize, and plain YAML manifests, GitHub app credentials, projects for multi-tenancy, and resource exclusions and inclusions.
+ **Compatibility**: The capability uses the same Kubernetes APIs and CRDs as upstream Argo CD, so existing Application and ApplicationSet manifests generally require no changes. Tools like `kubectl` work the same way. Except for the limitations described in this topic, the capability supports Applications and ApplicationSets, GitOps workflows with automatic sync, multi-cluster deployments, sync policies (automated, prune, self-heal), sync waves and hooks, health assessment for standard Kubernetes resources, rollback capabilities, Git repository sources (HTTPS and SSH), Helm, Kustomize, and plain YAML manifests, GitHub app credentials, projects for multi-tenancy, and resource exclusions and inclusions.
 
 ## Using the Argo CD CLI with the managed capability
 <a name="argocd-cli-configuration"></a>

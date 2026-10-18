@@ -20,7 +20,7 @@ The walkthrough uses the following tools:
 <a name="_prerequisites"></a>
 
 This section builds on two earlier sections in the documentation. Complete both before you start:
-+  ** [Cluster Setup](ml-cluster-setup.md) ** provides an EKS cluster with a GPU NodePool, the kube-prometheus-stack [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) stack (Prometheus and Grafana), and an [Amazon S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket) for model weights.
++  ** [Cluster setup](ml-cluster-setup.md) ** provides an EKS cluster with a GPU NodePool, the kube-prometheus-stack [Monitoring](ml-cluster-setup-cli.md#cluster-setup-cli-monitoring) stack (Prometheus and Grafana), and an [Amazon S3 bucket](ml-cluster-setup-cli.md#cluster-setup-cli-model-bucket) for model weights.
 +  ** [Load & Serve Models](ml-inference-load-serve-model.md) ** deploys the vLLM inference server and creates the [`vllm-inference-app` ServiceMonitor](ml-inference-load-serve-model.md#ml-inference-load-serve-model-monitoring).
 
 Confirm each item below before you start, and complete the linked section first if a check fails.
@@ -32,7 +32,7 @@ export CLUSTER_NAME=ai-eks-docs
 export AWS_REGION=us-east-2
 ```
 
-Capture the name of the Amazon S3 model bucket that was created in the [Cluster Setup](ml-cluster-setup.md) steps. The load generator passes this value to vLLM.
+Capture the name of the Amazon S3 model bucket that was created in the [Cluster setup](ml-cluster-setup.md) steps. The load generator passes this value to vLLM.
 
 ```
 MODEL_BUCKET=$(aws s3api list-buckets \

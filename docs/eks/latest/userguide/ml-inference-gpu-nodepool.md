@@ -1,0 +1,19 @@
+
+
+ **Help improve this page** 
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Create a GPU NodePool for AI/ML inference
+<a name="ml-inference-gpu-nodepool"></a>
+
+**Tip**  
+ [Register](https://events.eksworkshop.com/workshops/genai/) for upcoming Amazon EKS AI/ML workshops.
+
+This section defines an EKS Auto Mode or Karpenter NodePool in your Amazon EKS cluster that dynamically provisions Amazon EC2 G-family GPU instances, using Spot capacity with On-Demand fallback. You can optionally add reserved capacity through an Amazon EC2 On-Demand Capacity Reservation (ODCR). The GPU instances are automatically created in EKS Auto Mode or Karpenter as workloads are run on the cluster.
+
+This section builds on the cluster you created in the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section. Complete that section first, then choose the same path (EKS Auto Mode or self-managed Karpenter) that you used to create your cluster.
++ For step-by-step instructions using the AWS CLI, see [Create a GPU NodePool using CLIs](ml-inference-gpu-nodepool-cli.md).
++ For step-by-step instructions using Terraform, see [Create a GPU NodePool using Terraform](ml-inference-gpu-nodepool-tf.md).
+
+After your GPU NodePool is ready, continue to [Load & Serve Models on Amazon EKS](ml-inference-load-serve-model.md) to deploy a large language model and serve inference requests.

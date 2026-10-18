@@ -67,13 +67,14 @@ All of the following annotations need to be prefixed with `service.beta.kubernet
 |  `aws-load-balancer-ssl-cert`  | ARN of the SSL certificate from AWS Certificate Manager for HTTPS/TLS. |  ` arn:aws:acm:region:account:certificate/cert-id`  | 
 |  `aws-load-balancer-ssl-ports`  | Specifies which ports should use SSL/TLS. |  `443, 8443`  | 
 |  `load-balancer-source-ranges`  | CIDR ranges allowed to access the load balancer. |  `10.0.0.0/24, 192.168.1.0/24`  | 
-|  `aws-load-balancer-additional-resource-tags`  | Additional AWS tags to apply to the load balancer and related resources. |  `Environment=prod,Team=platform`  | 
+|  `aws-load-balancer-additional-resource-tags`  | Additional AWS tags to apply to the load balancer and related resources. Not applied to the shared backend security group. |  `Environment=prod,Team=platform`  | 
 |  `aws-load-balancer-ip-address-type`  | Specifies whether the load balancer uses IPv4 or dual-stack (IPv4 \+ IPv6). |  `ipv4` or `dualstack`  | 
 |  `aws-load-balancer-listener-attributes.${Protocol}-${Port}`  | Specifies listener attributes to apply to the listener. |  `tcp.idle_timeout.seconds=350`  | 
 
 ## Considerations
 <a name="_considerations"></a>
 + You must update the Cluster IAM Role to enable tag propagation from Kubernetes to AWS Load Balancer resources. For more information, see [Custom AWS tags for EKS Auto resources](auto-cluster-iam-role.md#tag-prop).
++ EKS Auto Mode doesn’t apply tags from the `aws-load-balancer-additional-resource-tags` annotation to the backend security group that all load balancers in the cluster share. To tag this security group, add the tags separately.
 + For information about associating resources with either EKS Auto Mode or the self-managed AWS Load Balancer Controller, see [Migration reference](migrate-auto.md#migration-reference).
 + For information about fixing issues with load balancers, see [Troubleshoot EKS Auto Mode](auto-troubleshoot.md).
 + For more considerations about using the load balancing capability of EKS Auto Mode, see [Load balancing](auto-networking.md#auto-lb-consider).

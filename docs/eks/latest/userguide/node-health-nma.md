@@ -7,23 +7,29 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 # Detect node health issues with the EKS node monitoring agent
 <a name="node-health-nma"></a>
 
-This topic details the node health issues detected by the EKS node monitoring agent, how those issues are surfaced as node conditions or events, and how to configure the node monitoring agent.
+This topic details the node health issues detected by the EKS node monitoring agent, how those issues are surfaced as node conditions or events, and how to configure the EKS node monitoring agent.
 
 The EKS node monitoring agent can be used with or without EKS automatic node repair. For more information on EKS automatic node repair, see [Automatically repair nodes in EKS clusters](node-repair.md).
 
 The source code for the EKS node monitoring agent is published on GitHub in the [aws/eks-node-monitoring-agent](https://github.com/aws/eks-node-monitoring-agent) repository.
 
+To customize the agent installation, including its resources, scheduling, health probe port, and the bundled NVIDIA DCGM component, see [Configure the Amazon EKS node monitoring agent](node-monitoring-agent-configure.md).
+
 ## Node health issues
 <a name="node-health-issues"></a>
 
-The following tables describe node health issues that can be detected by the node monitoring agent. There are two types of issues:
+The following tables describe node health issues that are detected by the EKS node monitoring agent. There are two types of issues:
 + Condition – A terminal issue that warrants a remediation action like an instance replacement or reboot. When auto repair is enabled, Amazon EKS will do a repair action, either as a node replacement or reboot. For more information, see [Node conditions](learn-status-conditions.md#status-node-conditions).
 + Event – A temporary issue or sub-optimal node configuration. No auto repair action will take place. For more information, see [Node events](learn-status-conditions.md#status-node-events).
 
 ## AcceleratedHardware node health issues
 <a name="node-health-AcceleratedHardware"></a>
 
-The monitoring condition is `AcceleratedHardwareReady` for issues in the following table that have a severity of "Condition". The events and conditions in the following table are for NVIDIA and Neuron related node health issues. The Reboot repair action only applies to EKS Managed Node Groups. When using EKS Auto Mode or Karpenter, the only repair action is Replace.
+The monitoring condition is `AcceleratedHardwareReady` for issues in the following table that have a severity of "Condition". The events and conditions in the following table are for NVIDIA and Neuron related node health issues. For the per-code repair actions behind the `NvidiaXID[Code]Error` reason, see [NVIDIA XID error codes](#nvidia-xid-codes). For how repair actions are applied, see [Automatically repair nodes in EKS clusters](node-repair.md).
+
+**Note**  
+The `None` repair action for the `DCGM[…​]` conditions applies to EKS managed node groups. EKS Auto Mode and self-managed Karpenter don’t match on the condition reason for these conditions, so a node reporting `AcceleratedHardwareReady=False` with a `DCGMError` or `DCGMHealthCode[Code]` reason is replaced: after 10 minutes on EKS Auto Mode, and after 30 minutes on Karpenter `v1.15.0` and later.  
+A single GPU fault can surface both ways, so the reason on the condition can change while the fault persists. For example, after XID `79`, the periodic health check can report `DCGMHealthCode120` (`DCGM_FR_FALLEN_OFF_BUS`), and the condition reason changes from `NvidiaXID79Error` to `DCGMHealthCode120`. The condition status stays `False` and `lastTransitionTime` doesn’t change. A change of reason can change the repair outcome on EKS managed node groups. For more information, see [How the repair action is chosen](node-repair.md#node-repair-reason-vs-status).
 
 
 | Name | Severity | Description | Repair Action | 
@@ -51,38 +57,55 @@ The monitoring condition is `AcceleratedHardwareReady` for issues in the followi
 ## NVIDIA XID error codes
 <a name="nvidia-xid-codes"></a>
 
-The node monitoring agent detects NVIDIA XID errors from GPU kernel logs. XID errors fall into two categories:
+The EKS node monitoring agent detects NVIDIA XID errors through DCGM, as described in the detection path later in this section. XID errors fall into two categories:
 +  **Well-known XID codes** – Critical errors that set a node condition (`AcceleratedHardwareReady=False`) and trigger auto repair when enabled. The reason code format is `NvidiaXID[Code]Error`. The well-known XID codes that the EKS node monitoring agent detects may not represent the full list of NVIDIA XID codes that require repair actions.
-+  **Unknown XID codes** – Logged as Kubernetes events only. These don’t trigger auto repair. The reason code format is `NvidiaXID[Code]Warning`. To investigate unknown XID errors, review your kernel logs with `dmesg | grep -i nvrm`.
++  **Unknown XID codes** – Logged as Kubernetes events only. These don’t trigger auto repair. The reason code format is `NvidiaXID[Code]Warning`. The NVIDIA driver also writes XID errors to the kernel ring buffer, so you can investigate unknown XID errors with `dmesg | grep -i nvrm`.
 
-For more information on XID errors, see [Xid Errors](https://docs.nvidia.com/deploy/xid-errors/index.html#topic_5_1) in the *NVIDIA GPU Deployment and Management Documentation*. For more information on the individual XID messages, see [Understanding Xid Messages](https://docs.nvidia.com/deploy/gpu-debug-guidelines/index.html#understanding-xid-messages) in the *NVIDIA GPU Deployment and Management Documentation*.
+For more information on XID errors, see [Xid Errors](https://docs.nvidia.com/deploy/xid-errors/index.html#topic_5_1) in the *NVIDIA GPU Deployment and Management Documentation*.
 
-The following table lists the well-known XID codes, their meanings, and the default node repair action if enabled. The Reboot repair action only applies to EKS Managed Node Groups. When using EKS Auto Mode or Karpenter, the only repair action is Replace.
+For more information on the individual XID messages, see [Understanding Xid Messages](https://docs.nvidia.com/deploy/gpu-debug-guidelines/index.html#understanding-xid-messages) in the *NVIDIA GPU Deployment and Management Documentation*.
+
+On NVIDIA GPU nodes, the EKS node monitoring agent receives XID errors from the DCGM host engine (`nv-hostengine`) through the DCGM policy violation channel. The detection path is:
+
+```
+NVIDIA Driver → DCGM Host Engine (nv-hostengine) → Policy Violation Channel → EKS Node Monitoring Agent → Node Condition → Node Repair
+```
+
+In addition to XID errors, the agent runs periodic DCGM health checks. A fatal health check result sets `AcceleratedHardwareReady=False` with the reason `DCGMHealthCode[Code]`.
+
+The following table lists the well-known XID codes, their meanings, and the default node repair action and wait period when automatic node repair is enabled. Footnotes mark the codes where EKS managed node groups and self-managed Karpenter currently behave differently.
+
+**Note**  
+ `Reboot` requires EKS managed node groups, or self-managed Karpenter `v1.15.0` or later with the `RebootForRepair` feature gate enabled. Everywhere else, including EKS Auto Mode, a `Reboot` action is carried out as a `Replace` after the same wait period. For more information, see [Automatically repair nodes in EKS clusters](node-repair.md).
 
 
-| XID Code | Description | Repair Action | 
-| --- | --- | --- | 
-| 46 | GPU stopped processing – The GPU stopped processing due to an internal timeout and requires a GPU reset to recover. | Reboot | 
-| 48 | Double Bit ECC Error – An uncorrectable double-bit error occurred in GPU memory, indicating potential hardware degradation. | Reboot | 
-| 54 | Auxiliary power not connected – Auxiliary power is not connected to the GPU board, typically indicating that power connectors are not properly seated. | Reboot | 
-| 62 | Internal micro-controller halt – The GPU’s internal micro-controller halted, indicating a firmware or hardware fault that requires a GPU reset. | Reboot | 
-| 63 | GPU memory remapping event – The GPU driver remapped a portion of GPU memory due to detected errors. This is often recoverable. | Reboot | 
-| 64 | GPU memory remapping failure – The GPU was unable to remap defective memory, indicating hardware issues. | Replace | 
-| 74 | NVLink Error – An error occurred on the high-speed NVLink interconnect between GPUs. | Replace | 
-| 79 | GPU has fallen off the bus – The GPU is no longer accessible via PCIe, typically indicating a hardware failure or power issue. | Replace | 
-| 95 | Uncontained memory error – A memory error occurred that may have affected other applications or system memory. | Reboot | 
-| 109 | Context switch timeout – A GPU context switch did not complete in time, indicating the GPU is hung and requires a reset. | Reboot | 
-| 110 | Security fault error – A security fault was detected on the GPU, which requires a GPU reset and, if persistent, hardware investigation. | Reboot | 
-| 119 | GSP RPC Timeout – Communication with the GPU System Processor timed out, possibly due to firmware issues. | Replace | 
-| 120 | GSP Error – An error occurred in the GPU System Processor. | Replace | 
-| 136 | Link training failed – The GPU failed to establish a healthy NVLink connection during link training. | Reboot | 
-| 140 | ECC Unrecovered Error – An ECC error escaped containment and may have corrupted data. | Reboot | 
-| 142 | NVENC3 Error – The NVENC3 video encoder hardware failed with no automated recovery available. Applies to GB200. | Replace | 
-| 143 | GPU initialization error – The GPU failed to initialize correctly. | Reboot | 
-| 151 | Key rotation error – Confidential computing key rotation failed. Applies to H100, B100, and GB200. | Replace | 
-| 155 | NVLink software-defined error – A software-defined error was reported on NVLink. | Reboot | 
-| 156 | Resource retirement event – The GPU retired a hardware resource due to detected faults. | Reboot | 
-| 158 | GPU fatal timeout – A fatal timeout occurred on the GPU. | Reboot | 
+| XID Code | Description | Repair Action | Repair after | 
+| --- | --- | --- | --- | 
+| 46 | GPU stopped processing – The GPU stopped processing due to an internal timeout and requires a GPU reset to recover. | Reboot | 10m | 
+| 48 | Double Bit ECC Error – An uncorrectable double-bit error occurred in GPU memory, indicating potential hardware degradation. | Reboot | 10m | 
+| 54 | Auxiliary power not connected – Auxiliary power is not connected to the GPU board, typically indicating that power connectors are not properly seated. | Reboot | 10m | 
+| 62 | Internal micro-controller halt – The GPU’s internal micro-controller halted, indicating a firmware or hardware fault that requires a GPU reset. | Reboot | 10m | 
+| 63 | GPU memory remapping event – The GPU driver remapped a portion of GPU memory due to detected errors. This is often recoverable. | Reboot | 10m | 
+| 64 | GPU memory remapping failure – The GPU was unable to remap defective memory, indicating hardware issues. | Replace | 10m | 
+| 74 | NVLink Error – An error occurred on the high-speed NVLink interconnect between GPUs. | Replace | 10m | 
+| 79 | GPU has fallen off the bus – The GPU is no longer accessible via PCIe, typically indicating a hardware failure or power issue. | Replace | 10m | 
+| 95 | Uncontained memory error – A memory error occurred that may have affected other applications or system memory. | Reboot | 10m | 
+| 109 | Context switch timeout – A GPU context switch did not complete in time, indicating the GPU is hung and requires a reset. | Reboot | 10m | 
+| 110 | Security fault error – A security fault was detected on the GPU, which requires a GPU reset and, if persistent, hardware investigation. | Reboot | 10m | 
+| 119 | GSP RPC Timeout – Communication with the GPU System Processor timed out, possibly due to firmware issues. | Reboot 1  | 10m | 
+| 120 | GSP Error – An error occurred in the GPU System Processor. | Reboot 1  | 10m | 
+| 136 | Link training failed – The GPU failed to establish a healthy NVLink connection during link training. | Reboot | 10m | 
+| 140 | ECC Unrecovered Error – An ECC error escaped containment and may have corrupted data. | Reboot | 10m | 
+| 142 | NVENC3 Error – The NVENC3 video encoder hardware failed with no automated recovery available. Applies to GB200. | Replace 2  | 10m | 
+| 143 | GPU initialization error – The GPU failed to initialize correctly. | Reboot | 10m | 
+| 151 | Key rotation error – Confidential computing key rotation failed. Applies to H100, B100, and GB200. | Replace 2  | 10m | 
+| 155 | NVLink software-defined error – A software-defined error was reported on NVLink. | Reboot | 10m | 
+| 156 | Resource retirement event – The GPU retired a hardware resource due to detected faults. | Reboot | 10m | 
+| 158 | GPU fatal timeout – A fatal timeout occurred on the GPU. | Reboot | 10m | 
+
+ 1 On self-managed Karpenter `v1.15.0` and later, XID `119` and `120` are treated as fatal and the node is replaced rather than rebooted, after the same 10 minute wait.
+
+ 2 On self-managed Karpenter `v1.15.0` and later, XID `142` and `151` aren’t matched by a dedicated repair policy, so the node is replaced after 30 minutes rather than 10.
 
 To view the current node conditions related to GPU health, run the following command.
 
@@ -95,6 +118,8 @@ To view XID-related events on your cluster, run one of the following commands.
 ```
 kubectl get events | grep -i "NvidiaXID"
 ```
+
+To simulate an XID error on a GPU node in a test cluster and confirm that detection and repair work end to end, see [Validate Amazon EKS automatic node repair for GPUs with XID error injection](ml-validate-gpu-node-repair.md).
 
 ## ContainerRuntime node health issues
 <a name="node-health-ContainerRuntime"></a>
@@ -180,53 +205,3 @@ The monitoring condition is `StorageReady` for issues in the following table tha
 | IODelays | Event | Input or output delay detected in a process, potentially indicating insufficient input-output provisioning if excessive. | None | 
 | KubeletDiskUsageSlow | Event | The `kubelet` is reporting slow disk usage while trying to access the filesystem. This potentially indicates insufficient disk input-output or filesystem issues. | None | 
 | XFSSmallAverageClusterSize | Event | The XFS Average Cluster size is small, indicating excessive free space fragmentation. This can prevent file creation despite available inodes or free space. | None | 
-
-## Configure the node monitoring agent
-<a name="node-monitoring-agent-configure"></a>
-
-The EKS node monitoring agent is deployed as a DaemonSet. When you deploy it as an EKS add-on, you can customize the installation with following configuration values. For default configurations, reference the EKS node monitoring agent [Helm chart](https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml).
-
-
-| Configuration Option | Description | 
-| --- | --- | 
-|  `monitoringAgent.resources.requests.cpu`  | CPU resource request for the monitoring agent. | 
-|  `monitoringAgent.resources.requests.memory`  | Memory resource request for the monitoring agent. | 
-|  `monitoringAgent.resources.limits.cpu`  | CPU resource limit for the monitoring agent. | 
-|  `monitoringAgent.resources.limits.memory`  | Memory resource limit for the monitoring agent. | 
-|  `monitoringAgent.tolerations`  | Tolerations for scheduling the monitoring agent on tainted nodes. | 
-|  `monitoringAgent.additionalArgs`  | Additional command-line arguments to pass to the monitoring agent. | 
-
-**Note**  
-You can configure `hostname-override` and `verbosity` as `monitoringAgent.additionalArgs` with EKS add-ons or Helm installation. You currently cannot customize the node monitoring agent’s `probe-address` (`8002`) or `metrics-address` (`8003`) via additional args with EKS add-ons or Helm installation.
-
-The node monitoring agent includes a NVIDIA DCGM (Data Center GPU Manager) server component (`nv-hostengine`) for monitoring NVIDIA GPUs. This component runs only on nodes that are NVIDIA GPU instance types as shown by the `nodeAffinity` in the agent’s [Helm chart](https://github.com/aws/eks-node-monitoring-agent/blob/main/charts/eks-node-monitoring-agent/values.yaml). You cannot use an existing NVIDIA DCGM installation with the EKS node monitoring agent, please provide feedback on the EKS roadmap [GitHub issue \#2763](https://github.com/aws/containers-roadmap/issues/2763) if you require this functionality.
-
-When you deploy the EKS node monitoring agent as an EKS add-on, you can customize the NVIDIA DCGM installation with following configuration values.
-
-
-| Configuration Option | Description | 
-| --- | --- | 
-|  `dcgmAgent.resources.requests.cpu`  | CPU resource request for the DCGM agent. | 
-|  `dcgmAgent.resources.requests.memory`  | Memory resource request for the DCGM agent. | 
-|  `dcgmAgent.resources.limits.cpu`  | CPU resource limit for the DCGM agent. | 
-|  `dcgmAgent.resources.limits.memory`  | Memory resource limit for the DCGM agent. | 
-|  `dcgmAgent.tolerations`  | Tolerations for scheduling the DCGM agent on tainted nodes. | 
-
-You can use the following AWS CLI commands to get useful information about the versions and schema for the EKS node monitoring agent EKS add-on.
-
-Get the latest agent add-on version for your Kubernetes version. Replace `1.35` with your Kubernetes version.
-
-```
-aws eks describe-addon-versions \
-  --addon-name eks-node-monitoring-agent \
-  --kubernetes-version 1.35 \
-  --query='addons[].addonVersions[].addonVersion'
-```
-
-Get the agent add-on schema supported in EKS add-ons. Replace `v1.5.1-eksbuild.1` with your agent version.
-
-```
-aws eks describe-addon-configuration \
-  --addon-name eks-node-monitoring-agent \
-  --addon-version v1.5.1-eksbuild.1
-```
