@@ -16,6 +16,8 @@
    + **Terraform state file** – Enter the Amazon S3 URL of the state file.
    + **Resource tags** – Enter the tag key and values to match.
    + **Amazon EKS cluster** – Enter the cluster ARN and select the namespaces to include. Optionally, add a label selector to discover only the Kubernetes objects whose labels match. For information about the selector syntax, see [EksSource](https://docs.aws.amazon.com/resilience-hub/v2/APIReference/API_EksSource.html) in the *Next generation Resilience Hub API Reference*.
+**Note**  
+the next generation of Resilience Hub supports public, private, and CIDR-restricted Amazon EKS clusters. A cluster with `endpointPublicAccess=false` requires no VPC endpoint, AWS PrivateLink, peering, or VPN to be discovered. You do not need to change your cluster's network configuration or security baseline.
 
 1. Choose **Add**.
 

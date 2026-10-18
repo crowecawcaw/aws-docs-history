@@ -14,6 +14,7 @@ Next generation Resilience Hub is a resilience management service that uses GenA
 + [Assessment](next-gen-assessment.md)
 + [Resilience testing](next-gen-resilience-testing.md)
 + [Dashboard and reporting](next-gen-dashboard-reporting.md)
++ [Working with AWS DevOps Agent in the next generation of Resilience Hub](next-gen-devops-agent-integration.md)
 + [AWS Organizations integration](next-gen-organizations.md)
 + [Migrating from AWS Resilience Hub](next-gen-migrating.md)
 + [Security in Next generation Resilience Hub](next-gen-security.md)
