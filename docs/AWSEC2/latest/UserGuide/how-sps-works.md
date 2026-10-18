@@ -30,7 +30,7 @@ First, you specify your desired target Spot capacity and your compute requiremen
 
    You can't specify both instance types and instance attributes in the same Spot placement score request.
 
-   If you specify instance types, you must specify at least three different instance types, otherwise Amazon EC2 will return a low Spot placement score. Similarly, if you specify instance attributes, they must resolve to at least three different instance types.
+   If you specify instance types, you must specify at least three different instance types, otherwise Amazon EC2 will return a low Spot placement score. Similarly, if you specify instance attributes, they must resolve to at least three different instance types. This minimum doesn't apply to instance types in the P, G, Trn, and Inf families.
 
 For examples of different ways to specify your Spot requirements, see [Example configurations](work-with-spot-placement-score.md#sps-example-configs).
 

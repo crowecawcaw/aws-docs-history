@@ -61,5 +61,12 @@ By default, Amazon EC2 allows outbound traffic over port 25 only to private IPv4
 You can request that this restriction be removed. For more information, see [How do I remove the restriction on port 25 from my Amazon EC2 instance or Lambda function?](https://repost.aws/knowledge-center/ec2-port-25-throttle)
 
 This restriction does not apply to outbound traffic over port 25 destined for:
+
+For IPv4:
 + IP addresses in the primary CIDR block of the VPC in which the originating network interface exists.
-+ IP addresses in the CIDRs defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918), [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598), and [ RFC 4193](https://datatracker.ietf.org/doc/html/rfc4193).
++ IP addresses in the CIDRs defined in [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) and [RFC 6598](https://datatracker.ietf.org/doc/html/rfc6598).
+
+For IPv6:
++ IP addresses in the subnet CIDR block in which the originating network interface exists.
++ IP addresses in the CIDRs defined in [RFC 4193](https://datatracker.ietf.org/doc/html/rfc4193).
++ In the China Regions (Beijing (cn-north-1), Ningxia (cn-northwest-1)), IP addresses in all CIDR blocks associated with the VPC in which the originating network interface exists.

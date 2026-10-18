@@ -50,14 +50,13 @@ If the instance is enabled for ENA or sriov-net, then you must use an AMI that s
 
 If the instance is enabled for NitroTPM, then you must use an AMI that has NitroTPM enabled. NitroTPM support is not enabled if the instance was not configured for it, regardless of the AMI that you select.
 
-You can select an AMI with a different boot mode than that of the instance, as long as the instance supports the boot mode of the AMI. If the instance does not support the boot mode, the request fails. If the instance supports the boot mode, the new boot mode is propagated to the instance and its UEFI data is updated accordingly. If you manually modified the boot order or added a private UEFI Secure Boot key to load private kernel modules, the changes are lost during root volume replacement.
+You can't use root volume replacement to change the boot mode of an instance. If the specified AMI has a boot mode of `uefi` or `legacy-bios`, the AMI boot mode must match the instance's `currentInstanceBootMode`. If the AMI has a boot mode of `uefi-preferred` or does not specify a boot mode, the instance continues to use its current boot mode. Before you replace the root volume, confirm that the operating system on the AMI supports the instance's current boot mode. For more information, see [Determine the boot mode of an EC2 instance](instance-boot-mode.md) and [Determine the boot mode of the operating system for your EC2 instance](os-boot-mode.md).
 
 The replacement root volume gets the same volume type and delete on termination attribute as the original root volume. The size of the replacement root volume is the larger of the AMI root volume block device mapping size and the current root volume size.
 
 After the root volume replacement task completes, the following new and updated information is reflected when you describe the instance using the console, AWS CLI or AWS SDKs:
 + New AMI ID
 + New volume ID for the root volume
-+ Updated boot mode configuration (if changed by the AMI)
 + Updated NitroTPM configuration (if enabled by the AMI)
 + Updated ENA configuration (if enabled by the AMI)
 + Updated sriov-net configuration (if enabled by the AMI)
@@ -82,6 +81,7 @@ Before you use this option, you must create and prepare the replacement Amazon E
 The replacement root volume retains the size, type, and other attributes that you configured when you created and prepared it. The delete on termination attribute of the original root volume does not transfer to the replacement root volume.
 
 **Considerations for using an existing Amazon EBS volume**
++ The instance keeps its current boot mode. The replacement volume must contain an operating system and bootloader that support that boot mode. For more information, see [Determine the boot mode of the operating system for your EC2 instance](os-boot-mode.md).
 + The replacement volume must be in the same Availability Zone as the instance.
 + The replacement volume must not be attached to any instance at the time of the request.
 + The replacement volume must be in the `available` state.

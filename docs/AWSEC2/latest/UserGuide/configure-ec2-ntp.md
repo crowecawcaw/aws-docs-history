@@ -329,9 +329,9 @@ In the output, verify that `NtpServer` displays the `fd00:ec2::123` IPv6 endpoin
 **Rules and limitations**
 +  Precision time placement groups are available in all AWS Commercial Regions. 
 +  Precision time placement groups support the following Gen7 and later Amazon EC2 instance families: 
-  +  **General purpose**: M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8g 
-  +  **Compute optimized**: C7a, C7gd, C7i, C7i-flex, C8g, C8gd 
-  +  **Memory optimized**: R7a, R7g, R7i, R8g, X8g 
+  +  **General purpose**: M7a, M7g, M7gd, M7i, M7i-flex, M8a, M8g, M8i, M8i-flex, M9g, M9gd 
+  +  **Compute optimized**: C7a, C7gd, C7i, C7i-flex, C8a, C8g, C8gd, C8i, C8i-flex, C9g, C9gd 
+  +  **Memory optimized**: R7a, R7g, R7i, R8a, R8g, R9g, R9gd, X8g, X8i 
   +  **Storage optimized**: I8g, I8ge 
 +  If you start or launch an instance in a precision time placement group and there is insufficient hardware to give access to the enhanced Amazon Time Sync Service, the request fails. 
 +  If you stop an instance in a precision time placement group and then start it again, it still runs in the placement group. However, the start might fail if there is insufficient hardware to give access to the enhanced Amazon Time Sync Service. 

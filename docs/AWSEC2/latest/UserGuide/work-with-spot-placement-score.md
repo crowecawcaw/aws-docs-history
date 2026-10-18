@@ -205,7 +205,7 @@ To include Local Zones when using the Amazon EC2 console, your account must have
    1. You can include either `InstanceTypes` or `InstanceRequirements`, but not both in the same configuration.
 
       Specify one of the following in your JSON configuration:
-      + To specify a list of instance types, specify the instance types in the `InstanceTypes` parameter. Specify at least three different instance types. If you specify only one or two instance types, Spot placement score returns a low score. For the list of instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
+      + To specify a list of instance types, specify the instance types in the `InstanceTypes` parameter. Specify at least three different instance types. If you specify only one or two instance types, Spot placement score returns a low score. This minimum doesn't apply to instance types in the P, G, Trn, and Inf families. For the list of instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/).
       + To specify the instance attributes so that Amazon EC2 will identify the instance types that match those attributes, specify the attributes that are located in the `InstanceRequirements` structure.
 
         You must provide values for `VCpuCount`, `MemoryMiB`, and `CpuManufacturers`. You can omit the other attributes; when omitted, the default values are used. For a description of each attribute and their default values, see [get-spot-placement-scores](https://docs.aws.amazon.com/cli/latest/reference/ec2/get-spot-placement-scores.html).

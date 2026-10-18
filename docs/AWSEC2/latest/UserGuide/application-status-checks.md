@@ -123,7 +123,7 @@ Use the AWS CLI to create an application status check.
 
 1. In the navigation pane, choose **Instances**.
 
-1. Choose **Actions**, **Monitor and troubleshoot**, **Application status checks**.
+1. Choose **Actions**, **Monitor and troubleshoot**, **Monitor**, **Application status checks**.
 
 1. Choose **Create application status check**.
 
@@ -176,7 +176,11 @@ Associate the check with the instances you want to monitor, either by instance I
 ------
 #### [ Console ]
 
-1. In the navigation pane, under **Instances**, choose **Application status checks**, and select the check.
+1. In the navigation pane, choose **Instances**.
+
+1. Choose **Actions**, **Monitor and troubleshoot**, **Monitor**, **Application status checks**.
+
+1. Select the check.
 
 1. Choose **Manage status check associations**, then choose **Manage associations by resource ID** or **Manage associations by tags**.
 
