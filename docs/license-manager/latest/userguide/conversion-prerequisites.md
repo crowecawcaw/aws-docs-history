@@ -67,6 +67,8 @@ Linux instances must meet the following prerequisites:
 ------
 #### [ Ubuntu ]
 + Instances must be running Ubuntu LTS.
++ If you are converting to Ubuntu Pro sold by Canonical in AWS Marketplace, you must have an active Canonical Ubuntu Pro subscription in AWS Marketplace before you initiate the conversion. If you don't have an existing subscription, you can subscribe to the Canonical Ubuntu Pro general listing when you convert using the License Manager console. This requirement does not apply when you convert to Ubuntu Pro provided by AWS (usage operation `RunInstances:0g00`).
++ If you are converting to Ubuntu Pro sold by Canonical in AWS Marketplace, the instance's architecture and instance type must be supported by the Canonical Ubuntu Pro AWS Marketplace listing that you convert to. To check which architectures and instance types a listing supports, see the listing's **Usage** information in AWS Marketplace. Because each listing supports a specific architecture, instances with different architectures (x86\_64 and Arm) must be converted in separate conversion tasks. This requirement does not apply when you convert to Ubuntu Pro provided by AWS.
 + The Ubuntu Pro Client must be installed in your Ubuntu operating system.
   + Run the following command to confirm if the Ubuntu Pro Client is installed:
 

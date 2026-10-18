@@ -197,7 +197,12 @@ Then the customer must have an active subscription in Marketplace before invokin
 
 Before you convert your instance from Ubuntu LTS to Ubuntu Pro, your instance must have outbound internet access configured to retrieve a license token from the Canonical servers and install the Ubuntu Pro Client. For more information, see [Conversion prerequisites for License Manager license types](conversion-prerequisites.md).
 
-To convert Ubuntu LTS to Ubuntu Pro, follow these steps:
+You can convert from Ubuntu LTS to Ubuntu Pro using one of the following options:
++ **Ubuntu Pro provided by AWS** – The conversion changes the usage operation value of your instance to `RunInstances:0g00`, and you are billed by AWS for the subscription.
++ **Ubuntu Pro sold by Canonical in AWS Marketplace** – The conversion attaches a Canonical Ubuntu Pro AWS Marketplace product code to your instance while the usage operation value remains `RunInstances`, and you are billed by Canonical through your AWS Marketplace subscription. You must have an active Canonical Ubuntu Pro subscription in AWS Marketplace before you initiate this conversion.
+
+**Convert to Ubuntu Pro provided by AWS**  
+To convert Ubuntu LTS to Ubuntu Pro provided by AWS, follow these steps:
 
 1. Run the following command from the AWS CLI while specifying your instance’s ARN:
 
@@ -216,6 +221,57 @@ To convert Ubuntu LTS to Ubuntu Pro, follow these steps:
 
 1. Confirm your output indicates that the instance has a valid Ubuntu Pro subscription:  
 ![Example output of the Ubuntu pro command with an active Ubuntu Pro subscription.](https://docs.aws.amazon.com/license-manager/latest/userguide/images/ubuntu-pro-conversion-output-valid.png)
+
+**Convert to Ubuntu Pro sold by Canonical in AWS Marketplace**  
+To convert Ubuntu LTS to Ubuntu Pro sold by Canonical in AWS Marketplace, follow these steps:
+
+1. Confirm that you have an active Canonical Ubuntu Pro subscription in AWS Marketplace. If you don't have one, subscribe to a Canonical Ubuntu Pro listing in AWS Marketplace, or use the License Manager console to subscribe to the Canonical Ubuntu Pro general listing during conversion.
+
+1. Run the following command from the AWS CLI, specifying your instance's ARN and the Canonical Ubuntu Pro AWS Marketplace product code as the destination product code:
+
+   ```
+   aws license-manager create-license-conversion-task-for-resource \
+       --resource-arn {{<instance_arn>}} \
+       --source-license-context "UsageOperation=RunInstances" \
+       --destination-license-context "UsageOperation=RunInstances,ProductCodes=[{ProductCodeType=marketplace,ProductCodeId={{<product_code_id>}}}]"
+   ```
+
+1. Run the following command from within the instance to retrieve details about your Ubuntu Pro subscription status:
+
+   ```
+   pro status
+   ```
+
+**Note**  
+Canonical offers multiple Ubuntu Pro product codes in AWS Marketplace, including specific listings (for example, Ubuntu Pro FIPS, LTS, EKS, Minimal, and CIS-hardened variants) and a general listing for customers who don't have an existing Canonical subscription.
+To find the product code for your subscription, check your Canonical Ubuntu Pro subscription in AWS Marketplace.
+If you don't already have a Canonical Ubuntu Pro subscription in AWS Marketplace, you can convert using a general listing. The general listings are general-purpose Ubuntu Pro subscriptions for customers who don't have a flavor-specific subscription. Choose the general listing that matches your instance's architecture: **Ubuntu Pro License Manager Upgrade** for x86\_64 instances, or **Ubuntu Pro License Manager Upgrade (Arm)** for Arm instances. You can subscribe to a general listing directly in AWS Marketplace, or subscribe during conversion using the License Manager console. The console offers the general listing that matches the architecture of the instances that you select.
+Although Canonical offers different Ubuntu Pro flavors in AWS Marketplace, the conversion only attaches the AWS Marketplace product code to your instance for billing and entitlement. The result is standard Ubuntu Pro – the conversion does not install the flavor-specific packages (for example, FIPS, CIS hardening, or Real-time Kernel) on your behalf. After the conversion, you must install and configure those components yourself using the Ubuntu Pro Client (`pro`).
+
+The following table lists the Canonical Ubuntu Pro products in AWS Marketplace that are supported for license type conversion, along with their AWS Marketplace product codes.
+
+
+**Supported Canonical Ubuntu Pro AWS Marketplace products**  
+
+|  Product name  |  AWS Marketplace product code  | 
+| --- | --- | 
+| Ubuntu Pro License Manager Upgrade (general listing for x86\_64 instances)<br />Choose this general-purpose option for x86\_64 instances if you don't have a flavor-specific Canonical Ubuntu Pro subscription. | 561bki7b434ls3uekcvfuzzph | 
+| Ubuntu Pro License Manager Upgrade (Arm) (general listing for Arm instances)<br />Choose this general-purpose option for Arm instances if you don't have a flavor-specific Canonical Ubuntu Pro subscription. | 3cuwhptbszkqo4x83mut8ri41 | 
+| Ubuntu Pro Minimal 22.04 LTS with CIS hardening | a7khwx7o72656zcnle5vu9k6w | 
+| Ubuntu Pro FIPS 18.04 LTS | dw21ctly265u7zwld1ihi9jhk | 
+| Ubuntu Pro FIPS 20.04 LTS | 7btbv7tkj4yxnrzltyygo1ipn | 
+| Ubuntu Pro FIPS 22.04 LTS (FIPS with updates) | bk87i7rt8yk97zlstmtpq1kp3 | 
+| Ubuntu Pro 20.04 LTS for EKS 1.29 | 6xnezn2o8gszp87p8w2hu7q81 | 
+| Ubuntu Pro 22.04 LTS for EKS 1.33 | icun6atc7ykmlmt7jbg1rysg | 
+| Ubuntu Pro 22.04 LTS for EKS 1.34 | c0szntev8wobbsex0eilrkoo4 | 
+| Ubuntu Pro 24.04 LTS for EKS 1.32 | 6va1tmiigbi6vd2hyif22frg6 | 
+| Ubuntu Pro 24.04 LTS for EKS 1.34 | 87oo7pzlcf8ghjbcjcsbmzoxs | 
+| Ubuntu Pro 24.04 LTS for EKS 1.35 | ba39sytryy1xvvfovjg6meff0 | 
+| Ubuntu Pro 24.04 LTS for EKS 1.35 (Arm) | 2jfo7rc4qa2kawa3fy30grjei | 
+| Ubuntu Pro 22.04 LTS with Real-time Kernel | 9fzl7xjb32n5rbh54phy3z5ec | 
+| Minimal Ubuntu Pro 20.04 LTS - Focal | 8crwd7k2hnmx862xvqinp3qwf | 
+| Minimal Ubuntu Pro 22.04 LTS - Jammy | ea0rmyl52vxv6a1y9b1hu5i5s | 
+| Minimal Ubuntu Pro 24.04 LTS - Noble | 7ysznfxm7eq81z7oktkyzea7c | 
 
 ## Remove a Ubuntu Pro subscription
 <a name="remove-subscription-ubuntu-pro"></a>

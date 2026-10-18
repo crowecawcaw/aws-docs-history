@@ -446,14 +446,13 @@ The following table details the software subscription names and their associated
 
 Microsoft Office is a collection of software developed by Microsoft for various productivity use cases including working with documents, spreadsheets, and slide show presentations.
 
+**Important**  
+As of October 13, 2026, Microsoft has ended support for Office LTSC 2021. License Manager no longer distributes new Office LTSC 2021 media (Amazon Machine Images or the EC2 Image Builder component). Instances already running Office LTSC 2021 will continue to operate and activate normally. For new deployments, use Office LTSC 2024.
+
 **Supported editions**
-+ Office LTSC Professional Plus 2021
 + Office LTSC Professional Plus 2024
-+ Office LTSC Professional Plus 2021 32-bit (x86)
 + Office LTSC Professional Plus 2024 32-bit (x86)
-+ Office LTSC Standard 2021
 + Office LTSC Standard 2024
-+ Office LTSC Standard 2021 32-bit (x86)
 + Office LTSC Standard 2024 32-bit (x86)
 
 The following table details the software subscription names and their associated product value used for License Manager user-based subscription API operations.
@@ -461,9 +460,7 @@ The following table details the software subscription names and their associated
 
 | Software subscription name | Product value | 
 | --- | --- | 
-| Office LTSC Professional Plus 2021 | `OFFICE_PROFESSIONAL_PLUS` | 
 | Office LTSC Professional Plus 2024 | `OFFICE_PROFESSIONAL_PLUS` | 
-| Office LTSC Standard 2021 | `OFFICE_STANDARD` | 
 | Office LTSC Standard 2024 | `OFFICE_STANDARD` | 
 
 ##### Microsoft Office EC2 Image Builder component
@@ -474,7 +471,6 @@ In addition to the pre-configured AMIs, Microsoft Office is also available as EC
 Image Builder components are available for both Microsoft Office LTSC Professional Plus and Microsoft Office LTSC Standard. You can configure the version year and architecture to match your requirements.
 
 **Supported version year**
-+ 2021
 + 2024
 
 **Supported architecture**

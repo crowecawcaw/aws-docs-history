@@ -20,6 +20,9 @@ Some of the considerations that license type conversion is subject to are listed
 
 **Ubuntu conversion**
 + The instance must be running Ubuntu LTS in order to convert the license type to Ubuntu Pro.
++ You can convert from Ubuntu LTS to Ubuntu Pro using either of the following options:
+  + **Ubuntu Pro provided by AWS** – The conversion changes the usage operation value of your instance to `RunInstances:0g00`. You are billed by AWS for the Ubuntu Pro subscription.
+  + **Ubuntu Pro sold by Canonical in AWS Marketplace** – The conversion attaches a Canonical Ubuntu Pro AWS Marketplace product code to your instance and keeps the usage operation value as `RunInstances`. You are billed by Canonical through your AWS Marketplace subscription. To use this option, you must have a Canonical Ubuntu Pro subscription in AWS Marketplace. If you don't have one, you can subscribe to the Canonical Ubuntu Pro general listing when you convert using the License Manager console.
 + You can't use license type conversion for a Ubuntu Pro subscription. To remove a Ubuntu Pro subscription, see [Remove a Ubuntu Pro subscription](conversion-procedures-linux.md#remove-subscription-ubuntu-pro).
 + Ubuntu Pro is not available as a Reserved Instance. For savings with On-Demand Instance pricing, we recommend that you use Ubuntu Pro with Savings Plans. For more information, see [Reserved Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-reserved-instances.html) in the *Amazon EC2 User Guide* and [What are Savings Plans?](https://docs.aws.amazon.com/savingsplans/latest/userguide/what-is-savings-plans.html) in the *Savings Plans User Guide*.
 + To convert from Ubuntu Pro to Ubuntu LTS send a request to Support. For more information, see [Creating a support case](https://docs.aws.amazon.com/awssupport/latest/user/case-management.html#creating-a-support-case).
