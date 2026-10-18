@@ -21,3 +21,4 @@ See [Service quotas](https://docs.aws.amazon.com/general/latest/gr/lake-formatio
 + [IAM Identity Center integration limitations](identity-center-lf-notes.md)
 + [Lake Formation tag-based access control best practices and considerations](lf-tag-considerations.md)
 + [Attribute-based access control considerations, limitations, and supported regions](abac-considerations.md)
++ [Row-level security policy limitations](rls-policies-limitations.md)
