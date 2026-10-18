@@ -48,7 +48,7 @@ Depending on your network, you might need to allow traffic on ports other than w
 
 | From  | To  | Protocol | Port  | How it's used by DataSync | 
 | --- | --- | --- | --- | --- | 
-| DataSync agent  | NFS file server | TCP | 2049 (for NFS versions 4.1 and 4.0)<br />111 and 2049 (for NFS version 3.x) | Mounts the NFS file server. <br />DataSync supports NFS versions 3.x, 4.0, and 4.1. | 
+| DataSync agent  | NFS file server | TCP | 2049 (for NFS versions 4.2, 4.1, and 4.0)<br />111 and 2049 (for NFS version 3.x) | Mounts the NFS file server. <br />DataSync supports NFS versions 3.x, 4.0, 4.1, and 4.2. | 
 | DataSync agent  | SMB file server | TCP | 139 or 445 | Mounts the SMB file server. <br />DataSync supports SMB versions 1.0 and later. For security reasons, we recommend using SMB version 3.0.2 or later. Earlier versions, such as SMB 1.0, contain known security vulnerabilities that attackers can exploit to compromise your data. | 
 | DataSync agent  | Object storage | TCP | 443 (HTTPS) or 80 (HTTP) Depending on your object storage, you might need to allow traffic on nonstandard HTTPS and HTTP ports (such as 8443 or 8080).  | Accesses your Amazon S3-compatible object storage on-premises or in other clouds. | 
 | DataSync agent  | Hadoop cluster | TCP | NameNode port (default is 8020)<br />In most clusters, you can find this port number in the `core-site.xml` file under the `fs.default` or `fs.default.name` property (depending on the Hadoop distribution).  | Accesses the NameNodes in your Hadoop cluster. Specify the port used when creating an HDFS location. | 

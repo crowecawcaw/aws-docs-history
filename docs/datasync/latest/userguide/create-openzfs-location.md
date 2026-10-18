@@ -80,6 +80,8 @@ To create the location, you need an existing FSx for OpenZFS file system. If you
 1. (Optional) Expand **Additional settings** and for **NFS version** choose the NFS version that DataSync uses to access your file system.
 
    By default, DataSync uses NFS version 4.1.
+**Note**  
+If you choose **Automatic**, DataSync uses NFS version 4.2 first — but only for Amazon FSx for OpenZFS locations, falling back to 4.1 then earlier versions if needed. For other NFS-based location types (such as on-premises NFS locations), **Automatic** uses NFS version 4.1, then earlier versions if needed.
 
 1. (Optional) Enter values for the **Key** and **Value** fields to tag the FSx for OpenZFS file system.
 

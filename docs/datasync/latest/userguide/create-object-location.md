@@ -8,7 +8,7 @@ With AWS DataSync, you can transfer data between your object storage system and 
 
 | Basic mode | Enhanced mode | 
 | --- | --- | 
-|  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Windows File Server](create-fsx-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md) <br />+  [Amazon FSx for OpenZFS](create-openzfs-location.md) <br />+  [Amazon FSx for NetApp ONTAP](create-ontap-location.md)   |  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md)   | 
+|  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Windows File Server](create-fsx-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md) <br />+  [Amazon FSx for OpenZFS](create-openzfs-location.md) <br />+  [Amazon FSx for NetApp ONTAP](create-ontap-location.md)   |  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md) <br />+  [Amazon FSx for OpenZFS](create-openzfs-location.md)   | 
 
 To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations) for your object storage system. You can use this location as a transfer source or destination. Transferring data to or from your on-premises object storage requires a DataSync agent. Use the agent that corresponds to your task mode.
 

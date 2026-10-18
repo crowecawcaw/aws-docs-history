@@ -8,7 +8,7 @@ With AWS DataSync, you can transfer data between your Network File System (NFS) 
 
 | Basic mode | Enhanced mode | 
 | --- | --- | 
-|  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Windows File Server](create-fsx-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md) <br />+  [Amazon FSx for OpenZFS](create-openzfs-location.md) <br />+  [Amazon FSx for NetApp ONTAP](create-ontap-location.md)   |  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md)   | 
+|  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Windows File Server](create-fsx-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md) <br />+  [Amazon FSx for OpenZFS](create-openzfs-location.md) <br />+  [Amazon FSx for NetApp ONTAP](create-ontap-location.md)   |  +  [Amazon S3](create-s3-location.md) <br />+  [Amazon EFS](create-efs-location.md) <br />+  [Amazon FSx for Lustre](create-lustre-location.md) <br />+  [Amazon FSx for OpenZFS](create-openzfs-location.md)   | 
 
 To set up this kind of transfer, you create a [location](how-datasync-transfer-works.md#sync-locations) for your NFS file server. You can use this location as a transfer source or destination.
 
@@ -54,7 +54,10 @@ Configure your export by using the following command, which specifies the POSIX 
 ### Supported NFS versions
 <a name="supported-nfs-versions"></a>
 
-By default, DataSync uses NFS version 4.1. DataSync also supports NFS 4.0 and 3.x.
+By default, DataSync uses NFS version 4.1. DataSync also supports NFS 4.2, 4.0, and 3.x.
+
+**Note**  
+NFS version 4.2 is supported only with Enhanced mode tasks. If you're using a Basic mode task, choose NFS version 4.1, 4.0, or 3.x instead.
 
 ## Configuring your network for NFS transfers
 <a name="configure-network-nfs-location"></a>
@@ -62,7 +65,7 @@ By default, DataSync uses NFS version 4.1. DataSync also supports NFS 4.0 and 3.
 For your DataSync transfer, you must configure traffic for a few network connections: 
 
 1. Allow traffic on the following ports from your DataSync agent to your NFS file server:
-   + **For NFS version 4.1 and 4.0** – TCP port 2049
+   + **For NFS version 4.2, 4.1, and 4.0** – TCP port 2049
    + **For NFS version 3.x** – TCP ports 111 and 2049
 
    Other NFS clients in your network should be able to mount the NFS export that you're using to transfer data. The export must also be accessible without Kerberos authentication.

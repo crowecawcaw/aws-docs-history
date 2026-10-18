@@ -39,7 +39,7 @@ Basic mode supports using an agent when copying to or from the following locatio
 + Object storage (including other clouds)
 + Azure Blob
 
-Enhanced mode supports using an agent for transfers to or from Amazon S3, Amazon EFS, or Amazon FSx for Lustre and the following locations:
+Enhanced mode supports using an agent for transfers to or from Amazon S3, Amazon EFS, Amazon FSx for Lustre, or Amazon FSx for OpenZFS and the following locations:
 + NFS
 + SMB
 + HDFS

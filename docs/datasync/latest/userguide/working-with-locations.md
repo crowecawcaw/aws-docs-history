@@ -35,7 +35,7 @@ DataSync supports transfers between the following storage resources that are ass
 |  + S3 on Outposts  |  + S3 (in AWS Regions)  | Yes | Basic only | 
 |  + Amazon S3 (in AWS Regions)  |  + S3 on Outposts  | Yes | Basic only | 
 
-1 Enhanced mode supports only Amazon FSx for Lustre locations of the Amazon FSx file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server, Amazon FSx for NetApp ONTAP, and Amazon FSx for OpenZFS) are not yet supported with Enhanced mode and require Basic mode.
+1 Enhanced mode supports Amazon FSx for Lustre and Amazon FSx for OpenZFS locations of the Amazon FSx file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server and Amazon FSx for NetApp ONTAP) are not yet supported with Enhanced mode and require Basic mode.
 
 ## Supported transfers across AWS accounts
 <a name="working-with-locations-across-accounts"></a>
@@ -60,7 +60,7 @@ DataSync supports some transfers between storage resources that are associated w
 
 3 Configured as an NFS or SMB location.
 
-4 Enhanced mode supports only Amazon FSx for Lustre locations of the Amazon FSx file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server, Amazon FSx for NetApp ONTAP, and Amazon FSx for OpenZFS) are not yet supported with Enhanced mode and require Basic mode.
+4 Enhanced mode supports Amazon FSx for Lustre and Amazon FSx for OpenZFS locations of the Amazon FSx file system types. Other Amazon FSx file system types (such as Amazon FSx for Windows File Server and Amazon FSx for NetApp ONTAP) are not yet supported with Enhanced mode and require Basic mode.
 
 ## Supported transfers in the same AWS Region
 <a name="working-with-locations-same-region"></a>
