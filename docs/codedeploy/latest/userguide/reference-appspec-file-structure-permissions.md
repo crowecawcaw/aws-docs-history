@@ -3,7 +3,10 @@
 # AppSpec 'permissions' section (EC2/On-Premises deployments only)
 <a name="reference-appspec-file-structure-permissions"></a>
 
-The `'permissions'` section specifies how special permissions, if any, should be applied to the files and directories/folders in the `'files'` section after they are copied to the instance. You can specify multiple `object` instructions. This section is optional. It applies to Amazon Linux, Ubuntu Server, and RHEL instances only.
+The `'permissions'` section specifies how special permissions, if any, should be applied to the files and directories/folders in the `'files'` section after they are copied to the instance. You can specify multiple `object` instructions. This section is optional. It applies to Amazon Linux, Ubuntu Server, RHEL, and macOS instances only.
+
+**Note**  
+On macOS instances, the `acls` and `context` instructions are not supported. A deployment whose AppSpec file uses either of them on macOS fails before any files are installed. The other instructions work as described in this section.
 
 **Note**  
 The `'permissions'` section is used for EC2/On-Premises deployments only. It is not used for AWS Lambda or Amazon ECS deployments.

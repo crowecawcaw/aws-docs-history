@@ -85,7 +85,7 @@ Specify **version** with a string.
 
 ** **os** **  
 This section specifies the operating system value of the instance to which you deploy. It is required. The following values can be specified:  
-+ **linux** – The instance is an Amazon Linux, Ubuntu Server, or RHEL instance.
++ **linux** – The instance is an Amazon Linux, Ubuntu Server, RHEL, or macOS instance.
 + **windows** – The instance is a Windows Server instance.
 Specify **os** with a string.
 
@@ -94,7 +94,7 @@ This section specifies the names of files that should be copied to the instance 
 For more information, see [AppSpec 'files' section (EC2/On-Premises deployments only)](reference-appspec-file-structure-files.md).
 
 ** **permissions** **  
-This section specifies how special permissions, if any, should be applied to the files in the `files` section as they are being copied over to the instance. This section applies to Amazon Linux, Ubuntu Server, and Red Hat Enterprise Linux (RHEL) instances only.  
+This section specifies how special permissions, if any, should be applied to the files in the `files` section as they are being copied over to the instance. This section applies to Amazon Linux, Ubuntu Server, Red Hat Enterprise Linux (RHEL), and macOS instances only.  
 For more information see, [AppSpec 'permissions' section (EC2/On-Premises deployments only)](reference-appspec-file-structure-permissions.md).
 
 ** **hooks** **  

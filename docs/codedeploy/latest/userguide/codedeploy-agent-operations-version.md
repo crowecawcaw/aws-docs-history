@@ -7,7 +7,7 @@ You can determine the version of the CodeDeploy agent running on your instance i
 
 First, for version 2.0.x and later, use the `codedeploy-agent --version` command on all platforms.
 
-Second, you can view the version in a `.version` file on the instance. On Amazon Linux, RHEL, and Ubuntu Server the file is located at `/opt/codedeploy-agent/.version`, and on Windows Server at `C:\ProgramData\Amazon\CodeDeploy\.version`. The contents of the file differ by version:
+Second, you can view the version in a `.version` file on the instance. On Amazon Linux, RHEL, Ubuntu Server, and macOS the file is located at `/opt/codedeploy-agent/.version`, and on Windows Server at `C:\ProgramData\Amazon\CodeDeploy\.version`. The contents of the file differ by version:
 + For version 2.0.x and later, the file contains the bare version number, in the format `agent_version: 2.0.0`. This value matches the version that the agent reports to the CodeDeploy service.
 + For version 1.8.x and earlier, the version string uses the format `OFFICIAL_1.0.1.854_rpm` (or `_deb`, `_msi`).
 
@@ -15,6 +15,7 @@ Second, you can view the version in a `.version` file on the instance. On Amazon
 + [Determine the version on Amazon Linux or RHEL](#codedeploy-agent-operations-version-linux)
 + [Determine the version on Ubuntu Server](#codedeploy-agent-operations-version-ubuntu)
 + [Determine the version on Windows Server](#codedeploy-agent-operations-version-windows)
++ [Determine the version on macOS](#codedeploy-agent-operations-version-macos)
 + [Determine the latest agent version available in an AWS Region](#codedeploy-agent-operations-version-latest)
 
 ## Determine the version on Amazon Linux or RHEL
@@ -56,6 +57,21 @@ Sign in to the instance and run the following command:
 & 'C:\ProgramData\Amazon\CodeDeploy\bin\codedeploy-agent.exe' --version
 ```
 
+## Determine the version on macOS
+<a name="codedeploy-agent-operations-version-macos"></a>
+
+Sign in to the instance and run the following command:
+
+```
+sudo /opt/codedeploy-agent/bin/codedeploy-agent --version
+```
+
+You can also see the version of the installed package:
+
+```
+pkgutil --pkg-info com.amazon.aws.codedeploy-agent
+```
+
 ## Determine the latest agent version available in an AWS Region
 <a name="codedeploy-agent-operations-version-latest"></a>
 
@@ -80,5 +96,7 @@ The command returns output similar to the following:
 ```
 
 Each key names a package type, and for RPM and DEB the instance architecture as well. Each value is the Amazon S3 object key of that package, and the agent version and build number are part of its file name, in the format `{{agent-version}}-{{build-number}}`. In the preceding output, the latest version available in the Region is 2.1.0.
+
+For version 2.1.2 and later, the file also has a `pkg_aarch64` key, which names the macOS installer package.
 
 To install or update to the version this file names, see [Install the CodeDeploy agent](codedeploy-agent-operations-install.md) and [Update the CodeDeploy agent](codedeploy-agent-operations-update.md). For the features included in each version, see [Version history of the CodeDeploy agent](codedeploy-agent.md#codedeploy-agent-version-history).

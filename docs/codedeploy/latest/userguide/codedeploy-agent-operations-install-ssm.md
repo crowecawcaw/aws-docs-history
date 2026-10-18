@@ -37,6 +37,8 @@ For information about installing or updating SSM agent on an instance running Li
 
 For information about installing or updating SSM agent on an instance running Windows Server, see [ Installing and configuring SSM agent on Windows instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-win.html) in the *AWS Systems Manager User Guide*.
 
+For information about installing or updating SSM agent on an EC2 Mac instance, see [Manually installing and uninstalling SSM agent on EC2 instances for macOS](https://docs.aws.amazon.com/systems-manager/latest/userguide/manually-install-ssm-agent-macos.html) in the *AWS Systems Manager User Guide*.
+
 ### (Optional) Verify Systems Manager prerequisites
 <a name="install-codedeploy-agent-minimum-requirements"></a>
 
@@ -48,5 +50,5 @@ Before you use Systems Manager Run Command to install the CodeDeploy agent, veri
 With SSM, you can install the CodeDeploy once or set up a schedule to install new versions.
 
 To install the CodeDeploy agent, choose the Systems Manager Distributor package for the agent version you want, then follow the steps in [Install or update packages with AWS Systems Manager distributor](https://docs.aws.amazon.com/systems-manager/latest/userguide/distributor-working-with-packages-deploy.html). The package differs by agent version:
-+ For version 2.0.x and later, choose the `AWSCodeDeployAgentV2` package.
++ For version 2.0.x and later, choose the `AWSCodeDeployAgentV2` package. This is the only package that supports macOS, starting with version 2.1.2.
 + For version 1.8.x and earlier, choose the `AWSCodeDeployAgent` package.

@@ -9,3 +9,4 @@ You can configure automatic, scheduled updates of the CodeDeploy agent on all su
 + [Update the CodeDeploy agent on Amazon Linux or RHEL](codedeploy-agent-operations-update-linux.md)
 + [Update the CodeDeploy agent on Ubuntu Server](codedeploy-agent-operations-update-ubuntu.md)
 + [Update the CodeDeploy agent on Windows Server](codedeploy-agent-operations-update-windows.md)
++ [Update the CodeDeploy agent on macOS](codedeploy-agent-operations-update-macos.md)

@@ -44,3 +44,12 @@ Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*' |
 ```
 
 You can also sign in to the instance, and in **Control Panel**, open **Programs and Features**, choose **CodeDeploy Host Agent**, and then choose **Uninstall**.
+
+## Uninstall the CodeDeploy agent from macOS
+<a name="codedeploy-agent-operations-uninstall-macos"></a>
+
+To uninstall the CodeDeploy agent, sign in to the instance and run the following command:
+
+```
+sudo /opt/codedeploy-agent/bin/uninstall.sh
+```
