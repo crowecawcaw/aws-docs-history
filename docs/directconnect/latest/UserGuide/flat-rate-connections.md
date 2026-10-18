@@ -122,9 +122,9 @@ No. Usable bandwidth equals the capacity of a single port. A 10 Gbps port-pair g
 
 Yes. Billing mode is a per-connection setting that you can change. Billing mode changes are limited to three per connection in any rolling six-month period.
 
-**Is flat-rate billing available for hosted connections?**
+**Is flat-rate billing available for hosted connections or dedicated connections with hosted VIFs?**
 
-No. Flat-rate billing applies to dedicated connections only.
+Flat-rate pricing applies only to dedicated connections where the connection and all its virtual interfaces are owned by the same AWS account. Hosted connections and hosted virtual interfaces aren't eligible.
 
 **Does flat-rate pricing cover point-to-point (PTP) routes?**
 
