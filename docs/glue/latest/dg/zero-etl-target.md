@@ -461,6 +461,31 @@ aws glue create-integration-resource-property \
 --region us-east-1
 ```
 
+### (Optional) Specify a custom namespace
+<a name="zero-etl-config-target-s3-tables-namespace"></a>
+
+When your target is Amazon S3 Tables, you can optionally choose the namespace (the Amazon S3 Tables equivalent of a database) where AWS Glue writes your data. If you don't specify one, AWS Glue uses a default namespace named zetl\_<integration-id>.
+
+In the create-integration wizard, under **Target details**, enter a name in the **Namespace - optional** field, or choose **Browse namespaces** to pick an existing namespace in the bucket.
+
+**Note**  
+**Browse namespaces** is available only for same-account targets. For a cross-account target, type the namespace name directly.
+
+![The Configure source and target page with the optional Namespace field and Browse namespaces button for an S3 Tables target.](https://docs.aws.amazon.com/glue/latest/dg/images/zero-etl-target-namespace.png)
+
+
+Namespace names must follow these rules:
++ Must use lowercase letters, numbers, and underscores only.
++ Cannot begin or end with an underscore.
++ Cannot begin with the reserved prefix `aws`.
+
+For the full rules, including length limits, see [S3 Tables namespace naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets-naming.html).
+
+You can also set the namespace through the API. Pass the `TargetNamespace` field within [IntegrationConfig](https://docs.aws.amazon.com/glue/latest/webapi/API_IntegrationConfig.html) as part of the CreateIntegration request.
+
+**Note**  
+You can't change the custom namespace after you create the integration. `ModifyIntegration` rejects any change to it.
+
 ### (Optional) Configure target table properties
 <a name="zero-etl-config-target-s3-tables-table-properties"></a>
 
