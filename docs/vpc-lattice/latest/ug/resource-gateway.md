@@ -73,6 +73,17 @@ You can specify how a resource gateway does DNS resolution for resource configur
 + ** PUBLIC (default)** - Domain names are resolved using public DNS resolvers. 
 + ** IN\_VPC ** - Domain names are resolved using the DNS server configured in the DHCP option set of the VPC which the resource gateway is in. You should use this if you are using a private DNS server or your domain-name targets are in a Route53 private hosted zone. 
 
- If DNS resolution is IN\_VPC, you cannot attach resource configurations defined by ARN to the resource gateway. You cannot set DNS Resolution to IN\_VPC if the resource gateway uses IPv6-only subnets. DNS Resolution must be IN\_VPC to attach CIDR resource configurations to the resource gateway. 
+The following table lists the constraints that apply when Domain Name System (DNS) resolution is set to `IN_VPC`.
 
-A DNS server change in a Dynamic Host Configuration Protocol (DHCP) option set takes 24 hours to propagate to a resource gateway that uses IN\_VPC DNS resolution mode.
+
+| Constraint | Details | 
+| --- | --- | 
+| IPv6-only subnet support | You can't attach an IN\_VPC enabled resource gateway to an IPv6-only subnet. | 
+| ARN resource configurations | You can't attach ARN-defined resource configurations to the resource gateway. | 
+| DNS transport protocol | DNS queries use UDP only. TCP fallback isn't supported. | 
+| Maximum DNS payload size | VPC Lattice advertises a maximum DNS payload size of 8,400 bytes. Because TCP fallback isn't supported, DNS resolution fails for responses larger than this size. | 
+| Recursive DNS resolver | The DNS resolver must be recursive. If a response contains a CNAME record, the response must also contain the records that the CNAME resolves to. | 
+
+To attach a CIDR resource configuration to a resource gateway, it must have `IN_VPC` enabled.
+
+Dynamic Host Configuration Protocol (DHCP) option set DNS server changes take 24 hours to propagate to a resource gateway that uses `IN_VPC` DNS resolution.
