@@ -15,14 +15,14 @@ Amazon MWAA environment updates apply the latest changes and security patches. Y
 + [Update an environment](#update-environment-start)
   + [Step one: Specify details](#update-environment-start-details)
   + [Step two: Configure advanced settings](#update-environment-start-advanced)
-  + [Step three: Review and update](#update-environment-start-review)
+  + [Step three: Review and save](#update-environment-start-review)
 
 ## Before you begin
 <a name="update-environment-before"></a>
 + The [VPC network](vpc-create.md) you specified for your environment cannot be modified after the environment is created.
 + You need an Amazon S3 bucket configured to **Block all public access**, with **Bucket Versioning** enabled.
 + You need an AWS account with [permissions to use Amazon MWAA](manage-access.md), and permission in AWS Identity and Access Management (IAM) to create IAM roles. If you choose the **Private network ** access mode for the Apache Airflow webserver, which limits Apache Airflow access within your Amazon VPC, you'll need permission in IAM to create Amazon VPC endpoints.
-+ To enable Graceful environment updates, you need to upgrade To Apache Airflow version 2.4.3 or higher. To upgrade the Airflow version, refer to [Changing the Apache Airflow version](upgrading-environment.md).
++ To enable Graceful environment updates, you need to upgrade to Apache Airflow version 2.4.3 or higher. To upgrade the Airflow version, refer to [Changing the Apache Airflow version](upgrading-environment.md).
 
 ## Worker replacement strategy
 <a name="worker-replacement-strategy"></a>
@@ -39,6 +39,10 @@ To enable Graceful updates on an existing environment, you must complete one **F
 
 **Note**  
 If you perform an update while your environment is in `MAINTENANCE` status, the worker replacement strategy for any ongoing environment update switches from `GRACEFUL` to `FORCED`. Your update is performed after maintenance is complete.
+
+**Important**  
+`WorkerReplacementStrategy` defaults to `FORCED` and resets on every environment update—it does not carry over from a previous update.  
+To continue using `GRACEFUL`, you must explicitly set `WorkerReplacementStrategy=GRACEFUL` each time you update your environment.
 
 ## Update environment resources
 <a name="update-environment-resources"></a>
@@ -158,7 +162,7 @@ You must have permissions to the key to select it on the Amazon MWAA console. Yo
 
 1. Choose **Next**.
 
-### Step three: Review and update
+### Step three: Review and save
 <a name="update-environment-start-review"></a>
 
 **To review an environment summary**

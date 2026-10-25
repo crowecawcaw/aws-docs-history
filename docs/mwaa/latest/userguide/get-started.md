@@ -77,6 +77,7 @@ Amazon MWAA is available in the following AWS Regions. To learn more about each 
 | il-central-1 | Israel (Tel Aviv) | 
 | me-south-1 | Middle East (Bahrain) | 
 | me-central-1 | Middle East (UAE) | 
+| mx-central-1 | Mexico (Central) | 
 | sa-east-1 | South America (São Paulo) | 
 
 ## What's next?

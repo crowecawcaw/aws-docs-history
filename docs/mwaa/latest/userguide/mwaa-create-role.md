@@ -178,7 +178,7 @@ The following example demonstrates the policy you must attach to your execution 
 
 ------
 
-For more information about restricting access to your Amazon S3 buckets, refer to [Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/) in the *Amazon Simple Storage Service User Guide*.
+For more information about restricting access to your Amazon S3 buckets, refer to [Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) in the *Amazon Simple Storage Service User Guide*.
 
 ## Use Apache Airflow connections
 <a name="mwaa-create-role-airflow-connections"></a>
@@ -206,6 +206,11 @@ The following example presents an execution role policy you can use for an [Cust
 {
  "Version":"2012-10-17",		 	 	 
  "Statement": [
+  {
+   "Effect": "Allow",
+   "Action": "airflow:PublishMetrics",
+   "Resource": "arn:aws:airflow:{{us-east-1}}:{{111122223333}}:environment/{{your-environment-name}}"
+  },
   { 
    "Effect": "Deny",
    "Action": "s3:ListAllMyBuckets",
@@ -239,7 +244,7 @@ The following example presents an execution role policy you can use for an [Cust
     "logs:DescribeLogStreams"
    ],
    "Resource": [
-    "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:airflow-{{your-environment-name}}:*"
+    "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:airflow-{{your-environment-name}}-*"
    ]
   },
   {
@@ -327,6 +332,9 @@ Next, you need to allow Amazon MWAA to assume this role to perform actions on yo
 
 Then attach the following JSON policy to your [Customer-managed key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk). This policy uses the [`kms:EncryptionContext`](https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-context) condition key prefix to permit access to your Apache Airflow logs group in CloudWatch Logs.
 
+------
+#### [ JSON ]
+
 ```
 {
   "Sid": "Allow logs access",
@@ -344,11 +352,13 @@ Then attach the following JSON policy to your [Customer-managed key](https://doc
   "Resource": "*",
   "Condition": {
     "ArnLike": {
-      {{"kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:*"}}
+      "kms:EncryptionContext:aws:logs:arn": "arn:aws:logs:{{us-east-1}}:{{111122223333}}:*"
     }
   }
 }
 ```
+
+------
 
 ### Sample policy for an AWS-owned key
 <a name="mwaa-create-role-aocmk"></a>
@@ -367,14 +377,14 @@ The following example presents an execution role policy you can use for an [AWS-
         {
             "Effect": "Allow",
             "Action": "airflow:PublishMetrics",
-            "Resource": "arn:aws:airflow:{{us-east-1}}:{{111122223333}}:environment/{your-environment-name}"
+            "Resource": "arn:aws:airflow:{{us-east-1}}:{{111122223333}}:environment/{{your-environment-name}}"
         },
         { 
             "Effect": "Deny",
             "Action": "s3:ListAllMyBuckets",
             "Resource": [
-								{{"arn:aws:s3:::amzn-s3-demo-bucket"}},
-								{{"arn:aws:s3:::amzn-s3-demo-bucket/*"}}
+                {{"arn:aws:s3:::amzn-s3-demo-bucket"}},
+                {{"arn:aws:s3:::amzn-s3-demo-bucket/*"}}
             ]
         },
         { 
@@ -385,8 +395,8 @@ The following example presents an execution role policy you can use for an [AWS-
                 "s3:List*"
             ],
             "Resource": [
-								{{"arn:aws:s3:::amzn-s3-demo-bucket"}},
-								{{"arn:aws:s3:::amzn-s3-demo-bucket/*"}}
+                {{"arn:aws:s3:::amzn-s3-demo-bucket"}},
+                {{"arn:aws:s3:::amzn-s3-demo-bucket/*"}}
             ]
         },
         {
@@ -402,7 +412,7 @@ The following example presents an execution role policy you can use for an [AWS-
                 "logs:DescribeLogStreams"
             ],
             "Resource": [
-            "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:airflow-{your-environment-name}-*"
+            "arn:aws:logs:{{us-east-1}}:{{111122223333}}:log-group:airflow-{{your-environment-name}}-*"
             ]
         },
         {
