@@ -18,4 +18,4 @@ Use Web Functions for workloads that receive and respond to HTTP traffic directl
 
 For event-driven processing, such as handling queue messages or file uploads, use [Lambda Event Functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-functions-chapter.html) instead. For more information about Web Functions, see [Lambda Web Functions](https://docs.aws.amazon.com/lambda/latest/dg/web-functions.html) in the *AWS Lambda Developer Guide*.
 
-This document was last published on October 16, 2026. 
+This document was last published on October 23, 2026. 
