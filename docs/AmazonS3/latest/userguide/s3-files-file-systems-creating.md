@@ -25,6 +25,7 @@ A file system can have one of the status values described in the following table
 | DELETING | S3 Files is deleting the file system in response to a user-initiated delete request. | 
 | DELETED | S3 Files has deleted the file system in response to a user-initiated delete request. | 
 | ERROR | The file system is in a failed state and is unrecoverable. To access the file system data, restore a backup of this file system to a new file system. Check the StatusMessage field for information about the error. | 
+| MISCONFIGURED | A permissions issue prevents S3 Files from synchronizing changes between the file system and its S3 bucket. For more information, see [File system status is MISCONFIGURED](s3-files-troubleshooting.md#s3-files-troubleshooting-misconfigured). | 
 
 **Note**  
 S3 Files returns an error when you attempt to create a file system scoped to a prefix with a large number of objects. This error alerts you that large recursive rename or move operations may impact file system performance and increase S3 request costs, as every file requires separate copy and delete requests to your S3 bucket. If you still want to create a file system scoped to that prefix, you can add the `--AcceptBucketWarning` parameter.

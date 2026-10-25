@@ -12,6 +12,7 @@ This page helps you diagnose and resolve common issues with S3 Files.
 + [S3 object not visible in the file system](#s3-files-troubleshooting-object-not-visible)
 + [Files appearing in the lost and found directory](#s3-files-troubleshooting-lost-found)
 + [Synchronization falling behind](#s3-files-troubleshooting-sync-behind)
++ [File system status is MISCONFIGURED](#s3-files-troubleshooting-misconfigured)
 + [Enabling client debug logs](#s3-files-troubleshooting-debug-logs)
 + [Error messages](#s3-files-troubleshooting-error-messages)
 
@@ -154,6 +155,25 @@ Files in the lost and found directory remain there indefinitely and count toward
 The `PendingExports` CloudWatch metric is growing, indicating that your workload is generating changes faster than S3 Files can synchronize them to S3.
 
 This means that your workload may be exceeding the synchronization rate. S3 Files exports up to 800 files per second per file system. Consider reducing the rate of file modifications or distributing work across multiple file systems. Monitor the `PendingExports` metric over time. If it stabilizes or decreases, S3 Files is catching up. If it continues to grow, contact AWS Support.
+
+## File system status is MISCONFIGURED
+<a name="s3-files-troubleshooting-misconfigured"></a>
+
+If your file system status is MISCONFIGURED, insufficient permissions prevent S3 Files from importing or exporting data between your file system and your S3 bucket. Changes don't synchronize until you correct the configuration.
+
+The common causes are:
++ S3 Files can't assume the AWS Identity and Access Management (IAM) role. Make sure that the trust policy of the IAM role allows S3 Files to assume the role. If the role was deleted or renamed, recreate the role or update your file system to use the correct role.
++ The IAM role doesn't have permission to access the S3 bucket. Make sure that the IAM role has a policy that grants access to the linked S3 bucket.
++ A bucket policy or a service control policy (SCP) denies access. Make sure that your S3 bucket policy and any AWS Organizations SCPs don't deny access to the IAM role of your file system.
++ S3 Files doesn't have permission for a specific key or prefix. If some of your data imports and exports successfully, S3 Files can be missing permission for only part of the bucket under the prefix of your file system. Check the IAM role of your file system, the S3 bucket policy, and the Object Ownership settings of the bucket.
++ S3 Files can't use the KMS keys that encrypt your objects. If your bucket uses AWS Key Management Service (AWS KMS) encryption, or if some objects use a different encryption key than the bucket default, make sure that the key policy of each key allows the IAM role of your file system to use the key. For more information, see [S3 Files key policies for AWS KMS](s3-files-encryption.md#s3-files-encryption-key-policies).
+
+For more information, see [IAM role for accessing your bucket from the file system](s3-files-prereq-policies.md#s3-files-prereq-iam-creation-role) and [How S3 Files works with IAM](s3-files-security-iam.md).
+
+After you correct the configuration, S3 Files automatically retries failed imports and exports. When all failed imports and exports complete, the status of your file system changes to AVAILABLE. It can take more than 24 hours for the status to change to AVAILABLE after you correct the configuration.
+
+**Important**  
+If your file system has the MISCONFIGURED status for more than 60 days, some data can become permanently out of sync with your S3 bucket. Correct the configuration as soon as possible. If this occurs, contact AWS Support.
 
 ## Enabling client debug logs
 <a name="s3-files-troubleshooting-debug-logs"></a>
