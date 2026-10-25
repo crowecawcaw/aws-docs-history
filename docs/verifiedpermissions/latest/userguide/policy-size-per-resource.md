@@ -3,9 +3,11 @@
 # Policy size per resource
 <a name="policy-size-per-resource"></a>
 
-Verified Permissions limits the total size of all policies that reference the same resource. This limit is the *Policy size per resource* quota, and its default value is 200,000 bytes. When you call `CreatePolicy` or `UpdatePolicy`, Verified Permissions calculates the new total for the referenced resource. If the new total exceeds the quota, the request fails with a `ServiceQuotaExceededException`.
+Verified Permissions limits the total size of all policies that reference the same resource. This limit is the *Policy size per resource* quota, and its default value is 1 MB. When you call `CreatePolicy` or `UpdatePolicy`, Verified Permissions calculates the new total for the referenced resource. If the new total exceeds the quota, the request fails with a `ServiceQuotaExceededException`.
 
-Policies that don't specify a resource apply to all resources. These policies share a separate total for the `"unspecified"` resource, which is limited to the same quota value.
+Verified Permissions also limits the total size of all policies that reference the same combination of a principal and a resource. This limit is the *Policy size per resource principal combination* quota, and its value is 200,000 bytes. This limit is not adjustable.
+
+Policies that don't specify a resource apply to all resources. These policies share a separate total for the `"unspecified"` resource, which is subject to the same *Policy size per resource* quota.
 
 For the list of all Verified Permissions quotas, see [Quotas for Amazon Verified Permissions](quotas.md).
 
@@ -30,12 +32,12 @@ If your application approaches the *Policy size per resource* quota, consider th
 + **Use the appropriate policy type.** If many policies grant similar permissions on the same resource, policy templates might reduce your policy store's storage consumption. Each template-linked policy stores only its principal and resource. The policy template stores the shared statement once, but each linked policy also carries a fixed storage overhead. Templates only pay for themselves when the shared statement is large enough to offset that overhead, roughly 200 bytes or more. Below that threshold, individual static policies consume less space. For more information, see [Amazon Verified Permissions policy templates and template-linked policies](policy-templates.md).
 + **Specify principals and resources in the policy scope.** Policies that don't specify a resource share a single total for the `"unspecified"` resource across the policy store. Scoping each policy to a specific resource spreads your policies across separate totals, one for each resource.
 + **Group your principals and resources.** Instead of writing a policy for each principal, write a policy for a group and add principals to the group. Grouping resources into containers can similarly reduce the number of policies that reference a single resource.
-+ **Request a quota increase.** You can request an increase to this quota if your policy design meets certain constraints. To qualify, your policies must specify the principal or resource in the policy scope. An increase might also reduce the number of hierarchy parents that your principals and resources can have. Even with an increased quota, a 200,000-byte sub-limit still applies to policies that reference the same principal and the same resource. You cannot request an increase to this sub-limit.
++ **Request a quota increase.** You can request an increase to the *Policy size per resource* quota if your policy design meets certain constraints. To qualify, your policies must specify the principal or resource in the policy scope. An increase might also reduce the number of hierarchy parents that your principals and resources can have. The *Policy size per resource principal combination* quota is a separate 200,000-byte limit that applies to policies that reference the same combination of principal and resource. This limit is not adjustable.
 
 ## Template-linked policy size example
 <a name="policy-size-per-resource-example"></a>
 
-To find how template-linked policies contribute to the *Policy size per resource* quota, add the length of the principal and the length of the resource. If you don't specify a resource, Verified Permissions counts its size toward the `"unspecified"` resource total.
+To find how template-linked policies contribute to the *Policy size per resource* quota and the *Policy size per resource principal combination* quota, add the length of the principal and the length of the resource. If you don't specify a resource, Verified Permissions counts its size toward the `"unspecified"` resource.
 
 Review the following template:
 
@@ -83,6 +85,13 @@ TemplateLinkedPolicy {
   policyId: "policy4",
   templateId: "template1",
   principal: User::"jane",
+  resource: Photo::"boat.jpg"
+}
+
+TemplateLinkedPolicy {
+  policyId: "policy5",
+  templateId: "template1",
+  principal: User::"jane",
   resource
 }
 ```
@@ -95,10 +104,18 @@ The size of `policy2` is the length of the principal `User::"bob"` (11) plus the
 
 The size of `policy3` is the length of the principal `User::"jane"` (12) plus the length of the resource `Photo::"car.jpg"` (16). The total is 12 \+ 16 = 28 bytes.
 
-The size of `policy4` is the length of the principal `User::"jane"` (12) plus the length of the resource (0). The total is 12 \+ 0 = 12 bytes.
+The size of `policy4` is the length of the principal `User::"jane"` (12) plus the length of the resource `Photo::"boat.jpg"` (17). The total is 12 \+ 17 = 29 bytes.
 
-Because `policy2` is the only policy that references the resource `Photo::"boat.jpg"`, the total resource size is 28 bytes.
+The size of `policy5` is the length of the principal `User::"jane"` (12) plus the length of the resource (0). The total is 12 \+ 0 = 12 bytes.
 
-Because `policy1` and `policy3` both reference the resource `Photo::"car.jpg"`, the total resource size is 29 \+ 28 = 57 bytes.
+The following totals apply to the *Policy size per resource* quota. Because `policy5` doesn't specify a resource, its size counts toward the `"unspecified"` resource.
++ The total for the `"unspecified"` resource is `policy5` (12), which is 12 bytes.
++ The total for `Photo::"car.jpg"` is the sum of `policy1` (29) and `policy3` (28), which is 57 bytes.
++ The total for `Photo::"boat.jpg"` is the sum of `policy2` (28) and `policy4` (29), which is 57 bytes.
 
-Because `policy4` is the only policy that references the `"unspecified"` resource, the total resource size is 12 bytes.
+The following totals apply to the *Policy size per resource principal combination* quota. Because `policy5` doesn't specify a resource, its size counts toward the combination of its principal, `User::"jane"`, and the `"unspecified"` resource.
++ The total for `User::"alice"` and `Photo::"car.jpg"` is `policy1` (29), which is 29 bytes.
++ The total for `User::"bob"` and `Photo::"boat.jpg"` is `policy2` (28), which is 28 bytes.
++ The total for `User::"jane"` and `Photo::"car.jpg"` is `policy3` (28), which is 28 bytes.
++ The total for `User::"jane"` and `Photo::"boat.jpg"` is `policy4` (29), which is 29 bytes.
++ The total for `User::"jane"` and the `"unspecified"` resource is `policy5` (12), which is 12 bytes.

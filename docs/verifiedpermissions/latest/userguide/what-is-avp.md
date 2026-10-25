@@ -27,7 +27,7 @@ Verified Permissions is a service that enables customers to create, maintain, an
 
 Authorization policies in Verified Permissions are written by using the Cedar policy language. Cedar is an open source language for writing authorization policies and making authorization decisions based on those policies. When you create an application, you need to ensure that only authorized principals, human users or machines, can access the application, and can do only what they're authorized to do. Using Cedar, you can decouple your business logic from the authorization logic. In your application’s code, you preface requests made to your operations with a call to the Cedar authorization engine, asking “Is this request authorized?”. Then, the application can either perform the requested operation if the decision is “allow”, or return an error message if the decision is “deny”.
 
-Verified Permissions currently uses **Cedar version 4.7**.
+Verified Permissions currently uses Cedar version 4.12.
 
 For more information about Cedar, see the following:
 + [Cedar policy language Reference Guide](https://docs.cedarpolicy.com/)

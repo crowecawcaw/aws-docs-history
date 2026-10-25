@@ -30,13 +30,14 @@ Your AWS account has the following quotas related to Verified Permissions.
 | Policy size | 10,000 bytes | Yes | The maximum size of an individual policy. | 
 | Schema size | 100,000 bytes | Yes | The maximum size of the schema of a policy store. | 
 | Namespaces per policy store schema | 100 | Yes | The maximum number of namespaces that you can define in a policy store schema. | 
-| Policy size per resource | 200,000 bytes² | Yes | The maximum size of all policies that reference a specific resource. | 
+| Policy size per resource | 1 MB² | Yes | The maximum size of all policies that reference a specific resource. | 
+| Policy size per resource principal combination | 200,000 bytes² | No | The maximum size of all policies that reference a specific combination of a principal and a resource. | 
 
 ¹ The quota for an authorization request is the same for both [IsAuthorized](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html) and [IsAuthorizedWithToken](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html).
 
 
 
-² The default limit for the total size of all the policies that reference a single resource is 200,000 bytes. Policies that don't specify a resource share a separate total of 200,000 bytes for the `"unspecified"` resource. For details about how Verified Permissions calculates this quota, examples, and strategies for staying within it, see [Policy size per resource](policy-size-per-resource.md).
+² The total size of all policies for a unique combination of a principal and resource cannot exceed 200,000 bytes. An unspecified principal or resource counts as a unique value, for example, the limit applies to the total size of all policies scoped to a particular principal with the resource unspecified, or a particular resource with the principal unspecified. This limit is not adjustable. Additionally, the total size of all policies for a unique resource (or resource unspecified) should not exceed 1 MB; this limit is adjustable with additional constraints on hierarchy quotas. For details about how Verified Permissions calculates this quota, examples, and strategies for staying within it, see [Policy size per resource](policy-size-per-resource.md).
 
 ## Quotas for hierarchies
 <a name="quotas-hierarchies"></a>
