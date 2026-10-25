@@ -21,7 +21,7 @@ When this occurs, all users and groups, including the administrative user in IAM
 
    If you are changing to Active Directory, choose the available directory from the menu on the next page. 
 **Important**  
-Changing your identity source to or from Active Directory deletes users and groups from the Identity Center directory. This change also removes any assignments that you configured in IAM Identity Center.
+Changing your identity source to Active Directory deletes users and groups from the Identity Center directory. This change also removes any assignments that you configured in IAM Identity Center. Changing your identity source from Active Directory to the Identity Center directory or an external identity provider (IdP) retains your users, groups, memberships, and assignments.
 **Note**  
 If you replicated IAM Identity Center to additional Regions and want to change your identity source to Active Directory, you must remove all additional Regions first. Multi-Region support is not available for instances that use Active Directory as the identity source. For more information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md)
 

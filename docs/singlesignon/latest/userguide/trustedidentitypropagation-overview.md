@@ -48,10 +48,18 @@ The following image provides an overview of the previously described steps in th
 ![Simplified trusted identity propagation workflow.](https://docs.aws.amazon.com/singlesignon/latest/userguide/images/simplied-tip-2.png)
 
 
+## Cross-Region trusted identity propagation
+<a name="cross-region-trusted-identity-propagation"></a>
+
+With a multi-Region IAM Identity Center instance, trusted identity propagation works across the Regions where you replicated your instance. When a user authenticates in one Region and accesses an AWS service, you can propagate the user's identity context to AWS services in other AWS Regions. The receiving AWS service authorizes access based on user attributes such as group associations, so you get fine-grained, identity-based access control for cross-Region workloads.
+
+Cross-Region trusted identity propagation requires a multi-Region IAM Identity Center instance with a multi-Region customer managed Key Management Service (KMS) key. If you have already enabled multi-Region replication and set up trusted identity propagation for your AWS services, cross-Region trusted identity propagation works across the additional Regions automatically.
+
 **Topics**
 + [Benefits of trusted identity propagation](#benefits-trusted-identity-propagation)
 + [Enabling trusted identity propagation](#enabling-tip)
 + [How trusted identity propagation works](#how-tip-works)
++ [Cross-Region trusted identity propagation](#cross-region-trusted-identity-propagation)
 + [Prerequisites and considerations](trustedidentitypropagation-overall-prerequisites.md)
 + [Trusted identity propagation use cases](trustedidentitypropagation-integrations.md)
 + [Authorization services](authorization-services.md)

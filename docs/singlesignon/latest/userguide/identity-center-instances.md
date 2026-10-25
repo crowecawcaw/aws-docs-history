@@ -19,7 +19,7 @@ An instance is a single deployment of IAM Identity Center. There are two types o
 To enable IAM Identity Center, sign in to the AWS Management Console by using one of the following credentials, depending on the instance type you want to create:
 + **Your AWS Organizations management account (recommended)** – Required to create an [organization instance](organization-instances-identity-center.md) of IAM Identity Center. Use an organization instance for multi-account permissions and application assignments across the organization.
 + **Your AWS Organizations member account** – Use to create an [account instance](account-instances-identity-center.md) of IAM Identity Center to enable application assignments within that member account. One or more accounts with a member level instance can exist in an organization.
-+ **A standalone AWS account** – Use to create an [organization instance](organization-instances-identity-center.md) or [account instance](account-instances-identity-center.md) of IAM Identity Center. The standalone AWS account isn't managed by AWS Organizations. You can associate only one instance of IAM Identity Center with a standalone AWS account and use that instance for application assignments within that standalone AWS account.
++ **A standalone AWS account** – Use to create an [account instance](account-instances-identity-center.md) of IAM Identity Center. The standalone AWS account isn't managed by AWS Organizations. You can associate only one instance of IAM Identity Center with a standalone AWS account and use that instance for application assignments within that standalone AWS account.
 
 Use the following table to compare the capabilities provided by the instance type:
 

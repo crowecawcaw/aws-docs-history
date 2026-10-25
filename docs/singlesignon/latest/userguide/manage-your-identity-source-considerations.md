@@ -5,29 +5,100 @@
 
 Although you can change your identity source at any time, we recommend that you consider how this change might affect your current deployment. 
 
-If you are already managing users and groups in one identity source, changing to a different identity source might remove all user and group assignments that you configured in IAM Identity Center. If this occurs, all users, including the administrative user in IAM Identity Center, will lose single sign-on access to their AWS accounts and applications.
+Changing your identity source to or from Active Directory behaves differently depending on the direction:
++ When you change from Active Directory to the Identity Center directory or an external identity provider (IdP), IAM Identity Center retains your users, groups, memberships, and assignments.
++ When you change to Active Directory from the Identity Center directory or an external IdP, or between two Active Directory directories, IAM Identity Center removes your users, groups, memberships, and assignments.
 
-Before you change the identity source for IAM Identity Center, review the following considerations before you proceed. If you want to proceed with changing your identity source, see [Change your identity source](manage-your-identity-source-change.md) for more information.
+When you change between the Identity Center directory and an external IdP, or between two external IdPs, IAM Identity Center preserves your users, groups, memberships, and assignments.
 
-## Changing between IAM Identity Center directory and Active Directory
-<a name="changing-between-sso-and-active-directory"></a>
+Before you change the identity source for IAM Identity Center, review the following considerations. If you want to proceed with changing your identity source, see [Change your identity source](manage-your-identity-source-change.md) for more information.
 
-If you are already managing users and groups in Active Directory, we recommend that you consider connecting your directory when you enable IAM Identity Center and choose your identity source. Do this before you create any users and groups in the default Identity Center directory and make any assignments. 
+## Changing your identity source from Active Directory
+<a name="changing-from-active-directory"></a>
+
+IAM Identity Center supports changing your identity source from Active Directory to the Identity Center directory or an external IdP, retaining your users, groups, memberships, and their assignments.
 
 **Important**  
-When changing your identity source type in IAM Identity Center to or from Active Directory be aware that the Identity Store ID will change. This can have the following implications:  
-Your default AWS access portal URL will change. You will need to communicate the new URL to your workforce and update bookmarks, gatewall or firewall allow-lists, and configurations where this URL is referenced. We recommend you perform this change in a scheduled maintenance window to minimize disruption to your users.
-If you are using a customer managed KMS key for encryption at rest in IAM Identity Center, and have configured the KMS key policy with the encryption context, be aware that the encryption context for the Identity Store will change. For instance, in the Identity Store ARN "arn:aws:identitystore::123456789012:identitystore/d-922763e9b3", "d-922763e9b3" is the Identity Store ID. To prevent service disruption during this transition, temporarily modify your KMS key policy to use a wildcard pattern: "arn:aws:identitystore::123456789012:identitystore/\*".
+After you change your identity source from Active Directory, the default AWS access portal URL changes. The `https://d-xxxxxxxxxx.awsapps.com/start` URL and any custom alias URL are no longer supported. If you don't update bookmarks, allow-lists, and other references, users and automated systems that use the old URL lose access to the access portal.
 
-If you are already managing users and groups in the default Identity Center directory, consider the following:
-+ **Assignments removed and users and groups deleted** – Changing your identity source to Active Directory deletes your users and groups from the Identity Center directory. This change also removes your assignments. In this case, after you change to Active Directory, you must synchronize your users and groups from Active Directory into the Identity Center directory, and then reapply their assignments.
+### Before you begin
+<a name="changing-from-active-directory-before-you-begin"></a>
 
-  If you choose to not use Active Directory, you must create your users and groups in the Identity Center directory, and then make assignments. 
-+ **Assignments aren't deleted when identities are deleted** – When identities are deleted in the Identity Center directory, corresponding assignments also get deleted in IAM Identity Center. However in Active Directory, when identities are deleted (either in Active Directory or the synced identities), corresponding assignments aren't deleted.
-+ **No outbound synchronization for APIs** – If you use Active Directory as your identity source, we recommend that you use the [Create, Update, and Delete](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_Operations.html) APIs with caution. IAM Identity Center doesn't support outbound synchronization, so your identity source doesn't automatically update with the changes that you make to users or groups using these APIs.
-+ **Access portal URL will change** – Changing your identity source between IAM Identity Center and Active Directory also changes the URL for the AWS access portal. 
-+ If users are deleted or disabled in the IAM Identity Center console using Identity Store APIs, users with active sessions can continue to access integrated applications and accounts. For information about authentication session duration and user behavior, see [Understanding authentication sessions in IAM Identity Center](authconcept.md).
-+ **Multi-Region support** – If you have replicated IAM Identity Center to additional Regions or plan to do so, you must use an external identity provider or the Identity Center directory as the identity source. Multi-Region support is not available for Active Directory. For more information including other prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md).
+Before you change your identity source from Active Directory, complete the following tasks:
++ Review the following considerations. Pay attention to potential disruption in sign-in and multi-factor authentication (MFA), and to the change in the portal URL.
++ Back up your configuration. Export your current users, groups, memberships, and assignments so that you can restore them if needed. For more information, see [Managing identity source transition for IAM Identity Center](https://aws.amazon.com/blogs/security/managing-identity-source-transition-for-aws-iam-identity-center/).
++ Validate your configuration in a test environment that mirrors production, including connected applications, before you change production.
++ Confirm that your target identity source is ready. For an external IdP, confirm that it supports System for Cross-domain Identity Management (SCIM) 2.0. Also confirm that it matches existing users and groups by a stable identifier (typically user name), so that it takes over users instead of creating duplicates. Confirm that every user has a user name, given name, family name, and display name populated.
++ Schedule a maintenance window and notify users that the change might interrupt access portal sign-in.
+
+### Considerations
+<a name="changing-from-active-directory-considerations"></a>
+
+**User sign-out**  
+Users who are signed in are signed out and must sign in again the next time they access or refresh their session.
+
+**MFA**  
+MFA behavior depends on your target identity source:  
++ If you change to the Identity Center directory, IAM Identity Center retains your IAM Identity Center MFA settings and user MFA settings.
++ If you change to an external IdP, your external IdP handles MFA.
+
+**Remote Authentication Dial-In User Service (RADIUS) MFA**  
+If you use RADIUS MFA through AWS Directory Service, it no longer applies to AWS access portal sign-in after the change.  
+To require MFA, turn on MFA in IAM Identity Center. Users must register their MFA devices again.
+
+**AWS access portal URL**  
+Your `https://d-xxxxxxxxxx.awsapps.com/start` and custom alias URLs are no longer supported after the change. Your dual-stack URL (`https://ssoins-<instance-id>.portal.<region>.app.aws`) continues to be supported. Communicate the supported URL and update bookmarks and allow-lists.
+
+**Active Directory synchronization**  
+IAM Identity Center stops syncing from Active Directory. Your directory in Directory Service remains intact, but it's no longer connected, and changes that you make in Active Directory after this point don't appear in IAM Identity Center.
+
+**New authoritative identity source**  
+How you manage identities depends on your target identity source:  
++ If you change to the Identity Center directory, IAM Identity Center becomes the authoritative source. You manage users, groups, and memberships in IAM Identity Center, by using the console or the Identity Store API. Users who are synced from Active Directory don't have an IAM Identity Center password and can't sign in without one. Turn on [Email one-time password](userswithoutpwd.md) so that users created with API or CLI who have no password can choose one at first sign-in.
++ If you change to an external IdP, your external IdP becomes the authoritative source. After the change, connect your IdP and configure SCIM provisioning. You then manage users, groups, and memberships in your IdP, which provisions them into IAM Identity Center. For sign-in to work, the attribute that your IdP sends as the Security Assertion Markup Language (SAML) `NameID` must match the user name in IAM Identity Center.
+
+**Attributes for access control**  
+IAM Identity Center keeps your attributes for access control configuration. Review it after the change, because attribute values from Active Directory no longer update.
+
+**Data removal when reversing the change**  
+If you later change your identity source to Active Directory, IAM Identity Center permanently removes all users, groups, memberships, and assignments. For more information, see [Changing your identity source to Active Directory](#changing-to-active-directory).
+
+For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md), [Manage users in the Identity Center directory](manage-your-identity-source-sso.md), or [External identity providers](manage-your-identity-source-idp.md).
+
+**Note**  
+Changing your identity source doesn't delete your AWS Managed Microsoft AD instance. Keep it for a few days after the change, until you've validated that all access and permissions work as expected.
+
+## Changing your identity source to Active Directory
+<a name="changing-to-active-directory"></a>
+
+When you change your identity source to Active Directory from the Identity Center directory or an external IdP, or between two different Active Directory directories, IAM Identity Center removes your users, groups, memberships, and assignments.
+
+**Warning**  
+Changing your identity source to Active Directory permanently deletes all users, groups, memberships, and assignments in IAM Identity Center. This data loss is irreversible. Before you proceed, back up your configuration and reapply assignments after the change.
+
+This change also changes the Identity Store ID, which affects your access portal URL and encryption configuration.
+
+**Important**  
+Changing your identity source type to Active Directory changes the Identity Store ID. The change to the Identity Store ID has the following implications:  
+Your default AWS access portal URL changes. Communicate the new URL to your workforce and update bookmarks, gateway or firewall allow-lists, and configurations that reference this URL. If you don't update these references, users and automated systems that use the old URL lose access to the access portal.
+The encryption context for your customer managed AWS KMS key changes. If you use a customer managed AWS KMS key for encryption at rest, with the encryption context configured in the key policy, the encryption context for the Identity Store changes. For example, in the Identity Store Amazon Resource Name (ARN) `arn:aws:identitystore::444455556666:identitystore/d-922763e9b3`, `d-922763e9b3` is the Identity Store ID. To prevent service disruption, temporarily modify your AWS KMS key policy to use a wildcard pattern: `arn:aws:identitystore::444455556666:identitystore/*`. If you don't update the key policy, encryption and decryption operations fail and service is disrupted.
+
+Consider the following:
+
+**User, group, membership, and assignment deletion**  
+IAM Identity Center permanently removes all users, groups, group memberships, and assignments. The change doesn't affect user or group information in the external IdP or Active Directory.
+
+**Rebuild after the change**  
+After you change to Active Directory, synchronize your users and groups from Active Directory into IAM Identity Center, and then reapply assignments.
+
+**Assignment retention on identity deletion in Active Directory**  
+In Active Directory, when you delete identities (in Active Directory or the synced identities), IAM Identity Center keeps the corresponding assignments. In the Identity Center directory, when you delete identities, IAM Identity Center also deletes their assignments.
+
+**No outbound synchronization for APIs**  
+If you use Active Directory as your identity source, use the [Create, Update, and Delete](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_Operations.html) APIs with caution. If you use these APIs to change users or groups, your identity source doesn't automatically reflect those changes, because IAM Identity Center doesn't support outbound synchronization.
+
+**Multi-Region support**  
+Multi-Region support is not available for Active Directory as an identity source. If you have replicated IAM Identity Center to additional Regions or plan to, you must use an external identity provider or the Identity Center directory. For more information, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md).
 
 For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md).
 
@@ -76,15 +147,3 @@ If you are already using an external IdP as your identity source for IAM Identit
 You cannot revoke user sessions from the IAM Identity Center console after you've deleted the user.
 
 For information about how IAM Identity Center provisions users and groups, see [External identity providers](manage-your-identity-source-idp.md).
-
-## Changing between Active Directory and an external IdP
-<a name="changing-between-microsoft-ad-and-azure-active-directory"></a>
-
-If you change your identity source from an external IdP to Active Directory, or from Active Directory to an external IdP, consider the following:
-+ **Users, groups, and assignments are deleted** – All users, groups, and assignments are deleted from IAM Identity Center. No user or group information is affected in either the external IdP or Active Directory. 
-+ **Provisioning users** – If you change to an external IdP, you must configure IAM Identity Center to provision your users. Alternatively, you must manually provision the users and groups for the external IdP before you can configure assignments. 
-+ **Create assignments and groups** – If you change to Active Directory, you must create assignments with the users and groups that are in your directory in Active Directory. 
-+ If users are deleted or disabled in the IAM Identity Center console using Identity Store APIs, users with active sessions can continue to access integrated applications and accounts. For information about authentication session duration and user behavior, see [Understanding authentication sessions in IAM Identity Center](authconcept.md).
-+ **Multi-Region support** – If you have replicated IAM Identity Center to additional Regions or plan to do so, you must use an external identity provider or the Identity Center directory as the identity source. Multi-Region support is not available for Active Directory. For more information including other prerequisites, see [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md).
-
-For information about how IAM Identity Center provisions users and groups, see [Microsoft AD directory](manage-your-identity-source-ad.md).

@@ -8,6 +8,7 @@ Before you set up trusted identity propagation, review the following prerequisit
 **Topics**
 + [Prerequisites](#trustedidentitypropagation-prerequisites)
 + [Considerations](#trustedidentitypropagation-considerations)
++ [Considerations for cross-Region trusted identity propagation](#cross-region-tip-considerations)
 + [Considerations for customer managed applications](#trustedidentitypropagation-customer-apps)
 
 ## Prerequisites
@@ -15,8 +16,10 @@ Before you set up trusted identity propagation, review the following prerequisit
 
 To use trusted identity propagation, ensure your environment meets the following prerequisites:
 + Enable and provision IAM Identity Center
-  + To use trusted identity propagation, you must enable IAM Identity Center in the same AWS Region where the AWS applications and services your users will access are enabled. For information, see [Enable IAM Identity Center](enable-identity-center.md).
-    + IAM Identity Center Organization instance is recommended - We recommend you use an [organization instance](organization-instances-identity-center.md) of IAM Identity Center that you enable in the management account of AWS Organizations. You can [delegate administration](organization-instances-identity-center.md) of an organization instance of IAM Identity Center to a member account. If you choose an [account instance](account-instances-identity-center.md) of IAM Identity Center, all AWS services that you want users to access with trusted identity propagation must reside in the same AWS account where you enable IAM Identity Center. For more information, see [Account instances of IAM Identity Center](account-instances-identity-center.md).
+  + You can use trusted identity propagation with your AWS services deployed in the same Region or in different Regions. Choose the deployment that fits your architecture:
+    + **Same-Region** – Enable IAM Identity Center in the same AWS Region as the AWS services your users access.
+    + **Cross-Region** – Create a multi-Region IAM Identity Center instance configured with a multi-Region customer managed KMS key. Trusted identity propagation then works across the additional AWS Regions where you replicated your instance, with no additional configuration. For more information, see [Implementing customer managed KMS keys in AWS IAM Identity Center](identity-center-customer-managed-keys.md) and [Using IAM Identity Center across multiple AWS Regions](multi-region-iam-identity-center.md).
+    + **Organization instance** – We recommend you use an [organization instance](organization-instances-identity-center.md) of IAM Identity Center that you enable in the management account of AWS Organizations. You can [delegate administration](organization-instances-identity-center.md) of an organization instance of IAM Identity Center to a member account. If you choose an [account instance](account-instances-identity-center.md) of IAM Identity Center, all AWS services that you want users to access with trusted identity propagation must reside in the same AWS account where you enable IAM Identity Center. For more information, see [Account instances of IAM Identity Center](account-instances-identity-center.md).
   + Connect your existing identity provider to IAM Identity Center and provision your users and groups into IAM Identity Center. For more information, see [IAM Identity Center identity source tutorials](tutorials.md).
 + Connect the AWS managed applications and services in your trusted identity propagation use case to IAM Identity Center. To use trusted identity propagation, AWS managed applications must be connected to IAM Identity Center.
 
@@ -28,6 +31,17 @@ Keep in mind the following considerations when configuring and using trusted ide
   + An [organization instance](organization-instances-identity-center.md) of IAM Identity Center will give you the most control and flexibility to grow your use cases to multiple AWS accounts, users, and AWS services. If you are unable to use an organization instance, your use case may be supported with account instances of IAM Identity Center. To learn more about which AWS services in your use case support account instances of IAM Identity Center, see [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md).
 + **Multi-account permissions (permission sets) not required**
   + Trusted identity propagation doesn't require you to set up [multi-account permissions](manage-your-accounts.md) (permission sets). You can enable IAM Identity Center and use it for trusted identity propagation only.
+
+## Considerations for cross-Region trusted identity propagation
+<a name="cross-region-tip-considerations"></a>
+
+Keep in mind the following considerations when using cross-Region trusted identity propagation.
++ **Eventual consistency**
+  + IAM Identity Center replicates identity metadata to additional Regions asynchronously, with eventual consistency.
++ **Tokens and re-authentication**
+  + After you enable multi-Region replication for additional Regions, those Regions do not accept tokens issued before you enabled replication. Your users must re-authenticate once so that newly issued tokens work across all enabled Regions.
++ **Blocking cross-Region calls**
+  + If you do not want AWS services to make cross-Region calls, you can block them by using a service control policy (SCP). You can build this policy using the `aws:RequestedRegion` condition key to allow only the Regions you use and deny requests to all others. For more information about an example policy that uses this condition key, see [AWS: Denies access to AWS based on the requested Region](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_examples_aws_deny-requested-region.html).
 
 ## Considerations for customer managed applications
 <a name="trustedidentitypropagation-customer-apps"></a>

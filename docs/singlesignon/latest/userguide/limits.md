@@ -16,7 +16,7 @@ We recommend using the AWS CLI and APIs to centrally administer IAM Identity Cen
 | --- | --- | --- | 
 | File size of service provider SAML certificates (in PEM format) | 2 KB | No | 
 | SAML assertion limit | 50,000 characters | No | 
-| File size limit of the IdP certificate uploaded to IAM Identity Center | 2500 (UTF-8) characters | No | 
+| File size limit of the IdP certificate uploaded to IAM Identity Center | 2,500 (UTF-8) characters | No | 
 | Access scopes per application | 25 | No | 
 
 ## AWS account quotas
@@ -25,7 +25,7 @@ We recommend using the AWS CLI and APIs to centrally administer IAM Identity Cen
 
 | Resource | Default quota | Can be increased | 
 | --- | --- | --- | 
-| Number of permission sets allowed in IAM Identity Center | 3500 | Yes | 
+| Number of permission sets allowed in IAM Identity Center | 3,500 | Yes | 
 | Number of provisioned permission sets allowed per AWS account  | 500 | Yes | 
 | Number of inline policies per permission set | 1 | No | 
 | Number of AWS managed and customer managed policies per permission set | 251 | No | 
@@ -51,8 +51,8 @@ We recommend using the AWS CLI and APIs to centrally administer IAM Identity Cen
 
 | Resource | Default quota | Can be increased | 
 | --- | --- | --- | 
-| Number of users supported in IAM Identity Center | 200000 | Yes | 
-| Number of groups supported in IAM Identity Center | 100000 | Yes | 
+| Number of users supported in IAM Identity Center | 1,000,000 | Yes | 
+| Number of groups supported in IAM Identity Center | 100,000 | Yes | 
 
 ## IAM Identity Center throttle limits
 <a name="ssothrottlelimits"></a>
@@ -86,12 +86,12 @@ If your IAM Identity Center instance is enabled in multiple AWS Regions, the req
 
 | Resource | Default quota | Can be increased | 
 | --- | --- | --- | 
-| Total number of AWS accounts or applications that can be configured \* \*\* | 7000 | Yes | 
+| Total number of AWS accounts or applications that can be configured \* \*\* | 7,000 | Yes | 
 | Total number of instances of IAM Identity Center per account | 1 | No | 
 | Total number of trusted token issuers | 10 | No | 
 | Total number of groups that can be assigned to a permission set per AWS account, or to an application | 100 | No | 
 | Total number of AWS Regions enabled for a single IAM Identity Center instance | 6 | Yes | 
 
-\* This quota applies separately to AWS accounts and to applications. You can configure up to 7000 accounts and up to 7000 applications.
+\* This quota applies separately to AWS accounts and to applications. You can configure up to 7,000 accounts and up to 7,000 applications.
 
-\*\* The[`ProvisionPermissionSet`](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) API operation can provision a permission set using the option `ALL_PROVISIONED_ACCOUNTS` to, at most, 3500 AWS accounts. If you need to provision a permission set to more than 3500 AWS accounts, you can use the `ProvisionPermissionSet` API operation with the `AWS_ACCOUNT` option, which provisions the permission set in a single AWS account. You can make up to three concurrent calls to `ProvisionPermissionSet`.
+\*\* The[`ProvisionPermissionSet`](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) API operation can provision a permission set using the option `ALL_PROVISIONED_ACCOUNTS` to, at most, 3,500 AWS accounts. If you need to provision a permission set to more than 3,500 AWS accounts, you can use the `ProvisionPermissionSet` API operation with the `AWS_ACCOUNT` option, which provisions the permission set in a single AWS account. You can make up to three concurrent calls to `ProvisionPermissionSet`.

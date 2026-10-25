@@ -35,9 +35,9 @@ With a Region-local connection to IAM Identity Center, AWS managed applications 
 ### Trusted identity propagation
 <a name="trusted-identity-propagation"></a>
 
- You can use trusted identity propagation with AWS managed applications that support it in any enabled Region of your IAM Identity Center instance. 
+With a multi-Region IAM Identity Center instance, trusted identity propagation works across the Regions where you replicated your instance. When a user authenticates in one Region and accesses an AWS service, the user's identity context can be propagated to AWS services in other AWS Regions. The AWS service in the receiving Region authorizes access based on user attributes such as group associations, providing fine-grained, identity-based access control for cross-Region workloads.
 
-All applications that propagate identity context to each other must be in the same Region.
+Cross-Region trusted identity propagation requires a multi-Region IAM Identity Center instance with a multi-Region customer managed KMS key. If you have already enabled multi-Region replication and set up trusted identity propagation for your AWS services, cross-Region trusted identity propagation works across the additional Regions automatically.
 
 ### An application’s dependency on its connected IAM Identity Center Region
 <a name="application-resilience"></a>

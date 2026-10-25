@@ -13,6 +13,7 @@
  Replicating IAM Identity Center to additional AWS Regions provides two key benefits: 
 +  **Improved resiliency of AWS account access** – Your workforce can access their AWS accounts even if the IAM Identity Center instance experiences a service disruption in its primary Region. This applies to access with permissions provisioned before the disruption. 
 +  **Enhanced flexibility in choosing deployment Regions for AWS managed applications** – You can deploy AWS managed applications in your preferred Regions to meet application data residency requirements and improve performance through proximity to users. Applications deployed in additional Regions access replicated workforce identities locally for optimal performance and reliability. 
++  **Cross-Region trusted identity propagation** – You can propagate your workforce identity context across enabled Regions. AWS services in one Region can verify user identity with IAM Identity Center in another Region and authorize access based on user attributes. This enables distributed architectures where compute and data reside in different Regions while maintaining fine-grained, identity-based access control. 
 
 ## Prerequisites and considerations
 <a name="multi-region-prerequisites"></a>
