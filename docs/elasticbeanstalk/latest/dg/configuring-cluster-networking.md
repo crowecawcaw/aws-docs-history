@@ -25,6 +25,27 @@ The setting is written as JSON because the subnet list contains a comma, which t
 
 Elastic Beanstalk groups environments onto clusters by this subnet set, so environments in the same account that use the same subnets run on the same cluster, and an environment that uses a different set runs on a different cluster. The order of the subnets doesn't matter. For the grouping rules and the events that report cluster assignment, see [Environment grouping](beanstalk-cluster-concepts.md#beanstalk-cluster-clusters-sharing).
 
+## Network requirements
+<a name="configuring-cluster-networking-requirements"></a>
+
+The environment subnets and their VPC must meet these requirements:
++ The subnets must be in the same VPC and in at least two Availability Zones.
++ The subnets must be all public or all private.
++ Each subnet must have at least 32 free IP addresses.
++ The subnets can't be in an Availability Zone that Amazon EKS doesn't support. Amazon EKS lists these zones by Availability Zone ID in [Subnet requirements for clusters](https://docs.aws.amazon.com/eks/latest/userguide/network-reqs.html#cluster-subnets).
++ The VPC must have DNS hostnames and DNS resolution turned on.
+
+A public subnet has a route to an internet gateway and assigns public IPv4 addresses to instances at launch. When you create the environment, Elastic Beanstalk checks the subnet count, VPC, type, and free addresses. A subnet that has only one of the two public subnet properties, or a subnet set that misses an Amazon EKS requirement, passes these checks but fails later. The failure happens during cluster creation or when nodes join the cluster.
+
+The cluster's nodes need outbound internet access. They download the components that Elastic Beanstalk installs, and they deliver your environment's logs, metrics, and traces to the backends that you choose. Public subnets get this access through an internet gateway. Private subnets need a route to a NAT device, such as a NAT gateway. They can also use another outbound path, such as a transit gateway to a central egress VPC.
+
+**Private subnets need outbound internet access**  
+Currently, you can't use private subnets without an outbound internet route for Beanstalk Cluster environments, even if the VPC has interface endpoints for the AWS services that the cluster uses.
+
+If the nodes can't download these components, environment creation can take up to an hour to fail. The environment's events include `Failed to install a required EKS add-on` or `Failed to assign cluster`.
+
+If you set load balancer subnets, they must cover exactly the same Availability Zones as the environment subnets, with at least two zones. For an internet-facing load balancer, every subnet that the load balancer uses must have a route to an internet gateway. These are the load balancer's own subnets, or the environment subnets if you don't set any. For more information about load balancer options, see [Load balancer network settings](#configuring-cluster-networking-alb).
+
 ## How traffic reaches your application
 <a name="configuring-cluster-networking-lb-type"></a>
 

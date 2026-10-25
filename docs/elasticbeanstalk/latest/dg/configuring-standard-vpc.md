@@ -43,7 +43,7 @@ Choose a VPC for your environment. You can only change this setting during envir
 ### Load balancer visibility
 <a name="environments-cfg-vpc-console-lbvisibility"></a>
 
-For a load-balanced environment, choose the load balancer scheme. By default, the load balancer is public, with a public IP address and domain name. If your application only serves traffic from within your VPC or a connected VPN, deselect this option and choose private subnets for your load balancer to make the load balancer internal and disable access from the Internet.
+For a load-balanced environment, choose the load balancer scheme. By default, the load balancer is public, with a public IP address and domain name. If your application only serves traffic from within your VPC or a connected VPN, deselect this option and choose private subnets for your load balancer to make the load balancer internal and disable access from the internet.
 
 ### Load balancer subnets
 <a name="environments-cfg-vpc-console-lbsubnets"></a>
@@ -56,12 +56,12 @@ For a load-balanced environment, choose the subnets that your load balancer uses
 ### Instance public IP address
 <a name="environments-cfg-vpc-console-ec2ip"></a>
 
-If you choose public subnets for your application instances, enable public IP addresses to make them routable from the Internet.
+If you choose public subnets for your application instances, enable public IP addresses to make them routable from the internet.
 
 ### Instance subnets
 <a name="environments-cfg-vpc-console-ec2subnets"></a>
 
-Choose subnets for your application instances. Choose at least one subnet for each availability zone that your load balancer uses. If you choose private subnets for your instances, your VPC must have a NAT gateway in a public subnet that the instances can use to access the Internet.
+Choose subnets for your application instances. Choose at least one subnet for each availability zone that your load balancer uses. If you choose private subnets for your instances, your VPC must have a NAT gateway in a public subnet that the instances can use to access the internet.
 
 ![Instance settings section in the Modify network configuration page on the Elastic Beanstalk console](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/images/environments-cfg-vpc-console-ec2.png)
 

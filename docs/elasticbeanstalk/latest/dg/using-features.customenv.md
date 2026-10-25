@@ -119,13 +119,11 @@ The `repo_upgrade` setting disables the automatic installation of security updat
 
 1. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 
-1. In the navigation pane, choose **Configuration**.
+1. On the **Configuration** tab, in the **Infrastructure** section, choose **Edit**.
 
-1. In the **Capacity** configuration category, choose **Edit**.
+1. Under **Additional infrastructure details**, select **Use a custom AMI**, and then for **AMI ID**, enter your custom AMI ID.
 
-1. For **AMI ID**, enter your custom AMI ID.
-
-1. To save the changes choose **Apply** at the bottom of the page.
+1. Choose **Save changes**, review your changes, and then choose **Apply changes**.
 
 When you create a new environment with the custom AMI, you should use the same platform version that you used as a base to create the AMI. 
 
@@ -142,9 +140,26 @@ We recommend that you create a new custom AMI based on the stock AMI of the new 
 For more information about creating a new custom AMI, see the [Creating a custom AMI](#using-features.customenv.create) earlier in this topic.
 
 ### Removing a custom AMI
-<a name="using-features.customenv.platform-updates."></a>
+<a name="using-features.customenv.removing"></a>
 
-If you would like to remove a custom AMI from an environment and reset it to use the stock AMI for the environment’s platform version, use the following CLI command.
+You can remove a custom AMI from an environment and reset it to use the stock AMI for the environment’s platform version. Use the Elastic Beanstalk console or the AWS CLI.
+
+**Note**  
+To avoid disruption of your service, test your application with a stock AMI before applying this change to your production environment.
+
+**To remove a custom AMI (console)**
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk), and in the **Regions** list, select your AWS Region.
+
+1. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+
+1. On the **Configuration** tab, in the **Infrastructure** section, choose **Edit**.
+
+1. Under **Additional infrastructure details**, clear **Use a custom AMI**.
+
+1. Choose **Save changes**, review your changes, and then choose **Apply changes**.
+
+To remove a custom AMI with the AWS CLI, use the following command.
 
 ```
 aws elasticbeanstalk update-environment \
@@ -153,9 +168,6 @@ aws elasticbeanstalk update-environment \
   --region {{us-east-1 }}\
   --options-to-remove Namespace=aws:autoscaling:launchconfiguration,OptionName=ImageId
 ```
-
-**Note**  
-To avoid disruption of your service, test your application with a stock AMI before applying this change to your production environment.
 
 ## Cleaning up a custom AMI
 <a name="using-features.customenv.cleanup"></a>

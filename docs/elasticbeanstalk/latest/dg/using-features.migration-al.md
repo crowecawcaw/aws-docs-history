@@ -1,6 +1,6 @@
 
 
-# Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2
+# Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023
 <a name="using-features.migration-al"></a>
 
 This section describes how to migrate your application using one of the following migration paths.

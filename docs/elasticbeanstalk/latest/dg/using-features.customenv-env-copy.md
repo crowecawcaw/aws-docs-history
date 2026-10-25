@@ -26,12 +26,13 @@ This topic offers some steps and a standalone script to update an existing envir
      --application-name {{my-application}} \
      --environment-name {{my-environment}} \
      --region {{us-east-2}} \
-     --query "ConfigurationSettings[0].OptionSettings[?OptionName=='ImageId'] | [0].Value"
+     --query "ConfigurationSettings[0].OptionSettings[?OptionName=='ImageId'] | [0].Value" \
+     --output text
    ```
 
 1. **Copy the AMI into your account.** This command returns the new AMI that results from copying the *source-ami-id* that was returned in the prior step. 
 **Note**  
-Be sure to make a note of the new AMI id that is output by this command. You'll need to enter it in the next step, replacing *copied-ami-id* in the example command.
+Be sure to make a note of the new AMI id that is output by this command. You'll need to enter it in the next two steps, replacing *copied-ami-id* in the example commands.
 
    In a command window, run a command like the following. For more information, see [copy-image](https://docs.aws.amazon.com/cli/latest/reference/ec2/copy-image.html) in the *AWS CLI Command Reference*.
 
@@ -45,11 +46,21 @@ Be sure to make a note of the new AMI id that is output by this command. You'll 
        --name {{new-ami-name}}
    ```
 
+1. **Wait for the copied AMI to become available.** Don't update your environment until the copied AMI is in the `available` state. If the AMI is still pending, Elastic Beanstalk can't launch instances with it, and your environment might be left without running instances. This command returns when the AMI is available.
+
+   In a command window, run a command like the following. For more information, see [wait image-available](https://docs.aws.amazon.com/cli/latest/reference/ec2/wait/image-available.html) in the *AWS CLI Command Reference*.
+
+   ```
+   >aws ec2 wait image-available \
+       --region {{us-east-2}} \
+       --image-ids {{copied-ami-id}}
+   ```
+
 1. **Update an environment to use the copied AMI.** After the command runs it returns the status of the environment.
 
    In a command window, run a command like the following. For more information, see [update-environment](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/update-environment.html) in the *AWS CLI Command Reference*.
 
-   Specify the AWS Region of the environment and application you need to update. Replace the application name and environment name with those you need to associate with the *copied-ami-id* from the prior step. For the **--option-setttings** parameter, replace {{copied-ami-id}} with the AMI id you noted from the output of the prior command.
+   Specify the AWS Region of the environment and application you need to update. Replace the application name and environment name with those you need to associate with the *copied-ami-id* from step 2. For the **--option-settings** parameter, replace {{copied-ami-id}} with the AMI id you noted in step 2.
 
    ```
    >aws elasticbeanstalk update-environment \
@@ -101,8 +112,7 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-aws_cli_version="$(aws --version)"
-if [ $? -ne 0 ]; then
+if ! aws_cli_version="$(aws --version 2>&1)"; then
   echo "aws CLI not found. Please install it: https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html. Exiting."
   exit 1
 fi
@@ -210,7 +220,7 @@ After installing the AWS CLI, you must also configure it to use the AWS account 
 After you extract the script from the [copy\_ami\_and\_update\_env.zip](samples/copy_ami_and_update_env.zip) file, run it by executing the following example. Replace the application name and environment name in the example with your own values.
 
 ```
->sh copy_ami_and_update_env.sh \
+>bash copy_ami_and_update_env.sh \
   --application-name {{my-application}} \
   --environment-name {{my-environment}} \
   --region {{us-east-1}}

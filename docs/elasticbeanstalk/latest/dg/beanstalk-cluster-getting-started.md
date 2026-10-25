@@ -253,6 +253,8 @@ Elastic Beanstalk deletes a shared Amazon EKS cluster only after you terminate t
 
 ## Next steps
 <a name="beanstalk-cluster-getting-started-next"></a>
+
+After you complete the tutorial, continue with the following tasks:
 + Deploy your own container image or source by creating an application version. See [Building container images for Beanstalk Cluster environments](beanstalk-cluster-app-versions.md).
 + Configure resource limits, scaling, deployment behavior, load balancing, and observability. See [Configuration options for Beanstalk Cluster environments](command-options-general-eks.md).
 + Learn how to update and monitor the environment. See [Managing Elastic Beanstalk environments](using-features.managing.md) and [Monitoring Beanstalk Cluster environments](monitoring-cluster-environments.md).

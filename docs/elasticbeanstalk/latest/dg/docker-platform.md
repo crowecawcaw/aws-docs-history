@@ -23,7 +23,7 @@ For a list of the software component versions associated with each of these plat
 
 This platform branch can deploy a Docker image, described in a Dockerfile or a `Dockerrun.aws.json` v1 definition. This platform branch runs *only one* container for each instance. Its succeeding platform branches,*Docker running on 64bit AL2023* and *Docker running on 64bit Amazon Linux 2* support multiple Docker containers per instance.
 
-We recommend that you create your environments with the newer and supported platform branch *Docker running on 64bit AL2023*. You can then migrate your application to the newly created environment. For more information about creating these environments, see [Using the Elastic Beanstalk Docker platform branch](docker.md). For more information about migration, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md).
+We recommend that you create your environments with the newer and supported platform branch *Docker running on 64bit AL2023*. You can then migrate your application to the newly created environment. For more information about creating these environments, see [Using the Elastic Beanstalk Docker platform branch](docker.md). For more information about migration, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023](using-features.migration-al.md).
 
 ### Multi-container Docker (Amazon Linux AMI)
 <a name="docker-platform-multi"></a>

@@ -88,7 +88,7 @@ Some characters in environment property values must be escaped. Use the backslas
 backslash (`\`) — to represent use `\\`
 single quote (`'`) — to represent use `\'`
 double quote (`"`) — to represent use `\"`
-+ **Keys** and **values** are case sensitive.
++ **Keys** and **values** keep the case that you enter. Elastic Beanstalk doesn't treat keys that differ only by case as different properties: if you set `foo` while `FOO` exists, the new property replaces `FOO`. Your application sees the key with the case that you entered last.
 + The combined size of all environment properties cannot exceed 4,096 bytes when stored as strings with the format {{key}}={{value}}.
 
 ## Software setting namespaces

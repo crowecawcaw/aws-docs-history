@@ -3,30 +3,26 @@
 # Platform retirement FAQ
 <a name="using-features.migration-al.FAQ"></a>
 
-**Note**  
-Elastic Beanstalk retired all platform branches based on Amazon Linux AMI (AL1) on  July 18, 2022 .
-
 The answers in this FAQ reference the following topics:
 + [Elastic Beanstalk platform support policy](platforms-support-policy.md)
 +  [Retired platform branch history](platforms-schedule.md#platforms-support-policy.retired) 
 + [ Elastic Beanstalk supported platforms](https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html) in *AWS Elastic Beanstalk Platforms*
-+ [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md)
-+ [Amazon Linux 2 FAQs](https://aws.amazon.com//amazon-linux-2/faqs/). 
++ [Migrate to a different platform branch](using-features.platform.upgrade.md#using-features.platform.upgrade.different-branch)
 
 ## 1. What does retirement of a platform branch mean?
 <a name="using-features.migration-al.FAQ.what-retire-means"></a>
 
 Following the announced retirement date of a platform branch, you will no longer be able to create a new environment based on the retired platform branch, unless you already have an active environment based on that platform branch. For more information, see [FAQ \#11](#using-features.migration-al.FAQ.new-env-create). Elastic Beanstalk will stop providing new maintenance updates for these platform branches. A retired platform branch isn't recommended for use in production environments. For more information, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components). 
 
-## 2. Why has AWS retired the AL1-based platforms branches?
+## 2. Why does Elastic Beanstalk retire platform branches?
 <a name="using-features.migration-al.FAQ.why"></a>
 
-Elastic Beanstalk retires platform branches when platform components are deprecated or retired by their vendors. In this case, the Amazon Linux AMI (AL1) has ended standard support as of [December 31, 2020](https://aws.amazon.com/blogs/aws/update-on-amazon-linux-ami-end-of-life/). While Elastic Beanstalk continued to offer AL1 based platforms through 2022, we have since released AL2 and AL2023 and based platforms that have the latest features. In order for customers to continue to benefit from the latest security and features going forward, it's critical for customers to migrate to our AL2 or AL2023 based platforms.
+Elastic Beanstalk retires a platform branch when one of its components, such as the operating system, runtime language version, application server, or web server, reaches End of Life (EOL) from its supplier. For more information, see [Elastic Beanstalk platform support policy](platforms-support-policy.md).
 
-## 3. Which platform branches are retired?
+## 3. Which platform branches are retired or scheduled for retirement?
 <a name="using-features.migration-al.FAQ.which-pb-retire"></a>
 
- For a list of platform components and platform branches that have been retired, see [Retired platform branch history](platforms-schedule.md#platforms-support-policy.retired).
+ For a list of platform components and platform branches that have been retired, see [Retired platform branch history](platforms-schedule.md#platforms-support-policy.retired). For platform branches that are scheduled for retirement, see [Retiring platform branch schedule](platforms-schedule.md#platforms-support-policy.depracation).
 
 ## 4. Which platforms are currently supported?
 <a name="using-features.migration-al.FAQ.which-pb-supported"></a>
@@ -43,17 +39,17 @@ If your application should encounter issues while running on a retired platform 
 ## 6. Can I submit a request to extend the retirement date?
 <a name="using-features.migration-al.FAQ.extend-request"></a>
 
-No. After the retirement date existing environments will continue to function. However, Elastic Beanstalk will no longer provide platform maintenance and security updates. Therefore, it’s critical to migrate to AL2 or AL2023 if you are still running applications on an AL1-based platform. For more information about risks and workarounds, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components). 
+No. After the retirement date existing environments will continue to function. However, Elastic Beanstalk will no longer provide platform maintenance and security updates. Therefore, it's critical to migrate your environments to a supported platform branch. For more information about risks and workarounds, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components). 
 
-## 7. What are the workarounds if I can't complete my AL2 or AL2023 migration in time?
+## 7. What are the workarounds if I can't complete my migration in time?
 <a name="using-features.migration-al.FAQ.workarounds"></a>
 
 Customers may continue to run the environment, although we strongly encourage you to plan to migrate all of your Elastic Beanstalk environments to a supported platform version. Doing so will minimize risk and provide continued benefit from important security, performance, and functionality enhancements offered in more recent releases. For more information about risks and workarounds, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components).
 
-## 8. What is the recommended process to migrate to AL2 or AL2023 platforms?
+## 8. What is the recommended process to migrate to a supported platform branch?
 <a name="using-features.migration-al.FAQ.migration-process"></a>
 
-For comprehensive AL1 to AL2023/AL2 migration instructions, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md). This topic explains that Elastic Beanstalk requires a blue/green deployment to perform the upgrade.
+We recommend a blue/green deployment. See [Migrate to a different platform branch](using-features.platform.upgrade.md#using-features.platform.upgrade.different-branch). If you're migrating from Amazon Linux 2 to Amazon Linux 2023, also see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023](using-features.migration-al.md).
 
 ## 9. If I have an environment running on a retired platform, what would be the impact?
 <a name="using-features.migration-al.FAQ.ret-env-impact"></a>
@@ -82,14 +78,12 @@ Yes. You can do so using the [Clone environment](using-features.managing.clone.m
 
 However, we strongly encourage you to plan to migrate all your Elastic Beanstalk environments to a supported platform version. Doing so will minimize risk and provide continued benefit from important security, performance, and functionality enhancements offered in more recent releases. For more information about risks and workarounds, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components). 
 
-## 14. After the retirement date, what would happen to the AWS resources of my Elastic Beanstalk environment that is based on a retired platform branch? For example, if the running EC2 instance gets terminated, would Elastic Beanstalk be able to launch a new AL1 based EC2 instance to maintain capacity?
+## 14. After the retirement date, what would happen to the AWS resources of my Elastic Beanstalk environment that is based on a retired platform branch? For example, if the running EC2 instance gets terminated, would Elastic Beanstalk be able to launch a new instance to maintain capacity?
 <a name="using-features.migration-al.FAQ.auto-scale"></a>
 
-The environment’s resources would remain active and continue to function. And, yes, Elastic Beanstalk will auto scale for AL1 EC2 instances in the environment. However, Elastic Beanstalk will stop providing new platform maintenance updates to the environment, which can lead to the environment ending up in an unpredictable situation over time. For more information, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components).
+The environment's resources remain active and continue to function. However, after a platform branch is retired, its base Elastic Beanstalk AMI might be made private. If that happens, the environment can't launch new instances, for example to scale out, to replace an unhealthy instance, or to apply a configuration change that replaces instances. To keep the ability to launch instances, see [Preserving access to an Amazon Machine Image (AMI) for a retired platform](using-features.customenv-env-copy.md). Elastic Beanstalk also stops providing platform maintenance updates to the environment. For more information, see [FAQ \#5](#using-features.migration-al.FAQ.remove-components).
 
-## 15. What are key differences between the AL2023/AL2 and Amazon Linux AMI (AL1) operating systems? How are the Elastic Beanstalk AL2023/AL2 platform branches affected?
+## 15. Is a newer platform branch compatible with my application?
 <a name="using-features.migration-al.FAQ.os-diff"></a>
 
-Although Amazon Linux AMI and AL2023/AL2 share the same Linux kernel, they differ in their initialization system, `libc` versions, the compiler tool chain, and various packages. For more information, see [Amazon Linux 2 FAQs](https://aws.amazon.com//amazon-linux-2/faqs/).
-
-The Elastic Beanstalk service has also updated platform specific versions of runtime, build tools, and other dependencies. The AL2023/AL2 based platform branches aren't guaranteed to be backward compatible with your existing application. Furthermore, even if your application code successfully deploys to the new platform version, it might behave or perform differently due to operating system and run time differences. For a list and description of configurations and customizations that you'll need to review and test, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md).
+Not necessarily. A newer platform branch can include a different operating system version, runtime version, build tools, and other dependencies, and isn't guaranteed to be backward compatible with your application. Even if your application deploys successfully, it might behave or perform differently. Test your application on the new platform branch before you migrate your production environment. For more information, see [Migrate to a different platform branch](using-features.platform.upgrade.md#using-features.platform.upgrade.different-branch).

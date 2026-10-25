@@ -26,7 +26,7 @@ For more information about Amazon Linux 2 and Amazon Linux 2023, see the followi
 For details about supported platform versions, see [Elastic Beanstalk supported platforms](concepts.platforms.md).
 
 **Note**  
-You can migrate your application from an Elastic Beanstalk AL1 or AL2 platform branch to the equivalent AL2023 platform branch. For more information, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023 or Amazon Linux 2](using-features.migration-al.md). 
+You can migrate your application from an Elastic Beanstalk AL1 or AL2 platform branch to the equivalent AL2023 platform branch. For more information, see [Migrating your Elastic Beanstalk Linux application to Amazon Linux 2023](using-features.migration-al.md). 
 
 ### Amazon Linux 2023
 <a name="platforms-linux.versions.al2023"></a>

@@ -43,7 +43,7 @@ Before you deploy your application and start testing, review the information in 
 **More detailed migration steps and best practices**  
 For a more detailed blue/green deployment procedure, see [Blue/Green deployments with Elastic Beanstalk](using-features.CNAMESwap.md).
 
-For more specific guidance and detailed best practice steps, see [Blue/Green method](using-features.platform.upgrade.md#using-features.platform.upgrade.bluegreen).
+For more specific guidance and detailed best practice steps, see [Blue/Green method](using-features.platform.upgrade.md#using-features.platform.upgrade.different-branch).
 
 ## More references to help plan your migration
 <a name="using-features.migration-al.generic.from-al1.references"></a>
