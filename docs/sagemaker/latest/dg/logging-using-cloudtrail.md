@@ -41,13 +41,14 @@ The following table lists the Amazon SageMaker AI resource types for which you c
 | --- | --- | --- | 
 | SageMaker endpoint |  AWS::SageMaker::Endpoint  |  +  [InvokeEndpoint](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpoint.html) <br />+  [InvokeEndpointAsync](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointAsync.html) <br />+  [InvokeEndpointWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_runtime_InvokeEndpointWithResponseStream.html)   | 
 | SageMaker jobs |  AWS::SageMaker::Job  |  +  [CompleteRollout](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_job_runtime_CompleteRollout.html) <br />+  [Sample](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_job_runtime_Sample.html) <br />+  [SampleWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_job_runtime_SampleWithResponseStream.html)   | 
+| SageMaker training sessions |  AWS::SageMaker::TrainingSession  |  +  [ExecuteTrainingOperation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_training_session_runtime_ExecuteTrainingOperation.html) <br />+  [GetTrainingOperationResult](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_training_session_runtime_GetTrainingOperationResult.html) <br />+  [ExecuteSamplingOperation](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_training_session_runtime_ExecuteSamplingOperation.html) <br />+  [GetSamplingOperationResult](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_training_session_runtime_GetSamplingOperationResult.html) <br />+  [SampleTrainingSession](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_training_session_runtime_SampleTrainingSession.html) <br />+  [SampleTrainingSessionWithResponseStream](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_training_session_runtime_SampleTrainingSessionWithResponseStream.html)   | 
 
 **Note**  
-The `InvokeEndpoint`, `InvokeEndpointAsync`, `Sample`, and `SampleWithResponseStream` API calls don't log the request parameters.
+The `InvokeEndpoint`, `InvokeEndpointAsync`, `Sample`, and `SampleWithResponseStream` API calls don't log the request parameters. The `ExecuteTrainingOperation`, `ExecuteSamplingOperation`, `GetTrainingOperationResult`, `GetSamplingOperationResult`, `SampleTrainingSession`, and `SampleTrainingSessionWithResponseStream` API calls redact the request body and response body, including the `operationConfig`, `prompt`, `samplingParams`, and `operationResult` fields, and log them as `HIDDEN_DUE_TO_SECURITY_REASONS`. Identifiers such as the training session name, sequence number, and operation ID are logged.
 
 You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) in the *AWS CloudTrail API Reference*.
 
-The following example shows you how to log data events for an Amazon SageMaker endpoint and an Amazon SageMaker job. In this example, you use the [put-event-selectors](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/put-event-selectors.html) AWS CLI command to add advanced event selectors that capture data events from your endpoint. You should have an existing CloudTrail trail. Before running the command, you can also save the advanced event selectors JSON object in a file like the following:
+The following example shows you how to log data events for an Amazon SageMaker endpoint, an Amazon SageMaker job, and an Amazon SageMaker training session. In this example, you use the [put-event-selectors](https://docs.aws.amazon.com/cli/latest/reference/cloudtrail/put-event-selectors.html) AWS CLI command to add advanced event selectors that capture data events from your endpoint. You should have an existing CloudTrail trail. Before running the command, you can also save the advanced event selectors JSON object in a file like the following:
 
 ```
 [
@@ -80,6 +81,22 @@ The following example shows you how to log data events for an Amazon SageMaker e
       {
         "Field": "resources.type",
         "Equals": ["AWS::SageMaker::Job"]
+      }
+    ]
+  },
+  {
+    "FieldSelectors": [
+      {
+        "Field": "eventCategory",
+        "Equals": ["Data"]
+      },
+      {
+        "Field": "resources.ARN",
+        "Equals": ["arn:aws:sagemaker:us-east-1:111122223333:training-session/{{my-training-session}}"]
+      },
+      {
+        "Field": "resources.type",
+        "Equals": ["AWS::SageMaker::TrainingSession"]
       }
     ]
   }
@@ -315,3 +332,91 @@ The following example shows a CloudTrail event that demonstrates the `SampleWith
 ```
 
 For information about CloudTrail record contents, see [CloudTrail record contents](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html) in the *AWS CloudTrail User Guide*.
+
+The following example shows a CloudTrail event that demonstrates the `ExecuteTrainingOperation` operation on a training session. The `operationConfig` request parameter is redacted and logged as `HIDDEN_DUE_TO_SECURITY_REASONS`.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime": "2026-07-16T21:35:36Z",
+    "eventSource": "sagemaker.amazonaws.com",
+    "eventName": "ExecuteTrainingOperation",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress":"192.0.2.1",
+    "userAgent":"USER_AGENT",
+    "requestParameters": {
+        "sequenceNumber": 1,
+        "operationConfig": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        "trainingSessionName": "{{my-training-session}}"
+    },
+    "responseElements": {
+        "operationId": "{{my-training-session}}-123456789012-us-west-2-dfc0d9ae-EXAMPLE-1"
+    },
+    "requestID": "d21d3319-EXAMPLE",
+    "eventID": "14d1c2b9-EXAMPLE",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "123456789012",
+            "type": "AWS::SageMaker::TrainingSession",
+            "ARN": "arn:aws:sagemaker:us-west-2:123456789012:training-session/{{my-training-session}}"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "123456789012",
+    "eventCategory": "Data",
+    "tlsDetails": {
+        "clientProvidedHostHeader": "training-session-runtime.sagemaker.us-west-2.api.aws"
+    }
+}
+```
+
+The following example shows a CloudTrail event that demonstrates a `SampleTrainingSessionWithResponseStream` call that was denied.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime": "2026-07-25T17:25:30Z",
+    "eventSource": "sagemaker.amazonaws.com",
+    "eventName": "SampleTrainingSessionWithResponseStream",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress":"192.0.2.1",
+    "userAgent":"USER_AGENT",
+    "errorCode": "AccessDenied",
+    "errorMessage": "User: arn:aws:iam::123456789012:user/intern is not authorized to perform: sagemaker:SampleTrainingSessionWithResponseStream on resource: arn:aws:sagemaker:us-west-2:123456789012:training-session/{{my-training-session}}",
+    "requestID": "bf0ca70c-EXAMPLE",
+    "eventID": "594e2082-EXAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "123456789012",
+            "type": "AWS::SageMaker::TrainingSession",
+            "ARN": "arn:aws:sagemaker:us-west-2:123456789012:training-session/{{my-training-session}}"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "123456789012",
+    "eventCategory": "Data",
+    "tlsDetails": {
+        "clientProvidedHostHeader": "training-session-runtime.sagemaker.us-west-2.api.aws"
+    }
+}
+```

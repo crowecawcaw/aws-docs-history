@@ -170,14 +170,9 @@ The following code is an example of a bucket policy that restricts permission to
 + The VPC endpoints listed in `aws:sourceVpce`
 + Users within the VPC named {{<vpc>}}
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Id": "1",
     "Statement": [
         {
@@ -189,27 +184,23 @@ The following code is an example of a bucket policy that restricts permission to
                 "s3:PutObject"
             ],
             "Resource": [
-                "arn:aws:s3:::{{bucket-name}}/*",
-                "arn:aws:s3:::{{bucket-name}}"
+                "arn:aws:s3:::{{<bucket-name>}}/*",
+                "arn:aws:s3:::{{<bucket-name>}}"
             ],
             "Condition": {
                 "StringNotEquals": {
-                    "aws:SourceVpc": "{{vpc-12345678}}",
-                    "aws:PrincipalArn": "arn:aws:iam::{{111122223333}}:role/{{role-name}}"
-                },
-                "StringNotEquals": {
                     "aws:sourceVpce": [
-                        "{{vpce-12345678}}",
-                        "{{vpce-12345678}}"
-                    ]
+                        "{{<vpc-endpoint>}}",
+                        "{{<ground-truth-endpoint>}}"
+                    ],
+                    "aws:PrincipalArn": "arn:aws:iam::{{<aws-account-id>}}:role/{{<role-name>}}",
+                    "aws:SourceVpc": "{{<vpc>}}"
                 }
             }
         }
     ]
 }
 ```
-
-------
 
 **Note**  
 The Amazon VPC interface endpoints and the protected Amazon S3 buckets you use for input and output data must be located in the same AWS Region that you use to create the labeling job.

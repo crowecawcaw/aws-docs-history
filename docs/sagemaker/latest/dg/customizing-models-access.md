@@ -97,7 +97,7 @@ Use the SageMaker AI Training session APIs when a predefined workflow is too rig
 from sagemaker.train.training_session import ServiceClient, AdamParams
 
 svc = ServiceClient(region="us-west-2", role_arn="arn:aws:iam::111122223333:role/MyRole")
-tc = svc.create_lora_training_client(base_model="gpt-oss-20b", rank=32, alpha=64)
+tc = svc.create_lora_training_client(base_model="openai/gpt-oss-20b", rank=32, alpha=64)
 
 for batch in data_loader:
     tc.forward_backward(batch, loss_fn="cross_entropy")

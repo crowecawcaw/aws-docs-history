@@ -31,7 +31,7 @@ For inference endpoints, set the `InferenceAmiVersion` parameter on the applicab
 - **Batch**
   - **GPU:** NVIDIA
   - **Driver version:** 470 / **CUDA version:** CUDA 11.4 / **AMI version:** al2-ami-sagemaker-batch-gpu-470 / **Instance types (default):** ml.g4dn.\*, ml.g5.\* / **Compatible instance types with AMI version overrides:** 
-  - **Driver version:** 535 / **CUDA version:** CUDA 12.2 / **AMI version:** al2-ami-sagemaker-batch-gpu-535 / **Instance types (default):** ml.g6.\* / **Compatible instance types with AMI version overrides:** ml.g4dn.\*, ml.g5.\*
+  - **Driver version:** 535 / **CUDA version:** CUDA 12.2 / **AMI version:** al2-ami-sagemaker-batch-gpu-535 / **Instance types (default):** ml.g6.\*, ml.g6e.\* / **Compatible instance types with AMI version overrides:** ml.g4dn.\*, ml.g5.\*
 
 
 

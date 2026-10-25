@@ -71,6 +71,7 @@ The following models are available for customization across serverless, SageMake
 | Google | Gemma 4 31B | huggingface-vlm-gemma-4-31b-it | ✓ | ✓ | ✓ | 
 | Google | Gemma 4 26B A4B | huggingface-vlm-gemma-4-26b-a4b-it | ✓ | ✓ | ✓ | 
 | Google | Gemma 4 E4B | huggingface-vlm-gemma-4-e4b-it | ✓ | ✓ | ✓ | 
+| Meta | Muse Glimmer 30B | huggingface-vlm-muse-glimmer-30b | ✓ | ✓ | ✓ | 
 | Meta | Llama 3.3 Instruct 70B | meta-textgeneration-llama-3-3-70b-instruct | ✓ | ✓ | ✓ | 
 | Meta | Llama 3.2 Instruct 3B | meta-textgeneration-llama-3-2-3b-instruct | ✓ | ✓ | ✓ | 
 | Meta | Llama 3.2 Instruct 1B | meta-textgeneration-llama-3-2-1b-instruct | ✓ | ✓ | ✓ | 

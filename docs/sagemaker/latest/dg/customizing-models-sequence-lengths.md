@@ -45,6 +45,7 @@ Keep the following tips in mind:
 | Google | Gemma 4 31B | huggingface-vlm-gemma-4-31b-it | 32K | 32K | 32K | 32K | 16K | 16K | 16K | 16K | 
 | Google | Gemma 4 26B A4B | huggingface-vlm-gemma-4-26b-a4b-it | 32K | 32K | 32K | 32K | 16K | 16K | 16K | 16K | 
 | Google | Gemma 4 E4B | huggingface-vlm-gemma-4-e4b-it | 32K | 32K | 32K | 32K | 16K | 16K | 16K | 16K | 
+| Meta | Muse Glimmer 30B | huggingface-vlm-muse-glimmer-30b | 32K | 16K | 32K | 16K | 16K | 16K | 16K | 16K | 
 | Meta | Llama 3.3 Instruct 70B | meta-textgeneration-llama-3-3-70b-instruct | \*4K | \*4K | \*4K | \*4K | 16K | 8K | 16K | 8K | 
 | Meta | Llama 3.2 Instruct 3B | meta-textgeneration-llama-3-2-3b-instruct | \*4K | — | \*4K | — | 16K | — | 16K | — | 
 | Meta | Llama 3.2 Instruct 1B | meta-textgeneration-llama-3-2-1b-instruct | \*4K | — | \*4K | — | 16K | — | 16K | — | 

@@ -16,7 +16,7 @@ To query detailed observability metrics from your existing observability tool in
 | Endpoint URL | https://monitoring.{{region}}.amazonaws.com | 
 | Auth | Signature Version 4 (SigV4) | 
 | Service | monitoring | 
-| Required permissions | cloudwatch:QueryMetrics, cloudwatch:GetMetricData, cloudwatch:ListMetrics | 
+| Required permissions | cloudwatch:GetMetricData, cloudwatch:ListMetrics | 
 
 ## Setting up a Prometheus data source in Grafana
 <a name="detailed-observability-promql-grafana"></a>
@@ -67,8 +67,6 @@ To query detailed observability metrics from your existing observability tool in
     "Statement": [{
         "Effect": "Allow",
         "Action": [
-            "cloudwatch:QueryMetrics",
-            "cloudwatch:DescribeMetrics",
             "cloudwatch:GetMetricData",
             "cloudwatch:ListMetrics"
         ],

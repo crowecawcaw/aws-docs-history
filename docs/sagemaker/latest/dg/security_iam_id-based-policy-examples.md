@@ -1440,7 +1440,7 @@ In this example of a custom IAM policy, the first two statements illustrate usin
 In particular:
 + The first statement allows the `CreateModel` action on any resource (`*`).
 + The second statement allows the `sagemaker:AddTags` action, but only when the `sagemaker:TaggingAction` condition key equals `CreateModel`. This restricts the `sagemaker:AddTags` action to only when it's being used to tag a newly created model.
-+ The third statement denies any SageMaker AI create action (`Create*`) on any resource (`*`), but only when the resource has a tag `sagemaker:domain-arn` equal to a specific domain ARN, `{{domain-arn}}`.
++ The third statement denies any SageMaker AI create action (`Create*`) on any resource (`*`), but only when the create request applies a tag `sagemaker:domain-arn` equal to a specific domain ARN, `{{domain-arn}}`.
 
 ```
 {
@@ -1459,7 +1459,7 @@ In particular:
          ],
          "Resource":"*",
          "Condition":{
-            "String":{
+            "StringEquals":{
                "sagemaker:TaggingAction":[
                   "CreateModel"
                ]
@@ -1475,7 +1475,7 @@ In particular:
          ],
          "Condition":{
             "StringEquals":{
-               "aws:ResourceTag/sagemaker:domain-arn":"{{domain-arn}}"
+               "aws:RequestTag/sagemaker:domain-arn":"{{domain-arn}}"
             }
          }
       }

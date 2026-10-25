@@ -257,8 +257,8 @@ The MLflow tracking server or MLflow App IAM service role requires `sagemaker:Up
 <a name="mlflow-track-experiments-model-registration-lifecycle-restrict"></a>
 
 You can use IAM condition keys to control which lifecycle transitions a role is allowed to perform:
-+ `sagemaker:ModelLifeCycle/stage` — The lifecycle stage being set. Values: `staging`, `production`.
-+ `sagemaker:ModelLifeCycle/stageStatus` — The lifecycle status being set. Values: `pending`, `active`.
++ `sagemaker:ModelLifeCycle:stage` — The lifecycle stage being set. Values: `staging`, `production`.
++ `sagemaker:ModelLifeCycle:stageStatus` — The lifecycle status being set. Values: `pending`, `active`.
 
 **Example: Deny production promotions**
 
@@ -272,7 +272,7 @@ You can use IAM condition keys to control which lifecycle transitions a role is 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "sagemaker:ModelLifeCycle/stage": "production"
+                    "sagemaker:ModelLifeCycle:stage": "production"
                 }
             }
         }
@@ -292,8 +292,8 @@ You can use IAM condition keys to control which lifecycle transitions a role is 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "sagemaker:ModelLifeCycle/stage": "staging",
-                    "sagemaker:ModelLifeCycle/stageStatus": "pending"
+                    "sagemaker:ModelLifeCycle:stage": "staging",
+                    "sagemaker:ModelLifeCycle:stageStatus": "pending"
                 }
             }
         }

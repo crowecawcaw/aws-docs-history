@@ -12,6 +12,9 @@ Delete your endpoint programmatically using AWS SDK for Python (Boto3), with the
 
 SageMaker AI frees up all of the resources that were deployed when the endpoint was created. Deleting an endpoint will not delete the endpoint configuration or the SageMaker AI model. See [Delete Endpoint Configuration](#realtime-endpoints-delete-endpoint-config) and [Delete Model](#realtime-endpoints-delete-model) for information on how to delete your endpoint configuration and SageMaker AI model.
 
+**Delete inference components first**  
+When you delete an endpoint from the SageMaker AI console, SageMaker AI first deletes the Inference Components that are attached to the endpoint. Then SageMaker AI deletes the endpoint. To delete a single Inference Component without deleting the endpoint, see the procedure that follows.
+
 ------
 #### [ AWS SDK for Python (Boto3) ]
 
@@ -58,6 +61,28 @@ Delete your endpoint interactively with the SageMaker AI console.
 1. Choose **Delete**.
 
 ------
+
+To delete a single Inference Component from an endpoint without deleting the endpoint, use the **Inference components** tab.
+
+**Note**  
+You can't delete the last Inference Component on an endpoint. To remove it, delete the endpoint instead.
+
+**To delete an Inference Component (console)**
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
+
+1. In the navigation pane, choose **Inference**, and then choose **Endpoints**.
+
+1. Choose the endpoint.
+
+1. Choose the **Inference components** tab.
+
+1. Select the Inference Component that you want to delete.
+
+1. Choose **Actions**, and then choose **Delete**.
+
+**Note**  
+Deleting the Inference Component might take a few minutes.
 
 ## Delete Endpoint Configuration
 <a name="realtime-endpoints-delete-endpoint-config"></a>

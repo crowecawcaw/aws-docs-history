@@ -208,8 +208,8 @@ The following table describes what each permission enables:
 <a name="mlflow-app-setup-iam-lifecycle-condition-keys"></a>
 
 You can use IAM condition keys to control which lifecycle transitions a role is allowed to perform. The following condition keys are available for the `sagemaker:UpdateModelPackage` action:
-+ `sagemaker:ModelLifeCycle/stage` — The lifecycle stage being set. Values: `staging`, `production`.
-+ `sagemaker:ModelLifeCycle/stageStatus` — The lifecycle status being set. Values: `pending`, `active`.
++ `sagemaker:ModelLifeCycle:stage` — The lifecycle stage being set. Values: `staging`, `production`.
++ `sagemaker:ModelLifeCycle:stageStatus` — The lifecycle status being set. Values: `pending`, `active`.
 
 **Example: Deny production promotions**
 
@@ -225,7 +225,7 @@ The following policy prevents a role from promoting models to the `production` s
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "sagemaker:ModelLifeCycle/stage": "production"
+                    "sagemaker:ModelLifeCycle:stage": "production"
                 }
             }
         }
@@ -247,8 +247,8 @@ The following policy restricts a role to only set models to the `staging` stage 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "sagemaker:ModelLifeCycle/stage": "staging",
-                    "sagemaker:ModelLifeCycle/stageStatus": "pending"
+                    "sagemaker:ModelLifeCycle:stage": "staging",
+                    "sagemaker:ModelLifeCycle:stageStatus": "pending"
                 }
             }
         }

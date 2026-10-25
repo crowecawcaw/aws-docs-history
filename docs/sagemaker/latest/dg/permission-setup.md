@@ -306,7 +306,7 @@ For detailed setup and verification instructions, see [(Optional) Setting up pre
 ## Permission setup for AWS Toolkit to Access SageMaker Spaces
 <a name="permission-for-toolkitl"></a>
 
-To allow the AWS VS Code Toolkit resource explorer side panel to discover and connect to SageMaker Spaces, the following IAM permissions are required. These permissions allow the Toolkit to list available SageMaker HyperPod clusters, retrieve cluster details, and obtain a connection token for the associated Amazon EKS cluster.
+To allow the AWS VS Code Toolkit resource explorer side panel to discover and connect to SageMaker Spaces, the following IAM permissions are required. These permissions allow the Toolkit to list available SageMaker HyperPod clusters, retrieve cluster details, and access the Kubernetes API of the associated Amazon EKS cluster.
 
 **Required IAM Policy**
 
@@ -333,9 +333,9 @@ To allow the AWS VS Code Toolkit resource explorer side panel to discover and co
             "Resource": "arn:aws:eks:{{region}}:{{account}}:cluster/cluster-name"
         },
         {
-            "Sid": "EksGetToken",
+            "Sid": "EksAccessKubernetesApi",
             "Effect": "Allow",
-            "Action": "eks:GetToken",
+            "Action": "eks:AccessKubernetesApi",
             "Resource": "*"
         }
     ]
@@ -344,4 +344,4 @@ To allow the AWS VS Code Toolkit resource explorer side panel to discover and co
 
 **Scoping Recommendations**
 + Replace cluster-name with the specific SageMaker HyperPod cluster(s) your users need to access.
-+ The eks:GetToken action currently does not support resource-level restrictions and must use Resource: "\*". This is an AWS service limitation. The client side Authentication is performed through [EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).
++ The eks:AccessKubernetesApi action currently does not support resource-level restrictions and must use Resource: "\*". This is an AWS service limitation. The client side Authentication is performed through [EKS access entries](https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html).

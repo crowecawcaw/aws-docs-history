@@ -20,6 +20,7 @@ View details about updates to AWS managed policies for SageMaker HyperPod since 
 
 | Policy | Version | Change | Date | 
 | --- | --- | --- | --- | 
+| [AmazonSageMakerClusterInstanceRolePolicy](security-iam-awsmanpol-AmazonSageMakerClusterInstanceRolePolicy.md) - Updated policy | 2 | Changed the `cloudwatch:namespace` condition on `cloudwatch:PutMetricData` from `StringEquals` to `StringEqualsIfExists`. OpenTelemetry Protocol (OTLP) metrics carry no namespace, so you can now send them to Amazon CloudWatch from cluster instances. Metrics that specify a namespace are still limited to `/aws/sagemaker/Clusters`. | October 15, 2026 | 
 | [AmazonSageMakerHyperPodTrainingOperatorAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodTrainingOperatorAccess.md) - New policy | 1 | Initial policy | August 22, 2025 | 
 | [AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md) - Updated policy | 2 | Updated the policy to fix the role scope-down to include the `service-role` prefix. Also added permissions for `eks:DeletePodIdentityAssociation` and `eks:UpdatePodIdentityAssociation` that are required for end-to-end administrative actions. | August 19, 2025 | 
 | [AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md) - New policy | 1 | Initial policy | July 10, 2025 | 

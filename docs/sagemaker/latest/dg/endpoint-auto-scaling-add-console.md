@@ -3,6 +3,9 @@
 # Configure model auto scaling with the console
 <a name="endpoint-auto-scaling-add-console"></a>
 
+**Note**  
+You configure auto scaling differently depending on the endpoint type. For a Single Model Endpoint (SME), follow the next procedure, which scales the number of instances for the production variant. For an endpoint that hosts Inference Components, follow the Inference Component procedure later in this section, which scales the number of copies of each Inference Component.
+
 **To configure auto scaling for a model (console)**
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
@@ -37,3 +40,21 @@ This procedure registers a model as a scalable target with Application Auto Scal
 + You aren't registering a variant with an instance that is a burstable performance instance such as T2
 **Note**  
 SageMaker AI doesn't support auto scaling for burstable instances such as T2, because they already allow for increased capacity under increased workloads. For information about burstable performance instances, see [Amazon EC2 instance types](https://aws.amazon.com/ec2/instance-types/).
+
+For an endpoint that hosts Inference Components, you configure auto scaling for each Inference Component on the **Inference components** tab. Auto scaling adjusts the number of copies of the Inference Component in response to traffic.
+
+**To configure auto scaling for an Inference Component (console)**
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
+
+1. In the navigation pane, choose **Inference**, and then choose **Endpoints**.
+
+1. Choose the endpoint.
+
+1. Choose the **Inference components** tab.
+
+1. Select the Inference Component, and then choose **Actions**.
+
+1. Choose **Configure auto scaling**.
+
+1. Set the minimum and maximum number of copies and the target value, and then choose **Save**.

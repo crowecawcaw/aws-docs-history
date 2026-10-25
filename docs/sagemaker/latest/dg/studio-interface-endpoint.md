@@ -80,15 +80,9 @@ If you apply an IAM policy similar to one of the following examples, users canno
 
 The following policy allows connections only to callers within the subnet where you created the interface endpoint.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Id": "sagemaker-studio-example-1",
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "EnableSageMakerStudioAccess",
@@ -100,7 +94,7 @@ The following policy allows connections only to callers within the subnet where 
             "Resource": "*",
             "Condition": {
                 "StringEquals": {
-                    "aws:SourceVpc": "{{vpc-111bbaaa}}"
+                    "aws:SourceVpc": {{"vpc-111bbaaa"}}
                 }
             }
         }
@@ -108,21 +102,13 @@ The following policy allows connections only to callers within the subnet where 
 }
 ```
 
-------
-
 **Example 2: Allow connections only through interface endpoints using `aws:sourceVpce`**
 
 The following policy allows connections only to those made through the interface endpoints specified by the `aws:sourceVpce` condition key. For example, the first interface endpoint could allow access through the SageMaker AI console. The second interface endpoint could allow access through the SageMaker API.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Id": "sagemaker-studio-example-2",
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "EnableSageMakerStudioAccess",
@@ -144,8 +130,6 @@ The following policy allows connections only to those made through the interface
     ]
 }
 ```
-
-------
 
 This policy includes the [`DescribeUserProfile`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeUserProfile.html) action. Typically you call `DescribeUserProfile` to make sure that the status of the user profile is `InService` before you try to connect to the domain. For example:
 
@@ -196,15 +180,9 @@ aws sagemaker create-presigned-domain-url
 
 The following policy allows connections only from the specified range of IP addresses using the `aws:SourceIp` condition key.
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Id": "sagemaker-studio-example-3",
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "EnableSageMakerStudioAccess",
@@ -227,21 +205,13 @@ The following policy allows connections only from the specified range of IP addr
 }
 ```
 
-------
-
 **Example 4: Allow connections from IP addresses through an interface endpoint using `aws:VpcSourceIp`** 
 
 If you are accessing Studio or Studio Classic through an interface endpoint, you can use the `aws:VpcSourceIp` condition key to allow connections only from the specified range of IP addresses within the subnet where you created the interface endpoint as shown in the following policy:
 
-------
-#### [ JSON ]
-
-****  
-
 ```
 {
-    "Id": "sagemaker-studio-example-4",
-    "Version":"2012-10-17",		 	 	 
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "EnableSageMakerStudioAccess",
@@ -266,5 +236,3 @@ If you are accessing Studio or Studio Classic through an interface endpoint, you
     ]
 }
 ```
-
-------

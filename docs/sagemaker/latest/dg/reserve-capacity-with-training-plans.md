@@ -58,8 +58,6 @@ Training plans support reservations for the following specific high-performance 
 + **ml.trn2.48xlarge**
 + **ml.p6-b200.48xlarge**
 + **ml.p6-b300.48xlarge**
-+ **ml.g6.xlarge** (reach out to your account manager)
-+ **ml.g6.4xlarge** (reach out to your account manager)
 
 **UltraServers** (Currently cannot be purchased in a self-serve manner; reach out to your account manager.)
 + **ml.p6e-gb200.36xlarge**

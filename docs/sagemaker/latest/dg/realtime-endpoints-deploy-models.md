@@ -50,6 +50,83 @@ SageMaker AI packages your models as inference components when you deploy them b
 + The SageMaker Python SDK to deploy a Model object (where you set the endpoint type to `EndpointType.INFERENCE_COMPONENT_BASED`).
 + The AWS SDK for Python (Boto3) to define `InferenceComponent` objects that you deploy to an endpoint.
 
+## Deploy models with the SageMaker AI console
+<a name="deploy-models-console"></a>
+
+Use the SageMaker AI console to create a real-time endpoint and host one or more models on it. When you create the endpoint, you select an endpoint type. The endpoint type determines how the models share the resources of the endpoint.
+
+The console supports the following endpoint types.
+
+**Inference Components**  
+The endpoint hosts one or more Inference Components. Each Inference Component contains one model and the compute resources for that model. Use this type to host multiple models on shared infrastructure. You can manage, scale, and update each model independently.
+
+**Single Model Endpoint (SME)**  
+The endpoint hosts a single model for each production variant, without Inference Components. This is the classic model-based endpoint.
+
+### Create Inference Component Endpoints
+<a name="console-create-ic-endpoint"></a>
+
+Create an endpoint that uses Inference Components to host multiple models on shared infrastructure and manage, scale, and update each model independently. Before you begin, create a SageMaker AI model for each model that you want to host.
+
+The Inference Components that you add to the endpoint use the CPU, accelerator, and memory from the instance type and instance count that you choose for the endpoint.
+
+**To create an Inference Component endpoint (console)**
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
+
+1. In the navigation pane, choose **Inference**, and then choose **Endpoints**.
+
+1. Choose **Create endpoint**.
+
+1. For **Endpoint name**, enter a name for the endpoint.
+
+1. For the endpoint type, choose **Inference Components**.
+
+1. For **Instance type** and **Initial instance count**, choose the compute for the endpoint.
+
+1. For **Execution role**, choose the IAM role that grants the endpoint permission to access your model artifacts and other AWS resources.
+
+1. (Optional) For **Encryption key**, choose an AWS KMS key to encrypt data on the storage volume attached to the endpoint.
+
+1. (Optional) Select **Enable network isolation** to prevent the endpoint containers from making outbound network calls.
+
+1. Choose **Create endpoint**.
+
+**Note**  
+The endpoint status is `Creating` while SageMaker AI provisions the compute. This process might take several minutes.
+
+### Add an Inference Component to an endpoint
+<a name="console-add-inference-component"></a>
+
+Add an Inference Component for each model that you want to host on an endpoint. You can add an Inference Component to an endpoint that is in the `InService`, `Creating`, or `Updating` state. The Inference Component attaches after the endpoint compute is ready. You can't add an Inference Component to an endpoint that is in the `Deleting` state.
+
+The **GPUs** field is available only when the instance type of the endpoint provides accelerators. For instance types without accelerators, the value is `0`. For **Memory**, the minimum value is `128` MB. To see the total, allocated, and available capacity on the endpoint, choose **View availability** next to each compute field. Use it to avoid allocating more resources than the endpoint has available.
+
+**To add an Inference Component (console)**
+
+1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/).
+
+1. In the navigation pane, choose **Inference**, and then choose **Endpoints**.
+
+1. Choose the endpoint, and then choose the **Inference components** tab.
+
+1. Choose **Create inference component**.
+
+1. For **Inference component name**, enter a name that is unique within the endpoint.
+
+1. For **Model**, choose the SageMaker AI model to host.
+
+1. For **GPUs**, **vCPUs**, and **Memory**, enter the compute resources for each copy of the model.
+
+1. For **Copies**, enter the number of copies of the model to host. To serve more requests, host more copies.
+
+1. Choose **Create**.
+
+**Note**  
+SageMaker AI adds the Inference Component to the endpoint. The Inference Component might take several minutes to reach the `InService` state. After the Inference Component is `InService`, you can invoke its model by selecting the Inference Component in the console.
+
+To change the resource allocation or copy count for a model later, select the Inference Component on the **Inference components** tab and choose **Edit**. For more information about adjusting the number of copies automatically in response to traffic, see [Automatic scaling](endpoint-auto-scaling.md).
+
 ## Deploy models with SageMaker Studio
 <a name="deploy-models-studio"></a>
 

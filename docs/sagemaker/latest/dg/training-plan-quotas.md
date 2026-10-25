@@ -4,7 +4,7 @@
 <a name="training-plan-quotas"></a>
 
 **Important**  
-For pricing information about SageMaker training plans, see the [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/pricing/) page. Navigate to the **Amazon SageMaker HyperPod flexible training plans** section under **On-Demand Pricing**. Choose your desired Region to view available instance types and their corresponding prices.
+For pricing information about SageMaker training plans, see the [Amazon SageMaker Pricing](https://aws.amazon.com/sagemaker/ai/pricing/) page. Navigate to the **Amazon SageMaker HyperPod flexible training plans** section under **On-Demand Pricing**. Choose your desired Region to view available instance types and their corresponding prices.
 Make sure that your Training Jobs or HyperPod service quotas allow a maximum number of instances per instance type that exceeds the number of instances specified in your plan.
 
 You can view the current quotas and limits for SageMaker training plans using the AWS Management Console. 

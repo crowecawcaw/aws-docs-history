@@ -91,8 +91,10 @@ The default endpoint policy allows users to install packages from the Amazon Lin
         ] 
       } 
     ] 
-} 
+}
+```
 
+```
 { 
     "Statement": [ 
         { "Sid": "AmazonLinux2AMIRepositoryAccess",

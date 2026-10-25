@@ -16,7 +16,7 @@ With the training session APIs, instead of submitting a complete training script
 from sagemaker.train.training_session import ServiceClient, AdamParams
 
 svc = ServiceClient(region="us-west-2", role_arn="arn:aws:iam::111122223333:role/MyRole")
-tc = svc.create_lora_training_client(base_model="gpt-oss-20b", rank=32, alpha=64)
+tc = svc.create_lora_training_client(base_model="openai/gpt-oss-20b", rank=32, alpha=64)
 
 # Custom reinforcement learning loop with on-policy sampling
 sc = tc.create_sampling_client()
@@ -63,9 +63,10 @@ Use the training session APIs when you need:
 
 | Model | Region | 
 | --- | --- | 
-| GPT-OSS-20B | us-east-1, us-west-2, ap-south-1 | 
-| Gemma-4-31B-it | us-west-2, ap-south-1 | 
-| Qwen-3.6-27B | us-west-2, ap-south-1 | 
+| openai/gpt-oss-20b | us-east-1, us-west-2, ap-south-1 | 
+| google/gemma-4-31B-it | us-west-2, ap-south-1 | 
+| Qwen/Qwen3.6-27B | us-west-2, ap-south-1 | 
+| Qwen/Qwen3.8-27B | us-west-2 | 
 
 **Pricing**
 

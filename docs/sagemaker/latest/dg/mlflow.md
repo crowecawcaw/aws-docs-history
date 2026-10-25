@@ -114,7 +114,7 @@ The following MLflow versions are available to use with SageMaker AI MLflow Apps
 
 | MLflow version | Python version | 
 | --- | --- | 
-| [MLflow 3.10](https://mlflow.org/releases/3.10.1/) (latest version) | [Python 3.10](https://www.python.org/downloads/release/python-3100/) or later | 
+| [MLflow 3.16](https://mlflow.org/releases/3.16.0/) (latest version) | [Python 3.10](https://www.python.org/downloads/release/python-3100/) or later | 
 
 The latest version of the MLflow App has the latest features, security patches, and bug fixes. When you create a new MLflow App it will be automatically updated to the latest supported version. For more information about creating an MLflow App, see [MLflow App Setup](mlflow-app-setup.md).
 

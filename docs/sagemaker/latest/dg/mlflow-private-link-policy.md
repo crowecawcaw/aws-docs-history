@@ -14,12 +14,13 @@ The following example of a VPC endpoint policy specifies that all users that hav
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": "sagemaker-mlflow:*",
             "Effect": "Allow",
             "Principal": "*",
-            "Resource": "arn:aws:sagemaker:{{AWS Region}}:{{111122223333}}:mlflow-tracking-server/*"
+            "Resource": "arn:aws:sagemaker:{{us-east-1}}:{{111122223333}}:mlflow-tracking-server/*"
         }
     ]
 }
@@ -29,12 +30,13 @@ For an MLflow App, use the `sagemaker:CallMlflowAppApi` action and the MLflow Ap
 
 ```
 {
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Action": "sagemaker:CallMlflowAppApi",
             "Effect": "Allow",
             "Principal": "*",
-            "Resource": "arn:aws:sagemaker:{{AWS Region}}:{{111122223333}}:mlflow-app/*"
+            "Resource": "arn:aws:sagemaker:{{us-east-1}}:{{111122223333}}:mlflow-app/*"
         }
     ]
 }
