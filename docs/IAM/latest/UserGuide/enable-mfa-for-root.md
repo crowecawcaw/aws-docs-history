@@ -9,7 +9,7 @@ AWS recommends that you use a passkey or security key for MFA to AWS, wherever p
 Multi-factor authentication (MFA) is a simple and effective mechanism to enhance your security. The first factor — your password — is a secret that you memorize, also known as a knowledge factor. Other factors can be possession factors (something you have, such as a security key) or inherence factors (something you are, such as a biometric scan). For increased security, we strongly recommend that you configure multi-factor authentication (MFA) to help protect your AWS resources.
 
 **Note**  
-All AWS account types (standalone, management, and member accounts) require MFA to be configured for their root user. Users must register MFA within 35 days of their first sign-in attempt to access the AWS Management Console if MFA is not already enabled.
+All AWS account types (standalone, management, and member accounts) require MFA to be configured for their root user. Users must register MFA within 14 days of their first sign-in attempt to access the AWS Management Console if MFA is not already enabled.
 
 You can enable MFA for the AWS account root user and IAM users. When you enable MFA for the root user, it only affects the root user credentials. For more information about how to enable MFA for your IAM users, see [AWS Multi-factor authentication in IAM](id_credentials_mfa.md).
 

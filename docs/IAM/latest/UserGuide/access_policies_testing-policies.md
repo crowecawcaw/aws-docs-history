@@ -63,7 +63,7 @@ Many policies use `Condition` elements that depend on condition keys, such as `a
 
 **Context that the simulator populates automatically**  
 The simulator populates the following principal and organization context keys for the evaluation:
-+ Principal context: `aws:PrincipalAccount`, `aws:PrincipalId`, `aws:PrincipalType`, `aws:Type`, `aws:UserId`, `aws:UserName`
++ Principal context: `aws:PrincipalAccount`, `aws:PrincipalId`, `aws:PrincipalType`, `aws:UserId`, `aws:UserName`
 + Organization context: `aws:PrincipalOrgID`, `aws:PrincipalOrgMasterAccountId`, `aws:PrincipalOrgPaths`
 
 Because these keys are populated for you, SCPs and other policies that use principal or organization conditions are evaluated correctly. You provide the values for all other condition keys that your policies reference. Review the `Condition` elements in the policies you are testing and supply values for any keys that are not in the list above.

@@ -48,7 +48,7 @@ For more information, see [Change the password for the AWS account root user](ro
 
 Because a root user can perform privileged actions, it's crucial to add MFA for the root user as a second authentication factor in addition to the email address and password as sign-in credentials. You can register up to eight MFA devices of any combination of the currently supported MFA types with your AWS account root user.
 
-We strongly recommend enabling multiple MFA devices for your root user credentials to provide additional flexibility and resiliency in your security strategy. All AWS account types (standalone, management, and member accounts) require MFA to be configured for their root user. Users must register MFA within 35 days of their first sign-in attempt to access the AWS Management Console if MFA is not already enabled.
+We strongly recommend enabling multiple MFA devices for your root user credentials to provide additional flexibility and resiliency in your security strategy. All AWS account types (standalone, management, and member accounts) require MFA to be configured for their root user. Users must register MFA within 14 days of their first sign-in attempt to access the AWS Management Console if MFA is not already enabled.
 + FIDO Certified hardware security keys are provided by third-party providers. For more information, see [Enable a FIDO security key for the AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-fido-mfa-for-root.html).
 + A hardware device that generates a six-digit numeric code based on the time-based one-time password (TOTP) algorithm. For more information, see [Enable a hardware TOTP token for the AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-hw-mfa-for-root.html).
 + A virtual authenticator application that runs on a phone or other device and emulates a physical device. For more information, see [Enable a virtual MFA device for your AWS account root user](https://docs.aws.amazon.com/IAM/latest/UserGuide/enable-virt-mfa-for-root.html).
@@ -88,7 +88,7 @@ As you move to a multi-account strategy with AWS Organizations, each of your AWS
 ### Secure root user credentials for the management account
 <a name="ru-bp-management"></a>
 
-AWS requires that you register MFA for the root user of your organization's management account. MFA registration must be completed during the first sign-in attempt or within the 35-day grace period. If MFA is not enabled within this time, registration will be required before you can access the AWS Management Console. For more information, see [Multi-factor authentication for AWS account root user](enable-mfa-for-root.md).
+AWS requires that you register MFA for the root user of your organization's management account. MFA registration must be completed during the first sign-in attempt or within the 14-day grace period. If MFA is not enabled within this time, registration will be required before you can access the AWS Management Console. For more information, see [Multi-factor authentication for AWS account root user](enable-mfa-for-root.md).
 
 ### Secure root user credentials for member accounts
 <a name="ru-bp-member"></a>
