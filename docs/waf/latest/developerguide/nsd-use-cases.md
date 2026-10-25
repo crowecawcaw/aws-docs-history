@@ -8,7 +8,7 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 <a name="nsd-use-cases"></a>
 
 **Note**  
-AWS Shield network security director is in public preview release and is subject to change. 
+The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
 
 AWS Shield network security director helps secure your AWS environment by discovering your compute, networking, and network security resources across your account. network security director evaluates each resource's security configuration by analyzing network topology and security configurations against AWS best practices and threat intelligence. To help you strengthen your security, network security director rates its findings from low to critical severity and shares specific remediation steps, which you can explore using natural language queries through Amazon Q Developer.
 

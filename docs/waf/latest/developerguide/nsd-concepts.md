@@ -8,7 +8,7 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 <a name="nsd-concepts"></a>
 
 **Note**  
-AWS Shield network security director is in public preview release and is subject to change. 
+The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
 
 **Resources**  
 The compute, networking, and security resources that handle your application traffic:  
@@ -29,7 +29,7 @@ A visual representation of your network that shows resource connections, interne
 <a name="nsd-findings-concepts"></a>
 
 **Note**  
-AWS Shield network security director is in public preview release and is subject to change. 
+The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
 
 Network security director generates specific findings for each type of resource it analyzes. These findings help you identify security issues and take appropriate action. The following table lists all possible findings by resource type.
 

@@ -254,7 +254,7 @@ Use the IAM console, the IAM CLI, or the IAM API to delete the `NetworkSecurityD
 <a name="slr-regions"></a>
 
 **Note**  
-AWS Shield network security director is in public preview release and is subject to change. 
+The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
 
 AWS Shield network security director supports using service-linked roles in following regions and can only retrieve data about your resources in these regions.
 

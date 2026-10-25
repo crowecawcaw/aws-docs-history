@@ -8,7 +8,7 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 <a name="nsd-security"></a>
 
 **Note**  
-AWS Shield network security director is in public preview release and is subject to change. 
+The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
 
 This section describes the key security considerations for using this network security director preview.
 

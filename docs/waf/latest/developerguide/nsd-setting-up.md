@@ -8,7 +8,7 @@ You can now use the updated experience to access AWS WAF functionality anywhere 
 <a name="nsd-setting-up"></a>
 
 **Note**  
-AWS Shield network security director is in public preview release and is subject to change. 
+The AWS Shield network security director public preview has now ended and the console is no longer accessible. For more information about AWS Shield network security director, contact [AWS Support](https://aws.amazon.com/premiumsupport) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/). 
 
 AWS Shield network security director requires AWS Organizations to manage security across multiple accounts in your organization. This topic describes the preliminary steps to prepare your AWS environment, including setting up Organizations, designating a delegated administrator, and configuring the necessary IAM permissions. You aren't charged for these preliminary setup steps. You are charged only for AWS services that you use.
 
