@@ -23,6 +23,7 @@ This guide helps you understand what is changing during the transition and what 
 + [Change management and configuration compliance](#transition-change-mgmt)
 + [Patch management](#transition-patching)
 + [Landing zone governance with AWS Control Tower (optional)](#transition-control-tower)
++ [Connecting a new VPC to the shared Transit Gateway](connect-vpc-tgw.md)
 + [Timeline and support](#transition-timeline)
 + [Related resources](#transition-related-resources)
 
@@ -110,13 +111,13 @@ If you have custom AMI requirements beyond what standard AWS AMIs provide (for e
 
 In AMS Advanced, AMS deploys and manages Trend Micro endpoint security on your EC2 instances. This includes agent installation (automated through boot scripts on every instance launch), agent activation, event monitoring, and incident creation. AMS manages this infrastructure through the Deep Security Manager (DSM), Cloud One, or Vision One platform depending on your account configuration.
 
-As part of the transition, you choose your endpoint security path: continue with Trend Micro by moving to Vision One (a fully SaaS platform hosted by Trend Micro that eliminates the on-premises DSM infrastructure), or move to a different security vendor of your choice. Either way, you take ownership of the agent lifecycle with your chosen vendor—deploying agents, managing licenses, and configuring activation. This must be completed before the transition to Accelerate, because AMS offboards the EPS stack during migration and the boot scripts will no longer install or activate the Trend Micro agent on instance launch.
+As part of the transition, AMS removes the Trend Micro agents and offboards the EPS stack (including DSM infrastructure) from your accounts. The boot scripts will no longer install or activate the Trend Micro agent on instance launch. If you want to continue with Trend Micro, you can opt in to a migration to Vision One before offboarding. For more information, see Option 2. Either way, you take ownership of the agent lifecycle going forward with your chosen vendor: deploying agents, managing licenses, and configuring activation.
 
-**Option 1: Continue with Trend Micro Vision One (SaaS)**  
-Vision One is the cloud-native Trend Micro platform that integrates with AWS Security Hub. AMS assists with migrating you from your current platform (DSM or Cloud One) to Vision One before offboarding. Once on Vision One, you work directly with Trend Micro for agent lifecycle management. If you currently use DSM, the migration path is sequential: DSM to Cloud One, then Cloud One to Vision One. With Vision One, security alerts are sent to AWS Security Hub. Customers who also onboard to AWS Security Incident Response (SIR) get continued event monitoring and incident response through AWS.
+**Option 1: Use your own endpoint security solution (default)**  
+By default, AMS removes the Trend Micro agents from your instances and offboards the EPS stack during the transition. You select, deploy, and manage an endpoint security solution of your choice. You're responsible for standing up and running your chosen vendor. You can optionally integrate your chosen solution with AWS Security Hub for SIR coverage. No action is required from you for this option to proceed.
 
-**Option 2: Use a different endpoint security solution**  
-You select, deploy, and manage an endpoint security solution of your choice. AMS removes the Trend Micro agents from your instances and offboards the EPS stack. You're responsible for standing up and running your chosen vendor. You can optionally integrate your chosen solution with AWS Security Hub for SIR coverage.
+**Option 2: Continue with Trend Micro Vision One (SaaS)**  
+If you want to continue with Trend Micro, notify your CSDM or CA so AMS can assist with migrating you from your current platform (DSM or Cloud One) to Vision One before offboarding. Vision One is the cloud-native Trend Micro platform that integrates with AWS Security Hub. After you move to Vision One, you work directly with Trend Micro for agent lifecycle management. If you currently use DSM, the migration path is sequential: DSM to Cloud One, then Cloud One to Vision One. With Vision One, security alerts are sent to AWS Security Hub. Customers who also onboard to AWS Security Incident Response (SIR) get continued event monitoring and incident response through AWS.
 
 With either option, you take ownership of the full agent lifecycle going forward: deploying agents to your instances (using your own automation, SSM State Manager, custom AMIs, or a configuration management tool), maintaining your vendor license and activation credentials, and configuring event monitoring through your vendor's dashboard or AWS Security Hub.
 
@@ -231,7 +232,7 @@ AWS Control Tower also offers the following capabilities that go beyond what MAL
 After you enable AWS Control Tower, you can choose which controls to apply from the [AWS Control Tower controls reference](https://docs.aws.amazon.com/controltower/latest/controlreference/controls-reference.html), which spans multiple compliance frameworks, so you can match or extend the protections you had under AMS Advanced.
 
 **What AWS Control Tower doesn't provide**  
-AWS Control Tower doesn't recreate MALZ networking. Your networking account transitions to Accelerate just like other application accounts. Account Factory can create a standalone VPC in a new account, but it doesn't attach accounts to a transit gateway or set up shared egress and shared-services connectivity the way MALZ did. Cross-account networking remains your responsibility.
+AWS Control Tower doesn't recreate MALZ networking. Your networking account transitions to Accelerate just like other application accounts. Account Factory can create a standalone VPC in a new account, but it doesn't attach accounts to a Transit Gateway or set up shared egress and shared-services connectivity the way MALZ did. Cross-account networking remains your responsibility. You can optionally follow the steps in [Connecting a new VPC to the shared Transit Gateway](connect-vpc-tgw.md) to set up Transit Gateway for newly created accounts.
 
 **What to expect during the transition**  
 Enabling AWS Control Tower imports your current organization and accounts without creating new organizational units. Your existing security and logging accounts map to their AWS Control Tower equivalents (audit and log archive). AWS Config and AWS CloudTrail integration are enabled as part of setup, with other service integrations available self-service. AWS Control Tower requires AWS Config to be disabled in your accounts beforehand, which AMS coordinates for you. After setup, adding or changing controls is self-service.
