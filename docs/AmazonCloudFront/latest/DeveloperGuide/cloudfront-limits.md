@@ -296,8 +296,8 @@ These quotas apply to CloudFront legacy cache settings. We recommend using a [ca
 
 |  Entity  |  Default quota  | 
 | --- | --- | 
-| Maximum number of distribution tenants per AWS account | 10,000<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
-| Maximum number of multi-tenant distributions per AWS account | 20<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
+| Maximum number of distribution tenants per AWS account | 1,000,000<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
+| Maximum number of multi-tenant distributions per AWS account | 500<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
 | Maximum number of connection groups per AWS account | 100<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
 | Maximum number of aliases per distribution tenant | 100<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 
 | Maximum number of parameters per distribution tenant | 5<br />[Request a higher quota](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase) | 

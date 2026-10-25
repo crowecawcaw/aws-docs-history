@@ -12,6 +12,9 @@ Origin request policies are not required. When a cache behavior does not have an
 **Note**  
 To use an origin request policy, the cache behavior must also use a [cache policy](controlling-the-cache-key.md). You cannot use an origin request policy in a cache behavior without a cache policy.
 
+**Note**  
+If you create a custom origin request policy for an Amazon S3 origin, we recommend that you don't include `response-content-type`, `response-content-disposition`, or `response-content-encoding`. If your policy includes all query strings, use an allow list instead.
+
 ------
 #### [ Console ]
 

@@ -7,6 +7,7 @@ The following table describes the important changes made to CloudFront documenta
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Updated quotas for multi-tenant distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html#limits-template) | Increased the default quotas for distribution tenants per AWS account (from 10,000 to 1,000,000) and multi-tenant distributions per AWS account (from 20 to 500). | October 21, 2026 | 
 | [Added mutual TLS (viewer)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/mtls-authentication.html) | CloudFront supports mutual TLS (viewer). | November 24, 2025 | 
 | [Added log field for access logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/standard-logs-reference.html) | Added the `connection-id` field for access logs (standard logs) and real-time access logs. | November 24, 2025 | 
 | [Added connection logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/connection-logs.html) | Added connection logs as a new logging feature for mutual TLS (viewer). | November 24, 2025 | 

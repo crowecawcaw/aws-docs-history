@@ -5,6 +5,14 @@
 
 CloudFront provides a set of managed origin request policies that you can attach to any of your distribution's cache behaviors. With a managed origin request policy, you don't need to write or maintain your own origin request policy. The managed policies use settings that are optimized for specific use cases.
 
+**Important**  
+When you use the `AllViewer`, `AllViewerAndCloudFrontHeaders-2022-06`, `AllViewerExceptHostHeader`, or `Elemental-MediaTailor-PersonalizedManifests` managed origin request policy with an Amazon S3 origin, CloudFront doesn't forward the following query string parameters to the origin:  
+`response-content-type`
+`response-content-disposition`
+`response-content-encoding`
+These parameters change the response headers that Amazon S3 returns. CloudFront continues to forward all other query strings that the policy includes.  
+This applies only to managed origin request policies. If you use a custom origin request policy, CloudFront forwards these parameters as configured. If your application requires these parameters to be forwarded to an Amazon S3 origin, use a custom origin request policy, or [contact Support](https://console.aws.amazon.com/support/home). These parameters have no effect on non-Amazon S3 origins.
+
 To use a managed origin request policy, you attach it to a cache behavior in your distribution. The process is the same as when you create an origin request policy, but instead of creating a new one, you just attach one of the managed origin request policies. You attach the policy either by name (with the console) or by ID (with the AWS CLI or SDKs). The names and IDs are listed in the following section.
 
 For more information, see [Create origin request policies](origin-request-create-origin-request-policy.md).
@@ -35,7 +43,7 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 This policy has the following settings:
 + **Headers included in origin requests:** All headers in the viewer request
 + **Cookies included in origin requests:** All
-+ **Query strings included in origin requests:** All
++ **Query strings included in origin requests:** All. For Amazon S3 origins, CloudFront doesn't forward `response-content-type`, `response-content-disposition`, or `response-content-encoding`. For more information, see the [important note at the beginning of this topic](#managed-origin-request-policies-s3-query-strings).
 
 ## AllViewerAndCloudFrontHeaders-2022-06
 <a name="managed-origin-request-policy-all-viewer-and-cloudfront"></a>
@@ -72,7 +80,7 @@ This policy has the following settings:
   + `CloudFront-Viewer-Time-Zone`
   + `CloudFront-Viewer-TLS`
 + **Cookies included in origin requests:** All
-+ **Query strings included in origin requests:** All
++ **Query strings included in origin requests:** All. For Amazon S3 origins, CloudFront doesn't forward `response-content-type`, `response-content-disposition`, or `response-content-encoding`. For more information, see the [important note at the beginning of this topic](#managed-origin-request-policies-s3-query-strings).
 
 ## AllViewerExceptHostHeader
 <a name="managed-origin-request-policy-all-viewer-except-host-header"></a>
@@ -95,7 +103,7 @@ When using CloudFormation, the AWS CLI, or the CloudFront API, the ID for this p
 This policy has the following settings:
 + **Headers included in origin requests:** All headers in the viewer request ***except*** for the `Host` header
 + **Cookies included in origin requests:** All
-+ **Query strings included in origin requests:** All
++ **Query strings included in origin requests:** All. For Amazon S3 origins, CloudFront doesn't forward `response-content-type`, `response-content-disposition`, or `response-content-encoding`. For more information, see the [important note at the beginning of this topic](#managed-origin-request-policies-s3-query-strings).
 
 ## CORS-CustomOrigin
 <a name="managed-origin-request-policy-cors-custom"></a>
@@ -152,7 +160,7 @@ This policy has the following settings:
   + `User-Agent`
   + `X-Forwarded-For`
 + **Cookies included in origin requests:** None
-+ **Query strings included in origin requests:** All
++ **Query strings included in origin requests:** All. For Amazon S3 origins, CloudFront doesn't forward `response-content-type`, `response-content-disposition`, or `response-content-encoding`. For more information, see the [important note at the beginning of this topic](#managed-origin-request-policies-s3-query-strings).
 
 ## HostHeaderOnly
 <a name="managed-origin-request-policy-host-header-only"></a>
