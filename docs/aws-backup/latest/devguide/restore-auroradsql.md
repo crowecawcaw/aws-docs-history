@@ -144,7 +144,7 @@ Both the primary cluster and peer cluster must be in Regions within the same con
    --metadata '{
        "witnessRegion":"us-west-2",
        "useMultiRegionOrchestration":"true",
-       "peerRegion":"[\"us-east-2\"]",
+       "peerRegions":"[\"us-east-2\"]",
        "regionalConfig":"[{\"region\":\"us-east-1\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-east-1:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"},{\"region\":\"us-west-2\",\"isDeletionProtectionEnabled\":true,\"kmsKeyId\":\"arn:aws:kms:us-west-2:123456789012:key/ba4b3773-4bb8-4a7a-994c-46ede70202f5\"}]"
    }' \
    --copy-source-tags-to-restored-resource
@@ -153,7 +153,7 @@ Both the primary cluster and peer cluster must be in Regions within the same con
    The metadata structure includes:
    + `witnessRegion`: The Region that will serve as the witness for the multi-Region cluster. For more information, see [Resilience in Amazon Aurora DSQL](https://docs.aws.amazon.com/aurora-dsql/latest/userguide/disaster-recovery-resiliency.html).
    + `useMultiRegionOrchestration`: Set to `true` to enable multi-Region orchestration.
-   + `peerRegion`: An array containing the Region(s) with peer clusters in the multi-Region cluster. For more information, see [MultiRegionProperties](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_MultiRegionProperties.html) in the Aurora DSQL API Reference.
+   + `peerRegions`: An array containing one or more AWS Regions with peer clusters in the multi-Region cluster. For more information, see [MultiRegionProperties](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_MultiRegionProperties.html) in the Aurora DSQL API Reference.
    + `regionalConfig`: An array containing configuration for each Region:
      + `region`: The AWS Region identifier.
      + `isDeletionProtectionEnabled`: Boolean flag to enable/disable deletion protection. For more information, see [CreateCluster](https://docs.aws.amazon.com/aurora-dsql/latest/APIReference/API_CreateCluster.html#API_CreateCluster_RequestSyntax) in the Aurora DSQL API Reference.
