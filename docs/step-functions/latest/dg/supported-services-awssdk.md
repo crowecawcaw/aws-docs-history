@@ -351,6 +351,10 @@ Exception prefix: `Oam`
 Task state resource: `arn:aws:states:::aws-sdk:observabilityadmin:{{[apiAction]}}`  
 Exception prefix: `ObservabilityAdmin`
 
+**Amazon CloudWatch Omni {{New}}**  
+Task state resource: `arn:aws:states:::aws-sdk:cloudwatchomni:{{[apiAction]}}`  
+Exception prefix: `CloudWatchOmni`
+
 **AWS CloudWatch RUM**  
 Task state resource: `arn:aws:states:::aws-sdk:rum:{{[apiAction]}}`  
 Exception prefix: `Rum`
@@ -702,6 +706,10 @@ Exception prefix: `Scheduler`
 **Amazon EventBridge Schema Registry**  
 Task state resource: `arn:aws:states:::aws-sdk:schemas:{{[apiAction]}}`  
 Exception prefix: `Schemas`
+
+**Amazon EventBridge V2 {{New}}**  
+Task state resource: `arn:aws:states:::aws-sdk:eventbridgev2:{{[apiAction]}}`  
+Exception prefix: `EventBridgeV2`
 
 **AWS FIS**  
 Task state resource: `arn:aws:states:::aws-sdk:fis:{{[apiAction]}}`  
@@ -1173,6 +1181,10 @@ Exception prefix: `NetworkManager`
 **Amazon Network Monitor**  
 Task state resource: `arn:aws:states:::aws-sdk:networkmonitor:{{[apiAction]}}`  
 Exception prefix: `NetworkMonitor`
+
+**AWS Network Security Manager {{New}}**  
+Task state resource: `arn:aws:states:::aws-sdk:networksecuritymanager:{{[apiAction]}}`  
+Exception prefix: `NetworkSecurityManager`
 
 **Amazon Nova Act**  
 Task state resource: `arn:aws:states:::aws-sdk:novaact:{{[apiAction]}}`  

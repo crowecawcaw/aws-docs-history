@@ -8,6 +8,7 @@ The following table lists the AWS SDK service integrations added to Step Functio
 
 | Date | Services added | 
 | --- | --- | 
+| October 14, 2026 | AWS Network Security Manager, Amazon CloudWatch Omni, Amazon EventBridge V2 | 
 | September 25, 2026 | AWS Agent Registry, AWS Agent Registry Control, AWS IAM Account Access Manager, AWS IAM Toolbox, AWS Pricing Plan Manager | 
 | August 18, 2026 | AWS Lambda Core, AWS Lambda MicroVMs, AWS Partner Central Revenue Measurement, AWS Resilience Hub V2, AWS Support Authorization, Amazon SageMaker Job Runtime | 
 | June 3, 2026 | AWS DevOps Agent Service, AWS Interconnect, AWS Marketplace Discovery, AWS Security Agent, AWS Sustainability, AWS User Experience Customization, Amazon S3 Files, Amazon SimpleDB v2 | 
@@ -26,6 +27,7 @@ The following AWS SDK service integrations are now deprecated:
 
 | Date | Services deprecated | 
 | --- | --- | 
+| October 14, 2026 | AWS Panorama | 
 | September 25, 2026 | AWS IoT Events, AWS IoT Events Data | 
 | August 18, 2026 | AWS IoT Fleet Hub, Amazon Honeycode, Amazon Inspector V1 | 
 | June 3, 2026 | Amazon Lex Model Building V1, Amazon Lex Runtime V1 | 

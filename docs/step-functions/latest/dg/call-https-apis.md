@@ -163,14 +163,10 @@ You can't use the following headers in your HTTP Task definition. If you use the
 + From
 + Host
 + HTTP2-Settings
-+ If-Match
-+ If-Modified-Since
-+ If-None-Match
-+ If-Range
-+ If-Unmodified-Since
 + Max-Forwards
 + Origin
 + Pragma
++ Proxy-Authenticate
 + Proxy-Authorization
 + Referer
 + Server
@@ -180,6 +176,7 @@ You can't use the following headers in your HTTP Task definition. If you use the
 + Upgrade
 + Via
 + Warning
++ WWW-Authenticate
 + x-forwarded-\*
 + x-amz-\*
 + x-amzn-\*  
