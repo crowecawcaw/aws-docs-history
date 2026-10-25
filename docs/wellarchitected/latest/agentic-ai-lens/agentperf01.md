@@ -10,7 +10,9 @@
 
 |  AGENTPERF01: How do you plan strategically for agent performance and establish measurement practices?  | 
 | --- | 
-|   | 
+| [AGENTPERF01-BP01 Define performance-aligned success criteria for agent workloads](agentperf01-bp01.md) | 
+| [AGENTPERF01-BP02 Implement comprehensive performance telemetry](agentperf01-bp02.md) | 
+| [AGENTPERF01-BP03 Profile end-to-end agent latency and identify optimization targets](agentperf01-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent"></a>

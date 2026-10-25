@@ -8,7 +8,9 @@
 
 |  AGENTCOST03: How do you manage agent memory and state costs efficiently?  | 
 | --- | 
-|   | 
+| [AGENTCOST03-BP01 Design cost-effective retrieval systems with tiered memory](agentcost03-bp01.md) | 
+| [AGENTCOST03-BP02 Cost optimize through intelligent compression and pruning of context windows](agentcost03-bp02.md) | 
+| [AGENTCOST03-BP03 Implement cost-optimized state persistence and lifecycle management](agentcost03-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-2"></a>

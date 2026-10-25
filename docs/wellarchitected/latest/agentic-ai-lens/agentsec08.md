@@ -8,7 +8,8 @@
 
 |  AGENTSEC08: How do you validate and secure agent inputs and outputs?  | 
 | --- | 
-|   | 
+| [AGENTSEC08-BP01 Multi-layer input validation and prompt injection defense](agentsec08-bp01.md) | 
+| [AGENTSEC08-BP02 Output filtering for sensitive information](agentsec08-bp02.md) | 
 
 ## Capability intent
 <a name="capability-intent-7"></a>

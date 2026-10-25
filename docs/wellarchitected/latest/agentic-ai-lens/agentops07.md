@@ -8,7 +8,10 @@ Agentic systems must handle operational failures gracefully and help prevent run
 
 | AGENTOPS07: How do you establish operational recovery and consumption monitoring? | 
 | --- | 
-|   | 
+| [AGENTOPS07-BP01 Implement automated response and recovery mechanisms](agentops07-bp01.md) | 
+| [AGENTOPS07-BP02 Establish operational knowledge management systems](agentops07-bp02.md) | 
+| [AGENTOPS07-BP03 Augment change management to accommodate technical improvements and business requirements](agentops07-bp03.md) | 
+| [AGENTOPS07-BP04 Implement break-glass operational runbooks](agentops07-bp04.md) | 
 
 ## Capability intent
 <a name="agentops07-intent"></a>

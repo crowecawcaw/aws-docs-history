@@ -8,7 +8,10 @@ Agent lifecycle management extends beyond traditional software deployment to inc
 
 | AGENTOPS03: How do you manage agent lifecycle and deployment processes? | 
 | --- | 
-|   | 
+| [AGENTOPS03-BP01 Define an agent lifecycle with clear SME ownership, testing, and governance](agentops03-bp01.md) | 
+| [AGENTOPS03-BP02 Implement CI/CD pipelines tailored to agentic system deployment (AgentOps)](agentops03-bp02.md) | 
+| [AGENTOPS03-BP03 Implement agent-specific scaling policies and capacity planning](agentops03-bp03.md) | 
+| [AGENTOPS03-BP04 Implement organizational agent portfolio management and governance at scale](agentops03-bp04.md) | 
 
 ## Capability intent
 <a name="agentops03-intent"></a>

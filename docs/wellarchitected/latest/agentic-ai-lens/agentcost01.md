@@ -8,7 +8,10 @@
 
 |  AGENTCOST01: How do you optimize agent reasoning and execution costs?  | 
 | --- | 
-|   | 
+| [AGENTCOST01-BP01 Use the reflection pattern to design efficient agent reasoning loops](agentcost01-bp01.md) | 
+| [AGENTCOST01-BP02 Optimize multi-agent collaboration cost through efficient handoff patterns](agentcost01-bp02.md) | 
+| [AGENTCOST01-BP03 Implement cost-effective patterns like hybrid supervisor for multi-agent coordination](agentcost01-bp03.md) | 
+| [AGENTCOST01-BP04 Design agent hierarchies and delegation patterns that reduce coordination overhead](agentcost01-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent"></a>

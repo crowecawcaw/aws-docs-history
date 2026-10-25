@@ -8,7 +8,9 @@
 
 |  AGENTSEC02: How do you control and secure agent tool usage?  | 
 | --- | 
-|   | 
+| [AGENTSEC02-BP01 Implement tool authorization](agentsec02-bp01.md) | 
+| [AGENTSEC02-BP02 Validate tool inputs and outputs](agentsec02-bp02.md) | 
+| [AGENTSEC02-BP03 Maintain approved tool registry with security assessments](agentsec02-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-1"></a>

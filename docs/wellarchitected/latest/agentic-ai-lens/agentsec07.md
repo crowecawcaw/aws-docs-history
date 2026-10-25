@@ -8,7 +8,11 @@
 
 |  AGENTSEC07: How do you protect human oversight from manipulation and detect rogue agents?  | 
 | --- | 
-|   | 
+| [AGENTSEC07-BP01 Implement cognitive load management](agentsec07-bp01.md) | 
+| [AGENTSEC07-BP02 Clear confidence indicators and manipulation warnings](agentsec07-bp02.md) | 
+| [AGENTSEC07-BP03 Multiple reviewers for critical operations](agentsec07-bp03.md) | 
+| [AGENTSEC07-BP04 Behavioral anomaly detection and agent containment](agentsec07-bp04.md) | 
+| [AGENTSEC07-BP05 Regular security assessments and red teaming](agentsec07-bp05.md) | 
 
 ## Capability intent
 <a name="capability-intent-6"></a>

@@ -8,7 +8,9 @@
 
 |  AGENTREL07: How do fault tolerant agent systems recover?  | 
 | --- | 
-|   | 
+| [AGENTREL07-BP01 Design workflows in stages with incremental recovery](agentrel07-bp01.md) | 
+| [AGENTREL07-BP02 Enable automatic recovery from agent execution failures](agentrel07-bp02.md) | 
+| [AGENTREL07-BP03 Implement distributed tracing to track system dependencies and facilitate recovery](agentrel07-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-6"></a>

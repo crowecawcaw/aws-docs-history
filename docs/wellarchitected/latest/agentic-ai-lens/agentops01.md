@@ -8,7 +8,9 @@ Agentic systems that are built on strong operational foundations (with clear rol
 
 | AGENTOPS01: How do you establish operational practices for agentic AI systems? | 
 | --- | 
-|   | 
+| [AGENTOPS01-BP01 Establish well-defined agent roles, responsibilities, and success criteria](agentops01-bp01.md) | 
+| [AGENTOPS01-BP02 Design multi-agent handoff procedures with human-in-the-loop escalation](agentops01-bp02.md) | 
+| [AGENTOPS01-BP03 Develop test scenarios that accurately capture failures of dependent components, orchestration protocols, and business processes](agentops01-bp03.md) | 
 
 ## Capability intent
 <a name="agentops01-intent"></a>

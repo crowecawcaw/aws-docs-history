@@ -8,7 +8,11 @@
 
 |  AGENTSEC09: How do you perform vulnerability scanning and penetration testing for agentic AI systems?  | 
 | --- | 
-|   | 
+| [AGENTSEC09-BP01 Integrate AI-powered vulnerability scanning across the development lifecycle](agentsec09-bp01.md) | 
+| [AGENTSEC09-BP02 Conduct context-aware penetration testing with multi-agent attack simulation](agentsec09-bp02.md) | 
+| [AGENTSEC09-BP03 Implement continuous security validation with automated remediation](agentsec09-bp03.md) | 
+| [AGENTSEC09-BP04 Establish scoped and controlled testing environments for agent security assessments](agentsec09-bp04.md) | 
+| [AGENTSEC09-BP05 Implement runtime threat detection, security event correlation, and automated remediation for agents](agentsec09-bp05.md) | 
 
 ## Capability intent
 <a name="capability-intent-8"></a>

@@ -10,7 +10,10 @@
 
 |  AGENTPERF02: How do you optimize core agent processing and reasoning pipelines?  | 
 | --- | 
-|   | 
+| [AGENTPERF02-BP01 Design efficient reasoning pipelines](agentperf02-bp01.md) | 
+| [AGENTPERF02-BP02 Implement task-appropriate model selection strategies](agentperf02-bp02.md) | 
+| [AGENTPERF02-BP03 Optimize agent execution paths for reduced latency](agentperf02-bp03.md) | 
+| [AGENTPERF02-BP04 Optimize streaming responses and time-to-first-token for agent interactions](agentperf02-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-1"></a>

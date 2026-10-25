@@ -8,7 +8,8 @@
 
 |  AGENTPERF07: How do you manage multitenant performance isolation and optimize resource utilization?  | 
 | --- | 
-|   | 
+| [AGENTPERF07-BP01 Design efficient multitenant agent deployment models](agentperf07-bp01.md) | 
+| [AGENTPERF07-BP02 Implement tenant-aware performance isolation and throttling](agentperf07-bp02.md) | 
 
 ## Capability intent
 <a name="capability-intent-6"></a>

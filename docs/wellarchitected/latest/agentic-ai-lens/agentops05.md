@@ -8,7 +8,11 @@ Observability in agentic systems requires capturing not just infrastructure metr
 
 | AGENTOPS05: How do you implement comprehensive observability and monitoring for agentic systems? | 
 | --- | 
-|   | 
+| [AGENTOPS05-BP01 Establish end-to-end tracing and telemetry for agent operations](agentops05-bp01.md) | 
+| [AGENTOPS05-BP02 Monitor agent behavior patterns and detect anomalies](agentops05-bp02.md) | 
+| [AGENTOPS05-BP03 Implement structured logging and comprehensive audit trails](agentops05-bp03.md) | 
+| [AGENTOPS05-BP04 Define and track KPIs for agent workflows](agentops05-bp04.md) | 
+| [AGENTOPS05-BP05 Create workflow-specific dashboards for operational health](agentops05-bp05.md) | 
 
 ## Capability intent
 <a name="agentops05-intent"></a>

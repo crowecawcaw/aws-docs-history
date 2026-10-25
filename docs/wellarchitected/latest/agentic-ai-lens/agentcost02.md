@@ -8,7 +8,10 @@
 
 |  AGENTCOST02: How do you optimize agent model invocation and token consumption costs?  | 
 | --- | 
-|   | 
+| [AGENTCOST02-BP01 Architect tiered model selection for cost-performance optimization](agentcost02-bp01.md) | 
+| [AGENTCOST02-BP02 Cost optimize token consumption through efficient prompt engineering](agentcost02-bp02.md) | 
+| [AGENTCOST02-BP03 Use intelligent caching to reduce redundant model invocations](agentcost02-bp03.md) | 
+| [AGENTCOST02-BP04 Implement model customization for long-term cost reduction](agentcost02-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-1"></a>

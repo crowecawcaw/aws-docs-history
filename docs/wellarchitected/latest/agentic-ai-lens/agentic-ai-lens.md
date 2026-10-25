@@ -1,6 +1,6 @@
 
 
-# Agentic AI Lens - AWS Well-Architected
+# Agentic AI Lens - AWS Well-Architected Framework
 <a name="agentic-ai-lens"></a>
 
 Publication date: **June 10, 2026** ([Document revisions](document-revisions.md))

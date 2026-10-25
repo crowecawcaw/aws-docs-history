@@ -8,7 +8,9 @@ Systematic testing and evaluation processes confirm agent quality, reliability, 
 
 | AGENTOPS06: How do you implement testing, evaluation, and validation frameworks? | 
 | --- | 
-|   | 
+| [AGENTOPS06-BP01 Design multi-layered testing frameworks](agentops06-bp01.md) | 
+| [AGENTOPS06-BP02 Evaluate and track ongoing agent performance](agentops06-bp02.md) | 
+| [AGENTOPS06-BP03 Establish SME-driven validation and business approval workflows](agentops06-bp03.md) | 
 
 ## Capability intent
 <a name="agentops06-intent"></a>

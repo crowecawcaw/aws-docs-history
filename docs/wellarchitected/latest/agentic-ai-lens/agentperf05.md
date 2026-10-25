@@ -8,7 +8,10 @@
 
 |  AGENTPERF05: How do you optimize workflow orchestration and multi-agent collaboration for performance?  | 
 | --- | 
-|   | 
+| [AGENTPERF05-BP01 Design efficient workflow orchestration patterns](agentperf05-bp01.md) | 
+| [AGENTPERF05-BP02 Implement optimized multi-agent collaboration models](agentperf05-bp02.md) | 
+| [AGENTPERF05-BP03 Optimize multi-stage AI pipeline execution](agentperf05-bp03.md) | 
+| [AGENTPERF05-BP04 Implement efficient agent delegation and handoff patterns](agentperf05-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-4"></a>

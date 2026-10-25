@@ -8,7 +8,10 @@
 
 |  AGENTREL04: How do you orchestrate multi-agent systems to reliably execute tasks?  | 
 | --- | 
-|   | 
+| [AGENTREL04-BP01 Implement the arbiter agent pattern for coordinated multi-agent systems](agentrel04-bp01.md) | 
+| [AGENTREL04-BP02 Classify agents with a thorough capability taxonomy](agentrel04-bp02.md) | 
+| [AGENTREL04-BP03 Implement fallback mechanisms and graceful degradation for collaborative workflows](agentrel04-bp03.md) | 
+| [AGENTREL04-BP04 Implement resilient control planes for agent coordination](agentrel04-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-3"></a>

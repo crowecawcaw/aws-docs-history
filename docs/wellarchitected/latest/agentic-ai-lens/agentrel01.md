@@ -8,7 +8,11 @@
 
 |  AGENTREL01: How do I develop reliable agentic systems?  | 
 | --- | 
-|   | 
+| [AGENTREL01-BP01 Implement a resilient messaging layer](agentrel01-bp01.md) | 
+| [AGENTREL01-BP02 Establish modular, fault-isolated layers](agentrel01-bp02.md) | 
+| [AGENTREL01-BP03 Design specialized agents following actor model principles](agentrel01-bp03.md) | 
+| [AGENTREL01-BP04 Standardize communication protocols](agentrel01-bp04.md) | 
+| [AGENTREL01-BP05 Implement adaptive provisioning](agentrel01-bp05.md) | 
 
 ## Capability intent
 <a name="capability-intent"></a>

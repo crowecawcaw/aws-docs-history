@@ -8,7 +8,11 @@
 
 |  AGENTREL06: How do agents integrate effectively with existing systems without impacting the reliability of established processes?  | 
 | --- | 
-|   | 
+| [AGENTREL06-BP01 Develop agent-based integrations with existing or legacy systems](agentrel06-bp01.md) | 
+| [AGENTREL06-BP02 Establish fallback mechanisms for legacy system degradation](agentrel06-bp02.md) | 
+| [AGENTREL06-BP03 Regularly test degraded system performance](agentrel06-bp03.md) | 
+| [AGENTREL06-BP04 Implement idempotent task execution patterns](agentrel06-bp04.md) | 
+| [AGENTREL06-BP05 Implement dynamic capability toggling](agentrel06-bp05.md) | 
 
 ## Capability intent
 <a name="capability-intent-5"></a>

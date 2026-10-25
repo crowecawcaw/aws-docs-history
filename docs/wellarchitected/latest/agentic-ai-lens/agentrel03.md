@@ -8,7 +8,10 @@
 
 |  AGENTREL03: How do you support agent memory and state remaining reliably accessible throughout the agent lifecycle?  | 
 | --- | 
-|   | 
+| [AGENTREL03-BP01 Design an information classification model to identify short-term and long-term memories](agentrel03-bp01.md) | 
+| [AGENTREL03-BP02 Architect fault-tolerant memory stores with redundancy and failover](agentrel03-bp02.md) | 
+| [AGENTREL03-BP03 Implement comprehensive state management and checkpoint-based recovery](agentrel03-bp03.md) | 
+| [AGENTREL03-BP04 Implement graceful degradation for memory and state operations](agentrel03-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-2"></a>

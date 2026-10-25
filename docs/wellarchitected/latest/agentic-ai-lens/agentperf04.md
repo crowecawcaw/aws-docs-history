@@ -8,7 +8,9 @@
 
 |  AGENTPERF04: How do you achieve efficient communication and protocol usage across agent interactions?  | 
 | --- | 
-|   | 
+| [AGENTPERF04-BP01 Optimize asynchronous message handling patterns](agentperf04-bp01.md) | 
+| [AGENTPERF04-BP02 Implement efficient protocol-based agent communications](agentperf04-bp02.md) | 
+| [AGENTPERF04-BP03 Design high-performing event-driven integration patterns](agentperf04-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-3"></a>

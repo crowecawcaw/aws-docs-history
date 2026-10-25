@@ -12,7 +12,10 @@
 
 |  AGENTSEC03: How do you manage agent identities, permissions, and prevent privilege escalation?  | 
 | --- | 
-|   | 
+| [AGENTSEC03-BP01 Implement strong authentication for agent identities](agentsec03-bp01.md) | 
+| [AGENTSEC03-BP02 Separate agent and human user permission](agentsec03-bp02.md) | 
+| [AGENTSEC03-BP03 Implement least privilege with dynamic boundaries](agentsec03-bp03.md) | 
+| [AGENTSEC03-BP04 Regular permission audits and access reviews](agentsec03-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-2"></a>

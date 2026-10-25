@@ -8,7 +8,10 @@ Agent prompts, configurations, and tool permissions define agent behavior and ev
 
 | AGENTOPS02: How do you manage prompt and configuration lifecycle? | 
 | --- | 
-|   | 
+| [AGENTOPS02-BP01 Evolve agent prompts, tool calls, and configurations to reflect evolving business needs](agentops02-bp01.md) | 
+| [AGENTOPS02-BP02 Implement configuration drift detection and remediation](agentops02-bp02.md) | 
+| [AGENTOPS02-BP03 Implement agent behavior versioning and rollback capabilities](agentops02-bp03.md) | 
+| [AGENTOPS02-BP04 Maintain feedback control loops for continuous improvement](agentops02-bp04.md) | 
 
 ## Capability intent
 <a name="agentops02-intent"></a>

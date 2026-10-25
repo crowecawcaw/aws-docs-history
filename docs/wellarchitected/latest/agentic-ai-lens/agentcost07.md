@@ -8,7 +8,9 @@
 
 |  AGENTCOST07: How do you establish agent cost governance and continuous optimization?  | 
 | --- | 
-|   | 
+| [AGENTCOST07-BP01 Implement automated cost controls with intelligent cutoffs](agentcost07-bp01.md) | 
+| [AGENTCOST07-BP02 Establish proactive anomaly detection for agent cost patterns](agentcost07-bp02.md) | 
+| [AGENTCOST07-BP03 Create systematic optimization feedback loops for continuous improvement](agentcost07-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-6"></a>

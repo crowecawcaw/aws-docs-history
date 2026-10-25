@@ -8,7 +8,10 @@
 
 |  AGENTSUS03: How do I establish durable patterns for agent interactions with users and business processes?  | 
 | --- | 
-|   | 
+| [AGENTSUS03-BP01 Maintain organizational skills and competencies](agentsus03-bp01.md) | 
+| [AGENTSUS03-BP02 Build agents to mirror your organizational skills and competencies](agentsus03-bp02.md) | 
+| [AGENTSUS03-BP03 Maintain comprehensive specifications for agents and agentic systems](agentsus03-bp03.md) | 
+| [AGENTSUS03-BP04 Decommission unused agents and prevent agent sprawl](agentsus03-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-2"></a>

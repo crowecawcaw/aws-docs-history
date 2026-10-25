@@ -8,7 +8,10 @@
 
 |  AGENTSEC06: How do you secure multi-agent orchestration and coordination?  | 
 | --- | 
-|   | 
+| [AGENTSEC06-BP01 Encrypt and sign inter-agent messages](agentsec06-bp01.md) | 
+| [AGENTSEC06-BP02 Implement workflow orchestration security controls](agentsec06-bp02.md) | 
+| [AGENTSEC06-BP03 Establish trust boundaries between agents](agentsec06-bp03.md) | 
+| [AGENTSEC06-BP04 Monitor and detect coordination anomalies](agentsec06-bp04.md) | 
 
 ## Capability intent
 <a name="capability-intent-5"></a>

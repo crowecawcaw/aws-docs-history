@@ -8,7 +8,9 @@
 
 |  AGENTPERF06: How do you optimize tool integrations and framework usage for agent performance?  | 
 | --- | 
-|   | 
+| [AGENTPERF06-BP01 Design optimized tool integration strategies](agentperf06-bp01.md) | 
+| [AGENTPERF06-BP02 Implement efficient tool invocation patterns](agentperf06-bp02.md) | 
+| [AGENTPERF06-BP03 Optimize meta-tool utilization and tool chaining](agentperf06-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-5"></a>

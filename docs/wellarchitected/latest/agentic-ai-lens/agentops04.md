@@ -8,7 +8,9 @@ Agents rely on external tools and services to complete work, and the way those i
 
 | AGENTOPS04: How do you establish tool integration and management practices? | 
 | --- | 
-|   | 
+| [AGENTOPS04-BP01 Implement tool registry and catalog management](agentops04-bp01.md) | 
+| [AGENTOPS04-BP02 Establish standardized tool integration protocols (MCP, A2A)](agentops04-bp02.md) | 
+| [AGENTOPS04-BP03 Develop fallback behavior and error handling for tool invocations](agentops04-bp03.md) | 
 
 ## Capability intent
 <a name="agentops04-intent"></a>

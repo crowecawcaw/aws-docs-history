@@ -8,7 +8,11 @@
 
 |  AGENTPERF03: How do you optimize memory management, context windows, and retrieval-augmented generation?  | 
 | --- | 
-|   | 
+| [AGENTPERF03-BP01 Implement tiered memory management systems](agentperf03-bp01.md) | 
+| [AGENTPERF03-BP02 Optimize context window utilization and prompt management](agentperf03-bp02.md) | 
+| [AGENTPERF03-BP03 Optimize RAG retrieval pipelines for latency and precision](agentperf03-bp03.md) | 
+| [AGENTPERF03-BP04 Establish efficient agent caching and data access patterns](agentperf03-bp04.md) | 
+| [AGENTPERF03-BP05 Implement agentic retrieval patterns for dynamic, agent-driven knowledge access](agentperf03-bp05.md) | 
 
 ## Capability intent
 <a name="capability-intent-2"></a>

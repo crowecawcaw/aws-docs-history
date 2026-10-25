@@ -8,7 +8,9 @@
 
 |  AGENTCOST04: How do you optimize agent tool invocation costs?  | 
 | --- | 
-|   | 
+| [AGENTCOST04-BP01 Design cost effective tool selection to minimize unnecessary invocations](agentcost04-bp01.md) | 
+| [AGENTCOST04-BP02 Cost optimize tool serving through serverless and resource sharing](agentcost04-bp02.md) | 
+| [AGENTCOST04-BP03 Implement intelligent caching and failure handling for tool results](agentcost04-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-3"></a>

@@ -8,7 +8,11 @@
 
 |  AGENTSUS01: How do you build sustainable and repeatable frameworks for managing compute, memory, and other shareable agent resources?  | 
 | --- | 
-|   | 
+| [AGENTSUS01-BP01 Design specialized agents with explicit resource boundaries](agentsus01-bp01.md) | 
+| [AGENTSUS01-BP02 Implement reusable workflow patterns](agentsus01-bp02.md) | 
+| [AGENTSUS01-BP03 Optimize resource utilization through shared services](agentsus01-bp03.md) | 
+| [AGENTSUS01-BP04 Scale cognitive processing pathways appropriately](agentsus01-bp04.md) | 
+| [AGENTSUS01-BP05 Adopt specification-driven tasks for frontier agents and long-running workflows](agentsus01-bp05.md) | 
 
 ## Capability intent
 <a name="capability-intent"></a>

@@ -8,7 +8,9 @@
 
 |  AGENTREL05: How do you implement reliable agent cognition that accesses the right data at the right time?  | 
 | --- | 
-|   | 
+| [AGENTREL05-BP01 Design modular, fault-tolerant agentic reasoning components](agentrel05-bp01.md) | 
+| [AGENTREL05-BP02 Facilitate reliable adaptation through evaluation-driven improvement cycles](agentrel05-bp02.md) | 
+| [AGENTREL05-BP03 Ground agent cognition in real information](agentrel05-bp03.md) | 
 
 ## Capability intent
 <a name="capability-intent-4"></a>
