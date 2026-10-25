@@ -3,6 +3,9 @@
 # AWS Shield Network Security Director policy syntax and examples
 <a name="orgs_manage_policies_network_security_director_syntax"></a>
 
+**Important**  
+The AWS Shield Network Security Director public preview has ended, and the Network Security Director policy is no longer available. For more information, contact [AWS Support](https://aws.amazon.com/premiumsupport/) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/).
+
 Network Security Director policies follow a standardized JSON syntax that defines how Network Security Director is enabled and configured across your organization. An AWS Shield Network Security Director policy is a JSON document structured according to the AWS Organizations management-policy syntax. It defines which organizational entities will have AWS Shield Network Security Director automatically enabled.
 
 ## Basic policy structure

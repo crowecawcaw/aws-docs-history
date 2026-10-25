@@ -3,11 +3,12 @@
 # AWS Shield Network Security Director policies
 <a name="orgs_manage_policies_network_security_director"></a>
 
+**Important**  
+The AWS Shield Network Security Director public preview has ended, and the Network Security Director policy is no longer available. For more information, contact [AWS Support](https://aws.amazon.com/premiumsupport/) or an [AWS Sales Representative](https://aws.amazon.com/contact-us/sales-support/).
+
 AWS Shield Network Security Director helps secure your AWS environment by discovering your compute, networking, and network security resources. Network Security Director evaluates each resource's security configuration by analyzing network topology and security configurations against AWS best practices and threat intelligence.
 
 AWS Shield Network Security Director policies allow you to centrally enable and manage Network Security Director across accounts in your AWS organization. With a Network Security Director policy, you specify which organizational entities (root, OUs, or accounts) have Network Security Director enabled. When accounts join your organization, they automatically inherit the applicable policies based on their location in the organizational hierarchy. This ensures that your resources are analyzed for network security configuration gaps as your organization grows. The policies respect existing organizational structures and provide flexibility in determining which accounts are analyzed.
-
-AWS Shield Network Security Director is currently available in preview. 
 
 ## How it works
 <a name="network-security-director-policies-how-it-works"></a>
