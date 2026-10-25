@@ -20,8 +20,8 @@ Before you begin, verify the following:
 + Your cache is running Redis OSS 7.0 or later, or Valkey. IAM authentication is not supported on earlier engine versions.
 + In-transit encryption (TLS) is enabled on your cache. IAM authentication requires TLS. For more information, see [ElastiCache in-transit encryption (TLS)](in-transit-encryption.md).
 + You have the necessary IAM permissions to create users and modify user groups. For more information, see [How Amazon ElastiCache works with IAM](security_iam_service-with-iam.md).
-+ The IAM role or user that your application uses has an IAM policy that allows the `elasticache:Connect` action for the target cache and IAM user. For more information, see [Authenticating with IAM](auth-iam.md).
-+ No additional IAM authentication limitations apply to your application. For the full list of limitations, see [Authenticating with IAM](auth-iam.md).
++ The IAM role or user that your application uses has an IAM policy that allows the `elasticache:Connect` action for the target cache and IAM user. For more information, see [Authenticating with IAM in ElastiCache](auth-iam.md).
++ No additional IAM authentication limitations apply to your application. For the full list of limitations, see [Authenticating with IAM in ElastiCache](auth-iam.md).
 
 ## Migration process
 <a name="auth-to-iam-process"></a>
@@ -281,7 +281,7 @@ ACL WHOAMI
 ### Step 5: Application integration
 <a name="auth-to-iam-app-integration"></a>
 
-For Java applications, use the default AWS Credentials provider chain to generate temporary security credentials. For more information, see [Authenticating with IAM](auth-iam.md). For other languages, generate the IAM authentication token using the [AWS Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) and pass it as the password in your client's `AUTH` command.
+For Java applications, use the default AWS Credentials provider chain to generate temporary security credentials. For more information, see [Authenticating with IAM in ElastiCache](auth-iam.md). For other languages, generate the IAM authentication token using the [AWS Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) and pass it as the password in your client's `AUTH` command.
 
 ## Completing the migration
 <a name="auth-to-iam-completing"></a>

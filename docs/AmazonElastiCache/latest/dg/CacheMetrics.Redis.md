@@ -113,11 +113,11 @@ For complete documentation of the **info** command, see [http://valkey.io/comman
   - **Unit:** Seconds
 
 - **`IamAuthenticationExpirations`**
-  - **Description:** The total number of expired IAM-authenticated Valkey or Redis OSS connections. You can find more information about [Authenticating with IAM](auth-iam.md) in the user guide.
+  - **Description:** The total number of expired IAM-authenticated Valkey or Redis OSS connections. You can find more information about [Authenticating with IAM in ElastiCache](auth-iam.md) in the user guide.
   - **Unit:** Count
 
 - **`IamAuthenticationThrottling`**
-  - **Description:** The total number of throttled IAM-authenticated Valkey or Redis OSS AUTH or HELLO requests. You can find more information about [Authenticating with IAM](auth-iam.md) in the user guide. 
+  - **Description:** The total number of throttled IAM-authenticated Valkey or Redis OSS AUTH or HELLO requests. You can find more information about [Authenticating with IAM in ElastiCache](auth-iam.md) in the user guide. 
   - **Unit:** Count
 
 - **`IsMaster`**

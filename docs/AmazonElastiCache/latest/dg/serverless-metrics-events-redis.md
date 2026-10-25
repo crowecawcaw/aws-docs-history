@@ -41,8 +41,8 @@ The `AWS/ElastiCache` namespace includes the following CloudWatch metrics for yo
 | NetworkBytesIn | Total bytes transferred in to cache | Bytes | 
 | NetworkBytesOut | Total bytes transferred out of cache | Bytes | 
 | Evictions | The count of keys evicted by the cache | Count | 
-| IamAuthenticationExpirations | The total number of expired IAM-authenticated Valkey or Redis OSS connections. You can find more information about [Authenticating with IAM](auth-iam.md) in the user guide. | Count | 
-| IamAuthenticationThrottling | The total number of throttled IAM-authenticated Valkey or Redis OSS AUTH or HELLO requests. You can find more information about [Authenticating with IAM](auth-iam.md) in the user guide.  | Count | 
+| IamAuthenticationExpirations | The total number of expired IAM-authenticated Valkey or Redis OSS connections. You can find more information about [Authenticating with IAM in ElastiCache](auth-iam.md) in the user guide. | Count | 
+| IamAuthenticationThrottling | The total number of throttled IAM-authenticated Valkey or Redis OSS AUTH or HELLO requests. You can find more information about [Authenticating with IAM in ElastiCache](auth-iam.md) in the user guide.  | Count | 
 | KeyAuthorizationFailures | The total number of failed attempts by users to access keys they don’t have permission to access. We suggest setting an alarm on this to detect unauthorized access attempts. | Count | 
 | AuthenticationFailures | The total number of failed attempts to authenticate to Valkey or Redis OSS using the AUTH command. We suggest setting an alarm on this to detect unauthorized access attempts. | Count | 
 | CommandAuthorizationFailures | The total number of failed attempts by users to run commands they don’t have permission to call. We suggest setting an alarm on this to detect unauthorized access attempts. | Count | 

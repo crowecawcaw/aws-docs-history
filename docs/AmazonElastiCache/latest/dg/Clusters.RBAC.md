@@ -59,7 +59,7 @@ More information on using RBAC with ElastiCache for Valkey and Redis OSS follows
 + [Migrating from AUTH to RBAC](#Migrate-From-RBAC-to-Auth)
 + [Migrating from RBAC to AUTH](#Migrate-From-RBAC-to-AUTH-1)
 + [Automatically rotating passwords for users](User-Secrets-Manager.md)
-+ [Authenticating with IAM](auth-iam.md)
++ [Authenticating with IAM in ElastiCache](auth-iam.md)
 
 ## Specifying Permissions Using an Access String
 <a name="Access-string"></a>

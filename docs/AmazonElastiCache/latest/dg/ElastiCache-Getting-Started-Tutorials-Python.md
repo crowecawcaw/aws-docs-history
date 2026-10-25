@@ -515,7 +515,7 @@ To run the program, enter the following command:
 ### Connecting using IAM authentication
 <a name="ElastiCache-Getting-Started-Tutorials-Connecting-iam"></a>
 
-You can authenticate a Python connection using an AWS Identity and Access Management (IAM) identity instead of a user password. IAM authentication is available for caches running Valkey 7.2 and above or Redis OSS version 7.0 and above. This method requires Transport Layer Security (TLS) for in-transit encryption. Before you connect, create an IAM-enabled ElastiCache user and grant the `elasticache:Connect` action to the cache and user. For instructions on setting up IAM authentication, see [Authenticating with IAM](auth-iam.md).
+You can authenticate a Python connection using an AWS Identity and Access Management (IAM) identity instead of a user password. IAM authentication is available for caches running Valkey 7.2 and above or Redis OSS version 7.0 and above. This method requires Transport Layer Security (TLS) for in-transit encryption. Before you connect, create an IAM-enabled ElastiCache user and grant the `elasticache:Connect` action to the cache and user. For instructions on setting up IAM authentication, see [Authenticating with IAM in ElastiCache](auth-iam.md).
 
 The following Python program generates a short-lived IAM authentication token with an AWS Signature Version 4 pre-signed request and uses the token as the password. Copy the program and paste it into a file named *ConnectWithIAM.py*:
 

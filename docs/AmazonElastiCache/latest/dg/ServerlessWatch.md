@@ -16,7 +16,7 @@ The transaction will be aborted (as if watched keys were touched) when ElastiCac
 **Code Examples**
 
 ## Watch and Operate on Keys from Different Slots
-<a name="w2aac27c35c15b1"></a>
+<a name="w2aac29c35c15b1"></a>
 
 In the following example, the watched key and the key specified in the `SET` command map to different hash slots. The execution returns a `CROSSSLOT ERROR`.
 
@@ -32,7 +32,7 @@ CROSSSLOT Keys in request don't hash to the same slot
 ```
 
 ## Watch and Operate on Keys from the Same Slot
-<a name="w2aac27c35c15b3"></a>
+<a name="w2aac29c35c15b3"></a>
 
 The following example shows a successful transaction, as The key set in `WATCH` wasn't changed.
 
@@ -48,7 +48,7 @@ QUEUED
 ```
 
 ## Watch keys from Different Slots
-<a name="w2aac27c35c15b5"></a>
+<a name="w2aac29c35c15b5"></a>
 
 In the following example, an attempt to `WATCH` keys from different slots simultaneously within the same client connection returns a `CROSSSLOT ERROR`.
 

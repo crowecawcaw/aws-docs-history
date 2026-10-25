@@ -16,5 +16,4 @@ For information on setting up see [Setting up ElastiCache](set-up.md). For detai
 + [Managing nodes in ElastiCache](CacheNodes.md)
 + [Managing clusters in ElastiCache](Clusters.md)
 + [Comparing node-based Valkey, Memcached, and Redis OSS clusters](SelectEngine.md)
-+ [Online migration for Valkey or Redis OSS](OnlineMigration.md)
 + [Choosing regions and availability zones for ElastiCache](RegionsAndAZs.md)

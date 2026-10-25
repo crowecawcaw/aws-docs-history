@@ -22,12 +22,12 @@ To create a final backup when deleting a cache, on the delete dialog box choose 
 You can create a final backup when deleting a cache using the AWS CLI.
 
 **Topics**
-+ [When deleting a Valkey cache, Memcached serverless cache, or Redis OSS cache](#w2aac27b7c29b7b1b7)
-+ [When deleting a Valkey or Redis OSS cluster with no read replicas](#w2aac27b7c29b7b1b9)
-+ [When deleting a Valkey or Redis OSS cluster with read replicas](#w2aac27b7c29b7b1c11)
++ [When deleting a Valkey cache, Memcached serverless cache, or Redis OSS cache](#w2aac29b7c29b7b1b7)
++ [When deleting a Valkey or Redis OSS cluster with no read replicas](#w2aac29b7c29b7b1b9)
++ [When deleting a Valkey or Redis OSS cluster with read replicas](#w2aac29b7c29b7b1c11)
 
 ### When deleting a Valkey cache, Memcached serverless cache, or Redis OSS cache
-<a name="w2aac27b7c29b7b1b7"></a>
+<a name="w2aac29b7c29b7b1b7"></a>
 
 To create a final backup, use the `delete-serverless-cache` AWS CLI operation with the following parameters.
 + `--serverless-cache-name` – Name of the cache being deleted.
@@ -54,7 +54,7 @@ aws elasticache delete-serverless-cache ^
 For more information, see [delete-serverless-cache](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-serverless-cache.html) in the *AWS CLI Command Reference*.
 
 ### When deleting a Valkey or Redis OSS cluster with no read replicas
-<a name="w2aac27b7c29b7b1b9"></a>
+<a name="w2aac29b7c29b7b1b9"></a>
 
 To create a final backup for a node-based cluster with no read replicas, use the `delete-cache-cluster` AWS CLI operation with the following parameters.
 + `--cache-cluster-id` – Name of the cluster being deleted.
@@ -81,7 +81,7 @@ aws elasticache delete-cache-cluster ^
 For more information, see [delete-cache-cluster](https://docs.aws.amazon.com/cli/latest/reference/elasticache/delete-cache-cluster.html) in the *AWS CLI Command Reference*.
 
 ### When deleting a Valkey or Redis OSS cluster with read replicas
-<a name="w2aac27b7c29b7b1c11"></a>
+<a name="w2aac29b7c29b7b1c11"></a>
 
 To create a final backup when deleting a replication group, use the `delete-replication-group` AWS CLI operation, with the following parameters:
 + `--replication-group-id` – Name of the replication group being deleted.

@@ -1,6 +1,6 @@
 
 
-# Authenticating with IAM
+# Authenticating with IAM in ElastiCache
 <a name="auth-iam"></a>
 
 **Topics**

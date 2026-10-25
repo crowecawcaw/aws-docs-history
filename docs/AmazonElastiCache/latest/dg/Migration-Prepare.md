@@ -3,34 +3,32 @@
 # Preparing your source and target for migration
 <a name="Migration-Prepare"></a>
 
-With these steps you can prepare to migrate your data from a self-hosted Valkey or Redis source on EC2 to ElastiCache.
-
-This refers to migration from a self-hosted instance to the ElastiCache service. For information on upgrading from Redis OSS to Valkey on ElastiCache see [Upgrading engine versions including cross engine upgrades](VersionManagement.HowTo.md).
+With these steps you can prepare to migrate your data from a self-managed Valkey or Redis OSS source on Amazon EC2 to a node-based ElastiCache cluster.
 
 You must ensure that all four of the prerequisites mentioned following are satisfied before you start the migration from ElastiCache console, API or AWS CLI.
 
-**To prepare your source and target Valkey or Redis OSS Nodes for migration**
+**To prepare your source and target Valkey or Redis OSS nodes for migration**
 
 1. Identify the target ElastiCache deployment and make sure that you can migrate data to it. 
 
    An existing or newly created ElastiCache deployment should meet the following requirements for migration: 
-   + It is using Valkey, or Redis OSS 5.0.6 or higher.
+   + It is using Valkey, or Redis OSS 5.0.5 or higher for cluster mode disabled or 5.0.6 or higher for cluster mode enabled.
    + It doesn't have encryption in-transit enabled.
    + It has Multi-AZ enabled.
    + It has sufficient memory available to fit the data from your Valkey or Redis OSS cluster. To configure the right reserved memory settings, see [Managing reserved memory for Valkey and Redis OSS](redis-memory-management.md).
-   + For cluster-mode disabled, you can migrate directly from any supported Valkey or Redis OSS version to Valkey or Redis OSS version 5.0.6 onward, using the CLI or console. For cluster mode enabled, you can migrate directly from any cluster-mode enabled Valkey or Redis OSS version to Valkey or Redis OSS version 5.0.6 onward, using the CLI or console.
+   + For cluster-mode disabled, you can migrate directly from any supported Valkey or Redis OSS version to Valkey or Redis OSS version 5.0.5 onward, using the CLI or console. For cluster mode enabled, you can migrate directly from any cluster-mode enabled Valkey or Redis OSS version to Valkey or Redis OSS version 5.0.6 onward, using the CLI or console.
    + Number of shards in source and target match.
    + It is not part of a global datastore.
    + It has data tiering disabled.
 
-1. Make sure that the configurations of your open-source Valkey or Redis OSS and the ElastiCache deployment are compatible. 
+1. Make sure that the configurations of your Valkey or Redis OSS and the ElastiCache deployment are compatible. 
 
    At a minimum, all the following in the target ElastiCache deployment should be compatible with your Valkey or Redis OSS configuration for replication: 
-   + Your cluster should not have AUTH enabled.
+   + Your source Valkey or Redis OSS cluster should not have AUTH enabled.
    + The config `protected-mode` should be set to `no`.
    + If you have `bind` configuration in your Valkey or Redis OSS config, then it should be updated to allow requests from ElastiCache nodes.
    + The number of logical databases should be the same on the ElastiCache node and your Valkey or Redis OSS cluster. This value is set using `databases` in the Valkey or Redis OSS config.
-   + Valkey or Redis OSS commands that perform data modification should not be renamed to allow replication of the data to succeed. for example `sync`, `psync`, `info`, `config`, `command`, and `cluster`.
+   + Valkey or Redis OSS commands that perform data modification should not be renamed to allow replication of the data to succeed. For example, `sync`, `psync`, `info`, `config`, `command`, and `cluster`.
    + To replicate the data from your Valkey or Redis OSS cluster to ElastiCache, make sure that there is sufficient CPU and memory to handle this additional load. This load comes from the RDB file created by your Valkey or Redis OSS cluster and transferred over the network to ElastiCache node.
    + All Valkey or Redis OSS instances in the source cluster should be running on the same port.
 
