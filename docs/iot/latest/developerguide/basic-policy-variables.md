@@ -93,6 +93,8 @@ Using the policy variable `${iot:ClientId}` with `Connect` is not recommended. T
 
 You can add the `iot:DomainName` policy variable to restrict which domains are allowed to use. Adding the `iot:DomainName` policy variable allows devices to connect to only specific configured endpoints.
 
+A condition value matches the exact text you specify. To fully deny a domain, include both the domain name and the domain name with a trailing dot.
+
 The following policy allows devices to connect to the specified domain.
 
 ****  
@@ -116,7 +118,7 @@ The following policy allows devices to connect to the specified domain.
 }
 ```
 
-The following policy denies devices to connect to the specified domain.
+The following policy denies devices access to the specified domain. The policy lists the domain name both with and without a trailing dot to fully deny the domain.
 
 ****  
 

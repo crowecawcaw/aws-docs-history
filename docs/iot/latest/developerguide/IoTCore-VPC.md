@@ -230,7 +230,6 @@ This section covers the limitations of IoT control plane VPC endpoints.
 <a name="VPC-limitations-iot-data"></a>
 
 This section covers the limitations of IoT data VPC endpoints.
-+ MQTT keep alive periods are limited to 230 seconds. Keep alive periods longer than that will be automatically reduced to 230 seconds.
 + Each VPC endpoint supports 100,000 total concurrent connected devices. If you require more connections see [Scaling VPC endpoints with AWS IoT Core](#Scaling-VPC-endpoints) .
 + VPC endpoints will serve [ATS certificates](https://docs.aws.amazon.com/iot/latest/developerguide/server-authentication.html) only, except for custom domains.
 +  [VPC endpoint policies](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) are not supported.

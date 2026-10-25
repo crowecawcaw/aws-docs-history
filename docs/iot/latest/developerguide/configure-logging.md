@@ -76,20 +76,21 @@ Role policy:
             "Effect": "Allow",
             "Action": [
                 "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
                 "logs:PutMetricFilter",
-                "logs:PutRetentionPolicy",
-                "iot:GetLoggingOptions",
-                "iot:SetLoggingOptions",
-                "iot:SetV2LoggingOptions",
-                "iot:GetV2LoggingOptions",
-                "iot:SetV2LoggingLevel",
-                "iot:ListV2LoggingLevels",
-                "iot:DeleteV2LoggingLevel"
+                "logs:PutRetentionPolicy"
             ],
             "Resource": [
-                "arn:aws:logs:us-east-1:123456789012:log-group:AWSIotLogsV2:*"
+                "arn:aws:logs:us-east-1:123456789012:log-group:AWSIotLogsV2"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:123456789012:log-group:AWSIotLogsV2:log-stream:*"
             ]
         }
     ]

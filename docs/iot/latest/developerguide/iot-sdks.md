@@ -103,14 +103,11 @@ The AWS Mobile SDKs provide mobile app developers platform-specific support for 
 ------
 #### [ Android ]
 
-**AWS Mobile SDK for Android**
+**AWS IoT Device SDK for Java**
 
-The AWS Mobile SDK for Android contains a library, samples, and documentation for developers to build connected mobile applications using AWS. This SDK also includes support for MQTT device communications and calling the APIs of the AWS IoT Core services. For more information, see the following:
-+ [AWS Mobile SDK for Android on GitHub](https://github.com/aws/aws-sdk-android)
-+ [AWS Mobile SDK for Android Readme](https://github.com/aws-amplify/aws-sdk-android/blob/main/README.md#aws-sdk-for-android)
-+ [AWS Mobile SDK for Android Samples](https://github.com/awslabs/aws-sdk-android-samples#aws-sdk-for-android-samples)
-+ [AWS Mobile SDK for Android API reference](https://aws-amplify.github.io/aws-sdk-android/docs/reference/)
-+ [AWSIoTClient Class reference documentation](https://aws-amplify.github.io/aws-sdk-android/docs/reference/com/amazonaws/services/iot/AWSIotClient.html)
+For Android app development, use the AWS IoT Device SDK for Java. Version 2 (v2) is the latest version and supports Android development, and version 1 is still available. For more information, see the following:
++ [AWS IoT Device SDK for Java v2 on GitHub](https://github.com/aws/aws-iot-device-sdk-java-v2)
++ [AWS IoT Device SDK for Java on GitHub](https://github.com/aws/aws-iot-device-sdk-java)
 
 ------
 #### [ iOS ]
