@@ -8,8 +8,7 @@ Forecasts are a projection of the workload in your contact center. Connect Custo
 After creating a forecast, you do not need to generate it manually.
 + Long-term forecasts are generated for 64 weeks and automatically updated weekly.
 + Short-term forecasts are generated for 18 weeks and automatically updated daily.
-+ Every forecast is computed using the most current contact data.
-+ The models for short-term and long-term forecasts are retrained on a weekly and monthly basis, respectively, to incorporate the latest contact patterns.
++ Every forecast is computed using the most current contact data. In addition, the forecasting models are retrained every time a new forecast is generated.
 + You can delete forecasts. However, downstream capacity plans and schedules created based on the forecasts are impacted.
 
 **To create a forecast**

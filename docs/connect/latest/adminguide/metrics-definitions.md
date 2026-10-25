@@ -4497,7 +4497,7 @@ This column heading appears on Real-time metrics reports. It's not a metric exac
 ## Effective staffing
 <a name="effective-staffing"></a>
 
-The count of agents working on a given queue based on the time that agents spend handling contacts within each queue (even when they are assigned to multiple queues within each routing profile). 
+The count of agents working on a given queue based on the time that agents spend handling contacts within each queue (even when they are assigned to multiple queues within each routing profile). This is calculated using historical agent-staffing data.
 
 ## Error status time
 <a name="error-status-time"></a>
@@ -4542,6 +4542,130 @@ An estimate, in seconds, of how long a contact will wait in queue before being c
 + The EWT is vended in seconds.
 + EWT might not be available when the system is unable to establish sufficient confidence in the prediction.
 + When EWT is not available, that is, it cannot be predicted with a high degree of confidence, the result will be empty
+
+## Evaluated churn propensity rate
+<a name="evaluated-churn-propensity-rate"></a>
+
+The average churn propensity score across all evaluated contacts, expressed as a percentage. This score is generated when you create an [evaluation form](https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html) that includes business outcome questions.
+
+**Metric type**: Percent
+
+**Metric category**: GenAI Evaluation
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `EVALUATED_CHURN_PROPENSITY_RATE`
+
+**How to access using the Connect Customer admin website**: 
++ Dashboard: [Queue and agent performance dashboard](queue-performance-dashboard.md), Evaluated churn propensity rate
++ Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md), Evaluated churn propensity rate
+
+**Calculation logic**:
++ Get the churn propensity score for each evaluated contact.
++ Calculate the average score across all evaluated contacts.
++ Return the average as a percentage.
+
+**Notes**:
++ For churn propensity, a lower score is favorable because it means your customers are less likely to churn. A "No" answer to the churn evaluation question counts as the favorable outcome, which is the opposite of the other evaluated metrics where "Yes" is favorable.
++ The value of this metric may differ across dashboards. On the Queue and agent performance dashboard, this metric is calculated per contact. On dashboards where a single contact can produce multiple records, such as the Flows dashboard (per flow execution), AI Agent dashboard (per agent invocation), or the Agent performance evaluations dashboard (per evaluation), the metric is calculated per record. For example, on the Flows dashboard, if a contact ran three flows, its score contributes to each flow.
++ Data for this metric is available starting from October 22, 2026 0:00:00 GMT.
+
+## Evaluated CSAT percent
+<a name="evaluated-csat-percent"></a>
+
+The percentage of evaluated contacts that received a satisfied CSAT score. When you create an evaluation form with business outcome questions, each evaluated contact receives a CSAT score on a 1 to 5 scale. A contact is counted as satisfied when its score is 4 or 5.
+
+**Metric type**: Percent
+
+**Metric category**: GenAI Evaluation
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `EVALUATED_CSAT_PERCENT`
+
+**How to access using the Connect Customer admin website**: 
++ Dashboard: [Queue and agent performance dashboard](queue-performance-dashboard.md), Evaluated CSAT percent
++ Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md), Evaluated CSAT percent
+
+**Calculation logic**:
++ Get the count of contacts with a CSAT score of 4 (Satisfied) or 5 (Very satisfied).
++ Get the total count of contacts with a CSAT score.
++ Calculate percentage: (satisfied contacts / total CSAT contacts) \* 100.
+
+**Notes**:
++ The value of this metric may differ across dashboards. On the Queue and agent performance dashboard, this metric is calculated per contact. On dashboards where a single contact can produce multiple records, such as the Flows dashboard (per flow execution), AI Agent dashboard (per agent invocation), or the Agent performance evaluations dashboard (per evaluation), the metric is calculated per record. For example, on the Flows dashboard, if a contact ran three flows, its score contributes to each flow.
++ Data for this metric is available starting from October 22, 2026 0:00:00 GMT.
+
+## Evaluated partial self-service resolution rate
+<a name="evaluated-partial-self-service-resolution-rate"></a>
+
+The average partial self-service resolution score across all evaluated contacts, expressed as a percentage. This score is generated when you use an evaluation form with business outcome questions.
+
+**Metric type**: Percent
+
+**Metric category**: GenAI Evaluation
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `EVALUATED_PARTIAL_SELF_SERVICE_SUCCESS_RATE`
+
+**How to access using the Connect Customer admin website**: 
++ Dashboard: Evaluated partial self-service resolution rate
+
+**Calculation logic**:
++ Get the partial self-service resolution score for each evaluated contact.
++ Calculate the average score across all evaluated contacts.
++ Return the average as a percentage.
+
+**Notes**:
++ The value of this metric may differ across dashboards. On the Queue and agent performance dashboard, this metric is calculated per contact. On dashboards where a single contact can produce multiple records, such as the Flows dashboard (per flow execution), AI Agent dashboard (per agent invocation), or the Agent performance evaluations dashboard (per evaluation), the metric is calculated per record. For example, on the Flows dashboard, if a contact ran three flows, its score contributes to each flow.
++ Data for this metric is available starting from October 22, 2026 0:00:00 GMT.
+
+## Evaluated self-service resolution rate
+<a name="evaluated-self-service-resolution-rate"></a>
+
+The average self-service resolution score across all evaluated contacts, expressed as a percentage. This score is generated when you use an evaluation form with business outcome questions.
+
+**Metric type**: Percent
+
+**Metric category**: GenAI Evaluation
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `EVALUATED_SELF_SERVICE_SUCCESS_RATE`
+
+**How to access using the Connect Customer admin website**: 
++ Dashboard: [Flows and conversational bot performance dashboard](flows-performance-dashboard.md), Evaluated self-service resolution rate
+
+**Calculation logic**:
++ Get the self-service resolution score for each evaluated contact.
++ Calculate the average score across all evaluated contacts.
++ Return the average as a percentage.
+
+**Notes**:
++ The value of this metric may differ across dashboards. On the Queue and agent performance dashboard, this metric is calculated per contact. On dashboards where a single contact can produce multiple records, such as the Flows dashboard (per flow execution), AI Agent dashboard (per agent invocation), or the Agent performance evaluations dashboard (per evaluation), the metric is calculated per record. For example, on the Flows dashboard, if a contact ran three flows, its score contributes to each flow.
++ Data for this metric is available starting from October 22, 2026 0:00:00 GMT.
+
+## Evaluated successful sale rate
+<a name="evaluated-successful-sale-rate"></a>
+
+The average successful sale score across all evaluated contacts, expressed as a percentage. This score is generated when you use an evaluation form with business outcome questions.
+
+**Metric type**: Percent
+
+**Metric category**: GenAI Evaluation
+
+**How to access using the Connect Customer API**: 
++ [GetMetricDataV2](https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html) API metric identifier: `EVALUATED_SUCCESSFUL_SALE_RATE`
+
+**How to access using the Connect Customer admin website**: 
++ Dashboard: [Queue and agent performance dashboard](queue-performance-dashboard.md), Evaluated successful sale rate
++ Dashboard: [Agent performance evaluations dashboard](agent-performance-evaluation-dashboard.md), Evaluated successful sale rate
+
+**Calculation logic**:
++ Get the successful sale score for each evaluated contact in which a sale was attempted.
++ Calculate the average score across all evaluated contacts.
++ Return the average as a percentage.
+
+**Notes**:
++ The value of this metric may differ across dashboards. On the Queue and agent performance dashboard, this metric is calculated per contact. On dashboards where a single contact can produce multiple records, such as the Flows dashboard (per flow execution), AI Agent dashboard (per agent invocation), or the Agent performance evaluations dashboard (per evaluation), the metric is calculated per record. For example, on the Flows dashboard, if a contact ran three flows, its score contributes to each flow.
++ Data for this metric is available starting from October 22, 2026 0:00:00 GMT.
 
 ## Evaluations performed
 <a name="evaluations-performed"></a>

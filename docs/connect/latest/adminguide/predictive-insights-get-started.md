@@ -54,6 +54,39 @@ The following table describes the maximum number of items considered for recomme
 | Similar items | Maximum number of items considered for predictive insights | 10 million | 
 | All other business scenarios | Maximum number of items considered for predictive insights | 750,000 | 
 
+### Diversity controls
+<a name="predictive-insights-diversity-controls"></a>
+
+By default, recommendations are ranked by predicted relevance alone, which can produce a result set dominated by a single brand, supplier, category, or content type. With diversity controls, you can cap how many recommended items share the same value of an item catalog column, so results reflect a balanced mix across your catalog.
+
+**Key capabilities**
++ **Group by any categorical column** – diversify on any categorical column in your item catalog, such as brand, supplier or merchant, category, content type, price tier, or a custom column that you define in your recommender schema.
++ **Configurable limits** – set an absolute cap, such as a maximum of three items per group, or a percentage-based cap that limits each group to a percentage of the returned items.
++ **Composable rules** – diversify on up to two columns at the same time, so a single request can enforce more than one constraint.
++ **Runtime values** – define a cap as a placeholder when you create the recommender, then supply the value for each request so that one recommender can serve multiple experiences.
++ **Applied during retrieval** – diversity is enforced while candidate items are retrieved and ranked, not as a post-filter that discards items after ranking. You receive a full set of relevant results.
+
+**Use case examples**
++ **Storefront or home page carousel**
+
+  Group recommendations by a column such as brand, supplier, or merchant, with a maximum of three items per group. Without diversity controls, a single high-affinity brand or supplier can fill the whole carousel. With diversity controls, customers see breadth across your catalog, which helps them discover new brands and increases repeat engagement.
++ **Balanced results within a single collection**
+
+  Group recommendations by category within a collection, such as a product line, a service catalog, or a content library, and cap each category so the result set stays representative. Instead of returning 10 close variations of the same popular item, the recommender surfaces a balanced set that exposes complementary items customers would not have scrolled far enough to find, which can increase average order value or time spent engaging with your content.
+
+**Configuring diversity controls**
+
+You define diversity caps on the recommender, then enable diversity on each request:
+
+1. When you create or update a recommender, add a `DiversityConfig` that specifies up to two item catalog columns to diversify on. Each column must be defined in the recommender schema. For each column, set the following:
+   + `Name` – The name of the item catalog column.
+   + `CapType` – Use `VALUE` to interpret the target as an absolute count of items. Use `PERCENTAGE` to interpret it as a percentage of the returned items.
+   + `Target` – A number, such as `25`, or a placeholder in the form `${{name}}`.
+
+   For more information about parameters, see [create-recommender](https://docs.aws.amazon.com/cli/latest/reference/customer-profiles/create-recommender.html) and [update-recommender](https://docs.aws.amazon.com/cli/latest/reference/customer-profiles/update-recommender.html) in the *AWS CLI Command Reference*.
+
+1. When you retrieve recommendations for a profile, include a `DiversityConfig` that enables diversity for the request and supplies a value for each placeholder cap that you defined on the recommender. For more information about parameters, see [get-profile-recommendations](https://docs.aws.amazon.com/cli/latest/reference/customer-profiles/get-profile-recommendations.html) in the *AWS CLI Command Reference*.
+
 ## Step 4: Using Predictive Insights across customer engagement channels
 <a name="use-across-customer-engagement-channels"></a>
 

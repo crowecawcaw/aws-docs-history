@@ -3,7 +3,7 @@
 # Default widgets
 <a name="default-widgets"></a>
 
-Profile explorer comes with a collection of pre-configured widgets designed to work seamlessly with Customer Profiles data. These default widgets offer immediate value with minimal setup, allowing you to build sophisticated dashboards in a few clicks.
+Profile Explorer comes with a collection of pre-configured widgets designed to work seamlessly with Customer Profiles data. These default widgets offer immediate value with minimal setup, allowing you to build sophisticated dashboards in a few clicks.
 
 ![Add default widgets in the explorer layout.](https://docs.aws.amazon.com/connect/latest/adminguide/images/default-widgets-1.png)
 
@@ -24,7 +24,7 @@ While these widgets come pre-configured, you can still customize them to better 
 ## Generative AI summary
 <a name="generative-ai-summary"></a>
 
-Profile explorer delivers default AI-powered customer insights that generate concise summaries highlighting key behavioral patterns, provides personalized customer insights based on interaction history and surface actionable recommendations from customer 360 data. The AI-generated summaries help organizations make data-driven decisions by identifying patterns across multiple customer touchpoints, delivering personalized behavioral insights specific to each customer and supporting improved customer experiences and increased loyalty.
+Profile Explorer delivers default AI-powered customer insights that generate concise summaries highlighting key behavioral patterns, provides personalized customer insights based on interaction history and surface actionable recommendations from customer 360 data. The AI-generated summaries help organizations make data-driven decisions by identifying patterns across multiple customer touchpoints, delivering personalized behavioral insights specific to each customer and supporting improved customer experiences and increased loyalty.
 
 ![Generative AI summary widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/generative-ai-summary-1.png)
 

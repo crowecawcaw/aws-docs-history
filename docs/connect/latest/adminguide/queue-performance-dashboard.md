@@ -11,7 +11,7 @@ This dashboard includes:
 
 **Topics**
 + [Enable access to the dashboard](#queue-performance-dashboard-enable-access)
-+ [Performance overview chart](#queue-performance-dashboard-performance-overview)
++ [Agent performance summary](#queue-performance-dashboard-performance-overview)
 + [Current queue overview](#current-queue-overview)
 + [Current agent performance](#current-agent-perf-overview)
 + [One-click drill-down](#one-click-drilldown)
@@ -19,9 +19,10 @@ This dashboard includes:
 + [Current agent adherence](#current-agent-adherence-dashboard)
 + [Trailing agent adherence](#trailing-agent-adherence-dashboard)
 + [Trailing agent performance](#trailing-agent-performance)
-+ [Average queue answer time and contacts queued trend](#avg-queue-answer)
++ [Business outcome measurements](#business-outcome-measurements-table)
 + [Contacts handled and average handle time trend](#queue-performance-dashboard-contacts-handled)
 + [Agent status drill down](#agent-status-drill-down)
++ [Customer segment filters and groupings](#queue-performance-dashboard-customer-segments)
 + [Dashboard functionality limitations](#queue-performance-dashboard-functionality-limitations)
 
 ## Enable access to the dashboard
@@ -30,19 +31,20 @@ This dashboard includes:
 Ensure users are assigned the appropriate security profile permissions:
 + **Access metrics - Access permission** or the **Dashboard - Access permission**. For information about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md). 
 
-## Performance overview chart
+## Agent performance summary
 <a name="queue-performance-dashboard-performance-overview"></a>
 
-The **Performance overview** chart that provides aggregated metrics based on your filters. Each metric within the chart is compared to your "compare to" benchmark time range filter. 
+The **Agent performance summary** widget provides aggregated metrics based on your filters. Each metric within the widget is compared to your "compare to" benchmark time range filter. 
 
-The following image shows an example **Performance overview** chart: 
+The following image shows an example **Agent performance summary** widget: 
 
-![An example Performance overview chart in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/queue-performance-dashboards-performance-overview-chart.png)
+![An example Agent performance summary widget in the dashboard.](https://docs.aws.amazon.com/connect/latest/adminguide/images/queue-performance-dashboards-performance-overview-chart.png)
 
 + **Contacts handled** during your time range selection was 126,306, which is down \~13% compared to your benchmark number of contacts handled, 144,647 contacts.
 + The percentages are rounded up or down. 
 + The colors that appear for the metrics indicate positive (green) or negative (red) compared to your benchmark.
 + There are no colors for **Contacts handled**.
++ The widget includes the **Evaluated CSAT percent** metric when you use evaluation forms with business outcome questions. For more information, see [Create an evaluation form](create-evaluation-forms.md).
 
 ## Current queue overview
 <a name="current-queue-overview"></a>
@@ -212,23 +214,22 @@ To see how your performance compares to the previous time range, choose **Action
 
  You can also change the metrics, configure thresholds, or re-order metrics.
 
-## Average queue answer time and contacts queued trend
-<a name="avg-queue-answer"></a>
+## Business outcome measurements
+<a name="business-outcome-measurements-table"></a>
 
-The **Average queue answer time and contacts queued trend** is a time-series chart that displays the count of contacts queued (blue bars) and the average queue answer time (red line) over a given time period broken down by intervals (15min, daily, weekly, monthly). You can also change the metrics and add up to four different metrics as line graphs.
+The **Business outcome measurements** widget displays business outcome metrics grouped by agent. These metrics are generated when you use evaluation forms with business outcome questions. For more information, see [Create an evaluation form](create-evaluation-forms.md).
 
-**Note**  
-This widget can support a maximum of two metric types (count, time, percentage).
+The following image shows an example **Business outcome measurements** widget.
 
-The following image shows the Contacts queued (blue bars) and Avg queue answer time (red line), for four months.
-
-![An example of Average queue answer time and contacts queued.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-average-queue-answer-time-trend.png)
+![An example Business outcome measurements widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/business-outcome-measurements-table.png)
 
 
-This next image shows the same data, but with the addition of the **Contacts abandoned** (green) filter.
+The following metrics are displayed in this widget:
++ **Evaluated CSAT percent:** The percentage of evaluated contacts that received a satisfied CSAT score. Each evaluated contact receives a CSAT score on a 1 to 5 scale. A contact is counted as satisfied when its score is 4 or 5.
++ **Evaluated churn propensity rate:** The average churn propensity score across all evaluated contacts, expressed as a percentage.
++ **Evaluated successful sale rate:** The average successful sale score across all evaluated contacts, expressed as a percentage.
 
-![An example of Average queue answer time with Contacts abandoned.](https://docs.aws.amazon.com/connect/latest/adminguide/images/dashboard-contacts-abandoned.png)
-
+For more information about these metrics, see [Metric definitions](metrics-definitions.md).
 
 ## Contacts handled and average handle time trend
 <a name="queue-performance-dashboard-contacts-handled"></a>
@@ -253,6 +254,33 @@ The following image shows an example of the **Agent status drill down** widget. 
 
 ![The Agent status drill down widget.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-status-drill-down.png)
 
+
+## Customer segment filters and groupings
+<a name="queue-performance-dashboard-customer-segments"></a>
+
+You can group and filter by customer segment on widgets that use metrics that are associated with individual contacts. Two segment groupings and filters are available:
++ **Lifetime value**: Group or filter contacts by the customer's lifetime value tier: High lifetime value, Medium lifetime value, or Low lifetime value.
++ **Repeat caller**: Group or filter contacts by repeat caller status.
+
+For example, grouping by Queue then Lifetime value shows metrics broken down by customer value within each queue.
+
+The following images show the **Lifetime value** and **Repeat caller** filters.
+
+![The Lifetime value filter with High, Low, and Medium lifetime value options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/lifetime-value-filter.png)
+
+
+![The Repeat caller filter with Repeat caller and Non-repeat caller options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/repeat-caller-filter.png)
+
+
+The following image shows **Lifetime value** and **Repeat caller** in the list of groupings in the **Edit** pane.
+
+![The grouping list in the Edit pane that includes Lifetime value and Repeat caller.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segment-grouping.png)
+
+
+These segments are default segments in Customer Profiles. For more information, see [Default segments](https://docs.aws.amazon.com/connect/latest/adminguide/customerprofiles-default-segments.html).
+
+**Note**  
+To use the **Lifetime value** and **Repeat caller** filters and groupings, users must have the **Customer segments - View** permission enabled in their security profile. For more information, see [List of security profile permissions](security-profile-list.md#customerprofiles-permissions-list).
 
 ## Dashboard functionality limitations
 <a name="queue-performance-dashboard-functionality-limitations"></a>

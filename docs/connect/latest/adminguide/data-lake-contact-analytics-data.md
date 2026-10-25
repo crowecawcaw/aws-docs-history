@@ -134,3 +134,47 @@ The following tables contain contact analytics data.
 |  earned\_points  |  bigint  |  Yes  |  The total points earned for a question, section, or form.  | 
 |  max\_base\_point  |  bigint  |  Yes  |  The maximum base points that can be earned for a question, section, or form, excluding bonus points.  | 
 |  performance\_category  |  string  |  Yes  |  The performance category for a question, section, or form. Valid values: NEEDS\_IMPROVEMENT \| EXCEEDS\_EXPECTATION.  | 
+|  evaluation\_measurement\_scope  |  string  |  Yes  |  The type of metric. Valid values: BUSINESS\_OUTCOME. Null when the evaluation does not include a business outcome metric.  | 
+|  evaluation\_measurement\_name  |  string  |  Yes  |  The name of the business outcome metric. Valid values: CSAT, CHURN\_PROPENSITY, SELF\_SERVICE\_SUCCESS, PARTIAL\_SELF\_SERVICE\_SUCCESS, SALE\_SUCCESS. Null when the evaluation form question is not associated with a business outcome metric. Not all evaluation forms include questions for every metric.  | 
+|  evaluation\_measurement\_score  |  double  |  Yes  |  The score for the associated business outcome metric. Range: 0.0 to 5.0. Null when the evaluation form question is not associated with a business outcome metric.  | 
+
+### Sample queries for business outcome metrics
+<a name="data-lake-contact-evaluation-record-business-outcome-queries"></a>
+
+The following example query in Amazon Athena returns business outcome evaluation scores by metric:
+
+```
+SELECT
+    evaluation_measurement_name,
+    AVG(evaluation_measurement_score) AS avg_score,
+    COUNT(*) AS evaluation_count
+FROM "{{contact-evaluation-record-resource-link-table-name}}"
+WHERE instance_id = '{{your-instance-id}}'
+    AND evaluation_measurement_scope = 'BUSINESS_OUTCOME'
+    AND evaluation_submitted_timestamp >= TIMESTAMP '{{start-date}}'
+    AND evaluation_submitted_timestamp < TIMESTAMP '{{end-date}}'
+GROUP BY evaluation_measurement_name
+ORDER BY evaluation_measurement_name;
+```
+
+The following example query in Amazon Athena joins business outcome scores with customer segments:
+
+```
+SELECT
+    cp.lifetime_value_segment,
+    cer.evaluation_measurement_name,
+    AVG(cer.evaluation_measurement_score) AS avg_score,
+    COUNT(*) AS evaluation_count
+FROM "{{contact-evaluation-record-resource-link-table-name}}" cer
+JOIN "{{customer-profiles-contact-event-resource-link-table-name}}" cp
+    ON cer.instance_id = cp.instance_id
+    AND cer.contact_id = cp.contact_id
+WHERE cer.instance_id = '{{your-instance-id}}'
+    AND cer.evaluation_measurement_scope = 'BUSINESS_OUTCOME'
+    AND cer.evaluation_submitted_timestamp >= TIMESTAMP '{{start-date}}'
+    AND cer.evaluation_submitted_timestamp < TIMESTAMP '{{end-date}}'
+GROUP BY cp.lifetime_value_segment, cer.evaluation_measurement_name
+ORDER BY cp.lifetime_value_segment, cer.evaluation_measurement_name;
+```
+
+For information about creating evaluation forms with business outcome metrics that generate the scores stored in the `evaluation_measurement_score` column, see [Create an evaluation form](create-evaluation-forms.md).

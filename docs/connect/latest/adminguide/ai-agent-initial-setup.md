@@ -565,6 +565,7 @@ You have successfully integrated an existing Bedrock Knowledge Base with AI agen
 If you delete objects from SaaS applications, such as SalesForce and ServiceNow, Connect Customer knowledge bases do not process those deletions. You must archive objects in SalesForce and retire articles in ServiceNow to remove them from those knowledge bases.
 For Zendesk, Connect Customer knowledge bases do not process hard deletes or archives of articles. You must unpublish articles in Zendesk to remove them from your knowledge base.
 For Microsoft SharePoint Online, you can select a maximum of 10 folders.
+For Microsoft SharePoint Online, Salesforce, ServiceNow, and Zendesk integrations, a scheduled Amazon AppFlow flow in your AWS account keeps your knowledge base up to date. For more information about monitoring these flows and setting alarms for failed sync runs, see [Monitoring Amazon AppFlow with CloudWatch](https://docs.aws.amazon.com/appflow/latest/userguide/monitoring-cloudwatch.html).
 Connect Customer automatically adds an `AmazonConnectEnabled:True` tag to the AI agent resources associated with your Connect Customer instance, such as a knowledge base and an Assistant. It does this to authorize the access from Connect Customer to AI agent resources. This action is a result of the tag-based access control in the managed policy of the Connect Customer service linked role. For more information, see [Service-linked role permissions for Connect Customer](connect-slr.md#slr-permissions).
 
 ## Step 4: Configure your flow for agent assist

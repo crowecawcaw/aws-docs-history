@@ -121,7 +121,7 @@ Incoming object:
 {
   "customerId": "C-10045",
   "email": "john@example.com",
-  "phone": "+15551234567",
+  "phone": "+12065550100",
   "firstName": "John",
   "lastName": "Doe",
   "address": {
@@ -206,7 +206,7 @@ Mapping:
 
 What's new here:
 + **`Target`**: each targeted field writes to the standard profile. Untargeted fields (`fullName`) still exist for use in keys.
-+ **`ContentType`**: normalizes the value before it's indexed and matched. `EMAIL_ADDRESS` and `NAME` are both case-insensitive, and `NAME` also collapses repeated spaces, so `John SMITH` matches `john smith`. `PHONE_NUMBER` ignores formatting, so `+1 (206) 345-7890` matches `2063457890`. Set it on every email, phone, name, and numeric field you index. Omit it and the value is treated as `STRING` and matched exactly as written.
++ **`ContentType`**: normalizes the value before it's indexed and matched. `EMAIL_ADDRESS` and `NAME` are both case-insensitive, and `NAME` also collapses repeated spaces, so `John SMITH` matches `john smith`. `PHONE_NUMBER` ignores formatting, so `+1 (206) 555-0150` matches `2065550150`. Set it on every email, phone, name, and numeric field you index. Omit it and the value is treated as `STRING` and matched exactly as written.
 + **Search-only keys**: `_email`, `_phone`, and `_fullName` have no `StandardIdentifiers`. They're indexed for `SearchProfiles` but take no part in matching this record to a profile. Only `crmCustomerId` does that.
 + **Dotted field names**: `mailingAddress.city` mirrors the target path. This is a readability convention, not a requirement; field names allow letters, digits, underscores, dots, and hyphens.
 + **Handlebars**: `fullName` combines two source values. `removeExtraSpace` collapses the gap if one part is missing. Most fields need only a plain accessor like `_source.email`; reach for Handlebars only when you're combining or transforming values. For more information, see [Field definitions in Customer Profiles object type mappings](mapping-field-definitions.md).

@@ -158,7 +158,7 @@ Connect Customer transmits caller ID to carriers in E.164 format (the internatio
 
 1. Add a [Call phone number](call-phone-number.md) block to the flow, and connect the **Entry point** block to it.
 
-   The [Call phone number](call-phone-number.md) block must be placed before a **Play prompt** block if one is included in your flow.
+   The **Call phone number** block must run before any block that plays audio, including audio blocks inside invoked modules. Otherwise, Connect Customer places the call using the queue's outbound caller ID. For details, see [Call phone number](call-phone-number.md).
 
 1. Select the [Call phone number](call-phone-number.md) block, and then select **Caller ID number to display**.
 

@@ -3,8 +3,8 @@
 # Access Manage layouts
 <a name="access-manage-layouts"></a>
 
-Administrators with the required permissions (see [Security profiles needed to manage layouts](manage-layouts-security-profiles.md)) can open the layouts list from the Profile explorer landing page.
+Administrators with the required permissions (see [Security profiles needed to manage layouts](manage-layouts-security-profiles.md)) can open the layouts list from the Profile Explorer landing page.
 
-1. In Profile explorer, choose **Manage layouts**.
+1. In Profile Explorer, choose **Manage layouts**.
 
 1. The **Profile layouts** page lists every layout saved for your domain, including the layout name, whether it's the default layout, and when it was created.

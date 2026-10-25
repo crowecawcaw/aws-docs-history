@@ -24,11 +24,11 @@ The following image shows the parts of the agent workspace:
 
 1. **Step-by-step guides**, which offer visual guidance for common workflows in your contact center.
 
-1. **Voice authentication**, powered by Voice ID.
-
 1. **Customer information**, powered by Customer Profiles.
 
 **Topics**
 + [Customize the theme of the agent workspace](customize-theme-agent-workspace.md)
++ [Choose a layout for the agent workspace](agent-workspace-layouts.md)
++ [Assign an agent workspace layout to agents](assign-agent-workspace-layout.md)
 + [Access the Worklist app in the agent workspace](worklist-app.md)
 + [Integrate third-party applications in the agent workspace](3p-apps.md)

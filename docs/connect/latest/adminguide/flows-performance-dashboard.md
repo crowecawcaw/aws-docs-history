@@ -18,6 +18,7 @@ The flows and conversational bot performance dashboard helps you understand the 
 + [Flow outcomes over time comparison chart](#flow-outcomes-over-time-comparison-chart)
 + [Flow durations over time comparison chart](#flow-duration-over-time-comparison-chart)
 + [Flows and Flow modules overview tables](#flow-and-flow-module-overview-tables)
++ [Customer segment filters and groupings](#flows-performance-dashboard-customer-segments)
 + [Dashboard functionality limitations](#dashboard-functionality-limitations)
 
 ## Enable access to the dashboard
@@ -86,6 +87,7 @@ The following metrics are displayed on this chart:
 +  **Disconnected in flow:** The count of flows that started running within the specified start time and end time and ended with a contact reaching a disconnect terminal block 
 +  **Avg duration – transferred to queue:** The average flow duration for the specified start time and end time of selected flows where the flow outcome is transferred to queue. 
 +  **Avg duration – disconnected:** The average flow duration for the specified start time and end time of selected flows where the flow outcome is disconnected participant. 
++  **Evaluated self-service resolution rate:** The average self-service resolution score across all evaluated contacts, expressed as a percentage. This score is generated when you use an evaluation form with business outcome questions. For more information, see [Create an evaluation form](create-evaluation-forms.md). 
 
 ## Comparison to prior period charts
 <a name="flows-dashboard-comparison-to-prior-period-charts"></a>
@@ -198,6 +200,31 @@ The following metrics are displayed on these tables:
 +  **Flow / flow module starts: **The count of flows that started execution within the specified start time and end time. For a given start and end time it will show the count of those flows whose start time is between the start and end interval specified. 
 +  **Flow outcomes:** The count of flows that started execution within the specified start time and end time and ended with a specified mutually exclusive and exhaustive flow outcome. 
 +  **Avg Flow Durations by outcome:** The average flow duration for the specified start time and end time with a specified mutually exclusive and exhaustive flow outcome.  
+
+## Customer segment filters and groupings
+<a name="flows-performance-dashboard-customer-segments"></a>
+
+You can group and filter by customer segment on widgets that use metrics that are associated with individual contacts. Two segment groupings and filters are available:
++ **Lifetime value**: Group or filter contacts by the customer's lifetime value tier: High lifetime value, Medium lifetime value, or Low lifetime value.
++ **Repeat caller**: Group or filter contacts by repeat caller status.
+
+The following images show the **Lifetime value** and **Repeat caller** filters.
+
+![The Lifetime value filter with High, Low, and Medium lifetime value options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/lifetime-value-filter.png)
+
+
+![The Repeat caller filter with Repeat caller and Non-repeat caller options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/repeat-caller-filter.png)
+
+
+The following image shows **Lifetime value** and **Repeat caller** in the list of groupings in the **Edit** pane.
+
+![The grouping list in the Edit pane that includes Lifetime value and Repeat caller.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segment-grouping.png)
+
+
+These segments are default segments in Customer Profiles. For more information, see [Default segments](https://docs.aws.amazon.com/connect/latest/adminguide/customerprofiles-default-segments.html).
+
+**Note**  
+To use the **Lifetime value** and **Repeat caller** filters and groupings, users must have the **Customer segments - View** permission enabled in their security profile. For more information, see [List of security profile permissions](security-profile-list.md#customerprofiles-permissions-list).
 
 ## Dashboard functionality limitations
 <a name="dashboard-functionality-limitations"></a>

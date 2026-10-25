@@ -214,6 +214,7 @@ Standard object identifiers can be combined with `PROFILE` and `UNIQUE` as neede
 + [Object type mapping for the standard loyalty](object-type-mapping-standard-loyalty.md)
 + [Object type mapping for the standard loyalty transaction](object-type-mapping-standard-loyalty-transaction.md)
 + [Object type mapping for the standard loyalty promotion](object-type-mapping-standard-loyalty-promotion.md)
++ [Object type mapping for the standard contact](object-type-mapping-standard-contact.md)
 + [Object type mapping for the standard web analytics](standard-loyalty-promotion-object-mapping-web-analytics.md)
 + [Object type mapping for Item Catalog](standard-loyalty-promotion-object-mapping-item-catalog.md)
 + [Object type mapping for the standard hotel stay revenue](object-type-mapping-standard-hotel-stay-revenue.md)

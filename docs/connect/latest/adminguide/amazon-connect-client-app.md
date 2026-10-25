@@ -18,9 +18,9 @@ To use [Rule-based redaction for screen recordings](rule-based-redaction-screen-
 
 ### Version information
 <a name="version-info"></a>
-+ Version: v3.0.4 (latest)
-+ Release date: August 13, 2026
-+ Download link: [AmazonConnectClientWin-v3.0.4](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.4.zip) 
++ Version: v3.0.5 (latest)
++ Release date: October 21, 2026
++ Download link: [AmazonConnectClientWin-v3.0.5](https://d4yqf2f7seiym.cloudfront.net/builds/AmazonConnectClientWin-v3.0.5.zip) 
 + Release note: For more information, see [Release notes](release-notes.md).
 
 The above link downloads the **AmazonConnectClientWin-[version].zip** file. The zip file contains the **Amazon.Connect.Client.Service.Setup.[version].msi** file. For installation instructions, see [Client installation instructions](#client-install).

@@ -7,7 +7,7 @@ Create additional layouts to design new dashboard configurations without affecti
 
 1. On the **Profile layouts** page, choose **Create layout**.
 
-1. Use the layout editor to name your layout, add and arrange widgets, and organize tabs. For more information about editing a layout, see [Get started with Connect Customer Customer Profiles Profile Explorer](getting-started-profile-explorer.md).
+1. Use the layout editor to name your layout, add and arrange widgets, and organize tabs. For more information about editing a layout, see [Get started with Profile Explorer](getting-started-profile-explorer.md).
 
 1. When you're ready to save, choose **Save layout**.
 

@@ -297,7 +297,7 @@ Forecasting & agent scheduling are machine learning (ML)–powered features that
 
   Forecast data is displayed in graphs, as shown in the following image.  
 ![Forecasts in a graph.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-forecasting-inspect.png)
-+  [Capacity planning](capacity-planning.md): A capacity plan helps you estimate the long-term FTE (full-time equivalent) requirements for your contact center, up to 18 months. It specifies how many FTE agents are required to meet the service level target for a certain period of time.
++  [Capacity planning](capacity-planning.md): A capacity plan helps you estimate the long-term FTE (full-time equivalent) requirements for your contact center, up to 64 weeks in the future. It shows how many FTE agents you need to meet your service level target for a given period.
 
   The following image shows the plan output. It shows a week-by-week or month-by-month calculation. To switch from weekly to monthly view, select **Monthly** from the dropdown.   
 ![The Plan Outputs section of the capacity plan, the time frame dropdown menu.](https://docs.aws.amazon.com/connect/latest/adminguide/images/wfm-capacity-planning-output3.png)

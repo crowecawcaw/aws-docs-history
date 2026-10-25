@@ -1,19 +1,19 @@
 
 
-# Save your explorer layout
+# Save a layout
 <a name="saving-explorer-layout"></a>
 
-How to save and manage your Profile explorer layout configurations.
+How to save and manage your Profile Explorer layout configurations.
 
 ## Layout persistence
 <a name="layout-persistence"></a>
 
-Changes made to your Profile explorer layout must be saved to persist. Unsaved changes will be lost when navigating away from the page or refreshing your browser.
+Changes made to your Profile Explorer layout must be saved to persist. Unsaved changes will be lost when navigating away from the page or refreshing your browser.
 
 ## Default layout
 <a name="default-layout"></a>
 
-Each Profile explorer implementation includes one default layout. This serves as the base configuration for your organization and can be modified as needed.
+Each Profile Explorer implementation includes one default layout. This serves as the base configuration for your organization and can be modified as needed.
 
 ## Save changes
 <a name="saving-changes"></a>
@@ -30,4 +30,4 @@ To save layout modifications:
 
 
 **Note**  
-The appropriate permissions are needed to save layout changes. For information about required permissions, see [Enable Profile explorer](enabling-profile-explorer.md).
+The appropriate permissions are needed to save layout changes. For information about required permissions, see [Enable Profile Explorer](enabling-profile-explorer.md).

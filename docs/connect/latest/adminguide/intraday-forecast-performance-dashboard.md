@@ -4,8 +4,9 @@
 <a name="intraday-forecast-performance-dashboard"></a>
 
 The Intraday forecast performance dashboard provides forecasts for:
-+ [Contact volume](metrics-definitions.md#contact-volume) and [Average handle time](metrics-definitions.md#average-handle-time) for queues that have a minimum of 2000 unique contacts per week per queue-channel for the last 4 weeks. This is evaluated every day for the trailing time period. 
-+  [Average queue answer time](metrics-definitions.md#average-queue-answer-time) for queues that have 5000 unique contacts per month with the same evaluation timing.
++ [Contact volume](metrics-definitions.md#contact-volume) and [Average handle time](metrics-definitions.md#average-handle-time) for queues that have a minimum of 2000 unique contacts per week per queue-channel for the last 5 weeks. This is evaluated every day for the trailing time period. 
++ [Effective staffing](metrics-definitions.md#effective-staffing) for queues that have a minimum of 2000 agent-handled unique contacts per week per queue-channel for the last 5 weeks and at least 2 weeks of agent-staffing history. This is evaluated every day for the trailing time period.
++  [Average queue answer time](metrics-definitions.md#average-queue-answer-time) for queues that have a minimum of 2000 agent-handled unique contacts per week per queue-channel and agent-staffing history for the last 5 weeks, with the same evaluation timing.
 
 **Topics**
 + [Enable access to the dashboard](#intraday-forecast-performance-dashboard-enable-access)

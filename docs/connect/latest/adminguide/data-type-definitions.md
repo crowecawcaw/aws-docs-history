@@ -16,6 +16,7 @@ If you are unable to access the scheduling tables by using Option 1, try using O
 + [Agent data in the Connect Customer data lake](data-lake-agent-data.md)
 + [Contact data in the Connect Customer data lake](data-lake-contact-data.md)
 + [Contact analytics data in the Connect Customer data lake](data-lake-contact-analytics-data.md)
++ [Customer profiles contact data in the Connect Customer data lake](data-lake-customer-profiles-contact-data.md)
 + [AI agent data in the Connect Customer data lake](data-lake-ai-agent-data.md)
 + [Flow data in the Connect Customer data lake](data-lake-flow-data.md)
 + [Bot analytics data in the Connect Customer analytics data lake](data-lake-botdata.md)

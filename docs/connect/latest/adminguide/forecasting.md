@@ -8,7 +8,12 @@ Forecasting is the starting point for any scheduling and capacity planning activ
 A *forecast* attempts to predict future contact volume and average handle time. Connect Customer uses historical metrics to create the forecast. 
 + **Short-term forecasts are automatically updated daily**. When you come into work, you can review the forecast that was updated overnight with the most current data. You can publish the forecast to make it available to schedulers whenever you want. The **Forecasting** page displays when a forecast was last updated and published. Use short-term forecasts for scheduling up to 18 weeks ahead.
 + **Long-term forecasts are automatically updated every week, based on the day you created the forecast**. For example, if you created the forecast on a Monday, it is updated every Monday. Use long-term forecasts for capacity planning up to 64 weeks ahead.
-+ **Intraday forecasts are updated every 15 minutes**. Intraday forecasts are generated for queues that have a minimum of 5000 unique contacts per week, per queue-channel for last 4 weeks. If less data than that is available, intraday forecasts are not available for those queues. For more information about intraday forecasts, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md).
++ **Intraday forecasts are updated every 15 minutes**. Intraday forecasts are generated for queues that meet the following requirements:
+  + [Contact volume](metrics-definitions.md#contact-volume) and [Average handle time](metrics-definitions.md#average-handle-time): A minimum of 2000 unique contacts per week per queue-channel for the last 5 weeks.
+  + [Effective staffing](metrics-definitions.md#effective-staffing): A minimum of 2000 agent-handled unique contacts per week per queue-channel for the last 5 weeks, and at least 2 weeks of agent-staffing history.
+  + [Average queue answer time](metrics-definitions.md#average-queue-answer-time): A minimum of 2000 agent-handled unique contacts per week per queue-channel and agent-staffing history for the last 5 weeks.
+
+  If less data is available, intraday forecasts are not available for those queues. For more information about intraday forecasts, see [Intraday forecast performance dashboard](intraday-forecast-performance-dashboard.md).
 
 **Note**  
 When a short-term or long-term forecast is created for the first time, it is typically computed and made available within 4 hours. In many cases, the forecast is ready in approximately 1 hour. Any changes to the forecast group configuration—such as importing historical data, adding queues, or removing queues— also automatically triggers a forecast recomputation within the same timeframe.

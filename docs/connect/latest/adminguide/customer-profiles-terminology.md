@@ -37,7 +37,7 @@ A *key* is a named combination of one or more fields used to find profiles or ob
 A *standard identifier* is a tag applied to a key that defines its role during ingestion—for example, `UNIQUE` (identifies the object instance), `PROFILE` (used to match a profile), or `LOOKUP_ONLY` (used to match but not stored). For the full list and combination rules, see [Standard identifiers in Customer Profiles](standard-identifiers.md).
 
 **Content type**  
-A *content type* tells Customer Profiles how to normalize a field value so searches and matches work across formats. Supported values are `STRING`, `NUMBER`, `PHONE_NUMBER`, `EMAIL_ADDRESS`, and `NAME`. For example, a `PHONE_NUMBER` field is normalized so `+15551234567` matches `(555)-123-4567`.
+A *content type* tells Customer Profiles how to normalize a field value so searches and matches work across formats. Supported values are `STRING`, `NUMBER`, `PHONE_NUMBER`, `EMAIL_ADDRESS`, and `NAME`. For example, a `PHONE_NUMBER` field is normalized so `+12065550100` matches `(206) 555-0100`.
 
 **Inferred profile**  
 An *inferred profile* is a profile that Customer Profiles creates automatically when an ingested object can't be matched to any existing profile. Its standard profile object starts mostly empty—only fields Customer Profiles can populate from the ingested object (such as phone or email) are filled in. For more information, see [Profile matching and inferred profiles in Customer Profiles](profile-matching.md).

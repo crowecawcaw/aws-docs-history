@@ -46,8 +46,6 @@ For example payloads, see [INIT\_SESSION](https://docs.aws.amazon.com/connect/la
 
 How often Connect Customer opens a connection depends on the mode and the channel. Your server must handle a new `INIT_SESSION` on each new connection. The following table summarizes the behavior.
 
-
-**Connection behavior by mode and channel**  
 <a name="a2a-external-server-connections-table"></a>
 <table>
 <thead>
@@ -65,8 +63,6 @@ Persistent connections apply only to talk to the customer sessions over WebSocke
 
 Over HTTPS, no socket stays open between messages. Connect Customer sends each step as a separate `SendMessage` request. The following table shows the request flow for each mode.
 
-
-**HTTPS request flow by mode**  
 
 | Mode | What Connect Customer sends | What your server returns | 
 | --- | --- | --- | 
@@ -149,18 +145,12 @@ For the error levels, codes, and fields, see [Errors](https://docs.aws.amazon.co
 
 **Reconnects.** In talk to the customer mode on voice contacts over WebSocket, with text or audio streaming, Connect Customer handles a dropped connection as follows. The reconnect attempt gets the same upgrade retry as any other connection attempt.
 
-If the WebSocket connection drops during the session, Connect Customer tries to reconnect once before the collaboration fails. Connect Customer reconnects when the connection closes with one of the codes in the following table. It also reconnects when the socket fails with no close frame.
-
-
-**WebSocket close codes that trigger a reconnect**  
-
-| Code | Meaning | 
-| --- | --- | 
-| 1005 | No Status Received | 
-| 1006 | Abnormal Closure | 
-| 1012 | Service Restart | 
-| 1013 | Try Again Later | 
-| 1014 | Bad Gateway | 
+If the WebSocket connection drops during the session, Connect Customer tries to reconnect once before the collaboration fails. Connect Customer also reconnects when the socket fails with no close frame, or when the connection closes with one of the following codes:
++ `1005` – No Status Received
++ `1006` – Abnormal Closure
++ `1012` – Service Restart
++ `1013` – Try Again Later
++ `1014` – Bad Gateway
 
 Any other close code, including `1000` (Normal Closure), ends the collaboration without a reconnect. Don't close the connection mid-session to end a conversation. Send `FINISH` instead. For more information, see [Finishing a collaboration](#a2a-external-server-finishing). If you must restart your server during a deployment, close the persistent voice connection with `1012` so that Connect Customer reconnects.
 

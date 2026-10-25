@@ -5,7 +5,7 @@
 
 Create tailored dashboard components from the ground up to meet your specific business needs. With custom widgets, you can build unique visualizations without any predefined data.
 
-![Add customer widgets in the Profile explorer layout.](https://docs.aws.amazon.com/connect/latest/adminguide/images/custom-widgets-1.png)
+![Add customer widgets in the Profile Explorer layout.](https://docs.aws.amazon.com/connect/latest/adminguide/images/custom-widgets-1.png)
 
 
 ## Available custom components

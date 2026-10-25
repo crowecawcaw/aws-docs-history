@@ -20,6 +20,7 @@ The dashboard provides a single place to view aggregated agent performance. Use 
 + [Agent performance metrics table](#agent-perf-metrics-table)
 + [Evaluations performed by evaluator](#evaluations-performed-by-evaluator-table)
 + [Agent hierarchy evaluation metrics](#agent-hierarchy-evaluation-metrics-table)
++ [Customer segment filters and groupings](#agent-performance-evaluation-dashboard-customer-segments)
 
 ## Enable access to the dashboard
 <a name="enable-agent-performance-evaluations-dashboard"></a>
@@ -111,6 +112,8 @@ The following image shows an example **Agent performance overview** chart.
 ![The Agent performance overview chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-performance-dashboard1.png)
 
 
+The **Agent evaluation performance overview** chart includes **Evaluated CSAT percent**, **Evaluated churn propensity rate**, and **Evaluated successful sale rate** when you use evaluation forms with business outcome questions. For more information, see [Create an evaluation form](create-evaluation-forms.md).
+
 The following image of the **Agent evaluation performance overview** chart shows the **Avg evaluation score** decreased from 67.58% to 48.72%.
 
 ![The Agent evaluation performance overview chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/agent-performance-dashboard2.png)
@@ -120,6 +123,8 @@ The following image of the **Agent evaluation performance overview** chart shows
 <a name="evaluation-scorecard-dashboard"></a>
 
 This chart provides a drill-down of the aggregated evaluation score from form to section to questions. 
+
+Business outcome evaluation scores appear in the evaluation scorecard when the evaluation form includes business outcome questions.
 
 For example, you can select your team in the agent hierarchy and view how the team is performing overall. You can identify what evaluation questions they need to improve on by sorting questions using **Avg evaluation score** column. 
 
@@ -157,6 +162,8 @@ You can view the average evaluation score for each of your agents. For example, 
 You can drill-down into agents to view their score across the different evaluation forms and can also filter the table for a particular evaluation form or evaluation source (that is, automated, manual, and more). 
 
 The table provides evaluations performed so you can assess if the agent has received enough evaluations for the **Avg. evaluation score** to be representative of their performance. You can also check if the agent received any automatic fails on their performance evaluations.
+
+The table also displays **Evaluated CSAT percent**, **Evaluated churn propensity rate**, and **Evaluated successful sale rate** as columns, grouped by agent and evaluation form.
 
 You can set custom thresholds that you can use to get an at-a-glance view of agents that are below the desirable threshold for their average evaluation score. For more information, see [Modify thresholds for summary widgets and tables](dashboard-customize-widgets.md#dashboard-thresholds). 
 
@@ -236,3 +243,28 @@ On this table, you can drill-down into avg. evaluation score and evaluations per
 
 
 To add this widget on the agent performance evaluation dashboard or another dashboard, choose **Add widget** and select it under **Performance evaluation**. 
+
+## Customer segment filters and groupings
+<a name="agent-performance-evaluation-dashboard-customer-segments"></a>
+
+You can group and filter by customer segment on widgets that use metrics that are associated with individual contacts. Two segment groupings and filters are available:
++ **Lifetime value**: Group or filter contacts by the customer's lifetime value tier: High lifetime value, Medium lifetime value, or Low lifetime value.
++ **Repeat caller**: Group or filter contacts by repeat caller status.
+
+The following images show the **Lifetime value** and **Repeat caller** filters.
+
+![The Lifetime value filter with High, Low, and Medium lifetime value options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/lifetime-value-filter.png)
+
+
+![The Repeat caller filter with Repeat caller and Non-repeat caller options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/repeat-caller-filter.png)
+
+
+The following image shows **Lifetime value** and **Repeat caller** in the list of groupings in the **Edit** pane.
+
+![The grouping list in the Edit pane that includes Lifetime value and Repeat caller.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segment-grouping.png)
+
+
+These segments are default segments in Customer Profiles. For more information, see [Default segments](https://docs.aws.amazon.com/connect/latest/adminguide/customerprofiles-default-segments.html).
+
+**Note**  
+To use the **Lifetime value** and **Repeat caller** filters and groupings, users must have the **Customer segments - View** permission enabled in their security profile. For more information, see [List of security profile permissions](security-profile-list.md#customerprofiles-permissions-list).

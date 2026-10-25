@@ -3,9 +3,9 @@
 # Contact record templates in Connect Customer Customer Profiles
 <a name="ctr-contact-record-template"></a>
 
-A contact record is a profile object that captures essential metadata from contact events, such as phone calls or chats. Connect Customer Customer Profiles uses contact records to document and analyze your interactions with customers.
+A contact record is a profile object that captures contact trace record (CTR) data from contacts, such as phone calls or chats. Connect Customer Customer Profiles uses contact records to document and analyze your interactions with customers.
 
-Contact records are ingested automatically by the Connect Customer integration when a contact event ends. The contact event's identifier is provided as the `_ctrContactId` key. Because ingestion happens after the contact ends, profile association isn't visible during the live interaction—it appears after the contact record has been processed.
+The Connect Customer integration automatically ingests contact records and provides the contact event's identifier as the `_ctrContactId` key. Ingestion happens after the contact ends, and you can't view the profile association during the live interaction—it appears only after the contact record has been processed.
 
 **Note**  
 **Assign a contact record to a specific profile**  

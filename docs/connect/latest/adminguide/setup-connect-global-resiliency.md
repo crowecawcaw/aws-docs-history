@@ -32,6 +32,7 @@ Global routing, analytics, and contact search are enabled by default for all new
 + [Get started with Connect Customer Global Resiliency](get-started-connect-global-resiliency.md)
 + [Manage traffic distribution groups using Connect Customer APIs](manage-traffic-distribution-groups.md)
 + [Manage phone numbers across Regions using Connect Customer APIs](manage-phone-numbers-across-regions.md)
-+ [Manage chat in your Connect Customer instance across Regions](manage-chat-across-regions.md)
++ [Global Resiliency for chat](global-resiliency-for-chat.md)
 + [Global routing across ACGR Regions](global-routing-across-acgr-regions.md)
++ [View your resiliency readiness in Connect Customer Global Resiliency](global-resiliency-readiness-overview.md)
 + [Metrics, Reports and Search across ACGR Regions](metrics-reports-and-search-across-acgr-regions.md)

@@ -1019,27 +1019,6 @@ For UIFN numbers, supports standard [Regions and requirements](#uifn-requirement
 | --- | --- | 
 | Monday–Friday 10:00–12:00 CET | 1.  Last invoice <br />2.  Letter of Authorization (LOA): When you request porting services, we will provide you with a country-specific LOA template and explain how to complete it.  <br />3.  You must provide the account number from the Main Losing Carrier to which the requested DID is assigned. <br />4.  Documents required for the Type of Number, as listed in the previous table for ordering phone numbers    | 
 
-## Macao (MO)
-<a name="mo-requirements"></a>
-
-### For ordering phone numbers
-<a name="mo-ordering"></a>
-
-
-
-| Type of Number | Are there ID requirements? | Acceptable Identification | 
-| --- | --- | --- | 
-| UIFN | Yes | Your business name, address and service usage description. A global address is acceptable.  | 
-
-### Number portability
-<a name="mo-porting"></a>
-
-
-
-| Portability windows | Required Documents | 
-| --- | --- | 
-| Preset UIFN times only | Service Provider Change Authorization and Designation of Agency provided by Amazon  | 
-
 ## North Macedonia (MK)
 <a name="mk-requirements"></a>
 

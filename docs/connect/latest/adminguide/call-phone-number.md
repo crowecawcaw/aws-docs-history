@@ -9,6 +9,9 @@ This topic defines the flow block for the call phone number used for voice inter
 <a name="call-phone-number-description"></a>
 + Use this block to set the caller ID number for an outbound call in an **Outbound Whisper** flow.
 
+**Important**  
+To display a custom caller ID, the [Call phone number](#call-phone-number) block must run before any block that plays audio, such as **Play prompt**. This includes audio blocks inside a module run by **Invoke module**. When the outbound whisper flow reaches its first audio block, Connect Customer places the call. If the flow hasn't set the caller ID yet, the call uses the queue's **Outbound caller ID number**, and Connect Customer returns no error.
+
 ## Supported channels
 <a name="call-phone-number-channels"></a>
 

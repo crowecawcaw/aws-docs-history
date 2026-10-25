@@ -17,5 +17,6 @@ Customer segments only contain customer profiles in your Connect Customer Custom
 + [Create segments from imported files in Connect Customer](customer-segments-imported-files.md)
 + [Export customer segments to a CSV file in Connect Customer](customer-segments-exporting-segments.md)
 + [Track segment membership changes in Connect Customer](customer-segments-membership-events.md)
++ [Default segments in Connect Customer](customerprofiles-default-segments.md)
 + [Use the segment AI assistant in Connect Customer](customer-segments-ai-assistant.md)
 + [Troubleshooting customer segments in Connect Customer](customer-segments-troubleshooting.md)

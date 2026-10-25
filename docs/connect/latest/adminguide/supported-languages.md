@@ -52,7 +52,7 @@ The following table lists the languages supported by AI features in Connect Cust
 | Estonian (Estonia) | et\_ET | ✓\* |  |  | ✓\* |  | ✓\* |  |  |  |  | ✓\* | 
 | Farsi (Iran) | fa\_IR | ✓\* |  |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
 | Finnish (Finland) | fi\_FI | ✓\* | ✓\* |  | ✓\* | ✓\* | ✓\* |  |  |  |  | ✓\* | 
-| French (Belgium) | fr\_BE | ✓\* |  | ✓ |  |  |  |  |  |  |  |  | 
+| French (Belgium) | fr\_BE | ✓\* | ✓\* | ✓ |  |  |  |  |  |  |  |  | 
 | French (Canada) | fr\_CA | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | French (France) | fr\_FR | ✓\* | ✓\* | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | 
 | Gaelic (Ireland) | ga\_IE | ✓\* |  |  |  |  |  |  |  |  |  |  | 

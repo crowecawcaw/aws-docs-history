@@ -21,6 +21,7 @@ Standard identifiers are tags applied to a key that describe its role during ing
 | LOYALTY, LOYALTY\_TRANSACTION, LOYALTY\_PROMOTION | Associates the object with a loyalty record, transaction, or promotion. | 
 | DEVICE | Associates the object with a device record. | 
 | WEB\_ANALYTICS | Associates the object with a web analytics event. | 
+| CONTACT | Associates the object with a standard contact record. During ingestion, Customer Profiles looks for a contact record that has this key. If one is found, the object is assigned to it. If more than one is found, the match is rejected. | 
 
 ## PROFILE, SECONDARY, and LOOKUP\_ONLY compared
 <a name="compare-matching-identifiers"></a>

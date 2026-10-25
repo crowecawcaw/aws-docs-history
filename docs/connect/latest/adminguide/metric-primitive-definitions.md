@@ -487,6 +487,61 @@ This metric counts the number of agents who are currently online in the contact 
 
 **Supported Statistics:** SUM
 
+## Evaluated churn contacts
+<a name="evaluated-churn-contacts-definition"></a>
+
+Count of contacts evaluated as showing churn propensity. A score of 1 means the evaluation identified churn risk; a score of 0 means no churn risk was identified. For churn propensity, a score of 0 is the favorable outcome. For more information about creating evaluation forms, see [Create an evaluation form in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html).
+
+**Metric Primitive Name:** `Evaluated churn contacts`
+
+**Metric Primitive Category:** GenAI Evaluation
+
+**Supported Statistics:** AVG and SUM
+
+## Evaluated CSAT score
+<a name="evaluated-csat-score-definition"></a>
+
+Customer satisfaction score produced by contact evaluation. When you create an evaluation form with business outcome questions, each evaluated contact receives a CSAT score on a 1 to 5 scale. For more information about creating evaluation forms, see [Create an evaluation form in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html).
+
+**Metric Primitive Name:** `Evaluated CSAT score`
+
+**Metric Primitive Category:** GenAI Evaluation
+
+**Supported Statistics:** SUM, AVG, MIN, and MAX
+
+## Evaluated sale
+<a name="evaluated-sale-definition"></a>
+
+Count of contacts evaluated as resulting in a sale. A score of 1 means a successful sale was identified; a score of 0 means no sale was identified. For more information about creating evaluation forms, see [Create an evaluation form in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html).
+
+**Metric Primitive Name:** `Evaluated sale`
+
+**Metric Primitive Category:** GenAI Evaluation
+
+**Supported Statistics:** AVG and SUM
+
+## Evaluated self-service success
+<a name="evaluated-self-service-success-definition"></a>
+
+Count of self-service evaluations where the customer fully self-served. A score of 1 means the customer fully resolved their issue without agent assistance; a score of 0 means they did not. For more information about performance evaluations for automated interactions, see [Performance evaluations for automated interactions](https://docs.aws.amazon.com/connect/latest/adminguide/performance-evaluations-automated-interactions.html) and [Generative AI performance evaluations](https://docs.aws.amazon.com/connect/latest/adminguide/generative-ai-performance-evaluations.html). For more information about creating evaluation forms, see [Create an evaluation form in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html).
+
+**Metric Primitive Name:** `Evaluated self-service success`
+
+**Metric Primitive Category:** GenAI Evaluation
+
+**Supported Statistics:** AVG and SUM
+
+## Evaluated partial self-service success
+<a name="evaluated-partial-self-service-success-definition"></a>
+
+Count of self-service evaluations where the customer partially self-served. A score of 1 means the customer partially resolved their issue before agent assistance; a score of 0 means they did not. For more information about performance evaluations for automated interactions, see [Performance evaluations for automated interactions](https://docs.aws.amazon.com/connect/latest/adminguide/performance-evaluations-automated-interactions.html). For more information about creating evaluation forms, see [Create an evaluation form in Connect Customer](https://docs.aws.amazon.com/connect/latest/adminguide/create-evaluation-forms.html).
+
+**Metric Primitive Name:** `Evaluated partial self-service success`
+
+**Metric Primitive Category:** GenAI Evaluation
+
+**Supported Statistics:** AVG and SUM
+
 ## Flows Started
 <a name="flows-started-definition"></a>
 
@@ -637,6 +692,10 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Metric Level Filter Key:** Invoking resource type / **Metric Level Filter Key Description:** Indicates the type of resource that invoked the bot. / **Metric Level Filter Values:** Flow, Module
   - **Metric Level Filter Key:** Channel / **Metric Level Filter Key Description:** How the contact reached your contact center. / **Metric Level Filter Values:** Valid values: Voice, Chat, Task, Email
 
+- ** GenAI Evaluation **
+  - **Metric Level Filter Key:** Channel / **Metric Level Filter Key Description:** How the contact reached your contact center. / **Metric Level Filter Values:** Valid values: Voice, Chat, Task, Email
+  - **Metric Level Filter Key:** Metric score / **Metric Level Filter Key Description:** The raw score value from the business outcome evaluation question. / **Metric Level Filter Values:** For CSAT: 1, 2, 3, 4, 5. For all others: 0, 1
+
 
 
 ## Groupings supported per metric primitive category
@@ -659,6 +718,8 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Grouping Key:** ROUTING\_PROFILE / **Grouping Dashboard Display Name:** Routing profile
   - **Grouping Key:** contact/segmentAttributes/connect:Subtype / **Grouping Dashboard Display Name:** Subtype
   - **Grouping Key:** contact/segmentAttributes/connect:ValidationTestType / **Grouping Dashboard Display Name:** Contact source
+  - **Grouping Key:** LIFETIME\_VALUE / **Grouping Dashboard Display Name:** Lifetime value
+  - **Grouping Key:** REPEAT\_CALLER / **Grouping Dashboard Display Name:** Repeat caller
 
 - ** Agent **
   - **Grouping Key:** AGENT / **Grouping Dashboard Display Name:** Agent
@@ -694,6 +755,8 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Grouping Key:** FLOWS\_NEXT\_RESOURCE\_TYPE / **Grouping Dashboard Display Name:** Only available through API
   - **Grouping Key:** FLOWS\_OUTCOME\_TYPE / **Grouping Dashboard Display Name:** Only available through API
   - **Grouping Key:** FLOWS\_NEXT\_RESOURCE\_QUEUE\_ID / **Grouping Dashboard Display Name:** Only available through API
+  - **Grouping Key:** LIFETIME\_VALUE / **Grouping Dashboard Display Name:** Lifetime value
+  - **Grouping Key:** REPEAT\_CALLER / **Grouping Dashboard Display Name:** Repeat caller
 
 - ** Bot **
   - **Grouping Key:** CHANNEL / **Grouping Dashboard Display Name:** Channel
@@ -709,6 +772,26 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Grouping Key:** INVOKING\_RESOURCE\_PUBLISHED\_TIMESTAMP / **Grouping Dashboard Display Name:** Only available through API
   - **Grouping Key:** PARENT\_FLOWS\_RESOURCE\_ID / **Grouping Dashboard Display Name:** Only available through API
   - **Grouping Key:** INVOKING\_RESOURCE\_TYPE / **Grouping Dashboard Display Name:** Only available through API
+  - **Grouping Key:** LIFETIME\_VALUE / **Grouping Dashboard Display Name:** Lifetime value
+  - **Grouping Key:** REPEAT\_CALLER / **Grouping Dashboard Display Name:** Repeat caller
+
+- ** GenAI Evaluation **
+  - **Grouping Key:** AGENT / **Grouping Dashboard Display Name:** Agent
+  - **Grouping Key:** AGENT\_HIERARCHY\_LEVEL\_ONE / **Grouping Dashboard Display Name:** Agent hierarchy level one
+  - **Grouping Key:** AGENT\_HIERARCHY\_LEVEL\_TWO / **Grouping Dashboard Display Name:** Agent hierarchy level two
+  - **Grouping Key:** AGENT\_HIERARCHY\_LEVEL\_THREE / **Grouping Dashboard Display Name:** Agent hierarchy level three
+  - **Grouping Key:** AGENT\_HIERARCHY\_LEVEL\_FOUR / **Grouping Dashboard Display Name:** Agent hierarchy level four
+  - **Grouping Key:** AGENT\_HIERARCHY\_LEVEL\_FIVE / **Grouping Dashboard Display Name:** Agent hierarchy level five
+  - **Grouping Key:** CHANNEL / **Grouping Dashboard Display Name:** Channel
+  - **Grouping Key:** EVALUATION\_FORM / **Grouping Dashboard Display Name:** Evaluation form
+  - **Grouping Key:** EVALUATION\_QUESTION / **Grouping Dashboard Display Name:** Evaluation question
+  - **Grouping Key:** EVALUATION\_SECTION / **Grouping Dashboard Display Name:** Evaluation section
+  - **Grouping Key:** EVALUATION\_SOURCE / **Grouping Dashboard Display Name:** Evaluation source
+  - **Grouping Key:** EVALUATOR\_ID / **Grouping Dashboard Display Name:** Evaluator
+  - **Grouping Key:** LIFETIME\_VALUE / **Grouping Dashboard Display Name:** Lifetime value
+  - **Grouping Key:** QUEUE / **Grouping Dashboard Display Name:** Queue
+  - **Grouping Key:** REPEAT\_CALLER / **Grouping Dashboard Display Name:** Repeat caller
+  - **Grouping Key:** ROUTING\_PROFILE / **Grouping Dashboard Display Name:** Routing profile
 
 
 
@@ -734,6 +817,8 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Top Level Filter Key:** contact/segmentAttributes/connect:ValidationTestType / **Top Level Filter Dashboard Display Name:** Contact source / **Filter Key Description:** For valid values, see the **connect:ValidationTestType** table row in the [SegmentAttributes](https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#attribs-segment-attributes) section. 
   - **Top Level Filter Key:** User defined attribute key  / **Top Level Filter Dashboard Display Name:** User defined attribute key / **Filter Key Description:** Navigate to the [predefined attributes page](https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html) for the user defined attribute to understand what values are available. 
   - **Top Level Filter Key:** FEATURE / **Top Level Filter Dashboard Display Name:** N/A / **Filter Key Description:** Identifies if conversational analytics is enabled on the flow.contact\_lens\_conversational\_analytics is the only valid value
+  - **Top Level Filter Key:** LIFETIME\_VALUE / **Top Level Filter Dashboard Display Name:** Lifetime value / **Filter Key Description:** 
+  - **Top Level Filter Key:** REPEAT\_CALLER / **Top Level Filter Dashboard Display Name:** Repeat caller / **Filter Key Description:** 
 
 - ** Agent **
   - **Top Level Filter Key:** AGENT / **Top Level Filter Dashboard Display Name:** Agent / **Filter Key Description:** Valid input to this key is Agent ARNs
@@ -770,6 +855,8 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Top Level Filter Key:** FLOWS\_NEXT\_RESOURCE\_TYPE / **Top Level Filter Dashboard Display Name:** Only available through API / **Filter Key Description:** Type of resource the flow transitioned to.
   - **Top Level Filter Key:** FLOWS\_OUTCOME\_TYPE / **Top Level Filter Dashboard Display Name:** Only available through API / **Filter Key Description:** Indicates the terminal outcome of the flow.
   - **Top Level Filter Key:** FLOWS\_NEXT\_RESOURCE\_QUEUE\_ID / **Top Level Filter Dashboard Display Name:** Only available through API / **Filter Key Description:** ARN of the next queue resource.
+  - **Top Level Filter Key:** LIFETIME\_VALUE / **Top Level Filter Dashboard Display Name:** Lifetime value / **Filter Key Description:** 
+  - **Top Level Filter Key:** REPEAT\_CALLER / **Top Level Filter Dashboard Display Name:** Repeat caller / **Filter Key Description:** 
 
 - ** Bot **
   - **Top Level Filter Key:** CHANNEL / **Top Level Filter Dashboard Display Name:** Channel / **Filter Key Description:** Valid values: Voice, Chat, Task, Email
@@ -785,6 +872,26 @@ The turns in completed conversations for which the invoking resource (flow or fl
   - **Top Level Filter Key:** PARENT\_FLOWS\_RESOURCE\_ID / **Top Level Filter Dashboard Display Name:** Only available through API / **Filter Key Description:** ARN of the parent flow resource.
   - **Top Level Filter Key:** INVOKING\_RESOURCE\_TYPE / **Top Level Filter Dashboard Display Name:** Only available through API / **Filter Key Description:** Valid values: Flow, Module
   - **Top Level Filter Key:** INVOKING\_RESOURCE\_PUBLISHED\_TIMESTAMP / **Top Level Filter Dashboard Display Name:** Only available through API / **Filter Key Description:** Timestamp when the invoking resource was published.
+  - **Top Level Filter Key:** LIFETIME\_VALUE / **Top Level Filter Dashboard Display Name:** Lifetime value / **Filter Key Description:** 
+  - **Top Level Filter Key:** REPEAT\_CALLER / **Top Level Filter Dashboard Display Name:** Repeat caller / **Filter Key Description:** 
+
+- ** GenAI Evaluation **
+  - **Top Level Filter Key:** AGENT / **Top Level Filter Dashboard Display Name:** Agent / **Filter Key Description:** Valid input to this key is Agent ARNs
+  - **Top Level Filter Key:** AGENT\_HIERARCHY\_LEVEL\_ONE / **Top Level Filter Dashboard Display Name:** Agent hierarchy level one / **Filter Key Description:** Valid input to this filter is an Agent Hierarchy Level ARN.
+  - **Top Level Filter Key:** AGENT\_HIERARCHY\_LEVEL\_TWO / **Top Level Filter Dashboard Display Name:** Agent hierarchy level two
+  - **Top Level Filter Key:** AGENT\_HIERARCHY\_LEVEL\_THREE / **Top Level Filter Dashboard Display Name:** Agent hierarchy level three
+  - **Top Level Filter Key:** AGENT\_HIERARCHY\_LEVEL\_FOUR / **Top Level Filter Dashboard Display Name:** Agent hierarchy level four
+  - **Top Level Filter Key:** AGENT\_HIERARCHY\_LEVEL\_FIVE / **Top Level Filter Dashboard Display Name:** Agent hierarchy level five
+  - **Top Level Filter Key:** CHANNEL / **Top Level Filter Dashboard Display Name:** Channel / **Filter Key Description:** Valid values: Voice, Chat, Task, Email
+  - **Top Level Filter Key:** EVALUATION\_FORM / **Top Level Filter Dashboard Display Name:** Evaluation form / **Filter Key Description:** Valid input is Evaluation Form ARNs
+  - **Top Level Filter Key:** EVALUATION\_QUESTION / **Top Level Filter Dashboard Display Name:** Evaluation question / **Filter Key Description:** 
+  - **Top Level Filter Key:** EVALUATION\_SECTION / **Top Level Filter Dashboard Display Name:** Evaluation section / **Filter Key Description:** 
+  - **Top Level Filter Key:** EVALUATION\_SOURCE / **Top Level Filter Dashboard Display Name:** Evaluation source / **Filter Key Description:** 
+  - **Top Level Filter Key:** EVALUATOR\_ID / **Top Level Filter Dashboard Display Name:** Evaluator / **Filter Key Description:** 
+  - **Top Level Filter Key:** LIFETIME\_VALUE / **Top Level Filter Dashboard Display Name:** Lifetime value / **Filter Key Description:** 
+  - **Top Level Filter Key:** QUEUE / **Top Level Filter Dashboard Display Name:** Queue / **Filter Key Description:** Valid inputs to this key are Queue ARNs
+  - **Top Level Filter Key:** REPEAT\_CALLER / **Top Level Filter Dashboard Display Name:** Repeat caller / **Filter Key Description:** 
+  - **Top Level Filter Key:** ROUTING\_PROFILE / **Top Level Filter Dashboard Display Name:** Routing profile / **Filter Key Description:** Valid input is Routing Profile ARNs.
 
 
 

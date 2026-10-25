@@ -3,12 +3,12 @@
 # Widgets
 <a name="widgets"></a>
 
-Explore the different widget types available in Profile explorer.
+Explore the different widget types available in Profile Explorer.
 
 ## Overview
 <a name="widgets-overview"></a>
 
-Widgets in Profile explorer are composite elements built from JSON components within your layout definition. While these widgets represent complex JSON structures, our UI builder handles the technical composition automatically, making dashboard management straightforward and accessible.
+Widgets in Profile Explorer are composite elements built from JSON components within your layout definition. While these widgets represent complex JSON structures, our UI builder handles the technical composition automatically, making dashboard management straightforward and accessible.
 
 **Topics**
 + [Overview](#widgets-overview)

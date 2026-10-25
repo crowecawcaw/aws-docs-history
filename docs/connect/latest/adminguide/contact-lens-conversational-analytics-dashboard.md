@@ -22,6 +22,7 @@ Data visualizations such as **Movers and shakers** display the largest changes c
 + [Top contact categories average handle time](#contact-lens-conversational-dashboard-top-contact-categories)
 + [Contact count by queue](#contact-lens-conversational-dashboard-contact-count)
 + [Contacts handled and average handle time trend](#contact-lens-conversational-dashboard-contacts-handled)
++ [Customer segment filters and groupings](#contact-lens-conversational-dashboard-customer-segments)
 + [Dashboard functionality limitations](#contact-lens-conversational-dashboard-functionality-limitations)
 
 ## Enable access to the dashboard
@@ -126,6 +127,31 @@ For example:
 
 ![The Contacts handled and average handle time trend chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/conversational-analytics-dashboards-contacts-handled.png)
 
+
+## Customer segment filters and groupings
+<a name="contact-lens-conversational-dashboard-customer-segments"></a>
+
+You can group and filter by customer segment on widgets that use metrics that are associated with individual contacts. Two segment groupings and filters are available:
++ **Lifetime value**: Group or filter contacts by the customer's lifetime value tier: High lifetime value, Medium lifetime value, or Low lifetime value.
++ **Repeat caller**: Group or filter contacts by repeat caller status.
+
+The following images show the **Lifetime value** and **Repeat caller** filters.
+
+![The Lifetime value filter with High, Low, and Medium lifetime value options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/lifetime-value-filter.png)
+
+
+![The Repeat caller filter with Repeat caller and Non-repeat caller options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/repeat-caller-filter.png)
+
+
+The following image shows **Lifetime value** and **Repeat caller** in the list of groupings in the **Edit** pane.
+
+![The grouping list in the Edit pane that includes Lifetime value and Repeat caller.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segment-grouping.png)
+
+
+These segments are default segments in Customer Profiles. For more information, see [Default segments](https://docs.aws.amazon.com/connect/latest/adminguide/customerprofiles-default-segments.html).
+
+**Note**  
+To use the **Lifetime value** and **Repeat caller** filters and groupings, users must have the **Customer segments - View** permission enabled in their security profile. For more information, see [List of security profile permissions](security-profile-list.md#customerprofiles-permissions-list).
 
 ## Dashboard functionality limitations
 <a name="contact-lens-conversational-dashboard-functionality-limitations"></a>

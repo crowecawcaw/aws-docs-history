@@ -363,9 +363,6 @@ Your phone number is <spell>(415)</spell><break time="200ms"/><spell>5551212</sp
 + Grouped with commas: A B C, 1 2 3.
 + Slowed and enunciated: A, B, C, 1, 2, 3
 
-**Note**  
-The model treats ALL CAPS text the same as wrapping it in <spell> tags — it will be read out letter by letter. For example, "ACME BANK" would be spoken as "A-C-M-E B-A-N-K." To have the model speak it as a word, use standard capitalization: "Acme Bank."
-
 #### Emotion
 <a name="agentic-voice-tag-emotion"></a>
 

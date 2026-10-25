@@ -1,15 +1,15 @@
 
 
-# Use Connect Customer Customer Profiles
+# Customer Profiles in Connect Customer
 <a name="customer-profiles"></a>
 
 To help agents deliver more efficient and personalized customer service, you can use Connect Customer to combine information from external applications, such as Salesforce, Zendesk, ServiceNow, or other Customer relationship management (CRM) products, with contact history from Connect Customer. This creates a customer profile that has all the information agents need during customer interactions in a single place.
 
 With a single view of customer information including their product, case, and contact history, agents can quickly confirm the customer's identity and determine the reason for the call or chat.
 
-Currently, Connect Customer Customer Profiles can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center) and is pending additional certifications held by Connect Customer.
+Currently, Customer Profiles can be used in compliance with [GDPR](https://aws.amazon.com/compliance/gdpr-center) and is pending additional certifications held by Connect Customer.
 
-The following image shows the agent workspace; for the purposes of this documentation, an Connect Customer Customer Profiles image is featured. The agent workspace is designed for efficient multi-tasking, enabling simultaneous handling of calls, chats, and tasks, while providing quick access to customer profile information all within the same browser window.
+The following image shows Customer Profiles in the agent workspace. The agent workspace contains all the tools your agents need to handle calls, chats, tasks, and emails, with quick access to information from Customer Profiles.
 
 ![The customer profile tab in the agent workspace.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-profiles-concepts-intro3.png)
 

@@ -21,6 +21,7 @@ The dashboard provides a single place to view aggregated AI Agent performance. U
 + [Proactive intents trend](#proactive-intents-trend)
 + [AI prompts by invocation latency](#ai-prompts-by-invocation-latency)
 + [AI prompts by invocation success rate](#ai-prompts-by-invocation-success-rate)
++ [Customer segment filters and groupings](#ai-agent-performance-dashboard-customer-segments)
 
 ## Enable access to the dashboard
 <a name="enable-ai-agent-performance-dashboard"></a>
@@ -326,3 +327,29 @@ The AI prompts by invocation success rate chart displays the invocation success 
 The following image shows an example **AI prompts by invocation success rate** chart.
 
 ![The AI prompts by invocation success rate chart.](https://docs.aws.amazon.com/connect/latest/adminguide/images/ai-prompts-by-invocation-success-rate.png)
+
+
+## Customer segment filters and groupings
+<a name="ai-agent-performance-dashboard-customer-segments"></a>
+
+You can group and filter by customer segment on widgets that use metrics that are associated with individual contacts. Two segment groupings and filters are available:
++ **Lifetime value**: Group or filter contacts by the customer's lifetime value tier: High lifetime value, Medium lifetime value, or Low lifetime value.
++ **Repeat caller**: Group or filter contacts by repeat caller status.
+
+The following images show the **Lifetime value** and **Repeat caller** filters.
+
+![The Lifetime value filter with High, Low, and Medium lifetime value options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/lifetime-value-filter.png)
+
+
+![The Repeat caller filter with Repeat caller and Non-repeat caller options.](https://docs.aws.amazon.com/connect/latest/adminguide/images/repeat-caller-filter.png)
+
+
+The following image shows **Lifetime value** and **Repeat caller** in the list of groupings in the **Edit** pane.
+
+![The grouping list in the Edit pane that includes Lifetime value and Repeat caller.](https://docs.aws.amazon.com/connect/latest/adminguide/images/customer-segment-grouping.png)
+
+
+These segments are default segments in Customer Profiles. For more information, see [Default segments](https://docs.aws.amazon.com/connect/latest/adminguide/customerprofiles-default-segments.html).
+
+**Note**  
+To use the **Lifetime value** and **Repeat caller** filters and groupings, users must have the **Customer segments - View** permission enabled in their security profile. For more information, see [List of security profile permissions](security-profile-list.md#customerprofiles-permissions-list).

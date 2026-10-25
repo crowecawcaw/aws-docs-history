@@ -112,28 +112,33 @@ All AppIntegrations quotas are at the Account level.
 ## Connect Customer AI agents service quotas
 <a name="connect-ai-agents-quotas"></a>
 
-All Amazon Q quotas are at the Account level. 
+The following quotas apply to AI agents.
 
 **Note**  
 To request a quota adjustment, please contact [AWS Support](https://console.aws.amazon.com/support/home).
 
 
-| Item | Default quotas  | Adjustable | 
-| --- | --- | --- | 
-| Assistants | 5 | No | 
-| Knowledge bases | 10 | Yes | 
-| Assistant associations | 20 | No | 
-| Quick responses per knowledge base | 1,000 | Yes | 
-| Content per knowledge base | 5,000<br />Examples of content are frequently asked questions (FAQs), wikis, articles, and step-by-step instructions for handling different customer issues. | Yes | 
-| Maximum size per document | 5MB | Yes | 
-| Number of message (email, SMS, WhatsApp) templates per knowledge base | 200 | Yes | 
-| Number of versions per message (email, SMS, WhatsApp) template | 20 | No | 
-| Number of attachments per email message template | 10 | No | 
-| Maximum size per attachment in an email message template | 1 MB | No | 
-| Maximum number of characters in an email message template | 5,000,000 | No | 
-| Maximum number of characters in an SMS message template | 800 | No | 
-| Number of assigned routing profiles per quick response or email template | 40 | No | 
-| RateLimit for all APIs | 10 TPS except,+  DeleteQuickResponse 20 TPS <br />+  SearchQuickResponses 20 TPS <br />+  SendMessage 1-2 TPS, depending on region  | Yes | 
+| Item | Default quotas  | Adjustable | Adjustability | 
+| --- | --- | --- | --- | 
+| Assistants | 5 | No | Account Level | 
+| Knowledge bases | 10 | Yes | Account Level | 
+| Assistant associations | 20 | No | Account Level | 
+| AI agents | 100 | Yes | Account Level | 
+| AI prompts | 100 | Yes | Account Level | 
+| Quick responses per knowledge base | 1,000 | Yes | Account Level | 
+| Content per knowledge base | 5,000<br />Examples of content are frequently asked questions (FAQs), wikis, articles, and step-by-step instructions for handling different customer issues. | Yes | Account Level | 
+| Collaborators per AI agent | 5 | Yes | Account Level | 
+| Handoffs per customer turn | 10 | Yes | Account Level | 
+| Concurrent outbound third-party agent connections per instance | 5 | Yes | Resource Level | 
+| Maximum size per document | 5MB | Yes | Account Level | 
+| Number of message (email, SMS, WhatsApp) templates per knowledge base | 200 | Yes | Account Level | 
+| Number of versions per message (email, SMS, WhatsApp) template | 20 | No | Account Level | 
+| Number of attachments per email message template | 10 | No | Account Level | 
+| Maximum size per attachment in an email message template | 1 MB | No | Account Level | 
+| Maximum number of characters in an email message template | 5,000,000 | No | Account Level | 
+| Maximum number of characters in an SMS message template | 800 | No | Account Level | 
+| Number of assigned routing profiles per quick response or email template | 40 | No | Account Level | 
+| RateLimit for all APIs | 10 TPS except,+  DeleteQuickResponse 20 TPS <br />+  SearchQuickResponses 20 TPS <br />+  SendMessage 1-2 TPS, depending on region  | Yes | Account Level | 
 
 ## Connect Customer Cases service quotas
 <a name="cases-quotas"></a>

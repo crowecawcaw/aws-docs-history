@@ -27,7 +27,7 @@ Starting April 7, 2026, all newly created instances will use the new sign-in exp
 The migration to the new sign-in experience will occur in the following phases:
 + **April 7, 2026** – All newly created instances will use the new sign-in experience by default.
 + **July 7, 2026** – Instances that can already reach the new sign-in endpoints will be automatically migrated.
-+ **October 7, 2026** – All remaining instances will be migrated. Ensure your network configuration is updated before this date to maintain uninterrupted access.
++ **October 7, 2026** – Migration of all remaining instances begins and is rolled out in phases. Ensure your network configuration is updated by this date to avoid delays in migrating your instance.
 
 ## Testing instructions
 <a name="new-signin-testing"></a>

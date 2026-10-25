@@ -1,11 +1,11 @@
 
 
-# Get started with Connect Customer Customer Profiles Profile Explorer
+# Get started with Profile Explorer
 <a name="getting-started-profile-explorer"></a>
 
-Get started with Profile explorer and learn the basics of the interface.
+Get started with Profile Explorer and learn the basics of the interface.
 
 **Topics**
 + [Layout controls](layout-controls.md)
-+ [Editing your explorer layout](editing-explorer-layout.md)
-+ [Save your explorer layout](saving-explorer-layout.md)
++ [Edit a layout](editing-explorer-layout.md)
++ [Save a layout](saving-explorer-layout.md)

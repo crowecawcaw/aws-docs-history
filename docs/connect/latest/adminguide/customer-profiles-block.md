@@ -41,7 +41,7 @@ You can use this block in the following [flow types](create-contact-flow.md#cont
 
 ## Configuration tips
 <a name="customer-profiles-block-tips"></a>
-+ Before using this block, make sure Customer Profiles is enabled for your Connect Customer instance. For instructions, see [Use Connect Customer Customer Profiles](customer-profiles.md).
++ Before using this block, make sure Customer Profiles is enabled for your Connect Customer instance. For instructions, see [Customer Profiles in Connect Customer](customer-profiles.md).
 + A contact is routed down the **Error** branch in the following situations:
   + Customer Profiles is not enabled for your Connect Customer instance.
   + Request data values are not valid. The request values cannot be over 255 characters.

@@ -98,7 +98,7 @@ You can't map fields to both `_profile.PartyType` and `_profile.PartyTypeString`
 
 The supported values are `STRING`, `NUMBER`, `PHONE_NUMBER`, `EMAIL_ADDRESS`, and `NAME`. If no `ContentType` is specified, `STRING` is assumed.
 
-`ContentType` determines how the value is normalized for indexing and matching. For example, when `ContentType` is `PHONE_NUMBER`, agents can search in any format—`+15551234567` matches `(555)-123-4567`. When `ContentType` is `EMAIL_ADDRESS`, matches are case-insensitive.
+`ContentType` determines how the value is normalized for indexing and matching. For example, when `ContentType` is `PHONE_NUMBER`, agents can search in any format—`+12065550100` matches `(206) 555-0100`. When `ContentType` is `EMAIL_ADDRESS`, matches are case-insensitive.
 
 A `ContentType` on its own doesn't write anything to the standard profile—only a `Target` does. The one exception is inferred profile creation, where `EMAIL_ADDRESS` and `PHONE_NUMBER` values populate the new profile automatically. For more information, see [Profile matching and inferred profiles in Customer Profiles](profile-matching.md).
 
