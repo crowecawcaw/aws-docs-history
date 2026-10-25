@@ -20,6 +20,25 @@ Describes Amazon Athena features, improvements, and bug fixes by release date.
 ## Athena release notes for 2026
 <a name="release-notes-2026"></a>
 
+### October 19, 2026
+<a name="release-note-2026-10-19"></a>
+
+Published on October 19, 2026
+
+Amazon Athena announces the following features and improvements.
++ **Native Parquet writer for external catalogs** – Athena now uses its native Parquet writer when it writes to tables in external AWS Glue Data Catalog catalogs.
++ **Delta Lake tables in AWS Glue Data Catalog** – You can now query Delta Lake tables whose metadata is served through AWS Glue Data Catalog.
++ **Pipe characters in struct field names** – Queries on struct fields whose names contain a pipe character (`|`) now succeed. Previously, these queries could fail even when the table or view was created successfully.
++ **Writes to Amazon FSx for NetApp ONTAP** – You can now write to Amazon FSx for NetApp ONTAP Amazon S3 access points, for example with `CREATE TABLE AS SELECT` (CTAS) and `UNLOAD` queries.
+
+This release resolves the following issues:
++ Fixed an issue where `INSERT` queries on AWS Lake Formation tables failed at commit time when the Amazon S3 bucket policy denied direct access.
++ Fixed an issue where AWS Glue partition filters failed for `IS NULL` and `IS NOT NULL` predicates on timestamp values.
++ Queries that fail because their workgroup was deleted during execution are now classified as user errors.
++ Athena now returns an actionable error message when it rejects a query on an Apache Hudi table because the table contains delete blocks.
++ Setting a session property on a catalog that doesn't exist no longer causes the query to fail. Athena ignores the property.
++ Fixed an issue where some partitions could be dropped without an error when many partitions were added to an AWS Glue table at once.
+
 ### September 28, 2026
 <a name="release-note-2026-09-28"></a>
 
@@ -48,6 +67,13 @@ This release resolved the following issues:
 + Fixed a mismatch in file and product versions.
 
 To learn more, and to download the ODBC 1.x driver, release notes, and documentation, see [Athena ODBC 1.x driver](connect-with-odbc-driver-and-documentation-download-links.md).
+
+### August 17, 2026
+<a name="release-note-2026-08-17"></a>
+
+Published on August 17, 2026
+
+Amazon Athena query result reuse now supports Amazon S3 Tables when you use IAM-based authorization. For more information, see [Register S3 table bucket catalogs and query Tables from Athena](gdc-register-s3-table-bucket-cat.md).
 
 ### July 06, 2026
 <a name="release-note-2026-07-06"></a>
