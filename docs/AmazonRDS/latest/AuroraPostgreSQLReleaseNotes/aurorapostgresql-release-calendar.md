@@ -102,7 +102,7 @@ Dates with only a month and a year are approximate, and will be updated with an 
   <tr><td>15.12</td><td>20 February 2025</td><td>8 April 2025</td><td>30 November 2026</td><td></td><td></td><td></td></tr>
   <tr><td>15.10 (LTS)</td><td>21 November 2024</td><td>13 December 2024</td><td>29 February 2028</td><td></td><td></td><td></td></tr>
   <tr><td colspan="4"><b>14</b></td><td></td><td></td><td></td></tr>
-  <tr><td>14.24</td><td>13 August 2026</td><td>29 September 2026</td><td>28 February 2028</td><td></td><td></td><td></td></tr>
+  <tr><td>14.24</td><td>13 August 2026</td><td>29 September 2026</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
   <tr><td>14.23</td><td>May 2026</td><td>21 August 2026</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
   <tr><td>14.22</td><td>26 February 2026</td><td>6 April 2026</td><td>28 February 2027</td><td></td><td></td><td></td></tr>
   <tr><td>14.20</td><td>13 November 2025</td><td>18 December 2025</td><td>28 February 2027</td><td></td><td></td><td></td></tr>

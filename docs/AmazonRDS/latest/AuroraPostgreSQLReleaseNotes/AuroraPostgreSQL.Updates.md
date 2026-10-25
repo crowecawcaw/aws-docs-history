@@ -47,7 +47,14 @@ For a list of AWS Regions, see [ Aurora PostgreSQL Region availability](https://
 This release of Aurora PostgreSQL is compatible with PostgreSQL 18.6. For more information about the improvements in PostgreSQL 18.6, see [PostgreSQL release 18.6](https://www.postgresql.org/docs/18/release-18-6.html).
 
 **Topics**
++ [Aurora PostgreSQL 18.6.1, October 15, 2026](#aurorapostgresql-versions-version186x-1861)
 + [Aurora PostgreSQL 18.6, September 29, 2026](#aurorapostgresql-versions-version186x-186)
+
+#### Aurora PostgreSQL 18.6.1, October 15, 2026
+<a name="aurorapostgresql-versions-version186x-1861"></a>
+
+**Critical stability enhancements**
++ Fixed an issue where an Aurora PostgreSQL read replica of an RDS PostgreSQL instance could stop replicating and fail to restart after an UPDATE on a table page that VACUUM had marked all-visible.
 
 #### Aurora PostgreSQL 18.6, September 29, 2026
 <a name="aurorapostgresql-versions-version186x-186"></a>
@@ -56,7 +63,6 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.6. For more i
 + Reduced minor version and patch upgrade downtime by decreasing session serialization time for backends with temporary schemas.
 + Aurora PostgreSQL now parallelizes index maintenance during bulk inserts with `COPY FROM`, reducing load time for tables with many indexes.
 + Aurora PostgreSQL now automatically detects and removes invalid databases left behind by interrupted `DROP DATABASE` operations, preventing false alerts and upgrade failures.
-+ Added support for hybrid key exchange (KEX) algorithms, such as `X25519MLKEM768` and `SecP256r1MLKEM768`, for SSL.
 + Added support for correlated aggregate subquery transformation, which rewrites correlated aggregate subqueries into window function equivalents to improve query performance. This feature is controlled by the `apg_enable_subquery_to_window_transform` parameter (default: `OFF`).
 
 **Critical stability enhancements**
@@ -145,7 +151,34 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.4. For more i
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671).
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14676](https://www.postgresql.org/support/security/CVE-2026-14676)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16238](https://www.postgresql.org/support/security/CVE-2026-16238)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
 
 **General enhancements**
 + Fixed multiple issues to improve the reliability of client connections during Zero Downtime Patching (ZDP).
@@ -330,7 +363,14 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 18.3. For more i
 This release of Aurora PostgreSQL is compatible with PostgreSQL 17.11. For more information about the improvements in PostgreSQL 17.11, see [PostgreSQL release 17.11](https://www.postgresql.org/docs/17/release-17-11.html).
 
 **Topics**
++ [Aurora PostgreSQL 17.11.1, October 15, 2026](#aurorapostgresql-versions-version1711x-17111)
 + [Aurora PostgreSQL 17.11, September 29, 2026](#aurorapostgresql-versions-version1711x-1711)
+
+#### Aurora PostgreSQL 17.11.1, October 15, 2026
+<a name="aurorapostgresql-versions-version1711x-17111"></a>
+
+**Critical stability enhancements**
++ Fixed an issue where an Aurora PostgreSQL read replica of an RDS PostgreSQL instance could stop replicating and fail to restart after an UPDATE on a table page that VACUUM had marked all-visible.
 
 #### Aurora PostgreSQL 17.11, September 29, 2026
 <a name="aurorapostgresql-versions-version1711x-1711"></a>
@@ -424,7 +464,32 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 17.10. For more 
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671).
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-14681](https://www.postgresql.org/support/security/CVE-2026-14681)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
 
 **General enhancements**
 + Fixed multiple issues to improve the reliability of client connections during Zero Downtime Patching (ZDP).
@@ -1397,7 +1462,31 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 16.14. For more 
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671).
+  + [CVE-2026-6464](https://www.postgresql.org/support/security/CVE-2026-6464)
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14672](https://www.postgresql.org/support/security/CVE-2026-14672)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
 
 **General enhancements**
 + Fixed multiple issues to improve the reliability of client connections during Zero Downtime Patching (ZDP).
@@ -2997,7 +3086,29 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 15.18. For more 
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671).
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
 
 **General enhancements**
 + Fixed multiple issues to improve the reliability of client connections during Zero Downtime Patching (ZDP).
@@ -5153,7 +5264,29 @@ This release of Aurora PostgreSQL is compatible with PostgreSQL 14.23. For more 
 
 **High priority enhancements**
 + Backported fixes for the following PostgreSQL community security issues:
-  + [CVE-2026-14671](https://nvd.nist.gov/vuln/detail/CVE-2026-14671).
+  + [CVE-2026-6469](https://www.postgresql.org/support/security/CVE-2026-6469)
+  + [CVE-2026-6470](https://www.postgresql.org/support/security/CVE-2026-6470)
+  + [CVE-2026-6471](https://www.postgresql.org/support/security/CVE-2026-6471)
+  + [CVE-2026-14662](https://www.postgresql.org/support/security/CVE-2026-14662)
+  + [CVE-2026-14663](https://www.postgresql.org/support/security/CVE-2026-14663)
+  + [CVE-2026-14664](https://www.postgresql.org/support/security/CVE-2026-14664)
+  + [CVE-2026-14666](https://www.postgresql.org/support/security/CVE-2026-14666)
+  + [CVE-2026-14668](https://www.postgresql.org/support/security/CVE-2026-14668)
+  + [CVE-2026-14669](https://www.postgresql.org/support/security/CVE-2026-14669)
+  + [CVE-2026-14670](https://www.postgresql.org/support/security/CVE-2026-14670)
+  + [CVE-2026-14671](https://www.postgresql.org/support/security/CVE-2026-14671)
+  + [CVE-2026-14673](https://www.postgresql.org/support/security/CVE-2026-14673)
+  + [CVE-2026-14677](https://www.postgresql.org/support/security/CVE-2026-14677)
+  + [CVE-2026-14678](https://www.postgresql.org/support/security/CVE-2026-14678)
+  + [CVE-2026-14679](https://www.postgresql.org/support/security/CVE-2026-14679)
+  + [CVE-2026-14680](https://www.postgresql.org/support/security/CVE-2026-14680)
+  + [CVE-2026-15741](https://www.postgresql.org/support/security/CVE-2026-15741)
+  + [CVE-2026-15742](https://www.postgresql.org/support/security/CVE-2026-15742)
+  + [CVE-2026-16239](https://www.postgresql.org/support/security/CVE-2026-16239)
+  + [CVE-2026-16241](https://www.postgresql.org/support/security/CVE-2026-16241)
+  + [CVE-2026-18024](https://www.postgresql.org/support/security/CVE-2026-18024)
+  + [CVE-2026-18408](https://www.postgresql.org/support/security/CVE-2026-18408)
+  + [CVE-2026-19385](https://www.postgresql.org/support/security/CVE-2026-19385)
 
 **General enhancements**
 + Fixed multiple issues to improve the reliability of client connections during Zero Downtime Patching (ZDP).

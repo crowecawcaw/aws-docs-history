@@ -14,7 +14,7 @@ For a list of supported and unsupported functionality across different Babelfish
 **Topics**
 + [Babelfish for Aurora PostgreSQL 6.x versions](#aurorababelfish-versions-version6x)
 + [Babelfish for Aurora PostgreSQL 5.x versions](#aurorababelfish-versions-version5x)
-+ [Babelfish for Aurora PostgreSQL 4.x versions](#aurorababelfish-versions-version4x)
++ [Babelfish for Aurora PostgreSQL 4.x versions (includes some deprecated versions)](#aurorababelfish-versions-version4x)
 + [Babelfish for Aurora PostgreSQL 3.x versions (includes some deprecated versions)](#aurorababelfish-versions-version3x)
 + [Babelfish for Aurora PostgreSQL 2.x versions (includes some deprecated versions)](#aurorababelfish-versions-version2x)
 + [Babelfish for Aurora PostgreSQL 1.x versions (includes some deprecated versions)](#aurorababelfish-versions-version1x)
@@ -105,11 +105,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.4. For mo
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 18.3. For more information about the improvements in Aurora PostgreSQL 18.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 6.0 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
-#### Aurora Babelfish release 6.0.1, July 20, 2026
+#### Aurora Babelfish release 6.0.3, Aug 20, 2026
 <a name="AuroraBabelfish.Updates.601"></a>
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 **Additional improvements and enhancements**
 + Fixed an issue where go-sqlcmd client driver failed to return query results.
@@ -250,6 +251,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.9. For mo
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 **Additional improvements and enhancements**
 + Fixed an issue where go-sqlcmd client driver failed to return query results.
@@ -307,6 +309,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.7. For mo
 **Critical stability enhancements**
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 **High Priority stability enhancements**
 + Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
@@ -381,6 +384,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.6. For mo
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 
 #### Aurora Babelfish release 5.3.1, November 25, 2025
@@ -460,6 +464,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.5. For mo
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 5.2.2, January 15, 2026
 <a name="AuroraBabelfish.Updates.522"></a>
@@ -545,6 +550,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 17.4. For mo
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 5.1.3, February 02, 2026
 <a name="AuroraBabelfish.Updates.513"></a>
@@ -634,7 +640,7 @@ For more information about relevant permission management and access control set
 + Fixed an issue where transaction count changes after execution of some system functions.
 + Fixed issue where `Datepart` functions were having different output based on the GUC `timezone`.
 
-## Babelfish for Aurora PostgreSQL 4.x versions
+## Babelfish for Aurora PostgreSQL 4.x versions (includes some deprecated versions)
 <a name="aurorababelfish-versions-version4x"></a>
 
 **Topics**
@@ -645,11 +651,11 @@ For more information about relevant permission management and access control set
 + [Babelfish for Aurora PostgreSQL 4.7](#AuroraBabelfish.Updates.47X)
 + [Babelfish for Aurora PostgreSQL 4.6](#AuroraBabelfish.Updates.46X)
 + [Babelfish for Aurora PostgreSQL 4.5](#AuroraBabelfish.Updates.45X)
-+ [Babelfish for Aurora PostgreSQL 4.4](#AuroraBabelfish.Updates.44X)
-+ [Babelfish for Aurora PostgreSQL 4.3](#AuroraBabelfish.Updates.43X)
-+ [Babelfish for Aurora PostgreSQL 4.2](#AuroraBabelfish.Updates.42X)
-+ [Babelfish for Aurora PostgreSQL 4.1](#AuroraBabelfish.Updates.41X)
-+ [Babelfish for Aurora PostgreSQL 4.0](#AuroraBabelfish.Updates.40X)
++ [Babelfish for Aurora PostgreSQL 4.4 (Deprecated)](#AuroraBabelfish.Updates.44X)
++ [Babelfish for Aurora PostgreSQL 4.3 (Deprecated)](#AuroraBabelfish.Updates.43X)
++ [Babelfish for Aurora PostgreSQL 4.2 (Deprecated)](#AuroraBabelfish.Updates.42X)
++ [Babelfish for Aurora PostgreSQL 4.1 (Deprecated)](#AuroraBabelfish.Updates.41X)
++ [Babelfish for Aurora PostgreSQL 4.0 (Deprecated)](#AuroraBabelfish.Updates.40X)
 
 ### Babelfish for Aurora PostgreSQL 4.11
 <a name="AuroraBabelfish.Updates.411X"></a>
@@ -704,6 +710,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.13. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 4.9.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.490"></a>
@@ -755,6 +762,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.11. For m
 **Critical stability enhancements**
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 **High Priority stability enhancements**
 + Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
@@ -831,6 +839,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.10. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 + Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 
 #### Aurora Babelfish release 4.7.1, November 25, 2025
@@ -914,6 +923,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.9. For mo
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 4.6.2, January 15, 2026
 <a name="AuroraBabelfish.Updates.462"></a>
@@ -995,17 +1005,18 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.9. For mo
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.8. For more information about the improvements in Aurora PostgreSQL 16.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.5 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
 
 **Topics**
-+ [Aurora Babelfish release 4.5.4, August 5, 2026](#AuroraBabelfish.Updates.454)
++ [Aurora Babelfish release 4.5.5, August 5, 2026](#AuroraBabelfish.Updates.454)
 + [Aurora Babelfish release 4.5.3, February 02, 2026](#AuroraBabelfish.Updates.453)
 + [Aurora Babelfish release 4.5.2, October 09, 2025](#AuroraBabelfish.Updates.452)
 + [**Aurora Babelfish release 4.5.1, June 03, 2025**](#AuroraBabelfish.Updates.451)
 + [Aurora Babelfish release 4.5.0, April 08, 2025](#AuroraBabelfish.Updates.450)
 
-#### Aurora Babelfish release 4.5.4, August 5, 2026
+#### Aurora Babelfish release 4.5.5, August 5, 2026
 <a name="AuroraBabelfish.Updates.454"></a>
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 4.5.3, February 02, 2026
 <a name="AuroraBabelfish.Updates.453"></a>
@@ -1095,7 +1106,7 @@ For more information about relevant permission management and access control set
 + Fixed an issue where transaction count changes after execution of some system functions.
 + Fixed issue where `Datepart` functions were having different output based on the GUC `timezone`.
 
-### Babelfish for Aurora PostgreSQL 4.4
+### Babelfish for Aurora PostgreSQL 4.4 (Deprecated)
 <a name="AuroraBabelfish.Updates.44X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.6. For more information about the improvements in Aurora PostgreSQL 16.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.4 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1176,7 +1187,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.6. For mo
 + Enabled use of nvarchar(max) as output parameter in procedure.
 + Fixed an issue of missing brackets while declaring the variables in the definition of procedure.
 
-### Babelfish for Aurora PostgreSQL 4.3
+### Babelfish for Aurora PostgreSQL 4.3 (Deprecated)
 <a name="AuroraBabelfish.Updates.43X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.4. For more information about the improvements in Aurora PostgreSQL 16.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1249,7 +1260,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.4. For mo
 + Added support for new vector extensions like `halfvec` and sparsevec which got introduced in version 0.7 of pgvector.
 + Added support to show windows group membership in T-SQL function `IS_MEMBER()`.
 
-### Babelfish for Aurora PostgreSQL 4.2
+### Babelfish for Aurora PostgreSQL 4.2 (Deprecated)
 <a name="AuroraBabelfish.Updates.42X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.3. For more information about the improvements in Aurora PostgreSQL 16.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1348,7 +1359,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.3. For mo
 + Blocked SET/RESET role statements execution from TDS endpoint.
 + Changed the default behavior of the full-text search GUC to have the feature turned `OFF` by default. You can set the GUC to `ignore` to use FTS features.
 
-### Babelfish for Aurora PostgreSQL 4.1
+### Babelfish for Aurora PostgreSQL 4.1 (Deprecated)
 <a name="AuroraBabelfish.Updates.41X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.2. For more information about the improvements in Aurora PostgreSQL 16.2, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.1 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1427,7 +1438,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.2. For mo
 + Support comparison operators `!<` and `!>`.
 + Support for `DROP INDEX schema.table.index` and `DROP INDEX index ON schema.table` syntax.
 
-### Babelfish for Aurora PostgreSQL 4.0
+### Babelfish for Aurora PostgreSQL 4.0 (Deprecated)
 <a name="AuroraBabelfish.Updates.40X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.1. For more information about the improvements in Aurora PostgreSQL 16.1, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 4.0 (version 4.0 is build on top of version 3.4) adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1500,12 +1511,12 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 16.1. For mo
 + [Babelfish for Aurora PostgreSQL 3.10](#AuroraBabelfish.Updates.310)
 + [Babelfish for Aurora PostgreSQL 3.9](#AuroraBabelfish.Updates.39X)
 + [Babelfish for Aurora PostgreSQL 3.8](#AuroraBabelfish.Updates.38X)
-+ [Babelfish for Aurora PostgreSQL 3.7](#AuroraBabelfish.Updates.37X)
-+ [Babelfish for Aurora PostgreSQL 3.6](#AuroraBabelfish.Updates.36X)
-+ [Babelfish for Aurora PostgreSQL 3.5](#AuroraBabelfish.Updates.35X)
-+ [Babelfish for Aurora PostgreSQL 3.4](#AuroraBabelfish.Updates.34X)
-+ [Babelfish for Aurora PostgreSQL 3.3](#AuroraBabelfish.Updates.33X)
-+ [Babelfish for Aurora PostgreSQL 3.2](#AuroraBabelfish.Updates.32X)
++ [Babelfish for Aurora PostgreSQL 3.7 (Deprecated)](#AuroraBabelfish.Updates.37X)
++ [Babelfish for Aurora PostgreSQL 3.6 (Deprecated)](#AuroraBabelfish.Updates.36X)
++ [Babelfish for Aurora PostgreSQL 3.5 (Deprecated)](#AuroraBabelfish.Updates.35X)
++ [Babelfish for Aurora PostgreSQL 3.4 (Deprecated)](#AuroraBabelfish.Updates.34X)
++ [Babelfish for Aurora PostgreSQL 3.3 (Deprecated)](#AuroraBabelfish.Updates.33X)
++ [Babelfish for Aurora PostgreSQL 3.2 (Deprecated)](#AuroraBabelfish.Updates.32X)
 + [Babelfish for Aurora PostgreSQL 3.1 (Deprecated)](#AuroraBabelfish.Updates.31X)
 
 ### Babelfish for Aurora PostgreSQL 3.15
@@ -1539,6 +1550,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.17. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 3.13.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.3130"></a>
@@ -1559,6 +1571,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.15. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 3.12.1, January 16, 2026
 <a name="AuroraBabelfish.Updates.3121"></a>
@@ -1593,6 +1606,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.14. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 3.11.0, November 25, 2025
 <a name="AuroraBabelfish.Updates.3110"></a>
@@ -1626,6 +1640,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.13. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 3.10.1, August 08, 2025
 <a name="AuroraBabelfish.Updates.3101"></a>
@@ -1674,6 +1689,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.12. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 3.9.2, October 09, 2025
 <a name="AuroraBabelfish.Updates.392"></a>
@@ -1746,6 +1762,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.10. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 **High Priority stability enhancements**
 + Babelfish will now restrict GRANT/REVOKE on any Babelfish created role via PG port.
@@ -1809,7 +1826,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.10. For m
 + Fixed an issue where wrong overloaded variant of `regexp_replace` is called during restore.
 + Fixed cast from `sys.varchar` to TIME type.
 
-### Babelfish for Aurora PostgreSQL 3.7
+### Babelfish for Aurora PostgreSQL 3.7 (Deprecated)
 <a name="AuroraBabelfish.Updates.37X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.8. For more information about the improvements in Aurora PostgreSQL 15.8, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.7 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1874,7 +1891,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.8. For mo
 + Fixed DDL export issue for database with SSMS.
 + Added support to show windows group membership in T-SQL function `IS_MEMBER()`.
 
-### Babelfish for Aurora PostgreSQL 3.6
+### Babelfish for Aurora PostgreSQL 3.6 (Deprecated)
 <a name="AuroraBabelfish.Updates.36X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.7. For more information about the improvements in Aurora PostgreSQL 15.7, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.6 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -1971,7 +1988,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.7. For mo
 + Fixed an error to allow alter procedure from PG endpoint.
 + Blocked SET/RESET role statements execution from TDS endpoint.
 
-### Babelfish for Aurora PostgreSQL 3.5
+### Babelfish for Aurora PostgreSQL 3.5 (Deprecated)
 <a name="AuroraBabelfish.Updates.35X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.6. For more information about the improvements in Aurora PostgreSQL 15.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.5 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2050,7 +2067,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.6. For mo
 + Support for `DROP INDEX schema.table.index` and `DROP INDEX index ON schema.table` syntax.
 + Fixed issue in functions `parsename`, `session_context` and `sp_set_session_context` when using with non-default server collation.
 
-### Babelfish for Aurora PostgreSQL 3.4
+### Babelfish for Aurora PostgreSQL 3.4 (Deprecated)
 <a name="AuroraBabelfish.Updates.34X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.5. For more information about the improvements in Aurora PostgreSQL 15.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.4 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2167,7 +2184,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.5. For mo
 + Fixed a crash with SSMS in Table properties dialog box while clicking on Permissions page.
 + Restricted use of view as a target with OUTPUT INTO clause.
 
-### Babelfish for Aurora PostgreSQL 3.3
+### Babelfish for Aurora PostgreSQL 3.3 (Deprecated)
 <a name="AuroraBabelfish.Updates.33X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.4. For more information about the improvements in Aurora PostgreSQL 15.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2226,7 +2243,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.4. For mo
 + Fixed performance problem for create index or scan index.
 + Fixed an issue when using like expression in join on condition failed with nondeterministic error.
 
-### Babelfish for Aurora PostgreSQL 3.2
+### Babelfish for Aurora PostgreSQL 3.2 (Deprecated)
 <a name="AuroraBabelfish.Updates.32X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.3. For more information about the improvements in Aurora PostgreSQL 15.3, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 3.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2427,17 +2444,17 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 15.2. For mo
 + [Babelfish for Aurora PostgreSQL 2.14](#AuroraBabelfish.Updates.214X)
 + [Babelfish for Aurora PostgreSQL 2.13](#AuroraBabelfish.Updates.213X)
 + [Babelfish for Aurora PostgreSQL 2.12](#AuroraBabelfish.Updates.212X)
-+ [Babelfish for Aurora PostgreSQL 2.11](#AuroraBabelfish.Updates.211X)
-+ [Babelfish for Aurora PostgreSQL 2.10](#AuroraBabelfish.Updates.210X)
-+ [Babelfish for Aurora PostgreSQL 2.9](#AuroraBabelfish.Updates.29X)
-+ [Babelfish for Aurora PostgreSQL 2.8](#AuroraBabelfish.Updates.28X)
++ [Babelfish for Aurora PostgreSQL 2.11 (Deprecated)](#AuroraBabelfish.Updates.211X)
++ [Babelfish for Aurora PostgreSQL 2.10 (Deprecated)](#AuroraBabelfish.Updates.210X)
++ [Babelfish for Aurora PostgreSQL 2.9 (Deprecated)](#AuroraBabelfish.Updates.29X)
++ [Babelfish for Aurora PostgreSQL 2.8 (Deprecated)](#AuroraBabelfish.Updates.28X)
 + [Babelfish for Aurora PostgreSQL 2.7 (Deprecated)](#AuroraBabelfish.Updates.27X)
-+ [Babelfish for Aurora PostgreSQL 2.6](#AuroraBabelfish.Updates.26X)
++ [Babelfish for Aurora PostgreSQL 2.6 (Deprecated)](#AuroraBabelfish.Updates.26X)
 + [Babelfish for Aurora PostgreSQL 2.5 (Deprecated)](#AuroraBabelfish.Updates.25X)
 + [Babelfish for Aurora PostgreSQL 2.4 (Deprecated)](#AuroraBabelfish.Updates.24X)
-+ [Babelfish for Aurora PostgreSQL 2.3 (Deprecated)](#AuroraBabelfish.Updates.23X)
-+ [Babelfish for Aurora PostgreSQL 2.2](#AuroraBabelfish.Updates.22X)
-+ [Babelfish for Aurora PostgreSQL 2.1](#AuroraBabelfish.Updates.21X)
++ [Babelfish for Aurora PostgreSQL 2.3](#AuroraBabelfish.Updates.23X)
++ [Babelfish for Aurora PostgreSQL 2.2 (Deprecated)](#AuroraBabelfish.Updates.22X)
++ [Babelfish for Aurora PostgreSQL 2.1 (Deprecated)](#AuroraBabelfish.Updates.21X)
 
 ### Babelfish for Aurora PostgreSQL 2.18
 <a name="AuroraBabelfish.Updates.218X"></a>
@@ -2470,6 +2487,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.22. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 2.16.0, April 6, 2026
 <a name="AuroraBabelfish.Updates.2160"></a>
@@ -2487,6 +2505,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.20. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 **High Priority stability enhancements**
 + Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
@@ -2505,6 +2524,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.19. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 2.14.0, November 25, 2025
 <a name="AuroraBabelfish.Updates.2140"></a>
@@ -2529,6 +2549,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.18. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 2.13.1, August 08, 2025
 <a name="AuroraBabelfish.Updates.2131"></a>
@@ -2552,6 +2573,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.17. For m
 
 **Critical stability enhancements**
 + Fixed an issue in Babelfish where a table-valued parameter (TVP) stored only the last row, repeated N times (where N is the total number of rows provided).
++ Parameter `babelfishpg_tsql.enable_create_alter_view_from_pg` can now only be set by the `rds_superuser` role.
 
 #### Aurora Babelfish release 2.12.2, October 09, 2025
 <a name="AuroraBabelfish.Updates.2122"></a>
@@ -2576,7 +2598,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.17. For m
 **High priority stability enhancements**
 + Fix behavior of queries which use `sys.Db_id()` function which returned empty rows in enforced parallel mode.
 
-### Babelfish for Aurora PostgreSQL 2.11
+### Babelfish for Aurora PostgreSQL 2.11 (Deprecated)
 <a name="AuroraBabelfish.Updates.211X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.15. For more information about the improvements in Aurora PostgreSQL 14.15, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.11 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2615,7 +2637,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.15. For m
 + Fixed an issue with `ISNUMERIC` function to return correct result for nvarchar/varchar parameters.
 + Fixed an issue to rethrow correct TSQL error code.
 
-### Babelfish for Aurora PostgreSQL 2.10
+### Babelfish for Aurora PostgreSQL 2.10 (Deprecated)
 <a name="AuroraBabelfish.Updates.210X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.13. For more information about the improvements in Aurora PostgreSQL 14.13, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.10 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2645,7 +2667,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.13. For m
 + Fixed an issue where DML with `OUTPUT INTO` clause fired a trigger and may result in error.
 + Fixed an issue when comment comes with the column name.
 
-### Babelfish for Aurora PostgreSQL 2.9
+### Babelfish for Aurora PostgreSQL 2.9 (Deprecated)
 <a name="AuroraBabelfish.Updates.29X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.12. For more information about the improvements in Aurora PostgreSQL 14.12, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.9 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2700,7 +2722,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.12. For m
 + sys procedure columnproperty now support additional properties `iscomputed`, `columnid`, `ordinal`, `isidentity`.
 + DDL scripting of indexes or constraints will now include correct ordering with columns.
 
-### Babelfish for Aurora PostgreSQL 2.8
+### Babelfish for Aurora PostgreSQL 2.8 (Deprecated)
 <a name="AuroraBabelfish.Updates.28X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.11. For more information about the improvements in Aurora PostgreSQL 14.11, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.8 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -2808,7 +2830,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.10. For m
 + Fixed the issue with default\_schema\_name column of the catalog sys.babelfish\_authid\_user\_ext in case of "guest" user.
 + Fixed issue of orphan entries in sys.babelfish\_view\_def catalog table.
 
-### Babelfish for Aurora PostgreSQL 2.6
+### Babelfish for Aurora PostgreSQL 2.6 (Deprecated)
 <a name="AuroraBabelfish.Updates.26X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.9. For more information about the improvements in Aurora PostgreSQL 14.9, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.6 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -3007,7 +3029,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.7. For mo
 + Support the ProductLevel and ProductUpdateLevel properties for the SERVERPROPERTY function. ProductUpdateLevel always returns NULL and ProductLevel tracks the Babelfish version number closely with the T-SQL definition.
 + Fixed an issue where the table variable when used as a bind parameter from client application resulted in an error.
 
-### Babelfish for Aurora PostgreSQL 2.3 (Deprecated)
+### Babelfish for Aurora PostgreSQL 2.3
 <a name="AuroraBabelfish.Updates.23X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.6. For more information about the improvements in Aurora PostgreSQL 14.6, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.3 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -3114,7 +3136,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.6. For mo
 + Improvements in FOR JSON PATH clause of SELECT statement which supports ROOT, INCLUDE\_NULL\_VALUES, WITHOUT\_ARRAY\_WRAPPER.
 + Supports a new escape hatch, 'escape\_hatch\_checkpoint' with a default pf 'ignore'. This escape hatch allows the use of CHECKPOINT statement in the procedural code, but the CHECKPOINT statement is currently not implemented.
 
-### Babelfish for Aurora PostgreSQL 2.2
+### Babelfish for Aurora PostgreSQL 2.2 (Deprecated)
 <a name="AuroraBabelfish.Updates.22X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.5. For more information about the improvements in Aurora PostgreSQL 14.5, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.2 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html). 
@@ -3215,7 +3237,7 @@ This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.5. For mo
 + OBJECTPROPERTYEX function supports the BaseType property.
 + INDEXPROPERTY function supports the following properties: IndexFillFactor, IndexID, IsClustered, IsDisabled, IsHypothetical, IsPadIndex, IsPageLockDisallowed, IsRowLockDisallowed, IsUnique.
 
-### Babelfish for Aurora PostgreSQL 2.1
+### Babelfish for Aurora PostgreSQL 2.1 (Deprecated)
 <a name="AuroraBabelfish.Updates.21X"></a>
 
 This release of Aurora Babelfish is provided with Aurora PostgreSQL 14.3 and 14.4. For more information about the improvements in Aurora PostgreSQL 14.3 and 14.4, see [Amazon Aurora PostgreSQL updates](AuroraPostgreSQL.Updates.md). Babelfish for Aurora PostgreSQL 2.1 adds several new features, enhancements, and fixes. For more information about Babelfish for Aurora PostgreSQL, see [Working with Babelfish for Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/babelfish.html).
