@@ -284,6 +284,7 @@ The following AWS services are not supported for our new AWS experience, unless 
 + AWS HealthImaging
 + AWS IAM Identity Center
 + AWS Identity and Access Management Access Analyzer
+  + [Policy validation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html) is included in the Free Tier.
 + AWS Interconnect
 + AWS IoT Events
 + AWS IoT FleetWise
