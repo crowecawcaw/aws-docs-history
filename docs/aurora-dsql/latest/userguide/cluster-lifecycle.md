@@ -31,10 +31,12 @@ The following table describes each possible status for a Aurora DSQL cluster and
 
 When Aurora DSQL detects no connection activity on a cluster for some period of time, it transitions the cluster to the **Idle** state, reducing running resources to minimize capacity and costs. If connection activity remains absent for a prolonged period, the **Idle** cluster automatically transitions to the **Inactive** state, where running resources are scaled to zero while your data is preserved.
 
-To resume normal operations, simply connect to the cluster as usual. When you successfully connect to the cluster, Aurora Aurora DSQL automatically transitions the cluster to Active state. 
+To return a cluster to the **Active** state, connect to it. When you connect, Aurora DSQL moves the cluster back to **Active**.
 
 **Note**  
 The first connection attempt to an **Idle** or **Inactive** cluster will be slower than usual. 
+
+You can still view a cluster or change its settings in the console, AWS CLI, or API. The cluster stays **Idle** or **Inactive** during these actions. Changes take effect right away. Some tasks, such as backups, need an **Active** cluster. For more information, see [Operations requiring Active cluster state](#dsql-scale-to-zero-restricted-operations).
 
 #### Operations requiring Active cluster state
 <a name="dsql-scale-to-zero-restricted-operations"></a>
