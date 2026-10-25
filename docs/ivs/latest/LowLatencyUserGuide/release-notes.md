@@ -5,6 +5,48 @@
 
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first, organized by date of release.
 
+## October 22, 2026
+<a name="oct22-26-broadcast-web-ll"></a>
+
+### IVS Broadcast SDK: Web 1.41.0 (Low-Latency Streaming)
+<a name="oct22-26-broadcast-web-ll-1410"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Web Broadcast SDK 1.41.0](broadcast-web.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference)+  Added `StreamConfig.congestionMode`. This gives the applications ability to choose between dropping framerate and dropping resolution when publishing to a channel. <br />+  Fixed an issue where prolonged network disconnects do not cause broadcasts to cleanly stop and transition to a closed state.  | 
+
+## October 22, 2026
+<a name="oct22-26-broadcast-mobile-ll"></a>
+
+### Amazon IVS Broadcast SDK: Android 1.48.0, iOS 1.48.0
+<a name="oct22-26-broadcast-mobile-ll-1480"></a>
+
+
+| Platform | Downloads and Changes | 
+| --- | --- | 
+| [Android Broadcast SDK 1.48.0](broadcast-android.md) | **Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/android/)+  Improved the reliability of stream shutdown on congested connections.  | 
+| [iOS Broadcast SDK 1.48.0](broadcast-ios.md) | **Download for low-latency streaming: ** [https://broadcast.live-video.net/1.48.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.48.0/AmazonIVSBroadcast.xcframework.zip)<br />**Reference documentation:** [https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.48.0/ios/)+  Improved the reliability of stream shutdown on congested connections. <br />+  Support for iOS 14 is deprecated as of this release.  | 
+
+#### Broadcast SDK Size: Android
+<a name="broadcast-1480-ll-sdk-size-android"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64-v8a | 2.018 MB | 5.432 MB | 
+| armeabi-v7a | 1.771 MB | 3.760 MB | 
+| x86\_64 | 2.105 MB | 5.771 MB | 
+| x86 | 2.129 MB | 5.561 MB | 
+
+#### Broadcast SDK Size: iOS
+<a name="broadcast-1480-ll-sdk-size-ios"></a>
+
+
+| Architecture | Compressed Size | Uncompressed Size | 
+| --- | --- | --- | 
+| arm64 | 1.027 MB | 2.248 MB | 
+
 ## October 1, 2026
 <a name="oct01-26-player-web-ll"></a>
 
