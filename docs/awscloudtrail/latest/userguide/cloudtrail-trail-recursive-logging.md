@@ -32,7 +32,7 @@ To suppress recursive events when creating a trail, use the `--no-recursive-logg
 ```
 aws cloudtrail create-trail \
     --name {{my-trail}} \
-    --s3-bucket-name {{my-bucket}} \
+    --s3-bucket-name {{amzn-s3-demo-bucket}} \
     --no-recursive-logging
 ```
 

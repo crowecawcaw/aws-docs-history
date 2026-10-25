@@ -17,6 +17,8 @@ WHERE
      eventtime >='2023-01-05 13:51:00' and eventtime < ='2023-01-19 13:51:00'
 ```
 
+Constraining a query with starting and ending `eventTime` time stamps reduces the amount of data scanned on a best-effort basis. Some queries scan all data in the event data store even though they specify an `eventTime` range. Scanning more data does not change the results of a query, but it increases the cost and the run time. To see how much data a query scanned, check the `BytesScanned` value returned by `describe-query`. For more information, see [Get metadata about a query with the AWS CLI](lake-queries-cli.md#lake-cli-describe-query).
+
 For information about how to optimize your queries, see [Optimize CloudTrail Lake queries](lake-queries-optimization.md).
 
 **Topics**
