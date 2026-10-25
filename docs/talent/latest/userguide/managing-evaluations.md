@@ -19,7 +19,7 @@ A candidate evaluation is an AI-generated set of assessments and behavioral AI-l
 Before you create a candidate evaluation, verify that you have the following:
 + An Amazon Connect Talent instance
 + Permissions to create evaluations. For more information about the permissions required to create evaluations, see the [Amazon Connect Talent Administrator Guide](https://docs.aws.amazon.com/talent/latest/adminguide/manage-security-profiles.html).
-+ An ATS integration, if you want to send evaluations to candidates automatically. To set up your integration, see the [Amazon Connect Talent Administrator Guide](https://docs.aws.amazon.com/talent/latest/adminguide/integrations.html). If you are testing Amazon Connect Talent with internal users, an ATS integration is not required. To learn more, see [How to test Amazon Connect Talent](getting-started-test.md).
++ An ATS integration, if you want to send evaluations to candidates automatically. To set up your integration, see the [Amazon Connect Talent Administrator Guide](https://docs.aws.amazon.com/talent/latest/adminguide/integrations.html). If you are testing Amazon Connect Talent with internal users, an ATS integration is not required. To learn more, see [Testing Amazon Connect Talent](getting-started.md#getting-started-test).
 
 ### To start creating an evaluation
 <a name="create-eval-start"></a>
@@ -123,7 +123,7 @@ You can remove individual assessments or all assessments at once.
 You can set or change the evaluation language from the Overview section. Amazon Connect Talent uses this language for all assessment and interview questions, and conducts the AI-led interview in that language.
 
 **Note**  
-If your knowledge base includes competencies written in a specific language, and those competencies are selected for an evaluation, changing the evaluation language does not translate those competencies. This only affects what recruiters see — the candidate experience is fully localized in the selected language regardless of the language used in your knowledge base.
+If your knowledge base includes competencies written in a specific language, and those competencies are selected for an evaluation, changing the evaluation language does not translate those competencies. This only affects what recruiters see—the candidate experience is fully localized in the selected language regardless of the language used in your knowledge base.
 
 Amazon Connect Talent supports the following languages for the candidate evaluation:
 

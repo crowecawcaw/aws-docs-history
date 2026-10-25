@@ -30,7 +30,7 @@ The sections that appear depend on what the evaluation includes. For example, if
 
 When a candidate has completed more than one evaluation for a job, the candidate results page shows results for each evaluation separately. Each evaluation appears under its evaluation title with its own evaluation status and results, listed in order of completion date with the most recently completed evaluation at the top.
 
-The Overview, Assessments, and AI-led interview sections group results by evaluation — so you can compare how the candidate performed across evaluations. Each evaluation's scores and narrative explanations are independent.
+The Overview, Assessments, and AI-led interview sections group results by evaluation—so you can compare how the candidate performed across evaluations. Each evaluation's scores and narrative explanations are independent.
 
 ### Overview
 <a name="rcr-overview"></a>
@@ -42,9 +42,9 @@ Start here to get a quick read on the candidate before you review the Assessment
 ### Assessments
 <a name="rcr-assessments"></a>
 
-The Assessments section shows the full results for each assessment included in the evaluation. Each competency measured by the assessment has a score on the four-level assessment scale. These scores reflect how closely the candidate's responses match the behavioral patterns associated with success in that competency — they are not pass/fail judgments. For more information about the scale, see [How assessments work](assessments.md).
+The Assessments section shows the full results for each assessment included in the evaluation. Each competency measured by the assessment has a score on the four-level assessment scale. These scores reflect how closely the candidate's responses match the behavioral patterns associated with success in that competency—they are not pass/fail judgments. For more information about the scale, see [How assessments work](assessments.md).
 
-A High or Very High score means the candidate's responses aligned well with the behaviors expected for that competency. A Low or Moderate score means the candidate's responses were less aligned — it does not mean the candidate failed.
+A High or Very High score means the candidate's responses aligned well with the behaviors expected for that competency. A Low or Moderate score means the candidate's responses were less aligned—it does not mean the candidate failed.
 
 Use assessment results alongside interview results to build a fuller picture of the candidate. For more information about how assessments are selected and scored, see [How assessments work](assessments.md).
 
@@ -69,9 +69,9 @@ Amazon Connect Talent treats a low score and a lack of evidence as two different
 + **A low score** – The candidate answered but did not demonstrate the behavior the rubric defines for that competency. The candidate had the opportunity to show the behavior and did not.
 + **Not scored** – The competency was not covered. For example, the interview ended early, was interrupted, or the candidate withdrew. Amazon Connect Talent reports "Not scored" for that competency, and for the overall score, instead of producing a partial or misleading number.
 
-The difference matters: a low score tells you something about the candidate's demonstrated abilities. "Not scored" tells you nothing — the candidate didn't have the chance to demonstrate the competency.
+The difference matters: a low score tells you something about the candidate's demonstrated abilities. "Not scored" tells you nothing—the candidate didn't have the chance to demonstrate the competency.
 
-When a competency shows "Not scored," the card displays a message explaining why and, where available, links to the related question in the interview playback. While scoring is still in progress after an interview, the score appears blank until scoring finishes — this does not mean "Not scored."
+When a competency shows "Not scored," the card displays a message explaining why and, where available, links to the related question in the interview playback. While scoring is still in progress after an interview, the score appears blank until scoring finishes—this does not mean "Not scored."
 
 #### Interview playback
 <a name="rcr-playback"></a>
@@ -80,7 +80,7 @@ The interview playback lets you go beyond the scores and read exactly what the c
 
 To open the playback, choose the interview playback link from the AI-led interview section on the candidate results page.
 
-The playback page starts with an **At a glance** summary — the overall interview score and a per-competency narrative that explains what evidence was observed and what was not. Below that, the **Transcript** shows the full conversation, with interview questions on the left (each tagged with the competency it measures) and the candidate's responses on the right, synchronized with timestamps.
+The playback page starts with an **At a glance** summary—the overall interview score and a per-competency narrative that explains what evidence was observed and what was not. Below that, the **Transcript** shows the full conversation, with interview questions on the left (each tagged with the competency it measures) and the candidate's responses on the right, synchronized with timestamps.
 
 Every score Amazon Connect Talent assigns can be traced back to a specific moment in the transcript. If a competency score seems too high or too low, the playback gives you the evidence to understand why.
 
@@ -92,30 +92,26 @@ At the top of the playback page, choose **Review evaluation** to provide detaile
 #### Review flagged content
 <a name="rcr-content-flags"></a>
 
-Amazon Connect Talent monitors candidate responses during the AI-led interview and surfaces flags when something may need your attention. Flags appear on the candidate list, the candidate results page, and the interview playback page. Select a flag to see a summary of why the candidate was flagged.
+Amazon Connect Talent monitors candidate responses during the AI-led interview and surfaces flags when something might need your attention. Flags appear on the candidate list, the candidate results page, and the interview playback page. Select a flag to see a summary of why the candidate was flagged.
 
 Flags don't affect the candidate's competency scores.
 
-There are two types of flags:
+There are two types of flags: content flags and fraud detection flags.
 
 ##### Content flags
 <a name="rcr-content-flags-content"></a>
 
-Content flags identify responses that contain language or content that may require your review. A content flag appears with one of the following labels:
-
-
-| Flag | What it means | 
-| --- | --- | 
-| Discriminatory language | The candidate's response contains language that may be discriminatory. | 
-| Demeaning language | The candidate's response contains language that may be demeaning toward others. | 
-| Inappropriate content | The candidate's response contains content that may be sexually inappropriate. | 
-| Violent language | The candidate's response contains language that references or promotes violence. | 
-| Criminal references | The candidate's response contains references to criminal activity. | 
+Content flags identify responses that contain language or content that might require your review. A content flag appears with one of the following labels:
++ **Discriminatory language** – The candidate's response contains language that might be discriminatory.
++ **Demeaning language** – The candidate's response contains language that might be demeaning toward others.
++ **Inappropriate content** – The candidate's response contains content that might be sexually inappropriate.
++ **Violent language** – The candidate's response contains language that references or promotes violence.
++ **Criminal references** – The candidate's response contains references to criminal activity.
 
 ##### Fraud detection flags
 <a name="rcr-fraud-flags"></a>
 
-Fraud detection flags identify responses that may not be genuinely human-spoken. Amazon Connect Talent analyzes the candidate's responses for indicators of authentic speech — such as natural hesitations, self-corrections, and organically recalled details — and flags interviews where the responses may be AI-generated, scripted, or otherwise non-genuine.
+Fraud detection flags identify responses that might not be genuinely human-spoken. Amazon Connect Talent analyzes the candidate's responses for indicators of authentic speech—such as natural hesitations, self-corrections, and organically recalled details—and flags interviews where the responses might be AI-generated, scripted, or otherwise non-genuine.
 
 ##### What to do when a candidate is flagged
 <a name="rcr-content-flags-action"></a>
@@ -131,7 +127,7 @@ All flags are informational. Amazon Connect Talent surfaces them for your awaren
 1. Consult your HR or legal team if the flagged content raises concerns that go beyond the hiring decision.
 
 **Important**  
-Flags help you identify responses that may need additional review. Amazon Connect Talent does not recommend any specific action based on a flag — the decision on how to proceed is yours.
+Flags help you identify responses that might need additional review. Amazon Connect Talent does not recommend any specific action based on a flag—the decision on how to proceed is yours.
 
 ## Candidates who opted out
 <a name="rcr-opted-out"></a>

@@ -22,7 +22,7 @@ Amazon Connect Talent creates a candidate record in two ways:
 + **From your ATS** – When a candidate application is created in your applicant tracking system for a job linked to an evaluation, Amazon Connect Talent automatically creates a candidate record.
 + **From a manual send** – When you manually send an evaluation to a candidate by email, Amazon Connect Talent checks whether a candidate record already exists for that email address and role. If one exists, the evaluation is sent to the existing candidate. If one doesn't exist, Amazon Connect Talent creates a new candidate record. Manually created candidate records are not synced back to your ATS.
 
-Candidates appear on the job candidates page as soon as their record is created — you don't need to wait for them to complete the evaluation. Scores populate after the candidate completes their evaluation.
+Candidates appear on the job candidates page as soon as their record is created—you don't need to wait for them to complete the evaluation. Scores populate after the candidate completes their evaluation.
 
 ## The job candidates page
 <a name="candidates-page"></a>
@@ -65,8 +65,8 @@ Scores appear only for the components included in the candidate's evaluation. Fo
 <a name="candidates-multiple-evaluations"></a>
 
 A candidate can have more than one evaluation for a job. This happens when:
-+ The candidate was sent separate evaluations for the same role — for example, a first-round evaluation and a second-round evaluation.
-+ The candidate's evaluation was resent — for example, because of a technical difficulty that required them to retake the evaluation.
++ The candidate was sent separate evaluations for the same role—for example, a first-round evaluation and a second-round evaluation.
++ The candidate's evaluation was resent—for example, because of a technical difficulty that required them to retake the evaluation.
 
 When a candidate has multiple evaluations, each evaluation appears as a separate row in the candidate list with its own scores, evaluation status, and completion date. Evaluations are listed in order of completion date, with the most recently completed evaluation at the top.
 

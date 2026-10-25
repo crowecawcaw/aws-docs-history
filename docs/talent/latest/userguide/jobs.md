@@ -28,7 +28,7 @@ Jobs serve several purposes in Amazon Connect Talent:
 
 There are two ways to add a job to Amazon Connect Talent:
 + **Sync jobs from ATS** – When you add an ATS integration, Amazon Connect Talent automatically syncs active jobs from your ATS. For synced jobs, Amazon Connect Talent also pulls in the application stages associated with each job. Application stages are used to trigger sending evaluation invitations to candidates. To learn more, see [Sending evaluations to candidates](evaluations-send.md).
-+ **Add a job manually** – Choose **Evaluations**, and then choose **Create evaluation**. In the evaluation creation flow, you can upload or describe your job. Manually created jobs are best suited for internal testing of evaluations. To learn more, see [How to test Amazon Connect Talent](getting-started-test.md).
++ **Add a job manually** – Choose **Evaluations**, and then choose **Create evaluation**. In the evaluation creation flow, you can upload or describe your job. Manually created jobs are best suited for internal testing of evaluations. To learn more, see [Testing Amazon Connect Talent](getting-started.md#getting-started-test).
 
 In the first step of the evaluation creation workflow, you can search for synced jobs or jobs you created manually.
 
