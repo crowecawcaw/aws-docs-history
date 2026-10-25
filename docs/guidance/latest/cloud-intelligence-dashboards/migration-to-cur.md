@@ -113,11 +113,7 @@ Once your dashboards are updated to CUR2 you can delete the Legacy CUR using Clo
 ### How can I roll back
 <a name="how-can-i-roll-back"></a>
 
-If you need to revert to the previous version
-
-```
-pip3 install cid-cmd==0.3.10
-```
+If you need to revert to Legacy CUR, make sure the Legacy CUR table is still available in Athena and run the update again:
 
 ```
 cid-cmd update --force --recursive
