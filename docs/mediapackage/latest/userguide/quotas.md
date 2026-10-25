@@ -37,6 +37,6 @@ The following table describes quotas in AWS Elemental MediaPackage that can't be
 | Maximum content age for time-shifted viewing | 336 hours (14 days) | 
 | Maximum request rates per channel input | 200 requests per second  | 
 | Maximum request rates per endpoint |  +  Media segments output: 500 requests per second <br />+  Manifests output: 10,000 requests per second  The per endpoint origination request rate quotas are indicative only and based on typical traffic patterns when using a properly configured CDN. The request rate quotas are applicable for live events, linear channels, and time-shifted viewing. The request rate quotas may be lower under certain conditions like misconfigured CDNs or players generating abnormal levels of origin requests with unique HTTP header values, or unique query string values appended to the playback URLs.  | 
-| Maximum REST API requests |  +  Steady state: 5 requests per second <br />+  Bursting: 50 requests per second   | 
+| Maximum REST API requests |  +  Steady state: 20 requests per second <br />+  Bursting: 50 requests per second  This limit applies per AWS account. Requests that AWS services make on your behalf, such as AWS CloudFormation or AWS Config, count toward the same per-account rate.  | 
 | Maximum time-shifted manifest length | 24 hours for all supported output formats | 
 | Maximum tracks per ingest stream | 10<br />The maximum number of tracks (audio, video, subtitle, etc.) per stream that you can ingest. | 
