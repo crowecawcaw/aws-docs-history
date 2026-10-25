@@ -91,6 +91,8 @@ All public offers and private offers with consumption pricing can only be create
    + Public offer end user license agreement (EULA) – Use the EULA from your public offer.
    + Standard contract for AWS Marketplace (SCMP) – Use the standard contract provided by AWS Marketplace.
    + Custom legal terms – Upload up to five files related to your private offer, including legal terms, a statement of work, a bill of materials, a pricing sheet, or other addendums. These files will be merged into one document when the offer is created.
+**Note**  
+To upload files in the **Custom legal terms and other offer documents** section, your IAM identity must have the `s3:PutObject` permission on `arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/{{account-id}}/*`. The `AWSMarketplaceSellerFullAccess` and `AWSMarketplaceSellerProductsFullAccess` managed policies include this permission. If the upload fails with an `Access denied to s3:PutObject` error, copy the text in the error message and send it to your AWS administrator. For more information, see [Policies and permissions for AWS Marketplace sellers](detailed-management-portal-permissions.md).
 
 1. Configure auto-renewal. Renewal terms define how this agreement renews when it reaches its end date.
    + **Renewal pricing** – how the price changes between cycles:

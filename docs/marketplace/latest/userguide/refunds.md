@@ -23,7 +23,7 @@ In AWS Partner Central, refunds are referred to as *billing adjustments*. Both t
 + [Tracking billing adjustments](#tracking-billing-adjustments)
 + [Notifications](#scaba-notifications)
 + [Using the AWS Marketplace APIs](#scaba-apis)
-+ [Channel Partner Private Offers (CPPO)](#cppo-cancellations-adjustments)
++ [Agreements where the manufacturer isn't the proposer](#cppo-cancellations-adjustments)
 + [Requesting a bulk refund](#bulk-refund-process)
 + [Requesting a refund or cancellation through AWS Support](#legacy-refund-process)
 
@@ -195,13 +195,15 @@ You receive automated notifications for cancellation and billing adjustment stat
 
 | Event | Recipients | Email subject (seller) | 
 | --- | --- | --- | 
-| Cancellation request submitted | Seller, Buyer, Manufacturer (CPPO) | "You submitted an agreement cancellation request" | 
-| Cancellation request approved (by buyer or auto-approved) | Seller, Buyer, Manufacturer (CPPO) | "Agreement cancellation request approved" | 
-| Cancellation request denied by buyer | Seller, Buyer, Manufacturer (CPPO) | "Agreement cancellation request denied" | 
-| Cancellation request withdrawn by seller | Seller, Buyer, Manufacturer (CPPO) | "Agreement cancellation request withdrawn" | 
+| Cancellation request submitted | Seller, Buyer, Manufacturer (if different from Proposer) | "You submitted an agreement cancellation request" | 
+| Cancellation request approved (by buyer or auto-approved) | Seller, Buyer, Manufacturer (if different from Proposer) | "Agreement cancellation request approved" | 
+| Cancellation request denied by buyer | Seller, Buyer, Manufacturer (if different from Proposer) | "Agreement cancellation request denied" | 
+| Cancellation request withdrawn by seller | Seller, Buyer, Manufacturer (if different from Proposer) | "Agreement cancellation request withdrawn" | 
 | Cancellation request failed validation | Submitter only | "Agreement cancellation request failed" | 
 
 When a cancellation request is submitted, the seller's email also includes a **response form URL** that can be shared directly with the buyer to expedite approval.
+
+ISV (manufacturer) emails use different subjects. For the subjects and fields of each email, see [Cancellations and billing adjustments](email-notifications.md#email-details-cancellations-adjustments).
 
 ### Billing adjustment notifications
 <a name="billing-adjustment-notifications"></a>
@@ -209,7 +211,7 @@ When a cancellation request is submitted, the seller's email also includes a **r
 
 | Event | Recipients | Email subject (seller) | 
 | --- | --- | --- | 
-| Billing adjustment processed | Seller, Buyer, Manufacturer (CPPO) | "Billing adjustment processed" | 
+| Billing adjustment processed | Seller, Buyer, Manufacturer (if different from Proposer) | "Billing adjustment processed" | 
 | Billing adjustment failed validation | Submitter only | "Billing adjustment request failed" | 
 
 **Note**  
@@ -219,7 +221,7 @@ Billing adjustments don't generate a "submitted" notification. You receive a sin
 If a billing adjustment fails instantly (for example, the refund amount exceeds the maximum refundable amount), the request is not created and no notification is sent. You see the error directly in the console or receive an error code through the API.
 
 **Important**  
-For CPPO agreements, the ISV (manufacturer) receives notifications when the channel partner submits or completes cancellation and billing adjustment requests. However, the refund amount and message to buyer are **not** included in ISV notifications to protect channel partner margin information.
+For agreements where the ISV (manufacturer) isn't the proposer, the ISV receives notifications when the proposer submits or completes cancellation and billing adjustment requests. However, the refund amount and message to buyer are **not** included in ISV notifications to protect the proposer's margin information.
 
 ## Using the AWS Marketplace APIs
 <a name="scaba-apis"></a>
@@ -258,14 +260,14 @@ The AWS Marketplace Billing Adjustments API enables you to manage billing adjust
 | GetBillingAdjustmentRequest | Retrieve details of a specific billing adjustment request | 
 | ListBillingAdjustmentRequests | List billing adjustment requests with optional filters. Supports pagination. | 
 
-## Channel Partner Private Offers (CPPO)
+## Agreements where the manufacturer isn't the proposer
 <a name="cppo-cancellations-adjustments"></a>
 
-For Channel Partner Private Offers (CPPO), the following rules apply:
-+ Only the channel partner (CP), as the seller of record, can initiate cancellation and billing adjustment requests for CPPO agreements. The ISV can't initiate these requests.
-+ The ISV (manufacturer) receives email and Amazon EventBridge notifications when the CP submits a cancellation or billing adjustment request.
-+ ISV notifications include the selling authorization ID, Product ID, and Buyer AWS account ID, but don't include the refund amount or message to buyer to protect CP margin information.
-+ The CP can view and track all active and historical cancellation and billing adjustment requests for CPPO agreements on the [**Agreements**](https://aws.amazon.com/marketplace/management/agreements/) page and through the APIs.
+For agreements where the manufacturer isn't the proposer, the following rules apply:
++ Only the proposer can initiate cancellation and billing adjustment requests for these agreements. The ISV can't initiate these requests.
++ The ISV (manufacturer) receives email and Amazon EventBridge notifications when the proposer submits a cancellation or billing adjustment request.
++ ISV email notifications include the Product ID, the Buyer AWS account ID, and the proposer AWS account ID. They also include the selling authorization that the ISV issued: its ID and the AWS account ID of the partner that received it. That partner isn't always the proposer. ISV EventBridge events include the selling authorization that the ISV issued, but not the buyer or proposer AWS account IDs. For the event fields, see [Events for cancellations](notifications-eventbridge.md#events-for-cancellations) and [Events for billing adjustments](notifications-eventbridge.md#events-for-billing-adjustments). ISV notifications don't include the refund amount or message to buyer to protect the proposer's margin information.
++ The proposer can view and track all active and historical cancellation and billing adjustment requests for these agreements on the [**Agreements**](https://aws.amazon.com/marketplace/management/agreements/) page and through the APIs.
 
 ## Requesting a bulk refund
 <a name="bulk-refund-process"></a>

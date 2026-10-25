@@ -101,7 +101,7 @@ The 6% (new) and 5% (renewal) margins are current and subject to change.
 
 ## What documents do I receive?
 <a name="brazil-2p-faq-documents"></a>
-+ **Seller invoice**: An invoice is generated and issued under your name for each transaction, accessible from the **Tax details** page on AWS Partner Central. For consumption or overages transactions, a monthly invoice is generated based on the usage.
++ **Seller invoice**: An invoice is generated and issued under your name for each transaction. To find it in AWS Partner Central, choose **Tax** in the left side navigation, and then, in **Tax details**, choose **View invoices**. For consumption or overages transactions, a monthly invoice is generated based on the usage.
 + **Seller reporting**: Reporting through the Seller Insights dashboard, showing transaction details, WHT amounts, authorization IDs, and payment status.
 + **WHT confirmation letter**: If you require additional documentation to substantiate that WHT deductions were performed, contact your Partner Development Manager to request a WHT confirmation letter. Because of IRRF filing timelines, this letter is only available after AWS Brazil completes its annual IRRF filing with the Brazilian Federal Revenue, typically by February of the following calendar year.
 

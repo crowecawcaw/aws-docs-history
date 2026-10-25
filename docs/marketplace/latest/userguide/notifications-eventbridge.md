@@ -45,7 +45,9 @@ This topic
 | Cancellation request is denied by buyer | Agreement Cancellation Request Rejected - Proposer | [Events for cancellations](#events-for-cancellations) | 
 | Seller withdraws a cancellation request | Agreement Cancellation Request Cancelled - Proposer | [Events for cancellations](#events-for-cancellations) | 
 | Cancellation request fails validation | Agreement Cancellation Request Validation Failed - Proposer | [Events for cancellations](#events-for-cancellations) | 
+| Cancellation request for an agreement where the ISV isn't the proposer is submitted, approved, rejected, or withdrawn | Agreement Cancellation Request Pending Approval - Manufacturer, Agreement Cancellation Request Approved - Manufacturer, Agreement Cancellation Request Rejected - Manufacturer, Agreement Cancellation Request Cancelled - Manufacturer | [Events for cancellations](#events-for-cancellations) | 
 | Billing adjustment is processed | Purchase Agreement Billing Adjustment Completed - Proposer | [Events for billing adjustments](#events-for-billing-adjustments) | 
+| Billing adjustment for an agreement where the ISV isn't the proposer is processed | Purchase Agreement Billing Adjustment Completed - Manufacturer | [Events for billing adjustments](#events-for-billing-adjustments) | 
 | Billing adjustment fails validation | Purchase Agreement Billing Adjustment Failed - Proposer | [Events for billing adjustments](#events-for-billing-adjustments) | 
 
 ## Events for new offers
@@ -82,7 +84,7 @@ The following is an example event body for a new offer created by an ISV.
     "product": {
       "id": "bbbbaaaa-abcd-1111-abcd-666666666666",
       "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/bbbbaaaa-abcd-1111-abcd-666666666666",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "manufacturer": {
       "accountId": "123456789012",
@@ -126,7 +128,7 @@ The following is an example event body for when an ISV's product is used by a ch
     "product": {
       "id": "bbbbaaaa-abcd-1111-abcd-666666666666",
       "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/bbbbaaaa-abcd-1111-abcd-666666666666",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "manufacturer": {
       "accountId": "123456789012",
@@ -168,7 +170,7 @@ The following is an example event body for when a channel partner creates an off
     "product": {
       "id": "bbbbaaaa-abcd-1111-abcd-666666666666",
       "arn": "arn:aws:aws-marketplace:us-east-1:123456789012:AWSMarketplace/SaaSProduct/bbbbaaaa-abcd-1111-abcd-666666666666",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "manufacturer": {
       "accountId": "123456789012",
@@ -352,18 +354,18 @@ In the following JSON event code, the `source` value for these events is `aws.ma
 
 ```
 {
-"version": "0",
-"id": "01234567-0123-0123-0123-0123456789ab", 
-"detail-type": "Disbursement Paused",
-"source": "aws.marketplace",
-"account":"<account id of end user>",
-"time": "2022-11-01T13:12:22Z",
-"region": "us-east-1",
-"resources": ["arn:aws:payments:us-east-1:1234567890:paymentinstrument:123"],
-"detail": {
-"requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
-"catalog": "AWSMarketplace"
- }
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Disbursement Paused",
+  "source": "aws.marketplace",
+  "account": "<account id of end user>",
+  "time": "2022-11-01T13:12:22Z",
+  "region": "us-east-1",
+  "resources": ["arn:aws:payments:us-east-1:1234567890:paymentinstrument:123"],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace"
+  }
 }
 ```
 
@@ -384,7 +386,7 @@ In the AWS Marketplace Management Portal, this date is called the renewal decisi
 The following is an example event body for **Purchase Agreement Created - Proposer**.
 
 **Note**  
-Resale Authorization Id in case of Channel Partner Private Offer (CPPO) will be populated, and in case of Marketplace direct offer (MPPO), this value would be null.
+`resaleAuthorization.id` is populated when the offer was created from a selling authorization.
 
 ```
 {
@@ -392,7 +394,7 @@ Resale Authorization Id in case of Channel Partner Private Offer (CPPO) will be 
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Created - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's or CP's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -433,7 +435,7 @@ The following is an example event body for **Purchase Agreement Created - Propos
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Created - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's or CP's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -453,7 +455,7 @@ The following is an example event body for **Purchase Agreement Created - Propos
     },
     "product": {
       "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "acceptor": {
       "accountId": "845735284135"
@@ -477,7 +479,7 @@ The following is an example event body for **Purchase Agreement Created - Manufa
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Created - Manufacturer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -494,8 +496,25 @@ The following is an example event body for **Purchase Agreement Created - Manufa
       "startTime": "2024-08-30T21:36:03Z",
       "endTime": "2025-05-30T21:36:03Z"
     },
-    "resaleAuthorization": {
-      "id": "resaleauthz-yaxjqxiskysxa"
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product-1"
+    },
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "expirationDate": "2027-12-31T23:59:59Z",
+        "issuer": {
+          "accountId": "111122223333",
+          "name": "Example ISV"
+        },
+        "recipient": {
+          "accountId": "444455556666",
+          "name": "Example Partner"
+        }
+      }
     },
     "acceptor": {
       "accountId": "845735284135"
@@ -510,6 +529,20 @@ The following is an example event body for **Purchase Agreement Created - Manufa
 }
 ```
 
+For agreements where you, the manufacturer, aren't the proposer, the Manufacturer events for agreements include an `issuedAuthorization` object. It describes the selling authorization that you issued for the product in this agreement. If the selling authorization reached the proposer through another partner, `issuedAuthorization` describes the selling authorization that you issued to that partner.`issuedAuthorization.resaleAuthorization` fields
+
+`id`, `arn`, `name`  
+The ID, ARN, and name of the selling authorization that you issued.
+
+`expirationDate`  
+The date the selling authorization expires. Cancellation and billing adjustment events might not include this field.
+
+`issuer.accountId`, `issuer.name`  
+Your AWS account ID and name. The name can be null if it isn't available.
+
+`recipient.accountId`, `recipient.name`  
+The AWS account ID and name of the partner that you issued the selling authorization to. The name can be null if it isn't available.
+
 The following is an example event body for **Purchase Agreement Amended - Proposer**.
 
 ```
@@ -518,7 +551,7 @@ The following is an example event body for **Purchase Agreement Amended - Propos
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Amended - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV or CP's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -542,7 +575,7 @@ The following is an example event body for **Purchase Agreement Amended - Propos
     },
     "product": {
       "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "resaleAuthorization": {
       "id": "resaleauthz-yaxjqxiskysxa"
@@ -570,7 +603,7 @@ The following is an example event body for **Purchase Agreement Amended - Manufa
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Amended - Manufacturer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -584,11 +617,29 @@ The following is an example event body for **Purchase Agreement Amended - Manufa
       "intent": "AMEND",
       "status": "ACTIVE",
       "acceptanceTime": "2024-06-26T21:36:03Z",
+      "amendmentTime": "2024-08-30T21:30:00Z",
       "startTime": "2024-08-30T21:36:03Z",
       "endTime": "2025-05-30T21:36:03Z"
     },
-    "resaleAuthorization": {
-      "id": "resaleauthz-yaxjqxiskysxa"
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product-1"
+    },
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "expirationDate": "2027-12-31T23:59:59Z",
+        "issuer": {
+          "accountId": "111122223333",
+          "name": "Example ISV"
+        },
+        "recipient": {
+          "accountId": "444455556666",
+          "name": "Example Partner"
+        }
+      }
     },
     "acceptor": {
       "accountId": "845735284135"
@@ -611,7 +662,7 @@ The following is an example event body for **Purchase Agreement Ended - Proposer
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Ended - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -648,7 +699,7 @@ The following is an example event body for **Purchase Agreement Ended - Manufact
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Ended - Manufacturer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -661,8 +712,25 @@ The following is an example event body for **Purchase Agreement Ended - Manufact
       "id": "agmt-4mwg1nevbokzw95eca5797ixs",
       "status": "CANCELLED"
     },
-    "resaleAuthorization": {
-      "id": "resaleauthz-yaxjqxiskysxa"
+    "product": {
+      "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
+      "title": "Product-1"
+    },
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "expirationDate": "2027-12-31T23:59:59Z",
+        "issuer": {
+          "accountId": "111122223333",
+          "name": "Example ISV"
+        },
+        "recipient": {
+          "accountId": "444455556666",
+          "name": "Example Partner"
+        }
+      }
     },
     "acceptor": {
       "accountId": "845735284135"
@@ -763,7 +831,7 @@ The following is an example event body for **Purchase Agreement Ending - Propose
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Ending - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2026-07-04T00:00:00Z",
   "region": "us-east-1",
   "resources": [
@@ -786,7 +854,7 @@ The following is an example event body for **Purchase Agreement Ending - Propose
     },
     "product": {
       "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "acceptor": { "accountId": "845735284135" },
     "proposer": {
@@ -808,7 +876,7 @@ The following is an example event body for **Purchase Agreement Renewal Terms Fi
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Renewal Terms Finalized - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2026-11-01T00:00:00Z",
   "region": "us-east-1",
   "resources": [
@@ -831,7 +899,7 @@ The following is an example event body for **Purchase Agreement Renewal Terms Fi
     },
     "product": {
       "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "acceptor": { "accountId": "845735284135" },
     "proposer": {
@@ -852,7 +920,7 @@ The following is an example event body for **Purchase Agreement Renewal Upcoming
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "Purchase Agreement Renewal Upcoming - Proposer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV's account id>",
+  "account": "<recipient's account id>",
   "time": "2026-12-01T00:00:00Z",
   "region": "us-east-1",
   "resources": [
@@ -873,7 +941,7 @@ The following is an example event body for **Purchase Agreement Renewal Upcoming
     },
     "product": {
       "id": "prod-aw4fgf5tyo5w2ap6fEXAMPLE",
-      "title": "Product Title"
+      "title": "Product-1"
     },
     "acceptor": { "accountId": "845735284135" },
     "proposer": {
@@ -899,7 +967,7 @@ The following is an example event body for **License Updated - Manufacturer**.
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "License Updated - Manufacturer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV/CP account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -939,7 +1007,7 @@ The following is an example event body for **License Deprovisioned - Manufacture
   "id": "12345678-1234-1234-1234-123456789012",
   "detail-type": "License Deprovisioned - Manufacturer",
   "source": "aws.agreement-marketplace",
-  "account": "<ISV/CP account id>",
+  "account": "<recipient's account id>",
   "time": "2024-08-30T21:36:03Z",
   "region": "us-east-1",
   "resources": [
@@ -974,7 +1042,7 @@ The following is an example event body for **License Deprovisioned - Manufacture
 ## Events for cancellations
 <a name="events-for-cancellations"></a>
 
-When a cancellation request status changes, sellers, buyers, and ISVs (for CPPO) receive events. Each event is sent to the relevant party with a role-specific detail type (Proposer for sellers, Acceptor for buyers, Manufacturer for ISVs). The source for these events is `aws.agreement-marketplace`.
+When a cancellation request status changes, sellers, buyers, and ISVs (when the ISV isn't the proposer) receive events. AWS Marketplace sends each event to the relevant party with a role-specific detail type (Proposer for sellers, Acceptor for buyers, Manufacturer for ISVs). The source for these events is `aws.agreement-marketplace`.
 
 For information on creating EventBridge rules, see [Amazon EventBridge rules](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rules.html) in the *Amazon EventBridge User Guide*.
 
@@ -1148,10 +1216,55 @@ The following is an example event body for **Agreement Cancellation Request Vali
 }
 ```
 
+The following is an example event body for **Agreement Cancellation Request Pending Approval - Manufacturer**. ISVs receive this event when the proposer submits a cancellation request for an agreement where the ISV isn't the proposer. The **Approved**, **Rejected**, and **Cancelled** Manufacturer events have the same structure, with the matching `statusCode`. Manufacturer events don't include the agreement ID, offer ID, buyer account ID, `reasonMessage`, or `statusMessage`. `agreement.resaleAuthorizationId` and `issuedAuthorization.resaleAuthorization.id` are the ID of the selling authorization that you issued. For the `issuedAuthorization` fields, see [Events for agreements](#events-for-agreements).
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Agreement Cancellation Request Pending Approval - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<recipient's account id>",
+  "time": "2025-01-01T13:12:22Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "productId": "prod-exampleid",
+      "resaleAuthorizationId": "resaleauthz-1a2b3c4d5e6f7"
+    },
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "issuer": {
+          "accountId": "111122223333",
+          "name": "Example ISV"
+        },
+        "recipient": {
+          "accountId": "444455556666",
+          "name": "Example Partner"
+        }
+      }
+    },
+    "agreementCancellationRequest": {
+      "id": "acr-abcdexampleid",
+      "reasonCode": "INCORRECT_TERMS_ACCEPTED",
+      "statusCode": "PENDING_APPROVAL",
+      "createdAt": "2025-01-01T13:12:22Z",
+      "updatedAt": "2025-01-01T13:12:22Z"
+    }
+  }
+}
+```
+
 ## Events for billing adjustments
 <a name="events-for-billing-adjustments"></a>
 
-When a billing adjustment status changes, sellers, buyers, and ISVs (for CPPO) receive events. Each event is sent to the relevant party with a role-specific detail type (Proposer for sellers, Acceptor for buyers, Manufacturer for ISVs). The source for these events is `aws.agreement-marketplace`.
+When a billing adjustment status changes, sellers, buyers, and ISVs (when the ISV isn't the proposer) receive events. AWS Marketplace sends each event to the relevant party with a role-specific detail type (Proposer for sellers, Acceptor for buyers, Manufacturer for ISVs). The source for these events is `aws.agreement-marketplace`.
 
 The following is an example event body for **Purchase Agreement Billing Adjustment Completed - Proposer**.
 
@@ -1207,6 +1320,50 @@ The following is an example event body for **Purchase Agreement Billing Adjustme
       "adjustmentAmount": "-1000.00",
       "currencyCode": "USD",
       "adjustmentReasonCode": "INCORRECT_TERMS_ACCEPTED"
+    },
+    "invoice": {
+      "originalInvoiceId": "2028746221"
+    }
+  }
+}
+```
+
+The following is an example event body for **Purchase Agreement Billing Adjustment Completed - Manufacturer**. ISVs receive this event when a billing adjustment that the proposer submitted is processed, for an agreement where the ISV isn't the proposer. Manufacturer events don't include the agreement ID, the adjustment amount, or the currency code. `agreement.resaleAuthorizationId` and `issuedAuthorization.resaleAuthorization.id` are the ID of the selling authorization that you issued. For the `issuedAuthorization` fields, see [Events for agreements](#events-for-agreements).
+
+```
+{
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "Purchase Agreement Billing Adjustment Completed - Manufacturer",
+  "source": "aws.agreement-marketplace",
+  "account": "<recipient's account id>",
+  "time": "2025-01-01T13:12:22Z",
+  "region": "us-east-1",
+  "resources": [],
+  "detail": {
+    "requestId": "3d4c9f9b-b809-4f5e-9fac-a9ae98b05cbb",
+    "catalog": "AWSMarketplace",
+    "agreement": {
+      "resaleAuthorizationId": "resaleauthz-1a2b3c4d5e6f7"
+    },
+    "issuedAuthorization": {
+      "resaleAuthorization": {
+        "id": "resaleauthz-1a2b3c4d5e6f7",
+        "arn": "arn:aws:aws-marketplace:us-east-1:111122223333:AWSMarketplace/ResaleAuthorization/resaleauthz-1a2b3c4d5e6f7",
+        "name": "Example selling authorization",
+        "issuer": {
+          "accountId": "111122223333",
+          "name": "Example ISV"
+        },
+        "recipient": {
+          "accountId": "444455556666",
+          "name": "Example Partner"
+        }
+      }
+    },
+    "billingAdjustmentRequest": {
+      "id": "ba-abcdexampleid",
+      "adjustmentReasonCode": "BILLING_ERROR"
     },
     "invoice": {
       "originalInvoiceId": "2028746221"

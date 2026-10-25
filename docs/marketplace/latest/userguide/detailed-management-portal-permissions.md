@@ -117,6 +117,9 @@ Allows access to view a list of assessments pending seller action.
 **`aws-marketplace:DescribeAssessment`**  
 Allows access to view the details of assessments pending seller action.
 
+**`s3:PutObject`**  
+Allows access to upload files in AWS Partner Central. For example, you can upload custom legal terms and other offer documents when you create a private offer or amend an agreement. Use this permission with the following ARN: `arn:aws:s3:::aws-partner-central-marketplace-ephemeral-writeonly-files/{{account-id}}/*`. AWS Marketplace owns this bucket, and you can only upload files to it. The `AWSMarketplaceSellerFullAccess` and `AWSMarketplaceSellerProductsFullAccess` managed policies include this permission.
+
 **Note**  
  To enable a user to access the [Manage Products](https://aws.amazon.com/marketplace/management/products/) page, you must use either the `AWSMarketplaceSellerProductsFullAccess` or `AWSMarketplaceSellerProductsReadOnly` managed permissions. 
 

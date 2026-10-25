@@ -107,10 +107,9 @@ AWS Brazil calculates and withholds an income tax called the Imposto sobre a Ren
 ## Invoicing
 <a name="brazil-2p-invoicing"></a>
 
-A seller disbursement invoice is generated for each transaction, issued under your name and business details, and accessible from the **Tax details** page in AWS Partner Central. Disbursements are paid in US dollars (USD) to your registered bank account.
+A seller disbursement invoice is generated for each transaction, issued under your name and business details. To find your invoices in AWS Partner Central, choose **Tax** in the left side navigation, and then, in **Tax details**, choose **View invoices**. Disbursements are paid in US dollars (USD) to your registered bank account.
 
 To retrieve a disbursement invoice:
-+ Go to the **Tax details** menu in AWS Partner Central.
 + Select the **Disbursement invoices (2P)** tab, which lists all your seller disbursement invoices for the Brazil 2P program.
 + Search using the offer ID or invoice ID. Filter by date and invoice type.
 
