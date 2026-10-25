@@ -21,7 +21,7 @@
 1. If approved, the ticket charge appears on the AWS account bill.
 
 **Note**  
- The approver has 7 days to act on the request. If no action is taken, the request expires and the attendee must resubmit. 
+ The approver has 5 days to act on the request. If no action is taken, the request expires and the attendee must resubmit. 
 
 ## Prerequisites
 <a name="prerequisites"></a>
