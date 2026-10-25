@@ -156,7 +156,7 @@ Each section instruction is also size-limited individually — see **Section ins
 | Property | Value | 
 | --- | --- | 
 | Type | String | 
-| Maximum size | 15 KB (15,360 bytes) per section instruction, measured on the UTF-8 byte length. The limit applies to each section instruction individually, not to the template as a whole. | 
+| Maximum size | The maximum size is 15 KB (15,360 bytes) total per template, measured as the UTF-8 byte length. This limit applies to the combined size of all section instructions in the template, not to each section instruction individually. | 
 | Supported characters | The same set as encounter context (see [Character support](al-patient-context.md#al-encounter-context-character-support)) | 
 | Pattern | \+^[\\p{L}\\p{N}\\s\\\*\_\\-\#\\[\\]\\(\\)\\.,:;\!?'"`<>\~/ | 
 
