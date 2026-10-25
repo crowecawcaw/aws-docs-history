@@ -213,7 +213,7 @@ The `status_code` field tells you the state the node entered. The `reason_code` 
 | LAUNCH\_FAILED | INSUFFICIENT\_CAPACITY | Node did not get an instance because there was not enough capacity available | 
 | LAUNCH\_FAILED | LIMIT\_EXCEEDED | Instance launch failed because an account quota was exceeded | 
 | LAUNCH\_FAILED | LAUNCH\_ERROR | Node failed to launch its instance | 
-| TERMINATED | SCHEDULER\_REQUESTED | Instance terminated after the scheduler released the node (idle timeout or power-down) | 
+| TERMINATED | SCHEDULER\_REQUESTED | Instance terminated after the scheduler suspended the node (idle timeout or user initiated power-down) | 
 | TERMINATED | UNHEALTHY\_NODE | Instance terminated because the scheduler reported the node as unhealthy | 
 | TERMINATED | BOOTSTRAP\_FAILED | Instance terminated because the node failed to bootstrap | 
 | TERMINATED | EXTERNALLY\_TERMINATED | Instance was terminated outside of PCS; the node was released so it can be replaced | 
