@@ -27,7 +27,7 @@ When you create a materialized view using Spark in AWS Glue, the view definition
 Materialized views integrate with AWS Glue through Apache Spark's Iceberg support in AWS Glue jobs and AWS Glue Studio notebooks. When you configure your Spark session to use the AWS Glue Data Catalog, you can create materialized views using standard SQL syntax. The Spark optimizer can automatically rewrite queries to use materialized views when they provide better performance, eliminating the need to manually modify application code.
 
 The AWS Glue Data Catalog handles all operational aspects of materialized view maintenance, including:
-+ Detecting changes in source tables using Apache Iceberg's metadata layer
++ Detecting changes in source tables. For Apache Iceberg source tables, change detection uses Apache Iceberg's metadata layer. For Apache Hive (non-Iceberg) source tables, change detection compares the ETags of the source data files against those recorded at the last refresh.
 + Scheduling and executing refresh operations using managed Spark compute
 + Determining whether to perform full or incremental refresh based on the data changes
 + Storing precomputed results in Apache Iceberg format for multi-engine access
@@ -40,7 +40,7 @@ You can query materialized views from AWS Glue using the same Spark SQL interfac
 To use materialized views with AWS Glue, you need:
 + An AWS account
 + AWS Glue version 5.1 or later
-+ Source tables in Apache Iceberg format registered in the AWS Glue Data Catalog
++ Source tables registered in the AWS Glue Data Catalog. Apache Iceberg source tables are supported on AWS Glue version 5.1 and later. Apache Hive (non-Iceberg) source tables with a PARQUET, ORC, CSV, or JSON provider are supported on AWS Glue version 6.0 and later.
 + An S3 Tables bucket or S3 general purpose bucket for storing materialized view data
 + An IAM role with permissions to access AWS Glue Data Catalog and Amazon S3
 + Permissions configured using one of the following models:
@@ -181,6 +181,8 @@ The following configuration parameters control materialized view behavior:
 + `spark.sql.optimizer.answerQueriesWithMVs.enabled` – Enables automatic query rewrite to use materialized views. Set to true to activate this optimization.
 + `spark.sql.materializedViews.metadataCache.enabled` – Enables caching of materialized view metadata for query optimization. Set to true to improve query rewrite performance.
 + `spark.sql.optimizer.incrementalMVRefresh.enabled` – Enables incremental refresh optimization. Set to true to process only changed data during refresh operations.
++ `spark.sql.materializedView.v1SourceTables.enabled` – Allows Apache Hive (non-Iceberg) tables with a PARQUET, ORC, CSV, or JSON provider in the AWS Glue Data Catalog to be used as source tables for a materialized view. Set to true to create materialized views over Hive source tables. Available on AWS Glue version 6.0 and later.
++ `spark.sql.materializedView.v1ETagVersioning.enabled` – Set to true to detect changes in Apache Hive (non-Iceberg) source tables by comparing the ETags of the source data files. This is required to refresh a materialized view that references Hive source tables. Available on AWS Glue version 6.0 and later.
 + `spark.sql.optimizer.answerQueriesWithMVs.decimalAggregateCheckEnabled` – Controls validation of decimal aggregate operations in query rewrite. Set to false to disable certain decimal overflow checks.
 
 ## Creating materialized views
