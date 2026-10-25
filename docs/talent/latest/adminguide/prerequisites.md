@@ -18,7 +18,7 @@ To create an Amazon Connect Talent instance, you need the following:
 + Access to a supported AWS Region. For more information, see [Supported Regions and endpoints](what-is-talent.md#talent-regions-endpoints).
 + A valid email address for the first administrator of the instance.
 
-Avoid using your AWS account root user for everyday tasks. Instead, create an administrative user in IAM and use it to set up and manage Amazon Connect Talent.
+Avoid using your AWS account root user for everyday tasks. Instead, create an administrative user in AWS Identity and Access Management (IAM) and use it to set up and manage Amazon Connect Talent.
 
 **Important**  
 Service quotas can block instance creation. The Amazon Connect instance count quota is shared across Amazon Connect Talent and Amazon Connect, so instances of either count toward the same limit. By default, you can create 2 instances per AWS Region, and other account-level quotas limit this further. If you reach one of these quotas, instance creation fails with a generic error that does not name the quota. Before you create an instance, review [Quotas that limit how many instances you can create](endpoints-quotas.md#talent-quotas-instance-count) and request any increases you need.
@@ -36,12 +36,12 @@ The following section describes the IAM permissions required to create an Amazon
 #### Create an instance
 <a name="prerequisites-iam-create"></a>
 
-The IAM identity (user or role) that creates an Amazon Connect Talent instance needs permissions across several AWS services, because the setup process provisions resources in Connect Customer, Amazon Lex, Connect Customer Cases, Connect Customer Customer Profiles, Amazon Q in Connect, and Amazon SES.
+The IAM identity (user or role) that creates an Amazon Connect Talent instance needs permissions across several AWS services, because the setup process provisions resources in Amazon Connect, Amazon Lex, Amazon Connect Cases, Amazon Connect Customer Profiles, Amazon Q in Connect, and Amazon SES.
 
 As a recommended approach, grant the creating identity the following permissions:
 + `AmazonConnect_FullAccess`
 + `AmazonLexFullAccess`
-+ Full access to Connect Customer Cases, Connect Customer Customer Profiles, Amazon Q in Connect, and Amazon SES
++ Full access to Amazon Connect Cases, Amazon Connect Customer Profiles, Amazon Q in Connect, and Amazon SES
 + `iam:CreateServiceLinkedRole`, `iam:PassRole`, and AWS KMS grant permissions
 
 For a least-privilege alternative, use action-level policies scoped to only the actions the setup process requires.
@@ -53,7 +53,7 @@ When you create an instance, Amazon Connect Talent also provisions the IAM roles
 ## Amazon SES requirements
 <a name="prerequisites-ses"></a>
 
-Amazon Connect Talent uses Amazon SES to send email to candidates, such as invitations to complete an evaluation. New Amazon SES accounts start in the Amazon SES sandbox. While your account is in the sandbox, you can send email only to verified addresses, and daily and per-second sending limits apply.
+Amazon Connect Talent uses Amazon Simple Email Service (Amazon SES) to send email to candidates, such as invitations to complete an evaluation. New Amazon SES accounts start in the Amazon SES sandbox. While your account is in the sandbox, you can send email only to verified addresses, and daily and per-second sending limits apply.
 
 To send email to candidates who are not verified addresses, request production access to move your account out of the sandbox. For instructions, see [Move Amazon SES out of sandbox mode](getting-started-create.md#getting-started-ses).
 

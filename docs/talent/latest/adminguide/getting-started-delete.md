@@ -1,6 +1,6 @@
 
 
-# Delete your instance
+# Delete your Amazon Connect Talent instance
 <a name="getting-started-delete"></a>
 
 When you no longer need an Amazon Connect Talent instance, delete it from the Amazon Connect Talent console. Deleting an instance stops new evaluations and removes the instance, but some resources that were provisioned with the instance remain in your account and continue to count against your service quotas. To fully clean up, delete the instance and then remove the resources that remain.
@@ -37,26 +37,26 @@ Deleting an instance can leave the following resources in your account. They con
 | Amazon S3 bucket and IAM roles (console-created instances only) | `amazon-connect-{{id}}`, `AmazonConnectHiringRole-{{instance ID}}`, `AmazonLexTestWorkbenchServiceRole-{{Region code}}-{{instance ID prefix}}` | 
 
 **Note**  
-If you create a new instance with the same alias, it reuses the remaining Amazon Connect Cases domain, Amazon Connect Customer Profiles domain, and Amazon Lex bots. It does not reuse the assistant — every new instance creates a new one. Only active assistants count toward the quota, so deleting an assistant that no instance uses frees a slot.
+If you create a new instance with the same alias, it reuses the remaining Amazon Connect Cases domain, Amazon Connect Customer Profiles domain, and Amazon Lex bots. It does not reuse the assistant—every new instance creates a new one. Only active assistants count toward the quota, so deleting an assistant that no instance uses frees a slot.
 
 Choose a method:
-+ **Using the console** — delete each resource in its service console. Best for a one-time cleanup of a single instance.
-+ **Using the AWS CLI** — list and delete the resources with commands. Best when you manage several instances or want to confirm which resources are still in use before deleting.
++ **Using the console**—delete each resource in its service console. Best for a one-time cleanup of a single instance.
++ **Using the AWS CLI**—list and delete the resources with commands. Best when you manage several instances or want to confirm which resources are still in use before deleting.
 
 ### Using the console
 <a name="getting-started-delete-console"></a>
 
 Delete each remaining resource in its own service console, in this order. Confirm each resource belongs to the deleted instance before you remove it.
 
-1. **Amazon Lex bots** — In the Amazon Lex console, first disassociate each bot from the instance, then delete the three bots named `{{instance alias}}-hiring-chat-lex-bot`, `{{instance alias}}-hiring-interview-lex-bot`, and `{{instance alias}}-hiring-assessment-lex-bot`.
+1. **Amazon Lex bots**—In the Amazon Lex console, first disassociate each bot from the instance, then delete the three bots named `{{instance alias}}-hiring-chat-lex-bot`, `{{instance alias}}-hiring-interview-lex-bot`, and `{{instance alias}}-hiring-assessment-lex-bot`.
 
-1. **Amazon Connect Customer Profiles domain** — In the Amazon Connect Customer Profiles console, delete the domain named `amazon-connect-hiring-{{instance alias}}`.
+1. **Amazon Connect Customer Profiles domain**—In the Amazon Connect Customer Profiles console, delete the domain named `amazon-connect-hiring-{{instance alias}}`.
 
-1. **Amazon Connect Cases domain** — In the Amazon Connect Cases console, delete the domain named for the instance alias.
+1. **Amazon Connect Cases domain**—In the Amazon Connect Cases console, delete the domain named for the instance alias.
 
-1. **Amazon Q in Connect assistant** — In the Amazon Q in Connect console, delete the assistant named `Talent AI Assistant ({{instance alias}})`.
+1. **Amazon Q in Connect assistant**—In the Amazon Q in Connect console, delete the assistant named `Talent AI Assistant ({{instance alias}})`.
 
-1. **(Console-created instances only) Amazon S3 bucket and IAM roles** — Delete the S3 bucket `amazon-connect-{{id}}` if it holds only the deleted instance's data, and remove the instance-specific IAM roles. Do not delete the shared roles `AWSServiceRoleForLexV2Bots_AmazonConnect_{{account ID}}` and `AmazonConnectEmailSESAccessRole`.
+1. **(Console-created instances only) Amazon S3 bucket and IAM roles**—Delete the S3 bucket `amazon-connect-{{id}}` if it holds only the deleted instance's data, and remove the instance-specific IAM roles. Do not delete the shared roles `AWSServiceRoleForLexV2Bots_AmazonConnect_{{account ID}}` and `AmazonConnectEmailSESAccessRole`.
 
 **Note**  
 If you can't identify which resources were left behind, contact AWS Support.
@@ -135,7 +135,7 @@ aws lexv2-models list-bots --max-results 1000 \
 aws lexv2-models delete-bot --bot-id {{bot-id}} --skip-resource-in-use-check
 ```
 
-Include `--max-results 1000`; without it, the command returns only the first 10 bots. A Lex alias ARN contains the bot ID, in the form `bot-alias/{{bot-id}}/{{alias-id}}` — check each bot ID against the Step 1 output before deleting. Each Connect Talent bot has aliases, so the delete fails without `--skip-resource-in-use-check`; that flag also skips Lex's own in-use safety check, so always confirm with Step 1 first.
+Include `--max-results 1000`; without it, the command returns only the first 10 bots. A Lex alias ARN contains the bot ID, in the form `bot-alias/{{bot-id}}/{{alias-id}}`—check each bot ID against the Step 1 output before deleting. Each Connect Talent bot has aliases, so the delete fails without `--skip-resource-in-use-check`; that flag also skips Lex's own in-use safety check, so always confirm with Step 1 first.
 
 **Step 6 (console-created instances only): Delete the Amazon S3 bucket and IAM roles**
 
@@ -169,4 +169,4 @@ If a detached policy is named for the deleted instance (ARN `arn:aws:iam::{{acco
 aws iam delete-policy --policy-arn {{policy-arn}}
 ```
 
-Instances created earlier might instead use a shared policy named `AmazonConnectHiringServicePolicy`, with no instance ID. Don't delete the shared policy while other roles still use it — the console shows which roles use it on the policy's **Entities attached** tab. Don't delete the shared roles `AWSServiceRoleForLexV2Bots_AmazonConnect_{{account ID}}` or `AmazonConnectEmailSESAccessRole`; all instances in the account share them.
+Instances created earlier might instead use a shared policy named `AmazonConnectHiringServicePolicy`, with no instance ID. Don't delete the shared policy while other roles still use it—the console shows which roles use it on the policy's **Entities attached** tab. Don't delete the shared roles `AWSServiceRoleForLexV2Bots_AmazonConnect_{{account ID}}` or `AmazonConnectEmailSESAccessRole`; all instances in the account share them.

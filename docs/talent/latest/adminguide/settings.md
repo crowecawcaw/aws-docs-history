@@ -5,7 +5,7 @@
 
 Use the Amazon Connect Talent settings to manage users and security profiles, configure instance settings such as knowledge bases, branding, and disclosures, and review your data governance policies.
 
-For information about charges for candidate evaluations, see [Billing](billing.md).
+For information about charges for candidate evaluations, see [Billing for Amazon Connect Talent](billing.md).
 
 **Topics**
 + [Manage users](manage-users.md)

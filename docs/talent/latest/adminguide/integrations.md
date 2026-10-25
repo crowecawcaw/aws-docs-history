@@ -25,4 +25,4 @@ You will not be charged for adding your ATS integration.
 Amazon Connect Talent works in full without an ATS integration. You can:
 + Create evaluations by manually uploading or describing your job. For more information, see [Add a job](https://docs.aws.amazon.com/talent/latest/userguide/jobs.html#jobs-create).
 + Send evaluations to candidates manually by email. For more information, see [Sending evaluations to candidates](https://docs.aws.amazon.com/talent/latest/userguide/evaluations-send.html).
-+ Test Amazon Connect Talent end-to-end by sending evaluations to yourself or your team. For more information, see [Testing Amazon Connect Talent](https://docs.aws.amazon.com/talent/latest/userguide/getting-started-test.html).
++ Test Amazon Connect Talent end-to-end by sending evaluations to yourself or your team. For more information, see [Testing Amazon Connect Talent](https://docs.aws.amazon.com/talent/latest/userguide/getting-started.html#getting-started-test).

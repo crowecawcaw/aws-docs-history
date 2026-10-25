@@ -27,7 +27,7 @@ The instance creation wizard walks you through identity management, administrato
 <a name="create-talent-instance-prerequisites"></a>
 
 Before you create an Amazon Connect Talent instance, verify that you have the following:
-+ An AWS account with an identity that has permissions to create Amazon Connect Talent resources. Instance creation provisions resources across Connect Customer, Amazon Lex, Connect Customer Cases, Connect Customer Customer Profiles, Amazon Q in Connect, and Amazon SES. For the full list of required permissions, see [IAM permissions and managed policies](prerequisites.md#prerequisites-iam).
++ An AWS account with an identity that has permissions to create Amazon Connect Talent resources. Instance creation provisions resources across Amazon Connect, Amazon Lex, Amazon Connect Cases, Amazon Connect Customer Profiles, Amazon Q in Connect, and Amazon SES. For the full list of required permissions, see [IAM permissions and managed policies](prerequisites.md#prerequisites-iam).
 + A valid email address for the administrator account
 
 ### To navigate to Amazon Connect Talent
@@ -99,7 +99,7 @@ Consider the following when you configure SAML for Amazon Connect Talent:
 Choosing SAML requires IAM federation configuration.
 The username must match the `RoleSessionName` SAML attribute.
 Amazon Connect Talent doesn't support reverse federation. Authentication must happen from the identity provider (IdP).
-Most IdPs use the global AWS sign-in endpoint by default. You must override this to the regional endpoint.
+Most IdPs use the global AWS sign-in endpoint by default. You must override this to the Regional endpoint.
 All usernames are case sensitive.
 SAML for Amazon Connect Talent is available in supported Regions. For more information, see [Supported Regions and endpoints](what-is-talent.md#talent-regions-endpoints).
 
@@ -144,7 +144,7 @@ Complete the following high-level steps to enable SAML-based authentication:
 
 1. Configure SAML assertions for the authentication response. Leave the **Application Start URL** blank.
 
-1. Override the Assertion Consumer Service (ACS) URL to the regional endpoint.
+1. Override the Assertion Consumer Service (ACS) URL to the Regional endpoint.
 
 1. Configure the relay state URL for your Region and instance.
 
@@ -160,7 +160,7 @@ The following example shows an IAM policy that allows all users in a specific in
         {
             "Effect": "Allow",
             "Action": "connect:GetFederationToken",
-            "Resource": "arn:aws:connect:{{region}}:{{123456789012}}:instance/{{instance-id}}/user/${aws:userid}"
+            "Resource": "arn:aws:connect:{{region}}:{{account-id}}:instance/{{instance-id}}/user/${aws:userid}"
         }
     ]
 }
@@ -186,12 +186,14 @@ The following example uses an instance ID condition instead of a resource ARN.
 }
 ```
 
-### Configure regional SAML endpoints
+In these examples, replace the placeholders (for example, `{{region}}`, `{{account-id}}`, and `{{instance-id}}`) with your own values.
+
+### Configure Regional SAML endpoints
 <a name="configure-saml-regional-endpoints"></a>
 
-1. Update the ACS URL to the regional endpoint. For example: `https://us-west-2.signin.aws.amazon.com/saml`
+1. Update the ACS URL to the Regional endpoint. For example: `https://us-west-2.signin.aws.amazon.com/saml`
 
-1. Update the role trust policy to include the regional endpoint in the `SAML:aud` condition.
+1. Update the role trust policy to include the Regional endpoint in the `SAML:aud` condition.
 
 1. Configure the relay state for the region-specific console.
 
@@ -205,7 +207,7 @@ Amazon Connect Talent uses Amazon SES to send evaluation invitations to candidat
 **Important**  
 Until you move Amazon SES out of sandbox mode, Amazon Connect Talent can't send evaluations to candidates by email or support internal testing.
 
-To request production access:
+**To request production access**
 
 1. Open the Amazon SES [Get set up](https://console.aws.amazon.com/ses/home#/get-set-up) page.
 
@@ -223,8 +225,8 @@ To request production access:
 
 1. Choose **Submit request**.
 
-**Important**  
-AWS Support creates a case and emails you for more detail as needed. Open your [AWS Support cases](https://console.aws.amazon.com/support/home?issueType=service-limit-increase#/case/history), open the SES: Production Access case, and reply that you have created an Amazon Connect Talent instance and will use Amazon SES to send evaluation invitations to candidates. Watch the case for follow-ups. AWS Support might request more information before granting production access — reply until your request is approved.
+**Note**  
+AWS Support creates a case and emails you for more detail as needed. Open your [AWS Support cases](https://console.aws.amazon.com/support/home?issueType=service-limit-increase#/case/history) and open the SES: Production Access case. Reply that you have created an Amazon Connect Talent instance and will use Amazon SES to send evaluation invitations to candidates. Watch the case for follow-ups. AWS Support might request more information before granting production access—reply until your request is approved.
 
 For more information, see [Request production access (moving out of the Amazon SES sandbox)](https://docs.aws.amazon.com/ses/latest/dg/request-production-access.html) in the *Amazon Simple Email Service Developer Guide*.
 

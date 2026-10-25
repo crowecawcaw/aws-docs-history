@@ -22,7 +22,7 @@ Set your service quotas to the values you need. Review [Service quotas and endpo
 
 1. **Create your first evaluation** – You're ready to create an evaluation. For step-by-step instructions, see [Managing evaluations](https://docs.aws.amazon.com/talent/latest/userguide/managing-evaluations.html) in the *Amazon Connect Talent User Guide*.
 
-1. **Test your evaluation** – Before sending evaluations to candidates, test the evaluation by sending it to yourself or your team. For more information, see [Testing Amazon Connect Talent](https://docs.aws.amazon.com/talent/latest/userguide/getting-started-test.html) in the *Amazon Connect Talent User Guide*.
+1. **Test your evaluation** – Before sending evaluations to candidates, test the evaluation by sending it to yourself or your team. For more information, see [Testing Amazon Connect Talent](https://docs.aws.amazon.com/talent/latest/userguide/getting-started.html#getting-started-test) in the *Amazon Connect Talent User Guide*.
 
 1. **Connect your ATS (coming soon)** – When available, connect your applicant tracking system to sync jobs and candidates automatically.
 **Note**  

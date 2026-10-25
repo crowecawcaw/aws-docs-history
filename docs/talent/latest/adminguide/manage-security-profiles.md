@@ -23,7 +23,7 @@ Amazon Connect Talent provides the following default security profiles:
 The default security profiles are a starting point. A user who can manage security profiles (for example, the `TechAdmin` profile) can adjust the permissions on the default profiles as well as create new ones.
 
 **Tip**  
-The default `TechAdmin` profile does not include permissions for hiring setup or candidate review. If you need a single profile with full access to all Amazon Connect Talent features — for example, for the person who sets up and configures the instance — you have two options:  
+The default `TechAdmin` profile does not include permissions for hiring setup or candidate review. If you need a single profile with full access to all Amazon Connect Talent features—for example, for the person who sets up and configures the instance—you have two options:  
 **Add permissions to the TechAdmin profile** – Edit the `TechAdmin` profile and enable all permission categories, including hiring setup and candidate review.
 **Create a new profile with all permissions** – Create a new security profile (for example, "Admin") and select all permission categories. Assign this profile to users who need full access.
 
