@@ -77,20 +77,32 @@ To sign in with a different method, sign out first, and then run the following c
 kiro-cli login
 ```
 
-## CLI command completion in CloudShell
-<a name="cli-completion"></a>
+## Configuring the AWS MCP Server for Kiro CLI in CloudShell
+<a name="configure-aws-mcp"></a>
 
-CLI completion in CloudShell provides suggestions for commands and options as you type in the terminal. For more information, see [Generating command line completion](https://kiro.dev/docs/cli/autocomplete/) on the Kiro website.
+You can configure the AWS MCP Server (`aws-mcp`) for Kiro CLI in CloudShell so that Kiro can use AWS tools through the Model Context Protocol (MCP). The server signs its requests with your CloudShell session credentials, so its tools act with the same permissions that you have in the console.
 
-## Using Kiro inline suggestions in CloudShell
-<a name="q-inline-suggestions"></a>
+For more information about the AWS MCP Server, see [AWS MCP Server](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/mcp-server.html) in the *Agent Toolkit for AWS* documentation.
 
-Kiro inline suggestions in CloudShell provide command suggestions as you type in the terminal. For more information, see [Inline suggestions](https://kiro.dev/docs/cli/autocomplete/#inline-suggestions) on the Kiro website.
+To configure the server, run the following commands in CloudShell.
 
-In the CloudShell terminal, run `zsh` to open Z shell, and then start typing a command. Kiro makes suggestions based on your current input and previous commands. Inline suggestions are automatically enabled.
+```
+curl -fsS "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-aws-mcp.zip" -o "kiro-cloudshell-aws-mcp.zip"
+unzip -q -o kiro-cloudshell-aws-mcp.zip
+chmod +x kiro-cloudshell-aws-mcp.sh
+./kiro-cloudshell-aws-mcp.sh
+```
+
+You can also download [kiro-cloudshell-aws-mcp.zip](samples/kiro-cloudshell-aws-mcp.zip) directly.
+
+The script configures only the `aws-mcp` server for Kiro CLI. It doesn't install, update, or launch Kiro CLI, and it works with the pre-installed version. You don't need to sign in to Kiro CLI before you run the script. To verify the configuration, run `kiro-cli`, and then enter `/mcp` to confirm that `aws-mcp` is running.
+
+You can run the script again at any time. It updates only the `aws-mcp` entry in your configuration and leaves any other MCP servers in place. CloudShell keeps a separate home directory in each AWS Region, so run the script one time in each AWS Region where you use Kiro CLI.
 
 **Note**  
-Kiro inline suggestions are supported only in Z shell.
+The script installs `uv` in a virtual environment in your home directory and writes the `aws-mcp` configuration to `~/.kiro/settings/mcp.json`. It keeps the larger `uv` cache and downloaded files in temporary storage to conserve space in your home directory.  
+When you restart your CloudShell environment, the configuration and virtual environment persist, and the temporary files download again the next time the server starts. When you delete your CloudShell environment, run the script again.  
+For more information about the script, see `kiro-cloudshell-aws-mcp-README.md` in the zip file.
 
 ## Using the latest version of Kiro CLI in CloudShell
 <a name="install-latest-kiro-cli"></a>
@@ -98,7 +110,7 @@ Kiro inline suggestions are supported only in Z shell.
 CloudShell includes a pre-installed version of Kiro CLI, which might not be the latest release. To get the latest version, run the following commands in CloudShell.
 
 ```
-curl -s "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-latest.zip" -o "kiro-cloudshell-latest.zip"
+curl -fsS "https://docs.aws.amazon.com/cloudshell/latest/userguide/samples/kiro-cloudshell-latest.zip" -o "kiro-cloudshell-latest.zip"
 unzip -q -o kiro-cloudshell-latest.zip
 chmod +x kiro-cloudshell-latest.sh
 ./kiro-cloudshell-latest.sh --classic
@@ -112,12 +124,6 @@ Update Kiro CLI and then launch it with a list of previous chats to resume.
 
 ```
 ./kiro-cloudshell-latest.sh --resume-picker
-```
-
-Update Kiro CLI and then launch it with the classic interface.
-
-```
-./kiro-cloudshell-latest.sh --classic
 ```
 
 **Note**  
