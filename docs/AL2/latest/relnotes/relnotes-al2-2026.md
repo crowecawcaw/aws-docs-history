@@ -6,6 +6,8 @@
 The following are the release notes for Amazon Linux 2 for 2026.
 
 **Topics**
++ [2.0.20261026](relnotes-20261026.md)
++ [2.0.20261021](relnotes-20261021.md)
 + [2.0.20261013](relnotes-20261013.md)
 + [2.0.20261012](relnotes-20261012.md)
 + [2.0.20260930](relnotes-20260930.md)
