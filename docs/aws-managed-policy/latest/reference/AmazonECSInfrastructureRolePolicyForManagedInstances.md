@@ -16,13 +16,13 @@ You can attach `AmazonECSInfrastructureRolePolicyForManagedInstances` to your us
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 26, 2025, 18:04 UTC 
-+ **Edited time:** September 15, 2026, 17:57 UTC
++ **Edited time:** October 22, 2026, 21:27 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonECSInfrastructureRolePolicyForManagedInstances`
 
 ## Policy version
 <a name="AmazonECSInfrastructureRolePolicyForManagedInstances-version"></a>
 
-**Policy version:** v12 (default)
+**Policy version:** v13 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -229,6 +229,21 @@ The policy's default version is the version that defines the permissions for the
         "tag:GetResources"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "ValidateDataVolumeConfigurationForManagedInstances",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateVolume"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:volume/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/AmazonECSManaged" : "true"
+        }
+      }
     }
   ]
 }

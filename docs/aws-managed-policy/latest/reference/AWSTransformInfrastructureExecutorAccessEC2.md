@@ -16,13 +16,13 @@ You can attach `AWSTransformInfrastructureExecutorAccessEC2` to your users, grou
 <a name="AWSTransformInfrastructureExecutorAccessEC2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 20, 2026, 20:12 UTC 
-+ **Edited time:** September 02, 2026, 21:27 UTC
++ **Edited time:** October 22, 2026, 21:17 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformInfrastructureExecutorAccessEC2`
 
 ## Policy version
 <a name="AWSTransformInfrastructureExecutorAccessEC2-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -165,6 +165,37 @@ The policy's default version is the version that defines the permissions for the
             "alias/atx-encryption-key",
             "alias/atx-encryption-key-*"
           ]
+        }
+      }
+    },
+    {
+      "Sid" : "CmodCustomerLogGroupManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CmodCustomerLogStreamWrite",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization:log-stream:local/*",
+        "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization:log-stream:ec2/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     },

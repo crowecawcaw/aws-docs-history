@@ -16,13 +16,13 @@ You can attach `CloudWatchFullAccessV2` to your users, groups, and roles.
 <a name="CloudWatchFullAccessV2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: August 01, 2023, 11:32 UTC 
-+ **Edited time:** September 22, 2026, 16:57 UTC
++ **Edited time:** October 20, 2026, 18:57 UTC
 + **ARN**: `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
 
 ## Policy version
 <a name="CloudWatchFullAccessV2-version"></a>
 
-**Policy version:** v17 (default)
+**Policy version:** v18 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -277,6 +277,20 @@ The policy's default version is the version that defines the permissions for the
         },
         "ArnLike" : {
           "iam:AssociatedResourceArn" : "arn:aws:cloudwatch:*:*:alarm:*"
+        }
+      }
+    },
+    {
+      "Sid" : "CloudWatchLogsKmsDescribeKeyPermissions",
+      "Effect" : "Allow",
+      "Action" : "kms:DescribeKey",
+      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Condition" : {
+        "StringLike" : {
+          "kms:ViaService" : "logs.*.amazonaws.com"
+        },
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }

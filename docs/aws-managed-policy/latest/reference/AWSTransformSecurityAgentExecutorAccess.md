@@ -16,13 +16,13 @@ You can attach `AWSTransformSecurityAgentExecutorAccess` to your users, groups, 
 <a name="AWSTransformSecurityAgentExecutorAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: June 30, 2026, 21:27 UTC 
-+ **Edited time:** July 28, 2026, 15:42 UTC
++ **Edited time:** October 22, 2026, 22:07 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformSecurityAgentExecutorAccess`
 
 ## Policy version
 <a name="AWSTransformSecurityAgentExecutorAccess-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -46,6 +46,34 @@ The policy's default version is the version that defines the permissions for the
         "securityagent:StartCodeRemediation"
       ],
       "Resource" : "arn:aws:securityagent:*:*:agent-space*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CmodCustomerLogGroupManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CmodCustomerLogStreamWrite",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization:log-stream:local/*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

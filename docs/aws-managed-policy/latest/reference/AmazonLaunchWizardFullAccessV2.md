@@ -16,13 +16,13 @@ You can attach `AmazonLaunchWizardFullAccessV2` to your users, groups, and roles
 <a name="AmazonLaunchWizardFullAccessV2-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: September 01, 2023, 17:14 UTC 
-+ **Edited time:** August 18, 2026, 19:27 UTC
++ **Edited time:** October 20, 2026, 16:37 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AmazonLaunchWizardFullAccessV2`
 
 ## Policy version
 <a name="AmazonLaunchWizardFullAccessV2-version"></a>
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -359,7 +359,8 @@ The policy's default version is the version that defines the permissions for the
           "iam:PassedToService" : [
             "lambda.amazonaws.com",
             "ec2.amazonaws.com",
-            "ec2.amazonaws.com.cn"
+            "ec2.amazonaws.com.cn",
+            "ssm.amazonaws.com"
           ]
         }
       }

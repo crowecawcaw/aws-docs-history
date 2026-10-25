@@ -16,13 +16,13 @@ You can attach `AWSTransformInfrastructureExecutorAccessBatch` to your users, gr
 <a name="AWSTransformInfrastructureExecutorAccessBatch-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 20, 2026, 20:12 UTC 
-+ **Edited time:** September 02, 2026, 21:27 UTC
++ **Edited time:** October 22, 2026, 21:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSTransformInfrastructureExecutorAccessBatch`
 
 ## Policy version
 <a name="AWSTransformInfrastructureExecutorAccessBatch-version"></a>
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -142,6 +142,37 @@ The policy's default version is the version that defines the permissions for the
         "arn:aws:logs:*:*:log-group:/aws/batch/job*",
         "arn:aws:logs:*:*:log-group:AtxVpc*",
         "arn:aws:logs:*:*:log-group:/aws/lambda/atx-*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CmodCustomerLogGroupManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogGroup",
+        "logs:PutRetentionPolicy"
+      ],
+      "Resource" : "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "CmodCustomerLogStreamWrite",
+      "Effect" : "Allow",
+      "Action" : [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource" : [
+        "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization:log-stream:local/*",
+        "arn:aws:logs:*:*:log-group:/aws/TransformContinuousModernization:log-stream:batch/*"
       ],
       "Condition" : {
         "StringEquals" : {

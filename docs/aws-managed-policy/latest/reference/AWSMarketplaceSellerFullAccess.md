@@ -16,13 +16,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 <a name="AWSMarketplaceSellerFullAccess-details"></a>
 + **Type**: AWS managed policy 
 + **Creation time**: July 02, 2019, 20:40 UTC 
-+ **Edited time:** August 12, 2026, 16:47 UTC
++ **Edited time:** October 22, 2026, 17:47 UTC
 + **ARN**: `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 <a name="AWSMarketplaceSellerFullAccess-version"></a>
 
-**Policy version:** v33 (default)
+**Policy version:** v34 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request. 
 
@@ -329,6 +329,38 @@ The policy's default version is the version that defines the permissions for the
         "aws-marketplace:ListTaxComplianceProfiles"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "ListAccountConnections",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:ListConnections"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "ReadAccountConnections",
+      "Effect" : "Allow",
+      "Action" : [
+        "partnercentral:GetConnection"
+      ],
+      "Resource" : "arn:aws:partnercentral:*::catalog/*/connection/*",
+      "Condition" : {
+        "StringEquals" : {
+          "partnercentral:Catalog" : [
+            "AWS",
+            "Sandbox"
+          ]
+        }
+      }
     }
   ]
 }
