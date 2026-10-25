@@ -5,8 +5,6 @@
 
 The [AWS Migration Acceleration Program (MAP) ](https://aws.amazon.com/migration-acceleration-program/) is a program to support customers as they migrate to the cloud. MAP is based on AWS's experience migrating thousands of global customers to the cloud.
 
-Watch the **Introduction to MAP** video in any of the following languages: [[English] ](https://d2cwqplnsdeec3.cloudfront.net/EN-Video1-WelcomeMAP2.mp4) [[French] ](https://d2cwqplnsdeec3.cloudfront.net/FR-Video1-WelcomeMAP2.mp4) [[Italian] ](https://d2cwqplnsdeec3.cloudfront.net/IT-Video1-WelcomeMAP2.mp4) [[Spanish] ](https://d2cwqplnsdeec3.cloudfront.net/ES-Video1-WelcomeMAP2.mp4)
-
 **Getting started**  
 If you are getting started with AWS Migration Acceleration Program 2.0, the following are the required steps to start generating MAP credits:  
 **MAP tagging setup:** Ensure the tag key that is required for MAP 2.0 is activated in **AWS Billing > Cost Allocation Tags**. For more information, see [AWS account setup ](https://s3.us-west-2.amazonaws.com/map-2.0-customer-documentation/html/AWSMapDocs/getting-started-step1.html) in the AWS Migration Acceleration Program 2.0 Tagging Guide and [Using AWS cost allocation tags ](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing User Guide.

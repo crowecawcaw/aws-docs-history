@@ -22,9 +22,12 @@ AWS Transform provides specialized AI agents for five primary use cases. Each ag
 AWS Transform assessments help you evaluate the cost, feasibility, and business value of migrating on-premises infrastructure to AWS. Using AI-powered agents, assessments provide automated right-sizing recommendations, multi-scenario comparison, and interactive refinement through natural language chat.
 
 Key capabilities include:
-+ **Cost estimation** – Get cost estimates for Amazon EC2, Amazon RDS for SQL Server, Amazon EBS, Amazon S3, Amazon FSx, and end user computing services.
++ **Cost estimation** – Get cost estimates for Amazon EC2, Amazon RDS for SQL Server, Amazon EBS, Amazon S3, Amazon FSx, Amazon MSK, and end user computing services.
 + **Automated right-sizing** – Analyzes on-premises server specifications and recommends appropriately sized EC2 instances based on CPU, memory, and performance requirements.
++ **Flexible pricing models** – Compare On-Demand, Reserved Instances, and both Compute Savings Plans and EC2 Instance Savings Plans side by side to reflect committed-use discounts in your business case.
 + **SQL Server assessment** – Specialized analysis for SQL Server migrations to Amazon RDS or EC2, including BYOM/LI licensing options and Database Savings Plans (up to 20% savings).
++ **Storage assessment** – Assess on-premises storage for migration to Amazon S3, Amazon EBS, and Amazon FSx for NetApp ONTAP. Upload a storage inventory (such as an RVTools export) and AWS Transform maps each workload to a target service, sizes it, and estimates cost—including Single-AZ and Multi-AZ pricing for FSx for NetApp ONTAP.
++ **Streaming assessment** – Assess self-managed Apache Kafka clusters for migration to Amazon MSK Express, with a recommended broker configuration and a TCO estimate across broker hours, storage, data-in, and cross-AZ transfer.
 + **Business value assessment** – Evaluates staff productivity gains, resilience improvements, and business agility beyond infrastructure cost savings.
 + **Sustainability** – Estimates carbon footprint reduction from migrating to AWS.
 + **Multi-scenario comparison** – Create multiple scenarios with different assumptions (pricing models, regions, instance families, licensing) and compare side by side with what-if analysis.
@@ -37,16 +40,19 @@ Use assessments at the start of your migration journey to build the business cas
 
 To learn more, see [Migration assessments](https://docs.aws.amazon.com/transform/latest/userguide/transform-app-assessments.html) in the AWS Transform User Guide.
 
-### AWS Transform for VMware migrations
-<a name="aws-transform-vmware"></a>
+### AWS Transform for migrations (including VMware)
+<a name="aws-transform-migrations"></a>
 
-AWS Transform for VMware migrations accelerates enterprise cloud migrations with purpose-built AI agents that automate the entire lifecycle—from discovery and wave planning through network conversion and cutover. By unifying teams, tools, and workflows in a single collaborative workbench, migrations that once took years now complete in months.
+AWS Transform for migrations accelerates enterprise cloud migrations with purpose-built AI agents that automate the entire lifecycle—from discovery and wave planning through network conversion and cutover. By unifying teams, tools, and workflows in a single collaborative workbench, migrations that once took years now complete in months.
 
-The service supports VMware, bare metal, Hyper-V, and database workloads. Key capabilities include:
+Originally launched for VMware, the service now migrates virtual and bare metal servers from virtually any source—VMware, Hyper-V, and other platforms—and the web application workflow has been renamed from "VMware Migrations" to "Migrations (including VMware)." Key capabilities include:
 + **Intelligent wave planning** – AI agents analyze application dependencies, business priorities, and technical constraints to group workloads into optimized migration waves. What once required weeks of manual effort now takes minutes.
-+ **Landing zone creation** – Automates the generation of Landing Zone Accelerator (LZA) configurations with secure, multi-account AWS environments, consistent governance, and security controls. Supports CloudFormation, CDK, Terraform, and LZA formats.
-+ **Automated network conversion** – Converts complex on-premises network configurations into AWS equivalents (VPCs, subnets, transit gateways) up to 80x faster than manual methods.
-+ **Rehost or replatform** – Manages the full rehosting lifecycle (agent deployment, test instances, cutover orchestration) or replatforms applications to containers on Amazon ECS or Amazon EKS in the same workflow.
++ **Migration strategy (7Rs) recommendations** – Analyze discovered inventory to get a migration strategy recommendation for every server and application, following the industry-standard seven migration strategies (7Rs). Each recommendation includes a suggested AWS target service, a confidence score, and the reasoning behind it, with interactive HTML, PDF, or PowerPoint output.
++ **Landing zone creation** – Automates generation of Landing Zone Accelerator (LZA) configurations with secure, multi-account AWS environments, consistent governance, and security controls. Supports CloudFormation, CDK, Terraform, and LZA formats, plus an IaC-only flow and brownfield scenarios (existing AWS Control Tower landing zones and AWS Organizations) via a Delegated Administrator connector.
++ **Automated network conversion** – Converts complex on-premises network configurations into AWS equivalents (VPCs, subnets, transit gateways) up to 80x faster than manual methods. You can import a source network, apply a source security posture to existing VPCs, or design a new AWS network from your requirements, with existing-VPC/CIDR-conflict detection and security group modernization.
++ **Rehost or replatform** – Manages the full rehosting lifecycle (agent deployment, test instances, cutover orchestration) or replatforms applications to containers on Amazon ECS or Amazon EKS in the same workflow. **AWS Transform MGN** (formerly AWS Application Migration Service) is the underlying replication engine—use the AWS Transform MGN console for direct control, or the agentic workflow for end-to-end automation.
++ **Block storage migration** – Migrate block storage directly to Amazon FSx for NetApp ONTAP (now generally available) or Amazon EBS within the same migration wave, removing the need for intermediate storage platforms or separate tools.
++ **Post-launch actions** – Automate modernization and validation tasks on each source server immediately after launch using AWS Systems Manager, with predefined or custom SSM documents defined at the account level or per server.
 
 The service supports first-party AWS agents, third-party partner agents, and custom Bring Your Own Agent workflows.
 
@@ -61,7 +67,7 @@ AWS Transform accelerates full-stack Windows modernization by up to 5x across ap
 
 Key capabilities include:
 + **.NET framework modernization** – Upgrades legacy .NET Framework applications to .NET 8\+ (cross-platform), enabling containerization and Linux deployment.
-+ **SQL Server migration** – Automates database modernization from SQL Server to open-source engines (PostgreSQL, MySQL) or AWS-managed databases.
++ **SQL Server migration** – Automates database modernization from SQL Server to open-source engines (PostgreSQL, MySQL) or AWS-managed databases. Supports offline source transformation: modernize SQL Server to Amazon Aurora PostgreSQL from uploaded DDL files, without a live database connection.
 + **UI framework upgrades** – Modernizes legacy UI frameworks (for example, Web Forms to Blazor or React).
 + **Deployment modernization** – Converts traditional IIS deployments to containerized microservices on Amazon ECS or Amazon EKS.
 
@@ -77,6 +83,7 @@ AWS Transform accelerates mainframe application modernization from years to mont
 Key capabilities include:
 + **Codebase analysis** – Analyzes COBOL, PL/I, JCL, and other mainframe languages to map dependencies, detect missing artifacts, and assess complexity with visual dependency representations.
 + **Automated refactoring** – Converts mainframe code to modern languages (Java, C\#) while preserving business logic. Works with Claude Code and other agentic IDEs for the forward engineering phase.
++ **Traceable reimagine workflow** – A connected, traceable experience from assessment through code generation: assess a z/OS COBOL and PL/I portfolio to identify discrete business functions, extract business rules, generate development-ready requirements, and produce traceable cloud-native code, with every requirement traced back to the source code.
 + **Data migration** – Migrates mainframe data stores (VSAM, IMS DB, Db2) to cloud-native databases.
 + **Testing and validation** – Automated equivalence testing to ensure functional parity between legacy and modernized applications.
 
@@ -93,10 +100,12 @@ Key capabilities include:
   + AWS SDK v1 to v2 upgrades
   + Java X86 to Graviton
   + Log4J to SLF4J
-  + Angular to React / Angular version upgrades
+  + Angular to React / Angular version upgrades / Vue upgrades
   + Spring Boot upgrades, JBoss to Spring Boot
   + Comprehensive code analysis and tech debt reporting
 + **Custom transformations** – Create your own for any-to-any use cases. Define transformation requirements in natural language, test on sample repositories, then apply at enterprise scale. Supports diverse scenarios from language translations (Progress 4GL to Java, C to Rust, COBOL to Java) to architectural changes (X86 to Graviton, microservices decomposition).
++ **Model-to-model migration** – A custom transformation that assesses generative AI workloads and produces a plan for moving from third-party providers (OpenAI, Google Gemini, Anthropic SDK, open-source models via LiteLLM/Ollama) to Amazon Bedrock, with transparent cost comparisons and production-ready code changes.
++ **Continuous modernization** – Generally available autonomous tech debt analysis and remediation at scale: connect GitHub organizations, GitLab groups, and Bitbucket workspaces, run analyses on demand or on a schedule, prioritize findings, and open pull or merge requests with the fixes.
 + **Continual learning** – The agent learns from each execution, becoming smarter when applied repeatedly to similar repositories.
 + **Scale** – CLI-based interface that acts on one or multiple repositories. Integrates with CI/CD platforms for continuous modernization. Can run from laptop, EC2, ECS/EKS containers, or any pipeline.
 + **IDE integration** – Available through Kiro Power (VS Code extension), as well as agent skills for Claude Code, Cursor, and Codex.
@@ -110,14 +119,20 @@ To learn more, see [AWS Transform custom](https://aws.amazon.com/transform/custo
 <a name="aws-transform-innovations"></a>
 
 AWS Transform continues to expand capabilities. Recent launches include:
++ **AWS Transform MGN** – AWS Application Migration Service (MGN) is now AWS Transform MGN, the replication engine powering AWS Transform, available in all commercial Regions and both AWS GovCloud (US) Regions while retaining existing compliance certifications.
++ **Migrations beyond VMware** – Migrate virtual and bare metal servers from virtually any source (VMware, Hyper-V, and other platforms), with the workflow renamed to "Migrations (including VMware)."
++ **Continuous modernization (GA)** – Autonomous, scheduled tech debt analysis and remediation across GitHub, GitLab, and Bitbucket repositories, with automated pull/merge requests.
++ **7Rs migration strategy recommendations** – Per-server and per-application strategy recommendations with confidence scores, exportable as HTML, PDF, or PowerPoint.
++ **BI migration agents** – Partner-built agents (Wavicle Data Solutions) convert Power BI and Tableau dashboards to Amazon Quick (QuickSight) assets within the AWS Transform workflow.
 + **MCP integration** – Invoke transformation capabilities directly from orchestrators, IDEs, and coding environments using Model Context Protocol.
 + **Kiro Power and agent skills** – Pre-built playbooks and individual tasks accessible from Kiro, Claude Code, Cursor, and Codex.
 + **Web-to-IDE handoff** – Start modernization jobs in the web console, then hand off to developer IDEs for human-in-the-loop edits and refinement.
 + **Agent builder toolkit** – Extend AWS Transform with custom agents using Kiro Power combined with the AWS Transform base agent and SDK.
-+ **Expanded regions** – Mumbai, Tokyo, Seoul, Sydney, Canada, and Europe.
++ **Expanded regions** – Migration capabilities added in Asia Pacific (Singapore) and AWS GovCloud (US-West), supporting all commercial Regions as migration targets (excluding Middle East (Bahrain) and Middle East (UAE)); mainframe modernization added in South America (São Paulo); custom available across eight Regions.
++ **FedRAMP Class C authorization** – AWS Transform is in scope for FedRAMP Class C (formerly Moderate baseline) in US East (N. Virginia), with AWS Transform MGN in scope for FedRAMP Class D.
 + **CloudWatch metrics** – Monitor cost, success/failure rates, and agent minutes.
 
-For the latest updates, see [AWS Transform – Latest Innovations](https://aws.amazon.com/blogs/aws/category/artificial-intelligence/generative-ai/aws-transform/).
+For the latest updates, see [AWS Transform – Latest Innovations](https://aws.amazon.com/blogs/aws/category/artificial-intelligence/generative-ai/aws-transform/) and the [AWS Transform change log](https://docs.aws.amazon.com/transform/latest/userguide/change-log.html).
 
 ## Benefits
 <a name="aws-transform-benefits"></a>
@@ -145,10 +160,12 @@ The following table describes the interfaces you can use to access AWS Transform
 | Agent skills | Pre-built plugins for Claude Code, Cursor, and Codex | 
 | MCP | Model Context Protocol integration for orchestrators and custom toolchains | 
 
+AWS Transform supports IAM role authentication, so you can use your existing AWS credentials to create an environment, workspace, and transformation job from the IDE or web app. You can also configure a customer-owned Amazon S3 artifact store, optionally encrypted with your own AWS KMS key.
+
 ## Customer success
 <a name="aws-transform-customers"></a>
 
-The following are publicly available case studies of customers using AWS Transform.
+The following are publicly available case studies of customers using AWS Transform:
 
 
 | Customer | Use case | Outcome | Reference | 
