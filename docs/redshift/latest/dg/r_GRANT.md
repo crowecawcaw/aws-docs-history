@@ -147,6 +147,14 @@ The following is an example of how to grant usage of a datashare to a Lake Forma
 GRANT USAGE ON DATASHARE salesshare TO ACCOUNT '123456789012' VIA DATA CATALOG;
 ```
 
+The following is the syntax for using GRANT to add a stored procedure to a datashare.
+
+```
+GRANT EXECUTE
+    ON PROCEDURE procedure_name ( [ [ argname ] argtype [, ...] ] )
+    TO DATASHARE datashare_name
+```
+
 **Consumer-side datashare permissions**  
 The following is the syntax for GRANT data-sharing usage permissions on a specific database or schema created from a datashare. 
 
@@ -432,7 +440,16 @@ Grants the specified permissions on all functions in the referenced schema.
 Amazon Redshift doesn't support GRANT or REVOKE statements for pg\_proc builtin entries defined in pg\_catalog namespace. 
 
 EXECUTE ON PROCEDURE *procedure\_name*   <a name="grant-procedure"></a>
-Grants the EXECUTE permission on a specific stored procedure. Because stored procedure names can be overloaded, you must include the argument list for the procedure. For more information, see [Naming stored procedures](stored-procedure-naming.md).
+Grants the EXECUTE permission on a specific stored procedure. Because stored procedure names can be overloaded, you must include the argument list for the procedure. For more information, see [Naming stored procedures](stored-procedure-naming.md).  
+The procedure name together with its argument list is the procedure signature. A name alone can refer to several overloaded procedures, so GRANT requires the signature. The following example grants EXECUTE on one of two overloaded procedures.  
+
+```
+-- Two overloads of the same name
+CREATE PROCEDURE public.refresh_summary(p_region varchar) ...
+CREATE PROCEDURE public.refresh_summary(p_region varchar, p_day date) ...
+
+GRANT EXECUTE ON PROCEDURE public.refresh_summary(varchar) TO analyst;
+```
 
 EXECUTE ON ALL PROCEDURES IN SCHEMA *schema\_name*  <a name="grant-all-procedures"></a>
 Grants the specified permissions on all stored procedures in the referenced schema.

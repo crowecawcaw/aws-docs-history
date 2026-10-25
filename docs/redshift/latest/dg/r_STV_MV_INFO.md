@@ -5,7 +5,7 @@
 # STV\_MV\_INFO
 <a name="r_STV_MV_INFO"></a>
 
-The STV\_MV\_INFO table contains a row for every materialized view, whether the data is stale, and state information. 
+The STV\_MV\_INFO table has one row for every materialized view. It contains information about the staleness of the data in the materialized view and the state of the materialized view. 
 
 For more information about materialized views, see [Materialized views in Amazon Redshift](materialized-view-overview.md).
 
@@ -27,7 +27,9 @@ STV\_MV\_INFO is visible to all users. Superusers can see all rows; regular user
 | owner\_user\_name  | char(128)  | The user who owns the materialized view.  | 
 | state  | integer  | The state of the materialized view as follows: +  0 – The materialized view is fully recomputed when refreshed.  <br />+  1 – The materialized view is incremental. <br />+  101 – The materialized view can't be refreshed due to a dropped column. This constraint applies even if the column isn't used in the materialized view. <br />+  102 – The materialized view can't be refreshed due to a changed column type. This constraint applies even if the column isn't used in the materialized view. <br />+  103 – The materialized view can't be refreshed due to a renamed table. <br />+  104 – The materialized view can't be refreshed due to a renamed column. This constraint applies even if the column isn't used in the materialized view. <br />+  105 – The materialized view can't be refreshed due to a renamed schema.   | 
 | autorewrite | char(1) | A t indicates that the materialized view is eligible for automatic rewriting of queries.  | 
-| autorefresh | char(1) | A t indicates that the materialized view can be automatically refreshed.  | 
+| autorefresh | char(1) | Specifies whether Auto Refresh is enabled for the materialized view.  | 
+| autorefresh\_interval | int | The Auto Refresh interval, in seconds, configured for the materialized view. Materialized views that don't support user-defined refresh intervals have a value of -1.  | 
+| has\_default\_autorefresh\_interval | char(1) | Specifies whether the materialized view uses the cluster-wide default Auto Refresh interval. Materialized views that don't support user-defined refresh intervals show f.  | 
 
 ## Sample query
 <a name="r_STV_MV_INFO-sample-query"></a>
@@ -41,8 +43,9 @@ select * from stv_mv_info;
 This query returns the following sample output. 
 
 ```
- db_name |       schema       |   name  | updated_upto_xid | is_stale | owner_user_name | state | autorefresh | autorewrite
----------+--------------------+---------+------------------+----------+-----------------+-------+-------------+------------
- dev     | test_ivm_setup     | mv      |             1031 | f        | catch-22        |     1 |           1 |           0
- dev     | test_ivm_setup     | old_mv  |              988 | t        | lotr            |     1 |           0 |           1
+ db_name | schema |        name        | updated_upto_xid | is_stale | owner_user_name | state | autorefresh | autorewrite | autorefresh_interval | has_default_autorefresh_interval
+---------+--------+--------------------+------------------+----------+-----------------+-------+-------------+-------------+----------------------+----------------------------------
+ dev     | public | customers          |             3058 | t        | reg             |     1 | f           | t           |                   -1 | f
+ dev     | public | dashboard_partsupp |             3083 | t        | reg             |     1 | t           | t           |                86400 | f
+ dev     | public | dashboard_sales    |             3362 | f        | reg             |     1 | t           | t           |                  300 | t
 ```

@@ -19,7 +19,7 @@ SYS\_DATASHARE\_USAGE\_PRODUCER is visible to all users. Superusers can see all 
 | share\_name | varchar(128) | The name of the datashare. | 
 | request\_id | varchar(50) | The unique ID of the requested API call. | 
 | request\_type | varchar(25) | The type of the request made to the producer cluster. | 
-| object\_type | varchar(64) | The type of the object being shared from the datashare. Possible values are schemas, tables, columns, functions, and views. | 
+| object\_type | varchar(64) | The type of the object being shared from the datashare. Possible values are schemas, tables, columns, functions, views, and stored procedures. | 
 | object\_oid | integer | The ID of the object being shared from the datashare. | 
 | object\_name | varchar(128) | The name of the object being shared from the datashare. | 
 | consumer\_account | varchar(16) | The account of the consumer account that the datashare is shared to. | 

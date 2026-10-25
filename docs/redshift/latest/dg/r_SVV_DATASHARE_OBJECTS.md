@@ -19,7 +19,7 @@ For information about viewing a list of datashares, see [SVV\_DATASHARES](https:
 | --- | --- | --- | 
 | share\_type | varchar(8) | The type of the specified datashare. Possible values are OUTBOUND and INBOUND. | 
 | share\_name | varchar(128) | The name of the datashare. | 
-| object\_type | varchar(64) | The type of a specified object. Possible values are schemas, tables, views, late binding views, materialized views, and functions. | 
+| object\_type | varchar(64) | The type of a specified object. Possible values are schemas, tables, views, late binding views, materialized views, functions, and stored procedures. | 
 | object\_name | varchar(512) | The name of the object. The object name extends to include the schema name, such as schema1.t1. | 
 | producer\_account | varchar(16) | The ID for the datashare producer account. | 
 | producer\_namespace | varchar(64) | The unique cluster identifier for the datashare producer cluster. | 

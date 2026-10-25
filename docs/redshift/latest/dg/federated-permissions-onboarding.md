@@ -8,19 +8,19 @@
 ## Redshift cluster registration
 <a name="federated-permissions-onboarding-cluster-registration"></a>
 
-Redshift supports creating a new cluster or restoring a cluster from snapshot with AWS Glue Data Catalog (GDC) registration. You can specify the GDC catalog name part of this registration. To support IdC identity propagation you can specify a Redshift IdC application arn of Lakehouse type to enable IdC identity propagation.
+Redshift supports creating a new cluster, restoring a cluster from snapshot, or modifying an existing cluster to register it for Amazon Redshift federated permissions. When you register using the AWS CLI, the cluster is registered with Amazon Redshift multi-warehouse federated permissions. Registration with the AWS Glue Data Catalog is available through the Redshift console as another registration method. In both methods you provide a catalog name. To support IdC identity propagation you can specify a Redshift IdC application arn of Lakehouse type to enable IdC identity propagation.
 
-**Create a new cluster with Glue data catalog registration**
+**Create a new cluster**
 
 ------
 #### [ CLI ]
 
-To automatically register your newly created cluster with Data Catalog, provide the catalog-name that will be used to create and register your Data Catalog. The `redshift-idc-application-arn` parameter is optional - include it if you want to link your cluster with the Redshift IdC Application of type Lakehouse. You can also establish this IdC application association at a later time.
+Registering through the AWS CLI registers your newly created cluster with Amazon Redshift multi-warehouse federated permissions. Provide the `catalog-name` to use for the registration. The `redshift-idc-application-arn` parameter is optional - include it if you want to link your cluster with the Redshift IdC Application of type Lakehouse. You can also establish this IdC application association at a later time.
 
 ```
 aws redshift create-cluster \
     --cluster-identifier 'redshift-cluster' \
-   --catalog-name 'glue-data-catalog-name' \
+   --catalog-name 'catalog-name' \
    --redshift-idc-application-arn 'arn:aws:redshift:us-east-1:012345678912:redshiftidcapplication:3f966e50-f1b7-495c-8ace-bd0d6c3c3b17' \
    --<other_configurations_as_needed>
 ```
@@ -34,25 +34,26 @@ aws redshift create-cluster \
 
 1. Configure your general cluster settings.
 
-1. In Register with AWS Glue Data Catalog section, select **Register with Amazon Redshift federated permissions**.
-   + Input a catalog name identifier.
+1. In the registration section, select **Register with Amazon Redshift federated permissions** and choose a registration method:
+   + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application.
 
 1. Complete the remaining cluster settings and choose **Create cluster**.
 
 ------
 
-**Restore a new cluster with AWS Glue Data Catalog registration**
+**Restore a new cluster**
 
 ------
 #### [ CLI ]
 
-To restore a snapshot into a new cluster with AWS Glue Data Catalog integration, provide the catalog-name that will be used to create and register your AWS Glue catalog. The `redshift-idc-application-arn` parameter is optional - include it if you want to link your cluster with the Redshift IdC Application of type Lakehouse. You can also establish this IdC aspplication association at a later time.
+Restoring a snapshot into a new cluster through the AWS CLI registers the cluster with Amazon Redshift multi-warehouse federated permissions. Provide the `catalog-name` to use for the registration. The `redshift-idc-application-arn` parameter is optional - include it if you want to link your cluster with the Redshift IdC Application of type Lakehouse. You can also establish this IdC application association at a later time.
 
 ```
 aws redshift restore-from-cluster-snapshot \
    --cluster-identifier 'redshift-cluster' \
-   --catalog-name 'glue-data-catalog-name' \
+   --catalog-name 'catalog-name' \
    --snapshot-identifier 'redshift-cluster-snapshot' \
    --redshift-idc-application-arn 'arn:aws:redshift:us-east-1:012345678912:redshiftidcapplication:3f966e50-f1b7-495c-8ace-bd0d6c3c3b17' \
    --<other_configurations_as_needed>
@@ -67,34 +68,35 @@ aws redshift restore-from-cluster-snapshot \
 
 1. Configure general cluster settings.
 
-1. In Register with AWS Glue Data Catalog section, select **Register with Amazon Redshift federated permissions**.
-   + Input a catalog name identifier.
+1. In the registration section, select **Register with Amazon Redshift federated permissions** and choose a registration method:
+   + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application.
 
 1. Complete the remaining cluster settings and choose **Create cluster**.
 
 ------
 
-**Modify an existing cluster with AWS Glue Data Catalog registration**
+**Modify an existing cluster**
 
-If your Redshift cluster is already associated to a Redshift IdC Application of type non-lakehouse, the following occurs during AWS Glue Data Catalog registration:
+If your Redshift cluster is already associated to a Redshift IdC Application of type non-lakehouse, the following occurs during registration:
 + When no Redshift IdC Application ARN is provided, the existing Redshift IdC Application in your catalog will be set to disabled status.
 + When a Redshift IdC Application of type Lakehouse from different AWS IAM Identity Center instance is specified, the current IdC provider becomes disabled
 + When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
   + The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift IdC Application of type Lakehouse. The updated catalog can be checked by querying the svv\_identity\_providers. For more information about the svv\_identity\_providers, see [svv\_identity\_providers](https://docs.aws.amazon.com/redshift/latest/dg/r_SVV_IDENTITY_PROVIDERS.html).
   + AWS IAM Identity Center federated users who previously had access to the Redshift cluster, must be explicitly granted CONNECT privileges by the Admins to access the cluster. For more information about granting CONNECT privileges, see [Connect privileges](federated-permissions-prereqs.md#federated-permissions-prereqs-connect).
-  + After registering with AWS Glue Data Catalog, your existing AWS IAM Identity Center federated identities and their owned resources remain unchanged. The namespace associations for these federated identities are also preserved.
+  + After registering, your existing AWS IAM Identity Center federated identities and their owned resources remain unchanged. The namespace associations for these federated identities are also preserved.
 
 ------
 #### [ CLI ]
 
-You can use `modify-lakehouse-configuration` command to register your cluster to AWS Glue Data Catalog, the the `catalog-name` is used to create and register your AWS Glue catalog. To support IdC identity propagation, specify the arn of your lakehouse type RedshiftIdcApplication, this requires a Redshift IdC Application of type Lakehouse, please refer to [Create a new Lakehouse type Redshift IdC application: Identity Center Application Configuration for Redshift Warehouse with federated permissions](https://docs.aws.amazon.com/redshift/latest/dg/federated-permissions-prereqs.html#federated-permissions-prereqs-configuration).
+Use the `modify-lakehouse-configuration` command to register your cluster with Amazon Redshift multi-warehouse federated permissions. Provide the `catalog-name` to use for the registration. To support IdC identity propagation, specify the arn of your lakehouse type RedshiftIdcApplication.
 
 ```
 aws redshift modify-lakehouse-configuration \
     --cluster-identifier 'redshift-cluster' \
     --lakehouse-registration Register \
-    --catalog-name 'glue-data-catalog-name' \
+    --catalog-name 'catalog-name' \
     --lakehouse-idc-registration Associate \
     --lakehouse-idc-application-arn 'arn:aws:redshift:us-east-1:012345678912:redshiftidcapplication:3f966e50-f1b7-495c-8ace-bd0d6c3c3b17' \
 ```
@@ -106,10 +108,11 @@ aws redshift modify-lakehouse-configuration \
 
 1. Navigate to the provisioned cluster that you want to register and select it.
 
-1. From the cluster’s details page, select **Register with AWS Glue Data Catalog** from the **Actions** drop-down menu.
+1. From the cluster's details page, select **Register with Amazon Redshift multi-warehouse** from the **Actions** drop-down menu.
 
-1. Select **Register with Amazon Redshift federated permissions** option and
-   + Input a catalog name identifier.
+1. Choose a registration method and complete the registration:
+   + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application and choose **Register**.
 
 ------
@@ -117,26 +120,26 @@ aws redshift modify-lakehouse-configuration \
 ## Redshift Serverless namespace registration
 <a name="federated-permissions-onboarding-namespace-registration"></a>
 
-Redshift Serverless enables workgroup-attached Serverless namespaces to register with AWS Glue Data Catalog. Note that your database will restart during this update.
+Redshift Serverless enables workgroup-attached Serverless namespaces to register for Amazon Redshift federated permissions. When you register through the AWS CLI, the namespace is registered with Amazon Redshift multi-warehouse federated permissions. Registration with the AWS Glue Data Catalog is available through the Redshift console as another registration method. Note that your database will restart during this update.
 
-If your Redshift Serverless Namespace is already associated to a Redshift IdC Application of type non-lakehouse, the following occurs during Glue Data Catalog registration:
+If your Redshift Serverless Namespace is already associated to a Redshift IdC Application of type non-lakehouse, the following occurs during registration:
 + When no Redshift IdC Application ARN is provided, the existing Redshift IdC Application in your catalog will be set to disabled status.
 + When a Redshift IdC Application of type Lakehouse from different AWS IAM Identity Center instance is specified, the current IdC provider becomes disabled
 + When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
   + The Redshift IdC Application ARN in your catalog will be changed to the ARN of the Redshift IdC Application of type Lakehouse. The updated catalog can be checked by querying the svv\_identity\_providers. For more information about the svv\_identity\_providers, see [svv\_identity\_providers](https://docs.aws.amazon.com/redshift/latest/dg/r_SVV_IDENTITY_PROVIDERS.html).
   + AWS IAM Identity Center federated users who previously had access to the Redshift cluster, must be explicitly granted CONNECT privileges by the Admins to access the cluster. For more information about granting CONNECT privileges, see [Connect privileges](federated-permissions-prereqs.md#federated-permissions-prereqs-connect).
-  + After registering with AWS Glue Data Catalog, your existing AWS IAM Identity Center federated identities and their owned resources remain unchanged. The namespace associations for these federated identities are also preserved.
+  + After registering, your existing AWS IAM Identity Center federated identities and their owned resources remain unchanged. The namespace associations for these federated identities are also preserved.
 
 ------
 #### [ CLI ]
 
-You can use `update-lakehouse-configuration` command to register your Redshift Serverless namespace to AWS Glue Data Catalog, the `catalog-name` is used to create and register your glue catalog. To support IdC identity propagation, specify the arn of a Redshift Idc Application of type Lakehouse.
+Use the `update-lakehouse-configuration` command to register your Redshift Serverless namespace with Amazon Redshift multi-warehouse federated permissions. Provide the `catalog-name` to use for the registration. To support IdC identity propagation, specify the arn of a Redshift Idc Application of type Lakehouse.
 
 ```
 aws redshift-serverless update-lakehouse-configuration \
     --namespace-name 'serverless-namespace-name' \
     --lakehouse-registration Register \
-    --catalog-name 'glue-data-catalog-name' \
+    --catalog-name 'catalog-name' \
     --lakehouse-idc-registration Associate \
     --lakehouse-idc-application-arn 'arn:aws:redshift:us-east-1:012345678912:redshiftidcapplication:3f966e50-f1b7-495c-8ace-bd0d6c3c3b17'
 ```
@@ -148,10 +151,11 @@ aws redshift-serverless update-lakehouse-configuration \
 
 1. Navigate to the provisioned cluster that you want to register and select it.
 
-1. From the cluster’s details page, select **Register with AWS Glue Data Catalog** from the **Actions** drop-down menu.
+1. From the cluster's details page, select **Register with Amazon Redshift multi-warehouse** from the **Actions** drop-down menu.
 
-1. Select **Register with Amazon Redshift federated permissions** option and
-   + Input a catalog name identifier.
+1. Choose a registration method and complete the registration:
+   + **Amazon Redshift multi-warehouse** (default): Input a catalog name identifier.
+   + **AWS Glue Data Catalog**: Choose to register with the AWS Glue Data Catalog and input a catalog name identifier. This method requires the additional Data Catalog and Lake Formation setup described in [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
    + (Recommended) Select Amazon Redshift federated permissions using AWS IAM Identity Center to associate with Redshift IDC application and choose **Register**.
 
 ------
@@ -163,10 +167,10 @@ Amazon Redshift supports Identity Center (IdC) identity propagation to seamlessl
 
 **Prerequisites**
 + You have created an Amazon Redshift IdC Application of type Lakehouse, refer to [AWS IAM Identity Center application configuration for Redshift warehouse with federated permissions](https://docs.aws.amazon.com/redshift/latest/dg/federated-permissions-prereqs.html#federated-permissions-prereqs-configuration).
-+ You have an Amazon Redshift Cluster or Amazon Redshift Serverless Namespace that is registered with AWS Glue Data Catalog.
++ You have an Amazon Redshift Cluster or Amazon Redshift Serverless Namespace that is registered for federated permissions.
   + Redshift Serverless Namespace requires workgroup attached to perform the related operations.
 
-If your Redshift Cluster or Redshift Serverless Namespace is already associated to a Redshift IdC Application of type other than Lakehouse, the following occurs during AWS Glue Data Catalog registration:
+If your Redshift Cluster or Redshift Serverless Namespace is already associated to a Redshift IdC Application of type other than Lakehouse, the following occurs during registration:
 + When no Redshift IdC Application ARN is provided, the existing Redshift IdC Application in your catalog will be set to disabled status.
 + When a Redshift IdC Application of type Lakehouse from different AWS IAM Identity Center instance is specified, the current IdC provider becomes disabled
 + When a Redshift IdC Application of type Lakehouse from the same AWS IAM Identity Center instance is provided
@@ -177,7 +181,7 @@ If your Redshift Cluster or Redshift Serverless Namespace is already associated 
 ### Enable AWS IAM Identity Center identity propagation for Amazon Redshift provisioned clusters
 <a name="federated-permissions-onboarding-propagation-cluster"></a>
 
-For Amazon Redshift Provisioned Cluster that registered its namespace to AWS Glue Data Catalog, it requires Lakehouse Amazon Redshift IdC Application which doesn’t require explicitly AWS IAM Identity Center Identity user assignment to the application, the IdC users login privilege is managed by CONNECT privilege on the Redshift warehouse.
+For Amazon Redshift Provisioned Cluster that registered its namespace for federated permissions, it requires Lakehouse Amazon Redshift IdC Application which doesn't require explicitly AWS IAM Identity Center Identity user assignment to the application, the IdC users login privilege is managed by CONNECT privilege on the Redshift warehouse.
 
 ------
 #### [ CLI ]
@@ -198,7 +202,7 @@ aws redshift modify-lakehouse-configuration \
 
 1. Navigate to the provisioned cluster that you want to register and select it.
 
-1. From the cluster’s details page, select **Register with AWS Glue Data Catalog** from the **Actions** drop-down menu.
+1. From the cluster's details page, select **Edit Amazon Redshift multi-warehouse** from the **Actions** drop-down menu.
 
 1. Select **Enable** from the Amazon Redshift federated permissions using AWS IAM Identity Center drop-down to associate IDC application and choose **Save changes**.
 
@@ -226,7 +230,7 @@ aws redshift modify-lakehouse-configuration \
 
 1. Navigate to the serverless namespace that you want to edit registration for and select it.
 
-1. From the cluster’s details page, select **Edit AWS Glue Data Catalog registration** from the **Actions** drop-down menu.
+1. From the cluster's details page, select **Edit Amazon Redshift multi-warehouse** from the **Actions** drop-down menu.
 
 1. Select **Enable** from the Amazon Redshift federated permissions using AWS IAM Identity Center drop-down to associate IDC application and choose **Save changes**.
 

@@ -15,8 +15,8 @@ Amazon Redshift has two strategies for refreshing a materialized view:
   + Constructs that contain aggregations, such as SUM, MIN, MAX, AVG, and COUNT.
   + Most built-in SQL functions, specifically the ones that are immutable, given that these have the same input arguments and always produce the same output. 
 
-  Incremental refresh is also supported for a materialized view that's based on a datashare table or materialized view.
-+ If an incremental refresh isn't possible, then Amazon Redshift performs a full refresh. A *full refresh* reruns the underlying SQL statement, replacing all of the data in the materialized view.
+  Incremental refresh is also supported for a materialized view that's based on a datashare table or another materialized view (a nested materialized view).
++ If an incremental refresh isn't possible, then Amazon Redshift performs a full refresh. A *full refresh* reruns the underlying SQL statement (the materialized view definition), replacing all of the data in the materialized view. For the scenarios where an incremental refresh isn't supported, see [Limitations](#materialized-view-refresh-limitations).
 + Amazon Redshift automatically chooses the refresh method for a materialized view depending on the SELECT query used to define the materialized view. 
 
 Amazon Redshift performs a full recompute instead of an incremental refresh in the following additional cases:
@@ -113,25 +113,37 @@ The COUNT, SUM, and AVG aggregate functions are supported.
 
   Incremental refresh is supported for materialized views defined using formats other than those listed above. For more information, see [Materialized views on external data lake tables in Amazon Redshift Spectrum](materialized-view-external-table.md). 
 
-## Autorefreshing a materialized view
+## Using Auto Refresh with a materialized view
 <a name="materialized-view-auto-refresh"></a>
 
-Amazon Redshift can automatically refresh materialized views with up-to-date data from its base tables when materialized views are created with or altered to have the autorefresh option. Amazon Redshift autorefreshes materialized views as soon as possible after base tables changes.
+Amazon Redshift can automatically refresh materialized views with up-to-date data from its base tables when materialized views are created with or altered to have Auto Refresh enabled.
 
-To complete refresh of the most important materialized views with minimal impact to active workloads in your cluster, Amazon Redshift considers multiple factors. These factors include current system load, the resources needed for refresh, available cluster resources, and how often the materialized views are used. 
+With Auto Refresh enabled, Amazon Redshift initiates materialized view refreshes once per configured refresh interval. A refresh occurs only if the materialized view is stale. If the materialized view is not stale, Auto Refresh doesn't run and no compute resources are used. You can enable Auto Refresh for materialized views using [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md) and [ALTER MATERIALIZED VIEW](r_ALTER_MATERIALIZED_VIEW.md) with the `AUTO REFRESH YES` option. Optionally, you can specify a custom refresh interval with the `AUTO REFRESH YES INTERVAL {{seconds}}` clause. The interval must be between 60 seconds and 86,400 seconds (24 hours). If you don't specify an interval, Amazon Redshift uses a cluster-wide default refresh interval of 300 seconds (5 minutes). A superuser or administrator can change this default by using ALTER SYSTEM SET default\_mv\_auto\_refresh\_interval = {{seconds}}. For more information, see [ALTER SYSTEM](r_ALTER_SYSTEM.md). A refresh interval set for an individual materialized view takes precedence over the cluster-wide default.
 
-Amazon Redshift prioritizes your workloads over autorefresh and might stop autorefresh to preserve the performance of user workload. This approach might delay refresh of some materialized views. In some cases, you might need more deterministic refresh behavior for your materialized views. If so, consider using manual refresh as described in [REFRESH MATERIALIZED VIEW](materialized-view-refresh-sql-command.md) or scheduled refresh using the Amazon Redshift scheduler API operations or the console.
+Auto Refresh queries run with the same priority as other user queries and also benefit from concurrency scaling. To prevent load spikes, when multiple materialized views share the same refresh interval, Amazon Redshift spreads out their refresh times so that they don't all run at once.
 
-You can set autorefresh for materialized views using CREATE MATERIALIZED VIEW. You can also use the AUTO REFRESH clause to refresh materialized views automatically. For more information about creating materialized views, see [CREATE MATERIALIZED VIEW](materialized-view-create-sql-command.md). You can turn on autorefresh for a current materialized view by using [ALTER MATERIALIZED VIEW](r_ALTER_MATERIALIZED_VIEW.md).
+Changing the refresh interval of an existing materialized view with ALTER MATERIALIZED VIEW doesn't cause a full recompute of the materialized view.
+
+To view the refresh interval currently configured for your auto-refreshable materialized views, query the `autorefresh_interval` and `has_default_autorefresh_interval` columns in [STV\_MV\_INFO](r_STV_MV_INFO.md) or [SVV\_MV\_INFO](r_SVV_MV_INFO.md).
+
+**Note**  
+With [patch release 206](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-206), Amazon Redshift supports user-defined refresh intervals for all user-defined, auto-refreshable materialized views except streaming materialized views.
 
 Consider the following when you refresh materialized views:
-+ You can still refresh a materialized view explicitly using REFRESH MATERIALIZED VIEW command even if you haven't enabled autorefresh for the materialized view.
-+ Auto refresh is supported on materialized views defined on datasharing tables or Iceberg tables but not on the combination of the two.
-+ For refresh status, you can check SVL\_MV\_REFRESH\_STATUS, which records queries that were user-initiated or autorefreshed. 
++ You can still manually refresh a materialized view using the REFRESH MATERIALIZED VIEW command even if you haven't enabled Auto Refresh for the materialized view.
++ Auto Refresh is supported on materialized views defined on datasharing tables or Iceberg tables but not on the combination of the two.
++ For refresh status, you can check [SYS\_MV\_REFRESH\_HISTORY](SYS_MV_REFRESH_HISTORY.md), which records queries that were user-initiated or run by Auto Refresh. 
 + To run full recompute REFRESH of materialized views, make sure that you have the CREATE permission on schemas. For more information, see [GRANT](r_GRANT.md).
 
- Starting February 27, 2026, Auto REFRESH queries for Amazon Redshift materialized views are executed as user queries rather than background autonomic processes. As a result, Auto REFRESH queries now run with the same priority as other user queries. 
+### Recommendations for setting the refresh interval
+<a name="materialized-view-auto-refresh-interval-recommendations"></a>
 
- This change improves the freshness of materialized views with Auto REFRESH enabled, helping them stay more up to date with the latest changes to their base tables compared to the previous behavior. 
-
- Note: The MV Auto REFRESH behavior change feature is only enabled for Amazon Redshift Provisioned clusters on the CURRENT Track of patch release P198 and newer. It is currently disabled on Serverless. 
+Consider the following recommendations when you configure Auto Refresh intervals for your materialized views:
++ To keep specific time-sensitive materialized views fresher, set a shorter interval on just those materialized views by using `ALTER MATERIALIZED VIEW` with the `AUTO REFRESH YES INTERVAL` clause (down to the 60-second minimum), rather than lowering the cluster-wide default for every materialized view.
++ If your base tables are updated infrequently, consider setting the interval to the maximum of 86,400 seconds (24 hours). You can't specify an interval longer than 24 hours. Amazon Redshift doesn't run Auto Refresh for a materialized view that is already up to date. The only cost is a staleness check, which has negligible overhead.
++ When you choose an interval, consider how long the materialized view takes to refresh and how frequently its base tables change. Only one Auto Refresh can run at a time for a given materialized view. If you set the interval too short for a materialized view that takes a long time to refresh, the materialized view might refresh continuously without ever becoming up to date.
++ To change the refresh cadence for all materialized views on the cluster or workgroup, set the cluster-wide default by using `ALTER SYSTEM SET default_mv_auto_refresh_interval`.
++ If automatically refreshing materialized views at your chosen interval competes with other workloads for resources, consider the following:
+  + For a provisioned cluster, resize the cluster. For more information, see [Resizing clusters](https://docs.aws.amazon.com/redshift/latest/mgmt/resizing-cluster.html) in the *Amazon Redshift Management Guide*.
+  + For a serverless workgroup, increase the maximum compute capacity (RPUs). For more information, see [Redshift Serverless capacity](https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-capacity.html#serverless-auto-optimization) in the *Amazon Redshift Management Guide*.
+  + Enable concurrency scaling, or increase the number of scaling clusters by using `max_concurrency_scaling_clusters`. For more information, see [Concurrency scaling](concurrency-scaling.md) and [max\_concurrency\_scaling\_clusters](r_max_concurrency_scaling_clusters.md).

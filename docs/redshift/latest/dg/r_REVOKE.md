@@ -135,6 +135,14 @@ The following is an example of revoking usage of a datashare from a Lake Formati
 REVOKE USAGE ON DATASHARE salesshare FROM ACCOUNT '123456789012' VIA DATA CATALOG;
 ```
 
+The following is the syntax for using REVOKE to remove a stored procedure from a datashare.
+
+```
+REVOKE EXECUTE
+ ON PROCEDURE procedure_name ( [ [ argname ] argtype [, ...] ] )
+ FROM DATASHARE datashare_name
+```
+
 **Consumer-side datashare permissions**  
 The following is the REVOKE syntax for data-sharing usage permissions on a specific database or schema created from a datashare. Revoking usage permission from a database created with the WITH PERMISSIONS clause doesn't revoke any additional permissions you granted a user or role, including object-level permissions granted for underlying objects. If you re-grant usage permission to that user or role, they will retain all additional permissions that they had before you revoked usage.
 
@@ -397,9 +405,18 @@ RESTRICT
 Revokes only those permissions that the user directly granted. This behavior is the default.
 
 EXECUTE ON PROCEDURE *procedure\_name*   
-Revokes the EXECUTE permission on a specific stored procedure. Because stored procedure names can be overloaded, you must include the argument list for the procedure. For more information, see [Naming stored procedures](stored-procedure-naming.md).
+Revokes the EXECUTE permission on a specific stored procedure. Because stored procedure names can be overloaded, you must include the argument list for the procedure. For more information, see [Naming stored procedures](stored-procedure-naming.md).  
+The procedure name together with its argument list is the procedure signature. A name alone can refer to several overloaded procedures, so REVOKE requires the signature. The following example revokes EXECUTE on one of two overloaded procedures.  
 
-EXECUTE ON ALL PROCEDURES IN SCHEMA *procedure\_name*   
+```
+-- Two overloads of the same name
+CREATE PROCEDURE public.refresh_summary(p_region varchar) ...
+CREATE PROCEDURE public.refresh_summary(p_region varchar, p_day date) ...
+
+REVOKE EXECUTE ON PROCEDURE public.refresh_summary(varchar) FROM analyst;
+```
+
+EXECUTE ON ALL PROCEDURES IN SCHEMA *schema\_name*   
 Revokes the specified permissions on all procedures in the referenced schema.
 
 USAGE ON LANGUAGE *language\_name*   

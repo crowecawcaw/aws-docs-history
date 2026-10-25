@@ -5,7 +5,7 @@
 # SVV\_MV\_INFO
 <a name="r_SVV_MV_INFO"></a>
 
-The SVV\_MV\_INFO table contains a row for every materialized view, whether the data is stale, and state information. 
+The SVV\_MV\_INFO table has one row for every materialized view. It contains information about the staleness of the data in the materialized view and the state of the materialized view. 
 
 For more information about materialized views, see [Materialized views in Amazon Redshift](materialized-view-overview.md).
 
@@ -24,7 +24,9 @@ SVV\_MV\_INFO is visible to all users. Superusers can see all rows; regular user
 | is\_stale  | char(1)  | A t indicates that the materialized view is stale. A stale materialized view is one where the base tables have been updated but the materialized view hasn't been refreshed. An f indicates that the materialized view is up-to-date with the base table changes. A u indicates unknown staleness (for example, in case of MVs on plain external tables). This information might not be accurate if a refresh hasn't been run since the last restart. | 
 | state  | integer  | The state of the materialized view as follows: +  0 – The materialized view is fully recomputed when refreshed.  <br />+  1 – The materialized view is incremental. <br />+  101 – The materialized view can't be refreshed due to a dropped column. This constraint applies even if the column isn't used in the materialized view. <br />+  102 – The materialized view can't be refreshed due to a changed column type. This constraint applies even if the column isn't used in the materialized view. <br />+  103 – The materialized view can't be refreshed due to a renamed table. <br />+  104 – The materialized view can't be refreshed due to a renamed column. This constraint applies even if the column isn't used in the materialized view. <br />+  105 – The materialized view can't be refreshed due to a renamed schema.   | 
 | autorewrite | char(1) | A t indicates that the materialized view is eligible for automatic rewriting of queries.  | 
-| autorefresh | char(1) | A t indicates that the materialized view can be automatically refreshed.  | 
+| autorefresh | char(1) | Specifies whether Auto Refresh is enabled for the materialized view.  | 
+| autorefresh\_interval | int | The Auto Refresh interval, in seconds, configured for the materialized view. Materialized views that don't support user-defined refresh intervals have a value of NULL.  | 
+| has\_default\_autorefresh\_interval | char(1) | Specifies whether the materialized view uses the cluster-wide default Auto Refresh interval. Materialized views that don't support user-defined refresh intervals show f.  | 
 
 ## Sample query
 <a name="r_SVV_MV_INFO-sample-query"></a>
@@ -39,8 +41,9 @@ This query returns the following sample output.
 
 ```
  
-database_name |       schema_name       | user_name |   name  |  is_stale | state | autorefresh | autorewrite
---------------+-------------------------+-----------+---------+-----------+-------+-------------+----------------
- dev          | test_ivm_setup          | catch-22  | mv      |   f       |     1 |           1 |           0
- dev          | test_ivm_setup          | lotr      | old_mv  |   t       |     1 |           0 |           1
+ database_name | schema_name | user_name |        name        | is_stale | state | autorewrite | autorefresh | autorefresh_interval | has_default_autorefresh_interval
+---------------+-------------+-----------+--------------------+----------+-------+-------------+-------------+----------------------+----------------------------------
+ dev           | public      | reg       | customers          | t        |     1 | t           | f           |                      | f
+ dev           | public      | reg       | dashboard_partsupp | t        |     1 | t           | t           |                86400 | f
+ dev           | public      | reg       | dashboard_sales    | f        |     1 | t           | t           |                  300 | t
 ```

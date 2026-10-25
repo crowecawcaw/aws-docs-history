@@ -7,7 +7,7 @@
 
 Amazon Redshift federated permissions simplifies permissions management across multiple Redshift data warehouses so you can define data permissions once and automatically enforce them across all warehouses in your AWS account. This eliminates the need to redefine, manage permissions and fine grained access control policies across multiple warehouses.
 
- When you register Redshift warehouse namespace/cluster with AWS Glue Data Catalog, all databases from registered warehouse namespaces/clusters are automatically mounted in every warehouse, providing seamless data discovery without manual configuration. 
+ When you register an Redshift warehouse namespace or cluster with Amazon Redshift federated permissions, all databases from registered warehouse namespaces or clusters are automatically mounted in every warehouse, providing seamless data discovery without manual configuration. 
 
 You define permissions on database objects using familiar Redshift SQL commands, specifying global identities through AWS Identity and Access Management (IAM) or AWS IAM Identity Center. These permissions are stored along with the warehouse data and enforced consistently regardless of which warehouse executes the query.
 

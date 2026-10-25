@@ -94,7 +94,7 @@ The following example verifies that the IAM role has SELECT permission on a sour
 
 ```
 aws lakeformation list-permissions \
-    --principal DataLakePrincipalIdentifier=arn:aws:iam::123456789012:role/myspectrum_role \
+    --principal DataLakePrincipalIdentifier=arn:aws:iam::111122223333:role/myspectrum_role \
     --resource '{"Table":{"DatabaseName":"mydb","Name":"orders"}}'
 ```
 

@@ -2,10 +2,10 @@
 
  Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026. We will start enforcing it in phases. For more information on the details of Python end of life and migration options, see the [ blog post ](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/) that was published on June 30, 2025. 
 
-# Querying catalogs registered in the AWS Glue Data Catalog with Redshift federated permissions
+# Querying catalogs with Redshift federated permissions
 <a name="federated-permissions-querying"></a>
 
-When you register an Amazon Redshift data warehouse to the AWS Glue Data Catalog using Amazon Redshift federated permissions, the databases in that namespace are automatically mounted in all Amazon Redshift instances in that AWS account and Region. This enables querying across multi-warehouse environments while maintaining security through global identities and fine-grained access control (FGAC) policies.
+When you register an Amazon Redshift data warehouse for federated permissions, the databases in that namespace are automatically mounted in all Amazon Redshift instances in that AWS account and Region. This enables querying across multi-warehouse environments while maintaining security through global identities and fine-grained access control (FGAC) policies.
 
 ## Prerequisites
 <a name="federated-permissions-querying-prereqs"></a>

@@ -13,7 +13,7 @@ Changes the attributes of a materialized view.
 ```
 ALTER MATERIALIZED VIEW mv_name
 {
-AUTO REFRESH { YES | NO } 
+AUTO REFRESH { YES [ INTERVAL seconds ] | NO }
 | ALTER DISTKEY column_name
 | ALTER DISTSTYLE ALL
 | ALTER DISTSTYLE EVEN
@@ -32,8 +32,9 @@ AUTO REFRESH { YES | NO }
 *mv\_name*  
 The name of the materialized view to alter.
 
-AUTO REFRESH { YES \| NO }  
-A clause that turns on or off automatic refreshing of a materialized view. For more information about automatic refresh of materialized views, see [Refreshing a materialized view](materialized-view-refresh.md).
+AUTO REFRESH { YES [ INTERVAL seconds ] \| NO }  
+A clause that turns on or off automatic refreshing of a materialized view. For more information about automatic refresh of materialized views, see [Refreshing a materialized view](materialized-view-refresh.md).  
+When AUTO REFRESH is `YES`, you can optionally specify INTERVAL {{seconds}} to set the frequency with which Amazon Redshift initiates refreshes for the materialized view in case of staleness. The value of {{seconds}} must be between 60 and 86,400 (24 hours). If you omit INTERVAL, Amazon Redshift uses the cluster-wide default refresh interval, which is 300 seconds (5 minutes) by default and controlled by `ALTER SYSTEM SET default_mv_auto_refresh_interval`. For more information, see [ALTER SYSTEM](r_ALTER_SYSTEM.md).
 
 ALTER DISTSTYLE ALL  
 A clause that changes the existing distribution style of a relation to `ALL`. Consider the following:  

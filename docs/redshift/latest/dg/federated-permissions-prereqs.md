@@ -20,13 +20,7 @@ For Redshift Serverless warehouse to enable Redshift federated permissions:
 + `redshift-serverless:UpdateLakehouseConfiguration`
 + `redshift:RegisterNamespace`
 
-For AWS Glue Data Catalog integration to create a catalog with Redshift federated permissions:
-+ `glue:CreateCatalog`
-+ `glue:GetCatalog`
-
-*For Lake Formation resource registration as one time registration to enable Redshift permission federation from remote warehouse with federated permissions:*
-+ `lakeformation:RegisterResource`
-+ `lakeformation:RegisterResourceWithPrivilegedAccess`
+If you register with the AWS Glue Data Catalog instead of Amazon Redshift multi-warehouse, additional IAM permissions and setup are required. See [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
 
 ## IAM Identity Center application configuration for Redshift warehouse with federated permissions
 <a name="federated-permissions-prereqs-configuration"></a>
@@ -42,16 +36,11 @@ To create and manage the identity center application for identity center identit
 + `redshift:ModifyRedshiftIdcApplication`
 + `redshift:DescribeRedshiftIdcApplications`
 
-*For Lake Formation IdC application management:*
-+ `lakeformation:CreateLakeFormationIdentityCenterConfiguration`
-+ `lakeformation:DescribeLakeFormationIdentityCenterConfiguration`
-+ `lakeformation:UpdateLakeFormationIdentityCenterConfiguration`
-
 **Create corresponding IdC applications and configuration**
 
 To establish identity propagation for your analytics workloads, create an Amazon Redshift IdC application of type Lakehouse. It manages permissions without requiring explicit user assignments. Redshift warehouses linked to this application require CONNECT privileges for IdC users to authenticate connections.
 
-You can create only one Amazon Redshift IdC application of type Lakehouse per AWS account. This application handles identity propagation across all Redshift warehouses that are integrated with Lake Formation and AWS Glue services. The application can only be used with Redshift warehouses that are registered with the AWS Glue Data Catalog.
+You can create only one Amazon Redshift IdC application of type Lakehouse per AWS account. This application handles identity propagation across all Redshift warehouses enabled for federated permissions.
 
 **Prepare the IAM role assumed by Redshift and used by IdC identity propagation**
 
@@ -133,13 +122,6 @@ aws redshift create-redshift-idc-application \
 --redshift-idc-application-name '<name_of_idc_display_on_redshift_console>' \
 --service-integrations '[
         {
-            "LakeFormation":[
-                {
-                    "LakeFormationQuery":{"Authorization": "Enabled"}
-                }
-            ]
-        },
-        {
             "Redshift":[
                 {
                     "Connect" : {
@@ -151,7 +133,7 @@ aws redshift create-redshift-idc-application \
     ]'
 ```
 
-This configuration enables trusted identity propagation between Redshift and Lake Formation, allowing users to access data across services using their Identity Center credentials without additional permission assignments.
+With this configuration, you can access data in Redshift warehouses using your Identity Center credentials, without additional permission assignments.
 
 ------
 #### [ Console ]
@@ -164,7 +146,7 @@ This configuration enables trusted identity propagation between Redshift and Lak
 
 1. Select **Configure Amazon Redshift federated permissions using AWS IAM Identity Center (Recommended)** to set the application type.
 
-1. The Lake Formation and Redshift connect identity propagation integrations are enabled by default.
+1. Leave the Redshift connect identity propagation integration at its default (enabled) setting.
 
 1. Complete the remaining cluster settings and choose **Create application**.
 
@@ -177,19 +159,12 @@ If you have an existing Redshift IdC application that doesn't have the required 
 ------
 #### [ CLI ]
 
-Use the `modify-redshift-idc-application` command to enable both `LakeFormation:query` authorization and `Redshift:Connect` authorization. These integrations are essential for cross-service and cross-cluster IdC identity propagation:
+Use the `modify-redshift-idc-application` command to enable `Redshift:Connect` authorization. This integration is essential for cross-cluster IdC identity propagation:
 
 ```
 aws redshift modify-redshift-idc-application \
 --redshift-idc-application-arn '<arn_of_the_target_redshift_idc_application>' \
 --service-integrations '[
-        {
-            "LakeFormation":[
-                {
-                    "LakeFormationQuery":{"Authorization": "Enabled"}
-                }
-            ]
-        },
         {
             "Redshift":[
                 {
@@ -213,117 +188,7 @@ aws redshift modify-redshift-idc-application \
 
 ------
 
-**Create Lake Formation identity center configuration**
-
-Your Lake Formation service requires a dedicated IdC application if one has not been created yet. You must also enable `Redshift:Connect` authorization for the configuration to function properly.
-
-------
-#### [ CLI ]
-
-Use the `create-lake-formation-identity-center-configuration` command to enable `Redshift:Connect` authorization. These integrations are essential for Lake Formation propagates IdC identity to Redshift clusters and Redshift Serverless Namespaces
-
-```
-aws lakeformation  create-lake-formation-identity-center-configuration \
---instance-arn <your_idc_instance_arn> \
---service-integrations '[{
-  "Redshift": [{
-    "RedshiftConnect": {
-      "Authorization": "ENABLED"
-    }
-  }]
-}]'
-```
-
-------
-#### [ Console ]
-
-1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/).
-
-1. In the left navigation pane, select **IAM Identity Center integration**.
-
-1. On the IAM Identity Center integration page you can enable trusted identity propagation for Amazon Redshift connect. Lake Formation propagates identity to downstream based on the effective permissions, so that authorized applications can access data on behalf of users.
-
-------
-
-**Update Lake Formation identity center configuration**
-
-If you had configured Lake Formation IdC application that doesn't have the required service integrations enabled, you can update it to support identity propagation between services and clusters/namespaces.
-
-------
-#### [ CLI ]
-
-Use the `update-lake-formation-identity-center-configuration` command to enable `Redshift:Connect` authorization. These integrations are essential for cross-service and cross-cluster IdC identity propagation:
-
-```
-aws lakeformation update-lake-formation-identity-center-configuration \
---service-integrations '[{                                                            
-  "Redshift": [{
-    "RedshiftConnect": {
-      "Authorization": "ENABLED"
-    }
-  }]
-}]'
-```
-
-------
-#### [ Console ]
-
-1. Sign in to the AWS Management Console, and open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/).
-
-1. In the left navigation pane, select **IAM Identity Center integration**.
-
-1. On the IAM Identity Center integration page you can enable trusted identity propagation for Amazon Redshift connect. Lake Formation propagates identity to downstream based on the effective permissions, so that authorized applications can access data on behalf of users.
-
-------
-
-## Lake Formation prerequisites
-<a name="federated-permissions-prereqs-lakeformation"></a>
-
-Customer need Lake Formation `CREATE_CATALOG` permissions to enable AWS Glue Data Catalog with Amazon Redshift federated permissions.
-
-1. If the account belongs to an existing Lake Formation customer, the Lake Formation administrator must explicitly grant CREATE\_CATALOG permission to each cluster creator. Use the following sample CLI command:
-
-   ```
-   aws lakeformation grant-permissions \
-       --cli-input-json \
-       '{
-           "Principal": {
-               "DataLakePrincipalIdentifier": "<PrincipalArn>"
-           },
-           "Resource": {
-               "Catalog": {}
-           },
-           "Permissions": [
-               "CREATE_CATALOG"
-           ]
-       }'
-   ```
-
-1. If the account has never used Lake Formation, verify that Catalog Creators is set to IAMAllowedPrincipals in the Administrative Roles and Tasks page of the Lake Formation console. If not configured, set up a Data Lake Administrator by following the [ Create a data lake administrator](https://docs.aws.amazon.com/lake-formation/latest/dg/initial-lf-config.html#create-data-lake-admin). Alternatively, you can create a Data Lake Administrator with the minimum required policies if you will only use AWS Glue Data Catalog with Amazon Redshift federated permissions.
-
-   ```
-   {
-       "Version": "2012-10-17",		 	 	 
-       "Statement": [
-           {
-               "Sid": "Statement1",
-               "Effect": "Allow",
-               "Action": [
-                   "lakeformation:PutDataLakeSettings",
-                   "lakeformation:GrantPermissions",
-                   "lakeformation:GetDataLakeSettings",
-                   "lakeformation:BatchGrantPermissions",
-                   "lakeformation:ListPermissions"
-               ],
-               "Resource": [
-                   "*"
-               ]
-           }
-       ]
-   }
-   ```
-
-1. Have the DataLake Admin grant permissions to the IAMAllowedPrincipals to Create Catalog. Access can be granted through the **Grant** button for Catalog Creators in the Administrative Role and Tasks page.
+If you register with the AWS Glue Data Catalog instead of Amazon Redshift multi-warehouse, you must also create or update a Lake Formation identity center configuration. See [AWS Glue Data Catalog Prerequisites](federated-permissions-prereqs-glue.md).
 
 ## Network configuration for enhanced VPC routing
 <a name="federated-permissions-prereqs-network"></a>

@@ -29,7 +29,7 @@ SYS\_DATASHARE\_CHANGE\_LOG is visible to all users. Superusers can see all rows
 | record\_time | timestamp | The timestamp of the action. | 
 | action | varchar(128) | The action being run. Possible values are CREATE DATASHARE, DROP DATASHARE, GRANT ALTER, REVOKE ALTER, GRANT SHARE, REVOKE SHARE, ALTER ADD, ALTER REMOVE, ALTER SET, GRANT USAGE, REVOKE USAGE, CREATE DATABASE, GRANT, or REVOKE USAGE on a shared database, DROP SHARED DATABASE, ALTER SHARED DATABASE.  | 
 | status | integer | The status of the action. Possible values are SUCCESS and ERROR-ERROR CODE. | 
-| share\_object\_type | varchar(64) | The type of database object that was added to or removed from the datashare. Possible values are schemas, tables, columns, functions, and views. This is a field for the producer cluster. | 
+| share\_object\_type | varchar(64) | The type of database object that was added to or removed from the datashare. Possible values are schemas, tables, columns, functions, views, and stored procedures. This is a field for the producer cluster. | 
 | share\_object\_id | integer | The ID of database object that was added to or removed from the datashare. This is a field for the producer cluster. | 
 | share\_object\_name | varchar(128) | The name of database object that was added to or removed from the datashare. This is a field for the producer cluster. | 
 | target\_user\_type | varchar(16) | The type of users or groups that a privilege was granted to. This is a field for both the producer and consumer cluster. | 

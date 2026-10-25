@@ -5,9 +5,9 @@
 # Considerations when using Amazon Redshift federated permissions
 <a name="federated-permissions-considerations"></a>
 
-The following are considerations and limitations for sharing Amazon Redshift data with AWS Glue Data Catalog using federated permissions. For general information on data sharing considerations and limitations, see [ Considerations when using data sharing in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/datashare-considerations.html).
+The following are considerations and limitations for sharing Amazon Redshift data using federated permissions. For general information on data sharing considerations and limitations, see [ Considerations when using data sharing in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/datashare-considerations.html).
 
-This feature is supported only with [ cluster versions 197 and onwards](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-197).
+This feature is supported only with [ cluster versions 206 and onwards](https://docs.aws.amazon.com/redshift/latest/mgmt/cluster-versions.html#cluster-version-206).
 
 **Environment Requirements**
 

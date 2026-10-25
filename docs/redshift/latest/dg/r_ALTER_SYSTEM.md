@@ -5,7 +5,7 @@
 # ALTER SYSTEM
 <a name="r_ALTER_SYSTEM"></a>
 
-Changes a system-level configuration option for the Amazon Redshift cluster or Redshift Serverless workgroup.
+Changes a system-level configuration option that applies cluster-wide on an Amazon Redshift provisioned cluster or workgroup-wide on an Redshift Serverless workgroup.
 
 ## Required privileges
 <a name="r_ALTER_SYSTEM-privileges"></a>
@@ -18,17 +18,18 @@ One of the following user types can run the ALTER SYSTEM command:
 <a name="r_ALTER_SYSTEM-synopsis"></a>
 
 ```
-ALTER SYSTEM SET system-level-configuration = {true| t | on | false | f | off}
+ALTER SYSTEM SET system-level-configuration = value
 ```
 
 ## Parameters
 <a name="r_ALTER_SYSTEM-parameters"></a>
 
  *system-level-configuration*   
-A system-level configuration. Valid value: `data_catalog_auto_mount` and `metadata_security`.
+A system-level configuration. Valid values: `data_catalog_auto_mount`, `metadata_security`, and `default_mv_auto_refresh_interval`.
 
-{true\| t \| on \| false \| f \| off}   
-A value to activate or deactivate the system-level configuration. A `true`, `t`, or `on` indicates to activate the configuration. A `false`, `f`, or `off` indicates to deactivate the configuration.
+*value*  
+The value to set for the system-level configuration. For `data_catalog_auto_mount` and `metadata_security`, specify one of `true`, `t`, `on`, `false`, `f`, or `off` to activate or deactivate the configuration.  
+For `default_mv_auto_refresh_interval`, specify an integer number of seconds between 60 and 86,400 (24 hours), which sets the cluster-wide default auto-refresh interval for materialized views that don't have a custom refresh interval. The default is 300 seconds (5 minutes).
 
 ## Usage notes
 <a name="r_ALTER_SYSTEM-usage-notes"></a>
@@ -36,6 +37,8 @@ A value to activate or deactivate the system-level configuration. A `true`, `t`,
 For a provisioned cluster, changes to `data_catalog_auto_mount` take effect on the next reboot of the cluster. For more information, see [Rebooting a cluster](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-clusters-console.html#reboot-cluster) in the *Amazon Redshift Management Guide*.
 
 For a serverliess workgroup, changes to `data_catalog_auto_mount` do not take effect immediately.
+
+Changes to `default_mv_auto_refresh_interval` don't require a reboot and take effect immediately.
 
 ## Examples
 <a name="r_ALTER_SYSTEM-examples"></a>
@@ -50,6 +53,12 @@ The following example turns on metadata security.
 
 ```
 ALTER SYSTEM SET metadata_security = true;
+```
+
+The following example sets the cluster-wide default materialized view auto-refresh interval to 10 minutes (600 seconds).
+
+```
+ALTER SYSTEM SET default_mv_auto_refresh_interval = 600;
 ```
 
 ### Setting a default identity namespace

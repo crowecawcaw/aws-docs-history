@@ -31,6 +31,8 @@ The value of the input argument. This parameter can also be a function name, for
 
 Amazon Redshift stored procedures support nested and recursive calls, as described following. In addition, make sure your driver support is up-to-date, also described following.
 
+To call a stored procedure in another database or through a datashare, see [Calling stored procedures across databases and through data sharing](stored-procedure-data-sharing.md).
+
 **Topics**
 + [Nested calls](#r_CALL_procedure-nested-calls)
 + [Driver support](#r_CALL_procedure-driver-support)

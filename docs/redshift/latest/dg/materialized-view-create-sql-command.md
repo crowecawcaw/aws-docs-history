@@ -14,7 +14,7 @@ Creates a materialized view based on one or more Amazon Redshift tables. You can
 CREATE MATERIALIZED VIEW mv_name
 [ BACKUP { YES | NO } ]
 [ table_attributes ]
-[ AUTO REFRESH { YES | NO } ]
+[ AUTO REFRESH { YES [ INTERVAL seconds ] | NO } ]
 AS query
 ```
 
@@ -60,7 +60,8 @@ Furthermore, specific SQL language constructs used in the query determines wheth
 If the query contains an SQL command that doesn't support incremental refresh, Amazon Redshift displays a message indicating that the materialized view will use a full refresh. The message may or may not be displayed, depending on the SQL client application. Check the `state` column of the [STV\_MV\_INFO](r_STV_MV_INFO.md) to see the refresh type used by a materialized view.
 
 AUTO REFRESH  
-A clause that defines whether the materialized view should be automatically refreshed with latest changes from its base tables. The default value is `NO`. For more information, see [Refreshing a materialized view](materialized-view-refresh.md).
+A clause that defines whether the materialized view should be automatically refreshed with latest changes from its base tables. The default value is `NO`. For more information, see [Refreshing a materialized view](materialized-view-refresh.md).  
+When AUTO REFRESH is `YES`, you can optionally specify INTERVAL {{seconds}} to set the frequency with which Amazon Redshift initiates refreshes for the materialized view in case of staleness. The value of {{seconds}} must be between 60 and 86,400 (24 hours). If you omit INTERVAL, Amazon Redshift uses the cluster-wide default refresh interval, which is 300 seconds (5 minutes) by default and controlled by `ALTER SYSTEM SET default_mv_auto_refresh_interval`. For more information, see [ALTER SYSTEM](r_ALTER_SYSTEM.md).
 
 USING ICEBERG  
 Specifies that the materialized view stores its data as an Apache Iceberg table in Amazon S3. When you specify USING ICEBERG, the materialized view data is written as Parquet files in Iceberg format and registered in the AWS Glue Data Catalog. For more information, see [Materialized views stored as Apache Iceberg tables](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-iceberg.html).

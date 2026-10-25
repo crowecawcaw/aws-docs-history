@@ -78,6 +78,7 @@ A clause that specifies whether to add any future tables, views, or SQL user-def
 + You can share schemas, tables, regular views, late-binding views, materialized views, and SQL user-defined functions (UDFs). Add a schema to a datashare first before adding objects in the schema. 
 
   When you add a schema, Amazon Redshift doesn't add all the objects under it. You must add them explicitly. 
++ Amazon Redshift is moving from ALTER DATASHARE to GRANT and REVOKE for managing datashare permissions. To add or remove stored procedures, use [GRANT](r_GRANT.md) and [REVOKE](r_REVOKE.md).
 + We recommend that you create AWS Data Exchange datashares with the publicly accessible setting turned on.
 + In general, we recommend that you don't alter an AWS Data Exchange datashare to turn off public accessibility using the ALTER DATASHARE statement. If you do, the AWS accounts that have access to the datashare lose access if their clusters are publicly accessible. Performing this type of alteration can breach data product terms in AWS Data Exchange. For an exception to this recommendation, see following.
 

@@ -40,6 +40,7 @@ You can use a client with support for parsing CREATE PROCEDURE statements, such 
 
 **Topics**
 + [Naming stored procedures](stored-procedure-naming.md)
++ [Calling stored procedures across databases and through data sharing](stored-procedure-data-sharing.md)
 + [Security and privileges for stored procedures](stored-procedure-security-and-privileges.md)
 + [Returning a result set from a stored procedure](stored-procedure-result-set.md)
 + [Managing transactions](stored-procedure-transaction-management.md)
