@@ -11,7 +11,7 @@ From a technical standpoint, the following diagram describes how custom ML model
 Here's how custom ML modeling works in Clean Rooms ML:
 
 1. Data Source Configuration
-   + Source data can be stored in Amazon S3 catalog, in the AWS Glue Data Catalog, or Snowflake
+   + You can store source data in an Amazon S3 catalog, in the AWS Glue Data Catalog, Snowflake, or Databricks
    + AWS Glue Data Catalog is used to organize and catalog
    + Data from multiple AWS accounts can be used within the same collaboration
 

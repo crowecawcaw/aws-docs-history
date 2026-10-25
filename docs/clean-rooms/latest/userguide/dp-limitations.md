@@ -5,7 +5,7 @@
 
 AWS Clean Rooms Differential Privacy doesn't address the following situations:
 
-1. AWS Clean Rooms Differential Privacy only supports queries with Amazon S3-backed AWS Glue tables. It doesn't support queries with Snowflake or Amazon Athena tables.
+1. AWS Clean Rooms Differential Privacy only supports queries with Amazon S3-backed AWS Glue tables. It doesn't support queries with Snowflake, Amazon Athena, or Databricks tables.
 
 1. AWS Clean Rooms Differential Privacy doesn't address timing attacks. For example, these attacks are possible in scenarios where an individual user contributes a large number of rows and adding or removing this user significantly changes the query computation time.
 

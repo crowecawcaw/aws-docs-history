@@ -106,7 +106,7 @@ The following AWS services are related to AWS Clean Rooms:
 ### Third-party services
 <a name="third-party-servies-list"></a>
 
-The following third-party service is related to AWS Clean Rooms:
+The following third-party services are related to AWS Clean Rooms:
 + **Snowflake**
 
   Collaboration members can store data that they bring into AWS Clean Rooms in a Snowflake warehouse.
@@ -116,6 +116,15 @@ The following third-party service is related to AWS Clean Rooms:
   [Preparing data tables for queries in AWS Clean Rooms](prepare-data.md)
 
   [Creating a configured table – Snowflake data source](create-config-table-snowflake.md)
++ **Databricks**
+
+  Collaboration members can bring data into AWS Clean Rooms from a Databricks table that is shared through Delta Sharing.
+
+  For more information, see the following topics:
+
+  [Preparing data tables in Databricks](prepare-data-databricks.md)
+
+  [Creating a configured table – Databricks data source](create-config-table-databricks.md)
 
 ## Accessing AWS Clean Rooms
 <a name="accessing-service"></a>

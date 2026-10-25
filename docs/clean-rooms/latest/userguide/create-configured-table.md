@@ -11,3 +11,4 @@ For information about how to create a configured table using the AWS SDKs, see t
 + [Creating a configured table – Amazon S3 data source](create-config-table-s3.md)
 + [Creating a configured table – Amazon Athena data source](create-config-table-athena.md)
 + [Creating a configured table – Snowflake data source](create-config-table-snowflake.md)
++ [Creating a configured table – Databricks data source](create-config-table-databricks.md)

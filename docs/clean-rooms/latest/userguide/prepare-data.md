@@ -13,3 +13,4 @@ For more information about the data formats that you can use, see [Data formats 
 + [Preparing data tables in Amazon S3](prepare-data-S3.md)
 + [Preparing data tables in Amazon Athena](prepare-data-athena.md)
 + [Preparing data tables in Snowflake](prepare-data-snowflake.md)
++ [Preparing data tables in Databricks](prepare-data-databricks.md)

@@ -14,6 +14,7 @@ You can query the data in its original format directly from any of the following
 + Amazon Simple Storage Service (Amazon S3) 
 + Amazon Athena
 + Snowflake
++ Databricks
 
 AWS Clean Rooms accesses the dataset at query run time, ensuring that members who can query always access the most up-to-date data. Any data that is temporarily read into an AWS Clean Rooms collaboration is deleted after the query completes. The query results are written to your Amazon S3 bucket.
 

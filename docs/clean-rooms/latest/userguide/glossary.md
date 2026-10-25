@@ -275,7 +275,7 @@ The seed data provider's data, which is used to create a [lookalike segment](#gl
 ## Spark analytics engine
 <a name="glossary-spark-analytics-engine"></a>
 
-An analytics option in AWS Clean Rooms that enables customers to run complex queries on large datasets stored in Amazon S3, Amazon Athena, or Snowflake using Apache Spark SQL functions. It also supports PySpark analysis in AWS Clean Rooms.
+An analytics option in AWS Clean Rooms that enables customers to run complex queries on large datasets stored in Amazon S3, Amazon Athena, Snowflake, or Databricks using Apache Spark SQL functions. It also supports PySpark analysis in AWS Clean Rooms for data stored in Amazon S3.
 
 When you create a collaboration using the [CreateCollaboration API](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html), the value of the Spark analytics engine is `SPARK`.
 

@@ -5,7 +5,7 @@
 
 Cryptographic Computing for Clean Rooms (C3R) is a capability in AWS Clean Rooms. You can use C3R to limit cryptographically what can be learned by any party and AWS in an AWS Clean Rooms collaboration.
 
-You can encrypt the data table using the C3R encryption client, a client-side encryption tool, before uploading the data table to your data source: Amazon Simple Storage Service (Amazon S3), Amazon Athena, or Snowflake.
+You can encrypt the data table using the C3R encryption client, a client-side encryption tool, before uploading the data table to your data source: Amazon Simple Storage Service (Amazon S3), Amazon Athena, Snowflake, or Databricks.
 
 For more information, see [Cryptographic Computing for Clean Rooms](crypto-computing.md). 
 

@@ -35,7 +35,7 @@ When using an ID mapping table within AWS Clean Rooms, the service encrypts all 
 ## Encryption in transit
 <a name="encryption-transit"></a>
 
-AWS Clean Rooms uses Transport Layer Security (TLS) for encryption in transit. Communication with AWS Clean Rooms is always done over HTTPS so your data is always encrypted in transit, regardless of whether it's stored in Amazon S3, Amazon Athena, or Snowflake. This includes all data in transit when using Clean Rooms ML.
+AWS Clean Rooms uses Transport Layer Security (TLS) for encryption in transit. Communication with AWS Clean Rooms is always done over HTTPS so your data is always encrypted in transit, regardless of whether it's stored in Amazon S3, Amazon Athena, Snowflake, or Databricks. This includes all data in transit when using Clean Rooms ML.
 
 ## Encrypting underlying data
 <a name="encrypt-underlying-data"></a>

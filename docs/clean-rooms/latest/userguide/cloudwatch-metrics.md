@@ -10,7 +10,7 @@ With detailed monitoring, members can monitor query performance, track resource 
 **Note**  
 Metric availability varies based on configured table data sources:  
 For analyses that reference configured tables with Athena as the data source, the `BytesRead` and `QueryFileScanned` metrics always return 0.
-For analyses that reference configured tables with Snowflake as the data source, the `BytesRead`, `QueryFileScanned`, and `RecordsRead` metrics always return 0.
+For analyses that reference configured tables with Snowflake or Databricks as the data source, the `BytesRead`, `QueryFileScanned`, and `RecordsRead` metrics always return 0.
 For analyses that reference multiple configured tables with different data sources (e.g., Snowflake and S3-backed AWS Glue tables), `BytesRead` and `QueryFileScanned` return metrics only for S3-backed AWS Glue tables. `RecordsRead` returns metrics for S3-backed AWS Glue tables and Athena tables.
 
 ## Types of metrics

@@ -20,4 +20,5 @@ This documentation helps you understand how to apply the shared responsibility m
 + [Compliance validation](SERVICE-compliance.md)
 + [Resilience](disaster-recovery-resiliency.md)
 + [Infrastructure security](infrastructure-security.md)
++ [Egress IP address ranges](egress-ip-addresses.md)
 + [AWS PrivateLink](vpc-interface-endpoints.md)

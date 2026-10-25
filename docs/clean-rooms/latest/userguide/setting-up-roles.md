@@ -10,6 +10,7 @@ The following sections describe the roles needed to perform each task.
 + [Create a service role to read data from Amazon S3](#create-service-role-procedure)
 + [Create a service role to read data from Amazon Athena](#create-service-role-athena)
 + [Create a service role to read data from Snowflake](#create-service-role-third-party)
++ [Create a service role to read data from Databricks](#create-service-role-databricks)
 + [Create a service role to read code from an S3 bucket (PySpark analysis template role)](#create-role-pyspark-analysis-template)
 + [Create a service role to write results of a PySpark job](#create-role-pyspark-job)
 + [Create a service role to receive results](#create-role-write-results)
@@ -428,6 +429,92 @@ The `kms:EncryptionContext:SecretARN` condition ensures that the AWS KMS key can
 1. Replace each {{placeholder}} with your own information.
 
 1. Continue to follow the [Creating a role using custom trust policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html) procedure to create the role.
+
+## Create a service role to read data from Databricks
+<a name="create-service-role-databricks"></a>
+
+AWS Clean Rooms uses a service role to read your data from Databricks through Delta Sharing. AWS Clean Rooms assumes this role and calls `sts:GetWebIdentityToken` to obtain a JSON Web Token (JWT) that your Databricks recipient trusts. As a result, you don't store any long-lived secrets.
+
+**Note**  
+You or your IAM administrator should follow this procedure only if you want to create the service role manually using custom trust policies.
+
+**To create a service role to read data from Databricks using custom trust policies**
+
+1. Create a role using custom trust policies. For more information, see the [Creating a role using custom trust policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html) procedure in the *AWS Identity and Access Management User Guide*.
+
+1. Use the following permissions policy, which allows AWS Clean Rooms to generate a web identity token for the role.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [{
+           "Effect": "Allow",
+           "Action": "sts:GetWebIdentityToken",
+           "Resource": "*"
+       }]
+   }
+   ```
+**Note**  
+The `Resource` must be `*` because `sts:GetWebIdentityToken` generates a token for the calling identity itself.
+
+1. Use the following custom trust policy, which allows AWS Clean Rooms to assume the role only in the context of your collaboration memberships. Replace each {{placeholder}} with your own information.
+
+   ```
+   {
+       "Version": "2012-10-17",
+       "Statement": [{
+           "Effect": "Allow",
+           "Principal": {
+               "Service": "cleanrooms.amazonaws.com"
+           },
+           "Action": "sts:AssumeRole",
+           "Condition": {
+               "ForAnyValue:StringEquals": {
+                   "aws:SourceAccount": ["{{data-provider-account-id}}", "{{query-runner-account-id}}"]
+               },
+               "ForAnyValue:ArnEquals": {
+                   "aws:SourceArn": ["{{data-provider-membership-arn}}", "{{query-runner-membership-arn}}"]
+               }
+           }
+       }]
+   }
+   ```
+**Note**  
+The `aws:SourceArn` condition prevents a security issue known as the confused deputy problem (where one service is tricked into using its permissions to perform an unauthorized action on behalf of another) by ensuring that the role can only be assumed in the context of the specific collaboration membership. For more information, see [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md).
+
+1. Continue to follow the [Creating a role using custom trust policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-custom.html) procedure to create the role.
+
+If your Databricks table is an external table backed by data in your own Amazon S3 bucket, you also create a Databricks storage credential so that Databricks Unity Catalog can access that bucket. The storage credential uses a separate IAM role with the following trust policy. Replace each {{placeholder}} with your own information.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::414351767826:root"
+            },
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "StringEquals": {
+                    "sts:ExternalId": "{{storage-credential-external-id}}"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{{your-account-id}}:role/{{this-role-name}}"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
+
+**Note**  
+For `sts:ExternalId`, use the external ID that Databricks generates when you create the storage credential, not your Databricks account ID. The account `414351767826` is the Databricks Unity Catalog AWS account.
 
 ## Create a service role to read code from an S3 bucket (PySpark analysis template role)
 <a name="create-role-pyspark-analysis-template"></a>

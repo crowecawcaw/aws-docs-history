@@ -222,7 +222,7 @@ You see a confirmation message that you’ve successfully configured a list anal
 The custom analysis rule enables custom SQL queries or PySpark jobs on a configured table. The custom analysis rule is required if you're using:
 + [Analysis templates](create-analysis-template.md) to allow a specific set of pre-approved SQL queries or PySpark jobs or a specific set of accounts that can provide queries that use your data.
 + [AWS Clean Rooms Differential Privacy](differential-privacy.md) to protect against user-identification attempts.
-+ Non-S3 data sources, such as Amazon Athena or Snowflake.
++ Non-S3 data sources, such as Amazon Athena, Snowflake, or Databricks.
 
 This procedure describes the process of adding the custom analysis rule to your configured table using the **Guided flow** option in the AWS Clean Rooms console. 
 
