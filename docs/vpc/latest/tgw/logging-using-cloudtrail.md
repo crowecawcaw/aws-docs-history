@@ -30,6 +30,8 @@ CloudTrail Lake event data stores and queries incur costs. When you create an ev
 
 AWS Transit Gateway logs all Transit Gateway control plane operations as management events. For a list of the AWS Transit Gateway control plane operations that Transit Gateway logs to CloudTrail, see [AWS Transit Gateway actions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-tgw.html) in the *Amazon EC2 API Reference.* 
 
+For 1:1 NAT, `ModifyTransitGatewayAttachmentNatConfiguration` is logged as a write management event. `GetTransitGatewayAttachmentNatConfiguration` is logged as a read management event, which appears only if your trail records read events.
+
 ## Transit Gateway event examples
 <a name="cloudtrail-event-examples"></a>
 

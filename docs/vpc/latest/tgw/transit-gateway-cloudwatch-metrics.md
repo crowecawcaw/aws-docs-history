@@ -33,6 +33,10 @@ All metrics are always reported. Their values are dependent on the traffic throu
 | BytesOut | The number of bytes sent from the transit gateway.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketsIn | The number of packets received by the transit gateway.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketsOut | The number of packets sent by the transit gateway.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| BytesInNAT | The number of bytes received from an attachment whose source address was translated (SNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| BytesOutNAT | The number of bytes sent to an attachment whose destination address was translated (DNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| PacketsInNAT | The number of packets received from an attachment whose source address was translated (SNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| PacketsOutNAT | The number of packets sent to an attachment whose destination address was translated (DNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountBlackhole | The number of packets dropped because they matched a `blackhole` route.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountNoRoute | The number of packets dropped because they did not match a route.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountNoPolicy | The number of packets dropped because no policy rule matched. Equivalent to `PacketDropCountNoRoute` for standard route tables. A sustained non-zero value indicates missing or misconfigured rules.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
@@ -57,10 +61,16 @@ All metrics are always reported. Their values are dependent on the traffic in an
 | BytesOut | The number of bytes sent from the transit gateway to the attachment.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketsIn | The number of packets received by the transit gateway from the attachment.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketsOut | The number of packets sent by the transit gateway to the attachment.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| BytesInNAT | The number of bytes received from an attachment whose source address was translated (SNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| BytesOutNAT | The number of bytes sent to an attachment whose destination address was translated (DNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| PacketsInNAT | The number of packets received from an attachment whose source address was translated (SNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+| PacketsOutNAT | The number of packets sent to an attachment whose destination address was translated (DNAT) by that attachment's NAT rules. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountBlackhole | The number of packets dropped because they matched a `blackhole` route on the transit gateway attachment.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountNoRoute | The number of packets dropped because they did not match a route.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountNoPolicy | The number of packets dropped because no policy rule matched on the transit gateway attachment. Equivalent to `PacketDropCountNoRoute` for standard route tables. A sustained non-zero value indicates missing or misconfigured rules.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
 | PacketDropCountTTLExpired | The number of packets dropped because the TTL expired.<br />**Statistics**: The only meaningful statistic is `Sum`. | 
+
+The `BytesInNAT`, `BytesOutNAT`, `PacketsInNAT`, and `PacketsOutNAT` metrics count the subset of traffic translated by 1:1 NAT. The existing `BytesIn`, `BytesOut`, `PacketsIn`, and `PacketsOut` metrics continue to report all traffic. Each NAT metric is counted against the attachment whose rule applied. For example, traffic from an attachment without NAT rules to the NAT address of a VPC with NAT rules appears in that VPC attachment's `PacketsOutNAT`. It doesn't appear in the source attachment's `PacketsInNAT`. When both the source and destination are translated, a packet counts in both the source attachment's `PacketsInNAT` and the destination attachment's `PacketsOutNAT`.
 
 ## Transit gateway metric dimensions
 <a name="transit-gateway-dimensions"></a>

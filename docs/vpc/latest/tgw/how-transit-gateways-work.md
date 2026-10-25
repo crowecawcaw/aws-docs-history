@@ -81,6 +81,7 @@ For transit gateway peering attachments, only static routes are supported.
 + [Route tables](#tgw-route-tables-overview)
 + [Route table association](#tgw-route-table-association-overview)
 + [Route propagation](#tgw-route-propagation-overview)
++ [Route types](#tgw-route-types-overview)
 + [Routes for peering attachments](#tgw-route-table-peering)
 + [Route evaluation order](#tgw-route-evaluation-overview)
 
@@ -117,6 +118,18 @@ For a Direct Connect gateway attachment, [allowed prefixes interactions](https:/
 
 When a static route and a propagated route have the same destination, the static route has the higher priority, so the propagated route is not included in the route table. If you remove the static route, the overlapping propagated route is included in the route table.
 
+### Route types
+<a name="tgw-route-types-overview"></a>
+
+A transit gateway route table can contain three types of routes:
++ `static` – A route that you create in a transit gateway route table.
++ `propagated` – A route learned from an attachment that propagates its routes to the route table.
++ `system` – A route that the transit gateway installs. System routes are created by 1:1 NAT:
+  + For a VPC attachment, when a NAT rule's `MatchSourceCidr` exactly equals one of the VPC's CIDRs, a system route for the rule's `NatCidr` replaces the propagated route for that CIDR.
+  + For a Direct Connect gateway or BGP Site-to-Site VPN attachment with `NatSystemRouteSupport` enabled, the transit gateway adds a system route for each NAT CIDR, in addition to the routes your network advertises.
+
+System routes are installed only in route tables that the attachment propagates to. You can't modify or delete a system route directly. It's updated or removed when you change the attachment's NAT rules, disable `NatSystemRouteSupport`, or disable NAT. For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).
+
 ### Routes for peering attachments
 <a name="tgw-route-table-peering"></a>
 
@@ -131,6 +144,7 @@ Transit gateway routes are evaluated in the following order:
 + The most specific route for the destination address.
 + For routes with the same CIDR, but from different attachment types, the route priority is as follows:
   + Static routes (for example, Site-to-Site VPN static routes)
+  + System routes (routes that the transit gateway installs for 1:1 NAT)
   + Prefix list referenced routes 
   + VPC-propagated routes
   + Direct Connect gateway-propagated routes 

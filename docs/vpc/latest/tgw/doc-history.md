@@ -7,6 +7,7 @@ The following table describes the releases for transit gateways.
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [1:1 NAT for transit gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-nat.html) | Use 1:1 NAT to translate IPv4 addresses at the transit gateway, so that networks with overlapping CIDRs can communicate without being re-addressed. | October 22, 2026 | 
 | [Policy-Based Routing for transit gateways](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-policy-tables.html) | Use Policy-Based Routing (PBR) and policy tables to forward traffic across a transit gateway based on packet attributes such as source and destination IP addresses, ports, and protocol. | July 28, 2026 | 
 | [Client VPN attachments](https://docs.aws.amazon.com/vpc/latest/tgw/tgw-client-vpn-attachments.html) | Create a Client VPN attachment to connect a transit gateway to a Client VPN endpoint. | April 20, 2026 | 
 | [Flexible Cost Allocation](https://docs.aws.amazon.com/vpc/latest/tgw/metering-policy.html) | Configure flexible cost allocation policies to control how data processing and transfer costs are allocated across your organization. | November 20, 2025 | 

@@ -36,6 +36,17 @@ The CIDR blocks are used in the [Connect attachments and Connect peers in AWS Tr
 
 Advertised routes come from the route table that's associated with the Connect attachment.
 
+## 1:1 NAT
+<a name="nat-quotas"></a>
+
+
+| Name | Default | Adjustable | 
+| --- | --- | --- | 
+| NAT rules per transit gateway attachment | 50 | No | 
+| NAT rules per transit gateway (across all attachments) | 1,000 | No | 
+
+For more information, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).
+
 ## Transit gateway attachments
 <a name="attachments-quotas"></a>
 

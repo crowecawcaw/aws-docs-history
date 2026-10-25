@@ -112,6 +112,33 @@ Metering policies are supported for both IPv4 and IPv6 traffic. CIDR block match
 + All egress-only flows on the middlebox attachment (for example north-south traffic to internet via IGW in an inspection VPC) are treated as regular source-destination flows (as opposed to middle-box attachment flows).
 + For Network Function attachments when AWS Network firewall drops packets, all data processing usage is charged back to the sender account regardless of metering policy configuration.
 
+#### Metering policies and 1:1 NAT
+<a name="metering-policy-nat"></a>
+
+If you use metering policies for flexible cost allocation, enabling 1:1 NAT changes which policy rules match your traffic. Metering policies match traffic by the addresses it has inside the transit gateway:
++ **Source CIDR conditions** match the translated (NAT) source address, for traffic from an attachment whose source is translated.
++ **Destination CIDR conditions** match the destination's NAT address, for traffic sent to an attachment with NAT rules.
+
+Rules that use only attachment, attachment type, protocol, or port conditions aren't affected.
+
+A rule whose CIDR conditions use an attachment's original (pre-NAT) CIDRs no longer matches that attachment's translated traffic. That traffic is then billed according to the next matching rule, usually your policy's default rule.
+
+**Update your metering policy before you enable NAT**
+
+Metering policy changes can take up to 2 hours to take effect. To keep cost allocation consistent:
+
+1. Add metering policy rules that use the NAT CIDRs, alongside your existing rules. These rules match nothing until NAT is enabled.
+
+1. Wait for the policy change to take effect.
+
+1. Enable NAT on the attachment.
+
+1. After NAT is enabled, remove the rules for the original CIDRs that no longer match any traffic.
+
+If you enable NAT first and update your policy afterward, translated traffic is billed according to the next rule in your policy that matches it, which might be the default rule, until the policy update takes effect.
+
+For more information about 1:1 NAT, see [1:1 NAT in AWS Transit Gateway](tgw-nat.md).
+
 **Topics**
 + [Metering policies](#metering-policies-main)
 + [Create a metering policy](metering-policy-create-policy.md)

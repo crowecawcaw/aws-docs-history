@@ -115,3 +115,46 @@ The following example enables users to create and delete transit gateway route t
 ```
 
 ------
+
+## Permissions for 1:1 NAT
+<a name="tgw-nat-iam"></a>
+
+Only the transit gateway owner can view or modify the NAT configuration of an attachment. This applies to every attachment on the transit gateway, including attachments owned by other accounts through AWS RAM sharing. Attachment owners can't view or change NAT configuration, and the transit gateway owner can't delegate this to them. The following table shows the result for each caller.
+
+
+| Caller | `GetTransitGatewayAttachmentNatConfiguration` / `ModifyTransitGatewayAttachmentNatConfiguration` | `NatGatewaySupport` in `DescribeTransitGatewayAttachments` | 
+| --- | --- | --- | 
+| transit gateway owner | Allowed | Included | 
+| Attachment owner (different account) | UnauthorizedOperation | Not included | 
+| Any other account | InvalidTransitGatewayAttachmentID.NotFound | Attachment not returned | 
+
+The following table lists the IAM actions for 1:1 NAT.
+
+
+| Action | Purpose | 
+| --- | --- | 
+| ec2:ModifyTransitGatewayAttachmentNatConfiguration | Enable or disable NAT, and set NAT rules and route options. | 
+| ec2:GetTransitGatewayAttachmentNatConfiguration | View NAT configuration. Policies that grant ec2:Describe\* don't include this action. | 
+
+Both actions support resource-level permissions on the transit gateway attachment. To restrict which attachments a principal can manage, specify the attachment ARN or use tag-based conditions.
+
+The following example allows NAT management only on attachments tagged `environment=prod`.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ec2:ModifyTransitGatewayAttachmentNatConfiguration",
+        "ec2:GetTransitGatewayAttachmentNatConfiguration"
+      ],
+      "Resource": "arn:aws:ec2:*:*:transit-gateway-attachment/*",
+      "Condition": {
+        "StringEquals": { "ec2:ResourceTag/environment": "prod" }
+      }
+    }
+  ]
+}
+```
