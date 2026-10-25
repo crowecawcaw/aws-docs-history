@@ -75,3 +75,10 @@ A well-designed Amazon EKS cluster organizes accelerated compute NodePools or no
 +  **Burst Capacity**: A `gpu-burst` NodePool or node group handles experimentation, ad hoc workloads, and batch processing. It uses Spot instances as the primary capacity type with On-Demand fallback. This combination maximizes cost savings for fault-tolerant workloads and ensures capacity when Spot is unavailable. This NodePool or node group serves batch offline inference, data preprocessing pipelines, model evaluation jobs, development and prototyping, unpredictable inference scaling, short-lived debugging sessions, and any workload that implements checkpointing and can handle Spot interruptions or that doesn’t justify a reservation but cannot wait for reserved windows. Workloads on this NodePool or node group implement checkpointing and graceful shutdown to handle node loss within the 2-minute Spot interruption window.
 
 Specify the desired capacity type for workloads using nodeSelector: `karpenter.sh/capacity-type: [spot, on-demand, reserved]`. Weight-based provisioning scales the cluster efficiently across all capacity pools. With this architecture, you can run diverse AI/ML workloads—from experimental notebooks to production inference—within a single Amazon EKS cluster while optimizing cost.
+
+## Topics
+<a name="_topics"></a>
++  [Manage compute for AI/ML workloads with EKS Auto Mode and Karpenter](ml-node-pools.md) — Provision accelerated compute with EKS Auto Mode and Karpenter NodePools, including static capacity, Capacity Blocks, and ODCRs.
++  [Manage compute for AI/ML workloads on Amazon EKS with node groups](ml-node-groups.md) — Provision accelerated compute with EKS managed and self-managed node groups.
++  [Use P6e-GB200 UltraServers with Amazon EKS](ml-eks-nvidia-ultraserver.md) — Run P6e-GB200 UltraServers on Amazon EKS.
++  [Validate Amazon EKS automatic node repair for GPUs with XID error injection](ml-validate-gpu-node-repair.md) — Validate EKS automatic node repair for GPUs by injecting XID errors.

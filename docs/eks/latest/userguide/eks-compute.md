@@ -34,7 +34,7 @@ Bottlerocket has some specific differences from the general information in this 
 | Can be deployed to an [AWS Local Zone](local-zones.md)  | Yes | No | No | 
 | Can run containers that require Windows | Yes | No | No | 
 | Can run containers that require Linux | Yes | Yes | Yes | 
-| Can run workloads that require the Inferentia chip |  [Yes](inferentia-support.md) – Amazon Linux nodes only | Yes | No | 
+| Can run workloads that require the Inferentia chip |  [Yes](ml-inferentia.md) – Amazon Linux nodes only | Yes | No | 
 | Can run workloads that require a GPU |  [Yes](eks-optimized-ami.md#gpu-ami) – Amazon Linux nodes only | Yes | Yes | 
 | Can run workloads that require Arm processors |  [Yes](eks-optimized-ami.md#arm-ami)  | Yes | Yes | 
 | Can run AWS [Bottlerocket](https://aws.amazon.com/bottlerocket/)  | Yes | Yes | No | 

@@ -4,7 +4,7 @@
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
-# Use EKS-optimized accelerated AMIs for GPU instances
+# Use EKS-optimized accelerated Linux AMIs for GPU instances
 <a name="ml-eks-optimized-ami"></a>
 
 Amazon EKS supports EKS-optimized Amazon Linux and Bottlerocket AMIs for GPU instances. The EKS-optimized accelerated AMIs simplify running AI and ML workloads in EKS clusters by providing pre-built, validated operating system images for the accelerated Kubernetes stack. In addition to the core Kubernetes components that are included in the standard EKS-optimized AMIs, the EKS-optimized accelerated AMIs include the kernel modules and drivers required to run the NVIDIA GPU `G` and `P` EC2 instances, and the AWS GPU [Inferentia](https://aws.amazon.com/machine-learning/inferentia/) and [Trainium](https://aws.amazon.com/machine-learning/trainium/) EC2 instances in EKS clusters.
@@ -28,7 +28,7 @@ By using the EKS-optimized NVIDIA AMIs, you agree to [NVIDIA’s Cloud End User 
 
 To find the latest EKS-optimized NVIDIA AMIs, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md) and [Retrieve recommended Bottlerocket AMI IDs](retrieve-ami-id-bottlerocket.md).
 
-When using Amazon Elastic Fabric Adapter (EFA) with the EKS-optimized AL2023 or Bottlerocket NVIDIA AMIs, you must install the EFA device plugin separately. For more information, see [Run machine learning training on Amazon EKS with Elastic Fabric Adapter](node-efa.md).
+When using Amazon Elastic Fabric Adapter (EFA) with the EKS-optimized AL2023 or Bottlerocket NVIDIA AMIs, you must install the EFA device plugin separately. For more information, see [Manage EFA devices on Amazon EKS](device-management-efa.md).
 
 ## EKS AL2023 NVIDIA AMIs
 <a name="eks-amis-nvidia-al2023"></a>
@@ -55,6 +55,27 @@ Each node automatically selects the appropriate driver for its GPU at first boot
 The LTS (long-term support) driver version is currently 580, and the production branch driver version is currently 595. The NVIDIA 580 driver is required to use CUDA 13\+.
 
 See the EKS-optimized [AL2023 releases](https://github.com/awslabs/amazon-eks-ami/releases) on GitHub for details of the component versions included in the AMIs. For details on how the EKS AMIs configure the NVIDIA dependencies and select the driver version at boot, see the EKS AL2023 NVIDIA AMI [installation script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/provisioners/install-nvidia-drivers.sh) and [driver resolution script](https://github.com/awslabs/amazon-eks-ami/blob/main/templates/al2023/runtime/gpu/resolve-nvidia-driver.sh). You can find the list of installed packages and their versions on a running EC2 instance with the `dnf list installed` command.
+
+### GDRCopy
+<a name="eks-amis-nvidia-gdrcopy"></a>
+
+The EKS-optimized AL2023 NVIDIA AMIs include the [GDRCopy](https://github.com/NVIDIA/gdrcopy) `gdrdrv` kernel driver. GDRCopy is a low-latency GPU memory copy library built on GPUDirect RDMA. Ordinary GPUDirect RDMA transfers are efficient for large payloads but carry high per-transfer setup cost, which dominates for small messages. GDRCopy exposes GPU memory to the CPU so that small transfers complete with much lower latency. Communication libraries use it to accelerate the latency-sensitive paths of distributed training, such as small NCCL collectives and the control messages that coordinate larger transfers.
+
+The AMI handles the driver setup for you. At boot, the AMI loads the `gdrdrv` kernel module and creates the `/dev/gdrdrv` device node, which is world-readable and writable, so containers that mount it can use GDRCopy without extra node configuration.
+
+The AMI includes only the kernel driver, not the GDRCopy userspace library (`libgdrapi`) or its command-line tools. Your application container supplies the userspace side. Container images built for distributed training on AWS, such as the AWS Deep Learning Containers and the `nccl-tests` image used in [Test EFA performance with NCCL tests](device-management-efa.md#eks-efa-nccl-test), already bundle it. GDRCopy is most useful with EFA and NCCL, so see also [Manage EFA devices on Amazon EKS](device-management-efa.md).
+
+To confirm the driver is active on a node, check that the module is loaded and the device node exists:
+
+```
+lsmod | grep gdrdrv
+ls -l /dev/gdrdrv
+```
+
+For the driver version included in a given AMI release, see the EKS-optimized [AL2023 releases](https://github.com/awslabs/amazon-eks-ami/releases) on GitHub.
+
+### Building custom AMIs
+<a name="eks-amis-nvidia-custom"></a>
 
 When building custom AMIs with the EKS-optimized AMIs as the base, it is not recommended or supported to run an operating system upgrade (i.e. `dnf upgrade`) or upgrade any of the Kubernetes or GPU packages that are included in the EKS-optimized AMIs, as this risks breaking component compatibility. If you do upgrade the operating system or packages that are included in the EKS-optimized AMIs, it is recommended to thoroughly test in a development or staging environment before deploying to production.
 
@@ -86,11 +107,11 @@ See the Bottlerocket Version Information in the [Bottlerocket documentation](htt
 For details on how to run training and inference workloads using Neuron with Amazon EKS, see the following references:
 +  [Containers - Kubernetes - Getting Started](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/containers/kubernetes-getting-started.html) in the AWS Neuron Documentation
 +  [Training example](https://github.com/aws-neuron/aws-neuron-eks-samples/blob/master/README.md#training) in AWS Neuron EKS Samples on GitHub
-+  [Deploy ML inference workloads with Inferentia on Amazon EKS](inferentia-support.md) 
++  [Deploy ML inference workloads with Inferentia on Amazon EKS](ml-inferentia.md) 
 
 To find the latest EKS-optimized Neuron AMIs, see [Retrieve recommended Amazon Linux AMI IDs](retrieve-ami-id.md) and [Retrieve recommended Bottlerocket AMI IDs](retrieve-ami-id-bottlerocket.md).
 
-When using Amazon Elastic Fabric Adapter (EFA) with the EKS-optimized AL2023 or Bottlerocket Neuron AMIs, you must install the EFA device plugin separately. For more information, see [Run machine learning training on Amazon EKS with Elastic Fabric Adapter](node-efa.md).
+When using Amazon Elastic Fabric Adapter (EFA) with the EKS-optimized AL2023 or Bottlerocket Neuron AMIs, you must install the EFA device plugin separately. For more information, see [Manage EFA devices on Amazon EKS](device-management-efa.md).
 
 ## EKS AL2023 Neuron AMIs
 <a name="eks-amis-neuron-al2023"></a>

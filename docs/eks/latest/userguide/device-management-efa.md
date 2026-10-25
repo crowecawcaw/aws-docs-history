@@ -9,8 +9,6 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
  [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) (EFA) is a network device for Amazon EC2 instances that enables high-performance inter-node communication and RDMA (Remote Direct Memory Access) for artificial intelligence, machine learning, and High Performance Computing (HPC) workloads. Amazon EKS supports two mechanisms for managing EFA devices in EKS clusters: the *EFA Dynamic Resource Allocation (DRA) driver (DRANET)* and the *EFA device plugin*.
 
-We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later when using [static capacity provisioning](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool) in Karpenter, EKS managed node groups, or self-managed nodes. DRA is not currently supported with EKS Auto Mode. With the EFA DRA driver, you can configure topology-aware allocation that pairs EFA interfaces with their topologically-local GPUs or Neuron devices, and share devices between Pods.
-
 ## EFA DRA driver vs. EFA device plugin
 <a name="eks-efa-dra-vs-device-plugin"></a>
 
@@ -18,12 +16,65 @@ We recommend using DRA drivers for new deployments with Kubernetes versions 1.34
 | Feature | EFA DRA driver | EFA device plugin | 
 | --- | --- | --- | 
 | Minimum Kubernetes version | 1.34 | All EKS-supported Kubernetes versions | 
-| EKS Compute | Karpenter (static capacity only), managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
+| EKS Compute | Karpenter, managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
 | EKS-optimized AMIs | AL2023, Bottlerocket | AL2023, Bottlerocket | 
 | Device advertisement | Rich attributes via `ResourceSlice` objects including device type, topology, and PCIe locality | Integer count of `vpc.amazonaws.com/efa` extended resources | 
 | GPU-EFA affinity | DRA-native topology-awareness | Automatic topology-awareness (EKS-optimized AL2023 AMIs only) | 
 | Neuron-EFA affinity | DRA-native topology-awareness | Automatic topology-awareness (EKS-optimized AL2023 AMIs only) | 
 | Device sharing | Multiple Pods can share the same EFA device through shared `ResourceClaim` references | Not supported. Each EFA device is exclusively allocated to one Pod. | 
+
+We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later on Karpenter, EKS managed node groups, or self-managed nodes. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15, though dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). DRA is not currently supported with EKS Auto Mode. With the EFA DRA driver, you can configure topology-aware allocation that pairs EFA interfaces with their topologically-local GPUs or Neuron devices, and share devices between Pods.
+
+With EFA, High Performance Computing (HPC) applications using the Message Passing Interface (MPI) and machine learning applications using the NVIDIA Collective Communications Library (NCCL) can scale to thousands of CPUs or GPUs, which gives you the application performance of an on-premises HPC cluster with the elasticity of the AWS Cloud. Using EFA with Pods running on Amazon EKS can reduce the time to complete large-scale distributed training workloads without adding instances to your cluster. For more information about EFA, see [Elastic Fabric Adapter](https://aws.amazon.com/hpc/efa/).
+
+## EFA and EFA-only interfaces
+<a name="eks-efa-interfaces"></a>
+
+An *Elastic Fabric Adapter (EFA)* is a network interface that combines the capabilities of an Elastic Network Adapter (ENA) and an OS-bypass interface, powered by the AWS Scalable Reliable Datagram (SRD) protocol. The OS-bypass interface lets applications communicate directly with the hardware for low-latency transport, while the ENA capabilities carry normal IP traffic.
+
+Amazon EC2 offers two interface types for EFA:
++  ** `efa` ** — Provides both the ENA and OS-bypass capabilities on one interface. The interface receives an IP address from your subnet.
++  ** `efa-only` ** — Provides only the OS-bypass capability. The interface does not receive an IP address and communication is limited to interfaces within the same Availability Zone.
+
+ **We recommend `efa-only` interfaces for all interfaces except the primary network interface.** Distributed training and HPC traffic uses the OS-bypass path, not the IP path, so the IP addresses that `efa` interfaces consume go unused. On an instance such as `p5.48xlarge` or `p6-b200.48xlarge` with dozens of network interfaces, those unused addresses can exhaust a subnet’s available IP space. For more information, see [Conserving IP address allocation](#eks-efa-conserve-ip).
+
+Note the following requirements for `efa-only` interfaces:
++ You cannot set network card `0` to `efa-only`, because it is the primary network card and network interface of the instance. Configure network card `0`, device index `0` as `interface` and use `efa-only` for the remaining interfaces.
++ Amazon VPC CNI version `1.18.5` or later is required. For more information about updating the VPC CNI, see [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md).
++ You cannot use `eksctl’s `efaEnabled` setting to create nodes with `efa-only` interfaces, because `efaEnabled` configures every interface as type `efa`. Use a `NodeClass`, an `EC2NodeClass`, or a launch template instead, as shown in the examples that follow.
+
+## Choosing an EFA-enabled instance type
+<a name="eks-efa-instance-types"></a>
+
+EFA is supported on a specific set of Amazon EC2 instance types. For the full list, see [Supported instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types) in the *Amazon EC2 User Guide*. To run machine learning workloads, we recommend an instance type that also has hardware acceleration chips such as NVIDIA GPUs or [AWS Trainium](https://aws.amazon.com/machine-learning/trainium/) chips. For the list of instance types that have both accelerators and EFA, see [Accelerated computing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html#efa-instance-types) in the *Amazon EC2 User Guide*.
+
+As you compare instance types, consider the number of EFA network cards available alongside the number of accelerator cards, vCPUs, and memory. You can assign up to one EFA per network card, and an EFA counts as a network interface. To see how many EFAs each instance type supports, see the [Network cards](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#network-cards) list in the *Amazon EC2 User Guide*. For the recommended interface layout to reach maximum network bandwidth on each instance type, see [Maximize network bandwidth for EFA-enabled instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa-acc-inst-types.html) in the *Amazon EC2 User Guide*.
+
+To find which EFA-enabled instance types are available in an AWS Region, and which Availability Zones offer them, run the following commands. Replace {{region-code}} with your AWS Region.
+
+```
+aws ec2 describe-instance-types --region [.replaceable]`region-code` \
+    --filters Name=network-info.efa-supported,Values=true \
+    --query "InstanceTypes[*].[InstanceType]" --output text
+```
+
+```
+aws ec2 describe-instance-type-offerings --region [.replaceable]`region-code` \
+    --location-type availability-zone \
+    --filters Name=instance-type,Values=[.replaceable]`p5.48xlarge` \
+    --query 'InstanceTypeOfferings[*].Location' --output text
+```
+
+An example output is as follows.
+
+```
+us-west-2a    us-west-2c    us-west-2b
+```
+
+Your VPC must have subnets with available IP addresses in one of the Availability Zones returned. Because `efa-only` interfaces communicate only within an Availability Zone, place the nodes of a single distributed job in one Availability Zone.
+
+**Important**  
+EFA requires hugepages. Amazon EC2 instances with the EFA driver installed pre-allocate 5128 pages of 2 MiB, which you request as `hugepages-2Mi` resources in your workload specifications. The examples in this topic request hugepages alongside EFA devices. For more information about configuring hugepages on EKS nodes, see [Configure hugepages in Amazon EKS clusters](ml-hugepages.md), and for the Kubernetes resource model, see [Manage HugePages](https://kubernetes.io/docs/tasks/manage-hugepages/scheduling-hugepages/) in the Kubernetes documentation.
 
 ## Creating EKS nodes with EFA interfaces
 <a name="eks-efa-nodes"></a>
@@ -91,6 +142,9 @@ Each entry in `networkInterfaces` specifies a `networkCardIndex`, `deviceIndex`,
 When using Karpenter without specifying `networkInterfaces` in your `NodeClass`, instances created for Pods requesting `vpc.amazonaws.com/efa` have all interfaces configured with interface type `EFA`.
 
 The `networkInterfaces` configuration for `EC2NodeClass` was added in Karpenter v1.11. The following example shows an `EC2NodeClass` configured for a P6-B200 instance with 1 ENA interface and 8 EFA-only interfaces.
+
+**Important**  
+Do not combine `spec.networkInterfaces` with Karpenter dynamic capacity provisioning for EFA DRA workloads. Karpenter does not support that combination and the result is undefined behavior. If you use the EFA DRA driver and need a custom interface layout such as the `efa-only` configuration below, use Karpenter static capacity provisioning, EKS managed node groups, or self-managed nodes. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
 
 ### Example Karpenter EC2NodeClass with EFA-only interfaces for P6-B200
 <a name="eks-efa-karpenter-example"></a>
@@ -477,7 +531,7 @@ Both Pods reference the same `shared-efa` `ResourceClaim` and are scheduled to t
 ## Install the EFA Kubernetes device plugin
 <a name="eks-efa-device-plugin"></a>
 
-The EFA Kubernetes device plugin advertises EFA devices as `vpc.amazonaws.com/efa` extended resources. You request EFA devices in container resource requests and limits. For a complete walkthrough of setting up EFA with training workloads, see [Run machine learning training on Amazon EKS with Elastic Fabric Adapter](node-efa.md).
+The EFA Kubernetes device plugin advertises EFA devices as `vpc.amazonaws.com/efa` extended resources. You request EFA devices in container resource requests and limits.
 
 **Important**  
 Topology-aligned allocation of NVIDIA GPUs or Neuron devices with EFA interfaces happens automatically when using the EKS-optimized AL2023 accelerated AMIs. This automatic alignment does not occur when using Bottlerocket EKS-optimized AMIs or custom AMIs. If you need topology-aligned accelerator and EFA device allocation with Bottlerocket or custom AMIs, use the EFA DRA driver and the corresponding Neuron DRA driver. To use the NVIDIA DRA driver on Bottlerocket, you must first disable the NVIDIA device plugin that is bundled with the Bottlerocket NVIDIA variants, which requires Bottlerocket version 1.63.0 or later. For more information, see [Topology-aware EFA and GPU/Neuron device allocation](#efa-dra-topology-aware) and [Install the NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver).
@@ -557,3 +611,298 @@ EKS Auto Mode does not enable MOFED by default and is not affected by this issue
            vpc.amazonaws.com/efa: 4
            hugepages-2Mi: ...
    ```
+
+## Test EFA performance with NCCL tests
+<a name="eks-efa-nccl-test"></a>
+
+After you install either the EFA DRA driver or the EFA device plugin, we recommend validating the setup before you run production workloads. The [NCCL tests](https://github.com/NVIDIA/nccl-tests) measure collective-communication performance across nodes and confirm that GPUDirect RDMA over EFA is working. You can also find packaged versions of these tests in the [awsome-distributed-training](https://github.com/aws-samples/awsome-distributed-training/tree/main/micro-benchmarks/nccl-tests) repository on GitHub.
+
+The following procedure runs a two-node `all_reduce_perf` benchmark on `p5.48xlarge` instances. Each worker requests all eight GPUs, all EFA devices, and `hugepages-2Mi` on its node, so each worker consumes an entire instance. Adjust the instance type, GPU count, EFA count, and hugepages request to match your nodes.
+
+### Prerequisites
+<a name="_prerequisites_3"></a>
++ Two or more nodes with an EFA-enabled, GPU-accelerated instance type, in the same Availability Zone. For more information, see [Choosing an EFA-enabled instance type](#eks-efa-instance-types).
++ Either the EFA DRA driver or the EFA device plugin installed. For more information, see [Install the EFA DRA driver (DRANET)](#efa-dra-driver) or [Install the EFA Kubernetes device plugin](#eks-efa-device-plugin).
++ NVIDIA GPUs exposed to Pods, through either the NVIDIA DRA driver or the NVIDIA device plugin. For more information, see [Manage NVIDIA GPUs on Amazon EKS](device-management-nvidia.md). Use the same mechanism for GPUs that you use for EFA: DRA claims for both, or device plugin resources for both.
+
+### Step 1: Deploy the Kubeflow MPI Operator
+<a name="_step_1_deploy_the_kubeflow_mpi_operator"></a>
+
+The NCCL tests use MPI to launch ranks across nodes. The Kubeflow MPI Operator runs Allreduce-style distributed jobs on Kubernetes through the `MPIJob` custom resource. For installation instructions, see [MPI Operator](https://github.com/kubeflow/mpi-operator) on GitHub.
+
+### Step 2: Create the MPIJob manifest
+<a name="_step_2_create_the_mpijob_manifest"></a>
+
+Use the manifest that matches how you expose EFA and GPU devices. Copy it to a file named `nccl-tests.yaml`.
+
+#### Using the EFA device plugin
+<a name="_using_the_efa_device_plugin"></a>
+
+With the device plugin, the worker requests `vpc.amazonaws.com/efa` and `nvidia.com/gpu` as extended resources.
+
+##### MPIJob using the EFA device plugin
+<a name="eks-efa-nccl-device-plugin-yaml"></a>
+
+```
+apiVersion: kubeflow.org/v2beta1
+kind: MPIJob
+metadata:
+  name: nccl-tests
+spec:
+  runPolicy:
+    cleanPodPolicy: Running
+    backoffLimit: 20
+  slotsPerWorker: 8
+  mpiReplicaSpecs:
+    Launcher:
+      replicas: 1
+      template:
+         spec:
+          restartPolicy: OnFailure
+          containers:
+          - image: public.ecr.aws/hpc-cloud/nccl-tests:latest
+            imagePullPolicy: IfNotPresent
+            name: test-nccl-launcher
+            env:
+             - name: PATH
+               value: $PATH:/opt/amazon/efa/bin:/usr/bin
+            command:
+            - /opt/amazon/openmpi/bin/mpirun
+            - --allow-run-as-root
+            - --tag-output
+            - -np
+            - "16"
+            - -N
+            - "8"
+            - --bind-to
+            - none
+            - -x
+            - PATH
+            - -x
+            - LD_LIBRARY_PATH
+            - -x
+            - NCCL_DEBUG=INFO
+            - -x
+            - NCCL_BUFFSIZE=8388608
+            - -x
+            - NCCL_P2P_NET_CHUNKSIZE=524288
+            - -x
+            - NCCL_TUNER_PLUGIN=/opt/amazon/ofi-nccl/lib/x86_64-linux-gnu/libnccl-ofi-tuner.so
+            - --mca
+            - pml
+            - ^cm,ucx
+            - --mca
+            - btl
+            - tcp,self
+            - --mca
+            - btl_tcp_if_exclude
+            - lo,docker0,veth_def_agent
+            - /opt/nccl-tests/build/all_reduce_perf
+            - -b
+            - "8"
+            - -e
+            - "16G"
+            - -f
+            - "2"
+            - -g
+            - "1"
+            - -c
+            - "1"
+            - -n
+            - "100"
+    Worker:
+      replicas: 2
+      template:
+        spec:
+          nodeSelector:
+            node.kubernetes.io/instance-type: "p5.48xlarge"
+          containers:
+          - image: public.ecr.aws/hpc-cloud/nccl-tests:latest
+            imagePullPolicy: IfNotPresent
+            name: nccl-tests-worker
+            volumeMounts:
+            - name: shmem
+              mountPath: /dev/shm
+            resources:
+              limits:
+                nvidia.com/gpu: 8
+                hugepages-2Mi: 5120Mi
+                vpc.amazonaws.com/efa: 32
+                memory: 32000Mi
+              requests:
+                nvidia.com/gpu: 8
+                hugepages-2Mi: 5120Mi
+                vpc.amazonaws.com/efa: 32
+                memory: 32000Mi
+          volumes:
+          - name: shmem
+            hostPath:
+              path: /dev/shm
+```
+
+The `vpc.amazonaws.com/efa: 32` request claims all EFA devices on a `p5.48xlarge`. On the EKS-optimized AL2023 accelerated AMIs, the device plugin aligns the allocated EFA devices with their topologically-local GPUs automatically.
+
+#### Using the EFA DRA driver
+<a name="_using_the_efa_dra_driver"></a>
+
+With DRA, the worker references a `ResourceClaimTemplate` instead of requesting extended resources. Because each worker in this test consumes a whole node, the template requests every EFA device and every GPU with `allocationMode: All` and omits a topology constraint — there is nothing to align when a single Pod receives all devices on the node. For a job whose Pods take only part of a node, add a `matchAttribute` constraint so that each Pod’s EFA devices and GPUs share a PCIe root. For more information, see [Topology-aware EFA and GPU/Neuron device allocation](#efa-dra-topology-aware).
+
+##### MPIJob using the EFA DRA driver
+<a name="eks-efa-nccl-dra-yaml"></a>
+
+```
+apiVersion: resource.k8s.io/v1
+kind: ResourceClaimTemplate
+metadata:
+  name: nccl-efa-gpus
+spec:
+  spec:
+    devices:
+      requests:
+      - name: all-efas
+        exactly:
+          deviceClassName: efa.networking.k8s.aws
+          allocationMode: All
+      - name: all-gpus
+        exactly:
+          deviceClassName: gpu.nvidia.com
+          allocationMode: All
+---
+apiVersion: kubeflow.org/v2beta1
+kind: MPIJob
+metadata:
+  name: nccl-tests
+spec:
+  runPolicy:
+    cleanPodPolicy: Running
+    backoffLimit: 20
+  slotsPerWorker: 8
+  mpiReplicaSpecs:
+    Launcher:
+      replicas: 1
+      template:
+         spec:
+          restartPolicy: OnFailure
+          containers:
+          - image: public.ecr.aws/hpc-cloud/nccl-tests:latest
+            imagePullPolicy: IfNotPresent
+            name: test-nccl-launcher
+            env:
+             - name: PATH
+               value: $PATH:/opt/amazon/efa/bin:/usr/bin
+            command:
+            - /opt/amazon/openmpi/bin/mpirun
+            - --allow-run-as-root
+            - --tag-output
+            - -np
+            - "16"
+            - -N
+            - "8"
+            - --bind-to
+            - none
+            - -x
+            - PATH
+            - -x
+            - LD_LIBRARY_PATH
+            - -x
+            - NCCL_DEBUG=INFO
+            - -x
+            - NCCL_BUFFSIZE=8388608
+            - -x
+            - NCCL_P2P_NET_CHUNKSIZE=524288
+            - -x
+            - NCCL_TUNER_PLUGIN=/opt/amazon/ofi-nccl/lib/x86_64-linux-gnu/libnccl-ofi-tuner.so
+            - --mca
+            - pml
+            - ^cm,ucx
+            - --mca
+            - btl
+            - tcp,self
+            - --mca
+            - btl_tcp_if_exclude
+            - lo,docker0,veth_def_agent
+            - /opt/nccl-tests/build/all_reduce_perf
+            - -b
+            - "8"
+            - -e
+            - "16G"
+            - -f
+            - "2"
+            - -g
+            - "1"
+            - -c
+            - "1"
+            - -n
+            - "100"
+    Worker:
+      replicas: 2
+      template:
+        spec:
+          nodeSelector:
+            node.kubernetes.io/instance-type: "p5.48xlarge"
+          containers:
+          - image: public.ecr.aws/hpc-cloud/nccl-tests:latest
+            imagePullPolicy: IfNotPresent
+            name: nccl-tests-worker
+            volumeMounts:
+            - name: shmem
+              mountPath: /dev/shm
+            resources:
+              claims:
+              - name: efa-gpus
+              limits:
+                hugepages-2Mi: 5120Mi
+                memory: 32000Mi
+              requests:
+                hugepages-2Mi: 5120Mi
+                memory: 32000Mi
+          resourceClaims:
+          - name: efa-gpus
+            resourceClaimTemplateName: nccl-efa-gpus
+          volumes:
+          - name: shmem
+            hostPath:
+              path: /dev/shm
+```
+
+Hugepages remain an extended resource under DRA, so the worker still requests `hugepages-2Mi` directly. Only the EFA and GPU devices move to the `ResourceClaimTemplate`.
+
+### Step 3: Run the test and read the results
+<a name="_step_3_run_the_test_and_read_the_results"></a>
+
+1. Apply the manifest. This schedules the job onto two EFA-enabled nodes.
+
+   ```
+   kubectl apply -f nccl-tests.yaml
+   ```
+
+   An example output is as follows.
+
+   ```
+   mpijob.kubeflow.org/nccl-tests created
+   ```
+
+1. Verify that the job started its Pods.
+
+   ```
+   kubectl get pods
+   ```
+
+   An example output is as follows.
+
+   ```
+   NAME                          READY   STATUS     RESTARTS   AGE
+   nccl-tests-launcher-nbql9     0/1     Init:0/1   0          2m49s
+   nccl-tests-worker-0           1/1     Running    0          2m49s
+   nccl-tests-worker-1           1/1     Running    0          2m49s
+   ```
+
+   The MPI Operator creates one launcher Pod and one worker Pod per node.
+
+1. Follow the launcher log to watch the benchmark. Replace {{nbql9}} with the suffix from your output.
+
+   ```
+   kubectl logs -f nccl-tests-launcher-[.replaceable]`nbql9`
+   ```
+
+   The `all_reduce_perf` output reports bus bandwidth for each message size. Confirm that bandwidth scales as the message size grows and that the `NCCL_DEBUG=INFO` output shows the `ofi` (libfabric) transport rather than a TCP fallback, which indicates NCCL is using EFA. If the test completes successfully, your cluster is ready for distributed training workloads that use NCCL.

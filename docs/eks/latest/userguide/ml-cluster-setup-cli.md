@@ -1198,7 +1198,7 @@ kubectl delete pod s3-test
 ## Next steps
 <a name="cluster-setup-cli-next-steps"></a>
 
-With your cluster ready, continue to [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md), in the [Run AI/ML inference workloads on Amazon EKS](ml-inference.md) section, to create a GPU NodePool that dynamically provisions GPU-enabled nodes for your workloads.
+With your cluster ready, continue to [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md), in the [Create GPU nodes for AI/ML workloads on Amazon EKS](ml-gpu-nodes.md) section, to create a GPU NodePool that dynamically provisions GPU-enabled nodes for your workloads.
 
 ## Cleanup
 <a name="cluster-setup-cli-cleanup"></a>

@@ -147,7 +147,7 @@ Supported network device configurations:
 +  **EFA** **(EFA** **with ENA)** interfaces provide both the ENA device for IP networking and the EFA device for low-latency, high-throughput communication.
 
 **Important**  
-If a network card only has an **EFA-only** adapter attached to it, the VPC CNI will skip it when provisioning network connectivity for a multi-homed pod. However, if you combine an **EFA-only** adapter with an **ENA** adapter on a network card, then the VPC CNI will manage ENIs on this device as well. To use EFA-only interfaces with EKS clusters, see [Run machine learning training on Amazon EKS with Elastic Fabric Adapter](node-efa.md).
+If a network card only has an **EFA-only** adapter attached to it, the VPC CNI will skip it when provisioning network connectivity for a multi-homed pod. However, if you combine an **EFA-only** adapter with an **ENA** adapter on a network card, then the VPC CNI will manage ENIs on this device as well. To use EFA-only interfaces with EKS clusters, see [Manage EFA devices on Amazon EKS](device-management-efa.md).
 
 ### **7. Can I see if a node in my cluster has ENA support?**
 <a name="pod-multi-nic-faqs-node-ena"></a>

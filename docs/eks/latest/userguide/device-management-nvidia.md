@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 NVIDIA GPUs are widely used for machine learning training, inference, and high-performance computing workloads. Amazon EKS supports two mechanisms for managing NVIDIA GPU devices in your EKS clusters: the *NVIDIA DRA driver for GPUs* and the *NVIDIA Kubernetes device plugin*.
 
-We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later when using [static capacity provisioning](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool) in Karpenter, EKS managed node groups, or self-managed nodes. DRA is not currently supported with EKS Auto Mode. The NVIDIA DRA driver enables flexible GPU allocation and GPU sharing between containers.
+We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later on Karpenter, EKS managed node groups, or self-managed nodes. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15, though dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). DRA is not currently supported with EKS Auto Mode. The NVIDIA DRA driver enables flexible GPU allocation and GPU sharing between containers.
 
 For the availability of DRA features in EKS, see the [Release notes for Kubernetes versions](kubernetes-versions-standard.md) for EKS. For more information on using the NVIDIA DRA driver and device plugin with EKS, see [Use the NVIDIA DRA driver or device plugin on Amazon EKS](device-management-nvidia-dra-device-plugin.md).
 

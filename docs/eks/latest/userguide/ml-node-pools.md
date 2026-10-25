@@ -44,6 +44,8 @@ EKS Auto Mode and Karpenter expose instance labels that you can use in NodePool 
 
 The tables below show relevant labels that can be used in NodePools. EKS Auto Mode and Karpenter also apply the labels listed in the [Karpenter documentation](https://karpenter.sh/docs/concepts/scheduling/#labels) to nodes as part of the provisioning process that can be further used for workload targeting.
 
+These are the labels you use to tell a NodePool *what capacity to launch*. You can use these labels or those applied by the AWS cloud controller manager to control *where a Pod lands*, see [Target AI/ML workloads to specific nodes with labels](ml-workload-placement.md) for more information.
+
 ------
 #### [ EKS Auto Mode ]
 

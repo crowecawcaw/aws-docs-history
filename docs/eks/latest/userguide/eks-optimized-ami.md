@@ -21,7 +21,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) provides specialized Amazon Machi
 
 Amazon EKS-optimized accelerated Amazon Linux (AL) AMIs are built on top of the standard EKS-optimized Amazon Linux AMIs. They are configured to serve as optional images for Amazon EKS nodes to support GPU, [Inferentia](https://aws.amazon.com/machine-learning/inferentia/), and [Trainium](https://aws.amazon.com/machine-learning/trainium/) based workloads.
 
-For more information, see [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md).
+For more information, see [Use EKS-optimized accelerated Linux AMIs for GPU instances](ml-eks-optimized-ami.md).
 
 ## Amazon EKS-optimized Arm Amazon Linux AMIs
 <a name="arm-ami"></a>

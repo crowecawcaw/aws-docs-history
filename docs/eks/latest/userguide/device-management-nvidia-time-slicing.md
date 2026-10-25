@@ -11,7 +11,7 @@ Time-slicing lets multiple Pods share a single physical NVIDIA GPU. The Kubernet
 
 On Amazon EKS, you can manage time-slicing with either the [NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver) or the [NVIDIA device plugin](device-management-nvidia-dra-device-plugin.md#eks-nvidia-device-plugin).
 
-Time-slicing can only be used with Karpenter if you are using [static capacity provisioning](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool). Time-slicing is not currently available in EKS Auto Mode.
+Time-slicing is supported with Karpenter using either dynamic or static capacity provisioning. Dynamic provisioning requires Karpenter version 1.15 or later with the `DRANVIDIAGPU` feature gate, and Kubernetes version 1.36 or later for Karpenter to simulate time-sliced GPUs. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). Time-slicing is not currently available in EKS Auto Mode.
 
 Time-slicing is a good fit when:
 + GPU utilization is consistently low, for example latency-sensitive inference services that idle between requests.
@@ -41,7 +41,7 @@ Review the following considerations before you use time-slicing in production.
 +  **Alpha feature:** Time-slicing through the DRA driver requires the `TimeSlicingSettings` feature gate, which is an alpha feature disabled by default. For more information, see [Use GPU time-slicing with the NVIDIA DRA driver](#eks-time-slicing-dra).
 +  **User-mediated sharing only:** Pods share a GPU only by referencing the same `ResourceClaim` or `ResourceClaimTemplate`, which is namespace-scoped, so sharing cannot cross namespaces. System-mediated sharing is a proposed future capability.
 +  **Disable the built-in device plugin on Bottlerocket:** The DRA driver cannot run alongside the NVIDIA device plugin on the same node. On Bottlerocket, disable the built-in device plugin, which requires Bottlerocket version 1.63.0 or later. For more information, see [Install the NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver).
-+  **Compute support:** The NVIDIA DRA driver is supported with static capacity provisioning in Karpenter, EKS managed node groups, or self-managed nodes, and is not supported with EKS Auto Mode. For more information, see the [Karpenter static NodePool documentation](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool) on the Karpenter website.
++  **Compute support:** The NVIDIA DRA driver is supported with Karpenter, EKS managed node groups, or self-managed nodes, and is not supported with EKS Auto Mode. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter).
 
 ### NVIDIA device plugin considerations
 <a name="_nvidia_device_plugin_considerations"></a>
@@ -108,7 +108,7 @@ Time-slicing through the DRA driver requires the `TimeSlicingSettings` feature g
 
 ### Prerequisites
 <a name="_prerequisites"></a>
-+ An Amazon EKS cluster running Kubernetes version 1.34 or later. The NVIDIA DRA driver is supported with static capacity provisioning in Karpenter, EKS managed node groups, or self-managed nodes.
++ An Amazon EKS cluster running Kubernetes version 1.34 or later. The NVIDIA DRA driver is supported with Karpenter, EKS managed node groups, or self-managed nodes. If you use Karpenter dynamic capacity provisioning, you need Karpenter version 1.15 or later and Kubernetes version 1.36 or later.
 + Nodes with NVIDIA GPU instance types using the EKS-optimized AL2023 NVIDIA AMI.
 + The NVIDIA DRA driver installed as described in [Install the NVIDIA DRA driver](device-management-nvidia-dra-device-plugin.md#eks-nvidia-dra-driver), with the `TimeSlicingSettings` feature gate enabled.
 

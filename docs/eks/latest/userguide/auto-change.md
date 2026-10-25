@@ -15,6 +15,22 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## October 12, 2026
+<a name="_october_12_2026"></a>
+
+ **Feature**: Amazon Elastic Kubernetes Service (Amazon EKS) Auto Mode now supports advanced compute configuration through the new `advancedCompute` field in `NodeClass`. You can use the Kubernetes API to declaratively tune kubelet settings, Linux kernel sysctls, and hugepages for workloads that require specific node tuning. EKS Auto Mode validates these settings, applies them at node boot, and preserves them through scaling and upgrade events. You don’t need to maintain EC2 launch templates, custom AMIs, or privileged DaemonSets.
+
+With `advancedCompute`, you can configure the following settings:
++ Kubelet settings – Enable user namespaces for rootless container builds in continuous integration and continuous delivery (CI/CD) pipelines. You can also tune eviction thresholds and container log rotation to protect nodes from disk and memory pressure. For more information about kubelet settings, see [Configure kubelet settings on nodes](create-node-class.md#kubelet-config).
++ Kernel sysctls – Raise network and ARP cache limits for large clusters, and set other supported Linux kernel parameters. For more information about kernel sysctls, see [Configure kernel sysctls on nodes](create-node-class.md#sysctls).
++ Hugepages – Pre-allocate `2Mi` or `1Gi` hugepages for high-performance computing (HPC), database, and latency-sensitive workloads. For more information about hugepages, see [Configure hugepages on nodes](create-node-class.md#hugepages).
+
+If you change kubelet or sysctl settings on an existing `NodeClass`, EKS Auto Mode marks its nodes as drifted. It then replaces them with nodes that use the updated configuration, which can disrupt running Pods. To limit how many nodes EKS Auto Mode replaces at once, set a disruption budget on your NodePool. For more information about disruption budgets, see [Create a Node Pool for EKS Auto Mode](create-node-pool.md).
+
+For more information about creating a `NodeClass`, see [Create a Node Class for Amazon EKS](create-node-class.md).
+
+Advanced compute configuration is available in all AWS Regions where EKS Auto Mode is available.
+
 ## October 1, 2026
 <a name="_october_1_2026"></a>
 

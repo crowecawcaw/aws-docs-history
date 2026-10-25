@@ -4,7 +4,7 @@
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
-# Run GPU-accelerated containers (Windows on EC2 G-Series)
+# Build EKS-optimized Windows AMIs for GPU instances
 <a name="ml-eks-windows-optimized-ami"></a>
 
 **Important**  

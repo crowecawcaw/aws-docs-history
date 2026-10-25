@@ -84,7 +84,7 @@ These requirements are shown in the examples below for creating the launch templ
        --launch-template-data file://eks-capacity-block-lt.json
    ```
 
-1. Use the launch template to create an EKS managed node group. Replace the placeholders in the command below with values applicable to your environment. The command below sets `--ami-type` to the AL2023 EKS-optimized NVIDIA AMIs. See [Use EKS-optimized accelerated AMIs for GPU instances](ml-eks-optimized-ami.md) for more information on the available EKS-optimized AMIs. If you are using a custom AMI with EKS managed node groups, specify your AMI ID in the launch template.
+1. Use the launch template to create an EKS managed node group. Replace the placeholders in the command below with values applicable to your environment. The command below sets `--ami-type` to the AL2023 EKS-optimized NVIDIA AMIs. See [Use EKS-optimized accelerated Linux AMIs for GPU instances](ml-eks-optimized-ami.md) for more information on the available EKS-optimized AMIs. If you are using a custom AMI with EKS managed node groups, specify your AMI ID in the launch template.
 
    When creating an EKS managed node group that uses Capacity Blocks, do the following:
    + Set `--capacity-type` to `"CAPACITY_BLOCK"`.

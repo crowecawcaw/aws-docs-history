@@ -118,7 +118,7 @@ The stream redirection (`3>&1 4>&1 5>&1 6>&1`) lets you see the bootstrap script
 <a name="windows-more-information"></a>
 
 For more information about using Amazon EKS optimized Windows AMIs, see the following sections:
-+ For details on running workloads on Amazon EKS optimized accelerated Windows AMIs, see [Run GPU-accelerated containers (Windows on EC2 G-Series)](ml-eks-windows-optimized-ami.md).
++ For details on running workloads on Amazon EKS optimized accelerated Windows AMIs, see [Build EKS-optimized Windows AMIs for GPU instances](ml-eks-windows-optimized-ami.md).
 + To use Windows with managed node groups, see [Simplify node lifecycle with managed node groups](managed-node-groups.md).
 + To launch self-managed Windows nodes, see [Create self-managed Microsoft Windows nodes](launch-windows-workers.md).
 + For version information, see [Retrieve Windows AMI version information](eks-ami-versions-windows.md).

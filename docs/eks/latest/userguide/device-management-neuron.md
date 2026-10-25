@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
  AWS Trainium and AWS Inferentia are purpose-built machine learning chips designed by AWS. Amazon EKS supports two mechanisms for managing Neuron devices in EKS clusters: the *Neuron DRA driver* and the *Neuron Kubernetes device plugin*.
 
-We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later when using [static capacity provisioning](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool) in Karpenter, EKS managed node groups, or self-managed nodes. DRA is not currently supported with EKS Auto Mode. The Neuron DRA driver provides topology-aware allocation, connected device subset scheduling, Logical NeuronCore (LNC) configuration, and UltraServer multi-node allocation without requiring custom scheduler extensions.
+We recommend using DRA drivers for new deployments with Kubernetes versions 1.34 and later on Karpenter, EKS managed node groups, or self-managed nodes. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15, though dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). DRA is not currently supported with EKS Auto Mode. The Neuron DRA driver provides topology-aware allocation, connected device subset scheduling, Logical NeuronCore (LNC) configuration, and UltraServer multi-node allocation without requiring custom scheduler extensions.
 
 ## Neuron DRA driver vs. Neuron device plugin
 <a name="_neuron_dra_driver_vs_neuron_device_plugin"></a>
@@ -18,7 +18,7 @@ We recommend using DRA drivers for new deployments with Kubernetes versions 1.34
 | Feature | Neuron DRA driver | Neuron device plugin | 
 | --- | --- | --- | 
 | Minimum Kubernetes version | 1.34 | All EKS-supported Kubernetes versions | 
-| EKS Compute | Karpenter (static capacity only), managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
+| EKS Compute | Karpenter, managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
 | EKS-optimized AMI support | AL2023 (Neuron), Bottlerocket | AL2023 (Neuron), Bottlerocket | 
 | Device advertisement | Rich attributes via `ResourceSlice` objects including device ID, instance type, topology, driver version, and EFA locality | Integer count of `aws.amazon.com/neuron` and `aws.amazon.com/neuroncore` extended resources | 
 | Connected device subsets | Allocate subsets of 1, 4, 8, or 16 connected Neuron devices using topology constraints | Requires the [Neuron scheduler extension](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/infrastructure/scheduler.html) for contiguous device allocation | 
@@ -288,13 +288,13 @@ You can verify that Neuron devices are accessible by running the `neuron-ls` too
 
    ```
    instance-type: inf2.xlarge
-   instance-id: ...
-   +--------+--------+--------+---------+
-   | NEURON | NEURON | NEURON |   PCI   |
-   | DEVICE | CORES  | MEMORY |   BDF   |
-   +--------+--------+--------+---------+
-   | 0      | 2      | 32 GB  | 00:1f.0 |
-   +--------+--------+--------+---------+
+   instance-id: i-0eb8c1f59f121359e
+   +--------+--------+----------+--------+--------------+----------+------+
+   | NEURON | NEURON |  NEURON  | NEURON |     PCI      |   CPU    | NUMA |
+   | DEVICE | CORES  | CORE IDS | MEMORY |     BDF      | AFFINITY | NODE |
+   +--------+--------+----------+--------+--------------+----------+------+
+   | 0      | 2      | 0-1      | 32 GB  | 0000:00:1f.0 | 0-3      | -1   |
+   +--------+--------+----------+--------+--------------+----------+------+
    ```
 
 **Note**  

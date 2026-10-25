@@ -9,7 +9,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 Amazon EKS supports two mechanisms for managing NVIDIA GPU devices in your EKS clusters: the *NVIDIA DRA driver for GPUs* and the *NVIDIA Kubernetes device plugin*.
 
-We recommend using the NVIDIA DRA driver for new deployments with Kubernetes versions 1.34 and later when using [static capacity provisioning](https://karpenter.sh/docs/concepts/nodepools/#static-nodepool) in Karpenter, EKS managed node groups, or self-managed nodes. The NVIDIA DRA driver is not currently supported with EKS Auto Mode. Use the [NVIDIA device plugin](#eks-nvidia-device-plugin) with EKS Auto Mode, or with Karpenter when you use dynamic capacity provisioning. The NVIDIA device plugin also remains supported for EKS managed node groups and self-managed nodes.
+We recommend using the NVIDIA DRA driver for new deployments with Kubernetes versions 1.34 and later on Karpenter, EKS managed node groups, or self-managed nodes. Karpenter supports DRA with both dynamic and static capacity provisioning as of Karpenter version 1.15, though dynamic provisioning requires enabling Karpenter feature gates. For more information, see [Using DRA with Karpenter](device-management.md#dra-karpenter). The NVIDIA DRA driver is not currently supported with EKS Auto Mode. Use the [NVIDIA device plugin](#eks-nvidia-device-plugin) with EKS Auto Mode, or with Karpenter when you use dynamic capacity provisioning. The NVIDIA device plugin also remains supported for EKS managed node groups and self-managed nodes.
 
 If you are using GPU sharing features such as multi-instance GPUs (MIG) or time-slicing, we recommend using static configuration with the DRA driver or using the NVIDIA device plugin. Dynamic MIG and time-slicing are in alpha state in the NVIDIA DRA driver. See the [NVIDIA DRA driver releases](https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu/releases) on GitHub for the latest updates.
 
@@ -20,7 +20,7 @@ If you are using GPU sharing features such as multi-instance GPUs (MIG) or time-
 | Feature | NVIDIA DRA driver | NVIDIA device plugin | 
 | --- | --- | --- | 
 | Minimum Kubernetes version | 1.34 | All EKS-supported Kubernetes versions | 
-| EKS Compute | Karpenter (static capacity only), managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
+| EKS Compute | Karpenter, managed node groups, self-managed nodes | EKS Auto Mode, Karpenter, managed node groups, self-managed nodes | 
 | EKS-optimized AMIs | AL2023 (NVIDIA), Bottlerocket | AL2023 (NVIDIA), Bottlerocket | 
 | Device advertisement | Rich attributes via `ResourceSlice` objects including GPU model, memory, driver version, and topology | Integer count of `nvidia.com/gpu` extended resources | 
 | GPU sharing | (Alpha) Dynamic MIG, MPS, time-slicing | (GA) Static MIG, MPS, time-slicing | 
@@ -36,6 +36,8 @@ NVIDIA GPU nodes carry a set of `nvidia.com/*` Kubernetes node labels that descr
 A node that runs only the NVIDIA device plugin, without GPU Feature Discovery, has no `nvidia.com/*` labels. If you are using the EKS AL2023 or Bottlerocket NVIDIA AMIs, the `nvidia.com/gpu.present` label is automatically applied.
 
 The labels are informational and are used for node targeting. To run a workload on a GPU, request the GPU *resource* (for example, `nvidia.com/gpu` or `nvidia.com/mig-1g.10gb`) in the Pod spec. Use the labels in a `nodeSelector` or node affinity to constrain *which* GPU nodes a workload lands on.
+
+The `nvidia.com/*` labels are only one family of labels on a GPU node. Amazon EKS and the AWS cloud controller manager apply labels that describe the instance type, capacity type, provisioning path, Availability Zone, and network position, all of which are also available for targeting. For the full set, see [Target AI/ML workloads to specific nodes with labels](ml-workload-placement.md).
 
 ### GPU Feature Discovery (GFD)
 <a name="_gpu_feature_discovery_gfd"></a>

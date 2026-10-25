@@ -62,7 +62,7 @@ If role manager is enabled in your account, Amazon EKS attaches the role for you
 
 1. Enter the remaining fields on the configure cluster page:
    +  **Secrets encryption** – (Optional) Choose to enable secrets encryption of Kubernetes secrets using a KMS key. You can also enable this after you create your cluster. Before you enable this capability, make sure that you’re familiar with the information in [Encrypt Kubernetes secrets with KMS on existing clusters](enable-kms.md).
-   +  **ARC Zonal shift** — EKS Auto Mode does not support ARC zonal shift.
+   +  **ARC Zonal shift** – (Optional) You can use Amazon Application Recovery Controller (ARC) zonal shift to move traffic away from an impaired Availability Zone. For more information, see [Learn about Amazon Application Recovery Controller (ARC) zonal shift in Amazon EKS](zone-shift.md).
    +  **Tags** – (Optional) Add any tags to your cluster. For more information, see [Organize Amazon EKS resources with tags](eks-using-tags.md).
 
      When you’re done with this page, choose **Next**.

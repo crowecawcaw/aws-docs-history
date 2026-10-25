@@ -88,3 +88,8 @@ The [Load & Serve Models](ml-inference-load-serve-model.md) walkthrough guides y
 1.  **Deploy a chat frontend** — Open WebUI provides a browser-based chat interface connected to the vLLM endpoint.
 
 The walkthrough uses the cluster infrastructure from the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section and the GPU NodePool from the [Create a GPU NodePool for AI/ML inference](ml-inference-gpu-nodepool.md) section, and works with both EKS Auto Mode and self-managed Karpenter paths.
+
+This section covers the following topics:
++  [Load & Serve Models on Amazon EKS](ml-inference-load-serve-model.md) — Deploy the end-to-end inference application described above.
++  [Autoscale AI model inference on GPUs with Amazon EKS](ml-inference-autoscaling.md) — Scale the deployment with traffic, including how to find scaling thresholds and autoscale with HPA and KEDA.
++  [Accelerate model loading on Amazon EKS](ml-inference-fast-model-loading.md) — Reduce the time it takes to load model weights onto GPU nodes.

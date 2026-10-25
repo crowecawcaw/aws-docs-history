@@ -62,7 +62,10 @@ Alongside the instructions, the guide provides the necessary background and foun
 
 To begin planning for and using AI/ML platforms and workloads on Amazon EKS, follow the [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md) section to create an Amazon EKS cluster, including the required Kubernetes components, in your AWS account. Once your environment is up and running, you can continue to the next steps:
 +  [Set up Amazon EKS cluster for AI/ML workloads](ml-cluster-setup.md): Create the Amazon EKS cluster, monitoring, and Amazon S3 bucket infrastructure to use throughout this section.
++  [Create GPU nodes for AI/ML workloads on Amazon EKS](ml-gpu-nodes.md): Provision GPU-enabled compute for your AI/ML workloads with EKS Auto Mode or Karpenter NodePools.
 +  [Run AI/ML inference workloads on Amazon EKS](ml-inference.md): Use Amazon EKS to deploy, configure, and start using an inference application with a large language model (LLM).
-+  [Amazon EKS cluster configuration for AI/ML workloads](ml-cluster-configuration.md): Configure Amazon EKS clusters optimized for AI/ML workloads.
++  [EKS-optimized accelerated AMIs for AI/ML workloads](ml-eks-optimized-amis-overview.md): Use the EKS-optimized accelerated AMIs that include the GPU drivers for Linux and Windows nodes.
 +  [Manage accelerated compute for AI/ML workloads on Amazon EKS](ml-compute-management.md): Manage and optimize compute resources for machine learning workloads on Amazon EKS.
 +  [Manage hardware devices on Amazon EKS](device-management.md): Manage specialized hardware devices using Dynamic Resource Allocation (DRA) and device plugins.
++  [Recipes to optimize your Amazon EKS cluster for AI/ML workloads](ml-recipes.md): Follow bite-sized recipes for workload placement, hugepages, and AWS Inferentia.
++  [Resources to get started with AI/ML on Amazon EKS](ml-resources.md): Choose the AI/ML tools and platforms that suit your needs, then use quick start procedures to deploy them.

@@ -279,7 +279,7 @@ spec:
 +  **Consolidation can move pods out of a placement group** — If a pod has no placement-group scheduling constraints (such as a `nodeSelector` on `eks.amazonaws.com/placement-group-id`), consolidation may move it to a node outside the PG. Applications that require placement group membership should express this via pod-level constraints.
 +  **Nonexistent or deleted placement group** — If a `NodeClass` references a placement group that does not exist or has been deleted, no instances are launched. The placement group ID format is validated at admission, but existence is checked only at launch time. If a placement group is deleted while nodes are running, existing nodes are marked as drifted and remain running indefinitely because drift replacement launches are also blocked.
 +  **Hugepages** — For information about configuring hugepages on nodes, see [Configure hugepages on nodes](#hugepages).
-+  **Kubelet settings** — For information about overriding kubelet settings such as Pod density, eviction thresholds, and log rotation, see [Configure kubelet settings on nodes](#kubelet-config).
++  **Kubelet settings** — For information about overriding kubelet settings such as Pod density, eviction thresholds, log rotation, and CPU and topology manager policies, see [Configure kubelet settings on nodes](#kubelet-config).
 +  **Kernel sysctls** – For information about configuring kernel sysctls on nodes, see [Configure kernel sysctls on nodes](#sysctls).
 
 ## Separate subnets and security groups for Pods
@@ -550,7 +550,7 @@ Consider the following when configuring hugepages on a NodeClass:
 ## Configure kubelet settings on nodes
 <a name="kubelet-config"></a>
 
-Use the `advancedCompute.kubelet` field to override kubelet settings on nodes in the `NodeClass`. With these overrides, you can tune Pod density, resource-pressure eviction, container log rotation, and out-of-memory (OOM) behavior. Amazon EKS applies default kubelet settings to Auto Mode nodes, so configure this field only when your workloads require different behavior. For more information about the underlying settings, see [Kubelet Configuration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/) in the Kubernetes documentation.
+Use the `advancedCompute.kubelet` field to override kubelet settings on nodes in the `NodeClass`. With these overrides, you can tune Pod density, resource-pressure eviction, container log rotation, and out-of-memory (OOM) behavior. You can also align CPU and memory resources with the NUMA topology of the node. Amazon EKS applies default kubelet settings to Auto Mode nodes, so configure this field only when your workloads require different behavior. For more information about the underlying settings, see [Kubelet Configuration](https://kubernetes.io/docs/reference/config-api/kubelet-config.v1beta1/) in the Kubernetes documentation.
 
 The following kubelet settings are available:
 +  `maxPods`: The maximum number of Pods that can run on a node.
@@ -559,6 +559,8 @@ The following kubelet settings are available:
 +  `singleProcessOOMKill`: Whether the kubelet OOM kills processes in a container individually instead of as a group.
 +  `eviction`: Hard and soft eviction thresholds for resource-pressure signals.
 +  `logging`: Container log rotation size and file count.
++  `cpuManager`: The CPU manager policy and policy options, which control CPU pinning for Pods with guaranteed quality of service (QoS).
++  `topologyManager`: The topology manager policy and scope, which control NUMA-aware resource alignment.
 +  `allowedUnsafeSysctls`: A list of unsafe sysctls, or namespaced patterns ending in `*`, that Pods scheduled on the node are permitted to set.
 
 ### Example configuration
@@ -609,12 +611,46 @@ spec:
         containerLogMaxSize: "10Mi"
         # Minimum: 2
         containerLogMaxFiles: 5
+      cpuManager:
+        # none or static
+        policy: static
+        # Only valid when policy is static
+        policyOptions:
+          - full-pcpus-only
+      topologyManager:
+        # none, best-effort, restricted, or single-numa-node
+        policy: single-numa-node
+        # container (default) or pod
+        scope: pod
       # Up to 64 entries. Allowed patterns: kernel.shm*, kernel.msg*,
       # kernel.sem, fs.mqueue.*, net.*
       allowedUnsafeSysctls:
         - "net.core.somaxconn"
         - "kernel.shm*"
 ```
+
+### CPU and topology manager policies
+<a name="kubelet-config-cpu-topology"></a>
+
+Use `cpuManager` and `topologyManager` for latency-sensitive workloads that benefit from dedicated CPUs and NUMA-local memory, such as real-time processing, telecommunications network functions, and high-performance databases.
+
+Set `cpuManager.policy` to `static` to give containers exclusive access to whole CPU cores. This applies to containers in Pods with guaranteed QoS, which have equal CPU requests and limits expressed as whole integers. The default policy, `none`, gives all containers the default CFS quota-based CPU sharing. You can refine the `static` policy with `policyOptions`:
++  `full-pcpus-only`: Allocates only whole physical cores, so that a container never shares a physical core with another workload through simultaneous multithreading (SMT).
++  `distribute-cpus-across-numa`: Spreads CPUs evenly across NUMA nodes instead of packing them into as few NUMA nodes as possible.
++  `prefer-align-cpus-by-uncorecache`: Prefers CPUs that share the same last-level (uncore) cache.
++  `strict-cpu-reservation`: Reserves the CPUs set aside for system daemons exclusively, so workloads can’t use them.
+
+ `topologyManager.policy` controls how strictly the kubelet aligns CPUs, memory, and devices to the same NUMA node:
++  `none`: No topology alignment. This is the default.
++  `best-effort`: Prefers aligned resources but admits the Pod when alignment isn’t possible.
++  `restricted`: Rejects the Pod when the requested resources can’t be aligned.
++  `single-numa-node`: Rejects the Pod unless all of its resources come from a single NUMA node.
+
+ `topologyManager.scope` sets the granularity of the alignment. The default value, `container`, aligns each container individually. The `pod` value aligns all containers in a Pod together. The `policy` field is required for both `cpuManager` and `topologyManager`.
+
+To size Pods that request NUMA-aligned resources, use the per-NUMA node labels that Amazon EKS sets on Auto Mode nodes. Each label reports the capacity of the smallest NUMA node on the instance. A Pod that fits the label value fits on any NUMA node. The values are plain integers, with memory in mebibytes, so you can compare them with the `Gt` and `Lt` node affinity operators. These labels report physical capacity, not allocatable capacity. Amazon EKS reserves part of the node for system components. Keep Pods with guaranteed QoS below these values to fit on a single NUMA node. For more information, see [EKS Auto Mode Supported Labels](create-node-pool.md#auto-supported-labels).
+
+For more information, see [Control CPU Management Policies on the Node](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/) and [Control Topology Management Policies on a Node](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/) in the Kubernetes documentation.
 
 ### Kubelet settings considerations
 <a name="kubelet-config-considerations"></a>
@@ -626,6 +662,9 @@ Consider the following when configuring kubelet settings on a NodeClass:
 +  ** `idsPerPod` requirements**: The value must be a multiple of `65536` between `65536` and `4294967295`. Setting `idsPerPod` requires `advancedCompute.kernel.sysctl.user.max_user_namespaces` to be set to a positive value on the same `NodeClass`; `NodeClass` admission rejects configurations that set `idsPerPod` without also setting `user.max_user_namespaces` to a value greater than `0`. For more information about `user.max_user_namespaces`, see [Supported sysctls](#sysctls-supported).
 +  **Soft eviction thresholds**: A soft threshold must be less aggressive than the hard threshold for the same signal, meaning it triggers earlier. If you set soft thresholds, you must also set `softGracePeriod` for each signal. A soft threshold and hard threshold can use different units, such as a percentage and an absolute quantity. In that case, Amazon EKS resolves both values for each instance type. Amazon EKS then marks instance types that violate the comparison as incompatible with the `NodeClass`.
 +  ** `singleProcessOOMKill` version requirement**: This setting requires Kubernetes version 1.32 or later. On earlier versions, Amazon EKS emits a warning event on the `NodeClass` and the setting has no effect.
++  ** `cpuManager.policyOptions` requirements**: You can set `policyOptions` only when `cpuManager.policy` is `static`. Two options also have minimum Kubernetes version requirements. `strict-cpu-reservation` requires version 1.33 or later, and `prefer-align-cpus-by-uncorecache` requires version 1.34 or later. On earlier versions, Amazon EKS omits the unsupported option from the nodes that it launches and emits a warning event on the `NodeClass`. The rest of the `NodeClass` configuration still applies.
++  **CPU and topology manager conflicts**: You can’t use the `distribute-cpus-across-numa` CPU manager policy option with the `single-numa-node` topology manager policy. These settings have opposing goals, so `NodeClass` validation fails.
++  **Reduced schedulable capacity**: With the `static` CPU manager policy, CPUs allocated exclusively to Pods with guaranteed QoS are unavailable to other Pods on the node. The `restricted` and `single-numa-node` topology manager policies can also fail Pod admission with a `TopologyAffinityError` when Amazon EKS can’t align the requested resources. Validate your Pod resource requests against your chosen instance types before you apply these policies broadly.
 +  ** `allowedUnsafeSysctls` restrictions**: You can specify up to 64 entries, and each entry must match one of the allowed patterns: `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue. `, or `net.`. Allowing an unsafe sysctl on the node only permits Pods to request it. Each Pod must still list the sysctl in its `securityContext.sysctls`. For more information, see [Using sysctls in a Kubernetes Cluster](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/) in the Kubernetes documentation.
 
 ## Configure kernel sysctls on nodes

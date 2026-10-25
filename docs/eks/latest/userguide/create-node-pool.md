@@ -95,7 +95,8 @@ EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 manage
 
 | Label | Example | Description | 
 | --- | --- | --- | 
-| topology.kubernetes.io/zone | us-east-2a |  AWS region | 
+| topology.kubernetes.io/zone | us-east-2a |  AWS Availability Zone name | 
+| topology.k8s.aws/zone-id | use2-az1 |  AWS Availability Zone ID. Unlike the zone name, the ID identifies the same physical zone in every AWS account. | 
 | node.kubernetes.io/instance-type | g4dn.8xlarge |  AWS instance type | 
 | kubernetes.io/arch | amd64 | Architectures are defined by [GOARCH values](https://github.com/golang/go/blob/master/src/internal/syslist/syslist.go#L58) on the instance | 
 | karpenter.sh/capacity-type | spot | Capacity types include `spot`, `on-demand`, and `reserved`. If you do not specify a capacity type, Karpenter prioritizes `reserved`, then `spot`, then `on-demand`. | 
@@ -108,18 +109,29 @@ EKS Auto Mode uses different labels than Karpenter. Labels related to EC2 manage
 | eks.amazonaws.com/instance-size | 8xlarge | Instance types of similar resource quantities but different properties | 
 | eks.amazonaws.com/instance-cpu | 32 | Number of CPUs on the instance | 
 | eks.amazonaws.com/instance-cpu-manufacturer |  `aws`  | Name of the CPU manufacturer | 
+| eks.amazonaws.com/instance-cpu-sustained-clock-speed-mhz | 3500 | Sustained CPU clock speed in MHz | 
+| eks.amazonaws.com/instance-capability-flex | false | Whether the instance type is a flexible (`flex`) variant | 
 | eks.amazonaws.com/instance-memory | 131072 | Number of mebibytes of memory on the instance | 
+| eks.amazonaws.com/instance-numa-nodes | 2 | Number of NUMA nodes on the instance. Present only on supported instance types. | 
+| eks.amazonaws.com/instance-min-cpus-per-numa | 16 | Number of CPUs on the smallest NUMA node of the instance. Present only on supported instance types. | 
+| eks.amazonaws.com/instance-min-memory-per-numa | 65536 | Number of mebibytes of memory on the smallest NUMA node of the instance. Present only on supported instance types. | 
 | eks.amazonaws.com/instance-ebs-bandwidth | 9500 | Number of [maximum megabits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html#ebs-optimization-performance) of EBS available on the instance | 
 | eks.amazonaws.com/instance-network-bandwidth | 131072 | Number of [baseline megabits](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) available on the instance | 
 | eks.amazonaws.com/instance-gpu-name | t4 | Name of the GPU on the instance, if available | 
 | eks.amazonaws.com/instance-gpu-manufacturer | nvidia | Name of the GPU manufacturer | 
 | eks.amazonaws.com/instance-gpu-count | 1 | Number of GPUs on the instance | 
 | eks.amazonaws.com/instance-gpu-memory | 16384 | Number of mebibytes of memory on the GPU | 
+| eks.amazonaws.com/instance-accelerator-name | trainium | Name of the AWS accelerator on the instance, if available | 
+| eks.amazonaws.com/instance-accelerator-manufacturer | aws | Name of the accelerator manufacturer | 
+| eks.amazonaws.com/instance-accelerator-count | 1 | Number of accelerators on the instance | 
 | eks.amazonaws.com/instance-local-nvme | 900 | Number of gibibytes of local nvme storage on the instance | 
+| karpenter.k8s.aws/instance-tenancy | default | EC2 tenancy of the instance, either `default` or `dedicated`. This label keeps the `karpenter.k8s.aws` prefix on EKS Auto Mode nodes. | 
 | eks.amazonaws.com/capacity-reservation-interruptible | true | Whether the capacity reservation is interruptible. Only present on nodes with `karpenter.sh/capacity-type: reserved`. | 
 
 **Note**  
 EKS Auto Mode only supports certain instances, and has minimum size requirements. For more information, see [EKS Auto Mode supported instance reference](automode-learn-instances.md#auto-supported-instances).
+
+EKS Auto Mode nodes also carry the `eks.amazonaws.com/nodeclass` label, set to the name of the NodeClass that configured the node, and the `topology.k8s.aws/network-node-layer-*` labels on supported instance types. For how to use the network topology labels to place distributed workloads, see [Place distributed AI/ML workloads with network topology labels](ml-workload-topology.md). For the complete set of node labels available for scheduling across all Amazon EKS compute types, see [Target AI/ML workloads to specific nodes with labels](ml-workload-placement.md).
 
 ## EKS Auto Mode Not Supported Labels
 <a name="_eks_auto_mode_not_supported_labels"></a>
