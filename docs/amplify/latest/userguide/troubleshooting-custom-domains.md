@@ -18,7 +18,7 @@ If you don't see a solution to your issue here, contact Support. For more inform
 + [I get a 404 error on the CloudFront URL](#i-get-a-404-cloudfront-url)
 + [I get SSL certificate or HTTPS errors when visiting my domain](#ssl-HTTPS-errors-on-domain)
 + [Path components not supported in domain redirects](#domain-redirects-path-components)
-+ [I get a 400 error for cross account domain association](#cross-account-domain-association-400-error)
++ [I get a 400 error for cross-account domain association](#cross-account-domain-association-400-error)
 
 ## I need to verify that my CNAME resolves
 <a name="how-do-i-verify-that-my-cname-resolves"></a>
@@ -166,7 +166,53 @@ This method will cause down time for your custom domain.
 
 Domain redirects only match the hostname portion. Path components in domain-based source rules (e.g., `"https://domain.com/path"`) are not supported and will cause the rule to be ignored without error. For more information, see [Redirects and rewrites example reference](redirect-rewrite-examples.md).
 
-## I get a 400 error for cross account domain association
+## I get a 400 error for cross-account domain association
 <a name="cross-account-domain-association-400-error"></a>
 
-When initiating a DomainAssociation request for an Amplify app with a domain that is already or was previously associated with different Amplify App(s) in other AWS account(s) in the same region, this is considered a cross account domain association. If you get this error this means that you are attempting cross account domain association which requires manual verification. If you would like to proceed with a cross account domain association, please contact AWS support for assistance.
+When you add a custom domain, you might get the following error.
+
+```
+The requested domain cannot be used by this AWS account. Please contact AWS support for assistance.
+```
+
+This error occurs when the domain that you're adding is already or was previously associated with an Amplify app in a different AWS account in the same AWS Region.
+
+This type of request is a cross-account domain association, and it requires domain ownership verification. To resolve the error, use one of the following options:
++ Option 1 – Add a subdomain so that Amplify verifies ownership automatically.
++ Option 2 – Add a TXT record and contact Support to verify ownership manually.
+
+**To verify domain ownership automatically by adding a subdomain (Option 1)**
+
+If your domain association request includes at least one subdomain, Amplify can verify domain ownership automatically. This option doesn't require a TXT record or a support case.
+
+1. When you add the domain association, specify at least one subdomain. For example, when you add `example.com`, also add `www` as a subdomain (`www.example.com`).
+
+1. After the domain association succeeds, you can remove the subdomain if you don't need it.
+
+If you can't include a subdomain in your request, or you still get the 400 error after you add one, use Option 2.
+
+**To verify domain ownership manually with a TXT record (Option 2)**
+
+You can prove that you control the domain by adding a DNS TXT record before you contact Support.
+
+1. In your DNS provider, create a TXT record with the following values, replacing {{111122223333}} with the ID of the AWS account that is requesting the domain association, and {{example.com}} with the domain that you are associating:  
+Record name  
+`_amplify-cross-account-ownership-proof-{{111122223333}}.{{example.com}}`  
+Record type  
+`TXT`  
+Record value  
+`This domain is owned by {{111122223333}}`
+
+   If your DNS provider appends your domain name to the record name automatically, enter only `_amplify-cross-account-ownership-proof-{{111122223333}}`.
+
+1. After the record propagates, verify that it resolves. For example, run the following command.
+
+   ```
+   nslookup -type=TXT _amplify-cross-account-ownership-proof-{{111122223333}}.{{example.com}}
+   ```
+
+   A successful response includes `"This domain is owned by {{111122223333}}"`. If the record doesn't resolve, confirm that your DNS provider saved the leading underscore in the record name, that the record name doesn't repeat your domain name, and that the account ID in the record name matches the account ID in the record value.
+
+1. Contact Support with your domain association request. Include the domain name, your AWS account ID, the AWS Region of your Amplify app, and the TXT record that you created. Support completes the cross-account domain verification.
+
+1. After Support confirms the verification, retry the domain association. You can delete the TXT record after the domain association succeeds.
