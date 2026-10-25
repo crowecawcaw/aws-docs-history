@@ -9,11 +9,11 @@ You can specify default IAM roles for authenticated and unauthenticated users. I
 
 By default, the Amazon Cognito console creates IAM roles that provide access to Amazon Mobile Analytics and to Amazon Cognito Sync. Alternatively, you can choose to use existing IAM roles.
 
-Modify IAM roles to allow or restrict access to other services. To do so, [log in to the IAM Console](https://console.aws.amazon.com/iam/home). Then select **Roles**, and select a role. The policies attached to the selected role are listed in the **Permissions** tab. You can customize an access policy by selecting the corresponding **Manage Policy** link. To learn more about using and defining policies, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html).
+Modify IAM roles to allow or restrict access to other services. To do so, [sign in to the IAM Console](https://console.aws.amazon.com/iam/home). Then select **Roles**, and select a role. The policies attached to the selected role are listed in the **Permissions** tab. You can customize an access policy by selecting the corresponding **Manage Policy** link. To learn more about using and defining policies, see [Overview of IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html).
 
 **Note**  
 As a best practice, define policies that follow the principle of granting *least privilege*. In other words, the policies include only the permissions that users require to perform their tasks. For more information, see [Grant Least Privilege](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege) in the *IAM User Guide*.  
-Remember that unauthenticated identities are assumed by users who do not log in to your app. Typically, the permissions that you assign for unauthenticated identities should be more restrictive than those for authenticated identities.
+Remember that unauthenticated identities are assumed by users who do not sign in to your app. Typically, the permissions that you assign for unauthenticated identities should be more restrictive than those for authenticated identities.
 
 **Topics**
 + [Set up a trust policy](#trust-policies)
@@ -157,7 +157,7 @@ To create a policy limited to a specific set of app users, check the value of `c
 ```
 
 **Limit access to specific providers**  
-To create a policy limited to users who have logged in with a specific provider (perhaps your own login provider), check the value of `cognito-identity.amazonaws.com:amr`:
+To create a policy limited to users who have signed in with a specific provider (perhaps your own login provider), check the value of `cognito-identity.amazonaws.com:amr`:
 
 ```
 "ForAnyValue:StringLike": {
@@ -576,7 +576,7 @@ The way these roles differ is in their trust relationships. The following is an 
 
 This policy grants federated users from `cognito-identity.amazonaws.com` (the issuer of the OpenID Connect token) permission to assume this role. Additionally, the policy restricts the `aud` of the token, in this case the identity pool ID, to match the identity pool. Finally, the policy specifies that one of the array members of the multi-value `amr` claim of the token issued by the Amazon Cognito `GetOpenIdToken` API operation has the value `unauthenticated`.
 
-When Amazon Cognito creates a token, it sets the `amr` of the token as either `unauthenticated` or `authenticated`. If `amr` is `authenticated`, the token includes any providers used during authentication. This means that you can create a role that trusts only users that logged in via Facebook by changing the `amr` condition as shown:
+When Amazon Cognito creates a token, it sets the `amr` of the token as either `unauthenticated` or `authenticated`. If `amr` is `authenticated`, the token includes any providers used during authentication. This means that you can create a role that trusts only users that signed in via Facebook by changing the `amr` condition as shown:
 
 ```
 "ForAnyValue:StringLike": {

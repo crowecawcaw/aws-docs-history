@@ -17,7 +17,7 @@ For example, let's say that you own a media streaming service with a free and a 
 
 Using attributes to control access has several benefits:
 + Permissions management is more efficient when you use attributes for access control. You can create a basic permissions policy that uses user attributes instead of creating multiple policies for different job functions. 
-+ You don't need to update your policies whenever you add or remove resources or users for your application. The permissions policy will only grant the access to users with the matching user attributes. For example, you might need to control the access to certain S3 buckets based on the job title of users. In that case, you can create a permissions policy to allow access to these files only for users within the defined job title. For more information, see [IAM Tutorial: Use SAML session tags for ABAC](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_abac-saml.html).
++ You don't need to update your policies whenever you add or remove resources or users for your application. The permissions policy only grants the access to users with the matching user attributes. For example, you might need to control the access to certain S3 buckets based on the job title of users. In that case, you can create a permissions policy to allow access to these files only for users within the defined job title. For more information, see [IAM Tutorial: Use SAML session tags for ABAC](https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_abac-saml.html).
 + Attributes can be passed as principal tags to a policy that allows or denies permissions based on the values of those attributes.
 
 ## Using attributes for access control with Amazon Cognito identity pools

@@ -5,7 +5,7 @@
 
 User pools add authentication options to software applications. For the easiest getting-started experience, step into the Amazon Cognito console and follow the instructions there. The creation process there guides you not only through setup of user pool resources, but through setting up the initial pieces of your application.
 
-When you're ready to begin, navigate to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/v2/idp/user-pools) and select the button to create a new user pool. The setup process will guide you through your configuration and programming-language options.
+When you're ready to begin, navigate to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/v2/idp/user-pools) and select the button to create a new user pool. The setup process guides you through your configuration and programming-language options.
 
 **Additional resources for authentication concepts**
 + [Authentication with Amazon Cognito user pools](authentication.md)
@@ -37,7 +37,7 @@ When you're ready to begin, navigate to the [Amazon Cognito console](https://con
 
 1. On the **Set up your application** page, you can immediately get code examples for your application. To explore your new user pool, scroll down and select **Go to overview**.
 
-1. To add more applications in the same user pool, navigate to the **App clients** menu and add a new app client. This will repeat the process of application-focused creation, but only add a new app client to the existing user pool.
+1. To add more applications in the same user pool, navigate to the **App clients** menu and add a new app client. This repeats the process of application-focused creation, but only add a new app client to the existing user pool.
 
 After you create a user pool and one or more app clients with this process, you can start testing authentication operations with managed login. These quick-start options are open to public self sign-up. We recommend that you create a testing environment with the console process, then move your finalized design to production. Spend time familiarizing yourself with the capabilities of Amazon Cognito. Then, to move to production workloads, craft custom configurations and deploy them with automation tools like AWS CloudFormation and the AWS Cloud Development Kit (AWS CDK).
 

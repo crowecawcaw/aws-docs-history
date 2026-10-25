@@ -25,7 +25,7 @@ The following are some of the ways that you can authorize requests to APIs with 
 When add an Amazon Cognito authorizer to a REST API method request configuration, add **Authorization scopes** to the authorizer configuration. With this configuration, your API accepts access tokens in the `Authorization` header and reviews them for accepted scopes.
 
 **ID token**  
-When you pass a valid ID token to an Amazon Cognito authorizer in your REST API, API Gateway accepts the request and passes the ID token contents to the API backend.
+When you pass a valid ID token to an Amazon Cognito authorizer in your REST API, API Gateway accepts the request and passes the ID token contents to the API back end.
 
 **Amazon Verified Permissions**  
 In Verified Permissions, you have the option to create an [API-linked policy store](https://docs.aws.amazon.com/verifiedpermissions/latest/userguide/policy-stores_api-userpool.html). Verified Permissions creates and assigns a Lambda authorizer that processes ID or access tokens from your request `Authorization` header. This Lambda authorizer passes your token to your policy store, where Verified Permissions compares it to policies and returns an allow or deny decision to the authorizer.
@@ -163,7 +163,7 @@ Amazon Cognito can include custom scopes in access tokens for any users, whether
 {{resourceServerIdentifier}}/{{scopeName}}
 ```
 
-For example, you've discovered a new asteroid in the Kuiper belt and you want to register it through your `solar-system-data` API. The scope that authorizes write operations to the database of asteroids is `asteroids.add`. When you request the access token that will authorize you to register your discovery, format your `scope` HTTPS request parameter as `scope=solar-system-data/asteroids.add`.
+For example, you've discovered a new asteroid in the Kuiper belt and you want to register it through your `solar-system-data` API. The scope that authorizes write operations to the database of asteroids is `asteroids.add`. When you request the access token that authorizes you to register your discovery, format your `scope` HTTPS request parameter as `scope=solar-system-data/asteroids.add`.
 
 Deleting a scope from a resource server does not delete its association with all clients. Instead, the scope is marked *inactive*. Amazon Cognito doesn't add inactive scopes to access tokens, but otherwise proceeds as normal if your app requests one. If you add the scope to your resource server again later, then Amazon Cognito again writes it to the access token. If you request a scope that you haven't associated with your app client, regardless of whether you deleted it from your user pool resource server, authentication fails.
 

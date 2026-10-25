@@ -12,7 +12,7 @@ Threat protection is available in the Plus feature plan. For more information, s
 The following user pool options are the components of threat protection.
 
 **Compromised credentials**  
-Users reuse passwords for multiple user accounts. The compromised credentials feature of Amazon Cognito compiles data from public leaks of user names and passwords, and compares your users' credentials to lists of leaked credentials. Compromised credentials detection also checks for commonly-guessed passwords. You can check for compromised credentials in username-and-password standard authentication flows in user pools. Amazon Cognito doesn't detect compromised credentials in secure remote password (SRP) or custom authentication.  
+Users reuse passwords for multiple user accounts. The compromised credentials feature of Amazon Cognito compiles data from public leaks of usernames and passwords, and compares your users' credentials to lists of leaked credentials. Compromised credentials detection also checks for commonly guessed passwords. You can check for compromised credentials in username-and-password standard authentication flows in user pools. Amazon Cognito doesn't detect compromised credentials in secure remote password (SRP) or custom authentication.  
 You can choose the user actions that prompt a check for compromised credentials, and the action that you want Amazon Cognito to take in response. For sign-in, sign-up, and password-change events, Amazon Cognito can **Block sign-in**, or **Allow sign-in**. In both cases, Amazon Cognito generates a user activity log where you can find more information about the event.  
 **Learn more**  
 [Working with compromised-credentials detection](cognito-user-pool-settings-compromised-credentials.md)
@@ -159,29 +159,29 @@ To set up a different threat protection configuration for an app client in the A
 
 1. Select **Edit**.
 
-1. Choose an **Enforcement mode**. To start responding to detected risks immediately, select **Full function** and configure the automated responses for compromised credentials and adaptive authentication. To gather information in user-level logs and in CloudWatch, select **Audit only** .
+1. Choose an **Enforcement mode**. To start responding to detected risks immediately, select **Full function** and configure the automated responses for compromised credentials and adaptive authentication. To gather information in user-level logs and in CloudWatch, select **Audit only**.
 
    We recommend that you keep threat protection in audit mode for two weeks before enabling actions. During this time, Amazon Cognito can learn the usage patterns of your app users and you can provide event feedback to adjust responses.
 
 1. If you selected **Audit only**, choose **Save changes**. If you selected **Full function**:
 
-   1. Select whether you will take **Custom** action or use or **Cognito defaults** to respond to suspected **Compromised credentials**. **Cognito defaults** are:
+   1. Select whether you will take **Custom** action or use **Cognito defaults** to respond to suspected **Compromised credentials**. **Cognito defaults** are:
 
       1. Detect compromised credentials on **Sign-in**, **Sign-up**, and **Password change**.
 
       1. Respond to compromised credentials with the action **Block sign-in**.
 
-   1. If you selected **Custom** actions for **Compromised credentials**, choose the user pool actions that Amazon Cognito will use for **Event detection** and the **Compromised credentials responses** that you would like Amazon Cognito to take. You can **Block sign-in** or **Allow sign-in** with suspected compromised credentials.
+   1. If you selected **Custom** actions for **Compromised credentials**, choose the user pool actions that Amazon Cognito uses for **Event detection** and the **Compromised credentials responses** that you would like Amazon Cognito to take. You can **Block sign-in** or **Allow sign-in** with suspected compromised credentials.
 
-   1. Choose how to respond to malicious sign-in attempts under **Adaptive authentication**. Select whether you will take **Custom** action or use or **Cognito defaults** to respond to suspected malicious activity. When you select** Cognito defaults**, Amazon Cognito blocks sign-in at all risk levels and does not notify the user.
+   1. Choose how to respond to malicious sign-in attempts under **Adaptive authentication**. Select whether you will take **Custom** action or use **Cognito defaults** to respond to suspected malicious activity. When you select** Cognito defaults**, Amazon Cognito blocks sign-in at all risk levels and does not notify the user.
 
-   1. If you selected **Custom** actions for **Adaptive authentication**, choose the **Automatic risk response** actions that Amazon Cognito will take in response to detected risks based on severity level. When you assign a response to a level of risk, you can't assign a less-restrictive response to a higher level of risk. You can assign the following responses to risk levels:
+   1. If you selected **Custom** actions for **Adaptive authentication**, choose the **Automatic risk response** actions that Amazon Cognito takes in response to detected risks based on severity level. When you assign a response to a level of risk, you can't assign a less restrictive response to a higher level of risk. You can assign the following responses to risk levels:
 
       1. **Allow sign-in** - Take no preventative action.
 
-      1. **Optional MFA** - If the user has MFA configured, Amazon Cognito will always require the user to provide an additional SMS or time-based one-time password (TOTP) factor when they sign in. If the user does not have MFA configured, they can continue signing in normally.
+      1. **Optional MFA** - If the user has MFA configured, Amazon Cognito always requires the user to provide an additional SMS or time-based one-time password (TOTP) factor when they sign in. If the user does not have MFA configured, they can continue signing in normally.
 
-      1. **Require MFA** - If the user has MFA configured, Amazon Cognito will always require the user to provide an additional SMS or TOTP factor when they sign in. If the user does not have MFA configured, Amazon Cognito will prompt them to set up MFA. Before you automatically require MFA for your users, configure a mechanism in your app to capture phone numbers for SMS MFA, or to register authenticator apps for TOTP MFA.
+      1. **Require MFA** - If the user has MFA configured, Amazon Cognito always requires the user to provide an additional SMS or TOTP factor when they sign in. If the user does not have MFA configured, Amazon Cognito prompts them to set up MFA. Before you automatically require MFA for your users, configure a mechanism in your app to capture phone numbers for SMS MFA, or to register authenticator apps for TOTP MFA.
 
       1. **Block sign-in** - Prevent the user from signing in.
 
@@ -194,7 +194,7 @@ To set up a different threat protection configuration for an app client in the A
 
    1. Expand **Email templates** to customize adaptive authentication notifications with both HTML and plaintext versions of email messages. To learn more about email message templates, see [Message templates](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-message-templates).
 
-1. Expand **IP address exceptions** to create an **Always-allow** or an **Always-block** list of IPv4 or IPv6 address ranges that will always be allowed or blocked, regardless of the threat protection risk assessment. Specify the IP address ranges in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation) (such as 192.168.100.0/24).
+1. Expand **IP address exceptions** to create an **Always-allow** or an **Always-block** list of IPv4 or IPv6 address ranges that are always allowed or blocked, regardless of the threat protection risk assessment. Specify the IP address ranges in [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation) (such as 192.168.100.0/24).
 
 1. Choose **Save changes**.
 

@@ -3,6 +3,9 @@
 # Authentication levels with ACR and AMR claims
 <a name="cognito-user-pools-step-up-authentication"></a>
 
+**Note**  
+Authentication levels with ACR and AMR claims is rolling out gradually. This feature might not yet be available to your user pool. If the behavior described here isn't available, check back later as the rollout continues.
+
 Amazon Cognito can record how strongly a user authenticated and which methods they used. You provide a target authentication level as an input when a user signs in, and Amazon Cognito reports the level that the user reached and the methods that they completed as claims in the tokens that it issues. These claims apply to any sign-in, including a user's initial sign-in.
 
 You request an authentication level with the `acr_values` parameter on the managed login authorize and login endpoints, or with the equivalent `TARGET_ACR_VALUES` parameter in the `USER_AUTH` API flow. Both accept an ordered list of target authentication levels. You can add the optional `max_age` parameter (`MAX_AGE` in the API) to require that the user authenticated within a recent time window. In response to these inputs, Amazon Cognito adds two claims to the tokens that it issues:

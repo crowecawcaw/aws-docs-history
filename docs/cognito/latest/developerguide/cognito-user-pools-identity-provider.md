@@ -9,7 +9,7 @@ The supported identity provider options include social providers like Facebook, 
 
 The **Social and external providers** menu under **Authentication** adds and updates user pool IdPs. For more information, see [User pool sign-in with third party identity providers](cognito-user-pools-identity-federation.md).
 
-For an OIDC or OAuth IdP, you can map the ACR values of the IdP to Amazon Cognito authentication levels with the `AcrMapping` field to support step-up authentication for federated users. For more information, see [Step-up authentication for federated users](cognito-user-pools-oidc-idp.md#cognito-user-pools-step-up-federation).
+For an OIDC or OAuth IdP, you can map the ACR values of the IdP to Amazon Cognito authentication levels with the `AcrMapping` field to support step-up authentication for federated users. This capability is rolling out gradually and might not yet be available to your user pool. For more information, see [Step-up authentication for federated users](cognito-user-pools-oidc-idp.md#cognito-user-pools-step-up-federation).
 
 **Topics**
 + [Set up user sign-in with a social IdP](#cognito-user-pools-facebook-provider)
@@ -40,7 +40,7 @@ To add a social identity provider, you first create a developer account with the
 1. Enter your social identity provider's information by completing one of the following steps, based on your choice of IdP:  
 **Facebook, Google, and Login with Amazon**  
 Enter the app ID and app secret that you received when you created your client app.  
-**Sign In with Apple**  
+**Sign in with Apple**  
 Enter the service ID that you provided to Apple, and the team ID, key ID, and private key you received when you created your app client.
 
 1. For **Authorized scopes**, enter the names of the social identity provider scopes that you want to map to user pool attributes. Scopes define which user attributes, such as name and email, that you want to access with your app. When entering scopes, use the following guidelines based on your choice of IdP:
@@ -50,9 +50,9 @@ Enter the service ID that you provided to Apple, and the team ID, key ID, and pr
    + **Google, Login with Amazon, and Sign In with Apple** — Separate scopes with spaces. For example:
      + **Google:** `profile email openid`
      + **Login with Amazon:** `profile postal_code`
-     + **Sign In with Apple:** `name email`
+     + **Sign in with Apple:** `name email`
 **Note**  
-For Sign In with Apple (console), use the check boxes to choose scopes.
+For Sign in with Apple (console), use the checkboxes to choose scopes.
 
 1. Choose **Save changes**.
 
@@ -85,7 +85,7 @@ You can integrate user sign-in with an OpenID Connect (OIDC) identity provider (
 
 1. Enter the client secret that you received from your provider into **Client secret**.
 
-1. Enter **Authorized scopes** for this provider. Scopes define which groups of user attributes (such as `name` and `email`) that your application will request from your provider. Scopes must be separated by spaces, following the [OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-3.3) specification.
+1. Enter **Authorized scopes** for this provider. Scopes define which groups of user attributes (such as `name` and `email`) that your application requests from your provider. Scopes must be separated by spaces, following the [OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-3.3) specification.
 
    Your user must consent to provide these attributes to your application.
 
@@ -100,7 +100,7 @@ The issuer URL must start with `https://`, and must not end with a `/` character
 `https://login.salesforce.com`   
 The `openid-configuration` document associated with your issuer URL must provide HTTPS URLs for the following values: `authorization_endpoint`, `token_endpoint`, `userinfo_endpoint`, and `jwks_uri`. Similarly, when you choose **Manual input**, you can only enter HTTPS URLs.
 
-1. The OIDC claim **sub** is mapped to the user pool attribute **Username** by default. You can map other OIDC [claims](https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims) to user pool attributes. Enter the OIDC claim, and select the corresponding user pool attribute from the drop-down list. For example, the claim **email** is often mapped to the user pool attribute **Email**.
+1. The OIDC claim **sub** is mapped to the user pool attribute **Username** by default. You can map other OIDC [claims](https://openid.net/specs/openid-connect-basic-1_0.html#StandardClaims) to user pool attributes. Enter the OIDC claim, and select the corresponding user pool attribute from the dropdown list. For example, the claim **email** is often mapped to the user pool attribute **Email**.
 
 1. Map additional attributes from your identity provider to your user pool. For more information, see [Specifying Identity Provider attribute mappings for your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html).
 
@@ -134,7 +134,7 @@ You can use federation for Amazon Cognito user pools to integrate with a SAML id
 1. Choose **Add sign-out flow** if you want Amazon Cognito to send signed sign-out requests to your provider when a user logs out. Configure your SAML 2.0 identity provider to send sign-out responses to the `https://{{mydomain.auth.us-east-1.amazoncognito.com}}/saml2/logout` endpoint that Amazon Cognito creates when you configure managed login. The `saml2/logout` endpoint uses POST binding.
 **Note**  
 If you select this option and your SAML identity provider expects a signed logout request, you also must configure the signing certificate provided by Amazon Cognito with your SAML IdP.   
-The SAML IdP will process the signed logout request and logout your user from the Amazon Cognito session.
+The SAML IdP processes the signed logout request and logout your user from the Amazon Cognito session.
 
 1. Choose a **Metadata document source**. If your identity provider offers SAML metadata at a public URL, you can choose **Metadata document URL** and enter that public URL. Otherwise, choose **Upload metadata document** and select a metadata file you downloaded from your provider earlier.
 **Note**  

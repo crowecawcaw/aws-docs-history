@@ -33,7 +33,7 @@ The following process shows how users complete SP-initiated sign in to your user
 
 1. The IdP authenticates the user interactively, or with a remembered session in a browser cookie.
 
-1. The IdP redirects your user to your user pool SAML response endpoint with the [optionally-encrypted](cognito-user-pools-SAML-signing-encryption.md#cognito-user-pools-SAML-signing-encryption.title) SAML assertion in their POST payload.
+1. The IdP redirects your user to your user pool SAML response endpoint with the [optionally encrypted](cognito-user-pools-SAML-signing-encryption.md#cognito-user-pools-SAML-signing-encryption.title) SAML assertion in their POST payload.
 **Note**  
 Amazon Cognito cancels sessions that don't receive a response within 5 minutes, and redirects the user to managed login. When your user experiences this outcome, they receive a `Something went wrong` error message.
 

@@ -32,7 +32,7 @@ Requests from your app to the Amazon Cognito API that don't use AWS credentials 
 You can configure the rules in your web ACL with rule actions that **Count**, **Allow**, **Block**, or present a **CAPTCHA** in response to a request that matches a rule. For more information, see [AWS WAF rules](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rules.html) in the *AWS WAF Developer Guide*. Depending on the rule action, you can customize the response that Amazon Cognito returns to your users.
 
 **Important**  
-Your options to customize the error response depends on the way you make an API request.  
+Your options to customize the error response depend on the way you make an API request.  
 You can customize the error code and response body of managed login requests. Amazon Cognito returns custom error codes of 500 and higher as `403`. For more information, see [Status codes in custom block responses](#user-pool-waf-custom-response-status). You can only present a CAPTCHA for your user to solve in managed login.
 For requests that you make with the Amazon Cognito[ user pools API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/Welcome.html), you can customize the response body of a request that receives a **Block** response. You can also specify a custom error code in the range 400–499.
 The AWS Command Line Interface (AWS CLI) and the AWS SDKs return a `ForbiddenException` error to requests that produce a **Block** or **CAPTCHA** response.

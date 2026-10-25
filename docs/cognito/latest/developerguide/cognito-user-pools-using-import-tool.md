@@ -278,9 +278,9 @@ For users to reset their passwords, they must have a verified email or phone num
 + The maximum CSV file size is 100 MB.
 + The maximum number of rows (users) in the file is 500,000. This maximum doesn't include the header row.
 + The **updated\_at** field value is expected to be epoch time in seconds, for example: **1471453471**.
-+ Any leading or trailing white space in an attribute value will be trimmed.
++ Any leading or trailing white space in an attribute value is trimmed.
 
-The following list is a example CSV import file for a user pool with no custom attributes. Your user pool schema might differ from this example. In that case, you must provide test values in the CSV template that you download from your user pool.
+The following list is an example CSV import file for a user pool with no custom attributes. Your user pool schema might differ from this example. In that case, you must provide test values in the CSV template that you download from your user pool.
 
 ```
 cognito:username,name,given_name,family_name,middle_name,nickname,preferred_username,profile,picture,website,email,email_verified,gender,birthdate,zoneinfo,locale,phone_number,phone_number_verified,address,updated_at,cognito:mfa_enabled
@@ -318,7 +318,7 @@ The following procedure describes how to import the users from the CSV file.
 
 1. Choose to **Create a new IAM role** or to **Use an existing IAM role**.
 
-   1. If you chose **Create a new IAM role**, enter a name for your new role. Amazon Cognito will automatically create a role with the correct permissions and trust relationship. The IAM principal that creates the import job must have permissions to create IAM roles.
+   1. If you chose **Create a new IAM role**, enter a name for your new role. Amazon Cognito automatically creates a role with the correct permissions and trust relationship. The IAM principal that creates the import job must have permissions to create IAM roles.
 
    1. If you chose **Use an existing IAM role**, choose a role from the list under **IAM role selection**. This role must have the permissions and trust policy described in [Creating the CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role).
 
@@ -350,13 +350,13 @@ aws cognito-idp get-csv-header help
 #### Creating a user import job
 <a name="cognito-user-pools-using-import-tool-cli-creating-user-import-job"></a>
 
-After you create your CSV file, create a user import job by running the following CLI command, where {{JOB\_NAME}} is the name you're choosing for the job, {{USER\_POOL\_ID}} is the user pool ID for the user pool into which the new users will be added, and {{ROLE\_ARN}} is the role ARN you received in [Creating the CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role): 
+After you create your CSV file, create a user import job by running the following CLI command, where {{JOB\_NAME}} is the name you're choosing for the job, {{USER\_POOL\_ID}} is the user pool ID for the user pool into which the new users are added, and {{ROLE\_ARN}} is the role ARN you received in [Creating the CloudWatch Logs IAM role](#cognito-user-pools-using-import-tool-cli-cloudwatch-iam-role): 
 
 ```
 aws cognito-idp create-user-import-job --job-name "{{JOB_NAME}}" --user-pool-id "{{USER_POOL_ID}}" --cloud-watch-logs-role-arn "{{ROLE_ARN}}"
 ```
 
-The {{PRE\_SIGNED\_URL}} returned in the response is valid for 15 minutes. After that time, it will expire and you must create a new user import job to get a new URL.
+The {{PRE\_SIGNED\_URL}} returned in the response is valid for 15 minutes. After that time, it expires and you must create a new user import job to get a new URL.
 
 **Example response:**  
 

@@ -46,7 +46,7 @@ The Essentials plan adds to the existing functions of a [pre token generation tr
 
 Amazon Cognito user pools can be configured to use email as the second factor in multi-factor authentication (MFA). With email MFA, Amazon Cognito can send users an email with a verification code that they must enter to complete the authentication process. This adds an important extra layer of security to the user login flow. To enable email-based MFA, the user pool must be configured to use the [Amazon SES email-sending configuration](user-pool-email.md#user-pool-email-developer) instead of the default email configuration.
 
-When your user selects MFA by email message, Amazon Cognito will send a one-time verification code to the user's registered email address whenever they attempt to sign in. The user must then provide this code back to your user pool to complete the authentication flow and gain access. This ensures that even if a user's username and password are compromised, they must provide an additional factor—the emailed code—before they can access your application resources.
+When your user selects MFA by email message, Amazon Cognito sends a one-time verification code to the user's registered email address whenever they attempt to sign in. The user must then provide this code back to your user pool to complete the authentication flow and gain access. This ensures that even if a user's username and password are compromised, they must provide an additional factor—the emailed code—before they can access your application resources.
 
 For more information, see [SMS and email message MFA](user-pool-settings-mfa-sms-email-message.md). The following is an overview of how to set up your user pool and users for email MFA.
 

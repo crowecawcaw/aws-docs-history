@@ -127,6 +127,9 @@ To [configure your app client](authentication-implement.md) for client-based aut
 ## Step-up authentication with the USER\_AUTH flow
 <a name="cognito-user-pools-step-up-user-auth"></a>
 
+**Note**  
+Authentication levels with ACR and AMR claims is rolling out gradually. This feature might not yet be available to your user pool. If the behavior described here isn't available, check back later as the rollout continues.
+
 You request step-up authentication in the existing `USER_AUTH` flow with the [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) and [RespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RespondToAuthChallenge.html) operations. There are no new API operations. The corresponding server-side operations, [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) and [AdminRespondToAuthChallenge](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminRespondToAuthChallenge.html), support the same step-up parameters and behavior, and `AdminInitiateAuth` can also optionally take an access token. This flow works both when a user has an existing ID token and when a user authenticates toward a target level for the first time. For more information about the flow, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow).
 
 For more information about ACR levels and AMR values, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md).

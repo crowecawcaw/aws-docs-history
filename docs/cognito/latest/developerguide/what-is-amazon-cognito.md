@@ -88,9 +88,9 @@ In the diagram that begins this topic, you use Amazon Cognito to authenticate yo
 
 1. Your app assigns the credentials session to your user, and delivers authorized access to AWS services like Amazon S3 and Amazon DynamoDB.
 
-For more examples that use identity pools and user pools, see [Common Amazon Cognito scenarios](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-scenarios.html).
+For more examples that use identity pools and user pools, see [Common Amazon Cognito scenarios](cognito-scenarios.md).
 
-In Amazon Cognito, the *security of the cloud* obligation of the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) is compliant with SOC 1-3, PCI DSS, ISO 27001, and is HIPAA-BAA eligible. You can design your *security in the cloud* in Amazon Cognito to be compliant with SOC1-3, ISO 27001, and HIPAA-BAA, but not PCI DSS. For more information, see [AWS services in scope](http://aws.amazon.com/compliance/services-in-scope/). See also [Regional data considerations](https://docs.aws.amazon.com/cognito/latest/developerguide/security-cognito-regional-data-considerations.html).
+In Amazon Cognito, the *security of the cloud* obligation of the [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/) is compliant with SOC 1-3, PCI DSS, ISO 27001, and is HIPAA-BAA eligible. You can design your *security in the cloud* in Amazon Cognito to be compliant with SOC 1-3, ISO 27001, and HIPAA-BAA, but not PCI DSS. For more information, see [AWS services in scope](http://aws.amazon.com/compliance/services-in-scope/). See also [Regional data considerations](security-cognito-regional-data-considerations.md).
 
 ## Features of Amazon Cognito
 <a name="what-is-amazon-cognito-features"></a>
@@ -102,7 +102,7 @@ An Amazon Cognito user pool is a user directory. With a user pool, your users ca
 
 Local users are those who signed up or you created directly in your user pool. You can manage and customize these user profiles in the AWS Management Console, an AWS SDK, or the AWS Command Line Interface (AWS CLI). 
 
-Amazon Cognito user pools accept tokens and assertions from third-party IdPs, and collect the user attributes into a JWT that it issues to your app. You can standardize your app on one set of JWTs while Amazon Cognito handles the interactions with IdPs, mapping their claims to a central token format.
+Amazon Cognito user pools accept tokens and assertions from third-party IdPs, and collect the user attributes into a JWT that they issue to your app. You can standardize your app on one set of JWTs while Amazon Cognito handles the interactions with IdPs, mapping their claims to a central token format.
 
 An Amazon Cognito user pool can be a standalone IdP. Amazon Cognito draws from the OpenID Connect (OIDC) standard to generate JWTs for authentication and authorization. When you sign in local users, your user pool is authoritative for those users. You have access to the following features when you authenticate local users.
 + Implement your own web front-end that calls the Amazon Cognito user pools API to authenticate, authorize, and manage your users.
@@ -231,7 +231,7 @@ Amazon Cognito is available in multiple AWS Regions worldwide. In each Region, A
 
 To see if Amazon Cognito is currently available in any AWS Region, see [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/).
 
-To learn about regional API service endpoints, see [AWS regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html##cognito_identity_region) in the *Amazon Web Services General Reference*.
+To learn about regional API service endpoints, see [AWS Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html##cognito_identity_region) in the *Amazon Web Services General Reference*.
 
 To learn more about the number of Availability Zones that are available in each Region, see [AWS global infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/).
 

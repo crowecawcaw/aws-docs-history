@@ -47,6 +47,6 @@ Amazon Cognito exchanges an IdP authorization code for an access token.
 Amazon Cognito discovers the path to your issuer endpoints.
 
 `/.well-known/jwks.json`  
-To verify your user's JSON Web Tokens (JWTs), Amazon Cognito discovers the JSON Web Keys (JWKs) that your IdP uses to sign tokens.
+To verify your user's JSON web tokens (JWTs), Amazon Cognito discovers the JSON Web Keys (JWKs) that your IdP uses to sign tokens.
 
 Because Amazon Cognito doesn't initiate outbound sessions to SAML 2.0 providers that might return HTTP errors, your users' errors during a session with a SAML 2.0 IdP don't include this form of provider error message.

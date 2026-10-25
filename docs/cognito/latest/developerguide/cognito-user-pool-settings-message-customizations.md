@@ -39,10 +39,10 @@ You can use message templates to insert placeholders into your messages. Amazon 
 | Temporary password | {\#\#\#\#} | Forgot-password and invitation messages | 
 | User name | {username} | Invitation and advanced security messages | 
 
-One of the available automated responses with [threat protection](cognito-user-pool-settings-threat-protection.md) is to notify the user that Amazon Cognito detected potentially-malicious activity. You can use advanced security template placeholders to do the following:
+One of the available automated responses with [threat protection](cognito-user-pool-settings-threat-protection.md) is to notify the user that Amazon Cognito detected potentially malicious activity. You can use advanced security template placeholders to do the following:
 + Include specific details about an event such as IP address, city, country, sign-in time, and device name. Amazon Cognito threat protection can analyze these details.
 + Verify whether a one-click link is valid.
-+ Use event ID, feedback token, and user name to build your own one-click link.
++ Use event ID, feedback token, and username to build your own one-click link.
 
 **Note**  
 To generate one-click links and use the `{one-click-link-valid}` and `{one-click-link-invalid}` placeholders in advanced security email templates, you must already have a domain configured for your user pool.
@@ -109,7 +109,7 @@ The maximum length for the message, including the verification code (if present)
 You can customize the user invitation message that Amazon Cognito sends to new users by SMS or email message by editing the **Invitation messages** template in the **Message templates** menu.
 
 **Important**  
-Your custom message must contain the `{username}` and `{####}` placeholders. When Amazon Cognito sends the invitation message, it replaces these placeholders with your user's user name and password.
+Your custom message must contain the `{username}` and `{####}` placeholders. When Amazon Cognito sends the invitation message, it replaces these placeholders with your user's username and password.
 
 The maximum length of an SMS message, including the verification code, is 140 UTF-8 characters. The maximum length of an email message, including the verification code, is 20,000 UTF-8 characters. You may use HTML tags in your email messages to format the contents.
 
@@ -187,4 +187,4 @@ In this example, the "Sid" value is an arbitrary string that uniquely identifies
 
 ------
 
-The Amazon Cognito console adds a similar policy for you when you select an Amazon SES identity from the drop-down menu. If you use the CLI or API to configure the user pool, you must attach a policy structured like the previous example to your Amazon SES Identity.
+The Amazon Cognito console adds a similar policy for you when you select an Amazon SES identity from the dropdown menu. If you use the CLI or API to configure the user pool, you must attach a policy structured like the previous example to your Amazon SES Identity.

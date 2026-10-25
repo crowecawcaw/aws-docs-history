@@ -50,7 +50,7 @@ To configure Sign in with Apple as an IdP, register your application with the Ap
 
    1. Under **Identifier**, type an identifier. Make a note of the services ID as you need this value to configure Apple as a provider in your identity pool. 
 
-   1. Select **Sign In with Apple** and then choose **Configure**.
+   1. Select **Sign in with Apple** and then choose **Configure**.
 
    1. On the **Web Authentication Configuration** page, choose a **Primary App ID**. Under **Website URLs**, choose the **\+ **icon. For **Domains and Subdomains**, enter the domain name of your app. In **Return URLs,** enter the callback URL where the authorization redirects the user after they authenticate through Sign in with Apple. 
 
@@ -66,7 +66,7 @@ To configure Sign in with Apple as an IdP, register your application with the Ap
 
    1. Under **Key Name**, type a key name. 
 
-   1. Choose **Sign In with Apple**, and then choose **Configure**.
+   1. Choose **Sign in with Apple**, and then choose **Configure**.
 
    1. On the **Configure Key** page, choose a **Primary App ID** and then choose **Save**.
 
@@ -97,7 +97,7 @@ Use the following procedure to configure your external provider.
 
    1. You can assign users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**.
 
-     1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+     1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that causes a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
 
      1. Choose a **Role resolution**. When your user's claims don't match your rules, you can deny credentials or issue credentials for your **Authenticated role**.
 
@@ -138,7 +138,7 @@ For more information, see [get-credentials-for-identity](https://docs.aws.amazon
 <a name="set-up-apple-1.android"></a>
 
 Apple doesn't provide an SDK that supports Sign in with Apple for Android. You can use the web flow in a web view instead.
-+ To configure Sign in with Apple in your application, follow [Configuring Your Web page for Sign In with Apple](https://developer.apple.com/documentation/signinwithapple/configuring-your-webpage-for-sign-in-with-apple) in the Apple documentation.
++ To configure Sign in with Apple in your application, follow [Configuring Your Web page for Sign in with Apple](https://developer.apple.com/documentation/signinwithapple/configuring-your-webpage-for-sign-in-with-apple) in the Apple documentation.
 + To add a **Sign in with Apple** button to your Android user interface, follow [Displaying Sign in with Apple buttons on the web](https://developer.apple.com/documentation/signinwithapple/displaying-sign-in-with-apple-buttons-on-the-web) in the Apple documentation.
 + To securely authenticate users with Sign in with Apple, follow [Authenticating Users with Sign in with Apple](https://developer.apple.com/documentation/signinwithapple/authenticating-users-with-sign-in-with-apple) in the Apple documentation.
 
@@ -193,7 +193,7 @@ func finishedWithAuth(auth: ASAuthorizationAppleIDCredential!, error: NSError!) 
 <a name="set-up-apple-1.javascript"></a>
 
 Apple doesn’t provide an SDK that supports Sign in with Apple for JavaScript. You can use the web flow in a web view instead.
-+ To configure Sign in with Apple in your application, follow [Configuring Your Web page for Sign In with Apple](https://developer.apple.com/documentation/signinwithapple/configuring-your-webpage-for-sign-in-with-apple) in the Apple documentation.
++ To configure Sign in with Apple in your application, follow [Configuring Your Web page for Sign in with Apple](https://developer.apple.com/documentation/signinwithapple/configuring-your-webpage-for-sign-in-with-apple) in the Apple documentation.
 + To add a **Sign in with Apple** button to your JavaScript user interface, follow [Displaying Sign in with Apple buttons on the web](https://developer.apple.com/documentation/signinwithapple/displaying-sign-in-with-apple-buttons-on-the-web) in the Apple documentation.
 + To securely authenticate users with Sign in with Apple, follow [Authenticating Users with Sign in with Apple](https://developer.apple.com/documentation/signinwithapple/authenticating-users-with-sign-in-with-apple) in the Apple documentation.
 

@@ -5,7 +5,7 @@
 
 Create a user pool for each tenant in your app. This approach provides maximum isolation for each tenant. You can implement different configurations for each tenant. Tenant isolation by user pool gives you flexibility in user-to-tenant mapping. You can create multiple profiles for the same user. However, each user must sign up individually for each tenant they can access. 
 
-Using this approach, you can set up a hosted UI for each tenant independently and redirect users to their tenant-specific instance of your application. You can also use this approach to integrate with backend services like [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html). 
+Using this approach, you can set up a hosted UI for each tenant independently and redirect users to their tenant-specific instance of your application. You can also use this approach to integrate with back-end services like [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html). 
 
 The following diagram shows each tenant with a dedicated user pool.
 

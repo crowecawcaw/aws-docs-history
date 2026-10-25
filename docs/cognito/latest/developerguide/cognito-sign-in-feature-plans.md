@@ -19,7 +19,7 @@ Feature-plan selections apply to one user pool. Different user pools in the same
 You can switch between feature plans at any time to fit the requirements of your applications. Some changes between plans require that you turn off active features. For more information, see [Turning off features to change feature plans](feature-plans-deactivate.md).User pool feature plans
 
 **Lite**  
-Lite is a low-cost feature plan for user pools with lower numbers of monthly active users. This plan is sufficient for user directories with basic authentication features. It includes sign-in features and the classic hosted UI, a slimmer, less-customizable predecessor to managed login. Many newer features, like access-token customization and passkey authentication, aren't included in the Lite plan.
+Lite is a low-cost feature plan for user pools with lower numbers of monthly active users. This plan is sufficient for user directories with basic authentication features. It includes sign-in features and the classic hosted UI, a slimmer, less customizable predecessor to managed login. Many newer features, like access-token customization and passkey authentication, aren't included in the Lite plan.
 
 **Essentials**  
 Essentials has all of the latest user pool authentication features. This plan adds new options to your applications, whether your login pages are managed login or custom-built. Essentials has advanced authentication features like [choice-based sign-in](authentication-flows-selection-sdk.md#authentication-flows-selection-choice) and [email MFA](user-pool-settings-mfa-sms-email-message.md).

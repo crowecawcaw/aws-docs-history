@@ -9,7 +9,7 @@ The webpages that make up managed login are a front-end web application for inte
 
 All user pool endpoints accept traffic from IPv4 and IPv6 source IP addresses.
 
-The topics in this guide describe frequently-used managed login and classic hosted UI endpoints in detail. The difference between managed login and the hosted UI is visible, not functional. Except for `/passkeys/add`, all paths are shared between the two versions of managed login branding.
+The topics in this guide describe frequently used managed login and classic hosted UI endpoints in detail. The difference between managed login and the hosted UI is visible, not functional. Except for `/passkeys/add`, all paths are shared between the two versions of managed login branding.
 
 Amazon Cognito makes the webpages that follow available when you assign a domain to your user pool.
 
@@ -23,7 +23,7 @@ Amazon Cognito makes the webpages that follow available when you assign a domain
 | https://{{Your user pool domain}}/confirmUser | Confirms users who have selected an email link to verify their user account. | User selected link in an email message. | 
 | https://{{Your user pool domain}}/signup | Signs up a new user. The /login page directs your user to /signup when they select Sign up. | Direct link with same parameters as `/oauth2/authorize`. | 
 | https://{{Your user pool domain}}/confirm | After your user pool sends a confirmation code to a user who signed up, prompts your user for the code. | Redirect-only from `/signup`. | 
-| https://{{Your user pool domain}}/forgotPassword | Prompts your user for their user name and sends a password-reset code. The /login page directs your user to /forgotPassword when they select Forgot your password?. |  1.  From **Forgot password** link at `/login`. <br />2.  Direct link with same parameters as `/oauth2/authorize`.   | 
+| https://{{Your user pool domain}}/forgotPassword | Prompts your user for their username and sends a password-reset code. The /login page directs your user to /forgotPassword when they select Forgot your password?. |  1.  From **Forgot password** link at `/login`. <br />2.  Direct link with same parameters as `/oauth2/authorize`.   | 
 | https://{{Your user pool domain}}/confirmforgotPassword | Prompts your user for their password-reset code and a new password. The /forgotPassword page directs your user to /confirmforgotPassword when they select Reset your password. After your user submits a valid reset code and new password, /confirmforgotPassword redirects them to /login to sign in with their new password. | Redirect-only from /forgotPassword. | 
 | https://{{Your user pool domain}}/resendcode | Sends a new confirmation code to a user who has signed up in your user pool. | Redirect-only from **Send a new code** link at `/confirm`. | 
 | https://{{Your user pool domain}}/passkeys/add | Registers a new [passkey](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passkey). Only available in managed login. |  +  In the sign-up flow after confirmation in app clients that support passkey authentication. <br />+  Direct link with same parameters as `/oauth2/authorize`.   | 

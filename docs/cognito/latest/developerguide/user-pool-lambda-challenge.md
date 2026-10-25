@@ -42,7 +42,7 @@ All three triggers must be assigned to the user pool. A missing assignment for a
 ## SRP authentication in custom challenge flows
 <a name="user-pool-lambda-challenge-srp-authentication"></a>
 
-You can have Amazon Cognito verify user passwords before it issues your custom challenges. Any Lambda triggers associated in the Authentication category of [request-rate quotas](quotas.md#category_operations.title) will run when you perform SRP authentication in a custom challenge flow. Here is an overview of the process:
+You can have Amazon Cognito verify user passwords before it issues your custom challenges. Any Lambda triggers associated in the Authentication category of [request-rate quotas](quotas.md#category_operations.title) run when you perform SRP authentication in a custom challenge flow. Here is an overview of the process:
 
 1. Your app initiates sign-in by calling `InitiateAuth` or `AdminInitiateAuth` with the `AuthParameters` map. Parameters must include `CHALLENGE_NAME: SRP_A,` and values for `SRP_A` and `USERNAME`.
 

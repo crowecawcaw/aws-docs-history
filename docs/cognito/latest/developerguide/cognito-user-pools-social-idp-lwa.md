@@ -34,7 +34,7 @@ To let your users sign in with their Amazon account, you register a Login with A
 
 1. For **Authorized scopes**, enter `profile`. This returns the user's name, email, and user ID. (Add `postal_code` only if you need the ZIP or postal code.)
 
-1. Map `email` to `email`, `name` to `name`, and `user_id` to your user name attribute.
+1. Map `email` to `email`, `name` to `name`, and `user_id` to your username attribute.
 
 1. Choose **Add identity provider**, and enable Login with Amazon on your app client.
 
@@ -44,7 +44,7 @@ To let your users sign in with their Amazon account, you register a Login with A
 Open your managed login sign-in page and choose **Continue with Amazon**, then authenticate and accept the consent screen.
 
 **Checkpoint**  
-The browser returns through `/oauth2/idpresponse` to your app with an authorization code, and the user appears in your user pool as a federated user whose user name is prefixed `LoginWithAmazon_`. The ID token contains the mapped `email` and `name`. Note that `email_verified` reads `false` unless you set it with a trigger (see pitfalls).
+The browser returns through `/oauth2/idpresponse` to your app with an authorization code, and the user appears in your user pool as a federated user whose username is prefixed `LoginWithAmazon_`. The ID token contains the mapped `email` and `name`. Note that `email_verified` reads `false` unless you set it with a trigger (see pitfalls).
 
 ## Login with Amazon pitfalls
 <a name="social-idp-lwa-pitfalls"></a>

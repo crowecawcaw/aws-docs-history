@@ -57,7 +57,7 @@ If you have enabled passwordless sign-in for your user pool, you can create user
 Normally new users get a temporary password and go into a `FORCE_CHANGE_PASSWORD` status when you create them. When you create users without passwords, they immediately go into a `CONFIRMED` state. You can't resend confirmation codes to these users in the `CONFIRMED` state.
 
 **Invitation messages change for users without passwords.**  
-By default, Amazon Cognito sends an [invitation message](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-user-invitation-message-customization) to new users that says `Your username is {userName} and your password is {####}.` When you create users with no password, the message says `Your username is {userName}.` Customize your invitation message to reflect whether you will set passwords for users. Omit out the `{####}` password variable in passwordless authentication models.
+By default, Amazon Cognito sends an [invitation message](cognito-user-pool-settings-message-customizations.md#cognito-user-pool-settings-user-invitation-message-customization) to new users that says `Your username is {userName} and your password is {####}.` When you create users with no password, the message says `Your username is {userName}.` Customize your invitation message to reflect whether you will set passwords for users. Omit the `{####}` password variable in passwordless authentication models.
 
 **You can't autogenerate passwords when passwordless factors are available**  
 If you have configured your user pool to support email or phone OTP passwordless sign-in, you can't automatically generate a password. For each user who will have a password, you must set a temporary password when you create their profile.

@@ -3,7 +3,7 @@
 # Other application options
 <a name="getting-started-user-pools-application-other-options"></a>
 
-You might have an existing application UI that you want to integrate with Amazon Cognito authentication. You might even have your own existing authentication pages with a less-functional directory setup than Amazon Cognito user pools. You can add or replace an authentication component to an application of this type with Amazon Cognito integrations in AWS SDKs for a variety of programming languages. Some examples follow.
+You might have an existing application UI that you want to integrate with Amazon Cognito authentication. You might even have your own existing authentication pages with a less functional directory setup than Amazon Cognito user pools. You can add or replace an authentication component to an application of this type with Amazon Cognito integrations in AWS SDKs for a variety of programming languages. Some examples follow.
 
 If you create a user pool for this purpose in the Amazon Cognito console, it might not be necessary to have a [user pool domain](cognito-user-pools-assign-domain.md) that hosts interactive sign-in pages and OpenID Connect (OIDC) services. The process of user pool creation in the console automatically generates a domain for you. You can delete this domain from the **Domain** tab of your user pool. Other options include programmatic creation of Amazon Cognito resources for you application with API requests in AWS SDKs and with the automated-setup options in the AWS Amplify CLI. For more information, see [Integrating Amazon Cognito authentication and authorization with web and mobile apps](cognito-integrate-apps.md).
 

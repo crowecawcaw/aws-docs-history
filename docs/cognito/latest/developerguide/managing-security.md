@@ -7,12 +7,12 @@ You might want to secure your application against network intrusion, password gu
 
 For account-level and service-wide security guidance—the shared responsibility model, data protection, compliance, and infrastructure security—see [Security in Amazon Cognito](security.md).
 
-An important decision that you must make when you configure your user pool is whether to permit public sign-up and sign-in. Some user pool option like confidential clients, administrative creation and confirmation of users, and user pools without a domain, are subject to a smaller degree to attacks over the internet. However, a common use case is public clients that accept sign-up from anyone on the internet and send all operations directly to your user pool. In any configuration, but especially in the case of these public configurations, we recommend that you plan and deploy your user pool with security features in mind. Insufficient security can also affect your AWS bill when unwanted sources create new active users or attempt to exploit existing users.
+An important decision that you must make when you configure your user pool is whether to permit public sign-up and sign-in. Some user pool options like confidential clients, administrative creation and confirmation of users, and user pools without a domain are less subject to attacks over the internet. However, a common use case is public clients that accept sign-up from anyone on the internet and send all operations directly to your user pool. In any configuration, but especially in the case of these public configurations, we recommend that you plan and deploy your user pool with security features in mind. Insufficient security can also affect your AWS bill when unwanted sources create new active users or attempt to exploit existing users.
 
-MFA and threat protection apply to [local users](cognito-terms.md#terms-localuser). Third-party IdPs are responsible for the security posture of [federated users](cognito-terms.md#terms-federateduser).User pools security features
+MFA and threat protection apply to [local users](cognito-terms.md#terms-localuser). Third-party IdPs are responsible for the security posture of [federated users](cognito-terms.md#terms-federateduser).User pools' security features
 
 **Multi-factor authentication (MFA)**  
-Request a code that your user pool send by email (with the Essentials or Plus feature plan) or SMS message, or from an authenticator app, to confirm user pool sign-in.
+Request a code that your user pool sends by email (with the Essentials or Plus feature plan) or SMS message, or from an authenticator app, to confirm user pool sign-in.
 
 **Threat protection**  
 Monitor sign-in for indicators of risk and apply MFA or block sign-in. Add custom claims and scopes to access tokens. Send MFA codes by email.
@@ -20,7 +20,7 @@ Monitor sign-in for indicators of risk and apply MFA or block sign-in. Add custo
 **AWS WAF web ACLs**  
 Inspect incoming traffic to your [user pool endpoints and authentication API](authentication-flows-public-server-side.md#user-pools-API-operations) for unwanted activity at the network and application layers.
 
-**Case sensitvity**  
+**Case sensitivity**  
 Prevent creation of users whose email address or preferred username is identical to another user except for character case.
 
 **Deletion protection**  

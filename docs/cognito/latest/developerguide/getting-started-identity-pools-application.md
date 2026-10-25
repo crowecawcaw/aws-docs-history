@@ -149,7 +149,7 @@ The following steps guide you through initial setup of your demo application.
    python -m http.server 8001
    ```
 
-1. Open your browser to the application at [http://localhost:8001](http://localhost:8001). Your browser will display the demo application interface, ready for testing identity pools authentication.
+1. Open your browser to the application at [http://localhost:8001](http://localhost:8001). Your browser displays the demo application interface, ready for testing identity pools authentication.
 
 ## Explore authentication methods in your identity pool
 <a name="explore-authentication-methods-in-identity-pools-application"></a>

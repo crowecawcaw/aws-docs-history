@@ -73,7 +73,7 @@ To learn more about IAM roles, see [Roles (Delegation and Federation)](https://d
 ## Use push sync in your app: Android
 <a name="push-sync-1.android"></a>
 
-Your application will need to import the Google Play services. You can download the latest version of the Google Play SDK via the [Android SDK manager](http://developer.android.com/tools/help/sdk-manager.html). Follow the Android documentation on [Android Implementation](https://developers.google.com/instance-id/guides/android-implementation) to register your app and receive a registration ID from GCM. Once you have the registration ID, you need to register the device with Amazon Cognito, as shown in the snippet below:
+Your application needs to import the Google Play services. You can download the latest version of the Google Play SDK via the [Android SDK manager](http://developer.android.com/tools/help/sdk-manager.html). Follow the Android documentation on [Android Implementation](https://developers.google.com/instance-id/guides/android-implementation) to register your app and receive a registration ID from GCM. Once you have the registration ID, you need to register the device with Amazon Cognito, as shown in the snippet below:
 
 ```
 String registrationId = "MY_GCM_REGISTRATION_ID";
@@ -174,7 +174,7 @@ AWSCognito *syncClient = [AWSCognito defaultCognito];
     ];
 ```
 
-In debug mode, your device will register with the APNs sandbox; in release mode, it will register with APNs. To receive updates from a particular dataset, use the `subscribe` method:
+In debug mode, your device registers with the APNs sandbox; in release mode, it registers with APNs. To receive updates from a particular dataset, use the `subscribe` method:
 
 ```
 [[[syncClient openOrCreateDataset:@"MyDataset"] subscribe] continueWithBlock:^id(AWSTask *task) {
@@ -278,7 +278,7 @@ syncClient.registerDevice(devToken).continueWith(block: { (task: AWSTask!) -> An
 })
 ```
 
-In debug mode, your device will register with the APNs sandbox; in release mode, it will register with APNs. To receive updates from a particular dataset, use the `subscribe` method:
+In debug mode, your device registers with the APNs sandbox; in release mode, it registers with APNs. To receive updates from a particular dataset, use the `subscribe` method:
 
 ```
 syncClient.openOrCreateDataset("MyDataset").subscribe().continueWith(block: { (task: AWSTask!) -> AnyObject! in

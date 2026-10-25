@@ -192,7 +192,7 @@ For more information about setting up Sign in with Apple, see [Configuring Your 
 
 1. Choose the Services ID that you just created from the Identifiers page.
 
-   1. Select **Sign In with Apple**, and then choose **Configure**.
+   1. Select **Sign in with Apple**, and then choose **Configure**.
 
    1. On the **Web Authentication Configuration** page, select the app ID that you created earlier as the **Primary App ID**. 
 
@@ -222,7 +222,7 @@ For more information about setting up Sign in with Apple, see [Configuring Your 
 
    1. Under **Key Name**, enter a key name. 
 
-   1. Choose **Sign In with Apple**, and then choose **Configure**.
+   1. Choose **Sign in with Apple**, and then choose **Configure**.
 
    1. On the **Configure Key** page, select the app ID that you created earlier as the **Primary App ID**. Choose **Save**.
 
@@ -249,10 +249,10 @@ In this section, you configure a social IdP in your user pool using the client I
 
 1. Choose from the following steps, based on your choice of social identity provider:
    + **Google** and **Login with Amazon** – Enter the **app client ID** and **app client secret** that was generated in the previous section.
-   + **Facebook** – Enter the **app client ID** and **app client secret** that was generated in the previous section, and then choose an API version (for example, version 2.12). We recommend choosing the latest possible version—each Facebook API has a lifecycle and deprecation date. Facebook scopes and attributes can vary between API versions. We recommend testing your social identity log in with Facebook to ensure that federation works as intended.
+   + **Facebook** – Enter the **app client ID** and **app client secret** that was generated in the previous section, and then choose an API version (for example, version 2.12). We recommend choosing the latest possible version—each Facebook API has a lifecycle and deprecation date. Facebook scopes and attributes can vary between API versions. We recommend testing your social identity sign-in with Facebook to ensure that federation works as intended.
    + **Sign in with Apple** – Enter the **Services ID**, **Team ID**, **Key ID**, and **private key** that was generated in the previous section.
 
-1. Enter the names of the **Authorized scopes** that you want to use. Scopes define which user attributes (such as `name` and `email`) you want to access with your app. For Facebook, these should be separated by commas. For Google and Login with Amazon, they should be separated by spaces. For Sign in with Apple, select the check boxes for the scopes you want access to.
+1. Enter the names of the **Authorized scopes** that you want to use. Scopes define which user attributes (such as `name` and `email`) you want to access with your app. For Facebook, these should be separated by commas. For Google and Login with Amazon, they should be separated by spaces. For Sign in with Apple, select the checkboxes for the scopes you want access to.
 
 
 <table>

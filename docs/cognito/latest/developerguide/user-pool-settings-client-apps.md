@@ -32,7 +32,7 @@ When you create an app client in Amazon Cognito, you can pre-populate options ba
 A public client runs in a browser or on a mobile device. Because it does not have trusted server-side resources, it does not have a client secret.
 
 **Confidential client**  
-A confidential client has server-side resources that can be trusted with a **client secret** for unauthenticated API operations. The app might run as a daemon or shell script on your backend server.
+A confidential client has server-side resources that can be trusted with a **client secret** for unauthenticated API operations. The app might run as a daemon or shell script on your back-end server.
 
 **Client secret**  
 A client secret, or client password, is a fixed string that your app must use in all API requests to the app client. Your app client must have a client secret to perform `client_credentials` grants. For more information, see [IETF RFC 6749 \#2.3.1](https://datatracker.ietf.org/doc/html/rfc6749#section-2.3.1).  
@@ -64,7 +64,7 @@ You can set the expiration of these tokens for each app client from the **App cl
 The following terms are available properties of app clients in the Amazon Cognito console.
 
 **Allowed callback URLs**  
-A callback URL indicates where the user will be redirected after a successful sign-in. Choose at least one callback URL. The callback URL must:  
+A callback URL indicates where the user is redirected after a successful sign-in. Choose at least one callback URL. The callback URL must:  
 + Be an absolute URI.
 + Be pre-registered with a client.
 + Not include a fragment component.
@@ -121,7 +121,7 @@ The implicit grant delivers an access and ID token, but not refresh token, to yo
 **Client credentials grant**  
 The client credentials grant is for machine-to-machine (M2M) communications. Authorization-code and implicit grants issue tokens to authenticated human users. Client credentials grant scope-based authorization from a non-interactive system to an API. Your app can request client credentials directly from the token endpoint and receive an access token. For more information, see *Client Credentials* in [IETF RFC 6749 \#1.3.4](https://datatracker.ietf.org/doc/html/rfc6749#section-1.3.4). You can only activate client-credentials grants in app clients that have a client secret and that don't support authorization-code or implicit grants. As an alternative that requires no user pool domain, an app client with a client secret and the `ALLOW_CLIENT_TOKEN_AUTH` authentication flow can obtain M2M access tokens with the [GetClientToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetClientToken.html) API operation.
 Because you don't invoke the client credentials flow as a user, this grant can only add *custom* scopes to access tokens. A custom scope is one that you define for your own resource server. Default scopes like `openid` and `profile` don't apply to nonhuman users.  
-Because ID tokens are a validation of user attributes, they aren't relevant to M2M communication, and a client credentials grants doesn't issue them. See [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md).
+Because ID tokens are a validation of user attributes, they aren't relevant to M2M communication, and a client credentials grant doesn't issue them. See [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md).
 Client credentials grants add costs to your AWS bill. For more information, see [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing).
 
 ## Creating an app client

@@ -197,7 +197,7 @@ Users cannot receive verification codes during the forgot password workflow thro
 There are various reasons why verification codes may not be received. Follow this checklist to troubleshoot the issue:  
 + Check the user's email spam and junk folders.
 + Confirm that the user exists in the user pool.
-+ Verify that the user's status isn't `FORCE_CHANGE_PASSWORD`. If this is the case, the user was created by an administrator and Amazon Cognito will prompt them to set a password when they sign in with their temporary password.
++ Verify that the user's status isn't `FORCE_CHANGE_PASSWORD`. If this is the case, the user was created by an administrator and Amazon Cognito prompts them to set a password when they sign in with their temporary password.
 + Check that the user has a verified email or phone number attribute.
 + Check your account spend limit for SMS messaging
 + Check your Amazon Simple Email Service (Amazon SES) message-sending quota.

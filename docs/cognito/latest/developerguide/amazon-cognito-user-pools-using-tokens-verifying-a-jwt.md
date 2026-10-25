@@ -9,7 +9,7 @@ Amazon Cognito issues tokens that use some of the integrity and confidentiality 
 
 On this page, we make some general and specific recommendations for verification of JWTs. Application development spans a variety of programming languages and platforms. Because Amazon Cognito implements OIDC sufficiently close to the public specification, any reputable JWT library in your developer environment of choice can handle your verification requirements.
 
-These steps describe verifying a user pool JSON Web Token (JWT).
+These steps describe verifying a user pool JSON web token (JWT).
 
 **Topics**
 + [Prerequisites](#amazon-cognito-user-pools-using-tokens-prerequisites)
@@ -26,7 +26,7 @@ For more information, see the following pages.
 + [Code examples for Amazon Cognito Identity Provider using AWS SDKs](https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples.html)
 + [Advanced workflows](https://docs.amplify.aws/lib/auth/advanced/q/platform/js/#retrieve-jwt-tokens) in the *Amplify Dev Center*
 
-Many libraries are available for decoding and verifying a JSON Web Token (JWT). If you want to manually process tokens for server-side API processing, or if you are using other programming languages, these libraries can help. See the [OpenID foundation list of libraries for working with JWT tokens](http://openid.net/developers/jwt/).
+Many libraries are available for decoding and verifying a JSON web token (JWT). If you want to manually process tokens for server-side API processing, or if you are using other programming languages, these libraries can help. See the [OpenID foundation list of libraries for working with JWT tokens](http://openid.net/developers/jwt/).
 
 ## Validate tokens with aws-jwt-verify
 <a name="amazon-cognito-user-pools-using-tokens-aws-jwt-verify"></a>
@@ -54,7 +54,7 @@ The following sections describe a process to manually inspect Amazon Cognito JWT
 ### Confirm the structure of the JWT
 <a name="amazon-cognito-user-pools-using-tokens-step-1"></a>
 
-A JSON Web Token (JWT) includes three sections with a `.` (dot) delimiter between them.
+A JSON web token (JWT) includes three sections with a `.` (dot) delimiter between them.
 
 **Header**  
 The key ID, `kid`, and the RSA algorithm, `alg`, that Amazon Cognito used to sign the token. Amazon Cognito signs tokens with an `alg` of `RS256`. The `kid` is a truncated reference to a 2048-bit RSA private signing key held by your user pool.
@@ -176,7 +176,7 @@ API operations such as [GetUser](https://docs.aws.amazon.com/cognito-user-identi
 
 1. The `aud` claim in an ID token and the `client_id` claim in an access token must match the app client ID that was created in the Amazon Cognito user pool.
 
-1. The issuer (`iss`) claim must match your user pool. For example, a user pool created in the `us-east-1` Region will have the following `iss` value:
+1. The issuer (`iss`) claim must match your user pool. For example, a user pool created in the `us-east-1` Region has the following `iss` value:
 
    `https://cognito-idp.us-east-1.amazonaws.com/{{<userpoolID>}}`.
 
@@ -185,7 +185,7 @@ API operations such as [GetUser](https://docs.aws.amazon.com/cognito-user-identi
    + If you are only using the ID token, its value must be `id`.
    + If you are using both ID and access tokens, the `token_use` claim must be either `id` or `access`.
 
-1. Confirm that the token hasn't been revoked. A token with a valid signature and an unexpired `exp` claim can still have been revoked before its expiration time–for example, when a user signs out or when you call the [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) API operation. Offline signature and expiration checks can't detect revocation on their own. If your application must honor revocation before a token expires, verify the token's status against Amazon Cognito–for example, with an authorized API request–or keep access token lifetimes short. For more information, see [Ending user sessions with token revocation](token-revocation.md).
+1. Confirm that the token hasn't been revoked. A token with a valid signature and an unexpired `exp` claim can still have been revoked before its expiration time—for example, when a user signs out or when you call the [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) API operation. Offline signature and expiration checks can't detect revocation on their own. If your application must honor revocation before a token expires, verify the token's status against Amazon Cognito—for example, with an authorized API request—or keep access token lifetimes short. For more information, see [Ending user sessions with token revocation](token-revocation.md).
 
 You can now trust the claims inside the token.
 

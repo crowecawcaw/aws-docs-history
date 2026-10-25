@@ -30,7 +30,7 @@ Examples of [user pool domains](cognito-user-pools-assign-domain.md) are:
 
 1 The `openid-configuration` document might be updated at any time with additional information that keeps the endpoint compliant with the OIDC and OAuth2 specifications.
 
-2The `jwks.json` JSON file might be updated at any time to with new public token signing keys.
+2The `jwks.json` JSON file can be updated at any time with new public token signing keys.
 
 3 For more information about IdP-initiated SAML sign-in, see [Implement IdP-initiated SAML sign-in](cognito-user-pools-SAML-session-initiation.md#cognito-user-pools-SAML-session-initiation-idp-initiation).
 

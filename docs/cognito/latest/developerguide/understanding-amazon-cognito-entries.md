@@ -461,7 +461,7 @@ Amazon Cognito logs the following event when a user who has authenticated and re
 }
 ```
 
-Amazon Cognito logs the following event when your backend system submits a `client_credentials` request for an access token to your `/oauth2/token` endpoint.
+Amazon Cognito logs the following event when your back-end system submits a `client_credentials` request for an access token to your `/oauth2/token` endpoint.
 
 ```
 {

@@ -62,7 +62,7 @@ When you use your Amazon SES configuration, the following conditions apply:
 ### Amazon SES email configuration Regions
 <a name="user-pool-email-developer-region-mapping"></a>
 
-The AWS Region where you create a user pool will have one of three requirements for the configuration of email messages with Amazon SES. You might send email messages from Amazon SES in the same Region as your user pool, several Regions including the same Region, or one or more remote Regions. For best performance, send email messages with a Amazon SES verified identity in the same Region as your user pool when you have the option.Categories of Region requirements for Amazon SES verified identities
+The AWS Region where you create a user pool has one of three requirements for the configuration of email messages with Amazon SES. You might send email messages from Amazon SES in the same Region as your user pool, several Regions including the same Region, or one or more remote Regions. For best performance, send email messages with a Amazon SES verified identity in the same Region as your user pool when you have the option.Categories of Region requirements for Amazon SES verified identities
 
 **In-Region only**  
 Your user pools can send email messages with verified identities in the same AWS Region as the user pool. In the default email configuration without a custom `FROM` email address, Amazon Cognito uses a `no-reply@verificationemail.com` verified identity in the same Region.

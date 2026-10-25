@@ -106,7 +106,7 @@ SAML assertion attributes. Available for SAML providers only. Contains attribute
 The user attributes to apply to the user profile.
 
 **Important**  
-You must include ALL user attributes you want to retain in the response, including attributes you are not modifying. Any attributes not included in the `userAttributesToMap` response will be dropped and not stored in the user profile. This applies to both modified and unmodified attributes.
+You must include ALL user attributes you want to retain in the response, including attributes you are not modifying. Any attributes not included in the `userAttributesToMap` response are dropped and not stored in the user profile. This applies to both modified and unmodified attributes.
 
 **Empty response behavior**  
 If you return an empty object `{}` for `userAttributesToMap`, all original attributes from the identity provider are retained unchanged. This acts as a no-op, as if the Lambda function was never executed. This is different from omitting attributes, which drops them.

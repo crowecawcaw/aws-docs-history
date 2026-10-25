@@ -22,4 +22,4 @@ This walkthrough uses a user pool with managed login, the most common starting p
 
 1. **Validate the token.** Your application (or your API) verifies the token's signature and claims before trusting it. See [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md).
 
-At this point you have a signed-in user and a validated token. To authorize that token against your own API or backend—the most common next step—see [Accessing resources after successful sign-in](accessing-resources.md). If instead you need to grant the user temporary AWS credentials to call AWS services such as Amazon S3 directly from your app, continue to [Amazon Cognito identity pools](cognito-identity.md).
+At this point you have a signed-in user and a validated token. To authorize that token against your own API or back end—the most common next step—see [Accessing resources after successful sign-in](accessing-resources.md). If instead you need to grant the user temporary AWS credentials to call AWS services such as Amazon S3 directly from your app, continue to [Amazon Cognito identity pools](cognito-identity.md).

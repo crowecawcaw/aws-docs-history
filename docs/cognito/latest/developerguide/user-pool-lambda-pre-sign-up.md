@@ -11,7 +11,7 @@ Immediately before Amazon Cognito completes creation of a new [local](cognito-te
 + [Pre sign-up Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-pre-signup)
 + [Pre sign-up example: Auto-confirm users from a registered domain](#aws-lambda-triggers-pre-registration-example)
 + [Pre sign-up example: Auto-confirm and auto-verify all users](#aws-lambda-triggers-pre-registration-example-2)
-+ [Pre sign-up example: Deny sign-up if user name has fewer than five characters](#aws-lambda-triggers-pre-registration-example-3)
++ [Pre sign-up example: Deny sign-up if username has fewer than five characters](#aws-lambda-triggers-pre-registration-example-3)
 
 ## Pre sign-up Lambda trigger parameters
 <a name="cognito-user-pools-lambda-trigger-syntax-pre-signup"></a>
@@ -74,16 +74,16 @@ Set to `true` to auto-confirm the user, or `false` otherwise.
 
 **autoVerifyEmail**  
 Set to `true` to set as verified the email address of a user who is signing up, or `false` otherwise. If `autoVerifyEmail` is set to `true`, the `email` attribute must have a valid, non-null value. Otherwise an error will occur and the user will not be able to complete sign-up.  
-If the `email` attribute is selected as an alias, an alias will be created for the user's email address when `autoVerifyEmail` is set. If an alias with that email address already exists, the alias will be moved to the new user and the previous user's email address will be marked as unverified. For more information, see [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases).
+If the `email` attribute is selected as an alias, an alias is created for the user's email address when `autoVerifyEmail` is set. If an alias with that email address already exists, the alias is moved to the new user and the previous user's email address is marked as unverified. For more information, see [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases).
 
 **autoVerifyPhone**  
 Set to `true` to set as verified the phone number of a user who is signing up, or `false` otherwise. If `autoVerifyPhone` is set to `true`, the `phone_number` attribute must have a valid, non-null value. Otherwise an error will occur and the user will not be able to complete sign-up.  
-If the `phone_number` attribute is selected as an alias, an alias will be created for the user's phone number when `autoVerifyPhone` is set. If an alias with that phone number already exists, the alias will be moved to the new user and the previous user's phone number will be marked as unverified. For more information, see [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases).
+If the `phone_number` attribute is selected as an alias, an alias is created for the user's phone number when `autoVerifyPhone` is set. If an alias with that phone number already exists, the alias is moved to the new user and the previous user's phone number is marked as unverified. For more information, see [Customizing sign-in attributes](user-pool-settings-attributes.md#user-pool-settings-aliases).
 
 ## Pre sign-up example: Auto-confirm users from a registered domain
 <a name="aws-lambda-triggers-pre-registration-example"></a>
 
-This is example Lambda trigger code. The pre sign-up trigger is invoked immediately before Amazon Cognito processes the sign-up request. It uses a custom attribute **custom:domain** to automatically confirm new users from a particular email domain. Any new users not in the custom domain will be added to the user pool, but not automatically confirmed.
+This is example Lambda trigger code. The pre sign-up trigger is invoked immediately before Amazon Cognito processes the sign-up request. It uses a custom attribute **custom:domain** to automatically confirm new users from a particular email domain. Any new users not in the custom domain are added to the user pool, but not automatically confirmed.
 
 ------
 #### [ Node.js ]
@@ -152,10 +152,10 @@ Amazon Cognito passes event information to your Lambda function. The function th
 ## Pre sign-up example: Auto-confirm and auto-verify all users
 <a name="aws-lambda-triggers-pre-registration-example-2"></a>
 
-This example confirms all users and sets the user's `email` and `phone_number` attributes to verified if the attribute is present. Also, if aliasing is enabled, aliases will be created for `phone_number` and `email` when auto-verify is set. 
+This example confirms all users and sets the user's `email` and `phone_number` attributes to verified if the attribute is present. Also, if aliasing is enabled, aliases are created for `phone_number` and `email` when auto-verify is set. 
 
 **Note**  
-If an alias with the same phone number already exists, the alias will be moved to the new user, and the previous user's `phone_number` will be marked as unverified. The same is true for email addresses. To prevent this from happening, you can use the user pools [ListUsers API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html) to see if there is an existing user who is already using the new user's phone number or email address as an alias.
+If an alias with the same phone number already exists, the alias is moved to the new user, and the previous user's `phone_number` is marked as unverified. The same is true for email addresses. To prevent this from happening, you can use the user pools [ListUsers API](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ListUsers.html) to see if there is an existing user who is already using the new user's phone number or email address as an alias.
 
 ------
 #### [ Node.js ]
@@ -221,10 +221,10 @@ Amazon Cognito passes event information to your Lambda function. The function th
 
 ------
 
-## Pre sign-up example: Deny sign-up if user name has fewer than five characters
+## Pre sign-up example: Deny sign-up if username has fewer than five characters
 <a name="aws-lambda-triggers-pre-registration-example-3"></a>
 
-This example checks the length of the user name in a sign-up request. The example returns an error if the user has entered a name less than five characters long.
+This example checks the length of the username in a sign-up request. The example returns an error if the user has entered a name less than five characters long.
 
 ------
 #### [ Node.js ]

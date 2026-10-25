@@ -3,7 +3,7 @@
 # Developer-authenticated identities
 <a name="developer-authenticated-identities"></a>
 
-Amazon Cognito supports developer-authenticated identities, in addition to web identity federation through [Setting up Facebook as an identity pools IdP](facebook.md), [Setting up Google as an identity pool IdP](google.md), [Setting up Login with Amazon as an identity pools IdP](amazon.md), and [Setting up Sign in with Apple as an identity pool IdP](apple.md). With developer-authenticated identities, you can register and authenticate users through your own existing authentication process, while still using Amazon Cognito to synchronize user data and access AWS resources. Using developer-authenticated identities involves interaction between the end user device, your backend for authentication, and Amazon Cognito. For more details, see [Understanding Amazon Cognito Authentication Part 2: Developer Authenticated Identities](https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-2-developer-authenticated-identities/) in the AWS blog.
+Amazon Cognito supports developer-authenticated identities, in addition to web identity federation through [Setting up Facebook as an identity pools IdP](facebook.md), [Setting up Google as an identity pool IdP](google.md), [Setting up Login with Amazon as an identity pools IdP](amazon.md), and [Setting up Sign in with Apple as an identity pool IdP](apple.md). With developer-authenticated identities, you can register and authenticate users through your own existing authentication process, while still using Amazon Cognito to synchronize user data and access AWS resources. Using developer-authenticated identities involves interaction between the end user device, your back end for authentication, and Amazon Cognito. For more details, see [Understanding Amazon Cognito Authentication Part 2: Developer Authenticated Identities](https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-2-developer-authenticated-identities/) in the AWS blog.
 
 ## Understanding the authentication flow
 <a name="understanding-the-authentication-flow"></a>
@@ -287,7 +287,7 @@ override func logins () -> AWSTask<NSDictionary> {
 ### JavaScript
 <a name="implement-id-provider-1.javascript"></a>
 
-Once you obtain an identity ID and session token from your backend, you will pass them to the `fromCognitoIdentity` provider from `@aws-sdk/credential-providers`. The logins key must match the token's `iss` claim. For identity pools in Regions that use the global issuer, use `cognito-identity.amazonaws.com`. For identity pools in other Regions, use `cognito-identity.{{region}}.amazonaws.com`. For more information, see [Regional token issuer format](#regional-token-issuer-format).
+Once you obtain an identity ID and session token from your back end, you will pass them to the `fromCognitoIdentity` provider from `@aws-sdk/credential-providers`. The logins key must match the token's `iss` claim. For identity pools in Regions that use the global issuer, use `cognito-identity.amazonaws.com`. For identity pools in other Regions, use `cognito-identity.{{region}}.amazonaws.com`. For more information, see [Regional token issuer format](#regional-token-issuer-format).
 
 ```
 import { fromCognitoIdentity } from "@aws-sdk/credential-providers";
@@ -352,7 +352,7 @@ credentialsProvider.clearCredentials()
 ## Getting a token (server side)
 <a name="getting-a-token-server-side"></a>
 
-You obtain a token by calling [GetOpenIdTokenForDeveloperIdentity](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html). This API must be invoked from your backend using AWS developer credentials. It must not be invoked from the client SDK. The API receives the Cognito identity pool ID; a logins map containing your identity provider name as the key and identifier as the value; and optionally a Cognito identity ID (for example, you are making an unauthenticated user authenticated). The identifier can be the username of your user, an email address, or a numerical value. The API responds to your call with a unique Cognito ID for your user and an OpenID Connect token for the end user.
+You obtain a token by calling [GetOpenIdTokenForDeveloperIdentity](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html). This API must be invoked from your back end using AWS developer credentials. It must not be invoked from the client SDK. The API receives the Cognito identity pool ID; a logins map containing your identity provider name as the key and identifier as the value; and optionally a Cognito identity ID (for example, you are making an unauthenticated user authenticated). The identifier can be the username of your user, an email address, or a numerical value. The API responds to your call with a unique Cognito ID for your user and an OpenID Connect token for the end user.
 
 A few things to keep in mind about the token returned by `GetOpenIdTokenForDeveloperIdentity`:
 + You can specify a custom expiration time for the token so you can cache it. If you don't provide any custom expiration time, the token is valid for 15 minutes. 
@@ -397,7 +397,7 @@ String token = response.getToken();
 //...
 ```
 
-Following the preceding steps, you should be able to integrate developer-authenticated identities in your app. If you have any issues or questions please feel free to post in our [forums](https://forums.aws.amazon.com/forum.jspa?forumID=173).
+Following the preceding steps, you should be able to integrate developer-authenticated identities in your app. If you have any issues or questions, post in our [forums](https://forums.aws.amazon.com/forum.jspa?forumID=173).
 
 ## Regional token issuer format
 <a name="regional-token-issuer-format"></a>
@@ -461,7 +461,7 @@ If you are migrating an identity pool to a Region that uses a regionalized issue
 ## Connect to an existing social identity
 <a name="connect-to-an-existing-social-identity"></a>
 
-All linking of providers when you are using developer-authenticated identities must be done from your backend. To connect a custom identity to a user's social identity (Login with Amazon, Sign in with Apple, Facebook, or Google), add the identity provider token to the logins map when you call [GetOpenIdTokenForDeveloperIdentity](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html). To make this possible, when you call your backend from your client SDK to authenticate your end user, additionally pass the end user's social provider token.
+All linking of providers when you are using developer-authenticated identities must be done from your back end. To connect a custom identity to a user's social identity (Login with Amazon, Sign in with Apple, Facebook, or Google), add the identity provider token to the logins map when you call [GetOpenIdTokenForDeveloperIdentity](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetOpenIdTokenForDeveloperIdentity.html). To make this possible, when you call your back end from your client SDK to authenticate your end user, additionally pass the end user's social provider token.
 
 For example, if you are trying to link a custom identity to Facebook, you would add the Facebook token in addition to your identity provider identifier to the logins map when you call `GetOpenIdTokenForDeveloperIdentity`.
 
@@ -476,9 +476,9 @@ logins.put("graph.facebook.com","END_USERS_FACEBOOK_ACCESSTOKEN");
 ### Android
 <a name="support-transition-between-providers-1.android"></a>
 
-Your application might require supporting unauthenticated identities or authenticated identities using public providers (Login with Amazon, Sign in with Apple, Facebook, or Google) along with developer-authenticated identities. The essential difference between developer-authenticated identities and other identities (unauthenticated identities and authenticated identities using public provider) is the way the identityId and token are obtained. For other identities, the mobile application will interact directly with Amazon Cognito instead of contacting your authentication system. So the mobile application should be able to support two distinct flows depending on the choice made by the app user. For this, you will have to make some changes to the custom identity provider.
+Your application might require supporting unauthenticated identities or authenticated identities using public providers (Login with Amazon, Sign in with Apple, Facebook, or Google) along with developer-authenticated identities. The essential difference between developer-authenticated identities and other identities (unauthenticated identities and authenticated identities using public provider) is the way the identityId and token are obtained. For other identities, the mobile application interacts directly with Amazon Cognito instead of contacting your authentication system. So the mobile application should be able to support two distinct flows depending on the choice made by the app user. For this, you will have to make some changes to the custom identity provider.
 
-The `refresh` method checks the logins map. If the map is not empty and has a key with developer provider name, then call your backend. Otherwise, call the getIdentityId method and return null.
+The `refresh` method checks the logins map. If the map is not empty and has a key with developer provider name, then call your back end. Otherwise, call the getIdentityId method and return null.
 
 ```
 public String refresh() {
@@ -507,7 +507,7 @@ public String refresh() {
 }
 ```
 
-Similarly the `getIdentityId` method will have two flows depending on the contents of the logins map:
+Similarly the `getIdentityId` method has two flows depending on the contents of the logins map:
 
 ```
 public String getIdentityId() {
@@ -560,7 +560,7 @@ Your application might require supporting unauthenticated identities or authenti
 }
 ```
 
-When you transition from unauthenticated to authenticated, you should call `[credentialsProvider clearCredentials];` to force the SDK to get new authenticated credentials. When you switch between two authenticated providers and you aren't trying to link the two providers (for example, you are not providing tokens for multiple providers in your logins dictionary), call `[credentialsProvider clearKeychain];`. This will clear both the credentials and identity and force the SDK to get new ones.
+When you transition from unauthenticated to authenticated, you should call `[credentialsProvider clearCredentials];` to force the SDK to get new authenticated credentials. When you switch between two authenticated providers and you aren't trying to link the two providers (for example, you are not providing tokens for multiple providers in your logins dictionary), call `[credentialsProvider clearKeychain];`. This clears both the credentials and identity and forces the SDK to get new ones.
 
 ### iOS - swift
 <a name="support-transition-between-providers-1.ios-swift"></a>
@@ -582,11 +582,11 @@ override func logins () -> AWSTask<NSDictionary> {
 }
 ```
 
-When you transition from unauthenticated to authenticated, you should call `credentialsProvider.clearCredentials()` to force the SDK to get new authenticated credentials. When you switch between two authenticated providers and you aren't trying to link the two providers (i.e. you are not providing tokens for multiple providers in your logins dictionary), you should call `credentialsProvider.clearKeychain()`. This will clear both the credentials and identity and force the SDK to get new ones.
+When you transition from unauthenticated to authenticated, you should call `credentialsProvider.clearCredentials()` to force the SDK to get new authenticated credentials. When you switch between two authenticated providers and you aren't trying to link the two providers (i.e. you are not providing tokens for multiple providers in your logins dictionary), you should call `credentialsProvider.clearKeychain()`. This clears both the credentials and identity and forces the SDK to get new ones.
 
 ### Unity
 <a name="support-transition-between-providers-1.unity"></a>
 
-Your application might require supporting unauthenticated identities or authenticated identities using public providers (Login with Amazon, Sign in with Apple, Facebook, or Google) along with developer-authenticated identities. The essential difference between developer-authenticated identities and other identities (unauthenticated identities and authenticated identities using public provider) is the way the identityId and token are obtained. For other identities, the mobile application will interact directly with Amazon Cognito instead of contacting your authentication system. The mobile application should be able to support two distinct flows depending on the choice made by the app user. For this you will have to make some changes to the custom identity provider.
+Your application might require supporting unauthenticated identities or authenticated identities using public providers (Login with Amazon, Sign in with Apple, Facebook, or Google) along with developer-authenticated identities. The essential difference between developer-authenticated identities and other identities (unauthenticated identities and authenticated identities using public provider) is the way the identityId and token are obtained. For other identities, the mobile application interacts directly with Amazon Cognito instead of contacting your authentication system. The mobile application should be able to support two distinct flows depending on the choice made by the app user. For this you will have to make some changes to the custom identity provider.
 
-The recommended way to do it in Unity is to extend your identity provider from AmazonCognitoEnhancedIdentityProvide instead of AbstractCognitoIdentityProvider, and call the parent RefreshAsync method instead of your own in case the user is not authenticated with your own backend. If the user is authenticated, you can use the same flow explained before.
+The recommended way to do it in Unity is to extend your identity provider from AmazonCognitoEnhancedIdentityProvide instead of AbstractCognitoIdentityProvider, and call the parent RefreshAsync method instead of your own in case the user is not authenticated with your own back end. If the user is authenticated, you can use the same flow explained before.

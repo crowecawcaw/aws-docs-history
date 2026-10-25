@@ -16,10 +16,10 @@ When a user signs into your app, Amazon Cognito verifies the login information. 
 
 
 **Storing tokens**  
-Your app must be able to store tokens of varying sizes. Token size can change for reasons including, but not limited to, additional claims, changes in encoding algorithms, and changes in encryption algorithms. When you enable token revocation in your user pool, Amazon Cognito adds additional claims to JSON Web Tokens, increasing their size. The new claims `origin_jti` and `jti` are added to access and ID tokens. For more information about token revocation, see [Revoking tokens](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html).
+Your app must be able to store tokens of varying sizes. Token size can change for reasons including, but not limited to, additional claims, changes in encoding algorithms, and changes in encryption algorithms. When you enable token revocation in your user pool, Amazon Cognito adds additional claims to JSON web tokens, increasing their size. The new claims `origin_jti` and `jti` are added to access and ID tokens. For more information about token revocation, see [Revoking tokens](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html).
 
 **Important**  
-As a best practice, secure all tokens in transit and storage in the context of your application. Tokens can contain personally-identifying information about your users, and information about the security model that you use for your user pool.
+As a best practice, secure all tokens in transit and storage in the context of your application. Tokens can contain personally identifying information about your users, and information about the security model that you use for your user pool.
 
 **Customizing tokens**  
 You can customize the access and ID tokens that Amazon Cognito passes to your app. In a [Pre token generation Lambda trigger](user-pool-lambda-pre-token-generation.md), you can add, modify, and suppress token claims. The pre token generation trigger is a Lambda function that Amazon Cognito sends a default set of claims to. The claims include OAuth 2.0 scopes, user pool group membership, user attributes, and others. The function can then take the opportunity to make changes at runtime and return updated token claims to Amazon Cognito.

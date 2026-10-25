@@ -14,7 +14,7 @@ The `saml2/idpresponse` endpoint can accept SAML assertions of up to 100,000 cha
 
 To use the `/saml2/idpresponse` endpoint in an IdP-initiated sign-in, generate a POST request with parameters that provide your user pool with information about your user's session.
 + The app client that they want to sign in to.
-+ The callback URL that they want to end up at.
++ The callback URL that they want to be redirected to.
 + The OAuth 2.0 scopes that they want to request in your user's access token.
 + The IdP that initiated the sign-in request.
 

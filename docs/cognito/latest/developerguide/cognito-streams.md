@@ -29,7 +29,7 @@ From the [console home page](https://console.aws.amazon.com/cognito/home):
 
 1. In the **Stream status** dropdown menu, select **Enabled** to enable the stream updates. Click **Save Changes**.
 
-After you've successfully configured Amazon Cognito streams, all subsequent updates to datasets in this identity pool will be sent to the stream.
+After you've successfully configured Amazon Cognito streams, all subsequent updates to datasets in this identity pool are sent to the stream.
 
 **Stream contents**
 
@@ -65,7 +65,7 @@ After you have configured Amazon Cognito streams, if you delete the Kinesis stre
 
 **Bulk publishing**
 
-Once you have configured Amazon Cognito streams, you will be able to execute a bulk publish operation for the existing data in your identity pool. After you initiate a bulk publish operation, either via the console or directly via the API, Amazon Cognito will start publishing this data to the same stream that is receiving your updates.
+Once you have configured Amazon Cognito streams, you will be able to execute a bulk publish operation for the existing data in your identity pool. After you initiate a bulk publish operation, either via the console or directly via the API, Amazon Cognito starts publishing this data to the same stream that is receiving your updates.
 
 Amazon Cognito does not guarantee uniqueness of data sent to the stream when using the bulk publish operation. You may receive the same update both as an update as well as part of a bulk publish. Keep this in mind when processing the records from your stream.
 

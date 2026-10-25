@@ -10,7 +10,7 @@ Amazon Cognito invokes this trigger before it sends an email or phone verificati
 The request includes `codeParameter`. This is a string that acts as a placeholder for the code that Amazon Cognito delivers to the user. Insert the `codeParameter` string into the message body where you want the verification code to appear. When Amazon Cognito receives this response, Amazon Cognito replaces the `codeParameter` string with the actual verification code. 
 
 **Note**  
-The input event for a custom message Lambda function with the `CustomMessage_AdminCreateUser` trigger source includes a username and verification code. Because an admin-created user must receive both their user name and code, the response from your function must include placeholder variables for the username and code. The placeholders for your message are the values of `request.usernameParameter` and `request.codeParameter`. These values are typically `{username}` and `{####}`; as a best practice, reference the input values instead of hardcoding the variable names.
+The input event for a custom message Lambda function with the `CustomMessage_AdminCreateUser` trigger source includes a username and verification code. Because an admin-created user must receive both their username and code, the response from your function must include placeholder variables for the username and code. The placeholders for your message are the values of `request.usernameParameter` and `request.codeParameter`. These values are typically `{username}` and `{####}`; as a best practice, reference the input values instead of hardcoding the variable names.
 
 **Note**  
 Messages that you configure in the **Message templates** menu of the Amazon Cognito console can override a body that your custom message function sets. If your function's message doesn't appear, check whether a console message template is configured for the same event. For more information, see [Configuring MFA, authentication, verification and invitation messages](cognito-user-pool-settings-message-customizations.md).
@@ -77,7 +77,7 @@ One or more name-value pairs representing user attributes.
 A string for you to use as the placeholder for the verification code in the custom message.
 
 **usernameParameter**  
-The user name. Amazon Cognito includes this parameter in requests that result from admin-created users.
+The username. Amazon Cognito includes this parameter in requests that result from admin-created users.
 
 **clientMetadata**  
 One or more key-value pairs that you can provide as custom input to the Lambda function that you specify for the custom message trigger. The request that invokes a custom message function doesn't include data passed in the ClientMetadata parameter in [AdminInitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html) and [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) API operations. To pass this data to your Lambda function, you can use the ClientMetadata parameter in the following API actions:  

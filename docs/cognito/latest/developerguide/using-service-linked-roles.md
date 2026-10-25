@@ -53,7 +53,7 @@ The role permissions policy allows Amazon Cognito to complete the following acti
 With this permission, Amazon Cognito can call `Describe` Amazon Cognito API operations for you.
 
 **Note**  
-When you integrate Amazon Cognito with Amazon Pinpoint using `createUserPoolClient` and `updateUserPoolClient`, resource permissions will be added to the SLR as an inline policy. The inline policy will provide `mobiletargeting:UpdateEndpoint` and `mobiletargeting:PutEvents` permissions. These permissions allow Amazon Cognito to publish events and configure endpoints for Pinpoint projects you integrate with Cognito.
+When you integrate Amazon Cognito with Amazon Pinpoint using `createUserPoolClient` and `updateUserPoolClient`, resource permissions are added to the SLR as an inline policy. The inline policy provides `mobiletargeting:UpdateEndpoint` and `mobiletargeting:PutEvents` permissions. These permissions allow Amazon Cognito to publish events and configure endpoints for Pinpoint projects you integrate with Cognito.
 
 ## Creating a service-linked role for Amazon Cognito
 <a name="create-slr"></a>

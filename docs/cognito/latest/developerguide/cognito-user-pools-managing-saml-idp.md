@@ -31,7 +31,7 @@ Before you create a SAML IdP, you must have the SAML metadata document that you 
 1. Choose **Add sign-out flow** if you want Amazon Cognito to send signed sign-out requests to your provider when a user logs out. You must configure your SAML 2.0 IdP to send sign-out responses to the `https://{{mydomain.auth.us-east-1.amazoncognito.com}}/saml2/logout` endpoint that is created when you configure managed login. The `saml2/logout` endpoint uses POST binding.
 **Note**  
 If this option is selected and your SAML IdP expects a signed logout request, you must also provide your SAML IdP with the signing certificate from your user pool.  
-The SAML IdP will process the signed logout request and sign out your user from the Amazon Cognito session.
+The SAML IdP processes the signed logout request and signs out your user from the Amazon Cognito session.
 
 1. Choose your **IdP-initiated SAML sign-in** configuration. As a security best practice, choose **Accept SP-initiated SAML assertions only**. If you have prepared your environment to securely accept unsolicited SAML sign-in sessions, choose **Accept SP-initiated and IdP-initiated SAML assertions**. For more information, see [SAML session initiation in Amazon Cognito user pools](cognito-user-pools-SAML-session-initiation.md).
 

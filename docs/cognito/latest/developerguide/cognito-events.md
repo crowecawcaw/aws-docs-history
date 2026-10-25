@@ -9,7 +9,7 @@ It enables user data like app preferences or game state to be synchronized. It a
 
 Amazon Cognito Events allows you to execute an AWS Lambda function in response to important events in Amazon Cognito. Amazon Cognito raises the Sync Trigger event when a dataset is synchronized. You can use the Sync Trigger event to take an action when a user updates data. The function can evaluate and optionally manipulate the data before it is stored in the cloud and synchronized to the user's other devices. This is useful to validate data coming from the device before it is synchronized to the user's other devices, or to update other values in the dataset based on incoming data such as issuing an award when a player reaches a new level.
 
-The steps below will guide you through setting up a Lambda function that executes each time a Amazon Cognito Dataset is synchronized.
+The steps below guide you through setting up a Lambda function that executes each time a Amazon Cognito Dataset is synchronized.
 
 **Note**  
 When using Amazon Cognito events, you can only use the credentials obtained from Amazon Cognito Identity. If you have an associated Lambda function, but you call `UpdateRecords` with AWS account credentials (developer credentials), your Lambda function will not be invoked.
@@ -78,7 +78,7 @@ From the console home page:
 
 1. Click Save Changes.
 
-Now, your Lambda function will be executed each time a dataset is synchronized. The next section explains how you can read and modify the data in your function as it is being synchronized.
+Now, your Lambda function is executed each time a dataset is synchronized. The next section explains how you can read and modify the data in your function as it is being synchronized.
 
 **Writing a Lambda function for sync triggers**
 

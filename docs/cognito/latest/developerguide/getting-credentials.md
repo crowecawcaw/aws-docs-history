@@ -29,7 +29,7 @@ The following sections provide example code in some legacy AWS SDKs.
 ## Android
 <a name="getting-credentials-1.android"></a>
 
-You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application, so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow the steps below.
+You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application, so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow these steps.
 
 To use a Amazon Cognito identity pool in an Android app, set up AWS Amplify. For more information, see [Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/android/) in the *Amplify Dev Center*.
 
@@ -71,12 +71,12 @@ You can retrieve a unique Amazon Cognito identifier (identity ID) for your end u
 ```
 
 **Note**  
- `getIdentityId` is an asynchronous call. If an identity ID is already set on your provider, you can call `credentialsProvider.identityId` to retrieve that identity, which is cached locally. However, if an identity ID is not set on your provider, calling `credentialsProvider.identityId` will return `nil`. For more information, consult the [Amplify iOS SDK reference](https://github.com/aws-amplify/aws-sdk-ios). 
+ `getIdentityId` is an asynchronous call. If an identity ID is already set on your provider, you can call `credentialsProvider.identityId` to retrieve that identity, which is cached locally. However, if an identity ID is not set on your provider, calling `credentialsProvider.identityId` returns `nil`. For more information, consult the [Amplify iOS SDK reference](https://github.com/aws-amplify/aws-sdk-ios). 
 
 ## iOS - Swift
 <a name="getting-credentials-1.ios-swift"></a>
 
-You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow the steps below. 
+You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow these steps. 
 
 To use a Amazon Cognito identity pool in an iOS app, set up AWS Amplify. For more information, see [Swift Authentication](https://docs.amplify.aws/lib/auth/getting-started/q/platform/ios/) in the *Amplify Dev Center*.
 
@@ -100,7 +100,7 @@ credentialsProvider.getIdentityId().continueWith(block: { (task) -> AnyObject? i
 ```
 
 **Note**  
- `getIdentityId` is an asynchronous call. If an identity ID is already set on your provider, you can call `credentialsProvider.identityId` to retrieve that identity, which is cached locally. However, if an identity ID is not set on your provider, calling `credentialsProvider.identityId` will return `nil`. For more information, consult the [Amplify iOS SDK reference](https://github.com/aws-amplify/aws-sdk-ios). 
+ `getIdentityId` is an asynchronous call. If an identity ID is already set on your provider, you can call `credentialsProvider.identityId` to retrieve that identity, which is cached locally. However, if an identity ID is not set on your provider, calling `credentialsProvider.identityId` returns `nil`. For more information, consult the [Amplify iOS SDK reference](https://github.com/aws-amplify/aws-sdk-ios). 
 
 ## JavaScript
 <a name="getting-credentials-1.javascript"></a>
@@ -174,7 +174,7 @@ const { identityId } = await client.config.credentials();
 ## Unity
 <a name="getting-credentials-1.unity"></a>
 
- You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application, so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow the steps below. 
+ You can use Amazon Cognito to deliver temporary, limited-privilege credentials to your application, so that your users can access AWS resources. Amazon Cognito supports both authenticated and unauthenticated identities. To provide AWS credentials to your app, follow these steps. 
 
 The [AWS SDK for Unity](https://docs.aws.amazon.com/mobile/sdkforunity/developerguide/what-is-unity-plugin.html) is now part of the [SDK for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/welcome.html). To get started with Amazon Cognito in the SDK for .NET, see [Amazon Cognito credentials provider](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/cognito-creds-provider.html) in the AWS SDK for .NET Developer Guide. Or see [Amplify Dev Center](https://docs.amplify.aws/) for options for building an app with AWS Amplify.
 

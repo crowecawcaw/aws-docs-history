@@ -13,7 +13,7 @@ You must also configure your SAML IdP to provide values for any attributes that 
 
 The following configuration information for third-party SAML 2.0 IdP solutions is a good place to start setting up federation with Amazon Cognito user pools. For the most current information, consult your provider's documentation directly.
 
-To sign SAML requests, you must configure your IdP to trust requests signed by your user pool signing certificate. To accept encrypted SAML responses, you must configure your IdP to encrypt *all* SAML responses to your user pool. Your provider will have documentation about configuring these features. For an example from Microsoft, see [Configure Microsoft Entra SAML token encryption](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/howto-saml-token-encryption).
+To sign SAML requests, you must configure your IdP to trust requests signed by your user pool signing certificate. To accept encrypted SAML responses, you must configure your IdP to encrypt *all* SAML responses to your user pool. Your provider has documentation about configuring these features. For an example from Microsoft, see [Configure Microsoft Entra SAML token encryption](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/howto-saml-token-encryption).
 
 **Note**  
 Amazon Cognito only requires your identity provider metadata document. Your provider might also offer customized configuration information for SAML 2.0 federation with IAM or AWS IAM Identity Center. To learn how to set up Amazon Cognito integration, look for general directions for retrieving the metadata document and manage the rest of the configuration in your user pool.

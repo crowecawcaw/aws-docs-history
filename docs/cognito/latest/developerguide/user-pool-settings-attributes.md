@@ -44,7 +44,7 @@ The standard attributes are:
 + `phone_number`
 + `sub`
 
-Except for `sub`, standard attributes are optional by default for all users. To make an attribute required, during the user pool creation process, select the **Required** check box next to the attribute. Amazon Cognito assigns a unique user identifier value to each user's `sub` attribute. Only the **email** and **phone\_number** attributes can be verified.
+Except for `sub`, standard attributes are optional by default for all users. To make an attribute required, during the user pool creation process, select the **Required** checkbox next to the attribute. Amazon Cognito assigns a unique user identifier value to each user's `sub` attribute. Only the **email** and **phone\_number** attributes can be verified.
 
 Standard attributes have predefined properties that you can view in the `SchemaAttributes` parameter of a [DescribeUserPool API response](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html#API_DescribeUserPool_ResponseSyntax). You can set custom values for these attribute properties, like data type, mutability, and length constraints. To modify standard attribute properties, set their custom values in the [CreateUserPool Schema parameter](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html#CognitoUserPools-CreateUserPool-request-Schema). The schema is also where you set required attributes. You can't modify the properties of standard attributes when you create user pools in the Amazon Cognito console.
 
@@ -126,7 +126,7 @@ After you create a user pool, you can't change this setting.
 
 ² Can sign in with email address or phone number.
 
-³ Your user pool doesn't generate `UsernameExistsException` errors when users register with potentially-duplicate email addresses or phone numbers, but no username. This behavior is independent of **Prevent username existence errors**, which applies to sign-in, but not sign-up, operations.
+³ Your user pool doesn't generate `UsernameExistsException` errors when users register with potentially duplicate email addresses or phone numbers, but no username. This behavior is independent of **Prevent username existence errors**, which applies to sign-in, but not sign-up, operations.
 
 ⁴ Only the last user who has verified the attribute can sign in with it.
 
@@ -288,7 +288,7 @@ The following example configures a user pool where each user signs in with only 
 
 ------
 
-When you configure username attributes, your can make [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) API requests that pass an email address or phone number in the `username` parameter. The following is the behavior of the code`SignUp` API operation with username attributes.
+When you configure username attributes, you can make [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) API requests that pass an email address or phone number in the `username` parameter. The following is the behavior of the `SignUp` API operation with username attributes.
 + If the `username` string is in valid email address format, for example `user@example.com`, the user pool automatically populates the `email` attribute of the user with the `username` value.
 + If the `username` string is in valid phone number format, for example `+12065551212`, the user pool automatically populates the `phone_number` attribute of the user with the `username` value.
 + If the `username` string format isn't in email address or phone number format, the `SignUp` API returns an exception.
@@ -300,7 +300,7 @@ You can use an email address or phone number in place of the username in all API
 ## Custom attributes
 <a name="user-pool-settings-custom-attributes"></a>
 
-You can add up to 50 custom attributes to your user pool. You can specify a minimum and/or maximum length for custom attributes. However, the maximum length for any custom attribute can be no more than 2048 characters. The name of a custom attribute must match the regular expression pattern that's described in the `Name` parameter of [SchemaAttributeType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html).
+You can add up to 50 custom attributes to your user pool. You can specify a minimum length, a maximum length, or both for custom attributes. However, the maximum length for any custom attribute can be no more than 2048 characters. The name of a custom attribute must match the regular expression pattern that's described in the `Name` parameter of [SchemaAttributeType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SchemaAttributeType.html).
 
 **Custom attributes are permanent**  
 You can't remove or change a custom attribute after you add it to your user pool. You can't delete or rename the attribute. You also can't change its data type, mutability, or length constraints. Plan your custom attribute schema before you add attributes to a production user pool.

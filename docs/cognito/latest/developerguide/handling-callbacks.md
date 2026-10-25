@@ -101,7 +101,7 @@ public boolean onDatasetsMerged(Dataset dataset, List<String> datasetNames) {
 
 **Sync Notifications**
 
-The Amazon Cognito client will emit a number of `NSNotification` events during a synchronize call. You can register to monitor these notifications via the standard `NSNotificationCenter`:
+The Amazon Cognito client emits a number of `NSNotification` events during a synchronize call. You can register to monitor these notifications via the standard `NSNotificationCenter`:
 
 ```
 [NSNotificationCenter defaultCenter]
@@ -115,29 +115,29 @@ Amazon Cognito supports five notification types, listed below.
 
 **AWSCognitoDidStartSynchronizeNotification**
 
-Called when a synchronize operation is starting. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized.
+Called when a synchronize operation is starting. The `userInfo` contains the key dataset which is the name of the dataset being synchronized.
 
 **AWSCognitoDidEndSynchronizeNotification**
 
-Called when a synchronize operation completes (successfully or otherwise). The `userInfo` will contain the key dataset which is the name of the dataset being synchronized.
+Called when a synchronize operation completes (successfully or otherwise). The `userInfo` contains the key dataset which is the name of the dataset being synchronized.
 
 **AWSCognitoDidFailToSynchronizeNotification**
 
-Called when a synchronize operation fails. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized and the key error which will contain the error that caused the failure.
+Called when a synchronize operation fails. The `userInfo` contains the key dataset which is the name of the dataset being synchronized and the key error which contains the error that caused the failure.
 
 **AWSCognitoDidChangeRemoteValueNotification**
 
-Called when local changes are successfully pushed to Amazon Cognito. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized and the key keys which will contain an NSArray of record keys that were pushed.
+Called when local changes are successfully pushed to Amazon Cognito. The `userInfo` contains the key dataset which is the name of the dataset being synchronized and the key keys which contain an NSArray of record keys that were pushed.
 
 **AWSCognitoDidChangeLocalValueFromRemoteNotification**
 
-Called when a local value changes due to a synchronize operation. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized and the key keys which will contain an NSArray of record keys that changed.
+Called when a local value changes due to a synchronize operation. The `userInfo` contains the key dataset which is the name of the dataset being synchronized and the key keys which contain an NSArray of record keys that changed.
 
 **Conflict Resolution Handler**
 
 During a sync operation, conflicts may arise if the same key has been modified on the local store and in the sync store. If you haven't set a conflict resolution handler, Amazon Cognito defaults to choosing the most recent update.
 
-By implementing and assigning an AWSCognitoRecordConflictHandler you can alter the default conflict resolution. The AWSCognitoConflict input parameter conflict contains an AWSCognitoRecord object for both the local cached data and for the conflicting record in the sync store. Using the AWSCognitoConflict you can resolve the conflict with the local record: [conflict resolveWithLocalRecord], the remote record: [conflict resolveWithRemoteRecord] or a brand new value: [conflict resolveWithValue:value]. Returning nil from this method prevents synchronization from continuing and the conflicts will be presented again the next time the sync process starts.
+By implementing and assigning an AWSCognitoRecordConflictHandler you can alter the default conflict resolution. The AWSCognitoConflict input parameter conflict contains an AWSCognitoRecord object for both the local cached data and for the conflicting record in the sync store. Using the AWSCognitoConflict you can resolve the conflict with the local record: [conflict resolveWithLocalRecord], the remote record: [conflict resolveWithRemoteRecord] or a brand new value: [conflict resolveWithValue:value]. Returning nil from this method prevents synchronization from continuing and the conflicts are presented again the next time the sync process starts.
 
 You can set the conflict resolution handler at the client level:
 
@@ -159,7 +159,7 @@ dataset.conflictHandler = ^AWSCognitoResolvedConflict* (NSString *datasetName, A
 
 **Dataset Deleted Handler**
 
-When a dataset is deleted, the Amazon Cognito client uses the `AWSCognitoDatasetDeletedHandler` to confirm whether the local cached copy of the dataset should be deleted too. If no `AWSCognitoDatasetDeletedHandler` is implemented, the local data will be purged automatically. Implement an `AWSCognitoDatasetDeletedHandler` if you wish to keep a copy of the local data before wiping, or to keep the local data.
+When a dataset is deleted, the Amazon Cognito client uses the `AWSCognitoDatasetDeletedHandler` to confirm whether the local cached copy of the dataset should be deleted too. If no `AWSCognitoDatasetDeletedHandler` is implemented, the local data is purged automatically. Implement an `AWSCognitoDatasetDeletedHandler` if you wish to keep a copy of the local data before wiping, or to keep the local data.
 
 You can set the dataset deleted handler at the client level:
 
@@ -183,9 +183,9 @@ dataset.datasetDeletedHandler = ^BOOL (NSString *datasetName) {
 
 **Dataset Merge Handler**
 
-When two previously unconnected identities are linked together, all of their datasets are merged. Applications are notified of the merge through the `DatasetMergeHandler`. The handler will receive the name of the root dataset as well as an array of dataset names that are marked as merges of the root dataset.
+When two previously unconnected identities are linked together, all of their datasets are merged. Applications are notified of the merge through the `DatasetMergeHandler`. The handler receives the name of the root dataset as well as an array of dataset names that are marked as merges of the root dataset.
 
-If no `DatasetMergeHandler` is implemented, these datasets will be ignored, but will continue to use up space in the identity's 20 maximum total datasets.
+If no `DatasetMergeHandler` is implemented, these datasets are ignored, but continue to use up space in the identity's 20 maximum total datasets.
 
 You can set the dataset merge handler at the client level:
 
@@ -221,7 +221,7 @@ dataset.datasetMergedHandler = ^(NSString *datasetName, NSArray *datasets) {
 
 **Sync Notifications**
 
-The Amazon Cognito client will emit a number of `NSNotification` events during a synchronize call. You can register to monitor these notifications via the standard `NSNotificationCenter`:
+The Amazon Cognito client emits a number of `NSNotification` events during a synchronize call. You can register to monitor these notifications via the standard `NSNotificationCenter`:
 
 ```
 NSNotificationCenter.defaultCenter().addObserver(observer: self,
@@ -234,29 +234,29 @@ Amazon Cognito supports five notification types, listed below.
 
 **AWSCognitoDidStartSynchronizeNotification**
 
-Called when a synchronize operation is starting. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized.
+Called when a synchronize operation is starting. The `userInfo` contains the key dataset which is the name of the dataset being synchronized.
 
 **AWSCognitoDidEndSynchronizeNotification**
 
-Called when a synchronize operation completes (successfully or otherwise). The `userInfo` will contain the key dataset which is the name of the dataset being synchronized.
+Called when a synchronize operation completes (successfully or otherwise). The `userInfo` contains the key dataset which is the name of the dataset being synchronized.
 
 **AWSCognitoDidFailToSynchronizeNotification**
 
-Called when a synchronize operation fails. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized and the key error which will contain the error that caused the failure.
+Called when a synchronize operation fails. The `userInfo` contains the key dataset which is the name of the dataset being synchronized and the key error which contains the error that caused the failure.
 
 **AWSCognitoDidChangeRemoteValueNotification**
 
-Called when local changes are successfully pushed to Amazon Cognito. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized and the key keys which will contain an NSArray of record keys that were pushed.
+Called when local changes are successfully pushed to Amazon Cognito. The `userInfo` contains the key dataset which is the name of the dataset being synchronized and the key keys which contain an NSArray of record keys that were pushed.
 
 **AWSCognitoDidChangeLocalValueFromRemoteNotification**
 
-Called when a local value changes due to a synchronize operation. The `userInfo` will contain the key dataset which is the name of the dataset being synchronized and the key keys which will contain an NSArray of record keys that changed.
+Called when a local value changes due to a synchronize operation. The `userInfo` contains the key dataset which is the name of the dataset being synchronized and the key keys which contain an NSArray of record keys that changed.
 
 **Conflict Resolution Handler**
 
 During a sync operation, conflicts may arise if the same key has been modified on the local store and in the sync store. If you haven't set a conflict resolution handler, Amazon Cognito defaults to choosing the most recent update.
 
-By implementing and assigning an `AWSCognitoRecordConflictHandler` you can alter the default conflict resolution. The `AWSCognitoConflict` input parameter conflict contains an `AWSCognitoRecord` object for both the local cached data and for the conflicting record in the sync store. Using the `AWSCognitoConflict` you can resolve the conflict with the local record: [conflict resolveWithLocalRecord], the remote record: [conflict resolveWithRemoteRecord] or a brand new value: [conflict resolveWithValue:value]. Returning nil from this method prevents synchronization from continuing and the conflicts will be presented again the next time the sync process starts.
+By implementing and assigning an `AWSCognitoRecordConflictHandler` you can alter the default conflict resolution. The `AWSCognitoConflict` input parameter conflict contains an `AWSCognitoRecord` object for both the local cached data and for the conflicting record in the sync store. Using the `AWSCognitoConflict` you can resolve the conflict with the local record: [conflict resolveWithLocalRecord], the remote record: [conflict resolveWithRemoteRecord] or a brand new value: [conflict resolveWithValue:value]. Returning nil from this method prevents synchronization from continuing and the conflicts are presented again the next time the sync process starts.
 
 You can set the conflict resolution handler at the client level:
 
@@ -278,7 +278,7 @@ dataset.conflictHandler = {
 
 **Dataset Deleted Handler**
 
-When a dataset is deleted, the Amazon Cognito client uses the `AWSCognitoDatasetDeletedHandler` to confirm whether the local cached copy of the dataset should be deleted too. If no `AWSCognitoDatasetDeletedHandler` is implemented, the local data will be purged automatically. Implement an `AWSCognitoDatasetDeletedHandler` if you wish to keep a copy of the local data before wiping, or to keep the local data.
+When a dataset is deleted, the Amazon Cognito client uses the `AWSCognitoDatasetDeletedHandler` to confirm whether the local cached copy of the dataset should be deleted too. If no `AWSCognitoDatasetDeletedHandler` is implemented, the local data is purged automatically. Implement an `AWSCognitoDatasetDeletedHandler` if you wish to keep a copy of the local data before wiping, or to keep the local data.
 
 You can set the dataset deleted handler at the client level:
 
@@ -306,9 +306,9 @@ dataset.datasetDeletedHandler = {
 
 **Dataset merge handler**
 
-When two previously unconnected identities are linked together, all of their datasets are merged. Applications are notified of the merge through the `DatasetMergeHandler`. The handler will receive the name of the root dataset as well as an array of dataset names that are marked as merges of the root dataset.
+When two previously unconnected identities are linked together, all of their datasets are merged. Applications are notified of the merge through the `DatasetMergeHandler`. The handler receives the name of the root dataset as well as an array of dataset names that are marked as merges of the root dataset.
 
-If no `DatasetMergeHandler` is implemented, these datasets will be ignored, but will continue to use up space in the identity's 20 maximum total datasets.
+If no `DatasetMergeHandler` is implemented, these datasets are ignored, but continue to use up space in the identity's 20 maximum total datasets.
 
 You can set the dataset merge handler at the client level:
 
@@ -432,7 +432,7 @@ onConflict: function(dataset, conflicts, callback) {
 
 **onDatasetDeleted()**
 
-When a dataset is deleted, the Amazon Cognito client uses the `onDatasetDeleted()` callback to decide whether the local cached copy of the dataset should be deleted too. By default, the dataset will not be deleted.
+When a dataset is deleted, the Amazon Cognito client uses the `onDatasetDeleted()` callback to decide whether the local cached copy of the dataset should be deleted too. By default, the dataset is not deleted.
 
 ```
 onDatasetDeleted: function(dataset, datasetName, callback) {
@@ -463,7 +463,7 @@ onDatasetMerged: function(dataset, datasetNames, callback) {
 ## Unity
 <a name="handling-callbacks-1.unity"></a>
 
-After you open or create a dataset, you can set different callbacks to it that will be triggered when you use the Synchronize method. This is the way to register your callbacks to them:
+After you open or create a dataset, you can set different callbacks to it that are triggered when you use the Synchronize method. This is the way to register your callbacks to them:
 
 ```
 dataset.OnSyncSuccess += this.HandleSyncSuccess;
@@ -534,7 +534,7 @@ private bool HandleSyncConflict(Dataset dataset, List < SyncConflict > conflicts
 
 **OnDatasetDeleted**
 
-When a dataset is deleted, the Amazon Cognito client uses the `OnDatasetDeleted` callback to decide whether the local cached copy of the dataset should be deleted too. By default, the dataset will not be deleted.
+When a dataset is deleted, the Amazon Cognito client uses the `OnDatasetDeleted` callback to decide whether the local cached copy of the dataset should be deleted too. By default, the dataset is not deleted.
 
 ```
 private bool HandleDatasetDeleted(Dataset dataset)
@@ -583,7 +583,7 @@ public bool HandleDatasetMerged(Dataset localDataset, List<string> mergedDataset
 ## Xamarin
 <a name="handling-callbacks-1.xamarin"></a>
 
-After you open or create a dataset, you can set different callbacks to it that will be triggered when you use the Synchronize method. This is the way to register your callbacks to them:
+After you open or create a dataset, you can set different callbacks to it that are triggered when you use the Synchronize method. This is the way to register your callbacks to them:
 
 ```
 dataset.OnSyncSuccess += this.HandleSyncSuccess;
@@ -652,7 +652,7 @@ private bool HandleSyncConflict(Dataset dataset, List < SyncConflict > conflicts
 
 **OnDatasetDeleted**
 
-When a dataset is deleted, the Amazon Cognito client uses the `OnDatasetDeleted` callback to decide whether the local cached copy of the dataset should be deleted too. By default, the dataset will not be deleted.
+When a dataset is deleted, the Amazon Cognito client uses the `OnDatasetDeleted` callback to decide whether the local cached copy of the dataset should be deleted too. By default, the dataset is not deleted.
 
 ```
 private bool HandleDatasetDeleted(Dataset dataset)

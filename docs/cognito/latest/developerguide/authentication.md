@@ -3,7 +3,7 @@
 # Authentication with Amazon Cognito user pools
 <a name="authentication"></a>
 
-Amazon Cognito includes several methods to authenticate your users. Users can sign in with passwords and WebAuthn passkeys. Amazon Cognito can send them a one-time password in an email or SMS message. You can implement Lambda functions that orchestrate your own sequence of challenges and responses. These are *authentication flows*. In authentication flows, users provide a secret and Amazon Cognito verifies the secret, then issues JSON web tokens (JWTs) for applications to process with OIDC libraries. In this chapter, we'll talk about how to configure your user pools and app clients for various authentication flows in various application environments. You'll learn about options for the use of the hosted sign-in pages of managed login, and for building your own logic and front end in an AWS SDK.
+Amazon Cognito includes several methods to authenticate your users. Users can sign in with passwords and WebAuthn passkeys. Amazon Cognito can send them a one-time password in an email or SMS message. You can implement Lambda functions that orchestrate your own sequence of challenges and responses. These are *authentication flows*. In authentication flows, users provide a secret and Amazon Cognito verifies the secret, then issues JSON web tokens (JWTs) for applications to process with OIDC libraries. This chapter describes how to configure your user pools and app clients for various authentication flows in various application environments. It covers options for the use of the hosted sign-in pages of managed login, and for building your own logic and front end in an AWS SDK.
 
 All user pools, whether you have a domain or not, can authenticate users in the user pools API. If you add a domain to your user pool, you can use the [user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html). The user pools API supports a variety of authorization models and request flows for API requests.
 
@@ -85,4 +85,4 @@ Picture an application with a sign-in page where users can sign in with a userna
 
 You can use [AWS Lambda triggers](cognito-user-pools-working-with-lambda-triggers.md) to customize the way users authenticate. These triggers issue and verify their own challenges as part of the authentication flow.
 
-You can also use the admin authentication flow for secure backend servers. You can use the [user migration authentication flow](cognito-user-pools-using-import-tool.md) to make user migration possible without the requirement that your users to reset their passwords.
+You can also use the admin authentication flow for secure back-end servers. You can use the [user migration authentication flow](cognito-user-pools-using-import-tool.md) to make user migration possible without requiring your users to reset their passwords.

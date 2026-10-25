@@ -3,7 +3,7 @@
 # Using your own domain for managed login
 <a name="cognito-user-pools-add-custom-domain"></a>
 
-After you set up an app client, you can configure your user pool with a custom domain for the domain services of [managed login](cognito-user-pools-managed-login.md). With a custom domain, users can sign in to your application using your own web address instead the default `amazoncognito.com` [prefix domain](cognito-user-pools-assign-domain-prefix.md). Custom domains improve user trust in your application with a familiar domain name, especially when the root domain matches the domain that hosts your application. Custom domains can improve compliance with organizational security requirements.
+After you set up an app client, you can configure your user pool with a custom domain for the domain services of [managed login](cognito-user-pools-managed-login.md). With a custom domain, users can sign in to your application using your own web address instead of the default `amazoncognito.com` [prefix domain](cognito-user-pools-assign-domain-prefix.md). Custom domains improve user trust in your application with a familiar domain name, especially when the root domain matches the domain that hosts your application. Custom domains can improve compliance with organizational security requirements.
 
 A custom domain has some prerequisites, including a user pool, an app client, and a web domain that you own. Custom domains also require an SSL certificate for the custom domain, managed with AWS Certificate Manager (ACM) in US East (N. Virginia). Amazon Cognito creates a Amazon CloudFront distribution, secured in transit with your ACM certificate. Because you own the domain, you must create a DNS record that directs traffic to the CloudFront distribution for your custom domain.
 
@@ -34,7 +34,7 @@ Before you begin, you need:
 + The ability to create a subdomain for your custom domain. We recommend **auth** for your subdomain name. For example: {{auth.example.com}}.
 **Note**  
 You might need to obtain a new certificate for your custom domain's subdomain if you don't have a [wildcard certificate](https://en.wikipedia.org/wiki/Wildcard_certificate).
-+ A public SSL/TLS certificate managed by ACM in US East (N. Virginia). The certificate must be in us-east-1 because the certificate will be associated with a distribution in CloudFront, a global service.
++ A public SSL/TLS certificate managed by ACM in US East (N. Virginia). The certificate must be in us-east-1 because the certificate is associated with a distribution in CloudFront, a global service.
 + Browser clients that support Server Name Indication (SNI). The CloudFront distribution that Amazon Cognito assigns to custom domains requires SNI. You can't change this setting. For more information about SNI in CloudFront distributions, see [Use SNI to serve HTTPS requests](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cnames-https-dedicated-ip-or-sni.html#cnames-https-sni) in the *Amazon CloudFront Developer Guide*.
 + An application that permits your user pool authorization server to add cookies to user sessions. Amazon Cognito sets several required cookies for managed login pages. These include `cognito`, `cognito-fl`, and `XSRF-TOKEN`. Although each individual cookie conforms to browser size limits, changes to your user pool configuration might cause managed login cookies to grow in size. An intermediate service like an Application Load Balancer (ALB) in front of your custom domain might enforce a maximum header size or total cookie size. If your application also sets its own cookies, your users' sessions might exceed these limits. We recommend that, to avoid size limit conflicts, your application not set cookies on the subdomain that hosts your user pool domain services.
 + Permission to update Amazon CloudFront distributions. You can do so by attaching the following IAM policy statement to a user in your AWS account:
@@ -147,7 +147,7 @@ In this step, you set up an alias through your Domain Name Server (DNS) service 
 
    1. Choose **Create hosted zone**.
 **Note**  
-You can also create a new hosted zone for your custom domain with a delegation set in the parent hosted zone that directs queries to the subdomain hosted zone. Otherwise, create an A record. This method offers more flexibility and security with your hosted zones.For more information, see [Creating a subdomain for a domain hosted through Amazon Route 53](https://aws.amazon.com/premiumsupport/knowledge-center/create-subdomain-route-53/).
+You can also create a new hosted zone for your custom domain with a delegation set in the parent hosted zone that directs queries to the subdomain hosted zone. Otherwise, create an A record. This method offers more flexibility and security with your hosted zones. For more information, see [Creating a subdomain for a domain hosted through Amazon Route 53](https://aws.amazon.com/premiumsupport/knowledge-center/create-subdomain-route-53/).
 
 1. On the **Hosted Zones** page, choose the name of your hosted zone.
 
@@ -163,7 +163,7 @@ You can also create a new hosted zone for your custom domain with a delegation s
 
    `{{example.com.}} 60 IN A {{198.51.100.1}}`
 **Note**  
-Amazon Cognito verifies that there is a DNS record for the parent domain of your custom domain to protect against accidental hijacking of production domains. If you do not have a DNS record for the parent domain, Amazon Cognito will return an error when you attempt to set the custom domain. A Start of Authority (SOA) record isn't a sufficient DNS record for the purposes of parent-domain verification.
+Amazon Cognito verifies that there is a DNS record for the parent domain of your custom domain to protect against accidental hijacking of production domains. If you do not have a DNS record for the parent domain, Amazon Cognito returns an error when you attempt to set the custom domain. A Start of Authority (SOA) record isn't a sufficient DNS record for the purposes of parent-domain verification.
 
 1. Add another DNS record for your custom domain with the following properties:
    + **Record name**: Your custom domain prefix, for example `auth` to create a record for `auth.example.com`.

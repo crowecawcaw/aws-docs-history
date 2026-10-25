@@ -16,7 +16,7 @@ Federation with sign-in through a third-party IdP is a feature of Amazon Cognito
 ## Quick reference for IdP configuration
 <a name="cognito-user-pools-saml-idp-reference"></a>
 
-You must configure your SAML IdP to accept request and send responses to your user pool. The documentation for your SAML IdP will contain information about how to add your user pool as a relying party or application for your SAML 2.0 IdP. The documentation that follows provides the values that you must provide for the SP entity ID and assertion consumer service (ACS) URL.User pool SAML values quick reference
+You must configure your SAML IdP to accept request and send responses to your user pool. The documentation for your SAML IdP contains information about how to add your user pool as a relying party or application for your SAML 2.0 IdP. The documentation that follows provides the values that you must provide for the SP entity ID and assertion consumer service (ACS) URL.User pool SAML values quick reference
 
 **SP entity ID**  
 
@@ -58,7 +58,7 @@ Map `NameId` in your SAML assertions from an IdP attribute that has values that 
 
 For example, Carlos has a user profile in your case-insensitive user pool from an Active Directory Federation Services (ADFS) SAML assertion that passed a `NameId` value of `Carlos@example.com`. The next time Carlos attempts to sign in, your ADFS IdP passes a `NameId` value of `carlos@example.com`. Because `NameId` must be an exact case match, the sign-in doesn't succeed.
 
-If your users can't log in after their `NameID` changes, delete their user profiles from your user pool. Amazon Cognito will create new user profiles the next time they sign in.
+If your users can't sign in after their `NameID` changes, delete their user profiles from your user pool. Amazon Cognito creates new user profiles the next time they sign in.
 
 **Topics**
 + [Quick reference for IdP configuration](#cognito-user-pools-saml-idp-reference)

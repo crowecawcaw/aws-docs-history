@@ -215,6 +215,9 @@ Replica user pools in secondary Regions in `ACTIVE` status allow all of the prec
 
 With multi-Region user pools, you can fail over managed login, federated login, and direct API calls between two AWS Regions. Managed login and federation failover is available with either a custom domain or a prefix (Cognito) domain configured with your user pool. You can't configure a different custom domain with replica user pools.
 
+**Note**  
+Amazon Cognito doesn't currently support automatic failover with a Route 53 health check in the AWS GovCloud (US) Regions. For information about routing traffic to the secondary Region in AWS GovCloud (US), see [Failover in the AWS GovCloud (US) Regions](#user-pool-multi-region-failover-govcloud).
+
 ### Failover for managed login, federation, and machine-to-machine authorization
 <a name="user-pool-multi-region-failover-managed-login"></a>
 
@@ -222,7 +225,7 @@ Failover is available when your primary user pool has a [custom domain](cognito-
 
 To enable failover, set up a [health check](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) in Route 53 and set the `Routing` field on your domain. You determine what triggers a healthy or unhealthy state. When the health check is in an unhealthy state, Amazon Cognito serves managed login pages and authentication operations from the secondary replica user pool. When the health check enters a healthy state, Amazon Cognito begins routing traffic back to the primary replica.
 
-The DNS record for your custom domain can use Route 53 or any third-party DNS provider. Ensure you have a valid CNAME record in your DNS provider pointing to your target alias, which is a CloudFront distribution. You can find the alias target on the **Domain** page in the Amazon Cognito console.
+For custom domains, the DNS record can use Route 53 or any third-party DNS provider. Ensure you have a valid CNAME record in your DNS provider pointing to your target alias, which is a CloudFront distribution. You can find the alias target on the **Domain** page in the Amazon Cognito console.
 
 **To update the health check ID in the console**
 
@@ -245,8 +248,31 @@ The DNS record for your custom domain can use Route 53 or any third-party DNS p
 
 If you use the Amazon Cognito APIs or SDKs, there's no usage of a custom domain and your application is responsible for routing traffic to the Amazon Cognito service regional endpoint to handle authentication and other API calls.
 
-If you only have an application frontend using a public client, such as a single-page application (SPA) or mobile app, your application needs to be dynamic to route the API calls accordingly. Consider a serverless application backend to help determine which Region authentication with Amazon Cognito should begin against.
+If you only have an application frontend using a public client, such as a single-page application (SPA) or mobile app, your application needs to be dynamic to route the API calls accordingly. Consider a serverless application back end to help determine which Region authentication with Amazon Cognito should begin against.
 
-If you have an application with a backend, the logic to determine which user pool to authenticate against can be determined here.
+If you have an application with a back end, the logic to determine which user pool to authenticate against can be determined here.
 
 If you use both managed login endpoints and APIs, use the same Route 53 health check to determine which Region your application directs Amazon Cognito API calls to.
+
+### Failover in the AWS GovCloud (US) Regions
+<a name="user-pool-multi-region-failover-govcloud"></a>
+
+Amazon Cognito doesn't currently support automatic failover with a Route 53 health check in the AWS GovCloud (US) Regions. You can't set the `Routing` field on a user pool domain, and custom domains aren't available. To continue serving managed login, federation, and OAuth 2.0 endpoints from the secondary Region, configure a prefix domain for each replica user pool and route traffic between the domains yourself.
+
+Complete the following steps before you need to fail over. Before you begin, create a replica user pool in the secondary Region.
+
+**To prepare for failover in the AWS GovCloud (US) Regions**
+
+1. In the secondary Region, create a prefix domain for the replica user pool with managed login. In a `CreateUserPoolDomain` request, set `ManagedLoginVersion` to `2`, or choose **Managed login** on the **Domain** menu in the Amazon Cognito console. Replica user pools don't support domains with the classic hosted UI. Each domain has a Region-specific URL.
+
+1. If your user pool has federated identity providers (IdPs), add the secondary domain's redirect URL to each IdP. For OIDC and social IdPs, add `https://{{secondary-domain}}/oauth2/idpresponse` as an allowed redirect URI. For SAML IdPs, add `https://{{secondary-domain}}/saml2/idpresponse` as an assertion consumer service (ACS) URL. If you skip this step, federated sign-in fails after you switch traffic to the secondary domain.
+
+1. Configure your application to send requests to the authorize, token, logout, and other OAuth 2.0 endpoints on the domain in the Region that's serving traffic. Include machine-to-machine (M2M) clients that request tokens with the client credentials grant.
+
+1. Before you send traffic to the secondary Region, change the replica user pool status to `ACTIVE`.
+
+When you route traffic to the secondary domain, consider the following:
++ **Passkeys** – Passkeys that users registered on the primary domain don't work on the secondary domain, because the relying party ID is different for each domain. To sign in to managed login on the secondary domain, users must use another sign-in method. This doesn't affect applications that use the SDKs and set their own domain as the relying party ID.
++ **Failback** – Amazon Cognito doesn't route traffic back to the primary Region. When the primary Region is available again, update your application to send traffic to the primary domain.
+
+For information about routing API and SDK traffic, see [Failover for Amazon Cognito APIs and SDKs](#user-pool-multi-region-failover-api).

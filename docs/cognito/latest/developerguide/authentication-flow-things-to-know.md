@@ -21,7 +21,7 @@ Activation of passwordless sign-in with [one-time passwords](amazon-cognito-user
 
 1. For SDK-based [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operations, users aren't required to supply a password when they sign up. Managed login and the hosted UI require a password in the sign-up page, even if passwordless authentication is permitted. For more information, see [Signing up and confirming user accounts](signing-up-users-in-your-app.md).
 
-1. Users imported from a CSV file can sign in immediatelywith passwordless options, without a password reset, if their attributes include an email address or phone number for an available passwordless sign-in option. For more information, see [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md).
+1. Users imported from a CSV file can sign in immediately with passwordless options, without a password reset, if their attributes include an email address or phone number for an available passwordless sign-in option. For more information, see [Importing users into user pools from a CSV file](cognito-user-pools-using-import-tool.md).
 
 1. Passwordless authentication doesn't invoke the [user migration Lambda trigger](user-pool-lambda-migrate-user.md).
 
@@ -33,7 +33,7 @@ You can use domain names that you own, like `www.example.com`, as the relying pa
 ## Authentication session flow duration
 <a name="authentication-flow-session-duration"></a>
 
-Depending on the features of your user pool, you can end up responding to several challenges to `InitiateAuth` and `RespondToAuthChallenge` before your app retrieves tokens from Amazon Cognito. Amazon Cognito includes a session string in the response to each request. To combine your API requests into an authentication flow, include the session string from the response to the previous request in each subsequent request. By default, your users have three minutes to complete each challenge before the session string expires. To adjust this period, change your app client **Authentication flow session duration**. The following procedure describes how to change this setting in your app client configuration.
+Depending on the features of your user pool, you can respond to several challenges to `InitiateAuth` and `RespondToAuthChallenge` before your app retrieves tokens from Amazon Cognito. Amazon Cognito includes a session string in the response to each request. To combine your API requests into an authentication flow, include the session string from the response to the previous request in each subsequent request. By default, your users have three minutes to complete each challenge before the session string expires. To adjust this period, change your app client **Authentication flow session duration**. The following procedure describes how to change this setting in your app client configuration.
 
 **Note**  
 **Authentication flow session duration** settings apply to authentication with the Amazon Cognito user pools API. Managed login sets session duration to 3 minutes for multi-factor authentication and 8 minutes for forced password change during end-user's first sign-in with temporary password.

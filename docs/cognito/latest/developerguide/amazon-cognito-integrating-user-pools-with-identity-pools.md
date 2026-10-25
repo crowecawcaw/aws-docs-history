@@ -15,7 +15,7 @@ The following diagram shows how an application signs in with a user pool, retrie
 You can use identity pool credentials to:
 + Make fine-grained authorization requests to Amazon Verified Permissions with your user's own credentials.
 + Connect to an Amazon API Gateway REST API or an AWS AppSync GraphQL API that authorizes connections with IAM.
-+ Connect to a database backend like Amazon DynamoDB or Amazon RDS that authorizes connections with IAM.
++ Connect to a database back end like Amazon DynamoDB or Amazon RDS that authorizes connections with IAM.
 + Retrieve application assets from an Amazon S3 bucket.
 + Initiate a session with an Amazon WorkSpaces virtual desktop.
 
@@ -49,7 +49,7 @@ The following procedure describes how to use the AWS Management Console to integ
 
    1. You can give users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**. With an Amazon Cognito user pool IdP, you can also **Choose role with preferred\_role claim in tokens**. For more information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups).
 
-      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to use to compare the claim to the rule, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to use to compare the claim to the rule, the **Value** that causes a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
 
       1. If you chose **Choose role with preferred\_role claim in tokens**, Amazon Cognito issues credentials for the role in your user's `cognito:preferred_role` claim. If no preferred role claim is present, Amazon Cognito issues credentials based on your **Role resolution**.
 
@@ -65,7 +65,7 @@ The following procedure describes how to use the AWS Management Console to integ
 ## Integrating a user pool with an identity pool
 <a name="amazon-cognito-integrating-user-pools-with-identity-pools-using"></a>
 
-After your app user is authenticated, add that user's identity token to the logins map in the credentials provider. The provider name will depend on your Amazon Cognito user pool ID. It will have the following structure:
+After your app user is authenticated, add that user's identity token to the logins map in the credentials provider. The provider name depends on your Amazon Cognito user pool ID. It has the following structure:
 
 ```
 cognito-idp.{{<region>}}.amazonaws.com/{{<YOUR_USER_POOL_ID>}}

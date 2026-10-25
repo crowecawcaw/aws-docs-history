@@ -42,6 +42,9 @@ After your user loads the `/login` endpoint, they can enter a user name and pass
 ## Step-up authentication request
 <a name="login-endpoint-step-up"></a>
 
+**Note**  
+Authentication levels with ACR and AMR claims is rolling out gradually. This feature might not yet be available to your user pool. If the behavior described here isn't available, check back later as the rollout continues.
+
 The `/login` endpoint accepts the following URL parameters for step-up authentication. These parameters have the same behavior as on the [authorize endpoint](authorization-endpoint.md#authorization-endpoint-step-up). For more information about ACR levels and AMR values, see [Authentication levels with ACR and AMR claims](cognito-user-pools-step-up-authentication.md).
 
 `acr_values`  

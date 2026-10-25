@@ -208,7 +208,7 @@ Configure your user pool to export user events from threat protection to an exte
 
 1. Under **Logging destination**, choose the AWS service that you want to handle your logs: **CloudWatch log group**, **Amazon Data Firehose stream**, or **S3 bucket**.
 
-1. Your selection will populate the resource selector with the corresponding resource type. Select a log group, stream, or bucket from the list. You can also select the **Create** button to navigate to the AWS Management Console for the selected service and create a new resource.
+1. Your selection populates the resource selector with the corresponding resource type. Select a log group, stream, or bucket from the list. You can also select the **Create** button to navigate to the AWS Management Console for the selected service and create a new resource.
 
 1. Select **Save changes**.
 

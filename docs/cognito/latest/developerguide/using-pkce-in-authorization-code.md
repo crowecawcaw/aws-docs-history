@@ -77,4 +77,4 @@ Your app must apply an SHA256 hash to the code verifier string and encode the re
    code_verifier={{9D-aW_iygXrgQcWJd0y0tNVMPSXSChIc2xceDhvYVdGLCBk-JWFTmBNjvKSdOrjTTYazOFbUmrFERrjWx6oKtK2b6z_x4_gHBDlr4K1mRFGyE8yA-05-_v7Dxf3EIYJH}}
    ```
 
-1. Review the response. It will contain ID, access, and refresh tokens. For more information about using Amazon Cognito user pool tokens, see [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md).
+1. Review the response. It contains ID, access, and refresh tokens. For more information about using Amazon Cognito user pool tokens, see [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md).

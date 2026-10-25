@@ -13,7 +13,7 @@ Amazon Cognito invokes this trigger after **Define Auth Challenge** if a custom 
 
 This Lambda trigger is invoked to create a challenge to present to the user. The request for this Lambda trigger includes the `challengeName` and `session`. The `challengeName` is a string and is the name of the next challenge to the user. The value of this attribute is set in the Define Auth Challenge Lambda trigger.
 
-The challenge loop will repeat until all challenges are answered.
+The challenge loop repeats until all challenges are answered.
 
 **Topics**
 + [Create Auth challenge Lambda trigger parameters](#cognito-user-pools-lambda-trigger-syntax-create-auth-challenge)

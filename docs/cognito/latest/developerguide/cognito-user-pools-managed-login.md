@@ -24,7 +24,7 @@ The branding editor isn't available in all feature plans for user pools. For mor
 
 For more information about constructing requests to managed login and hosted UI services, see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md).
 
-Managed login supports step-up authentication with the `acr_values` and `max_age` parameters on the authorize and login endpoints. For more information, see the [authorize endpoint](authorization-endpoint.md#authorization-endpoint-step-up) and [login endpoint](login-endpoint.md#login-endpoint-step-up).
+Managed login supports step-up authentication with the `acr_values` and `max_age` parameters on the authorize and login endpoints. This capability is rolling out gradually and might not yet be available to your user pool. For more information, see the [authorize endpoint](authorization-endpoint.md#authorization-endpoint-step-up) and [login endpoint](login-endpoint.md#login-endpoint-step-up).
 
 **Note**  
 Amazon Cognito managed login doesn't support custom authentication with [custom authentication challenge Lambda triggers](user-pool-lambda-challenge.md).
@@ -106,7 +106,7 @@ To configure terms documents for your app client, navigate to the **Managed logi
 ------
 #### [ Amazon Cognito user pools API ]
 
-The following is an example [CreateTerms](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateTerms.html) request body. It causes the sign-up page for app client `1example23456789` to render links for a french-language and a portuguese-language (Brazil) version of the privacy policy when managed login is localized to that language. A separate request is required to set URLs for `terms-of-use` before managed login will render links at the sign-up page.
+The following is an example [CreateTerms](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateTerms.html) request body. It causes the sign-up page for app client `1example23456789` to render links for a French-language and a Portuguese-language (Brazil) version of the privacy policy when managed login is localized to that language. A separate request is required to set URLs for `terms-of-use` before managed login renders links at the sign-up page.
 
 ```
 {
@@ -126,7 +126,7 @@ The following is an example [CreateTerms](https://docs.aws.amazon.com/cognito-us
 ------
 
 **Note**  
-You must create both a terms of use and a privacy policy document for your app client before Amazon Cognito will display terms documents in your managed login pages.
+You must create both a terms of use and a privacy policy document for your app client before Amazon Cognito displays terms documents in your managed login pages.
 
 ## Setting up managed login with the Amazon Cognito console
 <a name="set-up-managed-login"></a>
@@ -135,7 +135,7 @@ The first requirement for managed login and hosted UI is a user pool domain. In 
 
 When you create or modify a user pool domain, you set the **Branding version** for your domain. This branding version is a choice of **Managed login** or **Hosted UI (classic)**. Your choice of branding version applies to all app clients that use the sign-in services at your domain.
 
-The next step is to create an [app client](user-pool-settings-client-apps.md) from the **App clients** tab of your user pool. In the process of creating an app client, Amazon Cognito will ask you for information about your application, then prompt you to select a **Return URL**. The return URL is also called the relying party (RP) URL, the redirect URI, and the callback URL. This is the URL that your application runs from, for example `https://www.example.com` or `myapp://example`.
+The next step is to create an [app client](user-pool-settings-client-apps.md) from the **App clients** tab of your user pool. In the process of creating an app client, Amazon Cognito asks you for information about your application, then prompts you to select a **Return URL**. The return URL is also called the relying party (RP) URL, the redirect URI, and the callback URL. This is the URL that your application runs from, for example `https://www.example.com` or `myapp://example`.
 
 The branding version that you set on the domain determines the *style* of your sign-in pages: choose **Managed login** to design pages in the branding editor, or **Hosted UI (classic)** to apply file-based hosted UI branding. For more information about the branding editor and the feature plans that support it, see [User pool feature plans](cognito-sign-in-feature-plans.md).
 
@@ -175,7 +175,7 @@ In the Amazon Cognito console, choose the **View login pages** button in the **L
 + A request for all scopes that you have activated for the current app client
 + The first callback URL in the list for the current app client
 
-The **View login page** button is useful when you want to test the basic functions of your managed login pages. Your login pages will match the **Branding version** that you assigned to your [user pool domain](cognito-user-pools-assign-domain.md). You can customize your sign-in URL with additional and modified parameters. In most cases, the automatically-generated parameters of the **View login page** link don’t fully match the needs of your app. In these cases, you must customize the URL that your app invokes when it signs in your users. For more information about sign-in parameter keys and values, see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md).
+The **View login page** button is useful when you want to test the basic functions of your managed login pages. Your login pages match the **Branding version** that you assigned to your [user pool domain](cognito-user-pools-assign-domain.md). You can customize your sign-in URL with additional and modified parameters. In most cases, the automatically generated parameters of the **View login page** link don’t fully match the needs of your app. In these cases, you must customize the URL that your app invokes when it signs in your users. For more information about sign-in parameter keys and values, see [User pool endpoints and managed login reference](cognito-userpools-server-contract-reference.md).
 
 The sign-in webpage uses the following URL format. This example requests an authorization code grant with the `response_type=code` parameter.
 

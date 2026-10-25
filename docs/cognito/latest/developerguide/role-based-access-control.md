@@ -155,7 +155,7 @@ For each user pool or other authentication provider that you configure for an id
 
 **Amazon Cognito**
 
-An Amazon Cognito ID token is represented as a JSON Web Token (JWT). The token contains claims about the identity of the authenticated user, such as `name`, `family_name`, and `phone_number`. For more information about standard claims, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). Apart from standard claims, the following are the additional claims specific to Amazon Cognito:
+An Amazon Cognito ID token is represented as a JSON web token (JWT). The token contains claims about the identity of the authenticated user, such as `name`, `family_name`, and `phone_number`. For more information about standard claims, see the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). Apart from standard claims, the following are the additional claims specific to Amazon Cognito:
 + `cognito:groups`
 + `cognito:roles`
 + `cognito:preferred_role`

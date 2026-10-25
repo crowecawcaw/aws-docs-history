@@ -32,7 +32,7 @@ One way to understand the features and options of identity pools is to create on
 
 1. In **Configure permissions**, choose a default IAM role for authenticated or guest users in your identity pool.
 
-   1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito will assign to your new IAM role.
+   1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito assigns to your new IAM role.
 
    1. You can choose to **Use an existing IAM role** if you already have a role in your AWS account that you want to use. You must configure your IAM role trust policy to include `cognito-identity.amazonaws.com`. Configure your role trust policy to only allow Amazon Cognito to assume the role when it presents evidence that the request originated from an authenticated user in your specific identity pool. For more information, see [Role trust and permissions](iam-roles.md#role-trust-and-permissions).
 
@@ -40,7 +40,7 @@ One way to understand the features and options of identity pools is to create on
 
    1. Choose the **Role settings** for each IdP. You can assign users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**. With a Amazon Cognito user pool IdP, you can also **Choose role with preferred\_role in tokens**. For more information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups).
 
-      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that causes a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
 
       1. Choose a **Role resolution**. When your user's claims don't match your rules, you can deny credentials or issue credentials for your **Authenticated role**.
 
@@ -63,19 +63,19 @@ One way to understand the features and options of identity pools is to create on
 ## User IAM roles
 <a name="user-iam-roles"></a>
 
-An IAM role defines the permissions for your users to access AWS resources, like [Amazon Cognito Sync](cognito-sync.md). Users of your application will assume the roles you create. You can specify different roles for authenticated and unauthenticated users. To learn more about IAM roles, see [IAM roles](iam-roles.md).
+An IAM role defines the permissions for your users to access AWS resources, like [Amazon Cognito Sync](cognito-sync.md). Users of your application assume the roles you create. You can specify different roles for authenticated and unauthenticated users. To learn more about IAM roles, see [IAM roles](iam-roles.md).
 
 ## Authenticated and unauthenticated identities
 <a name="authenticated-and-unauthenticated-identities"></a>
 
 Amazon Cognito identity pools support both authenticated and unauthenticated identities. Authenticated identities belong to users who are authenticated by any supported identity provider. Unauthenticated identities typically belong to guest users.
 + To configure authenticated identities with a public login provider, see [Identity pools third-party identity providers](external-identity-providers.md).
-+ To configure your own backend authentication process, see [Developer-authenticated identities](developer-authenticated-identities.md).
++ To configure your own back-end authentication process, see [Developer-authenticated identities](developer-authenticated-identities.md).
 
 ## Activate or deactivate guest access
 <a name="enable-or-disable-unauthenticated-identities"></a>
 
- Amazon Cognito identity pools guest access (unauthenticated identities) provides a unique identifier and AWS credentials for users who do not authenticate with an identity provider. If your application allows users who do not log in, you can activate access for unauthenticated identities. To learn more, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md).
+ Amazon Cognito identity pools guest access (unauthenticated identities) provides a unique identifier and AWS credentials for users who do not authenticate with an identity provider. If your application allows users who do not sign in, you can activate access for unauthenticated identities. To learn more, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md).
 
 **To update guest access in an identity pool**
 
@@ -91,7 +91,7 @@ Amazon Cognito identity pools support both authenticated and unauthenticated ide
 
       1. Choose a default IAM role for guest users in your identity pool.
 
-        1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito will assign to your new IAM role.
+        1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito assigns to your new IAM role.
 
         1. You can choose to **Use an existing IAM role** if you already have a role in your AWS account that you want to use. You must configure your IAM role trust policy to include `cognito-identity.amazonaws.com`. Configure your role trust policy to only allow Amazon Cognito to assume the role when it presents evidence that the request originated from an authenticated user in your specific identity pool. For more information, see [Role trust and permissions](iam-roles.md#role-trust-and-permissions).
 
@@ -102,7 +102,7 @@ Amazon Cognito identity pools support both authenticated and unauthenticated ide
 ## Change the role associated with an identity type
 <a name="change-the-role-associated-with-an-identity-type"></a>
 
-Every identity in your identity pool is either authenticated or unauthenticated. Authenticated identities belong to users who are authenticated by a public login provider (Amazon Cognito user pools, Login with Amazon, Sign in with Apple, Facebook, Google, SAML, or any OpenID Connect Providers) or a developer provider (your own backend authentication process). Unauthenticated identities typically belong to guest users.
+Every identity in your identity pool is either authenticated or unauthenticated. Authenticated identities belong to users who are authenticated by a public login provider (Amazon Cognito user pools, Login with Amazon, Sign in with Apple, Facebook, Google, SAML, or any OpenID Connect Providers) or a developer provider (your own back-end authentication process). Unauthenticated identities typically belong to guest users.
 
 For each identity type, there is an assigned role. This role has a policy attached to it that dictates which AWS services that role can access. When Amazon Cognito receives a request, the service determines the identity type, determines the role assigned to that identity type, and uses the policy attached to that role to respond. By modifying a policy or assigning a different role to an identity type, you can control which AWS services an identity type can access. To view or modify the policies associated with the roles in your identity pool, see the [AWS IAM Console](https://console.aws.amazon.com/iam/home).
 
@@ -116,7 +116,7 @@ For each identity type, there is an assigned role. This role has a policy attach
 
 1. Choose a default IAM role for guest or authenticated users in your identity pool.
 
-   1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito will assign to your new IAM role.
+   1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito assigns to your new IAM role.
 
    1. You can choose to **Use an existing IAM role** if you already have a role in your AWS account that you want to use. You must configure your IAM role trust policy to include `cognito-identity.amazonaws.com`. Configure your role trust policy to only allow Amazon Cognito to assume the role when it presents evidence that the request originated from an authenticated user in your specific identity pool. For more information, see [Role trust and permissions](iam-roles.md#role-trust-and-permissions).
 
@@ -148,7 +148,7 @@ Changing the linked IdP application ID in your identity pool prevents existing u
 
    1. You can assign users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**. With a Amazon Cognito user pool IdP, you can also **Choose role with preferred\_role in tokens**. For more information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups).
 
-     1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+     1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that causes a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
 
      1. Choose a **Role resolution**. When your user's claims don't match your rules, you can deny credentials or issue credentials for your **Authenticated role**.
 
@@ -176,7 +176,7 @@ You can't undo identity pool deletion. After you delete an identity pool, all ap
 1. Enter or paste the name of your identity pool and select **Delete**.
 
 **Warning**  
-When you select the Delete button, you will permanently delete your identity pool and all the user data it contains. Deleting an identity pool will cause applications and other services using the identity pool to stop working.
+When you select the Delete button, you will permanently delete your identity pool and all the user data it contains. Deleting an identity pool causes applications and other services using the identity pool to stop working.
 
 ## Delete an identity from an identity pool
 <a name="delete-an-identity-from-an-identity-pool"></a>
@@ -189,4 +189,4 @@ When you delete an identity from an identity pool, you remove the identifying in
 
 1. Choose the **Identity browser** tab.
 
-1. Select the check boxes next to the identities that you want to delete and choose **Delete**. Confirm that you want to delete the identities and choose **Delete**.
+1. Select the checkboxes next to the identities that you want to delete and choose **Delete**. Confirm that you want to delete the identities and choose **Delete**.

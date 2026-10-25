@@ -166,7 +166,7 @@ Your domain is shown on the **App integration** tab under **Domain**. Your app c
 
 1. To upload your own logo image file, choose **Choose file** or **Replace current file**.
 
-1. To customize hosted UI CSS, download **CSS template.css** and modify the template with the values you want to customize. Only the keys that are included in the template can be used with the hosted UI. Added CSS keys will not be reflected in your UI. After you have customized the CSS file, choose **Choose file** or **Replace current file** to upload your custom CSS file.
+1. To customize hosted UI CSS, download **CSS template.css** and modify the template with the values you want to customize. Only the keys that are included in the template can be used with the hosted UI. Added CSS keys are not reflected in your UI. After you have customized the CSS file, choose **Choose file** or **Replace current file** to upload your custom CSS file.
 
 ## Customizing the hosted UI with classic branding in the user pools API and with the AWS CLI
 <a name="cognito-user-pools-app-ui-customization-cli-api"></a>

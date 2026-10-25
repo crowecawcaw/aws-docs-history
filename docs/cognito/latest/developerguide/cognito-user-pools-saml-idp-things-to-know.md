@@ -91,14 +91,14 @@ To establish trust with SAML requests from your user pool, provide your IdP with
 
 **Encode non-alphanumeric characters**  
 Amazon Cognito doesn't accept 4-byte UTF-8 characters like 😐 or 𠮷 that your IdP passes as an attribute value. You can encode the character to Base64, pass it as text, and then decode it in your app.  
-In the following example, the attribute claim will not be accepted:  
+In the following example, the attribute claim is not accepted:  
 
 ```
 <saml2:Attribute Name="Name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">
   <saml2:AttributeValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xsd:string">😐</saml2:AttributeValue>
 </saml2:Attribute>
 ```
-In contrast to the preceding example, the following attribute claim will be accepted:  
+In contrast to the preceding example, the following attribute claim is accepted:  
 
 ```
 <saml2:Attribute Name="Name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified">

@@ -41,7 +41,7 @@ For more information about how to integrate iOS Swift apps with Facebook Login, 
 ### JavaScript
 <a name="set-up-facebook-1.javascript"></a>
 
-For more information about how to integrate JavaScript web apps with Facebook Login, see the [Facebook Getting Started Guide](https://developers.facebook.com/docs/facebook-login/login-flow-for-web/v2.3).
+For more information about how to integrate JavaScript web apps with Facebook Login, see the [Facebook login flow for the web](https://developers.facebook.com/docs/facebook-login/login-flow-for-web/v2.3).
 
 ## Configure an identity provider in the Amazon Cognito identity pools console
 <a name="configure-the-external-provider-in-the-amazon-cognito-console"></a>
@@ -64,7 +64,7 @@ Use the following procedure to configure your identity provider.
 
    1. You can assign users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**.
 
-     1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+     1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that causes a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
 
      1. Choose a **Role resolution**. When your user's claims don't match your rules, you can deny credentials or issue credentials for your **Authenticated role**.
 

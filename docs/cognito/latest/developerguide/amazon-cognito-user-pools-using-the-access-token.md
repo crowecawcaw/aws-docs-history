@@ -13,10 +13,10 @@ A user's access token with the `openid` scope is permission to request more info
 
 A user's access token with the `aws.cognito.signin.user.admin` scope is permission to read and write user attributes, list authentication factors, configure multi-factor authentication (MFA) preferences, and manage remembered devices. The level of access to attributes that your access token grants to this scope matches the attribute read/write permissions you assign to your app client.
 
-The access token is a [JSON Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519). The header for the access token has the same structure as the ID token. Amazon Cognito signs access tokens with a different key from the key that signs ID tokens. The value of an access key ID (`kid`) claim won't match the value of the `kid` claim in an ID token from the same user session. In your app code, verify ID tokens and access tokens independently. Don't trust the claims in an access token until you verify the signature. For more information, see [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md). You can set the access token expiration to any value between 5 minutes and 1 day. You can set this value per app client.
+The access token is a [JSON web token (JWT)](https://www.rfc-editor.org/rfc/rfc7519). The header for the access token has the same structure as the ID token. Amazon Cognito signs access tokens with a different key from the key that signs ID tokens. The value of an access key ID (`kid`) claim won't match the value of the `kid` claim in an ID token from the same user session. In your app code, verify ID tokens and access tokens independently. Don't trust the claims in an access token until you verify the signature. For more information, see [Verifying JSON web tokens](amazon-cognito-user-pools-using-tokens-verifying-a-jwt.md). You can set the access token expiration to any value between 5 minutes and 1 day. You can set this value per app client.
 
 **Important**  
-For access and ID tokens, don't specify a minimum less than an hour if you use managed login. Managed login sets browsers cookies that are valid for one hour. If you configure an access token duration of less than an hour, this has no effect on the validity of the managed login cookie and users' ability to reauthenticate without additional credentials for one hour after initial sign-in.
+For access and ID tokens, don't specify a minimum less than an hour if you use managed login. Managed login sets browser cookies that are valid for one hour. If you configure an access token duration of less than an hour, this has no effect on the validity of the managed login cookie and users' ability to reauthenticate without additional credentials for one hour after initial sign-in.
 
 The access token carries claims additively, the same way the ID token does, and the same parsing rules apply. For more information about parsing tokens safely, see [Parse user pool tokens safely](user-pool-parse-tokens-safely.md).
 
@@ -86,7 +86,7 @@ Your user pool can use an original or updated issuer. Updated issuers host the s
 The user pool app client that authenticated your user. Amazon Cognito renders the same value in the ID token `aud` claim.
 
 **aud**  
-The URL of the API that the access token is intended to authorize for. Present only if your application requested a [resource binding](cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding) from your authorization server.
+The URL of the API that the access token is intended to authorize. Present only if your application requested a [resource binding](cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding) from your authorization server.
 
 **`origin_jti`**  
 A token-revocation identifier associated with your user's refresh token. Amazon Cognito references the `origin_jti` claim when it checks if you revoked your user's token with the [Revoke endpoint](revocation-endpoint.md) or the [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) API operation. When you revoke a token, Amazon Cognito no longer validates access and ID tokens with the same `origin_jti` value.

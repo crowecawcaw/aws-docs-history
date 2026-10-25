@@ -6,7 +6,7 @@
 With Amazon Cognito identity pools, you can create unique identities and assign permissions for users. Your identity pool can bring in identities from the following types of authentication services:
 + Users in an Amazon Cognito user pool
 + Users who authenticate with external identity providers such as Facebook, Google, Apple, or an OIDC or SAML identity provider.
-+ Users authenticated via your own existing authentication process
++ Users authenticated through your own existing authentication process
 
 After users authenticate with their provider and present authorization to an identity pool, they get temporary AWS credentials. Users' credentials have permissions that you define for access to other AWS services.
 
@@ -34,7 +34,7 @@ You can create an identity pool through the Amazon Cognito console, or you can u
 
 1. In **Configure permissions**, choose a default IAM role for authenticated or guest users in your identity pool.
 
-   1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito will assign to your new IAM role.
+   1. Choose to **Create a new IAM role** if you want Amazon Cognito to create a new role for you with basic permissions and a trust relationship with your identity pool. Enter an **IAM role name** to identify your new role, for example `myidentitypool_authenticatedrole`. Select **View policy document** to review the permissions that Amazon Cognito assigns to your new IAM role.
 
    1. You can choose to **Use an existing IAM role** if you already have a role in your AWS account that you want to use. You must configure your IAM role trust policy to include `cognito-identity.amazonaws.com`. Configure your role trust policy to only allow Amazon Cognito to assume the role when it presents evidence that the request originated from an authenticated user in your specific identity pool. For more information, see [Role trust and permissions](iam-roles.md#role-trust-and-permissions).
 
@@ -42,7 +42,7 @@ You can create an identity pool through the Amazon Cognito console, or you can u
 
    1. Choose the **Role settings** for each IdP. You can assign users from that IdP the **Default role** that you set up when you configured your **Authenticated role**, or you can **Choose role with rules**. With an Amazon Cognito user pool IdP, you can also **Choose role with preferred\_role in tokens**. For more information about the `cognito:preferred_role` claim, see [Assigning precedence values to groups](cognito-user-pools-user-groups.md#assigning-precedence-values-to-groups).
 
-      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that will cause a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
+      1. If you chose **Choose role with rules**, enter the source **Claim** from your user's authentication, the **Operator** that you want to compare the claim by, the **Value** that causes a match to this role choice, and the **Role** that you want to assign when the **Role assignment** matches. Select **Add another** to create an additional rule based on a different condition.
 
       1. Choose a **Role resolution**. When your user's claims don't match your rules, you can deny credentials or issue credentials for your **Authenticated role**.
 
@@ -73,15 +73,15 @@ To use Amazon Cognito identity pools, set up AWS Amplify, the AWS SDK for Java, 
 ## Integrate the identity providers
 <a name="integrate-the-identity-providers"></a>
 
-Amazon Cognito identity pools (federated identities) support user authentication through Amazon Cognito user pools, federated identity providers—including Amazon, Facebook, Google, Apple, and SAML identity providers—and unauthenticated identities. This feature also supports [Developer-authenticated identities](developer-authenticated-identities.md), which lets you register and authenticate users via your own backend authentication process.
+Amazon Cognito identity pools (federated identities) support user authentication through Amazon Cognito user pools, federated identity providers—including Amazon, Facebook, Google, Apple, and SAML identity providers—and unauthenticated identities. This feature also supports [Developer-authenticated identities](developer-authenticated-identities.md), which lets you register and authenticate users through your own back-end authentication process.
 
 To learn more about using an Amazon Cognito user pool to create your own user directory, see [Authenticating users with Amazon Cognito user pools](cognito-user-pools.md) and [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md).
 
 To learn more about using external identity providers, see [Identity pools third-party identity providers](external-identity-providers.md).
 
-To learn more about integrating your own backend authentication process, see [Developer-authenticated identities](developer-authenticated-identities.md).
+To learn more about integrating your own back-end authentication process, see [Developer-authenticated identities](developer-authenticated-identities.md).
 
 ## Get credentials
 <a name="get-credentials"></a>
 
-Amazon Cognito identity pools provide temporary AWS credentials for users who are guests (unauthenticated) and for users who have authenticated and received a token. With those AWS credentials, your app can securely access a backend in AWS or outside AWS through Amazon API Gateway. See [Getting credentials](getting-credentials.md).
+Amazon Cognito identity pools provide temporary AWS credentials for users who are guests (unauthenticated) and for users who have authenticated and received a token. With those AWS credentials, your app can securely access a back end in AWS or outside AWS through Amazon API Gateway. See [Getting credentials](getting-credentials.md).

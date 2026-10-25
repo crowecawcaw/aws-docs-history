@@ -26,7 +26,7 @@ With an identity pool, your users can obtain temporary AWS credentials to access
 
 You can enable your users to authenticate with a user pool. Your app users can either sign in directly through a user pool, or they can federate through a third-party identity provider (IdP). The user pool manages the overhead of handling the tokens that are returned from social sign-in through Facebook, Google, Amazon, and Apple, and from OpenID Connect (OIDC) and SAML IdPs.
 
-After a successful authentication, your web or mobile app will receive user pool tokens from Amazon Cognito. You can use those tokens to retrieve AWS credentials that allow your app to access other AWS services, or you might choose to use them to control access to your server-side resources, or to the Amazon API Gateway.
+After a successful authentication, your web or mobile app receives user pool tokens from Amazon Cognito. You can use those tokens to retrieve AWS credentials that allow your app to access other AWS services, or you might choose to use them to control access to your server-side resources, or to the Amazon API Gateway.
 
 For more information, see [An example authentication session](authentication.md#amazon-cognito-user-pools-authentication-flow) and [Understanding user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md).
 
@@ -36,7 +36,7 @@ For more information, see [An example authentication session](authentication.md#
 ## Access back-end resources with user pool tokens
 <a name="scenario-backend"></a>
 
-After a successful user pool sign-in, your web or mobile app will receive user pool tokens from Amazon Cognito. You can use those tokens to control access to your server-side resources. You can also create user pool groups to manage permissions, and to represent different types of users. For more information on using groups to control access to your resources, see [Adding groups to a user pool](cognito-user-pools-user-groups.md). 
+After a successful user pool sign-in, your web or mobile app receives user pool tokens from Amazon Cognito. You can use those tokens to control access to your server-side resources. You can also create user pool groups to manage permissions, and to represent different types of users. For more information on using groups to control access to your resources, see [Adding groups to a user pool](cognito-user-pools-user-groups.md). 
 
 ![Access your server-side resources through a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-standalone.png)
 
@@ -50,7 +50,7 @@ For more information about user pool authentication, see [An example authenticat
 
 You can enable your users to access your API through API Gateway. API Gateway validates the tokens from a successful user pool authentication, and uses them to grant your users access to resources including Lambda functions, or your own API.
 
-You can use groups in a user pool to control permissions with API Gateway by mapping group membership to IAM roles. The groups that a user is a member of are included in the ID token provided by a user pool when your app user signs in. For more information on user pool groups See [Adding groups to a user pool](cognito-user-pools-user-groups.md).
+You can use groups in a user pool to control permissions with API Gateway by mapping group membership to IAM roles. The groups that a user is a member of are included in the ID token provided by a user pool when your app user signs in. For more information on user pool groups, see [Adding groups to a user pool](cognito-user-pools-user-groups.md).
 
 You can submit your user pool tokens with a request to API Gateway for verification by an Amazon Cognito authorizer Lambda function. For more information on API Gateway, see [Using API Gateway with Amazon Cognito user pools](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html).
 
@@ -60,7 +60,7 @@ You can submit your user pool tokens with a request to API Gateway for verificat
 ## Access AWS services with a user pool and an identity pool
 <a name="scenario-aws-and-user-pool"></a>
 
-After a successful user pool authentication, your app will receive user pool tokens from Amazon Cognito. You can exchange them for temporary access to other AWS services with an identity pool. For more information, see [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md) and [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md).
+After a successful user pool authentication, your app receives user pool tokens from Amazon Cognito. You can exchange them for temporary access to other AWS services with an identity pool. For more information, see [Accessing AWS services using an identity pool after sign-in](amazon-cognito-integrating-user-pools-with-identity-pools.md) and [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md).
 
 ![Access AWS credentials through a user pool with an identity pool](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-cup-cib.png)
 
@@ -92,6 +92,9 @@ To enable M2M authorization, build an app client that has a client secret, and e
 
 ## Step-up authentication
 <a name="scenario-step-up-authentication"></a>
+
+**Note**  
+Authentication levels with ACR and AMR claims is rolling out gradually. This feature might not yet be available to your user pool. If the behavior described here isn't available, check back later as the rollout continues.
 
 Consider a banking application that lets users sign in with a username and password. To make a wire transfer, the application requires multi-factor authentication (MFA). When a user attempts a transfer, the application inspects the `acr` claim in the user's access and ID tokens, determines that the authentication level is insufficient, and redirects the user to Amazon Cognito to complete MFA. Amazon Cognito then issues a new token with an elevated authentication level, and the application allows the transfer.
 

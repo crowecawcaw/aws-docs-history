@@ -50,7 +50,7 @@ Amazon Cognito user pools support SAML 2.0 federation with post-binding endpoint
 1. Choose **Add sign-out flow** if you want Amazon Cognito to send signed sign-out requests to your provider when a user logs out. You must configure your SAML 2.0 identity provider to send sign-out responses to the `https://{{<your Amazon Cognito domain>}}/saml2/logout` endpoint that is created when you configure managed login. The `saml2/logout` endpoint uses the POST binding.
 **Note**  
 If this option is selected and your SAML identity provider expects a signed logout request, you will also need to configure the signing certificate that is provided by Amazon Cognito with your SAML IdP.   
-The SAML IdP will process the signed logout request and will log out your user from the Amazon Cognito session.
+The SAML IdP processes the signed logout request and logs out your user from the Amazon Cognito session.
 
 1. Choose a **Metadata document source**. If your identity provider offers SAML metadata at a public URL, you can choose **Metadata document URL** and enter that public URL. Otherwise, choose **Upload metadata document** and select a metadata file you downloaded from your provider earlier.
 **Note**  

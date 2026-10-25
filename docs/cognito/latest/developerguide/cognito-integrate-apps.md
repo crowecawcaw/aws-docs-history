@@ -65,7 +65,7 @@ To get started with your custom authentication component, visit the following do
 ## Authentication with AWS SDKs
 <a name="amazon-cognito-authentication-with-sdks"></a>
 
-To use a secure backend to build your own identity microservice that interacts with Amazon Cognito, connect to the Amazon Cognito user pools and Amazon Cognito identity pools API with an AWS SDK in the language of your choice.
+To use a secure back end to build your own identity microservice that interacts with Amazon Cognito, connect to the Amazon Cognito user pools and Amazon Cognito identity pools API with an AWS SDK in the language of your choice.
 
 For details on each API operation, see the [Amazon Cognito user pools API Reference](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_Operations.html) and the [Amazon Cognito API Reference](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html). These documents contain [**See also**](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_SeeAlso) sections with resources for using a variety of SDKs in supported platforms.
 + [AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/index.html#cli-aws-cognito-idp)

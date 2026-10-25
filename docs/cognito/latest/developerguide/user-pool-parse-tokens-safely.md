@@ -5,7 +5,7 @@
 
 An Amazon Cognito token's claim set is not fixed. The claims that your token carries vary with the authentication flow, the user's group membership, and the identity provider, and with the features that you enable on your user pool. Amazon Cognito adds new claims additively over time: it introduces new keys, but it does not rename, change the type of, or remove the existing claims that this guide documents. These rules apply to both ID tokens and access tokens.
 
-Don't write your own token parser. Use a JSON Web Token (JWT) library and a JSON parser that keep working as the token grows. The two rules that prevent almost every real-world break are the first two below: tolerate claims you don't recognize, and make the right assumptions about the type and cardinality of each claim you read.
+Don't write your own token parser. Use a JSON web token (JWT) library and a JSON parser that keep working as the token grows. The two rules that prevent almost every real-world break are the first two below: tolerate claims you don't recognize, and make the right assumptions about the type and cardinality of each claim you read.
 
 Ignore claims that you don't recognize  
 Read the claims your application needs and leave the rest alone. Don't reject, fail, or throw an error when a token carries a claim that isn't listed in this guide. New claims are added additively, and a token that contains an unlisted claim is still valid.

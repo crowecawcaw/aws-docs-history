@@ -33,7 +33,7 @@ Every event or log entry contains information about who generated the request. T
 For more information, see the [CloudTrail userIdentity element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html).
 
 **Confidential data in AWS CloudTrail**  
-Because user pools and identity pools process user data, Amazon Cognito obscures some private fields in your CloudTrail events with the value `HIDDEN_DUE_TO_SECURITY_REASONS`. For examples of fields that Amazon Cognito doesn't populate to events, see [Example Amazon Cognito events](understanding-amazon-cognito-entries.md). Amazon Cognito only obscures some fields that commonly contain user information, like passwords and tokens. Amazon Cognito doesn't perform any automatic detection or masking of personally-identifying information that you populate to non-private fields in your API requests.
+Because user pools and identity pools process user data, Amazon Cognito obscures some private fields in your CloudTrail events with the value `HIDDEN_DUE_TO_SECURITY_REASONS`. For examples of fields that Amazon Cognito doesn't populate to events, see [Example Amazon Cognito events](understanding-amazon-cognito-entries.md). Amazon Cognito only obscures some fields that commonly contain user information, like passwords and tokens. Amazon Cognito doesn't perform any automatic detection or masking of personally identifying information that you populate to non-private fields in your API requests.
 
 ### User pool events
 <a name="user-pools-cloudtrail-events"></a>

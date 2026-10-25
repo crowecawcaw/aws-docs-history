@@ -21,7 +21,7 @@ The token endpoint becomes publicly available when you add a domain to your user
 
 You can learn more about the user pool app clients and their grant types, client secrets, allowed scopes, and client IDs at [Application-specific settings with app clients](user-pool-settings-client-apps.md). You can learn more about M2M authorization, client credentials grants, and authorization with access token scopes at [Scopes, M2M, and resource servers](cognito-user-pools-define-resource-servers.md).
 
-To retrieve information about a user from their access token, pass it to your [userInfo endpoint](userinfo-endpoint.md) or to a [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) API request. The access token must contain the appropriate scopes for these requests,
+To retrieve information about a user from their access token, pass it to your [userInfo endpoint](userinfo-endpoint.md) or to a [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) API request. The access token must contain the appropriate scopes for these requests.
 
 ## How Amazon Cognito differs from the OIDC specification
 <a name="token-endpoint-oidc-differences"></a>
@@ -89,7 +89,7 @@ Must be the same `redirect_uri` that was used to get `authorization_code` in `/o
 You must provide this parameter if `grant_type` is `authorization_code`.
 
 **`refresh_token`**  
-*Optional. Used only when the user already has a refresh token and wishes to get new ID and access tokens.*  
+*Optional. Used only when the user already has a refresh token and needs new ID and access tokens.*  
 To generate new access and ID tokens for a user's session, set the value of `refresh_token` to a valid refresh token that the requested app client issued.  
 Returns a new refresh token with new ID and access token when [refresh token rotation](amazon-cognito-user-pools-using-the-refresh-token.md#using-the-refresh-token-rotation) is active, otherwise returns only ID and access tokens. If the original access token was [bound to an API resource](cognito-user-pools-define-resource-servers.md#cognito-user-pools-resource-binding), the new access token maintains the requested API url in the `aud` claim.
 
@@ -295,7 +295,7 @@ Content-Type: application/json
 ## Token refresh without refresh token rotation
 <a name="post-token-positive-exchanging-a-refresh-token-for-tokens"></a>
 
-The following example requests provides a refresh token to an app client where [refresh token rotation](amazon-cognito-user-pools-using-the-refresh-token.md#using-the-refresh-token-rotation) is inactive. Because the app client has a client secret, the request provides an `Authorization` header.
+The following example request provides a refresh token to an app client where [refresh token rotation](amazon-cognito-user-pools-using-the-refresh-token.md#using-the-refresh-token-rotation) is inactive. Because the app client has a client secret, the request provides an `Authorization` header.
 
 ```
 POST https://mydomain.auth.us-east-1.amazoncognito.com/oauth2/token >
@@ -324,7 +324,7 @@ Content-Type: application/json
 ## Token refresh with refresh token rotation
 <a name="post-token-positive-refresh-token-rotation"></a>
 
-The following example requests provides a refresh token to an app client where [refresh token rotation](amazon-cognito-user-pools-using-the-refresh-token.md#using-the-refresh-token-rotation) is active. Because the app client has a client secret, the request provides an `Authorization` header.
+The following example request provides a refresh token to an app client where [refresh token rotation](amazon-cognito-user-pools-using-the-refresh-token.md#using-the-refresh-token-rotation) is active. Because the app client has a client secret, the request provides an `Authorization` header.
 
 ```
 POST https://mydomain.auth.us-east-1.amazoncognito.com/oauth2/token >

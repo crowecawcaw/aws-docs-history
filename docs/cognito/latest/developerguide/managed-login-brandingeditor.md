@@ -3,7 +3,7 @@
 # The branding editor and customizing managed login
 <a name="managed-login-brandingeditor"></a>
 
-The branding editor is a visual design and editing tool for your managed login webpages. It's built in to the Amazon Cognito console. In the branding editor, you start with a preview of your login pages and can proceed into a quick-setup option or a detailed view with advanced options. You can modify and preview style parameters or add a custom background image and logo. You can configure light mode and dark mode.
+The branding editor is a visual design and editing tool for your managed login webpages. It's built into the Amazon Cognito console. In the branding editor, you start with a preview of your login pages and can proceed into a quick-setup option or a detailed view with advanced options. You can modify and preview style parameters or add a custom background image and logo. You can configure light mode and dark mode.
 
 ![A preview of the branding editor visual editor for Amazon Cognito user pools.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/hosted-ui-customization-editor-preview.png)
 
@@ -18,7 +18,7 @@ To begin, create a style that you can apply to your user pool or an app client.
 
    1. In the **App clients** menu, select your app client.
 
-   1. Under **Managed login style**, select the syle assigned to your app client.
+   1. Under **Managed login style**, select the style assigned to your app client.
 
    1. Choose **Delete style**. Confirm your selection.
 
@@ -76,7 +76,7 @@ Set the positioning of your logo image.
 **Logo image**  
 Choose a logo image file to include in the form element for light and dark modes. To upload an image, select the **Logo image** dropdown, choose **Add new asset**, and add a logo file.  
 **Primary branding color**  
-Set a theme color for light and dark modes. This color will be applied as the background color to all elements classified as primary.
+Set a theme color for light and dark modes. This color is applied as the background color to all elements classified as primary.
 
 **How should headers look?**  
 Choose whether you want to include a header in your managed login pages. The header can contain a logo image.    
@@ -131,7 +131,7 @@ Styles for dropdown menus.
 Styles for the image that Amazon Cognito provides for the tab and bookmark icon.
 
 **Focus rings**  
-Styles for the highlights that indicate a currently-selected input.
+Styles for the highlights that indicate a currently selected input.
 
 **Form container**  
 Styles for the elements that bound a form.
@@ -166,7 +166,7 @@ Styles for the text around form inputs.
 ## API and SDK operations for managed login branding
 <a name="branding-designer-api"></a>
 
-You can also apply branding to a managed login style with the API operations [CreateManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.html) and [UpdateManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateManagedLoginBranding.html). These operations are ideal for creating identical or slightly-modified versions of a branding style for another app client or user pool. Query the managed login branding of an existing style with the API operation [DescribeManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.html), then modify the output as needed and apply it to another resource.
+You can also apply branding to a managed login style with the API operations [CreateManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.html) and [UpdateManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateManagedLoginBranding.html). These operations are ideal for creating identical or slightly modified versions of a branding style for another app client or user pool. Query the managed login branding of an existing style with the API operation [DescribeManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeManagedLoginBranding.html), then modify the output as needed and apply it to another resource.
 
 The `UpdateManagedLoginBranding` operation doesn't change the app client that your style is applied to. It only updates the existing style that's assigned to an app client. To completely replace the style for an app client, delete the existing style with [DeleteManagedLoginBranding](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DeleteManagedLoginBranding.html) and assign a new style with `CreateManagedLoginBranding`. In the Amazon Cognito console, the same is true: you must delete the existing style and create a new one.
 

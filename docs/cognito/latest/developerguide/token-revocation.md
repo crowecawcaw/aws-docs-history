@@ -22,7 +22,7 @@ The [revoke endpoint](revocation-endpoint.md) revokes a given refresh token and 
 + User pool JWTs are self-contained with a signature and expiration time that was assigned when the token was created. Revoked tokens can't be used with any Amazon Cognito API calls that require a token. However, revoked tokens will still be valid if they are verified using any JWT library that verifies the signature and expiration of the token.
 + When you create a new user pool client, token revocation is enabled by default.
 + You can revoke refresh tokens only in app clients with token revocation enabled. 
-+ After you enable token revocation, new claims are added in the Amazon Cognito JSON Web Tokens. The `origin_jti` and `jti` claims are added to access and ID tokens. These claims increase the size of the application client access and ID tokens.
++ After you enable token revocation, new claims are added in the Amazon Cognito JSON web tokens. The `origin_jti` and `jti` claims are added to access and ID tokens. These claims increase the size of the application client access and ID tokens.
 + When you disable token revocation in an app client where it was previously enabled, revoked tokens don't become active again.
 + When you [disable a user account](how-to-manage-user-accounts.md#manage-user-accounts-enable-disable) (which revokes refresh and access tokens), the revoked tokens don't become active if you enable the user account again.
 + When you create a new user pool client using the AWS Management Console, the AWS CLI, or the AWS API, token revocation is enabled by default.

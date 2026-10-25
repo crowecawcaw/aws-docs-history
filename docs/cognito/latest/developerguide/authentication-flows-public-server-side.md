@@ -66,7 +66,7 @@ For more information about signing Amazon Cognito API requests with AWS credenti
 In the `AdminInitiateAuth` response `ChallengeParameters`, the `USER_ID_FOR_SRP` attribute, if present, contains the user's actual username, not an alias (such as email address or phone number). In your call to `AdminRespondToAuthChallenge`, in the `ChallengeResponses`, you must pass this username in the `USERNAME` parameter. 
 
 **Note**  
-Because backend admin implementations use the admin authentication flow, the flow doesn't support remembered devices. When you have turned on device tracking, admin authentication succeeds, but any call to refresh the access token fails.
+Because back-end admin implementations use the admin authentication flow, the flow doesn't support remembered devices. When you have turned on device tracking, admin authentication succeeds, but any call to refresh the access token fails.
 
 ## Client-side authentication options
 <a name="amazon-cognito-user-pools-client-side-authentication-flow"></a>

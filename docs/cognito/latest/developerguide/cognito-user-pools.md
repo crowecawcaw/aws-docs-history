@@ -7,7 +7,7 @@ An Amazon Cognito user pool is a user directory for web and mobile app authentic
 
 This chapter covers how your users authenticate: signing up, signing in, and the authentication flows a user pool supports, including sign-in through external identity providers. Related tasks are covered in their own chapters—managing the users in your directory, customizing behavior with AWS Lambda triggers, and protecting the pool with threat protection.
 
-![A diagram with a high-level overview of how user pools work. Clients can sign in with applications build using an AWS SDK or with the OIDC IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup.png)
+![A diagram with a high-level overview of how user pools work. Clients can sign in with applications built using an AWS SDK or with the OpenID Connect (OIDC) IdP built in to user pools. User pools also unify sign-in processes for multiple social, OpenID Connect, and SAML 2.0 identity providers.](https://docs.aws.amazon.com/cognito/latest/developerguide/images/scenario-authentication-cup.png)
 
 
 **Topics**
@@ -24,7 +24,7 @@ Amazon Cognito user pools have the following features.
 ### Sign-up
 <a name="cognito-user-pools-sign-up"></a>
 
-Amazon Cognito user pools have user-driven, administrator-driven, and programmatic methods to add user profiles to your user pool. Amazon Cognito user pools supports the following sign-up models. You can use any combination of these models in your app.
+Amazon Cognito user pools have user-driven, administrator-driven, and programmatic methods to add user profiles to your user pool. Amazon Cognito user pools support the following sign-up models. You can use any combination of these models in your app.
 
 **Important**  
 If you activate user sign-up in your user pool, anyone on the internet can sign up for an account and sign into your apps. Don't enable self-registration in your user pool unless you want to open your app to public sign-up. To change this setting, update **Self-service sign-up** in the **Sign-up** menu under **Authentication** in the user pool console, or update the value of [ AllowAdminCreateUserOnly](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUserConfigType.html#CognitoUserPools-Type-AdminCreateUserConfigType-AllowAdminCreateUserOnly) in a [ CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) or [ UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) API request.  
@@ -51,7 +51,7 @@ After your users sign up, you can add them to groups that Amazon Cognito lists i
 
 Amazon Cognito can be a standalone user directory and identity provider (IdP) to your app. Your users can sign in with managed login pages that are hosted by Amazon Cognito, or with a custom-built user authentication service through the Amazon Cognito user pools API. The application tier behind your custom-built front end can authorize requests on the back end with any of several methods to confirm legitimate requests.
 
-Users can set up and sign with usernames and passwords, passkeys, and email and SMS message one-time passwords. You can offer consolidate sign in with external user directories, multi-factor authentication (MFA) after sign-in, trust remembered devices, and custom authentication flows that you design.
+Users can set up and sign in with usernames and passwords, passkeys, and email and SMS message one-time passwords. You can offer consolidated sign-in with external user directories, multi-factor authentication (MFA) after sign-in, trust remembered devices, and custom authentication flows that you design.
 
 To sign in users with an external directory, optionally combined with the user directory built in to Amazon Cognito, you can add the following integrations.
 
@@ -74,7 +74,7 @@ Some sessions aren’t a human-to-machine interaction. You might need a service 
 ### Managed login
 <a name="cognito-user-pools-hosted-ui"></a>
 
-When you don’t want to build a user interface, you can present your users with a customized managed login pages. Managed login is a set of web pages for sign-up, sign-in, multi-factor authentication (MFA), and password reset. You can add managed login to your existing domain, or use a prefix domain in an AWS subdomain.
+When you don't want to build a user interface, you can present your users with customized managed login pages. Managed login is a set of web pages for sign-up, sign-in, multi-factor authentication (MFA), and password reset. You can add managed login to your existing domain, or use a prefix domain in an AWS subdomain.
 
 Managed login has an alternative: the classic hosted UI, a first-generation version with a simpler design and fewer features. You choose one or the other for a user pool domain—they aren't used together. The following table compares the two options.
 

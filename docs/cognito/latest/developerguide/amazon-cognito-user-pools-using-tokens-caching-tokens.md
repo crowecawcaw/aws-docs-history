@@ -3,7 +3,7 @@
 # Managing user pool token expiration and caching
 <a name="amazon-cognito-user-pools-using-tokens-caching-tokens"></a>
 
-Your app must successfully complete one of the following requests each time you want to get a new JSON Web Token (JWT).
+Your app must successfully complete one of the following requests each time you want to get a new JSON web token (JWT).
 + Request a client credentials or authorization code [grant](https://www.rfc-editor.org/rfc/rfc6749#section-1.3) from the [Token endpoint](token-endpoint.md).
 + Request a client-credentials access token with the [GetClientToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetClientToken.html) API operation, which requires no user pool domain.
 + Request an implicit grant from your managed login pages.
@@ -73,7 +73,7 @@ This method request validation is for use with `client_secret_basic` authorizati
 
    1. Choose a **Cache capacity**. Higher cache capacity improves performance but comes at additional cost.
 
-   1. Clear the **Require authorization** check box. Select **Continue**.
+   1. Clear the **Require authorization** checkbox. Select **Continue**.
 
    1. API Gateway only applies cache policies to GET methods from the stage level. You must apply a cache policy override to your POST method.
 

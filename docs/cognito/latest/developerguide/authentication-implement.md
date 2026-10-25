@@ -49,7 +49,7 @@ When you configure app client supported flows, you can specify the following opt
 ------
 #### [ Implement flows in your application ]
 
-Managed login automatically makes your configured authentication options available in your sign-pages. In custom-built applications, start authentication with a declaration of the initial flow.
+Managed login automatically makes your configured authentication options available in your sign-in pages. In custom-built applications, start authentication with a declaration of the initial flow.
 + To choose from a list of flow options for a user, declare [choice-based authentication](authentication-flows-selection-sdk.md#authentication-flows-selection-choice) with the `USER_AUTH` flow. This flow has available authentication methods that aren't available in client-based authentication flows, for example [passkey](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passkey) and [passwordless](amazon-cognito-user-pools-authentication-flow-methods.md#amazon-cognito-user-pools-authentication-flow-methods-passwordless) authentication.
 + To choose your authentication flow up front, declare [client-based authentication](authentication-flows-selection-sdk.md#authentication-flows-selection-client) with any other flow that's available in your app client.
 

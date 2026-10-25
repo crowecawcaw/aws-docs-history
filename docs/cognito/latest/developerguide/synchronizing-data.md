@@ -323,7 +323,7 @@ dataset.synchronize(syncCallback);
 
 The `synchronize` method receives an implementation of the `SyncCallback` interface, discussed below.
 
-The `synchronizeOnConnectivity()` method attempts to synchronize when connectivity is available. If connectivity is immediately available, `synchronizeOnConnectivity()` behaves like `synchronize()`. Otherwise it monitors for connectivity changes and performs a sync once connectivity is available. If `synchronizeOnConnectivity()`is called multiple times, only the last synchronize request is kept, and only the last callback will fire. If either the dataset or the callback is garbage-collected, this method won't perform a sync, and the callback won't fire.
+The `synchronizeOnConnectivity()` method attempts to synchronize when connectivity is available. If connectivity is immediately available, `synchronizeOnConnectivity()` behaves like `synchronize()`. Otherwise it monitors for connectivity changes and performs a sync once connectivity is available. If `synchronizeOnConnectivity()`is called multiple times, only the last synchronize request is kept, and only the last callback fires. If either the dataset or the callback is garbage-collected, this method won't perform a sync, and the callback won't fire.
 
 To learn more about dataset synchronization and the different callbacks, see [Handling event callbacks](handling-callbacks.md).
 
@@ -400,7 +400,7 @@ The synchronize method compares local cached data to the data stored in the Amaz
 dataset.Synchronize();
 ```
 
-Synchronize will run asynchronously and will end up calling one of the several callbacks you can specify in the Dataset.
+Synchronize runs asynchronously and ends up calling one of the several callbacks you can specify in the Dataset.
 
 To learn more about dataset synchronization and the different callbacks, see [Handling event callbacks](handling-callbacks.md).
 

@@ -7,7 +7,7 @@ Support for groups in Amazon Cognito user pools enables you to create and manage
 
 You can use groups to create a collection of users in a user pool, which is often done to set the permissions for those users. For example, you can create separate groups for users who are readers, contributors, and editors of your website and app. Using the IAM role associated with a group, you can also set different permissions for those different groups so that only contributors can put content into Amazon S3 and only editors can publish content through an API in Amazon API Gateway.
 
-Amazon Cognito creates a user group for each OIDC, SAMl, and social [identity provider](cognito-user-pools-identity-federation.md#cognito-user-pools-identity-federation-how-it-works) (IdP) that you add to your user pool. The name of the group is in the format `[user pool ID]_[IdP name]`, for example `us-east-1_EXAMPLE_MYSSO` or `us-east-1_EXAMPLE_Google`. Each unique automatically-generated IdP user profile is automatically added to this group. [Linked users](cognito-user-pools-identity-federation-consolidate-users.md) aren't automatically added to this group, but you can add their profiles to the group in a separate process.
+Amazon Cognito creates a user group for each OIDC, SAMl, and social [identity provider](cognito-user-pools-identity-federation.md#cognito-user-pools-identity-federation-how-it-works) (IdP) that you add to your user pool. The name of the group is in the format `[user pool ID]_[IdP name]`, for example `us-east-1_EXAMPLE_MYSSO` or `us-east-1_EXAMPLE_Google`. Each unique automatically generated IdP user profile is automatically added to this group. [Linked users](cognito-user-pools-identity-federation-consolidate-users.md) aren't automatically added to this group, but you can add their profiles to the group in a separate process.
 
 You can create and manage groups in a user pool from the AWS Management Console, the APIs, and the CLI. As a developer (using AWS credentials), you can create, read, update, delete, and list the groups for a user pool. You can also add users and remove users from groups.
 
@@ -21,7 +21,7 @@ You can use groups to control permissions to your resources using an IAM role. I
 When you create a group in Amazon Cognito, you specify an IAM role by providing the role’s [ARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns). When group members sign in using Amazon Cognito, they can receive temporary credentials from the identity pools. Their permissions are determined by the associated IAM role.
 
 Individual users can be in multiple groups. As a developer, you have the following options for automatically choosing the IAM role when a user is in multiple groups:
-+ You can assign precedence values to each group. The group with the better (lower) precedence will be chosen and its associated IAM role will be applied. 
++ You can assign precedence values to each group. The group with the better (lower) precedence is chosen and its associated IAM role is applied. 
 + Your app can also choose from among the available roles when requesting AWS credentials for a user through an identity pool, by specifying a role ARN in the [GetCredentialsForIdentity](https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html) `CustomRoleARN` parameter. The specified IAM role must match a role that is available to the user.
 
 ## Assigning precedence values to groups
@@ -29,7 +29,7 @@ Individual users can be in multiple groups. As a developer, you have the followi
 
 A user can belong to more than one group. In the user's access and ID tokens, the `cognito:groups` claim contains the list of all the groups a user belongs to. The `cognito:roles` claim contains the list of roles corresponding to the groups.
 
-Because a user can belong to more than one group, each group can be assigned a precedence. This is a non-negative number that specifies the precedence of this group relative to the other groups that a user belongs to in the user pool. Zero is the top precedence value. Groups with lower precedence values take precedence over groups with higher or null precedence values. If a user belongs to two or more groups, the group with the lowest precedence value will have its IAM role applied to the `cognito:preferred_role` claim in the user's ID token.
+Because a user can belong to more than one group, each group can be assigned a precedence. This is a non-negative number that specifies the precedence of this group relative to the other groups that a user belongs to in the user pool. Zero is the top precedence value. Groups with lower precedence values take precedence over groups with higher or null precedence values. If a user belongs to two or more groups, the group with the lowest precedence value has its IAM role applied to the `cognito:preferred_role` claim in the user's ID token.
 
 Two groups can have the same precedence value. If this happens, neither group takes precedence over the other. If two groups with the same precedence value have the same role ARN, that role is used in the `cognito:preferred_role` claim in ID tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim is not set in users' ID tokens.
 
@@ -68,7 +68,7 @@ Use the following procedure to create a new group.
 
 1. You can optionally provide additional information about this group using any of the following fields:
    + **Description** - Enter details about what this new group will be used for.
-   + **Precedence** - Amazon Cognito evaluates and applies all group permissions for a given user based on which groups that they belong to has a lower precedence value. The group with the lower precedence will be chosen and its associated IAM role will be applied. For more information, see [Assigning precedence values to groups](#assigning-precedence-values-to-groups).
+   + **Precedence** - Amazon Cognito evaluates and applies all group permissions for a given user based on which groups that they belong to has a lower precedence value. The group with the lower precedence is chosen and its associated IAM role is applied. For more information, see [Assigning precedence values to groups](#assigning-precedence-values-to-groups).
    + **IAM role** - You can assign an IAM role to your group when you need to control permissions to your resources. If you are integrating a user pool with an identity pool, the **IAM role** setting determines which role is assigned in the user's ID token if the identity pool is configured to choose the role from the token. For more information, see [Assigning IAM roles to groups](#assigning-iam-roles-to-groups).
    + **Add users to this group** - Add existing users as members of this group after it is created.
 
