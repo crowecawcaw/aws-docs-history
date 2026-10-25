@@ -3,24 +3,24 @@
 # Viewing governance hierarchy
 <a name="view-governance-hierarchy"></a>
 
-Private Marketplace uses the hierarchy that you configured in Organizations to provide hierarchical governance. An experience associated with an audience governs all audiences at a lower level unless the lower level audience is directly associated with another experience. When you make updates to the hierarchy in Organizations, the changes are automatically synchronized and the governance is updated in Private Marketplace. To visualize the governance, refer to following sections:
-+ For a hierarchical view of all audiences in your organization, see [Audiences](#audiences-view).
+Private Marketplace uses the hierarchy that you configured in Organizations to provide hierarchical governance. An experience associated with an AWS account group governs all AWS account groups at a lower level unless the lower level AWS account group is directly associated with another experience. When you make updates to the hierarchy in Organizations, the changes are automatically synchronized and the governance is updated in Private Marketplace. To visualize the governance, refer to following sections:
++ For a hierarchical view of all AWS account groups in your organization, see [AWS account groups](#audiences-view).
 + For governance details of an organizational unit (OU), see [Organizational unit (OU) details](#organizational-unit-details).
 + For governance details of an account, see [Account details](#account-details).
 
 **Topics**
-+ [Audiences](#audiences-view)
++ [AWS account groups](#audiences-view)
 + [Organizational unit (OU) details](#organizational-unit-details)
 + [Account details](#account-details)
 
-## Audiences
+## AWS account groups
 <a name="audiences-view"></a>
 
-The **Audiences** page displays all the audiences in your organization with their governing experiences and association relationship. To view this page:
+The **AWS account groups** page displays all the AWS account groups in your organization with their governing experiences and association relationship. To view this page:
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/).
 
-1. In the navigation pane, choose **Audiences** under **Private Marketplace**.
+1. In the navigation pane, choose **AWS account groups** under **Private Marketplace**.
 
 1. Use the default **Hierarchy** view to navigate down your organization structure viewing nested organizational units (OUs) and accounts.
 
@@ -30,9 +30,9 @@ The **Audiences** page displays all the audiences in your organization with thei
 
 1. Search for an OU or account using its exact ID.
 
-The **Governing experience** column shows the experience governing the audience. The **Relationship** column shows whether the audience is directly associated with the experience (**Associated**) or if it inherits the experience from a higher level (**Inherited**).
+The **Governing experience** column shows the experience governing the AWS account group. The **Relationship** column shows whether the AWS account group is directly associated with the experience (**Associated**) or if it inherits the experience from a higher level (**Inherited**).
 
-An audience is governed by the first **Live** experience on its path to root. For more information, see [Governance hierarchy](private-marketplace-concepts.md#governance-hierarchy). If you have nested OUs with accounts at different levels, it may not be straight-forward to deduce the governing experience for an audience. To visualize this, you can use the details pages for OUs and accounts.
+An AWS account group is governed by the first **Live** experience on its path to root. For more information, see [Governance hierarchy](private-marketplace-concepts.md#governance-hierarchy). If you have nested OUs with accounts at different levels, it may not be straight-forward to deduce the governing experience for an AWS account group. To visualize this, you can use the details pages for OUs and accounts.
 
 ## Organizational unit (OU) details
 <a name="organizational-unit-details"></a>
@@ -41,7 +41,7 @@ An audience is governed by the first **Live** experience on its path to root. Fo
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/).
 
-1. In the navigation pane, choose **Audiences** under **Private Marketplace**.
+1. In the navigation pane, choose **AWS account groups** under **Private Marketplace**.
 
 1. Search for an OU using its exact ID. You can also navigate the tree structure to find your OU.
 
@@ -60,7 +60,7 @@ An audience is governed by the first **Live** experience on its path to root. Fo
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/).
 
-1. In the navigation pane, choose **Audiences** under **Private Marketplace**.
+1. In the navigation pane, choose **AWS account groups** under **Private Marketplace**.
 
 1. Search for an account using its exact ID. You can also navigate the tree structure to find your account.
 

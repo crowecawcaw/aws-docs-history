@@ -6,7 +6,7 @@
 ## Create a default experience
 <a name="create-default-experience"></a>
 
-It is recommended to configure a default governing experience to govern your entire organization. This experience should be associated with your organization root as the audience and curated with products that you approve for all your users. This ensures that any organizational unit (OU) or account that does not have a directly associated experience will automatically fall under the governance of this default experience.
+It is recommended to configure a default governing experience to govern your entire organization. This experience should be associated with your organization root as the AWS account group and curated with products that you approve for all your users. This ensures that any organizational unit (OU) or account that does not have a directly associated experience will automatically fall under the governance of this default experience.
 
 ## Register a delegated administrator
 <a name="register-delegated-admin"></a>
@@ -26,7 +26,7 @@ If you have individual accounts with specific procurement needs that do not alig
 ## Audit experiences regularly
 <a name="audit-experiences"></a>
 
-Conduct regular audits of experiences, their associated audiences, and the list of approved products to prevent outdated products from lingering in the approved list. Periodic reviews help maintain the relevance and security of the Private Marketplace setup.
+Conduct regular audits of experiences, their associated AWS account groups, and the list of approved products to prevent outdated products from lingering in the approved list. Periodic reviews help maintain the relevance and security of the Private Marketplace setup.
 
 ## Monitor all administration actions
 <a name="monitor-actions"></a>

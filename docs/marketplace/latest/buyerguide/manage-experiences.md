@@ -8,14 +8,14 @@ You can create an experience, view a list of all the experiences, and make edits
 **Topics**
 + [Viewing and updating experiences](#view-and-update-experiences)
 + [Updating experience configuration](#update-experience-configuration)
-+ [Managing audience associations for an experience](#manage-audience-associations-for-an-experience)
++ [Managing AWS account group associations for an experience](#manage-audience-associations-for-an-experience)
 + [Managing products in an experience](#manage-products-in-an-experience)
 + [Customizing branding settings](#customize-branding-settings)
 
 ## Viewing and updating experiences
 <a name="view-and-update-experiences"></a>
 
-**Active experiences** can be used to govern users. You can continue to make updates and manage products in active experiences. When an active experience is **Live** and associated with an audience, all users in that audience will be governed by the experience. When an active experience is **Not live**, it will not govern any users even when it is associated with an audience.
+**Active experiences** can be used to govern users. You can continue to make updates and manage products in active experiences. When an active experience is **Live** and associated with an AWS account group, all users in that AWS account group will be governed by the experience. When an active experience is **Not live**, it will not govern any users even when it is associated with an AWS account group.
 
 **Archived experiences** cannot be modified and used to govern users. An archived experience has to be reactivated, if you want to use it again.
 
@@ -27,7 +27,7 @@ You can create an experience, view a list of all the experiences, and make edits
 
 1. Choose the experience you want to update.
 
-1. Choose **View details** to view a page with all the details for the experience. To edit, see [Updating experience configuration](#update-experience-configuration), [Managing audience associations for an experience](#manage-audience-associations-for-an-experience), [Managing products in an experience](#manage-products-in-an-experience), and [Customizing branding settings](#customize-branding-settings).
+1. Choose **View details** to view a page with all the details for the experience. To edit, see [Updating experience configuration](#update-experience-configuration), [Managing AWS account group associations for an experience](#manage-audience-associations-for-an-experience), [Managing products in an experience](#manage-products-in-an-experience), and [Customizing branding settings](#customize-branding-settings).
 
 1. Choose **Save changes**.
 
@@ -36,7 +36,7 @@ You can create an experience, view a list of all the experiences, and make edits
 
 You can update the internal name and description for the experience, the status, and admin mode. You can also enable or disable product procurement requests.
 
-Setting the status of an experience that is associated with an audience to **Live** does not disrupt existing subscriptions and usage for the users in that audience. For example, it does not disrupt active Amazon Machine Images (AMIs) running on Amazon Elastic Compute Cloud (Amazon EC2) instances. When an experience is **Live** and associated with an audience, all new subscriptions or renewals are limited to the products approved in the experience.
+Setting the status of an experience that is associated with an AWS account group to **Live** does not disrupt existing subscriptions and usage for the users in that AWS account group. For example, it does not disrupt active Amazon Machine Images (AMIs) running on Amazon Elastic Compute Cloud (Amazon EC2) instances. When an experience is **Live** and associated with an AWS account group, all new subscriptions or renewals are limited to the products approved in the experience.
 
 **To edit the configuration for an experience**
 
@@ -48,7 +48,7 @@ Setting the status of an experience that is associated with an audience to **Liv
 
 1. Choose **View details** to view a page with all the details for the experience. To edit the configuration, choose **Edit** on the **Details** tab.
 
-1. Choose **Live** as **Experience status** if you want the experience to take effect and govern the associated audience. Choose **Not live** as **Experience status** if you do not want the experience to take effect or turn off the experience.
+1. Choose **Live** as **Experience status** if you want the experience to take effect and govern the associated AWS account group. Choose **Not live** as **Experience status** if you do not want the experience to take effect or turn off the experience.
 
 1. You can update the admin mode of an experience only when the status is **Not live**. Choose **Active** to allow edits or **Archived** to disallow edits.
 
@@ -58,12 +58,12 @@ Setting the status of an experience that is associated with an audience to **Liv
 
 1. Choose **Save changes**.
 
-## Managing audience associations for an experience
+## Managing AWS account group associations for an experience
 <a name="manage-audience-associations-for-an-experience"></a>
 
-You can associate additional audiences with an experience or disassociate existing audiences from the experience. This section describes how you can associate and disassociate audiences from an experience using the experience details page.
+You can associate additional AWS account groups with an experience or disassociate existing AWS account groups from the experience. This section describes how you can associate and disassociate AWS account groups from an experience using the experience details page.
 
-**To associate additional audiences with an experience**
+**To associate additional AWS account groups with an experience**
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/).
 
@@ -73,15 +73,15 @@ You can associate additional audiences with an experience or disassociate existi
 
 1. Choose **View details** to view a page with all the details for the experience.
 
-1. Choose **Associated audiences** tab and **Add additional audience**.
+1. Choose **Associated AWS account groups** tab and **Add additional AWS account group**.
 
-1. Navigate the tree structure to choose your target audiences. The hierarchy shown reflects your organization structure, displaying the organizational units (OUs) and accounts that you manage in Organizations.
+1. Navigate the tree structure to choose your target AWS account groups. The hierarchy shown reflects your organization structure, displaying the organizational units (OUs) and accounts that you manage in Organizations.
 
-1. You can choose the entire organization, organizational units (OUs), or accounts. If you choose an audience that is directly associated with another experience, it will be disassociated from that experience and associated with the current experience.
+1. You can choose the entire organization, organizational units (OUs), or accounts. If you choose an AWS account group that is directly associated with another experience, it will be disassociated from that experience and associated with the current experience.
 
 1. After making your selections, choose **Next**.
 
-1. Review the selected audiences to associate with the experience, and edit as needed.
+1. Review the selected AWS account groups to associate with the experience, and edit as needed.
 
 1. When you are satisfied with your selections, choose **Associate**.
 

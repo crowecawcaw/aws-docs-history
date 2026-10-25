@@ -3,7 +3,7 @@
 # Private Marketplace
 <a name="private-marketplace-current"></a>
 
-With Private Marketplace, you control what users in your organization can procure from AWS Marketplace. Administrators can provide customized procurement experiences with curated catalogs of approved products to different audiences in your organization. Private Marketplace integrates with [AWS Organizations](https://aws.amazon.com/organizations), a service that helps you manage all your AWS accounts in one place.
+With Private Marketplace, you control what users in your organization can procure from AWS Marketplace. Administrators can provide customized procurement experiences with curated catalogs of approved products to different AWS account groups in your organization. Private Marketplace integrates with [AWS Organizations](https://aws.amazon.com/organizations), a service that helps you manage all your AWS accounts in one place.
 
 You can create multiple experiences to govern your entire organization, AWS organizational units (OUs), or AWS accounts and adjust your procurement controls as your business needs change. If you update your organization structure within AWS Organizations, Private Marketplace updates the governance accordingly. You can also add company branding to each experience with a custom name and messaging that gives users more information about their procurement experience.
 

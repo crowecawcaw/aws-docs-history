@@ -8,13 +8,13 @@ This topic explains some of the key concepts for Private Marketplace.
 ## Experience
 <a name="experience"></a>
 
-A Private Marketplace experience is a curated catalog of approved products with custom branding that allows you to control what users in your organization can procure from AWS Marketplace. To govern users, you associate the audience containing the user with a **Live** experience. Audiences can be the entire organization, organizational units (OUs), or accounts in your Organizations. You can create multiple experiences with specific procurement controls for different audiences.
+A Private Marketplace experience is a curated catalog of approved products with custom branding that allows you to control what users in your organization can procure from AWS Marketplace. To govern users, you associate the AWS account group containing the user with a **Live** experience. AWS account groups can be the entire organization, organizational units (OUs), or accounts in your Organizations. You can create multiple experiences with specific procurement controls for different AWS account groups.
 
 ### Experience status
 <a name="experience-status"></a>
 
 The status of an experience determines if the experience is available to govern users. An experience can have two statuses:
-+ **Live –** The experience is active and will govern users in the audience that the experience is associated with. Admins can continue to make updates and manage products.
++ **Live –** The experience is active and will govern users in the AWS account group that the experience is associated with. Admins can continue to make updates and manage products.
 + **Not live – ** The experience is created but not yet available to govern users. Admins can continue to make updates and configure settings. It can be set to **Live** when ready for users.
 
 ### Experience mode
@@ -22,50 +22,52 @@ The status of an experience determines if the experience is available to govern 
 
 The mode of an experience determines whether the experience can be updated and used to govern users. An experience can have two modes:
 + **Active –** Active experiences can be updated and used to govern users. You can continue to make updates and manage products in active experiences.
-  + When an active experience is **Live** and associated with an audience, all users in that audience will be governed by the experience.
-  + When an active experience is **Not live**, it will not govern any users even when it is associated with an audience.
+  + When an active experience is **Live** and associated with an AWS account group, all users in that AWS account group will be governed by the experience.
+  + When an active experience is **Not live**, it will not govern any users even when it is associated with an AWS account group.
 + **Archived –** Archived experiences cannot be modified and used to govern users. An archived experience has to be reactivated, if you want to use it again. Archiving an experience can be thought as soft deleting an experience and preventing active use with ability to reactivate and use it again, if required.
 
-## Audience
+## AWS account group
 <a name="audience"></a>
 
-Each hierarchical unit in Organizations — organization, organizational units (OUs), or accounts — can be an audience for an experience. You can think of audiences as nodes in the organization structure of Organizations hierarchy. Read more about [Organization structure](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#organization-structure) in the AWS Organizations user guide.
+Each hierarchical unit in Organizations — organization, organizational units (OUs), or accounts — can be an AWS account group for an experience. You can think of AWS account groups as nodes in the organization structure of Organizations hierarchy. Read more about [Organization structure](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#organization-structure) in the AWS Organizations user guide.
 
-With Private Marketplace, you can provide specific procurement experiences to different audiences in your organization based on their business needs. You do this by associating an experience with an audience.
+AWS account groups were previously called audiences. In the AWS Marketplace Catalog API, they're `Audience` entities.
 
-Experiences flow down through the audience hierarchy — when applied at a higher level, all lower levels inherit it automatically. To override an inherited experience, you can associate the audience at a lower level with a different experience.
+With Private Marketplace, you can provide specific procurement experiences to different AWS account groups in your organization based on their business needs. You do this by associating an experience with an AWS account group.
 
-## Associated audience
+Experiences flow down through the AWS account group hierarchy — when applied at a higher level, all lower levels inherit it automatically. To override an inherited experience, you can associate the AWS account group at a lower level with a different experience.
+
+## Associated AWS account group
 <a name="associated-audience"></a>
 
-An experience can be directly associated with multiple audiences collectively termed as **associated audiences**.
+An experience can be directly associated with multiple AWS account groups collectively termed as **associated AWS account groups**.
 
-When an experience is **Live**, it will govern the associated audiences. Users in the associated audiences will only be allowed to procure products approved in the experience. The associated audiences will not inherit any product approvals from experiences associated at a higher level in the organization hierarchy.
+When an experience is **Live**, it will govern the associated AWS account groups. Users in the associated AWS account groups will only be allowed to procure products approved in the experience. The associated AWS account groups will not inherit any product approvals from experiences associated at a higher level in the organization hierarchy.
 
-When an experience is **Not live**, it will not govern the associated audiences. The associated audiences will inherit product approvals from the first **Live** experience associated at a higher level in the organization hierarchy.
+When an experience is **Not live**, it will not govern the associated AWS account groups. The associated AWS account groups will inherit product approvals from the first **Live** experience associated at a higher level in the organization hierarchy.
 
 ## Governing experience
 <a name="governing-experience"></a>
 
-An audience will only be governed by a single experience at a point in time. This is referred to as the **governing experience**. When an experience is governing an audience, users in that audience will only be allowed to procure products approved in the experience. The governing experience is determined by the status of the experience, its associated audiences, and the organization hierarchy.
+An AWS account group will only be governed by a single experience at a point in time. This is referred to as the **governing experience**. When an experience is governing an AWS account group, users in that AWS account group will only be allowed to procure products approved in the experience. The governing experience is determined by the status of the experience, its associated AWS account groups, and the organization hierarchy.
 
-The governing experience and its audience relationship can be **Associated** when an audience is directly associated with an experience and **Inherited** when it inherits from an experience at a higher level. Read more about [Governance hierarchy](#governance-hierarchy) to understand how experience inheritance works.
+The governing experience and its AWS account group relationship can be **Associated** when an AWS account group is directly associated with an experience and **Inherited** when it inherits from an experience at a higher level. Read more about [Governance hierarchy](#governance-hierarchy) to understand how experience inheritance works.
 
 ## Default governing experience
 <a name="default-governing-experience"></a>
 
 The default governing experience governs the entire organization, excluding organizational units and accounts that are directly associated with other **Live** experiences. It is recommended to configure a default governing experience to govern your entire organization. The default governing experience should be curated with products that you approve for all users in your organization.
 
-To configure a default governing experience for your organization, create an experience, select the products that you approve for procurement in your organization, and associate your organization root as the audience for the experience. After the experience is set to **Live**, users in your organization will only be allowed to procure AWS Marketplace products that you approved in the default governing experience. For more information, see [Configuring Private Marketplace](configure-private-marketplace.md) for steps to create and configure an experience.
+To configure a default governing experience for your organization, create an experience, select the products that you approve for procurement in your organization, and associate your organization root as the AWS account group for the experience. After the experience is set to **Live**, users in your organization will only be allowed to procure AWS Marketplace products that you approved in the default governing experience. For more information, see [Configuring Private Marketplace](configure-private-marketplace.md) for steps to create and configure an experience.
 
-If you have organizational units (OUs) or accounts with specific procurement needs, you can create additional experiences with different sets of approved products and associate them to these audiences.
+If you have organizational units (OUs) or accounts with specific procurement needs, you can create additional experiences with different sets of approved products and associate them to these AWS account groups.
 
 ## Governance hierarchy
 <a name="governance-hierarchy"></a>
 
 Private Marketplace provides hierarchical governance that is aligned with [Organizations hierarchy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#organization-structure). With Private Marketplace, you can create multiple experiences and associate them to your entire organization, AWS organizational units (OUs), or AWS accounts. This allows you to scale your procurement governance as your business needs evolve. If you update your organization hierarchy within Organizations, Private Marketplace updates the governance accordingly.
 
-Here are the different levels of audience associations and the effect for each. Note that the status of an experience is also a factor to determine the governance. An experience will govern an audience only when it is set to **Live**. The effects described below assume a **Live** experience. When an experience associated with an audience is **Not live**, the audience inherits the **Live** experience at the next higher level.
+Here are the different levels of AWS account group associations and the effect for each. Note that the status of an experience is also a factor to determine the governance. An experience will govern an AWS account group only when it is set to **Live**. The effects described below assume a **Live** experience. When an experience associated with an AWS account group is **Not live**, the AWS account group inherits the **Live** experience at the next higher level.
 + **Organization association –** When you associate an experience with the organization root, all OUs and accounts in the organization inherit the experience. All users in the organization will be governed by the experience and will only be allowed to procure products approved in the experience.
 + **OU association –** When you associate an experience with a specific OU, it does not inherit experiences set at higher levels in the hierarchy. Accounts that are directly under that OU or any child OU inherit the experience associated with that OU. Users in accounts that are directly under that OU or any child OU will be governed by the experience and will only be allowed to procure products approved in the experience.
 + **Account association –** When you associate an experience with a specific account, it does not inherit experiences set at higher levels in the hierarchy. Users in the account will be governed by the experience and will only be allowed to procure products approved in the experience.

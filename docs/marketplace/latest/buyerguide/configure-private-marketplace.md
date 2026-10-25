@@ -3,17 +3,17 @@
 # Configuring Private Marketplace
 <a name="configure-private-marketplace"></a>
 
-You can create multiple Private Marketplace experiences with specific procurement controls and customized branding for different audiences in your organization. Private Marketplace provides a multi-step wizard for creating and configuring experiences.
+You can create multiple Private Marketplace experiences with specific procurement controls and customized branding for different AWS account groups in your organization. Private Marketplace provides a multi-step wizard for creating and configuring experiences.
 
 **Topics**
 + [Configuring an experience](#configure-experience)
-+ [Selecting audiences (optional)](#select-audiences)
++ [Selecting AWS account groups (optional)](#select-audiences)
 + [Selecting products (optional)](#select-products)
 + [Customizing branding (optional)](#configure-branding-settings)
 + [Reviewing and creating an experience](#review-and-create-experience)
 
 **Note**  
-You can skip the optional steps and update the experience after creation. If you skip the optional steps and use the default settings, your experience will be live without any approved products or associated audiences. Until you associate an audience with this experience, it will not take effect and govern any users. When associated with an audience, it will not allow the users in the audience to procure any products from AWS Marketplace. It will allow users to submit product procurement requests.
+You can skip the optional steps and update the experience after creation. If you skip the optional steps and use the default settings, your experience will be live without any approved products or associated AWS account groups. Until you associate an AWS account group with this experience, it will not take effect and govern any users. When associated with an AWS account group, it will not allow the users in the AWS account group to procure any products from AWS Marketplace. It will allow users to submit product procurement requests.
 
 ## Configuring an experience
 <a name="configure-experience"></a>
@@ -32,7 +32,7 @@ You can skip the optional steps and update the experience after creation. If you
 
 1. (Optional) Update status and requests
 
-   1. By default, the experience will be created with **Live** status and will take effect when it is associated with an audience. Choose **Not live** as **Experience status** if you do not want the experience to take effect immediately.
+   1. By default, the experience will be created with **Live** status and will take effect when it is associated with an AWS account group. Choose **Not live** as **Experience status** if you do not want the experience to take effect immediately.
 
    1. By default, product requests are enabled which allows users to request more products to be added to the experience. If you do not want to allow users to request products, choose disabled for **Product procurement requests**.
 
@@ -44,22 +44,22 @@ You can skip the optional steps and update the experience after creation. If you
 
    1. Specify a key and, optionally, a value for the new tag.
 
-## Selecting audiences (optional)
+## Selecting AWS account groups (optional)
 <a name="select-audiences"></a>
 
-This step is optional. Note that your experience will not govern any users until it is set to **Live** status and associated with an audience.
+This step is optional. Note that your experience will not govern any users until it is set to **Live** status and associated with an AWS account group.
 
-**To select audiences**
+**To select AWS account groups**
 
-1. Navigate the tree structure to choose your target audiences. The hierarchy shown reflects your organization structure, displaying the organizational units (OUs) and accounts that you manage in Organizations.
+1. Navigate the tree structure to choose your target AWS account groups. The hierarchy shown reflects your organization structure, displaying the organizational units (OUs) and accounts that you manage in Organizations.
 
-1. You can choose the entire organization, organizational units (OUs), or accounts. If you choose an audience that is directly associated with another experience, it will be disassociated from that experience and associated with the experience being created.
+1. You can choose the entire organization, organizational units (OUs), or accounts. If you choose an AWS account group that is directly associated with another experience, it will be disassociated from that experience and associated with the experience being created.
 
 1. After making your selections, choose **Next**.
 
 **Note**  
-When choosing audiences, do not choose audiences at lower levels of a hierarchy if you have already chosen the audience at the higher level. Experiences flow down through the hierarchy - when applied at a higher level, all lower levels inherit it automatically. For example, if you have chosen an OU as the audience, do not choose the accounts under the OU, as they will automatically inherit the experience.
-Choose an audience at a lower level only if you want to override its governance and not have it inherit from a higher level.
+When choosing AWS account groups, do not choose AWS account groups at lower levels of a hierarchy if you have already chosen the AWS account group at the higher level. Experiences flow down through the hierarchy - when applied at a higher level, all lower levels inherit it automatically. For example, if you have chosen an OU as the AWS account group, do not choose the accounts under the OU, as they will automatically inherit the experience.
+Choose an AWS account group at a lower level only if you want to override its governance and not have it inherit from a higher level.
 
 ## Selecting products (optional)
 <a name="select-products"></a>
@@ -68,7 +68,7 @@ This step is optional. If you do not select any products, your experience will b
 
 **To select products**
 
-1. Choose the AWS Marketplace products you want to approve in the experience you are creating. Users in the audience associated with the experience will be allowed to subscribe to these products.
+1. Choose the AWS Marketplace products you want to approve in the experience you are creating. Users in the AWS account group associated with the experience will be allowed to subscribe to these products.
 
 1. After making your selections, choose **Next**.
 
