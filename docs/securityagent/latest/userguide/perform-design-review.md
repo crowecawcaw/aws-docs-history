@@ -15,7 +15,7 @@ In this procedure, you’ll create a design review by uploading design files for
 Before you begin, ensure you have:
 + Access to the AWS Security Agent web application
 + Design documents ready for upload (DOC, DOCX, JPEG, MD, PDF, PNG and TXT)
-+ Each file must be 2MB or smaller, with a combined total of 6MB across all files
++ Each file must be 2 MB or smaller (0.5 MB for Markdown and text files), with a combined total of 6 MB across all files
 + Understanding of which security requirements are enabled for your organization
 
 ## Step 1: Start creating a design review
@@ -50,7 +50,7 @@ Upload the design documents you want AWS Security Agent to analyze for security 
 
 1. In the **Files to review** section, review the file requirements:
 **Important**  
-A maximum of 5 files may be uploaded per design review. Each file must be 2MB or smaller, with a combined total of 6MB across all files. Supported formats: DOC, DOCX, JPEG, MD, PDF, PNG and TXT.
+A maximum of 5 files may be uploaded per design review. Each file must be 2 MB or smaller (0.5 MB for Markdown and text files), with a combined total of 6 MB across all files. Supported formats: DOC, DOCX, JPEG, MD, PDF, PNG and TXT.
 
 1. Upload your files using one of these methods:
 

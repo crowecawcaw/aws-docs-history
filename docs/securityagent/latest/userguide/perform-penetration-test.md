@@ -413,6 +413,21 @@ Choose specific risk categories to exclude from testing if they’re not applica
 **Note**  
 Excluding risk types limits the scope of testing. Only exclude risk types that are not relevant to your application or that you want to test separately.
 
+## Configure best-effort resource cleanup (optional)
+<a name="pentest-resource-cleanup"></a>
+
+While testing, AWS Security Agent can create resources in your application, such as user accounts or records it submits through forms and APIs. When the run ends, AWS Security Agent tries to delete the resources it created.
+
+Cleanup runs as a final phase of the run. If you stop the run, or if the run ends before this phase, AWS Security Agent does not delete the resources it created.
+
+Cleanup is best effort. If a deletion fails, AWS Security Agent continues with the remaining resources, and cleanup does not cause the run to fail. Some resources can therefore remain after the run. Review your application after a run and remove anything left behind.
+
+1. On the **Additional configuration** step, locate the **Best-effort resource cleanup** section.
+
+1. Choose whether to clean up created resources:
+   +  **Enabled** (default) – AWS Security Agent tries to delete the resources it created when the run ends.
+   +  **Disabled** – AWS Security Agent does not delete the resources it created.
+
 ## Create the penetration test
 <a name="_create_the_penetration_test"></a>
 

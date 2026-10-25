@@ -68,6 +68,21 @@ A penetration test failing during endpoint validation indicates that your endpoi
 
 If the endpoint that a penetration test targets has an IP allowlist enabled, you can add a private VPC configuration with an associated [VPC NAT Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) to your penetration test. You can then use the NAT Gateway IP address to allowlist outbound traffic from the penetration test.
 
+## Penetration test login blocked by an identity provider
+<a name="_penetration_test_login_blocked_by_an_identity_provider"></a>
+
+A penetration test might report a login failure for an application that delegates sign-in to a third-party identity provider. The provider might have blocked the agent’s browser instead of rejecting the credentials. Providers that apply anti-automation controls can refuse an automated browser before they evaluate the credentials. They usually report that the browser or app is not secure.
+
+ **Solution:** 
+
+Provide a credential that the agent can replay, rather than one it has to earn by completing the provider’s sign-in flow. For longer tests, prefer an AWS Lambda function, because it can return a fresh session for each run.
++ Sign in yourself and capture the resulting session cookie or bearer token.
++ Store it in AWS Secrets Manager, or return it from an AWS Lambda function. For more information, see [Select static credential from connected AWS Secrets Manager](provide-testing-credentials.md#provide-testing-credentials-secrets-manager).
++ Select it as the credential for the penetration test.
++ Use the **Agent Space login prompt** to state how to apply it, for example which header to set on each request.
++ Keep the session valid for the duration of the test.
++ Point the agent at a sign-in path that isn’t delegated to the provider, such as a local test account or an API key, if the application offers one.
+
 ## Getting additional help
 <a name="_getting_additional_help"></a>
 

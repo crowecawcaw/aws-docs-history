@@ -10,12 +10,25 @@ Use this instead of writing each requirement by hand when you already have secur
 ## Supported file formats
 <a name="_supported_file_formats"></a>
 
-You can upload the following file formats:
-+ DOC
-+ DOCX
-+ MD
-+ PDF
-+ TXT
+You can upload up to 3 files for each pack, with a combined total of 6 MB. The maximum size of a file depends on its format:
+
+DOC  
+2 MB
+
+DOCX  
+2 MB
+
+MD  
+0.5 MB
+
+PDF  
+2 MB
+
+TXT  
+0.5 MB
+
+**Note**  
+Markdown and text files have a lower size limit because AWS Security Agent analyzes them as plain text. A DOC, DOCX, or PDF file of the same size contains less text, because its size also includes formatting and embedded content.
 
 ## Generate requirements
 <a name="_generate_requirements"></a>

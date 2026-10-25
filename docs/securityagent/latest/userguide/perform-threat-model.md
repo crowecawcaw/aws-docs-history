@@ -155,7 +155,7 @@ The run page header displays a status indicator:
 <a name="_run_page_tabs"></a>
 
 On the run detail page, navigate between tabs:
-+  **Overview** – View the run summary (job ID, start time, status, duration) with a severity level pie chart showing the breakdown of threats by severity (Critical, High, Medium, Low). Below the summary, view a STRIDE threat categories bar chart showing how many threats fall into each STRIDE category. After the run completes, view the system overview produced by the agent.
++  **Overview** – View the run summary (job ID, start time, status, duration) with a severity level pie chart showing the breakdown of threats by severity (High, Medium, Low). Below the summary, view a STRIDE threat categories bar chart showing how many threats fall into each STRIDE category. After the run completes, view the system overview produced by the agent.
 +  **Configuration** – View the sources, documents, and permissions (service role, CloudWatch log group) that were used for this run.
 +  **Preflight** – View the status of preflight checks that run before threat analysis begins, including logging infrastructure setup, S3 source access validation (when applicable), and testing environment setup. A progress bar shows how many checks have completed.
 +  **Logs** – View a filterable list of tasks the agent performed during the run. Select any task to view its detailed log output in a side panel.

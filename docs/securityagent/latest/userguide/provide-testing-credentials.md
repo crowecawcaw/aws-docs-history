@@ -5,6 +5,10 @@
 
 Provide credentials to enable AWS Security Agent to test authenticated areas of your web applications. Without credentials, the agent can only test publicly accessible pages and APIs.
 
+**Important**  
+Some identity providers block sign-in from automated browsers under their own anti-automation policies. A provider that does this can refuse the agent’s browser before it evaluates your credentials. Sign-in then fails even though the credentials are valid. Each provider controls whether it applies these checks and when.  
+If your application delegates sign-in to such a provider, provide a credential that the agent can replay rather than earn by signing in. For more information, see [Select static credential from connected AWS Secrets Manager](#provide-testing-credentials-secrets-manager).
+
 ## Configure authentication credentials
 <a name="_configure_authentication_credentials"></a>
 

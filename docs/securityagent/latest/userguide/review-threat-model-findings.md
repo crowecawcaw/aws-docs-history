@@ -46,7 +46,7 @@ To review the system overview:
 
 1. Review the **Run summary** section, which shows the job ID, start time, status, and duration.
 
-1. Review the **Severity level** chart, which shows a breakdown of threats by severity (Critical, High, Medium, Low) with counts and percentages.
+1. Review the **Severity level** chart, which shows a breakdown of threats by severity (High, Medium, Low) with counts and percentages.
 
 1. Review the **Threat categories** chart, which shows how many threats fall into each STRIDE category (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege).
 
@@ -68,10 +68,7 @@ Navigate to the **Threats** tab to view all threats identified during the run.
 
 ### Threat severity
 <a name="_threat_severity"></a>
-
-Each threat is assigned a severity level:
-+  **Critical** – Requires immediate action; exploitation could lead to full system compromise.
-+  **High** – Requires prompt attention; exploitation could result in significant security impact.
++  **High** – Requires prompt attention; exploitation could result in significant security impact, up to full system compromise.
 +  **Medium** – Should be addressed in a reasonable timeframe; contributes to overall security risk.
 +  **Low** – Can be addressed as part of regular maintenance; minimal immediate risk.
 
@@ -81,7 +78,7 @@ Each threat is assigned a severity level:
 Select a threat to view its details in the right panel. The details are organized into the following sections:
 
  **Metadata row:** 
-+  **Severity** – The risk level assigned by the agent (Critical, High, Medium, or Low).
++  **Severity** – The risk level assigned by the agent (High, Medium, or Low).
 +  **STRIDE categories** – The threat classification: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, or Elevation of Privilege.
 +  **Created at** – When the threat was identified.
 +  **Last updated** – When the threat was last modified.
@@ -111,7 +108,7 @@ You can add threats that the agent did not identify — for example, threats dis
 
 1. Fill in the threat details:
    +  **Statement** – A natural-language description of the threat.
-   +  **Severity** – Select Critical, High, Medium, or Low.
+   +  **Severity** – Select High, Medium, or Low.
    +  **Source** – The actor or origin of the threat.
    +  **Prerequisites** – Conditions required for the threat to be exploitable.
    +  **Action** – What the threat source can do.
