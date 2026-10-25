@@ -168,6 +168,8 @@ As a **root** user:
 
 ------
 
+When the worker agent stops, the worker's status changes to `STOPPED` and you stop incurring the Deadline Cloud charge for that worker. For more information, see [Worker states and lifecycle](worker-states.md) and [Charges for workers](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/cost-management.html#worker-charges) in the *Deadline Cloud User Guide*.
+
 ## Create job users and groups
 <a name="create-job-user-and-group"></a>
 

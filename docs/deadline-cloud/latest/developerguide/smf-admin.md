@@ -3,9 +3,11 @@
 # Run host configuration scripts with administrator privileges
 <a name="smf-admin"></a>
 
-Host configuration scripts allow you to perform administrative tasks, such as software installation, on your service-managed fleet workers. These scripts run with elevated privileges (`sudo` on Linux, Administrator on Windows), giving you the flexibility to configure your workers for your system.
+Host configuration scripts allow you to perform administrative tasks, such as software installation, on the workers in your fleet. These scripts run with elevated privileges (`sudo` on Linux, Administrator on Windows), giving you the flexibility to configure your workers for your system.
 
-Deadline Cloud runs the script after the worker enters the `STARTING` state and before it runs any tasks.
+Deadline Cloud runs the script after the worker enters the `STARTED` status and before it runs any tasks. If the script fails, the worker status changes to `STOPPED`.
+
+Host configuration scripts also work for workers on customer-managed fleets. They are especially useful for customer-managed fleets that use ephemeral hosts, such as instances that an Auto Scaling group launches, because each new host needs its software installed. On-premises hosts that are always on usually have the software that they need installed already.
 
 The script runs after Deadline Cloud sets up usage-based licensing (UBL). Deadline Cloud sets the UBL license environment variables when the worker instance launches, before the worker agent starts, and the worker agent then runs your host configuration script. The automatic UBL setup doesn't overwrite environment variables that your script sets: license variables that your script sets system-wide take precedence for the jobs that the worker runs. For more information about licensing options, see [Using software licenses with Deadline Cloud](license.md).
 

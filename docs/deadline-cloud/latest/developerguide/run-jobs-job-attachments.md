@@ -69,7 +69,10 @@ To enable job attachments in your queue, add a job attachments configuration to 
                    {
                        "Effect": "Allow",
                        "Principal": {
-                           "Service": "credentials.deadline.amazonaws.com"
+                           "Service": [
+                               "credentials.deadline.amazonaws.com",
+                               "deadline.amazonaws.com"
+                           ]
                        },
                        "Action": "sts:AssumeRole"
                    }
