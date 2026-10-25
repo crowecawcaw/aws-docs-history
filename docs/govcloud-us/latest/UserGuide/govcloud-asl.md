@@ -6,16 +6,14 @@
  Amazon Security Lake is a fully managed security data lake service. You can use Security Lake to automatically centralize security data from AWS environments, SaaS providers, on premises, cloud sources, and third-party sources into a purpose-built data lake that’s stored in your AWS account. Security Lake helps you analyze security data, so you can get a more complete understanding of your security posture across the entire organization. With Security Lake, you can also improve the protection of your workloads, applications, and data.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon Security Lake is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon Security Lake differs
-<a name="govcloud-diffs-45"></a>
-
-The following differences apply to Amazon Security Lake:
+<a name="feature-diffs"></a>
 + In AWS GovCloud (US) Regions, the subscriber [HttpsNotificationConfiguration](https://docs.aws.amazon.com/security-lake/latest/APIReference/API_HttpsNotificationConfiguration.html) operation is not available.
 + In AWS GovCloud (US) Regions, AWS doesn’t use or store Customer Content processed by Amazon Security Lake to develop and improve the service or technologies of AWS or its affiliates. Opt-out policies are currently not applicable to these Regions.
 

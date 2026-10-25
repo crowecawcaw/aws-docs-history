@@ -17,7 +17,7 @@ This service is available in the following AWS GovCloud (US) Regions:
 
 The following differences apply to Amazon DynamoDB:
 +  **Export Table** is not available in the DynamoDB console.
-+  [DynamoDB Accelerator(DAX)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.html) and [Global tables multi-Region strong consistency (MRSC)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) are not available.
++  [Global tables multi-Region strong consistency (MRSC)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes) is not available.
 +  [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) is not available for DynamoDB.
 
 ## Documentation

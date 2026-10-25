@@ -6,16 +6,14 @@
 AWS CodePipeline is a continuous delivery service you can use to model, visualize, and automate the steps required to release your software. You can quickly model and configure the different stages of a software release process. CodePipeline automates the steps required to release your software changes continuously.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS CodePipeline is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS CodePipeline differs
-<a name="govcloud-acp-diffs"></a>
-
-The following differences apply to AWS CodePipeline:
+<a name="feature-diffs"></a>
 + Custom actions are not available.
 + Source Actions. The following actions are only available in AWS GovCloud (US-East):
   +  AWS CodeStar Source Connection (Bitbucket Cloud)

@@ -20,7 +20,6 @@ The following differences apply to Amazon EC2 Image Builder:
 + The following Image Builder features are not available:
   + Image lifecycle policies
   +  AWS Marketplace Software components
-  + ISO disk file import
 
 ## Documentation
 <a name="govcloud-ec2ib-docs"></a>

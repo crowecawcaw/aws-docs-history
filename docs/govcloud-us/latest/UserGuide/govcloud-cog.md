@@ -21,6 +21,7 @@ The following differences apply to Amazon Cognito:
   + The API service endpoints are `cognito-idp-fips.us-gov-west-1.amazonaws.com` and `cognito-idp-fips.us-gov-east-1.amazonaws.com`. For more information about FIPS in AWS, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/).
   + Hosted UI endpoints have a URL path in the format `0.auth-fips.us-gov-west-1.amazoncognito.com` or `1.auth-fips.us-gov-east-1.amazoncognito.com`.
 + Custom domains for user pools are not available.
++ Automatic failover for managed login, a subfeature of multi-Region replication, isn’t available in AWS GovCloud (US) Regions. To prepare for a Regional failover, create a user pool domain in the replica Region, and update your application to switch to that domain when needed.
 + Identity pools might be unable to assume IAM roles in AWS GovCloud (US-East) when the length of your role name plus role session name are longer than 24 characters. This length doesn’t include the path. For best results in this Region, use roles with name lengths of no greater than 20 characters and session name lengths of no greater than four characters.
 +  Amazon Cognito Sync isn’t available in AWS GovCloud (US) Regions.
 

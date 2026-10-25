@@ -6,16 +6,14 @@
 Amazon API Gateway is a fully managed service that makes it easy for developers to publish, maintain, monitor, and secure APIs at any scale. Create an API to access data, business logic, or functionality from your back-end services, such as applications running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any web application.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon API Gateway is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon API Gateway differs
-<a name="govcloud-apigw-diffs"></a>
-
-The following differences apply to Amazon API Gateway:
+<a name="feature-diffs"></a>
 + The `TLS_1_0` security policy for Regional APIs is not available.
 + Portals are not available.
 +  Amazon API Gateway edge-optimized API and edge-optimized custom domain name are not available.

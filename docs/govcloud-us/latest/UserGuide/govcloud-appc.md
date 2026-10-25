@@ -6,16 +6,14 @@
 Use AWS AppConfig, a capability of AWS Systems Manager, to create, manage, and quickly deploy application configurations. You can use AWS AppConfig with applications hosted on Amazon Elastic Compute Cloud (Amazon EC2) instances, AWS Lambda, containers, mobile applications, or IoT devices.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS AppConfig is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS AppConfig differs
-<a name="govcloud-appc-diffs"></a>
-
-The following differences apply to AWS AppConfig:
+<a name="feature-diffs"></a>
 + AWS CodePipeline resources are not available for AWS AppConfig in the AWS GovCloud (US-East) Region.
 
 ## Documentation

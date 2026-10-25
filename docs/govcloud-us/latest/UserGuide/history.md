@@ -7,8 +7,11 @@ The following table describes important changes to the documentation since the l
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Amazon EC2 Image Builder](#history) | EC2 Image Builder ISO disk file import is now available in AWS GovCloud (US) Regions. See [EC2 Image Builder](govcloud-ec2ib.md). | October 23, 2026 | 
+| [Amazon EC2 Image Builder](govcloud-ec2ib.md) |  Image Builder now supports ISO disk file import. | October 23, 2026 | 
 | [AWS Support Unified Operations](govcloud-support-uops.md) |  AWS Support Unified Operations is now supported in AWS GovCloud (US) Regions. | October 1, 2026 | 
 | [Amazon GuardDuty](govcloud-guardduty.md) | Finding type UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS now detects when temporary AWS credentials created for a Lambda function are used from a different AWS account. For more information, see [UnauthorizedAccess:IAMUser/ResourceCredentialExfiltration.InsideAWS](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#unauthorizedaccess-iam-resourcecredentialexfiltrationinsideaws). | September 28, 2026 | 
+| [Amazon DynamoDB](govcloud-ddb.md) |  DynamoDB Accelerator (DAX) is now available. | September 18, 2026 | 
 | [Amazon Inspector](govcloud-inspector2.md) | Added Managed Code Repository Scanning to the list of features that are not available for Amazon Inspector in the AWS GovCloud (US) Regions. | September 8, 2026 | 
 | [AWS Transform](govcloud-transform.md) | AWS Transform is now supported in AWS GovCloud (US). | September 8, 2026 | 
 | [Amazon Connect](#history) | Updated the list of unavailable Amazon Connect features in AWS GovCloud (US) Regions. See [Amazon Connect](govcloud-con.md). | September 2, 2026 | 

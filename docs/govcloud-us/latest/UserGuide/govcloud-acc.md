@@ -6,16 +6,14 @@
 AWS CodeCommit is a fully-managed source control service that hosts secure Git-based repositories. It makes it easy for teams to collaborate on code in a secure and highly scalable ecosystem. CodeCommit eliminates the need to operate your own source control system or worry about scaling its infrastructure. You can use CodeCommit to securely store anything from source code to binaries, and it works seamlessly with your existing Git tools.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ AWS CodeCommit is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How AWS CodeCommit differs
-<a name="govcloud-acc-diffs"></a>
-
-The following differences apply to AWS CodeCommit:
+<a name="feature-diffs"></a>
 + The old console experience is not available in the AWS GovCloud (US) Regions. The documentation reflects the new console experience.
 + Since AWS GovCloud (US); operates as isolated regions, you cannot share or use CodeCommit repositories and resources with other services outside of the Regions. For example, you cannot use a CodeCommit repository in AWS GovCloud (US-West) as the source for a pipeline in CodePipeline that is not in the AWS GovCloud (US-West) Region.
 + All policy statements must refer to the GovCloud ARNs for the AWS GovCloud (US) Regions. For example, policies for Amazon SNS notifications, CloudWatch Events rules, and trigger resources must use the AWS GovCloud (US) ARNs for those services. For more information, see [Amazon Resource Names (ARNs) in AWS GovCloud](https://docs.aws.amazon.com/govcloud-us/latest/ug-west/using-govcloud-arns.html).

@@ -17,15 +17,10 @@ This service is available in the following AWS GovCloud (US) Regions:
 <a name="govcloud-diffs-46"></a>
 
 The following differences apply to Amazon Bedrock AgentCore:
-+ Bedrock Guardrails Policy is not availalbe
++ Bedrock Guardrails Policy is not available
 + Temporal Policy is not available
-+ The following CloudFormation resources are not available:
-  +  `AWS::BedrockAgentCore::OnlineEvaluationConfig` 
-  +  `AWS::BedrockAgentCore::OAuth2CredentialProvider` 
-  +  `AWS::BedrockAgentCore::Evaluator` 
-  +  `AWS::BedrockAgentCore::ApiKeyCredentialProvider` 
-  +  `AWS::BedrockAgentCore::Policy` 
-  +  `AWS::BedrockAgentCore::PolicyEngine` 
++ AgentCore payments is not available
++ AgentCore optimization is not available
 
 ## Documentation
 <a name="govcloud-docs-85"></a>

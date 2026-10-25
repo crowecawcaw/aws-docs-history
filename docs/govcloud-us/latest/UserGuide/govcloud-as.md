@@ -6,16 +6,14 @@
 Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. You create collections of EC2 instances, called Auto Scaling groups. You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size.
 
 ## Region availability
-<a name="_region_availability"></a>
+<a name="region-availability"></a>
 
-This service is available in the following AWS GovCloud (US) Regions:
-+  AWS GovCloud (US-West) 
+ Amazon EC2 Auto Scaling is available in the following AWS GovCloud (US) Regions:
 +  AWS GovCloud (US-East) 
++  AWS GovCloud (US-West) 
 
 ## How Amazon EC2 Auto Scaling differs
-<a name="govcloud-as-diffs"></a>
-
-The following differences apply to Amazon EC2 Auto Scaling:
+<a name="feature-diffs"></a>
 + Amazon EC2 provides other restrictions. For more information, see [Amazon EC2 documentation.](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-ec2.html) 
 + You can access Amazon EC2 Auto Scaling using the Amazon EC2 Auto Scaling API and command line interface (CLI) as well as the Amazon EC2 console.
 + Target tracking using high resolution metrics is not available.
