@@ -51,7 +51,7 @@ aws ec2 create-vpc-endpoint \
     --vpc-id {{vpc-1a2b3c4d}} \
     --subnet-ids {{subnet-1a2b3c4d}} \
     --ip-address-type ipv4 \
-    --resource-configuration-arn arn:aws:vpc-lattice:{{us-east-1}}:111122223333:resourceconfiguration/{{rcfg-1234567890abcdefg}}
+    --resource-configuration-arn arn:aws:vpc-lattice:{{region}}:111122223333:resourceconfiguration/{{rcfg-1234567890abcdefg}}
 ```
 
 **To create a tunnel endpoint using the command line**

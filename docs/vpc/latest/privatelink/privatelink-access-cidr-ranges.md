@@ -43,6 +43,8 @@ A tunnel endpoint has a regional DNS name. It resolves to IPs in the subnets whe
 
 A tunnel endpoint lets you resolve DNS in the context of the VPC that is sharing the network segment. You can resolve a domain through the tunnel endpoint against the DNS resolver of the remote VPC. To do so, you use `169.254.168.253` as the name server. You set it as the destination of the DNS query in the inner packet, and encapsulate it in GENEVE like you do for application traffic. DNS resolution looks the same as it would for a client in the remote VPC. It is based on the remote VPC's configured DHCP option set. It respects Route 53 private hosted zones or custom resolvers configured in the remote VPC.
 
+DNS queries sent to `169.254.168.253` are subject to the `IN_VPC` DNS resolution constraints of the resource gateway. For more information about DNS resolution flags, see [Resource Config DNS Resolution](resource-gateway.md#resource-config-dns-resolution).
+
 ## Private DNS
 <a name="cidr-endpoint-private-dns"></a>
 
