@@ -152,7 +152,7 @@ aws network-security-manager create-policy \
     --firewall-type WAF \
     --priority 1 \
     --associated-template-and-rule-list '[{"templateIdentifier": "{{template-arn-from-step-2}}"}]' \
-    --policy-configuration '{"remediationEnabled": true, "resourcesCleanUp": false, "wafConfig": {"existingCustomerWebACLResolution": "NO_REMEDIATION"}}' \
+    --policy-configuration '{"remediationEnabled": true, "resourcesCleanUp": true, "wafConfig": {"existingCustomerWebACLResolution": "NO_REMEDIATION"}}' \
     --is-published true
 ```
 

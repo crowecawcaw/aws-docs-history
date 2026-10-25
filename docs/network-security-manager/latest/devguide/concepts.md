@@ -128,9 +128,9 @@ Remediation and resource cleanup are policy-level settings. You configure each o
 Specifies whether AWS Network Security Manager automatically remediates noncompliant resources. When you enable this setting, AWS Network Security Manager corrects out-of-sync resources to match the effective configuration.
 
 `resourcesCleanUp`  
-Specifies whether AWS Network Security Manager automatically removes the resources it created when they are no longer needed. AWS Network Security Manager deletes a firewall it created when you remove the deployment, or when the account or resource goes out of scope.
+Specifies whether AWS Network Security Manager automatically removes the resources it created when they are no longer needed. You must set this value to `true`. AWS Network Security Manager deletes a firewall it created when you remove the deployment, or when the account or resource goes out of scope.
 
-The `remediationEnabled` and `resourcesCleanUp` settings both default to `false`. AWS Network Security Manager does not remediate or clean up resources until you enable these settings. The `policyConfiguration` object also holds `wafConfig`, which applies to AWS WAF policies. For more information, see the [AWS Network Security Manager API Reference](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/).
+The `remediationEnabled` setting defaults to `false`, and AWS Network Security Manager does not remediate resources until you enable it. You must set `resourcesCleanUp` to `true`. The `policyConfiguration` object also holds `wafConfig`, which applies to AWS WAF policies. For more information, see the [AWS Network Security Manager API Reference](https://docs.aws.amazon.com/network-security-manager/latest/APIReference/).
 
 When a resource is out of sync, the synchronization status includes out-of-sync reasons with per-setting details that show expected values compared to actual values. The reasons are organized into the following categories:
 + `missingFirewall` – No firewall protection is associated with the resource.
