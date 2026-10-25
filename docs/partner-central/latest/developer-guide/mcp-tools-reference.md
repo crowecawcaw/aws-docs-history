@@ -298,7 +298,7 @@ Approval decision values:
 ### Streaming with SSE
 <a name="mcp-sendmessage-streaming"></a>
 
-Enable streaming to receive incremental response chunks as the agent processes your request:
+Enable streaming to receive incremental response chunks as the agent processes your request. To receive streaming notifications, supply a progress token at `params._meta.progressToken` on the request. Without a progress token, the stream carries only the final JSON-RPC response.
 
 Request:
 
@@ -319,40 +319,31 @@ Request:
             ],
             "catalog": "AWS",
             "stream": true
+        },
+        "_meta": {
+            "progressToken": "pt-1"
         }
     }
 }
 ```
 
-The server responds with a stream of SSE events:
+The server responds with a stream of `event: message` frames, each carrying one JSON-RPC message. Streaming content arrives as `notifications/progress` notifications, and the stream ends with the final JSON-RPC response whose `result._meta` carries an `eventType` of `stream_end`:
 
 ```
-event: stream_start
-data: {"sessionId": "session-550e8400-e29b-41d4-a716-446655440000"}
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToken":"pt-1","progress":0.01,"_meta":{"eventType":"stream_start","sessionId":"session-550e8400","timestamp":"2025-10-24T22:59:24.600000Z"}}}
 
-event: assistant-response.start
-data: {}
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToken":"pt-1","progress":0.02,"_meta":{"eventType":"assistant-response.start","sessionId":"session-550e8400","timestamp":"2025-10-24T22:59:24.626150+00:00","contentBlock":{"type":"ASSISTANT_RESPONSE","content":{"text":""}}}}}
 
-event: server-tool-use
-data: {"toolName": "analyze_pipeline", "parameters": {}}
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToken":"pt-1","progress":0.03,"_meta":{"eventType":"assistant-response.delta","sessionId":"session-550e8400","timestamp":"2025-10-24T22:59:24.626409+00:00","contentBlock":{"type":"ASSISTANT_RESPONSE","content":{"text":"I analyzed your pipeline of 47 opportunities..."}}}}}
 
-event: server-tool-response
-data: {"toolName": "analyze_pipeline", "result": {"opportunitiesAnalyzed": 47, "atRisk": 5}}
+event: message
+data: {"jsonrpc":"2.0","method":"notifications/progress","params":{"progressToken":"pt-1","progress":0.66,"_meta":{"eventType":"server-tool-use","sessionId":"session-550e8400","timestamp":"2025-10-24T22:59:35.420273+00:00","contentBlock":{"type":"serverToolUse","content":{"name":"analyze_pipeline","input":"{}","toolUseId":"tooluse_SDTPK1SDSoyaEGkiYVqRtw"}}}}}
 
-event: assistant-response.delta
-data: {"text": "I analyzed your pipeline of 47 opportunities and identified "}
-
-event: assistant-response.delta
-data: {"text": "5 that are at risk of slipping:\n\n"}
-
-event: assistant-response.delta
-data: {"text": "1. **O2345678901** - Close date is past due by 15 days\n"}
-
-event: assistant-response.completed
-data: {"status": "complete"}
-
-event: stream_end
-data: {}
+event: message
+data: {"jsonrpc":"2.0","id":6,"result":{"content":[{"type":"text","text":"I analyzed your pipeline of 47 opportunities and identified 5 at risk of slipping."}],"isError":false,"_meta":{"eventType":"stream_end","reason":"normal_completion","sessionId":"session-550e8400","finalState":"complete","timestamp":"2025-10-24T22:59:35.591883+00:00"}}}
 ```
 
 ## `getSession`

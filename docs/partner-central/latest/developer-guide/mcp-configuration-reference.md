@@ -202,13 +202,17 @@ The server enforces per-account rate limits:
 
 If you exceed these limits, the server returns error code `-32004` (LIMIT\_EXCEEDED). Implement exponential backoff with jitter in your client to handle rate limiting gracefully.
 
-## Streaming (SSE) event types
+## Streaming events
 <a name="mcp-config-sse-events"></a>
 
-When `stream` is set to `true` in a `sendMessage` call, the server returns Server-Sent Events with these event types:
+Streaming lets you show incremental progress to users while the agent is still processing a request, instead of waiting for the final response. The server streams responses over the Model Context Protocol (MCP) Streamable HTTP transport, which uses Server-Sent Events (SSE). For more information about the Streamable HTTP transport, see [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports) on the Model Context Protocol website. Follow the protocol version negotiated during initialization.
+
+Every SSE frame is an `event: message` frame that carries one JSON-RPC message. The server delivers streaming content as `notifications/progress` notifications, which it sends only when the request supplies a progress token at `params._meta.progressToken`. Without a token, the stream carries only the final JSON-RPC response. Partner Central event metadata appears under `params._meta`: `eventType`, `sessionId`, `timestamp`, and `contentBlock`.
+
+The following table lists the `_meta.eventType` values that the server emits.
 
 
-| Event Type | Description | 
+| `_meta.eventType` | Description | 
 | --- | --- | 
 | stream\_start | Stream connection established | 
 | assistant-response.start | Agent has begun generating a response | 
@@ -217,8 +221,7 @@ When `stream` is set to `true` in a `sendMessage` call, the server returns Serve
 | server-tool-use | Agent is invoking an internal tool (read operation) | 
 | server-tool-response | Result of an internal tool invocation | 
 | tool\_approval\_request | Agent is requesting human approval for a write operation | 
-| stream\_end | Stream connection closing | 
-| done | Final event indicating the SSE stream is complete | 
+| stream\_end | Carried in the final response's result.\_meta rather than a progress notification. Marks the end of the stream. | 
 
 ## Next steps
 <a name="mcp-config-next-steps"></a>
