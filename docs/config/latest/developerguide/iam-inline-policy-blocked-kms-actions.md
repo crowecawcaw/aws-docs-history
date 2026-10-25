@@ -5,7 +5,9 @@
 
 Checks if the inline policies attached to your IAM users, roles, and groups do not allow blocked actions on all AWS KMS keys. The rule is NON\_COMPLIANT if any blocked action is allowed on all AWS KMS keys in an inline policy. 
 
-
+**Note**  
+If a single value in an inline IAM policy (for example, one Resource or Condition value) contains more than five IAM [policy variables](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#policy-vars-using-variables), the rule can't evaluate that policy and returns NON\_COMPLIANT, even if the policy would otherwise be compliant. To get an accurate evaluation, split any value that contains more than five policy variables so that each value contains five or fewer.  
+Because all inline policies attached to a user, group, or role are evaluated together, a single inline policy that exceeds this limit causes the rule to return NON\_COMPLIANT for that user, group, or role.
 
 **Identifier:** IAM\_INLINE\_POLICY\_BLOCKED\_KMS\_ACTIONS
 

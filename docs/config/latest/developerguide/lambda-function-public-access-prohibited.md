@@ -14,6 +14,9 @@ The rule is also `NON_COMPLIANT` if a Lambda function is invoked from Amazon S3,
 **Note**  
 To be considered non-public, a Lambda resource-based policy must grant access only to fixed values. This means values that don't contain a wildcard or the following IAM policy element: [Variables](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#policy-vars-using-variables).
 
+**Note**  
+If a single value in a Lambda function resource-based policy (for example, one Resource or Condition value) contains more than five IAM [policy variables](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#policy-vars-using-variables), the rule can't evaluate that policy and returns NON\_COMPLIANT, even if the policy would otherwise be compliant. To get an accurate evaluation, split any value that contains more than five policy variables so that each value contains five or fewer.
+
 **Identifier:** LAMBDA\_FUNCTION\_PUBLIC\_ACCESS\_PROHIBITED
 
 **Resource Types:** AWS::Lambda::Function
@@ -27,6 +30,6 @@ To be considered non-public, a Lambda resource-based policy must grant access on
 None  
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7e1087c25"></a>
+<a name="w2aac20c16c17b7e1087c26"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).

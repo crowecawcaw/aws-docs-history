@@ -8,7 +8,8 @@ Checks if your Amazon Simple Storage Service bucket policies do not allow other 
 **Note**  
 If you provide an invalid parameter value, you will see the following error: Value for controlPolicy parameter must be an Amazon S3 bucket policy. 
 
-
+**Note**  
+If a single value in an S3 bucket policy (for example, one Resource or Condition value) contains more than five IAM [policy variables](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#policy-vars-using-variables), the rule can't evaluate that policy and returns NON\_COMPLIANT, even if the policy would otherwise be compliant. To get an accurate evaluation, split any value that contains more than five policy variables so that each value contains five or fewer.
 
 **Identifier:** S3\_BUCKET\_POLICY\_NOT\_MORE\_PERMISSIVE
 

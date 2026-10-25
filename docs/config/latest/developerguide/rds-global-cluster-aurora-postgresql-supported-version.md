@@ -13,7 +13,7 @@ Checks if an Amazon Aurora PostgreSQL global database is running on a specified 
 
 **Trigger type:** Configuration changes
 
-**AWS Region:** All supported AWS regions except Asia Pacific (New Zealand), Middle East (Bahrain), China (Beijing), Middle East (UAE), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
+**AWS Region:** All supported AWS regions except Middle East (Bahrain), China (Beijing), Middle East (UAE), AWS GovCloud (US-East), AWS GovCloud (US-West), China (Ningxia) Region
 
 **Parameters:**
 

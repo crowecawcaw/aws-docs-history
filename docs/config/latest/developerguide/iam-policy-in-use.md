@@ -11,6 +11,9 @@ The global IAM resource types onboarded before February 2022 (`AWS::IAM::Group`,
 If you record a global IAM resource type in at least one Region, periodic rules that report compliance on the global IAM resource type will run evaluations in all Regions where the periodic rule is added, even if you have not enabled the recording of the global IAM resource type in the Region where the periodic rule was added.  
 To avoid unnecessary evaluations, you should only deploy periodic rules that report compliance on a global IAM resource type to one of the supported Regions. For a list of which managed rules are supported in which Regions, see [List of AWS Config Managed Rules by Region Availability](https://docs.aws.amazon.com/config/latest/developerguide/managing-rules-by-region-availability.html).
 
+**Note**  
+If a single value in an IAM policy (for example, one Resource or Condition value) contains more than five IAM [policy variables](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#policy-vars-using-variables), the rule can't evaluate that policy and returns NON\_COMPLIANT, even if the policy would otherwise be compliant. To get an accurate evaluation, split any value that contains more than five policy variables so that each value contains five or fewer.
+
 **Identifier:** IAM\_POLICY\_IN\_USE
 
 **Resource Types:** AWS::IAM::Policy
@@ -28,6 +31,6 @@ policyUsageType (Optional)Type: String
 Specify whether you expect the policy to be attached to an IAM user, group or role. Valid values are IAM\_USER, IAM\_GROUP, IAM\_ROLE, or ANY. Default value is ANY.
 
 ## AWS CloudFormation template
-<a name="w2aac20c16c17b7d953c19"></a>
+<a name="w2aac20c16c17b7d953c20"></a>
 
 To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md).
