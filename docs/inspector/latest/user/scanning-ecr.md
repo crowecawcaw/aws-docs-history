@@ -22,9 +22,18 @@
 ## Scan behaviors for Amazon ECR scanning
 <a name="ecr-scan-behavior"></a>
 
- When you first activate Amazon ECR scanning, Amazon Inspector detects images pushed within the last 14 days. Amazon Inspector then scans the images and sets the scan statuses to `ACTIVE`. Amazon Inspector will only scan images active in ECR (`imageStatus` field is `ACTIVE`). Images with Archived status in ECR (`imageStatus` field is `ARCHIVED`) are not scanned by Amazon Inspector. 
+ When you first activate Amazon ECR scanning, Amazon Inspector detects images pushed within the last 7 days. Amazon Inspector then scans the images and sets the scan statuses to `ACTIVE`. Amazon Inspector only scans images active in ECR (`imageStatus` field is `ACTIVE`). Images with Archived status in ECR (`imageStatus` field is `ARCHIVED`) are not scanned by Amazon Inspector. 
 
- If continuous scanning is enabled, Amazon Inspector monitors images as long as they were pushed within 14 days (by default), the last-in-use date is within 14 days (by default), or the images are scanned within the configured re-scan duration. For Amazon Inspector accounts that were created prior to May 16, 2024, the default configuration is for re-scan to monitor images if they were pushed or pulled within the last 90 days. For more information, see [Configuring the Amazon ECR re-scan duration](https://docs.aws.amazon.com/inspector/latest/user/scanning_resources_configure_duration_setting_ecr.html). 
+ If you enable continuous scanning, Amazon Inspector monitors your images as long as you push them within 7 days (by default), their last-in-use date is within 7 days (by default), or Amazon Inspector scans them within the configured re-scan duration. The default re-scan durations depend on when you activated Amazon ECR scanning for your account. 
+
+
+| When Amazon ECR scanning was activated | Image push date duration | Image re-scan duration | Re-scan based on | 
+| --- | --- | --- | --- | 
+| On or after October 15, 2026 | 7 days | 7 days | Last in use date | 
+| May 16, 2024–October 14, 2026 | 14 days | 14 days | Last in use date | 
+| Before May 16, 2024 | 90 days | 90 days | Last pull date | 
+
+ For more information, see [Configuring the Amazon ECR re-scan duration](https://docs.aws.amazon.com/inspector/latest/user/scanning_resources_configure_duration_setting_ecr.html). 
 
 For continuous scanning, Amazon Inspector initiates new vulnerability scans of container images in the following situations:
 + Whenever a new container image is pushed.

@@ -230,6 +230,7 @@ Ubuntu
 | Ubuntu (Jammy) | 22.04 | 
 | Ubuntu (Noble) | 24.04 | 
 | Ubuntu (Resolute) | 26.04 | 
+| Ubuntu (Stonking) | 26.10 | 
 | Wolfi | – | 
 | Windows Server | 2016 | 
 | Windows Server | 2019 | 

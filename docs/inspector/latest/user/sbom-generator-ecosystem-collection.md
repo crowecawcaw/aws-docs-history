@@ -35,7 +35,7 @@
 |  Jenkins  |  Jenkins (version 2.400.\* and higher)  | 
 | Kiro | Kiro CLI | 
 | LM Studio | LM Studio | 
-| MariaDB and MySQL | MariaDB Server (10.6\+, 11.x, 12.x)<br />Oracle MySQL Server Server (8.0, 8.4, 9.4\+) | 
+| MariaDB and MySQL | MariaDB Server (10.6\+, 11.x, 12.x)<br />Oracle MySQL Server (8.0, 8.4, 9.4\+)<br />MySQL NDB Cluster | 
 | Metabase | Metabase | 
 | Microsoft applications | PowerShell<br />NuGet CLI<br />Visual Studio Code<br />Microsoft Edge<br />SharePoint Server<br />Microsoft Defender<br />Exchange Server<br />Visual Studio<br />.NET Core Runtime<br />.NET Framework<br />ASP.NET Core Runtime<br />Microsoft Teams<br />Outlook for Windows<br />Microsoft Office<br />Microsoft 365 | 
 | Microsoft SQL Server | Microsoft SQL Server | 
@@ -1060,8 +1060,7 @@ Sample PURL: pkg:generic/amazon/kiro@1.29.5?distro=linux
 +  `/usr/local/bin/mariadbd` 
 
 **macOS**
-+  `C:/Program Files (x86)/MariaDB/include/mysql/mariadb_version.h (MariaDB)` 
-+  `C:/Program Files/MariaDB/include/mysql/mariadb_version.h (MariaDB)` 
++  `/opt/homebrew/Cellar/mariadb/include/mysql/mariadb_version.h (MariaDB)` 
 
 **Windows**
 +  `C:/Program Files (x86)/MariaDB/include/mysql/mariadb_version.h (MariaDB)` 
@@ -1080,12 +1079,14 @@ pkg:generic/mysql/mariadb-server@10.11.8
 <a name="w2aac39c27c47b5"></a>
 
 **Supported applications**
-+  Oracle MySQL Server Server (8.0, 8.4, 9.4\+) 
++  Oracle MySQL Server (8.0, 8.4, 9.4\+) 
++  MySQL NDB Cluster 
 
 **Key features**
 +  Extracts version information from database server binaries and header files using database-specific patterns. 
 +  Identifies the directory path containing the database server installation. 
 +  Automatically distinguishes between MySQL and MariaDB installations using data-driven file type detection. 
++  Identifies MySQL NDB Cluster builds of the server and reports them as `mysql-cluster` with the NDB Cluster version. 
 
  The SBOM Generator looks for the MySQL installation in common installation paths across platforms: 
 
@@ -1100,14 +1101,19 @@ pkg:generic/mysql/mariadb-server@10.11.8
 **Windows**
 +  `C:/Program Files/MySQL/MySQL Server/include/mysql_version.h (MySQL)` 
 +  `C:/Program Files (x86)/MySQL/MySQL Server/include/mysql_version.h (MySQL)` 
++  `C:/mysql-cluster-*-winx64/bin/mysqld.exe (MySQL NDB Cluster)` 
 
 **Example PURL**  
-The following is an example package URL for a MySQL server.
+The following are example package URLs for a MySQL server and a MySQL NDB Cluster server.
 
 ```
 # Oracle MySQL Server
 
 pkg:generic/mysql/mysql-server@8.0.43
+
+# MySQL NDB Cluster
+
+pkg:generic/mysql/mysql-cluster@7.6.25
 ```
 
 ## Microsoft applications ecosystem collection
