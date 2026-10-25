@@ -96,6 +96,13 @@ When you create an environment in Self-deployed mode, you need VCF license keys 
 | EC2 key pair name | An EC2 key pair is a set of security credentials used to securely connect to an Amazon EC2 instance. | Key pair name must be unique. |  `my-ec2-key-pair`  | 
 
 
+**EC2 Allowed AMIs (only if you restrict AMI usage)**  
+
+| Component | Description | Minimum requirements | Image criteria | 
+| --- | --- | --- | --- | 
+| EC2 Allowed AMIs criteria | Amazon EVS uses EC2 AMIs to deploy ESX hosts in your account when you create an environment or add a host. | If you use the Allowed AMI feature to control AMI usage in your AWS account, your image criteria must include Amazon EVS AMIs. Otherwise, you can’t create an environment or add a host. For more information, see [Control the discovery and use of AMIs in Amazon EC2 with Allowed AMIs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html) in the *Amazon EC2 User Guide*. |  `ImageProvider: amazon` `ImageName: AmazonEVS-*`  | 
+
+
 **VPC route tables**  
 
 | Component | Description | Minimum requirements | Example value(s) | 
