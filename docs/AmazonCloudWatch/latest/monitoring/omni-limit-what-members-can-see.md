@@ -5,11 +5,16 @@
 
 By default, every member of the space can read all of its telemetry. To give a member a narrower view, add a **data scope** to their grant. A data scope is a set of conditions that a row of telemetry must match for that member to see it. Rows that do not match are filtered out at read time, before results reach the member. The stored data is not changed. To control what telemetry is captured or stored in the first place, see [Protect sensitive data](omni-data-protection.md).
 
-A data scope is enforced on the query path, so it applies wherever the member reads telemetry: query results, dashboards, trace and session views, and the answers the Omni agent gives them. The same scope applies in the Omni web UI, the IDE extension, and the API.
+A data scope is enforced on the query path. It applies wherever the member reads telemetry from the CloudWatch Dataset, including query results, dashboards, trace and session views, and the answers the Omni agent gives from its own queries. The same scope applies in the Omni web UI, the IDE extension, and the API.
+
+**Note**  
+A data scope applies only to telemetry read from the CloudWatch Dataset. It doesn't filter investigation results from AWS DevOps Agent. It also doesn't filter other data from outside the Dataset, such as CloudWatch Logs log groups or third-party tools.  
+If your space is connected to an AWS DevOps Agent space, a member with a data scope can still see investigation content. This content can come from CloudWatch Logs log groups outside their scope. For more information, see [Investigate with the AWS DevOps Agent](omni-investigate-with-the-aws-devops-agent.md).
 
 You configure a data scope on the grant, under `Advanced: limit the data this principal can see`, when you add or edit a member (step 5 of the procedure in [Manage space members and permissions](omni-manage-space-members-and-permissions.md)).
 
-**Fine-grained access control with a data scope**
+## Fine-grained access control with a data scope
+<a name="omni-limit-what-members-can-see-fine-grained-access-control-with-a-data-scope"></a>
 
 A data scope has two parts: the signal types the conditions apply to, and one or more condition groups.
 
@@ -27,7 +32,8 @@ When a member holds more than one grant, their view is the union of what each gr
 
 You can set a data scope on any permission level, including Space Admin. It limits what the member can read. It does not limit the space-management actions the level allows.
 
-**Common patterns**
+## Common patterns
+<a name="omni-limit-what-members-can-see-common-patterns"></a>
 
 
 | Goal | Data scope | 
@@ -37,7 +43,8 @@ You can set a data scope on any permission level, including Space Admin. It limi
 | An on-call engineer sees production traces for one service | Applies to Traces. One group with By service for the service and By field value for the environment attribute set to the production value. | 
 | A reviewer sees two unrelated slices | Two groups, one for each slice. The member sees rows that match either group. | 
 
-**What a data scope does and does not filter**
+## What a data scope does and does not filter
+<a name="omni-limit-what-members-can-see-what-a-data-scope-does-and-does-not-filter"></a>
 
 A data scope decides which rows a member can see. It does not hide fields inside a row. A member who can see a span or a log record sees every field on it, including prompt and response content. To keep specific content out of every member's view, redact it before it reaches the space. See [Protect sensitive data](omni-data-protection.md).
 
@@ -46,7 +53,8 @@ Aggregates follow the scope. A count, an error rate, or a latency percentile is 
 **Note**  
 The By agent, By service, and By account pickers suggest values found in your recent telemetry. You can also type a value that has not been seen yet, for example an agent you are about to deploy. A condition on a value that never appears in the data matches no rows.
 
-**Data scope in the grant JSON**
+## Data scope in the grant JSON
+<a name="omni-limit-what-members-can-see-data-scope-in-the-grant-json"></a>
 
 The `JSON` view of the add-grants form shows the grant definition, and you can edit it directly. You can also reuse it with the API, the AWS CDK, or the AWS CLI. It carries the grant name, permission level, action scopes, and tags. The principal comes from the `Name` picker and is not part of the JSON. A data scope is an action scope on a `DataSet` resource. This example limits a Viewer to traces from two agents, or to any trace whose deployment environment is `prod`. Logs stay unrestricted: the scope names only `TRACES` in `signalTypes`, so the `READ` permission level keeps its default full access to logs.
 

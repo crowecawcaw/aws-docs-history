@@ -12,7 +12,8 @@ You can apply controls at five points, from most restrictive to least. Each laye
 ![The five points where sensitive telemetry can be filtered: capture-time redaction in the application, which is most restrictive, then the collector, ingestion masking, encrypted storage, and read-time access filters, which are least restrictive.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-data-protection-layers.png)
 
 
-**At capture time (most restrictive)**
+## At capture time (most restrictive)
+<a name="omni-data-protection-at-capture-time-most-restrictive"></a>
 
 Strip or redact fields before spans leave your application, using standard OpenTelemetry mechanisms. Sensitive data filtered here is redacted in process and never leaves your application, so this is the only layer that satisfies a requirement that the data never be exported.
 
@@ -80,7 +81,8 @@ This example requires `opentelemetry-sdk` version 1.39.0 or later.
 
 **Note** Capture-time redaction is irreversible. Redacted data is not available for root-cause analysis later. If a trace shows blank input and output that you expected to see, check these flags first. See [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
 
-**At the collector (defense in depth)**
+## At the collector (defense in depth)
+<a name="omni-data-protection-at-the-collector-defense-in-depth"></a>
 
 If you run an OpenTelemetry Collector, its built-in processors provide a second redaction layer before data reaches CloudWatch:
 + `attributes` — remove or modify specific attributes.
@@ -94,26 +96,31 @@ For each processor's configuration, see its documentation: [attributes](https://
 
 This layer is available wherever you run the collector yourself, for example on Amazon EC2, Amazon ECS, or Amazon EKS. If your agent runs on Amazon Bedrock AgentCore Runtime, you do not manage a collector there, so redact at capture time instead.
 
-**At ingestion: pattern-based masking**
+## At ingestion: pattern-based masking
+<a name="omni-data-protection-at-ingestion-pattern-based-masking"></a>
 
 For log data in Amazon CloudWatch Logs, CloudWatch Logs data protection can detect and mask sensitive patterns, such as Social Security numbers and credit card numbers, as it is ingested. For more information, see [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html) in the *Amazon CloudWatch Logs User Guide*.
 
 **Important**  
 Log data that a CloudWatch Logs data protection policy masks stays masked in your space. It is forwarded to the CloudWatch Dataset in masked form, and Omni cannot unmask it. Unmasked values are available only in CloudWatch Logs, to principals with the `logs:Unmask` permission.
 
-**At read time: row-level data scope**
+## At read time: row-level data scope
+<a name="omni-data-protection-at-read-time-row-level-data-scope"></a>
 
 Telemetry is stored in full, and a member's grant controls what their queries and views return. A grant's advanced data scope can limit a member to specific signal types (logs, traces) and to rows matching conditions on agent, service, account, or field value. Configure it when you add or edit a member. See [Limit what members can see](omni-limit-what-members-can-see.md).
 
-**At rest: encryption**
+## At rest: encryption
+<a name="omni-data-protection-at-rest-encryption"></a>
 
 Telemetry is encrypted in transit with TLS and at rest in the CloudWatch Dataset, where you can use a customer managed AWS KMS key. For the encryption model, see [Data encryption in CloudWatch Omni](omni-data-encryption-in-cloudwatch-omni.md).
 
-**Data sent to the judge model**
+## Data sent to the judge model
+<a name="omni-data-protection-data-sent-to-the-judge-model"></a>
 
 Evaluators that use a model as a judge send data to that model: the evaluator prompt and the trace content it evaluates go to the judge model you configure, and to the provider that serves it. If your compliance model restricts where trace content can flow, choose the judge model accordingly, or restrict evaluation to traces that do not contain sensitive content. For how evaluators work and which models you can choose, see [Evaluators and evaluations](omni-agents-evaluators.md).
 
-**Choose the right layer**
+## Choose the right layer
+<a name="omni-data-protection-choose-the-right-layer"></a>
 
 
 | Requirement | Layer | Trade-off | 

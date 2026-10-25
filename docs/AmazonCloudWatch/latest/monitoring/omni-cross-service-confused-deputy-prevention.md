@@ -9,7 +9,8 @@ We recommend using the `aws:SourceArn` and `aws:SourceAccount` global condition 
 
 CloudWatch Omni assumes IAM roles in your account to read your telemetry, both during setup and during evaluation. To prevent it from being used as a confused deputy, restrict the roles you create so that they can only be assumed on your behalf.
 
-**Setup and data-access roles**
+## Setup and data-access roles
+<a name="omni-cross-service-confused-deputy-prevention-setup-and-data-access-roles"></a>
 
 The space operator role trusts the CloudWatch Omni service principal `cloudwatch.amazonaws.com`. When you set up a space in a single account, CloudWatch Omni creates this role and applies the following trust policy. If you supply your own role instead, give it the same trust policy.
 
@@ -31,7 +32,8 @@ The space operator role trusts the CloudWatch Omni service principal `cloudwatch
 
 The `aws:SourceAccount` condition limits CloudWatch Omni to assuming this role on behalf of your own account.
 
-**Dataset integration execution role**
+## Dataset integration execution role
+<a name="omni-cross-service-confused-deputy-prevention-dataset-integration-execution-role"></a>
 
 Dataset integration reads your CloudWatch Logs data through a role that CloudWatch Logs assumes on your behalf. Because the calling service is CloudWatch Logs rather than CloudWatch Omni, this role's trust policy uses both `aws:SourceAccount` and `aws:SourceArn` to restrict the assumption to dataset integrations in your own account.
 

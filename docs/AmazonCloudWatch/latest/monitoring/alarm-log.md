@@ -221,7 +221,7 @@ The following example shows an Amazon SNS email notification for a multi-contrib
 You can optionally include raw query result log lines in alarm notifications by setting the `ActionLogLineCount` parameter to a value between 1 and 50. These are the underlying log events on which the aggregation expression is evaluated, not the aggregated values. The default value is 0, which means no log lines are included.
 
 **Note**  
-Log lines are included only in Amazon SNS email notifications. Lambda actions do not include log lines in their payloads.
+Log lines are included only in Amazon SNS email notifications. Lambda actions do not include log lines in their payloads. CloudWatch also does not include log lines for multi-contributor alarms, even when you set `ActionLogLineCount`. CloudWatch includes log lines only for single-value Log Alarms that do not use a `by` clause.
 
 **Important**  
 Including log lines in notifications might expose sensitive data from your logs in Amazon SNS messages. Review your log content before you enable this feature.

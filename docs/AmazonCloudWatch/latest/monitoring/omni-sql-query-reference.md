@@ -7,7 +7,8 @@ CloudWatch Omni supports SQL for querying logs and traces. This page covers Clou
 
 SQL is the same language wherever you write a query in Omni: in Explore, in an alert condition, and through the public API.
 
-**Tables to query**
+## Tables to query
+<a name="omni-sql-query-reference-tables-to-query"></a>
 
 A query addresses a signal through its table in your space's CloudWatch Dataset. The Dataset is named `default`:
 
@@ -20,7 +21,8 @@ A query addresses a signal through its table in your space's CloudWatch Dataset.
 
 Prefer a concrete signal type whenever possible. Such queries are faster because they do not scan other signals' data.
 
-**System fields**
+## System fields
+<a name="omni-sql-query-reference-system-fields"></a>
 
 Every row carries system fields alongside the fields your telemetry brought with it: `@timestamp`, `@ingest_time`, and `@telemetry_type` on every signal, and `@message` on log records. The `@entity`, `@data_source_name`, `@data_source_type`, `@data_format`, `@aws.region`, `@aws.account`, `@logGroupId`, `@logGroupName`, `@logStream`, and `@logStreamId` system fields are also supported.
 
@@ -42,7 +44,8 @@ Because double quotes are an identifier, `WHERE status = "ERROR"` compares the `
 
 Field names are case sensitive: `traceId` and `traceid` are not interchangeable.
 
-**What a wildcard SELECT returns**
+## What a wildcard SELECT returns
+<a name="omni-sql-query-reference-what-a-wildcard-select-returns"></a>
 
 Because the Dataset contains records from different sources, each can have a different set of fields. That is why `SELECT *` does not project all fields as columns. It returns two columns representing a full record: `@timestamp` and `@record` — a JSON document holding the fields your telemetry brought with it. System fields are not part of `@record`; select them by name.
 
@@ -68,7 +71,8 @@ You can filter on a field whether or not you select it, so `WHERE path = '/api/a
 
 `@message` is a system field that holds the raw record. It is useful for unstructured records, where Omni cannot extract any columns and `@record` is empty (`{}`).
 
-**Nested attributes**
+## Nested attributes
+<a name="omni-sql-query-reference-nested-attributes"></a>
 
 Read into an attribute map with bracket syntax:
 
@@ -82,7 +86,8 @@ WHERE `@timestamp` >= NOW() - INTERVAL '1' HOUR
 
 Bracket syntax accepts only string literals as the key, so use single quotes for subscript access. Dots within the string literal are allowed when they are part of the key name, for example `'service.name'`.
 
-**Column types**
+## Column types
+<a name="omni-sql-query-reference-column-types"></a>
 
 No schema is required for a Dataset in Omni. Omni SQL identifies the correct type from the query itself and applies it automatically. For example, when a `WHERE` filter compares against a numeric value such as `WHERE latency > 100`, values are cast to the appropriate type.
 
@@ -90,7 +95,8 @@ A Dataset may contain records from different sources with different fields. The 
 
 In ambiguous cases, use the `CAST` operator.
 
-**Time filtering**
+## Time filtering
+<a name="omni-sql-query-reference-time-filtering"></a>
 
 The time range you select in Explore automatically applies to your query. You can also bound time in the query text with a `@timestamp` condition, using `BETWEEN` or comparison operators, and `NOW()` with `INTERVAL` arithmetic. A `@timestamp` condition in the query takes precedence over the range selected in Explore. Other timestamp functions are also supported.
 
@@ -106,7 +112,8 @@ WHERE a.`@timestamp` >= NOW() - INTERVAL '1' HOUR
   AND b.`@timestamp` <= NOW()
 ```
 
-**Discover fields**
+## Discover fields
+<a name="omni-sql-query-reference-discover-fields"></a>
 
 Wrap any query in `EXPLAIN (ANALYZE_FIELDS)` to get one row per field observed in the rows that query selects, instead of the data rows:
 
@@ -122,13 +129,15 @@ Your conditions, time bounds, and `LIMIT` all apply, so you can ask which fields
 
 `EXPLAIN (ANALYZE_FIELDS)` is not billed or metered: it samples a bounded slice of your data, so you can run it freely to explore a Dataset's fields.
 
-**Supported and unsupported syntax**
+## Supported and unsupported syntax
+<a name="omni-sql-query-reference-supported-and-unsupported-syntax"></a>
 
 CloudWatch Omni SQL supports the constructs this page demonstrates — `SELECT` with `WHERE`, `GROUP BY`, `ORDER BY`, and `LIMIT`, joins, and aggregate functions with `FILTER` — as well as window functions, `UNION` and `UNION ALL`, and `CAST`. `EXPLAIN (ANALYZE_FIELDS)` is the only supported form of `EXPLAIN`.
 
 The engine rejects unsupported statements before they run, returning an unsupported-statement error rather than an empty result, so you can distinguish a rejected query from one that matched nothing.
 
-**Examples**
+## Examples
+<a name="omni-sql-query-reference-examples"></a>
 
 **Slowest agent runs in the last hour.** Each span's duration is the difference between its `startTimeUnixNano` and `endTimeUnixNano`, and the agent's name comes from its resource attributes:
 
@@ -165,7 +174,8 @@ WHERE
   AND traceId = '<trace-id>'
 ```
 
-**Next steps**
+## Next steps
+<a name="omni-sql-query-reference-next-steps"></a>
 + To build a query interactively, see [Explore and query your telemetry](omni-explore-and-query-your-telemetry.md).
 + To alert on a query result, see [Alerts](omni-alerts.md).
 + To put a query on a dashboard, see [Dashboards](omni-dashboards.md).

@@ -11,7 +11,8 @@ What the tutorial teaches is a method: define the failure precisely enough to sc
 
 Both surfaces work against the same space, which is what makes the handoff work: a dataset you package in the Omni web UI imports straight into the extension, and the evaluator that defines the failure scores identically during the fix and on live traffic afterward.
 
-**What you will do**
+## What you will do
+<a name="omni-agents-close-the-loop-what-you-will-do"></a>
 
 
 | Phase | Surface | Steps | 
@@ -28,7 +29,8 @@ The following diagram shows the full loop across both surfaces. In the Omni web 
 ![Closing the loop on a regression. In the Omni web UI you spot the regression when the pass rate drops and package the failing traces into a dataset. That same dataset moves to the IDE extension, where you import it, reproduce and fix the problem until the candidate beats the baseline, and save the winning prompt. Redeploying returns you to the Omni web UI to verify the pass rate recovers. Both surfaces work against one space.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-agents-close-the-loop.png)
 
 
-**Prerequisites**
+## Prerequisites
+<a name="omni-agents-close-the-loop-prerequisites"></a>
 + A space in CloudWatch Omni, in the account and Region you will deploy into. A space is where your telemetry lands and where both the Omni web UI and the extension read and write. Creating one is a separate setup task. See [Set up Omni](omni-set-up-omni.md).
 
 **Important**  
@@ -39,7 +41,8 @@ Set up your space before you deploy in step 4. Traces your agent sends before sp
 + Model access for two models: the one your agent calls, and the judge model your custom evaluator uses in steps 11 and 14. You choose the judge model when you create the evaluator. For the sample agent both are Amazon Bedrock models, so model access means the models are enabled in your account.
 + Credentials the extension can use to call your agent's model while the agent runs on your machine in steps 2 and 3. This is separate from model access: it is how the extension authenticates. The sample agent calls Bedrock, so for it that means AWS credentials, and step 1 covers where they go.
 
-**Choose your agent**
+## Choose your agent
+<a name="omni-agents-close-the-loop-choose-your-agent"></a>
 
 The sample agent is AZ Customer Support, a multi-agent e-commerce agent, and it produces the scope violation this tutorial fixes. If you have your own agent, use it. The method is the same, and this table is what changes.
 
@@ -64,11 +67,13 @@ Steps not in the table are the same either way.
 
 Answering an out-of-scope request is a common failure that qualifies, which is why the sample uses it. Calling the wrong tool, inventing an identifier, and skipping a required disclaimer also qualify.
 
-**Phase A: Build and instrument (IDE extension)**
+## Phase A: Build and instrument (IDE extension)
+<a name="omni-agents-close-the-loop-phase-a-build-and-instrument-ide-extension"></a>
 
 Steps 1–3 happen in your editor.
 
-**Step 1: Set up the extension and open your agent project**
+### Step 1: Set up the extension and open your agent project
+<a name="omni-agents-close-the-loop-phase-a-build-and-instrument-ide-extension-step-1-set-up-the-extension-and-open-your-agent-project"></a>
 
 1. Install the CloudWatch Omni extension in your editor. Search for it in your editor's extensions view, or install it from the registry your editor reads: [Install for VS Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-cloudwatch-omni) from the VS Code Marketplace, or [Install for Kiro and Cursor](https://open-vsx.org/extension/amazonwebservices/amazon-cloudwatch-omni) from Open VSX.
 
@@ -84,7 +89,8 @@ The extension creates an `.omni` folder in your project for local traces and con
 
 **Checkpoint:** the extension's panel is open on your project and reports local mode.
 
-**Step 2: Instrument your agent**
+### Step 2: Instrument your agent
+<a name="omni-agents-close-the-loop-phase-a-build-and-instrument-ide-extension-step-2-instrument-your-agent"></a>
 
 Instrumentation decides what your traces contain. An evaluator cannot score content that was never recorded.
 
@@ -96,67 +102,71 @@ If your own agent already sends OpenTelemetry traces, do not instrument it a sec
 
 **Checkpoint:** onboarding reports instrumentation verified.
 
-**Step 3: Generate your first traces locally**
+### Step 3: Generate your first traces locally
+<a name="omni-agents-close-the-loop-phase-a-build-and-instrument-ide-extension-step-3-generate-your-first-traces-locally"></a>
 
 1. Go to **Test Agent** in the extension and start the local dev server.
 
 1. Send the agent a few requests. If it has tools, cover more than one of them. For the sample agent, send each of these in turn:
 
-```
-What's your return policy?
-```
+   ```
+   What's your return policy?
+   ```
 
-```
-I want to return the clothing item on order 404
-```
+   ```
+   I want to return the clothing item on order 404
+   ```
 
-```
-Do you have wireless headphones in stock?
-```
+   ```
+   Do you have wireless headphones in stock?
+   ```
 
-```
-What's my loyalty points balance?
-```
+   ```
+   What's my loyalty points balance?
+   ```
 
-For your own agent, send requests it handles today. The point is to produce a few traces you can inspect, not to reproduce anything yet.
+   For your own agent, send requests it handles today. The point is to produce a few traces you can inspect, not to reproduce anything yet.
 
 1. Open **Agent traces** in the extension and inspect a trace.
 
 **Checkpoint:** the trace is nested (agent and model spans, plus tool spans if your agent uses tools) and it shows input and output content. A flat or blank trace means instrumentation is wrong. Fix it before continuing, starting from the symptom table in [Send AI agent telemetry](omni-send-ai-agent-telemetry.md). Every later step depends on correct instrumentation.
 
-**Phase B: Deploy and observe (Omni web UI)**
+## Phase B: Deploy and observe (Omni web UI)
+<a name="omni-agents-close-the-loop-phase-b-deploy-and-observe-omni-web-ui"></a>
 
 Steps 4–8 happen in the Omni web UI: open your space in CloudWatch Omni, in the account and Region you set it up in. You return to the extension in step 9.
 
-**Step 4: Deploy the agent and send telemetry to CloudWatch**
+### Step 4: Deploy the agent and send telemetry to CloudWatch
+<a name="omni-agents-close-the-loop-phase-b-deploy-and-observe-omni-web-ui-step-4-deploy-the-agent-and-send-telemetry-to"></a>
 
 1. For an agent hosted on Amazon Bedrock AgentCore, enable Transaction Search once per account, then allow about 10 minutes:
 
-```
-aws xray update-trace-segment-destination --destination CloudWatchLogs
-```
+   ```
+   aws xray update-trace-segment-destination --destination CloudWatchLogs
+   ```
 
 1. Make prompt and response content visible in traces: evaluators cannot score content they cannot see. With the AgentCore CLI, set the content environment variable in your agent's `envVars` in `agentcore.json`:
 
-```
-"envVars": [{ "name": "AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT", "value": "true" }]
-```
+   ```
+   "envVars": [{ "name": "AWS_GENAI_CONTENT_EXTRACTION_OPT_OUT", "value": "true" }]
+   ```
 
-This is a one-time edit: runtime environment variables are part of the project configuration and apply on every deploy. For what this variable does and the others that govern content capture, see [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
+   This is a one-time edit: runtime environment variables are part of the project configuration and apply on every deploy. For what this variable does and the others that govern content capture, see [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
 
 1. Deploy the agent so that the setting takes effect and telemetry flows:
 
-```
-agentcore deploy
-```
+   ```
+   agentcore deploy
+   ```
 
-The AgentCore runtime turns on agent observability for you.
+   The AgentCore runtime turns on agent observability for you.
 
-**If your agent runs anywhere else** — Lambda, ECS, EKS, your own hosts — deploy it the way you already do, and configure the OpenTelemetry exporter and its permissions yourself. [Send telemetry to CloudWatch Omni](omni-send-telemetry.md) has the endpoint, the authentication, and the same content setting for your runtime. The rest of this tutorial does not depend on how you deployed, only on traces arriving in your space.
+   **If your agent runs anywhere else** — Lambda, Amazon ECS, Amazon EKS, your own hosts — deploy it the way you already do, and configure the OpenTelemetry exporter and its permissions yourself. [Send telemetry to CloudWatch Omni](omni-send-telemetry.md) has the endpoint, the authentication, and the same content setting for your runtime. The rest of this tutorial does not depend on how you deployed, only on traces arriving in your space.
 
-**Checkpoint:** the agent is deployed, and its traces appear in **Agent traces** in your space. Allow about 10 minutes from enabling Transaction Search.
+**Checkpoint:** The agent is deployed, and its traces appear in **Agent traces** in your space. Allow about 10 minutes from enabling Transaction Search.
 
-**Step 5: Drive traffic against the deployed agent**
+### Step 5: Drive traffic against the deployed agent
+<a name="omni-agents-close-the-loop-phase-b-deploy-and-observe-omni-web-ui-step-5-drive-traffic-against-the-deployed-agent"></a>
 
 Send the agent a mix of normal requests and more than one request you expect it to mishandle. Step 8 packages the failing runs into a dataset, and a single run gives it only one test case. For the sample agent:
 
@@ -182,7 +192,8 @@ For your own agent, call it the way you normally do — its own CLI, an HTTP req
 
 **Checkpoint:** all your requests are visible in **Agent traces**, allowing for the ingestion delay from step 4, and the ones you expected to fail did fail. If they did not, try requests further outside what your agent should handle before going on. The rest of the tutorial needs real failing runs, not hypothetical ones.
 
-**Step 6: Monitor token usage and cost**
+### Step 6: Monitor token usage and cost
+<a name="omni-agents-close-the-loop-phase-b-deploy-and-observe-omni-web-ui-step-6-monitor-token-usage-and-cost"></a>
 
 These are the views an operator opens first. Work through them before you open any single run, partly to learn them and partly because of what they will not tell you.
 
@@ -196,7 +207,8 @@ Now notice what is absent: the failure you are hunting does not appear anywhere 
 
 **Checkpoint:** you can answer "which agent consumes the most tokens, and is that changing?" You have also confirmed that nothing here flags the failing run.
 
-**Step 7: Find the anomalous trace**
+### Step 7: Find the anomalous trace
+<a name="omni-agents-close-the-loop-phase-b-deploy-and-observe-omni-web-ui-step-7-find-the-anomalous-trace"></a>
 
 A failure like this raises no alarm. The run succeeded, so nothing routed you to it. You find it by opening the run and reading what the agent actually did. This step also produces the evidence that makes the next phase necessary.
 
@@ -210,7 +222,8 @@ A failure like this raises no alarm. The run succeeded, so nothing routed you to
 
 **Checkpoint:** you have a failing run you can explain, a clean run to compare it against, and a built-in evaluator score showing that existing checks rate the failing run as acceptable.
 
-**Step 8: Package the failing runs into a dataset**
+### Step 8: Package the failing runs into a dataset
+<a name="omni-agents-close-the-loop-phase-b-deploy-and-observe-omni-web-ui-step-8-package-the-failing-runs-into-a-dataset"></a>
 
 1. In **Agent traces**, filter to the failing traces and select them: for the sample agent, the cookie-recipe and stretching runs; for your own, the failing variations from step 5.
 
@@ -222,13 +235,15 @@ The dataset is the handoff artifact. It carries the real failing inputs, so the 
 
 **Checkpoint:** `scope-regression` exists in your space with the failing test cases.
 
-**Phase C: Reproduce and fix (IDE extension)**
+## Phase C: Reproduce and fix (IDE extension)
+<a name="omni-agents-close-the-loop-phase-c-reproduce-and-fix-ide-extension"></a>
 
 Steps 9–13 happen back in your editor, and they move the extension through both of its modes. In **local mode**, the extension reads traces and datasets from your machine. In **cloud mode**, it reads them from your space. Playground runs, evaluators, and experiments always execute on your machine, in either mode.
 
 Step 9 connects to your space, which switches the extension to cloud mode. Step 10 downloads the dataset from the space. Step 12 switches back to local mode to run the fix. The status bar shows which mode is active throughout.
 
-**Step 9: Connect the extension to your space**
+### Step 9: Connect the extension to your space
+<a name="omni-agents-close-the-loop-phase-c-reproduce-and-fix-ide-extension-step-9-connect-the-extension-to-your-space"></a>
 
 Up to now the extension has been in local mode, working only against traces on your machine. Connecting it to your space puts it on the same data as the Omni web UI, which is what lets you import the dataset in step 10.
 
@@ -249,7 +264,8 @@ Your cloud session expires, and a long tutorial can outlive it. When it does, th
 
 For what local and cloud mode each cover, see [Develop with the IDE extension](omni-develop-with-the-ide-extension.md).
 
-**Step 10: Import the dataset created in the Omni web UI**
+### Step 10: Import the dataset created in the Omni web UI
+<a name="omni-agents-close-the-loop-phase-c-reproduce-and-fix-ide-extension-step-10-import-the-dataset-created-in-the-omni-web-ui"></a>
 
 This step runs in cloud mode, which step 9 turned on: the **Datasets** panel lists the datasets in your space rather than the ones on your machine.
 
@@ -261,7 +277,8 @@ The download creates an independent local copy of the dataset. There is no file 
 
 **Checkpoint:** the download completes, and `scope-regression` exists as a local dataset. You see it listed when you switch to local mode in step 12.
 
-**Step 11: Create a custom evaluator that detects the issue**
+### Step 11: Create a custom evaluator that detects the issue
+<a name="omni-agents-close-the-loop-phase-c-reproduce-and-fix-ide-extension-step-11-create-a-custom-evaluator-that-detects-the-issue"></a>
 
 The failure is a judgment about meaning, so create a custom model-as-judge evaluator. (A code-based evaluator suits mechanical checks such as valid JSON or length limits, not this.) For how to specify a judge (stating scope, writing decidable cases, and matching the rating scale to the criterion), see [Evaluators and evaluations](omni-agents-evaluators.md).
 
@@ -269,32 +286,32 @@ The failure is a judgment about meaning, so create a custom model-as-judge evalu
 
 1. Write the rubric. For the sample agent:
 
-```
-You are evaluating whether a customer support agent stayed within its
-designated scope.
+   ```
+   You are evaluating whether a customer support agent stayed within its
+   designated scope.
+   
+   The agent is an AZ Customer Support e-commerce agent. Its ONLY
+   permitted topics are: returns, refunds, and exchanges; product inquiries;
+   and account and order management.
+   
+   Rubric:
+   - On-Topic (score 1): the response addresses only permitted topics, or
+     politely declines an off-topic request.
+   - Off-Topic (score 0): the response answers anything outside the permitted
+     topics (recipes, general knowledge, weather, coding help, trivia).
+     A response that acknowledges the request is off-topic but still answers
+     it is Off-Topic.
+   
+   ## Conversation context
+   {context}
+   
+   ## Response under evaluation
+   {assistant_turn}
+   ```
 
-The agent is an AZ Customer Support e-commerce agent. Its ONLY
-permitted topics are: returns, refunds, and exchanges; product inquiries;
-and account and order management.
+   Omni fills the template placeholders with the conversation context and the response under evaluation.
 
-Rubric:
-- On-Topic (score 1): the response addresses only permitted topics, or
-  politely declines an off-topic request.
-- Off-Topic (score 0): the response answers anything outside the permitted
-  topics (recipes, general knowledge, weather, coding help, trivia).
-  A response that acknowledges the request is off-topic but still answers
-  it is Off-Topic.
-
-## Conversation context
-{context}
-
-## Response under evaluation
-{assistant_turn}
-```
-
-Omni fills the template placeholders with the conversation context and the response under evaluation.
-
-For your own agent, keep this shape and replace the specifics: say what the agent is, enumerate what it may do, then define each score with the conditions that earn it (including the edge case that trips judges most often, a response that acknowledges the rule and breaks it anyway).
+   For your own agent, keep this shape and replace the specifics: say what the agent is, enumerate what it may do, then define each score with the conditions that earn it (including the edge case that trips judges most often, a response that acknowledges the rule and breaks it anyway).
 
 1. Make the rating scale binary: score `0` for the failure and score `1` for correct behavior, each with a one-line definition, and remove any middle values.
 
@@ -302,7 +319,8 @@ For your own agent, keep this shape and replace the specifics: say what the agen
 
 **Checkpoint:** the evaluator fails the failing trace and passes the clean one. Both halves matter: an evaluator that fails everything looks like it works until it blocks your fix.
 
-**Step 12: Compare a fix against the baseline**
+### Step 12: Compare a fix against the baseline
+<a name="omni-agents-close-the-loop-phase-c-reproduce-and-fix-ide-extension-step-12-compare-a-fix-against-the-baseline"></a>
 
 1. Switch the extension back to local mode. Choose the mode indicator in the status bar, and then choose **Switch to Local**. The dataset copy from step 10 is a local dataset, and the experiments you run against it are available only in local mode.
 
@@ -314,16 +332,16 @@ For your own agent, keep this shape and replace the specifics: say what the agen
 
 1. On the candidate, append a scope restriction to the system prompt. For the sample agent:
 
-```
-SCOPE RESTRICTION: You may only assist with AZ Customer Support
-topics: returns, refunds, exchanges, product inquiries, and account and
-order management. If a customer asks about anything else - recipes, coding
-help, general knowledge, weather, trivia - politely decline and offer to
-help with a supported topic instead. Do not answer the off-topic question
-even partially.
-```
+   ```
+   SCOPE RESTRICTION: You may only assist with AZ Customer Support
+   topics: returns, refunds, exchanges, product inquiries, and account and
+   order management. If a customer asks about anything else - recipes, coding
+   help, general knowledge, weather, trivia - politely decline and offer to
+   help with a supported topic instead. Do not answer the off-topic question
+   even partially.
+   ```
 
-For your own agent, write the same instruction in its terms: state what it may do, say what to do with anything else, and rule out answering partially.
+   For your own agent, write the same instruction in its terms: state what it may do, say what to do with anything else, and rule out answering partially.
 
 1. Run both variants against the imported `scope-regression` dataset and score both with `On-Topic Compliance`. The baseline should fail the way production fails, which confirms you reproduced the problem, and the candidate should pass.
 
@@ -333,37 +351,40 @@ If your fix is not a prompt change — a tool that needs rewiring, a retrieval s
 
 **Checkpoint:** the baseline scores 0 on the failing cases, and the candidate scores 1 on all of them.
 
-**Step 13: Save the prompt version and redeploy**
+### Step 13: Save the prompt version and redeploy
+<a name="omni-agents-close-the-loop-phase-c-reproduce-and-fix-ide-extension-step-13-save-the-prompt-version-and-redeploy"></a>
 
 1. Save the winning prompt as a new version, with a note describing the fix. See [Manage prompts](omni-agents-manage-prompts.md).
 
 1. Redeploy the agent with the saved version. For an agent on AgentCore:
 
-```
-agentcore deploy
-```
+   ```
+   agentcore deploy
+   ```
 
-For any other runtime, deploy the way you did in step 4.
+   For any other runtime, deploy the way you did in step 4.
 
 1. Send traffic that covers the failing scenario (one request the agent should handle and one it previously got wrong) so that fresh traces flow to your space. For the sample agent:
 
-```
-agentcore invoke "What is your return policy?"
-```
+   ```
+   agentcore invoke "What is your return policy?"
+   ```
 
-```
-agentcore invoke "Give me a cookie recipe"
-```
+   ```
+   agentcore invoke "Give me a cookie recipe"
+   ```
 
-For your own agent, send the same pair you used in step 5, the same way you sent them.
+   For your own agent, send the same pair you used in step 5, the same way you sent them.
 
-**Checkpoint:** new traces from the redeployed agent appear in your space, and the request that used to be mishandled now produces the corrected behavior (for the sample agent, a polite refusal instead of a recipe). Compare the response, not the tool calls: a declined request calls no tools, so the trace's tool activity looks the same as it did before the fix.
+**Checkpoint:** New traces from the redeployed agent appear in your space, and the request that used to be mishandled now produces the corrected behavior (for the sample agent, a polite refusal instead of a recipe). Compare the response, not the tool calls: a declined request calls no tools, so the trace's tool activity looks the same as it did before the fix.
 
-**Phase D: Verify continuously (Omni web UI)**
+## Phase D: Verify continuously (Omni web UI)
+<a name="omni-agents-close-the-loop-phase-d-verify-continuously-omni-web-ui"></a>
 
 Step 14 happens in the Omni web UI, in the same space.
 
-**Step 14: Watch the fix on live traffic**
+### Step 14: Watch the fix on live traffic
+<a name="omni-agents-close-the-loop-phase-d-verify-continuously-omni-web-ui-step-14-watch-the-fix-on-live-traffic"></a>
 
 An online evaluation scores sampled live traffic continuously, so that this regression cannot return unnoticed. See [Online evaluations](omni-agents-online-evaluations.md).
 
@@ -379,7 +400,8 @@ An online evaluation scores sampled live traffic continuously, so that this regr
 
 **Checkpoint:** the online evaluation is enabled, and `On-Topic Compliance` trends at 1 on live traffic.
 
-**What you keep**
+## What you keep
+<a name="omni-agents-close-the-loop-what-you-keep"></a>
 
 Each artifact in the loop does one job, and each keeps working after the fix ships.
 + **The dataset** `scope-regression` pins down the exact failing scenarios. It is now a regression test: run it in an experiment whenever you change the agent. See [Datasets](omni-agents-datasets.md).

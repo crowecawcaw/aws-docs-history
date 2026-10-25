@@ -8,7 +8,8 @@ Use the Context Graph to understand the services, resources, and relationships t
 **Note**  
 Omni builds the graph from telemetry you are already sending and from the resources it finds in your account. You do not need to create or maintain the graph. The telemetry and resource attributes you send determine how completely and accurately Omni represents your environment.
 
-**Understand what contributes to the graph**
+## Understand what contributes to the graph
+<a name="omni-using-context-graph-understand-what-contributes-to-the-graph"></a>
 
 Different telemetry signals contribute different information.
 
@@ -22,7 +23,8 @@ Different telemetry signals contribute different information.
 
 A dependency appears when Omni has evidence that one component called another. A trace is the most direct evidence. Network logs, access logs, and CloudTrail also carry that evidence for some call paths. Metrics do not, so two services that only emit metrics can both appear with no dependency between them. To capture service-to-service dependencies reliably, instrument the caller and send traces. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 
-**Understand discovered resources**
+## Understand discovered resources
+<a name="omni-using-context-graph-understand-discovered-resources"></a>
 
 Omni can also add resources that it discovers in your account. A discovered resource can appear in the graph before Omni observes telemetry from that resource. In that case, the resource exists in the graph but has no telemetry attached to it. This is expected and does not necessarily indicate an instrumentation problem.
 
@@ -41,7 +43,8 @@ Omni adds a graph node for only some of the types. It uses the other records to 
 **Important**  
 **Discovery reports current state rather than a time window.** Telemetry-derived elements are the ones observed inside the time range you request. Discovery-derived elements reflect the most recent discovery of your account, so narrowing the time range does not narrow them. A graph made only of discovered resources reports no observations in the range at all.
 
-**Make services appear correctly**
+## Make services appear correctly
+<a name="omni-using-context-graph-make-services-appear-correctly"></a>
 
 Use consistent OpenTelemetry resource attributes so Omni can identify services and deployments correctly.
 
@@ -67,7 +70,8 @@ Set identity attributes consistently across every replica of a service. Two repl
 
 If a span contains only a hostname, Omni can represent the dependency by that hostname rather than by the underlying resource. For a call between two services, the span must also represent the outbound call: a span that records only work received does not establish an outgoing dependency to another service. Messaging is the exception. A consumer that polls a queue or a topic gets a relationship to that queue or topic.
 
-**Retrieve the graph programmatically**
+## Retrieve the graph programmatically
+<a name="omni-using-context-graph-retrieve-the-graph-programmatically"></a>
 
 Use the `GetContextGraph` operation to retrieve the Context Graph through the API. Authenticate the request the same way as other Omni API operations.
 
@@ -80,7 +84,8 @@ Omni attaches each relationship to the node it starts from. A node carries all o
 
 Node and relationship kinds in the response use the same model the application map presents. Each node also reports which signals it was seen in and which sources contributed it. The graph carries no evidence that a dependency does *not* exist.
 
-**Pivot from the graph to your telemetry**
+## Pivot from the graph to your telemetry
+<a name="omni-using-context-graph-pivot-from-the-graph-to-your-telemetry"></a>
 
 Each node carries the attribute values that identify its own telemetry, so you can move from a dependency on the graph to the metrics, logs, and traces behind it. Use those attribute values as the selectors in your query. For the query languages, see [Explore and query your telemetry](omni-explore-and-query-your-telemetry.md).
 
@@ -104,7 +109,8 @@ Omni returns per-metric metadata only when you ask for it, because it costs an e
 
 A node that telemetry contributed also reports when Omni first and most recently observed it. Compare those timestamps, or run the same request over two ranges, to see whether something appeared, disappeared, or stopped being exercised. A resource known only from discovery might report neither, because Omni has not observed it in use.
 
-**Name your operations**
+## Name your operations
+<a name="omni-using-context-graph-name-your-operations"></a>
 
 Omni names an operation from the semantic-convention attributes on the span, and it prefers the most specific set of attributes. Omni also records the span name as an operation. When the two names match, they merge into one operation. When they differ, you see both. If a span records the route it served, Omni names the operation for that route rather than for the method alone.
 
@@ -117,13 +123,15 @@ Omni names an operation from the semantic-convention attributes on the span, and
 
 Record the route. Without it, Omni names one operation for each HTTP method, and every request the service handles is grouped into that operation.
 
-**Use the graph with an AI agent**
+## Use the graph with an AI agent
+<a name="omni-using-context-graph-use-the-graph-with-an-ai-agent"></a>
 
 An AI agent can use the Context Graph to retrieve topology while answering a question or investigating a problem. The agent can verify relationships between services and resources before using those relationships as evidence in its analysis.
 
 For how to connect an agent to Omni, see [Use Omni skills](omni-use-omni-skills.md).
 
-**Troubleshoot an incomplete graph**
+## Troubleshoot an incomplete graph
+<a name="omni-using-context-graph-troubleshoot-an-incomplete-graph"></a>
 
 Check the following when the graph does not show what you expect:
 
@@ -137,7 +145,8 @@ Check the following when the graph does not show what you expect:
 
 1. **Discovered resources report current inventory.** Resource discovery is not constrained by the telemetry time range, so discovered resources reflect the latest inventory regardless of the range you choose.
 
-**Where to go next**
+## Where to go next
+<a name="omni-using-context-graph-where-to-go-next"></a>
 
 
 | To do this | See | 

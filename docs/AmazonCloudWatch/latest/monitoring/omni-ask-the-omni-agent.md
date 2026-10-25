@@ -8,7 +8,8 @@ The Omni agent is the AI assistant built into the CloudWatch Omni web UI. Ask ab
 **Note**  
 CloudWatch Omni supports AI agents on three surfaces. This page covers the agent in the Omni web UI. For AI assistance while developing an AI agent in the IDE extension, see [Develop with the IDE extension](omni-develop-with-the-ide-extension.md). To use Omni from your own coding agent, see [Use Omni skills](omni-use-omni-skills.md). The Omni agent can also delegate an investigation to the AWS DevOps Agent. See [Investigate with the AWS DevOps Agent](omni-investigate-with-the-aws-devops-agent.md).
 
-**Where you can ask**
+## Where you can ask
+<a name="omni-ask-the-omni-agent-where-you-can-ask"></a>
 
 Ask from the input on the Omni home page, or open the chat panel in any thread. Each conversation is saved as a thread you can return to and rename. See [Threads](omni-threads.md).
 
@@ -16,7 +17,8 @@ The agent can read what you have open on screen, so you can ask about "this aler
 
 With the Slack integration connected, you can also have the agent respond to your team's Slack conversations. See [Connect Slack](omni-connect-slack.md).
 
-**What you can ask**
+## What you can ask
+<a name="omni-ask-the-omni-agent-what-you-can-ask"></a>
 
 The agent can do the same work as the pages in the web UI. Some examples, by task:
 
@@ -42,21 +44,25 @@ The agent can do the same work as the pages in the web UI. Some examples, by tas
 
 **AI agent quality.** For the AI agents you monitor, the agent can score traces with your evaluators and add traces to an evaluation dataset — for example, packaging failing runs into a regression set. See [Evaluate agent quality](omni-agents-evaluate.md).
 
-**How the agent works with you**
+## How the agent works with you
+<a name="omni-ask-the-omni-agent-how-the-agent-works-with-you"></a>
 
 Answers are grounded in your live data: the agent re-checks current state rather than answering from earlier conversation, and when a lookup returns nothing, it says so instead of guessing. It also remembers durable context across your threads, such as the services and Regions you work with, so you do not re-explain your environment in every conversation.
 
 The agent is scoped to observability. It declines unrelated work, such as general coding tasks, and offers to help with your telemetry instead.
 
-**Limitations**
+## Limitations
+<a name="omni-ask-the-omni-agent-limitations"></a>
 + It reads only your space and your own conversations. It cannot read another person's threads.
 + It creates and changes alerts with your confirmation, but never deletes them, and it cannot rename an alert. You delete an alert yourself on the **Alerts** page.
 + It can be wrong. It shows its queries and evidence so you can verify. Check both before acting on a finding, and use the feedback controls on a response to rate it.
 
-**Permissions and data access**
+## Permissions and data access
+<a name="omni-ask-the-omni-agent-permissions-and-data-access"></a>
 
 The agent works with your permissions: it can read only the telemetry you have access to (the space's logs and traces, plus metrics queried from CloudWatch Metrics). Its permissions are the same as yours in the Omni web UI. Actions that change something, such as creating an alert, always require your confirmation in the conversation. For permission levels, see [Control access to your space](omni-control-access-to-your-space.md).
 
-**Investigations with the AWS DevOps Agent**
+## Investigations with the AWS DevOps Agent
+<a name="omni-ask-the-omni-agent-investigations-with-the-devops-agent"></a>
 
-If your space is connected to the AWS DevOps Agent, the Omni agent automatically delegates root cause analysis to it, and you can track the investigation's progress from the conversation. See [Investigate with the AWS DevOps Agent](omni-investigate-with-the-aws-devops-agent.md).
+If your space is connected to the AWS DevOps Agent, the Omni agent automatically delegates root cause analysis to it, and you can track the investigation's progress from the conversation. The investigation runs with the permissions of the DevOps Agent, not yours. It can read CloudWatch Logs log groups directly, and your data scope does not filter its results. See [Investigate with the AWS DevOps Agent](omni-investigate-with-the-aws-devops-agent.md).

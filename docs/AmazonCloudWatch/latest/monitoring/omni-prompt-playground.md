@@ -9,11 +9,13 @@ The Prompt playground is an interactive space to try changes and see the effect 
 
 **Model access (first-time use)** The playground invokes Amazon Bedrock foundation models directly. The first time you use a given model in your account, you may need to request access to it in the Amazon Bedrock console first — see [Add or remove access to Amazon Bedrock foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access.html). Until access is granted, runs against that model fail with an access error.
 
-**Work in variants: baseline against candidate**
+## Work in variants: baseline against candidate
+<a name="omni-prompt-playground-work-in-variants-baseline-against-candidate"></a>
 
 The playground is organized around side-by-side variants. You start with a baseline (your current prompt or agent configuration, unchanged) and add a variation that carries your proposed change, such as an appended instruction or a different model. Both variants run the same input, so the difference in output can only come from your change. Leave the baseline unchanged: if you edit both variants, you can no longer tell which edit caused the improvement.
 
-**Prompt testing**
+## Prompt testing
+<a name="omni-prompt-playground-prompt-testing"></a>
 
 Prompt testing runs a prompt directly against a model — no agent in the loop — so you can isolate the prompt as the variable. Use it to compare phrasings, instructions, or models side by side before changing your agent.
 
@@ -25,7 +27,8 @@ Prompt testing runs a prompt directly against a model — no agent in the loop �
 
 1. When a variant performs better, save it as a new prompt version with a note describing the change, so your agent can use it and you can trace which version produced which behavior. See [Manage prompts](omni-agents-manage-prompts.md).
 
-**Agent behavior testing (IDE extension)**
+## Agent behavior testing (IDE extension)
+<a name="omni-prompt-playground-agent-behavior-testing-ide-extension"></a>
 
 Agent behavior testing runs your agent (its prompts, tools, and orchestration together) against test inputs from inside the extension. Unlike prompt testing, this exercises the full execution path, so you see the trace the run produced and can tell whether a change fixed the behavior or only moved the failure. It uses the local dev server, so iterations stay on your machine. See the local testing steps in [Develop with the IDE extension](omni-develop-with-the-ide-extension.md).
 

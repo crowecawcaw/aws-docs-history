@@ -7,11 +7,13 @@ Lambda functions send traces and logs to CloudWatch without a collector. Turn on
 
 If your application runs on Amazon EC2, ECS, EKS, or Microsoft Azure, see [Send application telemetry](omni-send-application-telemetry.md). If you are monitoring an AI agent, see [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
 
-**Prerequisites**
+## Prerequisites
+<a name="omni-send-application-telemetry-from-aws-lambda-prerequisites"></a>
 + **Transaction Search is enabled** in the account and Region that receive traces. See [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
 + You can change the function's configuration and attach policies to its execution role.
 
-**Step 1: Enable active tracing**
+## Step 1: Enable active tracing
+<a name="omni-send-application-telemetry-from-aws-lambda-step-1-enable-active-tracing"></a>
 
 ```
 aws lambda update-function-configuration --function-name <my-function> --tracing-config Mode=Active
@@ -80,7 +82,8 @@ Set the function's tracing mode to `ACTIVE` (`aws_lambda.Tracing.ACTIVE` in Pyth
 
 ------
 
-**Step 2: Add the trace SDK**
+## Step 2: Add the trace SDK
+<a name="omni-send-application-telemetry-from-aws-lambda-step-2-add-the-trace-sdk"></a>
 
 Attach the AWS Distro for OpenTelemetry (ADOT) Lambda layer for your runtime and set `AWS_LAMBDA_EXEC_WRAPPER` so the layer auto-instruments the handler with no code change, then enrich the active span in your code.
 
@@ -172,9 +175,11 @@ public APIGatewayProxyResponse Handler(APIGatewayProxyRequest req, ILambdaContex
 
 ------
 
-**Step 3: Emit structured logs**
+## Step 3: Emit structured logs
+<a name="omni-send-application-telemetry-from-aws-lambda-step-3-emit-structured-logs"></a>
 
-**app.py (Python shown; the same fields apply in every language)**
+### Structured log example (Python shown; the same fields apply in every language)
+<a name="omni-send-application-telemetry-from-aws-lambda-step-3-emit-structured-logs-app-py-python-shown-the-same-fields-apply-in-every-language"></a>
 
 ```
 import json, logging
@@ -197,14 +202,16 @@ def handler(event, context):
 + Include `requestId` and `trace_id` in every record so log lines join their spans.
 + `AWSLambdaBasicExecutionRole` covers log delivery.
 
-**Step 4: Verify**
+## Step 4: Verify
+<a name="omni-send-application-telemetry-from-aws-lambda-step-4-verify"></a>
 
 Invoke the function, then open your space and choose **Trace Explorer**. A trace for the invocation shows the `AWS::Lambda` and `AWS::Lambda::Function` segments with your handler span beneath them, within about five minutes. In **Application map**, the function appears as a service, and its request, error, and duration metrics are span metrics generated from every exported span. They reflect all invocations, not only sampled ones. In the log group `/aws/lambda/<my-function>`, the JSON records carry the `trace_id` of the trace you just viewed.
 
 **Note**  
 When a traced caller invokes the function, such as an API Gateway stage with tracing enabled, the function's spans join the caller's trace. When the caller is not traced, no tracing header arrives and Lambda decides not to sample the invocation, but Transaction Search still captures the invocation's spans, because it is unaffected by the sampled flag in the trace context. Enable tracing on whatever invokes the function to get one end-to-end trace.
 
-**Troubleshoot missing telemetry**
+### Troubleshoot missing telemetry
+<a name="omni-send-application-telemetry-from-aws-lambda-step-4-verify-troubleshoot-missing-telemetry"></a>
 
 
 | Symptom | Cause and fix | 

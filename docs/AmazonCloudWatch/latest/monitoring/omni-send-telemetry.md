@@ -5,7 +5,8 @@
 
 CloudWatch Omni reads what Amazon CloudWatch has ingested. Configure your application, OpenTelemetry exporter, or collector to send telemetry to a CloudWatch OTLP endpoint. After that telemetry is in the CloudWatch Dataset for your space, it is available in CloudWatch Omni.
 
-**Where to start**
+## Where to start
+<a name="omni-send-telemetry-where-to-start"></a>
 + [**Send application telemetry to CloudWatch Omni**](omni-send-application-telemetry.md)
   + **Environment:** [Amazon EC2](./omni-send-application-telemetry.html#omni-send-application-telemetry-amazon-ec2), [Amazon ECS](./omni-send-application-telemetry.html#omni-send-application-telemetry-amazon-ecs), [Amazon EKS](./omni-send-application-telemetry.html#omni-send-application-telemetry-amazon-eks), [Azure VM](./omni-send-application-telemetry.html#omni-send-application-telemetry-azure-vm), [Azure AKS](./omni-send-application-telemetry.html#omni-send-application-telemetry-azure-aks), [Google Compute Engine](./omni-send-application-telemetry.html#omni-send-application-telemetry-google-compute-engine), or [Google Kubernetes Engine](./omni-send-application-telemetry.html#omni-send-application-telemetry-google-kubernetes-engine).
   + On AWS Lambda there is no agent to deploy. See [Send application telemetry from AWS Lambda](omni-send-application-telemetry-from-aws-lambda.md).
@@ -24,12 +25,14 @@ CloudWatch Omni reads what Amazon CloudWatch has ingested. Configure your applic
 **Note**  
 **Assisted setup.** The **Add source** wizard in the Omni web UI (**Settings › Ingestion**) walks through the same choices and generates commands for your selections. From your coding agent, the Omni skills in the Agent Toolkit for AWS do the same; see [Use Omni skills](omni-use-omni-skills.md). From your editor, see [Develop with the IDE extension](omni-develop-with-the-ide-extension.md).
 
-**How telemetry reaches your space**
+## How telemetry reaches your space
+<a name="omni-send-telemetry-how-telemetry-reaches-your-space"></a>
 
 ![Ingestion path showing that CloudWatch Omni reads what Amazon CloudWatch ingested. Your source, an agent or application, sends OpenTelemetry data through a collector or the SDK to an OTLP endpoint inside Amazon CloudWatch, which stores it in the CloudWatch Dataset for your space, and CloudWatch Omni queries that Dataset. A collectorless path lets the ADOT SDK send traces to the endpoint directly.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-ingestion-path.png)
 
 
-**Forwarding to the Dataset**
+## Forwarding to the Dataset
+<a name="omni-send-telemetry-forwarding-to-the-dataset"></a>
 
 The **CloudWatch Dataset integration** is the step between Amazon CloudWatch and the Dataset in the diagram above: it forwards your CloudWatch logs and traces into the Dataset for your space. Setting up a space in the CloudWatch console also creates the integration and an execution role that the CloudWatch Logs service assumes, so forwarding starts without a separate step. The space and the integration are separate resources — console setup creates them together, and you manage them independently. For the roles setup creates, see [Set up Omni for a single account](omni-set-up-omni-for-a-single-account.md). The integration forwards logs and traces together. Metrics are not forwarded; Omni queries them directly from CloudWatch Metrics.
 
@@ -86,7 +89,8 @@ aws observabilityadmin create-dataset-integration \
 
 **Changing what is forwarded.** Updates to the execution role's `logs:IntegrateWithDataset` permissions take effect within a few minutes. Changes to what is forwarded apply going forward: removing a log group stops future records from forwarding, and records already in the Dataset remain until they pass their retention period. To change the execution role, use `update-dataset-integration`; to stop all forwarding, use `delete-dataset-integration`.
 
-**Choose how you collect**
+## Choose how you collect
+<a name="omni-send-telemetry-choose-how-you-collect"></a>
 
 The collection path you choose affects which features you get: entity correlation and Container Insights are not available on every path. For a comparison of the CloudWatch agent, an upstream OpenTelemetry Collector, a custom collector, and collectorless export with the AWS Distro for OpenTelemetry (ADOT) SDK, see [Getting started](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPGettingStarted.html) in the Amazon CloudWatch User Guide.
 
@@ -94,7 +98,8 @@ The CloudWatch agent is the recommended path for applications, and it is the pat
 
 **Bring your own collector.** Point a self-managed OpenTelemetry Collector's exporters at the endpoints below. The collector's role needs the permissions named in the "Authentication" section of this page, and each exporter needs SigV4 signing configured; for the collector configuration, see [Getting started with OTLP](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPGettingStarted.html) in the Amazon CloudWatch User Guide.
 
-**Choose an endpoint**
+## Choose an endpoint
+<a name="omni-send-telemetry-choose-an-endpoint"></a>
 
 
 | Endpoint | Use for | Authentication | 
@@ -108,7 +113,8 @@ For the hostnames, per-signal request headers, protocol support, and the ingesti
 **Important**  
 Enable Transaction Search in the Region before you send traces. It is an account-level setting, and until it is enabled spans do not arrive.
 
-**Authentication**
+## Authentication
+<a name="omni-send-telemetry-authentication"></a>
 
 AWS Signature Version 4 (SigV4) with short-lived credentials is the default for every path and the only method the traces endpoint accepts. A workload running on AWS compute signs with the role it already has, but that role must carry the permissions for the path you use, and the three paths do not share one permission set. Each procedure page shows the statement to attach.
 + Collector path: the CloudWatch agent's managed policy, `CloudWatchAgentServerPolicy`.
@@ -116,12 +122,14 @@ AWS Signature Version 4 (SigV4) with short-lived credentials is the default for 
 
 Workloads outside AWS can federate for temporary credentials; the Azure and Google Cloud procedures do this. Restrict bearer tokens to scenarios where short-lived credentials are not feasible. The metrics and logs endpoints accept a long-lived bearer token. The traces endpoint does not, and accepts SigV4 only. See [Setting up bearer token authentication for Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.html). Token creation requires IAM mutating actions, so it is an administrator task.
 
-**Environment support**
+## Environment support
+<a name="omni-send-telemetry-environment-support"></a>
 
 For the environments, languages, and frameworks with a documented path, the signals each produces, and the minimum library versions, see [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md).
 
 On-premises hosts can obtain temporary AWS credentials with [IAM Roles Anywhere](https://aws.amazon.com/iam/roles-anywhere/), so a collector on your own hosts signs requests with SigV4 instead of storing a long-lived key.
 
-**Next steps**
+## Next steps
+<a name="omni-send-telemetry-next-steps"></a>
 
 When telemetry is arriving, see [Monitor AI agents](omni-monitor-ai-agents.md) and [Monitor applications with the application map](omni-monitor-applications-with-the-application-map.md). To control who can access the space, see [Control access to your space](omni-control-access-to-your-space.md). To keep sensitive content out of the telemetry you send and store, see [Protect sensitive data](omni-data-protection.md).

@@ -13,7 +13,8 @@ The following animation shows the agent monitoring workflow in the Omni web UI: 
 ![The Omni web UI moving through agent metrics, evaluation scores, datasets, and a prompt playground comparison.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-agent-walkthrough-57s.gif)
 
 
-**What you can do**
+## What you can do
+<a name="omni-monitor-ai-agents-what-you-can-do"></a>
 + **Instrument your agent** — add OpenTelemetry tracing so agent runs arrive as traces. See [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
 + **Analyze agent behavior** — explore traces, sessions, and the agent topology to debug failures and latency. See [Analyze agent behavior](omni-agents-analyze.md).
 + **Evaluate agent quality** — score outputs with built-in or custom evaluators. These include open-source evaluators from DeepEval and AutoEval (see [Evaluators and evaluations](omni-agents-evaluators.md)). You can also build datasets from real runs and compare changes with experiments. See [Evaluate agent quality](omni-agents-evaluate.md).
@@ -25,7 +26,8 @@ The following diagram shows how these stages form a loop:
 ![The agent monitoring loop: instrument your agent with OpenTelemetry tracing, analyze traces and sessions, evaluate quality by scoring outputs, improve prompts with experiments, and monitor production health. A quality regression in production starts the loop again.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-agent-monitoring-loop.png)
 
 
-**How an agent run is represented**
+## How an agent run is represented
+<a name="omni-monitor-ai-agents-how-an-agent-run-is-represented"></a>
 
 Omni uses OpenTelemetry concepts to represent your agent's activity. OpenTelemetry is an open standard for telemetry collection. These definitions apply everywhere you work with traces in Omni, for both agents and applications.
 + **Trace** — the complete record of one unit of work: a request that moves through your services, or a single agent run.
@@ -37,12 +39,14 @@ You can explore these concepts in more detail:
 + Sessions, and how Omni groups traces into them, in [Agent sessions](omni-agent-sessions.md).
 + How your agent's components call each other in [Agent topology](omni-agent-topology.md).
 
-**Where to start**
+## Where to start
+<a name="omni-monitor-ai-agents-where-to-start"></a>
 + **New to agent monitoring** — follow [Tutorial: Fix a production quality regression](omni-agents-close-the-loop.md). The tutorial starts with how to install the extension. Then it takes you through your first traces and evaluations.
 + **Agent already sending traces** — go directly to [Analyze agent behavior](omni-agents-analyze.md) to debug runs, and to [Evaluate agent quality](omni-agents-evaluate.md) to measure quality.
 + **Operating agents in production** — start from [Monitor agents in the web UI](omni-monitor-agents-in-the-web-ui.md), and use [Tutorial: Fix a production quality regression](omni-agents-close-the-loop.md) when you find a quality regression.
 
-**Available across two surfaces**
+## Available across two surfaces
+<a name="omni-monitor-ai-agents-available-across-two-surfaces"></a>
 
 Agent monitoring is available through two surfaces that serve different workflows:
 + **Omni web UI** — a production-time experience for monitoring agents, with aggregate and fleet-level views alongside trace and evaluation analysis.
@@ -50,7 +54,8 @@ Agent monitoring is available through two surfaces that serve different workflow
 
 Both surfaces connect to the same space, so the data you collect is available wherever you work. Use the IDE extension for local instrumentation and troubleshooting during development. Use the Omni web UI for production monitoring, fleet-level views, and online evaluations. The following table is the complete per-capability reference.
 
-**Feature availability by surface**
+## Feature availability by surface
+<a name="omni-monitor-ai-agents-feature-availability-by-surface"></a>
 
 
 | Capability | Omni web UI | IDE extension | 
@@ -69,11 +74,13 @@ Both surfaces connect to the same space, so the data you collect is available wh
 | Prompt recommendations | No | Yes | 
 | Aggregate and fleet views | Yes | No | 
 
-**Where your agent runs**
+## Where your agent runs
+<a name="omni-monitor-ai-agents-where-your-agent-runs"></a>
 
 You can monitor agents wherever they run. Agents hosted on Amazon Bedrock AgentCore send traces and sessions with minimal setup (see [Send AI agent telemetry](omni-send-ai-agent-telemetry.md)). Agents built on other frameworks or runtimes connect through OpenTelemetry instrumentation. You can also observe and evaluate agents deployed on other compute platforms, such as Amazon EC2, Amazon ECS, Amazon EKS, and AWS Lambda. For every environment, language, and framework this supports, see [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md).
 
-**How Omni relates to AgentCore and generative AI observability**
+## How Omni relates to AgentCore and generative AI observability
+<a name="omni-monitor-ai-agents-how-omni-relates-to-agentcore-and-generative-ai-observability"></a>
 
 [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html) is a platform for building, deploying, and operating AI agents, with any framework and any foundation model. Omni works with AgentCore in two ways:
 + **As a place your agents run.** Agents hosted on AgentCore Runtime send traces and sessions to CloudWatch with minimal setup, and Omni monitors them the same way it monitors agents in any other environment. See [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).

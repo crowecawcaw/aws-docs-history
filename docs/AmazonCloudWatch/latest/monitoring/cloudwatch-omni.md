@@ -11,7 +11,8 @@ CloudWatch Omni is an AI-powered observability experience in Amazon CloudWatch f
 
 **Quality signals for agents, alongside the operational ones.** Omni scores your agents' responses with evaluators — continuously in production, and on demand against a dataset. This catches failures that error rates do not show: an agent can return a well-formed response that is wrong. The scores appear alongside latency, errors, and token usage on the same trace. You can bring your own evaluators, including custom criteria scored by a judge model.
 
-**How CloudWatch Omni is organized**
+## How CloudWatch Omni is organized
+<a name="cloudwatch-omni-how-omni-is-organized"></a>
 
 Three concepts determine where your telemetry lives and who can reach it.
 + **Domain** — your organization's entry point. You choose a domain name during setup, and that name becomes your team's sign-in URL, in the format `https://<domain-name>.cloudwatch-omni.global.app.aws`. Record your domain name and its URL — the name is what identifies your domain when you sign in. Your identity provider connects at the domain, not per space. See [Set up Omni](omni-set-up-omni.md).
@@ -21,7 +22,8 @@ Three concepts determine where your telemetry lives and who can reach it.
 ![A domain provides the sign-in URL and identity for one account. Inside the account, Region 1 and Region 2 each contain one space, and each space reads its own CloudWatch Dataset.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-concepts-domain-space-dataset-reskin.png)
 
 
-**What you can do in CloudWatch Omni**
+## What you can do in CloudWatch Omni
+<a name="cloudwatch-omni-what-you-can-do-in-omni"></a>
 
 The following sections describe what you can do in CloudWatch Omni:
 + Trace, evaluate, and debug AI agents. See [Monitor AI agents](omni-monitor-ai-agents.md).
@@ -35,7 +37,8 @@ The following sections describe what you can do in CloudWatch Omni:
 + Connect Omni to Slack. See [Connect Slack](omni-connect-slack.md).
 + Call Omni from code or a coding agent. See [Use Omni skills](omni-use-omni-skills.md).
 
-**How Omni relates to CloudWatch**
+## How Omni relates to CloudWatch
+<a name="cloudwatch-omni-how-omni-relates-to"></a>
 
 Omni is an interface and set of workflows built on Amazon CloudWatch. It is not a replacement, and enabling it does not change anything you already run.
 + **Built on CloudWatch data.** Omni reads from the same CloudWatch data stores you use today. Your existing console pages, metrics, alarms, dashboards, Logs Insights queries, and APIs keep working unchanged.
@@ -44,7 +47,8 @@ Omni is an interface and set of workflows built on Amazon CloudWatch. It is not 
 
 You continue to configure how telemetry is collected and stored (log groups, retention, and ingestion endpoints) in the CloudWatch console.
 
-**Get started**
+## Get started
+<a name="cloudwatch-omni-get-started"></a>
 
 To try Omni before you set anything up, open the playground, a shared environment with sample data that requires no AWS account or setup. Choose **Explore the playground** on the Omni page in the CloudWatch console, or **Try playground** on the sign-in page.
 
@@ -56,4 +60,4 @@ To set up Omni, complete the following steps:
 
 1. Send telemetry from your applications or agents. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 
-1. Follow an end-to-end tutorial. See [Tutorial: Fix a production quality regression](omni-agents-close-the-loop.md) for an AI agent, or [Tutorial: monitor an application](omni-tutorial-monitor-an-application.md) for an application.
+1. Follow an end-to-end tutorial. See [Tutorial: Fix a production quality regression](omni-agents-close-the-loop.md) for an AI agent, or [Tutorial: Monitor an application](omni-tutorial-monitor-an-application.md) for an application.

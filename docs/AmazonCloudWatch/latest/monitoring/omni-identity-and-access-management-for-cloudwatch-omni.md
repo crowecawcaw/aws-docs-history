@@ -8,17 +8,18 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 CloudWatch Omni uses the Amazon CloudWatch identity. Actions are in the `cloudwatch` namespace and requests are signed with the `cloudwatch` Signature Version 4 signing name. The endpoint prefix differs from the signing name: requests go to `cloudwatch-omni.{region}.api.aws` but sign as `cloudwatch`.
 
 **Topics**
-+ How CloudWatch Omni works with IAM
-+ Domains and spaces
-+ AWS managed policies
-+ Service roles used for setup
-+ Tag-based access control
-+ Telemetry ingestion identity
-+ Read-time access scope
-+ Space-level access control
-+ Troubleshooting identity and access
++ [How CloudWatch Omni works with IAM](#omni-identity-and-access-management-for-cloudwatch-omni-how-omni-works-with-iam)
++ [Domains and spaces](#omni-identity-and-access-management-for-cloudwatch-omni-domains-and-spaces)
++ [AWS managed policies](#omni-identity-and-access-management-for-cloudwatch-omni-managed-policies)
++ [Service roles used for setup](#omni-identity-and-access-management-for-cloudwatch-omni-service-roles-used-for-setup)
++ [Tag-based access control](#omni-identity-and-access-management-for-cloudwatch-omni-tag-based-access-control)
++ [Telemetry ingestion identity](#omni-identity-and-access-management-for-cloudwatch-omni-telemetry-ingestion-identity)
++ [Read-time access scope](#omni-identity-and-access-management-for-cloudwatch-omni-read-time-access-scope)
++ [Space-level access control](#omni-identity-and-access-management-for-cloudwatch-omni-space-level-access-control)
++ [Troubleshooting identity and access](#omni-identity-and-access-management-for-cloudwatch-omni-troubleshooting-identity-and-access)
 
-**How CloudWatch Omni works with IAM**
+## How CloudWatch Omni works with IAM
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-how-omni-works-with-iam"></a>
 
 
 | IAM feature | CloudWatch Omni support | 
@@ -60,11 +61,13 @@ Domains and access grants that are scoped to an organization use the `organizati
 
 **Service-linked roles.** CloudWatch Omni uses a service-linked role, `AWSServiceRoleForCloudWatch_Omni`, which carries the `AWSCloudWatchOmniServiceRolePolicy` managed policy. It assumes that role to create the setup roles it manages in your account, and to attach their policies.
 
-**Domains and spaces**
+## Domains and spaces
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-domains-and-spaces"></a>
 
 A *domain* and a *space* are distinct resources. A domain is the identity and federation boundary, and single sign-on is configured for each domain. A space is the top-level container for observability data within a domain, with the resource type `space` and the ARN form `space/{spaceId}`.
 
-**AWS managed policies**
+## AWS managed policies
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-managed-policies"></a>
 
 The space operator role carries `CloudWatchOmniSpaceAccessPolicy` as its base policy, and can also carry two optional policies chosen during setup: `CloudWatchOmniModelInferencePolicy` (described below) and `CloudWatchOmniAWSIntegrationPolicy`, which lets CloudWatch Omni discover resources and their relationships for Context Graph. CloudWatch Omni provides further managed policies for other roles, including `CloudWatchOmniDomainAccessPolicy` for organization domain administration. For the complete set and each policy's contents, see [AWS managed policies for CloudWatch Omni](omni-aws-managed-policies-for-cloudwatch-omni.md).
 
@@ -80,7 +83,8 @@ When the CloudWatch Omni service-linked role creates the space operator role, it
 
 For what each policy grants action by action, the permissions that read metadata across your whole account, and the permissions you must provide yourself, see [IAM policies to use CloudWatch Omni](omni-iam-policies-to-use-cloudwatch-omni.md).
 
-**Service roles used for setup**
+## Service roles used for setup
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-service-roles-used-for-setup"></a>
 
 Setup uses several IAM roles, and CloudWatch Omni creates most of them for you. When you enable a capability, the service assumes its service-linked role and creates the role in your account with the matching AWS managed policy attached. Two roles are yours to create and pass in: the domain access role for an organization domain, and the evaluation execution role for online agent evaluations. You can also supply your own space operator role instead of letting CloudWatch Omni create one.
 
@@ -99,7 +103,8 @@ The operator role trusts the CloudWatch Omni service principal `cloudwatch.amazo
 
 Several operations take a role ARN that you supply, including your own operator role, the domain access role, and the evaluation execution role. Your calling principal needs `iam:PassRole` for the role you pass.
 
-**Tag-based access control**
+## Tag-based access control
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-tag-based-access-control"></a>
 
 CloudWatch Omni supports tags on 11 resource types: `space`, `domain`, `organization-domain`, `access-grant`, `organization-access-grant`, `access-profile`, `omni-dashboard`, `alert`, `view`, `integration`, and `dataset`. You cannot tag any other CloudWatch resource through CloudWatch Omni.
 
@@ -109,7 +114,8 @@ The remaining three (`view`, `integration`, and `dataset`) are tagged after they
 
 You can use `aws:ResourceTag/*` to control access to any tagged resource.
 
-**Telemetry ingestion identity**
+## Telemetry ingestion identity
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-telemetry-ingestion-identity"></a>
 
 CloudWatch Omni supports two ways to authenticate telemetry ingestion. Which ones are available depends on the signal.
 
@@ -125,13 +131,15 @@ You create and manage API keys and their credentials in the CloudWatch console u
 
 For credential hygiene guidance, see [Security best practices for CloudWatch Omni](omni-security-best-practices-for-cloudwatch-omni.md).
 
-**Read-time access scope**
+## Read-time access scope
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-read-time-access-scope"></a>
 
 A member's grant controls what their queries and views return. CloudWatch Omni applies the scope when it runs the query. To set it, see [Limit what members can see](omni-limit-what-members-can-see.md).
 
 **The scope constrains the telemetry query path.** Other features can reach the same content, so grant their permissions with that in mind. See [Security best practices for CloudWatch Omni](omni-security-best-practices-for-cloudwatch-omni.md).
 
-**Space-level access control**
+## Space-level access control
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-space-level-access-control"></a>
 
 IAM controls who can reach CloudWatch Omni and what the service may do in your account. Access to the contents of a space is a second, separate decision, evaluated inside the space. Both apply to every request.
 + **The member's permission level** decides whether a principal may ask for an operation. A grant carries one of four levels: Viewer, Editor, Space Admin, or Custom, where Custom allows exactly the actions it lists.
@@ -147,7 +155,8 @@ For an audit, the properties that follow from that design:
 
 To review or change any of this, see [Control access to your space](omni-control-access-to-your-space.md) for the model, [Manage space members and permissions](omni-manage-space-members-and-permissions.md) for the members and grants surface, [Limit what members can see](omni-limit-what-members-can-see.md) for data scopes, and [Access profiles](omni-access-profiles.md) for resource identities.
 
-**Troubleshooting identity and access**
+## Troubleshooting identity and access
+<a name="omni-identity-and-access-management-for-cloudwatch-omni-troubleshooting-identity-and-access"></a>
 
 A `403` response with `AccessDeniedException` indicates that the calling principal is not authorized, or that the request signature did not validate. Confirm which identity the request is using with `aws sts get-caller-identity`, and confirm that the identity holds an active access grant in the space. A sign-in problem, such as an expired one-time code, returns a `400` rather than a `403`.
 

@@ -18,6 +18,9 @@ The alarm uses duration-based state transitions:
 
 The alarm is in `ALARM` state when at least one contributor has been breaching for longer than the pending period. The alarm returns to `OK` state when all contributors have recovered.
 
+**Note**  
+You can reference a PromQL alarm as a child alarm in a CloudWatch composite alarm's rule expression, the same as any other alarm type. For more information, see [Create a composite alarm](Create_Composite_Alarm.md).
+
 ## PromQL alarm configuration
 <a name="promql-alarm-configuration"></a>
 

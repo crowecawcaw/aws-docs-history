@@ -92,7 +92,47 @@ You can enable [Transaction Search](CloudWatch-Transaction-Search.md) through th
 ------
 
 **Note**  
+If you encrypt spans with a customer managed AWS KMS key, the role also needs the `kms:DescribeKey` permission for the key. If your role uses the `CloudWatchFullAccessV2` managed policy, it already has this permission. For an example policy and the key requirements, see [Encrypting spans with a customer managed key](#Enable-TransactionSearch-kms).
+
+**Note**  
  To use Transaction Search and other CloudWatch features, add the [CloudWatchReadOnlyAccess policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchReadOnlyAccess.html) to your role. For information about how to create a role, see [IAM role creation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html). 
+
+## Encrypting spans with a customer managed key
+<a name="Enable-TransactionSearch-kms"></a>
+
+By default, CloudWatch Logs encrypts the `aws/spans` log group that stores your spans. To use your own key instead, choose a customer managed AWS KMS key when you enable Transaction Search. X-Ray applies the key only when it creates the `aws/spans` log group.
+
+The key must meet the following requirements:
++ It's a symmetric encryption key in the same account and Region as the log group. Specify the key ARN. Key IDs and alias ARNs aren't supported.
++ The key policy allows CloudWatch Logs to use the key. For more information about key policies for CloudWatch Logs, see [Encrypt log data in CloudWatch Logs using AWS KMS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html).
++ The role that enables Transaction Search has the `kms:DescribeKey` permission for the key. If the `aws/spans` log group already exists, you also need the `logs:AssociateKmsKey` permission for it.
+
+The following example JSON policy grants the `kms:DescribeKey` permission for one key. Add it to the role that enables Transaction Search:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "TransactionSearchKmsDescribeKey",
+            "Effect": "Allow",
+            "Action": "kms:DescribeKey",
+            "Resource": "arn:aws:kms:{{us-east-1}}:{{111122223333}}:key/{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}"
+        }
+    ]
+}
+```
+
+In the example, make the following replacements:
++ Replace `{{us-east-1}}` with the Region of your key.
++ Replace `{{111122223333}}` with your account ID.
++ Replace `{{a1b2c3d4-5678-90ab-cdef-EXAMPLE11111}}` with the ID of your key.
+
+If the `aws/spans` log group already exists, X-Ray doesn't apply the key. In the console, CloudWatch applies your key to the existing log group in CloudWatch Logs instead.
+
+If you use the API or CloudFormation, a request that includes a key fails, and X-Ray makes no changes. Instead, enable Transaction Search without a key, and then associate your key with the existing log group in CloudWatch Logs. Your key encrypts only spans that CloudWatch Logs ingests after you associate it.
+
+The key applies only to the `aws/spans` log group. To encrypt the `/aws/application-signals/data` log group, create it with your key before you enable Transaction Search.
 
 ## Enabling Transaction Search in the console
 <a name="CloudWatch-Transaction-Search-EnableConsole"></a>
@@ -109,13 +149,15 @@ You can enable [Transaction Search](CloudWatch-Transaction-Search.md) through th
 
 1.  Select the box to ingest spans as structured logs, and enter a percentage of spans to be indexed. You can index spans at 1% for free and change the percentage later based on your requirements. 
 
+1. (Optional) Select **Customize encryption settings (advanced)**, and then choose a customer managed key to encrypt the `aws/spans` log group with your own key. For more information about the key requirements, see [Encrypting spans with a customer managed key](#Enable-TransactionSearch-kms).
+
 ## Enabling Transaction Search using an API
 <a name="CloudWatch-Transaction-Search-EnableAPI"></a>
 
  The following procedure describes how to enable Transaction Search using an API. 
 
 ### Step 1. Create a policy that grants access to ingest spans in CloudWatch Logs
-<a name="w2aac25c21c15c11b5"></a>
+<a name="w2aac25c21c15c13b5"></a>
 
  When using the AWS CLI or SDK to enable Transaction Search, you must configure permissions using a resource-based policy with [`PutResourcePolicy`](https://docs.aws.amazon.com/xray/latest/api/API_PutResourcePolicy.html). 
 
@@ -165,7 +207,7 @@ aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{
 ```
 
 ### Step 2. Configure the destination of trace segments
-<a name="w2aac25c21c15c11b7"></a>
+<a name="w2aac25c21c15c13b7"></a>
 
  Configure the ingestion of spans with [`UpdateTraceSegmentDestination`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateTraceSegmentDestination.html). 
 
@@ -176,8 +218,14 @@ aws logs put-resource-policy --policy-name MyResourcePolicy --policy-document '{
 aws xray update-trace-segment-destination --destination CloudWatchLogs
 ```
 
+To encrypt the `aws/spans` log group with your own key, add the key ARN in `CloudWatchLogsConfiguration`. For more information about the key requirements, see [Encrypting spans with a customer managed key](#Enable-TransactionSearch-kms). In the following example, replace the key ARN with the ARN of your key.
+
+```
+aws xray update-trace-segment-destination --destination CloudWatchLogs --cloud-watch-logs-configuration '{"SpansLogGroupKmsKeyId": "arn:{{partition}}:kms:{{region}}:{{account-id}}:key/{{key-id}}"}'
+```
+
 ### Step 3. Configure the amount of spans to index
-<a name="w2aac25c21c15c11b9"></a>
+<a name="w2aac25c21c15c13b9"></a>
 
  Configure your desired sampling percentage with [`UpdateIndexingRule`](https://docs.aws.amazon.com/xray/latest/api/API_UpdateIndexingRule.html) 
 
@@ -192,7 +240,7 @@ aws xray update-indexing-rule --name "Default" --rule '{"Probabilistic": {"Desir
  After you enable Transaction Search, it can take 10 minutes for spans to become available for search and analysis. 
 
 ### Step 4. Verify spans are available for search and analysis
-<a name="w2aac25c21c15c11c11"></a>
+<a name="w2aac25c21c15c13c11"></a>
 
  To verify spans are available for search and analysis, use [`GetTraceSegmentDestination`](https://docs.aws.amazon.com/xray/latest/api/API_GetTraceSegmentDestination.html). 
 
@@ -211,4 +259,10 @@ aws xray get-trace-segment-destination
     "Destination": "CloudWatchLogs",
     "Status": "ACTIVE"
 }
+```
+
+If you used a customer managed key, the following command shows which key encrypts the `aws/spans` log group.
+
+```
+aws logs describe-log-groups --log-group-name-prefix aws/spans --query 'logGroups[].kmsKeyId'
 ```

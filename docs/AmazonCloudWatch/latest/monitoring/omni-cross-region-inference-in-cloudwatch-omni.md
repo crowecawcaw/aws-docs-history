@@ -11,7 +11,8 @@ CloudWatch Omni uses geographic inference profiles, which keep processing within
 
 For how to control what content reaches your telemetry, see [Protect sensitive data](omni-data-protection.md). For how evaluations use judge models, see [Evaluators and evaluations](omni-agents-evaluators.md). For how CloudWatch Omni and the AWS services it calls on your behalf use your content, see [Opting out of using your data for service improvement](omni-opting-out-of-using-your-data-for-service-improvement.md).
 
-**Where your requests are processed**
+## Where your requests are processed
+<a name="omni-cross-region-inference-in-cloudwatch-omni-where-your-requests-are-processed"></a>
 
 The following table shows which Regions can process requests from each space Region. The possible inference Regions are the destinations of the cross-Region inference profile, and can include AWS Regions where CloudWatch Omni itself is not available.
 
@@ -22,7 +23,8 @@ The following table shows which Regions can process requests from each space Reg
 |  | US West (Oregon) | US East (N. Virginia), US East (Ohio), US West (Oregon) | 
 | Europe (EU) | Europe (Ireland) | Europe (Frankfurt), Europe (Ireland), Europe (Milan), Europe (Paris), Europe (Spain), Europe (Stockholm) | 
 
-**Models that you choose**
+## Models that you choose
+<a name="omni-cross-region-inference-in-cloudwatch-omni-models-that-you-choose"></a>
 
 You choose the model in the prompt playground and when you configure an evaluator. CloudWatch Omni lists the foundation models and cross-Region inference profiles that are available to you in your Region, and calls the model you select with your own credentials, in your own account.
 

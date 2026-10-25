@@ -13,13 +13,15 @@ Requests must be signed by using an access key ID and a secret access key that i
 
 When CloudWatch Omni reads your telemetry to answer a query, it uses forward access session credentials, so the read is authorized as you rather than as the service. For that identity model, see [Identity and access management for CloudWatch Omni](omni-identity-and-access-management-for-cloudwatch-omni.md), and for how those credentials are protected, see [Data encryption in CloudWatch Omni](omni-data-encryption-in-cloudwatch-omni.md).
 
-**Tenancy and data segregation**
+## Tenancy and data segregation
+<a name="omni-infrastructure-security-in-cloudwatch-omni-tenancy-and-data-segregation"></a>
 
 CloudWatch Omni stores its metadata in shared, multi-tenant tables. Each item is logically isolated and scoped to the account that owns it. The underlying stores are not physically isolated for each account.
 
 A request for a resource that another account owns is denied, and CloudWatch Omni does not reveal whether that resource exists, so resources cannot be enumerated across accounts. Resource-name uniqueness is scoped to each account.
 
-**The local trust boundary**
+## The local trust boundary
+<a name="omni-infrastructure-security-in-cloudwatch-omni-the-local-trust-boundary"></a>
 
 Parts of CloudWatch Omni run on your own machine: the IDE extension, a local development server, and a local Model Context Protocol (MCP) server. Local mode is available in the IDE extension only and does not require an AWS connection. For what the extension does and how to set it up, see [Develop with the IDE extension](omni-develop-with-the-ide-extension.md).
 

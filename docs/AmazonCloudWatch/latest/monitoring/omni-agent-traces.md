@@ -7,13 +7,15 @@ Use Agent traces to find the agent runs you need to inspect, open a run to see w
 
 For traces of requests crossing your services and dependencies, see [Application traces](omni-application-traces.md).
 
-**Open Agent traces**
+## Open Agent traces
+<a name="omni-agent-traces-open-agent-traces"></a>
 
 In the launcher, under Agent observability, choose `Agent traces`, then select the time range you want to investigate. The summary above the results shows totals for the selected range, such as Total traces, Traces with errors, duration, and token usage.
 
 The IDE extension has the same view for the traces your agent produces while you develop. In local mode it reads the runs on your machine. See [Develop with the IDE extension](omni-develop-with-the-ide-extension.md).
 
-**Find the runs to inspect**
+## Find the runs to inspect
+<a name="omni-agent-traces-find-the-runs-to-inspect"></a>
 
 The traces list supports several ways to narrow the results:
 + **Filter.** Use the filter panel to narrow by agent, status, latency, token usage, and other trace properties.
@@ -22,7 +24,8 @@ The traces list supports several ways to narrow the results:
 
 Trace context does not propagate by itself: both sides of each hop must be instrumented. If an agent's caller is not instrumented, the agent's runs still appear here. They start at the agent.
 
-**Inspect a run**
+## Inspect a run
+<a name="omni-agent-traces-inspect-a-run"></a>
 
 Select a trace to open it. The header shows the trace ID and span count, and the run's spans open in execution order so you can follow what the agent did step by step.
 
@@ -39,7 +42,8 @@ Two controls change what the detail shows:
 
 **Pivot to related telemetry.** From an open run you can open the logs that carry the same trace ID (**Show logs for this trace**), open the agent's own metrics (**Show agent metrics**), and, when your space is connected to the AWS DevOps Agent, start an investigation from a failed run (**Investigate**). See [Investigate with the AWS DevOps Agent](omni-investigate-with-the-aws-devops-agent.md).
 
-**Act on what you find**
+## Act on what you find
+<a name="omni-agent-traces-act-on-what-you-find"></a>
 
 Select one or more runs in the traces list, then choose an action:
 
@@ -51,7 +55,8 @@ Select one or more runs in the traces list, then choose an action:
 
 For the end-to-end workflow that runs through this page (find a failing run, package it, fix it, verify the fix), see [Tutorial: Fix a production quality regression](omni-agents-close-the-loop.md).
 
-**When traces are missing or incomplete**
+## When traces are missing or incomplete
+<a name="omni-agent-traces-when-traces-are-missing-or-incomplete"></a>
 
 What you see on this page depends on the telemetry your agent sends. These checks cover the common gaps:
 + No traces appear. Confirm the time range, and verify that the agent is sending traces to your space. See [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
@@ -59,7 +64,8 @@ What you see on this page depends on the telemetry your agent sends. These check
 + Inputs, outputs, or tool parameters are blank. The instrumentation does not capture that content. The symptom table in [Send AI agent telemetry](omni-send-ai-agent-telemetry.md) maps each gap to the configuration that fixes it.
 + Logs do not appear from the **Show logs for this trace** pivot. Confirm the agent's logs reach your space and carry the trace ID for correlation.
 
-**Where to go next**
+## Where to go next
+<a name="omni-agent-traces-where-to-go-next"></a>
 
 
 |  |  | 

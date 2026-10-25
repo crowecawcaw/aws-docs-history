@@ -13,3 +13,4 @@ The following sections provides examples and tutorials for alarms for common use
 + [Create an alarm on Performance Insights counter metrics from an AWS database](CloudWatch_alarm_database_performance_insights.md)
 + [Create a Log Alarm on error patterns](US_LogAlarmErrorPattern.md)
 + [Create a Log Alarm on high latency per endpoint](US_LogAlarmLatencyByEndpoint.md)
++ [Create an alarm that triggers an Auto Scaling action](US_AlarmAutoScalingAction.md)

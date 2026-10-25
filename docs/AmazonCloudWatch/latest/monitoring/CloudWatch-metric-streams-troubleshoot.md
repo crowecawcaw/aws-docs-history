@@ -12,6 +12,7 @@ If you're not seeing metric data at your final destination, check the following:
 + In the Firehose console, view the Firehose delivery stream that is used for the metric stream and check the **Monitoring** tab to see whether the Firehose delivery stream is receiving data.
 + Confirm that you have configured your Firehose delivery stream with the correct details.
 + Check any available logs or metrics for the final destination that the Firehose delivery stream writes to.
++ Ensure that [CloudWatch Logs decompression](https://docs.aws.amazon.com/firehose/latest/dev/writing-with-cloudwatch-logs-decompression.html) is disabled on your Firehose delivery stream. Only requests from CloudWatch Logs are supported when decompression is enabled.
 + To get more detailed information, enable CloudWatch Logs error logging on the Firehose delivery stream. For more information, see [ Monitoring Amazon Data Firehose Using CloudWatch Logs](https://docs.aws.amazon.com/firehose/latest/dev/monitoring-with-cloudwatch-logs.html).
 
 **Note**  

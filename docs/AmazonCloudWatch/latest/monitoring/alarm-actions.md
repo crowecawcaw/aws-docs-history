@@ -11,7 +11,7 @@ The following are supported as alarm actions:
 + Notify one or more subscribers by using an Amazon Simple Notification Service topic. Subscribers can be applications as well as persons.
 + Invoke a Lambda function. This is the easiest way for you to automate custom actions on alarm state changes.
 + Alarms based on EC2 metrics can also perform EC2 actions, such as stopping, terminating, rebooting, or recovering an EC2 instance.
-+ Alarms can perform actions to scale an Auto Scaling group.
++ Alarms can scale an Auto Scaling group or an Application Auto Scaling target. For more information, see [Auto Scaling actions](#alarm-actions-auto-scaling).
 + Alarms can create OpsItems in Systems Manager Ops Center or create incidents in AWS Systems Manager Incident Manager. These actions are performed only when the alarm goes into ALARM state.
 + An alarm can start an investigation when it goes into ALARM state.
 
@@ -23,17 +23,16 @@ Alarms also emit events to Amazon EventBridge when they change state, and you ca
 The following table shows the actions executed for alarms along with their behavior for multiple time series (or contributors) alarms:
 
 
-| Action Type | Metrics Insights Multiple Time Series Alarm support | PromQL Alarm support | Log Alarm support | More Information | 
-| --- | --- | --- | --- | --- | 
-| SNS notifications | Contributor Level | Contributor Level | Contributor Level | [Amazon SNS event destinations](https://docs.aws.amazon.com/sns/latest/dg/sns-event-destinations.html) | 
-| EC2 actions (stop, terminate, reboot, recover) | Not supported | Not supported | Not supported | [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md) | 
-| Auto Scaling actions | Not supported | Alarm Level1 | Not supported | [Step and simple scaling policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html) | 
-| Systems Manager OpsItem creation | Alarm Level | Not supported | Alarm Level | [Configure CloudWatch alarms to create OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.html) | 
-| Systems Manager Incident Manager incidents | Alarm Level | Not supported | Not supported | [Creating incidents automatically with CloudWatch alarms](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-alarms) | 
-| Lambda function invocation | Contributor Level | Contributor Level | Contributor Level | [Invoke a Lambda function from an alarm](alarms-and-actions-Lambda.md) | 
-| CloudWatch investigations investigation | Alarm Level | Not supported | Not supported | [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md) | 
-
-1 PromQL alarms support only Application Auto Scaling actions.
+| Action Type | Standard metric alarm | Metrics Insights Multiple Time Series Alarm | PromQL Alarm | Log Alarm | More Information | 
+| --- | --- | --- | --- | --- | --- | 
+| SNS notifications | Supported | Contributor Level | Contributor Level | Contributor Level | [Amazon SNS event destinations](https://docs.aws.amazon.com/sns/latest/dg/sns-event-destinations.html) | 
+| EC2 actions (stop, terminate, reboot, recover) | Supported | Not supported | Not supported | Not supported | [Stop, terminate, reboot, or recover an EC2 instance](UsingAlarmActions.md) | 
+| Auto Scaling group actions | Simple, step, and target tracking | Not supported | Not supported | Not supported | [Auto Scaling actions](#alarm-actions-auto-scaling) | 
+| Application Auto Scaling actions | Step and target tracking | Not supported | Step | Not supported | [Auto Scaling actions](#alarm-actions-auto-scaling) | 
+| Systems Manager OpsItem creation | Supported | Alarm Level | Not supported | Alarm Level | [Configure CloudWatch alarms to create OpsItems](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-create-OpsItems-from-CloudWatch-Alarms.html) | 
+| Systems Manager Incident Manager incidents | Supported | Alarm Level | Not supported | Not supported | [Creating incidents automatically with CloudWatch alarms](https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-alarms) | 
+| Lambda function invocation | Supported | Contributor Level | Contributor Level | Contributor Level | [Invoke a Lambda function from an alarm](alarms-and-actions-Lambda.md) | 
+| CloudWatch investigations investigation | Supported | Alarm Level | Not supported | Not supported | [Start a CloudWatch investigations from an alarm](Start-Investigation-Alarm.md) | 
 
 The content of alarm notifications differs depending on the alarm type:
 + Single-metric alarms include both a state reason and detailed state reason data, showing the specific datapoints that caused the state change.
@@ -98,6 +97,21 @@ PromQL Alarm SNS notification for Contributor example:
   // Additional information...
 }
 ```
+
+## Auto Scaling actions
+<a name="alarm-actions-auto-scaling"></a>
+
+A CloudWatch metric alarm can trigger an Auto Scaling scaling policy to add or remove capacity. Composite alarms can't trigger Auto Scaling actions.
+
+Scaling policies belong to one of two services:
++ Amazon EC2 Auto Scaling scales the EC2 instances in an Auto Scaling group.
++ Application Auto Scaling scales other resources, such as Amazon ECS services, Amazon DynamoDB tables, Amazon Aurora replicas, and Spot Fleets.
+
+How the alarm is created depends on the policy type:
++ For simple scaling and step scaling, you create a CloudWatch metric alarm and attach it to the scaling policy.
++ For target tracking, the Auto Scaling service creates and manages the alarms for you (a high alarm and a low alarm). Don't edit or delete them.
+
+For more information, see [Step and simple scaling policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html). For Application Auto Scaling, see [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) and [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html).
 
 ## Alarm tags in action payloads
 <a name="alarm-tags-overview"></a>

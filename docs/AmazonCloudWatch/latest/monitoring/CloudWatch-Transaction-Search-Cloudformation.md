@@ -128,6 +128,40 @@ To enable Transaction Search using CloudFormation, you need to create the follow
 
    The IndexingPercentage value can be set between 0 and 100.
 
+1. (Optional) To encrypt the `aws/spans` log group with your own key, set the `CloudWatchLogsConfiguration` property. For `SpansLogGroupKmsKeyId`, specify the key ARN. If the key is an `AWS::KMS::Key` resource in the same template, use `Fn::GetAtt` with `Arn`. Don't use `Ref`, which returns the key ID. For more information about the key requirements, see [Encrypting spans with a customer managed key](Enable-TransactionSearch.md#Enable-TransactionSearch-kms).
+
+   **YAML**
+
+   ```
+   Resources:
+     XRayTransactionSearchConfig:
+       Type: AWS::XRay::TransactionSearchConfig
+       Properties:
+         CloudWatchLogsConfiguration:
+           SpansLogGroupKmsKeyId: !GetAtt SpansLogGroupKey.Arn
+   ```
+
+   **JSON**
+
+   ```
+   {
+     "Resources": {
+       "XRayTransactionSearchConfig": {
+         "Type": "AWS::XRay::TransactionSearchConfig",
+         "Properties": {
+           "CloudWatchLogsConfiguration": {
+             "SpansLogGroupKmsKeyId": { "Fn::GetAtt": ["SpansLogGroupKey", "Arn"] }
+           }
+         }
+       }
+     }
+   }
+   ```
+
+   X-Ray uses the key only when this resource enables Transaction Search and creates the `aws/spans` log group. If the log group already exists, CloudFormation fails to create the resource. Adding, changing, or removing `CloudWatchLogsConfiguration` replaces the resource, which fails while Transaction Search is enabled. To change the key later, use the CloudWatch Logs [AssociateKmsKey](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_AssociateKmsKey.html) operation.
+
+   Deleting the stack turns off Transaction Search but keeps the `aws/spans` log group. A later stack that sets `SpansLogGroupKmsKeyId` then fails to create.
+
 ## Template examples
 <a name="transaction-search-CFN-examples"></a>
 

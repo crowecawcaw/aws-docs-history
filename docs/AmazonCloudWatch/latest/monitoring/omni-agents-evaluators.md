@@ -5,11 +5,13 @@
 
 An evaluator scores agent behavior against a criterion (for example, whether the response was correct, relevant, or grounded in the retrieved context). An evaluation is the result of running one or more evaluators over a trace, or over the outputs your agent produces from a dataset's test cases. Because evaluators are automated, you can score hundreds of runs the way you would review one by hand. This page covers scoring on demand. To score production traffic continuously, see [Online evaluations](omni-agents-online-evaluations.md).
 
-**What an evaluator reads**
+## What an evaluator reads
+<a name="omni-agents-evaluators-what-an-evaluator-reads"></a>
 
 An evaluator reads the full trace — the user's input, the agent's response, and depending on the evaluator, the steps in between: which tools the agent called and in what order, and what context it retrieved (for the trace and session vocabulary, see [Monitor AI agents](omni-monitor-ai-agents.md)). Each evaluator scores at one of three levels: a **trace** (one request and response), a **session** (a whole conversation), or a **tool call** (one tool invocation). Traces must therefore show input and output. If your evaluators return blank results, check the content-extraction settings in [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
 
-**Where evaluators come from**
+## Where evaluators come from
+<a name="omni-agents-evaluators-where-evaluators-come-from"></a>
 
 Every evaluator runs through Amazon Bedrock AgentCore Evaluations, and the catalog covers three kinds. For the full evaluator reference, see [Evaluate agent performance](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html) in the *Amazon Bedrock AgentCore Developer Guide*.
 + **Built-in** — ready-made checks for common criteria such as correctness, helpfulness, and tool-use quality. Start here: they cover the criteria most agents need, without setup. Some built-in evaluators use a judge model internally; others are rule-based checks.
@@ -19,7 +21,8 @@ Every evaluator runs through Amazon Bedrock AgentCore Evaluations, and the catal
 **Important**  
 **Judge-based evaluators send trace content to the judge model.** Both the evaluator prompt and the trace content it scores go to the model for inference. This applies to judge-based built-in and third-party evaluators as well as custom model-as-judge evaluators. If your traces can contain sensitive data, see [Protect sensitive data](omni-data-protection.md).
 
-**Permissions for custom evaluators**
+## Permissions for custom evaluators
+<a name="omni-agents-evaluators-permissions-for-custom-evaluators"></a>
 
 Built-in and third-party evaluators run on service-managed capacity — there is nothing to grant. A custom evaluator invokes its judge using your space's permissions, so the Space Access role must be allowed to invoke it, and the permission depends on the judge:
 + Amazon Bedrock foundation model or inference profile — `bedrock:InvokeModel` and `bedrock:InvokeModelWithResponseStream` on that model or inference profile.
@@ -28,13 +31,15 @@ Built-in and third-party evaluators run on service-managed capacity — there is
 
 Without the matching permission, on-demand scoring with that custom evaluator fails; built-in and third-party evaluators are unaffected. For the managed policies that carry these actions and the conditions on them, see [IAM policies to use CloudWatch Omni](omni-iam-policies-to-use-cloudwatch-omni.md). For online evaluations, grant them to the evaluation's execution role instead — see [Online evaluations](omni-agents-online-evaluations.md).
 
-**Built-in evaluators miss domain-specific failures**
+## Built-in evaluators miss domain-specific failures
+<a name="omni-agents-evaluators-built-in-evaluators-miss-domain-specific-failures"></a>
 
 Built-in evaluators score general criteria, and an agent can pass all of them while doing the wrong thing for your domain. Consider a customer support agent that answers an off-topic question, such as providing a recipe: a helpfulness evaluator scores it high (it answered well), and a policy-compliance evaluator scores it high (nothing harmful). Every score is high, yet the agent has left its designated scope. No general-purpose criterion knows what your agent's scope is.
 
 Use built-in evaluators for universal criteria, and write a custom evaluator for every rule that is specific to your agent: permitted topics, required behaviors, forbidden actions. If you can state the rule in a sentence, you can usually write it as a model-as-judge evaluator; if it is mechanically checkable, write it as a code-based evaluator.
 
-**Write a custom model-as-judge evaluator**
+## Write a custom model-as-judge evaluator
+<a name="omni-agents-evaluators-write-a-custom-model-as-judge-evaluator"></a>
 
 A model-as-judge evaluator is a prompt to the judge model plus a rating scale. The judge reads the conversation and the response, applies your rubric, and returns one of the scale's values. A well-specified evaluator has three parts:
 
@@ -46,7 +51,8 @@ A model-as-judge evaluator is a prompt to the judge model plus a rating scale. T
 
 The evaluator's instructions include placeholders that are filled with trace content for each run it scores. For a trace-level evaluator, these are `{context}` (the conversation so far) and `{assistant_turn}` (the response under evaluation). Each evaluation level has its own placeholder set; for the full list, see [Create evaluator](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/create-evaluator.html) in the *Amazon Bedrock AgentCore Developer Guide*. The rating scale can be numerical (each value has a number, a label, and a definition) or categorical (the label is the value). Test the evaluator on a known-bad and a known-good trace before relying on it: the known-bad trace should score fail, and the known-good one should score pass. If either misses, tighten the rubric.
 
-**To evaluate a response**
+## To evaluate a response
+<a name="omni-agents-evaluators-to-evaluate-a-response"></a>
 
 1. Open a trace in [Agent traces](omni-agent-traces.md) to score a single run, select sessions in [Agent sessions](omni-agent-sessions.md) to score whole conversations, or run your agent against a dataset's test cases, for example in an experiment, and score the outputs. See [Experiments](omni-agents-experiments.md).
 
@@ -54,11 +60,13 @@ The evaluator's instructions include placeholders that are filled with trace con
 
 1. Run them, and review the scores. Each score links back to the trace it came from, so you can open a low-scoring run and see exactly what the agent did.
 
-**Interpret scores as comparisons**
+## Interpret scores as comparisons
+<a name="omni-agents-evaluators-interpret-scores-as-comparisons"></a>
 
 A single absolute score rarely means much on its own. A 0.8 correctness score is only good or bad relative to something. Scores become useful when you compare: the same dataset before and after a change (see [Experiments](omni-agents-experiments.md)), the same evaluator across agents, or a trend over time.
 
-**Review evaluation results over time**
+## Review evaluation results over time
+<a name="omni-agents-evaluators-review-evaluation-results-over-time"></a>
 
 The **Evaluation dashboard** aggregates your evaluation results: score trends, score distributions, pass rates, and a comparison across evaluators. Use it to watch for drift after individual runs are scored: a pass rate that declines over days signals a regression even when every individual score looks reasonable in isolation. From a declining trend, open the low-scoring traces to see what changed. If the drop follows a deployment or a prompt change, check that change first. To respond to a regression you find here, see [Tutorial: Fix a production quality regression](omni-agents-close-the-loop.md).
 

@@ -215,6 +215,7 @@ CloudTrail logs each data event under one of two CloudWatch data resource types,
 | `GetMetricData` | `AWS::CloudWatch::Metric` | 
 | `GetMetricWidgetImage` | `AWS::CloudWatch::Metric` | 
 | `PutMetricData` | `AWS::CloudWatch::Metric` | 
+| `PutMetricData` (metrics sent through the OpenTelemetry Protocol (OTLP) endpoint) | `AWS::CloudWatch::Dataset` | 
 | `GetMetricStatistics` | `AWS::CloudWatch::Metric` | 
 | `ListMetrics` | `AWS::CloudWatch::Metric` | 
 | `QueryMetrics` | `AWS::CloudWatch::Dataset` | 
@@ -223,6 +224,9 @@ CloudTrail logs each data event under one of two CloudWatch data resource types,
 
 **Note**  
 CloudTrail records `QueryMetrics`, `GetSeries`, and `GetLabels` query requests with `readOnly` set to `true` and an `eventSource` of `monitoring.amazonaws.com`. To log PromQL query requests, enable data events for the CloudWatch dataset resource type.
+
+**Note**  
+Metrics that you send to CloudWatch through the OpenTelemetry Protocol (OTLP) endpoint are recorded as `PutMetricData` data events under the `AWS::CloudWatch::Dataset` resource type (not `AWS::CloudWatch::Metric`). These events include an `additionalEventData` field with the value `{"protocol": "OTLP"}`. To log these OTLP metric ingestion events, enable data events for the CloudWatch dataset resource type.
 
 [ Data events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events), also known as data plane operations, give you insight into the resource operations performed on or within a resource. Data events are often high-volume activities. 
 
@@ -384,6 +388,63 @@ The following is an example of a CloudTrail event for a **PutMetricData** operat
         "clientProvidedHostHeader": "monitoring.us-east-1.amazonaws.com"
       }
     }
+```
+
+The following is an example of a CloudTrail event for a **PutMetricData** operation for metrics that were sent using the OpenTelemetry Protocol (OTLP).
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEID:i-EXAMPLE0123456789",
+        "arn": "arn:aws:sts::111122223333:assumed-role/CloudWatchAgentServerRole/i-EXAMPLE0123456789",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAEXAMPLEID",
+                "arn": "arn:aws:iam::111122223333:role/CloudWatchAgentServerRole",
+                "accountId": "111122223333",
+                "userName": "CloudWatchAgentServerRole"
+            },
+            "attributes": {
+                "creationDate": "2026-10-19T11:11:36Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2026-10-19T12:40:24Z",
+    "eventSource": "monitoring.amazonaws.com",
+    "eventName": "PutMetricData",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "192.0.2.1",
+    "userAgent": "CWAgent/1.300073.0 (go1.26; linux; amd64) inputs:(otlp) aws-sdk-go-v2/1.36.3",
+    "requestParameters": null,
+    "responseElements": null,
+    "additionalEventData": {
+        "protocol": "OTLP"
+    },
+    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    "readOnly": false,
+    "resources": [
+        {
+            "type": "AWS::CloudWatch::Dataset",
+            "ARN": "arn:aws:cloudwatch:us-east-1:111122223333:dataset/default"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Data",
+    "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "monitoring.us-east-1.amazonaws.com"
+    }
+}
 ```
 
 The following is an example of a CloudTrail event for a **QueryMetrics** (PromQL) operation.

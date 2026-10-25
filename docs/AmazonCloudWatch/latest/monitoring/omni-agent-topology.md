@@ -9,23 +9,27 @@ The agent topology is in **preview release** and is subject to change.
 
 For the map of your services and their dependencies, see [Monitor applications with the application map](omni-monitor-applications-with-the-application-map.md).
 
-**How the graph is built**
+## How the graph is built
+<a name="omni-agent-topology-how-the-graph-is-built"></a>
 
 Omni derives the graph from your spans: each agent, tool, and model that appears in your traces becomes a node, and the transitions between them (which component ran after which) become the edges. The graph is only as complete as your instrumentation: if tool calls are not instrumented as spans, those tools do not appear in the graph. See [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md).
 
-**Choose a view**
+## Choose a view
+<a name="omni-agent-topology-choose-a-view"></a>
 
 The **Flow** and **Graph** toggle changes how the same nodes and transitions are drawn:
 + **Flow**, the view the map opens in, reads left to right as the sequence of steps your agent ran, aggregated across runs.
 + **Graph** draws the components and transitions as a network diagram. Use it to inspect the branching structure and the connections between components.
 
-**Group spans into nodes**
+## Group spans into nodes
+<a name="omni-agent-topology-group-spans-into-nodes"></a>
 
 The selector next to the view toggle offers two ways to group spans into the map's nodes:
 + **Default** builds the map from the span kinds your instrumentation already emits: agent, tool, and model spans in the order they ran, with parallel calls grouped into a single step. It works with traces from any supported framework and needs no additional span attributes.
 + **Steps** builds the map from explicit graph metadata on your spans: `agent_graph.node` names the node a span belongs to, `agent_graph.step` orders the nodes, and `agent_graph.kind` optionally sets a node's type. Step spans must be direct children of the trace's root span. LangGraph instrumentation adds this metadata automatically; for other frameworks, set the attributes yourself (for example, in a span processor). Choose **Steps** when your agent is authored as an explicit graph and you want the map to mirror the nodes you defined. If the selected traces carry no step metadata, the map reports it. Switch back to **Default**.
 
-**To view the agent topology**
+## To view the agent topology
+<a name="omni-agent-topology-to-view-the-agent-topology"></a>
 
 1. Open your space, then choose **Agent topology**.
 

@@ -9,7 +9,8 @@ Each interface endpoint is represented by one or more [elastic network interface
 
 For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink Guide*.
 
-**Endpoint services for CloudWatch Omni**
+## Endpoint services for CloudWatch Omni
+<a name="omni-interface-vpc-endpoints-aws-privatelink-endpoint-services-for-omni"></a>
 
 CloudWatch Omni offers two VPC endpoint services. Create an interface endpoint for each service that you use.
 
@@ -21,7 +22,8 @@ CloudWatch Omni offers two VPC endpoint services. Create an interface endpoint f
 
 Both endpoint services support private DNS and VPC endpoint policies. Because each private DNS name is the same as the corresponding public hostname, a client in a VPC that has the interface endpoint reaches the service privately with no change to its configuration.
 
-**Considerations for CloudWatch Omni VPC endpoints**
+## Considerations for CloudWatch Omni VPC endpoints
+<a name="omni-interface-vpc-endpoints-aws-privatelink-considerations-for-omni-vpc-endpoints"></a>
 
 Before you set up an interface VPC endpoint for CloudWatch Omni, review [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink Guide*.
 + The endpoint provides private access to the CloudWatch Omni service endpoint `cloudwatch-omni.{region}.api.aws`, for both the API and telemetry ingestion. All communication uses TLS. The endpoint requires a minimum of TLS 1.2 and supports TLS 1.3 with post-quantum hybrid key exchange.
@@ -30,7 +32,8 @@ Before you set up an interface VPC endpoint for CloudWatch Omni, review [Access 
 + CloudWatch Omni supports VPC endpoint policies. See the "Create a VPC endpoint policy for CloudWatch Omni" section of this page.
 + The endpoint is available in the AWS Regions where CloudWatch Omni is available.
 
-**Create an interface VPC endpoint for CloudWatch Omni**
+## Create an interface VPC endpoint for CloudWatch Omni
+<a name="omni-interface-vpc-endpoints-aws-privatelink-create-an-interface-vpc-endpoint-for-omni"></a>
 
 You can create an interface VPC endpoint for CloudWatch Omni using either the Amazon VPC console or the AWS Command Line Interface. For more information, see [Create an interface endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#create-interface-endpoint-aws) in the *AWS PrivateLink Guide*.
 
@@ -48,7 +51,8 @@ com.amazonaws.us-east-1.cloudwatch-omni
 
 If you enable private DNS for the endpoint, you can make API and telemetry-ingestion requests to CloudWatch Omni using its default DNS name for the Region, `cloudwatch-omni.{region}.api.aws`, and they route through the interface endpoint.
 
-**Create a VPC endpoint policy for CloudWatch Omni**
+## Create a VPC endpoint policy for CloudWatch Omni
+<a name="omni-interface-vpc-endpoints-aws-privatelink-create-a-vpc-endpoint-policy-for-omni"></a>
 
 You can attach an endpoint policy to your VPC endpoint that controls access to CloudWatch Omni. The policy specifies the following information:
 + The principal that can perform actions.

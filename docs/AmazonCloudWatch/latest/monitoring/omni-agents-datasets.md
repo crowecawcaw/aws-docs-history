@@ -5,17 +5,20 @@
 
 A dataset is a curated collection of test cases that you evaluate against repeatedly. It gives you a repeatable measurement: because the test cases stay fixed, you can run them after every change and compare scores over time. These evaluation datasets are distinct from the CloudWatch Dataset, the store that holds your space's telemetry (see [CloudWatch Omni](cloudwatch-omni.md)).
 
-**What a test case contains**
+## What a test case contains
+<a name="omni-agents-datasets-what-a-test-case-contains"></a>
 
 Each test case in a dataset represents one scenario:
 + **An input** — the request the agent should handle. For a multi-turn scenario, a test case carries the conversation turns, which run in order within a single session so the agent keeps context between them.
 + **An expected outcome (optional)** — a reference response, the tools the agent is expected to call, or natural-language assertions the response must satisfy. Evaluators that compare against a reference need this; evaluators that judge the response on its own do not. Every test case follows the same dataset schema, so any evaluator can draw the fields it needs from any case.
 
-**Build from real traces**
+## Build from real traces
+<a name="omni-agents-datasets-build-from-real-traces"></a>
 
 You can write test cases by hand, but start from real traffic. Your traces already contain the requests your users make and the failures they hit. When you add a trace to a dataset, Omni converts it into a test case: the trace's input becomes the test input, and its response and tool calls can seed the expected outcome for you to review and edit.
 
-**To build a dataset from traces**
+## To build a dataset from traces
+<a name="omni-agents-datasets-to-build-a-dataset-from-traces"></a>
 
 1. In [Agent traces](omni-agent-traces.md) or [Agent sessions](omni-agent-sessions.md), find representative runs. Aim for a mix: common requests that must keep working, edge cases, and failures you have fixed and do not want to regress.
 
@@ -23,23 +26,27 @@ You can write test cases by hand, but start from real traffic. Your traces alrea
 
 1. Run your agent against the dataset's test cases (for example, in an experiment) and score the outputs with evaluators to get a baseline. See [Evaluators and evaluations](omni-agents-evaluators.md) and [Experiments](omni-agents-experiments.md).
 
-**Publish a version before you use it**
+## Publish a version before you use it
+<a name="omni-agents-datasets-publish-a-version-before-you-use-it"></a>
 
 A dataset you are editing is a working draft. Before you can run it (in the prompt playground or an experiment), you publish it as a numbered version. Publishing matters because:
 + **A version is immutable.** Once published, its test cases are frozen, so a score is always tied to an exact set of cases. Continued editing happens on the draft and does not disturb versions you have already run.
 + **Scores stay comparable over time.** Comparing two agent versions, or a before/after change, is valid only when both ran against the same fixed cases. Versioning guarantees that.
 + **You can keep publishing.** As you add or refine cases, publish a new version. Earlier versions remain available, so you can always re-run an old baseline or track which version produced which result.
 
-**Keep the dataset honest as your agent evolves**
+## Keep the dataset honest as your agent evolves
+<a name="omni-agents-datasets-keep-the-dataset-honest-as-your-agent-evolves"></a>
 + When you find a new failure in production, add its trace to the dataset before you fix it. The fix then has a test case proving it. Publish a version so the fix is measured against a frozen baseline.
 + Keep failure cases in the dataset after fixing them; they are your regression suite.
 + If your agent's scope changes, retire test cases that no longer represent real traffic. A dataset full of obsolete cases rewards the wrong behavior. Publish a fresh version once you have pruned.
 
-**Use a dataset in the prompt playground**
+## Use a dataset in the prompt playground
+<a name="omni-agents-datasets-use-a-dataset-in-the-prompt-playground"></a>
 
 In the [Prompt playground](omni-prompt-playground.md) you can run your baseline and candidate variants against a published dataset instead of one hand-typed input, so a comparison covers your whole curated set at once. A candidate that passes cases the baseline fails is evidence that the change works. See [Prompt playground](omni-prompt-playground.md).
 
-**Datasets move between surfaces**
+## Datasets move between surfaces
+<a name="omni-agents-datasets-datasets-move-between-surfaces"></a>
 
 Datasets sync in both directions between the Omni web UI and the IDE extension, using the **Upload to Cloud** and **Download to Local** buttons:
 + **Download to Local** brings a cloud dataset into the extension, so you can run it against your local development loop.

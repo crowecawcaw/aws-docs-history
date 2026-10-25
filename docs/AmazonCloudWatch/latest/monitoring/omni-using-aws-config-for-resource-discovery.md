@@ -7,7 +7,8 @@ CloudWatch Omni uses AWS Config to find the AWS resources in your account. Omni 
 
 To learn how discovered resources appear in the graph, see [Using Context Graph](omni-using-context-graph.md).
 
-**How the recorder works**
+## How the recorder works
+<a name="omni-using-aws-config-for-resource-discovery-how-the-recorder-works"></a>
 
 Omni creates a *service-linked configuration recorder* when you create a space. The recorder is named `AWSConfigurationRecorderForCloudWatch`. You do not create it. You do not configure it.
 
@@ -23,13 +24,15 @@ The recorder works as follows:
 **Note**  
 Other CloudWatch features also create service-linked recorders. Your account can hold more than one recorder that is linked to CloudWatch.
 
-**Which resources become graph nodes**
+## Which resources become graph nodes
+<a name="omni-using-aws-config-for-resource-discovery-which-resources-become-graph-nodes"></a>
 
 AWS Config records every type in the resource-type table on this page. Omni adds a graph node for only some of those types. Omni uses the other records to add detail to nodes that exist. For example, Omni reads subnet and security group records. It uses them to find the network address of a service.
 
 A resource can appear in the graph before Omni gets telemetry from it. To learn more, see [Using Context Graph](omni-using-context-graph.md).
 
-**Regions**
+## Which Regions are recorded
+<a name="omni-using-aws-config-for-resource-discovery-regions"></a>
 
 Omni creates the recorder in the same Region as your space. The recorder records the resources in that Region.
 
@@ -37,11 +40,13 @@ To add the resources from another Region, centralize that Region's telemetry int
 
 AWS Config makes a record only for a type that AWS Config supports in the Region. If AWS Config does not support a type in a Region, no resource of that type appears in the graph for that Region.
 
-**Describe calls in CloudTrail**
+## Describe calls in CloudTrail
+<a name="omni-using-aws-config-for-resource-discovery-describe-calls-in-cloudtrail"></a>
 
 AWS Config takes an inventory of the resources in your account at regular times. It does this for all resources, not only for the types that this page lists. You can therefore see `ConfigResourceCompositionSession` and `AWSConfig-Describe` calls in CloudTrail, including calls for types that Omni does not record. This behavior keeps the AWS Config inventory consistent.
 
-**Recorded resource types**
+## Recorded resource types
+<a name="omni-using-aws-config-for-resource-discovery-recorded-resource-types"></a>
 
 AWS Config records the following resource types for Omni.
 
@@ -108,7 +113,8 @@ AWS Config records the following resource types for Omni.
 | Developer tools and migration | AWS Transfer Family | AWS::Transfer::Server | 
 | Developer tools and migration | Amazon AppFlow | AWS::AppFlow::Flow | 
 
-**Related information**
+## Related information
+<a name="omni-using-aws-config-for-resource-discovery-related-information"></a>
 + [Using Context Graph](omni-using-context-graph.md)
 + [Monitor applications with the application map](omni-monitor-applications-with-the-application-map.md)
 + [Working with the configuration recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html) in the *AWS Config Developer Guide*

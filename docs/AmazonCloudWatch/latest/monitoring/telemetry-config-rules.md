@@ -354,3 +354,15 @@ When enabling Bedrock AgentCore Payment Manager telemetry:
 + Supports the TRACES telemetry type.
 + For LOGS, supports only CloudWatch Logs as the destination type.
 + CloudWatch does not enable log deliveries for payment managers that already are ingesting the specified log types to CloudWatch Logs
+
+**AWS X-Ray Transaction Search**  
+When enabling Transaction Search:  
++ Supports the TRACES telemetry type on the `AWS::XRay::TransactionSearchConfig` resource type. This resource type is the mechanism that enables Transaction Search, so telemetry source types do not apply and the rule ignores any that you specify. For more information, see [Transaction Search](CloudWatch-Transaction-Search.md).
++ Transaction Search is an account-wide setting. Enabling it switches all span ingestion for the account through X-Ray into CloudWatch Logs, which changes how that span data is billed.
++ Does not support a destination configuration. Transaction Search always sends spans to the service-managed `aws/spans` log group.
++ CloudWatch creates the `aws/spans` and `/aws/application-signals/data` log groups if they do not already exist, and attaches a resource policy to each one that allows X-Ray to call `logs:PutLogEvents` on it.
++ If either log group already exists and CloudWatch telemetry rules did not create it, CloudWatch does not modify the log group or its resource policy.
++ CloudWatch does not change your span indexing configuration. Transaction Search uses whatever indexing rate the account already has.
++ CloudWatch does not change accounts that already have Transaction Search enabled.
++ You can create only one Transaction Search rule per scope. An account-level rule and an organization-level rule are tracked separately, so both can exist at the same time and both act on the same account-wide setting.
++ Deleting the rule does not turn Transaction Search off, and does not delete the log groups or their resource policies. To turn Transaction Search off, set the X-Ray trace segment destination back to X-Ray yourself.

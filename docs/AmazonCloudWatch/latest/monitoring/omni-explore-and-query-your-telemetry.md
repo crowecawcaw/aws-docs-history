@@ -8,7 +8,8 @@ Explore is where you query your telemetry directly. For how telemetry reaches yo
 **Note**  
 You query in two languages, split by signal: **CloudWatch Omni SQL** for logs and traces, and **PromQL** (Prometheus Query Language) for metrics. The split holds everywhere you write a query in Omni. An alert condition uses the same two languages (see [Alerts](omni-alerts.md)), and when the Omni agent writes a query for you, it is one you can open and run here (see [Ask the Omni agent](omni-ask-the-omni-agent.md)).
 
-**Run your first query**
+## Run your first query
+<a name="omni-explore-and-query-your-telemetry-run-your-first-query"></a>
 
 1. In the navigation, choose **Explore logs** or **Explore metrics**.
 
@@ -25,7 +26,8 @@ You query in two languages, split by signal: **CloudWatch Omni SQL** for logs an
 
 You can also describe what you want in natural language and let Omni draft the query for you, then edit and run it like any other. For what the Omni agent can do beyond query drafting, see [Ask the Omni agent](omni-ask-the-omni-agent.md).
 
-**Query logs and traces with SQL**
+## Query logs and traces with SQL
+<a name="omni-explore-and-query-your-telemetry-query-logs-and-traces-with-sql"></a>
 
 A SQL query addresses a signal through its table name: `"logs.default"`, `"traces.default"`. Each result row also carries system fields: `@timestamp` for time filtering, and `@record`, a JSON document holding the fully parsed telemetry record. Quote system field names in backticks:
 
@@ -51,11 +53,13 @@ For how application and agent traces relate, see [Monitor a service](omni-monito
 
 For the language itself (supported syntax, case sensitivity, bounding time across a join, and unsupported syntax), see [SQL query reference](omni-sql-query-reference.md).
 
-**Query metrics with PromQL**
+## Query metrics with PromQL
+<a name="omni-explore-and-query-your-telemetry-query-metrics-with-promql"></a>
 
 For the language and how CloudWatch metrics support it, see [Query metrics with PromQL](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-PromQL.html) and [Running PromQL queries in Query Studio](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-PromQL-QueryStudio.html) in the Amazon CloudWatch User Guide. **Builder** composes the expression — pick a metric, narrow by label values, and apply functions — or switch to **Code** and write the expression directly. In the Browse panel you can select label values before choosing a metric, and the metric list narrows to the metrics that carry them.
 
-**Discover fields**
+## Discover fields
+<a name="omni-explore-and-query-your-telemetry-discover-fields"></a>
 
 Fields differ across sources. For whichever signal you are querying (logs or traces), the Browse panel aggregates fields from all sources of that type, so you see every field in your current signal in one place. The field list and each field's values narrow to the rows matching your current query, so selecting a value tightens the query and the field list together.
 
@@ -63,17 +67,20 @@ For metrics, the Browse panel lists metrics and their labels instead of fields, 
 
 To ask the same question in the query text instead, see [SQL query reference](omni-sql-query-reference.md).
 
-**Work with results**
+## Work with results
+<a name="omni-explore-and-query-your-telemetry-work-with-results"></a>
 
 In the results table, you can resize, reorder, and hide columns, filter the rows, highlight keywords, and export the results. For metrics, you can adjust the chart's legend and display options, and you can change the visualization type for any result.
 
-**CloudWatch Omni SQL limits**
+## CloudWatch Omni SQL limits
+<a name="omni-explore-and-query-your-telemetry-omni-sql-limits"></a>
 + If you do not set `LIMIT`, results are capped at 10,000 rows. Set an explicit `LIMIT` for a known row count, up to a maximum of 100,000.
 + Results are paginated: each page returns up to 1,000 rows; page through the rest with the next-page token (`nextToken` on the API).
 + A query string can be up to 64,000 characters.
 + A query times out after 60 minutes.
 
-**Act on what you find**
+## Act on what you find
+<a name="omni-explore-and-query-your-telemetry-act-on-what-you-find"></a>
 + **Alert on it.** An Omni alert takes a query as its condition, in the same two languages. You can start an alert directly from the query you ran. See [Alerts](omni-alerts.md).
 + **Keep it on a dashboard.** Save the view so the query and its visualization become a shared panel. See [Dashboards](omni-dashboards.md).
 + **Hand it to the agent.** Ask the Omni agent to investigate what the query surfaced. See [Ask the Omni agent](omni-ask-the-omni-agent.md).

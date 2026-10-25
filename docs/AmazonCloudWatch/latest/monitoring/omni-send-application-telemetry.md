@@ -14,25 +14,29 @@ Steps 1 and 2 show one environment at a time: expand the section for where your 
 **Note**  
 **Assisted setup.** The **Add source** wizard in the Omni web UI (**Settings › Ingestion**) generates these commands for your selections. From your coding agent, the Omni skills in the Agent Toolkit for AWS do the same; see [Use Omni skills](omni-use-omni-skills.md). The rest of this page is the manual path.
 
-**Prerequisites**
+## Prerequisites
+<a name="omni-send-application-telemetry-prerequisites"></a>
 + **Transaction Search is enabled** in the account and Region that receive traces. Traces sent before it is enabled are not searchable. See [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html).
 + You can attach IAM policies to the role your compute uses: an instance role, a task role, the agent's service account role, or the federated role on Azure or Google Cloud.
 + For Step 4, your application's language is one of Python, Node.js, Java, .NET, or Go. For more information about the frameworks with documented notes, see [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md). Other frameworks still work with the custom-instrumentation snippets.
 
-**Step 1: Deploy the CloudWatch agent (platform team or administrator)**
+## Step 1: Deploy the CloudWatch agent (platform team or administrator)
+<a name="omni-send-application-telemetry-step-1-deploy-the-agent-platform-team-or-administrator"></a>
 
 Expand the environment your application runs on. Each section gives the install commands and the same resources as infrastructure as code, as tabs.
 
-## Amazon EC2
+### Amazon EC2
 <a name="omni-send-application-telemetry-amazon-ec2"></a>
 
 On Amazon EC2, you attach a managed policy to the instance role, install the agent with the OTLP preset (per instance, or fleet-wide with a State Manager association), then continue to Step 2.
 
-**Grant permissions**
+#### Grant permissions
+<a name="omni-send-application-telemetry-amazon-ec2-grant-permissions"></a>
 
 The instance role needs `CloudWatchAgentServerPolicy`, which covers metrics, logs, and traces, bound to the instance through an instance profile.
 
-**Install the agent and enable OTLP**
+#### Install the agent and enable OTLP
+<a name="omni-send-application-telemetry-amazon-ec2-install-the-agent-and-enable-otlp"></a>
 
 ------
 #### [ Install the agent ]
@@ -146,19 +150,21 @@ Resources:
 
 For the full agent configuration reference, see [Amazon CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPCloudWatchAgent.html) in the Amazon CloudWatch User Guide.
 
-## Amazon ECS
+### Amazon ECS
 <a name="omni-send-application-telemetry-amazon-ecs"></a>
 
 On Amazon ECS (Fargate), you attach a managed policy to the task role, add the agent as a second container in the same task with the application depending on it, then continue to Step 2. Your application sends OTLP to `localhost`; the task shares one network namespace.
 
-**Grant permissions and egress**
+#### Grant permissions and egress
+<a name="omni-send-application-telemetry-amazon-ecs-grant-permissions-and-egress"></a>
 
 The task role needs `CloudWatchAgentServerPolicy`; the execution role needs `AmazonECSTaskExecutionRolePolicy`. The task needs egress to pull the agent image and reach the OTLP endpoints: a public IP in a public subnet, a NAT gateway, or VPC endpoints.
 
 **Important**  
 The application container must depend on the agent container with condition `START`. The agent image has no health check, so condition `HEALTHY` hangs startup.
 
-**Add the sidecar to the task definition**
+#### Add the sidecar to the task definition
+<a name="omni-send-application-telemetry-amazon-ecs-add-the-sidecar-to-the-task-definition"></a>
 
 ------
 #### [ Setup script ]
@@ -232,7 +238,7 @@ ContainerDefinitions:
 
 For the agent configuration reference, see [Amazon CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-OTLPCloudWatchAgent.html).
 
-## Amazon EKS
+### Amazon EKS
 <a name="omni-send-application-telemetry-amazon-eks"></a>
 
 On Amazon EKS, you install the CloudWatch Observability add-on with OTLP enabled and give its agent credentials, then continue to Step 2. The add-on runs the agent as a DaemonSet and exposes a `cloudwatch-agent` Service in the `amazon-cloudwatch` namespace; your pods send OTLP to that Service over cluster DNS, not to `localhost`. The add-on is installed with the AWS CLI regardless of how you deploy your application, so there is one installation path here.
@@ -260,14 +266,14 @@ kubectl -n amazon-cloudwatch rollout restart daemonset/cloudwatch-agent
 
 For a manual install with IRSA and the add-on configuration reference, see [Install the CloudWatch Observability add-on](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.html) in the Amazon CloudWatch User Guide.
 
-## Azure VM
+### Azure VM
 <a name="omni-send-application-telemetry-azure-vm"></a>
 
 On an Azure VM, you federate the VM's managed identity to an IAM role and install the CloudWatch agent on the VM, then continue to Step 2. The agent sends telemetry with temporary AWS credentials instead of a stored key; your application sends OTLP to `localhost`.
 
 The complete procedure, including the OpenID Connect (OIDC) federation, the IAM role trust policy, and the onboarding script, is in [Install the CloudWatch agent on Azure](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Azure.html) in the Amazon CloudWatch User Guide. Follow the VM section there, then return to Step 2.
 
-## Azure AKS
+### Azure AKS
 <a name="omni-send-application-telemetry-azure-aks"></a>
 
 On Azure Kubernetes Service, you federate workload identity for the `cloudwatch-agent` service account to an IAM role and install the CloudWatch Observability Helm chart, then continue to Step 2. Pods send OTLP to the `cloudwatch-agent` Service over cluster DNS.
@@ -277,25 +283,26 @@ The complete procedure, including the OIDC federation and the Helm values, is in
 **Note**  
 Unlike the EKS add-on, the AKS Helm chart's OTLP receiver accepts cross-pod traffic by default; no `0.0.0.0` override is needed.
 
-## Google Compute Engine
+### Google Compute Engine
 <a name="omni-send-application-telemetry-google-compute-engine"></a>
 
 On a Google Compute Engine instance, you federate the instance's service account to an IAM role and install the CloudWatch agent on the instance, then continue to Step 2. The agent sends telemetry with temporary AWS credentials instead of a stored key; your application sends OTLP to `localhost`.
 
 The complete procedure, including the service account federation, the IAM role trust policy, and the onboarding scripts, is in [Install the CloudWatch agent on Google Cloud](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Google-Cloud.html#install-CloudWatch-Agent-on-Google-Cloud-gce) in the Amazon CloudWatch User Guide. Follow the Google Compute Engine (GCE) section there, then return to Step 2.
 
-## Google Kubernetes Engine
+### Google Kubernetes Engine
 <a name="omni-send-application-telemetry-google-kubernetes-engine"></a>
 
 On Google Kubernetes Engine, you federate the cluster's OIDC issuer for the `cloudwatch-agent` service account to an IAM role and install the CloudWatch Observability Helm chart, then continue to Step 2. Pods send OTLP to the `cloudwatch-agent` Service over cluster DNS.
 
 The complete procedure, including the OIDC federation and the Helm values, is in [Install the CloudWatch agent on Google Cloud](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-Google-Cloud.html#install-CloudWatch-Agent-on-Google-Cloud-gke) in the Amazon CloudWatch User Guide. Follow the Google Kubernetes Engine (GKE) section there, then return to Step 2.
 
-**Step 2: Point your application at the agent (developer)**
+## Step 2: Point your application at the agent (developer)
+<a name="omni-send-application-telemetry-step-2-point-your-application-at-the-agent-developer"></a>
 
 Set these environment variables on the application, never on the agent: one agent serves many services and already enriches telemetry with infrastructure attributes. The endpoint and the place the variables live depend on your environment, and the port and protocol depend on your language; expand the same section you chose in Step 1, then choose your language.
 
-## Amazon EC2
+### Amazon EC2
 <a name="omni-send-application-telemetry-amazon-ec2-2"></a>
 
 On Amazon EC2, set these in the application's service unit or start script, for example `Environment=` lines in a systemd unit:
@@ -326,7 +333,7 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-## Amazon ECS
+### Amazon ECS
 <a name="omni-send-application-telemetry-amazon-ecs-2"></a>
 
 On Amazon ECS, set these in the application container's `environment` block:
@@ -357,7 +364,7 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-## Amazon EKS
+### Amazon EKS
 <a name="omni-send-application-telemetry-amazon-eks-2"></a>
 
 On Amazon EKS, set these in the container's `env` block in the pod spec:
@@ -388,7 +395,7 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-## Azure VM
+### Azure VM
 <a name="omni-send-application-telemetry-azure-vm-2"></a>
 
 On an Azure VM, set these in the application's service unit or start script:
@@ -419,7 +426,7 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-## Azure AKS
+### Azure AKS
 <a name="omni-send-application-telemetry-azure-aks-2"></a>
 
 On Azure Kubernetes Service, set these in the container's `env` block in the pod spec:
@@ -450,7 +457,7 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-## Google Compute Engine
+### Google Compute Engine
 <a name="omni-send-application-telemetry-google-compute-engine-2"></a>
 
 On a Google Compute Engine instance, set these in the application's service unit or start script:
@@ -481,7 +488,7 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-## Google Kubernetes Engine
+### Google Kubernetes Engine
 <a name="omni-send-application-telemetry-google-kubernetes-engine-2"></a>
 
 On Google Kubernetes Engine, set these in the container's `env` block in the pod spec:
@@ -512,16 +519,18 @@ OTEL_LOGS_EXPORTER=otlp
 
 ------
 
-**Step 3: Verify**
+## Step 3: Verify
+<a name="omni-send-application-telemetry-step-3-verify"></a>
 
 Use the automated verification in the Omni web UI. In your space, open **Settings › Ingestion** and choose your source: the **Add source** flow's verification step confirms the agent is reporting and your application's telemetry is arriving, and points at the failing setting when it is not. Run it after every deployment change.
 
 If verification fails, see the "Troubleshoot missing telemetry" section of this page.
 
-## Verify manually
+### Verify manually
 <a name="omni-send-application-telemetry-verify-manually"></a>
 
-**The agent is reporting**
+#### The agent is reporting
+<a name="omni-send-application-telemetry-verify-manually-the-agent-is-reporting"></a>
 
 ------
 #### [ Amazon EC2 ]
@@ -560,15 +569,18 @@ On Google Kubernetes Engine, `kubectl -n amazon-cloudwatch get daemonset cloudwa
 
 ------
 
-**Your application appears**
+#### Your application appears
+<a name="omni-send-application-telemetry-verify-manually-your-application-appears"></a>
 
 If you run your own OpenTelemetry Collector instead of the CloudWatch agent, this is your check. If your application is not instrumented yet, do Step 4 first, then return to this check. Restart the application, then open your space. In **Application map**, the service appears under the `service.name` you set. In **Trace Explorer**, a trace for a recent request shows the entry span for your service with the resource attributes you set. Application logs are in `/aws/cwagent/otlp` on EC2, ECS, Azure VMs, and Compute Engine instances, or `/aws/cwagent/<cluster>/otlp` on EKS, AKS, and GKE. A custom metric is queryable with PromQL by its OpenTelemetry name, for example `sum({__name__="orders.placed"})`.
 
-**Step 4 (optional): Instrument your application with OpenTelemetry (developer)**
+## Step 4 (optional): Instrument your application with OpenTelemetry (developer)
+<a name="omni-send-application-telemetry-step-4-optional-instrument-your-application-with-opentelemetry-developer"></a>
 
 Choose your language. The choice applies to every code sample in this step and is remembered on the other pages in this guide. For Python, Node.js, Java, and .NET, most HTTP frameworks, database clients, and messaging libraries are traced without code changes. Go has no auto-instrumentation agent, so initialize the SDK in code and wrap your handlers with the library instrumentation for your framework. The table in each tab lists the frameworks with documented notes, and the OpenTelemetry registry lists the rest. For a framework not covered, the custom-instrumentation snippet still works.
 
-**Install the OpenTelemetry SDK**
+### Install the OpenTelemetry SDK
+<a name="omni-send-application-telemetry-step-4-optional-instrument-your-application-with-opentelemetry-developer-install-the-opentelemetry-sdk"></a>
 
 ------
 #### [ Python ]
@@ -646,7 +658,8 @@ If you instrument with the ADOT SDK instead and sample, your span metrics are co
 | .NET | AWS.OpenTelemetry.CloudWatchPluginOtel | [.NET plugin README](https://github.com/aws-observability/aws-otel-dotnet-instrumentation/blob/main/src/AWS.OpenTelemetry.CloudWatch.Plugin/README.md) | 
 | Go | github.com/aws-observability/cloudwatch-plugin-otel-go | [Go plugin README](https://github.com/aws-observability/cloudwatch-plugin-otel-go/blob/main/README.md) | 
 
-**Enable auto-instrumentation**
+### Enable auto-instrumentation
+<a name="omni-send-application-telemetry-step-4-optional-instrument-your-application-with-opentelemetry-developer-enable-auto-instrumentation"></a>
 
 Run your application under the auto-instrumentation agent for its language. Framework, HTTP, and database calls are traced without code changes. Go has no auto-instrumentation agent. For Go, initialize the SDK once at startup instead.
 
@@ -770,7 +783,8 @@ func setupOTel(ctx context.Context) (func(context.Context) error, error) {
 
 ------
 
-**Add custom instrumentation**
+### Add custom instrumentation
+<a name="omni-send-application-telemetry-step-4-optional-instrument-your-application-with-opentelemetry-developer-add-custom-instrumentation"></a>
 
 Set business attributes on the active span, mark your entry span as a server span so it counts in request metrics, and record a custom metric. These snippets assume the SDK is initialized by the step above.
 
@@ -899,7 +913,8 @@ The following table lists notes for the Go frameworks.
 
 Query custom metrics with PromQL by their OpenTelemetry name, for example `sum({__name__="orders.placed"})`. Restart the application and repeat Step 3.
 
-**Troubleshoot missing telemetry**
+### Troubleshoot missing telemetry
+<a name="omni-send-application-telemetry-step-4-optional-instrument-your-application-with-opentelemetry-developer-troubleshoot-missing-telemetry"></a>
 
 
 | Symptom | Cause and fix | 

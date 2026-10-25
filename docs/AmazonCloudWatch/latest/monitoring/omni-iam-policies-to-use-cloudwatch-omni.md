@@ -8,12 +8,13 @@ The space operator role carries `CloudWatchOmniSpaceAccessPolicy` as its base po
 This page enumerates what each policy grants and why, discloses the permissions that read metadata across your whole account, and lists the permissions you must add separately. For how CloudWatch Omni works with IAM in general (resource types, condition keys, and the roles setup creates), see [Identity and access management for CloudWatch Omni](omni-identity-and-access-management-for-cloudwatch-omni.md).
 
 **Topics**
-+ Permissions in CloudWatchOmniModelInferencePolicy
-+ Permissions in CloudWatchOmniSpaceAccessPolicy
-+ Permissions that read across your whole account
-+ Permissions you provide yourself
++ [Permissions in CloudWatchOmniModelInferencePolicy](#omni-iam-policies-to-use-cloudwatch-omni-permissions-in-cloudwatchomnimodelinferencepolicy)
++ [Permissions in CloudWatchOmniSpaceAccessPolicy](#omni-iam-policies-to-use-cloudwatch-omni-permissions-in-cloudwatchomnispaceaccesspolicy)
++ [Permissions that read across your whole account](#omni-iam-policies-to-use-cloudwatch-omni-permissions-that-read-across-your-whole-account)
++ [Permissions you provide yourself](#omni-iam-policies-to-use-cloudwatch-omni-permissions-you-provide-yourself)
 
-**Permissions in CloudWatchOmniModelInferencePolicy**
+## Permissions in CloudWatchOmniModelInferencePolicy
+<a name="omni-iam-policies-to-use-cloudwatch-omni-permissions-in-cloudwatchomnimodelinferencepolicy"></a>
 
 This policy grants model inference and nothing else. It is attached only to spaces that use the prompt playground or run evaluations that invoke a model. A space that only views telemetry does not receive it, and a space can create and view its evaluation configuration without it. Only running a model requires it.
 
@@ -68,7 +69,8 @@ Every action except `bedrock-mantle:CallWithBearerToken` is restricted to your o
 }
 ```
 
-**Permissions in CloudWatchOmniSpaceAccessPolicy**
+## Permissions in CloudWatchOmniSpaceAccessPolicy
+<a name="omni-iam-policies-to-use-cloudwatch-omni-permissions-in-cloudwatchomnispaceaccesspolicy"></a>
 
 This is the base policy, always attached. It grants the space experience and the management side of evaluation. The table groups its permissions by what they are for, and gives the condition that limits each group.
 
@@ -93,7 +95,8 @@ This is the base policy, always attached. It grants the space experience and the
 | Storing a model-provider API key | Creating, reading, updating the value of, deleting, and tagging the Secrets Manager secret that holds a model-provider API key you supply. | Restricted to secrets whose name begins cw-omni- that carry the cw-omni tag, in your own account. Creating one also requires the cw-omni tag on the request. | 
 | AWS Config resource inventory | The AWS Config service-linked configuration recorder, its status, and the AWS Config service-linked role, used to collect resource inventory for your account. | Same account, and the recorder's service principal must be cloudwatch.amazonaws.com. Creating the service-linked role is restricted to the config.amazonaws.com path. | 
 
-**Permissions that read across your whole account**
+## Permissions that read across your whole account
+<a name="omni-iam-policies-to-use-cloudwatch-omni-permissions-that-read-across-your-whole-account"></a>
 
 Five permission groups grant permissions that the underlying API cannot restrict to a subset of resources, so they enumerate metadata across your entire account:
 + `iam:ListRoles`, `iam:GetRole`, and `iam:ListAttachedRolePolicies` reach any IAM role in the account, including its details and the managed policies attached to it.
@@ -106,7 +109,8 @@ None of them permits a change, and none reads the contents of anything. Apart fr
 
 For the complete policy document, see [CloudWatchOmniSpaceAccessPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchOmniSpaceAccessPolicy.html) in the *AWS Managed Policy Reference*.
 
-**Permissions you provide yourself**
+## Permissions you provide yourself
+<a name="omni-iam-policies-to-use-cloudwatch-omni-permissions-you-provide-yourself"></a>
 
 The managed policies cover using a space. They do not cover creating one, and they do not cover telemetry ingestion.
 

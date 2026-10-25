@@ -9,7 +9,8 @@ Omni builds the application map from your telemetry for the time range you selec
 
 You can access the application map from the Quick Launch menu in the Omni web UI. You can also access the underlying Context Graph programmatically. See [Using Context Graph](omni-using-context-graph.md).
 
-**Find which services need your attention**
+## Find which services need your attention
+<a name="omni-monitor-applications-with-the-application-map-find-which-services-need-your-attention"></a>
 
 Start with the application map to find which applications have problems, and which service or dependency is responsible.
 
@@ -25,7 +26,8 @@ Start with the application map to find which applications have problems, and whi
 
 For detailed service monitoring, see [Monitor a service](omni-monitor-a-service.md). To investigate individual requests and operations, see [Application traces](omni-application-traces.md).
 
-**Understand what appears on the map**
+## Understand what appears on the map
+<a name="omni-monitor-applications-with-the-application-map-understand-what-appears-on-the-map"></a>
 
 ![Application map showing the two kinds of node and the three kinds of relationship between them.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-application-map.png)
 
@@ -53,7 +55,8 @@ A relationship can also contain operations observed between its nodes. For examp
 + **Critical** — the error rate is high.
 + **Unknown** — the node has too little traffic to classify. A low-traffic node is reported as unknown rather than as healthy.
 
-**Investigate an application or a service from the map**
+## Investigate an application or a service from the map
+<a name="omni-monitor-applications-with-the-application-map-investigate-an-application-or-a-service-from-the-map"></a>
 
 Select an application or a service to review information for the selected time range. The service view can include request activity, latency, errors, and its relationships with other services and resources. Review the services that call the selected service, the services it calls, and the resources it accesses. This helps you determine whether the problem is isolated to the service or involves a dependency. From the service, continue to the telemetry:
 
@@ -63,7 +66,8 @@ Select an application or a service to review information for the selected time r
 
 1. Open metrics to investigate service or infrastructure signals.
 
-**Narrow and organize the map**
+## Narrow and organize the map
+<a name="omni-monitor-applications-with-the-application-map-narrow-and-organize-the-map"></a>
 
 The map opens grouped by **Application**, so it shows your applications rather than every individual service. Use the **Analysis** rail when a large map contains more nodes than you need for the current investigation. Use **Group by** in the analysis rail to change the grouping dimension. For example, if your services run in multiple environments, group by **Environment** to focus on all services in a given environment.
 
@@ -71,7 +75,8 @@ Use **Filter** to narrow the map without changing its grouping. You can filter b
 
 Use **Show all infrastructure** to include resources discovered in your account even when Omni has not observed them through telemetry. Use **Node style** to switch the node view between cards and circles.
 
-**What to watch out for**
+## What to watch out for
+<a name="omni-monitor-applications-with-the-application-map-what-to-watch-out-for"></a>
 
 1. **Most relationships on the map come from your telemetry.** A service that is not instrumented appears as a single node with no related telemetry if Omni discovers it in your account. It can also appear as a node named from a caller's span, because the caller's telemetry names the far end of the call. The map draws a call between two of your services when you trace it. Omni also builds relationships from network and access logs, from CloudTrail, and from the resources it discovers in your account. To close a gap, instrument the service that is missing. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 
@@ -81,7 +86,8 @@ Use **Show all infrastructure** to include resources discovered in your account 
 
 1. **Resources that Omni finds by inspecting your account appear on a delay, and the time range does not filter them.** Telemetry updates the map continuously, and telemetry-derived nodes are the ones observed inside the range you select. A resource that Omni learns about by discovering what is deployed in your account appears after the next scheduled refresh. It then reflects the most recent discovery rather than the selected range, so narrowing the range does not remove it. Such a resource can appear with its name before anything has called it, and it shows no metrics or traces because Omni has not observed any. For which discovery sources contribute what, see [Using Context Graph](omni-using-context-graph.md).
 
-**Where to go next**
+## Where to go next
+<a name="omni-monitor-applications-with-the-application-map-where-to-go-next"></a>
 
 
 | To do this | See | 
@@ -91,6 +97,7 @@ Use **Show all infrastructure** to include resources discovered in your account 
 | Query the logs, metrics, and traces behind a node | [Explore and query your telemetry](omni-explore-and-query-your-telemetry.md) | 
 | Understand spaces and where this telemetry is stored | [CloudWatch Omni](cloudwatch-omni.md) | 
 
-**Cross-account and cross-Region topology**
+## Cross-account and cross-Region topology
+<a name="omni-monitor-applications-with-the-application-map-cross-account-and-cross-region-topology"></a>
 
 The map shows the services and resources in the space's own account and Region. To add more accounts and Regions, centralize their telemetry into the space's account. Their services and dependencies then appear on the same map. To set this up, see [Set up Omni for your organization](omni-set-up-omni-for-your-organization.md).

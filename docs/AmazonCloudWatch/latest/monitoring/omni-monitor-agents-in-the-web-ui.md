@@ -7,13 +7,15 @@ Use the Omni web UI to monitor your agents in production, including individual a
 
 Aggregate views are available in the Omni web UI only. For monitoring and troubleshooting during development in the IDE, see [Develop with the IDE extension](omni-develop-with-the-ide-extension.md).
 
-**Aggregate metrics**
+## Aggregate metrics
+<a name="omni-monitor-agents-in-the-web-ui-aggregate-metrics"></a>
 + **Request volume** — the number of times the agent is invoked.
 + **Errors** — the number of traces that contain errors.
 + **Latency** — the duration of each run.
 + **Token usage** — the total input and output tokens consumed.
 
-**To monitor your agents**
+## To monitor your agents
+<a name="omni-monitor-agents-in-the-web-ui-to-monitor-your-agents"></a>
 
 1. Sign in to your space. To set up users and permissions, see [Set up Omni](omni-set-up-omni.md).
 

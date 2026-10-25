@@ -7,7 +7,8 @@ CloudWatch Omni provides AWS managed policies for the space operator role, for t
 
 For guidance on which policy you need for which task, which permissions read across your whole account, and the permissions you provide yourself, see [IAM policies to use CloudWatch Omni](omni-iam-policies-to-use-cloudwatch-omni.md).
 
-**The policies**
+## The policies
+<a name="omni-aws-managed-policies-for-cloudwatch-omni-the-policies"></a>
 
 
 | Policy | What it grants | 
@@ -18,7 +19,8 @@ For guidance on which policy you need for which task, which permissions read acr
 | [CloudWatchOmniAWSIntegrationPolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/CloudWatchOmniAWSIntegrationPolicy.html) | Resource discovery for Context Graph: lets CloudWatch Omni discover resources and their relationships in an account. Optional on the space operator role — you choose it during space setup. In an organization Centralization rule, CloudWatch Omni also attaches it to the integration roles it provisions in each source account. | 
 | [AWSCloudWatchOmniServiceRolePolicy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSCloudWatchOmniServiceRolePolicy.html) | Attached to the AWSServiceRoleForCloudWatch\_Omni service-linked role, which provisions the integration roles and the AWS Config recorder in member accounts. You cannot attach it to your own identities. | 
 
-**CloudWatch Omni updates to AWS managed policies**
+## CloudWatch Omni updates to AWS managed policies
+<a name="omni-aws-managed-policies-for-cloudwatch-omni-omni-updates-to-managed-policies"></a>
 
 The following table describes updates to CloudWatch Omni's AWS managed policies.
 

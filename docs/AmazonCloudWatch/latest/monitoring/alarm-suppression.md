@@ -23,10 +23,6 @@ You specify suppressor alarms when you configure composite alarms. Any alarm can
 
 Because composite alarms allow you to get an aggregated view of your health across multiple alarms, there are common situations where it is expected for those alarms to trigger. For example, during a maintenance window of your application or when you investigate an ongoing incident. In such situations, you may want to suppress the actions of your composite alarms, to prevent unwanted notifications or the creation of new incident tickets
 
- With composite alarm action suppression, you define alarms as suppressor alarms. Suppressor alarms prevent composite alarms from taking actions. For example, you can specify a suppressor alarm that represents the status of a supporting resource. If the supporting resource is down, the suppressor alarm prevents the composite alarm from sending notifications. Composite alarm action suppression helps you reduce alarm noise, so you spend less time managing your alarms and more time focusing on your operations. 
-
- You specify suppressor alarms when you configure composite alarms. Any alarm can function as a suppressor alarm. When a suppressor alarm changes states from `OK` to `ALARM`, its composite alarm stops taking actions. When a suppressor alarm changes states from `ALARM` to `OK`, its composite alarm resumes taking actions. 
-
 ### `WaitPeriod` and `ExtensionPeriod`
 <a name="Create_Composite_Alarm_Suppression_Wait_Extension"></a>
 

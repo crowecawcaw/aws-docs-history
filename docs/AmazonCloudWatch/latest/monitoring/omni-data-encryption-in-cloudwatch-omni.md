@@ -7,7 +7,8 @@ CloudWatch Omni encrypts your data at rest and in transit. This page describes w
 
 To choose what content enters your telemetry, see [Protect sensitive data](omni-data-protection.md). To configure a customer managed key on your space, see [Set up Omni](omni-set-up-omni.md).
 
-**Encryption at rest**
+## Encryption at rest
+<a name="omni-data-encryption-in-cloudwatch-omni-encryption-at-rest"></a>
 
 
 | Store | Default encryption | Customer managed key | 
@@ -22,7 +23,8 @@ Customer managed key support is enabled per account, so the option might not app
 
 **Files that CloudWatch Omni writes to your own machine are not encrypted by the service.** When you use the IDE extension and local development tools, telemetry can be written under a local `.omni/` directory, including raw prompts and responses. These files are plaintext and rely on your operating-system file permissions. Local mode keeps your telemetry off the network until you choose to send it, but it does not encrypt it at rest. Protecting these files is your responsibility, and the sample `.gitignore` that ships with the tooling re-includes several `.omni/` data files, so raw trace content can be committed to source control. Available in the IDE extension only.
 
-**Key management**
+## Key management
+<a name="omni-data-encryption-in-cloudwatch-omni-key-management"></a>
 
 If you use a customer managed AWS KMS key, your key policy must allow the following. Your policy needs **both** of the first two statements: when you attach the key with [AssociateDatasetKmsKey](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_AssociateDatasetKmsKey.html), CloudWatch checks your own access to the key before it checks the service's, so a policy that grants only the CloudWatch service principal is denied for the caller and the key is rejected.
 
@@ -34,7 +36,8 @@ If you use a customer managed AWS KMS key, your key policy must allow the follow
 
 **Scope of the dataset key:** AssociateDatasetKmsKey and DisassociateDatasetKmsKey operate on the Dataset, which holds your space's telemetry. The key is associated at the Dataset level rather than per signal type, so associating a customer managed key covers everything the Dataset holds, and disassociating it reverts all of it.
 
-**Sample key policy**
+## Sample key policy
+<a name="omni-data-encryption-in-cloudwatch-omni-sample-key-policy"></a>
 
 The following sample key policy covers every way CloudWatch Omni uses your key: the space and Dataset checks described above, the material the service encrypts on your behalf, forwarded telemetry entering the Dataset, and reads by the space operator role. Add the statements you need to your key policy. Replace `111122223333` with your account ID and `us-east-1` with your Region.
 
@@ -244,7 +247,8 @@ What each group of statements is for:
 + **`AllowCallerDatasetForwarding`** lets the Dataset integration execution role write forwarded logs and traces into a Dataset encrypted with this key. If you created your own execution role, use its ARN here. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 + **The operator-role statements** let the space operator role read data encrypted under the key, only through CloudWatch (`kms:ViaService`).
 
-**Encryption in transit**
+## Encryption in transit
+<a name="omni-data-encryption-in-cloudwatch-omni-encryption-in-transit"></a>
 
 All communication with CloudWatch Omni service endpoints uses HTTPS with TLS. The public API endpoints require a minimum of TLS 1.2. We recommend TLS 1.3, and the service supports post-quantum hybrid key exchange. Amazon S3 access is TLS-enforced.
 
@@ -253,6 +257,7 @@ Telemetry ingestion is over HTTPS and is authenticated with Signature Version 4.
 **Important**  
 CloudWatch Omni does not offer FIPS 140-3 validated endpoints. If you require FIPS 140-3 validated cryptographic modules, review this limitation before you send telemetry.
 
-**Operational data that CloudWatch Omni records about you**
+## Operational data that CloudWatch Omni records about you
+<a name="omni-data-encryption-in-cloudwatch-omni-operational-data-that-omni-records-about-you"></a>
 
 Request logs and audit events are delivered to AWS CloudTrail as management events, and include the resource ARN, the calling principal, the account ID, and the organization ID. Service metadata such as timestamps and resource identifiers is encrypted with AWS managed keys.

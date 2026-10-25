@@ -25,13 +25,13 @@ For information about working with runbooks in an investigation, see [Reviewing 
 ## Integration with third-party chat systems
 <a name="Investigations-Integrations-Chat"></a>
 
-By integrating CloudWatch investigations with CloudWatch investigations in chat applications, you can have updates from investigations sent to third-party chat services, including Slack, and Microsoft Teams. The integration is facilitated by Amazon Simple Notification Service.
+By integrating CloudWatch investigations with Amazon Q Developer in chat applications, you can have updates from investigations sent to third-party chat services, including Slack, and Microsoft Teams. The integration is facilitated by Amazon Simple Notification Service.
 
 The following topics describe the required steps in the recommended order:
 
 **Topics**
 + [Create and configure the Amazon SNS topic and access policy](#Investigations-Integrations-Chat-policy)
-+ [Configure CloudWatch investigations in your chat applications](#Investigations-Integrations-Chatbot-configure)
++ [Configure Amazon Q Developer in chat applications](#Investigations-Integrations-Chatbot-configure)
 + [Add Amazon SNS topics to CloudWatch AI Operations](#Investigations-Integrations-Chat-configure)
 
 ### Create and configure the Amazon SNS topic and access policy
@@ -58,16 +58,16 @@ To enable CloudWatch investigations to send notifications, you must add an the f
 }
 ```
 
-### Configure CloudWatch investigations in your chat applications
+### Configure Amazon Q Developer in chat applications
 <a name="Investigations-Integrations-Chatbot-configure"></a>
 
-To configure CloudWatch investigations in chat applications for communication with a third-party chat service, use the following tutorials:
+To configure Amazon Q Developer in chat applications for communication with a third-party chat service, use the following tutorials:
 + [Tutorial: Get started with Slack](https://docs.aws.amazon.com/chatbot/latest/adminguide/slack-setup.html).
 + [Tutorial: Get started with Microsoft Teams](https://docs.aws.amazon.com/chatbot/latest/adminguide/teams-setup.html).
 
-Then, to support using AI assistant actions within chat channels you must provide the CloudWatch investigations in chat applications role with appropriate permissions. When you create a new IAM channel role for the channel, select the **Notifications** and **Amazon Q operations assistant permissions** policy templates.
+Then, to support using AI assistant actions within chat channels you must provide the Amazon Q Developer in chat applications role with appropriate permissions. When you create a new IAM channel role for the channel, select the **Notifications** and **Amazon Q operations assistant permissions** policy templates.
 
-Attach the **AIOpsOperatorAccess** managed IAM policy to the guardrail policies in CloudWatch investigations in chat applications. This grants permissions to CloudWatch investigations in chat applications to interact with CloudWatch investigations and perform required actions on your behalf.
+Attach the **AIOpsOperatorAccess** managed IAM policy to the guardrail policies in Amazon Q Developer in chat applications. This grants permissions to Amazon Q Developer in chat applications to interact with CloudWatch investigations and perform required actions on your behalf.
 
 In the channel configuration, you must also subscribe to the Amazon SNS topic that you created in the previous procedure.
 
@@ -85,7 +85,7 @@ If you have already created an investigation group and want to add chat integrat
 1. In the navigation pane, choose **AI Operations**, **Configuration**.
 
 1. On the **Optional configuration** tab, in the **Chat integration** section, do the following:
-   + If you have already integrated CloudWatch investigations in chat applications with a third-party chat system, you can choose **Select SNS topic** to choose the Amazon SNS topic to use to send updates to about investigations. This Amazon SNS topic will relay those updates to the chat client.
-   + If you want to integrate CloudWatch investigations in chat applications with a third-party chat system, choose **Configure new chat client**. For more information about setting up this configuration, see [Getting started with CloudWatch investigations in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html).
+   + If you have already integrated Amazon Q Developer in chat applications with a third-party chat system, you can choose **Select SNS topic** to choose the Amazon SNS topic to use to send updates to about investigations. This Amazon SNS topic will relay those updates to the chat client.
+   + If you want to integrate Amazon Q Developer in chat applications with a third-party chat system, choose **Configure new chat client**. For more information about setting up this configuration, see [Getting started with Amazon Q Developer in chat applications](https://docs.aws.amazon.com/chatbot/latest/adminguide/getting-started.html).
 
 When incident reports are generated, notifications can be sent to configured chat channels to alert team members that new documentation is available. These notifications include links to the generated reports and can be customized to include key findings or action items.

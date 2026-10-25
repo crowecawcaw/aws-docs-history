@@ -10,7 +10,8 @@ A profile is reusable. You create it once, grant it permissions, and choose whic
 **Note**  
 Access profiles and permission levels solve different problems. A permission level governs a **person** and applies wherever they work. A profile governs a **resource** acting on its own. See [Control access to your space](omni-control-access-to-your-space.md).
 
-**What an access profile contains**
+## What an access profile contains
+<a name="omni-access-profiles-what-an-access-profile-contains"></a>
 
 Every profile has two halves:
 
@@ -24,7 +25,8 @@ Neither half works alone. A profile with permissions that nothing is allowed to 
 
 A profile belongs to one space, and its name must be unique within that space.
 
-**System managed access profiles**
+## System managed access profiles
+<a name="omni-access-profiles-system-managed-access-profiles"></a>
 
 Creating a space also creates one system managed access profile:
 
@@ -37,7 +39,8 @@ A system managed profile is created with the space and maintained by the service
 
 Create a profile for the resources that need one, scoped to the job it does. For example, an alert that reads one service's telemetry and posts to one Slack channel gets a profile that can do only that.
 
-**Create an access profile**
+## Create an access profile
+<a name="omni-access-profiles-create-an-access-profile"></a>
 
 1. In the console, open **Settings**, and under **Space** choose **Access Profiles**.
 
@@ -53,7 +56,8 @@ Create a profile for the resources that need one, scoped to the job it does. For
 
 The profile appears in the list with its name and description. To show its ID as well, use the column settings. Open it to see whether *you* can assume it: the detail page reports **You are allowed to assume this access profile** or **You are not allowed to assume this access profile**.
 
-**Grant a profile its permissions**
+## Grant a profile its permissions
+<a name="omni-access-profiles-grant-a-profile-its-permissions"></a>
 
 The **Permissions** checkbox on the create form gives a new profile the actions that alert evaluation needs. The console creates this grant for you with exactly these actions:
 + Query session and results: `cloudwatch:StartTelemetryQuerySession`, `cloudwatch:ListTelemetryQuerySessions`, `cloudwatch:StopTelemetryQuerySession`, `cloudwatch:StopTelemetryQuery`, `cloudwatch:GetTelemetryQueryResults`
@@ -74,7 +78,8 @@ Two limits apply to whatever you grant:
 
 A profile can hold **Viewer**, **Editor**, or **Custom** grants. **Space Admin** is not offered for a profile.
 
-**Alerts and profiles**
+## Alerts and profiles
+<a name="omni-access-profiles-alerts-and-profiles"></a>
 
 Every alert carries a profile. When you create an alert in the console, the **Access profile** field is preselected to the profile in your space with the most grants. Change it if the alert should run with narrower access. The query preview on the create form runs with your own access. When the alert runs, it reads with the profile's access, so results can differ.
 
@@ -86,7 +91,8 @@ Two conditions must hold:
 
 If an alert has reported no data since you created it, check the profile before you check the query. See [Alerts](omni-alerts.md).
 
-**Review and manage a profile**
+## Review and manage a profile
+<a name="omni-access-profiles-review-and-manage-a-profile"></a>
 
 Open a profile from the list to see:
 + **Whether you can assume it.** You need this to set the profile on an alert.
@@ -97,7 +103,8 @@ The profile page does not list who can assume it. To see or change which alerts,
 
 On the detail page, **Edit access profile** changes the profile's name, description, and tags. From the list, **Actions** offers **Edit** and **Delete**. Deleting a profile does not check whether alerts still use it. An alert whose profile is deleted can no longer evaluate, so move those alerts to another profile or delete them first. A system managed profile cannot be edited or deleted. If you need different permissions for it, add or remove its grants instead.
 
-**Next steps**
+## Next steps
+<a name="omni-access-profiles-next-steps"></a>
 + To understand how access to a space works, see [Control access to your space](omni-control-access-to-your-space.md).
 + To add members and set their permission levels, see [Manage space members and permissions](omni-manage-space-members-and-permissions.md).
 + To create an alert that uses a profile, see [Alerts](omni-alerts.md).

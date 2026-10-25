@@ -33,6 +33,7 @@ This section details the service quotas specifically for core CloudWatch functio
 | Number of Alarm Mute Rules | Each supported Region: 2,000 | No | The maximum number of Alarm Mute Rules that you can have in this account in the current region. | 
 | Number of Contributor Insights rules | Each supported Region: 100 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/monitoring/quotas/L-DBD11BCC)  | The maximum number of Contributor Insights rules you can have in this account. | 
 | Number of Metrics Insights alarms | Each supported Region: 200 | No | The maximum number of Metrics Insights alarms that you can have in this account in the current region. | 
+| Number of PromQL alarms | Each supported Region: 15,000 | No | The maximum number of PromQL alarms that you can have in this account in the current region. | 
 | Rate of ANOMALY\_DETECTION\_BAND usage in GetMetricData | Each supported Region: 1,000 | No | The maximum number of times the ANOMALY\_DETECTION\_BAND function can be used in all GetMetricData requests, per second, in this account in the current region. | 
 | Rate of DB\_PERF\_INSIGHTS usage in GetMetricData | Each supported Region: 4 | No | The maximum number of times the DB\_PERF\_INSIGHTS function can be used in all GetMetricData requests, per second, in this account in the current region. | 
 | Rate of DeleteAlarmMuteRule requests | Each supported Region: 3 per second | No | The maximum number of DeleteAlarmMuteRule requests that you can make, per second, in this account in the current region. | 
@@ -263,7 +264,7 @@ CloudWatch RUM (Real-User Monitoring) helps you collect and analyze performance 
 
 | Name | Default | Adjustable | Description | 
 | --- | --- | --- | --- | 
-| RUM AppMonitors | Each supported Region: 20 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/rum/quotas/L-3FB7EA17)  | The maximum number of RUM AppMonitors that you can have in this AWS account. | 
+| RUM AppMonitors | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/rum/quotas/L-3FB7EA17)  | The maximum number of RUM AppMonitors that you can have in this AWS account. | 
 | RUM Events per second per AWS Account | Each supported Region: 50 |  [Yes](https://console.aws.amazon.com/servicequotas/home/services/rum/quotas/L-35851224)  | The maximum number of RUM Events per second that RUM will ingest for this AWS account. | 
 
 ## Managing your CloudWatch service quotas

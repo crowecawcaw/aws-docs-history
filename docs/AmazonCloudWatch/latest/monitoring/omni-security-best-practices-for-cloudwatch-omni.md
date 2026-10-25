@@ -5,7 +5,8 @@
 
 CloudWatch Omni provides a number of security features to consider as you develop and implement your own security policies. The following best practices are general guidelines and do not represent a complete security solution. Because these best practices might not be appropriate or sufficient for your environment, treat them as helpful considerations rather than prescriptions.
 
-**Preventative controls**
+## Preventative controls
+<a name="omni-security-best-practices-for-cloudwatch-omni-preventative-controls"></a>
 
 **Use temporary credentials for telemetry ingestion.** Prefer Signature Version 4 with temporary role credentials over long-lived access keys. Never embed credentials in source code or in client applications. Store any secrets in a secrets manager and rotate them regularly.
 
@@ -35,6 +36,7 @@ CloudWatch Omni provides a number of security features to consider as you develo
 
 **Control local content exposure.** Local `.omni/` files are plaintext, and the local MCP server is unauthenticated. The tooling can share local trace content with third-party AI assistants, so restrict which assistants you connect, and keep raw trace files out of source control. See [Configuration and vulnerability analysis in CloudWatch Omni](omni-configuration-and-vulnerability-analysis-in-cloudwatch.md).
 
-**Detective controls**
+## Detective controls
+<a name="omni-security-best-practices-for-cloudwatch-omni-detective-controls"></a>
 
 **Audit management activity with AWS CloudTrail.** Management operations are recorded in CloudTrail with the event source `cloudwatch.amazonaws.com`. Monitor critical operations and alarm on anomalies.

@@ -8,11 +8,13 @@ You can use CloudWatch Omni from the AI coding agent you already develop with â€
 **Note**  
 This page is about using Omni from your own coding agent. For the AI assistance built into the IDE extension, see [Develop with the IDE extension](omni-develop-with-the-ide-extension.md). For the AI assistant in the Omni web UI, see [Ask the Omni agent](omni-ask-the-omni-agent.md).
 
-**How skills work with your AWS credentials**
+## How skills work with your AWS credentials
+<a name="omni-use-omni-skills-how-skills-work-with-your-credentials"></a>
 
 When you give your coding agent an Omni task, the agent activates the matching skill and follows its instructions. The scripts included with the skills call the public AWS API endpoints that power Omni (Amazon CloudWatch, Amazon Bedrock AgentCore, and Amazon Bedrock) using the AWS credentials configured in your environment, for example the credentials you get from running `aws sso login`. This is the same authentication the public API uses.
 
-**What your coding agent can do with Omni**
+## What your coding agent can do with Omni
+<a name="omni-use-omni-skills-what-your-coding-agent-can-do-with-omni"></a>
 
 With the Omni skills installed, your coding agent can help you:
 + Set up Omni observability for your application or AI agent, including instrumentation.
@@ -21,14 +23,16 @@ With the Omni skills installed, your coding agent can help you:
 + Build datasets from traces for agent evaluation.
 + Connect external integrations such as Slack.
 
-**Install the Omni skills**
+## Install the Omni skills
+<a name="omni-use-omni-skills-install-the-omni-skills"></a>
 
 Before you begin, you need:
 + An AWS account with Omni set up. See [Set up Omni](omni-set-up-omni.md).
 + AWS credentials configured in your development environment.
 + A coding agent that supports skills, such as Claude Code, Cursor, Kiro, or Codex.
 
-**To install and use the Omni skills**
+## To install and use the Omni skills
+<a name="omni-use-omni-skills-to-install-and-use-the-omni-skills"></a>
 
 1. Install the skills from the [Getting started](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/quick-start.html) page in the Agent Toolkit for AWS User Guide, which has installation instructions for each supported coding agent.
 

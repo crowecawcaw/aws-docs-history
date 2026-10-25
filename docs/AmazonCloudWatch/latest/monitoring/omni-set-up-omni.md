@@ -8,11 +8,10 @@ Setting up CloudWatch Omni involves two steps: creating a **domain** (the identi
 **Note**  
 Enabling Omni does not change or disable anything in CloudWatch. Your existing metrics, logs, alarms, dashboards, and Logs Insights queries keep working.
 
-**Choose your setup path**
+## Choose your setup path
+<a name="omni-set-up-omni-choose-your-setup-path"></a>
 
 How you set up Omni depends on whether you work in a single AWS account or across an AWS Organization.
-
-**Compare setup paths**
 
 ![With an account-level domain, the domain serves one account, and Region 1 and Region 2 in that account each hold one space reading its own CloudWatch Dataset. With an organization-level domain, one domain serves several accounts: Account A holds a space in Region 1 and in Region 2, and Account B holds a space in Region 1, each reading its own CloudWatch Dataset. There is one space per account and Region.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-setup-domain-modes-compare-reskin.png)
 
@@ -28,13 +27,15 @@ How you set up Omni depends on whether you work in a single AWS account or acros
 
 Choose **single account** setup if you operate in one AWS account. Choose **organization** setup if you use multiple AWS accounts and want a single entry point.
 
-**Single account**
+### Single account
+<a name="omni-set-up-omni-single-account"></a>
 
 You create an Account domain and a space together in your AWS account.
 
 For instructions, see [Set up Omni for a single account](omni-set-up-omni-for-a-single-account.md).
 
-**Multiple accounts (AWS Organizations)**
+### Multiple accounts (AWS Organizations)
+<a name="omni-set-up-omni-multiple-accounts-organizations"></a>
 
 An administrator creates the domain once from the management account. Any member account can then create its own space, which is automatically linked to the domain.
 
@@ -42,11 +43,13 @@ This path requires **trusted access** between AWS Organizations and CloudWatch, 
 
 For prerequisites and instructions, see [Set up Omni for your organization](omni-set-up-omni-for-your-organization.md).
 
-**Your organization already has a domain**
+#### Your organization already has a domain
+<a name="omni-set-up-omni-your-organization-already-has-a-domain"></a>
 
 If an Organization domain already exists for your AWS Organization, you do not need to create a domain. Your account is already linked. Skip to space setup in [Set up Omni for your organization](omni-set-up-omni-for-your-organization.md).
 
-**After setup**
+## After setup
+<a name="omni-set-up-omni-after-setup"></a>
 
 After you complete either setup path:
 + Send telemetry from your applications or agents. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).

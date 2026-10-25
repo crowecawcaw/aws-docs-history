@@ -10,21 +10,23 @@ The following diagram shows where each piece is created. The **Omni Space Access
 ![Access control in CloudWatch Omni: setup in the CloudWatch console creates the domain and space, adds Space Admins, and creates the Omni Space Access role, and Space Admins can be added or removed there at any time afterwards; all other member management happens in the Omni web UI, where grants carry permission levels, data scopes, and access profiles, and identities arrive from IAM Identity Center or IAM at the domain. Every action passes two checks: the member's permission level and the Omni Space Access role.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-access-control-overview.png)
 
 
-**Grants and permission levels**
+## Grants and permission levels
+<a name="omni-control-access-to-your-space-grants-and-permission-levels"></a>
 
 When you add a member to a space or edit their access, you create a **grant** that carries a **permission level**. A grant belongs to a **principal**: a user, a group, an IAM user or role, an access profile, or an alert. This guide calls them all principals, and calls the people among them members.
 
 Each grant carries one permission level:
 + **Viewer**: Read-only access to the whole space, including queries and the Omni agent.
-+ **Editor**: Create, modify, and delete resources, run queries, and manage datasets, in addition to everything a Viewer can do.
-+ **Space Admin**: Full access, including managing members and their permissions.
++ **Editor**: Create, modify, and delete resources other than integrations, run queries, and manage datasets, in addition to everything a Viewer can do.
++ **Space Admin**: Full access, including managing members and their permissions, and connecting, changing, or removing integrations.
 + **Custom**: Exactly the actions you list, optionally limited to specific resources. See [Custom grant actions](omni-custom-grant-actions.md).
 
 A member can hold grants directly and through groups, and the grants combine: their effective access is the union of what all the grants allow. For the tiered levels the highest one wins, and a Custom grant adds exactly the actions it lists. There are no explicit denies; a grant only ever adds access.
 
 A grant applies everywhere the member works (the Omni web UI, the IDE extension, and the API), and one permission level governs every kind of resource: threads, dashboards, alerts, integrations, and agents. You manage grants in the Omni web UI. For the procedure, see [Manage space members and permissions](omni-manage-space-members-and-permissions.md).
 
-**Two layers decide every action**
+## Two layers decide every action
+<a name="omni-control-access-to-your-space-two-layers-decide-every-action"></a>
 
 Two conditions must hold for an action to succeed in a space:
 + The **member's permission level** decides whether that person is allowed to request the operation.
@@ -34,23 +36,27 @@ A member can perform an operation only when their permission level allows it and
 
 Use permission levels to decide what each person on your team can do, and keep the Space Access role scoped to the AWS permissions the space needs. For how to configure the role during setup, see [Set up Omni](omni-set-up-omni.md).
 
-**Who can sign in and be added**
+## Who can sign in and be added
+<a name="omni-control-access-to-your-space-who-can-sign-in-and-be-added"></a>
 
 Identities come from your domain, not from the space. Sign-in is configured through AWS IAM Identity Center at the domain, so members use the identities you already manage, including an external provider such as Okta or Microsoft Entra ID connected through IAM Identity Center. A domain without an identity provider uses IAM instead: members sign in with an IAM user or IAM role, for example through a deep link from the CloudWatch console.
 
 Grants attach to those identities. The users and groups you can add as members are the ones your domain's identity provider supplies, and the IAM users and roles of the space's account. To configure the identity provider, see [Set up Omni](omni-set-up-omni.md).
 
-**Limit what members can see**
+## Limit what members can see
+<a name="omni-control-access-to-your-space-limit-what-members-can-see"></a>
 
 By default, every member can read all of the space's telemetry. A **data scope** on a grant narrows that: it filters log and trace rows at read time, wherever the member reads — queries, dashboards, traces, and the Omni agent's answers.
 
 A data scope is a read-time filter on those rows, not a containment boundary for the space. It does not filter metrics, and it does not extend to dataset creation and export, to AI-assisted summaries, or to prompt playground runs, so a member who is scoped out of a field in queries can still reach that content by building a dataset over the underlying traces. Scope the dataset, export, and AI-feature actions as well. See [Limit what members can see](omni-limit-what-members-can-see.md) and [Security best practices for CloudWatch Omni](omni-security-best-practices-for-cloudwatch-omni.md).
 
-**Resources that act on their own**
+## Resources that act on their own
+<a name="omni-control-access-to-your-space-resources-that-act-on-their-own"></a>
 
 Some resources act when no one is signed in: an alert evaluates its query on a schedule. An **access profile** gives such a resource an identity of its own, with its own grants. See [Access profiles](omni-access-profiles.md).
 
-**Where to go next**
+## Where to go next
+<a name="omni-control-access-to-your-space-where-to-go-next"></a>
 
 
 | To do this | See | 

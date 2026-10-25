@@ -9,7 +9,8 @@ For traces of AI agent runs, see [Agent traces](omni-agent-traces.md).
 
 Available in the Omni web UI only.
 
-**Open application traces**
+## Open application traces
+<a name="omni-application-traces-open-application-traces"></a>
 
 Choose the entry point that matches what you are investigating:
 + From the launcher, under Application performance monitoring, choose `Traces` to explore requests directly.
@@ -20,40 +21,44 @@ Select the time range you want to investigate.
 
 Trace context does not propagate by itself: both sides of each hop must be instrumented. If the next service in a request is not instrumented, the trace stops there.
 
-**Choose traces or spans**
+## Choose traces or spans
+<a name="omni-application-traces-choose-traces-or-spans"></a>
 
 Choose the investigation level that matches your question.
 
-**Traces**
+### Traces
+<a name="omni-application-traces-traces"></a>
 
-Choose Traces when you want to investigate a complete request.
+Choose **Traces** when you want to investigate a complete request.
 
-Use Traces for questions such as:
+Use traces for questions such as:
 + Which requests failed?
 + Which requests were slow?
 + Which trace should you inspect in detail?
 
-The summary above the results shows information such as Total traces and Traces with errors for the selected time range.
+The summary above the results shows information such as **Total traces** and **Traces with errors** for the selected time range.
 
-**Spans**
+### Spans
+<a name="omni-application-traces-spans"></a>
 
-Choose Spans when you want to search individual operations across traces.
+Choose **Spans** when you want to search individual operations across traces.
 
-Use Spans for questions such as:
-+ Which DynamoDB.PutItem operations reported errors?
+Use spans for questions such as:
++ Which `DynamoDB.PutItem` operations reported errors?
 + Which dependency operations took the longest?
 + Which operations ran in a particular service?
 + Which spans match a status or attribute?
 
-Use Search spans to find an operation by name. Use the status control or Errors filter to narrow the results.
+Use **Search spans** to find an operation by name. Use the status control or **Errors** filter to narrow the results.
 
 The results show when each span occurred and the operation it represents.
 
-**Investigate a request**
+## Investigate a request
+<a name="omni-application-traces-investigate-a-request"></a>
 
 1. Select the relevant time range.
 
-1. Use Traces to find a complete request, or use Spans to find a specific operation.
+1. Use **Traces** to find a complete request, or use **Spans** to find a specific operation.
 
 1. Select a trace to review the operations that occurred during the request.
 
@@ -63,7 +68,8 @@ The results show when each span occurred and the operation it represents.
 
 For aggregate application topology, see [Monitor applications with the application map](omni-monitor-applications-with-the-application-map.md). For one service's health and telemetry, see [Monitor a service](omni-monitor-a-service.md).
 
-**Inspect a trace**
+## Inspect a trace
+<a name="omni-application-traces-inspect-a-trace"></a>
 
 Select a trace to open its detail view. The trace header shows the trace ID and the number of spans in the trace.
 
@@ -85,7 +91,8 @@ You can also:
 
 Select a span to inspect its details.
 
-**Inspect trace or span details**
+## Inspect trace or span details
+<a name="omni-application-traces-inspect-trace-or-span-details"></a>
 
 Use the Trace and Span controls in the detail view to change the scope of the information shown. Choose Trace to review information about the complete request. Choose Span to review the selected operation.
 
@@ -106,7 +113,8 @@ Expand the following sections when you need more detail:
 + Annotations
 + Raw data
 
-**View logs for a trace**
+## View logs for a trace
+<a name="omni-application-traces-view-logs-for-a-trace"></a>
 
 Logs can provide details that are not present in the trace, such as application messages, exceptions, and business events. From the trace header, choose **Show logs for this trace**. The logs view opens the records associated with the trace when the required correlation information is available.
 
@@ -118,7 +126,8 @@ If no logs appear, confirm that:
 
 Where supported by your instrumentation, include span and service context in log records as well, so you can narrow logs to the operation and service under investigation. For telemetry configuration, see [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 
-**View metrics for a service**
+## View metrics for a service
+<a name="omni-application-traces-view-metrics-for-a-service"></a>
 
 Choose **Show metrics for this service** to investigate the metrics associated with the service in the current trace context.
 
@@ -126,7 +135,8 @@ Use service metrics to determine whether the problem in the trace occurred along
 
 For service-level monitoring, see [Monitor a service](omni-monitor-a-service.md).
 
-**When trace information is incomplete**
+## When trace information is incomplete
+<a name="omni-application-traces-when-trace-information-is-incomplete"></a>
 
 Trace investigation depends on the telemetry your applications send. Use the following checks when information is missing:
 + No traces appear. Confirm the time range and verify that the workload is sending traces.
@@ -135,7 +145,8 @@ Trace investigation depends on the telemetry your applications send. Use the fol
 + Related logs do not appear. Confirm log ingestion and trace-ID correlation.
 + Service metrics do not appear. Confirm that the service publishes the required metrics.
 
-**Where to go next**
+## Where to go next
+<a name="omni-application-traces-where-to-go-next"></a>
 
 
 |  |  | 

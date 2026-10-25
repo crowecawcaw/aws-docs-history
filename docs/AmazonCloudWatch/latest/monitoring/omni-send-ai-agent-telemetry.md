@@ -9,7 +9,8 @@ If you are monitoring an application or service instead, see [Send application t
 
 Step 2 shows one environment at a time: expand the section for where your agent runs (Amazon Bedrock AgentCore, AWS Lambda, Amazon EC2, Amazon ECS, or Amazon EKS).
 
-**Choose how to instrument**
+## Choose how to instrument
+<a name="omni-send-ai-agent-telemetry-choose-how-to-instrument"></a>
 
 Three approaches lead to the same instrumented agent. Choose the first that fits how you work; this page is the manual path.
 
@@ -20,13 +21,15 @@ Three approaches lead to the same instrumented agent. Choose the first that fits
 | IDE extension | The CloudWatch Omni extension for Visual Studio Code and Kiro detects your framework, applies the instrumentation, and shows traces in the editor as you develop. | [Develop with the IDE extension](omni-develop-with-the-ide-extension.md) | 
 | Manually | You install a library, set environment variables where your agent runs, and verify in your space. Every command is on this page. | Continue below. | 
 
-**Prerequisites**
+## Prerequisites
+<a name="omni-send-ai-agent-telemetry-prerequisites"></a>
 + **Transaction Search is enabled** in the account and Region that receive traces. Traces sent before it is enabled are not searchable. See [Transaction Search](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Transaction-Search.html). On AgentCore, the administrator part of Step 2 enables it if it is not.
 + Your agent is written in **Python** or **Node.js**, and its framework is in [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md).
 + On **AgentCore**, you can change the runtime's environment variables, and you or an administrator can edit its execution role.
 + On **AWS Lambda or your own compute**, you must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSXrayWriteOnlyAccess.html) to the role your compute uses. For the endpoints, see "Choose an endpoint" in [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 
-**Step 1: Install an instrumentation library**
+## Step 1: Install an instrumentation library
+<a name="omni-send-ai-agent-telemetry-step-1-install-an-instrumentation-library"></a>
 
 Choose your agent's language in the tabs. The choice applies to every code sample on this page and is remembered on the other pages in this guide. Then choose one of the two libraries; both export the same OTLP traces to CloudWatch and differ in what the spans contain. Zero-code instrumentation covers the frameworks and languages in [Supported environments, languages, and frameworks](omni-supported-environments-languages-and-frameworks.md).
 
@@ -39,7 +42,8 @@ Choose your agent's language in the tabs. The choice applies to every code sampl
 **Important**  
 On startup, the distribution registers the global tracer provider. OpenTelemetry uses only the first provider registered, so do not create another tracer provider or exporter. Attach instrumentors, processors, and custom spans to the distribution's provider, as shown in every snippet on this page.
 
-**OpenTelemetry distribution (recommended)**
+### OpenTelemetry distribution (recommended)
+<a name="omni-send-ai-agent-telemetry-step-1-install-an-instrumentation-library-opentelemetry-distribution-recommended"></a>
 
 ------
 #### [ Python ]
@@ -57,13 +61,14 @@ npm install @aws/aws-distro-opentelemetry-node-autoinstrumentation@">=0.13.0"
 
 ------
 
-**OpenInference**
+### OpenInference
+<a name="omni-send-ai-agent-telemetry-step-1-install-an-instrumentation-library-openinference"></a>
 
 **OpenInference is optional.** Choose it if you want its framework spans and accept the additional packages and, for some frameworks, startup code. Otherwise, use the OpenTelemetry distribution setup in the previous section.
 
 Install the packages shown, and add any **startup code** to a module that your entry point imports first, before the agent is created. Every install command includes the distribution, so this path does not also need the previous section.
 
-## LangGraph
+#### LangGraph
 <a name="omni-send-ai-agent-telemetry-langgraph"></a>
 
 ------
@@ -121,7 +126,7 @@ console.log(result.messages.at(-1)?.content);
 
 ------
 
-## Strands Agents
+#### Strands Agents
 <a name="omni-send-ai-agent-telemetry-strands-agents"></a>
 
 ------
@@ -152,7 +157,7 @@ Use the OpenTelemetry distribution; Strands' built-in OpenTelemetry tracing need
 
 ------
 
-## CrewAI
+#### CrewAI
 <a name="omni-send-ai-agent-telemetry-crewai"></a>
 
 CrewAI is Python only.
@@ -164,7 +169,7 @@ pip install "aws-opentelemetry-distro>=0.20.0" openinference-instrumentation-cre
 + Set `CREWAI_DISABLE_TELEMETRY=true` where the agent runs.
 + `crewai` earlier than 1.10.1 emits no spans.
 
-## OpenAI Agents
+#### OpenAI Agents
 <a name="omni-send-ai-agent-telemetry-openai-agents"></a>
 
 ------
@@ -207,7 +212,7 @@ console.log(result.finalOutput);
 
 ------
 
-## Vercel AI SDK
+#### Vercel AI SDK
 <a name="omni-send-ai-agent-telemetry-vercel-ai-sdk"></a>
 
 The Vercel AI SDK is Node.js only. Use the OpenTelemetry distribution:
@@ -216,11 +221,13 @@ The Vercel AI SDK is Node.js only. Use the OpenTelemetry distribution:
 npm install @aws/aws-distro-opentelemetry-node-autoinstrumentation@">=0.13.0" ai @ai-sdk/amazon-bedrock
 ```
 
-**Step 2: Run your agent and deliver its traces**
+## Step 2: Run your agent and deliver its traces
+<a name="omni-send-ai-agent-telemetry-step-2-run-your-agent-and-deliver-its-traces"></a>
 
 Expand the section for where your agent runs. Each one ends at Step 3.
 
-**Start the agent with instrumentation**
+### Start the agent with instrumentation
+<a name="omni-send-ai-agent-telemetry-step-2-run-your-agent-and-deliver-its-traces-start-the-agent-with-instrumentation"></a>
 
 The distribution must load before your application. AgentCore starter toolkit images configure startup automatically. Use these instructions for custom AgentCore images and your own compute.
 
@@ -281,7 +288,8 @@ Replace `/path/to/your/agent.js` with your compiled entry point. For more ESM st
 
 ------
 
-**Sampling**
+### Sampling
+<a name="omni-send-ai-agent-telemetry-step-2-run-your-agent-and-deliver-its-traces-sampling"></a>
 
 Sampling determines which traces are recorded and exported.
 
@@ -298,7 +306,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.9
 
 Approximately 90 percent of incoming requests then generate and export traces.
 
-## AgentCore
+### AgentCore
 <a name="omni-send-ai-agent-telemetry-agentcore"></a>
 
 On Amazon Bedrock AgentCore, the runtime exports your agent's spans to CloudWatch; there is no collector to run. Two people are usually involved: the developer sets environment variables on the runtime with every deployment, and an administrator enables trace delivery and grants the runtime role permission once for the account and Region.
@@ -376,7 +384,7 @@ You must configure the AgentCore Runtime execution role with the required teleme
 
 Continue to Step 3.
 
-## AWS Lambda
+### AWS Lambda
 <a name="omni-send-ai-agent-telemetry-aws-lambda"></a>
 
 We recommend the latest OpenTelemetry distribution Lambda layer. For the latest ARN for your language and AWS Region, see [Lambda layer ARNs](https://aws-otel.github.io/docs/getting-started/lambda#adot-lambda-layer-arns). To use a specific version, select the Lambda layer ARN listed in the [Python release notes](https://github.com/aws-observability/aws-otel-python-instrumentation/releases) or [JavaScript release notes](https://github.com/aws-observability/aws-otel-js-instrumentation/releases) on the GitHub website. Follow the layer instructions to attach it and configure its execution wrapper. Then set the following environment variables.
@@ -435,12 +443,13 @@ You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws
 
 Continue to Step 3.
 
-## Amazon EC2
+### Amazon EC2
 <a name="omni-send-ai-agent-telemetry-amazon-ec2"></a>
 
 On Amazon EC2, the instance role signs the traces.
 
-**Start the agent with its environment**
+#### Start the agent with its environment
+<a name="omni-send-ai-agent-telemetry-amazon-ec2-start-the-agent-with-its-environment"></a>
 
 Put the variables in the agent's systemd unit (`Environment=` lines) or start script, and make the launcher the unit's command.
 
@@ -484,12 +493,13 @@ You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws
 
 Continue to Step 3.
 
-## Amazon ECS
+### Amazon ECS
 <a name="omni-send-ai-agent-telemetry-amazon-ecs"></a>
 
 On Amazon ECS, the task role signs the traces.
 
-**Start the agent with its environment**
+#### Start the agent with its environment
+<a name="omni-send-ai-agent-telemetry-amazon-ecs-start-the-agent-with-its-environment"></a>
 
 Put the variables in the `environment` block of the agent's container definition, and make the launcher the container's command.
 
@@ -533,12 +543,13 @@ You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws
 
 Continue to Step 3.
 
-## Amazon EKS
+### Amazon EKS
 <a name="omni-send-ai-agent-telemetry-amazon-eks"></a>
 
 On Amazon EKS, the pod's service account role signs the traces.
 
-**Start the agent with its environment**
+#### Start the agent with its environment
+<a name="omni-send-ai-agent-telemetry-amazon-eks-start-the-agent-with-its-environment"></a>
 
 Put the variables in the `env` block of the agent's container in the pod spec, and make the launcher the container's command.
 
@@ -584,13 +595,14 @@ You must attach the AWS managed policy [AWSXrayWriteOnlyAccess](https://docs.aws
 
 Continue to Step 3.
 
-**Step 3: Verify**
+## Step 3: Verify
+<a name="omni-send-ai-agent-telemetry-step-3-verify"></a>
 
 Use the console's automated verification. In your space, open **Settings › Ingestion** and choose your source: the **Add source** flow's verification step invokes the check for you. It confirms that traces are arriving and that they carry the agent, model, and tool spans CloudWatch Omni reads, and it identifies the failing setting when they do not. Run it after every deployment change.
 
 If verification fails, see the "Troubleshoot missing traces" section of this page.
 
-## Verify manually
+### Verify manually
 <a name="omni-send-ai-agent-telemetry-verify-manually"></a>
 
 **Traces arrive.** Invoke your agent, then open your space and choose **Agent traces**. A trace for the invocation appears within about five minutes. On AgentCore, if the list is empty, check the log group `/aws/bedrock-agentcore/runtimes/<agent-id>-<endpoint-name>` (`<agent-id>-DEFAULT` for the default endpoint), where the runtime writes a `spans` stream; on your own compute, check the log group you set in `OTEL_EXPORTER_OTLP_TRACES_HEADERS`, or the shared `aws/spans` log group if that variable is not set. Transaction Search indexes 1 percent of spans by default for the trace list, so not every invocation is listed until you raise the indexing percentage; the spans themselves are all stored.
@@ -602,7 +614,8 @@ A successful invocation does not mean that traces arrived. Check for the agent, 
 
 After verification passes, the agent appears in **Agents** in your space, and you can continue to [Analyze agent behavior](omni-agents-analyze.md).
 
-**Troubleshoot missing traces**
+### Troubleshoot missing traces
+<a name="omni-send-ai-agent-telemetry-step-3-verify-troubleshoot-missing-traces"></a>
 
 The following table lists common troubleshooting steps for missing or incomplete traces.
 

@@ -38,7 +38,7 @@ Each OTLP data point contributes its serialized size to the ingestion volume. Th
 + Resource attributes
 + Timestamp and value
 
-Larger label sets produce more bytes per data point. You can monitor your ingestion volume in the CloudWatch console under Usage Metrics.
+Larger label sets produce more bytes per data point. To see the cost that your OTel metric ingestion generates, filter your cost and usage data by `usage type` in Cost Explorer. For more information about CloudWatch usage types, see [To visualize and analyze CloudWatch cost and usage data](cloudwatch_billing.md#visualize_cost_usage_data). For the rates that apply to each usage type, see [Amazon CloudWatch Pricing](https://aws.amazon.com/cloudwatch/pricing/).
 
 ## Cost optimization tips
 <a name="metrics-otel-pricing-optimization"></a>

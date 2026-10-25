@@ -9,7 +9,7 @@ To see the information provided by a monitor, on the **Monitors** tab, choose a 
 
 **Overview tab**  
 On the **Overview** tab, you can review the following, for time periods that you specify. To see a broader or narrower range of historical information, including the NHI and traffic summary data, adjust the time period selection at the top of the page.   
-+ **Network health indicator (NHI):** NHI alerts you to whether there there were AWS network issues for one or more of the network flows tracked by your monitor, during the time frame that you've selected for viewing performance metrics. NHI is a binary value, that is, 100 or 0, which is shown in the console as **Degraded** or **Healthy**. 
++ **Network health indicator (NHI):** NHI alerts you to whether there were AWS network issues for one or more of the network flows tracked by your monitor, during the time frame that you've selected for viewing performance metrics. NHI is a binary value, that is, 100 or 0, which is shown in the console as **Degraded** or **Healthy**. 
   + NHI is shown as **Degraded** if there were issues with the portion of the AWS network that any network flow in the monitor traversed, at any time during the time frame that you select. 
   + Otherwise, NHI is shown as **Healthy**.
 

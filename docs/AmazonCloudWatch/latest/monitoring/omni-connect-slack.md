@@ -77,10 +77,12 @@ Pair it with a viewer grant:
 | US West (Oregon), us-west-2 | Amazon CloudWatch - US West Oregon | 
 | Europe (Ireland), eu-west-1 | Amazon CloudWatch - EU (Ireland) | 
 
-**Disconnect an integration**
+## Disconnect an integration
+<a name="omni-connect-slack-disconnect-an-integration"></a>
 
 On the integration's card in **Settings**, on the **Integrations** page, choose **Disable**. Disconnecting Slack stops alert notifications to Slack. The alerts themselves keep evaluating, and their other destinations keep working. You can reconnect with **Enable**.
 
-**Who can manage integrations**
+## Who can manage integrations
+<a name="omni-connect-slack-who-can-manage-integrations"></a>
 
 Integrations apply to the whole space. One person connects, and the connection works for everyone in the space. Whether a member can connect, change, or disconnect an integration is governed by their grants: the integration create, update, and delete actions. See [Custom grant actions](omni-custom-grant-actions.md).

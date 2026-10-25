@@ -5,7 +5,8 @@
 
 The environments, languages, and frameworks with a documented path for sending telemetry to CloudWatch Omni.
 
-**Environments**
+## Environments
+<a name="omni-supported-environments-languages-and-frameworks-environments"></a>
 
 
 | Environment | Workload | How telemetry leaves | Signals | Deployment tooling documented | Procedure | 
@@ -20,7 +21,8 @@ The environments, languages, and frameworks with a documented path for sending t
 | Google Compute Engine | Applications | CloudWatch agent on the instance, credentials federated from the instance's service account. | Traces, metrics, logs | Google Cloud setup script | [Applications](./omni-send-application-telemetry.html#google-compute-engine) | 
 | Google Kubernetes Engine | Applications | CloudWatch Observability Helm chart, credentials federated from the cluster's OIDC issuer. | Traces, metrics, logs | Helm, kubectl | [Applications](./omni-send-application-telemetry.html#google-kubernetes-engine) | 
 
-**Application languages and frameworks**
+## Application languages and frameworks
+<a name="omni-supported-environments-languages-and-frameworks-application-languages-and-frameworks"></a>
 
 
 | Language | Auto-instrumentation | Frameworks with documented notes | Procedure | 
@@ -32,7 +34,8 @@ The environments, languages, and frameworks with a documented path for sending t
 | Go | Go has no agent. Initialize the SDK in code and add library instrumentation, such as otelhttp or otelgrpc. | net/http, gRPC | [Step 4, Go tab](./omni-send-application-telemetry.html#go) | 
 + Any of these languages works in any environment in the Environments table. For Python, Node.js, Java, and .NET, the listed frameworks are traced without code changes. For Go, wrap them with the library instrumentation shown in Step 4 of [Send application telemetry](omni-send-application-telemetry.md). Other libraries may be covered by the OpenTelemetry registry for the language.
 
-**AI agent languages and frameworks**
+## AI agent languages and frameworks
+<a name="omni-supported-environments-languages-and-frameworks-ai-agent-languages-and-frameworks"></a>
 
 Each language column lists the libraries documented for that framework: the OpenTelemetry distribution, and the OpenInference instrumentor where one exists. The distribution is required on both paths and is documented for Python and Node.js only: AWS Distro for OpenTelemetry 0.20.0 or later for Python, 0.13.0 or later for Node.js.
 

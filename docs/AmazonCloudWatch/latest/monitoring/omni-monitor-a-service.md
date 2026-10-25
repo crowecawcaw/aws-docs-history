@@ -3,11 +3,13 @@
 # Monitor a service
 <a name="omni-monitor-a-service"></a>
 
-**Open a service**
+## Open a service
+<a name="omni-monitor-a-service-open-a-service"></a>
 
 Open a service from the application map or services list. The service view shows information for the selected time range.
 
-**Use the service signals to narrow the problem**
+## Use the service signals to narrow the problem
+<a name="omni-monitor-a-service-use-the-service-signals-to-narrow-the-problem"></a>
 
 Start in the service details view to decide what kind of issue you are seeing. Review the following telemetry:
 + **Service properties**, such as the service name and identifying attributes for application, environment, cloud provider, Region, or account.
@@ -18,7 +20,8 @@ Start in the service details view to decide what kind of issue you are seeing. R
 
 Together, these signals help you decide whether to investigate traces, logs, or broader service behavior.
 
-**Continue the investigation from the service view**
+## Continue the investigation from the service view
+<a name="omni-monitor-a-service-continue-the-investigation-from-the-service-view"></a>
 
 From the service details view, you can continue directly into the telemetry behind the service. Use the following actions:
 + From a service, choose **Analyze traces** or **View traces**.
@@ -29,15 +32,18 @@ For how to read the traces list, inspect a trace's spans, and pivot from a span 
 ![](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-service-detail.png)
 
 
-**What to watch out for**
+## What to watch out for
+<a name="omni-monitor-a-service-what-to-watch-out-for"></a>
 + **A trace ends where instrumentation ends.** A call to an uninstrumented service shows as the caller's outgoing span with nothing deeper. To extend the trace, instrument the callee. See [Send telemetry to CloudWatch Omni](omni-send-telemetry.md).
 + **Errors can read Not available.** The **Errors** metric needs a dimension that not all telemetry carries; when it is absent, the service view says **Not available** rather than showing a misleading zero. Faults are unaffected.
 
-**Populate the request metrics with span metrics**
+## Populate the request metrics with span metrics
+<a name="omni-monitor-a-service-populate-the-request-metrics-with-span-metrics"></a>
 
 The request metrics (**Requests**, **Errors**, and **Latency**) are derived from span metrics. To emit span metrics, add the CloudWatch plugin for OpenTelemetry to your application's instrumentation. For details, see [Send telemetry to CloudWatch Omni](omni-send-telemetry.md) and [Send application telemetry](omni-send-application-telemetry.md).
 
-**Where to go next**
+## Where to go next
+<a name="omni-monitor-a-service-where-to-go-next"></a>
 
 
 | To do this | See | 

@@ -5,6 +5,9 @@
 
 The steps in this section explain how to use the CloudWatch console to create a composite alarm. You can also use the API or AWS CLI to create a composite alarm. For more information, see [PutCompositeAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutCompositeAlarm.html) or [put-composite-alarm](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-composite-alarm.html) 
 
+**Note**  
+A composite alarm's rule expression can reference other alarms as children, including standard metric alarms and PromQL alarms. Composite alarms evaluate only the states of the alarms they reference. They don't evaluate metrics directly.
+
 **To create a composite alarm**
 
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/).

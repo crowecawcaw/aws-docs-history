@@ -7,12 +7,14 @@ Add members to your space, give them grants, and remove access when it is no lon
 
 Available in the Omni web UI only.
 
-**Prerequisites**
+## Prerequisites
+<a name="omni-manage-space-members-and-permissions-prerequisites"></a>
 + You are signed in to your space in the Omni web UI.
 + You hold a grant with the **Space Admin** permission level.
 + The people you want to add can sign in to your domain. The users and groups available depend on how your domain's identity provider is set up; see [Set up Omni](omni-set-up-omni.md).
 
-**Add a member**
+## Add a member
+<a name="omni-manage-space-members-and-permissions-add-a-member"></a>
 
 1. Open **Settings**, and under **Space** choose **Manage permissions**. Choose **Add grants**. To change an existing grant instead, choose the principal's name to open their grants, open the grant, and choose **Edit grant**.
 
@@ -26,17 +28,20 @@ Available in the Omni web UI only.
 
 1. Choose **Add**, or **Save changes** when editing. The principal appears in the table with the new grant listed beside it.
 
-**Remove access**
+## Remove access
+<a name="omni-manage-space-members-and-permissions-remove-access"></a>
 
 To remove access, choose the principal's name to open their grants, select the grant, and choose **Delete**. Deleting a grant cannot be undone. When you delete a member's last grant, they immediately lose access to every resource in the space.
 + A space must always keep at least one Space Admin, so you cannot delete the last grant that provides Space Admin access.
 + You cannot edit or delete your own grants. Ask another Space Admin to change your access.
 + An IAM Identity Center user also holds every grant given to a group they belong to, and deleting their own grants does not remove that inherited access. To remove all of their access, remove the user from those groups in IAM Identity Center or your identity provider, or delete the group's grants, which affects every member of the group.
 
-**System managed grants**
+## System managed grants
+<a name="omni-manage-space-members-and-permissions-system-managed-grants"></a>
 
 Some grants are created by the service. The table marks them as system managed, and they cannot be edited or deleted.
 
-**Give a resource its own access**
+## Give a resource its own access
+<a name="omni-manage-space-members-and-permissions-give-a-resource-its-own-access"></a>
 
 Some resources act when no one is signed in. An alert, for example, evaluates its query on a schedule. An access profile gives such a resource an identity of its own, and you add a profile as a member and give it a permission level as you would a person, with one exception: **Space Admin** is not available to an access profile, because space administration is reserved for people. See [Access profiles](omni-access-profiles.md).

@@ -5,7 +5,8 @@
 
 Use the CloudWatch Omni extension to build, test, and evaluate your agent from your IDE. The extension is available for VS Code, Kiro, and Cursor.
 
-**Local mode and cloud mode**
+## Local mode and cloud mode
+<a name="omni-develop-with-the-ide-extension-local-mode-and-cloud-mode"></a>
 
 The extension works against two data sources.
 
@@ -19,7 +20,8 @@ Switch modes as you work. Build and test in local mode. Then switch to cloud mod
 
 Features that interact with your project's code (such as [Manage prompts](omni-agents-manage-prompts.md)) are available in local mode only. If a feature needs the other mode, the extension shows it as unavailable and names the mode it requires.
 
-**Install and connect**
+## Install and connect
+<a name="omni-develop-with-the-ide-extension-install-and-connect"></a>
 
 1. Install the CloudWatch Omni extension in your editor. Search for it in your editor's extensions view, or install it from the registry your editor reads: [Install for VS Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.amazon-cloudwatch-omni) from the VS Code Marketplace, or [Install for Kiro and Cursor](https://open-vsx.org/extension/amazonwebservices/amazon-cloudwatch-omni) from Open VSX.
 
@@ -29,7 +31,8 @@ Features that interact with your project's code (such as [Manage prompts](omni-a
 
 The extension sidebar shows the mode you are in and the data source it reads from.
 
-**Onboard your project**
+## Onboard your project
+<a name="omni-develop-with-the-ide-extension-onboard-your-project"></a>
 
 Onboarding instruments your project and connects the extension to your running agent. A coding agent in your editor does the work, using the Omni skills.
 
@@ -48,7 +51,8 @@ Start onboarding from the extension's Getting Started view.
 ![The extension's onboarding view listing the setup steps, with framework detection and instrumentation complete and the connect-to-agent step in progress.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-ide-onboarding.png)
 
 
-**Test your agent locally**
+## Test your agent locally
+<a name="omni-develop-with-the-ide-extension-test-your-agent-locally"></a>
 
 Run your instrumented agent from inside the extension and inspect the traces it produces. If your agent is not instrumented yet, see [Send AI agent telemetry](omni-send-ai-agent-telemetry.md).
 
@@ -62,11 +66,13 @@ Run your instrumented agent from inside the extension and inspect the traces it 
 
 In local mode nothing leaves your machine: the collector writes traces to the `.omni` folder in your project.
 
-**Run your own server**
+## Run your own server
+<a name="omni-develop-with-the-ide-extension-run-your-own-server"></a>
 
 To start your agent yourself, switch the extension to external server mode. The extension still runs the collector. It writes the OpenTelemetry settings your server needs to a file in your project. Load that file before you start the server. If your server already listens on the configured port, the extension uses it and does not start a second collector.
 
-**AI assistance in the extension**
+## AI assistance in the extension
+<a name="omni-develop-with-the-ide-extension-ai-assistance-in-the-extension"></a>
 
 The extension includes AI assistance for working on your agent:
 + **Analyze with AI** — ask about a trace or a failure and get an explanation based on your telemetry.
@@ -77,7 +83,8 @@ You can use AI coding agents through the Omni skills in the Agent Toolkit for AW
 ![A trace open in the IDE extension with the Analyze with AI panel summarizing the run and flagging the step where the failure started.](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/images/omni-analyze-with-ai.png)
 
 
-**Where to go next**
+## Where to go next
+<a name="omni-develop-with-the-ide-extension-where-to-go-next"></a>
 
 Continue with these related topics:
 + [Manage prompts](omni-agents-manage-prompts.md) — version your agent's prompts in the project and test changes before you ship them.

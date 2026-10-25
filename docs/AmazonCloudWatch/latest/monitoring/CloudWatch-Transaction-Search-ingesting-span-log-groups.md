@@ -5,6 +5,8 @@
 
  Spans sent to X-Ray are ingested and managed in a log group called `aws/spans`. This topic describes which CloudWatch Logs features are available for transaction spans. 
 
+ By default, CloudWatch Logs encrypts the `aws/spans` log group. To encrypt it with a customer managed AWS KMS key instead, see [Encrypting spans with a customer managed key](Enable-TransactionSearch.md#Enable-TransactionSearch-kms). 
+
 **Available features**  
  The following CloudWatch Logs features are available for transaction spans. 
 +  [Metric filters](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/MonitoringLogData.html) – Use metric filters to extract custom metrics from spans. 

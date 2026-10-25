@@ -88,6 +88,27 @@ To create an alarm that performs an AWS Systems Manager Incident Manager action,
 
 1.  Under ***Preview and create***, confirm that your alarm's information and conditions are correct, and choose **Create alarm**. 
 
+## Creating an anomaly detection alarm using the AWS CLI
+<a name="anomaly-detection-alarm-cli"></a>
+
+You can also create an anomaly detection alarm with the AWS CLI. First create the anomaly detector, and then create an alarm that uses an `ANOMALY_DETECTION_BAND` metric math expression to define the expected range.
+
+**To create an anomaly detection alarm**
+
+1. Create the anomaly detector using the [put-anomaly-detector](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-anomaly-detector.html) command.
+
+   ```
+   aws cloudwatch put-anomaly-detector --single-metric-anomaly-detector '{"Namespace":"AWS/EC2","MetricName":"CPUUtilization","Dimensions":[{"Name":"InstanceId","Value":"{{instance-id}}"}],"Stat":"Average"}'
+   ```
+
+   If the command succeeds, it returns no output.
+
+1. Create the alarm with a metric-math band using the [put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html) command. The `ANOMALY_DETECTION_BAND` expression defines the expected range.
+
+   ```
+   aws cloudwatch put-metric-alarm --alarm-name {{cpu-anomaly}} --comparison-operator LessThanLowerOrGreaterThanUpperThreshold --evaluation-periods 1 --threshold-metric-id ad1 --metrics '[{"Id":"m1","MetricStat":{"Metric":{"Namespace":"AWS/EC2","MetricName":"CPUUtilization","Dimensions":[{"Name":"InstanceId","Value":"{{instance-id}}"}]},"Period":300,"Stat":"Average"},"ReturnData":true},{"Id":"ad1","Expression":"ANOMALY_DETECTION_BAND(m1, 2)","ReturnData":true}]'
+   ```
+
 ## Editing an anomaly detection model
 <a name="Modify_Anomaly_Detection_Model"></a>
 
