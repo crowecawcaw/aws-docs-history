@@ -38,3 +38,5 @@ When creating a new API destination for your connection, ensure that the connect
      For detailed instructions, see [Creating connections](eb-target-connection-create.md).
 
 1. Choose **Create**.
+
+After you create the API destination, you can set it as the target of a rule. For more information, see [Creating rules with API destination targets](eb-create-rule-api-destination-target.md).

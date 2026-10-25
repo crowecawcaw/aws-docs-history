@@ -3,14 +3,16 @@
 # API destinations as targets in Amazon EventBridge
 <a name="eb-api-destinations"></a>
 
-EventBridge *API destinations* are HTTPS endpoints that you can invoke as the target of an event bus rule, or pipe, similar to how you invoke an AWS service or resource as a target. Using API destinations, you can route [events](eb-events.md) between AWS services, integrated software as a service (SaaS) applications, and public or private applications by using API calls. 
+EventBridge *API destinations* are HTTPS endpoints. You can invoke one as the target of an event bus rule or pipe, just as you invoke an AWS service or resource. With API destinations, you route [events](eb-events.md) between AWS services, SaaS applications, and public or private applications. The events travel as API calls. 
 
 **Note**  
 The examples on this page use rules. A Custom Event Bus subscriber uses the same API destinations: set the API destination ARN as the subscriber's `TargetArn` with `HttpParameters`. See [HTTP targets: API Gateway and API destinations](eb-custom-bus-target-http.md).
 
-When you specify an API destination as a rule or pipe target, EventBridge invokes the HTTPS endpoint for any event that matches the [event pattern](eb-event-patterns.md) specified in the rule or pipe and then delivers the event information with the request. With EventBridge, you can use any HTTP method except CONNECT and TRACE for the request. The most common HTTP methods to use are PUT and POST. 
+When you specify an API destination as a rule or pipe target, EventBridge invokes the HTTPS endpoint for any event that matches the [event pattern](eb-event-patterns.md) in the rule or pipe. It then delivers the event information with the request. With EventBridge, you can use any HTTP method except CONNECT and TRACE for the request. The most common HTTP methods to use are PUT and POST. 
 
-You can also use input transformers to customize the event to the parameters of a specific HTTP endpoint parameters. For more information, see [Amazon EventBridge input transformation](eb-transform-target-input.md).
+You can also use input transformers to shape the event to fit a specific HTTP endpoint. For more information, see [Amazon EventBridge input transformation](eb-transform-target-input.md).
+
+To create a rule that sends events to an API destination, see [Creating rules with API destination targets](eb-create-rule-api-destination-target.md).
 
 ![API destinations use a connection with authorization parameters to send events to HTTP endpoints.](https://docs.aws.amazon.com/eventbridge/latest/userguide/images/api-destinations-overview_eventbridge_conceptual.svg)
 
@@ -21,10 +23,10 @@ EventBridge API destinations use *connections* to define the authorization metho
 EventBridge API destinations currently only support public domain names with publicly trusted certificates for HTTPS endpoints when using private APIs. API destinations do not support mutual TLS (mTLS).
 
 **Important**  
-EventBridge requests to an API destination endpoint must have a maximum client execution timeout of 5 seconds. If the target endpoint takes longer than 5 seconds to respond, EventBridge times out the request. EventBridge retries timed out requests up to the maximums that are configured on your retry policy.   
+EventBridge requests to an API destination endpoint must have a maximum client execution timeout of 5 seconds. If the target endpoint takes longer than 5 seconds to respond, EventBridge times out the request. EventBridge retries timed-out requests. Your retry policy sets the maximums.   
 For event buses, by default the maximums are 24 hours and 185 times.
-For pipes, retries are determined the pipe source type and its configuration. EventBridge will retry until the event expires from the source, or the maximum event age or retry attempts configured has reached.
-After the maximum number of retries, events are sent to your [dead-letter queue](eb-rule-dlq.md) if you have one.Otherwise, the event is dropped.
+For pipes, the source type and its configuration determine the retries. EventBridge retries until the event expires from the source, or until it reaches the maximum event age or retry attempts.
+After the maximum number of retries, events are sent to your [dead-letter queue](eb-rule-dlq.md) if you have one. Otherwise, the event is dropped.
 
  The following video demonstrates the use of API destinations:
 
@@ -34,7 +36,7 @@ After the maximum number of retries, events are sent to your [dead-letter queue]
 ## Service-linked role for API destinations
 <a name="eb-api-destination-slr"></a>
 
-When you create a connection for an API destination, the service-linked role [AmazonEventBridgeApiDestinationsServiceRolePolicy](eb-use-identity-based.md#api-destination-slr-policy) is added to your account. EventBridge uses this service-linked role to create and store a secret in Secrets Manager. To grant the necessary permissions to the service-linked role, EventBridge attaches the **AmazonEventBridgeApiDestinationsServiceRolePolicy** policy to the role. The policy limits the permissions granted to only those necessary for the role to interact with the secret for the connection. No other permissions are included, and the role can interact only with the connections in your account to manage the secret.
+When you create a connection for an API destination, the service-linked role [AmazonEventBridgeApiDestinationsServiceRolePolicy](eb-use-identity-based.md#api-destination-slr-policy) is added to your account. EventBridge uses this service-linked role to create and store a secret in Secrets Manager. To grant the necessary permissions to the service-linked role, EventBridge attaches the **AmazonEventBridgeApiDestinationsServiceRolePolicy** policy to the role. The policy grants only the permissions the role needs to work with the connection secret. No other permissions are included. The role can work only with the connections in your account.
 
 For more information about service-linked roles, see [Using service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) in the *IAM User Guide*.
 
@@ -111,12 +113,12 @@ When EventBridge tries to deliver an event to an API destination and an error oc
 + Retries events associated with error codes `401`, `407`, `409`, `429`, and `5xx`.
 + Does not retry events associated with error codes `1xx`, `2xx`, `3xx`, and `4xx` (other than those noted above).
 
-EventBridge API destinations read the standard HTTP response header `Retry-After` to find out how long to wait before making a follow-up request. For event buses, EventBridge chooses the more conservative value between the defined retry policy and the `Retry-After` header. If `Retry-After` value is negative, EventBridge stops retrying delivery for that event.
+EventBridge API destinations read the standard HTTP response header `Retry-After` to learn how long to wait before the next request. For event buses, EventBridge chooses the more conservative value between the defined retry policy and the `Retry-After` header. If `Retry-After` value is negative, EventBridge stops retrying delivery for that event.
 
 ## How invocation rate affects event delivery
 <a name="eb-api-destination-event-delivery"></a>
 
-If you set the invocation rate per second to a value much lower than the number of invocations generated, events may not be delivered within the 24 hour retry time for events. For example, if you set the invocation rate to 10 invocations per second, but thousands of events per second are generated, you will quickly have a backlog of events to deliver that exceeds 24 hours. To ensure that no events are lost, set up a dead-letter queue to send events with failed invocations to so you can process the events at a later time. For more information, see [Using dead-letter queues to process undelivered events in EventBridge](eb-rule-dlq.md).
+If you set the invocation rate per second much lower than the number of invocations generated, events may not be delivered within the 24-hour retry window. For example, suppose you set the invocation rate to 10 per second, but thousands of events arrive each second. You will quickly build a backlog that exceeds 24 hours. To avoid losing events, set up a dead-letter queue for the failed invocations. You can process those events later. For more information, see [Using dead-letter queues to process undelivered events in EventBridge](eb-rule-dlq.md).
 
 ## Region availability
 <a name="eb-api-destination-regions"></a>

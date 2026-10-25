@@ -16,7 +16,7 @@ This topic describes targets for Custom Event Bus - Classic rules. On the [Custo
 You can configure the following target types for rules in the EventBridge console:
 + API destinations
 
-  API destinations are HTTPS endpoints that you can invoke as the target of an event bus rule. When you specify an API destination as a rule target, EventBridge invokes the HTTPS endpoint for any event that matches the event pattern specified in the rule, and then delivers the event information with the request. For more information, see [API destinations](eb-api-destinations.md).
+  API destinations are HTTPS endpoints that you can invoke as the target of an event bus rule. When you specify an API destination as a rule target, EventBridge invokes the HTTPS endpoint for any event that matches the event pattern specified in the rule, and then delivers the event information with the request. For more information, see [API destinations](eb-api-destinations.md). To create a rule that targets an API destination, see [Creating rules with API destination targets](eb-create-rule-api-destination-target.md).
 + Event buses
 
   You can specify other event buses as targets for rules. This includes event buses in the same or different AWS accounts.

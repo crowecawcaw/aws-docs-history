@@ -62,6 +62,50 @@ The following resource policy lets account `444455556666` create subscribers on 
 }
 ```
 
+When you share the bus through AWS RAM with `AWSRAMEventBridgeEventBusV2SubscribeOnly` or `AWSRAMEventBridgeEventBusV2FullAccess`, the share grants the other account `events:CreateSubscriber` and `events:UpdateSubscriber` with no conditions. To restrict that account's filters, add `Deny` statements for it to the bus's `default` policy. An explicit `Deny` overrides the grant from the AWS RAM share. For more information about the two policies, see [Write a custom resource policy](eb-custom-bus-sharing.md#eb-custom-bus-access-policy).
+
+The following `default` policy has two `Deny` statements for account `444455556666`. Each one applies when the account creates a subscriber and when it changes a filter.
++ `DenySubscribersWithoutTenant` denies a subscriber with no `METADATA` filter, or with a `METADATA` filter that does not name `tenant`.
++ `DenySubscribersForOtherTenants` denies a subscriber whose filter names a `tenant` other than `acme`.
+
+The conditions in one statement must all match, so each case needs its own statement.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenySubscribersWithoutTenant",
+            "Effect": "Deny",
+            "Principal": { "AWS": "arn:aws:iam::444455556666:root" },
+            "Action": [
+                "events:CreateSubscriber",
+                "events:UpdateSubscriber"
+            ],
+            "Resource": "arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef",
+            "Condition": {
+                "Null": { "events:Metadata/tenant": "true" }
+            }
+        },
+        {
+            "Sid": "DenySubscribersForOtherTenants",
+            "Effect": "Deny",
+            "Principal": { "AWS": "arn:aws:iam::444455556666:root" },
+            "Action": [
+                "events:CreateSubscriber",
+                "events:UpdateSubscriber"
+            ],
+            "Resource": "arn:aws:events:us-east-1:111122223333:event-busv2/orders/EXAMPLE1234567890abcdef",
+            "Condition": {
+                "ForAnyValue:StringNotEquals": { "events:Metadata/tenant": "acme" }
+            }
+        }
+    ]
+}
+```
+
+EventBridge checks conditions on the filter keys only for `CreateSubscriber` and for an `UpdateSubscriber` request that includes a `FilterConfiguration`. It never checks the stored filter of a subscriber that already exists. So when you add or tighten a condition, an existing subscriber keeps its filter until its owner changes it. To stop an existing subscriber, revoke it with `RevokeResource`. For more information about revoking a subscriber, see [Revoking a subscriber or an event source](eb-custom-bus-access-revoke.md).
+
 ## Actions and the resources they are checked against
 <a name="eb-custom-bus-access-actions-table"></a>
 
