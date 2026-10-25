@@ -75,6 +75,7 @@ Amazon Bedrock provides the following APIs for data retrieval.
 | <a name="bedrock-GetPromptRouter"></a>[GetPromptRouter](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetPromptRouter.html) | Get the properties associated with a prompt router | Read | 
 | <a name="bedrock-GetProvisionedModelThroughput"></a>[GetProvisionedModelThroughput](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetProvisionedModelThroughput.html) | Retrieve a provisioned model throughput | Read | 
 | <a name="bedrock-GetResourcePolicy"></a>[GetResourcePolicy](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_GetResourePolicy.html) | Gets the resource policy document for a Bedrock resource | Read | 
+| <a name="bedrock-GetRetrievalInstruction"></a>[GetRetrievalInstruction](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetRetrievalInstruction.html) | Retrieve a retrieval instruction | Read | 
 | <a name="bedrock-GetSession"></a>[GetSession](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_GetSession.html) | Retrieve an existing session | Read | 
 | <a name="bedrock-GetUseCaseForModelAccess"></a>[GetUseCaseForModelAccess](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonbedrock.html) | Retrieve a use case for model access | Read | 
 | <a name="bedrock-InvokeAgent"></a>[InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) | Send user input (text-only) to the alias of an agent for Bedrock | Read | 
@@ -131,6 +132,8 @@ Amazon Bedrock provides the following APIs for data retrieval.
 | <a name="bedrock-ListPromptRouters"></a>[ListPromptRouters](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListPromptRouters.html) | List prompt routers that you can use | List | 
 | <a name="bedrock-ListPrompts"></a>[ListPrompts](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListPrompts.html) | List existing prompts | List | 
 | <a name="bedrock-ListProvisionedModelThroughputs"></a>[ListProvisionedModelThroughputs](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListProvisionedModelThroughputs.html) | List provisioned model throughputs that you created earlier | List | 
+| <a name="bedrock-ListRetrievalInstructionVersions"></a>[ListRetrievalInstructionVersions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListRetrievalInstructionVersions.html) | List the versions of a retrieval instruction | List | 
+| <a name="bedrock-ListRetrievalInstructions"></a>[ListRetrievalInstructions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_ListRetrievalInstructions.html) | List retrieval instructions | List | 
 | <a name="bedrock-ListSessions"></a>[ListSessions](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_ListSessions.html) | List existing sessions | List | 
 | <a name="bedrock-ListTagsForResource"></a>[ListTagsForResource](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_ListTagsForResource.html) | List tags for a Bedrock resource | Read | 
 | <a name="bedrock-OptimizePrompt"></a>[OptimizePrompt](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_OptimizePrompt.html) | Optimize a prompt with user input | Read | 
