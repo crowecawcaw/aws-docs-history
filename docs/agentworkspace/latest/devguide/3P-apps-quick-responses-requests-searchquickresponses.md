@@ -48,7 +48,7 @@ searchQuickResponses(queryRequest: SearchQuickResponsesRequest): Promise<SearchQ
 | --- | --- | --- | 
 | queries | QuickResponsesQuery[] | Query used to filter quick responses; if no queries are provided, the client will return all quick responses associated with the agent's routing profile. | 
 | channels | QuickResponseChannel[] | The channels to filter the request by. Supported values: "Chat" or "Email" | 
-| attributes | Record<string, string> | The user-defined Amazon Connect contact attributes to be resolved when search results are returned. | 
+| attributes | Record<string, string> | The user-defined Connect Customer contact attributes to be resolved when search results are returned. | 
 | debounceMS | number | The default value is set to 250ms; set it to 0 to disable debounced input change | 
 | maxResults | number | The number of results to be returned. Minimum value of 1. Maximum value of 100. | 
 | nextToken | string | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. | 

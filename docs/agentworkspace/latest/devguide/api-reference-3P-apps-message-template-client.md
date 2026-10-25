@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace Message Template API
+# Connect Customer SDK Message Template API
 <a name="api-reference-3P-apps-message-template-client"></a>
 
-The Amazon Connect SDK provides a `MessageTemplateClient` which serves as an interface that you can use to make requests to search and get content from your Amazon Connect Message Template Knowledge Base.
+The Connect Customer SDK provides a `MessageTemplateClient` which serves as an interface that you can use to make requests to search and get content from your Connect Customer Message Template Knowledge Base.
 
 The `MessageTemplateClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
 

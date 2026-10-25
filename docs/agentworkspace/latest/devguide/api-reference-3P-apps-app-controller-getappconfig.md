@@ -36,7 +36,7 @@ const applicationConfig: AppConfig = await appControllerClient.getAppConfig(arn)
 | description | string | Description of the application | 
 | accessUrl | string | URL to access the application | 
 | initializationTimeout | number | The maximum time allowed to establish a connection with the workspace | 
-| contactHandling.scope | PER\_CONTACT \| CROSS\_CONTACTS | Indicates whether the application refreshes for each contact | 
+| contactHandling.scope | PER\_CONTACT \| CROSS\_CONTACTS | The contact scope that the publisher selected when the application was registered. PER\_CONTACT indicates that AppManager creates a separate instance for each contact, binds each instance to one contact, and destroys it when that contact ends. CROSS\_CONTACTS indicates that AppManager maintains a single instance across contacts for the page session. For more information, see [Application scoping for Connect Customer applications](getting-started-application-contact-scope.md). | 
 
  **Permissions required:** 
 

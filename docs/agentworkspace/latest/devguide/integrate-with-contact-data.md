@@ -21,17 +21,22 @@ Once the contact client is instantiated, you can use it to subscribe to events a
 ## Contact scope
 <a name="integrate-contact-data-scope"></a>
 
-All ContactClient methods include an optional `contactId` parameter. If no value is provided, the client automatically defaults to the contact context from which the app was launched. Note that this requires the app to be opened within a contact's context.
-+  **Applications configured with Per Contact scope** 
+ContactClient operations use a `contactId` parameter to identify the target contact.
++ **Event subscriptions** (such as `onConnected`): The `contactId` parameter is optional. If you omit it, you receive events for the contact context from which your app launched.
++ **Request operations** (such as `getAttribute` and `accept`): You must provide `contactId`.
 
-  For Per Contact scoped applications, the `contactId` of the current contact is provided in the `AppCreateEvent` which is supplied in the `onCreate` callback. 
+For more information about ContactClient operations, see the [ContactClient API reference](api-reference-3P-apps-contact-client.md).
++  **Applications registered with Per contact scope** 
+
+  For per-contact applications, the `contactId` of the contact the instance is bound to is provided in the `AppCreateEvent` which is supplied in the `onCreate` callback. 
 
   ```
-  const provider =  AmazonConnectApp.init({
+  const { provider } = AmazonConnectApp.init({
   
       onCreate: async (event: AppCreateEvent) => {
-          // Check if scope is defined and has contactId before accessing it
-          if (event.context.scope && "contactId" in event.context.scope) {
+          // scope is { type: "idle" } when the application is launched while the agent
+          // is idle, so check the scope type before reading contactId
+          if (event.context.scope?.type === "contact") {
               let contactId = event.context.scope.contactId;
               console.log("App launched for the contactId", contactId);
           }
@@ -43,9 +48,9 @@ All ContactClient methods include an optional `contactId` parameter. If no value
   
   });
   ```
-+  **Applications configured with Cross Contact scope** 
++  **Applications registered with Cross contacts scope** 
 
-  Cross Contact scoped applications can retrieve the `contactId` by subscribing to any of the contact events like `onConnected` or `onIncomming` 
+  Cross-contact applications can retrieve the `contactId` by subscribing to any of the contact events like `onConnected` or `onIncoming`. These subscriptions deliver events for every contact the agent is handling, so the application is responsible for determining which contact each event belongs to. For guidance on choosing between the two scopes, see [Choose a contact scope](getting-started-application-contact-scope.md#getting-started-application-contact-scope-choosing). 
 
   ```
   const handler: ContactIncomingHandler = async (data: ContactIncoming) => {
@@ -86,7 +91,7 @@ The following code sample submits a `getQueue` request and then logs the returne
 ```
 import { ContactClient } from "@amazon-connect/contact";
 
-const queue = await contact.getQueue(contactId);
+const queue = await contactClient.getQueue(contactId);
 
 console.log(`Got the queue: ${queue}`);
 ```

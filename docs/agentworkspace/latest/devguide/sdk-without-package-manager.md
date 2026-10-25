@@ -1,13 +1,13 @@
 
 
-# Using the Amazon Connect SDK without a package manager
+# Using the Connect Customer SDK without a package manager
 <a name="sdk-without-package-manager"></a>
 
-This guide is intended for developers building Amazon Connect integrations who do not use npm, webpack, or other JavaScript package managers and bundlers in their web applications. This includes developers building custom StreamsJS-based contact center interfaces or third-party applications that run within the Connect Customer agent workspace.
+This guide is intended for developers building Connect Customer integrations who do not use npm, webpack, or other JavaScript package managers and bundlers in their web applications. This includes developers building custom StreamsJS-based contact center interfaces or third-party applications that run within the Connect Customer agent workspace.
 
-Amazon Connect recommends using a package manager such as npm and a bundler such as webpack or Vite for SDK integration. These tools provide dependency management, automatic updates, tree-shaking, and a streamlined development workflow. If you choose not to use these tools, this guide describes an alternative approach.
+Connect Customer recommends using a package manager such as npm and a bundler such as webpack or Vite for SDK integration. These tools provide dependency management, automatic updates, tree-shaking, and a streamlined development workflow. If you choose not to use these tools, this guide describes an alternative approach.
 
-The Amazon Connect SDK is distributed as npm packages. These packages use Node.js-style module resolution and cannot be loaded directly in a browser using a `<script>` tag. If your development environment does not include a package manager or bundler, you must create a prebuilt script file that bundles the SDK packages into a browser-compatible format.
+The Connect Customer SDK is distributed as npm packages. These packages use Node.js-style module resolution and cannot be loaded directly in a browser using a `<script>` tag. If your development environment does not include a package manager or bundler, you must create a prebuilt script file that bundles the SDK packages into a browser-compatible format.
 
 ## Your responsibility
 <a name="sdk-without-package-manager-responsibility"></a>
@@ -47,4 +47,4 @@ The SDK consists of multiple packages. Select only the packages your application
 |  @amazon-connect/app-manager  | Plugin for hosting Connect first-party apps (Cases, Step-by-Step Guides) | 
 |  @amazon-connect/voice  | VoiceClient for voice channel operations | 
 
-See the [Amazon Connect SDK repository](https://github.com/amazon-connect/AmazonConnectSDK) for the complete list of available packages.
+See the [Connect Customer SDK repository](https://github.com/amazon-connect/AmazonConnectSDK) for the complete list of available packages.

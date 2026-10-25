@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace Contact API
+# Connect Customer SDK Contact API
 <a name="api-reference-3P-apps-contact-client"></a>
 
-The Amazon Connect SDK provides an `ContactClient` which serves as an interface that your app in the Connect Customer agent workspace can use to subscribe to contact events and make contact data requests.
+The Connect Customer SDK provides an `ContactClient` which serves as an interface that your app in the Connect Customer agent workspace can use to subscribe to contact events and make contact data requests.
 
 The `ContactClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
 
@@ -36,6 +36,18 @@ Alternatively, providing a constructor argument:
                 provider: sampleProvider
         });
 ```
+
+The operations that a `ContactClient` can perform depend on the contact scope of the application instance that uses it. Each operation in the following sections states its requirement under **Contact scope**. The following table describes the operations that a `ContactClient` can perform for each contact scope.
+
+
+| Contact scope of the instance | What the `ContactClient` can do | 
+| --- | --- | 
+|  { type: "contact", contactId }  | The instance can call request operations for that contactId only. A request that identifies another contact fails authorization, and listContacts() fails regardless of which contact the instance is scoped to. Event subscriptions deliver events for that contact only. | 
+|  { type: "idle" }  | The instance cannot call any request operation, including listContacts(), and does not receive contact events while it holds this scope. | 
+| No scope value | The instance can call every request operation for any contact that the agent is handling, and receives events for all of those contacts. | 
+
+**Note**  
+A cross-contact application does not always run without a scope. When it is launched from within an application that has a scope, it inherits that scope, and the first row of the preceding table applies to it. For more information, see [Launch an application with an explicit scope](getting-started-application-contact-scope.md#getting-started-application-contact-scope-launch-examples).
 
 The following sections describe API calls for working with the Contact API.
 

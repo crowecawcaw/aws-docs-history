@@ -9,6 +9,10 @@ Returns a `Date` object with the timestamp associated with when the contact was 
 async getQueueTimestamp(contactId: string): Promise<Date | undefined>    
 ```
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

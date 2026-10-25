@@ -24,7 +24,7 @@ batchGetAttachedFileMetadata({ relatedAttachments, activeContactId }: { relatedA
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
+| associatedResourceArn | string | Connect Customer ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
 | fileId | string | The unique identifier of the attached file resource | 
 | fileArn | string | The unique identifier of the attached file resource (ARN). | 
 | fileName | string | A case-sensitive name of the attached file being uploaded. | 
@@ -46,7 +46,7 @@ batchGetAttachedFileMetadata({ relatedAttachments, activeContactId }: { relatedA
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
+| associatedResourceArn | string | Connect Customer ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
 | fileIds | string[] | The unique identifiers of the attached file resources | 
 
  **Usage** 

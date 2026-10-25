@@ -25,6 +25,10 @@ contacts.forEach((contact) => {
 
 Returns an array of contact data objects (currently typed as CoreContactData[]).
 
+ **Contact scope:** 
+
+You can call this operation only from an application instance that is running without a contact scope, such as a cross-contact application that is launched at the top level. The request fails authorization if the instance is scoped to a contact or to `idle`, including a cross-contact application that inherited a scope from the application that launched it.
+
  **Permissions required:** 
 
 ```

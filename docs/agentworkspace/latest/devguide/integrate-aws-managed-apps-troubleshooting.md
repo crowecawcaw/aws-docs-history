@@ -3,7 +3,7 @@
 # Troubleshooting
 <a name="integrate-aws-managed-apps-troubleshooting"></a>
 
-This section describes common issues and resolutions when integrating AWS-managed applications.
+This section describes common issues and resolutions when integrating AWS managed applications.
 
 ## Application launch failures
 <a name="integrate-aws-managed-apps-launch-failures"></a>
@@ -28,14 +28,14 @@ Applications fail to launch, display error messages, or the iframe remains blank
 + Security Profile permissions:
   + Confirm the user has necessary Security Profile permissions to access the applications.
 + Cross-origin issues:
-  + Verify that your domain is properly [ allowlisted](https://docs.aws.amazon.com/connect/latest/adminguide/app-integration.html) in Amazon Connect.
+  + Verify that your domain is properly [ allowlisted](https://docs.aws.amazon.com/connect/latest/adminguide/app-integration.html) in Connect Customer.
   + Check the browser console for Cross-Origin Resource Sharing (CORS) errors.
   + Ensure third-party cookies are not blocked in the browser settings.
 + Iframe configuration:
   + Verify that iframes have the necessary permissions in `allow` and `sandbox` attributes.
   + Allow AppManager to configure the iframe. Do not manually set the ` src` attribute.
 + Content Security Policy (CSP):
-  + Ensure CSP allows communication with Amazon Connect domains either via response headers or meta tags in the HTML head.
+  + Ensure CSP allows communication with Connect Customer domains either via response headers or meta tags in the HTML head.
 
 ## Application not appearing in catalog
 <a name="integrate-aws-managed-apps-catalog-issues"></a>
@@ -45,5 +45,5 @@ Applications fail to launch, display error messages, or the iframe remains blank
 The `getAppCatalog()` method returns an empty array or does not include expected applications.
 
  **Possible causes and solutions** 
-+ Applications not enabled: Verify that the required applications are enabled in the Amazon Connect instance.
++ Applications not enabled: Verify that the required applications are enabled in the Connect Customer instance.
 + Security Profile permissions: Confirm that the user has necessary Security Profile permissions to access the applications.

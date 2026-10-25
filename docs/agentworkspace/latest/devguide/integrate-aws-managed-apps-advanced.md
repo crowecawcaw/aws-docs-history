@@ -45,7 +45,7 @@ console.log("AppManagerData attached to AppHost", appHost.appManagerData);
 ## Support Global Resiliency
 <a name="integrate-aws-managed-apps-global-resiliency"></a>
 
-Amazon Connect Global Resiliency features provide automatic failover between AWS Regions. When your Amazon Connect instance is configured for Global Resiliency, you should implement the following handlers to ensure agent workspace responsiveness to failover events:
+Connect Customer Global Resiliency features provide automatic failover between AWS Regions. When your Connect Customer instance is configured for Global Resiliency, you should implement the following handlers to ensure agent workspace responsiveness to failover events:
 
 ```
 // Handle pending failover events
@@ -61,4 +61,4 @@ connect.globalResiliency?.onFailoverCompleted(() => {
 });
 ```
 
-See [Set up Amazon Connect Global Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html) in the *Amazon Connect Administrator Guide*.
+See [Set up Connect Customer Global Resiliency](https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html) in the *Connect Customer Administrator Guide*.

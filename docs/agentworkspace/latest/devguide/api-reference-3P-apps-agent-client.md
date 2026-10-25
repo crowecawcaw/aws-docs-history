@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace Agent API
+# Connect Customer SDK Agent API
 <a name="api-reference-3P-apps-agent-client"></a>
 
-The Amazon Connect SDK provides an `AgentClient` which serves as an interface that your app in the Connect Customer agent workspace can use to subscribe to agent events and make agent data requests.
+The Connect Customer SDK provides an `AgentClient` which serves as an interface that your app in the Connect Customer agent workspace can use to subscribe to agent events and make agent data requests.
 
 The `AgentClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
 

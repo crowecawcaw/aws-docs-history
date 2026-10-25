@@ -35,6 +35,10 @@ if (isPreview) {
 |  autoDialTimeout  |  number  |  The number of seconds the agent has to preview the contact before the auto-dial triggers.  | 
 |  canDiscardPreview  |  boolean  |  Whether the agent has permission to discard the contact during preview. Use this to control whether the agent should be presented the option to discard the contact without dialing the end customer.  | 
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

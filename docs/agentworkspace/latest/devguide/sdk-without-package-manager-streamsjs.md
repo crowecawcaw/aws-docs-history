@@ -3,13 +3,13 @@
 # Using the SDK with StreamsJS
 <a name="sdk-without-package-manager-streamsjs"></a>
 
-This section explains how to use the prebuilt bundle in a solution that uses Amazon Connect Streams (StreamsJS).
+This section explains how to use the prebuilt bundle in a solution that uses Connect Customer Streams (StreamsJS).
 
 ## Prerequisites
 <a name="sdk-without-package-manager-streamsjs-prerequisites"></a>
 
 The following prerequisites are required:
-+ The Amazon Connect Streams library loaded on your page
++ The Connect Customer Streams library loaded on your page
 + The `connect-sdk-streams.bundle.js` file from the building section
 
 ## HTML setup

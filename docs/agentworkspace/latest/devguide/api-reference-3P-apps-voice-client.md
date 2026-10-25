@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace Voice API
+# Connect Customer SDK Voice API
 <a name="api-reference-3P-apps-voice-client"></a>
 
-The Amazon Connect SDK provides an `VoiceClient` which serves as an interface that your app in the Connect Customer agent workspace can use to make data requests on voice contact.
+The Connect Customer SDK provides an `VoiceClient` which serves as an interface that your app in the Connect Customer agent workspace can use to make data requests on voice contact.
 
 The `VoiceClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
 

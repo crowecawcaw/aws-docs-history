@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace API reference
+# Connect Customer SDK API reference
 <a name="api-reference-3P-apps-events-and-requests"></a>
 
-This Connect Customer agent workspace API reference enumerates the agent events, agent requests, contact events, and contact requests that are supported by the [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK).
+This Connect Customer agent workspace API reference enumerates the agent events, agent requests, contact events, and contact requests that are supported by the [Connect Customer SDK](https://github.com/amazon-connect/AmazonConnectSDK).
 
 **Topics**
 + [AI Agents](api-reference-3P-apps-ai-agents-client.md)

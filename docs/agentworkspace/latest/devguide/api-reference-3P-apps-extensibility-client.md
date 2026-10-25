@@ -1,12 +1,12 @@
 
 
-# Connect Customer agent workspace Extensibility API
+# Connect Customer SDK Extensibility API
 <a name="api-reference-3P-apps-extensibility-client"></a>
 
-With the Amazon Connect SDK, your app in the Connect Customer agent workspace can register and manage interceptors for UI actions by using `ExtensibilityService`. `ExtensibilityService` is the generic, low-level interceptor API, and it accepts any interceptor key. Domain-specific interceptor services define typed methods and callback contexts for a specific set of actions. When a domain-specific service covers your use case, prefer it over `ExtensibilityService`.
+With the Connect Customer SDK, your app in the Connect Customer agent workspace can register and manage interceptors for UI actions by using `ExtensibilityService`. `ExtensibilityService` is the generic, low-level interceptor API, and it accepts any interceptor key. Domain-specific interceptor services define typed methods and callback contexts for a specific set of actions. When a domain-specific service covers your use case, prefer it over `ExtensibilityService`.
 
 **Note**  
-To intercept contact-related UI actions, use the contact-specific methods in [Connect Customer agent workspace Contact UI API](api-reference-3P-apps-contact-ui-client.md). Use `ExtensibilityService` directly only when no domain-specific service covers your interceptor key.
+To intercept contact-related UI actions, use the contact-specific methods in [Connect Customer SDK Contact UI API](api-reference-3P-apps-contact-ui-client.md). Use `ExtensibilityService` directly only when no domain-specific service covers your interceptor key.
 
 You can instantiate the extensibility service as follows:
 

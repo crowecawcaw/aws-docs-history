@@ -13,7 +13,7 @@ Following the instructions here to properly integrate your service with the agen
 ```
 
 **Note**  
- If you do not use NPM, refer to [Using Amazon Connect SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
+ If you do not use NPM, refer to [Using Connect Customer SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
 
 Then, add the following initialization code to your app:
 
@@ -21,7 +21,7 @@ Then, add the following initialization code to your app:
 import { AmazonConnectService } from "@amazon-connect/app";
 
 const { provider } = AmazonConnectService.init({
-  onCreate: (event) => {
+  onCreate: async (event) => {
     const { instanceId } = event.context;
     console.log('Service creation complete: ', instanceId);
   }
@@ -109,7 +109,7 @@ initService();
 
 Create a new third-party service by creating a third-party application with the following settings either via APIs or in the AWS Console:
 + `isService` set to true
-  + An app that is configured as a service will be started when the agent workspace is loaded and will run hidden for the lifetime of the agent workspace. An application that runs as a service in the agent workspace must be integrated with the app Amazon Connect SDK package. If the service fails to start before the InitializationTimeout, then an error will be sent to agent workspace causing the agent workspace to fail
+  + An app that is configured as a service will be started when the agent workspace is loaded and will run hidden for the lifetime of the agent workspace. An application that runs as a service in the agent workspace must be integrated with the app Connect Customer SDK package. If the service fails to start before the InitializationTimeout, then an error will be sent to agent workspace causing the agent workspace to fail
 + Set a `InitializationTimeout` in milliseconds up to 10000 (10 seconds)
   + The InitializationTimeout parameter controls the maximum time allowed for the initial handshake/connection between the service and the agent workspace. This is required to be set for applications configured with isService to true.
 

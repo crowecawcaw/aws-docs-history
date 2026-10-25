@@ -21,7 +21,7 @@ createDraftEmail(contactCreation: CreateDraftEmailContact): Promise<EmailContact
 | relatedContactId | string | The id of the contact that is the reason for creating the new draft email; this is required when initiationMethod="AGENT\_REPLY" and should be the contact id of the email that this email is being sent in response to. Also required when messageType="FORWARD" and should be the contact id of the email being forwarded. | 
 | messageType | "FORWARD" | Optional. The type of message being created. Use with initiationMethod="OUTBOUND" to create a forward email contact. | 
 | expiryDurationInMinutes | number | Length of time before an unsent contact expires; Minimum is 1 minute, Maximum is 1 week; Default is 12 hours. | 
-| attributes | Record<string, string> | A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes. | 
+| attributes | Record<string, string> | A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and can be accessed in flows just like any other contact attributes. | 
 | references | Record<string, { type: string; value: string; }> | Well-formed data on a contact, used by agents to complete a contact request. | 
 
  **Usage for Agent Initiated Outbound** 

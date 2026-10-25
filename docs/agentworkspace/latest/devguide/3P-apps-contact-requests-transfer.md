@@ -31,6 +31,10 @@ await contactClient.transfer(contactId, quickConnect);
 |  contactId Required  |  string  |  The id of the contact to which a participant needs to be transferred. | 
 |  quickConnect Required  |  QuickConnect  |  Its either AgentQuickConnect or QueueQuickConnect  | 
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

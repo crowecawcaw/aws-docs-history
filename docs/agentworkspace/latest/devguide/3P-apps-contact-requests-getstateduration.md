@@ -9,6 +9,10 @@ Returns the duration of the contact state in milliseconds relative to local time
 async getStateDuration(contactId: string): Promise<number>     
 ```
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

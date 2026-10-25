@@ -39,6 +39,10 @@ The ParticipantData interface includes:
 + `isInitial`: boolean - Whether this is the initial participant
 + `isSelf`: boolean - Whether this participant is associated with the current user
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

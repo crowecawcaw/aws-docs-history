@@ -16,7 +16,7 @@ startAttachedFileUpload(data: NewAttachment): Promise<UploadableAttachment>
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
+| associatedResourceArn | string | Connect Customer ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
 | fileId | string | ID in Connect's File record | 
 | uploadUrl | string | A pre-signed S3 URL that should be used for uploading the attached file. | 
 | uploadHeaders | Record<string, string> | A map of headers that should be provided in the request when uploading the attached file. | 
@@ -28,7 +28,7 @@ startAttachedFileUpload(data: NewAttachment): Promise<UploadableAttachment>
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. This could be a Connect Email Contact ARN or a Connect Case ARN | 
+| associatedResourceArn | string | Connect Customer ARN of the resource that the file is attached to. This could be a Connect Email Contact ARN or a Connect Case ARN | 
 | fileName | string | A case-sensitive name of the attached file being uploaded. Minimum length of 1; Maximum length of 256. Supported pattern: ^\\P{C}\*$ | 
 | fileSizeInBytes | number | The size of the attached file in bytes. Minimum value of 1. | 
 | fileUseCaseType | "ATTACHMENT" | The use case for the file. Must be "ATTACHMENT" | 

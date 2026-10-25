@@ -3,14 +3,14 @@
 # Implementation guide
 <a name="integrate-aws-managed-apps-implementation"></a>
 
-This section describes the steps to integrate AWS-managed applications using Streams and AppManager. The [ Worklist](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html) AWS-managed application is used for demonstration purposes.
+This section describes the steps to integrate AWS managed applications using Streams and AppManager. The [ Worklist](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html) AWS managed application is used for demonstration purposes.
 
 ## Prerequisites
 <a name="integrate-aws-managed-apps-prerequisites"></a>
 
 The following prerequisites are required:
-+ A working web application integrated with [Amazon Connect Streams](https://github.com/amazon-connect/amazon-connect-streams) version 2.20 or above
-+ Security Profile [permissions configured](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html) for the Worklist AWS-managed application
++ A working web application integrated with [Connect Customer Streams](https://github.com/amazon-connect/amazon-connect-streams) version 2.20 or above
++ Security Profile [permissions configured](https://docs.aws.amazon.com/connect/latest/adminguide/worklist-app.html) for the Worklist AWS managed application
 
 ## Step 1: Install required packages
 <a name="integrate-aws-managed-apps-step1"></a>
@@ -28,7 +28,7 @@ Choose the appropriate package based on your integration needs:
   ```
 
 **Note**  
- If you do not use NPM, refer to [Using Amazon Connect SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
+ If you do not use NPM, refer to [Using Connect Customer SDK without pacakage manager](https://docs.aws.amazon.com/agentworkspace/latest/devguide/sdk-without-package-manager.html) 
 
 ## Step 2: Add the AppManager plugin in CCP initialization
 <a name="integrate-aws-managed-apps-step2"></a>
@@ -91,12 +91,12 @@ const provider = connect.core.getSDKClientConfig().provider;
 
 **Note**  
 The AppManager plugin is backward compatible and does not affect existing CCP functionality.
-Replace `<connect-instance-alias>` with your Amazon Connect instance alias.
+Replace `<connect-instance-alias>` with your Connect Customer instance alias.
 
-## Step 3: Embed a page for AWS-managed application
+## Step 3: Embed a page for AWS managed application
 <a name="integrate-aws-managed-apps-step3"></a>
 
-Add an iframe element to the desired location for displaying the Worklist AWS-managed application:
+Add an iframe element to the desired location for displaying the Worklist AWS managed application:
 
 ```
 <iframe id="aws-app-iframe" height="1080px" width="1920px"/>
@@ -105,21 +105,24 @@ Add an iframe element to the desired location for displaying the Worklist AWS-ma
 **Important**  
 AppManager configures the iframe source, do not manually set the `src` attribute in iframe.
 
-## Step 4: Launch AWS-managed application
+## Step 4: Launch AWS managed application
 <a name="integrate-aws-managed-apps-step4"></a>
 
-Launch the Worklist AWS-managed application using the AppManager `launchApp` API:
+Launch the Worklist AWS managed application using the AppManager `launchApp` API:
 
 ```
-// Launch the Worklist AWS-managed application
+// Launch the Worklist AWS managed application
 const appHost = await provider.appManager.launchApp("Worklist");
 
-// Retrieve the iframe element for displaying the Worklist AWS-managed application
+// Retrieve the iframe element for displaying the Worklist AWS managed application
 const awsAppIframe = document.getElementById("aws-app-iframe");
 
-// AppManager uses the iframe to render the AWS-managed application
+// AppManager uses the iframe to render the AWS managed application
 appHost.setIFrame(awsAppIframe);
 ```
+
+**Note**  
+This example passes no launch options, so the application's registration-time scope determines the lifecycle of the instance. To control that lifecycle yourself, pass a `scope` value in `AppLaunchOptions`. For example, you can bind the instance to a single contact so that it is destroyed when that contact ends. For both scope settings and the behavior each one produces, see [Launch an application with an explicit scope](getting-started-application-contact-scope.md#getting-started-application-contact-scope-launch-examples).
 
 ## Step 5: Build and deploy
 <a name="integrate-aws-managed-apps-step5"></a>

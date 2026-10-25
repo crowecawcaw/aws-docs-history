@@ -25,8 +25,8 @@ getEmailData({ contactId, activeContactId }: { contactId: string; activeContactI
 | from | EmailAddress | An object that includes the from email address; this value could be undefined when the email contact has not been sent. | 
 | to | EmailAddress[] | An array of objects, each including an email address the email contact was sent to | 
 | cc | EmailAddress[] | An array of objects, each including an email address that was carbon copied on the email contact | 
-| deliveredTo | EmailAddress | An object that includes the email address associated with Amazon Connect that received this message; this is only applicable when direction=INBOUND. | 
-| direction | "INBOUND" \| "OUTBOUND" | INBOUND means the email contact was delivered to Amazon Connect; OUTBOUND means the email contact is from Amazon Connect | 
+| deliveredTo | EmailAddress | An object that includes the email address associated with Connect Customer that received this message; this is only applicable when direction=INBOUND. | 
+| direction | "INBOUND" \| "OUTBOUND" | INBOUND means the email contact was delivered to Connect Customer; OUTBOUND means the email contact is from Connect Customer | 
 | bodyLocation | EmailArtifactLocation | An object that includes the id and associated resource ARN of the file that the email contact's body is stored in; this value could be undefined when the email contact has not been sent. | 
 | attachmentLocations | EmailArtifactLocation[] | An array of objects, each including the id and associated resource ARN, of files that have been attached to the email contact | 
 
@@ -44,7 +44,7 @@ getEmailData({ contactId, activeContactId }: { contactId: string; activeContactI
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
 | fileId | string | The id of the attached file | 
-| associatedResourceArn | string | The Amazon Connect resource to which the attached file is related to | 
+| associatedResourceArn | string | The Connect Customer resource to which the attached file is related to | 
 
  **Usage** 
 

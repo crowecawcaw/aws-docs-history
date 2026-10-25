@@ -16,7 +16,7 @@ getAttachedFileUrl({ attachment, activeContactId }: { attachment: Attachment; ac
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
+| associatedResourceArn | string | Connect Customer ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
 | fileId | string | The unique identifier of the attached file resource. | 
 | downloadUrl | string | A pre-signed URL that should be used to download the attached file. | 
 | fileArn | string | The unique identifier of the attached file resource (ARN). | 
@@ -30,7 +30,7 @@ getAttachedFileUrl({ attachment, activeContactId }: { attachment: Attachment; ac
 
 |  **Parameter**  |  **Type**  |  **Description**  | 
 | --- | --- | --- | 
-| associatedResourceArn | string | Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
+| associatedResourceArn | string | Connect Customer ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN | 
 | fileId | string | The unique identifier of the attached file resource. | 
 
  **Usage** 

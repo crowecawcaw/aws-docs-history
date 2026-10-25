@@ -9,7 +9,7 @@ This section explains how to use the prebuilt bundle in a third-party applicatio
 <a name="sdk-without-package-manager-3p-prerequisites"></a>
 
 The following prerequisites are required:
-+ Your application is registered as a third-party app in Amazon Connect
++ Your application is registered as a third-party app in Connect Customer
 + The `connect-sdk-app.bundle.js` file from the building section
 
 ## HTML setup

@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace Contact UI API
+# Connect Customer SDK Contact UI API
 <a name="api-reference-3P-apps-contact-ui-client"></a>
 
-With the Amazon Connect SDK, your app in the Connect Customer agent workspace can intercept contact-related UI actions by using the `ContactInterceptorService` in the `@amazon-connect/contact-ui` package. Use contact interceptors to override or augment built-in contact behaviors. For example, you can present a custom transfer UI instead of the default Quick Connect menu. You can also require agents to submit a disposition code before clearing a contact.
+With the Connect Customer SDK, your app in the Connect Customer agent workspace can intercept contact-related UI actions by using the `ContactInterceptorService` in the `@amazon-connect/contact-ui` package. Use contact interceptors to override or augment built-in contact behaviors. For example, you can present a custom transfer UI instead of the default Quick Connect menu. You can also require agents to submit a disposition code before clearing a contact.
 
 You can instantiate the contact interceptor service as follows:
 

@@ -35,6 +35,10 @@ The ParticipantState type can be:
 + { value: ParticipantStateType } where ParticipantStateType includes: connecting, connected, hold, disconnected, rejected, silent\_monitor, barge
 + { value: "other"; actual: string } for unknown states
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that the participant belongs to, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

@@ -15,7 +15,7 @@ Use the following recommendations and best practices to optimize applications in
 ## Ensuring that apps can only be embedded in the Connect Customer agent workspace
 <a name="recommendations-and-best-practices-embedded"></a>
 
-It is recommended that apps correctly set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) header with [frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) to only allow Amazon Connect instances.
+It is recommended that apps correctly set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) header with [frame-ancestors](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) to only allow Connect Customer instances.
 
 ```
 Content-Security-Policy: frame-ancestors https://*.awsapps.com https://*.my.connect.aws;            
@@ -59,4 +59,4 @@ The best practice is for your application to meet accessibility guidelines such 
 ## Theming and styling
 <a name="recommendations-and-best-practices-theming-and-styling"></a>
 
-The [Amazon Connect SDK](https://github.com/amazon-connect/AmazonConnectSDK) includes a standard Amazon Connect theme. We recommend that you use the theming package on top of Cloudscape, such that third-party applications match the overall look and feel of the Connect Customer agent workspace.
+The [Connect Customer SDK](https://github.com/amazon-connect/AmazonConnectSDK) includes a standard Connect Customer theme. We recommend that you use the theming package on top of Cloudscape, such that third-party applications match the overall look and feel of the Connect Customer agent workspace.

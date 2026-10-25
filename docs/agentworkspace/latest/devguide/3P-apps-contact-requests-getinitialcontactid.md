@@ -9,6 +9,10 @@ Returns the original (initial) contact id from which this contact was transferre
 async getInitialContactId(contactId: string): Promise<string | undefined>      
 ```
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

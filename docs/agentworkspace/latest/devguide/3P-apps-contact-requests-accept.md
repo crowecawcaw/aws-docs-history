@@ -24,6 +24,10 @@ await contactClient.accept(contactId);
 | --- | --- | --- | 
 |  contactId Required  |  string  |  The id of the contact that needs to be accepted.  | 
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

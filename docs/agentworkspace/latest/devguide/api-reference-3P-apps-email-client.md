@@ -1,9 +1,9 @@
 
 
-# Connect Customer agent workspace Email API
+# Connect Customer SDK Email API
 <a name="api-reference-3P-apps-email-client"></a>
 
-The Amazon Connect SDK provides an `EmailClient` which serves as an interface that your app can use to subscribe to email contact events and make email contact requests.
+The Connect Customer SDK provides an `EmailClient` which serves as an interface that your app can use to subscribe to email contact events and make email contact requests.
 
 The `EmailClient` accepts an optional constructor argument, ` ConnectClientConfig` which itself is defined as:
 

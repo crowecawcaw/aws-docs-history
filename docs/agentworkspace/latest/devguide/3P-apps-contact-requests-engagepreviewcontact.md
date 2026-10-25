@@ -31,6 +31,10 @@ const addParticipantResult: AddParticipantResult = await contactClient.engagePre
 | --- | --- | --- | 
 |  participantId  |  string  |  The id of the newly added participant  | 
 
+ **Contact scope:** 
+
+Requires an instance that is scoped to the contact that you pass in `contactId`, or an instance without a contact scope. For details, see [Connect Customer SDK Contact API](api-reference-3P-apps-contact-client.md).
+
  **Permissions required:** 
 
 ```

@@ -4,7 +4,7 @@
 <a name="3P-apps-file-requests-completeattachedfileupload"></a>
 
 Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in the startAttachedFileUpload API. The request accepts an Attachment object, which has the following properties:
-+ `associatedResourceArn: string`: Amazon Connect ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN
++ `associatedResourceArn: string`: Connect Customer ARN of the resource that the file is attached to. Could be a Connect Email Contact ARN or a Connect Case ARN
 + `fileId: string`: ID in Connect's File record
 
  **Signature** 

@@ -25,4 +25,4 @@ Verify that the bundle script tag appears before your application script in the 
 ## SDK methods not working
 <a name="sdk-without-package-manager-troubleshooting-methods"></a>
 
-Verify you passed the provider when creating the clients. The provider establishes the communication channel between your code and Amazon Connect.
+Verify you passed the provider when creating the clients. The provider establishes the communication channel between your code and Connect Customer.
