@@ -25,6 +25,7 @@ This section covers the following topics related to Amazon Lightsail:
 + [Integrate Lightsail with other AWS services with VPC peering](using-lightsail-with-other-aws-services.md)
 + [Create Lightsail resources with AWS CloudFormation](creating-resources-with-cloudformation.md)
 + [Host a static site using a Lightsail bucket and distribution](amazon-lightsail-static-site-hosting-tutorial.md)
++ [Update PHP on Lightsail instances to address CVE-2026-109618 and CVE-2026-109619](amazon-lightsail-update-php-security-vulnerabilities.md)
 + [Explore Lightsail resources for app deployment](amazon-lightsail-additional-resources.md)
 
 Follow the links provided in each category to access step-by-step guides, best practices, and additional information on various aspects of working with Lightsail.

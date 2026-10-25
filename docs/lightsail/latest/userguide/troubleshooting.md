@@ -17,6 +17,7 @@ The troubleshooting topics cover a wide range of scenarios, including WordPress 
 + [Troubleshoot Identity and Access Management (IAM) in Lightsail](security_iam_troubleshoot.md)
 + [Verify IPv6 reachability for Lightsail instances](amazon-lightsail-ipv6-reachability.md)
 + [Resolve insufficient instance capacity errors in Lightsail](amazon-lightsail-instance-capacity.md)
++ [Resolve common Lightsail instance issues](amazon-lightsail-troubleshooting-instances.md)
 + [Troubleshoot Lightsail load balancer issues](troubleshooting-lightsail-load-balancer-issues.md)
 + [Troubleshoot notification delivery in Lightsail](amazon-lightsail-troubleshooting-notifications.md)
 + [Troubleshoot SSL/TLS certificates in Lightsail](troubleshooting-tls-ssl-certificate-issues.md)

@@ -9,6 +9,7 @@ You can create an Amazon Lightsail alarm that watches a single instance metric. 
 + [Instance alarm limits](#instance-alarm-limits)
 + [Best practices for configuring instance alarms](#instance-alarms-best-practices)
 + [Default alarm settings](#default-instance-alarm-settings)
++ [Status check alarms](#instance-status-check-alarms)
 + [Create instance metric alarms using the Lightsail console](#creating-instance-alarms)
 + [Test instance metric alarms using the Lightsail console](#testing-instance-alarms)
 + [Next steps after creating instance alarms](#next-steps-creating-instance-alarms)
@@ -41,6 +42,11 @@ If you configure the alarm threshold to be **greater than or equal to** somewher
 <a name="default-instance-alarm-settings"></a>
 
 Default alarm settings are prepopulated when you add a new alarm in the Lightsail console. That is the recommended alarm configuration for the metric you selected. However, you should confirm that the default alarm configuration is appropriate for your resource. For example, the default alarm threshold for the instance outgoing network traffic (`NetworkOut`) metric is **less than or equal to** 0 Bytes for 2 times within the last 10 minutes. However, if you're interested in being notified of a high traffic event, then you might want to modify the alarm threshold to be **greater than or equal to** 50 KB for 2 times within the last 10 minutes, or add a second alarm with these settings so that you're notified when there is no traffic, and when there is high traffic. The threshold that you specify should be adjusted to match the metric high-levels and low-levels as described in the [Best practices for configuring instance alarms](#instance-alarms-best-practices) section of this guide.
+
+## Status check alarms
+<a name="instance-status-check-alarms"></a>
+
+To be notified when your instance fails a status check, create an alarm on a status check metric. For which metric to choose and suggested settings, see [Configure status check alarms for your Lightsail instance](amazon-lightsail-configure-status-check-alarms.md).
 
 ## Create instance metric alarms using the Lightsail console
 <a name="creating-instance-alarms"></a>

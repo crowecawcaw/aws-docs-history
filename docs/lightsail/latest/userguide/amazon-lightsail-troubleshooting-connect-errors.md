@@ -5,6 +5,11 @@
 
 This guide explains the error codes you might see when connecting to a Lightsail instance through the browser and what you can do to connect again. Find the error code you encountered in the list below, and work through its steps.
 
+## Connection errors and failed status checks
+<a name="connect-errors-failed-status-check"></a>
+
+If your instance has a failed status check, Lightsail Connect might not be able to reach it. Before you work through an error such as [515 (UPSTREAM\_ERROR)](#connect-error-515) or [519 (UPSTREAM\_NOT\_FOUND)](#connect-error-519), check the **System status check** and **Instance status check** on the instance management page. If either check shows **Failed**, see [Troubleshoot failed status checks on your Lightsail instance](amazon-lightsail-instance-status-checks.md).
+
 ## 512 (SERVER\_ERROR)
 <a name="connect-error-512"></a>
 
@@ -40,6 +45,7 @@ This guide explains the error codes you might see when connecting to a Lightsail
   + If a required rule is missing, add it by following these instructions. For instructions, see [Add firewall rules to Lightsail instances](amazon-lightsail-editing-firewall-rules.md).
   + Retry the connection after adding the required rule.
 + Reboot the instance following these instructions, then try again: [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md)
++ Check the status checks on the instance management page. If a status check has failed, see [Troubleshoot failed status checks on your Lightsail instance](amazon-lightsail-instance-status-checks.md).
 
 ## 516 (RESOURCE\_NOT\_FOUND)
 <a name="connect-error-516"></a>
@@ -65,6 +71,7 @@ This guide explains the error codes you might see when connecting to a Lightsail
 + If the instance recently started or restarted, wait a few minutes for it to finish starting, then try connecting again.
 + Confirm the instance is running in the Lightsail console.
 + Reboot the instance, then try connecting again. For instructions, see [Start, stop, or reboot your Lightsail instance](lightsail-how-to-start-stop-or-restart-your-instance-virtual-private-server.md).
++ Check the status checks on the instance management page. If a status check has failed, see [Troubleshoot failed status checks on your Lightsail instance](amazon-lightsail-instance-status-checks.md).
 
 ## 521 (SESSION\_CONFLICT)
 <a name="connect-error-521"></a>

@@ -3,11 +3,11 @@
 # Become a Lightsail partner
 <a name="lightsail-partners-become-a-partner"></a>
 
-You must submit a form to be considered for becoming an Amazon Lightsail partner. The request will be filed using the AWS account that you are logged in with at the time you complete the form. Upon approval, you are enrolled in a partner tier based on your usage and immediately receive higher default instance quotas for Lightsail.
+You must submit a form to be considered for becoming an Amazon Lightsail partner. The request will be filed using the AWS account that you are logged in with at the time you complete the form. Upon approval, Lightsail evaluates your account and places you in the appropriate partner tier. You immediately receive the default instance quota for that tier in each AWS Region.
 
 If you use AWS Organizations to help centrally manage your AWS accounts, you should submit the request while using your management account to become a partner. By using your management account, you get increased default Lightsail instance quotas across the member accounts in your organization. For more information on how Lightsail partner benefits affect your AWS accounts, see [How Lightsail partner benefits apply to your accounts](lightsail-partners.md#lightsail-partners-how-accounts-benefit).
 
-If you have additional AWS accounts or organizations that you want to enroll as partners for discount eligibility, each additional account is evaluated independently for partner eligibility.
+If you have additional AWS accounts or organizations that you want to enroll as partners, each additional account is evaluated independently for partner eligibility.
 
 **Topics**
 + [Required information to become a Lightsail partner](#lightsail-partners-become-a-partner-required-information)
@@ -24,7 +24,7 @@ We will require some information about your planned usage and use case to consid
 ## Request to become a Lightsail partner
 <a name="lightsail-partners-become-a-partner-submit-request"></a>
 
-The following steps will submit a request to become a partner. The AWS account ID that you are authenticated with will be used as the account that you'd like to have partner benefits for. If your request is approved, you are enrolled in a partner tier based on your usage.
+The following steps will submit a request to become a partner. The AWS account ID that you are authenticated with will be used as the account that you'd like to have partner benefits for. If your request is approved, Lightsail places you in the appropriate partner tier.
 
 **Tip**  
 If you are using AWS Organizations, you should perform this procedure as the management account for your organization so that your member accounts also receive increased default Lightsail instance quotas.
@@ -46,7 +46,7 @@ If you are using AWS Organizations, you should perform this procedure as the man
 ![Lightsail partner request form.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-request-form.png)
 
 
-You will receive a confirmation of your submission to your account's email regarding your interest in becoming a partner. If your request is approved, you are enrolled in a partner tier based on your usage and your **Account** page in the Lightsail console displays your partner status, including your current tier. The **Lightsail Partner Program** section on the **Profile & preferences** tab shows options to manage your partner accounts and contact the Lightsail team for feedback or queries as a Lightsail partner. This section is only visible to the account that submitted the request to become a Lightsail partner. You will also receive the higher instance quotas for Lightsail.
+You will receive a confirmation of your submission to your account's email regarding your interest in becoming a partner. If your request is approved, you are enrolled in a partner tier and your **Account** page in the Lightsail console displays your partner status, including your current tier. The **Lightsail Partner Program** section on the **Profile & preferences** tab shows options to manage your partner accounts and contact the Lightsail team for feedback or queries as a Lightsail partner. This section is only visible to the account that submitted the request to become a Lightsail partner. You will also receive the higher instance quotas for Lightsail.
 
 ![Lightsail Partner Program section in the Lightsail console.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/partners/lightsail-partner-account-console-section.png)
 

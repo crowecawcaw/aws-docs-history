@@ -7,6 +7,9 @@ When you create a Amazon Lightsail distribution, you choose a distribution plan 
 
 To avoid an overage fee, change your distribution's current plan to a different plan that offers a greater amount of monthly data transfer before your distribution exceeds its monthly quota. You can change your distribution's plan only one time during each AWS billing cycle. In this guide, we show you how to change your distribution's plan.
 
+**Note**  
+Your distribution plan also determines which Web Application Firewall (WAF) rule groups you can use. Before you change your plan, review the WAF rule groups that each plan includes. For more information, see [Web Application Firewall (WAF) by distribution plan](amazon-lightsail-distribution-plans.md#distribution-plans-waf).
+
 For more information about distributions, see [Content delivery network distributions](amazon-lightsail-content-delivery-network-distributions.md).
 
 ## Change your distribution plan
@@ -18,14 +21,11 @@ Complete the following procedure to change your distribution's plan.
 
 1. In the left navigation pane, choose **Networking**.
 
-1. Choose the name of the distribution for which you want to view the current monthly data transfer.
+1. Choose the name of the distribution for which you want to change the plan.
 
 1. Choose the **Details** tab on your distribution's management page.
 
 1. In the **Data transfer** section of the page, choose **Change distribution plan**.
 
-1. At the confirmation prompt, choose **Yes, change** to confirm that you want to change your distribution's plan.
-
-1. On the next prompt, choose the new plan for your distribution, and choose **Select plan**.
-
-1. On the next prompt, choose **Yes, apply** to confirm that you want to apply the new plan to your distribution. Or choose **No, go back** to not apply the new plan to your distribution.
+1. In the **Choose your new distribution plan** dialog, choose the new plan for your distribution, and then choose **Change plan**. The new plan is applied to your distribution.  
+![The Choose your new distribution plan dialog, comparing the cost, data transfer, DDoS protection, and WAF support of each distribution plan.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lighstail-changing-distribution-plan.png)

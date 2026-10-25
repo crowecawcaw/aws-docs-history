@@ -3,7 +3,7 @@
 # Understand distribution plans in Amazon Lightsail
 <a name="amazon-lightsail-distribution-plans"></a>
 
-A *distribution plan* is a monthly charge that comes with a monthly data transfer quota. Your data transfer quota resets at the start of each month. If your distribution exceeds its monthly data transfer quota, you may be charged for overage.
+A *distribution plan* is a monthly charge that comes with a monthly data transfer quota. Your data transfer quota resets at the start of each month. If your distribution exceeds its monthly data transfer quota, you may be charged for overage. Your plan also determines whether you can use the Web Application Firewall (WAF) and which WAF rule groups you can enable.
 
 To avoid an overage fee, change your distribution's current plan to a different plan that offers a greater amount of monthly data transfer before your distribution exceeds its monthly quota. You can change your distribution's plan only one time during each AWS billing cycle. For more information about changing your distribution's plan after you create it, see [Change the plan of your distribution](amazon-lighstail-changing-distribution-plan.md).
 
@@ -39,3 +39,15 @@ The following table lists the data transfer overage rates by geographic location
 | South Africa | USD $0.11/GB | 
 | South America | USD $0.11/GB | 
 | United States | USD $0.09/GB | 
+
+## Web Application Firewall (WAF) by distribution plan
+<a name="distribution-plans-waf"></a>
+
+The following table lists whether WAF is supported on each distribution plan and which WAF rule groups you can enable. For more information, see [Web Application Firewall (WAF)](amazon-lightsail-distribution-security.md#distribution-security-waf).
+
+
+| Plan | WAF | Managed WAF rule groups | Custom WAF rule groups | 
+| --- | --- | --- | --- | 
+| USD $2.50/month | Not supported | None | None | 
+| USD $10/month | Supported | Core rule set, Known bad inputs, and Anonymous IP list | None | 
+| USD $35/month | Supported | Core rule set, Known bad inputs, Anonymous IP list, Admin protection, SQL database, Linux operating system, POSIX operating system, Windows operating system, PHP application, WordPress application, and Amazon IP reputation list | Account takeover prevention, Account creation fraud prevention, and Bot control | 

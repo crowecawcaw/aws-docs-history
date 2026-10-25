@@ -78,6 +78,11 @@ The advanced cache settings are not available on the **Create distribution** pag
 
 1. Choose your distribution plan. For more information, see [Understand distribution plans](amazon-lightsail-distribution-plans.md).
 
+1. In the **Security controls** section, keep **Enable WAF** selected to enable the Web Application Firewall (WAF) for your distribution. After you create your distribution, you can enable WAF rule groups on the **Security** tab on your distribution's management page. For more information, see [Protect your distribution with WAF](amazon-lightsail-distribution-waf.md).
+**Note**  
+WAF isn't supported on the USD $2.50/month distribution plan. To use WAF, choose the USD $10/month or USD $35/month plan. For more information, see [Web Application Firewall (WAF) by distribution plan](amazon-lightsail-distribution-plans.md#distribution-plans-waf).  
+![The Security controls section of the Create distribution page, with the Enable WAF check box selected.](https://docs.aws.amazon.com/lightsail/latest/userguide/images/amazon-lightsail-create-distribution-waf.png)
+
 1. Enter a name for your distribution.
 
    Resource names:

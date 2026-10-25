@@ -3,7 +3,7 @@
 # Lightsail Partner Program
 <a name="lightsail-partners"></a>
 
-If you are looking to scale up on Amazon Lightsail, you can become a registered partner to get benefits such as higher default instance quotas, and you may be eligible for discounts based on your tier. You also get access to an in-console feedback form exclusive to registered partners. The Lightsail Partner Program offers four tiers (Essential, Growth, Accelerate, and Premier).
+If you are looking to scale up on Amazon Lightsail, you can become a registered partner to get benefits such as higher default instance quotas based on your tier. You also get access to an in-console feedback form exclusive to registered partners. The Lightsail Partner Program offers four tiers (Essential, Growth, Accelerate, and Premier).
 
 **Note**  
 No AWS Partner membership is required to participate in the Lightsail Partner Program.
@@ -23,40 +23,32 @@ No AWS Partner membership is required to participate in the Lightsail Partner Pr
 As a Lightsail partner, you receive the following benefits.
 
 **Higher instance quotas**  
-You receive higher default instance quotas for Lightsail.
+You receive higher default instance quotas for Lightsail based on your partner tier. For more information, see [Lightsail Partner Program tiers](#lightsail-partners-program-tiers).
 
 **Access to larger instance bundles**  
 You can immediately start creating larger instance bundles to support your workloads.
 
-**Discount eligibility**  
-You may be eligible for discounts on Lightsail resources based on your partner tier. For more information, see [Lightsail Partner Program tiers](#lightsail-partners-program-tiers).
-
 ## Lightsail Partner Program tiers
 <a name="lightsail-partners-program-tiers"></a>
 
-The Lightsail Partner Program has four tiers. To qualify for a specific tier, you need to meet the monthly spend threshold for that tier.
+As a Lightsail partner, you are placed in one of four tiers. Lightsail evaluates your account and places you in the appropriate tier. Each tier comes with a default instance quota, measured in vCPUs, in each AWS Region. These are default quotas, and you can request an increase at any time. For more information, see [Request a service quota increase for your partner accounts](lightsail-partners-request-quota-increase.md).
 
-**Essential**  
-The entry-level tier for all accepted partners with no minimum spend requirement. You receive higher default instance quotas for Lightsail compared to standard accounts immediately upon enrollment.
+The following table lists the default instance quota for each partner tier.
 
-**Growth**  
-Requires a minimum monthly Lightsail spend of USD $1,500. For example, a partner running 220 Micro dual-stack instances, or 125 Small dual-stack instances in a single region would meet this threshold. You are eligible for discounts on Lightsail resources.
 
-**Accelerate**  
-Requires a minimum monthly Lightsail spend of USD $5,000. For example, a partner running 750 Micro dual-stack instances in a single region, or 450 Small dual-stack instances spread across 3 regions would meet this threshold. You are eligible for greater discounts compared to the Growth tier.
-
-**Premier**  
-Requires a minimum monthly Lightsail spend of USD $25,000. For example, a partner running 3,600 Micro dual-stack instances in a single region, or 2,100 Small dual-stack instances spread across 3 regions would meet this threshold. You are eligible for greater discounts compared to the Accelerate tier.
-
-**Note**  
-These examples are illustrative and don't cover all scenarios. If you are unsure whether your use case qualifies for a specific tier, you can submit a request through the Lightsail console. For more information, see [Become a Lightsail partner](lightsail-partners-become-a-partner.md).
+| Tier | Default instance quota per AWS Region | 
+| --- | --- | 
+| Essential | 1,152 vCPUs | 
+| Growth | 2,024 vCPUs | 
+| Accelerate | 4,048 vCPUs | 
+| Premier | 8,096 vCPUs | 
 
 ## How Lightsail partner benefits apply to your accounts
 <a name="lightsail-partners-how-accounts-benefit"></a>
 
 Partner benefits apply to the AWS account that you used to submit your request. If you use AWS Organizations, all partner benefits apply to your management account. Member accounts do not receive partner status, but they will have increased default Lightsail instance quotas. For more information on Organizations, see [What is AWS Organizations?](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide*.
 
-If you have additional AWS accounts or organizations that you want to enroll as partners for discount eligibility, each additional account is evaluated independently for partner eligibility.
+If you have additional AWS accounts or organizations that you want to enroll as partners, each additional account is evaluated independently for partner eligibility.
 
 The following diagrams illustrate how Lightsail partner benefits and increased default Lightsail instance quotas apply to AWS accounts.
 

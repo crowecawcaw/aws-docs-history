@@ -48,6 +48,11 @@ Yes, refer to [Lightsail service quotas](https://docs.aws.amazon.com/general/lat
 
 Lightsail distributions automatically redirect all HTTP requests to HTTPS to ensure that your content is served securely.
 
+## How do Lightsail distributions help protect my website?
+<a name="distribution-security-controls"></a>
+
+Lightsail distributions include security controls that help protect your website or web application from distributed denial of service (DDoS) attacks, common web threats, and security vulnerabilities. DDoS protection is always enabled for your distribution at no extra cost. You can also enable the Web Application Firewall (WAF) for your distribution. For more information, see [Understand distribution security controls](amazon-lightsail-distribution-security.md).
+
 ## How can I configure my apex domain to point to my Lightsail distribution?
 <a name="configure-apex-domain-for-distribution"></a>
 

@@ -41,3 +41,4 @@ The Origin IP address type setting is only available for instance origins. When 
 <a name="distribution-origins-topics-toc"></a>
 + [Use distributions with buckets](amazon-lightsail-using-distributions-with-buckets.md)
 + [Change the origin of your distribution](amazon-lightsail-changing-distribution-origin.md)
++ [Understand request and response behaviors](amazon-lightsail-distribution-request-and-response.md)

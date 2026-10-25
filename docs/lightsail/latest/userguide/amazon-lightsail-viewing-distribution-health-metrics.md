@@ -17,6 +17,12 @@ When monitoring your resources, you should establish a baseline for normal resou
 
 The following distribution metrics are available:
 + **Requests** — The total number of viewer requests received by your distribution, for all HTTP methods, and for both HTTP and HTTPS requests.
++ **Blocked requests** — The number of viewer requests that your Web Application Firewall (WAF) rule groups blocked.
+**Note**  
+Blocked requests don't reach your origin, and the viewer receives an HTTP 403 (Forbidden) response. A sudden increase can indicate an attack on your website or web application.
++ **Allowed requests** — The number of viewer requests that your Web Application Firewall (WAF) rule groups allowed.
+**Note**  
+Compare this metric with **Blocked requests** to see how much of your traffic WAF blocks. If you enable a WAF rule group and allowed requests drop sharply, the rule group might be blocking legitimate traffic.
 + **Bytes uploaded** — The number of bytes uploaded to your origin by your distribution, using POST and PUT requests.
 + **Bytes downloaded** — The number of bytes downloaded by viewers for GET, HEAD, and OPTIONS requests.
 + **Total error rate** — The percentage of all viewer requests for which the response’s HTTP status code was 4xx or 5xx.

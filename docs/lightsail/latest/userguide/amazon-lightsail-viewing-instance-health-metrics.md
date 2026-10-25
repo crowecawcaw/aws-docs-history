@@ -26,6 +26,8 @@ The following instance metrics are available:
 + **Status check failures (`StatusCheckFailed`)** — Reports whether the instance passed or failed both the instance status check and the system status check. This metric can be either 0 (passed) or 1 (failed). This metric is available at a 1-minute frequency.
 + **Instance status check failures (`StatusCheckFailed_Instance`)** — Reports whether the instance passed or failed the instance status check. This metric can be either 0 (passed) or 1 (failed). This metric is available at a 1-minute frequency.
 + **System status check failures (`StatusCheckFailed_System`)** — Reports whether the instance passed or failed the system status check. This metric can be either 0 (passed) or 1 (failed). This metric is available at a 1-minute frequency.
+
+  For more information about status checks, see [View status checks for your Lightsail instance](amazon-lightsail-viewing-instance-status-checks.md). If a status check has failed, see [Troubleshoot failed status checks on your Lightsail instance](amazon-lightsail-instance-status-checks.md).
 + **No token metadata requests (`MetadataNoToken`)** — The number of times that the instance metadata service was successfully accessed without a token. This metric determines if there are any processes accessing instance metadata by using Instance Metadata Service Version 1, which doesn't use a token. If all requests use token-backed sessions, such as Instance Metadata Service Version 2, then the value is 0. For more information, see [Instance metadata and user data](amazon-lightsail-instance-metadata.md).
 
 ## CPU utilization sustainable and burstable zones
@@ -83,3 +85,4 @@ There are a few additional tasks that you can perform for your instance metrics:
 + [Next steps](#next-steps-viewing-instance-metrics)
 + [Create instance alarms](amazon-lightsail-adding-instance-health-metric-alarms.md)
 + [System disk performance](amazon-lightsail-viewing-instance-disk-performance-metrics.md)
++ [Instance status checks](amazon-lightsail-viewing-instance-status-checks.md)
