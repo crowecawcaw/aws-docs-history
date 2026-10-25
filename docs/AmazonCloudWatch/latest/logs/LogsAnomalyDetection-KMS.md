@@ -144,20 +144,6 @@ The `Condition` section in this example limits the use of the AWS KMS key to the
                     "aws:SourceArn": "arn:aws:logs:{{us-east-1}}:{{123456789012}}:anomaly-detector:*"
                 }
             }
-        },
-        {
-            "Sid": "AllowCloudWatchLogsDescribeKeyForReEncryption",
-            "Effect": "Allow",
-            "Principal": {
-                "Service": "logs.{{us-east-1}}.amazonaws.com"
-            },
-            "Action": "kms:DescribeKey",
-            "Resource": "*",
-            "Condition": {
-                "StringEquals": {
-                    "aws:SourceAccount": "{{123456789012}}"
-                }
-            }
         }
     ]
 }
