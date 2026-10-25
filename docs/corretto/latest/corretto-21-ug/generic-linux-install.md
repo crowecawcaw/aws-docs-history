@@ -64,7 +64,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A122542AB
 **Example**  
 
    ```
-   sudo dpkg --install java-21-amazon-corretto-jdk_21.0.12.12-1_amd64.deb
+   sudo dpkg --install java-21-amazon-corretto-jdk_21.0.13.0-10_amd64.deb
    ```
 
 ### Verify Your Installation
@@ -77,12 +77,12 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys A122542AB
 ```
 java -version
 ```
-Expected output for 21.0.12:   
+Expected output for 21.0.13:   
 
 ```
-openjdk version "21.0.12" 2026-09-25 LTS
-OpenJDK Runtime Environment Corretto-21.0.12.12.1 (build 21.0.12+12-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.12.12.1 (build 21.0.12+12-LTS, mixed mode, sharing)
+openjdk version "21.0.13" 2026-10-22 LTS
+OpenJDK Runtime Environment Corretto-21.0.13.0.10 (build 21.0.13+0-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.13.0.10 (build 21.0.13+0-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
@@ -160,7 +160,7 @@ sudo zypper install java-21-amazon-corretto-devel
 **Example**  
 
    ```
-   sudo yum localinstall java-21-amazon-corretto-devel-21.0.12.12-1.x86_64.rpm
+   sudo yum localinstall java-21-amazon-corretto-devel-21.0.13.0-10.x86_64.rpm
    ```
 
 ### Verify Your Installation
@@ -173,12 +173,12 @@ sudo zypper install java-21-amazon-corretto-devel
 ```
 java -version
 ```
-Expected output for 21.0.12:   
+Expected output for 21.0.13:   
 
 ```
-openjdk version "21.0.12" 2026-09-25 LTS
-OpenJDK Runtime Environment Corretto-21.0.12.12.1 (build 21.0.12+12-LTS)
-OpenJDK 64-Bit Server VM Corretto-21.0.12.12.1 (build 21.0.12+12-LTS, mixed mode, sharing)
+openjdk version "21.0.13" 2026-10-22 LTS
+OpenJDK Runtime Environment Corretto-21.0.13.0.10 (build 21.0.13+0-LTS)
+OpenJDK 64-Bit Server VM Corretto-21.0.13.0.10 (build 21.0.13+0-LTS, mixed mode, sharing)
 ```
 
  If you see a version string that doesn't mention `Corretto`, run the following command to change the default `java` or `javac` providers. 
