@@ -23,6 +23,7 @@ For more information on Amazon EBS, see [Amazon EBS snapshot lifecycle](https://
 + [IAM policy to use data retention with AWS services](data-retention-aws-services.md)
 + [Start the data retention bot for your Wickr network](starting-data-retention-bot.md)
 + [Stop the data retention bot for your Wickr network](stopping-data-retention-bot.md)
++ [Monitor the data retention bot for your Wickr network](data-retention-bot-monitoring.md)
 
 **Note**  
 Deactivating the docker bot will reset it. To reactivate, you must re-run the docker bot installation process using the bot password you configured during initial setup.
@@ -55,4 +56,4 @@ Before you get started, complete the following procedure to enable data retentio
 **Note**  
 The DR Bot is validated for sustained processing at approximately 11,000 messages per hour (\~3 messages/second). For workloads that consistently exceed this throughput or are expected to surpass 1.5 million messages in a single processing run, additional scaling strategies should be evaluated.
 
-For Disaster Recovery, we recommend Snapshot Lifecycles on the Amazon EBS volume(s) and Amazon S3 Cross-Region Replication. To configure how often messages are sent to Amazon S3, you can set the environment variable WICKRIO\_COMP\_FILESIZE or `WICKRIO_COMP_TIMEROTATE` to rotate on size or time. Message logs and file attachments will get delivered into the same prefix in the same bucket. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md).
+For Disaster Recovery, we recommend Snapshot Lifecycles on the Amazon EBS volume(s) and Amazon S3 Cross-Region Replication to protect the data your DR Bot has captured. For redundancy during instance rotations, upgrades, and other maintenance windows, we recommend running a second DR Bot in parallel on a separate host, with its own Amazon EBS volume. While one bot is being restarted or replaced, the other continues to capture messages, so no messages are missed. To configure how often messages are sent to Amazon S3, you can set the environment variable `WICKRIO_COMP_FILESIZE` or `WICKRIO_COMP_TIMEROTATE` to rotate on size or time. Message logs and file attachments will get delivered into the same prefix in the same bucket. For more information, see [Environment variables to configure data retention bot in AWS Wickr](data-retention-bot-env-variables.md).

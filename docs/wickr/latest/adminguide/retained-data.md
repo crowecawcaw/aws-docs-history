@@ -15,6 +15,8 @@ s3:{{//your-retention-bucket/}}
 wickr-drs-encrypted/YYYY/MM/DD/<vgroupid>/{file | message | username}
 ```
 
+The `vgroupid` is a unique identifier for each room, group, or one-on-one conversation.
+
 ## File naming conventions
 <a name="file-naming"></a>
 
@@ -39,9 +41,11 @@ Messages in S3 are encrypted with your KMS key. Complete the following procedure
    {
     "startDate": {{"2026-06-03",}}
     "endDate": {{"2026-06-04",}}
-    "vgroupid": {{"ABC123",}}
+    "vgroupid": {{"ABC123"}}
    }
    ```
+
+   The `vgroupid` field is optional. If you provide it, the system decrypts only messages for that room or conversation. If you omit it, the system decrypts messages for all rooms and conversations in the date range.
 
 1.  Monitor execution progress in real-time.
 
@@ -51,11 +55,12 @@ Messages in S3 are encrypted with your KMS key. Complete the following procedure
 
 ```
 aws stepfunctions start-execution \
- —state-machine-arn arn:aws:states:us-east-1:123456789012:stateMachine:DecryptionStateMachine \
- —input '{
+ --state-machine-arn arn:aws:states:us-east-1:111122223333:stateMachine:DecryptionStateMachine \
+ --input '{
     "startDate": {{"2026-06-03",}}
     "endDate": {{"2026-06-04",}}
-    "vgroupid": {{"ABC123",}}
+    "vgroupid": {{"ABC123"}}
+ }'
 ```
 
 ## Reading decrypted files:

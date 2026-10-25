@@ -13,3 +13,5 @@ You can configure one of the following options for storing this data:
 + Store all captured messages and files encrypted in an Amazon S3 bucket. The data retention bot will re-encrypt all captured messages and files using a key that you supply and save them to the Amazon S3 bucket you specify. The captured messages and files are removed from the host machine after they are successfully re-encrypted and saved to the bucket. You will need software to decrypt the messages and files.
 
   For more information about creating an Amazon S3 bucket to use with your data retention bot, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*
+
+If you store data in an Amazon S3 bucket, we recommend that you create a CloudWatch alarm on the bucket. For more information, see [Monitor the data retention bot for your Wickr network](data-retention-bot-monitoring.md).

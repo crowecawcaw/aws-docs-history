@@ -16,9 +16,7 @@ This guide documents the new AWS Wickr administration console, released on March
 
 AWS nitro enclaves provide cryptographic attestation:
 + Each enclave version has a unique attestation
-+ Your KMS key policy logs the PCR0, PCR1, PCR2 to CloudTrail during decryption events.
-+ Only approved enclave versions can decrypt your messages
-+ Automatic updates to KMS policy when new enclave versions are released
++ AWS KMS records values from the enclave's attestation document, including its Platform Configuration Registers (PCR0, PCR1, and PCR2), in CloudTrail during decryption events, so you can inspect them.
 
 ## Customer KMS key management
 <a name="kms-management"></a>

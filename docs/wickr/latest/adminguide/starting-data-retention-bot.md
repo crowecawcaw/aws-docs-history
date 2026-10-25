@@ -17,3 +17,13 @@ The following sections show example commands to run the data retention bot Docke
 + `{{folder-name}}` with the folder name in the Amazon S3 bucket where messages and files will be stored.
 + `{{us-east-1}}` with the AWS Region of the resource you're specifying. For example, the Region of the AWS KMS master key or the Region of the Amazon S3 bucket.
 + `{{arn:aws:kms:us-east-1:111122223333:key/12345678-1234-abcde-a617-abababababab}}` with the Amazon Resource Name (ARN) of your AWS KMS master key to use to re-encrypt message files and files.
+
+**Persist bot data across restarts**
+
+The data retention bot stores its device identity and encryption keys in the folder that you mount with the `-v` option in the run command (for example, `-v /opt/{{compliance_1234567890_bot}}:/tmp/{{compliance_1234567890_bot}}`). The bot uses this data to log in as the same device every time it starts. Make sure that the mounted host folder:
++ Is included in the run command every time you start the bot, with the same host folder and path.
++ Is on durable storage, such as the instance's Amazon EBS volume, and not on temporary storage.
++ Is kept when you restart, upgrade, or replace the container.
+
+**Important**  
+If you start the bot without this folder (for example, by running `docker run` without the `-v` option, or after deleting the host folder), the bot registers as a new device with new encryption keys. Messages sent to the previous device are not delivered to the new device, and the new device cannot decrypt data that was encrypted with the previous device's keys.
