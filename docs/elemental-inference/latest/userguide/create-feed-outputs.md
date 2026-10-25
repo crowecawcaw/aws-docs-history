@@ -397,3 +397,10 @@ To view a dictionary, choose it from the **Dictionaries** list. The **Dictionary
 <a name="create-feed-console-dictionaries-edit"></a>
 
 To edit the entries in a dictionary, on the **Entries** tab, choose **Edit** to open the **Edit entries** page. When you save, Elemental Inference replaces all of the dictionary's entries.
+
+## Configuring functions
+<a name="create-feed-console-functions"></a>
+
+A function runs your own prompt against the feed, using an Amazon Bedrock model that Elemental Inference invokes in your account, or reshapes the metadata that Elemental Inference has already produced. The result is published to the feed's metadata timeline under the name of the function output, and you read it with `GetMetadata` like any other output.
+
+Unlike the other features, a function is a separate resource that you create once and attach to any number of feeds, and it needs an IAM access role on the feed when it invokes a model. A feed with an enabled function output must also have at least one enabled smart crop, event clipping, smart subtitles, or contextual metadata output. For the full procedure, see [Using functions in Elemental Inference](functions.md).

@@ -12,5 +12,6 @@ In addition, implements the monitoring capabilities of several AWS services, ide
 + [Monitoring AWS Elemental Inference on the console](monitoring-inference-via-console.md)
 + [Monitoring AWS Elemental Inference using the AWS CLI](monitoring-inference-via-cli.md)
 + [Monitoring AWS Elemental Inference with Amazon CloudWatch](monitoring-cloudwatch.md)
++ [Monitoring AWS Elemental Inference with vended logs](monitoring-vended-logs.md)
 + [Monitoring AWS Elemental Inference events in Amazon EventBridge](monitoring-events.md)
 + [Logging Elemental Inference API calls with AWS CloudTrail](logging-using-cloudtrail.md)

@@ -8,6 +8,7 @@ The following table describes the documentation for this release of AWS Elementa
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [Functions](what-is.md) | Added support for functions, which run your own prompt against a feed using an Amazon Bedrock model in your account, or reshape the metadata that Elemental Inference already produces, and publish the result to the feed's metadata timeline. | October 19, 2026 | 
 | [Playground and console updates](what-is.md) | Added the Elemental Inference playground for previewing smart cropping on recorded video. Updated the console procedures for creating, editing, archiving, and deleting feeds; managing feed resource policies; monitoring feeds; and managing dictionaries. | September 28, 2026 | 
 | [Contextual metadata and feed policies](what-is.md) | Added support for contextual metadata, which uses AI to generate shot-level and scene-level content classifications (IAB Content Taxonomy v3.1 categories and GARM brand safety ratings) and descriptive labels for contextual ad targeting. Added feed policies for granting cross-account access to feeds. | July 21, 2026 | 
 | [New information](what-is.md) | New information has been added to all sections of this guide. | April 8, 2026 | 

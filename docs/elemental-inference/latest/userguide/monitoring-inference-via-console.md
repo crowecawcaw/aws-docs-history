@@ -43,6 +43,10 @@ When the feed is active or archived, the **Monitoring** tab shows the **Feed das
 + **GetMetadata request latency**
 + **Feature processing latency** – One graph, with a line for each feature (event clipping, smart cropping, smart subtitling, and contextual metadata)
 
+For more information about the available metrics, see [Monitoring AWS Elemental Inference with Amazon CloudWatch](monitoring-cloudwatch.md).
+
+The tab also shows a **Recent logs** panel with recent application log events for the feed. To set up ongoing delivery of these logs to a destination, see [Monitoring AWS Elemental Inference with vended logs](monitoring-vended-logs.md).
+
 ## Feed outputs tab
 <a name="monitor-console-feed-outputs"></a>
 

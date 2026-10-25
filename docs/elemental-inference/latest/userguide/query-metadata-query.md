@@ -23,6 +23,7 @@ For information about the metadata returned for each feature, see the following 
 + [Metadata for smart crop](#query-metadata-smart-crop)
 + [Metadata for smart subtitles](#query-metadata-smart-subtitles)
 + [Querying contextual metadata](#query-metadata-contextual)
++ [Metadata for functions](#query-metadata-function)
 
 ## Metadata for smart crop
 <a name="query-metadata-smart-crop"></a>
@@ -405,3 +406,8 @@ Before you configure this integration, you need the following:
 For complete instructions on creating the `AWS_SERVICE_REQUEST` Function, attaching it to a playback configuration, and configuring output expressions, see [Contextual ad targeting with Elemental Inference](https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-elemental-inference-integration.html) in the *AWS Elemental MediaTailor User Guide*.
 
 If the `GetMetadata` request fails or times out, MediaTailor proceeds with the ad request without contextual metadata. The ad-decision server falls back to its default targeting logic.
+
+## Metadata for functions
+<a name="query-metadata-function"></a>
+
+For a function output, Elemental Inference returns the value that your function produced, as a JSON string in `metadata.function.value`. For a function that invokes a model, `metadata.function.bedrockRequestId` holds the request ID that Amazon Bedrock assigned. The `parameters` field of the request must contain a `function` object, which has no fields. For an example request and response, see [Reading function results](functions-metadata.md).
