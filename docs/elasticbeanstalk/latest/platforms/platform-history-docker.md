@@ -9,10 +9,22 @@ For Docker platform versions that were current earlier than September 25, 2017, 
 
 See the [Supported platforms](platforms-supported.md) page for information on the latest version of each platform supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](https://docs.aws.amazon.com/elasticbeanstalk/latest/relnotes/). 
 
-## October 8, 2026 – present
+## October 20, 2026 – present
+<a name="platform-history-2026-10-20"></a>
+
+The following Elastic Beanstalk platform versions for Single Container Docker have been current since October 20, 2026:
+
+
+
+|  Platform Version and *Solution Stack Name*   |  AMI  |  ECS Agent  |  Docker  |  Docker Compose  |  Proxy Server  | 
+| --- | --- | --- | --- | --- | --- | 
+|  ** Docker AL2023 version 4.13.11** <br /> * 64bit Amazon Linux 2023 v4.13.11 running Docker *  | 2023.12.20261016 |  | 25.0.16 | 5.6.0 | nginx 1.30.5 | 
+|  ** ECS AL2023 version 4.7.11** <br /> * 64bit Amazon Linux 2023 v4.7.11 running ECS *  | 2023.12.20261016 | 1.108.0 | 25.0.16 |  |  | 
+
+## October 8, 2026 – October 19, 2026
 <a name="platform-history-2026-10-08"></a>
 
-The following Elastic Beanstalk platform versions for Single Container Docker have been current since October 8, 2026:
+The following Elastic Beanstalk platform versions for Single Container Docker were current between October 8, 2026 and October 19, 2026:
 
 
 
@@ -1824,10 +1836,10 @@ The following Elastic Beanstalk platform versions for Single Container Docker we
 |  ** Docker AL2 version 3.1.1** <br /> * 64bit Amazon Linux 2 v3.1.1 running Docker *  | 2.0.20200827 |  | 19.03.6-ce |  | nginx 1.18.0 | 
 |  ** Single Container Docker version 2.15.4** <br /> * 64bit Amazon Linux 2018.03 v2.15.4 running Docker 19.03.6-ce *  | 2018.03.0 |  | 19.03.6-ce |  | nginx 1.16.1 | 
 
-## September 10, 2020 – September 9, 2020
-<a name="platform-history-2020-09-10"></a>
+## September 10, 2020 – September 10, 2020
+<a name="platform-history-2020-09-10-al2docker"></a>
 
-The following Elastic Beanstalk platform versions for Single Container Docker were current between September 10, 2020 and September 9, 2020:
+The following Elastic Beanstalk platform versions for Single Container Docker were current between September 10, 2020 and September 10, 2020:
 
 
 
