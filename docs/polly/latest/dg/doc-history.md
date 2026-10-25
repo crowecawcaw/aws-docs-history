@@ -4,10 +4,11 @@
 <a name="doc-history"></a>
 
 The following table describes important changes in each release of the *Amazon Polly Developer Guide*. For notification about updates to this documentation, you can subscribe to an RSS feed. 
-+ **Latest documentation update: **August 12 2026
++ **Latest documentation update: **October 22, 2026
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New generative voices and AWS GovCloud (US-West) availability](#doc-history) | Amazon Polly has added new generative voices and expanded generative support for existing voices, giving customers more lifelike text-to-speech options. The new generative voices are Tina, Curtis, Nate, Kenneth, Carlos, Hyunduk, Carolina, Leo, Arjun, and Kiara. Russell and Suvi are now also available in a generative variant. In addition, Amazon Polly generative voices and bidirectional streaming are now available in an additional AWS Region: AWS GovCloud (US-West). To learn more, see [Generative voices](https://docs.aws.amazon.com/polly/latest/dg/generative-voices.html) in the Amazon Polly Developer Guide. | October 22, 2026 | 
 | [Clarified CloudWatch metrics descriptions](#doc-history) | The Amazon Polly CloudWatch metric descriptions now clarify that `4XXCount` reflects client-side errors and `5XXCount` reflects server-side errors. For more information, see [Integrating CloudWatch with Amazon Polly](https://docs.aws.amazon.com/polly/latest/dg/cloud-watch.html). | September 15, 2026 | 
 | [Amazon Polly generative voices now available in Asia Pacific (Sydney)](#doc-history) | Amazon Polly generative voices and bidirectional streaming are now available in an additional AWS Region: Asia Pacific (Sydney). For more information, see [Generative voices](https://docs.aws.amazon.com/polly/latest/dg/generative-voices.html). | August 12, 2026 | 
 | [New region added for neural voices](#doc-history) | Amazon Polly is now available in the Asia Pacific (Thailand) AWS Region. This Region supports neural TTS (NTTS) voices. For more information, see [Neural voices](https://docs.aws.amazon.com/polly/latest/dg/neural-voices.html). | May 28, 2026 | 

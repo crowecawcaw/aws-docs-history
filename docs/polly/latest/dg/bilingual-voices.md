@@ -47,7 +47,7 @@ If you use the voice of Giorgio, who speaks Italian, with the following text, Am
 
 A fully bilingual voice like Aditi or Kajal (Indian English and Hindi) can speak two languages fluently. This gives you the ability to use words and phrases from both languages in a single text using the same voice. 
 
-Currently, Aditi, Kajal, Hala, and Zayd are the only fully bilingual voices available.
+Currently, Aditi, Kajal, Arjun, Kiara, Hala, and Zayd are the only fully bilingual voices available.
 
 **Using a Bilingual Voice (example: Aditi) **
 

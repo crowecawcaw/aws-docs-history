@@ -15,34 +15,35 @@ The state-of-the-art technology underlying these voices falls within the paradig
 ## Available generative voices
 <a name="generative-voicelist"></a>
 
-Amazon Polly currently offers 43 voices in a generative variant. 
+Amazon Polly currently offers 55 voices in a generative variant. 
 
 
 |  | Language | Language code | Name/ID | Gender | 
 | --- | --- | --- | --- | --- | 
-| 1 | **English (Australian)** | en-AU | Olivia | Female | 
+| 1 | **English (Australian)** | en-AU | Olivia<br />Russell<br />Curtis | Female<br />Male<br />Male | 
 | 2 | **English (British)** | en-GB | Amy<br />Brian | Female<br />Male | 
-| 3 | **English (Indian)** | en-IN | Kajal | Female | 
+| 3 | **English (Indian)** | en-IN | Kajal<br />Arjun<br />Kiara | Female<br />Male<br />Female | 
 | 4 | **English (Ireland)** | en-IE | Niamh | Female | 
 | 5 | **English (New Zealand)** | en-NZ | Aria | Female | 
 | 6 | **English (Singaporean)** | en-SG | Jasmine | Female | 
 | 7 | **English (South African)** | en-ZA | Ayanda | Female | 
-| 8 | **English (US)** | en-US | Danielle<br />Joanna<br />Matthew<br />Ruth<br />Salli<br />Stephen<br />Tiffany | Female<br />Female<br />Male<br />Female<br />Female<br />Male<br />Female | 
+| 8 | **English (US)** | en-US | Danielle<br />Joanna<br />Matthew<br />Ruth<br />Salli<br />Stephen<br />Tiffany<br />Nate<br />Kenneth | Female<br />Female<br />Male<br />Female<br />Female<br />Male<br />Female<br />Male<br />Male | 
 | 9 | **Dutch (Belgium)** | nl-BE | Lisa | Female | 
 | 10 | **Dutch (Netherlands)** | nl-NL | Laura | Female | 
-| 11 | **French (Belgian)** | fr-BE | Isabelle | Female | 
-| 12 | **French (Canadian)** | fr-CA | Gabrielle<br />Liam | Female<br />Male | 
-| 13 | **French (France)** | fr-FR | Ambre<br />Céline<br />Florian<br />Léa<br />Rémi | Female<br />Female<br />Male<br />Female<br />Male | 
-| 14 | **German (Austria)** | de-AT | Hannah | Female | 
-| 15 | **German (Germany)** | de-DE | Daniel<br />Lennart<br />Vicki | Male<br />Male<br />Female | 
-| 16 | **German (Swiss)** | de-CH | Sabrina | Female | 
-| 17 | **Italian (Italy)** | it-IT | Beatrice<br />Bianca<br />Lorenzo | Female<br />Female<br />Male | 
-| 18 | **Korean (Korea)** | ko-KR | Seoyeon | Female | 
-| 19 | **Polish (Poland)** | pl-PL | Ewa<br />Ola | Female<br />Female | 
-| 20 | **Portuguese (Brazilian)** | pt-BR | Camila | Female | 
-| 21 | **Spanish (Mexican)** | es-MX | Andrés<br />Mía | Male<br />Female | 
-| 22 | **Spanish (Spain)** | es-ES | Lucia<br />Sergio | Female<br />Male | 
-| 23 | **Spanish (US)** | es-US | Lupe<br />Pedro | Female<br />Male | 
+| 11 | **Finnish** | fi-FI | Suvi | Female | 
+| 12 | **French (Belgian)** | fr-BE | Isabelle | Female | 
+| 13 | **French (Canadian)** | fr-CA | Gabrielle<br />Liam | Female<br />Male | 
+| 14 | **French (France)** | fr-FR | Ambre<br />Céline<br />Florian<br />Léa<br />Rémi | Female<br />Female<br />Male<br />Female<br />Male | 
+| 15 | **German (Austria)** | de-AT | Hannah | Female | 
+| 16 | **German (Germany)** | de-DE | Daniel<br />Lennart<br />Vicki<br />Tina | Male<br />Male<br />Female<br />Female | 
+| 17 | **German (Swiss)** | de-CH | Sabrina | Female | 
+| 18 | **Italian (Italy)** | it-IT | Beatrice<br />Bianca<br />Lorenzo | Female<br />Female<br />Male | 
+| 19 | **Korean (Korea)** | ko-KR | Seoyeon<br />Hyunduk | Female<br />Male | 
+| 20 | **Polish (Poland)** | pl-PL | Ewa<br />Ola | Female<br />Female | 
+| 21 | **Portuguese (Brazilian)** | pt-BR | Camila<br />Carolina<br />Leo | Female<br />Female<br />Male | 
+| 22 | **Spanish (Mexican)** | es-MX | Andrés<br />Mía | Male<br />Female | 
+| 23 | **Spanish (Spain)** | es-ES | Lucia<br />Sergio | Female<br />Male | 
+| 24 | **Spanish (US)** | es-US | Lupe<br />Pedro<br />Carlos | Female<br />Male<br />Male | 
 
 **Note**  
 Generative voices cost is specified on the [Amazon Polly pricing information page](https://aws.amazon.com/polly/pricing/).
@@ -61,10 +62,11 @@ Amazon Polly generative voices are available in the following regions:
 + Europe (London): eu-west-2
 + Canada (Central): ca-central-1
 + Europe (Zurich): eu-central-2
++ AWS GovCloud (US-West): us-gov-west-1
 + Other Regions are not available
 
 **The following features are supported for generative voices:**
-+ Bidirectional Streaming API is now offered in Generative engine and allows for streaming input and output at the same time. This API is available in the following AWS regions: US East (N. Virginia), Europe (Frankfurt), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Europe (London), Canada (Central), and Europe (Zurich). Visit the [documentation](https://docs.aws.amazon.com/polly/latest/dg/API_StartSpeechSynthesisStream.html) to learn more about how to use it.
++ Bidirectional Streaming API is now offered in Generative engine and allows for streaming input and output at the same time. This API is available in the following AWS regions: US East (N. Virginia), Europe (Frankfurt), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Sydney), Europe (London), Canada (Central), Europe (Zurich), and AWS GovCloud (US-West). Visit the [documentation](https://docs.aws.amazon.com/polly/latest/dg/API_StartSpeechSynthesisStream.html) to learn more about how to use it.
 + Real-time and asynchronous speech synthesis operations. 
 + Newscaster speaking style is not supported in the **Generative** engine. 
 + Many (but not all) SSML tags are supported by Amazon Polly. For more information about NTTS-supported SSML tags, see [Supported SSML tags](https://docs.aws.amazon.com/polly/latest/dg/supportedtags.html) 
@@ -73,7 +75,7 @@ Amazon Polly generative voices are available in the following regions:
 *Support for generating speech marks is currently not available.*
 
 **Note**  
-Currently Europe (London), Canada (Central) and Europe (Zurich) regions only support the following Generative voices: Joanna (en-US), Ruth (en-US), Salli (en-US), Stephen (en-US), Tiffany (en-US), Amy (en-GB), Brian (en-GB), Olivia (en-AU), Florian (fr-FR), Ambre (fr-FR), Lorenzo (it-IT), Beatrice (it-IT), Jasmine (en-SG), Aria (en-NZ), Lennart (de-DE), Vicki (de-DE), Sabrina (de-CH), Hannah (de-AT), Niamh (en-IE), Camila (pt-BR), Lisa (nl-BE), and Seoyeon (ko-KR)
+Currently Europe (London), Canada (Central), Europe (Zurich) and AWS GovCloud (US-West) regions only support the following Generative voices: Joanna (en-US), Ruth (en-US), Salli (en-US), Stephen (en-US), Tiffany (en-US), Matthew (en-US), Danielle (en-US), Nate (en-US), Kenneth (en-US), Amy (en-GB), Brian (en-GB), Olivia (en-AU), Russell (en-AU), Curtis (en-AU), Florian (fr-FR), Ambre (fr-FR), Lorenzo (it-IT), Beatrice (it-IT), Jasmine (en-SG), Aria (en-NZ), Arjun (en-IN, hi-IN), Kiara (en-IN, hi-IN), Lennart (de-DE), Vicki (de-DE), Tina (de-DE), Sabrina (de-CH), Hannah (de-AT), Niamh (en-IE), Camila (pt-BR), Carolina (pt-BR), Leo (pt-BR), Lisa (nl-BE), Seoyeon (ko-KR), Hyunduk (ko-KR), Lupe (es-US), Carlos (es-US), and Suvi (fi-FI)
 
 **Note**  
 In the unlikely event of model hallucination, (and with the Generative engine's model behavior of rendering the speech token by token) an imposed emergency stop mechanism is in place. The built-in mechanism stops the model from rendering speech any further. This safety feature is based on data analysis where the model has the potential to hallucinate, usually at the end of the sentence.  
